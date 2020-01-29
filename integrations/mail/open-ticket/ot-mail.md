@@ -1,10 +1,10 @@
 # Mail Open ticket connector
 
 ## Table of contents
-1. [How it works] (#how-it-works)
-2. [Compatibility] (#compatibility)
-3. [Requirements] (#requirements)
-4. [Possibilities] (#possibilities)
+1. [How it works](#how-it-works)
+2. [Compatibility](#compatibility)
+3. [Requirements](#requirements)
+4. [Possibilities](#possibilities)
 
 ## How it works <a name="how-it-works"></a>
 The Mail provider sends a mail to a mailbox that an ITSM software will read and create a ticket based upon it

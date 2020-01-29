@@ -1,10 +1,10 @@
 # IWS Isilog Open ticket connector
 
 ## Table of contents
-1. [How it works] (#how-it-works)
-2. [Compatibility] (#compatibility)
-3. [Requirements] (#requirements)
-4. [Possibilities] (#possibilities)
+1. [How it works](#how-it-works)
+2. [Compatibility](#compatibility)
+3. [Requirements](#requirements)
+4. [Possibilities](#possibilities)
 
 ## How it works <a name="how-it-works"></a>
 The IWS Isilog provider uses the SOAP API of Isilog to retrieve data in order to open a ticket.

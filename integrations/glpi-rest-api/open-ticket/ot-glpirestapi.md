@@ -1,11 +1,11 @@
 # Glpi Rest API Open ticket connector
 
 ## Table of contents
-1. [How it works] (#how-it-works)
-2. [Compatibility] (#compatibility)
-3. [Requirements] (#requirements)
-4. [Possibilities] (#possibilities)
-5. [Configuration] (#configuration)
+1. [How it works](#how-it-works)
+2. [Compatibility](#compatibility)
+3. [Requirements](#requirements)
+4. [Possibilities](#possibilities)
+5. [Configuration](#configuration)
 
 ## How it works <a name="how-it-works"></a>
 The GlpiRestApi provider uses the REST API of Glpi to retrieve data in order to open a ticket. Since it gathers a lot of configurations objects from Glpi, it puts them in cache. Loging out or waiting 10 hours will flush the cache.

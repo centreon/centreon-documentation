@@ -1,10 +1,10 @@
 # BMC Footprints Open ticket connector
 
 ## Table of contents
-1. [How it works] (#how-it-works)
-2. [Compatibility] (#compatibility)
-3. [Requirements] (#requirements)
-4. [Possibilities] (#possibilities)
+1. [How it works](#how-it-works)
+2. [Compatibility](#compatibility)
+3. [Requirements](#requirements)
+4. [Possibilities](#possibilities)
 
 ## How it works <a name="how-it-works"></a>
 BMC Footprints open-tickets provider uses the BMC Footprints SOAP API to open incidents about your monitoring alerts.

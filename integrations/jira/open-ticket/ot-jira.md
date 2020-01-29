@@ -1,10 +1,10 @@
 # Jira Open ticket connector
 
 ## Table of contents
-1. [How it works] (#how-it-works)
-2. [Compatibility] (#compatibility)
-3. [Requirements] (#requirements)
-4. [Possibilities] (#possibilities)
+1. [How it works](#how-it-works)
+2. [Compatibility](#compatibility)
+3. [Requirements](#requirements)
+4. [Possibilities](#possibilities)
 
 ## How it works <a name="how-it-works"></a>
 The Jira provider connects to your Itop server and retrieve data through the Jira REST API.
