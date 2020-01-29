@@ -1,0 +1,21 @@
+{
+  "docs": {
+    "Introduction": ["init", "init"],
+    "Release notes": [
+      "init",
+      "init",
+      "init",
+      "init"
+    ],
+    "Installation": [
+      "init",
+      "init"
+    ],
+    "Guide de démarrage": ["init"],
+    "Guide utilisateur": [
+      "init",
+      "init",
+      "init"
+    ]
+  }
+}

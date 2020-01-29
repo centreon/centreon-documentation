@@ -1,0 +1,81 @@
+/* your custom css */
+.nav-footer {
+    background: #47525b!important;
+}
+
+.languages-icon {
+    display: none!important;
+}
+
+#languages-dropdown-items {
+    min-width: 82px!important;
+}
+
+#languages-dropdown.visible {
+    padding-top: 8px!important;
+}
+
+.selec-vers {
+    margin: .5em 1.5em;
+    background: #0072CE;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+}
+.selec-lang {
+    margin-top: .5em;
+    background: #0072CE;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+}
+/*#languages-dropdown.hide {
+    display: none;
+}
+#languages-dropdown {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+#languages-dropdown-items {
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 120px;
+    pointer-events: all;
+    border: 1px solid rgba(35,41,55,.15);
+    border-radius: .25rem;
+}
+
+#languages-dropdown-items li a {
+    color: #0072ce;
+}
+
+#languages-dropdown-items li a:hover {
+    background-color: #fff;
+}
+#languages-menu {
+    color: #fff;
+}
+.languages-icon {
+    display: initial!important;
+} 
+*/
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
