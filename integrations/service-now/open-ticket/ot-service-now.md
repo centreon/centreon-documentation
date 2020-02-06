@@ -28,9 +28,10 @@ Our provider requires the following parameters:
 | Parameter | Example of value |
 | --------- | ---------------- |
 | Instance Name | MyCompany |
-| OAuth Clien ID |  |
-| Username | admin |
-| Password | itop |
+| OAuth Client ID | xxxxxxxxx |
+| OAuth Client Secret | yyyyyyyy |
+| Username | centreon |
+| Password | MyPassword |
 | Protocol | https |
 | Timeout | 60 |
 
