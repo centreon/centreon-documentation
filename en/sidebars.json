@@ -1,5 +1,8 @@
 {
     "docs": {
+        "Welcome": [
+            "init"
+        ],
         "Tutorials": [
             "tutorials/init"
         ],
