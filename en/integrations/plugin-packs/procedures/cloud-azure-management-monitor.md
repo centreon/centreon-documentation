@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-azure-management-monitor
+id: pp-cloud-azure-management-monitor
 title: Azure Monitor
 ---
 

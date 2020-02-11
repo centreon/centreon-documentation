@@ -1,5 +1,5 @@
 ---
-id: pp/applications-redis-restapi
+id: pp-applications-redis-restapi
 title: Redis Restapi
 ---
 

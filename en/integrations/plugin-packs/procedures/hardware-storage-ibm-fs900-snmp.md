@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-ibm-fs900-snmp
+id: pp-hardware-storage-ibm-fs900-snmp
 title: IBM FlashSystem 900
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-h3c-snmp
+id: pp-network-h3c-snmp
 title: H3C Network
 ---
 

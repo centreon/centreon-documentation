@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-snmp
+id: pp-applications-protocol-snmp
 title: Generic SNMP
 ---
 

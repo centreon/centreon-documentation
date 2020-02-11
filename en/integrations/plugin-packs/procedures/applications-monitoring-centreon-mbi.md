@@ -1,5 +1,5 @@
 ---
-id: pp/applications-monitoring-centreon-mbi
+id: pp-applications-monitoring-centreon-mbi
 title: Centreon MBI
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-rudder-restapi
+id: pp-applications-rudder-restapi
 title: Rudder
 ---
 

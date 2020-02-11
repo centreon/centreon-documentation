@@ -1,5 +1,5 @@
 ---
-id: pp/network-stormshield-ssh
+id: pp-network-stormshield-ssh
 title: Stormshield SSH
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-atto-fibrebridge-snmp
+id: pp-network-atto-fibrebridge-snmp
 title: Atto Fibrebridge SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-trendmicro-iwsva-snmp
+id: pp-applications-trendmicro-iwsva-snmp
 title: TrendMicro Iwsva
 ---
 

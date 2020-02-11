@@ -1,5 +1,5 @@
 ---
-id: pp/applications-jenkins
+id: pp-applications-jenkins
 title: Jenkins
 ---
 

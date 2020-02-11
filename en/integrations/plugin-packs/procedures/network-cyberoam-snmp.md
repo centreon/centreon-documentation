@@ -1,5 +1,5 @@
 ---
-id: pp/network-cyberoam-snmp
+id: pp-network-cyberoam-snmp
 title: Cyberoam
 ---
 

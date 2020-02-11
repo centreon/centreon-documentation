@@ -1,5 +1,5 @@
 ---
-id: pp/network-dell-6200-snmp
+id: pp-network-dell-6200-snmp
 title: Dell 6200 SNMP
 ---
 

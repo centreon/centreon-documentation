@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-hp-snmp
+id: pp-hardware-servers-hp-snmp
 title: HP Proliant
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-openweathermap-restapi
+id: pp-applications-openweathermap-restapi
 title: OpenWeatherMap
 ---
 

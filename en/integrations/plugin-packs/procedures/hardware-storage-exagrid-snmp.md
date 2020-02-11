@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-exagrid-snmp
+id: pp-hardware-storage-exagrid-snmp
 title: Exagrid
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/infrastructure-active-directory-nrpe
+id: pp-infrastructure-active-directory-nrpe
 title: MS Active Directory
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-cisco-wlc-snmp
+id: pp-network-cisco-wlc-snmp
 title: Cisco WLC
 ---
 

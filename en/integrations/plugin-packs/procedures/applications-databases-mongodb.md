@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-mongodb
+id: pp-applications-databases-mongodb
 title: MongoDB
 ---
 

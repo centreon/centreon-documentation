@@ -1,5 +1,5 @@
 ---
-id: pp/applications-video-openheadend-snmp
+id: pp-applications-video-openheadend-snmp
 title: OpenHeadend
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-datadomain-snmp
+id: pp-hardware-storage-emc-datadomain-snmp
 title: EMC Data Domain
 ---
 

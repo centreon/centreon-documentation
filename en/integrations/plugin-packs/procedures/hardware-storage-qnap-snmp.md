@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-qnap-snmp
+id: pp-hardware-storage-qnap-snmp
 title: Qnap
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-polycom-groupseries-snmp
+id: pp-hardware-devices-polycom-groupseries-snmp
 title: Polycom GroupSeries SNMP
 ---
 

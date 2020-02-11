@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-elasticache
+id: pp-cloud-aws-elasticache
 title: Amazon ElastiCache
 ---
 

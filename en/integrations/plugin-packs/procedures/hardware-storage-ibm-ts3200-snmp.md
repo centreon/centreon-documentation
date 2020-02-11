@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-ibm-ts3200-snmp
+id: pp-hardware-storage-ibm-ts3200-snmp
 title: IBM TS3200
 ---
 

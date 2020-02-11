@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-vplex-restapi
+id: pp-hardware-storage-emc-vplex-restapi
 title: EMC Vplex
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-bgp
+id: pp-applications-protocol-bgp
 title: BGP Protocol
 ---
 

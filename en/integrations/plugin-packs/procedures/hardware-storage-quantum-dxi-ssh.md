@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-quantum-dxi-ssh
+id: pp-hardware-storage-quantum-dxi-ssh
 title: Quantum DXi Series
 ---
 

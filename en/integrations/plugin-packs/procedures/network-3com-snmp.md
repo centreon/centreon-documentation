@@ -1,5 +1,5 @@
 ---
-id: pp/network-3com-snmp
+id: pp-network-3com-snmp
 title: 3com Network
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-masterclock-ntp100gps-snmp
+id: pp-hardware-devices-masterclock-ntp100gps-snmp
 title: Masterclock NTP100GP
 ---
 

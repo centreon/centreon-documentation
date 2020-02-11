@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-akcp-snmp
+id: pp-hardware-sensors-akcp-snmp
 title: AKCP Sensor
 ---
 

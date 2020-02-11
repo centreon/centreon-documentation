@@ -1,5 +1,5 @@
 ---
-id: pp/network-radware-alteon-snmp
+id: pp-network-radware-alteon-snmp
 title: Radware Alteon
 ---
 

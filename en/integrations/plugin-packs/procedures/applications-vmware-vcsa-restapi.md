@@ -1,5 +1,5 @@
 ---
-id: pp/applications-vmware-vcsa-restapi
+id: pp-applications-vmware-vcsa-restapi
 title: VMware VCSA RestAPI
 ---
 

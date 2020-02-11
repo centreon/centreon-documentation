@@ -1,5 +1,5 @@
 ---
-id: pp/network-oracle-infiniband-snmp
+id: pp-network-oracle-infiniband-snmp
 title: Oracle Infiniband
 ---
 

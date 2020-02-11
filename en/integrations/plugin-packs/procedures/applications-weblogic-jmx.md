@@ -1,5 +1,5 @@
 ---
-id: pp/applications-weblogic-jmx
+id: pp-applications-weblogic-jmx
 title: Weblogic Server
 ---
 

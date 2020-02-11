@@ -1,5 +1,5 @@
 ---
-id: pp/network-firewalls-fortinet-fortigate-snmp
+id: pp-network-firewalls-fortinet-fortigate-snmp
 title: Fortinet Fortigate
 ---
 

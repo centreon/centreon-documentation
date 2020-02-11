@@ -1,5 +1,5 @@
 ---
-id: pp/applications-openvpn-omi
+id: pp-applications-openvpn-omi
 title: OpenVPN OMI
 ---
 

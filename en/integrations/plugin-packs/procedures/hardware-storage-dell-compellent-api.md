@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-dell-compellent-api
+id: pp-hardware-storage-dell-compellent-api
 title: Dell Compellent API
 ---
 

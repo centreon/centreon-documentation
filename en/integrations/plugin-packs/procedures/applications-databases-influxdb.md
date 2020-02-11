@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-influxdb
+id: pp-applications-databases-influxdb
 title: InfluxDB
 ---
 

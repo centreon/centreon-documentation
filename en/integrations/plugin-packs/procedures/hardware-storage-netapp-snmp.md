@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-netapp-snmp
+id: pp-hardware-storage-netapp-snmp
 title: NetApp
 ---
 

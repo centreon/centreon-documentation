@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-supermicro-snmp
+id: pp-hardware-servers-supermicro-snmp
 title: Supermicro
 ---
 

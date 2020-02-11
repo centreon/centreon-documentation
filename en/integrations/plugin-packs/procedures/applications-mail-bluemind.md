@@ -1,5 +1,5 @@
 ---
-id: pp/applications-mail-bluemind
+id: pp-applications-mail-bluemind
 title: BlueMind
 ---
 

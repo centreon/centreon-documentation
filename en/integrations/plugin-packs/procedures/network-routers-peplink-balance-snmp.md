@@ -1,5 +1,5 @@
 ---
-id: pp/network-routers-peplink-balance-snmp
+id: pp-network-routers-peplink-balance-snmp
 title: Peplink Balance
 ---
 

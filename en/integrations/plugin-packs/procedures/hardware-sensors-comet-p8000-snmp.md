@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-comet-p8000-snmp
+id: pp-hardware-sensors-comet-p8000-snmp
 title: Geist p8000 sensor SNMP
 ---
 

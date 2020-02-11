@@ -1,5 +1,5 @@
 ---
-id: pp/network-firewalls-arkoon-snmp
+id: pp-network-firewalls-arkoon-snmp
 title: Arkoon
 ---
 

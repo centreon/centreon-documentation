@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-aeg-acm-snmp
+id: pp-hardware-devices-aeg-acm-snmp
 title: AEG ACM
 ---
 

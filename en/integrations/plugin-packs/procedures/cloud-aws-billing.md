@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-billing
+id: pp-cloud-aws-billing
 title: AWS Billing
 ---
 

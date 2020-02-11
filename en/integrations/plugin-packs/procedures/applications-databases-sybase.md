@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-sybase
+id: pp-applications-databases-sybase
 title: Sybase
 ---
 

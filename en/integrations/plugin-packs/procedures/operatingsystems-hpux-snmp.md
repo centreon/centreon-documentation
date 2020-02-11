@@ -1,5 +1,5 @@
 ---
-id: pp/operatingsystems-hpux-snmp
+id: pp-operatingsystems-hpux-snmp
 title: HP-UX
 ---
 

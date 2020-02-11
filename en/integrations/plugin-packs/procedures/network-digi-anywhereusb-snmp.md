@@ -1,5 +1,5 @@
 ---
-id: pp/network-digi-anywhereusb-snmp
+id: pp-network-digi-anywhereusb-snmp
 title: Digi Anywhere USB
 ---
 

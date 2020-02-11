@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-alcatel-omniswitch-6850
+id: pp-network-switchs-alcatel-omniswitch-6850
 title: Omniswitch 6850
 ---
 

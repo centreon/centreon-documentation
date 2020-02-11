@@ -1,5 +1,5 @@
 ---
-id: pp/network-sophos-es-snmp
+id: pp-network-sophos-es-snmp
 title: Sophos ES
 ---
 

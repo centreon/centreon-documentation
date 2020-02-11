@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-huawei-hmm-snmp
+id: pp-hardware-servers-huawei-hmm-snmp
 title: Huawei HMM
 ---
 

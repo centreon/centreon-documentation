@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-netbotz-snmp
+id: pp-hardware-sensors-netbotz-snmp
 title: Netbotz Sensor
 ---
 

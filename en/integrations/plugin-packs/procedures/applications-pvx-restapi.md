@@ -1,5 +1,5 @@
 ---
-id: pp/applications-pvx-restapi
+id: pp-applications-pvx-restapi
 title: PVX
 ---
 

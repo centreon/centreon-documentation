@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-hirschmann
+id: pp-network-switchs-hirschmann
 title: Hirschmann switch
 ---
 

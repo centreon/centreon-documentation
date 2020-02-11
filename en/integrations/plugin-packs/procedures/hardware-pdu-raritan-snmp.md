@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-pdu-raritan-snmp
+id: pp-hardware-pdu-raritan-snmp
 title: Raritan PDU
 ---
 

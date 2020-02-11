@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-dns
+id: pp-applications-protocol-dns
 title: DNS Service
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-routers-juniper-mseries-snmp
+id: pp-network-routers-juniper-mseries-snmp
 title: Juniper M-Series
 ---
 

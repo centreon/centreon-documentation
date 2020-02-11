@@ -1,5 +1,5 @@
 ---
-id: pp/network-aruba-instant-snmp
+id: pp-network-aruba-instant-snmp
 title: Aruba Instant SNMP
 ---
 

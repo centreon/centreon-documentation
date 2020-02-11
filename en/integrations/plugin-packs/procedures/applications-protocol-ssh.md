@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-ssh
+id: pp-applications-protocol-ssh
 title: Protocol SSH
 ---
 

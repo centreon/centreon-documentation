@@ -1,5 +1,5 @@
 ---
-id: pp/applications-ansible-tower
+id: pp-applications-ansible-tower
 title: Ansible Tower
 ---
 

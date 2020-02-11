@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-azure-database-sqlserver
+id: pp-cloud-azure-database-sqlserver
 title: Azure SQL Server
 ---
 

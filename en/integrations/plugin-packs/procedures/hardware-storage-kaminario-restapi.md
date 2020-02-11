@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-kaminario-restapi
+id: pp-hardware-storage-kaminario-restapi
 title: Kaminario RestAPI
 ---
 

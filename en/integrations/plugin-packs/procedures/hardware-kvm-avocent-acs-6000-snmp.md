@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-kvm-avocent-acs-6000-snmp
+id: pp-hardware-kvm-avocent-acs-6000-snmp
 title: Avocent ACS 6000
 ---
 

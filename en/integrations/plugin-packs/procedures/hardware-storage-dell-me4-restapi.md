@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-dell-me4-restapi
+id: pp-hardware-storage-dell-me4-restapi
 title: Dell Me4 Rest API
 ---
 

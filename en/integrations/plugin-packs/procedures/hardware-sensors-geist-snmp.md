@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-geist-snmp
+id: pp-hardware-sensors-geist-snmp
 title: Geist Sensor SNMP
 ---
 

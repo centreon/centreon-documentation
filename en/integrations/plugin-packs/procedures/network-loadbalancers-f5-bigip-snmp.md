@@ -1,5 +1,5 @@
 ---
-id: pp/network-loadbalancers-f5-bigip-snmp
+id: pp-network-loadbalancers-f5-bigip-snmp
 title: F5 BigIP
 ---
 

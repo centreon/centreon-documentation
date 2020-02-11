@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-symmetrix-nrpe
+id: pp-hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
 ---
 

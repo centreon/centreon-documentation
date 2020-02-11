@@ -1,5 +1,5 @@
 ---
-id: pp/applications-pacemaker-ssh
+id: pp-applications-pacemaker-ssh
 title: Pacemaker
 ---
 

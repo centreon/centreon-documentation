@@ -1,5 +1,5 @@
 ---
-id: pp/network-netasq-snmp
+id: pp-network-netasq-snmp
 title: NetASQ Network
 ---
 

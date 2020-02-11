@@ -1,5 +1,5 @@
 ---
-id: pp/network-nortel-standard-snmp
+id: pp-network-nortel-standard-snmp
 title: Nortel Standard
 ---
 

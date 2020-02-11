@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-panzura-snmp
+id: pp-hardware-storage-panzura-snmp
 title: Panzura
 ---
 

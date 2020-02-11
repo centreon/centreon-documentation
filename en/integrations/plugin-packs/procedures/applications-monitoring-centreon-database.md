@@ -1,5 +1,5 @@
 ---
-id: pp/applications-monitoring-centreon-database
+id: pp-applications-monitoring-centreon-database
 title: Centreon Database
 ---
 

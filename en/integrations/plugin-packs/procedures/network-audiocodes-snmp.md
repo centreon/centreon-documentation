@@ -1,5 +1,5 @@
 ---
-id: pp/network-audiocodes-snmp
+id: pp-network-audiocodes-snmp
 title: AudioCodes
 ---
 

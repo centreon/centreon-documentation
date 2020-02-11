@@ -1,5 +1,5 @@
 ---
-id: pp/applications-webservers-nginx-serverstatus
+id: pp-applications-webservers-nginx-serverstatus
 title: Nginx Server
 ---
 

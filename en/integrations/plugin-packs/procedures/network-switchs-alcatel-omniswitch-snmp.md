@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-alcatel-omniswitch-snmp
+id: pp-network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch
 ---
 

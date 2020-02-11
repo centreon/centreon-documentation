@@ -1,5 +1,5 @@
 ---
-id: pp/network-nokia-timos-snmp
+id: pp-network-nokia-timos-snmp
 title: Nokia TiMos
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-violin-3000-snmp
+id: pp-hardware-storage-violin-3000-snmp
 title: Violin Memory 3000
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-apigateway
+id: pp-cloud-aws-apigateway
 title: Amazon API Gateway
 ---
 

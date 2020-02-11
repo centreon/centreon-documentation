@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-informix
+id: pp-applications-databases-informix
 title: Informix DB
 ---
 

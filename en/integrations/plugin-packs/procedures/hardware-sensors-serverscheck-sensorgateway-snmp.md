@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-serverscheck-sensorgateway-snmp
+id: pp-hardware-sensors-serverscheck-sensorgateway-snmp
 title: SensorGateway
 ---
 

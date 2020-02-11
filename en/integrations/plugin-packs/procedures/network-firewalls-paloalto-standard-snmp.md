@@ -1,5 +1,5 @@
 ---
-id: pp/network-firewalls-paloalto-standard-snmp
+id: pp-network-firewalls-paloalto-standard-snmp
 title: Palo Alto firewall SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hp-msl-snmp
+id: pp-hardware-storage-hp-msl-snmp
 title: HP MSL
 ---
 

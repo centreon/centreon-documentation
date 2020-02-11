@@ -1,5 +1,5 @@
 ---
-id: pp/applications-hibernate-jmx
+id: pp-applications-hibernate-jmx
 title: Hibernate
 ---
 

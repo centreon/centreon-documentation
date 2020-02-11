@@ -1,5 +1,5 @@
 ---
-id: pp/network-teltonika-snmp
+id: pp-network-teltonika-snmp
 title: Teltonika SNMP
 ---
 

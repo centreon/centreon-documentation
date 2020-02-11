@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-cisco-ces-restapi
+id: pp-hardware-devices-cisco-ces-restapi
 title: Cisco Collaboration Endpoint Rest API
 ---
 

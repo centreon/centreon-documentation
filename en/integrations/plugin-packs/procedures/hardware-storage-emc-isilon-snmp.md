@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-isilon-snmp
+id: pp-hardware-storage-emc-isilon-snmp
 title: EMC Isilon
 ---
 

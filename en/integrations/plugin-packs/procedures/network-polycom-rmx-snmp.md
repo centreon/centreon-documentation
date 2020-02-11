@@ -1,5 +1,5 @@
 ---
-id: pp/network-polycom-rmx-snmp
+id: pp-network-polycom-rmx-snmp
 title: Polycom RMX
 ---
 

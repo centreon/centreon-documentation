@@ -1,5 +1,5 @@
 ---
-id: pp/network-fritzbox-upnp
+id: pp-network-fritzbox-upnp
 title: FritzBox
 ---
 

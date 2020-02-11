@@ -1,5 +1,5 @@
 ---
-id: pp/network-firewalls-cisco-asa-snmp
+id: pp-network-firewalls-cisco-asa-snmp
 title: Cisco ASA
 ---
 

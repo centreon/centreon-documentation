@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-celerra-ssh
+id: pp-hardware-storage-emc-celerra-ssh
 title: EMC Celerra
 ---
 

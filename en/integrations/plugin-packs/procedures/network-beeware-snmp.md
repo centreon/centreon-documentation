@@ -1,5 +1,5 @@
 ---
-id: pp/network-beeware-snmp
+id: pp-network-beeware-snmp
 title: Bee Ware
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hp-msa2000-snmp
+id: pp-hardware-storage-hp-msa2000-snmp
 title: HP MSA2000
 ---
 

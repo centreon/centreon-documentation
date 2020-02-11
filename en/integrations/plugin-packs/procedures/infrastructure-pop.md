@@ -1,5 +1,5 @@
 ---
-id: pp/infrastructure-pop
+id: pp-infrastructure-pop
 title: POP Server
 ---
 

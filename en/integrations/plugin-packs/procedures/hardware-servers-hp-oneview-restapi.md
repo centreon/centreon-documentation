@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-hp-oneview-restapi
+id: pp-hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
 ---
 

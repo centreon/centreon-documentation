@@ -1,5 +1,5 @@
 ---
-id: pp/applications-monitoring-centreon-map4-jmx
+id: pp-applications-monitoring-centreon-map4-jmx
 title: Centreon Map4
 ---
 

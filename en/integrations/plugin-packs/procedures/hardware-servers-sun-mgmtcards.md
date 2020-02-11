@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-sun-mgmtcards
+id: pp-hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
 ---
 

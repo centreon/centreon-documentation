@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-pdu-emerson-snmp
+id: pp-hardware-pdu-emerson-snmp
 title: Emerson PDU
 ---
 

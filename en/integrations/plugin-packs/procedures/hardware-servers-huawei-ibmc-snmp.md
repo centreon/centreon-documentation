@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-huawei-ibmc-snmp
+id: pp-hardware-servers-huawei-ibmc-snmp
 title: Huawei iBMC
 ---
 

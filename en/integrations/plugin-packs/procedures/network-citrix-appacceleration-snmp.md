@@ -1,5 +1,5 @@
 ---
-id: pp/network-citrix-appacceleration-snmp
+id: pp-network-citrix-appacceleration-snmp
 title: Citrix Acceleration
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hp-3par-ssh
+id: pp-hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
 ---
 

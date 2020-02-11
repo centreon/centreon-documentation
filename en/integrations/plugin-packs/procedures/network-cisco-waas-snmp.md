@@ -1,5 +1,5 @@
 ---
-id: pp/network-cisco-waas-snmp
+id: pp-network-cisco-waas-snmp
 title: Cisco Waas
 ---
 

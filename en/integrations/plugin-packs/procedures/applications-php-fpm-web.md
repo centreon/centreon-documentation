@@ -1,5 +1,5 @@
 ---
-id: pp/applications-php-fpm-web
+id: pp-applications-php-fpm-web
 title: PHP FPM
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-dell-ml6000-snmp
+id: pp-hardware-storage-dell-ml6000-snmp
 title: Dell ML6000
 ---
 

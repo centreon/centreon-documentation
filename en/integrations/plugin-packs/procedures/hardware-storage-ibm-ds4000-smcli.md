@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-ibm-ds4000-smcli
+id: pp-hardware-storage-ibm-ds4000-smcli
 title: IBM DS4000
 ---
 

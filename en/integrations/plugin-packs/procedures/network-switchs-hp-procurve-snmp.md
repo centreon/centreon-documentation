@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-hp-procurve-snmp
+id: pp-network-switchs-hp-procurve-snmp
 title: HP Procurve
 ---
 

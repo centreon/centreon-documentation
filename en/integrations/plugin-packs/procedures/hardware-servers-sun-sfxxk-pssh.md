@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-sun-sfxxk-pssh
+id: pp-hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK
 ---
 

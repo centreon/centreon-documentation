@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-http
+id: pp-applications-protocol-http
 title: HTTP Server
 ---
 

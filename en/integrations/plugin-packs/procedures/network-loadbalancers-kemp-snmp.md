@@ -1,5 +1,5 @@
 ---
-id: pp/network-loadbalancers-kemp-snmp
+id: pp-network-loadbalancers-kemp-snmp
 title: Kemp Loadbalancer
 ---
 

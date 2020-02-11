@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-hp-blade-chassis-snmp
+id: pp-hardware-servers-hp-blade-chassis-snmp
 title: HP Blade Chassis
 ---
 

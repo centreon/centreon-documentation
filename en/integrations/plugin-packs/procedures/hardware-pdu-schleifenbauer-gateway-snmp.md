@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-pdu-schleifenbauer-gateway-snmp
+id: pp-hardware-pdu-schleifenbauer-gateway-snmp
 title: Schleifenbauer Gateway SNMP
 ---
 

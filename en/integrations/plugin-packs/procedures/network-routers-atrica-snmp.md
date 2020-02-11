@@ -1,5 +1,5 @@
 ---
-id: pp/network-routers-atrica-snmp
+id: pp-network-routers-atrica-snmp
 title: Atrica Routeur
 ---
 

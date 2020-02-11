@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-azure-network-expressroute
+id: pp-cloud-azure-network-expressroute
 title: Azure ExpressRoute
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-ruggedcom
+id: pp-network-ruggedcom
 title: Ruggedcom Network
 ---
 

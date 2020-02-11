@@ -1,5 +1,5 @@
 ---
-id: pp/network-juniper-trapeze-snmp
+id: pp-network-juniper-trapeze-snmp
 title: Juniper Trapeze
 ---
 

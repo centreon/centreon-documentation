@@ -1,5 +1,5 @@
 ---
-id: pp/operatingsystems-mac-snmp
+id: pp-operatingsystems-mac-snmp
 title: Mac SNMP
 ---
 

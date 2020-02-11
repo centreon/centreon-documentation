@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-tcp
+id: pp-applications-protocol-tcp
 title: Protocol TCP
 ---
 

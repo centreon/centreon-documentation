@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-adic-tape-snmp
+id: pp-hardware-storage-adic-tape-snmp
 title: Adic Tape SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-github-http
+id: pp-applications-github-http
 title: Github
 ---
 

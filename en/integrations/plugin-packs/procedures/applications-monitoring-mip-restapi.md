@@ -1,5 +1,5 @@
 ---
-id: pp/applications-monitoring-mip-restapi
+id: pp-applications-monitoring-mip-restapi
 title: Maltem Insight Rest API
 ---
 

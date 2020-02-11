@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hp-lefthand-snmp
+id: pp-hardware-storage-hp-lefthand-snmp
 title: HP Lefthand
 ---
 

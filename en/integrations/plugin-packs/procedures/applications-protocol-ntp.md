@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-ntp
+id: pp-applications-protocol-ntp
 title: NTP Server
 ---
 

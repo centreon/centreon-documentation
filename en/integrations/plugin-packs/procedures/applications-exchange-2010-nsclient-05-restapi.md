@@ -1,5 +1,5 @@
 ---
-id: pp/applications-exchange-2010-nsclient-05-restapi
+id: pp-applications-exchange-2010-nsclient-05-restapi
 title: Exchange 2010 API
 ---
 

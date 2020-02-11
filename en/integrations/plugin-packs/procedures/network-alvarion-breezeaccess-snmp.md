@@ -1,5 +1,5 @@
 ---
-id: pp/network-alvarion-breezeaccess-snmp
+id: pp-network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
 ---
 

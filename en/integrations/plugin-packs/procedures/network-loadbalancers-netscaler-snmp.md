@@ -1,5 +1,5 @@
 ---
-id: pp/network-loadbalancers-netscaler-snmp
+id: pp-network-loadbalancers-netscaler-snmp
 title: Citrix Netscaler
 ---
 

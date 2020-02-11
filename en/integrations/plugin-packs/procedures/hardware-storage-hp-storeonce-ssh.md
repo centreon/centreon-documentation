@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hp-storeonce-ssh
+id: pp-hardware-storage-hp-storeonce-ssh
 title: HP StoreOnce SSH
 ---
 

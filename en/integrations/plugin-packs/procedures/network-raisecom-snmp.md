@@ -1,5 +1,5 @@
 ---
-id: pp/network-raisecom-snmp
+id: pp-network-raisecom-snmp
 title: Raisecom
 ---
 

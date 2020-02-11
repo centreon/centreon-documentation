@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-mrv-optiswitch-snmp
+id: pp-network-switchs-mrv-optiswitch-snmp
 title: Mrv Optiswitch
 ---
 

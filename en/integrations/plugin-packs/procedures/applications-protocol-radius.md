@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-radius
+id: pp-applications-protocol-radius
 title: Radius Service
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-netbackup-nsclient-05-restapi
+id: pp-applications-netbackup-nsclient-05-restapi
 title: Netbackup Rest API
 ---
 

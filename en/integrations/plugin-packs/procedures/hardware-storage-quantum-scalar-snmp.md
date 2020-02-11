@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-quantum-scalar-snmp
+id: pp-hardware-storage-quantum-scalar-snmp
 title: Quantum Scalar
 ---
 

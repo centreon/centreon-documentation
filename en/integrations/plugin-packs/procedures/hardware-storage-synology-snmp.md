@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-synology-snmp
+id: pp-hardware-storage-synology-snmp
 title: Synology
 ---
 

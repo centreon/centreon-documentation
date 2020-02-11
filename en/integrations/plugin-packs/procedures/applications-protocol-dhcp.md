@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-dhcp
+id: pp-applications-protocol-dhcp
 title: Protocol DHCP
 ---
 

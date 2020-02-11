@@ -1,5 +1,5 @@
 ---
-id: pp/applications-ansible-cli
+id: pp-applications-ansible-cli
 title: Ansible
 ---
 

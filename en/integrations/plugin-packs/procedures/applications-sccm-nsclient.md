@@ -1,5 +1,5 @@
 ---
-id: pp/applications-sccm-nsclient
+id: pp-applications-sccm-nsclient
 title: Microsoft SCCM
 ---
 

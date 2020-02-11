@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-arista-snmp
+id: pp-network-switchs-arista-snmp
 title: Arista Switch
 ---
 

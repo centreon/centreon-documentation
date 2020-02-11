@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-ups-standard-rfc1628-snmp
+id: pp-hardware-ups-standard-rfc1628-snmp
 title: UPS Standard
 ---
 

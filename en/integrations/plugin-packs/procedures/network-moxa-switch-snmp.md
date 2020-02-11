@@ -1,5 +1,5 @@
 ---
-id: pp/network-moxa-switch-snmp
+id: pp-network-moxa-switch-snmp
 title: Moxa Switch
 ---
 

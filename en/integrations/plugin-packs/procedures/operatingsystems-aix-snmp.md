@@ -1,5 +1,5 @@
 ---
-id: pp/operatingsystems-aix-snmp
+id: pp-operatingsystems-aix-snmp
 title: AIX SNMP
 ---
 

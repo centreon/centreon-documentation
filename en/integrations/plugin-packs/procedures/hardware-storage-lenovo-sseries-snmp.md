@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-lenovo-sseries-snmp
+id: pp-hardware-storage-lenovo-sseries-snmp
 title: Lenovo S Series
 ---
 

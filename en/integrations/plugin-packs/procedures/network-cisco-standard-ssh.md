@@ -1,5 +1,5 @@
 ---
-id: pp/network-cisco-standard-ssh
+id: pp-network-cisco-standard-ssh
 title: Cisco Standard SSH
 ---
 

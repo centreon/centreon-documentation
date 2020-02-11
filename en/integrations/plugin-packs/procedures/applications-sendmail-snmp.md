@@ -1,5 +1,5 @@
 ---
-id: pp/applications-sendmail-snmp
+id: pp-applications-sendmail-snmp
 title: Sendmail
 ---
 

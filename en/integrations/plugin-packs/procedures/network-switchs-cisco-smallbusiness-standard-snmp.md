@@ -1,5 +1,5 @@
 ---
-id: pp/network-switchs-cisco-smallbusiness-standard-snmp
+id: pp-network-switchs-cisco-smallbusiness-standard-snmp
 title: Cisco Small Business
 ---
 

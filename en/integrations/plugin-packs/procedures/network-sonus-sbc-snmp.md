@@ -1,5 +1,5 @@
 ---
-id: pp/network-sonus-sbc-snmp
+id: pp-network-sonus-sbc-snmp
 title: Sonus SBC 
 ---
 

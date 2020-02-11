@@ -1,5 +1,5 @@
 ---
-id: pp/applications-cisco-ise-restapi
+id: pp-applications-cisco-ise-restapi
 title: Cisco ISE
 ---
 

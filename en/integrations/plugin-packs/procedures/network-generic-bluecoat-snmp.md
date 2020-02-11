@@ -1,5 +1,5 @@
 ---
-id: pp/network-generic-bluecoat-snmp
+id: pp-network-generic-bluecoat-snmp
 title: Bluecoat generic
 ---
 

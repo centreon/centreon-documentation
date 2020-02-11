@@ -1,5 +1,5 @@
 ---
-id: pp/network-loadbalancers-a10-ax-snmp
+id: pp-network-loadbalancers-a10-ax-snmp
 title: A10 AX
 ---
 

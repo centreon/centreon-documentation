@@ -1,5 +1,5 @@
 ---
-id: pp/network-colubris-snmp
+id: pp-network-colubris-snmp
 title: Colubris SNMP
 ---
 

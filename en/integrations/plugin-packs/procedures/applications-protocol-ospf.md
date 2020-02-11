@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-ospf
+id: pp-applications-protocol-ospf
 title: OSPF Protocol
 ---
 

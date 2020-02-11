@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-elasticsearch
+id: pp-applications-databases-elasticsearch
 title: Elasticsearch
 ---
 

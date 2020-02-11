@@ -1,5 +1,5 @@
 ---
-id: pp/network-barracuda-cloudgen-snmp
+id: pp-network-barracuda-cloudgen-snmp
 title: Barracuda Cloudgen SNMP
 ---
 

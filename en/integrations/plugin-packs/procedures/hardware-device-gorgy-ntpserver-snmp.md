@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-device-gorgy-ntpserver-snmp
+id: pp-hardware-device-gorgy-ntpserver-snmp
 title: Gorgy NTP Server
 ---
 

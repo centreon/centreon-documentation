@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-ats-apc
+id: pp-hardware-ats-apc
 title: APC ATS
 ---
 

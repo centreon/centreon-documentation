@@ -1,5 +1,5 @@
 ---
-id: pp/network-ruckus-snmp
+id: pp-network-ruckus-snmp
 title: Ruckus
 ---
 

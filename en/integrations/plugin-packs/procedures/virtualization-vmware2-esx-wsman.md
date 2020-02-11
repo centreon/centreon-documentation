@@ -1,5 +1,5 @@
 ---
-id: pp/virtualization-vmware2-esx-wsman
+id: pp-virtualization-vmware2-esx-wsman
 title: VMware ESX WS-MAN
 ---
 

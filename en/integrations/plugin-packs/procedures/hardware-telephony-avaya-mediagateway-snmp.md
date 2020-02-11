@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-telephony-avaya-mediagateway-snmp
+id: pp-hardware-telephony-avaya-mediagateway-snmp
 title: Avaya Media Gateway SNMP
 ---
 

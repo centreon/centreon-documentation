@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-microsoft-office365-teams
+id: pp-cloud-microsoft-office365-teams
 title: Office365 Teams
 ---
 

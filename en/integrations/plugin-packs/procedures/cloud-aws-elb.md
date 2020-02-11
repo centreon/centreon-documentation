@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-elb
+id: pp-cloud-aws-elb
 title: AWS ELB
 ---
 

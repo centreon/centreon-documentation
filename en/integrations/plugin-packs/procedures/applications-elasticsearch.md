@@ -1,5 +1,5 @@
 ---
-id: pp/applications-elasticsearch
+id: pp-applications-elasticsearch
 title: Elasticsearch (Deprecated)
 ---
 

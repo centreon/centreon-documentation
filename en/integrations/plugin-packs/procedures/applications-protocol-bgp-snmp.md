@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-bgp-snmp
+id: pp-applications-protocol-bgp-snmp
 title: BGP Protocol SNMP
 ---
 

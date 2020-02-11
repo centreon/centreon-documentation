@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-camera-hanwha-snmp
+id: pp-hardware-devices-camera-hanwha-snmp
 title: Hanwha camera SNMP
 ---
 

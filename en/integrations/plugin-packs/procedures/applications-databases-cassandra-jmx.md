@@ -1,5 +1,5 @@
 ---
-id: pp/applications-databases-cassandra-jmx
+id: pp-applications-databases-cassandra-jmx
 title: Cassandra
 ---
 

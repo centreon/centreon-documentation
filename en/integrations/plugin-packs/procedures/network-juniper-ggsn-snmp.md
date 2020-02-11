@@ -1,5 +1,5 @@
 ---
-id: pp/network-juniper-ggsn-snmp
+id: pp-network-juniper-ggsn-snmp
 title: Juniper GGSN
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-prometheus-kubernetes-api
+id: pp-cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus
 ---
 

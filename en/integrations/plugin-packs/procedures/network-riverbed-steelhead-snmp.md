@@ -1,5 +1,5 @@
 ---
-id: pp/network-riverbed-steelhead-snmp
+id: pp-network-riverbed-steelhead-snmp
 title: Riverbed SteelHead
 ---
 

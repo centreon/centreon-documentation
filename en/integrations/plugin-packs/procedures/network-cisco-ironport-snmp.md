@@ -1,5 +1,5 @@
 ---
-id: pp/network-cisco-ironport-snmp
+id: pp-network-cisco-ironport-snmp
 title: Cisco IronPort
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-vmware-velocloud-restapi
+id: pp-cloud-vmware-velocloud-restapi
 title: VMware VeloCloud
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-x509
+id: pp-applications-protocol-x509
 title: X509 Certificat
 ---
 

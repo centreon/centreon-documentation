@@ -1,5 +1,5 @@
 ---
-id: pp/applications-keepalived-snmp
+id: pp-applications-keepalived-snmp
 title: Keepalived SNMP
 ---
 

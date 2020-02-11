@@ -1,5 +1,5 @@
 ---
-id: pp/network-hp-standard-snmp
+id: pp-network-hp-standard-snmp
 title: HP Standard Network
 ---
 

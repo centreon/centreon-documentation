@@ -1,5 +1,5 @@
 ---
-id: pp/infrastructure-dhcp
+id: pp-infrastructure-dhcp
 title: DHCP Server
 ---
 

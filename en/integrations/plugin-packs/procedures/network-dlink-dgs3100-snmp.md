@@ -1,5 +1,5 @@
 ---
-id: pp/network-dlink-dgs3100-snmp
+id: pp-network-dlink-dgs3100-snmp
 title: D-Link DGS 3100
 ---
 

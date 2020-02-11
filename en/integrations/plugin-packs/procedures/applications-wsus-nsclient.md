@@ -1,5 +1,5 @@
 ---
-id: pp/applications-wsus-nsclient
+id: pp-applications-wsus-nsclient
 title: Microsoft WSUS
 ---
 

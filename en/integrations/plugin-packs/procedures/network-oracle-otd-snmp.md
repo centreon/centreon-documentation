@@ -1,5 +1,5 @@
 ---
-id: pp/network-oracle-otd-snmp
+id: pp-network-oracle-otd-snmp
 title: Traffic Director
 ---
 

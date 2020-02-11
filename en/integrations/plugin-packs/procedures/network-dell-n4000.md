@@ -1,5 +1,5 @@
 ---
-id: pp/network-dell-n4000
+id: pp-network-dell-n4000
 title: Dell N4000
 ---
 

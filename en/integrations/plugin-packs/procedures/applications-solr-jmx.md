@@ -1,5 +1,5 @@
 ---
-id: pp/applications-solr-jmx
+id: pp-applications-solr-jmx
 title: Solr
 ---
 

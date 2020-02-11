@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-hitachi-hnas-snmp
+id: pp-hardware-storage-hitachi-hnas-snmp
 title: Hitachi NAS
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-prometheus-node-exporter-api
+id: pp-cloud-prometheus-node-exporter-api
 title: Node Exporter
 ---
 

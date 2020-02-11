@@ -1,5 +1,5 @@
 ---
-id: pp/applications-openldap-ldap
+id: pp-applications-openldap-ldap
 title: OpenLDAP
 ---
 

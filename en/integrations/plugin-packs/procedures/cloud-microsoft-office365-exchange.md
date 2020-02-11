@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-microsoft-office365-exchange
+id: pp-cloud-microsoft-office365-exchange
 title: Office365 Exchange
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-azure-network-vpngateway
+id: pp-cloud-azure-network-vpngateway
 title: Azure VPN Gateway
 ---
 

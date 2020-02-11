@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-ftp
+id: pp-applications-protocol-ftp
 title: FTP Server
 ---
 

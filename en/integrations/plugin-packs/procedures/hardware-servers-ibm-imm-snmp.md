@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-servers-ibm-imm-snmp
+id: pp-hardware-servers-ibm-imm-snmp
 title: IBM IMM
 ---
 

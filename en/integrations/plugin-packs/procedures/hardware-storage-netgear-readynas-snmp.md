@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-netgear-readynas-snmp
+id: pp-hardware-storage-netgear-readynas-snmp
 title: Netgear Readynas SNMP
 ---
 

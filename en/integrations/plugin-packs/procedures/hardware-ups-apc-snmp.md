@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-ups-apc-snmp
+id: pp-hardware-ups-apc-snmp
 title: APC UPS
 ---
 

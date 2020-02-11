@@ -1,5 +1,5 @@
 ---
-id: pp/applications-voip-asterisk
+id: pp-applications-voip-asterisk
 title: Asterisk VoIP Server
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/network-digi-portserverts-snmp
+id: pp-network-digi-portserverts-snmp
 title: Digi PortServers TS
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-storage-emc-xtremio-restapi
+id: pp-hardware-storage-emc-xtremio-restapi
 title: EMC Xtremio
 ---
 

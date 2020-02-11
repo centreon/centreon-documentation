@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-cloudwatch
+id: pp-cloud-aws-cloudwatch
 title: Amazon CloudWatch
 ---
 

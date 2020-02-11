@@ -1,5 +1,5 @@
 ---
-id: pp/virtualization-vmware2-esx
+id: pp-virtualization-vmware2-esx
 title: VMware ESX
 ---
 

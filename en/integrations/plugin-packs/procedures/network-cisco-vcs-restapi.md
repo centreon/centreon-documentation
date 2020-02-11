@@ -1,5 +1,5 @@
 ---
-id: pp/network-cisco-vcs-restapi
+id: pp-network-cisco-vcs-restapi
 title: Cisco VCS
 ---
 

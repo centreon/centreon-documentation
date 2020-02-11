@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-ec2
+id: pp-cloud-aws-ec2
 title: Amazon EC2
 ---
 

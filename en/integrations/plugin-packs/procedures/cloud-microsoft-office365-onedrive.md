@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-microsoft-office365-onedrive
+id: pp-cloud-microsoft-office365-onedrive
 title: Office365 OneDrive
 ---
 

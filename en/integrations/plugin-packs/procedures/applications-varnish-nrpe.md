@@ -1,5 +1,5 @@
 ---
-id: pp/applications-varnish-nrpe
+id: pp-applications-varnish-nrpe
 title: Varnish NRPE
 ---
 

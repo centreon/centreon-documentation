@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-ups-hp-snmp
+id: pp-hardware-ups-hp-snmp
 title: HP UPS SNMP
 ---
 

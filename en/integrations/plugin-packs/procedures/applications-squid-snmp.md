@@ -1,5 +1,5 @@
 ---
-id: pp/applications-squid-snmp
+id: pp-applications-squid-snmp
 title: Squid SNMP
 ---
 

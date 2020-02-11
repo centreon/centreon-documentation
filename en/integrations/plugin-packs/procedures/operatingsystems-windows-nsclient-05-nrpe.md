@@ -1,5 +1,5 @@
 ---
-id: pp/operatingsystems-windows-nsclient-05-nrpe
+id: pp-operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
 

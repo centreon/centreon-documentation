@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-azure-storage-storageaccount
+id: pp-cloud-azure-storage-storageaccount
 title: Azure Storage Account
 ---
 

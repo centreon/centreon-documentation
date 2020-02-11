@@ -1,5 +1,5 @@
 ---
-id: pp/network-hp-vc-snmp
+id: pp-network-hp-vc-snmp
 title: HP Virtual Connect
 ---
 

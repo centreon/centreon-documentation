@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-sensors-sensormetrix-em01-web
+id: pp-hardware-sensors-sensormetrix-em01-web
 title: Sensormetrix
 ---
 

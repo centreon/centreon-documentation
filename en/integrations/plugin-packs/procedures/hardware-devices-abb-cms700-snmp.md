@@ -1,5 +1,5 @@
 ---
-id: pp/hardware-devices-abb-cms700-snmp
+id: pp-hardware-devices-abb-cms700-snmp
 title: ABB CMS-700
 ---
 

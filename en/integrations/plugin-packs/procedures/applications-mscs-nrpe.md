@@ -1,5 +1,5 @@
 ---
-id: pp/applications-mscs-nrpe
+id: pp-applications-mscs-nrpe
 title: Microsoft Cluster Se
 ---
 

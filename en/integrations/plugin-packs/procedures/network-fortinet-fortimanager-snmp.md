@@ -1,5 +1,5 @@
 ---
-id: pp/network-fortinet-fortimanager-snmp
+id: pp-network-fortinet-fortimanager-snmp
 title: Fortinet Fortimanage
 ---
 

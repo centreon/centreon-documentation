@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-aws-s3
+id: pp-cloud-aws-s3
 title: Amazon S3
 ---
 

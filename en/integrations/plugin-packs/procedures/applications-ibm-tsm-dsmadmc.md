@@ -1,5 +1,5 @@
 ---
-id: pp/applications-ibm-tsm-dsmadmc
+id: pp-applications-ibm-tsm-dsmadmc
 title: IBM Tivoli Storage M
 ---
 

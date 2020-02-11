@@ -1,5 +1,5 @@
 ---
-id: pp/applications-monitoring-centreon-central
+id: pp-applications-monitoring-centreon-central
 title: Centreon Central
 ---
 

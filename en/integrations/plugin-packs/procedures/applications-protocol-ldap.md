@@ -1,5 +1,5 @@
 ---
-id: pp/applications-protocol-ldap
+id: pp-applications-protocol-ldap
 title: LDAP Server
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp/applications-biztalk
+id: pp-applications-biztalk
 title: MS Biztalk
 ---
 

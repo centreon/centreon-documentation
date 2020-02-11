@@ -1,5 +1,5 @@
 ---
-id: pp/cloud-ovh-restapi
+id: pp-cloud-ovh-restapi
 title: OVH
 ---
 
