@@ -1,21 +1,575 @@
 {
-  "docs": {
-    "Introduction": ["init", "init"],
-    "Release notes": [
-      "init",
-      "init",
-      "init",
-      "init"
-    ],
-    "Installation": [
-      "init",
-      "init"
-    ],
-    "Getting started": ["init"],
-    "User guide": [
-      "init",
-      "init",
-      "init"
-    ]
-  }
+    "docs": {
+        "Tutorials": [
+            "tutorials/init"
+        ],
+        "Installation": [
+            "installation/init"
+        ],
+        "Upgrade": [
+            "upgrade/init"
+        ],
+        "Migrate": [
+            "migrate/init"
+        ],
+        "Monitoring": [
+            "monitoring/init"
+        ],
+        "Alert Management & Notifications": [
+            "alerts-notifications/init"
+        ],
+        "Dashboard": [
+            "dashboard/init"
+        ],
+        "Metrology": [
+            "metrology/init"
+        ],
+        "Service Mapping & Correlation": [
+            "service-mapping-correlation/init"
+        ],
+        "Data Presentation": [
+            "data-presentation/init"
+        ],
+        "Analytics": [
+            "analytics/init"
+        ],
+        "Administrate your Platform": [
+            "administrate/init"
+        ],
+        "Integrations: Plugin Packs": [
+            "integrations/plugin-packs/init",
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
+                    "integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-ansible-cli",
+                    "integrations/plugin-packs/procedures/applications-ansible-tower",
+                    "integrations/plugin-packs/procedures/applications-antivirus-clamav-ssh",
+                    "integrations/plugin-packs/procedures/applications-webservers-apache-serverstatus",
+                    "integrations/plugin-packs/procedures/applications-voip-asterisk-ami",
+                    "integrations/plugin-packs/procedures/applications-voip-asterisk-snmp",
+                    "integrations/plugin-packs/procedures/applications-bind9-web",
+                    "integrations/plugin-packs/procedures/applications-mail-bluemind",
+                    "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
+                    "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
+                    "integrations/plugin-packs/procedures/applications-cisco-ise-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
+                    "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-github-restapi",
+                    "integrations/plugin-packs/procedures/applications-github-http",
+                    "integrations/plugin-packs/procedures/applications-haproxy-snmp",
+                    "integrations/plugin-packs/procedures/applications-hibernate-jmx",
+                    "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
+                    "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-jboss-jmx",
+                    "integrations/plugin-packs/procedures/applications-jenkins",
+                    "integrations/plugin-packs/procedures/applications-kafka-jmx",
+                    "integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp",
+                    "integrations/plugin-packs/procedures/applications-keepalived-snmp",
+                    "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
+                    "integrations/plugin-packs/procedures/applications-antivirus-mcafee-webgateway-snmp",
+                    "integrations/plugin-packs/procedures/applications-mscs-nrpe",
+                    "integrations/plugin-packs/procedures/applications-webservers-iis-nrpe",
+                    "integrations/plugin-packs/procedures/applications-sccm-nsclient",
+                    "integrations/plugin-packs/procedures/applications-wsus-nsclient",
+                    "integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe",
+                    "integrations/plugin-packs/procedures/applications-biztalk",
+                    "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
+                    "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-webservers-nginx-serverstatus",
+                    "integrations/plugin-packs/procedures/applications-openldap-ldap",
+                    "integrations/plugin-packs/procedures/applications-monitoring-openmetrics",
+                    "integrations/plugin-packs/procedures/applications-openvpn-omi",
+                    "integrations/plugin-packs/procedures/applications-openweathermap-restapi",
+                    "integrations/plugin-packs/procedures/applications-peoplesoft-jmx",
+                    "integrations/plugin-packs/procedures/applications-php-apc-web",
+                    "integrations/plugin-packs/procedures/applications-php-fpm-web",
+                    "integrations/plugin-packs/procedures/applications-pvx-restapi",
+                    "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
+                    "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
+                    "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
+                    "integrations/plugin-packs/procedures/applications-redis-cli",
+                    "integrations/plugin-packs/procedures/applications-redis-restapi",
+                    "integrations/plugin-packs/procedures/applications-rudder-restapi",
+                    "integrations/plugin-packs/procedures/applications-databases-sap-hana",
+                    "integrations/plugin-packs/procedures/applications-monitoring-scom-restapi",
+                    "integrations/plugin-packs/procedures/applications-selenium",
+                    "integrations/plugin-packs/procedures/applications-sendmail-snmp",
+                    "integrations/plugin-packs/procedures/applications-skype-2015-mssql",
+                    "integrations/plugin-packs/procedures/applications-solr-jmx",
+                    "integrations/plugin-packs/procedures/applications-squid-snmp",
+                    "integrations/plugin-packs/procedures/applications-netbackup-nrpe",
+                    "integrations/plugin-packs/procedures/applications-webservers-tomcat-webmanager",
+                    "integrations/plugin-packs/procedures/applications-trendmicro-iwsva-snmp",
+                    "integrations/plugin-packs/procedures/applications-varnish-nrpe",
+                    "integrations/plugin-packs/procedures/applications-veeam-nrpe",
+                    "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
+                    "integrations/plugin-packs/procedures/applications-vtom-restapi",
+                    "integrations/plugin-packs/procedures/applications-wazuh-restapi",
+                    "integrations/plugin-packs/procedures/applications-video-zixi-restapi",
+                    "integrations/plugin-packs/procedures/applications-zookeeper-jmx"
+                ],
+                "label": "Applications",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-central",
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx",
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx"
+                ],
+                "label": "Centreon",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/cloud-aws-apigateway",
+                    "integrations/plugin-packs/procedures/cloud-aws-cloudfront",
+                    "integrations/plugin-packs/procedures/cloud-aws-cloudwatch",
+                    "integrations/plugin-packs/procedures/cloud-aws-ec2",
+                    "integrations/plugin-packs/procedures/cloud-aws-elasticache",
+                    "integrations/plugin-packs/procedures/cloud-aws-kinesis",
+                    "integrations/plugin-packs/procedures/cloud-aws-rds",
+                    "integrations/plugin-packs/procedures/cloud-aws-s3",
+                    "integrations/plugin-packs/procedures/cloud-aws-billing",
+                    "integrations/plugin-packs/procedures/cloud-aws-elb",
+                    "integrations/plugin-packs/procedures/cloud-aws-lambda",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-recovery",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-resource",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
+                    "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
+                    "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
+                    "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
+                    "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
+                    "integrations/plugin-packs/procedures/applications-docker-restapi",
+                    "integrations/plugin-packs/procedures/cloud-ibm-softlayer-api",
+                    "integrations/plugin-packs/procedures/cloud-kubernetes-api",
+                    "integrations/plugin-packs/procedures/cloud-prometheus-kubernetes-api",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-management",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-exchange",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-onedrive",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-sharepoint",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-skype",
+                    "integrations/plugin-packs/procedures/cloud-microsoft-office365-teams",
+                    "integrations/plugin-packs/procedures/cloud-ovh-restapi",
+                    "integrations/plugin-packs/procedures/cloud-prometheus-api",
+                    "integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi"
+                ],
+                "label": "Cloud",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/applications-databases-couchdb-restapi",
+                    "integrations/plugin-packs/procedures/applications-databases-elasticsearch",
+                    "integrations/plugin-packs/procedures/applications-elasticsearch",
+                    "integrations/plugin-packs/procedures/applications-databases-firebird",
+                    "integrations/plugin-packs/procedures/applications-databases-influxdb",
+                    "integrations/plugin-packs/procedures/applications-databases-informix",
+                    "integrations/plugin-packs/procedures/applications-databases-informix-snmp",
+                    "integrations/plugin-packs/procedures/applications-databases-mssql",
+                    "integrations/plugin-packs/procedures/applications-databases-mongodb",
+                    "integrations/plugin-packs/procedures/applications-databases-mysql",
+                    "integrations/plugin-packs/procedures/applications-databases-oracle",
+                    "integrations/plugin-packs/procedures/applications-databases-postgresql",
+                    "integrations/plugin-packs/procedures/applications-databases-sybase",
+                    "integrations/plugin-packs/procedures/applications-databases-warp10-sensision"
+                ],
+                "label": "Database",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp",
+                    "integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi",
+                    "integrations/plugin-packs/procedures/hardware-servers-cisco-ucs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-dell-cmc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-dell-idrac-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-dell-openmanage-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-fujitsu-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-hp-blade-chassis-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-hp-ilo-restapi",
+                    "integrations/plugin-packs/procedures/hardware-servers-hp-ilo-xmlapi",
+                    "integrations/plugin-packs/procedures/hardware-servers-hp-oneview-restapi",
+                    "integrations/plugin-packs/procedures/hardware-servers-hp-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-huawei-hmm-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-huawei-ibmc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-ibm-bladecenter-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-ibm-imm-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-polycom-groupseries-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-polycom-trio-restapi",
+                    "integrations/plugin-packs/procedures/hardware-device-safenet-keysecure-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-sun-mgmtcards",
+                    "integrations/plugin-packs/procedures/hardware-servers-sun-mseries-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-sun-sfxxk-pssh",
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp"
+                ],
+                "label": "Hardware Server",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/network-3com-snmp",
+                    "integrations/plugin-packs/procedures/network-loadbalancers-a10-ax-snmp",
+                    "integrations/plugin-packs/procedures/network-acmepacket-snmp",
+                    "integrations/plugin-packs/procedures/network-adva-fsp3000-snmp",
+                    "integrations/plugin-packs/procedures/network-aerohive-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-snmp",
+                    "integrations/plugin-packs/procedures/network-allied-snmp",
+                    "integrations/plugin-packs/procedures/network-alvarion-breezeaccess-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-arista-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-arkoon-snmp",
+                    "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
+                    "integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp",
+                    "integrations/plugin-packs/procedures/network-barracuda-cloudgen-snmp",
+                    "integrations/plugin-packs/procedures/network-beeware-snmp",
+                    "integrations/plugin-packs/procedures/applications-protocol-bgp-snmp",
+                    "integrations/plugin-packs/procedures/network-generic-bluecoat-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-brocade-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-checkpoint-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-apic-restapi",
+                    "integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
+                    "integrations/plugin-packs/procedures/network-cisco-ironport-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-meraki-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-prime-restapi",
+                    "integrations/plugin-packs/procedures/network-switchs-cisco-smallbusiness-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-standard-ssh",
+                    "integrations/plugin-packs/procedures/network-cisco-vcs-restapi",
+                    "integrations/plugin-packs/procedures/network-cisco-voice-gateway-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-waas-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-wlc-snmp",
+                    "integrations/plugin-packs/procedures/network-loadbalancers-netscaler-snmp",
+                    "integrations/plugin-packs/procedures/network-colubris-snmp",
+                    "integrations/plugin-packs/procedures/network-cyberoam-snmp",
+                    "integrations/plugin-packs/procedures/network-dlink-dgs3100-snmp",
+                    "integrations/plugin-packs/procedures/network-dlink-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-dell-6200",
+                    "integrations/plugin-packs/procedures/network-dell-6200-snmp",
+                    "integrations/plugin-packs/procedures/network-dell-n4000",
+                    "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
+                    "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",
+                    "integrations/plugin-packs/procedures/network-digi-portserverts-snmp",
+                    "integrations/plugin-packs/procedures/network-digi-portservers-snmp",
+                    "integrations/plugin-packs/procedures/network-digi-sarian-snmp",
+                    "integrations/plugin-packs/procedures/network-efficientip-snmp",
+                    "integrations/plugin-packs/procedures/network-evertz-fc7800-snmp",
+                    "integrations/plugin-packs/procedures/network-extreme-snmp",
+                    "integrations/plugin-packs/procedures/network-loadbalancers-f5-bigip-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
+                    "integrations/plugin-packs/procedures/network-freebox-restapi",
+                    "integrations/plugin-packs/procedures/network-fritzbox-upnp",
+                    "integrations/plugin-packs/procedures/hardware-device-gorgy-ntpserver-snmp",
+                    "integrations/plugin-packs/procedures/network-h3c-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-hirschmann",
+                    "integrations/plugin-packs/procedures/network-switchs-hp-procurve-snmp",
+                    "integrations/plugin-packs/procedures/network-hp-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-hp-vc-snmp",
+                    "integrations/plugin-packs/procedures/network-huawei-snmp",
+                    "integrations/plugin-packs/procedures/network-infoblox-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-juniper-ex-snmp",
+                    "integrations/plugin-packs/procedures/network-juniper-ggsn-snmp",
+                    "integrations/plugin-packs/procedures/network-juniper-isg-snmp",
+                    "integrations/plugin-packs/procedures/network-routers-juniper-mseries-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-juniper-mag-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-juniper-sa-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-juniper-srx-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-juniper-ssg-snmp",
+                    "integrations/plugin-packs/procedures/network-juniper-trapeze-snmp",
+                    "integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp",
+                    "integrations/plugin-packs/procedures/network-mikrotik-snmp",
+                    "integrations/plugin-packs/procedures/network-mitel-3300icp-snmp",
+                    "integrations/plugin-packs/procedures/network-moxa-switch-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-mrv-optiswitch-snmp",
+                    "integrations/plugin-packs/procedures/network-netasq-snmp",
+                    "integrations/plugin-packs/procedures/network-netgear-mseries-snmp",
+                    "integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp",
+                    "integrations/plugin-packs/procedures/network-nokia-timos-snmp",
+                    "integrations/plugin-packs/procedures/network-nortel-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-alcatel-omniswitch-6850",
+                    "integrations/plugin-packs/procedures/network-oneaccess-snmp",
+                    "integrations/plugin-packs/procedures/network-oracle-infiniband-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-ssh",
+                    "integrations/plugin-packs/procedures/network-routers-peplink-balance-snmp",
+                    "integrations/plugin-packs/procedures/network-peplink-pepwave-snmp",
+                    "integrations/plugin-packs/procedures/network-perle-ids-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-pfsense-snmp",
+                    "integrations/plugin-packs/procedures/network-rad-airmux-snmp",
+                    "integrations/plugin-packs/procedures/network-radware-alteon-snmp",
+                    "integrations/plugin-packs/procedures/network-raisecom-snmp",
+                    "integrations/plugin-packs/procedures/network-routers-redback-snmp",
+                    "integrations/plugin-packs/procedures/network-riverbed-interceptor-snmp",
+                    "integrations/plugin-packs/procedures/network-riverbed-steelhead-snmp",
+                    "integrations/plugin-packs/procedures/network-ruckus-snmp",
+                    "integrations/plugin-packs/procedures/network-ruckus-scg-snmp",
+                    "integrations/plugin-packs/procedures/network-ruggedcom",
+                    "integrations/plugin-packs/procedures/network-silverpeak-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-sonicwall-snmp",
+                    "integrations/plugin-packs/procedures/network-sophos-es-snmp",
+                    "integrations/plugin-packs/procedures/network-firewalls-stonesoft",
+                    "integrations/plugin-packs/procedures/network-stormshield-snmp",
+                    "integrations/plugin-packs/procedures/network-stormshield-ssh",
+                    "integrations/plugin-packs/procedures/network-teltonika-snmp",
+                    "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
+                    "integrations/plugin-packs/procedures/network-ucopia-snmp",
+                    "integrations/plugin-packs/procedures/network-watchguard-snmp",
+                    "integrations/plugin-packs/procedures/network-zyxel-snmp"
+                ],
+                "label": "Network",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-database",
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller",
+                    "integrations/plugin-packs/procedures/network-citrix-appacceleration-snmp",
+                    "integrations/plugin-packs/procedures/network-citrix-sdx-snmp",
+                    "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ts2900-snmp",
+                    "integrations/plugin-packs/procedures/applications-lync-2013-mssql",
+                    "integrations/plugin-packs/procedures/cloud-prometheus-node-exporter-api",
+                    "integrations/plugin-packs/procedures/applications-video-openheadend-snmp",
+                    "integrations/plugin-packs/procedures/applications-pacemaker-ssh",
+                    "integrations/plugin-packs/procedures/applications-webservers-tomcat-jmx",
+                    "integrations/plugin-packs/procedures/applications-weblogic-jmx",
+                    "integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-restapi"
+                ],
+                "label": "No Category",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
+                    "integrations/plugin-packs/procedures/base-generic",
+                    "integrations/plugin-packs/procedures/operatingsystems-freebsd-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-hpux-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-as400",
+                    "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe",
+                    "integrations/plugin-packs/procedures/operatingsystems-linux-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-mac-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-solaris-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-windows-nrpe",
+                    "integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-nrpe",
+                    "integrations/plugin-packs/procedures/operatingsystems-windows-snmp"
+                ],
+                "label": "Operating System",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-printers-standard-rfc3805-snmp"
+                ],
+                "label": "Printer",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/applications-protocol-bgp",
+                    "integrations/plugin-packs/procedures/infrastructure-dhcp",
+                    "integrations/plugin-packs/procedures/applications-protocol-dns",
+                    "integrations/plugin-packs/procedures/applications-protocol-ftp",
+                    "integrations/plugin-packs/procedures/applications-protocol-snmp",
+                    "integrations/plugin-packs/procedures/applications-protocol-http",
+                    "integrations/plugin-packs/procedures/applications-protocol-imap",
+                    "integrations/plugin-packs/procedures/applications-protocol-jmx",
+                    "integrations/plugin-packs/procedures/applications-protocol-ldap",
+                    "integrations/plugin-packs/procedures/applications-protocol-modbus",
+                    "integrations/plugin-packs/procedures/applications-protocol-ntp",
+                    "integrations/plugin-packs/procedures/applications-protocol-ospf",
+                    "integrations/plugin-packs/procedures/infrastructure-pop",
+                    "integrations/plugin-packs/procedures/applications-protocol-dhcp",
+                    "integrations/plugin-packs/procedures/applications-protocol-ssh",
+                    "integrations/plugin-packs/procedures/applications-protocol-tcp",
+                    "integrations/plugin-packs/procedures/applications-protocol-udp",
+                    "integrations/plugin-packs/procedures/applications-protocol-radius",
+                    "integrations/plugin-packs/procedures/applications-protocol-smtp",
+                    "integrations/plugin-packs/procedures/applications-protocol-telnet",
+                    "integrations/plugin-packs/procedures/applications-protocol-tftp",
+                    "integrations/plugin-packs/procedures/applications-protocol-x509"
+                ],
+                "label": "Protocol",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-devices-abb-cms700-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-akcp-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-comet-p8000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-geist-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-hwgste-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-jacarta-snmp",
+                    "integrations/plugin-packs/procedures/applications-lmsensors-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-netbotz-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-sensorip-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-serverscheck-sensorgateway-snmp",
+                    "integrations/plugin-packs/procedures/hardware-sensors-sensormetrix-em01-web"
+                ],
+                "label": "Sensor",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-storage-adic-tape-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-avid-isis-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-buffalo-terastation-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-api",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-equallogic-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-fluidfs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-md3000-smcli",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-me4-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-ml6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-tl2000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-celerra-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-clariion-navisphere",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-datadomain-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-isilon-snmp",
+                    "integrations/plugin-packs/procedures/applications-backup-emc-recoverypoint-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nrpe",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-unisphere-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-vplex-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-emc-xtremio-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-exagrid-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-fujitsu-eternus-dx-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-hitachi-hnas-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-eva-cli",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-lefthand-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-msa2000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-msl-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-p2000-xmlapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ds3000-smcli",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ds4000-smcli",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ds5000-smcli",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-fs900-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-storwize-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3100-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3200-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3500-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-kaminario-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-netapp-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-netapp-restapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-netgear-readynas-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-nimble-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-overland-neo-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-panzura-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-qnap-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-qsan-nas-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-quantum-dxi-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-quantum-scalar-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-storagetek-sl-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-synology-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-violin-3000-snmp"
+                ],
+                "label": "Storage",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-telephony-alcatel-oxe-snmp",
+                    "integrations/plugin-packs/procedures/applications-voip-asterisk",
+                    "integrations/plugin-packs/procedures/network-audiocodes-snmp",
+                    "integrations/plugin-packs/procedures/hardware-telephony-avaya-aes-snmp",
+                    "integrations/plugin-packs/procedures/hardware-telephony-avaya-mediagateway-snmp",
+                    "integrations/plugin-packs/procedures/network-polycom-rmx-snmp",
+                    "integrations/plugin-packs/procedures/network-sonus-sbc-snmp",
+                    "integrations/plugin-packs/procedures/applications-voip-xivo"
+                ],
+                "label": "Toip Voip",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/hardware-ups-alpha-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ats-apc",
+                    "integrations/plugin-packs/procedures/hardware-pdu-apc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-apc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-clever-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-powerware-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-standard-rfc1628-snmp"
+                ],
+                "label": "Ups Pdu",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/plugin-packs/procedures/virtualization-hyperv-2012-nrpe",
+                    "integrations/plugin-packs/procedures/virtualization-nutanix-snmp",
+                    "integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-esx",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-esx-wsman",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6",
+                    "integrations/plugin-packs/procedures/virtualization-vmware2-vm"
+                ],
+                "label": "Virtualization",
+                "type": "subcategory"
+            }
+        ],
+        "Integrations: Notifications Systems": [
+            "integrations/notifications/init"
+        ],
+        "Integrations: Ticketing Systems": [
+            "integrations/ticketing/init"
+        ],
+        "Integrations: External Data Hub": [
+            "integrations/external/init"
+        ],
+        "API": [
+            "api/init"
+        ],
+        "Developer": [
+            "developer/init"
+        ],
+        "Release Notes": [
+            "release-notes/init"
+        ],
+        "Lifecycle": [
+            "lifecycle/init"
+        ],
+        "FAQ": [
+            "faq/init"
+        ],
+        "CEIP": [
+            "ceip/init"
+        ]
+    }
 }
