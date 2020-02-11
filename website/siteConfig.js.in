@@ -38,7 +38,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "tutorials/init", label: "Docs" },
+    { doc: "init", label: "Docs" },
     { href: "https://api-documentation.centreon.com/centreon-web/centreon-api-v2.html", label: "API" },
     { search: true },
   ],
