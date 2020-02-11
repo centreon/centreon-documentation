@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-mssql
+id: applications-databases-mssql
 title: Microsoft SQL Server
 ---
 

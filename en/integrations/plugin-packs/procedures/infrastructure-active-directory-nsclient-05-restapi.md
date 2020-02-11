@@ -1,5 +1,5 @@
 ---
-id: pp-infrastructure-active-directory-nsclient-05-restapi
+id: infrastructure-active-directory-nsclient-05-restapi
 title: Active Directory API
 ---
 

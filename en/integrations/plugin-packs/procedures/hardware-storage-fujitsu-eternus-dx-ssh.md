@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-fujitsu-eternus-dx-ssh
+id: hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX
 ---
 

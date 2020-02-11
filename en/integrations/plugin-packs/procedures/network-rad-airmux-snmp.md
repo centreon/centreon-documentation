@@ -1,5 +1,5 @@
 ---
-id: pp-network-rad-airmux-snmp
+id: network-rad-airmux-snmp
 title: Rad Airmux SNMP
 ---
 

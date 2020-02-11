@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-dell-idrac-snmp
+id: hardware-servers-dell-idrac-snmp
 title: Dell iDRAC
 ---
 

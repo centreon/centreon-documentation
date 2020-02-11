@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-linux-snmp
+id: operatingsystems-linux-snmp
 title: Linux SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-applications-redis-cli
+id: applications-redis-cli
 title: Redis Cli
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-prime-restapi
+id: network-cisco-prime-restapi
 title: Cisco Prime
 ---
 

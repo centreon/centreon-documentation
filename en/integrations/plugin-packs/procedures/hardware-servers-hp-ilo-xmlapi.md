@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-hp-ilo-xmlapi
+id: hardware-servers-hp-ilo-xmlapi
 title: HP Ilo XMLAPI
 ---
 

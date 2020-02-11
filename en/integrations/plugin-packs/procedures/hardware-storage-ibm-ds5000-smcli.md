@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-ibm-ds5000-smcli
+id: hardware-storage-ibm-ds5000-smcli
 title: IBM DS5000
 ---
 

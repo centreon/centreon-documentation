@@ -1,5 +1,5 @@
 ---
-id: pp-applications-webservers-iis-nsclient-05-restapi
+id: applications-webservers-iis-nsclient-05-restapi
 title: IIS Server API 
 ---
 

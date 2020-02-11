@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-vmware2-vcenter-generic
+id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
 ---
 

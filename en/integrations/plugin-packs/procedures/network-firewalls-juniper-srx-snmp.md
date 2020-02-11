@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-juniper-srx-snmp
+id: network-firewalls-juniper-srx-snmp
 title: Juniper SRX
 ---
 

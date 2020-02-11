@@ -1,5 +1,5 @@
 ---
-id: pp-applications-antivirus-clamav-ssh
+id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
 ---
 

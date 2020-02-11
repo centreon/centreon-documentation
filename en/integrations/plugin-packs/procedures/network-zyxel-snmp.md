@@ -1,5 +1,5 @@
 ---
-id: pp-network-zyxel-snmp
+id: network-zyxel-snmp
 title: Zyxel
 ---
 

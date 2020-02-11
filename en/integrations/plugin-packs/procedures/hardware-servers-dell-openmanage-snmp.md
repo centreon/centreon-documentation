@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-dell-openmanage-snmp
+id: hardware-servers-dell-openmanage-snmp
 title: Dell OpenManage
 ---
 

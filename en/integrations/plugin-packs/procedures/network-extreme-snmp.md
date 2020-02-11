@@ -1,5 +1,5 @@
 ---
-id: pp-network-extreme-snmp
+id: network-extreme-snmp
 title: Extreme Network
 ---
 

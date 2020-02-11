@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-management-recovery
+id: cloud-azure-management-recovery
 title: Azure Recovery
 ---
 

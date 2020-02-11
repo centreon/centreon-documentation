@@ -1,5 +1,5 @@
 ---
-id: pp-applications-rapidrecovery-snmp
+id: applications-rapidrecovery-snmp
 title: Rapid Recovery SNMP
 ---
 

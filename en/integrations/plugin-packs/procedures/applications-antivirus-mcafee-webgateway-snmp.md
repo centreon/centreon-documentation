@@ -1,5 +1,5 @@
 ---
-id: pp-applications-antivirus-mcafee-webgateway-snmp
+id: applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
 ---
 

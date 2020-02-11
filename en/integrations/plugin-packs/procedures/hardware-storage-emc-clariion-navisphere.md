@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-emc-clariion-navisphere
+id: hardware-storage-emc-clariion-navisphere
 title: EMC Clariion
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-management-resource
+id: cloud-azure-management-resource
 title: Azure Resource
 ---
 

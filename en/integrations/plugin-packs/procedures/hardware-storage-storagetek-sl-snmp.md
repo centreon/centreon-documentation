@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-storagetek-sl-snmp
+id: hardware-storage-storagetek-sl-snmp
 title: Storagetek SL
 ---
 

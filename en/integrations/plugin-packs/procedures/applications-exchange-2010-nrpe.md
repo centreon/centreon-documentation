@@ -1,5 +1,5 @@
 ---
-id: pp-applications-exchange-2010-nrpe
+id: applications-exchange-2010-nrpe
 title: MS Exchange 2K10
 ---
 

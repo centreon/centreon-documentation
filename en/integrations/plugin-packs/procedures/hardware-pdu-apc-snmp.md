@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-pdu-apc-snmp
+id: hardware-pdu-apc-snmp
 title: APC PDU
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-checkpoint-snmp
+id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
 ---
 

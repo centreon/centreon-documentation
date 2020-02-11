@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-linux-nrpe
+id: operatingsystems-linux-nrpe
 title: Linux NRPE
 ---
 

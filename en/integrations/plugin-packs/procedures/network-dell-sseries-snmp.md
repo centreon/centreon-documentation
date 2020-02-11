@@ -1,5 +1,5 @@
 ---
-id: pp-network-dell-sseries-snmp
+id: network-dell-sseries-snmp
 title: Dell S-series
 ---
 

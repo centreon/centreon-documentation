@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-imap
+id: applications-protocol-imap
 title: IMAP Server
 ---
 

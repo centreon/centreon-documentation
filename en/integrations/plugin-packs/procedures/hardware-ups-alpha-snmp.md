@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-ups-alpha-snmp
+id: hardware-ups-alpha-snmp
 title: Alpha UPS SNMP
 ---
 

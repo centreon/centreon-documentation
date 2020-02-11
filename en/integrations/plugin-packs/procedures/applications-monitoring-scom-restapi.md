@@ -1,5 +1,5 @@
 ---
-id: pp-applications-monitoring-scom-restapi
+id: applications-monitoring-scom-restapi
 title: SCOM Rest API
 ---
 

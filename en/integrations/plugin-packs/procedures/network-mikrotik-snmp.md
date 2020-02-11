@@ -1,5 +1,5 @@
 ---
-id: pp-network-mikrotik-snmp
+id: network-mikrotik-snmp
 title: Mikrotik SNMP
 ---
 

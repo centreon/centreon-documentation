@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-devices-video-axis-snmp
+id: hardware-devices-video-axis-snmp
 title: Axis Video
 ---
 

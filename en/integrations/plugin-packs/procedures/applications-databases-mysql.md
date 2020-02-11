@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-mysql
+id: applications-databases-mysql
 title: MySQL/MariaDB
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-standard-snmp
+id: network-cisco-standard-snmp
 title: Cisco Standard
 ---
 

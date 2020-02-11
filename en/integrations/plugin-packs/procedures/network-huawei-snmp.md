@@ -1,5 +1,5 @@
 ---
-id: pp-network-huawei-snmp
+id: network-huawei-snmp
 title: Huawei
 ---
 

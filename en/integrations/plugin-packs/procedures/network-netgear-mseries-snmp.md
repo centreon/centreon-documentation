@@ -1,5 +1,5 @@
 ---
-id: pp-network-netgear-mseries-snmp
+id: network-netgear-mseries-snmp
 title: Netgear MSeries
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-oracle-zfs-snmp
+id: hardware-storage-oracle-zfs-snmp
 title: Oracle ZFS
 ---
 

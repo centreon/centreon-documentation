@@ -1,5 +1,5 @@
 ---
-id: pp-network-citrix-sdx-snmp
+id: network-citrix-sdx-snmp
 title: Citrix SDX
 ---
 

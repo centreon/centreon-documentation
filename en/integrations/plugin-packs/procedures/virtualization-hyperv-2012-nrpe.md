@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-hyperv-2012-nrpe
+id: virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012
 ---
 

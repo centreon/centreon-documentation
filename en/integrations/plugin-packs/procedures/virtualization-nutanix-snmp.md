@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-nutanix-snmp
+id: virtualization-nutanix-snmp
 title: Nutanix
 ---
 

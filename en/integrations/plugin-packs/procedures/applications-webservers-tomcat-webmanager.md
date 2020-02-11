@@ -1,5 +1,5 @@
 ---
-id: pp-applications-webservers-tomcat-webmanager
+id: applications-webservers-tomcat-webmanager
 title: Tomcat Webmanager
 ---
 

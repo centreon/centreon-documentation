@@ -1,5 +1,5 @@
 ---
-id: pp-applications-monitoring-dynatrace-restapi
+id: applications-monitoring-dynatrace-restapi
 title: Dynatrace Rest API
 ---
 

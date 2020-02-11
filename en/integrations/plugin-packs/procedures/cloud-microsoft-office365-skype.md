@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-microsoft-office365-skype
+id: cloud-microsoft-office365-skype
 title: Office365 Skype
 ---
 

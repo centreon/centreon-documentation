@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-dell-equallogic-snmp
+id: hardware-storage-dell-equallogic-snmp
 title: Dell Equallogic
 ---
 

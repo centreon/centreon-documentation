@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-as400
+id: operatingsystems-as400
 title: IBM AS400
 ---
 

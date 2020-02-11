@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-dell-tl2000-snmp
+id: hardware-storage-dell-tl2000-snmp
 title: Dell TL2000
 ---
 

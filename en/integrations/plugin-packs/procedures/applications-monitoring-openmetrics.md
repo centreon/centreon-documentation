@@ -1,5 +1,5 @@
 ---
-id: pp-applications-monitoring-openmetrics
+id: applications-monitoring-openmetrics
 title: OpenMetrics
 ---
 

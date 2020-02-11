@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-dell-compellent-snmp
+id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent
 ---
 

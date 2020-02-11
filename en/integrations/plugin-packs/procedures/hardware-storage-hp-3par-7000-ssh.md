@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-hp-3par-7000-ssh
+id: hardware-storage-hp-3par-7000-ssh
 title: HP 3PAR 7000
 ---
 

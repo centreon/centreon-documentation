@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-lenovo-xcc-snmp
+id: hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
 ---
 

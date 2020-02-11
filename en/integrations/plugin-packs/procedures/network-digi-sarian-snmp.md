@@ -1,5 +1,5 @@
 ---
-id: pp-network-digi-sarian-snmp
+id: network-digi-sarian-snmp
 title: Digi Sarian
 ---
 

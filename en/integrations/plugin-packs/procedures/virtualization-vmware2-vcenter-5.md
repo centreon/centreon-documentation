@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-vmware2-vcenter-5
+id: virtualization-vmware2-vcenter-5
 title: VMware vCenter v5
 ---
 

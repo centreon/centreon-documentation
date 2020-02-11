@@ -1,5 +1,5 @@
 ---
-id: pp-applications-selenium
+id: applications-selenium
 title: Selenium
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-vmware2-vcenter-4
+id: virtualization-vmware2-vcenter-4
 title: VMware vCenter v4
 ---
 

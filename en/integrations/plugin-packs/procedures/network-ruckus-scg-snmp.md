@@ -1,5 +1,5 @@
 ---
-id: pp-network-ruckus-scg-snmp
+id: network-ruckus-scg-snmp
 title: Ruckus SCG
 ---
 

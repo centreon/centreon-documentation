@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-solaris-snmp
+id: operatingsystems-solaris-snmp
 title: Solaris SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-stonesoft
+id: network-firewalls-stonesoft
 title: Stonesoft
 ---
 

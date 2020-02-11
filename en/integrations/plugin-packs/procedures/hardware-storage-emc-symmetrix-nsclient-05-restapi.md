@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-emc-symmetrix-nsclient-05-restapi
+id: hardware-storage-emc-symmetrix-nsclient-05-restapi
 title: EMC Symmetrix API
 ---
 

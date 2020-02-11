@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-sensors-sensorip-snmp
+id: hardware-sensors-sensorip-snmp
 title: Sensor IP
 ---
 

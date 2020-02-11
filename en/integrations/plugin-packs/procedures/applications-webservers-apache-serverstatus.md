@@ -1,5 +1,5 @@
 ---
-id: pp-applications-webservers-apache-serverstatus
+id: applications-webservers-apache-serverstatus
 title: Apache Server
 ---
 

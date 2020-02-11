@@ -1,5 +1,5 @@
 ---
-id: pp-applications-peoplesoft-jmx
+id: applications-peoplesoft-jmx
 title: Peoplesoft
 ---
 

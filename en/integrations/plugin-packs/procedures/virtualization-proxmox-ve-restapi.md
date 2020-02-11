@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-proxmox-ve-restapi
+id: virtualization-proxmox-ve-restapi
 title: Proxmox VE
 ---
 

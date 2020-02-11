@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-devices-polycom-trio-restapi
+id: hardware-devices-polycom-trio-restapi
 title: Polycom Trio Rest API
 ---
 

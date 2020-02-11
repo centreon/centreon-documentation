@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-hitachi-standard-snmp
+id: hardware-storage-hitachi-standard-snmp
 title: Hitachi Standard
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-hp-p2000-xmlapi
+id: hardware-storage-hp-p2000-xmlapi
 title: HP P2000
 ---
 

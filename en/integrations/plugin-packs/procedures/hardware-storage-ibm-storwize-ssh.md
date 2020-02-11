@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-ibm-storwize-ssh
+id: hardware-storage-ibm-storwize-ssh
 title: IBM Storwize
 ---
 

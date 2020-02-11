@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-modbus
+id: applications-protocol-modbus
 title: Modbus
 ---
 

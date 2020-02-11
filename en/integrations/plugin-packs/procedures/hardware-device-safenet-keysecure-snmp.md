@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-device-safenet-keysecure-snmp
+id: hardware-device-safenet-keysecure-snmp
 title: Safenet Keysecure
 ---
 

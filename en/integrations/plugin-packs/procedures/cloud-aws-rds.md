@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-aws-rds
+id: cloud-aws-rds
 title: Amazon RDS
 ---
 

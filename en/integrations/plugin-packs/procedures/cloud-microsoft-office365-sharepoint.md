@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-microsoft-office365-sharepoint
+id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
 ---
 

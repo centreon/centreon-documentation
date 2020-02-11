@@ -1,5 +1,5 @@
 ---
-id: pp-applications-kafka-jmx
+id: applications-kafka-jmx
 title: Kafka
 ---
 

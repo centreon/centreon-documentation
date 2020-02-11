@@ -1,5 +1,5 @@
 ---
-id: pp-applications-vtom-restapi
+id: applications-vtom-restapi
 title: VTOM
 ---
 

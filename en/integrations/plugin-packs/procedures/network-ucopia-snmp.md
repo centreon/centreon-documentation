@@ -1,5 +1,5 @@
 ---
-id: pp-network-ucopia-snmp
+id: network-ucopia-snmp
 title: Ucopia
 ---
 

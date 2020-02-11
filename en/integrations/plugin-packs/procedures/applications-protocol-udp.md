@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-udp
+id: applications-protocol-udp
 title: Protocol UDP
 ---
 

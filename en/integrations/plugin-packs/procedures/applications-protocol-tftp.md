@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-tftp
+id: applications-protocol-tftp
 title: TFTP Server
 ---
 

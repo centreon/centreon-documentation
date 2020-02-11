@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-dell-fluidfs-snmp
+id: hardware-storage-dell-fluidfs-snmp
 title: Dell FluidFS
 ---
 

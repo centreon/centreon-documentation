@@ -1,5 +1,5 @@
 ---
-id: pp-applications-skype-2015-mssql
+id: applications-skype-2015-mssql
 title: Skype 2015
 ---
 

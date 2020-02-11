@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-hp-eva-cli
+id: hardware-storage-hp-eva-cli
 title: HP EVA
 ---
 

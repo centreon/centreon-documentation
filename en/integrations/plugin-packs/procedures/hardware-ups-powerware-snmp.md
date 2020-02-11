@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-ups-powerware-snmp
+id: hardware-ups-powerware-snmp
 title: Powerware UPS
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-dell-md3000-smcli
+id: hardware-storage-dell-md3000-smcli
 title: Dell MD3000
 ---
 

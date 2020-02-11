@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-sap-hana
+id: applications-databases-sap-hana
 title: SAP HANA
 ---
 

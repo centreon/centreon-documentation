@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-windows-snmp
+id: operatingsystems-windows-snmp
 title: Windows SNMP
 ---
 

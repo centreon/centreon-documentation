@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-buffalo-terastation-snmp
+id: hardware-storage-buffalo-terastation-snmp
 title: Buffalo TeraStation SNMP
 ---
 

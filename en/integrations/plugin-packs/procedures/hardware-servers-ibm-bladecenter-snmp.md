@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-ibm-bladecenter-snmp
+id: hardware-servers-ibm-bladecenter-snmp
 title: IBM BladeCenter
 ---
 

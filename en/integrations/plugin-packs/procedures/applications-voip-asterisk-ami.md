@@ -1,5 +1,5 @@
 ---
-id: pp-applications-voip-asterisk-ami
+id: applications-voip-asterisk-ami
 title: Asterisk VoIP Server
 ---
 

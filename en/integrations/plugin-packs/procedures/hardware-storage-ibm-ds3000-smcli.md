@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-ibm-ds3000-smcli
+id: hardware-storage-ibm-ds3000-smcli
 title: IBM DS3000
 ---
 

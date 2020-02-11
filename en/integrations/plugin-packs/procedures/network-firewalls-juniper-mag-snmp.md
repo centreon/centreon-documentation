@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-juniper-mag-snmp
+id: network-firewalls-juniper-mag-snmp
 title: Juniper Mag
 ---
 

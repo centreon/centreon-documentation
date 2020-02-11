@@ -1,5 +1,5 @@
 ---
-id: pp-network-acmepacket-snmp
+id: network-acmepacket-snmp
 title: Acme Packet
 ---
 

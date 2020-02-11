@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-jmx
+id: applications-protocol-jmx
 title: JMX value
 ---
 

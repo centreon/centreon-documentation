@@ -1,5 +1,5 @@
 ---
-id: pp-network-watchguard-snmp
+id: network-watchguard-snmp
 title: Watchguard
 ---
 

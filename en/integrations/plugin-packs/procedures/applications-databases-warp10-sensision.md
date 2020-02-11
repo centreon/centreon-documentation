@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-warp10-sensision
+id: applications-databases-warp10-sensision
 title: Warp10 Sensision
 ---
 

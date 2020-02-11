@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-compute-virtualmachine
+id: cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-juniper-sa-snmp
+id: network-firewalls-juniper-sa-snmp
 title: Juniper SA
 ---
 

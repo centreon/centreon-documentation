@@ -1,5 +1,5 @@
 ---
-id: pp-applications-netbackup-nrpe
+id: applications-netbackup-nrpe
 title: Symantec Netbackup
 ---
 

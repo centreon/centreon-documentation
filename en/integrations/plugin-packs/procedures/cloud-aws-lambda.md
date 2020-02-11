@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-aws-lambda
+id: cloud-aws-lambda
 title: AWS Lambda
 ---
 

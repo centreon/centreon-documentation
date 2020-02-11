@@ -1,5 +1,5 @@
 ---
-id: pp-network-dlink-standard-snmp
+id: network-dlink-standard-snmp
 title: D-Link Network
 ---
 

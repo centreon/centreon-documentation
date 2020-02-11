@@ -1,5 +1,5 @@
 ---
-id: pp-applications-github-restapi
+id: applications-github-restapi
 title: Github
 ---
 

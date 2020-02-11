@@ -1,5 +1,5 @@
 ---
-id: pp-network-peplink-pepwave-snmp
+id: network-peplink-pepwave-snmp
 title: Peplink Pepwave SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-applications-antivirus-kaspersky-snmp
+id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
 ---
 

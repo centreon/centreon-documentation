@@ -1,5 +1,5 @@
 ---
-id: pp-applications-rabbitmq-restapi
+id: applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
 ---
 

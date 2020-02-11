@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-cloudfoundry-api
+id: cloud-cloudfoundry-api
 title: Cloud Foundry
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-hp-ilo-restapi
+id: hardware-servers-hp-ilo-restapi
 title: HP Ilo Rest API
 ---
 

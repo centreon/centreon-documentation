@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-callmanager-snmp
+id: network-cisco-callmanager-snmp
 title: Cisco Call Manager
 ---
 

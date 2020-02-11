@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-vmware2-vm
+id: virtualization-vmware2-vm
 title: VMware VM
 ---
 

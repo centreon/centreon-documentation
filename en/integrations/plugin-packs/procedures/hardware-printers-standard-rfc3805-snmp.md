@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-printers-standard-rfc3805-snmp
+id: hardware-printers-standard-rfc3805-snmp
 title: Printer standard
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-netapp-restapi
+id: hardware-storage-netapp-restapi
 title: NetApp Restapi
 ---
 

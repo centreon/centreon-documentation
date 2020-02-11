@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-postgresql
+id: applications-databases-postgresql
 title: PostgreSQL DB
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-kvm-adder-aim-snmp
+id: hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
 ---
 

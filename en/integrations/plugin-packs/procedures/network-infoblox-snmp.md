@@ -1,5 +1,5 @@
 ---
-id: pp-network-infoblox-snmp
+id: network-infoblox-snmp
 title: Infoblox SNMP
 ---
 

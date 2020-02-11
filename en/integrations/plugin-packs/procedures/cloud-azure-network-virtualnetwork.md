@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-network-virtualnetwork
+id: cloud-azure-network-virtualnetwork
 title: Azure Virtual Network
 ---
 

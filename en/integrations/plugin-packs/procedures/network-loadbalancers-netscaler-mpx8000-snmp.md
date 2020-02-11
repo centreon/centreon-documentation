@@ -1,5 +1,5 @@
 ---
-id: pp-network-loadbalancers-netscaler-mpx8000-snmp
+id: network-loadbalancers-netscaler-mpx8000-snmp
 title: Netscaler MPX 8000
 ---
 

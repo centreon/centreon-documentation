@@ -1,5 +1,5 @@
 ---
-id: pp-network-stormshield-snmp
+id: network-stormshield-snmp
 title: Stormshield SNMP
 ---
 

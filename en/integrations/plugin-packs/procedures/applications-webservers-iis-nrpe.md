@@ -1,5 +1,5 @@
 ---
-id: pp-applications-webservers-iis-nrpe
+id: applications-webservers-iis-nrpe
 title: Microsoft IIS Server
 ---
 

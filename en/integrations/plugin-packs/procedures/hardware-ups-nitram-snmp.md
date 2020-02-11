@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-ups-nitram-snmp
+id: hardware-ups-nitram-snmp
 title: Nitram UPS SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-esa-xmlapi
+id: network-cisco-esa-xmlapi
 title: Cisco ESA XMLAPI
 ---
 

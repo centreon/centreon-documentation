@@ -1,5 +1,5 @@
 ---
-id: pp-applications-bind9-web
+id: applications-bind9-web
 title: Bind9 Web
 ---
 

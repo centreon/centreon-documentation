@@ -1,5 +1,5 @@
 ---
-id: pp-network-evertz-fc7800-snmp
+id: network-evertz-fc7800-snmp
 title: Evertz FC7800
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-avid-isis-snmp
+id: hardware-storage-avid-isis-snmp
 title: Avid Isis
 ---
 

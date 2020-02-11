@@ -1,5 +1,5 @@
 ---
-id: pp-network-dell-6200
+id: network-dell-6200
 title: Dell 6200
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-telephony-avaya-aes-snmp
+id: hardware-telephony-avaya-aes-snmp
 title: Avaya AES SNMP
 ---
 

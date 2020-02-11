@@ -1,5 +1,5 @@
 ---
-id: pp-applications-haproxy-snmp
+id: applications-haproxy-snmp
 title: Haproxy SNMP
 ---
 

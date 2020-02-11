@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-dell-cmc-snmp
+id: hardware-servers-dell-cmc-snmp
 title: Dell CMC
 ---
 

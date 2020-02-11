@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-pdu-clever-snmp
+id: hardware-pdu-clever-snmp
 title: Clever PDU
 ---
 

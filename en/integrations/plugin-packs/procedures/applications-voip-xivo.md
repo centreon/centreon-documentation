@@ -1,5 +1,5 @@
 ---
-id: pp-applications-voip-xivo
+id: applications-voip-xivo
 title: XiVO VoIP Server
 ---
 

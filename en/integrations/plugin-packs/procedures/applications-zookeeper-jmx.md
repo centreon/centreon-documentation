@@ -1,5 +1,5 @@
 ---
-id: pp-applications-zookeeper-jmx
+id: applications-zookeeper-jmx
 title: Zookeeper
 ---
 

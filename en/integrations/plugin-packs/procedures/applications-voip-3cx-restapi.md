@@ -1,5 +1,5 @@
 ---
-id: pp-applications-voip-3cx-restapi
+id: applications-voip-3cx-restapi
 title: 3CX
 ---
 

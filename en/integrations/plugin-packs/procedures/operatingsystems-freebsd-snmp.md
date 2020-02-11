@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-freebsd-snmp
+id: operatingsystems-freebsd-snmp
 title: FreeBSD SNMP
 ---
 

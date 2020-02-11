@@ -1,5 +1,5 @@
 ---
-id: pp-virtualization-vmware2-vcenter-6
+id: virtualization-vmware2-vcenter-6
 title: VMware vCenter v6
 ---
 

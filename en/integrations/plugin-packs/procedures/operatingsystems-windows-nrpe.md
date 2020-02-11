@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-windows-nrpe
+id: operatingsystems-windows-nrpe
 title: Windows NRPE
 ---
 

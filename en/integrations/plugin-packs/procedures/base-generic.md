@@ -1,5 +1,5 @@
 ---
-id: pp-base-generic
+id: base-generic
 title: Base Pack
 ---
 

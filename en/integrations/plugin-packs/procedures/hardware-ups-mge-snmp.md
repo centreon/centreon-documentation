@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-ups-mge-snmp
+id: hardware-ups-mge-snmp
 title: MGE UPS System
 ---
 

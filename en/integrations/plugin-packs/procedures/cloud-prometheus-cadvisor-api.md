@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-prometheus-cadvisor-api
+id: cloud-prometheus-cadvisor-api
 title: cAdvisor
 ---
 

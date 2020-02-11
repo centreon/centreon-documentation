@@ -1,5 +1,5 @@
 ---
-id: pp-network-perle-ids-snmp
+id: network-perle-ids-snmp
 title: Perle IDS SNMP
 ---
 

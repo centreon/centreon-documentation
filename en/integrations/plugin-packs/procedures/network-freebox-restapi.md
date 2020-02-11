@@ -1,5 +1,5 @@
 ---
-id: pp-network-freebox-restapi
+id: network-freebox-restapi
 title: Freebox
 ---
 

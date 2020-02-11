@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-telnet
+id: applications-protocol-telnet
 title: Telnet Scenario
 ---
 

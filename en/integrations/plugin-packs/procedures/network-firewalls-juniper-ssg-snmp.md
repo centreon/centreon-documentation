@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-juniper-ssg-snmp
+id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG
 ---
 

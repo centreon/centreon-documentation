@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-oracle
+id: applications-databases-oracle
 title: Oracle Database
 ---
 

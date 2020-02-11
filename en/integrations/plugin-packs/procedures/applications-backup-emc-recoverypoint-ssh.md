@@ -1,5 +1,5 @@
 ---
-id: pp-applications-backup-emc-recoverypoint-ssh
+id: applications-backup-emc-recoverypoint-ssh
 title: EMC RecoveryPoint
 ---
 

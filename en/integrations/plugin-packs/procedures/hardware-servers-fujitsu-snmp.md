@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-fujitsu-snmp
+id: hardware-servers-fujitsu-snmp
 title: Fujitsu Server SNMP
 ---
 

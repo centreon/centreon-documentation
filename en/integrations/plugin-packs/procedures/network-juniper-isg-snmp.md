@@ -1,5 +1,5 @@
 ---
-id: pp-network-juniper-isg-snmp
+id: network-juniper-isg-snmp
 title: Juniper ISG
 ---
 

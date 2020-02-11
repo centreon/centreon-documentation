@@ -1,5 +1,5 @@
 ---
-id: pp-network-switchs-juniper-ex-snmp
+id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series
 ---
 

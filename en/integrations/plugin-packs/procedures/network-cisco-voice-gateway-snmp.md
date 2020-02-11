@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-voice-gateway-snmp
+id: network-cisco-voice-gateway-snmp
 title: Cisco Voice Gateway
 ---
 

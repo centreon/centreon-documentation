@@ -1,5 +1,5 @@
 ---
-id: pp-applications-lmsensors-snmp
+id: applications-lmsensors-snmp
 title: LM Sensors
 ---
 

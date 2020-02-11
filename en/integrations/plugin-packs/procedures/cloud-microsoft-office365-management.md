@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-microsoft-office365-management
+id: cloud-microsoft-office365-management
 title: Office 365
 ---
 

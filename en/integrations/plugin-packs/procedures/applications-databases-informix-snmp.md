@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-informix-snmp
+id: applications-databases-informix-snmp
 title: Informix DB SNMP
 ---
 

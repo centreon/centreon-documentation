@@ -4,43 +4,43 @@
             "init"
         ],
         "Tutorials": [
-            "tutorials/init"
+            "tutorials/init-tutorials"
         ],
         "Installation": [
-            "installation/init"
+            "installation/init-installation"
         ],
         "Upgrade": [
-            "upgrade/init"
+            "upgrade/init-upgrade"
         ],
         "Migrate": [
-            "migrate/init"
+            "migrate/init-migrate"
         ],
         "Monitoring": [
-            "monitoring/init"
+            "monitoring/init-monitoring"
         ],
         "Alert Management & Notifications": [
-            "alerts-notifications/init"
+            "alerts-notifications/init-alerts-notifications"
         ],
         "Dashboard": [
-            "dashboard/init"
+            "dashboard/init-dashboard"
         ],
         "Metrology": [
-            "metrology/init"
+            "metrology/init-metrology"
         ],
         "Service Mapping & Correlation": [
-            "service-mapping-correlation/init"
+            "service-mapping-correlation/init-service-mapping-correlation"
         ],
         "Data Presentation": [
-            "data-presentation/init"
+            "data-presentation/init-data-presentation"
         ],
         "Analytics": [
-            "analytics/init"
+            "analytics/init-analytics"
         ],
         "Administrate your Platform": [
-            "administrate/init"
+            "administrate/init'administrate"
         ],
         "Integrations: Plugin Packs": [
-            "integrations/plugin-packs/init",
+            "integrations/plugin-packs/init-plugin-packs",
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
@@ -548,31 +548,31 @@
             }
         ],
         "Integrations: Notifications Systems": [
-            "integrations/notifications/init"
+            "integrations/notifications/init-notification-integrations"
         ],
         "Integrations: Ticketing Systems": [
-            "integrations/ticketing/init"
+            "integrations/ticketing/init-ticketing"
         ],
         "Integrations: External Data Hub": [
-            "integrations/external/init"
+            "integrations/external/init-external-integrations"
         ],
         "API": [
-            "api/init"
+            "api/init-api"
         ],
         "Developer": [
-            "developer/init"
+            "developer/init-developer"
         ],
         "Release Notes": [
-            "release-notes/init"
+            "release-notes/init-release-notes"
         ],
         "Lifecycle": [
-            "lifecycle/init"
+            "lifecycle/init-lifecycle"
         ],
         "FAQ": [
-            "faq/init"
+            "faq/init-faq"
         ],
         "CEIP": [
-            "ceip/init"
+            "ceip/init-ceip"
         ]
     }
 }

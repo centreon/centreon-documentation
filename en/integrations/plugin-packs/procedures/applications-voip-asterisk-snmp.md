@@ -1,5 +1,5 @@
 ---
-id: pp-applications-voip-asterisk-snmp
+id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
 

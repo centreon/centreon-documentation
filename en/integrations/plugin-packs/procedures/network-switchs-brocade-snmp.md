@@ -1,5 +1,5 @@
 ---
-id: pp-network-switchs-brocade-snmp
+id: network-switchs-brocade-snmp
 title: Brocade Switch
 ---
 

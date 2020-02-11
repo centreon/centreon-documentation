@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-sensors-jacarta-snmp
+id: hardware-sensors-jacarta-snmp
 title: Jacarta Sensor
 ---
 

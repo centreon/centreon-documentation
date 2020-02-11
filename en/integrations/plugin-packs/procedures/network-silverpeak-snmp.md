@@ -1,5 +1,5 @@
 ---
-id: pp-network-silverpeak-snmp
+id: network-silverpeak-snmp
 title: Silverpeak
 ---
 

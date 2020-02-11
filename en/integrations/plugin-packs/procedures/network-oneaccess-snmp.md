@@ -1,5 +1,5 @@
 ---
-id: pp-network-oneaccess-snmp
+id: network-oneaccess-snmp
 title: OneAccess Network
 ---
 

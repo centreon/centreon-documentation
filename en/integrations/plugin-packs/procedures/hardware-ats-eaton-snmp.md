@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-ats-eaton-snmp
+id: hardware-ats-eaton-snmp
 title: Eaton ATS SNMP
 ---
 

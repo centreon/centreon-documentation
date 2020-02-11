@@ -1,5 +1,5 @@
 ---
-id: pp-operatingsystems-windows-nsclient-05-restapi
+id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
 

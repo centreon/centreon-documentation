@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-devices-camera-hikvision-snmp
+id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
 ---
 

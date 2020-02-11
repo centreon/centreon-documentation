@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-apic-restapi
+id: network-cisco-apic-restapi
 title: Cisco Apic
 ---
 

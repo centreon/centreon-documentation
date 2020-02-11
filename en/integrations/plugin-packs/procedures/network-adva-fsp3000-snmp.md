@@ -1,5 +1,5 @@
 ---
-id: pp-network-adva-fsp3000-snmp
+id: network-adva-fsp3000-snmp
 title: Adva FSP 3000 SNMP
 ---
 

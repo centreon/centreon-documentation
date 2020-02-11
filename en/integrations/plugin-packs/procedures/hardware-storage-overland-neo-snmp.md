@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-overland-neo-snmp
+id: hardware-storage-overland-neo-snmp
 title: Overland Neo
 ---
 

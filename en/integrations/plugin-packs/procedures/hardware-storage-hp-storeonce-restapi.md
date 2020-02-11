@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-hp-storeonce-restapi
+id: hardware-storage-hp-storeonce-restapi
 title: HP StoreOnce
 ---
 

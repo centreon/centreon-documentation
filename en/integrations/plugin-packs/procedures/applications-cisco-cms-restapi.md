@@ -1,5 +1,5 @@
 ---
-id: pp-applications-cisco-cms-restapi
+id: applications-cisco-cms-restapi
 title: Cisco CMS
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-pfsense-snmp
+id: network-firewalls-pfsense-snmp
 title: pfSense
 ---
 

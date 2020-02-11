@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-sonicwall-snmp
+id: network-firewalls-sonicwall-snmp
 title: Sonicwall
 ---
 

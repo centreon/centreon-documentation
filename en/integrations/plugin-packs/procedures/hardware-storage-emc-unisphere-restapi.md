@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-emc-unisphere-restapi
+id: hardware-storage-emc-unisphere-restapi
 title: EMC Unisphere Rest API
 ---
 

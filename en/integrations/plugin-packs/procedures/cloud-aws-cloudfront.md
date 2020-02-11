@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-aws-cloudfront
+id: cloud-aws-cloudfront
 title: Amazon CloudFront
 ---
 

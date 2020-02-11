@@ -1,5 +1,5 @@
 ---
-id: pp-applications-lync-2013-mssql
+id: applications-lync-2013-mssql
 title: Lync 2013
 ---
 

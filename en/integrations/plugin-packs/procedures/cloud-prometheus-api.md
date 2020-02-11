@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-prometheus-api
+id: cloud-prometheus-api
 title: Prometheus Server
 ---
 

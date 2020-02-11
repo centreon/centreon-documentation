@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-network-networkinterface
+id: cloud-azure-network-networkinterface
 title: Azure Network Interface
 ---
 

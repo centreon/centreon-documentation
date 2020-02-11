@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-ibm-ts3100-snmp
+id: hardware-storage-ibm-ts3100-snmp
 title: IBM TS3100
 ---
 

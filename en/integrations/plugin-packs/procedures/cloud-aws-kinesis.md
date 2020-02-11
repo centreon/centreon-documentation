@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-aws-kinesis
+id: cloud-aws-kinesis
 title: Amazon Kinesis
 ---
 

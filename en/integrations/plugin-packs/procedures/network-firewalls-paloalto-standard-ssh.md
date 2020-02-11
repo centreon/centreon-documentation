@@ -1,5 +1,5 @@
 ---
-id: pp-network-firewalls-paloalto-standard-ssh
+id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
 

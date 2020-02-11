@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-sensors-hwgste-snmp
+id: hardware-sensors-hwgste-snmp
 title: HWg-STE Sensor
 ---
 

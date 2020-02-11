@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-firebird
+id: applications-databases-firebird
 title: Firebird
 ---
 

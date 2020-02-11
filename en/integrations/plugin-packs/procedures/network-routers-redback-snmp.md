@@ -1,5 +1,5 @@
 ---
-id: pp-network-routers-redback-snmp
+id: network-routers-redback-snmp
 title: RedBack Router
 ---
 

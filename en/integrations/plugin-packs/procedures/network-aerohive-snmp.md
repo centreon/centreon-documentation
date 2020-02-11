@@ -1,5 +1,5 @@
 ---
-id: pp-network-aerohive-snmp
+id: network-aerohive-snmp
 title: Aerohive
 ---
 

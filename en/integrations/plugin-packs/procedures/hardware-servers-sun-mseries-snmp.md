@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-sun-mseries-snmp
+id: hardware-servers-sun-mseries-snmp
 title: Sun Mseries
 ---
 

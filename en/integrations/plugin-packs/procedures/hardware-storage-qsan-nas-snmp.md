@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-qsan-nas-snmp
+id: hardware-storage-qsan-nas-snmp
 title: QSAN NAS
 ---
 

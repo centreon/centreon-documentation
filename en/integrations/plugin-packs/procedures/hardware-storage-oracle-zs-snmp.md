@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-oracle-zs-snmp
+id: hardware-storage-oracle-zs-snmp
 title: Oracle ZS
 ---
 

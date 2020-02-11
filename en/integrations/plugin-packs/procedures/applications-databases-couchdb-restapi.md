@@ -1,5 +1,5 @@
 ---
-id: pp-applications-databases-couchdb-restapi
+id: applications-databases-couchdb-restapi
 title: CouchDB Rest API
 ---
 

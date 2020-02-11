@@ -1,5 +1,5 @@
 ---
-id: pp-applications-veeam-nrpe
+id: applications-veeam-nrpe
 title: Veeam
 ---
 

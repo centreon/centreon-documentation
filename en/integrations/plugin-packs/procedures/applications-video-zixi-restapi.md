@@ -1,5 +1,5 @@
 ---
-id: pp-applications-video-zixi-restapi
+id: applications-video-zixi-restapi
 title: ZIXI
 ---
 

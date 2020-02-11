@@ -1,5 +1,5 @@
 ---
-id: pp-applications-quadstor-nrpe
+id: applications-quadstor-nrpe
 title: Quadstor
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-kubernetes-api
+id: cloud-kubernetes-api
 title: Kubernetes API
 ---
 

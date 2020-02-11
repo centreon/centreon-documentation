@@ -1,5 +1,5 @@
 ---
-id: pp-applications-protocol-smtp
+id: applications-protocol-smtp
 title: SMTP Server
 ---
 

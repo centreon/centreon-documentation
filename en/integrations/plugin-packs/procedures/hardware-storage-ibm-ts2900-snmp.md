@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-ibm-ts2900-snmp
+id: hardware-storage-ibm-ts2900-snmp
 title: IBM TS2900
 ---
 

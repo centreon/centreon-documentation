@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-pdu-eaton-snmp
+id: hardware-pdu-eaton-snmp
 title: Eaton PDU SNMP
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-switchs-aruba-standard-snmp
+id: network-switchs-aruba-standard-snmp
 title: Aruba Standard
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-ibm-softlayer-api
+id: cloud-ibm-softlayer-api
 title: IBM Softlayer
 ---
 

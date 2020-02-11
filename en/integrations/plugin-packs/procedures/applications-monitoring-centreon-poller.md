@@ -1,5 +1,5 @@
 ---
-id: pp-applications-monitoring-centreon-poller
+id: applications-monitoring-centreon-poller
 title: Centreon Poller
 ---
 

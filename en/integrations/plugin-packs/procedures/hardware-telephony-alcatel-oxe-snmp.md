@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-telephony-alcatel-oxe-snmp
+id: hardware-telephony-alcatel-oxe-snmp
 title: Alcatel OXE
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-network-riverbed-interceptor-snmp
+id: network-riverbed-interceptor-snmp
 title: Riverbed Interceptor
 ---
 

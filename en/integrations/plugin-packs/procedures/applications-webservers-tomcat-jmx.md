@@ -1,5 +1,5 @@
 ---
-id: pp-applications-webservers-tomcat-jmx
+id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
 ---
 

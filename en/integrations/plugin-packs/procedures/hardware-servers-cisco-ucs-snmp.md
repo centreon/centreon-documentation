@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-servers-cisco-ucs-snmp
+id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: pp-hardware-storage-nimble-snmp
+id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
 

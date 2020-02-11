@@ -1,5 +1,5 @@
 ---
-id: pp-applications-jboss-jmx
+id: applications-jboss-jmx
 title: JBoss Server
 ---
 

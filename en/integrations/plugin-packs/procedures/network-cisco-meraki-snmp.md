@@ -1,5 +1,5 @@
 ---
-id: pp-network-cisco-meraki-snmp
+id: network-cisco-meraki-snmp
 title: Cisco Meraki
 ---
 

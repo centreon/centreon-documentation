@@ -1,5 +1,5 @@
 ---
-id: pp-cloud-azure-database-sqldatabase
+id: cloud-azure-database-sqldatabase
 title: Azure SQL Database
 ---
 

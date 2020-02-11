@@ -1,5 +1,5 @@
 ---
-id: pp-network-efficientip-snmp
+id: network-efficientip-snmp
 title: Efficienti IP
 ---
 

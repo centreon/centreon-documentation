@@ -1,5 +1,5 @@
 ---
-id: pp-applications-wazuh-restapi
+id: applications-wazuh-restapi
 title: Wazuh Rest API
 ---
 

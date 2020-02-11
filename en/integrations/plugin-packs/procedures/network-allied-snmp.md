@@ -1,5 +1,5 @@
 ---
-id: pp-network-allied-snmp
+id: network-allied-snmp
 title: Allied Telesis SNMP
 ---
 
