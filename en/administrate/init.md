@@ -1,5 +1,5 @@
 ---
-id: administration
+id: init-administrate
 title: About Administration
 ---
 

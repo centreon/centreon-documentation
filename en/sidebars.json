@@ -33,7 +33,7 @@
             "analytics/init-analytics"
         ],
         "Administrate your Platform": [
-            "administrate/init'administrate"
+            "administrate/init-administrate"
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
