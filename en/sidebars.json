@@ -1,18 +1,14 @@
 {
     "docs": {
-        "Welcome": [
-            "init"
-        ],
-        "Tutorials": [
+        "Getting Started": [
             "tutorials/init-tutorials"
         ],
         "Installation": [
-            "installation/init-installation"
+            "installation/init-installation",
+            "ceip/init-ceip"
         ],
-        "Upgrade": [
-            "upgrade/init-upgrade"
-        ],
-        "Migrate": [
+        "Upgrade & Migrate": [
+            "upgrade/init-upgrade",
             "migrate/init-migrate"
         ],
         "Monitoring": [
@@ -39,7 +35,7 @@
         "Administrate your Platform": [
             "administrate/init'administrate"
         ],
-        "Integrations: Plugin Packs": [
+        "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
             {
                 "ids": [
@@ -547,13 +543,9 @@
                 "type": "subcategory"
             }
         ],
-        "Integrations: Notifications Systems": [
-            "integrations/notifications/init-notification-integrations"
-        ],
-        "Integrations: Ticketing Systems": [
-            "integrations/ticketing/init-ticketing"
-        ],
-        "Integrations: External Data Hub": [
+        "Integrations": [
+            "integrations/notifications/init-notification-integrations",
+            "integrations/ticketing/init-ticketing",
             "integrations/external/init-external-integrations"
         ],
         "API": [
@@ -562,17 +554,9 @@
         "Developer": [
             "developer/init-developer"
         ],
-        "Release Notes": [
-            "release-notes/init-release-notes"
-        ],
-        "Lifecycle": [
+        "Releases": [
+            "release-notes/init-release-notes",
             "lifecycle/init-lifecycle"
-        ],
-        "FAQ": [
-            "faq/init-faq"
-        ],
-        "CEIP": [
-            "ceip/init-ceip"
         ]
     }
 }
