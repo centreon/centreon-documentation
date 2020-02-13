@@ -24,7 +24,7 @@ const siteConfig = {
   title: 'Centreon documentation', // Title for your website.
   tagline: 'A documentation that rocks !',
   url: 'https://www.centreon.com', // Your website URL
-  baseUrl: '/centreon-documentation/@ENVIRONMENT@/@VERSION@/@LANGUAGE@/', // Base URL for your project */
+  baseUrl: '/@BASEURL@/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -83,9 +83,9 @@ const siteConfig = {
   scripts: [
     'https://buttons.github.io/buttons.js',
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
-    '/centreon-documentation/staging/@VERSION@/@LANGUAGE@/js/code-block-button.js',
-    '/centreon-documentation/staging/@VERSION@/@LANGUAGE@/js/languages-select.js',
-    '/centreon-documentation/staging/@VERSION@/@LANGUAGE@/js/versions-select.js'
+    '/@BASEURL@/js/code-block-button.js',
+    '/@BASEURL@/js/languages-select.js',
+    '/@BASEURL@/js/versions-select.js'
   ],
 
   // On page navigation for the current documentation page.
