@@ -3,18 +3,316 @@ id: clapi
 title: Command Line API (v1)
 ---
 
-## Action ACL
+## Overview
 
-### Overview
+Centreon CLAPI aims to offer (almost) all the features that are available on the user interface in terms of
+configuration.
+
+### Features
+
+* Add/Delete/Update objects such as hosts, services, host templates, host groups, contacts etc...
+* Generate configuration files
+* Test configuration files
+* Move configuration files to monitoring pollers
+* Restart monitoring pollers
+* Import and export objects
+
+### Basic usage
+
+All actions in Centreon CLAPI will require authentication, so your commands will always start like this:
+
+``` shell
+centreon -u admin -p centreon [...]
+```
+
+Obviously, the **-u** option is for the username and the **-p** option is for the password. The password can be in clear
+or the encrypted in the database.
+
+> ***NOTE:*** If your passwords are encoded with SHA1 in database (MD5 by default), use the **-s** option:
+
+``` shell
+centreon -u admin -p centreon -s [...]
+```
+
+## Objects
+
+### ACL
+
+Object name: **ACL**
+
+#### Reload
+
+In order to reload ACL, use the **RELOAD** command:
+
+``` shell
+centreon -u admin -p centreon -o ACL -a reload
+```
+
+#### Lastreload
+
+In order to check when the ACL was last reloaded, use the **LASTRELOAD** command:
+
+``` shell
+centreon -u admin -p centreon -o ACL -a lastreload
+1329833702
+```
+
+If you wish to get a human readable time format instead of a timestamp, use the following command:
+
+``` shell
+centreon -u admin -p centreon -o ACL -a lastreload -v "d-m-Y H:i:s"
+21-02-2012 15:17:01
+```
+
+You can change the date format:
+
+| Format character | Description |
+| ---------------- | ----------- |
+| d                | Day         |
+| m                | Month       |
+| Y                | Year        |
+| H                | Hour        |
+| i                | Minute      |
+| s                | Second      |
+
+### ACL Groups
+
+Object name: **ACLGROUP**
+
+#### Show
+
+In order to list available ACL Groups, use the **SHOW** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a show
+id;name;alias;activate
+1;ALL;ALL;1
+[...]
+```
+
+Columns are the following :
+
+| Column   | Description                              |
+| -------- | ---------------------------------------- |
+| ID       | ID                                       |
+| Name     | Name                                     |
+| Alias    | Alias                                    |
+| Activate | 1 when ACL Group is enabled, 0 otherwise |
+
+#### Add
+
+In order to add an ACL Group, use the **ADD** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a add -v "ACL Group test;my alias"
+```
+
+Required fields are:
+
+| Column | Description |
+| ------ | ----------- |
+| Name   | Name        |
+| Alias  | Alias       |
+
+#### Del
+
+If you want to remove an ACL Group, use the **DEL** action. The Name is used for identifying the ACL Group to delete:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a del -v "ACL Group test"
+```
+
+#### Setparam
+
+If you want to change a specific parameter of an ACL Group, use the **SETPARAM** action. The Name is used for
+identifying the ACL Group to update:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a setparam -v "ACL Group test;alias;my new alias"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL Group  |
+| 2     | Parameter name     |
+| 3     | Parameter value    |
+
+Parameters that you may change are:
+
+| Column   | Description                              |
+| -------- | ---------------------------------------- |
+| name     |                                          |
+| alias    |                                          |
+| activate | 1 when ACL Group is enabled, 0 otherwise |
+
+#### Getmenu
+
+If you want to retrieve the Menu Rules that are linked to a specific ACL Group, use the **GETMENU** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a getmenu -v "ACL Group test" 
+id;name
+1;Configuration
+3;Reporting
+4;Graphs
+2;Monitoring + Home
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL group  |
+
+#### Getaction
+
+If you want to retrieve the Action Rules that are linked to a specific ACL Group, use the **GETACTION** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a getaction -v "ACL Group test"
+id;name
+1;Simple action rule
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL group  |
+
+#### Getresource
+
+If you want to retrieve the Resource Rules that are linked to a specific ACL Group, use the **GETRESOURCE** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a getresource -v "ACL Group test"
+id;name
+1;All Resources
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL group  |
+
+#### Getcontact and Getcontactgroup
+
+If you want to retrieve the Contacts that are linked to a specific ACL Group, use the **GETCONTACT** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a getcontact -v "ACL Group test"
+id;name
+1;user1
+```
+
+If you want to retrieve the Contact Groups that are linked to a specific ACL Group, use the **GETCONTACTGROUP** action:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a getcontactgroup -v "ACL Group test"
+id;name
+1;usergroup1
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL group  |
+
+#### Setmenu, Setaction, Setresource, Addmenu, Addaction, Addresource
+
+If you want to link rules to a specific ACL Group, use the following actions: **SETMENU**, **SETACTION**,
+**SETRESOURCE**, **ADDMENU**, **ADDACTION**, **ADDRESOURCE**:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a setmenu -v "ACL Group test;Menu rule 1|Menu rule 2"
+```
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a addresource -v "ACL Group test;All Routers"
+```
+
+| Command type | Description                                                      |
+| ------------ | ---------------------------------------------------------------- |
+| set\*        | Overwrites previous definitions. Use the delimiter               |
+| add\*        | Appends new rules to the previous definitions. Use the delimiter |
+
+Arguments are composed of the following columns:
+
+| Order | Column description           |
+| ----- | ---------------------------- |
+| 1     | Name of ACL group            |
+| 2     | Name of the ACL rule to link |
+
+#### Delmenu, Delaction, Delresource
+
+If you want to remove rules from a specific ACL Group, use the following actions: **DELMENU**, **DELACTION**,
+**DELRESOURCE**:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a delaction -v "ACL Group test;Ack rule|Downtime rule"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description             |
+| ----- | ------------------------------ |
+| 1     | Name of ACL group              |
+| 2     | Name of the ACL rule to remove |
+
+#### Setcontact, Setcontactgroup, Addcontact, Addcontactgroup
+
+If you want to link contacts or contact groups to a specific ACL Group, use the following actions: **SETCONTACT**,
+**SETCONTACTGROUP**, **ADDCONTACT**, **ADDCONTACTGROUP**:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a setcontact -v "ACL Group test;user1"
+```
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a addcontactgroup -v "ACL Group test;usergroup1"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description               |
+| ----- | -------------------------------- |
+| 1     | Name of ACL group                |
+| 2     | Contact/Contact group to add/set |
+
+| Command type | Description                                                                        |
+| ------------ | ---------------------------------------------------------------------------------- |
+| set\*        | Overwrites previous definitions. Use the delimiter                                 |
+| add\*        | Appends new contacts/contact groups to the previous definitions. Use the delimiter |
+
+#### Delcontact, Delcontactgroup
+
+If you want to remove rules from a specific ACL Group, use the following actions: **DELCONTACT**, **DELCONTACTGROUP**:
+
+``` shell
+centreon -u admin -p centreon -o ACLGROUP -a delcontact -v "ACL Group test;user1" 
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description                             |
+| ----- | ---------------------------------------------- |
+| 1     | Name of ACL group                              |
+| 2     | Contact/Contact group to remove from ACL group |
+
+### Action ACL
 
 Object name: **ACLACTION**
 
-### Show
+#### Show
 
 In order to list available ACL Actions, use the **SHOW** action:
 
-```
-centreon -u admin -p centreon -o ACLACTION -a SHOW
+``` shell
+centreon -u admin -p centreon -o ACLACTION -a show
 id;name;description;activate
 1;Simple User;Simple User;1
 [...]
@@ -22,70 +320,43 @@ id;name;description;activate
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>ID</p>
-<p>Name</p>
-<p>Description</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Activate</td>
-<td>1 when ACL Action is enabled, 0 otherwise</td>
-</tr>
-</tbody>
-</table>
+| Column      | Description                               |
+| ----------- | ----------------------------------------- |
+| ID          |                                           |
+| Name        |                                           |
+| Description |                                           |
+| Activate    | 1 when ACL Action is enabled, 0 otherwise |
 
-### Add
+#### Add
 
 In order to add an ACL Action, use the **ADD** action:
 
-```
-centreon -u admin -p centreon -o ACLACTION -a ADD -v "ACL Action test;my description"
+``` shell
+centreon -u admin -p centreon -o ACLACTION -a add -v "ACL Action test;my description"
 ```
 
 Required fields:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Name</p>
-<p>Description</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| Column      | Description |
+| ----------- | ----------- |
+| Name        |             |
+| Description |             |
 
-### Del
+#### Del
 
-If you want to remove an ACL Action, use the **DEL** action. The Name is
-used for identifying the ACL Action to delete:
+If you want to remove an ACL Action, use the **DEL** action. The Name is used for identifying the ACL Action to delete:
 
-```
-centreon -u admin -p centreon -o ACLACTION -a DEL -v "ACL Action test"
+``` shell
+centreon -u admin -p centreon -o ACLACTION -a del -v "ACL Action test"
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of an ACL Action, use the
-**SETPARAM** action. The Name is used for identifying the ACL Action to
-update:
+If you want to change a specific parameter of an ACL Action, use the **SETPARAM** action. The Name is used for
+identifying the ACL Action to update:
 
-```
-centreon -u admin -p centreon -o ACLACTION -a SETPARAM -v "ACL Action test;description;my new description"
+``` shell
+centreon -u admin -p centreon -o ACLACTION -a setparam -v "ACL Action test;description;my new description"
 ```
 
 Arguments are composed of the following columns:
@@ -98,27 +369,13 @@ Arguments are composed of the following columns:
 
 Parameters that you may change are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p>
-<p>description</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>activate</td>
-<td>1 when ACL Action is enabled, 0 otherwise</td>
-</tr>
-</tbody>
-</table>
+| Column      | Description                               |
+| ----------- | ----------------------------------------- |
+| name        |                                           |
+| description |                                           |
+| activate    | 1 when ACL Action is enabled, 0 otherwise |
 
-### Getaclgroup
+#### Getaclgroup
 
 If you want to retrieve the ACL Groups that are linked to a specific ACL Action, use the **GETACLGROUP** command.
 
@@ -128,19 +385,19 @@ Arguments are composed of the following columns:
 | ----- | ----------------------- |
 | 1     | Name of ACL action rule |
 
-#### Example
+##### Example
 
-```
-centreon -u admin -p centreon -o ACLACTION -a GETACLGROUP -v "ACL Action test"
+``` shell
+centreon -u admin -p centreon -o ACLACTION -a getaclgroup -v "ACL Action test"
 id;name
 1;ALL
 3;Operators
 ```
 
-### Grant and Revoke
+#### Grant and Revoke
 
-If you want to grant or revoke actions in an ACL Action rule definition,
-use the following commands: **GRANT**, **REVOKE**.
+If you want to grant or revoke actions in an ACL Action rule definition, use the following commands: **GRANT**,
+**REVOKE**.
 
 Arguments are composed of the following columns:
 
@@ -149,31 +406,30 @@ Arguments are composed of the following columns:
 | 1     | Name of ACL action rule |
 | 2     | Actions to grant/revoke |
 
-#### Example
+##### Example
 
-```
+``` shell
 centreon -u admin -p centreon -o ACLACTION -a grant -v "ACL Action test;host_acknowledgement|service_acknowledgement"
-
 ```
 
-```
+``` shell
 centreon -u admin -p centreon -o ACLACTION -a revoke -v "ACL Action test;host_schedule_downtime|service_schedule_downtime"
 ```
 
 The **\`\*\`** wildcard can be used in order to grant or revoke all actions:
 
-```
+``` shell
 centreon -u admin -p centreon -o ACLACTION -a grant -v "ACL Action test;*"
 ```
 
-```
+``` shell
 centreon -u admin -p centreon -o ACLACTION -a revoke -v "ACL Action test;*"
 ```
 
 Below is the list of actions that you can grant/revoke:
 
 | Action                             | Description                                                                  |
-| ---------------------------------- | -----------------------------------------------------------------------------|
+| ---------------------------------- | ---------------------------------------------------------------------------- |
 | global\_event\_handler             | Permission to globally enable/disable event handlers                         |
 | global\_flap\_detection            | Permission to globally enable/disable flap detection                         |
 | global\_host\_checks               | Permission to globally enable/disable host active checks                     |
@@ -213,385 +469,41 @@ Below is the list of actions that you can grant/revoke:
 | service\_submit\_result            | Permission to submit a passive check result to a service                     |
 | top\_counter                       | Permission to see the quick status overview (top right corner of the screen) |
 
-## ACL Groups
+### Menu ACL
 
-### Overview
+Object name: **ACLMENU**
 
-Object name: **ACLGROUP**
+#### Show
 
-### Show
+In order to list available ACL Menus, use the **SHOW** action:
 
-In order to list available ACL Groups, use the **SHOW** action::
-
-```
-centreon -u admin -p centreon -o ACLGROUP -a SHOW
-id;name;alias;activate
-1;ALL;ALL;1
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a show 
+id;name;alias;comment;activate
+1;Configuration;Configuration;;1
+2;Monitoring + Home;Monitoring + Home;;1
+3;Reporting;Reporting;;1
+4;Graphs;Graphs;just a comment;1
 [...]
 ```
 
 Columns are the following :
 
-| Column   | Description                              |
-| -------- | ---------------------------------------- |
-| ID ID    |                                          |
-| Name     | Name                                     |
-| Alias    | Alias                                    |
-| Activate | 1 when ACL Group is enabled, 0 otherwise |
-
-### Add
-
-In order to add an ACL Group, use the **ADD** action::
-
-```
-centreon -u admin -p centreon -o ACLGROUP -a ADD -v "ACL Group test;my alias"
-```
-
-Required fields are:
-
-| Column | Description |
-| ------ | ----------- |
-| Name   | Name        |
-| Alias  | Alias       |
-
-### Del
-
-If you want to remove an ACL Group, use the **DEL** action. The Name is
-used for identifying the ACL Group to delete::
-
-    centreon -u admin -p centreon -o ACLGROUP -a DEL -v "ACL Group test"
-
-### Setparam
-
-If you want to change a specific parameter of an ACL Group, use the
-**SETPARAM** action. The Name is used for identifying the ACL Group to update:
-
-```
-centreon -u admin -p centreon -o ACLGROUP -a setparam -v "ACL Group test;alias;my new alias"
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL Group</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
-
-Parameters that you may change are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p>
-<p>alias</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>activate</td>
-<td>1 when ACL Group is enabled, 0 otherwise</td>
-</tr>
-</tbody>
-</table>
-
-### Getmenu
-
-If you want to retrieve the Menu Rules that are linked to a specific ACL
-Group, use the **GETMENU** action::
-
-    centreon -u admin -p centreon -o ACLGROUP -a getmenu -v "ACL Group test" 
-    id;name
-    1;Configuration
-    3;Reporting
-    4;Graphs
-    2;Monitoring + Home
-
-Arguments are composed of the following columns:
-
-| Order | Column description |
-| ----- | ------------------ |
-| 1 Nam | e of ACL group     |
-
-### Getaction
-
-If you want to retrieve the Action Rules that are linked to a specific
-ACL Group, use the **GETACTION** action::
-
-    centreon -u admin -p centreon -o ACLGROUP -a getaction -v "ACL Group test" 
-    id;name
-    1;Simple action rule
-
-Arguments are composed of the following columns:
-
-| Order | Column description |
-| ----- | ------------------ |
-| 1 Nam | e of ACL group     |
-
-### Getresource
-
-If you want to retrieve the Resource Rules that are linked to a specific
-ACL Group, use the **GETRESOURCE** action::
-
-    centreon -u admin -p centreon -o ACLGROUP -a getresource -v "ACL Group test" 
-    id;name
-    1;All Resources
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1 Name</td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-### Getcontact and Getcontactgroup
-
-If you want to retrieve the Contacts that are linked to a specific ACL
-Group, use the **GETCONTACT** action::
-
-    centreon -u admin -p centreon -o ACLGROUP -a getcontact -v "ACL Group test" 
-    id;name
-    1;user1
-
-If you want to retrieve the Contact Groups that are linked to a specific
-ACL Group, use the **GETCONTACTGROUP** action::
-
-    centreon -u admin -p centreon -o ACLGROUP -a getcontactgroup -v "ACL Group test" 
-    id;name
-    1;usergroup1
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1 Name</td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-### Setmenu, Setaction, Setresource, Addmenu, Addaction, Addresource
-
-If you want to link rules to a specific ACL Group, use the following
-actions: **SETMENU**, **SETACTION**, **SETRESOURCE**, **ADDMENU**,
-**ADDACTION**, **ADDRESOURCE**:
-
-    centreon -u admin -p centreon -o ACLGROUP -a setmenu -v "ACL Group test;Menu rule 1|Menu rule 2" 
-    
-    centreon -u admin -p centreon -o ACLGROUP -a addresource -v "ACL Group test;All Routers"
-
-| Command type | Description                                                      |
-| ------------ | ---------------------------------------------------------------- |
-| set\*        | Overwrites previous definitions. Use the delimiter               |
-| add\*        | Appends new rules to the previous definitions. Use the delimiter |
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Name</td>
-<td><blockquote>
-<p>of the ACL rule to link</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-### Delmenu, Delaction, Delresource
-
-If you want to remove rules from a specific ACL Group, use the following
-actions: **DELMENU**, **DELACTION**, **DELRESOURCE**:
-
-    centreon -u admin -p centreon -o ACLGROUP -a delaction -v "ACL Group test;Ack rule|Downtime rule"
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Name</td>
-<td><blockquote>
-<p>of the ACL rule to remove</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-### Setcontact, Setcontactgroup, Addcontact, Addcontactgroup
-
-If you want to link contacts or contact groups to a specific ACL Group,
-use the following actions: **SETCONTACT**, **SETCONTACTGROUP**,
-**ADDCONTACT**, **ADDCONTACTGROUP**:
-
-``` 
-centreon -u admin -p centreon -o ACLGROUP -a setcontact -v "ACL Group test;user1" 
-
-centreon -u admin -p centreon -o ACLGROUP -a addcontactgroup -v "ACL Group test;usergroup1" 
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Cont</td>
-<td>act/Contact group to add/set</td>
-</tr>
-</tbody>
-</table>
-
-| Command type | Description                                                                        |
-| ------------ | ---------------------------------------------------------------------------------- |
-| set\*        | Overwrites previous definitions. Use the delimiter                                 |
-| add\*        | Appends new contacts/contact groups to the previous definitions. Use the delimiter |
-
-### Delcontact, Delcontactgroup
-
-If you want to remove rules from a specific ACL Group, use the following
-actions: **DELCONTACT**, **DELCONTACTGROUP**:
-
-``` 
-centreon -u admin -p centreon -o ACLGROUP -a delcontact -v "ACL Group test;user1" 
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Cont</td>
-<td>act/Contact group to remove from ACL group</td>
-</tr>
-</tbody>
-</table>
-
-## Menu ACL
-
-### Overview
-
-Object name: **ACLMENU**
-
-### Show
-
-In order to list available ACL Menus, use the **SHOW** action::
-
-    centreon -u admin -p centreon -o ACLMENU -a show 
-    id;name;alias;comment;activate
-    1;Configuration;Configuration;;1
-    2;Monitoring + Home;Monitoring + Home;;1
-    3;Reporting;Reporting;;1
-    4;Graphs;Graphs;just a comment;1
-    [...]
-
-Columns are the following :
-
 | Column   | Description                             |
 | -------- | --------------------------------------- |
-| ID ID    |                                         |
+| ID       | ID                                      |
 | Name     | Name                                    |
 | Alias    | Alias                                   |
 | Comment  | Comment                                 |
 | Activate | 1 when ACL Menu is enabled, 0 otherwise |
 
-### Add
+#### Add
 
-In order to add an ACL Menu, use the **ADD** action::
+In order to add an ACL Menu, use the **ADD** action:
 
-    centreon -u admin -p centreon -o ACLMENU -a add -v "ACL Menu test;my alias"
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a add -v "ACL Menu test;my alias"
+```
 
 Required fields are:
 
@@ -600,51 +512,30 @@ Required fields are:
 | Name   | Name        |
 | Alias  | Alias       |
 
-### Del
+#### Del
 
-If you want to remove an ACL Menu, use the **DEL** action. The Name is
-used for identifying the ACL Menu to delete:
+If you want to remove an ACL Menu, use the **DEL** action. The Name is used for identifying the ACL Menu to delete:
 
-``` 
-centreon -u admin -p centreon -o ACLMENU -a del -v "ACL Menu test" 
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a del -v "ACL Menu test"
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of an ACL Menu, use the
-**SETPARAM** action. The Name is used for identifying the ACL Menu to
-update:
+If you want to change a specific parameter of an ACL Menu, use the **SETPARAM** action. The Name is used for identifying
+the ACL Menu to update:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o ACLMENU -a setparam -v "ACL Menu test;alias;my new alias" 
 ```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL menu rule</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of ACL menu rule |
+| 2     | Parameter name        |
+| 3     | Parameter value       |
 
 Parameters that you may change are:
 
@@ -655,60 +546,51 @@ Parameters that you may change are:
 | activate | 1 when ACL Menu is enabled, 0 otherwise |
 | comment  | Comment                                 |
 
-### Getaclgroup
+#### Getaclgroup
 
-If you want to retrieve the ACL Groups that are linked to a specific ACL
-Menu, use the **GETACLGROUP** action:
+If you want to retrieve the ACL Groups that are linked to a specific ACL Menu, use the **GETACLGROUP** action:
 
-    centreon -u admin -p centreon -o ACLMENU -a getaclgroup -v "ACL Menu test" 
-    id;name
-    1;ALL
-    3;Operators
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a getaclgroup -v "ACL Menu test"
+id;name
+1;ALL
+3;Operators
+```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1 Name</td>
-<td><blockquote>
-<p>of ACL menu rule</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
+| Order | Column description    |
+| ----- | --------------------- |
+| 1     | Name of ACL menu rule |
 
-### Grant and Revoke
+#### Grant and Revoke
 
-If you want to grant in Read/Write, Read Only or revoke menus in an ACL
-Menu rule definition, use the following actions: **GRANTRW**,
-**GRANTRO**, **REVOKE**
+If you want to grant in Read/Write, Read Only or revoke menus in an ACL Menu rule definition, use the following actions:
+**GRANTRW**, **GRANTRO**, **REVOKE**
 
-Let's assume that you would like to grant full access to the
-\[Monitoring\] menu in your ACL Menu rule::
+Let's assume that you would like to grant full access to the \[Monitoring\] menu in your ACL Menu rule:
 
-    centreon -u admin -p centreon -o ACLMENU -a grantrw -v "ACL Menu test;1;Monitoring"
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a grantrw -v "ACL Menu test;1;Monitoring"
+```
 
-Then, you would like to grant access to the \[Home\] \> \[Poller
-statistics\] menu::
+Then, you would like to grant access to the \[Home\] \> \[Poller statistics\] menu:
 
-    centreon -u admin -p centreon -o ACLMENU -a grantrw -v "ACL Menu test;1;Home;Poller statistics"
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a grantrw -v "ACL Menu test;1;Home;Poller statistics"
+```
 
-Then, you would like to grant access in read only to the
-\[Configuration\] \> \[Hosts\] menu::
+Then, you would like to grant access in read only to the \[Configuration\] \> \[Hosts\] menu:
 
-    centreon -u admin -p centreon -o ACLMENU -a grantro -v "ACL Menu test;1;Configuration;Hosts"
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a grantro -v "ACL Menu test;1;Configuration;Hosts"
+```
 
-Then, you decide to revoke access from \[Monitoring\] \> \[Event
-Logs\]::
+Then, you decide to revoke access from \[Monitoring\] \> \[Event Logs\]:
 
-    centreon -u admin -p centreon -o ACLMENU -a revoke -v "ACL Menu test;1;Monitoring;Event Logs"
+``` shell
+centreon -u admin -p centreon -o ACLMENU -a revoke -v "ACL Menu test;1;Monitoring;Event Logs"
+```
 
 Arguments are composed of the following columns:
 
@@ -719,36 +601,36 @@ Arguments are composed of the following columns:
 | 3     | Menu name to grant/revoke   |
 | n     | Possible sub menu name      |
 
-## Resource ACL
-
-### Overview
+### Resource ACL
 
 Object name: **ACLRESOURCE**
 
-### Show
+#### Show
 
-In order to list available ACL Resources, use the **SHOW** action::
+In order to list available ACL Resources, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o ACLRESOURCE -a show 
-    id;name;alias;comment;activate
-    1;All Resources;All Resources;;1
-    [...]
+``` shell
+centreon -u admin -p centreon -o ACLRESOURCE -a show 
+id;name;alias;comment;activate
+1;All Resources;All Resources;;1
+[...]
+```
 
 Columns are the following :
 
 | Column   | Description                                 |
 | -------- | ------------------------------------------- |
-| ID ID    |                                             |
+| ID       | ID                                          |
 | Name     | Name                                        |
 | Alias    | Alias                                       |
 | Comment  | Comment                                     |
 | Activate | 1 when ACL Resource is enabled, 0 otherwise |
 
-### Add
+#### Add
 
-In order to add an ACL Resource, use the **ADD** action::
+In order to add an ACL Resource, use the **ADD** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o ACLRESOURCE -a add -v "ACL Resource test;my alias" 
 ```
 
@@ -759,51 +641,31 @@ Required fields are:
 | Name   | Name        |
 | Alias  | Alias       |
 
-### Del
+#### Del
 
-If you want to remove an ACL Resource, use the **DEL** action. The Name
-is used for identifying the ACL Resource to delete::
+If you want to remove an ACL Resource, use the **DEL** action. The Name is used for identifying the ACL Resource to
+delete:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o ACLRESOURCE -a del -v "ACL Resource test" 
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of an ACL Resource, use the
-**SETPARAM** action. The Name is used for identifying the ACL Resource
-to update::
+If you want to change a specific parameter of an ACL Resource, use the **SETPARAM** action. The Name is used for
+identifying the ACL Resource to update:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o ACLRESOURCE -a setparam -v "ACL Resource test;alias;my new alias" 
 ```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of ACL resource rule</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
+| Order | Column description        |
+| ----- | ------------------------- |
+| 1     | Name of ACL resource rule |
+| 2     | Parameter name            |
+| 3     | Parameter value           |
 
 Parameters that you may change are:
 
@@ -813,186 +675,84 @@ Parameters that you may change are:
 | alias    | Alias                                       |
 | activate | 1 when ACL Resource is enabled, 0 otherwise |
 
-### Getaclgroup
+#### Getaclgroup
 
-If you want to retrieve the ACL Groups that are linked to a specific ACL
-Resource, use the **GETACLGROUP** action::
+If you want to retrieve the ACL Groups that are linked to a specific ACL Resource, use the **GETACLGROUP** action:
 
-    centreon -u admin -p centreon -o ACLRESOURCE -a getaclgroup -v "ACL Resource test" 
-    id;name
-    1;ALL
-    3;Operators
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1 Name</td>
-<td><blockquote>
-<p>of ACL group</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-### Grant and revoke
+``` shell
+centreon -u admin -p centreon -o ACLRESOURCE -a getaclgroup -v "ACL Resource test"
+id;name
+1;ALL
+3;Operators
+```
 
 Arguments are composed of the following columns:
 
 | Order | Column description |
 | ----- | ------------------ |
-| 1 Nam | e of ACL group     |
-| 2 Nam | e of resource      |
+| 1     | Name of ACL group  |
 
-If you want to grant or revoke resources in an ACL Resource rule
-definition, use the following commands:
+#### Grant and revoke
 
-<table>
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>Description</th>
-<th>Example</th>
-<th>Wildcard '*' supported</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>grant_host Put grant_hostgroup grant_servicegroup Put grant_metaservice Put addhostexclusion Put revoke_host Put revoke_hostgroup Put revoke_servicegroup Put revoke_metaservice Put delhostexclusion Put addfilter_instance Put addfilter_hostcategory</p></td>
-<td><p>host name(s) [...] -a Put hostgroup name(s) servicegroup name(s) [...] -a metaservice name(s) [...] -a host name(s) [...] -a host name(s) [...] -a hostgroup name(s) [... servicegroup name(s) [...] -a metaservice name(s) [...] -a host name(s) [...] -a del instance name(s) [... Put host category name(s) [...</p></td>
-<td><blockquote>
-<p>grant_host -v "ACL Resource Test;srv-esx" Yes</p>
-</blockquote>
-<dl>
-<dt>[...] -a grant_hostgroup -v "ACL Resource Test;Linux servers" Yes</dt>
-<dd><p>grant_servicegroup -v "ACL Resource Test;Ping" Yes grant_metaservice -v "ACL Resource Test;Traffic Average" No addhostexclusion -v "ACL Resource Test;srv-test|srv-test2" No revoke_host -v "ACL Resource Test;srv-esx" Yes</p>
-</dd>
-<dt>] -a revoke_hostgroup -v "ACL Resource Test;Linux servers" Yes</dt>
-<dd><p>revoke_servicegroup -v "ACL Resource Test;Ping" Yes revoke_metaservice -v "ACL Resource Test;Traffic Average" Yes</p>
-</dd>
-</dl>
-<p>hostexclusion -v "ACL Resource Test;srv-test|srv-test2" Yes ] -a addfilter_instance -v "ACL Resource Test;Monitoring-2" No ] -a addfilter_hostcategory -v "ACL Resource Test;Customer-1" No</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>addfilter_servicecategory delfilter_instance Put delfilter_hostcategory</p></td>
-<td><p>Put service category name(s) instance name(s) [... Put host category name(s) [...</p></td>
-<td><p>[...] -a addfilter_servicecategory -v "ACL Resource Test;System" ] -a delfilter_instance -v "ACL Resource Test;Monitoring-2" Yes ] -a delfilter_hostcategory -v "ACL Resource Test;Customer-1" Yes</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="odd">
-<td>delfilter_servicecategory</td>
-<td>Put service category name(s)</td>
-<td>[...] -a delfilter_servicecategory -v "ACL Resource Test;System"</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
+Arguments are composed of the following columns:
 
-<div class="note">
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of ACL group  |
+| 2     | Name of resource   |
 
-<div class="title">
+If you want to grant or revoke resources in an ACL Resource rule definition, use the following commands:
 
-Note
+| Command                    | Description                  | Example                                                                | Wildcard '\*' supported |
+| -------------------------- | ---------------------------- | ---------------------------------------------------------------------- | ----------------------- |
+| grant\_host                | Put host name(s)             | \[...\] -a grant\_host -v "ACL Resource Test;srv-esx"                  | Yes                     |
+| grant\_hostgroup           | Put hostgroup name(s)        | \[...\] -a grant\_hostgroup -v "ACL Resource Test;Linux servers"       | Yes                     |
+| grant\_servicegroup        | Put servicegroup name(s)     | \[...\] -a grant\_servicegroup -v "ACL Resource Test;Ping"             | Yes                     |
+| grant\_metaservice         | Put metaservice name(s)      | \[...\] -a grant\_metaservice -v "ACL Resource Test;Traffic Average"   | No                      |
+| addhostexclusion           | Put host name(s)             | \[...\] -a addhostexclusion -v "ACL Resource Test;srv-test"            | No                      |
+| revoke\_host               | Put host name(s)             | \[...\] -a revoke\_host -v "ACL Resource Test;srv-esx"                 | Yes                     |
+| revoke\_hostgroup          | Put hostgroup name(s)        | \[...\] -a revoke\_hostgroup -v "ACL Resource Test;Linux servers"      | Yes                     |
+| revoke\_servicegroup       | Put servicegroup name(s)     | \[...\] -a revoke\_servicegroup -v "ACL Resource Test;Ping"            | Yes                     |
+| revoke\_metaservice        | Put metaservice name(s)      | \[...\] -a revoke\_metaservice -v "ACL Resource Test;Traffic Average"  | Yes                     |
+| delhostexclusion           | Put host name(s)             | \[...\] -a delhostexclusion -v "ACL Resource Test;srv-test"            | Yes                     |
+| addfilter\_instance        | Put instance name(s)         | \[...\] -a addfilter\_instance -v "ACL Resource Test;Monitoring-2"     | No                      |
+| addfilter\_hostcategory    | Put host category name(s)    | \[...\] -a addfilter\_hostcategory -v "ACL Resource Test;Customer-1"   | No                      |
+| addfilter\_servicecategory | Put service category name(s) | \[...\] -a addfilter\_servicecategory -v "ACL Resource Test;System"    | No                      |
+| delfilter\_instance        | Put instance name(s)         | \[...\] -a delfilter\_instance -v "ACL Resource Test;Monitoring-2"     | Yes                     |
+| delfilter\_hostcategory    | Put host category name(s)    | \[...\] -a delfilter\_hostcategory -v "ACL Resource Test;Customer-1"   | Yes                     |
+| delfilter\_servicecategory | Put service category name(s) | \[...\] -a delfilter\_servicecategory -v "ACL Resource Test;System"    | Yes                     |
 
-</div>
+> ***NOTE:*** Use delimiter "|" for defining multiple resources.
 
-Use delimiter "|" for defining multiple resources.
-
-</div>
-
-## ACL
-
-### Overview
-
-Object name: **ACL**
-
-### Reload
-
-In order to reload ACL, use the **RELOAD** command:
-
-    centreon -u admin -p centreon -o ACL -a reload
-
-### Lastreload
-
-In order to check when the ACL was last reloaded, use the **LASTRELOAD**
-command:
-
-    centreon -u admin -p centreon -o ACL -a lastreload
-    1329833702
-
-If you wish to get a human readable time format instead of a timestamp,
-use the following command:
-
-    centreon -u admin -p centreon -o ACL -a lastreload -v "d-m-Y H:i:s"
-    21-02-2012 15:17:01
-
-You can change the date format:
-
-| Format character | Description |
-| ---------------- | ----------- |
-| d                | Day         |
-| m                | Month       |
-| Y                | Year        |
-| H                | Hour        |
-| i                | Minute      |
-| s                | Second      |
-
-## Centreon broker
-
-### Overview
+### Centreon Broker
 
 Object name: **CENTBROKERCFG**
 
-### Show
+#### Show
 
 In order to list available Centreon Broker CFG, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o CENTBROKERCFG -a show 
-    config id;config name;instance
-    1;Central CFG;Central
-    2;Sattelite CFG;Sattelite
-    [...]
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a show 
+config id;config name;instance
+1;Central CFG;Central
+2;Sattelite CFG;Sattelite
+[...]
+```
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 ID</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>2 Name</p></td>
-<td><blockquote>
-<p>of configuration</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td>3 Inst</td>
-<td>ance that is linked to broker cfg</td>
-</tr>
-</tbody>
-</table>
+| Order | Description                           |
+| ----- | ------------------------------------- |
+| 1     | ID                                    |
+| 2     | Name of configuration                 |
+| 3     | Instance that is linked to broker cfg |
 
-### Add
+#### Add
 
 In order to add a Centreon Broker CFG, use the **ADD** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o CENTBROKERCFG -a add -v "broker cfg for poller test;Poller test" 
 ```
 
@@ -1003,22 +763,21 @@ Required fields are:
 | 1     | Name of configuration                 |
 | 2     | Instance that is linked to broker cfg |
 
-### Del
+#### Del
 
-If you want to remove a Centreon Broker CFG, use the **DEL** action. The
-Name is used for identifying the configuration to delete:
+If you want to remove a Centreon Broker CFG, use the **DEL** action. The Name is used for identifying the configuration
+to delete:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o CENTBROKERCFG -a del -v "broker cfg for poller test" 
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of a Centreon Broker
-configuration, use the **SETPARAM** action. The configuration name is
-used for identifying the configuration to update:
+If you want to change a specific parameter of a Centreon Broker configuration, use the **SETPARAM** action. The
+configuration name is used for identifying the configuration to update:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name" 
 ```
 
@@ -1041,133 +800,118 @@ Parameters that you may change are:
 | cache\_directory        | Path for cache files                                                          |
 | daemon                  | Link this configuration to cbd service (0 or 1)                               |
 
-### Listinput, Listoutput and Listlogger
+#### Listinput, Listoutput and Listlogger
 
-If you want to list specific input output types of Centreon Broker, use
-one of the following commands: listinput listoutput listlogger
+If you want to list specific input output types of Centreon Broker, use one of the following commands: listinput
+listoutput listlogger
 
 Example:
 
-    centreon -u admin -p centreon -o CENTBROKERCFG -a listoutput -v "broker cfg for poller test" 
-    id;name
-    1;Storage
-    2;RRD
-    3;PerfData
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a listoutput -v "broker cfg for poller test"
+id;name
+1;Storage
+2;RRD
+3;PerfData
+```
 
-Columns are the following :
+Columns are the following:
 
 | Column | Description |
 | ------ | ----------- |
 | ID     | I/O ID      |
 | Name   | I/O Name    |
 
-### Getinput, Getoutput and Getlogger
+#### Getinput, Getoutput and Getlogger
 
-  - In order to get parameters of a specific I/O object, use one of the
-    following commands:
-    
-      - getinput
-      - getoutput
-      - getlogger
+In order to get parameters of a specific I/O object, use one of the following commands:
+
+* getinput
+* getoutput
+* getlogger
 
 Example:
 
-    centreon -u admin -p centreon -o CENTBROKERCFG -a getoutput -v "broker cfg for poller test;3" 
-    parameter key;parameter value
-    db_host;localhost
-    db_name;centreon_storage
-    db_password;centreon
-    db_port;3306
-    db_type;mysql
-    db_user;centreon
-    interval;60
-    length;
-    name;PerfData
-    type;storage
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a getoutput -v "broker cfg for poller test;3"
+parameter key;parameter value
+db_host;localhost
+db_name;centreon_storage
+db_password;centreon
+db_port;3306
+db_type;mysql
+db_user;centreon
+interval;60
+length;
+name;PerfData
+type;storage
+```
 
 The ID is used for identifying the I/O to get.
 
-Columns are the following :
+Columns are the following:
 
-| Order  | Description            |
-| ------ | ---------------------- |
-| 1 Para | meter key of the I/O   |
-| 2 Para | meter value of the I/O |
+| Order  | Description                |
+| ------ | -------------------------- |
+| 1      | Parameter key of the I/O   |
+| 2      | Parameter value of the I/O |
 
-### Addinput, Addoutput and Addlogger
+#### Addinput, Addoutput and Addlogger
 
-  - In order to add a new I/O object, use one of the following commands:
-    
-      - **ADDINPUT**
-      - **ADDOUTPUT**
-      - **ADDLOGGER**
+In order to add a new I/O object, use one of the following commands:
+
+* **ADDINPUT**
+* **ADDOUTPUT**
+* **ADDLOGGER**
 
 Example:
 
-    centreon -u admin -p centreon -o CENTBROKERCFG -a addlogger -v "broker cfg for poller test;/var/log/centreon-broker/central-module.log;file" 
-    centreon -u admin -p centreon -o CENTBROKERCFG -a listlogger -v "broker cfg for poller test" 
-    id;name
-    1;/var/log/centreon-broker/central-module.log
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a addlogger -v "broker cfg for poller test;/var/log/centreon-broker/central-module.log;file"
+```
+
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a listlogger -v "broker cfg for poller test"
+id;name
+1;/var/log/centreon-broker/central-module.log
+```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Centreon Broker CFG</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Name</p></td>
-<td><blockquote>
-<p>of the I/O object</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td>3 Natu</td>
-<td>re of I/O object</td>
-</tr>
-</tbody>
-</table>
+| Order | Column description          |
+| ----- | --------------------------- |
+| 1     | Name of Centreon Broker CFG |
+| 2     | Name of the I/O object      |
+| 3     | Nature of I/O object        |
 
-### Delinput, Deloutput and Dellogger
+#### Delinput, Deloutput and Dellogger
 
-  - In order to remove an I/O object from the Centreon Broker
-    configuration, use one of the following commands:
-    
-      - **DELINPUT**
-      - **DELOUTPUT**
-      - **DELLOGGER**
+In order to remove an I/O object from the Centreon Broker configuration, use one of the following commands:
+
+* **DELINPUT**
+* **DELOUTPUT**
+* **DELLOGGER**
 
 Example:
 
-``` 
-centreon -u admin -p centreon -o CENTBROKERCFG -a dellogger -v "broker cfg for poller test;1" 
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a dellogger -v "broker cfg for poller test;1"
 ```
 
 The I/O ID is used for identifying the object to delete.
 
-### Setintput, Setoutput and Setlogger
+#### Setintput, Setoutput and Setlogger
 
-  - In order to set parameters of an I/O object, use one of the
-    following commands:
-    
-      - **SETINPUT**
-      - **SETOUTPUT**
-      - **SETLOGGER**
+In order to set parameters of an I/O object, use one of the following commands:
+
+* **SETINPUT**
+* **SETOUTPUT**
+* **SETLOGGER**
 
 Example:
 
-``` 
-centreon -u admin -p centreon -o CENTBROKERCFG -a setlogger -v "broker cfg for poller test;1;debug;no" 
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a setlogger -v "broker cfg for poller test;1;debug;no"
 ```
 
 Arguments are composed of the following columns:
@@ -1179,64 +923,57 @@ Arguments are composed of the following columns:
 | 3     | Parameter name                                              |
 | 4     | Parameter value, for multiple values, use the "," delimiter |
 
-  - You may get help with the following CLAPI commands:
-    
-      - **GETTYPELIST**
-      - **GETFIELDLIST**
-      - **GETVALUELIST**
+You may get help with the following CLAPI commands:
+
+* **GETTYPELIST**
+* **GETFIELDLIST**
+* **GETVALUELIST**
 
 Example:
 
-    [root@localhost core]# ./centreon -u admin -p centreon -o CENTBROKERCFG -a gettypelist -v "output" 
-    type id;short name;name
-    27;bam_bi;BI engine (BAM)
-    16;sql;Broker SQL Database
-    32;correlation;Correlation
-    28;db_cfg_reader;Database configuration reader
-    29;db_cfg_writer;Database configuration writer
-    11;file;File
-    3;ipv4;IPv4
-    10;ipv6;IPv6
-    26;bam;Monitoring engine (BAM)
-    14;storage;Perfdata Generator (Centreon Storage)
-    13;rrd;RRD File Generator
-    30;graphite;Storage - Graphite
-    31;influxdb;Storage - InfluxDB
-    
-    [root@localhost core]# ./centreon -u admin -p centreon -o CENTBROKERCFG -a getfieldlist -v "ipv4" 
-    field id;short name;name
-    3;ca_certificate;Trusted CA's certificate;text
-    2;host;Host to connect to;text
-    46;negotiation;Enable negotiation;radio
-    48;one_peer_retention_mode;One peer retention;radio
-    1;port;Connection port;int
-    4;private_key;Private key file.;text
-    12;protocol*;Serialization Protocol;select
-    5;public_cert;Public certificate;text
-    6;tls;Enable TLS encryption;radio
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a gettypelist -v "output"
+type id;short name;name
+27;bam_bi;BI engine (BAM)
+16;sql;Broker SQL Database
+32;correlation;Correlation
+28;db_cfg_reader;Database configuration reader
+29;db_cfg_writer;Database configuration writer
+11;file;File
+3;ipv4;IPv4
+10;ipv6;IPv6
+26;bam;Monitoring engine (BAM)
+14;storage;Perfdata Generator (Centreon Storage)
+13;rrd;RRD File Generator
+30;graphite;Storage - Graphite
+31;influxdb;Storage - InfluxDB
+```
 
-<div class="note">
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a getfieldlist -v "ipv4"
+field id;short name;name
+3;ca_certificate;Trusted CA's certificate;text
+2;host;Host to connect to;text
+46;negotiation;Enable negotiation;radio
+48;one_peer_retention_mode;One peer retention;radio
+1;port;Connection port;int
+4;private_key;Private key file.;text
+12;protocol*;Serialization Protocol;select
+5;public_cert;Public certificate;text
+6;tls;Enable TLS encryption;radio
+```
 
-<div class="title">
-
-Note
-
-</div>
-
-Note that the "protocol" entry is followed by a star. This means that
-you have to use one of the possible values.
-
-</div>
+> ***NOTE:*** Note that the "protocol" entry is followed by a star. This means that you have to use one of the possible values.
 
 This is how you get the list of possible values of a given field:
 
-    [root@localhost core]# ./centreon -u admin -p centreon -o CENTBROKERCFG -a getvaluelist -v "protocol" 
-    possible values
-    ndo
+``` shell
+centreon -u admin -p centreon -o CENTBROKERCFG -a getvaluelist -v "protocol"
+possible values
+ndo
+```
 
 The following chapters describes the parameters of each Object type
-
-#### input
 
 ipv4:
 
@@ -1763,328 +1500,60 @@ monitoring:
 </tbody>
 </table>
 
-#### output
+##### output
 
 ipv4:
 
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Label</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>compression</p>
-<p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
-<p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
-<p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
-<td><ul>
-<li></li>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in output</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>ca_certificate</p>
-<p>host</p></td>
-<td><p>Trusted CA's certificate</p>
-<p>Host to connect to</p></td>
-<td><p>Trusted CA's certificate.</p>
-<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p></td>
-<td><ul>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>one_peer_retention_mode</p>
-<p>port</p></td>
-<td><p>One peer retention</p>
-<p>Connection port</p></td>
-<td><p>This allows the retention to work even if the socket is listening</p>
-<p>Port to listen on (empty host) or to connect to (with host filled).</p></td>
-<td><ul>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>private_key</p></td>
-<td><p>Private key file.</p></td>
-<td><p>Private key file path when TLS encryption is used.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
-</tr>
-<tr class="even">
-<td><p>public_cert</p></td>
-<td><p>Public certificate</p></td>
-<td><p>Public certificate file path when TLS encryption is used.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>tls</p></td>
-<td><p>Enable TLS encryption</p></td>
-<td><p>Enable TLS encryption.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| ID                         | Label                    | Description                                                                                                          | Possible values |
+| -------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | --------------- |
+| buffering\_timeout         | Buffering timeout        | Time in seconds to wait before launching failover.                                                                   | \-              |
+| compression                | Compression (zlib)       | Enable or not data stream compression.                                                                               | \-              |
+| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_level         | Compression level        | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
+| retry\_interval            | Retry interval           | Time in seconds to wait between each connection attempt.                                                             | \-              |
+| category                   | Filter category          | Category filter for flux in input                                                                                    | \-              |
+| ca\_certificate            | Trusted CA's certificate | Trusted CA's certificate.                                                                                            | \-              |
+| host                       | Host to connect to       | IP address or hostname of the host to connect to (leave blank for listening mode).                                   | \-              |
+| one\_peer\_retention\_mode | one peer retention       | This allows the retention to work even if the socket is listening                                                    | \-              |
+| port                       | Connection port          | Port to listen on (empty host) or to connect to (with host filled).                                                  | \-              |
+| private\_key               | Private key file.        | Private key file path when TLS encryption is used.                                                                   | \-              |
+| protocol                   | Serialization protocol   | Serialization protocol.                                                                                              | ndo             |
+| public\_cert               | Public certificate       | Public certificate file path when TLS encryption is used.                                                            | \-              |
+| tls                        | Enable TLS encryption    | Enable TLS encryption                                                                                                | \-              |
 
 ipv6:
 
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Label</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>compression</p>
-<p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
-<p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
-<p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
-<td><ul>
-<li></li>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in output</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>ca_certificate</p>
-<p>host</p></td>
-<td><p>Trusted CA's certificate</p>
-<p>Host to connect to</p></td>
-<td><p>Trusted CA's certificate.</p>
-<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p></td>
-<td><ul>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>one_peer_retention_mode</p>
-<p>port</p></td>
-<td><p>One peer retention</p>
-<p>Connection port</p></td>
-<td><p>This allows the retention to work even if the socket is listening</p>
-<p>Port to listen on (empty host) or to connect to (with host filled).</p></td>
-<td><ul>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>private_key</p></td>
-<td><p>Private key file.</p></td>
-<td><p>Private key file path when TLS encryption is used.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
-</tr>
-<tr class="even">
-<td><p>public_cert</p></td>
-<td><p>Public certificate</p></td>
-<td><p>Public certificate file path when TLS encryption is used.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>tls</p></td>
-<td><p>Enable TLS encryption</p></td>
-<td><p>Enable TLS encryption.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| ID                         | Label                    | Description                                                                                                          | Possible values |
+| -------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | --------------- |
+| buffering\_timeout         | Buffering timeout        | Time in seconds to wait before launching failover.                                                                   | \-              |
+| compression                | Compression (zlib)       | Enable or not data stream compression.                                                                               | \-              |
+| compression\_buffer        | Compression buffer size  | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_level         | Compression level        | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
+| retry\_interval            | Retry interval           | Time in seconds to wait between each connection attempt.                                                             | \-              |
+| category                   | Filter category          | Category filter for flux in input                                                                                    | \-              |
+| ca\_certificate            | Trusted CA's certificate | Trusted CA's certificate.                                                                                            | \-              |
+| host                       | Host to connect to       | IP address or hostname of the host to connect to (leave blank for listening mode).                                   | \-              |
+| one\_peer\_retention\_mode | one peer retention       | This allows the retention to work even if the socket is listening                                                    | \-              |
+| port                       | Connection port          | Port to listen on (empty host) or to connect to (with host filled).                                                  | \-              |
+| private\_key               | Private key file.        | Private key file path when TLS encryption is used.                                                                   | \-              |
+| protocol                   | Serialization protocol   | Serialization protocol.                                                                                              | ndo             |
+| public\_cert               | Public certificate       | Public certificate file path when TLS encryption is used.                                                            | \-              |
+| tls                        | Enable TLS encryption    | Enable TLS encryption                                                                                                | \-              |
 
 file:
 
-<table>
-<thead>
-<tr class="header">
-<th>ID</th>
-<th>Label</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>compression</p>
-<p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
-<p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
-<p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
-<td><ul>
-<li></li>
-<li></li>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in output.</p></td>
-<td><blockquote>
-<ul>
-<li></li>
-</ul>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>max_size</p></td>
-<td><p>Maximum size of file</p></td>
-<td><p>Maximum size in bytes.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><p>path</p></td>
-<td><p>File path</p></td>
-<td><p>Path to the file.</p></td>
-<td><ul>
-<li></li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
-</tr>
-</tbody>
-</table>
+| ID                  | Label                   | Description                                                                                                          | Possible values |
+| ------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------- | --------------- |
+| buffering\_timeout  | Buffering timeout       | Time in seconds to wait before launching failover.                                                                   | \-              |
+| compression         | Compression (zlib)      | Enable or not data stream compression.                                                                               | \-              |
+| compression\_buffer | Compression buffer size | The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution. | \-              |
+| compression\_level  | Compression level       | Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)                             | \-              |
+| failover            | Failover name           | Name of the output which will act as failover                                                                        | \-              |
+| retry\_interval     | Retry interval          | Time in seconds to wait between each connection attempt.                                                             | \-              |
+| category            | Filter category         | Category filter for flux in output.                                                                                  | \-              |
+| max\_size           | Maximum size of file    | Maximum size in bytes.                                                                                               | \-              |
+| path                | File path               | Path to the file.                                                                                                    | \-              |
+| protocol            | Serialization protocol  | Serialization protocol.                                                                                              | ndo             |
 
 rrd:
 
@@ -2449,53 +1918,148 @@ sql:
 </tbody>
 </table>
 
-## Commands
+### Centreon Engine
 
-### Overview
+Object name: **ENGINECFG**
+
+#### Show
+
+In order to list available Centreon Engine conf, use the **SHOW** action:
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a show 
+id;name;instance;comment
+1;Centreon Engine CFG 1;Central;Default CentreonEngine.cfg
+[...]
+```
+
+Columns are the following :
+
+| Order | Description                                    |
+| ----- | ---------------------------------------------- |
+| 1     | Centreon Engine ID                             |
+| 2     | Centreon Engine configuration name             |
+| 3     | Instance that is linked to centreon-engine.cfg |
+| 4     | Comments regarding the configuration file      |
+
+#### Add
+
+In order to add a Centreon Engine conf, use the **ADD** action:
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a add -v "Centreon Engine cfg for poller NY;Poller-NY;Just a small comment" 
+```
+
+Required fields are:
+
+| Order | Description                                    |
+| ----- | ---------------------------------------------- |
+| 1     | Centreon Engine configuration name             |
+| 2     | Instance that is linked to centreon-engine.cfg |
+| 3     | Comment regarding the configuration file       |
+
+#### Del
+
+If you want to remove a Centreon Engine conf, use the **DEL** action. The name is used for identifying the configuration
+to delete:
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a del -v "Centreon Engine cfg for poller NY" 
+```
+
+#### Setparam
+
+If you want to change a specific parameter of a Centreon Engine conf, use the **SETPARAM** action. The name is used for
+identifying the configuration to update:
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a setparam -v "Centreon Engine cfg for poller NY;cfg_dir;/usr/local/nagios/etc" 
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description                    |
+| ----- | ------------------------------------- |
+| 1     | Name of Centreon Engine configuration |
+| 2     | Parameter name                        |
+| 3     | Parameter value                       |
+
+Parameters that you may change are:
+
+| Column           | Description                                                                                                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| nagios\_name     | Name                                                                                                                                                                                                       |
+| instance         | Instance that is linked to centreon-engine.cfg                                                                                                                                                             |
+| broker\_module   | example: \[...\] -v "Engine CFG NY;broker\_module;/usr/lib64/nagios/cbmod.so /etc/centreon-broker/central-module.json", you can use a &#124; delimiter for defining multiple broker modules          |
+| nagios\_activate | *1* if activated, *0* otherwise                                                                                                                                                                            |
+| \*               | Centreon CLAPI handles pretty much all the options available in a centreon-engine configuration file. Because the list is quite long, it is best to refer to the official documentation of Centreon Engine |
+
+#### Addbrokermodule
+
+If you want to add new broker module without removing existing modules, use the **ADDBROKERMODULE**:  
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a addbrokermodule -v "Centreon Engine cfg for poller NY;/usr/lib64/centreon-engine/externalcmd.so"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description                    |
+| ----- | ------------------------------------- |
+| 1     | Name of Centreon Engine configuration |
+| 2     | Module name                           |
+
+To add multiple modules in one line, it will put the separator "/etc/centreon-broker/central-module.json"
+
+#### Delbrokermodule
+
+If you want to delete broker module, use the **DELBROKERMODULE**:  
+
+``` shell
+centreon -u admin -p centreon -o ENGINECFG -a delbrokermodule -v "Centreon Engine cfg for poller NY;/usr/lib64/centreon-engine/externalcmd.so"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description                    |
+| ----- | ------------------------------------- |
+| 1     | Name of Centreon Engine configuration |
+| 2     | Module name                           |
+
+To delete multiple modules in one line, it will put the separator "/etc/centreon-broker/central-module.json"
+
+### Commands
 
 Object name: **CMD**
 
-### Show
+#### Show
 
 In order to list available commands, use **SHOW** action:
 
-    centreon -u admin -p centreon -o CMD -a show 
-    id;name;type;line
-    1;check-ping;check;$USER1$/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$
-    2;check_dummy;check;$USER1$/check_dummy -o $ARG1$ -s $ARG2$
-    [...]
+``` shell
+centreon -u admin -p centreon -o CMD -a show 
+id;name;type;line
+1;check-ping;check;$USER1$/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$
+2;check_dummy;check;$USER1$/check_dummy -o $ARG1$ -s $ARG2$
+[...]
+```
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Command ID</p>
-<p>Command name</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>Command type</p></td>
-<td><p><em>check</em>, <em>notif</em>, <em>misc</em> or <em>discovery</em></p></td>
-</tr>
-<tr class="odd">
-<td>Command line</td>
-<td>System command line that will be run on execution</td>
-</tr>
-</tbody>
-</table>
+| Column       | Description                                       |
+| ------------ | ------------------------------------------------- |
+| Command ID   |                                                   |
+| Command name |                                                   |
+| Command type | *check*, *notif*, *misc* or *discovery*           |
+| Command line | System command line that will be run on execution |
 
-### Add
+#### Add
 
 In order to add a command use **ADD** action:
 
-    centreon -u admin -p centreon -o CMD -a ADD -v 'check-host-alive;check;$USER1$/check_ping -H $HOSTADDRESS$ -w 3000.0,80% -c 5000.0,100% -p 1'
+``` shell
+centreon -u admin -p centreon -o CMD -a ADD -v 'check-host-alive;check;$USER1$/check_ping -H $HOSTADDRESS$ -w 3000.0,80% -c 5000.0,100% -p 1'
+```
 
 Required columns are the following:
 
@@ -2505,45 +2069,26 @@ Required columns are the following:
 | Command type | *check*, *notif*, *misc* or *discovery*           |
 | Command line | System command line that will be run on execution |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
+#### Del
 
 If you want to remove a command use **DEL** action:
 
-    centreon -u admin -p centreon -o CMD -a del -v 'check-host-alive'
+``` shell
+centreon -u admin -p centreon -o CMD -a del -v 'check-host-alive'
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+If you want to change a specific parameters for a command, use the **SETPARAM** command:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-If you want to change a specific parameters for a command, use the
-**SETPARAM** command:
-
-    centreon -u admin -p centreon -o CMD -a setparam -v 'check-host-alive;type;notif'
-    centreon -u admin -p centreon -o CMD -a setparam -v 'check-host-alive;name;check-host-alive2'
+``` shell
+centreon -u admin -p centreon -o CMD -a setparam -v 'check-host-alive;type;notif'
+centreon -u admin -p centreon -o CMD -a setparam -v 'check-host-alive;name;check-host-alive2'
+```
 
 Parameters that you can change are the following:
 
@@ -2556,78 +2101,55 @@ Parameters that you can change are the following:
 | example   | Example of arguments (i.e: \!80\!90)    |
 | comment   | Comments regarding the command          |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getargumentdescr
 
-Note
+To retrieve the argument descriptions for a command, use the **getargumentdescr** command:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o CMD -a getargumentdesc -v 'test-cmd'
+name;description
+ARG0;First Argument ARG1;Second Argument
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+#### Setargumentdescr
 
-</div>
+If you want to change all arguments descriptions for a command, use the **setargumentdescr** command:
 
-### Getargumentdescr
+``` shell
+centreon -u admin -p centreon -o CMD -a setargumentdescr -v 'check_centreon_ping;ARG1:count;ARG2:warning;ARG3:critical'
+```
 
-To retrieve the argument descriptions for a command, use the
-**getargumentdescr** command:
-
-> \[<root@centreon> \~\]\# ./centreon -u admin -p centreon -o CMD -a
-> getargumentdesc -v 'test-cmd' name;description ARG0;First Argument
-> ARG1;Second Argument
-
-### Setargumentdescr
-
-If you want to change all arguments descriptions for a command, use the
-**setargumentdescr** command:
-
-    centreon -u admin -p centreon -o CMD -a setargumentdescr -v 'check_centreon_ping;ARG1:count;ARG2:warning;ARG3:critical'
-
-## Contact Groups
-
-### Overview
+### Contact Groups
 
 Object name: **CG**
 
-### Show
+#### Show
 
 In order to list available contact groups, use the **SHOW** action:
 
-    [root@centreon core]# ./centreon -u admin -p centreon -o CG -a show
-    id;name;alias;members
-    Guest;Guests Group;guest-user1,guest-user2
-    Supervisors;Centreon supervisors;Admin
+``` shell
+centreon -u admin -p centreon -o CG -a show
+id;name;alias;members
+Guest;Guests Group;guest-user1,guest-user2
+Supervisors;Centreon supervisors;Admin
+```
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Name</p>
-<p>Alias</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Members</td>
-<td>List of contacts that are in the contact group</td>
-</tr>
-</tbody>
-</table>
+| Column  | Description                                    |
+| ------- | ---------------------------------------------- |
+| Name    |                                                |
+| Alias   |                                                |
+| Members | List of contacts that are in the contact group |
 
-### Add
+#### Add
 
 In order to add a contact group, use the **ADD** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a ADD -v "Windows;Windows admins" 
+``` shell
+centreon -u admin -p centreon -o CG -a ADD -v "Windows;Windows admins"
 ```
 
 Required fields are the following:
@@ -2637,48 +2159,25 @@ Required fields are the following:
 | Name   | Name        |
 | Alias  | Alias       |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
+#### Del
 
 In order to delete one contact group, use the **DEL** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a DEL -v "Windows" 
+``` shell
+centreon -u admin -p centreon -o CG -a DEL -v "Windows"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to change the name or the alias of a contactgroup, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to change the name or the alias of a contactgroup, use the
-**SETPARAM** action:
-
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a setparam -v "Windows;name;Windows-2K" 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a setparam -v "Cisco;alias;Cisco-Routers" 
+``` shell
+centreon -u admin -p centreon -o CG -a setparam -v "Windows;name;Windows-2K"
+centreon -u admin -p centreon -o CG -a setparam -v "Cisco;alias;Cisco-Routers"
 ```
 
 Parameters that you can change are the following:
@@ -2688,70 +2187,38 @@ Parameters that you can change are the following:
 | name      | Name        |
 | alias     | Alias       |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Enable
+#### Enable
 
 In order to enable a contact group, use the **ENABLE** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a enable -v "Guest" 
+``` shell
+centreon -u admin -p centreon -o CG -a enable -v "Guest" 
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Disable
+#### Disable
 
 In order to disable a contact group, use the **DISABLE** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a disable -v "Guest" 
+``` shell
+centreon -u admin -p centreon -o CG -a disable -v "Guest"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getcontact
 
-Note
+In order to view the contact list of a contact group, use the **GETCONTACT** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getcontact
-
-In order to view the contact list of a contact group, use the
-**GETCONTACT** action:
-
-    [root@centreon core]# ./centreon -u admin -p centreon -o CG -a getcontact -v "Guest" 
-    id;name
-    1;User1
-    2;User2
+``` shell
+centreon -u admin -p centreon -o CG -a getcontact -v "Guest"
+id;name
+1;User1
+2;User2
+```
 
 Columns are the following:
 
@@ -2760,68 +2227,44 @@ Columns are the following:
 | ID     | Id of contact   |
 | Name   | Name of contact |
 
-### Addcontact and Setcontact
+#### Addcontact and Setcontact
 
-In order to add a contact to a contact group, use the **ADDCONTACT** or
-**SETCONTACT** action where 'add' will append and 'set' will overwrite
-previous definitions:
+In order to add a contact to a contact group, use the **ADDCONTACT** or **SETCONTACT** action where 'add' will append
+and 'set' will overwrite previous definitions:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a addcontact -v "Guest;User1" 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a setcontact -v "Guest;User1|User2" 
+``` shell
+centreon -u admin -p centreon -o CG -a addcontact -v "Guest;User1"
+centreon -u admin -p centreon -o CG -a setcontact -v "Guest;User1|User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delcontact
 
-Note
+In order to remove a contact from a contact group, use the **DELCONTACT** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontact
-
-In order to remove a contact from a contact group, use the
-**DELCONTACT** action:
-
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a delcontact -v "Guest;User1" 
-[root@centreon core]# ./centreon -u admin -p centreon -o CG -a delcontact -v "Guest;User2" 
+``` shell
+centreon -u admin -p centreon -o CG -a delcontact -v "Guest;User1"
+centreon -u admin -p centreon -o CG -a delcontact -v "Guest;User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-## Contacts
-
-### Overview
+### Contacts
 
 Object name: **CONTACT**
 
-### Show
+#### Show
 
 In order to list available contacts, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o contact -a show
-    id;name;alias;email;pager;gui access;admin;activate
-    4;Guest;guest;guest@localhost;;0;0;0
-    5;Supervisor;admin;root@localhost;;1;1;1
-    6;User;user;user@localhost;;0;0;0
+``` shell
+centreon -u admin -p centreon -o contact -a show
+id;name;alias;email;pager;gui access;admin;activate
+4;Guest;guest;guest@localhost;;0;0;0
+5;Supervisor;admin;root@localhost;;1;1;1
+6;User;user;user@localhost;;0;0;0
+```
 
 Columns are the following :
 
@@ -2836,11 +2279,11 @@ Columns are the following :
 | Admin       | *1* (admin) or *0* (non admin)                |
 | activate    | *1* (enabled) or *0* (disabled)               |
 
-### Add
+#### Add
 
 In order to add a contact, use the **ADD** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o CONTACT -a ADD -v "user;user;user@mail.com;mypassword;1;1;en_US;local" 
 ```
 
@@ -2857,50 +2300,29 @@ The required parameters are the following:
 | Language            | Language pack has to be installed on Centreon |
 | Authentication type | *local* or *ldap*                             |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Del
 
-Note
+In order to delete one contact, use the **DEL** action. The contact name is used for identifying the contact you would
+like to delete:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
-
-In order to delete one contact, use the **DEL** action. The contact name
-is used for identifying the contact you would like to delete:
-
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o contact -a del -v "user" 
+``` shell
+centreon -u admin -p centreon -o contact -a del -v "user" 
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+If you want to change a specific parameter for a contact, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-If you want to change a specific parameter for a contact, use the
-**SETPARAM** action:
-
-    [root@centreon core]# ./centreon -u admin -p centreon -o contact -a setParam -v "contact alias;hostnotifcmd;command name" 
-    [root@centreon core]# ./centreon -u admin -p centreon -o contact -a setParam -v "contact alias;svcnotifcmd;command name" 
-    [root@centreon core]# ./centreon -u admin -p centreon -o contact -a setParam -v "contact alias;hostnotifperiod;period name"
-    [root@centreon core]# ./centreon -u admin -p centreon -o contact -a setparam -v "contact alias;timezone;Europe/Berlin"
+``` shell
+centreon -u admin -p centreon -o contact -a setParam -v "contact alias;hostnotifcmd;command name" 
+centreon -u admin -p centreon -o contact -a setParam -v "contact alias;svcnotifcmd;command name" 
+centreon -u admin -p centreon -o contact -a setParam -v "contact alias;hostnotifperiod;period name"
+centreon -u admin -p centreon -o contact -a setparam -v "contact alias;timezone;Europe/Berlin"
+```
 
 The required parameters are the following:
 
@@ -2912,201 +2334,76 @@ The required parameters are the following:
 
 Parameters that you can change are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p></td>
-<td><p>Name</p></td>
-</tr>
-<tr class="even">
-<td><p>alias</p></td>
-<td><p>Alias</p></td>
-</tr>
-<tr class="odd">
-<td><p>comment</p></td>
-<td><p>Comment</p></td>
-</tr>
-<tr class="even">
-<td><p>email</p></td>
-<td><p>Email Address</p></td>
-</tr>
-<tr class="odd">
-<td><p>password User</p></td>
-<td><blockquote>
-<p>Password</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>access</p></td>
-<td><p>Can reach centreon, <em>1</em> if user has access, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>language Loca</p></td>
-<td><p>le</p></td>
-</tr>
-<tr class="even">
-<td><p>admin</p></td>
-<td><p><em>1</em> if user is admin, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>authtype *lda</p></td>
-<td><p>p* or <em>local</em></p></td>
-</tr>
-<tr class="even">
-<td><p>hostnotifcmd</p></td>
-<td><p>host notification command(s). Multiple commands can be defined with delimiter "|"</p></td>
-</tr>
-<tr class="odd">
-<td><p>svcnotifcmd serv</p></td>
-<td><p>ice notification command(s). Multiple commands can be defined with delimiter "|"</p></td>
-</tr>
-<tr class="even">
-<td><p>hostnotifperiod</p></td>
-<td><p>host notification period</p></td>
-</tr>
-<tr class="odd">
-<td><p>svcnotifperiod</p></td>
-<td><p>service notification period</p></td>
-</tr>
-<tr class="even">
-<td><p>hostnotifopt</p></td>
-<td><p>can be d,u,r,f,s,n</p></td>
-</tr>
-<tr class="odd">
-<td><p>servicenotifopt</p></td>
-<td><p>can be w,u,c,r,f,s,n</p></td>
-</tr>
-<tr class="even">
-<td><p>address1 Addr</p></td>
-<td><p>ess #1</p></td>
-</tr>
-<tr class="odd">
-<td><p>address2 Addr</p></td>
-<td><p>ess #2</p></td>
-</tr>
-<tr class="even">
-<td><p>address3 Addr</p></td>
-<td><p>ess #3</p></td>
-</tr>
-<tr class="odd">
-<td><p>address4 Addr</p></td>
-<td><p>ess #4</p></td>
-</tr>
-<tr class="even">
-<td><p>address5 Addr</p></td>
-<td><p>ess #5</p></td>
-</tr>
-<tr class="odd">
-<td><p>address6 Addr</p></td>
-<td><p>ess #6</p></td>
-</tr>
-<tr class="even">
-<td><p>ldap_dn</p></td>
-<td><p>LDAP domain name</p></td>
-</tr>
-<tr class="odd">
-<td><p>enable_notifications</p></td>
-<td><p><em>1</em> when notification is enable, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>autologin_key</p></td>
-<td><p>Used for auto login</p></td>
-</tr>
-<tr class="odd">
-<td><p>template Name</p></td>
-<td><blockquote>
-<p>of the template to apply to the contact</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>timezone</td>
-<td>Timezone</td>
-</tr>
-</tbody>
-</table>
+| Parameter             | Description                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| name                  | Name                                                                                 |
+| alias                 | Alias                                                                                |
+| comment               | Comment                                                                              |
+| email                 | Email Address                                                                        |
+| password              | User Password                                                                        |
+| access                | Can reach centreon, *1* if user has access, *0* otherwise                            |
+| language              | Locale                                                                               |
+| admin                 | *1* if user is admin, *0* otherwise                                                  |
+| authtype              | *ldap* or *local*                                                                    |
+| hostnotifcmd          | host notification command(s). Multiple commands can be defined with delimiter "|"    |
+| svcnotifcmd           | service notification command(s). Multiple commands can be defined with delimiter "|" |
+| hostnotifperiod       | host notification period                                                             |
+| svcnotifperiod        | service notification period                                                          |
+| hostnotifopt          | can be d,u,r,f,s,n                                                                   |
+| servicenotifopt       | can be w,u,c,r,f,s,n                                                                 |
+| address1              | Address \#1                                                                          |
+| address2              | Address \#2                                                                          |
+| address3              | Address \#3                                                                          |
+| address4              | Address \#4                                                                          |
+| address5              | Address \#5                                                                          |
+| address6              | Address \#6                                                                          |
+| ldap\_dn              | LDAP domain name                                                                     |
+| enable\_notifications | *1* when notification is enable, *0* otherwise                                       |
+| autologin\_key        | Used for auto login                                                                  |
+| template              | Name of the template to apply to the contact                                         |
+| timezone              | Timezone                                                                             |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Enable
+#### Enable
 
 In order to enable a contact, use the **ENABLE** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o contact -a enable -v "test" 
+``` shell
+centreon -u admin -p centreon -o contact -a enable -v "test"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Disable
+#### Disable
 
 In order to disable a contact, use the **DISABLE** action:
 
-``` 
-[root@centreon core]# ./centreon -u admin -p centreon -o contact -a disable -v "test" 
+``` shell
+centreon -u admin -p centreon -o contact -a disable -v "test"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-## Contact templates
-
-### Overview
+### Contact templates
 
 Object name: CONTACTTPL
 
 Refer to the `CONTACT <contacts>` object
 
-## Dependencies
-
-### Overview
+### Dependencies
 
 Object name: **DEP**
 
-### Show
+#### Show
 
 In order to list available dependencies, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o DEP -a show
-    id;name;description;inherits_parent;execution_failure_criteria;notification_failure_criteria
-    62;my dependency;a description;1;n;n
+``` shell
+centreon -u admin -p centreon -o DEP -a show
+id;name;description;inherits_parent;execution_failure_criteria;notification_failure_criteria
+62;my dependency;a description;1;n;n
+```
 
 Columns are the following:
 
@@ -3119,13 +2416,12 @@ Columns are the following:
 | execution\_failure\_criteria    | Defines which parent states prevent dependent resources from being checked |
 | notification\_failure\_criteria | Defines which parent states prevent notifications on dependent resources   |
 
-### Add
+#### Add
 
 In order to add a new dependency, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o DEP -a ADD \
--v "my new dependency;any description;HOST;dummy-host" 
+``` shell
+centreon -u admin -p centreon -o DEP -a ADD -v "my new dependency;any description;HOST;dummy-host"
 ```
 
 The required parameters are the following:
@@ -3137,49 +2433,25 @@ The required parameters are the following:
 | 3     | Dependency type: HOST, HG, SG, SERVICE, META |
 | 4     | Name of the parent resource(s)               |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Del
 
-Note
+In order to delete a dependency, use the **DEL** action. The dependency name is used for identifying the dependency you
+would like to delete:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
-
-In order to delete a dependency, use the **DEL** action. The dependency
-name is used for identifying the dependency you would like to delete:
-
-``` 
-centreon -u admin -p centreon -o DEP -a DEL -v "my dependency" 
+``` shell
+centreon -u admin -p centreon -o DEP -a DEL -v "my dependency"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to set a specific parameter for a dependency, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to set a specific parameter for a dependency, use the
-**SETPARAM** action:
-
-``` 
-centreon -u admin -p centreon -o DEP -a setparam \
--v "my dependency;name;my new dependency name" 
+``` shell
+centreon -u admin -p centreon -o DEP -a setparam -v "my dependency;name;my new dependency name"
 ```
 
 You may change the following parameters:
@@ -3193,96 +2465,56 @@ You may change the following parameters:
 | execution\_failure\_criteria    | o,w,u,c,p,d,n |
 | notification\_failure\_criteria | o,w,u,c,p,d,n |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Listdep
 
-Note
+If you want to retrieve the dependency definition of a dependency object, use the **LISTDEP** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Listdep
-
-If you want to retrieve the dependency definition of a dependency
-object, use the **LISTDEP** action:
-
-    centreon -u admin -p centreon -o DEP -a LISTDEP -v "my dependency" 
-    parents;children
-    HostParent1|HostParent2;HostChild1|HostChild2,ServiceChild2
-
-### Addparent and Addchild
-
-If you want to add a new parent or a new child in a dependency
-definition, use the **ADDPARENT** or **ADDCHILD** action:
-
-``` 
-centreon -u admin -p centreon -o DEP -a ADDPARENT \
--v "my dependency;my_parent_host" 
-centreon -u admin -p centreon -o DEP -a ADDCHILD \
--v "my dependency;my_child_host" 
-centreon -u admin -p centreon -o DEP -a ADDCHILD \
--v "my dependency;my_child_host2,my_child_service2" 
+``` shell
+centreon -u admin -p centreon -o DEP -a LISTDEP -v "my dependency"
+parents;children
+HostParent1|HostParent2;HostChild1|HostChild2,ServiceChild2
 ```
 
-<div class="note">
+#### Addparent and Addchild
 
-<div class="title">
+If you want to add a new parent or a new child in a dependency definition, use the **ADDPARENT** or **ADDCHILD** action:
 
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delparent and Delchild
-
-In order to delete a parent or a child in a dependency definition, use
-the **DELPARENT** or **DELCHILD** action:
-
-``` 
-centreon -u admin -p centreon -o DEP -a DELPARENT \
--v "my dependency;my_parent_host" 
-centreon -u admin -p centreon -o DEP -a DELCHILD \
--v "my dependency;my_child_host" 
-centreon -u admin -p centreon -o DEP -a DELCHILD \
--v "my dependency;my_child_host2,my_child_service2" 
+``` shell
+centreon -u admin -p centreon -o DEP -a ADDPARENT -v "my dependency;my_parent_host"
+centreon -u admin -p centreon -o DEP -a ADDCHILD -v "my dependency;my_child_host"
+centreon -u admin -p centreon -o DEP -a ADDCHILD -v "my dependency;my_child_host2,my_child_service2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delparent and Delchild
 
-Note
+In order to delete a parent or a child in a dependency definition, use the **DELPARENT** or **DELCHILD** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o DEP -a DELPARENT -v "my dependency;my_parent_host"
+centreon -u admin -p centreon -o DEP -a DELCHILD -v "my dependency;my_child_host"
+centreon -u admin -p centreon -o DEP -a DELCHILD -v "my dependency;my_child_host2,my_child_service2"
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-</div>
-
-## Downtimes
-
-### Overview
+### Downtimes
 
 Object name: **DOWNTIME**
 
-### Show
+#### Show
 
 In order to list available recurring downtimes, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a show
-    id;name;description;activate
-    1;mail-backup;sunday backup;1
-    2;my downtime;a description;1
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a show
+id;name;description;activate
+1;mail-backup;sunday backup;1
+2;my downtime;a description;1
+```
 
 Columns are the following:
 
@@ -3293,10 +2525,11 @@ Columns are the following:
 | Description | Short description of the recurring downtime |
 | Activate    | Whether or not the downtime is activated    |
 
-In order to show resources of a downtime, use the **Show** action with
-parameters:
+In order to show resources of a downtime, use the **Show** action with parameters:
 
-    centreon -u admin -p centreon -o DOWNTIME -a show -v "mail-backup;host"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a show -v "mail-backup;host"
+```
 
 The parameters are the following:
 
@@ -3305,11 +2538,13 @@ The parameters are the following:
 | 1     | Name of the downtime                           |
 | 2     | (optional) Object type (host, hg, service, sg) |
 
-### Add
+#### Add
 
 In order to add a new downtime, use the **ADD** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a ADD -v "my new downtime;any description"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADD -v "my new downtime;any description"
+```
 
 The required parameters are the following:
 
@@ -3318,21 +2553,22 @@ The required parameters are the following:
 | 1     | Name of the downtime        |
 | 2     | Description of the downtime |
 
-### Del
+#### Del
 
-In order to delete a downtime, use the **DEL** action. The downtime name
-is used for identifying the recurring downtime you would like to delete:
+In order to delete a downtime, use the **DEL** action. The downtime name is used for identifying the recurring downtime
+you would like to delete:
 
-``` 
-centreon -u admin -p centreon -o DOWNTIME -a DEL -v "my downtime" 
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a DEL -v "my downtime"
 ```
 
-### Setparam
+#### Setparam
 
-In order to set a specific parameter for a downtime, use the
-**SETPARAM** action:
+In order to set a specific parameter for a downtime, use the **SETPARAM** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a setparam -v "my downtime;name;my new downtime name"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a setparam -v "my downtime;name;my new downtime name"
+```
 
 You may change the following parameters:
 
@@ -3341,16 +2577,17 @@ You may change the following parameters:
 | name        | Name        |
 | description | Description |
 
-### Listperiods
+#### Listperiods
 
-If you want to retrieve the periods set on a recurring downtime, use the
-**LISTPERIODS** action:
+If you want to retrieve the periods set on a recurring downtime, use the **LISTPERIODS** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a LISTPERIODS -v "my downtime" 
-    position;start time;end time;fixed;duration;day of week;day of month;month cycle
-    1;1;23:00:00;24:00:00;1;;7;;all
-    2;1;00:00:00;02:00:00;1;;;1,2;none
-    3;1;13:45:00;14:40:00;1;;5;;first
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a LISTPERIODS -v "my downtime"
+position;start time;end time;fixed;duration;day of week;day of month;month cycle
+1;1;23:00:00;24:00:00;1;;7;;all
+2;1;00:00:00;02:00:00;1;;;1,2;none
+3;1;13:45:00;14:40:00;1;;5;;first
+```
 
 Columns are the following:
 
@@ -3365,66 +2602,34 @@ Columns are the following:
 | Day of month | 1 - 31                                                                                                                                                                           |
 | Month cycle  | "all", "none", "first" or "last". Determines when the downtime will be effective on specific weekdays (i.e: all Sundays, last Sunday of the month, first Sunday of the month...) |
 
-### Addweeklyperiod
+#### Addweeklyperiod
 
 In order to add a weekly period, use the **ADDWEEKLYPERIOD** action:
 
-``` 
-centreon -u admin -p centreon -o DOWNTIME -a ADDWEEKLYPERIOD \
--v "my downtime;00:00;04:00;0;7200;saturday,sunday" 
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADDWEEKLYPERIOD -v "my downtime;00:00;04:00;0;7200;saturday,sunday"
 ```
 
-The above example will set a downtime every saturday and sunday between
-00:00 and 04:00.
+The above example will set a downtime every saturday and sunday between 00:00 and 04:00.
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Name</p></td>
-<td><p>Name of the recurring downtime</p></td>
-</tr>
-<tr class="even">
-<td><p>Start time Star</p></td>
-<td><p>t time of the recurring downtime</p></td>
-</tr>
-<tr class="odd">
-<td><p>End time</p></td>
-<td><p>End time of the recurring downtime</p></td>
-</tr>
-<tr class="even">
-<td><p>Fixed</p></td>
-<td><p>0 for flexible downtime, 1 for fixed</p></td>
-</tr>
-<tr class="odd">
-<td><p>Duration Duration</p></td>
-<td><blockquote>
-<p>of downtime when in flexible mode (seconds)</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>Day of week</p></td>
-<td><p>Can be written with letters or numbers (1 to 7 or monday to sunday)</p></td>
-</tr>
-</tbody>
-</table>
+| Parameter   | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| Name        | Name of the recurring downtime                                      |
+| Start time  | Start time of the recurring downtime                                |
+| End time    | End time of the recurring downtime                                  |
+| Fixed       | 0 for flexible downtime, 1 for fixed                                |
+| Duration    | Duration of downtime when in flexible mode (seconds)                |
+| Day of week | Can be written with letters or numbers (1 to 7 or monday to sunday) |
 
-### Addmonthlyperiod
+#### Addmonthlyperiod
 
 In order to add a monthly period, use the **ADDMONTHLYPERIOD** action:
 
-``` 
-centreon -u admin -p centreon -o DOWNTIME -a ADDMONTHLYPERIOD \
--v "my downtime;19:00;22:00;1;;14,21" 
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADDMONTHLYPERIOD -v "my downtime;19:00;22:00;1;;14,21"
 ```
 
-The above example will set a downtime on every 14th and 21st day for all
-months.
+The above example will set a downtime on every 14th and 21st day for all months.
 
 | Parameter       | Description                                          |
 | --------------- | ---------------------------------------------------- |
@@ -3435,17 +2640,15 @@ months.
 | Duration        | Duration of downtime when in flexible mode (seconds) |
 | Day of month    | 1 to 31                                              |
 
-### Addspecificperiod
+#### Addspecificperiod
 
 In order to add a specific period, use the **ADDSPECIFICPERIOD** action:
 
-``` 
-centreon -u admin -p centreon -o DOWNTIME -a ADDSPECIFICPERIOD \
--v "my downtime;19:00;22:00;1;;wednesday;first" 
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADDSPECIFICPERIOD -v "my downtime;19:00;22:00;1;;wednesday;first"
 ```
 
-The above example will set a downtime on every first wednesday for all
-months.
+The above example will set a downtime on every first wednesday for all months.
 
 | Parameter       | Description                                                         |
 | --------------- | ------------------------------------------------------------------- |
@@ -3457,244 +2660,55 @@ months.
 | Day of week     | Can be written with letters or numbers (1 to 7 or monday to sunday) |
 | Month cycle     | first or last                                                       |
 
-### Addhost, addhostgroup, addservice, addservicegroup
+#### Addhost, addhostgroup, addservice, addservicegroup
 
-If you want to associate a host, host group, service or service group to
-a recurring downtime, use the **ADDHOST**, **ADDHOSTGROUP**,
-**ADDSERVICE** or **ADDSERVICEGROUP** action:
+If you want to associate a host, host group, service or service group to a recurring downtime, use the **ADDHOST**,
+**ADDHOSTGROUP**, **ADDSERVICE** or **ADDSERVICEGROUP** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a ADDHOST -v "my downtime;host_1"
-    centreon -u admin -p centreon -o DOWNTIME -a ADDSERVICE -v "my downtime;host_1,service_1"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADDHOST -v "my downtime;host_1"
+centreon -u admin -p centreon -o DOWNTIME -a ADDSERVICE -v "my downtime;host_1,service_1"
+```
 
 Use the "|" delimiter in order to define multiple relationships.
 
-### Delhost, delhostgroup, delservice, delservicegroup
+#### Delhost, delhostgroup, delservice, delservicegroup
 
-If you want to remove a host, host group, service or service group from
-a recurring downtime, use the **DELHOST**, **DELHOSTGROUP**,
-**DELSERVICE** or **DELSERVICEGROUP** action:
+If you want to remove a host, host group, service or service group from a recurring downtime, use the **DELHOST**,
+**DELHOSTGROUP**, **DELSERVICE** or **DELSERVICEGROUP** action:
 
-    centreon -u admin -p centreon -o DOWNTIME -a DELHOST -v "my downtime;host_1"
-    centreon -u admin -p centreon -o DOWNTIME -a DELSERVICE -v "my downtime;host_1,service_1"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a DELHOST -v "my downtime;host_1"
+centreon -u admin -p centreon -o DOWNTIME -a DELSERVICE -v "my downtime;host_1,service_1"
+```
 
-### Sethost, sethostgroup, setservice, setservicegroup
+#### Sethost, sethostgroup, setservice, setservicegroup
 
-The **SETHOST**, **SETHOSTGROUP**, **SETSERVICE** AND
-**SETSERVICEGROUP** actions are similar to their **ADD** counterparts,
-but they will overwrite the relationship definitions instead of
-appending them:
+The **SETHOST**, **SETHOSTGROUP**, **SETSERVICE** AND **SETSERVICEGROUP** actions are similar to their **ADD**
+counterparts, but they will overwrite the relationship definitions instead of appending them:
 
-    centreon -u admin -p centreon -o DOWNTIME -a ADDHOST -v "my downtime;host_1|host_2"
-    centreon -u admin -p centreon -o DOWNTIME -a ADDSERVICE -v "my downtime;host_1,service_1|host_2,service_2"
+``` shell
+centreon -u admin -p centreon -o DOWNTIME -a ADDHOST -v "my downtime;host_1|host_2"
+centreon -u admin -p centreon -o DOWNTIME -a ADDSERVICE -v "my downtime;host_1,service_1|host_2,service_2"
+```
 
 Use the "|" delimiter in order to define multiple relationships.
 
-## CENGINE CFG
-
-### Overview
-
-Object name: **ENGINECFG**
-
-### Show
-
-In order to list available Centreon Engine conf, use the **SHOW**
-action:
-
-    centreon -u admin -p centreon -o ENGINECFG -a show 
-    id;name;instance;comment
-    1;Centreon Engine CFG 1;Central;Default CentreonEngine.cfg
-    [...]
-
-Columns are the following :
-
-| Order  | Description                                |
-| ------ | ------------------------------------------ |
-| 1 Cent | reon Engine ID                             |
-| 2 Cent | reon Engine configuration name             |
-| 3 Inst | ance that is linked to centreon-engine.cfg |
-| 4 Comm | ents regarding the configuration file      |
-
-### Add
-
-In order to add a Centreon Engine conf, use the **ADD** action:
-
-``` 
-centreon -u admin -p centreon -o ENGINECFG -a add -v "Centreon Engine cfg for poller NY;Poller-NY;Just a small comment" 
-```
-
-Required fields are:
-
-| Order  | Description                                |
-| ------ | ------------------------------------------ |
-| 1 Cent | reon Engine configuration name             |
-| 2 Inst | ance that is linked to centreon-engine.cfg |
-| 3 Comm | ent regarding the configuration file       |
-
-### Del
-
-If you want to remove a Centreon Engine conf, use the **DEL** action.
-The name is used for identifying the configuration to delete:
-
-``` 
-centreon -u admin -p centreon -o ENGINECFG -a del -v "Centreon Engine cfg for poller NY" 
-```
-
-### Setparam
-
-If you want to change a specific parameter of a Centreon Engine conf,
-use the **SETPARAM** action. The name is used for identifying the
-configuration to update:
-
-``` 
-centreon -u admin -p centreon -o ENGINECFG -a setparam -v "Centreon Engine cfg for poller NY;cfg_dir;/usr/local/nagios/etc" 
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Centreon Engine configuration</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
-
-Parameters that you may change are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>nagios_name</p></td>
-<td><blockquote>
-<p>Name</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>instance Inst</p></td>
-<td><p>ance that is linked to centreon-engine.cfg</p></td>
-</tr>
-<tr class="odd">
-<td><p>broker_module</p></td>
-<td><p>example: [...] -v "Engine CFG NY;broker_module;/usr/lib64/nagios/cbmod.so /etc/centreon-broker/central-module.json", you can use a | delimiter for defining multiple broker modules</p></td>
-</tr>
-<tr class="even">
-<td><p>nagios_activate</p></td>
-<td><p><em>1</em> if activated, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><ul>
-<li>Cent</li>
-</ul></td>
-<td><p>reon CLAPI handles pretty much all the options available in a centreon-engine configuration file. Because the list is quite long, it is best to refer to the official documentation of Centreon Engine</p></td>
-</tr>
-</tbody>
-</table>
-
-### Addbrokermodule
-
-  - If you want to add new broker module without removing existing
-    modules, use the **ADDBROKERMODULE**::  
-    \[<root@centreon> \~\]\# ./centreon -u admin -p centreon -o
-    ENGINECFG -a addbrokermodule -v "Centreon Engine cfg for poller
-    NY;/usr/lib64/centreon-engine/externalcmd.so"
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Centreon Engine configuration</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Modu</td>
-<td>le name</td>
-</tr>
-</tbody>
-</table>
-
-To add multiple modules in one line, it will put the separator
-"/etc/centreon-broker/central-module.json"
-
-### Delbrokermodule
-
-  - If you want to delete broker module, use the **DELBROKERMODULE**::  
-    \[<root@centreon> \~\]\# ./centreon -u admin -p centreon -o
-    ENGINECFG -a delbrokermodule -v "Centreon Engine cfg for poller
-    NY;/usr/lib64/centreon-engine/externalcmd.so"
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Centreon Engine configuration</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 Modu</td>
-<td>le name</td>
-</tr>
-</tbody>
-</table>
-
-To delete multiple modules in one line, it will put the separator
-"/etc/centreon-broker/central-module.json"
-
-## Host categories
-
-### Overview
+### Host categories
 
 Object name: **HC**
 
-### Show
+#### Show
 
 In order to list available host categories, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o HC -a show
-    id;name;alias;members
-    1;Linux;Linux Servers;host1
-    2;Windows;Windows Server;host2
-    3;AS400;AS400 systems;host3,host4
+``` shell
+centreon -u admin -p centreon -o HC -a show
+id;name;alias;members
+1;Linux;Linux Servers;host1
+2;Windows;Windows Server;host2
+3;AS400;AS400 systems;host3,host4
+```
 
 Columns are the following:
 
@@ -3703,12 +2717,12 @@ Columns are the following:
 | Name   | Name of host category  |
 | Alias  | Alias of host category |
 
-### Add
+#### Add
 
 In order to add a host category, use the **ADD**:
 
-``` 
-centreon -u admin -p centreon -o HC -a add -v "Databases;Databases servers" 
+``` shell
+centreon -u admin -p centreon -o HC -a add -v "Databases;Databases servers"
 ```
 
 Required parameters are the following:
@@ -3718,34 +2732,34 @@ Required parameters are the following:
 | 1     | Name of host category  |
 | 2     | Alias of host category |
 
-### Del
+#### Del
 
-In order to delete a host category, use the **DEL** action. The name is
-used for identifying the host category you want to delete:
+In order to delete a host category, use the **DEL** action. The name is used for identifying the host category you want
+to delete:
 
-``` 
-centreon -u admin -p centreon -o HC -a DEL -v "Databases" 
+``` shell
+centreon -u admin -p centreon -o HC -a DEL -v "Databases"
 ```
 
-### Getmember
+#### Getmember
 
-In order to view the list hosts in a host category, use the
-**GETMEMBER** action:
+In order to view the list hosts in a host category, use the **GETMEMBER** action:
 
-    centreon -u admin -p centreon -o HC -a getmember -v "Linux" 
-    id;name
-    14;Centreon-Server
-    15;srv-test
+``` shell
+centreon -u admin -p centreon -o HC -a getmember -v "Linux"
+id;name
+14;Centreon-Server
+15;srv-test
+```
 
-### Addmember and Setmember
+#### Addmember and Setmember
 
-In order to add a host or a host template into a host category, use the
-**ADDMEMBER** or **SETMEMBER** action where *add* will append and *set*
-will overwrite previous definitions:
+In order to add a host or a host template into a host category, use the **ADDMEMBER** or **SETMEMBER** action where
+*add* will append and *set* will overwrite previous definitions:
 
-``` 
-centreon -u admin -p centreon -o HC -a addmember -v "Linux;host7" 
-centreon -u admin -p centreon -o HC -a setmember -v "Windows;host7|host8|host9" 
+``` shell
+centreon -u admin -p centreon -o HC -a addmember -v "Linux;host7"
+centreon -u admin -p centreon -o HC -a setmember -v "Windows;host7|host8|host9"
 ```
 
 The needed parameters are the following:
@@ -3755,13 +2769,12 @@ The needed parameters are the following:
 | 1     | Host category name                                          |
 | 2     | Host names to add/set. For multiple definitions, use the \* |
 
-### Setseverity
+#### Setseverity
 
-In order to turn a host category into a severity, use the
-**SETSEVERITY** action:
+In order to turn a host category into a severity, use the **SETSEVERITY** action:
 
-``` 
-centreon -u admin -p centreon -o HC -a setseverity -v "Critical;3;16x16/critical.gif" 
+``` shell
+centreon -u admin -p centreon -o HC -a setseverity -v "Critical;3;16x16/critical.gif"
 ```
 
 The needed parameters are the following:
@@ -3772,13 +2785,12 @@ The needed parameters are the following:
 | 2     | Severity level - must be a number |
 | 3     | Icon that represents the severity |
 
-### Unsetseverity
+#### Unsetseverity
 
-In order to turn a severity into a regular host category, use the
-**UNSETSEVERITY** action:
+In order to turn a severity into a regular host category, use the **UNSETSEVERITY** action:
 
-``` 
-centreon -u admin -p centreon -o HC -a unsetseverity -v "Critical" 
+``` shell
+centreon -u admin -p centreon -o HC -a unsetseverity -v "Critical"
 ```
 
 The needed parameters are the following:
@@ -3787,14 +2799,13 @@ The needed parameters are the following:
 | ----- | ------------------ |
 | 1     | Host category name |
 
-### Delmember
+#### Delmember
 
-In order to remove a host or a host template from a host category, use
-the **DELMEMBER** action:
+In order to remove a host or a host template from a host category, use the **DELMEMBER** action:
 
-``` 
-centreon -u admin -p centreon -o HC -a delmember -v "Linux;host7" 
-centreon -u admin -p centreon -o HC -a delmember -v "Windows;host8" 
+``` shell
+centreon -u admin -p centreon -o HC -a delmember -v "Linux;host7"
+centreon -u admin -p centreon -o HC -a delmember -v "Windows;host8"
 ```
 
 The needed parameters are the following:
@@ -3804,47 +2815,34 @@ The needed parameters are the following:
 | 1     | Host category name                      |
 | 2     | Host names to remove from host category |
 
-##### Host group services
-
-### Overview
+###### Host group services
 
 Object name: **HGSERVICE**
 
 Refer to the `SERVICE <services>` object
 
-<div class="note">
+> ***NOTE:*** HGSERVICE works just like SERVICE, you only need to replace the host name with the host group name.
 
-<div class="title">
-
-Note
-
-</div>
-
-HGSERVICE works just like SERVICE, you only need to replace the host
-name with the host group name.
-
-</div>
-
-## Host groups
-
-### Overview
+### Host groups
 
 Object name: **HG**
 
-### Show
+#### Show
 
 In order to list available host groups, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o HG -a show
-    id;name;alias
-    53;Linux-Servers;All linux servers
-    54;Windows-Servers;All windows servers
-    55;Networks;All other equipments
-    56;Printers;All printers
-    58;Routers;All routers
-    59;Switches;All switches
-    60;Firewall;All firewalls
-    61;Unix-Servers;All Unix servers
+``` shell
+centreon -u admin -p centreon -o HG -a show
+id;name;alias
+53;Linux-Servers;All linux servers
+54;Windows-Servers;All windows servers
+55;Networks;All other equipments
+56;Printers;All printers
+58;Routers;All routers
+59;Switches;All switches
+60;Firewall;All firewalls
+61;Unix-Servers;All Unix servers
+```
 
 Columns are the following:
 
@@ -3854,12 +2852,12 @@ Columns are the following:
 | Name   | Name        |
 | Alias  | Alias       |
 
-### Add
+#### Add
 
 In order to add a hostgroup, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o HG -a add -v "SAP;SAP servers" 
+``` shell
+centreon -u admin -p centreon -o HG -a add -v "SAP;SAP servers"
 ```
 
 The required parameters are the following:
@@ -3869,213 +2867,101 @@ The required parameters are the following:
 | 1     | Name of host group  |
 | 2     | Alias of host group |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Del
 
-Note
+In order to delete one hostgroup, use the **DEL** action. The host group name is used for identifying the host group you
+would like to delete:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
-
-In order to delete one hostgroup, use the **DEL** action. The host group
-name is used for identifying the host group you would like to delete:
-
-``` 
-centreon -u admin -p centreon -o HG -a DEL -v "SAP" 
+``` shell
+centreon -u admin -p centreon -o HG -a DEL -v "SAP"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to set a specific parameter for a host group, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to set a specific parameter for a host group, use the
-**SETPARAM** action:
-
-``` 
-centreon -u admin -p centreon -o HG -a setparam -v "SAP;name;hg1" 
-centreon -u admin -p centreon -o HG -a setparam -v "SAP;alias;hg2" 
+``` shell
+centreon -u admin -p centreon -o HG -a setparam -v "SAP;name;hg1"
+centreon -u admin -p centreon -o HG -a setparam -v "SAP;alias;hg2"
 ```
 
 You may change the following parameters:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p></td>
-<td><p>Name</p></td>
-</tr>
-<tr class="even">
-<td><p>alias</p></td>
-<td><p>Alias</p></td>
-</tr>
-<tr class="odd">
-<td><p>comment</p></td>
-<td><p>Comment</p></td>
-</tr>
-<tr class="even">
-<td><p>activate <em>1</em></p></td>
-<td><p>when enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="even">
-<td><p>notes_url Note</p></td>
-<td><p>s URL</p></td>
-</tr>
-<tr class="odd">
-<td><p>action_url Acti</p></td>
-<td><p>on URL</p></td>
-</tr>
-<tr class="even">
-<td><p>icon_image Icon</p></td>
-<td><blockquote>
-<p>image</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td>map_icon_image</td>
-<td>Map icon image</td>
-</tr>
-</tbody>
-</table>
+| Parameter        | Description                     |
+| ---------------- | ------------------------------- |
+| name             | Name                            |
+| alias            | Alias                           |
+| comment          | Comment                         |
+| activate         | *1* when enabled, *0* otherwise |
+| notes            | Notes                           |
+| notes\_url       | Notes URL                       |
+| action\_url      | Action URL                      |
+| icon\_image      | Icon image                      |
+| map\_icon\_image | Map icon image                  |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getmember
 
-Note
+If you want to retrieve the members of a host group, use the **GETMEMBER** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getmember
-
-If you want to retrieve the members of a host group, use the
-**GETMEMBER** action:
-
-    centreon -u admin -p centreon -o HG -a getmember -v "Linux-Servers" 
-    id;name
-    34;Centreon-Server
-    35;srv-web
-
-### Addmember and Setmember
-
-If you want to add members to a specific host group, use the
-**SETMEMBER** or **ADDMEMBER** action:
-
-``` 
-centreon -u admin -p centreon -o HG -a setmember -v "Linux-Servers;srv-test|srv-test2" 
-centreon -u admin -p centreon -o HG -a addmember -v "Linux-Servers;srv-new" 
+``` shell
+centreon -u admin -p centreon -o HG -a getmember -v "Linux-Servers"
+id;name
+34;Centreon-Server
+35;srv-web
 ```
 
-<table>
-<thead>
-<tr class="header">
-<th>Action</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>set*</p></td>
-<td><blockquote>
-<p>Overwrites previous definitions. Use the delimiter | to set multiple members</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>add*</td>
-<td><blockquote>
-<p>Appends new members to the existing ones. Use the delimiter | to add multiple members</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
+#### Addmember and Setmember
 
-<div class="note">
+If you want to add members to a specific host group, use the **SETMEMBER** or **ADDMEMBER** action:
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delmember
-
-If you want to remove members from a specific host group, use the
-**DELMEMBER** action:
-
-``` 
-centreon -u admin -p centreon -o HG -a delmember -v "Linux-Servers;srv-test" 
+``` shell
+centreon -u admin -p centreon -o HG -a setmember -v "Linux-Servers;srv-test|srv-test2"
+centreon -u admin -p centreon -o HG -a addmember -v "Linux-Servers;srv-new"
 ```
 
-<div class="note">
+| Action | Description                                                                           |
+| ------ | ------------------------------------------------------------------------------------- |
+| set\*  | Overwrites previous definitions. Use the delimiter | to set multiple members          |
+| add\*  | Appends new members to the existing ones. Use the delimiter | to add multiple members |
 
-<div class="title">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-Note
+#### Delmember
 
-</div>
+If you want to remove members from a specific host group, use the **DELMEMBER** action:
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+``` shell
+centreon -u admin -p centreon -o HG -a delmember -v "Linux-Servers;srv-test"
+```
 
-</div>
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-## Hosts
-
-### Overview
+### Hosts
 
 Object name: HOST
 
-### Show
+#### Show
 
 In order to list available hosts, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o HOST -a show
-    id;name;alias;address;activate
-    82;sri-dev1;dev1;192.168.2.1;1
-    83;sri-dev2;dev2;192.168.2.2;1
-    84;sri-dev3;dev3;192.168.2.3;0
-    85;sri-dev4;dev4;192.168.2.4;1
-    86;sri-dev5;dev5;192.168.2.5;1
-    87;sri-dev6;dev6;192.168.2.6;1
-    94;sri-dev7;dev7;192.168.2.7;1
-    95;sri-dev8;dev8;192.168.2.8;1
+``` shell
+centreon -u admin -p centreon -o HOST -a show
+id;name;alias;address;activate
+82;sri-dev1;dev1;192.168.2.1;1
+83;sri-dev2;dev2;192.168.2.2;1
+84;sri-dev3;dev3;192.168.2.3;0
+85;sri-dev4;dev4;192.168.2.4;1
+86;sri-dev5;dev5;192.168.2.5;1
+87;sri-dev6;dev6;192.168.2.6;1
+94;sri-dev7;dev7;192.168.2.7;1
+95;sri-dev8;dev8;192.168.2.8;1
+```
 
 Columns are the following :
 
@@ -4087,11 +2973,13 @@ Columns are the following :
 | IP/Address | IP of host                      |
 | Activate   | 1 when enabled, 0 when disabled |
 
-### Add
+#### Add
 
 In order to add a host, use the **ADD** action:
 
-    centreon -u admin -p centreon -o HOST -a ADD -v "test;Test host;127.0.0.1;generic-host;central;Linux"
+``` shell
+centreon -u admin -p centreon -o HOST -a ADD -v "test;Test host;127.0.0.1;generic-host;central;Linux"
+```
 
 Required parameters:
 
@@ -4104,811 +2992,386 @@ Required parameters:
 | 5     | Instance name (poller)                                       |
 | 6     | Hostgroup; for multiple definitions, use delimiter \*\*      |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Del
 
-Note
+In order to delete one host, use the **DEL** action. You have to list the available hosts in order to identify the one
+you want to delete:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o HOST -a DEL -v "test"
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-</div>
+#### Setparam
 
-### Del
+In order to change parameters on a host configuration, use the **SETPARAM** action:
 
-In order to delete one host, use the **DEL** action. You have to list
-the available hosts in order to identify the one you want to delete:
-
-    centreon -u admin -p centreon -o HOST -a DEL -v "test"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to change parameters on a host configuration, use the
-**SETPARAM** action:
-
-    centreon -u admin -p centreon -o HOST -a setparam -v "test;alias;Development test "
-    centreon -u admin -p centreon -o HOST -a setparam -v "test;address;192.168.1.68"
-    centreon -u admin -p centreon -o HOST -a setparam -v "test;check_period;24x7"
-    centreon -u admin -p centreon -o HOST -a setparam -v "test;timezone;Europe/Berlin"
+``` shell
+centreon -u admin -p centreon -o HOST -a setparam -v "test;alias;Development test"
+centreon -u admin -p centreon -o HOST -a setparam -v "test;address;192.168.1.68"
+centreon -u admin -p centreon -o HOST -a setparam -v "test;check_period;24x7"
+centreon -u admin -p centreon -o HOST -a setparam -v "test;timezone;Europe/Berlin"
+```
 
 You may edit the following parameters:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>geo_coords Geo</p></td>
-<td><p>coordinates</p></td>
-</tr>
-<tr class="even">
-<td><p>2d_coords 2D c</p></td>
-<td><p>oordinates (used by statusmap)</p></td>
-</tr>
-<tr class="odd">
-<td><p>3d_coords 3D c</p></td>
-<td><p>oordinates (used by statusmap)</p></td>
-</tr>
-<tr class="even">
-<td><p>action_url Acti</p></td>
-<td><p>on URL</p></td>
-</tr>
-<tr class="odd">
-<td><p>activate Whet</p></td>
-<td><p>her or not host is enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>active_checks_enabled</p></td>
-<td><p>Whether or not active checks are enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>acknowledgement_timeout Ac</p></td>
-<td><p>knowledgement timeout (in seconds)</p></td>
-</tr>
-<tr class="even">
-<td><p>address</p></td>
-<td><p>Host IP Address</p></td>
-</tr>
-<tr class="odd">
-<td><p>alias</p></td>
-<td><p>Alias</p></td>
-</tr>
-<tr class="even">
-<td><p>check_command</p></td>
-<td><p>Check command</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_command_arguments</p></td>
-<td><p>Check command arguments</p></td>
-</tr>
-<tr class="even">
-<td><p>check_interval</p></td>
-<td><p>Normal check interval</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_freshness</p></td>
-<td><p>Enables check freshness</p></td>
-</tr>
-<tr class="even">
-<td><p>check_period</p></td>
-<td><p>Check period</p></td>
-</tr>
-<tr class="odd">
-<td><p>contact_additive_inheritance</p></td>
-<td><p>Enables contact additive inheritance</p></td>
-</tr>
-<tr class="even">
-<td><p>cg_additive_inheritance</p></td>
-<td><p>Enables contactgroup additive inheritance</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler</p></td>
-<td><p>Event handler command</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler_arguments</p></td>
-<td><p>Event handler command arguments</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler_enabled</p></td>
-<td><p>Whether or not event handler is enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>first_notification_delay Firs</p></td>
-<td><p>t notification delay (in seconds)</p></td>
-</tr>
-<tr class="odd">
-<td><p>flap_detection_enabled</p></td>
-<td><p>Whether or not flap detection is enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>flap_detection_options</p></td>
-<td><p>Flap detection options 'o' for Up, 'd' for Down, 'u' for Unreachable</p></td>
-</tr>
-<tr class="odd">
-<td><p>host_high_flap_threshold</p></td>
-<td><p>High flap threshold</p></td>
-</tr>
-<tr class="even">
-<td><p>host_low_flap_threshold</p></td>
-<td><p>Low flap threshold</p></td>
-</tr>
-<tr class="odd">
-<td><p>icon_image Icon</p></td>
-<td><blockquote>
-<p>image</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>icon_image_alt</p></td>
-<td><p>Icon image text</p></td>
-</tr>
-<tr class="odd">
-<td><p>max_check_attempts</p></td>
-<td><p>Maximum number of attempt before a HARD state is declared</p></td>
-</tr>
-<tr class="even">
-<td><p>name</p></td>
-<td><p>Host name</p></td>
-</tr>
-<tr class="odd">
-<td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="even">
-<td><p>notes_url Note</p></td>
-<td><p>s URL</p></td>
-</tr>
-<tr class="odd">
-<td><p>notifications_enabled</p></td>
-<td><p>Whether or not notification is enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_interval</p></td>
-<td><p>Notification interval</p></td>
-</tr>
-<tr class="odd">
-<td><p>notification_options</p></td>
-<td><p>Notification options</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_period Noti</p></td>
-<td><p>fication period</p></td>
-</tr>
-<tr class="odd">
-<td><p>recovery_notification_delay</p></td>
-<td><p>Recovery notification delay</p></td>
-</tr>
-<tr class="even">
-<td><p>obsess_over_host Whet</p></td>
-<td><p>her or not obsess over host option is enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>passive_checks_enabled</p></td>
-<td><p>Whether or not passive checks are enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>retain_nonstatus_information</p></td>
-<td><p>Whether or not there is non-status retention</p></td>
-</tr>
-<tr class="odd">
-<td><p>retain_status_information Whet</p></td>
-<td><p>her or not there is status retention</p></td>
-</tr>
-<tr class="even">
-<td><p>retry_check_interval</p></td>
-<td><p>Retry check interval</p></td>
-</tr>
-<tr class="odd">
-<td><p>snmp_community</p></td>
-<td><p>Snmp Community</p></td>
-</tr>
-<tr class="even">
-<td><p>snmp_version</p></td>
-<td><p>Snmp version</p></td>
-</tr>
-<tr class="odd">
-<td><p>stalking_options Comm</p></td>
-<td><p>a separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable</p></td>
-</tr>
-<tr class="even">
-<td><p>statusmap_image</p></td>
-<td><p>Status map image (used by statusmap</p></td>
-</tr>
-<tr class="odd">
-<td><p>host_notification_options</p></td>
-<td><p>Notification options (d,u,r,f,s)</p></td>
-</tr>
-<tr class="even">
-<td>timezone</td>
-<td>Timezone</td>
-</tr>
-</tbody>
-</table>
+| Parameter                      | Description                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| geo\_coords                    | Geo coordinates                                                        |
+| 2d\_coords                     | 2D coordinates (used by statusmap)                                     |
+| 3d\_coords                     | 3D coordinates (used by statusmap)                                     |
+| action\_url                    | Action URL                                                             |
+| activate                       | Whether or not host is enabled                                         |
+| active\_checks\_enabled        | Whether or not active checks are enabled                               |
+| acknowledgement\_timeout       | Acknowledgement timeout (in seconds)                                   |
+| address                        | Host IP Address                                                        |
+| alias                          | Alias                                                                  |
+| check\_command                 | Check command                                                          |
+| check\_command\_arguments      | Check command arguments                                                |
+| check\_interval                | Normal check interval                                                  |
+| check\_freshness               | Enables check freshness                                                |
+| check\_period                  | Check period                                                           |
+| contact\_additive\_inheritance | Enables contact additive inheritance                                   |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                              |
+| event\_handler                 | Event handler command                                                  |
+| event\_handler\_arguments      | Event handler command arguments                                        |
+| event\_handler\_enabled        | Whether or not event handler is enabled                                |
+| first\_notification\_delay     | First notification delay (in seconds)                                  |
+| flap\_detection\_enabled       | Whether or not flap detection is enabled                               |
+| flap\_detection\_options       | Flap detection options 'o' for Up, 'd' for Down, 'u' for Unreachable   |
+| host\_high\_flap\_threshold    | High flap threshold                                                    |
+| host\_low\_flap\_threshold     | Low flap threshold                                                     |
+| icon\_image                    | Icon image                                                             |
+| icon\_image\_alt               | Icon image text                                                        |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared              |
+| name                           | Host name                                                              |
+| notes                          | Notes                                                                  |
+| notes\_url                     | Notes URL                                                              |
+| notifications\_enabled         | Whether or not notification is enabled                                 |
+| notification\_interval         | Notification interval                                                  |
+| notification\_options          | Notification options                                                   |
+| notification\_period           | Notification period                                                    |
+| recovery\_notification\_delay  | Recovery notification delay                                            |
+| obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
+| passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
+| retain\_nonstatus\_information | Whether or not there is non-status retention                           |
+| retain\_status\_information    | Whether or not there is status retention                               |
+| retry\_check\_interval         | Retry check interval                                                   |
+| snmp\_community                | Snmp Community                                                         |
+| snmp\_version                  | Snmp version                                                           |
+| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
+| statusmap\_image               | Status map image (used by statusmap                                    |
+| host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
+| timezone                       | Timezone                                                               |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getparam
 
-Note
+In order to get specific parameters on a host configuration, use the **GETPARAM** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o HOST -a getparam -v "test;alias"
+alias
+test
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+``` shell
+centreon -u admin -p centreon -o HOST -a getparam -v "test;alias|alia|timezone"
+Object not found:alia
+```
 
-</div>
-
-### Getparam
-
-In order to get specific parameters on a host configuration, use the
-**GETPARAM** action:
-
-    centreon -u admin -p centreon -o HOST -a getparam -v "test;alias"
-    alias
-    test
-    centreon -u admin -p centreon -o HOST -a getparam -v "test;alias|alia|timezone"
-    Object not found:alia
-    centreon -u admin -p centreon -o HOST -a getparam -v "test;alias|address|timezone"
-    alias;address;timezone
-    test;192.168.56.101;Europe/Berlin
+``` shell
+centreon -u admin -p centreon -o HOST -a getparam -v "test;alias|address|timezone"
+alias;address;timezone
+test;192.168.56.101;Europe/Berlin
+```
 
 You may edit the following parameters:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>2d_coords 2D c</p></td>
-<td><p>oordinates (used by statusmap)</p></td>
-</tr>
-<tr class="even">
-<td><p>3d_coords 3D c</p></td>
-<td><p>oordinates (used by statusmap)</p></td>
-</tr>
-<tr class="odd">
-<td><p>action_url Acti</p></td>
-<td><p>on URL</p></td>
-</tr>
-<tr class="even">
-<td><p>activate Whet</p></td>
-<td><p>her or not host is enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>active_checks_enabled</p></td>
-<td><p>Whether or not active checks are enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>acknowledgement_timeout Ac</p></td>
-<td><p>knowledgement timeout (in seconds)</p></td>
-</tr>
-<tr class="odd">
-<td><p>address</p></td>
-<td><p>Host IP Address</p></td>
-</tr>
-<tr class="even">
-<td><p>alias</p></td>
-<td><p>Alias</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_command</p></td>
-<td><p>Check command</p></td>
-</tr>
-<tr class="even">
-<td><p>check_command_arguments</p></td>
-<td><p>Check command arguments</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_interval</p></td>
-<td><p>Normal check interval</p></td>
-</tr>
-<tr class="even">
-<td><p>check_freshness</p></td>
-<td><p>Enables check freshness</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_period</p></td>
-<td><p>Check period</p></td>
-</tr>
-<tr class="even">
-<td><p>contact_additive_inheritance</p></td>
-<td><p>Enables contact additive inheritance</p></td>
-</tr>
-<tr class="odd">
-<td><p>cg_additive_inheritance</p></td>
-<td><p>Enables contactgroup additive inheritance</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler</p></td>
-<td><p>Event handler command</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler_arguments</p></td>
-<td><p>Event handler command arguments</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler_enabled</p></td>
-<td><p>Whether or not event handler is enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>first_notification_delay Firs</p></td>
-<td><p>t notification delay (in seconds)</p></td>
-</tr>
-<tr class="even">
-<td><p>flap_detection_enabled</p></td>
-<td><p>Whether or not flap detection is enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>flap_detection_options</p></td>
-<td><p>Flap detection options 'o' for Up, 'd' for Down, 'u' for Unreachable</p></td>
-</tr>
-<tr class="even">
-<td><p>host_high_flap_threshold</p></td>
-<td><p>High flap threshold</p></td>
-</tr>
-<tr class="odd">
-<td><p>host_low_flap_threshold</p></td>
-<td><p>Low flap threshold</p></td>
-</tr>
-<tr class="even">
-<td><p>icon_image Icon</p></td>
-<td><blockquote>
-<p>image</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td><p>icon_image_alt</p></td>
-<td><p>Icon image text</p></td>
-</tr>
-<tr class="even">
-<td><p>max_check_attempts</p></td>
-<td><p>Maximum number of attempt before a HARD state is declared</p></td>
-</tr>
-<tr class="odd">
-<td><p>name</p></td>
-<td><p>Host name</p></td>
-</tr>
-<tr class="even">
-<td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="odd">
-<td><p>notes_url Note</p></td>
-<td><p>s URL</p></td>
-</tr>
-<tr class="even">
-<td><p>notifications_enabled</p></td>
-<td><p>Whether or not notification is enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>notification_interval</p></td>
-<td><p>Notification interval</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_options</p></td>
-<td><p>Notification options</p></td>
-</tr>
-<tr class="odd">
-<td><p>notification_period Noti</p></td>
-<td><p>fication period</p></td>
-</tr>
-<tr class="even">
-<td><p>recovery_notification_delay</p></td>
-<td><p>Recovery notification delay</p></td>
-</tr>
-<tr class="odd">
-<td><p>obsess_over_host Whet</p></td>
-<td><p>her or not obsess over host option is enabled</p></td>
-</tr>
-<tr class="even">
-<td><p>passive_checks_enabled</p></td>
-<td><p>Whether or not passive checks are enabled</p></td>
-</tr>
-<tr class="odd">
-<td><p>process_perf_data Proc</p></td>
-<td><p>ess performance data command</p></td>
-</tr>
-<tr class="even">
-<td><p>retain_nonstatus_information</p></td>
-<td><p>Whether or not there is non-status retention</p></td>
-</tr>
-<tr class="odd">
-<td><p>retain_status_information Whet</p></td>
-<td><p>her or not there is status retention</p></td>
-</tr>
-<tr class="even">
-<td><p>retry_check_interval</p></td>
-<td><p>Retry check interval</p></td>
-</tr>
-<tr class="odd">
-<td><p>snmp_community</p></td>
-<td><p>Snmp Community</p></td>
-</tr>
-<tr class="even">
-<td><p>snmp_version</p></td>
-<td><p>Snmp version</p></td>
-</tr>
-<tr class="odd">
-<td><p>stalking_options Comm</p></td>
-<td><p>a separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable</p></td>
-</tr>
-<tr class="even">
-<td><p>statusmap_image</p></td>
-<td><p>Status map image (used by statusmap</p></td>
-</tr>
-<tr class="odd">
-<td><p>host_notification_options</p></td>
-<td><p>Notification options (d,u,r,f,s)</p></td>
-</tr>
-<tr class="even">
-<td>timezone</td>
-<td>Timezone</td>
-</tr>
-</tbody>
-</table>
+| Parameter                      | Description                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| 2d\_coords                     | 2D coordinates (used by statusmap)                                     |
+| 3d\_coords                     | 3D coordinates (used by statusmap)                                     |
+| action\_url                    | Action URL                                                             |
+| activate                       | Whether or not host is enabled                                         |
+| active\_checks\_enabled        | Whether or not active checks are enabled                               |
+| acknowledgement\_timeout       | Acknowledgement timeout (in seconds)                                   |
+| address                        | Host IP Address                                                        |
+| alias                          | Alias                                                                  |
+| check\_command                 | Check command                                                          |
+| check\_command\_arguments      | Check command arguments                                                |
+| check\_interval                | Normal check interval                                                  |
+| check\_freshness               | Enables check freshness                                                |
+| check\_period                  | Check period                                                           |
+| contact\_additive\_inheritance | Enables contact additive inheritance                                   |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                              |
+| event\_handler                 | Event handler command                                                  |
+| event\_handler\_arguments      | Event handler command arguments                                        |
+| event\_handler\_enabled        | Whether or not event handler is enabled                                |
+| first\_notification\_delay     | First notification delay (in seconds)                                  |
+| flap\_detection\_enabled       | Whether or not flap detection is enabled                               |
+| flap\_detection\_options       | Flap detection options 'o' for Up, 'd' for Down, 'u' for Unreachable   |
+| host\_high\_flap\_threshold    | High flap threshold                                                    |
+| host\_low\_flap\_threshold     | Low flap threshold                                                     |
+| icon\_image                    | Icon image                                                             |
+| icon\_image\_alt               | Icon image text                                                        |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared              |
+| name                           | Host name                                                              |
+| notes                          | Notes                                                                  |
+| notes\_url                     | Notes URL                                                              |
+| notifications\_enabled         | Whether or not notification is enabled                                 |
+| notification\_interval         | Notification interval                                                  |
+| notification\_options          | Notification options                                                   |
+| notification\_period           | Notification period                                                    |
+| recovery\_notification\_delay  | Recovery notification delay                                            |
+| obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
+| passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
+| process\_perf\_data            | Process performance data command                                       |
+| retain\_nonstatus\_information | Whether or not there is non-status retention                           |
+| retain\_status\_information    | Whether or not there is status retention                               |
+| retry\_check\_interval         | Retry check interval                                                   |
+| snmp\_community                | Snmp Community                                                         |
+| snmp\_version                  | Snmp version                                                           |
+| stalking\_options              | Comma separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
+| statusmap\_image               | Status map image (used by statusmap                                    |
+| host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
+| timezone                       | Timezone                                                               |
 
-### Setinstance
+#### Setinstance
 
-In order to set the instance from which a host will be monitored, use
-the **SETINSTANCE** action:
+In order to set the instance from which a host will be monitored, use the **SETINSTANCE** action:
 
-    centreon -u admin -p centreon -o HOST -a setinstance -v "Centreon-Server;Poller 1"
+``` shell
+centreon -u admin -p centreon -o HOST -a setinstance -v "Centreon-Server;Poller 1"
+```
 
-### Showinstance
+#### Showinstance
 
-To determine the instance from which a host will be monitored, use the
-**SHOWINSTANCE** action:
+To determine the instance from which a host will be monitored, use the **SHOWINSTANCE** action:
 
-    centreon -u admin -p centreon -o HOST -a showinstance -v "Centreon-Server"
-    id;name
-    2;Poller 1
+``` shell
+centreon -u admin -p centreon -o HOST -a showinstance -v "Centreon-Server"
+id;name
+2;Poller 1
+```
 
-### Getmacro
+#### Getmacro
 
-In order to view the custom macro list of a host, use the **GETMACRO**
-action:
+In order to view the custom macro list of a host, use the **GETMACRO** action:
 
-    centreon -u admin -p centreon -o HOST -a getmacro -v "Centreon-Server"
-    macro name;macro value;is_password;description
-    $_HOSTMACADDRESS$;00:08:C7:1B:8C:02;0;description of macro
+``` shell
+centreon -u admin -p centreon -o HOST -a getmacro -v "Centreon-Server"
+macro name;macro value;is_password;description
+$_HOSTMACADDRESS$;00:08:C7:1B:8C:02;0;description of macro
+```
 
-### Setmacro
+#### Setmacro
 
 In order to set a custom host macro, use the **SETMACRO** action:
 
-    centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;warning;80;0;description of macro"
-    centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;critical;90;0;description of macro"
+``` shell
+centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;warning;80;0;description of macro"
+centreon -u admin -p centreon -o HOST -a setmacro -v "Centreon-Server;critical;90;0;description of macro"
+```
 
-<div class="note">
+> ***NOTE:*** If the macro already exists, this action will only update the macro value. Otherwise, macro will be created.
 
-<div class="title">
-
-Note
-
-</div>
-
-If the macro already exists, this action will only update the macro
-value. Otherwise, macro will be created.
-
-</div>
-
-### Delmacro
+#### Delmacro
 
 In order to delete a macro host, use the **DELMACRO** action:
 
-    centreon -u admin -p centreon -o HOST -a delmacro -v "Centreon-Server;warning"
-    centreon -u admin -p centreon -o HOST -a delmacro -v "Centreon-Server;critical"
+``` shell
+centreon -u admin -p centreon -o HOST -a delmacro -v "Centreon-Server;warning"
+centreon -u admin -p centreon -o HOST -a delmacro -v "Centreon-Server;critical"
+```
 
-### Gettemplate
+#### Gettemplate
 
-In order to view the template list of a host, use the **GETTEMPLATE**
-action:
+In order to view the template list of a host, use the **GETTEMPLATE** action:
 
-    centreon -u admin -p centreon -o HOST -a gettemplate -v "Centreon-Server"
-    id;name
-    2;generic-host
-    12;Linux-Servers
+``` shell
+centreon -u admin -p centreon -o HOST -a gettemplate -v "Centreon-Server"
+id;name
+2;generic-host
+12;Linux-Servers
+```
 
-### Addtemplate and Settemplate
+#### Addtemplate and Settemplate
 
-In order to add a host template to an existing host, use the
-**ADDTEMPLATE** or the **SETTEMPLATE** action, where *add* will append
-and *set* will overwrite previous definitions:
+In order to add a host template to an existing host, use the **ADDTEMPLATE** or the **SETTEMPLATE** action, where *add*
+will append and *set* will overwrite previous definitions:
 
-    centreon -u admin -p centreon -o HOST -a addtemplate -v "Centreon-Server;srv-Linux"
-    centreon -u admin -p centreon -o HOST -a settemplate -v "Centreon-Server;hardware-Dell"
+``` shell
+centreon -u admin -p centreon -o HOST -a addtemplate -v "Centreon-Server;srv-Linux"
+centreon -u admin -p centreon -o HOST -a settemplate -v "Centreon-Server;hardware-Dell"
+```
 
-<div class="note">
+> ***NOTE:*** All service templates linked to the new host template will be automatically deployed on the existing host. (no longer
+the case with version later than 1.3.0, use the 'applytpl' action manually)
 
-<div class="title">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-Note
+#### Deltemplate
 
-</div>
+In order to remove a host template to an existing host, use the **DELTEMPLATE** action:
 
-All service templates linked to the new host template will be
-automatically deployed on the existing host. (no longer the case with
-version later than 1.3.0, use the 'applytpl' action manually)
+``` shell
+centreon -u admin -p centreon -o HOST -a deltemplate -v "test;srv-Linux|hardware-Dell"
+```
 
-</div>
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="note">
+#### Applytpl
 
-<div class="title">
+When a template host undergoes modified link-level service template, the change is not automatically reflected in hosts
+belonging to that template. For the change to take effect, it must then re-apply the template on this host. For this,
+use the **APPLYTPL** action:
 
-Note
+``` shell
+centreon -u admin -p centreon -o HOST -a applytpl -v "test"
+All new services are now created.
+```
 
-</div>
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Deltemplate
-
-In order to remove a host template to an existing host, use the
-**DELTEMPLATE** action:
-
-    centreon -u admin -p centreon -o HOST -a deltemplate -v "test;srv-Linux|hardware-Dell"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Applytpl
-
-When a template host undergoes modified link-level service template, the
-change is not automatically reflected in hosts belonging to that
-template. For the change to take effect, it must then re-apply the
-template on this host. For this, use the **APPLYTPL** action:
-
-    centreon -u admin -p centreon -o HOST -a applytpl -v "test"
-    All new services are now created.
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getparent
+#### Getparent
 
 In order to view the parents of a host, use the **GETPARENT** action:
 
-    centreon -u admin -p centreon -o HOST -a getparent -v "Centreon-Server"
-    id;name
-    43;server-parent1
-    44;server-parent2
+``` shell
+centreon -u admin -p centreon -o HOST -a getparent -v "Centreon-Server"
+id;name
+43;server-parent1
+44;server-parent2
+```
 
-### Addparent and Setparent
+#### Addparent and Setparent
 
-In order to add a host parent to an host, use the **ADDPARENT** or
-**SETPARENT** actions where *add* will append and *set* will overwrite
-the previous definitions:
+In order to add a host parent to an host, use the **ADDPARENT** or **SETPARENT** actions where *add* will append and
+*set* will overwrite the previous definitions:
 
-    centreon -u admin -p centreon -o HOST -a addparent -v "host;hostParent1"
-    centreon -u admin -p centreon -o HOST -a setparent -v "host;hostParent1|hostParent2"
+``` shell
+centreon -u admin -p centreon -o HOST -a addparent -v "host;hostParent1"
+centreon -u admin -p centreon -o HOST -a setparent -v "host;hostParent1|hostParent2"
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delparent
+#### Delparent
 
 In order to remove a parent, use the **DELPARENT** action:
 
-    centreon -u admin -p centreon -o HOST -a delparent -v "Centreon-Server;server-parent1|server-parent2"
+``` shell
+centreon -u admin -p centreon -o HOST -a delparent -v "Centreon-Server;server-parent1|server-parent2"
+```
 
-### Getcontactgroup
+#### Getcontactgroup
 
-In order to view the notification contact groups of a host, use the
-**GETCONTACTGROUP** action:
+In order to view the notification contact groups of a host, use the **GETCONTACTGROUP** action:
 
-    centreon -u admin -p centreon -o HOST -a getcontactgroup -v "Centreon-Server"
-    id;name
-    17;Administrators
+``` shell
+centreon -u admin -p centreon -o HOST -a getcontactgroup -v "Centreon-Server"
+id;name
+17;Administrators
+```
 
-### Addcontactgroup and Setcontactgroup
+#### Addcontactgroup and Setcontactgroup
 
-If you want to add notification contactgroups to a host, use the
-**ADDCONTACTGROUP** or **SETCONTACTGROUP** actions where *add* will
+If you want to add notification contactgroups to a host, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP** actions
+where *add* will append and *set* will overwrite previous definitions:
+
+``` shell
+centreon -u admin -p centreon -o HOST -a addcontactgroup -v "Centreon-Server;Contactgroup1"
+centreon -u admin -p centreon -o HOST -a setcontactgroup -v "Centreon-Server;Contactgroup1|Contactgroup2"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Delcontactgroup
+
+If you want to remove notification contactgroups from a host, use the **DELCONTACTGROUP** action:
+
+``` shell
+centreon -u admin -p centreon -o HOST -a delcontactgroup -v "Centreon-Server;Contactgroup2"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Getcontact
+
+In order to view the notification contacts of a host, use the **GETCONTACT** action:
+
+``` shell
+centreon -u admin -p centreon -o HOST -a getcontact -v "Centreon-Server"
+id;name
+11;guest
+```
+
+#### Addcontact and Setcontact
+
+If you want to add notification contacts to a host, use the **ADDCONTACT** or **SETCONTACT** actions where *add* will
 append and *set* will overwrite previous definitions:
 
-    centreon -u admin -p centreon -o HOST -a addcontactgroup -v "Centreon-Server;Contactgroup1"
-    centreon -u admin -p centreon -o HOST -a setcontactgroup -v "Centreon-Server;Contactgroup1|Contactgroup2"
+``` shell
+centreon -u admin -p centreon -o HOST -a addcontact -v "Centreon-Server;Contact1"
+centreon -u admin -p centreon -o HOST -a setcontact -v "Centreon-Server;Contact1|Contact2"
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delcontact
 
-Note
+If you want to remove a notification contacts from a host, use the **DELCONTACT** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o HOST -a delcontact -v "Centreon-Server;Contact2"
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-</div>
+#### Gethostgroup
 
-### Delcontactgroup
+In order to view the hostgroups that are tied to a host, use the **GETHOSTGROUP** action:
 
-If you want to remove notification contactgroups from a host, use the
-**DELCONTACTGROUP** action:
+``` shell
+centreon -u admin -p centreon -o HOST -a gethostgroup -v "Centreon-Server"
+id;name
+9;Linux-Servers
+```
 
-    centreon -u admin -p centreon -o HOST -a delcontactgroup -v "Centreon-Server;Contactgroup2"
+#### Addhostgroup and Sethostgroup
 
-<div class="note">
+If you want to tie hostgroups to a host, use the **ADDHOSTGROUP** or **SETHOSTGROUP** actions where *add* will append
+and *set* will overwrite previous definitions:
 
-<div class="title">
+``` shell
+centreon -u admin -p centreon -o HOST -a addhostgroup -v "Centreon-Server;Hostgroup1"
+centreon -u admin -p centreon -o HOST -a sethostgroup -v "Centreon-Server;Hostgroup1|Hostgroup2"
+```
 
-Note
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-</div>
+#### Delhostgroup
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+If you want to remove hostgroups from a host, use the **DELHOSTGROUP** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o HOST -a delhostgroup -v "Centreon-Server;Hostgroup2"
+```
 
-### Getcontact
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-In order to view the notification contacts of a host, use the
-**GETCONTACT** action:
+#### Setseverity
 
-    centreon -u admin -p centreon -o HOST -a getcontact -v "Centreon-Server"
-    id;name
-    11;guest
+In order to associate a severity to a host, use the **SETSEVERITY** action:
 
-### Addcontact and Setcontact
-
-If you want to add notification contacts to a host, use the
-**ADDCONTACT** or **SETCONTACT** actions where *add* will append and
-*set* will overwrite previous definitions:
-
-    centreon -u admin -p centreon -o HOST -a addcontact -v "Centreon-Server;Contact1"
-    centreon -u admin -p centreon -o HOST -a setcontact -v "Centreon-Server;Contact1|Contact2"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontact
-
-If you want to remove a notification contacts from a host, use the
-**DELCONTACT** action:
-
-    centreon -u admin -p centreon -o HOST -a delcontact -v "Centreon-Server;Contact2"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Gethostgroup
-
-In order to view the hostgroups that are tied to a host, use the
-**GETHOSTGROUP** action:
-
-    centreon -u admin -p centreon -o HOST -a gethostgroup -v "Centreon-Server"
-    id;name
-    9;Linux-Servers
-
-### Addhostgroup and Sethostgroup
-
-If you want to tie hostgroups to a host, use the **ADDHOSTGROUP** or
-**SETHOSTGROUP** actions where *add* will append and *set* will
-overwrite previous definitions:
-
-    centreon -u admin -p centreon -o HOST -a addhostgroup -v "Centreon-Server;Hostgroup1"
-    centreon -u admin -p centreon -o HOST -a sethostgroup -v "Centreon-Server;Hostgroup1|Hostgroup2"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delhostgroup
-
-If you want to remove hostgroups from a host, use the **DELHOSTGROUP**
-action:
-
-    centreon -u admin -p centreon -o HOST -a delhostgroup -v "Centreon-Server;Hostgroup2"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setseverity
-
-In order to associate a severity to a host, use the **SETSEVERITY**
-action:
-
-    centreon -u admin -p centreon -o HOST -a setseverity -v "Centreon-Server;Critical"
+``` shell
+centreon -u admin -p centreon -o HOST -a setseverity -v "Centreon-Server;Critical"
+```
 
 Required parameters:
 
@@ -4917,12 +3380,13 @@ Required parameters:
 | 1     | Host name     |
 | 2     | Severity name |
 
-### Unsetseverity
+#### Unsetseverity
 
-In order to remove the severity from a host, use the **UNSETSEVERITY**
-action:
+In order to remove the severity from a host, use the **UNSETSEVERITY** action:
 
-    centreon -u admin -p centreon -o HOST -a unsetseverity -v "Centreon-Server"
+``` shell
+centreon -u admin -p centreon -o HOST -a unsetseverity -v "Centreon-Server"
+```
 
 Required parameters:
 
@@ -4930,218 +3394,107 @@ Required parameters:
 | ----- | ----------- |
 | 1     | Host name   |
 
-### Enable
+#### Enable
 
 In order to enable an host, use the **ENABLE** action:
 
-    centreon -u admin -p centreon -o HOST -a enable -v "test"
+``` shell
+centreon -u admin -p centreon -o HOST -a enable -v "test"
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Disable
+#### Disable
 
 In order to disable a host, use the **DISABLE** action:
 
-    centreon -u admin -p centreon -o HOST -a disable -v "test"
+``` shell
+centreon -u admin -p centreon -o HOST -a disable -v "test"
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-## Host templates
-
-### Overview
+### Host templates
 
 Object name: **HTPL**
 
 Refer to the `HOST <hosts>` object
 
-<div class="note">
+> ***NOTE:*** You cannot use the **APPLYTPL** and **SETINSTANCE** actions on **HTPL** objects.
 
-<div class="title">
+If you are looking for service templates association to host templates refer to ADDHOSTTEMPLATE/SETHOSTTEMPLATE command
+from `STPL <addhosttemplate-and-sethosttemplate>` object.
 
-Note
-
-</div>
-
-You cannot use the **APPLYTPL** and **SETINSTANCE** actions on **HTPL**
-objects.
-
-</div>
-
-If you are looking for service templates association to host templates
-refer to ADDHOSTTEMPLATE/SETHOSTTEMPLATE command from `STPL
-<addhosttemplate-and-sethosttemplate>` object.
-
-## Object management
-
-<div class="toctree" data-maxdepth="1">
-
-acl acl\_action acl\_group acl\_menu acl\_resource
-realtime\_acknowledgement broker\_cfg commands contacts
-contact\_templates contact\_groups dependencies downtimes
-realtime\_downtimes engine\_cfg host\_templates hosts host\_categories
-host\_groups host\_group\_services instances ldap\_servers resource\_cfg
-service\_templates services service\_groups service\_categories settings
-time\_periods traps vendors
-
-</div>
-
-## Instances (Pollers)
-
-### Overview
+### Instances (Pollers)
 
 Object name: **INSTANCE**
 
-### Show
+#### Show
 
 In order to list available instances, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o INSTANCE -a show 
-    id;name;localhost;ip address;activate;status;init script;monitoring engine;bin;stats bin;perfdata;ssh port
-    1;Central;1;127.0.0.1;1;0;/etc/init.d/nagios;NAGIOS;/usr/local/nagios/bin/nagios;/usr/local/nagios/bin/nagiostats;/usr/local/nagios/var/service-perfdata;22
-    [...]
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a show 
+id;name;localhost;ip address;activate;status;init script;monitoring engine;bin;stats bin;perfdata;ssh port
+1;Central;1;127.0.0.1;1;0;/etc/init.d/nagios;NAGIOS;/usr/local/nagios/bin/nagios;/usr/local/nagios/bin/nagiostats;/usr/local/nagios/var/service-perfdata;22
+[...]
+```
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>ID ID</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>Name</p></td>
-<td><p>Name</p></td>
-</tr>
-<tr class="odd">
-<td><p>Localhost <em>1</em></p></td>
-<td><p>if it is the main poller, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>IP Address IP a</p></td>
-<td><p>ddress of the poller</p></td>
-</tr>
-<tr class="odd">
-<td><p>Activate <em>1</em></p></td>
-<td><p>if poller is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>Status</p></td>
-<td><p><em>1</em> if poller is running, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>Init script Init</p></td>
-<td><blockquote>
-<p>script path</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>Bin Path</p></td>
-<td><blockquote>
-<p>of the Scheduler binary</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td><p>Stats Bin Path</p></td>
-<td><blockquote>
-<p>of the Nagios Stats binary</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>SSH Port SSH</td>
-<td>Port</td>
-</tr>
-</tbody>
-</table>
+| Column      | Description                                 |
+| ----------- | ------------------------------------------- |
+| ID          | ID                                          |
+| Name        | Name                                        |
+| Localhost   | *1* if it is the main poller, *0* otherwise |
+| IP Address  | IP address of the poller                    |
+| Activate    | *1* if poller is enabled, *0* otherwise     |
+| Status      | *1* if poller is running, *0* otherwise     |
+| Init script | Init script path                            |
+| Bin         | Path of the Scheduler binary                |
+| Stats Bin   | Path of the Nagios Stats binary             |
+| SSH Port    | SSH Port                                    |
 
-### Add
+#### Add
 
 In order to add an instance you use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;NAGIOS" 
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;NAGIOS"
 ```
 
 Required fields are:
 
-| Column       | Description              |
-| ------------ | ------------------------ |
-| Name         |                          |
-| Address      | IP address of the poller |
-| SSH Port SSH | port                     |
+| Column   | Description              |
+| -------- | ------------------------ |
+| Name     |                          |
+| Address  | IP address of the poller |
+| SSH Port | SSH port                 |
 
-### Del
+#### Del
 
-If you want to remove an instance, use the **DEL** action. The Name is
-used for identifying the instance to delete:
+If you want to remove an instance, use the **DEL** action. The Name is used for identifying the instance to delete:
 
-``` 
-centreon -u admin -p centreon -o INSTANCE -a del -v "Poller test" 
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a del -v "Poller test"
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of an instance, use the
-**SETPARAM** command. The Name is used for identifying the instance to
-update:
+If you want to change a specific parameter of an instance, use the **SETPARAM** command. The Name is used for
+identifying the instance to update:
 
-``` 
-centreon -u admin -p centreon -o INSTANCE -a setparam -v "Poller test;ns_ip_address;10.30.2.99" 
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a setparam -v "Poller test;ns_ip_address;10.30.2.99"
 ```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of instance</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of instance   |
+| 2     | Parameter name     |
+| 3     | Parameter value    |
 
 Parameters that you may change are:
 
@@ -5162,15 +3515,16 @@ Parameters that you may change are:
 | centreonbroker\_cfg\_path    | Centreon Broker Configuration path          |
 | centreonbroker\_module\_path | Centreon Broker Module path                 |
 
-### Gethosts
+#### Gethosts
 
-If you want to list all hosts that are monitored by a poller, use the
-**GETHOSTS** action. The Name is used for identifying the instance to
-query:
+If you want to list all hosts that are monitored by a poller, use the **GETHOSTS** action. The Name is used for
+identifying the instance to query:
 
-    centreon -u admin -p centreon -o INSTANCE -a GETHOSTS -v "Poller test"
-    14;Centreon-Server;127.0.0.1
-    17;srv-website;10.30.2.1
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a GETHOSTS -v "Poller test"
+14;Centreon-Server;127.0.0.1
+17;srv-website;10.30.2.1
+```
 
 Returned info is the following:
 
@@ -5180,21 +3534,21 @@ Returned info is the following:
 | 2     | Host name    |
 | 3     | Host address |
 
-## LDAP configuration
-
-### Overview
+### LDAP configuration
 
 Object name: **LDAP**
 
-### Show
+#### Show
 
 In order to list available LDAP configurations, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o LDAP -a show
-    id;name;description;status
-    3;ad;my ad conf;1
-    2;openldap;my openldap conf;1
-    [...]
+``` shell
+centreon -u admin -p centreon -o LDAP -a show
+id;name;description;status
+3;ad;my ad conf;1
+2;openldap;my openldap conf;1
+[...]
+```
 
 Columns are the following:
 
@@ -5205,12 +3559,12 @@ Columns are the following:
 | 3     | Configuration description       |
 | 4     | 1 when enabled, 0 when disabled |
 
-### Add
+#### Add
 
 In order to add an LDAP configuration, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o LDAP -a add -v "my new configuration;my description" 
+``` shell
+centreon -u admin -p centreon -o LDAP -a add -v "my new configuration;my description"
 ```
 
 Required fields are:
@@ -5220,24 +3574,22 @@ Required fields are:
 | 1     | Configuration name        |
 | 2     | Configuration description |
 
-### Del
+#### Del
 
-If you want to remove an LDAP configuration, use the **DEL** action. The
-Configuration Name is used for identifying the LDAP configuration to
-delete:
+If you want to remove an LDAP configuration, use the **DEL** action. The Configuration Name is used for identifying the
+LDAP configuration to delete:
 
-``` 
-centreon -u admin -p centreon -o LDAP -a del -v "my new configuration" 
+``` shell
+centreon -u admin -p centreon -o LDAP -a del -v "my new configuration"
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of an LDAP configuration, use
-the **SETPARAM** action. The Configuration Name is used for identifying
-the LDAP configuration to update:
+If you want to change a specific parameter of an LDAP configuration, use the **SETPARAM** action. The Configuration Name
+is used for identifying the LDAP configuration to update:
 
-``` 
-centreon -u admin -p centreon -o LDAP -a SETPARAM -v "my new configuration;description;my new desc" 
+``` shell
+centreon -u admin -p centreon -o LDAP -a SETPARAM -v "my new configuration;description;my new desc"
 ```
 
 Parameters use the following order:
@@ -5280,22 +3632,24 @@ Parameters that you may change are the following:
 | user\_pager            | User phone number                                              |
 | user\_group            | User group                                                     |
 
-### Showserver
+#### Showserver
 
-In order to show the server list of an LDAP configuration, use the
-**SHOWSERVER** action. The Configuration Name is used for identifying
-the LDAP configuration to query:
+In order to show the server list of an LDAP configuration, use the **SHOWSERVER** action. The Configuration Name is used
+for identifying the LDAP configuration to query:
 
-    centreon -u admin -p centreon -o LDAP -a SHOWSERVER -v "openldap"
-    id;address;port;ssl;tls;order
-    2;10.30.2.3;389;0;0;1
+``` shell
+centreon -u admin -p centreon -o LDAP -a SHOWSERVER -v "openldap"
+id;address;port;ssl;tls;order
+2;10.30.2.3;389;0;0;1
+```
 
-### Addserver
+#### Addserver
 
-In order to add a server to an LDAP configuration, use the **ADDSERVER**
-action:
+In order to add a server to an LDAP configuration, use the **ADDSERVER** action:
 
-    centreon -u admin -p centreon -o LDAP -a ADDSERVER -v "openldap;10.30.2.15;389;0;1"
+``` shell
+centreon -u admin -p centreon -o LDAP -a ADDSERVER -v "openldap;10.30.2.15;389;0;1"
+```
 
 Required parameters are the following:
 
@@ -5307,70 +3661,48 @@ Required parameters are the following:
 | 4     | Use SSL or not     |
 | 5     | Use TLS or not     |
 
-### Delserver
+#### Delserver
 
-In order to remove a server from an LDAP configuration, use the
-**DELSERVER** action. The server ID is used for identifying the server
-to delete:
+In order to remove a server from an LDAP configuration, use the **DELSERVER** action. The server ID is used for
+identifying the server to delete:
 
-    centreon -u admin -p centreon -o LDAP -a DELSERVER -v 2
+``` shell
+centreon -u admin -p centreon -o LDAP -a DELSERVER -v 2
+```
 
-### Setparamserver
+#### Setparamserver
 
-In order to update the server parameters of an LDAP configuration, use
-the **SETPARAMSERVER** action. The server ID is used for identifying the
-server to update:
+In order to update the server parameters of an LDAP configuration, use the **SETPARAMSERVER** action. The server ID is
+used for identifying the server to update:
 
-    centreon -u admin -p centreon -o LDAP -a SETPARAMSERVER -v "2;use_ssl;1"
+``` shell
+centreon -u admin -p centreon -o LDAP -a SETPARAMSERVER -v "2;use_ssl;1"
+```
 
 Parameters that you may update are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Key</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>host_address</p>
-<p>host_port</p>
-<p>host_order</p></td>
-<td><p>Address of the server</p>
-<p>Port of the server</p>
-<p>Priority order in case of failover</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>use_ssl</p></td>
-<td><p>Use SSL or not</p></td>
-<td><p>0 or 1</p></td>
-</tr>
-<tr class="odd">
-<td>use_tls</td>
-<td>Use TLS or not</td>
-<td>0 or 1</td>
-</tr>
-</tbody>
-</table>
+| Key           | Description                        | Possible values |
+| ------------- | ---------------------------------- | --------------- |
+| host\_address | Address of the server              |                 |
+| host\_port    | Port of the server                 |                 |
+| host\_order   | Priority order in case of failover |                 |
+| use\_ssl      | Use SSL or not                     | 0 or 1          |
+| use\_tls      | Use TLS or not                     | 0 or 1          |
 
-## Real time Acknowledgement
-
-### Overview
+### Realtime acknowledgement
 
 Object name: **RTACKNOWLEDGEMENT**
 
-### Show host real time acknowledgement
+#### Show host realtime acknowledgement
 
-In order to list available real time acknowledgement, use the **SHOW**
-action:: You can use the value "HOST" to display all the
-acknowledgement:
+In order to list available realtime acknowledgement, use the **SHOW** action: You can use the value "HOST" to display
+all the acknowledgement:
 
-    centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "HOST;generic-host"
-    id;host_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
-    6;generic-host;2017/09/28 14:21;admin;'generic-comment';2;0;1
+``` shell
+centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "HOST;generic-host"
+id;host_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
+6;generic-host;2017/09/28 14:21;admin;'generic-comment';2;0;1
+```
 
 Columns are the following :
 
@@ -5385,14 +3717,16 @@ Columns are the following :
 | Notify\_contacts    | Notification send to the contacts linked to the object (0/1)                       |
 | Persistent\_comment | Acknowledgement will be maintained in the case of a restart of the scheduler (0/1) |
 
-### Show service real time acknowledgement
+#### Show service realtime acknowledgement
 
-In order to list available real time acknowledgement, use the **SHOW**
-action:: You can use the value "SVC" to display all the acknowledgement:
+In order to list available realtime acknowledgement, use the **SHOW** action: You can use the value "SVC" to display
+all the acknowledgement:
 
-    centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "SVC;generic-host,generic-service"
-    id;host_name;service_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
-    42;generic-host;generic-service;2017/09/28 14:21;admin;'generic-comment';2;0;1
+``` shell
+centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a show -v "SVC;generic-host,generic-service"
+id;host_name;service_name;entry_time;author;comment_data;sticky;notify_contacts;persistent_comment
+42;generic-host;generic-service;2017/09/28 14:21;admin;'generic-comment';2;0;1
+```
 
 Columns are the following :
 
@@ -5408,12 +3742,13 @@ Columns are the following :
 | Notify\_contacts    | Notification send to the contacts linked to the object (0/1)                       |
 | Persistent\_comment | Acknowledgement will be maintained in the case of a restart of the scheduler (0/1) |
 
-### Real time Acknowledgement for : Addhost
+#### Add host realtime acknowledgement
 
-If you want to associate a host to a real time acknowledgement, use the
-**ADD** action:
+If you want to associate a host to a realtime acknowledgement, use the **ADD** action:
 
-    centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;2;0;1"
+``` shell
+centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "HOST;central;my comments;2;0;1"
+```
 
 The required parameters are the following :
 
@@ -5421,17 +3756,18 @@ The required parameters are the following :
 | ----- | ----------------------------------------------------------------------------------------------- |
 | 1     | Value you want to associate                                                                     |
 | 2     | Name of the host (Name of the service)                                                          |
-| 3     | Short description of the real time acknowledgement                                              |
+| 3     | Short description of the realtime acknowledgement                                               |
 | 4     | Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)                    |
 | 5     | Notification send to the contacts linked to the object (Notify use 0 or 1)                      |
 | 6     | Maintained th acknowledgement in the case of a restart of the scheduler (Persistent use 0 or 1) |
 
-### Real time Acknowledgement for : addservice
+#### Add service realtime acknowledgement
 
-If you want to associate a service or service group to a real time
-acknowledgement, use the **ADD** action:
+If you want to associate a service or service group to a realtime acknowledgement, use the **ADD** action:
 
-    centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "SVC;central,ping|central,memory;my comments;2;0;1"
+``` shell
+centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a add -v "SVC;central,ping|central,memory;my comments;2;0;1"
+```
 
 The required parameters are the following :
 
@@ -5439,17 +3775,18 @@ The required parameters are the following :
 | ----- | ----------------------------------------------------------------------------------------------- |
 | 1     | Value you want to associate                                                                     |
 | 2     | Name of the host , name of the service                                                          |
-| 3     | Short description of the real time acknowledgement                                              |
+| 3     | Short description of the realtime acknowledgement                                               |
 | 4     | Acknowledgement maintained in case of a change of status (Sticky use 0 or 2)                    |
 | 5     | Notification send to the contacts linked to the object (Notify use 0 or 1)                      |
 | 6     | Maintained th acknowledgement in the case of a restart of the scheduler (Persistent use 0 or 1) |
 
-### Cancel a real time acknowledgement
+#### Cancel a realtime acknowledgement
 
-In order to cancel a real time acknowledgement, use the **CANCEL**
-action:
+In order to cancel a realtime acknowledgement, use the **CANCEL** action:
 
-    centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a CANCEL -v "central,ping"
+``` shell
+centreon -u admin -p centreon -o RTACKNOWLEDGEMENT -a cancel -v "central,ping"
+```
 
 The required parameters are the following :
 
@@ -5457,20 +3794,20 @@ The required parameters are the following :
 | ----- | -------------------------------- |
 | 1     | Name of acknowledged resource(s) |
 
-## Real time Downtimes
-
-### Overview
+### Realtime downtimes
 
 Object name: **RTDOWNTIME**
 
-### Show host real time downtime
+#### Show host realtime downtime
 
-In order to list available real time downtimes, use the **SHOW**
-action:: You can use the value "HOST" to display all the downtimes:
+In order to list available realtime downtimes, use the **SHOW** action: You can use the value "HOST" to display all the
+downtimes:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a show -v "HOST;generic-host"
-    id;host_name;author;actual_start_time;actual_end_time;start_time;end_time;comment_data;duration;fixed
-    6;generic-host;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a show -v "HOST;generic-host"
+id;host_name;author;actual_start_time;actual_end_time;start_time;end_time;comment_data;duration;fixed
+6;generic-host;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
+```
 
 Columns are the following :
 
@@ -5483,18 +3820,20 @@ Columns are the following :
 | Actual\_end\_time   | Actual end date in case of flexible downtime               |
 | Start\_time         | Beginning of downtime                                      |
 | End\_time           | End of downtime                                            |
-| Comment\_data       | Short description of the real time downtime                |
+| Comment\_data       | Short description of the realtime downtime                 |
 | Duration            | Duration of Downtime                                       |
 | Fixed               | Downtime starts and stops at the exact start and end times |
 
-### Show service real time downtime
+#### Show service realtime downtime
 
-In order to list available real time downtimes, use the **SHOW**
-action:: You can use the value "SVC" to display all the downtimes:
+In order to list available realtime downtimes, use the **SHOW** action: You can use the value "SVC" to display all the
+downtimes:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a show -v "SVC;generic-host,generic-service"
-    id;host_name;service_name;author;start_time;end_time;comment_data;duration;fixed
-    42;generic-host;generic-service;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a show -v "SVC;generic-host,generic-service"
+id;host_name;service_name;author;start_time;end_time;comment_data;duration;fixed
+42;generic-host;generic-service;admin;2017/09/28 14:21;N/A;2017/09/26 17:00;2017/09/30 19:00;'generic-comment';3600;1
+```
 
 Columns are the following :
 
@@ -5508,18 +3847,19 @@ Columns are the following :
 | Actual\_end\_time   | Actual end date in case of flexible downtime               |
 | Start\_time         | Beginning of downtime                                      |
 | End\_time           | End of downtime                                            |
-| Comment\_data       | Short description of the real time downtime                |
+| Comment\_data       | Short description of the realtime downtime                 |
 | Duration            | Duration of Downtime                                       |
 | Fixed               | Downtime starts and stops at the exact start and end times |
 
-### Real time Downtime for : Addhost, addhostgroup
+#### Add host and host group realtime downtime
 
-If you want to associate a host, host group to a real time downtime, use
-the **ADD** action:: To set the value of the start/end, use following
-format : YYYY/MM/DD HH:mm:
+If you want to associate a host, host group to a realtime downtime, use the **ADD** action: To set the value of the
+start/end, use following format : YYYY/MM/DD HH:mm:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a add -v "HOST;central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments;1"
-    centreon -u admin -p centreon -o RTDOWNTIME -a add -v "HG;linux-servers;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments;1"
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a add -v "HOST;central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments;1"
+centreon -u admin -p centreon -o RTDOWNTIME -a add -v "HG;linux-servers;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments;1"
+```
 
 The required parameters are the following :
 
@@ -5531,17 +3871,18 @@ The required parameters are the following :
 | 4     | End of downtime                                  |
 | 5     | Type of downtime (1 = fixed, 0 = flexible)       |
 | 6     | Duration of downtime for flexible mode (seconds) |
-| 7     | Short description of the real time downtime      |
+| 7     | Short description of the realtime downtime       |
 | 8     | Apply downtime on linked services (0/1)          |
 
-### Real time Downtime for : addservice, addservicegroup
+#### Add service and service group realtime downtime
 
-If you want to associate a service or service group to a real time
-downtime, use the **ADD** action:: To set the value of the start/end,
-use following format : YYYY/MM/DD HH:mm:
+If you want to associate a service or service group to a realtime downtime, use the **ADD** action: To set the value of
+the start/end, use following format : YYYY/MM/DD HH:mm:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a add -v "SVC;central,ping|central,memory;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments"
-    centreon -u admin -p centreon -o RTDOWNTIME -a add -v "SG;servicegroup1;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments"
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a add -v "SVC;central,ping|central,memory;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments"
+centreon -u admin -p centreon -o RTDOWNTIME -a add -v "SG;servicegroup1;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments"
+```
 
 The required parameters are the following :
 
@@ -5553,15 +3894,16 @@ The required parameters are the following :
 | 4     | End of downtime                                  |
 | 5     | Type of downtime (1 = fixed, 0 = flexible)       |
 | 6     | Duration of downtime for flexible mode (seconds) |
-| 7     | Short description of the real time downtime      |
+| 7     | Short description of the realtime downtime       |
 
-### Add instance real time downtime
+#### Add instance realtime downtime
 
-In order to add a new real time downtime for a poller, use the **ADD**
-action:: To set the value of the start/end, use following format :
-YYYY/MM/DD HH:mm:
+In order to add a new realtime downtime for a poller, use the **ADD** action: To set the value of the start/end, use
+following format : YYYY/MM/DD HH:mm:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a add -v "INSTANCE;Central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a add -v "INSTANCE;Central;2017/09/24 10:00;2017/09/24 12:00;1;3600;my comments
+```
 
 The required parameters are the following :
 
@@ -5573,14 +3915,15 @@ The required parameters are the following :
 | 4     | End of downtime                                  |
 | 5     | Type of downtime (1 = fixed, 0 = flexible)       |
 | 6     | Duration of downtime for flexible mode (seconds) |
-| 7     | Short description of the real time downtime      |
+| 7     | Short description of the realtime downtime       |
 
-### Cancel a real time downtime
+#### Cancel a realtime downtime
 
-In order to cancel a real time downtime, use the **CANCEL** action:: To
-get the value of the id, use the **SHOW** action:
+In order to cancel a realtime downtime, use the **CANCEL** action: To get the value of the id, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o RTDOWNTIME -a CANCEL -v "6|42"
+``` shell
+centreon -u admin -p centreon -o RTDOWNTIME -a cancel -v "6|42"
+```
 
 The required parameters are the following :
 
@@ -5588,37 +3931,39 @@ The required parameters are the following :
 | ----- | -------------- |
 | 1     | Id of downtime |
 
-## Resource CFG
-
-### Overview
+### Resource CFG
 
 Object name: **RESOURCECFG**
 
-### Show
+#### Show
 
 In order to list available Resource variables, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o RESOURCECFG -a show
-    id;name;value;comment;activate;instance
-    1;$USER1$;/usr/local/nagios/libexec;path to the plugins;1;Central
-    [...]
+``` shell
+centreon -u admin -p centreon -o RESOURCECFG -a show
+id;name;value;comment;activate;instance
+1;$USER1$;/usr/local/nagios/libexec;path to the plugins;1;Central
+[...]
+```
 
 Columns are the following :
 
 | Column   | Description                                  |
 | -------- | -------------------------------------------- |
-| ID ID    |                                              |
+| ID       | ID                                           |
 | Name     | Name                                         |
 | Value    | Value of $USERn$ macro                       |
 | Comment  | Comment                                      |
 | Activate | *1* when activated, *0* otherwise            |
 | Instance | Instances that are tied to the $USERn$ macro |
 
-### Add
+#### Add
 
 In order to add a resource macro, use the **ADD** action:
 
-    centreon -u admin -p centreon -o RESOURCECFG -a add -v "USER2;public;Poller test;my comment"
+``` shell
+centreon -u admin -p centreon -o RESOURCECFG -a add -v "USER2;public;Poller test;my comment"
+```
 
 Required fields are:
 
@@ -5629,27 +3974,31 @@ Required fields are:
 | Instances | Instances that are tied to $USERn$ macro |
 | Comment   | Comment                                  |
 
-### Del
+#### Del
 
-If you want to remove a Resource variable, use the **DEL** action. The
-ID is used for identifying the variable to delete:
+If you want to remove a Resource variable, use the **DEL** action. The ID is used for identifying the variable to
+delete:
 
-    centreon -u admin -p centreon -o RESOURCECFG -a del -v "1"
+``` shell
+centreon -u admin -p centreon -o RESOURCECFG -a del -v "1"
+```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of a Resource macro, use the
-**SETPARAM** action. The ID is used for identifying the macro to update:
+If you want to change a specific parameter of a Resource macro, use the **SETPARAM** action. The ID is used for
+identifying the macro to update:
 
-    centreon -u admin -p centreon -o RESOURCECFG -a setparam -v "1;instance;Poller test|AnotherPoller"
+``` shell
+centreon -u admin -p centreon -o RESOURCECFG -a setparam -v "1;instance;Poller test|AnotherPoller"
+```
 
 Arguments are composed of the following columns:
 
-| Order  | Column description              |
-| ------ | ------------------------------- |
-| 1 ID n | umber of resource configuration |
-| 2 Para | meter name                      |
-| 3 Para | meter value                     |
+| Order  | Column description                  |
+| ------ | ----------------------------------- |
+| 1      | ID number of resource configuration |
+| 2      | Parameter name                      |
+| 3      | Parameter value                     |
 
 Parameters that you may change are:
 
@@ -5661,21 +4010,21 @@ Parameters that you may change are:
 | comment  | Comment                                                   |
 | instance | Instances that are tied to $USERn$ macro Use delimiter \* |
 
-## Service categories
-
-### Overview
+### Service categories
 
 Object name: **SC**
 
-### Show
+#### Show
 
 In order to list available service categories, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o SC -a show
-    id;name;description
-    1;Ping;ping
-    2;Traffic;traffic
-    3;Disk;disk
+``` shell
+centreon -u admin -p centreon -o SC -a show
+id;name;description
+1;Ping;ping
+2;Traffic;traffic
+3;Disk;disk
+```
 
 Columns are the following:
 
@@ -5684,12 +4033,12 @@ Columns are the following:
 | Name        | Name of service category        |
 | Description | Description of service category |
 
-### Add
+#### Add
 
 In order to add a service category, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o SC -a ADD -v "Alfresco;Alfresco Services" 
+``` shell
+centreon -u admin -p centreon -o SC -a ADD -v "Alfresco;Alfresco Services"
 ```
 
 Required parameters are:
@@ -5699,19 +4048,20 @@ Required parameters are:
 | Name        | Name of service category        |
 | Description | Description of service category |
 
-### Del
+#### Del
 
 In order to remove a service category, use the **DEL**:
 
-    centreon -u admin -p centreon -o SC -a del -v "Alfresco"
+``` shell
+centreon -u admin -p centreon -o SC -a del -v "Alfresco"
+```
 
-### Setparam
+#### Setparam
 
-In order to change parameters for a service category, use the
-**SETPARAM** action:
+In order to change parameters for a service category, use the **SETPARAM** action:
 
-``` 
-centreon -u admin -p centreon -o SC -a setparam -v "SG1;name;Web Service" 
+``` shell
+centreon -u admin -p centreon -o SC -a setparam -v "SG1;name;Web Service"
 ```
 
 You can change the following parameters:
@@ -5721,48 +4071,50 @@ You can change the following parameters:
 | Name        | Name of service category        |
 | Description | Description of service category |
 
-### Getservice and Getservicetemplate
+#### Getservice and Getservicetemplate
 
-In order to view the member list of a service category, use the
-**GETSERVICE** or **GETSERVICETEMPLATE** action:
+In order to view the member list of a service category, use the **GETSERVICE** or **GETSERVICETEMPLATE** action:
 
-    centreon -u admin -p centreon -o SC -a getservice -v "Ping-Category" 
-    host id;host name;service id;service description
-    14;Centreon-Server;27;Ping
-    27;srv-web;42;Ping
-    
-    centreon -u admin -p centreon -o SC -a getservicetemplate -v "Ping-Category" 
-    template id;service template description
-    22;Ping-LAN
-    23;Ping-WAN
+``` shell
+centreon -u admin -p centreon -o SC -a getservice -v "Ping-Category"
+host id;host name;service id;service description
+14;Centreon-Server;27;Ping
+27;srv-web;42;Ping
+```
 
-### Addservice, Setservice , Addservicetemplate and Setservicetemplate
+``` shell
+centreon -u admin -p centreon -o SC -a getservicetemplate -v "Ping-Category"
+template id;service template description
+22;Ping-LAN
+23;Ping-WAN
+```
 
-In order to add a new element to a specific service category, you use
-the following action **ADDSERVICETEMPLATE**, where *add* will append and
-*set* will overwrite previous definitions:
+#### Addservice, Setservice , Addservicetemplate and Setservicetemplate
 
-``` 
+In order to add a new element to a specific service category, you use the following action **ADDSERVICETEMPLATE**, where
+*add* will append and *set* will overwrite previous definitions:
+
+``` shell
 centreon -u admin -p centreon -o SC -a addservicetemplate -v "Ping-Category;my template" 
 ```
 
-### Delservice and Delservicetemplate
+#### Delservice and Delservicetemplate
 
-In order to remove a service from a specific service category, use the
-**DELSERVICE** OR **DELSERVICETEMPLATE** actions:
+In order to remove a service from a specific service category, use the **DELSERVICE** OR **DELSERVICETEMPLATE** actions:
 
-``` 
-centreon -u admin -p centreon -o SC -a delservice -v "Ping-Category;my host,my service" 
+``` shell
+centreon -u admin -p centreon -o SC -a delservice -v "Ping-Category;my host,my service"
+```
 
+``` shell
 centreon -u admin -p centreon -o SC -a delservicetemplate -v "Ping-Category;my template" 
 ```
 
-### Setseverity
+#### Setseverity
 
-In order to turn a service category into a severity, use the
-**SETSEVERITY** action:
+In order to turn a service category into a severity, use the **SETSEVERITY** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o SC -a setseverity -v "Critical;3;16x16/critical.gif" 
 ```
 
@@ -5774,12 +4126,11 @@ The needed parameters are the following:
 | 2     | Severity level - must be a number |
 | 3     | Icon that represents the severity |
 
-### Unsetseverity
+#### Unsetseverity
 
-In order to turn a severity into a regular service category, use the
-**UNSETSEVERITY** action:
+In order to turn a severity into a regular service category, use the **UNSETSEVERITY** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o SC -a unsetseverity -v "Critical" 
 ```
 
@@ -5789,25 +4140,27 @@ The needed parameters are the following:
 | ----- | --------------------- |
 | 1     | Service category name |
 
-## Service groups
-
-### Overview
+### Service groups
 
 Object name: **SG**
 
-### Show
+#### Show
 
 In order to list available servicegroups, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o SG -a show
-    id;name;alias
-    11;Alfresco;Alfresco Services
+``` shell
+centreon -u admin -p centreon -o SG -a show
+id;name;alias
+11;Alfresco;Alfresco Services
+```
 
-### Add
+#### Add
 
 In order to add a servicegroup, use the **ADD** action:
 
-    centreon -u admin -p centreon -o SG -a ADD -v "Alfresco;Alfresco Services"
+``` shell
+centreon -u admin -p centreon -o SG -a ADD -v "Alfresco;Alfresco Services"
+```
 
 Required fields are:
 
@@ -5816,44 +4169,25 @@ Required fields are:
 | 1     | Name of service group  |
 | 2     | Alias of service group |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
+#### Del
 
 In order to remove a servicegroup, use the **DEL** action:
 
-    centreon -u admin -p centreon -o SG -a del -v "Alfresco"
+``` shell
+centreon -u admin -p centreon -o SG -a del -v "Alfresco"
+```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to change parameters for a servicegroup, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to change parameters for a servicegroup, use the **SETPARAM**
-action:
-
-    centreon -u admin -p centreon -o SG -a setparam -v "SG1;name;Web Service"
+``` shell
+centreon -u admin -p centreon -o SG -a setparam -v "SG1;name;Web Service"
+```
 
 You can change the following parameters:
 
@@ -5864,253 +4198,118 @@ You can change the following parameters:
 | alias     | Alias of service group                   |
 | comment   | Comments regarding service group         |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getservice and Gethostgroupservice
 
-Note
+In order to view the members of a service group, use the **GETSERVICE** or **GETHOSTGROUPSERVICE** actions:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o SG -a getservice -v "Web-Access"
+host id;host name;service id;service description
+14;Centreon-Server;28;http
+14;Centreon-Server;29;TCP-80
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+``` shell
+centreon -u admin -p centreon -o SG -a gethostgroupservice -v "Web-Access"
+hostgroup id;hostgroup name;service id;service description
+22;Web group;31;mysql
+```
 
-</div>
+> ***NOTE:*** *hostgroupservice* is a service by hostgroup
 
-### Getservice and Gethostgroupservice
+#### Addservice, Setservice, Addhostgroupservice and Sethostgroupservice
 
-In order to view the members of a service group, use the **GETSERVICE**
-or **GETHOSTGROUPSERVICE** actions:
+In order to add a new element to a specific service group, you can use **ADDSERVICE**, **SETSERVICE**,
+**ADDHOSTGROUPSERVICE**, **SETHOSTGROUPSERVICE** where *add* will append and *set* will overwrite previous definitions:
 
-    centreon -u admin -p centreon -o SG -a getservice -v "Web-Access"
-    host id;host name;service id;service description
-    14;Centreon-Server;28;http
-    14;Centreon-Server;29;TCP-80
-    
-    centreon -u admin -p centreon -o SG -a gethostgroupservice -v "Web-Access"
-    hostgroup id;hostgroup name;service id;service description
-    22;Web group;31;mysql
+``` shell
+centreon -u admin -p centreon -o SG -a addservice -v "Web-Access;www.centreon.com,http"
+centreon -u admin -p centreon -o SG -a setservice -v "Web-Access;www.centreon.com,TCP-80|www.centreon.com,http|www.centreon.com,mysql"
+centreon -u admin -p centreon -o SG -a sethostgroupservice -v "Web-Access;web group,TCP-80"
+```
 
-<div class="note">
+> ***NOTE:*** *hostgroupservice* is a service by hostgroup
 
-<div class="title">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-Note
+#### Delservice and Delhostgroupservice
 
-</div>
+In order to remove a service from a service group, use the **DELSERVICE** or **DELHOSTGROUPSERVICE** actions:
 
-*hostgroupservice* is a service by hostgroup
+``` shell
+centreon -u admin -p centreon -o SG -a delservice -v "Web-Access;www.centreon.com,http"
+centreon -u admin -p centreon -o SG -a delhostgroupservice -v "Web-Access;Web group,mysql"
+```
 
-</div>
+> ***NOTE:*** *hostgroupservice* is a service by hostgroup
 
-### Addservice, Setservice, Addhostgroupservice and Sethostgroupservice
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-In order to add a new element to a specific service group, you can use
-**ADDSERVICE**, **SETSERVICE**, **ADDHOSTGROUPSERVICE**,
-**SETHOSTGROUPSERVICE** where *add* will append and *set* will overwrite
-previous definitions:
-
-    centreon -u admin -p centreon -o SG -a addservice -v "Web-Access;www.centreon.com,http"
-    centreon -u admin -p centreon -o SG -a setservice -v "Web-Access;www.centreon.com,TCP-80|www.centreon.com,http|www.centreon.com,mysql"
-    centreon -u admin -p centreon -o SG -a sethostgroupservice -v "Web-Access;web group,TCP-80"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-*hostgroupservice* is a service by hostgroup
-
-</div>
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delservice and Delhostgroupservice
-
-In order to remove a service from a service group, use the
-**DELSERVICE** or **DELHOSTGROUPSERVICE** actions:
-
-    centreon -u admin -p centreon -o SG -a delservice -v "Web-Access;www.centreon.com,http"
-    centreon -u admin -p centreon -o SG -a delhostgroupservice -v "Web-Access;Web group,mysql"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-*hostgroupservice* is a service by hostgroup
-
-</div>
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-## Services
-
-### Overview
+### Services
 
 Object name: **SERVICE**
 
-### Show
+#### Show
 
 In order to list available service, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o SERVICE -a show
-    host id;host name;id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled;activate
-    14;Centreon-Server;19;Disk-/;;;;;;2;2;1
-    14;Centreon-Server;20;Disk-/home;;;;;;2;2;1
-    14;Centreon-Server;21;Disk-/opt;;;;;;2;2;1
-    14;Centreon-Server;22;Disk-/usr;;;;;;2;2;1
-    14;Centreon-Server;23;Disk-/var;;;;;;2;2;1
-    14;Centreon-Server;151;Load;;;;;;2;2;1
-    14;Centreon-Server;25;Memory;;;;;;2;2;1
-    14;Centreon-Server;26;Ping;;;;;;2;2;0
-    14;Centreon-Server;40;dummy;check_centreon_dummy;!2!critical;;;;2;2;1
+``` shell
+centreon -u admin -p centreon -o SERVICE -a show
+host id;host name;id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled;activate
+14;Centreon-Server;19;Disk-/;;;;;;2;2;1
+14;Centreon-Server;20;Disk-/home;;;;;;2;2;1
+14;Centreon-Server;21;Disk-/opt;;;;;;2;2;1
+14;Centreon-Server;22;Disk-/usr;;;;;;2;2;1
+14;Centreon-Server;23;Disk-/var;;;;;;2;2;1
+14;Centreon-Server;151;Load;;;;;;2;2;1
+14;Centreon-Server;25;Memory;;;;;;2;2;1
+14;Centreon-Server;26;Ping;;;;;;2;2;0
+14;Centreon-Server;40;dummy;check_centreon_dummy;!2!critical;;;;2;2;1
+```
 
 Columns are the following:
 
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Host ID</p></td>
-<td><p>Host ID</p></td>
-</tr>
-<tr class="even">
-<td><p>Host name Host</p></td>
-<td><blockquote>
-<p>name</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td><p>Service ID Serv</p></td>
-<td><p>ice ID</p></td>
-</tr>
-<tr class="even">
-<td><p>Service description Serv</p></td>
-<td><p>ice description</p></td>
-</tr>
-<tr class="odd">
-<td><p>Check Command</p></td>
-<td><p>Check command</p></td>
-</tr>
-<tr class="even">
-<td><p>Command arguments Chec</p></td>
-<td><p>k command arguments</p></td>
-</tr>
-<tr class="odd">
-<td><p>Normal check interval</p></td>
-<td><p>Normal check interval</p></td>
-</tr>
-<tr class="even">
-<td><p>Retry check interval</p></td>
-<td><p>Retry check interval</p></td>
-</tr>
-<tr class="odd">
-<td><p>Max check attempts Maxi</p></td>
-<td><p>mum check attempts</p></td>
-</tr>
-<tr class="even">
-<td><p>Active check enable <em>1</em></p></td>
-<td><p>when active checks are enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>Passive check enable</p></td>
-<td><p><em>1</em> when passive checks are enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td>Activate</td>
-<td><em>1</em> when enabled, <em>0</em> when disabled</td>
-</tr>
-</tbody>
-</table>
+| Column                | Description                                        |
+| --------------------- | -------------------------------------------------- |
+| Host ID               | Host ID                                            |
+| Host name             | Host name                                          |
+| Service ID            | Service ID                                         |
+| Service description   | Service description                                |
+| Check Command         | Check command                                      |
+| Command arguments     | Check command arguments                            |
+| Normal check interval | Normal check interval                              |
+| Retry check interval  | Retry check interval                               |
+| Max check attempts    | Maximum check attempts                             |
+| Active check enable   | *1* when active checks are enabled, *0* otherwise  |
+| Passive check enable  | *1* when passive checks are enabled, *0* otherwise |
+| Activate              | *1* when enabled, *0* when disabled                |
 
-### Add
+#### Add
 
 In order to add a service, use the **ADD** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o SERVICE -a add -v "Host-Test;ping;Ping-LAN" 
 ```
 
 The required fields are:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Host</p></td>
-<td><blockquote>
-<p>name</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Serv</p></td>
-<td><p>ice description</p></td>
-</tr>
-<tr class="odd">
-<td>3 Serv</td>
-<td>ice template - Only one service template can be defined</td>
-</tr>
-</tbody>
-</table>
+| Order | Description                                                 |
+| ----- | ----------------------------------------------------------- |
+| 1     | Host name                                                   |
+| 2     | Service description                                         |
+| 3     | Service template - Only one service template can be defined |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
+#### Del
 
 In order to remove a service, use the **DEL** action:
 
-``` 
-centreon -u admin -p centreon -o SERVICE -a del -v "test;ping" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a del -v "test;ping"
 ```
 
 The required fields are:
@@ -6120,28 +4319,16 @@ The required fields are:
 | 1     | Host name           |
 | 2     | Service description |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to set a specific paremeter for a particular service, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to set a specific paremeter for a particular service, use the
-**SETPARAM** action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;max_check_attempts;10" 
-centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;normal_check_interval;2" 
-centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;normal_check_interval;10" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;max_check_attempts;10"
+centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;normal_check_interval;2"
+centreon -u admin -p centreon -o SERVICE -a setparam -v "test;ping;normal_check_interval;10"
 ```
 
 The required fields are:
@@ -6155,289 +4342,113 @@ The required fields are:
 
 Parameters that may be modified:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>activate <em>1</em></p></td>
-<td><p>when service is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>description Desc</p></td>
-<td><p>ription</p></td>
-</tr>
-<tr class="odd">
-<td><p>template</p></td>
-<td><p>Name of the service template</p></td>
-</tr>
-<tr class="even">
-<td><p>is_volatile <em>1</em></p></td>
-<td><p>when service is volatile, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_period</p></td>
-<td><p>Name of the check period</p></td>
-</tr>
-<tr class="even">
-<td><p>check_command</p></td>
-<td><p>Name of the check command</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_command_arguments</p></td>
-<td><p>Arguments that go along with the check command, prepend each argument with the '!' character</p></td>
-</tr>
-<tr class="even">
-<td><p>max_check_attempts Maximum</p></td>
-<td><p>number of attempt before a HARD state is declared</p></td>
-</tr>
-<tr class="odd">
-<td><p>normal_check_interval valu</p></td>
-<td><p>e in minutes</p></td>
-</tr>
-<tr class="even">
-<td><p>retry_check_interval valu</p></td>
-<td><p>e in minutes</p></td>
-</tr>
-<tr class="odd">
-<td><p>active_checks_enabled</p></td>
-<td><p><em>1</em> when active checks are enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>passive_checks_enabled</p></td>
-<td><p><em>1</em> when passive checks are enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>notifications_enabled</p></td>
-<td><p><em>1</em> when notification is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>contact_additive_inheritance</p></td>
-<td><p>Enables contact additive inheritance</p></td>
-</tr>
-<tr class="odd">
-<td><p>cg_additive_inheritance</p></td>
-<td><p>Enables contactgroup additive inheritance</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_interval</p></td>
-<td><p>value in minutes</p></td>
-</tr>
-<tr class="odd">
-<td><p>notification_period</p></td>
-<td><p>Name of the notification period</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_options</p></td>
-<td><p>Status linked to notifications</p></td>
-</tr>
-<tr class="odd">
-<td><p>first_notification_delay</p></td>
-<td><p>First notification delay in seconds</p></td>
-</tr>
-<tr class="even">
-<td><p>recovery_notification_delay</p></td>
-<td><p>Recovery notification delay</p></td>
-</tr>
-<tr class="odd">
-<td><p>obsess_over_service <em>1</em></p></td>
-<td><p>when obsess over service is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>check_freshness</p></td>
-<td><p><em>1</em> when check freshness is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>freshness_threshold</p></td>
-<td><p>Value in seconds</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler_enabled</p></td>
-<td><p><em>1</em> when event handler is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>flap_detection_enabled</p></td>
-<td><p><em>1</em> when flap detection is enabled, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>retain_status_information <em>1</em></p></td>
-<td><p>when status information is retained, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>retain_nonstatus_information</p></td>
-<td><p><em>1</em> when non status information is retained, <em>0</em> otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler</p></td>
-<td><p>Name of the event handler command</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler_arguments</p></td>
-<td><p>Arguments that go along with the event handler, prepend each argument with the '!' character</p></td>
-</tr>
-<tr class="even">
-<td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="odd">
-<td><p>notes_url Note</p></td>
-<td><p>s URL</p></td>
-</tr>
-<tr class="even">
-<td><p>action_url Acti</p></td>
-<td><p>on URL</p></td>
-</tr>
-<tr class="odd">
-<td><p>icon_image Icon</p></td>
-<td><blockquote>
-<p>image</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>icon_image_alt</p></td>
-<td><p>Icon image alt text</p></td>
-</tr>
-<tr class="odd">
-<td><p>comment</p></td>
-<td><p>Comment</p></td>
-</tr>
-<tr class="even">
-<td>service_notification_options</td>
-<td>Notification options (w,u,c,r,f,s)</td>
-</tr>
-</tbody>
-</table>
+| Parameter                      | Description                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------- |
+| activate                       | *1* when service is enabled, 0 otherwise                                                      |
+| description                    | Description                                                                                   |
+| template                       | Name of the service template                                                                  |
+| is\_volatile                   | *1* when service is volatile, *0* otherwise                                                   |
+| check\_period                  | Name of the check period                                                                      |
+| check\_command                 | Name of the check command                                                                     |
+| check\_command\_arguments      | Arguments that go along with the check command, prepend each argument with the '\!' character |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared                                     |
+| normal\_check\_interval        | value in minutes                                                                              |
+| retry\_check\_interval         | value in minutes                                                                              |
+| active\_checks\_enabled        | *1* when active checks are enabled, *0* otherwise                                             |
+| passive\_checks\_enabled       | *1* when passive checks are enabled, *0* otherwise                                            |
+| notifications\_enabled         | *1* when notification is enabled, *0* otherwise                                               |
+| contact\_additive\_inheritance | Enables contact additive inheritance                                                          |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                                                     |
+| notification\_interval         | value in minutes                                                                              |
+| notification\_period           | Name of the notification period                                                               |
+| notification\_options          | Status linked to notifications                                                                |
+| first\_notification\_delay     | First notification delay in seconds                                                           |
+| recovery\_notification\_delay  | Recovery notification delay                                                                   |
+| obsess\_over\_service          | *1* when obsess over service is enabled, *0* otherwise                                        |
+| check\_freshness               | *1* when check freshness is enabled, *0* otherwise                                            |
+| freshness\_threshold           | Value in seconds                                                                              |
+| event\_handler\_enabled        | *1* when event handler is enabled, *0* otherwise                                              |
+| flap\_detection\_enabled       | *1* when flap detection is enabled, *0* otherwise                                             |
+| retain\_status\_information    | *1* when status information is retained, *0* otherwise                                        |
+| retain\_nonstatus\_information | *1* when non status information is retained, *0* otherwise                                    |
+| event\_handler                 | Name of the event handler command                                                             |
+| event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the '\!' character |
+| notes                          | Notes                                                                                         |
+| notes\_url                     | Notes URL                                                                                     |
+| action\_url                    | Action URL                                                                                    |
+| icon\_image                    | Icon image                                                                                    |
+| icon\_image\_alt               | Icon image alt text                                                                           |
+| comment                        | Comment                                                                                       |
+| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                            |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Addhost and Sethost
 
-Note
+You may want to tie a service to an extra host. In order to do so, use the **ADDHOST** or **SETHOST** actions where
+*add* will append and *set* will overwrite previous definitions:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Addhost and Sethost
-
-You may want to tie a service to an extra host. In order to do so, use
-the **ADDHOST** or **SETHOST** actions where *add* will append and *set*
-will overwrite previous definitions:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a sethost -v "host1;ping;host2" 
-
-centreon -u admin -p centreon -o SERVICE -a addhost -v "host1;ping;host2" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a sethost -v "host1;ping;host2"
 ```
 
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delhost
-
-In order to remove the relation between a host and a service, use the
-**DELHOST** action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a delhost -v "host1;ping;host2" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addhost -v "host1;ping;host2"
 ```
 
-The service ping which was originally linked to host1 and host2 is now
-only linked to host1.
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="note">
+#### Delhost
 
-<div class="title">
+In order to remove the relation between a host and a service, use the **DELHOST** action:
 
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getmacro
-
-In order to view the custom macro list of a service, use the
-**GETMACRO** action:
-
-    centreon -u admin -p centreon -o SERVICE -a getmacro -v "host1;ping" 
-    macro name;macro value;is_password;description
-    $_SERVICETIME$;80;0;description of macro
-    $_SERVICEPL$;400;0;description of macro
-
-### Setmacro
-
-In order to set a macro for a specific service use the **SETMACRO**
-action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a setmacro -v "test;ping;time;80;0;description of macro" 
-centreon -u admin -p centreon -o SERVICE -a setmacro -v "test;ping;pl;400;0;description of macro" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delhost -v "host1;ping;host2"
 ```
 
-<div class="note">
+The service ping which was originally linked to host1 and host2 is now only linked to host1.
 
-<div class="title">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-Note
+#### Getmacro
 
-</div>
+In order to view the custom macro list of a service, use the **GETMACRO** action:
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delmacro
-
-In order to remove a macro from a specific service use the **DELMACRO**
-action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a delmacro -v "test;ping;time" 
-centreon -u admin -p centreon -o SERVICE -a delmacro -v "test;ping;pl" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a getmacro -v "host1;ping"
+macro name;macro value;is_password;description
+$_SERVICETIME$;80;0;description of macro
+$_SERVICEPL$;400;0;description of macro
 ```
 
-<div class="note">
+#### Setmacro
 
-<div class="title">
+In order to set a macro for a specific service use the **SETMACRO** action:
 
-Note
+``` shell
+centreon -u admin -p centreon -o SERVICE -a setmacro -v "test;ping;time;80;0;description of macro"
+centreon -u admin -p centreon -o SERVICE -a setmacro -v "test;ping;pl;400;0;description of macro"
+```
 
-</div>
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+#### Delmacro
 
-</div>
+In order to remove a macro from a specific service use the **DELMACRO** action:
 
-### Setseverity
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delmacro -v "test;ping;time"
+centreon -u admin -p centreon -o SERVICE -a delmacro -v "test;ping;pl"
+```
 
-In order to associate a severity to a service, use the **SETSEVERITY**
-action:
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-``` 
-centreon -u admin -p centreon -o SERVICE -a setseverity -v "Centreon-Server;ping;Critical" 
+#### Setseverity
+
+In order to associate a severity to a service, use the **SETSEVERITY** action:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a setseverity -v "Centreon-Server;ping;Critical"
 ```
 
 Required parameters:
@@ -6448,13 +4459,12 @@ Required parameters:
 | 2     | Service description |
 | 3     | Severity name       |
 
-### Unsetseverity
+#### Unsetseverity
 
-In order to remove the severity from a service, use the
-**UNSETSEVERITY** action:
+In order to remove the severity from a service, use the **UNSETSEVERITY** action:
 
-``` 
-centreon -u admin -p centreon -o SERVICE -a unsetseverity -v "Centreon-Server;ping" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a unsetseverity -v "Centreon-Server;ping"
 ```
 
 Required parameters:
@@ -6464,720 +4474,397 @@ Required parameters:
 | 1     | Host name           |
 | 2     | Service description |
 
-### Getcontact
+#### Getcontact
 
-In order to view the contact list of a service, use the **GETCONTACT**
-action:
+In order to view the contact list of a service, use the **GETCONTACT** action:
 
-    [root@localhost core]# ./centreon -u admin -p centreon -o "SERVICE" -a getcontact -v "Centreon-Server;Ping" 
-    id;name
-    28;Contact_1
-    29;Contact_2
-
-### Addcontact and Setcontact
-
-In order to add a new contact to notification contact list, use the
-**ADDCONTACT** or **SETCONTACT** actions where *add* will append and
-*set* will overwrite previous definitions:
-
-    centreon -u admin -p centreon -o SERVICE -a addcontact -v "test;ping;User1" 
-    centreon -u admin -p centreon -o SERVICE -a setcontact -v "test;ping;User1|User2"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontact
-
-In order to remove a contact from the notification contact list, use the
-**DELCONTACT** action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a delcontact -v "test;ping;User1" 
-centreon -u admin -p centreon -o SERVICE -a delcontact -v "test;ping;User2" 
+``` shell
+centreon -u admin -p centreon -o "SERVICE" -a getcontact -v "Centreon-Server;Ping"
+id;name
+28;Contact_1
+29;Contact_2
 ```
 
-<div class="note">
+#### Addcontact and Setcontact
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getcontactgroup
-
-In order to view the contact group list of a service, use the
-**GETCONTACTGROUP** action:
-
-    [root@localhost core]# ./centreon -u admin -p centreon -o "SERVICE" -a getcontactgroup -v "Centreon-Server;Ping" 
-    id;name
-    28;ContactGroup_1
-    29;ContactGroup_2
-
-### Addcontactgroup and Setcontactgroup
-
-In order to add a new contactgroup to notification contactgroup list,
-use the **ADDCONTACTGROUP** or **SETCONTACTGROUP** actions where *add*
+In order to add a new contact to notification contact list, use the **ADDCONTACT** or **SETCONTACT** actions where *add*
 will append and *set* will overwrite previous definitions:
 
-``` 
-centreon -u admin -p centreon -o SERVICE -a addcontactgroup -v "test;ping;Group1" 
-centreon -u admin -p centreon -o SERVICE -a setcontactgroup -v "test;ping;Group1|Group2" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addcontact -v "test;ping;User1"
+centreon -u admin -p centreon -o SERVICE -a setcontact -v "test;ping;User1|User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delcontact
 
-Note
+In order to remove a contact from the notification contact list, use the **DELCONTACT** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontactgroup
-
-In order to remove a contactgroup from the notification contactgroup
-list, use **DELCONTACTGROUP** action:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a delcontactgroup -v "test;ping;Group1" 
-centreon -u admin -p centreon -o SERVICE -a delcontactgroup -v "test;ping;Group2" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delcontact -v "test;ping;User1"
+centreon -u admin -p centreon -o SERVICE -a delcontact -v "test;ping;User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getcontactgroup
 
-Note
+In order to view the contact group list of a service, use the **GETCONTACTGROUP** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o "SERVICE" -a getcontactgroup -v "Centreon-Server;Ping" 
+id;name
+28;ContactGroup_1
+29;ContactGroup_2
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+#### Addcontactgroup and Setcontactgroup
 
-</div>
+In order to add a new contactgroup to notification contactgroup list, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP**
+actions where *add* will append and *set* will overwrite previous definitions:
 
-### Gettrap
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addcontactgroup -v "test;ping;Group1"
+centreon -u admin -p centreon -o SERVICE -a setcontactgroup -v "test;ping;Group1|Group2"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Delcontactgroup
+
+In order to remove a contactgroup from the notification contactgroup list, use **DELCONTACTGROUP** action:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delcontactgroup -v "test;ping;Group1"
+centreon -u admin -p centreon -o SERVICE -a delcontactgroup -v "test;ping;Group2"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Gettrap
 
 In order to view the trap list of a service, use the **GETTRAP** action:
 
-    [root@localhost core]# ./centreon -u admin -p centreon -o "SERVICE" -a gettrap -v "Centreon-Server;Ping" 
-    id;name
-    48;ciscoConfigManEvent
-    39;ospfVirtIfTxRetransmit
-
-### Addtrap and Settrap
-
-In order to add a new trap, use the **ADDTRAP** or **SETTRAP** actions
-where *add* will append and *set* will overwrite previous definitions:
-
-``` 
-centreon -u admin -p centreon -o SERVICE -a addtrap -v "test;ping;snOspfVirtIfConfigError" 
-centreon -u admin -p centreon -o SERVICE -a settrap -v "test;ping;snOspfVirtNbrStateChange|snTrapAccessListDeny" 
+``` shell
+centreon -u admin -p centreon -o "SERVICE" -a gettrap -v "Centreon-Server;Ping"
+id;name
+48;ciscoConfigManEvent
+39;ospfVirtIfTxRetransmit
 ```
 
-<div class="note">
+#### Addtrap and Settrap
 
-<div class="title">
+In order to add a new trap, use the **ADDTRAP** or **SETTRAP** actions where *add* will append and *set* will overwrite
+previous definitions:
 
-Note
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addtrap -v "test;ping;snOspfVirtIfConfigError"
+centreon -u admin -p centreon -o SERVICE -a settrap -v "test;ping;snOspfVirtNbrStateChange|snTrapAccessListDeny"
+```
 
-</div>
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Deltrap
+#### Deltrap
 
 In order to remove a trap from a service, use the **DELTRAP** command:
 
-``` 
-centreon -u admin -p centreon -o SERVICE -a deltrap -v "test;ping;snOspfVirtIfConfigError" 
+``` shell
+centreon -u admin -p centreon -o SERVICE -a deltrap -v "test;ping;snOspfVirtIfConfigError"
 ```
 
-## Service templates
-
-### Overview
+### Service templates
 
 Object name: **STPL**
 
-### Show
+#### Show
 
 In order to list available service, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o STPL -a show
-    id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled
-    1;generic-service;generic-service;;;5;1;3;1;0
-    3;Ping-LAN;Ping;check_centreon_ping;!3!200,20%!400,50%;;;;2;2
-    4;Ping-WAN;Ping;check_centreon_ping;!3!400,20%!600,50%;;;;2;2
-    5;SNMP-DISK-/;Disk-/;check_centreon_remote_storage;!/!80!90;;;;2;2
-    6;SNMP-DISK-/var;Disk-/var;check_centreon_remote_storage;!/var!80!90;;;;2;2
-    7;SNMP-DISK-/usr;Disk-/usr;check_centreon_remote_storage;!/usr!80!90;;;;2;2
-    8;SNMP-DISK-/home;Disk-/home;check_centreon_remote_storage;!/home!80!90;;;;2;2
-    9;SNMP-DISK-/opt;Disk-/opt;check_centreon_remote_storage;!/opt!80!90;;;;2;2
+``` shell
+centreon -u admin -p centreon -o STPL -a show
+id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled
+1;generic-service;generic-service;;;5;1;3;1;0
+3;Ping-LAN;Ping;check_centreon_ping;!3!200,20%!400,50%;;;;2;2
+4;Ping-WAN;Ping;check_centreon_ping;!3!400,20%!600,50%;;;;2;2
+5;SNMP-DISK-/;Disk-/;check_centreon_remote_storage;!/!80!90;;;;2;2
+6;SNMP-DISK-/var;Disk-/var;check_centreon_remote_storage;!/var!80!90;;;;2;2
+7;SNMP-DISK-/usr;Disk-/usr;check_centreon_remote_storage;!/usr!80!90;;;;2;2
+8;SNMP-DISK-/home;Disk-/home;check_centreon_remote_storage;!/home!80!90;;;;2;2
+9;SNMP-DISK-/opt;Disk-/opt;check_centreon_remote_storage;!/opt!80!90;;;;2;2
+```
 
 Columns are the following :
 
-| Order  | Description                                        |
-| ------ | -------------------------------------------------- |
-| 1 Serv | ice ID                                             |
-| 2 Serv | ice Description                                    |
-| 3 Chec | k command                                          |
-| 4      | Check command arguments                            |
-| 5      | Normal check interval                              |
-| 6      | Retry check interval                               |
-| 7      | Maximum check attempts                             |
-| 8      | *1* when active checks are enabled, *0* otherwise  |
-| 9      | *1* when passive checks are enabled, *0* otherwise |
+| Order | Description                                        |
+| ----- | -------------------------------------------------- |
+| 1     | Service ID                                         |
+| 2     | Service Description                                |
+| 3     | Check command                                      |
+| 4     | Check command arguments                            |
+| 5     | Normal check interval                              |
+| 6     | Retry check interval                               |
+| 7     | Maximum check attempts                             |
+| 8     | *1* when active checks are enabled, *0* otherwise  |
+| 9     | *1* when passive checks are enabled, *0* otherwise |
 
-### Add
+#### Add
 
 In order to add a service template, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o STPL -a add -v "MyTemplate;mytemplate;Ping-LAN" 
+``` shell
+centreon -u admin -p centreon -o STPL -a add -v "MyTemplate;mytemplate;Ping-LAN"
 ```
 
 The required fields are:
 
-| Order  | Description                                                          |
-| ------ | -------------------------------------------------------------------- |
-| 1 Serv | ice template description                                             |
-| 2      | Alias will be used when services are deployed through host templates |
-| 3      | Service template; Only one service template can be defined           |
+| Order | Description                                                          |
+| ----- | -------------------------------------------------------------------- |
+| 1     | Service template description                                         |
+| 2     | Alias will be used when services are deployed through host templates |
+| 3     | Service template; Only one service template can be defined           |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Del
+#### Del
 
 In order to remove a service template, use the **DEL** action:
 
-``` 
-centreon -u admin -p centreon -o STPL -a del -v "MyTemplate" 
+``` shell
+centreon -u admin -p centreon -o STPL -a del -v "MyTemplate"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Setparam
 
-Note
+In order to set a specific parameter for a service template, use the **SETPARAM** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Setparam
-
-In order to set a specific parameter for a service template, use the
-**SETPARAM** action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;max_check_attempts;10" 
-centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;normal_check_interval;2" 
-centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;normal_check_interval;http://192.168.1.2/admincp" 
+``` shell
+centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;max_check_attempts;10"
+centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;normal_check_interval;2"
+centreon -u admin -p centreon -o STPL -a setparam -v "MyTemplate;normal_check_interval;http://192.168.1.2/admincp"
 ```
 
 The required fields that you have pass in options are:
 
 | Order | Description                       |
 | ----- | --------------------------------- |
-| 1     | service template description      |
-| 2     | parameter that you want to update |
-| 3     | new paramater value               |
+| 1     | Service template description      |
+| 2     | Parameter that you want to update |
+| 3     | New paramater value               |
 
 Parameters that may be modified:
 
-<table>
-<thead>
-<tr class="header">
-<th>Parameter Desc</th>
-<th>ription</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>activate</p></td>
-<td><p>1 when service is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>description Serv</p></td>
-<td><p>ice template description</p></td>
-</tr>
-<tr class="odd">
-<td><p>alias</p></td>
-<td><p>Service template alias</p></td>
-</tr>
-<tr class="even">
-<td><p>template</p></td>
-<td><p>Name of the service template</p></td>
-</tr>
-<tr class="odd">
-<td><p>is_volatile 1 wh</p></td>
-<td><p>en service is volatile, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>check_period</p></td>
-<td><p>Name of the check period</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_command</p></td>
-<td><p>Name of the check command</p></td>
-</tr>
-<tr class="even">
-<td><p>check_command_arguments</p></td>
-<td><p>Arguments that go along with the check command, prepend each argument with the '!' characteri</p></td>
-</tr>
-<tr class="odd">
-<td><p>max_check_attempts</p></td>
-<td><p>Maximum number of attempt before a HARD state is declared</p></td>
-</tr>
-<tr class="even">
-<td><p>normal_check_interval</p></td>
-<td><p>value in minutes</p></td>
-</tr>
-<tr class="odd">
-<td><p>retry_check_interval</p></td>
-<td><p>value in minutes</p></td>
-</tr>
-<tr class="even">
-<td><p>active_checks_enabled</p></td>
-<td><p>1 when active checks are enabled, 0 otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>passive_checks_enabled</p></td>
-<td><p>1 when passive checks are enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>contact_additive_inheritance</p></td>
-<td><p>Enables contact additive inheritance=</p></td>
-</tr>
-<tr class="odd">
-<td><p>cg_additive_inheritance</p></td>
-<td><p>Enables contactgroup additive inheritance</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_interval</p></td>
-<td><p>value in minutes</p></td>
-</tr>
-<tr class="odd">
-<td><p>notification_period</p></td>
-<td><p>Name of the notification period</p></td>
-</tr>
-<tr class="even">
-<td><p>notification_options</p></td>
-<td><p>Status linked to notifications</p></td>
-</tr>
-<tr class="odd">
-<td><p>first_notification_delay</p></td>
-<td><p>First notification delay in seconds</p></td>
-</tr>
-<tr class="even">
-<td><p>recovery_notification_delay</p></td>
-<td><p>Recovery notification delay</p></td>
-</tr>
-<tr class="odd">
-<td><p>parallelize_check 1 wh</p></td>
-<td><p>en parallelize checks are enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>obsess_over_service 1 wh</p></td>
-<td><p>en obsess over service is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>check_freshness</p></td>
-<td><p>1 when check freshness is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>freshness_threshold Serv</p></td>
-<td><p>ice freshness threshold in seconds</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler_enabled</p></td>
-<td><p>1 when event handler is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>flap_detection_enabled</p></td>
-<td><p>1 when flap detection is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>process_perf_data 1 wh</p></td>
-<td><p>en process performance data is enabled, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>retain_status_information 1 wh</p></td>
-<td><p>en status information is retained, 0 otherwise</p></td>
-</tr>
-<tr class="odd">
-<td><p>retain_nonstatus_information</p></td>
-<td><p>1 when non status information is retained, 0 otherwise</p></td>
-</tr>
-<tr class="even">
-<td><p>stalking_options Comm</p></td>
-<td><p>a separated options: 'o' for OK, 'w' for Warning, 'u' for Unknown and 'c' for Critical</p></td>
-</tr>
-<tr class="odd">
-<td><p>event_handler</p></td>
-<td><p>Name of the event handler command</p></td>
-</tr>
-<tr class="even">
-<td><p>event_handler_arguments</p></td>
-<td><p>Arguments that go along with the event handler, prepend each argument with the "!" character</p></td>
-</tr>
-<tr class="odd">
-<td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="even">
-<td><p>notes_url Note</p></td>
-<td><p>s URL</p></td>
-</tr>
-<tr class="odd">
-<td><p>action_url Acti</p></td>
-<td><p>on URL</p></td>
-</tr>
-<tr class="even">
-<td><p>icon_image Icon</p></td>
-<td><blockquote>
-<p>image</p>
-</blockquote></td>
-</tr>
-<tr class="odd">
-<td><p>icon_image_alt</p></td>
-<td><p>Icon image alt text</p></td>
-</tr>
-<tr class="even">
-<td><p>graphtemplate</p></td>
-<td><p>Graph template namei</p></td>
-</tr>
-<tr class="odd">
-<td><p>comment</p></td>
-<td><p>Comment</p></td>
-</tr>
-<tr class="even">
-<td>service_notification_options</td>
-<td>Notification options (w,u,c,r,f,s)</td>
-</tr>
-</tbody>
-</table>
+| Parameter                      | Description                                                                                    |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- |
+| activate                       | 1 when service is enabled, 0 otherwise                                                         |
+| description                    | Service template description                                                                   |
+| alias                          | Service template alias                                                                         |
+| template                       | Name of the service template                                                                   |
+| is\_volatile                   | 1 when service is volatile, 0 otherwise                                                        |
+| check\_period                  | Name of the check period                                                                       |
+| check\_command                 | Name of the check command                                                                      |
+| check\_command\_arguments      | Arguments that go along with the check command, prepend each argument with the '\!' characteri |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared                                      |
+| normal\_check\_interval        | value in minutes                                                                               |
+| retry\_check\_interval         | value in minutes                                                                               |
+| active\_checks\_enabled        | 1 when active checks are enabled, 0 otherwise                                                  |
+| passive\_checks\_enabled       | 1 when passive checks are enabled, 0 otherwise                                                 |
+| contact\_additive\_inheritance | Enables contact additive inheritance=                                                          |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                                                      |
+| notification\_interval         | value in minutes                                                                               |
+| notification\_period           | Name of the notification period                                                                |
+| notification\_options          | Status linked to notifications                                                                 |
+| first\_notification\_delay     | First notification delay in seconds                                                            |
+| recovery\_notification\_delay  | Recovery notification delay                                                                    |
+| parallelize\_check             | 1 when parallelize checks are enabled, 0 otherwise                                             |
+| obsess\_over\_service          | 1 when obsess over service is enabled, 0 otherwise                                             |
+| check\_freshness               | 1 when check freshness is enabled, 0 otherwise                                                 |
+| freshness\_threshold           | Service freshness threshold in seconds                                                         |
+| event\_handler\_enabled        | 1 when event handler is enabled, 0 otherwise                                                   |
+| flap\_detection\_enabled       | 1 when flap detection is enabled, 0 otherwise                                                  |
+| process\_perf\_data            | 1 when process performance data is enabled, 0 otherwise                                        |
+| retain\_status\_information    | 1 when status information is retained, 0 otherwise                                             |
+| retain\_nonstatus\_information | 1 when non status information is retained, 0 otherwise                                         |
+| stalking\_options              | Comma separated options: 'o' for OK, 'w' for Warning, 'u' for Unknown and 'c' for Critical     |
+| event\_handler                 | Name of the event handler command                                                              |
+| event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the "\!" character  |
+| notes                          | Notes                                                                                          |
+| notes\_url                     | Notes URL                                                                                      |
+| action\_url                    | Action URL                                                                                     |
+| icon\_image                    | Icon image                                                                                     |
+| icon\_image\_alt               | Icon image alt text                                                                            |
+| graphtemplate                  | Graph template namei                                                                           |
+| comment                        | Comment                                                                                        |
+| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                             |
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Addhosttemplate and Sethosttemplate
 
-Note
+You may want to tie a service template to an extra host template. In order to do so, use the **ADDHOSTTEMPLATE** or
+**SETHOSTTEMPLATE** actions where *add* will append and *set* will overwrite previous definitions:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Addhosttemplate and Sethosttemplate
-
-You may want to tie a service template to an extra host template. In
-order to do so, use the **ADDHOSTTEMPLATE** or **SETHOSTTEMPLATE**
-actions where *add* will append and *set* will overwrite previous
-definitions:
-
-``` 
-centreon -u admin -p centreon -o STPL -a sethosttemplate -v "MyTemplate;generic-host-template" 
-centreon -u admin -p centreon -o STPL -a addhosttemplate -v "MyTemplate;Linux-Servers" 
+``` shell
+centreon -u admin -p centreon -o STPL -a sethosttemplate -v "MyTemplate;generic-host-template"
+centreon -u admin -p centreon -o STPL -a addhosttemplate -v "MyTemplate;Linux-Servers"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delhosttemplate
 
-Note
+In order to remove the relation between a host template and a service template, use the **DELHOSTTEMPLATE** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delhosttemplate
-
-In order to remove the relation between a host template and a service
-template, use the **DELHOSTTEMPLATE** action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a delhosttemplate -v "MyTemplate;Linux-Servers" 
+``` shell
+centreon -u admin -p centreon -o STPL -a delhosttemplate -v "MyTemplate;Linux-Servers"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getmacro
 
-Note
+In order to view the custom macro list of a service template, use the **GETMACRO** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getmacro
-
-In order to view the custom macro list of a service template, use the
-**GETMACRO** action:
-
-    centreon -u admin -p centreon -o STPL -a getmacro -v "MyTemplate" 
-    macro name;macro value;description;is_password
-    $_SERVICETIME$;80;description of macro1;0
-    $_SERVICEPL$;400;description of macro2;0
-
-### Setmacro
-
-In order to set a macro for a specific service template use the
-**SETMACRO** action:
-
-    centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;time;80" 
-    centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;pl;400;description"
-    centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;password;mypassword;;1"
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delmacro
-
-In order to remove a macro from a specific service template, use the
-**DELMACRO** action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a delmacro -v "MyTemplate;time" 
-centreon -u admin -p centreon -o STPL -a delmacro -v "MyTemplate;pl" 
+``` shell
+centreon -u admin -p centreon -o STPL -a getmacro -v "MyTemplate"
+macro name;macro value;description;is_password
+$_SERVICETIME$;80;description of macro1;0
+$_SERVICEPL$;400;description of macro2;0
 ```
 
-<div class="note">
+#### Setmacro
 
-<div class="title">
+In order to set a macro for a specific service template use the **SETMACRO** action:
 
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Getcontact
-
-In order to view the contact list of a service template, use the
-**GETCONTACT** action:
-
-    [root@localhost core]# ./centreon -u admin -p centreon -o STPL -a getcontact -v "MyTemplate" 
-    id;name
-    28;Contact_1
-    29;Contact_2
-
-### Addcontact and Setcontact
-
-In order to add a new contact to notification contact list, use
-**ADDCONTACT** or **SETCONTACT** actions where *add* will append and
-*set* will overwrite previous definitions:
-
-``` 
-centreon -u admin -p centreon -o STPL -a addcontact -v "MyTemplate;User1" 
-centreon -u admin -p centreon -o STPL -a setcontact -v "MyTemplate;User1|User2" 
+``` shell
+centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;time;80" 
+centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;pl;400;description"
+centreon -u admin -p centreon -o STPL -a setmacro -v "MyTemplate;password;mypassword;;1"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delmacro
 
-Note
+In order to remove a macro from a specific service template, use the **DELMACRO** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontact
-
-In order to remove a contact from the notification contact list, use the
-**DELCONTACT** action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a delcontact -v "MyTemplate;User1" 
-centreon -u admin -p centreon -o STPL -a delcontact -v "MyTemplate;User2" 
+``` shell
+centreon -u admin -p centreon -o STPL -a delmacro -v "MyTemplate;time"
+centreon -u admin -p centreon -o STPL -a delmacro -v "MyTemplate;pl"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getcontact
 
-Note
+In order to view the contact list of a service template, use the **GETCONTACT** action:
 
-</div>
+``` shell
+centreon -u admin -p centreon -o STPL -a getcontact -v "MyTemplate"
+id;name
+28;Contact_1
+29;Contact_2
+```
 
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
+#### Addcontact and Setcontact
 
-</div>
-
-### Getcontactgroup
-
-In order to view the contactgroup list of a service template, use the
-**GETCONTACTGROUP** action:
-
-    [root@localhost core]# ./centreon -u admin -p centreon -o STPL -a getcontactgroup -v "MyTemplate" 
-    id;name
-    28;ContactGroup_1
-    29;ContactGroup_2
-
-### Setcontactgroup
-
-In order to add a new contactgroup to notification contactgroup list,
-use the **ADDCONTACTGROUP** or **SETCONTACTGROUP** actions where *add*
+In order to add a new contact to notification contact list, use **ADDCONTACT** or **SETCONTACT** actions where *add*
 will append and *set* will overwrite previous definitions:
 
-``` 
-centreon -u admin -p centreon -o STPL -a addcontactgroup -v "MyTemplate;Group1" 
-centreon -u admin -p centreon -o STPL -a setcontactgroup -v "MyTemplate;Group1|Group2" 
+``` shell
+centreon -u admin -p centreon -o STPL -a addcontact -v "MyTemplate;User1"
+centreon -u admin -p centreon -o STPL -a setcontact -v "MyTemplate;User1|User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Delcontact
 
-Note
+In order to remove a contact from the notification contact list, use the **DELCONTACT** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Delcontactgroup
-
-In order to remove a contactgroup from the notification contactgroup
-list, use the **DELCONTACTGROUP** action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a delcontactgroup -v "MyTemplate" 
-centreon -u admin -p centreon -o STPL -a delcontactgroup -v "MyTemplate;Group1" 
+``` shell
+centreon -u admin -p centreon -o STPL -a delcontact -v "MyTemplate;User1"
+centreon -u admin -p centreon -o STPL -a delcontact -v "MyTemplate;User2"
 ```
 
-<div class="note">
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-<div class="title">
+#### Getcontactgroup
 
-Note
+In order to view the contactgroup list of a service template, use the **GETCONTACTGROUP** action:
 
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Gettrap
-
-In order to view the trap list of a service template, use the
-**GETTRAP** action:
-
-    [root@localhost core]# ./centreon -u admin -p centreon -o "STPL" -a gettrap -v "Ping-LAN" 
-    id;name
-    48;ciscoConfigManEvent
-    39;ospfVirtIfTxRetransmit
-
-### Settrap
-
-In order to add a trap to a service template, use the **ADDTRAP** or
-**SETTRAP** actions where *add* will append and *set* will overwrite
-previous definitions:
-
-``` 
-centreon -u admin -p centreon -o STPL -a addtrap -v "Ping-LAN;snOspfVirtIfConfigError" 
-centreon -u admin -p centreon -o STPL -a settrap -v "Ping-LAN;snOspfVirtNbrStateChange|snTrapAccessListDeny" 
+``` shell
+centreon -u admin -p centreon -o STPL -a getcontactgroup -v "MyTemplate"
+id;name
+28;ContactGroup_1
+29;ContactGroup_2
 ```
 
-<div class="note">
+#### Setcontactgroup
 
-<div class="title">
+In order to add a new contactgroup to notification contactgroup list, use the **ADDCONTACTGROUP** or **SETCONTACTGROUP**
+actions where *add* will append and *set* will overwrite previous definitions:
 
-Note
-
-</div>
-
-You need to generate your configuration file and restart monitoring
-engine in order to apply changes.
-
-</div>
-
-### Deltrap
-
-In order to remove a trap from a service template, use the **DELTRAP**
-action:
-
-``` 
-centreon -u admin -p centreon -o STPL -a deltrap -v "Ping-LAN;snOspfVirtIfConfigError" 
+``` shell
+centreon -u admin -p centreon -o STPL -a addcontactgroup -v "MyTemplate;Group1"
+centreon -u admin -p centreon -o STPL -a setcontactgroup -v "MyTemplate;Group1|Group2"
 ```
 
-## Settings
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
-### Overview
+#### Delcontactgroup
+
+In order to remove a contactgroup from the notification contactgroup list, use the **DELCONTACTGROUP** action:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a delcontactgroup -v "MyTemplate"
+centreon -u admin -p centreon -o STPL -a delcontactgroup -v "MyTemplate;Group1"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Gettrap
+
+In order to view the trap list of a service template, use the **GETTRAP** action:
+
+``` shell
+centreon -u admin -p centreon -o "STPL" -a gettrap -v "Ping-LAN"
+id;name
+48;ciscoConfigManEvent
+39;ospfVirtIfTxRetransmit
+```
+
+#### Settrap
+
+In order to add a trap to a service template, use the **ADDTRAP** or **SETTRAP** actions where *add* will append and
+*set* will overwrite previous definitions:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a addtrap -v "Ping-LAN;snOspfVirtIfConfigError"
+centreon -u admin -p centreon -o STPL -a settrap -v "Ping-LAN;snOspfVirtNbrStateChange|snTrapAccessListDeny"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Deltrap
+
+In order to remove a trap from a service template, use the **DELTRAP** action:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a deltrap -v "Ping-LAN;snOspfVirtIfConfigError"
+```
+
+### Settings
 
 Object name: **Settings**
 
-### Show
+#### Show
 
 In order to list editable settings, use the **SHOW** action:
 
-``` 
+``` shell
 centreon -u admin -p centreon -o SETTINGS -a show
 parameter;value
 centstorage;1
@@ -7200,13 +4887,12 @@ snmpttconvertmib_path_bin;/usr/share/centreon/bin/snmpttconvertmib
 snmptt_unknowntrap_log_file;snmptrapd.log  
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of a Vendor, use the
-**SETPARAM** action:
+If you want to change a specific parameter of a Vendor, use the **SETPARAM** action:
 
-``` 
-centreon -u admin -p centreon -o SETTINGS -a setparam -v ";" 
+``` shell
+centreon -u admin -p centreon -o SETTINGS -a setparam -v ";"
 ```
 
 Arguments are composed of the following columns:
@@ -7224,511 +4910,44 @@ Parameters that you may change are:
 | debug\_auth                    | Enable/disable authentication debug                                                         | Enable: '1', Disable: '0'                     |
 | debug\_ldap\_import            | Enable/disable LDAP debug                                                                   | Enable: '1', Disable: '0'                     |
 | debug\_nagios\_import          | Enable/disable Nagios configuration import                                                  | Enable: '1', Disable: '0'                     |
-| debug\_path                    | Debug log files directory                                                                   | i.e: /var/log/centreon/                       |
+| debug\_path                    | Debug log files directory                                                                   | /var/log/centreon/                            |
 | debug\_rrdtool                 | Enable/disable RRDTool debug                                                                | Enable: '1', Disable: '0'                     |
 | enable\_autologin              | Enable/disable autologin                                                                    | Enable: '1', Disable: '0'                     |
 | enable\_gmt                    | Enable/disable GMT management                                                               | Enable: '1', Disable: '0'                     |
 | enable\_logs\_sync             | Enable/disable CentCore log synchronization (not necessary when using Centreon Broker)      | Enable: '1', Disable: '0'                     |
 | enable\_perfdata\_sync         | Enable/disable Centcore PerfData synchronization (not necessary when using Centreon Broker) | Enable: '1', Disable: '0'                     |
-| gmt                            | GMT timezone of monitoring system                                                           | i.e: 2 (for GMT+2)                            |
-| interval\_length               | Monitoring interval length in seconds (default: 60)                                         | i.e: 120                                      |
-| mailer\_path\_bin              | Mail client bin path                                                                        | i.e: /bin/mail                                |
-| nagios\_path\_img              | Nagios image path                                                                           | i.e: /usr/share/nagios/html/images/logos/     |
-| perl\_library\_path            | Perl library path                                                                           | i.e: /usr/local/lib                           |
-| rrdtool\_path\_bin             | RRDTool bin path                                                                            | i.e: /usr/bin/rrdtool                         |
-| snmpttconvertmib\_path\_bin    | SNMPTT mib converter bin path                                                               | i.e: /usr/share/centreon/bin/snmpttconvertmib |
-| snmptt\_unknowntrap\_log\_file | SNMPTT unknown trap log file                                                                | i.e: snmptrapd.log                            |
+| gmt                            | GMT timezone of monitoring system                                                           | 2 (for GMT+2)                                 |
+| interval\_length               | Monitoring interval length in seconds (default: 60)                                         | 120                                           |
+| mailer\_path\_bin              | Mail client bin path                                                                        | /bin/mail                                     |
+| nagios\_path\_img              | Nagios image path                                                                           | /usr/share/nagios/html/images/logos/          |
+| perl\_library\_path            | Perl library path                                                                           | /usr/local/lib                                |
+| rrdtool\_path\_bin             | RRDTool bin path                                                                            | /usr/bin/rrdtool                              |
+| snmpttconvertmib\_path\_bin    | SNMPTT mib converter bin path                                                               | /usr/share/centreon/bin/snmpttconvertmib      |
+| snmptt\_unknowntrap\_log\_file | SNMPTT unknown trap log file                                                                | snmptrapd.log                                 |
 
-## Time periods
-
-### Overview
+### Time periods
 
 Object name: **TP**
 
-### Show
+#### Show
 
 In order to list available time periods, use the **SHOW** action:
 
-    centreon -u admin -p centreon -o TP -a show
-    id;name;alias;sunday;monday;tuesday;wednesday;thursday;friday,saturday
-    1;24x7;24_Hours_A_Day,_7_Days_A_Week;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00
-    2;none;No Time Is A Good Time;;;;;;;
-    3;nonworkhours;Non-Work Hours;00:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-24:00
-    4;workhours;Work hours;;09:00-17:00;09:00-17:00;09:00-17:00;09:00-17:00;09:00-17:00;
+``` shell
+centreon -u admin -p centreon -o TP -a show
+id;name;alias;sunday;monday;tuesday;wednesday;thursday;friday,saturday
+1;24x7;24_Hours_A_Day,_7_Days_A_Week;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00;00:00-24:00
+2;none;No Time Is A Good Time;;;;;;;
+3;nonworkhours;Non-Work Hours;00:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-09:00,17:00-24:00;00:00-24:00
+4;workhours;Work hours;;09:00-17:00;09:00-17:00;09:00-17:00;09:00-17:00;09:00-17:00;
+```
 
-### Add
+#### Add
 
 In order to add a Time Period, use the **ADD** action:
 
-``` 
-centreon -u admin -p centreon -o TP -a add -v "Timeperiod_Test;Timeperiod_Test" 
-```
-
-Required fields are:
-
-| Order  | Description |
-| ------ | ----------- |
-| 1 Name |             |
-| 2 Alia | s           |
-
-### Del
-
-If you want to remove a Time Period, use the **DEL** action. The Name is
-used for identifying the Time Period to delete:
-
-``` 
-centreon -u admin -p centreon -o TP -a del -v "Timeperiod_Test" 
-```
-
-### Setparam
-
-If you want to change a specific parameter of a time period, use the
-**SETPARAM** action. The Name is used for identifying the Time Period to
-update:
-
-``` 
-centreon -u admin -p centreon -o TP -a setparam -v "Timeperiod_Test;monday;00:00-24:00" 
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of time period</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
-
-Parameters that you may change are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p></td>
-<td><p>Name</p></td>
-</tr>
-<tr class="even">
-<td><p>alias</p></td>
-<td><p>Alias</p></td>
-</tr>
-<tr class="odd">
-<td><p>sunday</p></td>
-<td><p>Time Period definition for Sunday</p></td>
-</tr>
-<tr class="even">
-<td><p>monday</p></td>
-<td><p>Time Period definition for Monday</p></td>
-</tr>
-<tr class="odd">
-<td><p>tuesday</p></td>
-<td><p>Time Period definition for Tuesday</p></td>
-</tr>
-<tr class="even">
-<td><p>wednesday</p></td>
-<td><p>Time Period definition for Wednesday</p></td>
-</tr>
-<tr class="odd">
-<td><p>thursday</p></td>
-<td><p>Time Period definition for Thursday</p></td>
-</tr>
-<tr class="even">
-<td><p>friday</p></td>
-<td><p>Time Period definition for Friday</p></td>
-</tr>
-<tr class="odd">
-<td><p>saturday</p></td>
-<td><p>Time Period definition for Saturday</p></td>
-</tr>
-<tr class="even">
-<td>include</td>
-<td>example: [...] -v "Timeperiod_Test;include;workhours";</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>Use</p>
-</blockquote></td>
-<td><p>delimiter <em>|</em> for multiple inclusion definitions</p></td>
-</tr>
-<tr class="even">
-<td>exclude</td>
-<td>example: [...] -v "Timeperiod_Test;exclude;weekend"</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>use</p>
-</blockquote></td>
-<td><p>delimiter <em>|</em> for multiple exclusion definitions</p></td>
-</tr>
-</tbody>
-</table>
-
-### Getexception
-
-In order to view the exception list of a time period, use the
-**GETEXCEPTION** action:
-
-    centreon -u admin -p centreon -o TP -a getexception -v "mytimeperiod" 
-    days;timerange
-    january 1;00:00-00:00
-    december 25;00:00-00:00
-
-### Setexception
-
-In order to set an exception on a timeperiod, use the **SETEXCEPTION**
-action:
-
-``` 
-centreon -u admin -p centreon -o TP -a setexception -v "mytimeperiod;january 1;00:00-24:00" 
-```
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-If exception does not exist, it will be created, otherwise it will be
-overwritten.
-
-</div>
-
-### Delexception
-
-In order to delete an exception, use the **DELEXCEPTION** action:
-
-``` 
-centreon -u admin -p centreon -o TP -a delexception -v "mytimeperiod;january 1" 
-```
-
-Arguments are composed of the following columns:
-
-| Order | Column description               |
-| ----- | -------------------------------- |
-| 1 Nam | e of timeperiod                  |
-| 2 Exc | eption to remove from timeperiod |
-
-## Traps
-
-### Overview
-
-Object name: **TRAP**
-
-### Show
-
-In order to list available traps, use the **SHOW** action:
-
-    centreon -u admin -p centreon -o TRAP -a show
-    id;name;oid;manufacturer
-    576;alertSystemUp;.1.3.6.1.4.1.674.10892.1.0.1001;Dell
-    577;alertThermalShutdown;.1.3.6.1.4.1.674.10892.1.0.1004;Dell
-    578;alertTemperatureProbeNormal;.1.3.6.1.4.1.674.10892.1.0.1052;Dell
-    599;alertFanEnclosureInsertion;.1.3.6.1.4.1.674.10892.1.0.1452;Dell
-    600;alertFanEnclosureRemoval;.1.3.6.1.4.1.674.10892.1.0.1453;Dell
-    601;alertFanEnclosureExtendedRemoval;.1.3.6.1.4.1.674.10892.1.0.1454;Dell
-    602;alertLogNormal;.1.3.6.1.4.1.674.10892.1.0.1552;Dell
-    605;ccmCLIRunningConfigChanged;.1.3.6.1.4.1.9.9.43.2.0.2;Cisco
-    [...]
-
-### Add
-
-In order to add a trap, use the **ADD** action:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a add -v "aNewTrap;.1.3.6.1.4.1.11.2.3.9.7.1.0.30" 
-```
-
-Required fields are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Trap</p></td>
-<td><blockquote>
-<p>name</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>2 OID</td>
-<td>of the SNMP Trap</td>
-</tr>
-</tbody>
-</table>
-
-### Del
-
-If you want to remove a Trap, use the **DEL** action. The Name is used
-for identifying the Trap to delete:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a del -v "aNewTrap" 
-```
-
-### Setparam
-
-If you want to change a specific parameter of a Trap, use the
-**SETPARAM** command. The Name is used for identifying the Trap to
-update:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a setparam -v "aNewTrap;vendor;3com" 
-```
-
-Arguments are composed of the following columns:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Trap</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
-
-Parameters that you may change are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>name</p>
-<p>comments Comm</p>
-<p>output</p>
-<p>oid OID</p></td>
-<td><p>Name</p>
-<p>ents</p>
-<p>Output</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>status</p></td>
-<td><p>Status <em>ok</em></p></td>
-<td><p>, <em>warning</em>, <em>critical</em>, <em>unknown</em> or <em>0</em>, <em>1</em>, <em>2</em>, <em>3</em></p></td>
-</tr>
-<tr class="odd">
-<td><p>vendor</p></td>
-<td><p>Vendor name</p></td>
-<td><p>A valid vendor name</p></td>
-</tr>
-<tr class="even">
-<td><p>matching_mode</p>
-<p>reschedule_svc_enable</p></td>
-<td><p>Advanced regexp matching mode <em>1</em></p>
-<p>Whether or not will reschedule service check when trap is received <em>1</em></p></td>
-<td><p>to enable, <em>0</em> to disable</p>
-<p>to enable, <em>0</em> to disable</p></td>
-</tr>
-<tr class="odd">
-<td><p>execution_command Comm</p></td>
-<td><p>and to be executed when trap is received A va</p></td>
-<td><p>lid Unix command line</p></td>
-</tr>
-<tr class="even">
-<td><p>execution_command_enable</p></td>
-<td><p>Whether or not will execute the 'execution_command'</p></td>
-<td><p><em>1</em> to enable, <em>0</em> to disable</p></td>
-</tr>
-<tr class="odd">
-<td>submit_result_enable</td>
-<td>Whether or not will submit result to Service</td>
-<td><em>1</em> to enable, <em>0</em> to disable</td>
-</tr>
-</tbody>
-</table>
-
-### Getmatching
-
-In order to display the list of matching rules defined for a specific
-trap, use the **GETMATCHING** command:
-
-    centreon -u admin -p centreon -o TRAP -a getmatching -v "aNewTrap" 
-    id;string;regexp;status;order
-    8;@OUTPUT@;/test/;UNKNOWN;1
-
-| Column  | Description                         |
-| ------- | ----------------------------------- |
-| ID ID o | f the matching rule                 |
-| String  | String to match                     |
-| Regexp  | Matching Regular Expression         |
-| Status  | Status to submit                    |
-| Order   | Priority order of the matching rule |
-
-### Addmatching
-
-In order to add a matching rule, use the **ADDMATCHING** command:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a addmatching -v "aNewTrap;@OUTPUT@;/test2/;critical" 
-```
-
-Required fields are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Description Poss</th>
-<th>ible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Trap</p>
-<p>2 Stri</p>
-<p>3 Matc</p></td>
-<td><blockquote>
-<p>name</p>
-</blockquote>
-<p>ng to match</p>
-<p>hing Regular Expression</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Status to submit <em>ok</em></td>
-<td>, <em>warning</em>, <em>critical</em>, <em>unknown</em> or <em>0</em>, <em>1</em>, <em>2</em>, <em>3</em></td>
-</tr>
-</tbody>
-</table>
-
-### Delmatching
-
-In order to delete a matching rule, use the **DELMATCHING** command:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a delmatching -v "8" 
-```
-
-Required fields are:
-
-| Column  | Description         |
-| ------- | ------------------- |
-| ID ID o | f the matching rule |
-
-### Updatematching
-
-In order to delete a matching rule, use the **UPDATEMATCHING** command:
-
-``` 
-centreon -u admin -p centreon -o TRAP -a updatematching -v "8;status;critical" 
-```
-
-Arguments are composed of the following columns:
-
-| Order | Column description   |
-| ----- | -------------------- |
-| 1 ID  | of the matching rule |
-| 2 Par | ameter name          |
-| 3 Par | ameter value         |
-
-Parameters that you may change are:
-
-<table>
-<thead>
-<tr class="header">
-<th>Column</th>
-<th>Description</th>
-<th>Possible values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>string</p>
-<p>order</p></td>
-<td><p>String to match</p>
-<p>Priority order</p></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><p>status</p>
-<p>regexp</p></td>
-<td><p>Status to submit <em>ok</em></p>
-<p>Matching Regular Expression</p></td>
-<td><p>, <em>warning</em>, <em>critical</em>, <em>unknown</em> or <em>0</em>, <em>1</em>, <em>2</em>, <em>3</em></p></td>
-</tr>
-</tbody>
-</table>
-
-## Vendors
-
-### Overview
-
-Object name: **VENDOR**
-
-### Show
-
-In order to list available vendors, use the **SHOW** action:
-
-    centreon -u admin -p centreon -o VENDOR -a show
-    id;name;alias
-    1;Cisco;Cisco Networks
-    2;HP;HP Networks
-    3;3com;3Com
-    4;Linksys;Linksys
-    6;Dell;Dell
-    7;Generic;Generic
-    9;Zebra;Zebra
-    11;HP-Compaq;HP and Compaq Systems
-
-### Add
-
-In order to add a Vendor, use the **ADD** action:
-
-``` 
-centreon -u admin -p centreon -o VENDOR -a add -v "DLink;DLink routers" 
+``` shell
+centreon -u admin -p centreon -o TP -a add -v "Timeperiod_Test;Timeperiod_Test"
 ```
 
 Required fields are:
@@ -7738,51 +4957,295 @@ Required fields are:
 | 1     | Name        |
 | 2     | Alias       |
 
-### Del
+#### Del
 
-If you want to remove a Vendor, use the **DEL** action. The Name is used
-for identifying the Vendor to delete:
+If you want to remove a Time Period, use the **DEL** action. The Name is used for identifying the Time Period to delete:
 
-``` 
-centreon -u admin -p centreon -o VENDOR -a del -v "DLink" 
+``` shell
+centreon -u admin -p centreon -o TP -a del -v "Timeperiod_Test"
 ```
 
-### Setparam
+#### Setparam
 
-If you want to change a specific parameter of a Vendor, use the
-**SETPARAM** command. The Name is used for identifying the Vendor to
-update:
+If you want to change a specific parameter of a time period, use the **SETPARAM** action. The Name is used for
+identifying the Time Period to update:
 
-``` 
-centreon -u admin -p centreon -o VENDOR -a setparam -v "3com;name;HP" 
+``` shell
+centreon -u admin -p centreon -o TP -a setparam -v "Timeperiod_Test;monday;00:00-24:00"
 ```
 
 Arguments are composed of the following columns:
 
-<table>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Column description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>1 Name</p></td>
-<td><blockquote>
-<p>of Vendor</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><p>2 Para</p></td>
-<td><p>meter name</p></td>
-</tr>
-<tr class="odd">
-<td>3 Para</td>
-<td>meter value</td>
-</tr>
-</tbody>
-</table>
+| Order | Column description  |
+| ----- | ------------------- |
+| 1     | Name of time period |
+| 2     | Parameter name      |
+| 3     | Parameter value     |
+
+Parameters that you may change are:
+
+| Column    | Description                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------- |
+| name      | Name                                                                                                              |
+| alias     | Alias                                                                                                             |
+| sunday    | Time Period definition for Sunday                                                                                 |
+| monday    | Time Period definition for Monday                                                                                 |
+| tuesday   | Time Period definition for Tuesday                                                                                |
+| wednesday | Time Period definition for Wednesday                                                                              |
+| thursday  | Time Period definition for Thursday                                                                               |
+| friday    | Time Period definition for Friday                                                                                 |
+| saturday  | Time Period definition for Saturday                                                                               |
+| include   | example: \[...\] -v "Timeperiod\_Test;include;workhours"; Use delimiter &#124; for multiple inclusion definitions |
+| exclude   | example: \[...\] -v "Timeperiod\_Test;exclude;weekend" use delimiter &#124; for multiple exclusion definitions    |
+
+#### Getexception
+
+In order to view the exception list of a time period, use the **GETEXCEPTION** action:
+
+``` shell
+centreon -u admin -p centreon -o TP -a getexception -v "mytimeperiod"
+days;timerange
+january 1;00:00-00:00
+december 25;00:00-00:00
+```
+
+#### Setexception
+
+In order to set an exception on a timeperiod, use the **SETEXCEPTION** action:
+
+``` shell
+centreon -u admin -p centreon -o TP -a setexception -v "mytimeperiod;january 1;00:00-24:00"
+```
+
+> ***NOTE:*** If exception does not exist, it will be created, otherwise it will be overwritten.
+
+#### Delexception
+
+In order to delete an exception, use the **DELEXCEPTION** action:
+
+``` shell
+centreon -u admin -p centreon -o TP -a delexception -v "mytimeperiod;january 1"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description                  |
+| ----- | ----------------------------------- |
+| 1     | Name of timeperiod                  |
+| 2     | Exception to remove from timeperiod |
+
+### Traps
+
+Object name: **TRAP**
+
+#### Show
+
+In order to list available traps, use the **SHOW** action:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a show
+id;name;oid;manufacturer
+576;alertSystemUp;.1.3.6.1.4.1.674.10892.1.0.1001;Dell
+577;alertThermalShutdown;.1.3.6.1.4.1.674.10892.1.0.1004;Dell
+578;alertTemperatureProbeNormal;.1.3.6.1.4.1.674.10892.1.0.1052;Dell
+599;alertFanEnclosureInsertion;.1.3.6.1.4.1.674.10892.1.0.1452;Dell
+600;alertFanEnclosureRemoval;.1.3.6.1.4.1.674.10892.1.0.1453;Dell
+601;alertFanEnclosureExtendedRemoval;.1.3.6.1.4.1.674.10892.1.0.1454;Dell
+602;alertLogNormal;.1.3.6.1.4.1.674.10892.1.0.1552;Dell
+605;ccmCLIRunningConfigChanged;.1.3.6.1.4.1.9.9.43.2.0.2;Cisco
+[...]
+```
+
+#### Add
+
+In order to add a trap, use the **ADD** action:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a add -v "aNewTrap;.1.3.6.1.4.1.11.2.3.9.7.1.0.30"
+```
+
+Required fields are:
+
+| Order | Description          |
+| ----- | -------------------- |
+| 1     | Trap name            |
+| 2     | OID of the SNMP Trap |
+
+#### Del
+
+If you want to remove a Trap, use the **DEL** action. The Name is used for identifying the Trap to delete:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a del -v "aNewTrap"
+```
+
+#### Setparam
+
+If you want to change a specific parameter of a Trap, use the **SETPARAM** command. The Name is used for identifying the
+Trap to update:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a setparam -v "aNewTrap;vendor;3com"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of Trap       |
+| 2     | Parameter name     |
+| 3     | Parameter value    |
+
+Parameters that you may change are:
+
+| Column                     | Description                                                        | Possible values                                              |
+| -------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------ |
+| name                       | Name                                                               |                                                              |
+| comments                   | Comments                                                           |                                                              |
+| output                     | Output                                                             |                                                              |
+| oid                        | OID                                                                |                                                              |
+| status                     | Status                                                             | *ok*, *warning*, *critical*, *unknown* or *0*, *1*, *2*, *3* |
+| vendor                     | Vendor name                                                        | A valid vendor name                                          |
+| matching\_mode             | Advanced regexp matching mode                                      | *1* to enable, *0* to disable                                |
+| reschedule\_svc\_enable    | Whether or not will reschedule service check when trap is received | *1* to enable, *0* to disable                                |
+| execution\_command         | Command to be executed when trap is received                       | A valid Unix command line                                    |
+| execution\_command\_enable | Whether or not will execute the 'execution\_command'               | *1* to enable, *0* to disable                                |
+| submit\_result\_enable     | Whether or not will submit result to Service                       | *1* to enable, *0* to disable                                |
+
+#### Getmatching
+
+In order to display the list of matching rules defined for a specific trap, use the **GETMATCHING** command:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a getmatching -v "aNewTrap"
+id;string;regexp;status;order
+8;@OUTPUT@;/test/;UNKNOWN;1
+```
+
+| Column | Description                         |
+| ------ | ----------------------------------- |
+| ID     | ID of the matching rule             |
+| String | String to match                     |
+| Regexp | Matching Regular Expression         |
+| Status | Status to submit                    |
+| Order  | Priority order of the matching rule |
+
+#### Addmatching
+
+In order to add a matching rule, use the **ADDMATCHING** command:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a addmatching -v "aNewTrap;@OUTPUT@;/test2/;critical"
+```
+
+Required fields are:
+
+| Order | Description                 | Possible values                              |
+| ----- | --------------------------- | -------------------------------------------- |
+| 1     | Trap name                   |                                              |
+| 2     | String to match             |                                              |
+| 3     | Matching Regular Expression |                                              |
+| 4     | Status to submit            | ok, warning, critical, unknown or 0, 1, 2, 3 |
+
+#### Delmatching
+
+In order to delete a matching rule, use the **DELMATCHING** command:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a delmatching -v "8"
+```
+
+Required fields are:
+
+| Column | Description             |
+| ------ | ----------------------- |
+| ID     | ID of the matching rule |
+
+#### Updatematching
+
+In order to delete a matching rule, use the **UPDATEMATCHING** command:
+
+``` shell
+centreon -u admin -p centreon -o TRAP -a updatematching -v "8;status;critical"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description      |
+| ----- | ----------------------- |
+| 1     | ID of the matching rule |
+| 2     | Parameter name          |
+| 3     | Parameter value         |
+
+Parameters that you may change are:
+
+| Column | Description                 | Possible values                              |
+| ------ | --------------------------- | -------------------------------------------- |
+| string | String to match             |                                              |
+| order  | Priority order              |                                              |
+| status | Status to submit            | ok, warning, critical, unknown or 0, 1, 2, 3 |
+| regexp | Matching Regular Expression |                                              |
+
+### Vendors
+
+Object name: **VENDOR**
+
+#### Show
+
+In order to list available vendors, use the **SHOW** action:
+
+``` shell
+centreon -u admin -p centreon -o VENDOR -a show
+id;name;alias
+1;Cisco;Cisco Networks
+2;HP;HP Networks
+3;3com;3Com
+4;Linksys;Linksys
+6;Dell;Dell
+7;Generic;Generic
+9;Zebra;Zebra
+11;HP-Compaq;HP and Compaq Systems
+```
+
+#### Add
+
+In order to add a Vendor, use the **ADD** action:
+
+``` shell
+centreon -u admin -p centreon -o VENDOR -a add -v "DLink;DLink routers"
+```
+
+Required fields are:
+
+| Order | Description |
+| ----- | ----------- |
+| 1     | Name        |
+| 2     | Alias       |
+
+#### Del
+
+If you want to remove a Vendor, use the **DEL** action. The Name is used for identifying the Vendor to delete:
+
+``` shell
+centreon -u admin -p centreon -o VENDOR -a del -v "DLink"
+```
+
+#### Setparam
+
+If you want to change a specific parameter of a Vendor, use the **SETPARAM** command. The Name is used for identifying
+the Vendor to update:
+
+``` shell
+centreon -u admin -p centreon -o VENDOR -a setparam -v "3com;name;HP"
+```
+
+Arguments are composed of the following columns:
+
+| Order | Column description |
+| ----- | ------------------ |
+| 1     | Name of vendor     |
+| 2     | Parameter name     |
+| 3     | Parameter value    |
 
 Parameters that you may change are:
 
@@ -7792,32 +5255,22 @@ Parameters that you may change are:
 | alias       | Alias       |
 | description | Description |
 
-### Generatetraps
+#### Generatetraps
 
-It is possible to generate new SNMP traps from a given MIB file. In
-order to do so, use the **GENERATETRAPS** command:
+It is possible to generate new SNMP traps from a given MIB file. In order to do so, use the **GENERATETRAPS** command:
 
-    centreon -u admin -p centreon -o VENDOR -a generatetraps -v "3com;/usr/share/mymibs/3com/A3COM-SWITCHING-SYSTEMS-MIB.mib" 
-    [...]
-    Done
-    
-    Total translations:        10
-    Successful translations:   10
-    Failed translations:       0
+``` shell
+centreon -u admin -p centreon -o VENDOR -a generatetraps -v "3com;/usr/share/mymibs/3com/A3COM-SWITCHING-SYSTEMS-MIB.mib"
+[...]
+Done
 
-<div class="note">
+Total translations:        10
+Successful translations:   10
+Failed translations:       0
+```
 
-<div class="title">
-
-Note
-
-</div>
-
-Make sure to put all the mib file dependencies in the
-/usr/share/snmp/mibs/ directory before starting the generation. Then,
-remove them when it is done.
-
-</div>
+> ***NOTE:*** Make sure to put all the mib file dependencies in the /usr/share/snmp/mibs/ directory before starting the
+> generation. Then, remove them when it is done.
 
 Required fields are:
 
@@ -7825,3 +5278,261 @@ Required fields are:
 | -------- | ----------------- |
 | Name     | Name of Vendor    |
 | Mib file | File path of .mib |
+
+## Poller management
+
+### List available pollers
+
+In order to list available pollers, use the **POLLERLIST** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLERLIST
+poller_id;name
+1;Local Poller
+2;Remote Poller
+```
+
+### Generate local configuration files for a poller
+
+In order to generate configuration files for poller "Local Poller" of id 1, use the **POLLERGENERATE** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLERGENERATE -v 1
+Configuration files generated for poller 1
+```
+
+You can generate the configuration using the poller name:
+
+``` shell
+centreon -u admin -p centreon -a POLLERGENERATE -v "Local Poller"
+Configuration files generated for poller 'Local Poller'
+```
+
+### Test monitoring engine configuration of a poller
+
+In order to test configuration files for poller "Remote Poller" of id 2, use the **POLLERTEST** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLERTEST -v 1
+OK: Nagios Poller 2 can restart without problem...
+```
+
+You can test the configuration using the poller name:
+
+``` shell
+centreon -u admin -p centreon -a POLLERTEST -v "Local Poller"
+Warning: Nagios Poller poller can restart but configuration is not optimal. Please see debug bellow :
+---------------------------------------------------------------------------------------------------
+[1440681047] [15559] Reading main configuration file '/usr/share/centreon//filesGeneration/nagiosCFG/5/nagiosCFG.DEBUG'.
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/hosts.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/hostTemplates.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/serviceTemplates.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/services.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/misccommands.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/checkcommands.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/contactgroups.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/contactTemplates.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/contacts.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/hostgroups.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/servicegroups.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/timeperiods.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/escalations.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/dependencies.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/connectors.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-command.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-contact.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-contactgroup.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-dependencies.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-escalations.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-host.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-services.cfg'
+[1440681047] [15559] Processing object config file '/usr/share/centreon/filesGeneration/nagiosCFG/5/centreon-bam-timeperiod.cfg'
+[1440681047] [15559] Reading resource file '/usr/share/centreon/filesGeneration/nagiosCFG/5/resource.cfg'
+[1440681047] [15559] Checking global event handlers...
+[1440681047] [15559] Checking obsessive compulsive processor commands...
+[1440681047] [15559]
+[1440681047] [15559] Checked 55 commands.
+[1440681047] [15559] Checked 0 connectors.
+[1440681047] [15559] Checked 7 contacts.
+[1440681047] [15559] Checked 0 host dependencies.
+[1440681047] [15559] Checked 0 host escalations.
+[1440681047] [15559] Checked 0 host groups.
+[1440681047] [15559] Checked 1 hosts.
+[1440681047] [15559] Checked 0 service dependencies.
+[1440681047] [15559] Checked 0 service escalations.
+[1440681047] [15559] Checked 0 service groups.
+[1440681047] [15559] Checked 1 services.
+[1440681047] [15559] Checked 5 time periods.
+[1440681047] [15559]
+[1440681047] [15559] Total Warnings: 1
+[1440681047] [15559] Total Errors:   0
+
+---------------------------------------------------------------------------------------------------
+Return code end : 0
+```
+
+### Move monitoring engine configuration files
+
+In order to move configuration files for poller "Local Poller" of id 1 to the final engine directory, use the
+**CFGMOVE** command:
+
+``` shell
+centreon -u admin -p centreon -a CFGMOVE -v 2
+OK: All configuration will be send to 'Remote Poller' by centcore in several minutes.
+Return code end : 1
+```
+
+You can move the configuration files using the poller name:
+
+``` shell
+centreon -u admin -p centreon -a CFGMOVE -v "Remote Poller"
+OK: All configuration will be send to 'Remote Poller' by centcore in several minutes.
+Return code end : 1
+```
+
+### Restart monitoring engine of a poller
+
+In order to restart the monitoring process on poller "Local Poller" of id 1, use the the **POLLERRESTART** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLERRESTART -v 2
+OK: A restart signal has been sent to 'Remote Poller'
+Return code end : 1
+```
+
+You can restart the poller using its name:
+
+``` shell
+centreon -u Remote Poller -p centreon -a POLLERRESTART -v "Remote Poller"
+OK: A restart signal has been sent to 'Remote Poller'
+Return code end : 1
+```
+
+### All in one command
+
+Use the **APPLYCFG** command in order to execute all of the above with one single command:
+
+``` shell
+centreon -u admin -p centreon -a APPLYCFG -v 1
+```
+
+You can execute using the poller name:
+
+``` shell
+centreon -u admin -p centreon -a APPLYCFG -v "Remote Poller"
+```
+
+This will execute **POLLERGENERATE**, **POLLERTEST**, **CFGMOVE** and **POLLERRELOAD**.
+
+### Reload monitoring engine of a poller
+
+In order to reload the monitoring process on poller "Remote Poller" of id 2, use the **POLLERRELOAD** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLERRELOAD -v 2
+OK: A reload signal has been sent to Remote Pollerpoller'
+Return code end : 1
+```
+
+You can reload poller using its name:
+
+``` shell
+centreon -u admin -p centreon -a POLLERRELOAD -v "Remote Poller"
+OK: A reload signal has been sent to 'Remote Poller'
+Return code end : 1
+```
+
+### Execute post generation commands of a poller
+
+In order to execute post generation commands of a poller, use the **POLLEREXECCMD** command:
+
+``` shell
+centreon -u admin -p centreon -a POLLEREXECCMD -v 2
+Running configuration check...done.
+Reloading nagios configuration...done
+```
+
+You can execute post generation commands of a poller using its name:
+
+``` shell
+centreon -u admin -p centreon -a POLLEREXECCMD -v "Remote Poller"
+Running configuration check...done.
+Reloading nagios configuration...done
+```
+
+## Import/Export
+
+### Export
+
+At some point, you might need to export all of the object configuration parameters into a plain text file, either for
+synchronizing or backuping purpose.
+
+The following items will not be exported:
+
+* Escalation
+* ACL (ACL Groups, ACL Resources, ACL actions)
+* LDAP settings
+* Global Centreon settings
+
+This export feature is ran like this:
+
+``` shell
+centreon -u admin -p centreon -e > /tmp/clapi-export.txt
+```
+
+This will generate CLAPI commands and redirect them to the */tmp/clapi-export.txt* file.
+
+This file can now be read by the import command.
+
+With this, you can also build your own CLAPI command file if you know the straight forward syntax.
+
+For instance:
+
+``` shell
+HOST;ADD;Host-Test1;Test host;127.0.0.1;generic-host;Local Poller;Linux
+HOST;ADD;Host-Test2;Test host;127.0.0.1;generic-host;Local Poller;Linux
+HOST;ADD;Host-Test3;Test host;127.0.0.1;generic-host;Local Poller;Linux
+HOST;ADD;Host-Test4;Test host;127.0.0.1;generic-host;Local Poller;Linux
+HOST;ADD;Host-Test5;Test host;127.0.0.1;generic-host;Local Poller;Linux
+```
+
+### Export of a subset of objects
+
+You can choose to export only predefined hosts or services.
+
+For example, to export all services linked to "srv-mssql-01" host you have to execute following command:
+
+``` shell
+centreon -u admin -p centreon -e --select='HOST;srv-mssql-01' --filter-type='^(HOST|SERVICE)$'
+```
+
+To export "memory" and "mssql-listener" services execute following command:
+
+``` shell
+centreon -e --select='SERVICE;memory' --select='SERVICE;mssql-listener' --filter-type='^SERVICE$'
+```
+
+To export all commands run:
+
+``` shell
+centreon -u admin -p centreon -o CMD -a show | awk -F\; 'NR > 2 { print "--select=\"CMD;" $2 "\"" }' | xargs --verbose php ./centreon -u admin -p centreon -e
+```
+
+### Import
+
+You can import configuration from the exported file */tmp/clapi-export*:
+
+``` shell
+centreon -u admin -p centreon -i /tmp/clapi-export.txt
+```
+
+In case you have a very large export file, it is advised to redirect the output of the above command to a file. Indeed,
+when errors occur during the import process, CLAPI will print out an error message along with the line number of the
+file, you might need to store those output message for troubleshooting later on.
+
+You can build your own CLAPI command file if you know the straight forward syntax. You can use parameter described in
+Object Management with the syntax you can see in export files :
+
+``` shell
+OBJECT;AACTION;Parameter1;Parameter2;Parameter3;...
+```
