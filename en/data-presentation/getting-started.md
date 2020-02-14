@@ -1,22 +1,19 @@
-
 ---
 id: getting-started
 title: Getting started
 ---
 
-## Getting started
-
 The objective of this tutorial is to help you understand how you can
-provide real time IT infrastructure status overviews with Centreon MAP
+provide real time IT infrastructure status overviews with the data presentation extension called Centreon MAP
 to your ITOM teams and operational users.
 
 With Centreon MAP, you can simply create and share synthetic real time
 monitoring views to monitor the performance of your IT infrastructure,
 network, applications and services.
 
-![image](images/tuto_ex_1.png){.align-center}
+![image](assets/data-presentation/tuto_ex_1.png)
 
-![image](images/tuto_ex_2.png){.align-center}
+![image](assets/data-presentation/tuto_ex_2.png)
 
 *Example: thanks to this real time views ITOM teams and managers can
 instantaneously visualise the avalilability of critical business
@@ -50,24 +47,23 @@ Connect to your Centreon MAP server using the desktop client, the
 following workspace environment appears (empty). To illustrate the
 explanation, we've opened a view, by default no view is opened.
 
-![image](images/tuto_workspace.png){.align-center}
+![image](assets/data-presentation/tuto_workspace.png)
 
 Information and area are organized as follow:
 
-> 1.  **Views**: existing views that are accessible to you
-> 2.  **Element**: objects available in opened views
-> 3.  **Media**: available media (images)
-> 4.  **Resources**: Centreon's object that you can use in the view
->     (drag & drop)
-> 5.  Content of the view
-> 6.  **Palette**: graphical elements that you can use in a view
-> 7.  **Properties**: selected element's properties
+  1.  **Views**: existing views that are accessible to you
+  2.  **Element**: objects available in opened views
+  3.  **Media**: available media (images)
+  4.  **Resources**: Centreon's object that you can use in the view (drag & drop)
+  5.  Content of the view
+  6.  **Palette**: graphical elements that you can use in a view
+  7.  **Properties**: selected element's properties
 
 ## Create a new view
 
 Nothing simpler: right click in the "View" panel and click on "Add"
 
-![image](images/create_view.gif){.align-center}
+![image](assets/data-presentation/create_view.gif)
 
 With your target view in mind, start creating it by positioning
 resources, widgets and other elements. Drag & drop and shortcuts will
@@ -76,13 +72,12 @@ make this time a delightful moment.
 Find below an example of an IT infrastructure real time status view
 created in less \~4 minutes:
 
-![image](images/ex_view.jpg){.align-center}
+![image](assets/data-presentation/ex_view.jpg)
 
-```{=html}
 <div align="center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/tsgYRpYqaAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-```
+
 ## Create a geographical view
 
 If your IT is geographically spread over a city, country or even the
@@ -97,7 +92,7 @@ To create a GeoView, Go to *Monitoring \> Map* and click on the \"+\"
 that appears on the Geographic view line. *If you don\'t see the \"+\",
 it means you don\'t have enough privileges on Centreon.*
 
-![image](images/create_geo_view.gif){.align-center}
+![image](assets/data-presentation/create_geo_view.gif)
 
 ## Display & share the view
 
@@ -107,7 +102,7 @@ been shared to a user, it is accessible through its browser in *Centreon
 → Monitoring → Map* or even directly on a dashboard using the Centreon
 Map Widget (see example below).
 
-![image](images/share_view.png){.align-center}
+![image](assets/data-presentation/share_view.png)
 
 You now have information to start working on Centreon Map, don\'t forget
 to use the

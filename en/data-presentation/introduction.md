@@ -1,6 +1,6 @@
 ---
-id: index-data-presentation
-title: Data presentation (Centreon Map extension)
+id: introduction
+title: Introduction
 ---
 
 Centreon MAP is a Centreon extension for data-mapping and visualization tool designed for IT
@@ -10,13 +10,21 @@ data in customized user-relevant views.
 
 Create logical views using the Desktop client\...
 
-![image](images/desktop.gif)
+![image](assets/data-presentation/desktop.gif)
 
 ...and visualize them directly in your browser.
 
-![image](images/first_page_web.png)
+![image](assets/data-presentation/first_page_web.png)
 
 Or use the geographical view to display resources in the way your IT is
 spread over a city, country or world.
 
-![image](quick_start/images/display_geo_view.gif)
+![image](assets/data-presentation/display_geo_view.gif)
+
+
+Both types of views may be displayed in the same Centreon web user
+interface:
+
+-   Either from the Centreon MAP dedicated user interface, which also
+    includes a search facility
+-   Or within a Custom View, using the dedicated Centreon MAP widget
