@@ -43,9 +43,9 @@
             {
                 "ids":[
                     "data-presentation/install",
+                    "data-presentation/upgrade",
                     "data-presentation/configure",
                     "data-presentation/remote-server",
-                    "data-presentation/upgrade",
                     "data-presentation/procedures",
                     "data-presentation/known-issues"
                 ],

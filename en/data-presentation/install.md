@@ -3,6 +3,9 @@ id: install
 title: Install the extension
 ---
 
+> Centreon MAP requires a valid license key. To purchase one and retrieve
+the necessary repositories, contact [Centreon](sales@centreon.com).
+
 This chapter describes how to install Centreon MAP. The server must be
 installed on a dedicated machine to allow Centreon MAP to operate with
 its own database and avoid any potential conflict with the Centreon
@@ -11,9 +14,6 @@ central server.
 Before installation, be sure to review the Prerequisites chapter for
 system requirements (CPU and memory). Remember to choose the best type
 of architecture to suit your needs.
-
-> Centreon MAP requires a valid license key. To purchase one and retrieve
-the necessary repositories, contact [Centreon](sales@centreon.com).
 
 
 ## Architecture
