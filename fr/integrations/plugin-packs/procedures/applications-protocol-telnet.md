@@ -7,16 +7,19 @@ title: Telnet Scenario
 | :-: | :-: | :-: |
 | 3.0.3 | `STABLE` | Feb  6 2017 |
 
-##Prerequisites
+\#\#Prerequisites
+
 ### Centreon Plugin
+
 Install this plugin on each needed poller:
 
-    yum install centreon-plugin-Applications-Protocol-Telnet
+``` shell
+yum install centreon-plugin-Applications-Protocol-Telnet
+```
 
 ### Remote server
-The remote server must have a Telnet service running and available.
-You need to create a JSON scenario file. An example:
 
+The remote server must have a Telnet service running and available. You need to create a JSON scenario file. An example:
 
     [
         {"cmd": "open", "options": { "Host": "10.0.0.1", "Port": "23", "Timeout": "30" } },
@@ -27,43 +30,19 @@ You need to create a JSON scenario file. An example:
     ]
 
 ## Centreon Configuration
+
 ### Create a new Telnet Scenario server
-Go to "Configuration &gt; Hosts" and click "Add". Then, fill the form as
-shown by the following table :
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>Host name</p></td>
-<td align="left"><p><em>Name of the host</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Alias</p></td>
-<td align="left"><p><em>Host description</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>IP</p></td>
-<td align="left"><p><em>Host IP Address</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Monitored from</p></td>
-<td align="left"><p><em>Monitoring Poller to use</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>Host Multiple Templates</p></td>
-<td align="left"><p>App-Protocol-Telnet-custom</p></td>
-</tr>
-</tbody>
-</table>
+
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+
+| Field                   | Value                      |
+| :---------------------- | :------------------------- |
+| Host name               | *Name of the host*         |
+| Alias                   | *Host description*         |
+| IP                      | *Host IP Address*          |
+| Monitored from          | *Monitoring Poller to use* |
+| Host Multiple Templates | App-Protocol-Telnet-custom |
 
 Click "Save" button.
+
 

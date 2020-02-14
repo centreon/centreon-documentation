@@ -8,78 +8,54 @@ title: Symantec Netbackup
 | 3.1.3 | `STABLE` | Mar 27 2018 |
 
 ## Prerequisites
+
 ### Centreon Plugin
+
 Install this plugin on each needed poller:
 
-    yum install centreon-nrpe-plugin
+``` shell
+yum install centreon-nrpe-plugin
+```
 
 ### NetBackup cli
-This plugin pack requires the use of: 
-* the Netbackup plugin provided [here](https://github.com/centreon/centreon-plugins)
-* the Netbackup cli (Linux or Windows)
 
-Note: If you use the NSClient++ installer provided by Centreon, the
-plugin is already included in centreon\_plugins.exe configured in
-NSClient++
+This plugin pack requires the use of:
 
-You can download it [here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+  - the Netbackup plugin provided [here](https://github.com/centreon/centreon-plugins)
+  - the Netbackup cli (Linux or Windows)
 
-If you have some problems with the centreon\_plugins.exe, you can build it using [following procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+Note: If you use the NSClient++ installer provided by Centreon, the plugin is already included in centreon\_plugins.exe
+configured in NSClient++
 
-Warning: If you use Netbackup on Windows, add options
-`--statefile-concat-cwd --statefile-dir="scripts/centreon/tmp"` in macro
-`EXTRAOPTIONS` of service `App-Netbackup-Job-Status-NRPE-Custom`
-Powershell and `Microsoft.Exchange.Management.PowerShell.E2010` snap-in
-have to be installed on Exchange Server
+You can download it
+[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
 
-Warning: Set service macro `MAILBOX` with the following syntax:
-DOMAIN\username
+If you have some problems with the centreon\_plugins.exe, you can build it using [following
+procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
 
-Warning: Don't use '!' character in centreon macro configuration!!!
+Warning: If you use Netbackup on Windows, add options `--statefile-concat-cwd --statefile-dir="scripts/centreon/tmp"` in
+macro `EXTRAOPTIONS` of service `App-Netbackup-Job-Status-NRPE-Custom` Powershell and
+`Microsoft.Exchange.Management.PowerShell.E2010` snap-in have to be installed on Exchange Server
+
+Warning: Set service macro `MAILBOX` with the following syntax: DOMAIN\\username
+
+Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 
 ## Centreon Configuration
-### Create a new Netbackup server
-Go to *Configuration &gt; Hosts* and click *Add*. Then, fill the form as
-shown by the following table:
 
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>Host name</p></td>
-<td align="left"><p><em>Name of the host</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Alias</p></td>
-<td align="left"><p><em>Host description</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>IP</p></td>
-<td align="left"><p><em>Host IP Address</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Monitored from</p></td>
-<td align="left"><p><em>Monitoring Poller to use</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>Host Multiple Templates</p></td>
-<td align="left"><p>App-Netbackup-NRPE-custom</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p><em>Relations &gt; Parent Hostgroups</em> tab</p></td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+### Create a new Netbackup server
+
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+
+| Field                                | Value                      |
+| :----------------------------------- | :------------------------- |
+| Host name                            | *Name of the host*         |
+| Alias                                | *Host description*         |
+| IP                                   | *Host IP Address*          |
+| Monitored from                       | *Monitoring Poller to use* |
+| Host Multiple Templates              | App-Netbackup-NRPE-custom  |
+| *Relations \> Parent Hostgroups* tab |                            |
 
 Click on the *Save* button.
+
 

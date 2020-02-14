@@ -7,14 +7,15 @@ title: AWS Billing
 | :-: | :-: | :-: |
 | 3.4.1 | `STABLE` | Oct 15 2019 |
 
-
 ## Prerequisites
 
 ### Centreon Plugin
 
 Install this plugin on each needed poller:
 
-    yum install centreon-plugin-Cloud-Aws-Billing-Api
+``` shell
+yum install centreon-plugin-Cloud-Aws-Billing-Api
+```
 
 To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws' (Perl AWS SDK).
 
@@ -22,101 +23,48 @@ To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws
 
 On CentOS, install with following commands:
 
-    yum install awscli
+``` shell
+yum install awscli
+```
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration &gt; Hosts* and click *Add*. Then, fill the form as
-shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
 
-<table>
-    <thead>
-        <tr class="header">
-            <th align="left" width="10%">Field</th>
-            <th align="left" width="20%">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><p>Name</p></td>
-            <td align="left"><p><em>Name of the host</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>Alias</p></td>
-            <td align="left"><p><em>Description</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>IP Address / DNS</p></td>
-            <td align="left"><p><em>Can be localhost</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>Monitored from</p></td>
-            <td align="left"><p><em>Poller used to monitor</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>Templates</p></td>
-            <td align="left"><p>Cloud-Aws-Billing-custom</p></td>
-        </tr>
-    </tbody>
-</table>
+| Field            | Value                    |
+| :--------------- | :----------------------- |
+| Name             | *Name of the host*       |
+| Alias            | *Description*            |
+| IP Address / DNS | *Can be localhost*       |
+| Monitored from   | *Poller used to monitor* |
+| Templates        | Cloud-Aws-Billing-custom |
 
 The following host macros should be set as shown:
 
-<table>
-    <thead>
-        <tr class="header">
-            <th align="left" width="10%">Macro</th>
-            <th align="left" width="20%">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><p>AWSACCESSKEY</p></td>
-            <td align="left"><p><em>AWS access key</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>AWSSECRETKEY</p></td>
-            <td align="left"><p><em>AWS secret key</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>AWSREGION</p></td>
-            <td align="left"><p><em>AWS region</em></p></td>
-        </tr>
-        <tr>
-            <td align="left"><p>AWSCUSTOMMODE</p></td>
-            <td align="left"><p><em>Plugin custom mode: awscli or paws</em></p></td>
-        </tr>
-    </tbody>
-</table>
+| Macro         | Value                                |
+| :------------ | :----------------------------------- |
+| AWSACCESSKEY  | *AWS access key*                     |
+| AWSSECRETKEY  | *AWS secret key*                     |
+| AWSREGION     | *AWS region*                         |
+| AWSCUSTOMMODE | *Plugin custom mode: awscli or paws* |
 
 Check the *Create Services linked to the Template too* box and click on the *Save* button.
 
 The following service will be created:
 
-* Billing-Estimated-Charges
+  - Billing-Estimated-Charges
 
 The following service macros should be set as shown:
 
-<table>
-    <thead>
-        <tr class="header">
-            <th align="left" width="10%">Macro</th>
-            <th align="left" width="20%">Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="left"><p>SERVICE</p></td>
-            <td align="left"><p><em>Name of the AWS service</em></p></td>
-        </tr>
-    </tbody>
-</table>
+| Macro   | Value                     |
+| :------ | :------------------------ |
+| SERVICE | *Name of the AWS service* |
 
 Add as many services as needed or use the autodiscovery rule :
 
-* Cloud-Aws-Billing-Api-Estimated-Charges
+  - Cloud-Aws-Billing-Api-Estimated-Charges
 
 This rule will add a service named *Billing-$servicename$* per AWS service.
 

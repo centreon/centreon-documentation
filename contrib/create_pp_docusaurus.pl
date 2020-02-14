@@ -10,6 +10,7 @@ use Pod::Usage;
 use Data::Dumper;
 use JSON::XS;
 use POSIX qw(strftime);
+use Pandoc;
 
 centreon::script::create_pp_docusaurus->new()->run();
 
@@ -56,15 +57,36 @@ sub list_packs {
         push @{$self->{packs_definitions}}, $slug . '/pack.json';
     }
 }
+sub convert_table {
+    my ($self, %options) = @_;    
+
+    my $procedure = $options{procedure};
+
+
+    return $procedure;
+}
 
 sub clean_procedure {
     my ($self, %options) = @_;
     
     my $procedure = $options{procedure};
     $procedure =~ s/# Monitoring procedure\r\n//;
-    $procedure =~ s/    # /    /g;
     $procedure =~ s/\r//g;
 
+    my $pandoc = Pandoc->new(qw(-f gfm -t gfm --columns=120));
+    $pandoc->run({ in => \$procedure, out => \$procedure });
+
+    $procedure =~ s/\n\n\s+#\s(yum\sinstall\s.*)\n\n/\n\n``` shell\n$1\n```\n\n/g;
+
+    while ($procedure =~ m/.*?(\<table\>.*?\<\/table\>\n).*/s) {
+        my $pandoc = Pandoc->new(qw(-f html -t gfm --columns=120));
+        my $table_md;
+        $pandoc->run({ in => \$1, out => \$table_md });        
+        $procedure =~ s/\Q$1/$table_md/;
+    }
+
+    $procedure =~ s/\| Onglet \*Relations\* \\> Parent Hostgroups \|\s+\|\n//g;
+ 
     return $procedure;
 }
 

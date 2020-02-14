@@ -8,102 +8,44 @@ title: Cisco CMS
 | 3.0.0 | `STABLE` | Jan  8 2019 |
 
 ## Prerequisites
+
 ### Centreon Plugin
+
 Install this plugin on each needed poller:
 
-    yum install centreon-plugin-Applications-Cisco-Cms-Restapi
+``` shell
+yum install centreon-plugin-Applications-Cisco-Cms-Restapi
+```
 
 ## Centreon Configuration
-### Create a host using the appropriate template
-Go to *Configuration &gt; Hosts* and click *Add*. Then, fill the form as
-shown by the following table:
 
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>Host name</p></td>
-<td align="left"><p><em>Name of the host</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Alias</p></td>
-<td align="left"><p><em>Host description</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>IP</p></td>
-<td align="left"><p><em>Host IP Address</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Monitored from</p></td>
-<td align="left"><p><em>Monitoring Poller to use</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>Host Multiple Templates</p></td>
-<td align="left"><p>App-Cisco-Cms-Restapi-custom</p></td>
-</tr>
-</tbody>
-</table>
+### Create a host using the appropriate template
+
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+
+| Field                   | Value                        |
+| :---------------------- | :--------------------------- |
+| Host name               | *Name of the host*           |
+| Alias                   | *Host description*           |
+| IP                      | *Host IP Address*            |
+| Monitored from          | *Monitoring Poller to use*   |
+| Host Multiple Templates | App-Cisco-Cms-Restapi-custom |
 
 Click on the *Save* button.
 
 ### Host Macro Configuration
+
 The following macros must be configured on host:
 
-<table>
-<colgroup>
-<col width="23%" />
-<col width="53%" />
-<col width="24%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Macro</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>CMSCUSTOMMODE</p></td>
-<td align="left"><p>Mode used by plugin</p></td>
-<td align="left"><p>xmlapi</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>CMSAPIURLPATH</p></td>
-<td align="left"><p>Path to the CMS API</p></td>
-<td align="left"><p>/api/v1</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>CMSAPIPORT</p></td>
-<td align="left"><p>Port of the CMS API instance</p></td>
-<td align="left"><p>445</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>CMSAPIPROTO</p></td>
-<td align="left"><p>Protocol used by the CMS API</p></td>
-<td align="left"><p>https</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>USERNAME</p></td>
-<td align="left"><p>Username to access CMS API</p></td>
-<td align="left"><p></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>PASSWORD</p></td>
-<td align="left"><p>Password to access CMS API</p></td>
-<td align="left"><p></p></td>
-</tr>
-</tbody>
-</table>
+| Macro         | Description                  | Default value |
+| :------------ | :--------------------------- | :------------ |
+| CMSCUSTOMMODE | Mode used by plugin          | xmlapi        |
+| CMSAPIURLPATH | Path to the CMS API          | /api/v1       |
+| CMSAPIPORT    | Port of the CMS API instance | 445           |
+| CMSAPIPROTO   | Protocol used by the CMS API | https         |
+| USERNAME      | Username to access CMS API   |               |
+| PASSWORD      | Password to access CMS API   |               |
 
 Click on the *Save* button.
+
 

@@ -8,17 +8,23 @@ title: Lync 2013
 | 3.1.2 | `STABLE` | Jan 17 2019 |
 
 ## Prerequisites
+
 ### Centreon Plugin
+
 Install this plugin on each needed poller:
 
-    yum install centreon-plugin-Applications-Lync-2013-Mssql
+``` shell
+yum install centreon-plugin-Applications-Lync-2013-Mssql
+```
 
 ## Username
-The username string should not be longer than 32 chararacters. Username
-must be in the following form: [Servername|Domainname]
-In order for the plugin to operate correctly, a database user with specific privileges is required.
-The most simple way is to assign the Nagios-user the role “serveradmin”. As an alternative you can use the sa-User for the database connection. Alas, this opens a serious security hole, as the (cleartext) administrator password can be found in the nagios configuration files
-Birk Bohne wrote the following script which allows the automated creation of a minimal, yet sufficient privileged monitoring-user.
+
+The username string should not be longer than 32 chararacters. Username must be in the following form:
+\[Servername|Domainname\] In order for the plugin to operate correctly, a database user with specific privileges is
+required. The most simple way is to assign the Nagios-user the role “serveradmin”. As an alternative you can use the
+sa-User for the database connection. Alas, this opens a serious security hole, as the (cleartext) administrator password
+can be found in the nagios configuration files Birk Bohne wrote the following script which allows the automated creation
+of a minimal, yet sufficient privileged monitoring-user.
 
     declare @dbname varchar(255)
     declare @check_mssql_health_USER varchar(255)
@@ -92,97 +98,51 @@ Birk Bohne wrote the following script which allows the automated creation of a m
     close dblist
     deallocate dblist
 
-Please keep in mind that check_mssql_health’s functionality is limited when using SQL Server authentication. This method is strongly discouraged . Normally there is already a Nagios-(Windows-)-user which can be used for the Windows authentication method.
+Please keep in mind that check\_mssql\_health’s functionality is limited when using SQL Server authentication. This
+method is strongly discouraged . Normally there is already a Nagios-(Windows-)-user which can be used for the Windows
+authentication method.
 
 ### RPM
+
 In order to use this template, the following RPM are needed:
-* freetds-0.82-6.el6.$ARCH
-* perl-DBD-Sybase-1.10-1.el6.rf.$ARCH
-* unixODBC-2.2.14-14.el6.$ARCH
-* unixODBC-devel-2.2.14-14.el6.$ARCH
+
+  - freetds-0.82-6.el6.$ARCH
+  - perl-DBD-Sybase-1.10-1.el6.rf.$ARCH
+  - unixODBC-2.2.14-14.el6.$ARCH
+  - unixODBC-devel-2.2.14-14.el6.$ARCH
 
 #### Configuration of freetds.conf file
-The /etc/freetds.conf file have to be modified in order to encrypt the
-password. To do that :
+
+The /etc/freetds.conf file have to be modified in order to encrypt the password. To do that :
 
     vi /etc/freetds.conf
-Modify line tds 'version = 4.2' to 'tds version = 8.0'.
-Then remove comment symbol at the beginning of this line.
+
+Modify line tds 'version = 4.2' to 'tds version = 8.0'. Then remove comment symbol at the beginning of this line.
 
 ## Centreon Configuration
-### Create a new Lync MSSQL instance
-Go to "Configuration &gt; Hosts" and click "Add". Then, fill the form as
-shown by the following table :
 
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>Host name</p></td>
-<td align="left"><p><em>Name of the host</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Alias</p></td>
-<td align="left"><p><em>Host description</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>IP</p></td>
-<td align="left"><p><em>Host IP Address</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Monitored from</p></td>
-<td align="left"><p><em>Monitoring Poller to use</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>Host Multiple Templates</p></td>
-<td align="left"><p>App-Lync-2013-MSSQL-custom</p></td>
-</tr>
-</tbody>
-</table>
+### Create a new Lync MSSQL instance
+
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+
+| Field                   | Value                      |
+| :---------------------- | :------------------------- |
+| Host name               | *Name of the host*         |
+| Alias                   | *Host description*         |
+| IP                      | *Host IP Address*          |
+| Monitored from          | *Monitoring Poller to use* |
+| Host Multiple Templates | App-Lync-2013-MSSQL-custom |
 
 Click "Save" button.
 
 #### Host Macro Configuration
+
 The following macros must be configured on host:
 
-<table>
-<colgroup>
-<col width="25%" />
-<col width="50%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Macro</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>MSSQLUSERNAME</p></td>
-<td align="left"><p>MSSQL username</p></td>
-<td align="left"><p></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>MSSQLPASSWORD</p></td>
-<td align="left"><p>MSSQL password</p></td>
-<td align="left"><p></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>MSSQLPORT</p></td>
-<td align="left"><p>Port Of the MSSQL instance (need to check in the SQL Studio if dynamic)</p></td>
-<td align="left"><p></p></td>
-</tr>
-</tbody>
-</table>
+| Macro         | Description                                                             | Default value |
+| :------------ | :---------------------------------------------------------------------- | :------------ |
+| MSSQLUSERNAME | MSSQL username                                                          |               |
+| MSSQLPASSWORD | MSSQL password                                                          |               |
+| MSSQLPORT     | Port Of the MSSQL instance (need to check in the SQL Studio if dynamic) |               |
+
 

@@ -7,15 +7,18 @@ title: Azure SQL Database
 | :-: | :-: | :-: |
 | 3.1.1 | `STABLE` | Oct 15 2019 |
 
-
 ## Prerequisites
 
 ### Centreon Plugin
+
 Install this plugin on each needed poller:
 
-    yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+``` shell
+yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+```
 
 ### Perl dependencies (for 'api' custom mode)
+
 By installing the plugin, some perl depencies will be installed :
 
     JSON::XS
@@ -31,22 +34,24 @@ By installing the plugin, some perl depencies will be installed :
 The login and access token handling will be made by the plugin itself.
 
 ### Azure CLI 2.0 (for 'azcli' custom mode)
-The CLI needs at least Python version 2.7 (https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md).
+
+The CLI needs at least Python version 2.7
+(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
 
 On CentOS/RedHat, install with following commands:
 
     (As root)
-    rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-    yum install azure-cli
+    # rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    # echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
+    # yum install azure-cli
     (As centreon-engine)
-    az login
+    # az login
 
 The shell should prompt:
 
     To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
 
-Go to https://microsoft.com/devicelogin and enter the given code.
+Go to <https://microsoft.com/devicelogin> and enter the given code.
 
 Log in with your account credentials. You should use a service account. Application is not yet supported.
 
@@ -72,135 +77,53 @@ You now have a hidden azure directory where your token is stored in an accessTok
 ## Centreon Configuration
 
 ### Create a new host
-Go to *Configuration &gt; Hosts* and click *Add*. Then, fill the form as
-shown by the following table:
 
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Field</th>
-<th align="left">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>Host name</p></td>
-<td align="left"><p><em>Name of the host</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Alias</p></td>
-<td align="left"><p><em>Host description</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>IP</p></td>
-<td align="left"><p><em>Host IP Address</em></p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>Monitored from</p></td>
-<td align="left"><p><em>Monitoring Poller to use</em></p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>Host Multiple Templates</p></td>
-<td align="left"><p>Cloud-Azure-Database-SqlDatabase-custom</p></td>
-</tr>
-</tbody>
-</table>
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+
+| Field                   | Value                                   |
+| :---------------------- | :-------------------------------------- |
+| Host name               | *Name of the host*                      |
+| Alias                   | *Host description*                      |
+| IP                      | *Host IP Address*                       |
+| Monitored from          | *Monitoring Poller to use*              |
+| Host Multiple Templates | Cloud-Azure-Database-SqlDatabase-custom |
 
 Click on the *Save* button.
 
 ### Set host macros
+
 The following macros must be configured on host.
 
 #### Common macros
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Macro</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>AZURESQLSERVERNAME</p></td>
-<td align="left"><p>SQL server name</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>AZURERESOURCEGROUP</p></td>
-<td align="left"><p>Resource group</p></td>
-</tr>
-</tbody>
-</table>
+
+| Macro              | Description     |
+| :----------------- | :-------------- |
+| AZURESQLSERVERNAME | SQL server name |
+| AZURERESOURCEGROUP | Resource group  |
 
 #### 'api' custom mode macros
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Macro</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>AZURECUSTOMMODE</p></td>
-<td align="left"><p>Custom mode 'api'</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>AZURESUBSCRIPTION</p></td>
-<td align="left"><p>Subscription ID</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>AZURETENANT</p></td>
-<td align="left"><p>Tenant ID</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>AZURECLIENTID</p></td>
-<td align="left"><p>Client ID</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>AZURECLIENTSECRET</p></td>
-<td align="left"><p>Client secret</p></td>
-</tr>
-</tbody>
-</table>
+
+| Macro             | Description       |
+| :---------------- | :---------------- |
+| AZURECUSTOMMODE   | Custom mode 'api' |
+| AZURESUBSCRIPTION | Subscription ID   |
+| AZURETENANT       | Tenant ID         |
+| AZURECLIENTID     | Client ID         |
+| AZURECLIENTSECRET | Client secret     |
 
 #### 'azcli' custom mode macros
-<table>
-<colgroup>
-<col width="58%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Macro</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p>AZURECUSTOMMODE</p></td>
-<td align="left"><p>Custom mode 'azcli'</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p>AZURESUBSCRIPTION</p></td>
-<td align="left"><p>Subscription ID</p></td>
-</tr>
-</tbody>
-</table>
+
+| Macro             | Description         |
+| :---------------- | :------------------ |
+| AZURECUSTOMMODE   | Custom mode 'azcli' |
+| AZURESUBSCRIPTION | Subscription ID     |
 
 Click on the *Save* button.
 
 ## Available metrics
-Go to https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces to see the description of return metrics for this Azure service.
+
+Go to
+<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
+to see the description of return metrics for this Azure service.
+
 
