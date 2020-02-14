@@ -583,8 +583,8 @@
             "developer/init-developer"
         ],
         "Releases": [
-            "release-notes/release-notes",
-            "lifecycle/init-lifecycle"
+            "releases/lifecycle",
+            "releases/release-notes"
         ]
     }
 }
