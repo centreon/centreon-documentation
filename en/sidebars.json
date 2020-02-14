@@ -27,7 +27,8 @@
             "service-mapping-correlation/init-service-mapping-correlation"
         ],
         "Data Presentation": [
-            "data-presentation/init-data-presentation"
+            "data-presentation/getting-started",
+            "data-presentation/index-data-presentation"
         ],
         "Analytics": [
             "analytics/init-analytics"
