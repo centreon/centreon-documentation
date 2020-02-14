@@ -575,7 +575,6 @@
             "integrations/external/init-external-integrations"
         ],
         "API": [
-            "api/init-api",
             "api/clapi",
             "api/map-api"
         ],
