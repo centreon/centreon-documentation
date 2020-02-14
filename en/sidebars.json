@@ -5,7 +5,7 @@
         ],
         "Installation": [
             "installation/init-installation",
-            "ceip/init-ceip"
+            "ceip/what-is-centreon-ceip"
         ],
         "Upgrade & Migrate": [
             "upgrade/init-upgrade",
