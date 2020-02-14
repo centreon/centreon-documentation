@@ -43,4 +43,3 @@ The following macros must be configured on host:
 | MONGODBUSERNAME | The MongoDB username                         |               |
 | MONGODBPASSWORD | The MongoDB password                         |               |
 
-

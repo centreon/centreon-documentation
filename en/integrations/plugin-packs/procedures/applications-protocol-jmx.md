@@ -34,4 +34,3 @@ Go to *Configuration \> Services* and click *Add*. Then, fill the form as shown 
 
 Click on the *Save* button.
 
-

@@ -54,8 +54,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*          |
 | Monitored from                       | *Monitoring Poller to use* |
 | Host Multiple Templates              | App-Netbackup-NRPE-custom  |
-| *Relations \> Parent Hostgroups* tab |                            |
 
 Click on the *Save* button.
-
 

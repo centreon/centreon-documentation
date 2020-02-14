@@ -60,4 +60,3 @@ The following macros must be configured on services:
 | POP     | CRITICAL | Connection time Critical threshold in Seconds | 8             |         |
 | POP     | PORT     | Communication Port                            | 110           |         |
 
-

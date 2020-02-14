@@ -54,4 +54,3 @@ Click on the *Save* button.
 
 By default, the host template checks nothing. Go to plugin-pack manager to see services available.
 
-

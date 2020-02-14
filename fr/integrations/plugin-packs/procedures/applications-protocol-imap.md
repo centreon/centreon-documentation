@@ -68,4 +68,3 @@ On your Host or Host template, please set the following macro :
 | :--------------- | :----- |
 | IMAPEXTRAOPTIONS | \--ssl |
 
-

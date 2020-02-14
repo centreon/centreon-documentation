@@ -108,4 +108,3 @@ Examples on command line:
 
 You can now duplicate the service to monitor several metrics.
 
-

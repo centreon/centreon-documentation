@@ -43,4 +43,3 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 
 Click on the *Save* button.
 
-

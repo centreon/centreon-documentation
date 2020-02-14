@@ -60,10 +60,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*             |
 | Monitored from                       | *Monitoring Poller to use*    |
 | Host Multiple Templates              | App-Exchange-2010-NRPE-custom |
-| *Relations \> Parent Hostgroups* tab |                               |
 
 Click on the *Save* button.
 
 By default, the host template checks nothing. Go to plugin-pack manager to see services available.
-
 

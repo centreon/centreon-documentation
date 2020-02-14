@@ -66,4 +66,3 @@ The following macros must be configured on services:
 | WARNING  | Warning Thresold (number of nodes)  | 2:            | 2:      |
 | CRITICAL | Critical Thresold (number of nodes) | 1:            | 1:      |
 
-

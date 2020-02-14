@@ -57,4 +57,3 @@ Those services were automatically created for this host:
 | Client-Traffic     | Check bytes/s received/delivered to clients                                    |
 | Server-Connections | Check current server connections on Bluecoat                                   |
 
-

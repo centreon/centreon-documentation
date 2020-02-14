@@ -30,7 +30,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*                |
 | Monitored from                       | *Monitoring Poller to use*       |
 | Host Multiple Templates              | HW-Storage-NetApp-Restapi-custom |
-| *Relations \> Parent Hostgroups* tab |                                  |
 
 ### Host Macro Configuration
 
@@ -45,5 +44,4 @@ The following macros must be configured on host:
 | APIPROTO    | OnCommand API protcole | https          |
 
 Click on the *Save* button.
-
 

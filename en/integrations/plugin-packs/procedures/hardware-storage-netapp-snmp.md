@@ -34,7 +34,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*             |
 | Monitored from                       | *Monitoring Poller to use*    |
 | Host Multiple Templates              | HW-Storage-NetApp-SNMP-custom |
-| *Relations \> Parent Hostgroups* tab |                               |
 
 Click on the *Save* button.
 
@@ -46,5 +45,4 @@ If your netapp storage is in 'c-mode', following services won't work:
   - Share-Calls
   - Cache-Age
   - Ndmpsessions
-
 

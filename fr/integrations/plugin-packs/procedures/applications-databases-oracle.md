@@ -145,4 +145,3 @@ The following macros must be configured on host:
 | ORACLEUSERNAME | the oracle user                       | USERNAME      | root     |
 | ORACLEPASSWORD | the oracle user's password            | PASSWORD      | p@ssw0rd |
 
-

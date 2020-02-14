@@ -104,4 +104,3 @@ The following macros must be configured on services:
 | Time-Sync          | ACTION           | The test determined by the plugin | timesync                                |                                 |
 | Time-Sync          | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
 
-

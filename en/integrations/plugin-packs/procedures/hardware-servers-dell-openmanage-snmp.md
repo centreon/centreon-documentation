@@ -36,7 +36,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*                     |
 | Monitored from                       | *Monitoring Poller to use*            |
 | Host Multiple Templates              | HW-Server-Dell-Openmanage-SNMP-custom |
-| *Relations \> Parent Hostgroups* tab |                                       |
 
 Click on the *Save* button.
 
@@ -46,5 +45,4 @@ Those services were automatically created for this host:
 | :------ | :----------------------------- |
 | Ping    | Monitor host response time     |
 | Global  | Monitor Global hardware status |
-
 

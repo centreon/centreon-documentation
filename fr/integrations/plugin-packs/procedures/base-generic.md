@@ -55,4 +55,3 @@ The following macros must be configured on services:
 | Ping    | WARNING      | Warning threshold  | 200,20%       | 200,20% |
 | Ping    | CRITICAL     | Critical Threshold | 400,50%       | 400,50% |
 
-

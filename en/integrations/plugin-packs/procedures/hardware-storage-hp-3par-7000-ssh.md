@@ -68,4 +68,3 @@ Notice: In macro "SSHUSERNAME" define the administrator account used to copy pub
 
 Click on the *Save* button.
 
-

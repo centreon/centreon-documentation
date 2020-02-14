@@ -40,4 +40,3 @@ Please deploy manually modes issues/commits/stats... because you need to specify
 
 Also do not forget to set GITHUBUSERNAME AND GITHUBPASSWORD macro value at the host level
 
-

@@ -85,4 +85,3 @@ Set critical threshold for wind (in m/s)
 
 Click on the *Save* button.
 
-

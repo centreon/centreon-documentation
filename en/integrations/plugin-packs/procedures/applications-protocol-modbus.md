@@ -36,12 +36,10 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*          |
 | Monitored from                       | *Monitoring Poller to use* |
 | Host Multiple Templates              | App-Protocol-Modbus-custom |
-| *Relations* \> Parent Hostgroups tab |                            |
 
 Click on the *Save* button.
 
 After that, you can add service linked with template *App-Protocol-Modbus-Numeric-Value-Generic*. To fill the macro
 *CONFIG*, read [Modbus
 config](https://github.com/centreon/centreon-plugins/blob/master/docs/en/user/guide.rst#modbus-protocol)
-
 

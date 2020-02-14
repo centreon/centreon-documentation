@@ -13,7 +13,9 @@ title: AWS ELB
 
 Install this plugins on each needed poller:
 
-    # yum install centreon-plugin-Cloud-Aws-Elb-Api
+``` shell
+yum install centreon-plugin-Cloud-Aws-Elb-Api
+```
     # yum install centreon-plugin-Cloud-Aws-Elb-Application-Api
     # yum install centreon-plugin-Cloud-Aws-Elb-Network-Api
 
@@ -94,5 +96,4 @@ The following services will be created:
   - Elb-Performances
   - Elb-Queues
   - Elb-Targets-Health
-
 

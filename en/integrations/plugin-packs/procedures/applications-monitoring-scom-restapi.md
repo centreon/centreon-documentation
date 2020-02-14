@@ -49,4 +49,3 @@ The following macros must be configured on host:
 
 Click on the *Save* button.
 
-

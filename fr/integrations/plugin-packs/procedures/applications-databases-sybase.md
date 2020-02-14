@@ -66,4 +66,3 @@ The following macros must be configured on host:
 | SYBASEPASSWORD | the Sybase password         | PASSWORD      | p@ssw0rd |
 | SYBASEPORT     | Port Of the Sybase Database | 2638          | 2638     |
 
-

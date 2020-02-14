@@ -23,7 +23,9 @@ To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws
 
 On CentOS, install with following commands:
 
-    # yum install -y epel-release
+``` shell
+yum install -y epel-release
+```
     # yum install -y python-pip
     # pip install awscli
     # yum remove -y epel-release
@@ -41,8 +43,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*          |
 | Monitored from                       | *Monitoring Poller to use* |
 | Host Multiple Templates              | Cloud-Aws-Api              |
-| *Relations \> Parent Hostgroups* tab |                            |
 
 Click on the *Save* button.
-
 

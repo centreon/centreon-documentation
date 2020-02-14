@@ -41,4 +41,3 @@ The following macros must be configured on host:
 | :-------- | :---------------- | :------------ |
 | REDISPORT | Redis server port | 6379          |
 
-

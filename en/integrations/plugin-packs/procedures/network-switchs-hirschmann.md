@@ -47,7 +47,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*                 |
 | Monitored from                       | *Monitoring Poller to use*        |
 | Host Multiple Templates              | Net-Cisco-Sb-Standard-SNMP-custom |
-| *Relations \> Parent Hostgroups* tab |                                   |
 
 Click on the *Save* button.
 
@@ -65,5 +64,4 @@ The following macros must be configured on host (\* means mandatory options):
 | Macro            | Description                       | Default value | Example |
 | :--------------- | :-------------------------------- | :------------ | :------ |
 | SNMPEXTRAOPTIONS | Extra options for SNMP connection |               |         |
-
 

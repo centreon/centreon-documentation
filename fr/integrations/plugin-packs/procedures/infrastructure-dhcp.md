@@ -37,7 +37,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*          |
 | Monitored from                       | *Monitoring Poller to use* |
 | Host Multiple Templates              | Infra-DHCP-custom          |
-| *Relations \> Parent Hostgroups* tab |                            |
 
 Click on the *Save* button.
 
@@ -55,5 +54,4 @@ No macro is defined for this template.
 ### Service Macro configuration
 
 No macro is defined for this template.
-
 

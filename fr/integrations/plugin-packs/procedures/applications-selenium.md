@@ -59,4 +59,3 @@ The following macros must be configured on the deployed services :
 
 Click on the *Save* button.
 
-

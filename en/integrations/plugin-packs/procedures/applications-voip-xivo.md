@@ -67,4 +67,3 @@ This service was automatically created for this host:
 | XiVO-process-xivo-dxtora    | Monitor xivo-dxtora processus    |
 | XiVO-process-xivo-provd     | Monitor xivo-provd processus     |
 
-

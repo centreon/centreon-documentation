@@ -133,4 +133,3 @@ Warning: this file must contain only one line
 Warning: the files `/home/centreon/bin/asterisk_centreon.conf` and `/home/centreon/bin/asterisk_centreon.conf` must be
 executable and readable by the *centreon* user
 
-

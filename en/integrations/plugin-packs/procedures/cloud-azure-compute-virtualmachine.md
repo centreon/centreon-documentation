@@ -134,4 +134,3 @@ Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines>
 to see the description of return metrics for this Azure service.
 
-

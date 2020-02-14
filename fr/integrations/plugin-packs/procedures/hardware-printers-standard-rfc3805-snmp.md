@@ -61,4 +61,3 @@ Following services are automatically created :
 
 If you want, you can add the paper tray check with the service template provided.
 
-

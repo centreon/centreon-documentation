@@ -13,6 +13,7 @@ title: Ansible
 
 Install this plugin on each needed poller:
 
-    # yum install centreon-plugin-Applications-Ansible-Cli
-
+``` shell
+yum install centreon-plugin-Applications-Ansible-Cli
+```
 

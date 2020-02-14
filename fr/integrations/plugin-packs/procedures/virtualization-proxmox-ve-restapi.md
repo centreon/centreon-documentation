@@ -42,7 +42,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*             |
 | Monitored from                       | *Monitoring Poller to use*    |
 | Host Multiple Templates              | Virt-Promox-Pe-Restapi-Custom |
-| *Relations \> Parent Hostgroups* tab |                               |
 
 ### Host Macro Configuration
 
@@ -97,5 +96,4 @@ https
 http
 
 Click on the *Save* button.
-
 

@@ -42,4 +42,3 @@ Click on the *Save* button.
 Pick the service you want to deploy. Choose CRM and/or Constraints service template if you use CRM shell for cluster
 administration. Use Clustat if you have a Redhat clustat cluster.
 
-

@@ -39,4 +39,3 @@ The following macros must be configured on host:
 | REDISUSERNAME | Redis server username |               |
 | REDISPASSWORD | Redis server password |               |
 
-

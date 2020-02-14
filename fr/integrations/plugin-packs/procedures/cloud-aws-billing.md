@@ -68,4 +68,3 @@ Add as many services as needed or use the autodiscovery rule :
 
 This rule will add a service named *Billing-$servicename$* per AWS service.
 
-

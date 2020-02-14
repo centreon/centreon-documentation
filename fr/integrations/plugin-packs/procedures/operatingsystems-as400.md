@@ -36,7 +36,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*          |
 | Monitored from                       | *Monitoring Poller to use* |
 | Host Multiple Templates              | OS-AS400-custom            |
-| *Relations \> Parent Hostgroups* tab |                            |
 
 Click on the *Save* button.
 
@@ -61,5 +60,4 @@ The following macros must be configured on host:
 | DAEMONAS400PORT | The connection port used   | 8091          | 8091      |
 | AS400USER       | AS400 login                | DEFAULT       | usr1      |
 | AS400PASSWORD   | AS400 password             | DEFAULT       | x5jGyR    |
-
 

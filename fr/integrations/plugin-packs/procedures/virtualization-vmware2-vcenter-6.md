@@ -118,4 +118,3 @@ The following macros must be configured on host:
 | CENTREONVMWAREHOST      | Host of Centreon-Vmware daemon | localhost     | localhost |
 | ESXNAME                 | Name of the ESX to monitor     |               | srvi-esx  |
 
-

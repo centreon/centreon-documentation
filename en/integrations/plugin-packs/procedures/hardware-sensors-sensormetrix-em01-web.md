@@ -41,8 +41,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | IP                                   | *Host IP Address*                        |
 | Monitored from                       | *Monitoring Poller to use*               |
 | Host Multiple Templates              | *HW-Sensor-Sensormetrix-Em01-Web-custom* |
-| *Relations \> Parent Hostgroups* tab |                                          |
 
 Click on the *Save* button.
-
 

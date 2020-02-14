@@ -75,4 +75,3 @@ The following macros must be configured on host:
 | MYSQLUSERNAME | the mysql db user                     | MYSQLUSERNAME | root     |
 | MYSQLPASSWORD | the mysql db user's password          | MYSQLPASSWORD | HuGr6834 |
 
-

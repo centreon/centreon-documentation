@@ -49,4 +49,3 @@ Those services were automatically created for this host:
 | Hardware    | *Monitor Hardware*         |
 | HA-State    | Monitor HA State           |
 
-

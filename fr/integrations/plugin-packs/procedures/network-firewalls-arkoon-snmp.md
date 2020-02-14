@@ -49,4 +49,3 @@ Those services were automatically created for this host:
 | Swap    | Monitor swap used          |
 | Uptime  | Monitor uptime             |
 
-

@@ -127,4 +127,3 @@ Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
 to see the description of return metrics for this Azure service.
 
-

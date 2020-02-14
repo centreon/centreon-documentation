@@ -46,4 +46,3 @@ The following macros must be configured on host:
 | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
 | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
 
-

@@ -119,4 +119,3 @@ Click on the *Save* button.
 We advice you to also link your reporting server to *App-DB-MySQL* template. Refer to its monitoring procedure for the
 configuration.
 
-

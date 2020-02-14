@@ -62,4 +62,3 @@ The following macros must be configured on service (\* means mandatory options):
 | ISSUERNAME | Content of the issuer name         |               |         |
 | OBJECTNAME | Content of the object name         |               |         |
 
-

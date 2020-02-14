@@ -46,4 +46,3 @@ The following macros must be configured on host:
 | INFLUXDBUSERNAME | The InfluxDB instance username |               | centreon |
 | INFLUXDBPASSWORD | The InfluxDB instance password |               | centreon |
 
-

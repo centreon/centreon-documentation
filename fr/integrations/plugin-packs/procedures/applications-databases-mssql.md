@@ -159,4 +159,3 @@ The following macros must be configured on host:
 | MSSQLPASSWORD | the MSSQL password          | PASSWORD      | p@ssw0rd |
 | MSSQLPORT     | Port to connect to database | 1433          | 1433     |
 
-

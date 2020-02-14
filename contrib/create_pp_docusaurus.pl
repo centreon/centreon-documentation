@@ -68,7 +68,7 @@ sub clean_procedure {
     my $pandoc = Pandoc->new(qw(-f gfm -t gfm --columns=120));
     $pandoc->run({ in => \$procedure, out => \$procedure });
 
-    $procedure =~ s/\n\n\s+#\s(yum\sinstall\s.*)\n\n/\n\n``` shell\n$1\n```\n\n/g;
+    $procedure =~ s/\n\n\s+#\s(yum\sinstall\s.*)\n/\n\n``` shell\n$1\n```\n/g;
 
     while ($procedure =~ m/.*?(\<table\>.*?\<\/table\>\n).*/s) {
         my $pandoc = Pandoc->new(qw(-f html -t gfm --columns=120));
@@ -77,7 +77,7 @@ sub clean_procedure {
         $procedure =~ s/\Q$1/$table_md/;
     }
 
-    $procedure =~ s/\| Onglet \*Relations\* \\> Parent Hostgroups \|\s+\|\n//g;
+    $procedure =~ s/\|.*Relations.*Parent.*Hostgroups.*\n//g;
  
     return $procedure;
 }
@@ -117,7 +117,6 @@ title: $title
 | $version | `$status` | $date |
 
 $procedure
-
 END
 
         my $output_file = $self->{doc_directory} . '/' . $data->{information}->{slug} . '.md';

@@ -56,4 +56,3 @@ The following macros must be configured on service (\* means mandatory options):
 | WARNING  | Warning Thresold                | 60:           | 60:      |
 | CRITICAL | Critical Thresold               | 30:           | 30:      |
 
-

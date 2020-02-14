@@ -145,4 +145,3 @@ The following macros must be configured on host:
 | MSSQLPASSWORD | MSSQL password                                                          |               |
 | MSSQLPORT     | Port Of the MSSQL instance (need to check in the SQL Studio if dynamic) |               |
 
-

@@ -63,4 +63,3 @@ The following service macros should be set as shown:
 | :------ | :-------------------- |
 | APINAME | *Name of you AWS API* |
 
-
