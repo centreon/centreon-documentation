@@ -290,7 +290,7 @@ configure the SSL, go to this page:
 role="ref"}.
 
 
-## Web Interface installation {#web_client}
+## Web Interface installation
 
 
 ### Central server
@@ -299,7 +299,7 @@ role="ref"}.
 yum install centreon-map-web-client
 ```
 
-### Web {#web_configuration}
+### Web
 
 Go to *Centreon \> Administration \> Extensions* and click on the install button:
 
@@ -341,7 +341,7 @@ widget. The result after installed:
 
 ![image](../assets/data-presentation/install-web-step-widget.png)
 
-## Desktop Client {#desktop_client}
+## Desktop Client
 
 ### Executables
 
