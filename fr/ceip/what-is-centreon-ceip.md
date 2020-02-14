@@ -1,5 +1,5 @@
 ---
-id: what-is-ceip
+id: what-is-centreon-ceip
 title: Qu'est-ce que Centreon CEIP?
 ---
 
