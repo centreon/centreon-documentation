@@ -27,7 +27,33 @@
             "service-mapping-correlation/init-service-mapping-correlation"
         ],
         "Data Presentation": [
-            "data-presentation/init-data-presentation"
+            
+            "data-presentation/introduction",
+            "data-presentation/getting-started",
+            {
+                "ids":[
+                    "data-presentation/create-standard-view",
+                    "data-presentation/create-geo-view",
+                    "data-presentation/display-view",
+                    "data-presentation/share-view"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "data-presentation/install",
+                    "data-presentation/upgrade",
+                    "data-presentation/configure",
+                    "data-presentation/remote-server",
+                    "data-presentation/procedures",
+                    "data-presentation/known-issues"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            },
+
+            "data-presentation/release-notes"
         ],
         "Analytics": [
             "analytics/init-analytics"
@@ -550,7 +576,8 @@
         ],
         "API": [
             "api/init-api",
-            "api/clapi"
+            "api/clapi",
+            "api/map-api"
         ],
         "Developer": [
             "developer/init-developer"
