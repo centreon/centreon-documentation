@@ -556,7 +556,7 @@
             "developer/init-developer"
         ],
         "Versions": [
-            "release-notes/init-release-notes",
+            "release-notes/release-notes",
             "lifecycle/init-lifecycle"
         ]
     }
