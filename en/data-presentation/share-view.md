@@ -1,6 +1,6 @@
 ---
 id: share-view
-title: Share view
+title: Share a view
 ---
 
 If you want to share a view to someone that may not know Centreon and/or
