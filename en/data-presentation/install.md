@@ -12,18 +12,9 @@ Before installation, be sure to review the Prerequisites chapter for
 system requirements (CPU and memory). Remember to choose the best type
 of architecture to suit your needs.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-Centreon MAP requires a valid license key. To purchase one and retrieve
+> Centreon MAP requires a valid license key. To purchase one and retrieve
 the necessary repositories, contact [Centreon](sales@centreon.com).
-:::
 
-::: {.toctree maxdepth="2"}
-architecture prerequisites server web\_client desktop\_client monitoring
-:::
 
 ## Architecture
 
@@ -42,60 +33,29 @@ The diagram below summarizes the architecture:
 
 **Table of network flow**
 
-  -------------------------------------------------------------------------------------------------------
-  **Application**   **Source**   **Destination**   **Port**    **Protocol**   **Purpose**
-  ----------------- ------------ ----------------- ----------- -------------- ---------------------------
-  Map Server        Map server   Centreon central  5758        TCP            Get real-time status
-                                 broker                                       updates
-
-  Map Server        Map server   Centreon MySQL    3306        TCP            Retrieve configuration and
-                                 database                                     other data from Centreon
-
-  Map Server        Map server   Map server        3306        TCP            Store all views and data
-                                 database                                     related to Centreon MAP
-
-  Web + Desktop     Map server   Centreon central  80/443      HTTP/HTTPS     Authentication & data
-                                                                              retrieval
-
-  Web interface     User         Map server        8080/8443   HTTP/HTTPS     Retrieve views & content
-
-  Web interface     User         Internet\*        443         HTTPS          Retrieve Mapbox data
-                                 (Mapbox)                                     
-
-  Desktop client    User         Map server        8080/8443   HTTP/HTTPS     Retrieve and create views &
-                                                                              content
-
-  Desktop client    User         Internet\*        443         HTTPS          Retrieve Mapbox data
-                                 (Mapbox)                                     
-
-  Desktop client    User         Internet\* (p2    80          HTTP           Retrieve automatic desktop
-                                 repo)                                        client update
-  -------------------------------------------------------------------------------------------------------
+| **Application** | **Source** |     **Destination**     | **Port**  | **Protocol** |                     **Purpose**                     |
+|-----------------|------------|-------------------------|-----------|--------------|-----------------------------------------------------|
+| Map Server      | Map server | Centreon central broker | 5758      | TCP          | Get real-time status updates                        |
+| Map Server      | Map server | Centreon MySQL database | 3306      | TCP          | Retrieve configuration and other data from Centreon |
+| Map Server      | Map server | Map server database     | 3306      | TCP          | Store all views and data related to Centreon MAP    |
+| Web + Desktop   | Map server | Centreon central        | 80/443    | HTTP/HTTPS   | Authentication & data retrieval                     |
+| Web interface   | User       | Map server              | 8080/8443 | HTTP/HTTPS   | Retrieve views & content                            |
+| Web interface   | User       | Internet*  (Mapbox)     | 443       | HTTPS        | Retrieve Mapbox data                                |
+| Desktop client  | User       | Map server              | 8080/8443 | HTTP/HTTPS   | Retrieve and create views & content                 |
+| Desktop client  | User       | Internet* (Mapbox)      | 443       | HTTPS        | Retrieve Mapbox data                                |
+| Desktop client  | User       | Internet* (p2 repo)     | 80        | HTTP         | Retrieve automatic desktop client update            |
 
 \* *With or without a proxy*
 
 ## Prerequisites
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-Centreon MAP requires a valid license key. To purchase one and retrieve
+> Centreon MAP requires a valid license key. To purchase one and retrieve
 the necessary repositories, contact [Centreon](sales@centreon.com).
-:::
 
 ### Centreon
 
 The required version of Centreon software for compatibility with
-Centreon MAP is as follows:
-
-  ----------------------
-  Software     Version
-  ------------ ---------
-  *Centreon*   20.04
-
-  ----------------------
+Centreon MAP is **Centreon 20.04**
 
 **Centreon must be installed using the RPM packages.**
 
@@ -113,23 +73,17 @@ key.
 Hardware requirements for your dedicated Centreon MAP server are as
 follows:
 
-  -------------------------------------------------------------------------
-  *Monitored      \< 10 000       \< 20 000     \< 40 000     \> 40 000
-  services*                                                   
-  --------------- --------------- ------------- ------------- -------------
-  *CPU*           2 vCPU ( 3Ghz ) 4 CPU (3GHz)  4 CPU (3GHz)  Ask Centreon
-                  minimum         Minimum       Minimum       Support
-
-  *Dedicated      2GB             4GB           8GB           Ask Centreon
-  Memory*                                                     Support
-
-  **MySQL data    2GB             5GB           10GB          Ask Centreon
-  partition**                                                 Support
-  -------------------------------------------------------------------------
+|   *Monitored services*   |        < 10 000         |      <  20 000       |       < 40 000       |       > 40 000       |
+|--------------------------|-------------------------|----------------------|----------------------|----------------------|
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
+| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
+|                          |                         |                      |                      |                      |
+| **MySQL data partition** | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+|                          |                         |                      |                      |                      |
 
 To correctly implement the dedicated memory, you have to edit the
 *JAVA\_OPTS* parameter in the Tomcat configurations file
-*/etc/tomcat/tomcat.conf* and restart the service:
+`/etc/tomcat/tomcat.conf` and restart the service:
 
     JAVA_OPTS=" -Xms512m -Xmx4G"
 
@@ -141,13 +95,7 @@ number of elements you add into your views. An element is any graphical
 object in Centreon MAP. Most elements (like hosts, groups, etc.) have
 children which must be included in the count.
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-These values are applied after optimization of Centreon MAP tables.
-:::
+>  These values are applied after optimization of Centreon MAP tables.
 
 **Software**
 
@@ -160,16 +108,9 @@ These values are applied after optimization of Centreon MAP tables.
 
 -   Centreon Web login with admin rights.
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-Even with a correctly sized server, you should have in mind the best
-practices & recommandations when creating views so you don\'t face
+> Even with a correctly sized server, you should have in mind the best
+practices & recommandations when creating views so you don't face
 performance issues.
-(`More information here <best_practices>`{.interpreted-text role="ref"})
-:::
 
 ### Centreon MAP Web interface
 
@@ -198,16 +139,11 @@ Resolution must be at least 1280 x 768.
 -   **Java 64 bits version 8**
 -   Resolution must be at least 1280 x 768.
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-\* Desktop Client is not compatible with Microsoft Windows Server. \* If
+> Desktop Client is not compatible with Microsoft Windows Server. \* If
 a version of Java other than 8 is installed, consider installing Java 8
-and modifying Centreon-Map4.ini to add the following line *-vm
-\$path\_to\_java8\$* BEFORE *-vmwargs*.
-:::
+and modifying Centreon-Map4.ini to add the following line `-vm
+\$path\_to\_java8\$` BEFORE `-vmwargs`.
 
 To optimize the desktop client, you have to \"give\" it more memory than
 the default value. To do so, modify the Centreon-Map4.ini\* file and add
@@ -291,7 +227,7 @@ folder*
 
 Then install Centreon Map server using the following command:
 
-    # yum install centreon-map-server
+    yum install centreon-map-server
 
 ### Configuration
 
@@ -307,41 +243,31 @@ Then, restart MySQL:
 
 Execute the Centreon MAP server configuration script:
 
-    # cd /etc/centreon-studio/
-    # ./configure.sh
+    /etc/centreon-studio/configure.sh
 
 ### Central server
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-Before restarting Broker you must export the configuration from the
+> Before restarting Broker you must export the configuration from the
 Centreon Web interface.
-:::
 
 Restart Centreon Broker on the Central server:
 
-    # systemctl restart cbd
+    systemctl restart cbd
 
 Remove the INSERT privilege from user centreon\_map:
 
-    # mysql
-
-    > REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
+    REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 
 ### Centreon MAP server
 
 Check your configuration:
 
-    # cd /etc/centreon-studio/
-    # ./diagnostic.sh
+    /etc/centreon-studio/diagnostic.sh
 
 If the configuration is correct, then start Tomcat from the Centreon MAP
 server:
 
-    # systemctl start tomcat
+    # systemctl restart tomcat
 
 ### Verifying your installation
 
@@ -356,7 +282,7 @@ https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/docs.
 
 You should see the following page:
 
-![image](../assets/data-presentation/screenshots/server-api-rest.png)
+![image](assets/data-presentation/server-api-rest.png)
 
 Installation of the Centreon MAP server is complete. If you want to
 configure the SSL, go to this page:
@@ -395,13 +321,7 @@ Click on Back to return to the Extensions page. Now that the module is installed
 Go to *Administration \> Extensions \> Options*, and in the Centreon MAP
 menu update the Centreon MAP server address field:
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-Use the real IP address/hostname of your Centreon MAP server.
-:::
+> Use the real IP address/hostname of your Centreon MAP server.
 
 ![image](../assets/data-presentation/install-web-step-3.png)
 
@@ -432,14 +352,8 @@ You can find the installers in \"Monitoring \> Map \> Desktop Client.\"
 or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=20.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-For performance considerations, we highly recommand to have less than 5,
+> For performance considerations, we highly recommand to have less than 5,
 10 users maximum connected at the same time manipulating views.
-:::
 
 ### Installation
 
@@ -449,26 +363,15 @@ The desktop client requires **Java 8**. You can download and install the
 latest version of Java from
 [here](https://java.com/fr/download/manual.jsp).
 
-::: {.warning}
-::: {.title}
-Warning
-:::
 
-Be sure to download the 64-bit version. Browsers are usually 32-bit and
+> Be sure to download the 64-bit version. Browsers are usually 32-bit and
 the Oracle website generally proposes 32-bit Java instead of the 64-bit
 version. If you already have Java installed, use the java -version
 command to check the architecture. If 64-bit does not appear, the
 version is 32-bit.
-:::
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-On a Mac platform, note that you must install Oracle JDK instead of the
+> On a Mac platform, note that you must install Oracle JDK instead of the
 usually-required JRE.
-:::
 
 To check the Java version run the command:
 
@@ -478,15 +381,9 @@ To check the Java version run the command:
 
 Execute centreon-map4-desktop-client\*.exe:
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-You do not need to be the administrator of your computer to perform the
+> You do not need to be the administrator of your computer to perform the
 installation. All the files are will be installed in your personnal
 folders.
-:::
 
 The default installation folder is C:UsersuserAppDataLocalCentreon-Map4.
 
@@ -505,18 +402,18 @@ from the Windows dedicated configuration page.
 Download the provided DEB file and run the command from the root
 directory:
 
-    $ sudo dpkg -i centreon-map4-desktop-client*.deb
+    sudo dpkg -i centreon-map4-desktop-client*.deb
 
 Alternatively, you can open the DEB file using the Ubuntu software
 Center.
 
 You should now be able to run Centreon-Map4.
 
-    $ centreon-map4
+    centreon-map4
 
 You will also find it in the list of installed applications.
 
-![image](../assets/data-presentation/ubuntu_launch_menu.png)
+![image](assets/data-presentation/ubuntu_launch_menu.png)
 
 ### Updates
 

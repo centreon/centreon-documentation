@@ -633,7 +633,7 @@ http://\<IP\_MAP\_SERVER\>/centreon-studio/docs
 
 You should see this page:
 
-![image](../assets/data-presentation/screenshots/server-api-rest.png)
+![image](assets/data-presentation/server-api-rest.png)
 
 ::: {.warning}
 ::: {.title}

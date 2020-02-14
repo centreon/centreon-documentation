@@ -12,8 +12,8 @@ How to create the URL :
 
 -   Have a dedicated limited account & copy its autologin key & user
     name (ex: partner-1 & `autologin key = 23d501aa0\[\...\]8bf4fbc8a`)
--   Know the direct link to go to you view(ex:
-    `<https://demo.centreon.com/centreon/main.php?p=288#renderGate/View1/xxxx/>`).
+-   Know the direct link to go to you view (ex:
+    `https://demo.centreon.com/centreon/main.php?p=288#renderGate/View1/xxxx/`).
     
     *You can retrieve the URL by using the \"Copy to clipboard\"
     shortcut next to the breadcrumb.*

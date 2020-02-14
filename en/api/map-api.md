@@ -1,10 +1,10 @@
 ---
-id: api
-title: API (beta)
+id: map-api
+title: Data presentation API (beta)
 ---
 
 If you want to automate standard views creation or maintenance, you may
-use the Centreon MAP API.
+use the Centreon MAP extension API.
 
 With this API, in beta version, you can create/update/delete standard
 views. To be able to use the API, the account you use needs to have one
@@ -29,7 +29,9 @@ that authenticate, then create a map and add an host on it.
 
 **1. Authentication**
 
-`POST : http://{{serverURL}}:8080/centreon-studio/services/rest/authentication?encoded=false`
+```
+POST : http://{{serverURL}}:8080/centreon-studio/services/rest/authentication?encoded=false`
+```
 
 ```
 Headers {
@@ -56,8 +58,9 @@ Headers {
 
 **2. Create a Map**
 
-
-`POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps`
+```
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps`
+```
 
 ```
 Headers {
@@ -75,12 +78,15 @@ Retrieve the ID of the view returned: {viewId}
 
 **3.Open the Map**
 
-`GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}`
+```
+GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}`
+```
 
 **4.Create a \"Shape\" (Rectangle) element (not yet on the map)**
 
-
-`POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources`
+```
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources`
+```
 
 ```
 Body: {
@@ -97,8 +103,10 @@ Body: {
 }
 ```
 
-Retrieve the element id you just created : {id}
+Retrieve the element id you just created : `{id}`
 
 **5. Attach the element to the opened view**
 
-`PUT http://{{serverURL}}:8080/centreon-studio/api/beta/views/{viewId}/elements/{id}`
+```
+PUT http://{{serverURL}}:8080/centreon-studio/api/beta/views/{viewId}/elements/{id}
+```

@@ -104,7 +104,4 @@ Map Widget (see example below).
 
 ![image](assets/data-presentation/share_view.png)
 
-You now have information to start working on Centreon Map, don\'t forget
-to use the
-(`user guide to get more info on Centreon Map usage <user_guide>`{.interpreted-text
-role="ref"})
+You now have information to start working on Centreon Map.

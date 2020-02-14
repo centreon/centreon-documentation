@@ -56,7 +56,7 @@ If your server is running in HTTPS mode enter
 
 You should see the following page:
 
-![image](../assets/data-presentation/screenshots/server-api-rest.png)
+![image](../assets/data-presentation/server-api-rest.png)
 
 You can also check the SOAP API used by the desktop client:
 
@@ -66,7 +66,7 @@ If your server is running in http mode enter
 If your server is running in HTTPS mode enter
 *https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/services*
 
-![image](../assets/data-presentation/screenshots/server-api-soap.png)
+![image](../assets/data-presentation/server-api-soap.png)
 
 ### My Centreon MAP server (Tomcat) is running but I cannot access Centreon MAP API (/docs) pages. {#ts_api_pages}
 

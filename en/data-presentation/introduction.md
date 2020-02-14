@@ -8,6 +8,10 @@ Operations management (ITOM) administrators and developers. It is
 capable of displaying efficient graphic insights and mapping correlated
 data in customized user-relevant views.
 
+> Centreon MAP requires a valid license key. To purchase one and retrieve
+the necessary repositories, contact [Centreon](sales@centreon.com).
+
+
 Create logical views using the Desktop client\...
 
 ![image](assets/data-presentation/desktop.gif)

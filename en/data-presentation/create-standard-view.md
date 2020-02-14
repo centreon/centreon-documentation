@@ -385,7 +385,7 @@ web interface**.
 configure links color **globaly** for all user.
 
 
-## Add images {#media}
+## Add images
 
 By default, all the images added to Centreon are automatically available
 to Centreon MAP so that they can be linked to objects and added to

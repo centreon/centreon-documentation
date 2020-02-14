@@ -11,12 +11,8 @@ Centreon Map widget.
 Find below the dedicated features of Centreon Map web interface that
 ease use & interactions with views.
 
-::: {.toctree maxdepth="2"}
-tooltip links\_color widget
-:::
 
-
-## Understand tooltips {#tooltip}
+## Understand tooltips
 
 On the web interface, there are information windows called tooltips.
 They appear when you are mouse hovering some types of objects in a view:
@@ -53,16 +49,12 @@ The following rules apply:
     displayed in a tooltip; and services (if their host is up) with the
     same inherited status as their host groups are displayed.
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-In the customs views widget, by default, tooltips are not displayed. It
+> In the customs views widget, by default, tooltips are not displayed. It
 is possible to activate them in the widget settings by a checkbox.
-:::
 
-## Manage links color {#links_color}
+
+## Manage links color
 
 In the previous Centreon Map version, links color were define at user
 level and each user had to configure it\'s own color using the desktop
@@ -85,7 +77,7 @@ Another example: range coloration
 
 Centreon Map comes with a widget that you can use in Centreon custom
 views. To do so, add a new widget on the custom view and search for
-\"MAP\".
+"MAP".
 
 When you add the widget, you can select a view and save position & zoom
 at any level.
