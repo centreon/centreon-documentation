@@ -20,7 +20,7 @@ links (status & metric), services, metaservices, hosts, host groups and
 service groups. This window is kept open as long as your cursor is hover
 the tooltip.
 
-![image](assets//data-presentation/tooltips.gif)
+![image](assets/data-presentation/tooltips.gif)
 
 Depending on the type of GUI object under your mouse, different
 information will be displayed. For instance, a link (status & metric,
