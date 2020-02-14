@@ -9,10 +9,11 @@ title: Docker
 
 ## Prerequisites
 
-The plugin needs to access Docker Engine API \>= 1.21 (<https://docs.docker.com/engine/api/v1.30/>).
+The plugin needs to access Docker Engine API \>= 1.21
+(<https://docs.docker.com/engine/api/v1.30/>).
 
-Please create a Centreon service by container (use CONTAINERID service macro). The 'container stats' webservice api is
-"slow" (between 1s and 2s).
+Please create a Centreon service by container (use CONTAINERID service macro).
+The 'container stats' webservice api is "slow" (between 1s and 2s).
 
 ### Centreon Plugin
 
@@ -26,7 +27,8 @@ yum install centreon-plugin-Applications-Docker-Restapi
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

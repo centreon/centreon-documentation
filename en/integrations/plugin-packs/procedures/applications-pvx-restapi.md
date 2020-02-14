@@ -25,7 +25,8 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                              |
 | :---------------------- | :--------------------------------- |
@@ -54,11 +55,13 @@ Click on the *Save* button.
 
 ### Other host templates
 
-The "App-Pvx-Application-Restapi-custom" host template will add services that will retrieve metrics about traffic,
-connection, user experience and http hits by application.
+The "App-Pvx-Application-Restapi-custom" host template will add services that
+will retrieve metrics about traffic, connection, user experience and http hits
+by application.
 
-It's possible to have the same metrics by other 'instances' like layer, server IP, client OS. For this, new host
-templates can be created and linked to existing service templates, or newly created ones, where the instance macro is
+It's possible to have the same metrics by other 'instances' like layer, server
+IP, client OS. For this, new host templates can be created and linked to
+existing service templates, or newly created ones, where the instance macro is
 set to instance name.
 
 Examples of existing service templates :
@@ -73,7 +76,8 @@ Examples of existing service templates :
 
 An API key has to be created to access the API. The key will never expire.
 
-(From the official documentation at <http://docs.performancevision.com/api_use.html>)
+(From the official documentation at
+<http://docs.performancevision.com/api_use.html>)
 
 #### Create a session ID :
 
@@ -102,7 +106,8 @@ With the session ID, request an API key.
     
     # curl -k "https://<pvxapihost>/api/create-api-key?name=<keyname>&_session=session:91554086-842b-4b73-9028-c51d20d91b94"
 
-Replace pvxapihost by your value, and use the session ID for the "\_session" argument.
+Replace pvxapihost by your value, and use the session ID for the "\_session"
+argument.
 
 The command line should return:
 

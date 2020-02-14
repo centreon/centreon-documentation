@@ -19,14 +19,15 @@ yum install centreon-plugin-Applications-Openweathermap-Restapi
 
 ### API token
 
-A token is mandatory to access the API. More information can be found on the official OpenWeatherMap website :
-<https://openweathermap.org/api>.
+A token is mandatory to access the API. More information can be found on the
+official OpenWeatherMap website : <https://openweathermap.org/api>.
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                    |
 | :---------------------- | :--------------------------------------- |

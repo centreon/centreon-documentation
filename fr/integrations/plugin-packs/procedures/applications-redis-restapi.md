@@ -11,13 +11,15 @@ title: Redis Restapi
 
 ### Centreon Plugin
 
-Install this plugin on each needed poller: \# yum install centreon-plugin-Applications-Redis-Restapi
+Install this plugin on each needed poller: \# yum install
+centreon-plugin-Applications-Redis-Restapi
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

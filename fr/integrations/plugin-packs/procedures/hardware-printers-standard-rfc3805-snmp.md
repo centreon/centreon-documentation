@@ -32,13 +32,15 @@ Read-Only access.
 
 ### Troubleshooting
 
-Read [Troubleshooting SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)
+Read [Troubleshooting
+SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                   |
 | :---------------------- | :-------------------------------------- |
@@ -59,5 +61,6 @@ Following services are automatically created :
   - Cover-Status,
   - Marker-Impressions and Marker-Supply.
 
-If you want, you can add the paper tray check with the service template provided.
+If you want, you can add the paper tray check with the service template
+provided.
 

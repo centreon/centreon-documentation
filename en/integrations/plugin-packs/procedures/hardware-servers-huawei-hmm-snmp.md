@@ -21,7 +21,8 @@ yum install centreon-plugin-Hardware-Servers-Huawei-Hmm-Snmp
 
 ## Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                            |
 | :---------------------- | :------------------------------- |
@@ -31,8 +32,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | Monitored from          | *Monitoring Poller to use*       |
 | Host Multiple Templates | HW-Server-Huawei-Hmm-SNMP-custom |
 
-Only the Chassis service will be deployed. You need to manually add the Blade service for each blade setting the blade
-id.
+Only the Chassis service will be deployed. You need to manually add the Blade
+service for each blade setting the blade id.
 
 Click on the *Save* button.
 

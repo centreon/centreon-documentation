@@ -23,16 +23,19 @@ The plugin for the following template has 2 modes:
 
   - SSH with 'plink' command:
       - no ssh key exchange needed
-      - Host macro example: 'SSHEXTRAOPTIONS' = --ssh-command='plink' --ssh-option='-l=\[user\]'
-        --ssh-option='-pw=\[pass\]' --ssh-option='-batch'
+      - Host macro example: 'SSHEXTRAOPTIONS' = --ssh-command='plink'
+        --ssh-option='-l=\[user\]' --ssh-option='-pw=\[pass\]'
+        --ssh-option='-batch'
   - SSH with 'ssh' command:
       - ssh key exchange needed
-      - Host macros: 'SSHEXTRAOPTIONS' = --ssh-command='plink' --ssh-option='-l=\[user\]' --ssh-option='-pw=\[pass\]'
+      - Host macros: 'SSHEXTRAOPTIONS' = --ssh-command='plink'
+        --ssh-option='-l=\[user\]' --ssh-option='-pw=\[pass\]'
         --ssh-option='-batch'
 
 ### User permissions
 
-The user on the system controller needs permissions to execute following commands:
+The user on the system controller needs permissions to execute following
+commands:
 
   - showfailover
   - showenvironment
@@ -42,7 +45,8 @@ The user on the system controller needs permissions to execute following command
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                           |
 | :----------------------------------- | :------------------------------ |

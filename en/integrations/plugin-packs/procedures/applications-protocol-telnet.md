@@ -19,7 +19,8 @@ yum install centreon-plugin-Applications-Protocol-Telnet
 
 ### Remote server
 
-The remote server must have a Telnet service running and available. You need to create a JSON scenario file. An example:
+The remote server must have a Telnet service running and available. You need to
+create a JSON scenario file. An example:
 
     [
         {"cmd": "open", "options": { "Host": "10.0.0.1", "Port": "23", "Timeout": "30" } },
@@ -33,7 +34,8 @@ The remote server must have a Telnet service running and available. You need to 
 
 ### Create a new Telnet Scenario server
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

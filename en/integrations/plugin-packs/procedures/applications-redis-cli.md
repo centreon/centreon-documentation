@@ -11,8 +11,9 @@ title: Redis Cli
 
 ### Centreon Plugin
 
-The plugin is using the perl-Redis library. To install it, you will need the EPEL repository : \# yum install
-epel-release \# yum install perl-Redis \# yum remove epel-release This library installs 2 dependencies :
+The plugin is using the perl-Redis library. To install it, you will need the
+EPEL repository : \# yum install epel-release \# yum install perl-Redis \# yum
+remove epel-release This library installs 2 dependencies :
 perl-IO-Socket-Timeout and perl-PerlIO-via-Timeout.
 
 Then install this plugin : \# yum install centreon-plugin-Applications-Redis-Cli
@@ -21,7 +22,8 @@ Then install this plugin : \# yum install centreon-plugin-Applications-Redis-Cli
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

@@ -25,14 +25,16 @@ Connect to your Central and configure SNMP.
 
 Pollers are supposed to be monitored by the Central server.
 
-To do so, we will use centreon user SSH key \# cp /var/spool/centreon/.ssh/id\_rsa /var/lib/centreon-engine/.ssh/ \#
-chown centreon-engine. /var/lib/centreon-engine/.ssh/id\_rsa
+To do so, we will use centreon user SSH key \# cp
+/var/spool/centreon/.ssh/id\_rsa /var/lib/centreon-engine/.ssh/ \# chown
+centreon-engine. /var/lib/centreon-engine/.ssh/id\_rsa
 
 ## Centreon Configuration
 
 ### Create a new Centreon-Central server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                 |
 | :---------------------- | :------------------------------------ |

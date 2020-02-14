@@ -17,14 +17,16 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
 ```
 
-Please install jolokia agent on your java application server [Jolokia download page](https://jolokia.org/download.html).
-Ask to your admin to deploy it and give you the URL.
+Please install jolokia agent on your java application server [Jolokia download
+page](https://jolokia.org/download.html). Ask to your admin to deploy it and
+give you the URL.
 
 ## Centreon Configuration
 
 ### Create a new Centreon-Central server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                  |
 | :---------------------- | :------------------------------------- |

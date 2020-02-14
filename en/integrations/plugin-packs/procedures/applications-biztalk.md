@@ -27,7 +27,8 @@ Please read the monitoring procedure of plugin-pack MSSQL.
 
 ### Create a new Biztalk server
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                                   | Value                      |
 | :-------------------------------------- | :------------------------- |

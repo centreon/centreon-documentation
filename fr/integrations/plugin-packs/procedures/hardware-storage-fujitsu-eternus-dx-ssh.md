@@ -19,8 +19,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Hardware-Storage-Fujitsu-Eternus-Dx-Ssh
 ```
 
-SSH key exchange must be done between poller and monitored server. Create a user centreon on your Fujitsu Eternus DX
-equipment.
+SSH key exchange must be done between poller and monitored server. Create a user
+centreon on your Fujitsu Eternus DX equipment.
 
 Generate key for centreon-engine user with command:
 
@@ -42,7 +42,8 @@ You can now try to connect you without password
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                                    |
 | :----------------------------------- | :--------------------------------------- |

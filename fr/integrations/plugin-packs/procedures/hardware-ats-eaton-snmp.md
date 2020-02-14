@@ -25,7 +25,8 @@ Connect to your ATS Eaton and configure SNMP.
 
 ### Create a new ATS Eaton host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

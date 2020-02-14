@@ -27,7 +27,8 @@ It's necessary to install SuperDoctor Agent and enable SNMP on Supermicro server
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                            |
 | :----------------------------------- | :------------------------------- |

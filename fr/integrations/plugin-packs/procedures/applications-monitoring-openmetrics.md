@@ -23,7 +23,8 @@ yum install centreon-plugin-Applications-Monitoring-Openmetrics
 
 #### Checking using a web page
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                          |
 | :--------------- | :----------------------------- |
@@ -43,7 +44,8 @@ The following host macros should be set as shown:
 | OPENMETRICSUSERNAME | *OpenMetrics web page username (if needed)* |
 | OPENMETRICSPASSWORD | *OpenMetrics web page password(if needed)*  |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following service will be created:
 
@@ -51,7 +53,8 @@ The following service will be created:
 
 #### Checking using a remote file
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                           |
 | :--------------- | :------------------------------ |
@@ -67,7 +70,8 @@ The following host macros should be set as shown:
 | :------------------ | :------------------------------------- |
 | OPENMETRICSFILEPATH | *OpenMetrics file path on remote host* |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following service will be created:
 
@@ -89,20 +93,24 @@ The following service macros should be set as shown:
 
 Examples on command line:
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin --mode=scrape-metrics --custommode=web
---hostname=10.2.3.4 --port=9100 --verbose --filter-metrics='node_network_up' --critical='0:0' --instance='device'
+`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
+--mode=scrape-metrics --custommode=web --hostname=10.2.3.4 --port=9100 --verbose
+--filter-metrics='node_network_up' --critical='0:0' --instance='device'
 --new-perfdata`
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin --mode=scrape-metrics --custommode=web
---hostname=10.2.3.4 --port=9100 --verbose --filter-metrics='node_cpu_seconds_total' --instance='cpu'
---subinstance='mode' --filter-subinstance='idle'`
+`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
+--mode=scrape-metrics --custommode=web --hostname=10.2.3.4 --port=9100 --verbose
+--filter-metrics='node_cpu_seconds_total' --instance='cpu' --subinstance='mode'
+--filter-subinstance='idle'`
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin --mode=scrape-metrics --custommode=file
---command-options='/tmp/metrics' --filter-metrics='cpu' --verbose`
+`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
+--mode=scrape-metrics --custommode=file --command-options='/tmp/metrics'
+--filter-metrics='cpu' --verbose`
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin --mode=scrape-metrics --custommode=file
---hostname=10.2.3.4 --ssh-option='-l=centreon-engine' --ssh-option='-p=52' --command-options='/my/app/path/metrics'
---verbose`
+`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
+--mode=scrape-metrics --custommode=file --hostname=10.2.3.4
+--ssh-option='-l=centreon-engine' --ssh-option='-p=52'
+--command-options='/my/app/path/metrics' --verbose`
 
 ### Duplicate service to monitor more metrics
 

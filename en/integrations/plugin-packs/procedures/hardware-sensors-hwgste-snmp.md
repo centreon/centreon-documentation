@@ -30,7 +30,8 @@ Be sure to have with you the following information:
 
 ### Create a new PDU Raritan host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

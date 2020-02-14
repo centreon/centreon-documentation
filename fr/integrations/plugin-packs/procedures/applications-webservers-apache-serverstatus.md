@@ -19,10 +19,13 @@ yum install centreon-plugin-Applications-Webservers-Apache-Serverstatus
 
 ## mod\_status and extendedstatus
 
-Warning: The following procedure is an example. Cannot be applied on all context.
+Warning: The following procedure is an example. Cannot be applied on all
+context.
 
-The module *mod\_status* allows the generation of a live Apache report, available on a dedicated web page. This report
-is used to generate statistics in Centreon. To activate this module, you have to open your httpd configuration file:
+The module *mod\_status* allows the generation of a live Apache report,
+available on a dedicated web page. This report is used to generate statistics in
+Centreon. To activate this module, you have to open your httpd configuration
+file:
 
     $ vi /etc/httpd/conf/httpd.conf
 
@@ -47,8 +50,8 @@ and check that:
         </Location>
 ```
 
-  - And finally, check that `ExtendedStatus` is activated (Mandatory if you wants precise statistics on query processed
-    by the WebServer):
+  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
+    wants precise statistics on query processed by the WebServer):
     
     ``` 
       ExtendedStatus On
@@ -62,7 +65,8 @@ Apache must be reloaded to take this modification into account:
 
 ### Create an Apache server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                      |
 | :---------------------- | :----------------------------------------- |

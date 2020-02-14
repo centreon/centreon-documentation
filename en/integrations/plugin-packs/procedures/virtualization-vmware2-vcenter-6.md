@@ -29,7 +29,8 @@ yum install centreon-plugin-Virtualization-VMWare-daemon
 
 ### Configuration of the VMware daemon
 
-The daemon "centreon-vmware" has a configuration file "/etc/centreon/centreon\_vmware.pm" of the following structure:
+The daemon "centreon-vmware" has a configuration file
+"/etc/centreon/centreon\_vmware.pm" of the following structure:
 
 ``` 
 %centreon_vmware_config =   
@@ -46,7 +47,8 @@ Then start daemon with command:
 
     # service centreon_vmware start
 
-You can configure multiple vCenter / vSphere / ESX connections using this structure:
+You can configure multiple vCenter / vSphere / ESX connections using this
+structure:
 
     %centreon_vmware_config = (
         vsphere_server => {
@@ -61,20 +63,24 @@ You can configure multiple vCenter / vSphere / ESX connections using this struct
     );
     1;
 
-Notice: use "CENTREONVMWARECONTAINER" host macro definition to select your configuration.
+Notice: use "CENTREONVMWARECONTAINER" host macro definition to select your
+configuration.
 
-  - The "vsphere\_server" attribute allows you to configure access to different VirtualCenter. It is necessary to have
-    at least the entry 'default'. So, if you have only one vcenter, you can configure it with the name "default".
+  - The "vsphere\_server" attribute allows you to configure access to different
+    VirtualCenter. It is necessary to have at least the entry 'default'. So, if
+    you have only one vcenter, you can configure it with the name "default".
   - The "url" attribute allows you to configure the URL of the vcenter.
-  - The "username" attribute allows you to configure the user who can connect to the vcenter. This user must have at
-    least "read only" access to the vcenter.
+  - The "username" attribute allows you to configure the user who can connect to
+    the vcenter. This user must have at least "read only" access to the vcenter.
   - The "password" attribute allows you to configure the password of the user.
-  - The "port" attribute allows you to configure the listening port of "centreon-vmware" connector.
+  - The "port" attribute allows you to configure the listening port of
+    "centreon-vmware" connector.
 
 ### System configuration
 
-The daemon "centreon\_vmware" is a system service that must be started by default. After installation and configuration,
-you will have to perform the following procedure.
+The daemon "centreon\_vmware" is a system service that must be started by
+default. After installation and configuration, you will have to perform the
+following procedure.
 
 #### With SysV (Enterprise Linux 6 compatible distributions)
 
@@ -88,14 +94,15 @@ you will have to perform the following procedure.
 
 #### Checking the daemon configuration
 
-Please make sure that the daemon configuration works fine, by looking for errors in
-/var/log/centreon/centreon\_vmware.log.
+Please make sure that the daemon configuration works fine, by looking for errors
+in /var/log/centreon/centreon\_vmware.log.
 
 ## Centreon configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | value                         |
 | :---------------------- | :---------------------------- |

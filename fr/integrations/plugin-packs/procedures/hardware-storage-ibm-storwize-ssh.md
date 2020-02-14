@@ -19,14 +19,16 @@ yum install centreon-plugin-Hardware-Storage-Ibm-Storwize-Ssh
 
 ### SSH
 
-You need to generate a public ssh-key for centreon-engine user on the poller which monitor this device. Then follow the
-IBM documentation to push this key on the storewize
+You need to generate a public ssh-key for centreon-engine user on the poller
+which monitor this device. Then follow the IBM documentation to push this key on
+the storewize
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                              |
 | :---------------------- | :--------------------------------- |

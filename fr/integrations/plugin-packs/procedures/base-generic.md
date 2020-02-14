@@ -13,7 +13,8 @@ There is no prerequisites needed for this Plugin Pack.
 
 This Plugin Pack gives you all basic templates.
 
-You can use it to create your own service templates, active as well as passive, with the following templates:
+You can use it to create your own service templates, active as well as passive,
+with the following templates:
 
   - generic-active-service
   - generic-passive-service
@@ -27,7 +28,8 @@ Same for hosts:
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

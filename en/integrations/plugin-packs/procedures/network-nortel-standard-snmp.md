@@ -32,13 +32,15 @@ Read-Only access.
 
 ### Troubleshooting
 
-Read [Troubleshooting SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)
+Read [Troubleshooting
+SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                           |
 | :---------------------- | :------------------------------ |

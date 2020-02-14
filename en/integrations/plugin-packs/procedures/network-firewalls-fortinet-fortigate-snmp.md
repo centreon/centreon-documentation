@@ -27,7 +27,8 @@ It's necessary to enable SNMP on your equipment
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                              |
 | :---------------------- | :--------------------------------- |

@@ -21,8 +21,9 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 
 Follow constructor procedure to enable and configure SNMP on the equipment.
 
-Read *[this guide](https://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)* to
-troubleshoot SNMP problems.
+Read *[this
+guide](https://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)*
+to troubleshoot SNMP problems.
 
 ## Centreon Configuration
 
@@ -33,7 +34,8 @@ Be sure to have with you the following information:
   - Read-only SNMP community
   - IP Address of the equipment
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                    | Value                                     |
 | :----------------------- | :---------------------------------------- |
@@ -44,7 +46,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | Monitored from           | *Poller used to monitor*                  |
 | Templates                | Net-Aruba-Instant-SNMP-custom             |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 

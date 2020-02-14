@@ -21,14 +21,15 @@ yum install centreon-plugin-Applications-OpenLDAP-Ldap
 
 ### Remote server
 
-The remote server must have an LDAP service running and available. A user and password dedicated to monitoring is needed
-for security reasons.
+The remote server must have an LDAP service running and available. A user and
+password dedicated to monitoring is needed for security reasons.
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

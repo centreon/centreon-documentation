@@ -19,14 +19,17 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 
 ## HttpStubStatusModule
 
-Warning: The following procedure is an example. Cannot be applied on all context.
+Warning: The following procedure is an example. Cannot be applied on all
+context.
 
-The module allows the generation of a live Nginx report, available on a dedicated web page. This report is used to
-generate statistics in Centreon. To activate this module, you have to open your nginx configuration file:
+The module allows the generation of a live Nginx report, available on a
+dedicated web page. This report is used to generate statistics in Centreon. To
+activate this module, you have to open your nginx configuration file:
 
     $ vi /etc/nginx/nginx.conf
 
-and check that if not already configured, add the followings lines in 'server' bracket:
+and check that if not already configured, add the followings lines in 'server'
+bracket:
 
     server { 
         ... 
@@ -59,7 +62,8 @@ You can now check the result by accessing the URL
 
 ### Create an Nginx server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                     |
 | :---------------------- | :---------------------------------------- |

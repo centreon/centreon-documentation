@@ -19,7 +19,8 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 
 ### Asterisk server configuration
 
-After connecting with root account to your Asterisk server, you must do the following configurations.
+After connecting with root account to your Asterisk server, you must do the
+following configurations.
 
 ### AMI
 
@@ -36,7 +37,8 @@ example of user:
     read = system,call,log,verbose,command,agent,user,dtmf
     write = system,call,log,verbose,command,agent,user,dtmf
 
-In te newly created user, add a *permit* line to allow the centreon server to conect to the AMI:
+In te newly created user, add a *permit* line to allow the centreon server to
+conect to the AMI:
 
     vi /etc/aserisk/manager.conf
 
@@ -48,7 +50,8 @@ example:
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                        |
 | :----------------------------------- | :--------------------------- |

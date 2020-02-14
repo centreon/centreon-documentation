@@ -19,8 +19,8 @@ yum install centreon-plugin-Applications-Databases-Sybase
 
 ## Username
 
-The username string should not be longer than 32 chararacters. Username must be in the following form:
-\[Servername|Domainname\]\\Username
+The username string should not be longer than 32 chararacters. Username must be
+in the following form: \[Servername|Domainname\]\\Username
 
 ### RPM
 
@@ -35,7 +35,8 @@ In order to use this template, the following RPM are needed:
 
 ### Create a new Sybase database server
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

@@ -19,10 +19,11 @@ yum install centreon-plugin-Applications-Webservers-Tomcat-Webmanager
 
 ## Install Tomcat
 
-Warning: The following procedure is an example. Cannot be applied on all context.
+Warning: The following procedure is an example. Cannot be applied on all
+context.
 
-This chapter describes the prerequisites installation needed by plugins to run. Prerequistes concerns a RHEL6 like
-distribution.
+This chapter describes the prerequisites installation needed by plugins to run.
+Prerequistes concerns a RHEL6 like distribution.
 
 Install tomcat:
 
@@ -49,7 +50,8 @@ Tomcat must be restarted:
 
 ### Create an Tomcat server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                |
 | :---------------------- | :----------------------------------- |

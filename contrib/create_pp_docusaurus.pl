@@ -65,13 +65,13 @@ sub clean_procedure {
     $procedure =~ s/# Monitoring procedure\r\n//;
     $procedure =~ s/\r//g;
 
-    my $pandoc = Pandoc->new(qw(-f gfm -t gfm --columns=120));
+    my $pandoc = Pandoc->new(qw(-f gfm -t gfm --columns=80));
     $pandoc->run({ in => \$procedure, out => \$procedure });
 
     $procedure =~ s/\n\n\s+#\s(yum\sinstall\s.*)\n/\n\n``` shell\n$1\n```\n/g;
 
     while ($procedure =~ m/.*?(\<table\>.*?\<\/table\>\n).*/s) {
-        my $pandoc = Pandoc->new(qw(-f html -t gfm --columns=120));
+        my $pandoc = Pandoc->new(qw(-f html -t gfm --columns=80));
         my $table_md;
         $pandoc->run({ in => \$1, out => \$table_md });        
         $procedure =~ s/\Q$1/$table_md/;

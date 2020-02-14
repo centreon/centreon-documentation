@@ -17,14 +17,16 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Applications-Monitoring-Scom-Restapi
 ```
 
-The plugin works with SCOM 2012 and 2016 only. You need to install following module:
+The plugin works with SCOM 2012 and 2016 only. You need to install following
+module:
 <https://gallery.technet.microsoft.com/System-Center-Operations-5d88527c>
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                              |
 | :---------------------- | :--------------------------------- |

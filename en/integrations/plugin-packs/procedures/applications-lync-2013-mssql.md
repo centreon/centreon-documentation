@@ -19,12 +19,15 @@ yum install centreon-plugin-Applications-Lync-2013-Mssql
 
 ## Username
 
-The username string should not be longer than 32 chararacters. Username must be in the following form:
-\[Servername|Domainname\] In order for the plugin to operate correctly, a database user with specific privileges is
-required. The most simple way is to assign the Nagios-user the role “serveradmin”. As an alternative you can use the
-sa-User for the database connection. Alas, this opens a serious security hole, as the (cleartext) administrator password
-can be found in the nagios configuration files Birk Bohne wrote the following script which allows the automated creation
-of a minimal, yet sufficient privileged monitoring-user.
+The username string should not be longer than 32 chararacters. Username must be
+in the following form: \[Servername|Domainname\] In order for the plugin to
+operate correctly, a database user with specific privileges is required. The
+most simple way is to assign the Nagios-user the role “serveradmin”. As an
+alternative you can use the sa-User for the database connection. Alas, this
+opens a serious security hole, as the (cleartext) administrator password can be
+found in the nagios configuration files Birk Bohne wrote the following script
+which allows the automated creation of a minimal, yet sufficient privileged
+monitoring-user.
 
     declare @dbname varchar(255)
     declare @check_mssql_health_USER varchar(255)
@@ -98,8 +101,9 @@ of a minimal, yet sufficient privileged monitoring-user.
     close dblist
     deallocate dblist
 
-Please keep in mind that check\_mssql\_health’s functionality is limited when using SQL Server authentication. This
-method is strongly discouraged . Normally there is already a Nagios-(Windows-)-user which can be used for the Windows
+Please keep in mind that check\_mssql\_health’s functionality is limited when
+using SQL Server authentication. This method is strongly discouraged . Normally
+there is already a Nagios-(Windows-)-user which can be used for the Windows
 authentication method.
 
 ### RPM
@@ -113,17 +117,20 @@ In order to use this template, the following RPM are needed:
 
 #### Configuration of freetds.conf file
 
-The /etc/freetds.conf file have to be modified in order to encrypt the password. To do that :
+The /etc/freetds.conf file have to be modified in order to encrypt the password.
+To do that :
 
     vi /etc/freetds.conf
 
-Modify line tds 'version = 4.2' to 'tds version = 8.0'. Then remove comment symbol at the beginning of this line.
+Modify line tds 'version = 4.2' to 'tds version = 8.0'. Then remove comment
+symbol at the beginning of this line.
 
 ## Centreon Configuration
 
 ### Create a new Lync MSSQL instance
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

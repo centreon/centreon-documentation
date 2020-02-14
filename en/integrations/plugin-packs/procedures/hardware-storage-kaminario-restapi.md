@@ -21,7 +21,8 @@ yum install centreon-plugin-Hardware-Storage-Kaminario-Restapi
 
 ### Create a new Kaminario host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                               |
 | :---------------------- | :---------------------------------- |

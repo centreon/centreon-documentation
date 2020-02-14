@@ -19,8 +19,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 
 ### Creating a database user for Service Partitioning Monitoring
 
-In order to be able to collect the needed information from the database a database user with specific privileges is
-required:
+In order to be able to collect the needed information from the database a
+database user with specific privileges is required:
 
     # grant select on *.* to 'monitor'@'%' identified by 'HuGr6834';
 
@@ -32,7 +32,8 @@ Enable SNMP Agent
 
 ### Create a new Centreon Database server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                   |
 | :---------------------- | :-------------------------------------- |

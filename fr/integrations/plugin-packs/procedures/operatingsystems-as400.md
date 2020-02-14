@@ -17,7 +17,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Operatingsystems-As400
 ```
 
-You have to install java-jdk at least in version 1.7.0 on the poller the jmx connector will be install :
+You have to install java-jdk at least in version 1.7.0 on the poller the jmx
+connector will be install :
 
     $ yum install java-1.7.0-openjdk
 
@@ -27,7 +28,8 @@ The connector can be install on your poller or on an other server
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

@@ -19,13 +19,15 @@ yum install centreon-plugin-Applications-Voip-Asterisk
 
 ### Asterisk server configuration
 
-After connecting with root account to your Asterisk server, you must do the following configurations.
+After connecting with root account to your Asterisk server, you must do the
+following configurations.
 
 ### SNMP mode
 
   - Install *snmpd* daemon.
 
-  - Modify the file `/etc/asterisk/modules.conf` by commenting out the line containing `res_snmp.so`:
+  - Modify the file `/etc/asterisk/modules.conf` by commenting out the line
+    containing `res_snmp.so`:
     
     vi /etc/asterisk/modules.conf
 
@@ -34,7 +36,8 @@ example:
     [modules] autoload=yes
     ... noload => res_config_pgsql.so noload => res_phoneprov.so #noload => res_snmp.so noload => res_speech.so noload => res_config_sqlite.so ...
 
-  - Modify or create the file `/etc/asterisk/res_snmp.conf` to add the following parameters:
+  - Modify or create the file `/etc/asterisk/res_snmp.conf` to add the following
+    parameters:
     
     vi /etc/asterisk/res\_snmp.conf
     
@@ -58,10 +61,11 @@ exemple:
     # will be able to connect
     agentXPerms  0660 0550 nobody asterisk
 
-  - Download the following 2 files and place them into /usr/share/snmp/mibs (or mib2c-data):
+  - Download the following 2 files and place them into /usr/share/snmp/mibs (or
+    mib2c-data):
     
-    wget <https://wiki.asterisk.org/wiki/display/AST/Asterisk+MIB+Definitions> wget
-    <https://wiki.asterisk.org/wiki/display/AST/Digium+MIB+Definitions>
+    wget <https://wiki.asterisk.org/wiki/display/AST/Asterisk+MIB+Definitions>
+    wget <https://wiki.asterisk.org/wiki/display/AST/Digium+MIB+Definitions>
 
   - Restart snmpd and asterisk server:
     
@@ -90,7 +94,8 @@ example of user:
 
 2.  AMI
 
-In te newly created user, add a *permit* line to allow the centreon server to conect to the AMI:
+In te newly created user, add a *permit* line to allow the centreon server to
+conect to the AMI:
 
     vi /etc/aserisk/manager.conf
 
@@ -106,21 +111,26 @@ example:
     
     useradd centreon passwd centreon
 
-  - Echange ssh keys from the centreon server to the asterisk server (user *centreon* in our exemple):
+  - Echange ssh keys from the centreon server to the asterisk server (user
+    *centreon* in our exemple):
     
     ssh-copy-id centreon@<asterisk server>
 
-  - Push the script `/usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk_sendcommand.pm` to
-    `/home/centreon/bin`:
+  - Push the script
+    `/usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk_sendcommand.pm`
+    to `/home/centreon/bin`:
     
-    scp /usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk\_sendcommand.pm /home/centreon/bin/.
+    scp
+    /usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk\_sendcommand.pm
+    /home/centreon/bin/.
 
   - Push from the centreon server
-    `/usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk_sendcommand.conf`or create it at
-    `/home/centreon/bin/asterisk_centreon.conf` directly on the asterisk server
+    `/usr/lib/nagios/plugins/apps/voip/asterisk/remote/remote-script/asterisk_sendcommand.conf`or
+    create it at `/home/centreon/bin/asterisk_centreon.conf` directly on the
+    asterisk server
 
-  - Copy the *user name* and the *secret* of the centreon user contained into `/etc/asterisk/manager.conf` to
-    `/home/centreon/bin/asterisk_centreon.conf`:
+  - Copy the *user name* and the *secret* of the centreon user contained into
+    `/etc/asterisk/manager.conf` to `/home/centreon/bin/asterisk_centreon.conf`:
     
     vi /home/centreon/bin/asterisk\_centreon.conf
 
@@ -130,6 +140,7 @@ add the line:
 
 Warning: this file must contain only one line
 
-Warning: the files `/home/centreon/bin/asterisk_centreon.conf` and `/home/centreon/bin/asterisk_centreon.conf` must be
-executable and readable by the *centreon* user
+Warning: the files `/home/centreon/bin/asterisk_centreon.conf` and
+`/home/centreon/bin/asterisk_centreon.conf` must be executable and readable by
+the *centreon* user
 

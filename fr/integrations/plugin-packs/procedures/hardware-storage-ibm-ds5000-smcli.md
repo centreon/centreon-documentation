@@ -34,12 +34,13 @@ When you install the package, choose 'Management Station':
     ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS <ENTER> TO ACCEPT THE
     DEFAULT : 2
 
-After install, monitoring engine user needs root privileges to execute the command :
+After install, monitoring engine user needs root privileges to execute the
+command :
 
     # chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
 
-Please ask to your support for the package. You can have following error if the storage firmware and SMcli client are
-not accurate :
+Please ask to your support for the package. You can have following error if the
+storage firmware and SMcli client are not accurate :
 
     The XXXXX Modular Disk storage management software (version 11.10.0G06.0020) you are attempting to use is not compatible with the firmware on the RAID controller modules in Storage Array ANG1-D90002.
     
@@ -51,16 +52,19 @@ not accurate :
     RAID Controller Module appware version: 06.60.34.00 Device API version required:
     Device API version required: devmgr.v0960api00.Manager
 
-SMcli from IBM or Dell can work with the storage. If you use IBM package, set following macros:
+SMcli from IBM or Dell can work with the storage. If you use IBM package, set
+following macros:
 
   - Host macro 'CLIEXTRAOPTIONS' = `--smcli-path='/opt/IBM_DS/client'`
-  - Service macro 'EXTRAOPTIONS' = `--verbose --storage-command='show storageSubsystem healthstatus;'`
+  - Service macro 'EXTRAOPTIONS' = `--verbose --storage-command='show
+    storageSubsystem healthstatus;'`
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                                |
 | :----------------------------------- | :----------------------------------- |

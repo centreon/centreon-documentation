@@ -23,7 +23,8 @@ Grant access to the FTP server you would like to monitor
 
 ### Create a new FTP server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

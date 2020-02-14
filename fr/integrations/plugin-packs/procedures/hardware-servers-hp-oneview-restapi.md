@@ -21,7 +21,8 @@ yum install centreon-plugin-Hardware-Servers-Hp-Oneview-Restapi
 
 ### Create a new HP OneView server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                               |
 | :----------------------------------- | :---------------------------------- |

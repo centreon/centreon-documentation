@@ -13,11 +13,13 @@ This plugin pack requires the use of:
 
   - the Dell Storage Enterprise Manager provided
     [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
-  - NSClient++ package provided by Centreon, installed and configured on your target server as described on
+  - NSClient++ package provided by Centreon, installed and configured on your
+    target server as described on
     [documentation](http://documentation.centreon.com)
 
-Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on Windows Server. You'll need to add the file
-`powershell.exe.config` in directory `C:WindowsSystem32WindowsPowerShellv1.0`:
+Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
+Windows Server. You'll need to add the file `powershell.exe.config` in directory
+`C:WindowsSystem32WindowsPowerShellv1.0`:
 
     <?xml version="1.0"?>
     <configuration>
@@ -27,13 +29,14 @@ Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on Win
         </startup> 
     </configuration>
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is already included in centreon\_plugins.exe
-configured in NSClient++
+Note: If you use the NSClient++ installer provided by Centreon, the plugin is
+already included in centreon\_plugins.exe configured in NSClient++
 
-Note: The plugin uses the Compellent Entreprise Manager. So you need information to connect.
+Note: The plugin uses the Compellent Entreprise Manager. So you need information
+to connect.
 
-Warning: Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`, `DELLSTORAGESDKDLL` (the complete path of
-`DellStorage.ApiCommandSet.dll` file)
+Warning: Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
+`DELLSTORAGESDKDLL` (the complete path of `DellStorage.ApiCommandSet.dll` file)
 
 Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 
@@ -41,7 +44,8 @@ Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 
 ### Create a new Exchange server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                  |
 | :---------------------- | :------------------------------------- |

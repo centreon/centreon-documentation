@@ -15,23 +15,27 @@ Install this plugin on each needed poller:
 
 NRPE : \# yum install centreon-nrpe-plugin
 
-NSClient++ RestAPI : \# yum install centreon-plugin-Operatingsystems-Windows-Restapi
+NSClient++ RestAPI : \# yum install
+centreon-plugin-Operatingsystems-Windows-Restapi
 
 ### Nsclient++
 
-This plugin pack requires the use of the NSClient++ package provided by Centreon.
+This plugin pack requires the use of the NSClient++ package provided by
+Centreon.
 
 You can download it
 [here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
 
-If you have some problems with the centreon\_plugins.exe, you can build it using [following
+If you have some problems with the centreon\_plugins.exe, you can build it using
+[following
 procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
 
 ## Centreon Configuration
 
 ### Create a new IIS server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                       |
 | :---------------------- | :------------------------------------------ |

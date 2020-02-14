@@ -17,7 +17,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws' (Perl AWS SDK).
+To use it, you can either install 'awscli' (AWS Command Line Interface) or
+'paws' (Perl AWS SDK).
 
 ### Install awscli
 
@@ -33,7 +34,8 @@ yum install awscli
 
 #### For an AutoScalingGroup
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                    |
 | :--------------- | :----------------------- |
@@ -54,7 +56,8 @@ The following host macros should be set as shown:
 | AWSINSTANCETYPE | asg                                  |
 | AWSINSTANCENAME | *Name of the load balancer*          |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 
@@ -66,7 +69,8 @@ The following services will be created:
 
 #### For an instance
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                         |
 | :--------------- | :---------------------------- |
@@ -87,7 +91,8 @@ The following host macros should be set as shown:
 | AWSINSTANCETYPE | instance                             |
 | AWSINSTANCENAME | *Name of the load balancer*          |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 

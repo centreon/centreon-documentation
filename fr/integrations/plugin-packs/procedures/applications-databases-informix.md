@@ -19,8 +19,8 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 ## Informix Client SDK:
 
-Go to download "Informix Client Software Development Kit for Linux x86\_64, 64-bit" (clientsdk.3.50.FC9.LINUX.tar) on
-IBM website.
+Go to download "Informix Client Software Development Kit for Linux x86\_64,
+64-bit" (clientsdk.3.50.FC9.LINUX.tar) on IBM website.
 
 Install with the following procedure::
 
@@ -34,8 +34,9 @@ Install with the following procedure::
 
 4.  Install SDK (choose Typical Installation)::
     
-    ./installclientsdk -javahome /usr/java/jre1.6.0\_45/ .... Please specify a directory or press Enter to accept the
-    default directory. Directory Name: \[/root/informix/sdkclient/\] /home/informix/sdkclient
+    ./installclientsdk -javahome /usr/java/jre1.6.0\_45/ .... Please specify a
+    directory or press Enter to accept the default directory. Directory Name:
+    \[/root/informix/sdkclient/\] /home/informix/sdkclient
 
 ### Perl DBD Informix
 
@@ -64,7 +65,8 @@ Then install it:
 
     $ make install
 
-Then create the file : /etc/ld.so.conf.d/informix.conf and link to the Informix Library:
+Then create the file : /etc/ld.so.conf.d/informix.conf and link to the Informix
+Library:
 
     $ touch /etc/ld.so.conf.d/informix.conf vi /etc/ld.so.conf.d/informix.conf
 
@@ -78,7 +80,8 @@ Then:
 
 ### user account
 
-The safest way to retrieve information from the Oracle server is to create a dedicated user for Centreon.
+The safest way to retrieve information from the Oracle server is to create a
+dedicated user for Centreon.
 
 This user account must have the read permission on "sysmaster" database.
 
@@ -86,7 +89,8 @@ This user account must have the read permission on "sysmaster" database.
 
 ### Create a new Informix server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

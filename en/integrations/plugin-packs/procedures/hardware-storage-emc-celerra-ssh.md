@@ -19,13 +19,15 @@ yum install centreon-plugin-Hardware-Storage-Emc-Celerra-Ssh
 
 ### SSH
 
-SSH key exchange must be done between poller and monitored server (can also login and password with plink command).
+SSH key exchange must be done between poller and monitored server (can also
+login and password with plink command).
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                             |
 | :---------------------- | :-------------------------------- |

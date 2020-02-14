@@ -19,8 +19,8 @@ yum install centreon-plugin-Applications-Databases-Sap-Hana
 
 ### Sap Hana Client
 
-To monitor Sap Hana DB, you need to install SAP Hana Linux Client. The client is on SAP support website (an account is
-needed).
+To monitor Sap Hana DB, you need to install SAP Hana Linux Client. The client is
+on SAP support website (an account is needed).
 
 ``` shell
 yum install unixODBC perl-DBD-ODBC
@@ -48,7 +48,8 @@ An example of command to test database connection:
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

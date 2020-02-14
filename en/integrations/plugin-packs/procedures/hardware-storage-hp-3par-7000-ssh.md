@@ -27,7 +27,8 @@ a. Login with 'centreon-engine' user:
 
     # su - centreon-engine
 
-b. If SSH doesn't exist, generate SSH key using following command (press ENTER for each question):
+b. If SSH doesn't exist, generate SSH key using following command (press ENTER
+for each question):
 
     $ ssh-keygen
 
@@ -35,7 +36,8 @@ c. Get generated SSH public key
 
     $ vi ~/.ssh/id_rsa.pub
 
-d. Connect to your HP 3PAR equipment using SSH with administrator account and copy centreon-engine public key:
+d. Connect to your HP 3PAR equipment using SSH with administrator account and
+copy centreon-engine public key:
 
     3PAR01 cli% setsshkey
     Please enter the SSH public key below.  When finished, press enter twice.
@@ -54,7 +56,8 @@ d. Connect to your HP 3PAR equipment using SSH with administrator account and co
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                              |
 | ----------------------- | ---------------------------------- |
@@ -64,7 +67,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | Monitored from          | Monitoring Poller to use           |
 | Host Multiple Templates | HW-Storage-HP-3par-7000-SSH-custom |
 
-Notice: In macro "SSHUSERNAME" define the administrator account used to copy public SSH key of centreon-engine user.
+Notice: In macro "SSHUSERNAME" define the administrator account used to copy
+public SSH key of centreon-engine user.
 
 Click on the *Save* button.
 

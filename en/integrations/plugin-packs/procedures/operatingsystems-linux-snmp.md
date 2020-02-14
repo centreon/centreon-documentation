@@ -19,7 +19,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-Prerequistes concerns a RHEL like distribution, you may need to adapt it if you run an other Linux distro.
+Prerequistes concerns a RHEL like distribution, you may need to adapt it if you
+run an other Linux distro.
 
 Be sure to have with you the following information:
 
@@ -78,13 +79,15 @@ You need a SNMP read access on following OIDs:
 
 ### Troubleshooting
 
-Read [Troubleshooting SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp);
+Read [Troubleshooting
+SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp);
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

@@ -25,7 +25,8 @@ Connect to your Hitachi NAS and configure SNMP.
 
 ### Create a new NetApp server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                               |
 | :---------------------- | :---------------------------------- |

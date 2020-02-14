@@ -17,7 +17,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Cloud-Aws-Elasticache-Api
 ```
 
-To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws' (Perl AWS SDK).
+To use it, you can either install 'awscli' (AWS Command Line Interface) or
+'paws' (Perl AWS SDK).
 
 ### Install awscli
 
@@ -31,7 +32,8 @@ yum install awscli
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                         |
 | :---------------------- | :---------------------------- |

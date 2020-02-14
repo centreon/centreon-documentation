@@ -21,7 +21,8 @@ yum install centreon-plugin-Applications-Github-Http
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |
@@ -35,8 +36,9 @@ Click on the *Save* button.
 
 ### Checks
 
-Please deploy manually modes issues/commits/stats... because you need to specify your repository path for URLPATH macro
-(/repo/OWNER/REPONAME)
+Please deploy manually modes issues/commits/stats... because you need to specify
+your repository path for URLPATH macro (/repo/OWNER/REPONAME)
 
-Also do not forget to set GITHUBUSERNAME AND GITHUBPASSWORD macro value at the host level
+Also do not forget to set GITHUBUSERNAME AND GITHUBPASSWORD macro value at the
+host level
 

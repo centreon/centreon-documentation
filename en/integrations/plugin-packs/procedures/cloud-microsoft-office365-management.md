@@ -37,13 +37,15 @@ To connect to the Office 365 Management API, you must register an application.
 
 Follow the 'How-to guide' in
 <https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis#register-your-application-in-azure-ad>
-for a complete explanation on how to register an application and get a client ID and secret.
+for a complete explanation on how to register an application and get a client ID
+and secret.
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                           |
 | :---------------------- | :---------------------------------------------- |

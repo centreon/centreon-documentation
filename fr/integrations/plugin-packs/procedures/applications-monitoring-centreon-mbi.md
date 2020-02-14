@@ -27,7 +27,8 @@ yum install centreon-nrpe-daemon
 
 Edit the file */etc/nrpe/centreon-nrpe.cfg* and:
 
-  - Add the IP of the poller that monitors the Centreon MBI reporting server on the *allowed\_host=* part.
+  - Add the IP of the poller that monitors the Centreon MBI reporting server on
+    the *allowed\_host=* part.
 
   - Add the following lines at the end of the file
     
@@ -96,13 +97,15 @@ You need a SNMP read access on following OIDs:
 
 ### Troubleshooting
 
-Read [Troubleshooting SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp);
+Read [Troubleshooting
+SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp);
 
 ## Centreon Configuration
 
 ### Create a new host Centreon-MBI server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                           |
 | :---------------------- | :---------------------------------------------- |
@@ -116,6 +119,6 @@ Click on the *Save* button.
 
 #### Notice
 
-We advice you to also link your reporting server to *App-DB-MySQL* template. Refer to its monitoring procedure for the
-configuration.
+We advice you to also link your reporting server to *App-DB-MySQL* template.
+Refer to its monitoring procedure for the configuration.
 

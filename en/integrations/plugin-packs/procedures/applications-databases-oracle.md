@@ -19,14 +19,17 @@ yum install centreon-plugin-Applications-Databases-Oracle
 
 ## RPM
 
-In order to use this template, the following RPM is needed to compile Perl library:
+In order to use this template, the following RPM is needed to compile Perl
+library:
 
   - gcc
 
 ### Oracle instant client
 
-Go to [Instant Client Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
-choose the right OS (the one running monitoring engine, probably Linux x86-64) and download the following packages:
+Go to [Instant Client
+Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
+choose the right OS (the one running monitoring engine, probably Linux x86-64)
+and download the following packages:
 
   - oracle-instantclient-basic
   - oracle-instantclient-sqlplus
@@ -74,7 +77,8 @@ Then install it:
 
     $ make install
 
-Then create the file : /etc/ld.so.conf.d/oracle.conf and link to the Oracle Perl Library:
+Then create the file : /etc/ld.so.conf.d/oracle.conf and link to the Oracle Perl
+Library:
 
     $ touch /etc/ld.so.conf.d/oracle.conf
     $ vi /etc/ld.so.conf.d/oracle.conf
@@ -87,7 +91,8 @@ Then :
 
 ### user account
 
-The safest way to retrieve information from the Oracle server is to create a dedicated user for Centreon.
+The safest way to retrieve information from the Oracle server is to create a
+dedicated user for Centreon.
 
 This user account must have the read permission on following tables:
 
@@ -109,7 +114,8 @@ This user account must have the read permission on following tables:
 
 ### Create a new Oracle server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

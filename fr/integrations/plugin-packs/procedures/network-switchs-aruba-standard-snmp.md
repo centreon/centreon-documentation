@@ -21,14 +21,16 @@ yum install centreon-plugin-Network-Switchs-Aruba-Standard-Snmp
 
 Follow constructor procedure to enable and configure SNMP on the equipment.
 
-Read *[this guide](https://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)* to
-troubleshoot SNMP problems.
+Read *[this
+guide](https://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)*
+to troubleshoot SNMP problems.
 
 ## Centreon Configuration
 
 ### Create hosts using the appropriate template
 
-Both controllers and access points can be monitored using specific host templates.
+Both controllers and access points can be monitored using specific host
+templates.
 
 Be sure to have with you the following information:
 
@@ -37,7 +39,8 @@ Be sure to have with you the following information:
 
 #### Controller
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                    | Value                                     |
 | :----------------------- | :---------------------------------------- |
@@ -48,7 +51,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | Monitored from           | *Poller used to monitor*                  |
 | Templates                | Net-Aruba-Standard-Controller-SNMP-custom |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 
@@ -66,7 +70,8 @@ The following rules are linked to this host template:
 
 #### Access Point
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                    | Value                                     |
 | :----------------------- | :---------------------------------------- |
@@ -83,7 +88,8 @@ The following host macros should be set as shown:
 | :----- | :------------------------- |
 | APNAME | *Name of the access point* |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 

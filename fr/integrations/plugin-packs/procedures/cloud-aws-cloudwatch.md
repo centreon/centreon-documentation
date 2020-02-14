@@ -17,7 +17,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws' (Perl AWS SDK).
+To use it, you can either install 'awscli' (AWS Command Line Interface) or
+'paws' (Perl AWS SDK).
 
 ### Install awscli
 
@@ -34,7 +35,8 @@ yum install -y epel-release
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |

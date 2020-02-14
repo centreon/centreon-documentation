@@ -21,19 +21,23 @@ yum install centreon-plugin-Applications-Rudder-Restapi
 
 A token needs to be created to acces the API.
 
-To do so, follow the official documentation here : <https://docs.rudder.io/api/#api-_-Authentication>.
+To do so, follow the official documentation here :
+<https://docs.rudder.io/api/#api-_-Authentication>.
 
 ## Centreon Configuration
 
 ### Create hosts using the appropriate template
 
-The Rudder instance can be monitored as a host to get global statuses and statistics.
+The Rudder instance can be monitored as a host to get global statuses and
+statistics.
 
-A dedicated host template can also be added to any Centreon host to monitor its Rudder compliance.
+A dedicated host template can also be added to any Centreon host to monitor its
+Rudder compliance.
 
 #### Rudder instance
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                                              |
 | :--------------- | :------------------------------------------------- |
@@ -53,7 +57,8 @@ The following host macros should be set as shown:
 | RUDDERAPIPROTO    | *Protocol used by the Rudder API*        |
 | RUDDERAPITOKEN    | *Token used to access the Rudder API*    |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 
@@ -68,7 +73,8 @@ The following rules are linked to this host template:
 
 #### Host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                                     |
 | :--------------- | :---------------------------------------- |
@@ -89,7 +95,8 @@ The following host macros should be set as shown:
 | RUDDERAPITOKEN    | *Token used to access the Rudder API*        |
 | RUDDERNODENAME    | *Hostname (or name as registered in Rudder)* |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following service will be created:
 

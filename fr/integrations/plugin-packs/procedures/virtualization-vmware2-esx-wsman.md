@@ -17,14 +17,15 @@ yum install centreon-plugin-Virtualization-Vmware2-Esx-Wsman
 
 ## Description
 
-With the following plugin-pack, you can monitor the hardware of a standalone ESXi. It used the wsman protocol (not the
-vmware API).
+With the following plugin-pack, you can monitor the hardware of a standalone
+ESXi. It used the wsman protocol (not the vmware API).
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                         |
 | :----------------------------------- | :---------------------------- |

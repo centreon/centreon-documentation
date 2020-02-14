@@ -21,7 +21,8 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                       |
 | :--------------- | :-------------------------- |
@@ -41,7 +42,8 @@ The following host macros should be set as shown:
 | WARP10SENSISIONUSERNAME | *Warp10 Sensision web page username (if needed)* |
 | WARP10SENSISIONPASSWORD | *Warp10 Sensision web page password(if needed)*  |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following services will be created:
 

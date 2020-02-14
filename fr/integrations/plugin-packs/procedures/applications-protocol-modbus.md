@@ -27,7 +27,8 @@ The remote server must have a Modbus service running and available.
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                      |
 | :----------------------------------- | :------------------------- |
@@ -39,7 +40,8 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 
 Click on the *Save* button.
 
-After that, you can add service linked with template *App-Protocol-Modbus-Numeric-Value-Generic*. To fill the macro
-*CONFIG*, read [Modbus
+After that, you can add service linked with template
+*App-Protocol-Modbus-Numeric-Value-Generic*. To fill the macro *CONFIG*, read
+[Modbus
 config](https://github.com/centreon/centreon-plugins/blob/master/docs/en/user/guide.rst#modbus-protocol)
 

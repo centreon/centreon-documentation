@@ -33,7 +33,8 @@ To check if you access to the api, you can run the following command :
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                         |
 | :----------------------------------- | :---------------------------- |

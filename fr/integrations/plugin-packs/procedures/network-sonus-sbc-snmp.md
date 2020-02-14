@@ -26,7 +26,8 @@ Be sure to have with you the following information:
 
 ### Create a new Sonus SBC host definition
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

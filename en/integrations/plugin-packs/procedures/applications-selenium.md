@@ -17,14 +17,16 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Applications-Selenium
 ```
 
-Be sure that centreon-plugin-Applications-Selenium is installed and that the communication between your monitoring
-poller and the selenium server is OK on port 4444
+Be sure that centreon-plugin-Applications-Selenium is installed and that the
+communication between your monitoring poller and the selenium server is OK on
+port 4444
 
 ## Centreon Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                                  |
 | :---------------------- | :----------------------------------------------------- |
@@ -38,7 +40,8 @@ Click on the *Save* button.
 
 ### Host Macro Configuration
 
-The following macros must be configured on host using App-Selenium-Katalon-custom template :
+The following macros must be configured on host using
+App-Selenium-Katalon-custom template :
 
 | Macro             | Description                                           | Default value          |
 | :---------------- | :---------------------------------------------------- | :--------------------- |

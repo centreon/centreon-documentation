@@ -13,8 +13,9 @@ This chapter describes the prerequisites installation needed by plugins to run.
 
 ### Dependencies
 
-This plugin pack is dependent of "NTP Server" "HTTP Server" and "Asterisk VoIP Server SNMP", so you might have to
-install these packages before being able to add this plugin pack:
+This plugin pack is dependent of "NTP Server" "HTTP Server" and "Asterisk VoIP
+Server SNMP", so you might have to install these packages before being able to
+add this plugin pack:
 
 ``` shell
 yum install centreon-pack-applications-protocol-ntp centreon-pack-applications-protocol-http centreon-pack-applications-voip-asterisk-snmp
@@ -36,7 +37,8 @@ The remote server must have a XiVO Appliance running and available.
 
 ### Create a XiVO server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                   | Value                      |
 | :-------------------------------------- | :------------------------- |

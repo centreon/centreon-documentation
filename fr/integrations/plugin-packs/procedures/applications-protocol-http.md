@@ -27,7 +27,8 @@ The remote server must have a HTTP service running and available.
 
 ### Create a new Host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                   | Value                      |
 | :-------------------------------------- | :------------------------- |

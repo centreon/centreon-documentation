@@ -37,14 +37,17 @@ By installing the plugin, some perl depencies will be installed :
 
 To connect to the Office 365 Graph API, you must register an application.
 
-Follow the 'How-to guide' in <https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0> for a
-complete explanation on how to register an application and get a client ID and secret.
+Follow the 'How-to guide' in
+<https://docs.microsoft.com/en-us/graph/auth-register-app-v2?view=graph-rest-1.0>
+for a complete explanation on how to register an application and get a client ID
+and secret.
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                         |
 | :---------------------- | :-------------------------------------------- |

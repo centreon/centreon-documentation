@@ -25,7 +25,8 @@ SNMP must be configured on the monitored system.
 
 ### Create a new Host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                                  |
 | :----------------------------------- | :------------------------------------- |

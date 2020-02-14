@@ -23,7 +23,8 @@ You need a read access to the PHP FPM Webpage.
 
 ### Create a new PHP FPM module
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Field                                   | Value                      |
 | :-------------------------------------- | :------------------------- |

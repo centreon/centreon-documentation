@@ -21,23 +21,27 @@ yum install centreon-nrpe-plugin
 
 This plugin pack requires the use of:
 
-  - the Exchange 2010 plugin provided [here](https://forge.centreon.com/projects/centreon-plugins/repository)
-  - NSClient++ package provided by Centreon, installed and configured on your target server as described on
-    <http://documentation.centreon.com>
+  - the Exchange 2010 plugin provided
+    [here](https://forge.centreon.com/projects/centreon-plugins/repository)
+  - NSClient++ package provided by Centreon, installed and configured on your
+    target server as described on <http://documentation.centreon.com>
 
 You can download it
 [here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
 
-Note: Powershell and `Microsoft.Exchange.Management.PowerShell.E2010` snap-in have to be installed on Exchange Server
+Note: Powershell and `Microsoft.Exchange.Management.PowerShell.E2010` snap-in
+have to be installed on Exchange Server
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is already included in centreon\_plugins.exe
-configured in NSClient++
+Note: If you use the NSClient++ installer provided by Centreon, the plugin is
+already included in centreon\_plugins.exe configured in NSClient++
 
-If you have some problems with the centreon\_plugins.exe, you can build it using [following
+If you have some problems with the centreon\_plugins.exe, you can build it using
+[following
 procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
 
-Note: You can use options `--remote-host`, `--remote-user` and `--remote-password` to execute services from another
-Windows Server (the Windows still need powershell and the snap-in)
+Note: You can use options `--remote-host`, `--remote-user` and
+`--remote-password` to execute services from another Windows Server (the Windows
+still need powershell and the snap-in)
 
 Warning: Set service macro `MAILBOX` with the following syntax:
 
@@ -51,7 +55,8 @@ Warning: Service `Queues` works on exchange server with the good role.
 
 ### Create a new Exchange server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                         |
 | :----------------------------------- | :---------------------------- |
@@ -63,5 +68,6 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 
 Click on the *Save* button.
 
-By default, the host template checks nothing. Go to plugin-pack manager to see services available.
+By default, the host template checks nothing. Go to plugin-pack manager to see
+services available.
 

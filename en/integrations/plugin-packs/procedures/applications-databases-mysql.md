@@ -21,21 +21,22 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 ### Creating a database user
 
-In order to be able to collect the needed information from the database a database user with specific privileges is
-required:
+In order to be able to collect the needed information from the database a
+database user with specific privileges is required:
 
     # grant usage on *.* to 'centreon'@'pollerip' identified by 'password'
 
 ### MySQL, perl-dbi, perl-dbd-mysql
 
-All prerequisites needed to run mysql plugins are packaged and installed with Centreon Entreprise Server: perl-DBI ,
-perl-DBD-mysql , mysql.
+All prerequisites needed to run mysql plugins are packaged and installed with
+Centreon Entreprise Server: perl-DBI , perl-DBD-mysql , mysql.
 
 ## Centreon Configuration
 
 ### Create a new MySQL server
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by the following table :
+Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
+the following table :
 
 | Fields                  | Value                      |
 | :---------------------- | :------------------------- |

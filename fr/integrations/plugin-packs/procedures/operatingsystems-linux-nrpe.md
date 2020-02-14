@@ -9,7 +9,8 @@ title: Linux NRPE
 
 ## Prerequisites
 
-This chapter describes the installation prerequisites required by plugins to run.
+This chapter describes the installation prerequisites required by plugins to
+run.
 
 ### Centreon Plugin
 
@@ -23,7 +24,8 @@ yum install centreon-nrpe-plugin
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

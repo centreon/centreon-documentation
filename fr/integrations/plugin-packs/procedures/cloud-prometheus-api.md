@@ -21,7 +21,8 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                       |
 | :---------------------- | :-------------------------- |
@@ -31,8 +32,9 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 | Monitored from          | *Monitoring Poller to use*  |
 | Host Multiple Templates | Cloud-Prometheus-Api-custom |
 
-Service template "Cloud-Prometheus-Expression-Api" is not part of the host template. This template is supposed to be
-used on specific cases through custom host templates or directly attached to an host.
+Service template "Cloud-Prometheus-Expression-Api" is not part of the host
+template. This template is supposed to be used on specific cases through custom
+host templates or directly attached to an host.
 
 Click on the *Save* button.
 

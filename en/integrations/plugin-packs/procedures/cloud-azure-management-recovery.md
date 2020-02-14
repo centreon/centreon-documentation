@@ -53,7 +53,8 @@ The shell should prompt:
 
 Go to <https://microsoft.com/devicelogin> and enter the given code.
 
-Log in with your account credentials. You should use a service account. Application is not yet supported.
+Log in with your account credentials. You should use a service account.
+Application is not yet supported.
 
 The command line should now show:
 
@@ -72,13 +73,15 @@ The command line should now show:
       }
     ]
 
-You now have a hidden azure directory where your token is stored in an accessTokens.json file.
+You now have a hidden azure directory where your token is stored in an
+accessTokens.json file.
 
 ## Centreon Configuration
 
 ### Create a new host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                                         |
 | :---------------------- | :-------------------------------------------- |

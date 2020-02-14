@@ -19,15 +19,17 @@ yum install centreon-plugin-Applications-Mail-Bluemind
 
 ## centreon user for check by ssh
 
-You must create the centreon user on your bluemind server and setup its password with these following commands:
+You must create the centreon user on your bluemind server and setup its password
+with these following commands:
 
     $ useradd -m -s /bin/bash centreon
     $ passwd centreon
 
 ### SSH key exchange
 
-You must make a ssh key exchange between the user centreon-engine of your monitoring poller and centreon user of your
-Bluemind server with these following commands:
+You must make a ssh key exchange between the user centreon-engine of your
+monitoring poller and centreon user of your Bluemind server with these following
+commands:
 
     $ su - centreon-engine 
     $ ssh-keygen
@@ -41,14 +43,17 @@ Install InfluDB metric database on Bluemind web interface.
 
 ### Configure bm-iptables
 
-You must allow the monitoring poller to access the Bluemind server. Log on Bluemind web interface with Global Admin and
-go to *Security-\>Firewall settings*. Add the ip address of your monitoring poller and click the *Save* button.
+You must allow the monitoring poller to access the Bluemind server. Log on
+Bluemind web interface with Global Admin and go to *Security-\>Firewall
+settings*. Add the ip address of your monitoring poller and click the *Save*
+button.
 
 ## Centreon configuration
 
 ### Create a Bluemind server
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                      |
 | :---------------------- | :------------------------- |

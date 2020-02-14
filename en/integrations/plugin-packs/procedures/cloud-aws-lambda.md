@@ -17,7 +17,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Cloud-Aws-Lambda-Api
 ```
 
-To use it, you can either install 'awscli' (AWS Command Line Interface) or 'paws' (Perl AWS SDK).
+To use it, you can either install 'awscli' (AWS Command Line Interface) or
+'paws' (Perl AWS SDK).
 
 ### Install awscli
 
@@ -31,7 +32,8 @@ yum install awscli
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field            | Value                    |
 | :--------------- | :----------------------- |
@@ -50,7 +52,8 @@ The following host macros should be set as shown:
 | AWSCUSTOMMODE | *Plugin custom mode: awscli or paws* |
 | AWSREGION     | *AWS region*                         |
 
-Check the *Create Services linked to the Template too* box and click on the *Save* button.
+Check the *Create Services linked to the Template too* box and click on the
+*Save* button.
 
 The following service will be created:
 

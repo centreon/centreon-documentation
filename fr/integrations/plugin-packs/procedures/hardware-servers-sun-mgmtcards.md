@@ -19,7 +19,8 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Hardware-Servers-Sun-Mgmtcards
 ```
 
-The plugin has 3 kind of modes, it depends of the sun management card to monitor :
+The plugin has 3 kind of modes, it depends of the sun management card to monitor
+:
 
   - Telnet:
       - Dependency: Perl Module Net::Telnet (yum install perl-Net-Telnet.noarch)
@@ -58,7 +59,8 @@ Following hardware can be also monitored:
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                                | Value                                |
 | :----------------------------------- | :----------------------------------- |

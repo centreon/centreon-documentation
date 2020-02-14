@@ -21,7 +21,8 @@ yum install centreon-plugin-Hardware-Devices-Aeg-Acm-Snmp
 
 ## Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by the following table:
+Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+the following table:
 
 | Field                   | Value                         |
 | :---------------------- | :---------------------------- |
