@@ -33,6 +33,7 @@ node {
       reportDir: 'build/unstable/en',
       reportFiles: 'index.html',
       reportName: 'Centreon en documentation preview'
+    ])
     publishHTML([
       reportDir: 'build/unstable/fr',
       reportFiles: 'index.html',
