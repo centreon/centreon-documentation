@@ -57,14 +57,6 @@ sub list_packs {
         push @{$self->{packs_definitions}}, $slug . '/pack.json';
     }
 }
-sub convert_table {
-    my ($self, %options) = @_;    
-
-    my $procedure = $options{procedure};
-
-
-    return $procedure;
-}
 
 sub clean_procedure {
     my ($self, %options) = @_;
