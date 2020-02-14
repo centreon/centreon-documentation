@@ -1,6 +1,6 @@
 ---
 id: remote-server
-title: Remote server
+title: Install on a Remote server
 ---
 
 ## Installation of Centreon MAP for a Centreon Remote Server
