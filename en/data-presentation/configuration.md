@@ -21,7 +21,7 @@ To grant Map administrator privileges on an ACL group:
 
 Go to *Preferences \> Preferences* then select *Admin* tab.
 
-![image](assets//data-presentation/admin_preference_page.png)
+![image](assets/data-presentation/admin_preference_page.png)
 
 ### Give access on views to other users and manage their privileges
 
@@ -36,7 +36,7 @@ more views independently.
 
 Go into *Preferences \> Preferences* and then select *Views \> ACLs*.
 
-![image](assets//data-presentation/acl_views_preference_page.png)
+![image](assets/data-presentation/acl_views_preference_page.png)
 
 Select, from the list, the ACL group you want to configure. Then, for
 each view, define the specific rights to attribute.
@@ -60,7 +60,7 @@ able to use them into your views.
 They will have no status and appear as shown in the following
 screenshot:
 
-![image](assets//data-presentation/disabled-resources.png)
+![image](assets/data-presentation/disabled-resources.png)
 
 You may change this configuration by opening the file
 /etc/centreon-studio/studio-config.properties and adding the following
@@ -143,7 +143,7 @@ You can change the start and end color of a link based on a metric.
 These colors represent a scale from 0% to 100% for the metric(s)
 associated with the link.
 
-![image](assets//data-presentation/guide_link_color.png)
+![image](assets/data-presentation/guide_link_color.png)
 
 ## Understand how resources synchronization works
 
@@ -160,7 +160,7 @@ following menu \"Action \> Synchronize resources.\"
 This operation may take a few seconds. A pop-up will tell you when the
 synchronization is complete.
 
-![image](assets//data-presentation/sync_resources.png)
+![image](assets/data-presentation/sync_resources.png)
 
 ## Highlight problems
 
@@ -171,13 +171,13 @@ You can change the size of elements according to their status as a way
 of highlighting a problem. This only works when elements are expressed
 in the *geometric style*.
 
-![image](assets//data-presentation/guide_object_ratio_example.png)
+![image](assets/data-presentation/guide_object_ratio_example.png)
 
 To use this feature, edit the Status size properties in the desktop
 Preferences. Go to *Status \> Status size* to configure it globally or
 to *Views \> Status \> Status size* to configure it at the view level.
 
-![image](assets//data-presentation/guide_ratio_preferences.png)
+![image](assets/data-presentation/guide_ratio_preferences.png)
 
 ## Geo view configuration
 

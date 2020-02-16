@@ -23,8 +23,8 @@
         "Metrology": [
             "metrology/init-metrology"
         ],
-        "Service Mapping & Correlation": [
-            "service-mapping-correlation/init-service-mapping-correlation"
+        "Service Mapping": [
+            "service-mapping/introduction"
         ],
         "Data Presentation": [
             
@@ -577,14 +577,15 @@
         "API": [
             "api/init-api",
             "api/clapi",
+            "api/bam-api",
             "api/map-api"
         ],
         "Developer": [
             "developer/init-developer"
         ],
         "Releases": [
-            "release-notes/init-release-notes",
-            "lifecycle/init-lifecycle"
+            "releases/release-notes",
+            "releases/lifecycle"
         ]
     }
 }
