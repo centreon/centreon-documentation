@@ -24,7 +24,28 @@
             "metrology/init-metrology"
         ],
         "Service Mapping": [
-            "service-mapping/introduction"
+            "service-mapping/introduction",
+            "service-mapping/getting-started",
+            {
+                "ids":[
+                    "service-mapping/ba-management",
+                    "service-mapping/ba-monitoring",
+                    "service-mapping/ba-reporting",
+                    "service-mapping/ba-settings",
+                    "service-mapping/widget"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "service-mapping/install",
+                    "service-mapping/update",
+                    "service-mapping/remote-server"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            }
         ],
         "Data Presentation": [
             
@@ -575,9 +596,9 @@
             "integrations/external/init-external-integrations"
         ],
         "API": [
-            "api/init-api",
+            "api/introduction",
             "api/clapi",
-            "api/bam-api",
+            "api/ega-rest-api-v1",
             "api/map-api"
         ],
         "Developer": [
