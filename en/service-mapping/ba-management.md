@@ -194,9 +194,7 @@ to the BA.
 Activate or not the auto-remediation command that you may execute when
 the BA status switches.
 
-::: {#ref_inherit_planned_downtime}
 **Inheritance of planned downtime**
-:::
 
 This option ignores, and cancels notification of, a status change when
 downtime has been planned on the indicators of a BA. Note the following:
@@ -210,15 +208,10 @@ downtime has been planned on the indicators of a BA. Note the following:
     inheritance: If an impact comes from an indicators that has no
     planned downtime, the BA downtime is stopped.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
 
-In order for the new BA to be calculated and monitored, you must
+> In order for the new BA to be calculated and monitored, you must
 regenerate the configuration on the scheduler and restart the monitoring
-services through the interface in the **Configuration \> Poller** menu.
-:::
+services through the interface in the `Configuration > Poller` menu.
 
 ## Indicators (KPI)
 
