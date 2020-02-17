@@ -586,7 +586,7 @@
                     "integrations/open-tickets/iws-isilog",
                     "integrations/open-tickets/jira",
                     "integrations/open-tickets/mail",
-                    "integrations/open-tickets/otrs",
+                    "integrations/open-tickets/otrs-restapi",
                     "integrations/open-tickets/request-tracker-restapi",
                     "integrations/open-tickets/serena",
                     "integrations/open-tickets/servicenow"
