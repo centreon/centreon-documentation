@@ -27,11 +27,10 @@
             "service-mapping-correlation/init-service-mapping-correlation"
         ],
         "Data Presentation": [
-            
             "data-presentation/introduction",
             "data-presentation/getting-started",
             {
-                "ids":[
+                "ids": [
                     "data-presentation/create-standard-view",
                     "data-presentation/create-geo-view",
                     "data-presentation/display-view",
@@ -41,7 +40,7 @@
                 "type": "subcategory"
             },
             {
-                "ids":[
+                "ids": [
                     "data-presentation/install",
                     "data-presentation/upgrade",
                     "data-presentation/configure",
@@ -52,7 +51,6 @@
                 "label": "Administrate",
                 "type": "subcategory"
             },
-
             "data-presentation/release-notes"
         ],
         "Analytics": [
@@ -570,9 +568,46 @@
             }
         ],
         "Integrations": [
-            "integrations/notifications/init-notification-integrations",
-            "integrations/ticketing/init-ticketing",
-            "integrations/external/init-external-integrations"
+            {
+                "ids": [
+                    "integrations/external/accedian-pvx-skylight"
+                ],
+                "label": "External",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/open-tickets/bmc-footprints",
+                    "integrations/open-tickets/bmc-remedy",
+                    "integrations/open-tickets/easyvista",
+                    "integrations/open-tickets/glpi",
+                    "integrations/open-tickets/glpi-restapi",
+                    "integrations/open-tickets/itop",
+                    "integrations/open-tickets/iws-isilog",
+                    "integrations/open-tickets/jira",
+                    "integrations/open-tickets/mail",
+                    "integrations/open-tickets/otrs",
+                    "integrations/open-tickets/request-tracker-restapi",
+                    "integrations/open-tickets/serena",
+                    "integrations/open-tickets/servicenow"
+                ],
+                "label": "Open Tickets",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/stream-connectors/elasticsearch-events",
+                    "integrations/stream-connectors/elasticsearch-metrics",
+                    "integrations/stream-connectors/ndo",
+                    "integrations/stream-connectors/hp-omi",
+                    "integrations/stream-connectors/servicenow",
+                    "integrations/stream-connectors/splunk-metrics",
+                    "integrations/stream-connectors/splunk-states",
+                    "integrations/stream-connectors/warp10"
+                ],
+                "label": "Stream Connectors",
+                "type": "subcategory"
+            }
         ],
         "API": [
             "api/clapi",
