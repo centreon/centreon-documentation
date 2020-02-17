@@ -5279,10 +5279,6 @@ Required fields are:
 | Name     | Name of Vendor    |
 | Mib file | File path of .mib |
 
----
-id: bam-clapi
-title: Service Mapping CLAPI (v1)
----
 
 ## Service Mapping
 
@@ -5496,6 +5492,7 @@ Parameters that you can change are the following:
   |recovery\_notification\_delay   |Delay before sending first notification when entering OK status      |
   |icon                            |Business Activity icon                                               |
   |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs (0 or 1)                         |
+  |geo_coords                      |Geo-coordinate to position the BA                                    |
   |enable                          |Enable (0 or 1)                                                      |
 
 #### SETBV
