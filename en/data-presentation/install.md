@@ -49,9 +49,6 @@ The diagram below summarizes the architecture:
 
 ## Prerequisites
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve
-the necessary repositories, contact [Centreon](sales@centreon.com).
-
 ### Centreon
 
 The required version of Centreon software for compatibility with
