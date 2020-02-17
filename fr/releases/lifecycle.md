@@ -1,57 +1,59 @@
 ---
 id: lifecycle
-title: Products lifecycle policy
+title: Politique de cycle de vie des solutions
 ---
 
-Starting with Centreon version 18.10, Centreon will publish new releases of the
-Centreon solution at a regular cadence, enabling the community, businesses and
-developers to plan their roadmaps with the guarantee of upstream access to the
-latest open source capabilities.
+À partir de Centreon 18.10, la société Centreon publiera de nouvelles versions
+de Centreon sur une cadence régulière, permettant à la communauté, aux
+entreprises et aux développeurs de planifier leurs feuilles de route avec la
+certitude d’avoir accès aux nouvelles sources ouvertes en amont capacités.
 
-## Version number format: YY.MM
+## Les numéros de version sont AA.MM
 
-Releases of Centreon are named according to the year and the month of delivery.
-For example, Centreon 18.10 was released in October 2018. All modules and
-components of the Centreon software suite use the same versioning.
+Les versions de Centreon sont nommées par l'année et le mois de livraison. Par
+exemple, Centreon 18.10 a été livrée en Octobre 2018. Tous les modules et
+composants de la collection de logiciels Centreon possède le même numéro de
+version.
 
-## Release cadence
+## Cadence de publication
 
-Centreon’s action plan is to deliver two major releases per year. The first,
-will occur in April while the second, will be in October. Between these two,
-Centreon will continuously deliver minor updates, patches, security
-vulnerability fixes, bug fixes and enhancements to the software priority/risk
-evaluation that fits into the lifecycle phases.
+La société Centreon prévoit de publier 2 versions par an. La première en avril
+et la seconde en octobre. Entre ces deux versions majeures, Centreon fournira de
+manière continue des versions mineures, y compris des correctifs de sécurité,
+des correctifs et améliorations.
 
-## Maintenance and security updates
+## Mises à jour de maintenance et de sécurité
 
-The lifecycle of a version is divided into three phases:
+Le cycle de vie d'une version est divisé en 3 phases :
 
-1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-    and security issues are fixed by priority.
-2.  Second phase: Major, critical bugs and blockers, or security issues are
-    fixed by priority.
-3.  Third phase: Blockers or security issues are fixed by priority.
+1.  Première phase : bogues de toute criticité (minor, major, critical,
+    blocking) et correction de sécurité seront traités par priorité
+2.  Seconde phase : bogues et correction de sécurité de criticité major,
+    critical et blocking seront traités par priorité
+3.  Troisième phase : bogues et correction de sécurité de criticité blocking
+    seront traités par priorité
 
-> The severity and prioritization of bugs are the Centreon team's responsibility.
+> La gravité et la hiérarchisation des bogues sont la responsabilité de l'équipe
+> Centreon
 
-The first phase begins the lifecycle of the release.
+La première phase commence le cycle de vie de la version.
 
-The second phase of a version begins when the next major version is available.
-For example, the release of Centreon 19.04 starts the second phase of Centreon
-18.10.
+La deuxième phase d'une version commence lorsque la prochaine version majeure
+est disponible. Par exemple, la publication de Centreon 19.04 lance la deuxième
+phase de Centreon 18.10.
 
-The third phase of a version begins when the second next major version is
-available. For example, the release of Centreon 19.10 starts the third phase of
-Centreon 18.10 and the second phase of Centreon 19.04.
+La troisième phase d'une version commence lorsque la deuxième version majeure
+suivante est disponible. Par exemple, la sortie de Centreon 19.10 lance la
+troisième phase de Centreon 18.10 et la deuxième phase de Centreon 19.04.
 
-This schema shows the Centreon lifecycle:
+Le schéma présente le cycle de vie Centreon :
 
 ![image](assets/releases/lifecycle.png)
 
-## Maintenance table for earlier products
+## Tableau de maintenance des anciens produits
 
-> Any other products not described in the following tables are no longer supported
-> by Centreon.
+> Tous les autres produits non décrits dans les tableaux suivants ne sont plus
+> pris en charge par Centreon.
 
 ### Centreon OSS 3.4
 
@@ -85,3 +87,4 @@ This schema shows the Centreon lifecycle:
 | Centreon MAP            | 4.4.x   | 2017/01/02   | Centreon 20.04 | Blocking & security issues |
 | Centreon MBI            | 3.2.x   | 2018/07/09   | Centreon 20.04 | Blocking & security issues |
 | Centreon Auto Discovery | 2.3.x   | 2017/08/24   | Centreon 20.04 | Blocking & security issues |
+

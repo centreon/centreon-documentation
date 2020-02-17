@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: Release notes
+title: Notes de versions
 ---
 
 ## Introduction
