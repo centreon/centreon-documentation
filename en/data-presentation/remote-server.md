@@ -22,7 +22,7 @@ Then refer to the `official Centreon Map installation documentation
 After that, you'll have to do extra steps, explained below, to finish Centreon
 Map installation for your Centreon Remote Server.
 
-## Centreon Broker configuration {\#ref\_Conf\_Broker\_Poller}
+## Centreon Broker configuration
 
 Configuration of **Centreon MAP** for a Centreon Remote Server consists in
 creating configuration for Centreon Broker of the Centreon Remote Server

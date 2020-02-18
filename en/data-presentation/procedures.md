@@ -105,7 +105,7 @@ monitored.
 
 ![image](assets/data-presentation/map4-services.png)
 
-## Migrating your Centreon MAP server {\#migrate\_server}
+## Migrating your Centreon MAP server
 
 This section explains how to move Centreon MAP server over to another server.
 This task may be useful if you need to migrate your reporting server from CentOS
@@ -155,11 +155,11 @@ If these files are modified, the server must be restarted with the command:
 
 ## SSL Configuration
 
-### SSL configuration with a recognized key {\#ssl\_configuration}
+### SSL configuration with a recognized key
 
 > This section describes how to add a **recognized key** to the Tomcat server.
-> If you want to create an auto-signed key and add it to your server, please
-> refer to the following section `ssl_autosigned_key`.
+> If you want to create an self-signed key and add it to your server, please
+> refer to the next section.
 
 You will require:
 
@@ -201,9 +201,9 @@ surrounding \<\!-- and --\> .
 > Replace the keystorePass value "xxx" with the password you used for the keystore
 > and adapt the path (if it was changed) to the keystore.
 
-### SSL configuration with an auto-signed key
+### SSL configuration with a self-signed key
 
-> Enabling the SSL mode with an auto-signed key will force every user to add an
+> Enabling the SSL mode with a self-signed key will force every user to add an
 > exception for the certificate before using the web interface. Enable it only if
 > your Centreon also uses this protocol. Users will have to open the URL
 > <https://centreon-map-url:8443/centreon-studio/docs>. *The solution we recommend
@@ -254,10 +254,8 @@ surrounding \<\!-- and --\> .
         ciphers="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA" />
      -->
 
-::: {.note} ::: {.title} Note :::
-
-Replace the keystorePass value "xxx" with the password you used for the keystore
-and adapt the path (if it was changed) to the keystore. :::
+> Replace the keystorePass value "xxx" with the password you used for the keystore
+> and adapt the path (if it was changed) to the keystore.
 
 Tomcat is now configured to respond to requests from HTTP and HTTPS.
 
@@ -457,7 +455,7 @@ your web browser:
 
 http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/centreon-studio/docs
 
-## Define port below 1024 {\#port\_under\_1024}
+## Define port below 1024
 
 You may want to setup your server to listen and send data through ports below
 1024, such as port 80 or 443 (as these ports are rarely blocked by a firewall).

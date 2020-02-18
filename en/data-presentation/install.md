@@ -140,7 +140,7 @@ following parameters:
 Note: The Xmx value is the maximum memory used by the application (i.e, if your
 computer has 4 Go RAM, set this value to 3GB maximum (or 75% of the maximum).
 
-\*Depending on your OS, the file is located in one of this directories:
+Depending on your OS, the file is located in one of this directories:
 
   - WINDOWS: *C:\[USER\]\[AppdatalocaleCentreon-map4unstableCentreon-Map4.ini*
   - LINUX: */opt/centreon-map4-desktop-client/Centreon-Map4.ini*
