@@ -10,26 +10,6 @@ creating new BAs and indicators (KPIs). It can be found in  `Monitoring > Busine
 
 ### Services & Meta services
 
-The following parameters correpond to the default values behind the
-*Weak*, *Minor*, *Major*, *Critical* and *Blocking* impact types when
-configuring indicators in *Regular* mode.
-
-![image](assets/service-mapping/guide/list_impacts_basic.png)
-
-Impact types have to be defined in percentage.
-
-![image](assets/service-mapping/guide/impacts_configuration.png)
-
-### Business Activity and Boolean rule
-
-The default settings are conveniently prefilled to assist you in creating new
-BAs and indicators (KPIs). It can be found in `Monitoring > Business Activity >
-Default Settings`
-
-## Impact settings
-
-### Services & Meta services
-
 The following parameters correpond to the default values behind the *Weak*,
 *Minor*, *Major*, *Critical* and *Blocking* impact types when configuring
 indicators in *Regular* mode.
@@ -89,4 +69,3 @@ you can configure it in `Monitoring > Business Activity > User Settings`
 ## Miscellaneous
 
 *Deprecated feature - will be removed in future version*.
-
