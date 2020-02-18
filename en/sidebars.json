@@ -639,7 +639,7 @@
             "api/ega-rest-api-v1",
             "api/map-api"
         ],
-        "Developer": [
+        "Developer resources": [
             "developer/init-developer"
         ],
         "Releases": [
