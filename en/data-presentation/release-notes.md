@@ -11,15 +11,14 @@ Released April, 17 2020.
 
 The licensing system has been simplified.
 
-The MAP license resides now on the Centreon **central** server, as any
-other commercial extension. No worry, the compatibility with the
-previous licensing mecanism (license on the map server) is maintained.
+The MAP license resides now on the Centreon **central** server, as any other
+commercial extension. No worry, the compatibility with the previous licensing
+mecanism (license on the map server) is maintained.
 
-Anyway, if you want to perfectly finish your migration, you may ask the
-support team to generate a new Centreon Map license for your Central
-server and upload :
+Anyway, if you want to perfectly finish your migration, you may ask the support
+team to generate a new Centreon Map license for your Central server and upload :
 
--   Administration \> Extensions \> Manager
+  - Administration \> Extensions \> Manager
 
 **Software compatibility**
 
