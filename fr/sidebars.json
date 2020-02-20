@@ -21,7 +21,7 @@
             "dashboard/init-dashboard"
         ],
         "Métrologie": [
-            "metrology/init-metrology"
+            "metrology/metrology"
         ],
         "Cartographie des Services et Corrélation": [
             "service-mapping-correlation/init-service-mapping-correlation"
