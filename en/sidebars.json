@@ -7,20 +7,16 @@
             "installation/init-installation",
             "ceip/what-is-centreon-ceip"
         ],
-        "Upgrade & Migrate": [
-            "upgrade/init-upgrade",
-            "migrate/init-migrate"
-        ],
         "Monitoring": [
             "monitoring/init-monitoring"
         ],
-        "Alert Management & Notifications": [
+        "Alert Management": [
             "alerts-notifications/init-alerts-notifications"
         ],
-        "Dashboard": [
+        "Dashboards": [
             "dashboard/init-dashboard"
         ],
-        "Metrology": [
+        "Performance graphs": [
             "metrology/init-metrology"
         ],
         "Service Mapping": [
@@ -47,9 +43,9 @@
                 "type": "subcategory"
             }
         ],
-        "Data Presentation": [
-            "data-presentation/introduction",
-            "data-presentation/getting-started",
+        "Graphical views": [
+            "graph-views/introduction",
+            "graph-views/getting-started",
             {
                 "ids": [
                     "data-presentation/create-standard-view",
@@ -74,11 +70,15 @@
             },
             "data-presentation/release-notes"
         ],
-        "Analytics": [
+        "Reporting": [
             "analytics/init-analytics"
         ],
-        "Administrate your Platform": [
+        "Administration": [
             "administrate/init-administrate"
+        ],
+        "Upgrade & Migrate": [
+            "upgrade/init-upgrade",
+            "migrate/init-migrate"
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
@@ -630,13 +630,16 @@
                 "type": "subcategory"
             }
         ],
+        "Mobile App.": [
+            "mobile/introduction"
+        ],
         "API": [
             "api/introduction",
             "api/clapi",
             "api/ega-rest-api-v1",
             "api/map-api"
         ],
-        "Developer": [
+        "Developer resources": [
             "developer/init-developer"
         ],
         "Releases": [
