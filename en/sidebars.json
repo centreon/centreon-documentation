@@ -17,7 +17,7 @@
             "dashboard/init-dashboard"
         ],
         "Performance graphs": [
-            "metrology/init-metrology"
+            "metrology/metrology"
         ],
         "Service Mapping": [
             "service-mapping/introduction",
