@@ -5,6 +5,36 @@
         ],
         "Installation": [
             "installation/init-installation",
+            "installation/prerequisites",
+            "installation/architectures",
+            "installation/download",
+            {
+                "ids": [
+                    "installation/centreon_from_iso",
+                    "installation/centreon_from_packages",
+                    "installation/centreon_from_vm",
+                    "installation/centreon_from_sources"
+                ],
+                "label": "Installation of a Central server",
+                "type": "subcategory"
+            },
+            "installation/post-install",
+            {
+                "ids": [
+                    "installation/poller_from_iso",
+                    "installation/poller_from_packages"
+                ],
+                "label": "Installation of a Poller",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "installation/remote_from_iso",
+                    "installation/remote_from_packages"
+                ],
+                "label": "Installation of a Remote server",
+                "type": "subcategory"
+            },
             "ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
