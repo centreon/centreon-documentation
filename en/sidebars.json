@@ -48,27 +48,27 @@
             "graph-views/getting-started",
             {
                 "ids": [
-                    "data-presentation/create-standard-view",
-                    "data-presentation/create-geo-view",
-                    "data-presentation/display-view",
-                    "data-presentation/share-view"
+                    "graph-views/create-standard-view",
+                    "graph-views/create-geo-view",
+                    "graph-views/display-view",
+                    "graph-views/share-view"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "data-presentation/install",
-                    "data-presentation/upgrade",
-                    "data-presentation/configure",
-                    "data-presentation/remote-server",
-                    "data-presentation/procedures",
-                    "data-presentation/known-issues"
+                    "graph-views/install",
+                    "graph-views/upgrade",
+                    "graph-views/configure",
+                    "graph-views/remote-server",
+                    "graph-views/procedures",
+                    "graph-views/known-issues"
                 ],
                 "label": "Administrate",
                 "type": "subcategory"
             },
-            "data-presentation/release-notes"
+            "graph-views/release-notes"
         ],
         "Reporting": [
             "analytics/init-analytics"
