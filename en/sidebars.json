@@ -49,7 +49,10 @@
             "dashboard/init-dashboard"
         ],
         "Performance graphs": [
-            "metrology/metrology"
+            "metrology/chart-management",
+            "metrology/chart-template",
+            "metrology/chart-curves",
+            "metrology/chart-virtual-metrics"
         ],
         "Service Mapping": [
             "service-mapping/introduction",

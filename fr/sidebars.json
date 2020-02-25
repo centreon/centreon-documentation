@@ -52,8 +52,11 @@
         "Tableau de Bord": [
             "dashboard/init-dashboard"
         ],
-        "Métrologie": [
-            "metrology/metrology"
+        "Graphiques de performance": [
+            "metrology/chart-management",
+            "metrology/chart-template",
+            "metrology/chart-curves",
+            "metrology/chart-virtual-metrics"
         ],
         "Cartographie des Services et Corrélation": [
             "service-mapping-correlation/init-service-mapping-correlation"
