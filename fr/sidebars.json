@@ -1,7 +1,9 @@
 {
     "docs": {
         "Getting Started": [
-            "tutorials/tutorials"
+            "tutorials/tutorials",
+            "tutorials/tutorials-monitor",
+            "tutorials/tutorials-howto"
         ],
         "Installation": [
             "installation/init-installation",
