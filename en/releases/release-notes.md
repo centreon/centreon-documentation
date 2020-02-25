@@ -1519,7 +1519,7 @@ Status". Moreover, this one is now named "Platform Status".
 #### Notice
 
 The Standardize mail notifications enhancement is only available for new
-instalaltion (PR \#6570)
+installation (PR \#6570)
 
 ### Centreon Web 2.8.25
 
