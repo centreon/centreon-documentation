@@ -39,10 +39,6 @@
             },
             "ceip/what-is-centreon-ceip"
         ],
-        "Mettre à Jour et Migrer": [
-            "upgrade/init-upgrade",
-            "migrate/init-migrate"
-        ],
         "Supervision": [
             "monitoring/init-monitoring"
         ],
@@ -69,6 +65,10 @@
         ],
         "Administrer la Plateforme": [
             "administrate/init-administrate"
+        ],
+        "Mettre à Jour et Migrer": [
+            "upgrade/init-upgrade",
+            "migrate/init-migrate"
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
