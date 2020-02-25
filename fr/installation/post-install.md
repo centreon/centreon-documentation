@@ -62,7 +62,7 @@ Centreon, à savoir 'centreon'.
 >5. Cliquez sur **Refresh**
 
 > Si vous utilisez une base de données déportée MySQL 8.x, vous pouvez avoir l'erreur suivante : *erreur*.
-> Référez-vous à l'aide suivante @TODO@(:ref:`procedure`) pour corriger le problème.
+> Référez-vous à [l'aide suivante](centreon_from_packages#installer-le-sgbd-sur-un-serveur-dédié) pour corriger le problème.
 
 L'assistant de configuration configure les bases de données.
 

@@ -61,7 +61,7 @@ user accessing the Centreon databases, i.e., *Centreon*. Click on **Next**.
 >5. Click on **Refresh**.
 
 > If you use a deported MySQL v8.x DBMS, you may have the following error message: *error*.
-> Please have a look to this @TODO@(:ref:`procedure`) to solve this issue.
+> Please have a look to this [procedure](centreon_from_packages#installing-the-dbms-on-the-dedicated-server) to solve this issue.
 
 The Centreon setup wizard configures the databases. Click on **Next**.
 

@@ -82,7 +82,7 @@ and then to implement them to monitor your first equipment.
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> Configure the proxy #TODO@(add the link ref:proxyimp) to allow the Centreon server to access the Internet.
+> Configure the proxy @TODO@(add the link ref:proxyimp) to allow the Centreon server to access the Internet.
 
 Install the **base-generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Pack):

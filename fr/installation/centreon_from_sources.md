@@ -375,7 +375,7 @@ default to [centreon]
 ### Utilisateur de la supervision
 
 Cet utilisateur exécute le moteur de supervision Centreon Engine. Si vous avez suivi
-@TODO@(`Cla procédure d'installation officielle de Centreon Engine <https://documentation.centreon.com/docs/centreon-engine/en/latest/installation/index.html#using-sources>`_)
+@TODO@(`la procédure d'installation officielle de Centreon Engine <https://documentation.centreon.com/docs/centreon-engine/en/latest/installation/index.html#using-sources>`_)
 l'utilisateur sera vraisemblablement *centreon-engine*. :
 ```Bash
 What is the Monitoring engine user ? [centreon-engine]
