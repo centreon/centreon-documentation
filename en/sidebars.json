@@ -40,7 +40,49 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
-            "monitoring/init-monitoring"
+            "monitoring/init-monitoring",
+            "monitoring/generic-actions",
+            {
+                "ids": [
+                    "monitoring/macros",
+                    "monitoring/commands",
+                    "monitoring/timeperiods",
+                    "monitoring/contacts",
+                    "monitoring/hosts",
+                    "monitoring/services",
+                    "monitoring/meta-services",
+                    "monitoring/deploy"
+                ],
+                "label": "Basic objects",
+                "type": "subcategory"
+            },
+            "monitoring/templates",
+            "monitoring/pluginpacks",
+            "monitoring/groups-categories",
+            {
+                "ids": [
+                    "monitoring/snmptraps/enable-snmp-traps",
+                    "monitoring/snmptraps/definition-snmp-traps",
+                    "monitoring/snmptraps/monitoring-snmp-traps",
+                    "monitoring/snmptraps/debug-snmp-traps",
+                    "monitoring/dsm"
+                ],
+                "label": "Passive Monitoring",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/discovery/init-discovery",
+                    "monitoring/discovery/disco-installation",
+                    "monitoring/discovery/disco-hosts",
+                    "monitoring/discovery/disco-services",
+                    "monitoring/discovery/disco-service-create-rule",
+                    "monitoring/discovery/disco-administration"
+                ],
+                "label": "Discovery",
+                "type": "subcategory"
+            },
+            "monitoring/web-import-export"
         ],
         "Alert Management": [
             "alerts-notifications/init-alerts-notifications"
