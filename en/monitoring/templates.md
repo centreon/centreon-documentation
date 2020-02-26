@@ -1,6 +1,6 @@
 ---
 id: templates
-title: Templates management
+title: Objects templates
 ---
 
 ## Definition

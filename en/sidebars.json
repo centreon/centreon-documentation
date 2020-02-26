@@ -50,17 +50,18 @@
                     "monitoring/contacts",
                     "monitoring/hosts",
                     "monitoring/services",
-                    "monitoring/meta-services"
+                    "monitoring/meta-services",
+                    "monitoring/deploy"
                 ],
                 "label": "Basic objects",
                 "type": "subcategory"
             },
             "monitoring/templates",
-            "monitoring/groups_categories",
-            "monitoring/dependencies",
+            "monitoring/pluginpacks",
+            "monitoring/groups-categories",
             {
                 "ids": [
-                    "monitoring/snmp_traps",
+                    "monitoring/snmp-traps",
                     "monitoring/dsm"
                 ],
                 "label": "Passive Monitoring",

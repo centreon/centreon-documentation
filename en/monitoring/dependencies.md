@@ -1,4 +1,0 @@
----
-id: dependencies
-title: Dependencies
----
