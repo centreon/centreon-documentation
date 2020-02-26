@@ -40,7 +40,34 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
-            "monitoring/init-monitoring"
+            "monitoring/init-monitoring",
+            "monitoring/generic-actions",
+            {
+                "ids": [
+                    "monitoring/macros",
+                    "monitoring/commands",
+                    "monitoring/timeperiods",
+                    "monitoring/contacts",
+                    "monitoring/hosts",
+                    "monitoring/services",
+                    "monitoring/meta-services"
+                ],
+                "label": "Basic objects",
+                "type": "subcategory"
+            },
+            "monitoring/templates",
+            "monitoring/groups_categories",
+            "monitoring/dependencies",
+            {
+                "ids": [
+                    "monitoring/snmp_traps",
+                    "monitoring/dsm"
+                ],
+                "label": "Passive Monitoring",
+                "type": "subcategory"
+            },
+            "monitoring/discovery",
+            "monitoring/web-import-export"
         ],
         "Alert Management": [
             "alerts-notifications/init-alerts-notifications"
