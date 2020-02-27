@@ -628,6 +628,15 @@
                 ],
                 "label": "Stream Connectors",
                 "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/centreon-ha/centreon-ha-architectures",
+                    "integrations/centreon-ha/centreon-ha-installation-2-nodes",
+                    "integrations/centreon-ha/centreon-ha-troubleshooting"
+                ],
+                "label": "Centreon HA",
+                "type": "subcategory"
             }
         ],
         "Mobile App.": [

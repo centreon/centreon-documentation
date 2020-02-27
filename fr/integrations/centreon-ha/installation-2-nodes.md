@@ -24,9 +24,9 @@ La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particu
 
 **AVERTISSEMENT :** Si ce prérequis n'est pas vérifié, il ne sera pas possible de synchroniser les bases de données de la façon indiquée dans ce document.
 
-### Quorum Device
+### *Quorum Device*
 
-Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de split-brain, il est nécessaire d'avoir un serveur tiers pour tenir le rôle d'arbitre. Il est possible d'utiliser un poller pour tenir cette fonction.
+Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de split-brain, il est nécessaire d'avoir un serveur tiers pour tenir le rôle d'arbitre. Il est possible d'utiliser un poller pour remplir ce rôle.
 
 ### Définition des noms et adresses IP des serveurs
 
@@ -40,7 +40,7 @@ Dans cette procédure nous ferons référence à des paramètres variant d'une i
 * `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device*
 * `@MYSQL_REPL_USER@` : nom du compte MySQL de réplication (par défaut : centreon-repl)
 * `@MYSQL_REPL_PASSWD@` : mot de passe de ce compte
-* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de réplication (par défaut : centreon)
+* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de Centreon (par défaut : centreon)
 * `@MYSQL_CENTREON_PASSWD@` : mot de passe de ce compte
 * `@VIP_IPADDR@` : adresse IP virtuelle du cluster
 * `@VIP_IFNAME@` : nom de l'interface qui supportera la VIP
@@ -61,23 +61,23 @@ Dans un cluster Centreon-HA, les deux processus broker vont être gérés chacun
 * `central-broker-master` en tant que la ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`
 * `central-rrd-master` en tant que la ressource clone `cbd_rrd`, liée au service *systemd* `cbd` standard de Centreon.
 
-Pour que tout se mette bien en place dans la suite, on doit dès à présent défaire la liaison entre central-broker-master et le service `cbd` **en cochant "non" pour le paramètre "Lié au service cbd"** dans *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* dans l'onglet *General*.
+Pour que tout se mette bien en place dans la suite, il faut dès à présent défaire la liaison entre central-broker-master et le service `cbd` **en cochant "non" pour le paramètre "Lié au service cbd"** dans *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* dans l'onglet *General*.
 
 #### Double flux RRD
 
 Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure simplement dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output*. Les paramètres à changer sont :
 
-* Modifier la sortie "IPv4" **en remplaçant "localhost" par l'adresse IP du nœud principal**
-* Ajouter une **nouvelle sortie IPv4**, identique à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois **vers l'adresse IP du nœud secondaire**.
+* Modifier la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`
+* Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
 #### Exporter la configuration
 
 Une fois que les actions des deux précédents paragraphes ont été réalisées, il faut exporter la configuration (3 premières cases pour l'export du poller "Central") pour que celle-ci soit effective.
 
-Ces actions doivent être réalisées sur le serveur principal et les fichiers de configuration de broker doivent être copiés (par exemple via scp) vers le serveur secondaire.
+Ces actions doivent être réalisées sur `@CENTRAL_SLAVE_NAME@` et les fichiers de configuration de broker doivent être copiés (par exemple via rsync) vers `@CENTRAL_SLAVE_NAME@`.
 
 ```bash
-scp /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
+rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
 ## Préparation du système
@@ -86,7 +86,7 @@ Avant d'en arriver au paramétrage du cluster à proprement parler, un certain n
 
 ### Tuning de la configuration réseau
 
-Afin d'améliorer la fiabilité du cluster et étant donné que Centreon-HA ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
+Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -113,7 +113,7 @@ cat >/etc/hosts <<"EOF"
 EOF
 ```
 
-Dans la suite de ce document, on parlera de nœud principal pour le premier et de nœud secondaire pour le second. Cette distinction est purement arbitraire les rôles pourront bien sûr être échangés une fois l'installation terminée.
+Dans la suite de ce document, on parlera de nœud principal pour le premier et de nœud secondaire pour le second. Cette distinction est purement arbitraire, les rôles pourront bien sûr être échangés une fois l'installation terminée.
 
 ### Installation des paquets
 
@@ -135,7 +135,7 @@ Afin de permettre aux deux serveurs centraux d'échanger des fichiers et des com
 Il existe 2 façons d'échanger des clefs SSH :
 
 * En utilisant `sh-copy-id` : l'utilisation de cette commande nécessite de pouvoir valider l'authentification au moyen d'un mot de passe. Or il n'est pas souhaitable, pour les comptes de service dont il est question ici, de définir de mot de passe. Si cette méthode est retenue malgré tout, il est recommandé de supprimer le mot de passe après l'échange, avec les commandes `passwd -d centreon` et `passwd -d mysql`
-* En copiant manuellement la clef publique dans ~/.ssh/authorized\_keys. Cette méthode est à privilégier, mais demande, pour fonctionner correctement, que seul le propriétaire du fichier soit capable d'accéder en lecture à celui-ci.
+* En copiant manuellement la clef publique dans `~/.ssh/authorized_keys`. Cette méthode est à privilégier, mais demande, pour fonctionner correctement, que seul le propriétaire du fichier soit capable d'accéder en lecture à celui-ci.
 
 C'est la seconde méthode qui sera proposée plus bas.
 
@@ -146,13 +146,13 @@ Cette procédure est à appliquer sur les deux nœuds centraux :
 ```
 su - centreon
 ssh-keygen -t ed25519 -a 100
-cat .ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `.ssh/authorized_keys` puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
+Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `~/.ssh/authorized_keys` puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
 
 ```
-chmod 600 .ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 ```
 
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `centreon`) :
@@ -181,13 +181,13 @@ systemctl start mysql
 ```bash
 su - mysql
 ssh-keygen -t ed25519 -a 100
-cat .ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier et le coller dans `.ssh/authorized_keys` puis appliquer les bons droits sur le fichier (toujours en tant que `mysql`) :
+Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier et le coller dans `~/.ssh/authorized_keys` puis appliquer les bons droits sur le fichier (toujours en tant que `mysql`) :
 
 ```bash
-chmod 600 .ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 ```
 
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `mysql`) :
@@ -357,7 +357,7 @@ Ce qu'il est important de vérifier est que les deux premiers tests de connexion
 
 ### Passage en read\_only
 
-Maintenant que tout est bien configuré, on peut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
+Maintenant que tout est bien configuré, il faut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
 
 * Nœud principal
 
@@ -385,7 +385,7 @@ systemctl restart mysql
 
 ### Synchroniser les bases et lancer la réplication MySQL
 
-Pour synchroniser les bases, on va arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. On lancera donc **sur le nœud secondaire** :
+Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. Il faut donc lancer **sur le nœud secondaire** :
 
 ```bash
 systemctl stop mysql
@@ -403,7 +403,7 @@ Si un processus `mysqld` est toujours en activité, alors il faut lancer la comm
 mysqladmin -p shutdown
 ```
 
-Une fois que le service est bien arrêté sur le nœud **secondaire**, on va lancer le script de synchronisation **depuis le nœud principal** : 
+Une fois que le service est bien arrêté sur le nœud **secondaire**, lancer le script de synchronisation **depuis le nœud principal** : 
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
@@ -423,7 +423,7 @@ Ce script effectue les opérations suivantes :
 
 Ce script est très verbeux, et tout ce qui est s'affiche n'est pas forcément compréhensible, mais pour s'assurer qu'il s'est bien déroulé jusqu'au bout, il suffit de s'assurer que la fin ressemble bien à :
 
-```
+```text
 Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
 Start MySQL Slave
@@ -473,7 +473,7 @@ our %centreon_central_sync_config = (
 
 ### Arrêt et désactivation des services
 
-Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. On arrête et désactive donc ces services.
+Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
 
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
@@ -490,14 +490,14 @@ chkconfig mysql off
 
 #### Activation des services de clustering
 
-Pour commencer, on démarre le service pcsd sur chaque nœud.
+Pour commencer, démarrer le service pcsd sur les deux nœuds centraux :
 
 ```bash
 systemctl enable pacemaker pcsd corosync
 systemctl start pcsd
 ```
 
-**FIXME: DOCUMENTER LA PARTIE QDEVICE**
+#### Préparation du serveur qui jouera le rôle de *Quorum Device*
 
 ```bash
 yum install pcs corosync-qnetd
@@ -509,7 +509,7 @@ pcs qdevice status net --full
 
 #### Authentification du cluster
 
-Puis on établit le mot de passe du compte hacluster (ce compte est purement applicatif et ne peut pas ouvrir de session). Ce mot de passe doit être identique sur les deux nœuds **et sur `@QDEVICE_NAME@`**.
+Puis définir le mot de passe du compte hacluster (ce compte est purement applicatif et ne peut pas ouvrir de session). Ce mot de passe doit être identique sur les deux nœuds **et sur `@QDEVICE_NAME@`**.
 
 ```bash
 passwd hacluster
@@ -531,10 +531,13 @@ pcs cluster auth \
 
 ```bash
 pcs cluster setup \
---force \
---name centreon_cluster \
-"@CENTRAL_MASTER_NAME@" \
-"@CENTRAL_SLAVE_NAME@"
+    --force \
+    --name centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@"
+pcs property set symmetric-cluster="true"
+pcs property set stonith-enabled="false"
+pcs resource defaults resource-stickiness="100"
 ```
 
 Puis démarrer `pacemaker` sur les deux nœuds :
@@ -544,14 +547,6 @@ systemctl start pacemaker
 ```
 
 L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`.
-
-#### Définition des propriétés du cluster
-
-```bash
-pcs property set symmetric-cluster="true"
-pcs property set stonith-enabled="false"
-pcs resource defaults resource-stickiness="100"
-```
 
 #### Ajout du *Quorum Device*
 
@@ -634,7 +629,7 @@ pcs resource create vip \
     --group centreon
 ```
 
-##### Service http
+##### Service httpd
 
 ```bash
 pcs resource create http \
@@ -661,7 +656,7 @@ pcs resource create gorgone \
 
 ##### Service centreon-central-sync
 
-Ce service est spécifique à Centreon-HA. Sa fonction est de répliquer les changements de configuration, l'ajout d'images via l'interface, etc.
+Ce service est spécifique à *Centreon HA*. Sa fonction est de répliquer les changements de configuration, l'ajout d'images via l'interface, etc.
 
 ```bash
 pcs resource create centreon_central_sync \
