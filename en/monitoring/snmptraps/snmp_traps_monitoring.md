@@ -5,7 +5,7 @@ title: Monitoring SNMP Traps
 
 ## Monitoring configuration
 
-Go to the **Configuration \>Services \> Services by host** menu and click on **Add**.
+Go to the **Configuration \> Services \> Services by host** menu and click on **Add**.
 
 * Set a description of the service
 * Select the host to which to attach this service

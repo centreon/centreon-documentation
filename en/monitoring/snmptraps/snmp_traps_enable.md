@@ -12,7 +12,7 @@ contains multiple Attributes including:
 * The root OID (Object Identifier) corresponding to the identifier of the message received.
 * The message sent via the SNMP trap which corresponds to a set of settings (1 to N).
 
-In order to be able interpret the event received the Network supervisor server needs to possess in its configuration
+In order to be able to interpret the event received the Network supervisor server needs to possess in its configuration
 the necessary elements to translate the event. For this it must have a database containing the OID and the
 descriptions, this is what is called MIB files. There are two types of MIB:
 
