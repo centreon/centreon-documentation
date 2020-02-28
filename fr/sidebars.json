@@ -54,11 +54,35 @@
             "metrology/chart-curves",
             "metrology/chart-virtual-metrics"
         ],
+        "Vues graphiques": [
+            "graph-views/introduction",
+            "graph-views/getting-started",
+            {
+                "ids": [
+                    "graph-views/create-standard-view",
+                    "graph-views/create-geo-view",
+                    "graph-views/display-view",
+                    "graph-views/share-view"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "graph-views/install",
+                    "graph-views/upgrade",
+                    "graph-views/configure",
+                    "graph-views/remote-server",
+                    "graph-views/procedures",
+                    "graph-views/known-issues"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            },
+            "graph-views/release-notes"
+        ],
         "Cartographie des Services et Corrélation": [
             "service-mapping-correlation/init-service-mapping-correlation"
-        ],
-        "Présentation des Données": [
-            "data-presentation/init-data-presentation"
         ],
         "Analytique": [
             "analytics/init-analytics"
