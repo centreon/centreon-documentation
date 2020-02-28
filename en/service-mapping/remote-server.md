@@ -4,14 +4,12 @@ title: Install on a Remote Server
 ---
 
 The procedure for installing the Centreon BAM module on a Centreon Remote Server
-is the same as on a Central server, however configuration and uninstallation are
-different. First your Remote Server needs to be installed, then follow the
-procedure below:
+is the same as on a Central server and needs additionnal action.
 
-  - Install the extension using the standard install procedure
-  - Follow the extra steps described below.
+  Step 1: Install the extension using the standard install procedure
+  Step 2: Follow the extra steps described below.
 
-## Configure Centreon Broker
+## Step 2: Configure Centreon Broker
 
 Configuring the Centreon BAM module on a Centreon Remote Server requires
 configuring the Centreon Broker *from* the Centreon Central Server. This allows

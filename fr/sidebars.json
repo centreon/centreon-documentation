@@ -54,6 +54,30 @@
             "metrology/chart-curves",
             "metrology/chart-virtual-metrics"
         ],
+        "Service Mapping": [
+            "service-mapping/introduction",
+            "service-mapping/getting-started",
+            {
+                "ids":[
+                    "service-mapping/ba-management",
+                    "service-mapping/ba-monitoring",
+                    "service-mapping/ba-reporting",
+                    "service-mapping/ba-settings",
+                    "service-mapping/widget"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "service-mapping/install",
+                    "service-mapping/update",
+                    "service-mapping/remote-server"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            }
+        ],
         "Vues graphiques": [
             "graph-views/introduction",
             "graph-views/getting-started",
