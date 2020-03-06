@@ -29,7 +29,7 @@ yum install centreon-dsm-server centreon-dsm-client
 ```
 
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
-**dministration \> Extensions \> Manager** menu and search **dsm**:
+**Administration \> Extensions \> Manager** menu and search **dsm**:
 
 ![image](assets/configuration/dsm/module-setup.png)
 
@@ -57,11 +57,10 @@ You now have to create an access from the poller to the DBMS server on the **cen
 ## Architecture
 
 The event must be transmitted to the server via an SNMP trap. The SNMP trap is thus collected by the
-**snmptrapd daemon**. If reception  parameters are valid (authorized community), then it sends snmptrapd trap SNMP
-binary centreontrapd. Otherwise, the event is deleted.
+**snmptrapd daemon**. If reception parameters are not valid (authorized community), the event is deleted.
 
 Once the SNMP trap has been received, it is sent to the **centreontrapdforward** script which writes the information
-received in a buffer folder (by default: /var/spool/centreontrapd/).
+received in a buffer folder (by default: **/var/spool/centreontrapd/**).
 
 The **centreontrapd** service reads the information received in the buffer folder and interprets the traps received
 checking, in the centreon database, the actions necessary to process these events. In Centreon DSM we execute a **special command**.
@@ -92,7 +91,7 @@ Please follow the table below in order to understand the role of all parameters:
   have been a passive template. This template must be 100 % passive and a custom macro have to be created on it. The
   macro is named **ALARM_ID** and the default value must be **empty**.
 * **Number of slots**: The number of slot that Centreon will create on the selected host when the form will be validated.
-* **Slot name prefix**: The prefix is used to give the name of slots. The name will be follow by a number incremented
+* **Slot name prefix**: The prefix is used to give the name of slots. The name will be followed by a number increment
   from 0 to the number of slots.
 * **Check command**: This check command is used when the service has to be forced in order to free a slot. The check
   command must have to send a ok return code.
@@ -110,10 +109,9 @@ have to do other action. Else you have to [deploy the configuration](deploy).
 
 ### Configure traps
 
-The last step is to configure traps that you want to redirect to you slots. This configuration is a little complexe for
-the moment but we will try to simplify it for the next versions of Centreon DSM.
+The last step is to configure traps that you want to redirect to you slots.
 
-Edit a SNMP trap that you want to redirect to slots systems. Go to **Configuration \> SNMP traps \> SNMP traps menu**
+Edit a SNMP trap that you want to redirect to slots systems. Go to **Configuration \> SNMP traps \> SNMP traps** menu
 and edit a SNMP trap definition.
 
 In order to redirect alarms to slots, you have to enable **Execute special command** in the form and add the following
@@ -139,7 +137,7 @@ This command take some parameters. You can find in the following table the list 
 * **-t**: This is the time that you want to pass to dsm in order to keep the real trap reception time.
 * **-m**: This is the list of macros and its values that you want to update during the treatment of the alarm. Please
   follow the syntax below: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters in
-  live on the nagios or Centreon-Engine core memory without a restart.
+  live on Centreon-Engine core memory without a restart.
 
 Your form should now be like that: 
 
