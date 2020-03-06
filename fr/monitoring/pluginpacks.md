@@ -201,49 +201,54 @@ Votre Plugin Pack est maintenant à jour.
 
 #### Mise à jour du plugin
 
-To update the plugins, Exécutez la commande suivante sur **tous les collecteurs**
+Exécutez la commande suivante sur **tous les collecteurs**
 ```Bash
 yum update centreon-plugins*
 ```
 
 Puis redémarrez **tous les collecteurs**.
 
-Then check that you do not have new errors while executing new plugins.
+Vérifier ensuite qu’il n’y a pas de nouvelles erreurs suite à l’exécution des nouvelles sondes.
 
-> It is your choice whether to install all the plugins on every poller, or just the required plugins. Keep in mind that
-> you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
-> If you update the plugins on the Centreon central server, be sure also to update them on each poller.
+> C’est à vous de choisir si vous désirez installer les plugins sur tous les pollers, ou seulement sur le poller qui
+> exécutera les contrôles. Gardez en tête que si vous n’installez par le plugin sur un poller, vous pourriez avoir des
+> erreurs si vous décidez un jour de déplacer un hôte supervisé d’un poller avec le plugin vers un poller ne possédant
+> pas le plugin. Par ailleurs, si vous mettez à jour les packs sur le serveur central, il est fortement recommandé de
+> mettre à jour également les plugins associés sur les pollers, car de nouveaux contrôles sont parfois définis dans les
+> packs, et ne fonctionneront pas s’ils n’ont pas la commande correspondante.
 
-### Deletion
+### Désinstallation
 
-as with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
-cross,
+Comme pour l’installation, la désinstallation du pack peut se faire soit en survolant le pack souhaité puis en cliquant
+sur la croix rouge :
 
 ![image](assets/configuration/pluginpacks/uninstall.png)
 
-or by clicking first on the pack and then on the red cross:
+Ou alors en cliquant sur le pack, s’ouvre un pop-up affichant le nom, la version et la description du pack, ainsi qu’une
+croix permettant la désinstallation :
 
 ![image](assets/configuration/pluginpacks/uninstall_2.png)
 
-Confirm the uninstallation.
+Confirmez la désinstallation.
 
 ![image](assets/configuration/pluginpacks/uninstall_confirm.png)
 
-Your Plugin Pack is now uninstalled.
+Votre Plugin Pack est désinstallé.
 
 ![image](assets/configuration/pluginpacks/uninstall_3.png)
 
-#### Managing dependencies
+#### Gestion des dépendances
 
-You will not be able remove a pack if host and service templates created by the Plugin Pack are being used by any
-monitored hosts and services.
+Si les modèles d’hôtes et de services créés par le Plugin Pack sont utilisés par des hôtes et services actifs, le Plugin
+Pack ne pourra être désinstallé.
 
 ![image](assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-To uninstall the pack you will need either to:
+Pour pouvoir le désinstaller, soit vous :
 
-* delete the hosts and services linked to the templates provided by the Plugin Pack,
-* or unlink the hosts and services from the corresponding templates.
+* supprimez les hôtes ou services liés aux modèles fournis par ce Plugin Pack
+* déliez les hôtes ou services liés aux modèles fournis par ce Plugin Pack
 
-Attempting to uninstall a pack that is a dependency of another pack will cause the uninstallation process to stop if
-the pack or its dependency is used by any hosts and services. Otherwise, the pack and its dependencies can be removed.
+De plus, si vous tentez de désinstaller un pack dépendant d’un autre pack, la désinstallation ne pourra être faite que
+si et seulement si ce pack n’est pas utilisé ni le(s) pack(s) dépendant(s). De plus, les packs dépendant seront
+également supprimés.

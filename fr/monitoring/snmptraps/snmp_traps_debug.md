@@ -1,115 +1,131 @@
 ---
 id: debug-snmp-traps
-title: Debug SNMP Traps managment
+title: Déboguer la gestion des traps SNMP
 ---
 
-## Debug SNMP Traps
+## Déboguer les interruptions SNMP
 
-Several elements are involved in the SNMP traps management. In case of problem, it is necessary to check the proper
-functioning of its architecture, there are several things to check.
+Plusieurs éléments sont impliqués dans la gestion des traps SNMP. En cas de problème, il faut vérifier le bon
+fonctionnement de son architecture, il y a plusieurs choses à vérifier.
 
-### Sender settings
+### Configuration de l’émetteur
 
-The first point is to control the configuration of the equipment or application that issued the trap that you should
-have received. Check IP address or DNS name, the SNMP community and version.
+e premier point à contrôler est la configuration de l’équipement ou application qui a émis l’interruption que vous
+auriez dû recevoir. Vérifiez l’adresse IP ou nom DNS de destination, la communauté SNMP ainsi que la version du
+protocole.
 
-### Firewall, routing
+### Pare-feux réseau et logiciels, routage
 
-The second point is to control network firewalls and software permissions and the implementation of a specific routing.
-If one or more network firewalls are present or if a port translation and/or IP address is in place, make sure the
-connection is possible between the emitter and the poller. The use of network probes, debug network devices (firewalls
-and routers) or software tcpdump/wireshark on the poller may help you to confirm receipt of data on UDP port 162.
+Le second point à contrôler sont les autorisations des pare-feux réseau et logiciels ou la mise en place d’un routage
+spécifique. Si un ou plusieurs pare-feux réseau sont présent ou si une translation de port et/ou d’adresse IP est en
+place, vérifiez que le flux est possible entre l’émetteur et le collecteur. L’utilisation de sondes réseau, de
+débogage des équipements réseau (pare-feux et routeurs) ou des logiciels tcpdump/wireshark sur le collecteur peut vous
+permettre de valider la réception du flux de données sur le port UDP 162.
 
 ### Snmptrapd
 
-After validation of the connection, check the operating status of snmptrapd process (which must be running) and its
-configuration options. It is possible to enable logging of the process. To do this change the
-**/etc/sysconfig/snmptrapd.options** file and replace the "OPTIONS" line:
+Une fois la réception du flux validé, vérifiez l’état de fonctionnement du processus snmptrapd, qui doit être en cours
+d’exécution, ainsi que ses options de configuration. Il est possible d’activer la journalisation du processus. Pour
+cela modifiez le fichier **/etc/sysconfig/snmptrapd.option** et remplacez la ligne "OPTIONS" pour avoir :
 ```Bash
 # snmptrapd command line options
 # OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 OPTIONS="-On -Lf /var/log/snmptrapd.log -p /var/run/snmptrapd.pid"
 ```
 
-Restart the process to take the changes into account. Thus, for any receiving SNMP traps, these events will be listed
-in the **/var/log/snmptrapd.log** log.
+Redémarrez le processus pour prendre en compte les modifications. Ainsi, pour toute réception de traps SNMP, ces
+évènements seront inscrit dans le journal **/var/log/snmptrapd.log**. Si les évènements sont inscrit dans le journal,
+supprimez la journalisation et passez à l’étape suivante.
 
-In case you filter by SNMP community, check allowed communities in the configuration file **/etc/snmp/snmptrapd.conf**.
-If after all these checks, SNMP traps are not included in the log, verify that the process is listening on UDP port 162
-for remote equipment using the command:
+Dans le cas où vous filtrez par communauté SNMP, vérifiez les communautés autorisées dans le fichier de configuration
+**/etc/snmp/snmptrapd.conf**. Si après toutes ces vérifications les traps SNMP ne sont pas inscrites dans le journal,
+vérifiez que le processus écoute sur le port UDP 162 pour les équipements distants en utilisant la commande :
 ```Bash
 netstat -ano | grep 162
 ```
 
-You must have a result like:
+Vous devez avoir un résultat comme :
 ```Bash
 udp        0      0 0.0.0.0:162             0.0.0.0:*                           off (0.00/0/0)
 ```
 
-If not, change the listening port of the process.
+Si tel n’est pas le cas, modifiez le port d’écoute du processus.
 
-> Don't forget to deactivate the logs after your check. Otherwise, the volume of the logs can be very important.
+> On ne le répète jamais assez mais désactivez le débogage du processus après validation du fonctionnement. Dans le cas
+> contraire, la volumétrie des journaux peut être très importante.
 
 ### Centreontrapdforward
 
-Once the snmptrapd process is validated, check the centreontrapdforward process. The first step is to check the access
-parameters of this process snmptrapd in the file **/etc/snmp/snmptrapd.conf**
+Une fois la validation du processus snmptrapd réalisée, contrôlez le processus centreontrapdforward. La première étape
+consiste à vérifier l’appel de ce processus par snmptrapd dans le fichier **/etc/snmp/snmptrapd.conf** :
 
-* Check that snmptrapd service executes centreontrapdforward. To do this, edit the file **/etc/snmp/snmptrapd.conf**
-   and verify that its contains:
+Vérifier que le service snmptrapd appelle bien centreontrapdforward. Pour cela, éditez le fichier **/etc/snmp/snmptrapd.conf**
+et vérifiez que le fichier contient :
 ```Bash
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
 
-If path to the file is incorrect, change it and restart the snmptrapd process.
-You can check the proper functioning of binary centreontrapdforward by checking the configuration part of
+Si l’accès au fichier est incorrect, modifiez le et redémarrez le processus snmptrapd. Vous pouvez contrôler le bon
+fonctionnement du binaire centreontrapdforward en vous rendant au chapitre de configuration de
 [centreontrapdforward](#centreontrapdforward).
 
 ### Centreontrapd
 
-The next process to check is Centreontrapd. This daemon allows to connect a SNMP trap to a passive service linked to an
-host in Centreon using IP address or DNS from distant equipment.
-To check its operation, you should check the centreontrapd configuration settings.
+Le prochain binaire est celui de Centreon qui permet de sélectionner l’hôte possédant l’adresse IP ou le nom DNS de
+l’émetteur ainsi que le service lié à cet hôte et auquel est reliée la définition de l’interruption SNMP. Pour vérifier
+son fonctionnement, il convient de vérifier les paramètres de configuration de centreontrapd.
 
-You can check the proper functioning of binary centreontrapdforward by checking the configuration part of
+Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitre de configuration de
 [centreontrapd](#centreontrapd).
 
 ### CentCore
 
-CentCore daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.
-Enable the debug mode via **Administration \> Options \> Debug** menu and restart process.
+Dans le cas d’un serveur central, le processus Centcore doit être démarré pour transférer la commande externe à
+l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
+menu **Administration \> Options \> Debug** et redémarrez le processus.
 
-> You can edit debug severity level in **/etc/sysconfig/centcore** file.
+> Vous pouvez modifier le niveau de débogage du processus via le fichier **/etc/sysconfig/centcore** en modifiant la
+> sévérité.
 
-If any external command are sent to the monitoring engine please check the path to "$cmdFile"" in **/etc/centreon/conf.pm**
-configuration file. The path should be **/var/lib/centreon/centcore.cmd** for a central Centreon server.
+En cas de non réception de la commande externe, vérifiez le chemin d’accès au fichier de commande du processus défini
+dans la variable "$cmdFile" du fichier de configuration **/etc/centreon/conf.pm**. Le chemin doit être 
+**/var/lib/centreon/centcore.cmd** dans le cas d’un serveur central ou le chemin vers le fichier de commande de
+l’ordonnanceur.
 
-### Centreon Engine
+### Ordonnanceur
 
-The monitoring engine must receive external commands from Centcore process in order to change status and output of the
-passive service. Please check the event log. For Centreon Engine, the path is **/var/log/centreon-engine/centengine.log**.
-You should find lines as:
+Que vous ayez configuré un serveur central ou un collecteur distant pour la réception de trap SNMP, l’ordonnanceur
+doit recevoir la commande externe de changement de statut et/ou de message de sortie ("output"). Vérifiez le journal
+de l’ordonnanceur. Dans le cas de Centreon Engine le fichier est **/var/log/centreon-engine/centengine.log**.
+
+Les lignes suivantes doivent apparaître :
 ```Bash
 [1352838428] EXTERNAL COMMAND: PROCESS_SERVICE_CHECK_RESULT;Centreon-Server;Traps-SNMP;2;Critical problem
 [1352838433] PASSIVE SERVICE CHECK: Centreon-Server;Traps-SNMP;2;Critical problem
 ```
 
-If only the external command appears but not the consideration thereof by the scheduler ("PASSIVE SERVICE CHECK"), there may be a system clock problem synchronizing issue.
-The server is late and the order will be processed later, either in advance and the order will not be taken into account.
+Si seule la commande externe apparaît mais pas la prise en compte de celle-ci par l’ordonnanceur ("PASSIVE SERVICE CHECK""),
+il se peut qu’un problème de synchronisation de l’horloge système soit en cause. Le serveur est soit en retard et la
+commande sera traitée ultérieurement, soit en avance et la commande ne sera pas prise en compte.
 
-### Centreon UI
+### InterfaceCentreon
 
-To display the result in Centreon the monitoring engine must forward using NEB module information to the broker to
-store them into database. Centreon will display result from "centreon_storage" database. If you can reach Centreon web
-interface you must see the change of the output and maybe the status of the passive service. If any change appears a
-connection failure between the monitoring engine and the broker can be the root cause of this issue. Problems can be:
+Afin d’être visible dans Centreon, l’ordonnanceur doit transmettre les informations, via son module NEB, à la partie
+serveur du broker pour que ce dernier l’insère en base de données. Centreon affichera ensuite le résultat à partir de
+la base de données « centreon_storage ». S’il vous est possible de visualiser les informations des derniers contrôles
+de votre collecteur dans l’interface web, alors vous devriez voir le statut et le message de sortie ("output") de
+modifiés. Si tel n’est pas le cas, alors votre ordonnanceur n’est pas connecté à la partie serveur de votre broker. Les
+problèmes peuvent être les suivants :
 
-* The monitoring engine doesn't load the NEB module to connect to the distant broker.
-* The NEB module settings are wrong to connect to the distant broker.
-* A firewall stops the connection.
+* L’ordonnanceur n’a pas chargé le module NEB à son démarrage car celui-ci est introuvable ou non défini dans les
+  options de l’ordonnanceur
+* Le module NEB n’a pu se connecter à la partie serveur à cause d’un problème de paramétrage.
+* Un pare-feu bloque la connexion entre le collecteur et le serveur Centreon qui héberge la base de données. La partie
+  serveur du broker n’est pas fonctionnelle ou n’est pas en cours d’exécution
 
-### Detailed diagram
+### Schéma détaillé
 
-You will find below a detailed diagram of all the processes used and/or present at the reception of an SNMP trap:
+Vous trouverez ci-dessous un schéma détaillé de tous les processus utilisés et/ou présents lors de la réception d’une
+interruption SNMP :
 
 ![image](assets/configuration/kcentreontrapd_schema.png)

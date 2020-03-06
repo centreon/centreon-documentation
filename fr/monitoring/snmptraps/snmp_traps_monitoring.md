@@ -3,115 +3,119 @@ id: monitoring-snmp-traps
 title: Monitoring SNMP Traps
 ---
 
-## Monitoring configuration
+## Configuration de la supervision
 
-Go to the **Configuration \> Services \> Services by host** menu and click on **Add**.
+Rendez-vous dans le menu **Configuration \> Services \> Services by host** et cliquez sur **Add**.
 
-* Set a description of the service
-* Select the host to which to attach this service
-* Select the **generic-passive-service-custom** template
+* Définir une description du service
+* Sélectionnez l'hôte auquel attacher ce service
+* Sélectionnez le modèle de service **generic-passive-service-custom**
 
 ![image](assets/configuration/06createpassiveservice.png)
 
-* Go on the **Relation** tab and select the SNMP traps
+* Rendez-vous dans l'onglet **Relation** et sélectionnez les traps SNMP
 
 ![image](assets/configuration/06servicetrapsrelation.png)
 
-* Click on **Save**
+* Cliquez sur **Save**
 
-## Applying the changes
+## Appliquer les changements
 
-To be able to export the OID present in the database in the configuration file to centreontrapd, follow the following procedure:
+Pour pouvoir exporter les OID présents en base de données en fichier de configuration pour centreontrapd, suivez la
+procédure suivante :
 
-1. Go to the **Configuration \> SNMP traps \> Generate** menu
-2. Select the poller to which you want to export the configuration files
-3. Check **Generate traps database** and **Apply configurations**
-4. In the drop-down list **Send signal** (the **Reload** option is preferable)
-5. Click on the **Generate** button
+1. Rendez-vous dans le menu **Configuration \> SNMP traps \> Generate**
+2. Sélectionnez le collecteur vers lequel vous souhaitez exporter les fichiers de configuration
+3. Cochez **Generate traps database** et **Apply configurations**
+4. Dans la liste déroulante **Send signal** (préférez l’option **Reload**)
+5. Cliquez sur le bouton **Generate**
 6. [Export the monitoring configuration](deploy)
 
-## To go further
+## Pour aller plus loin
 
-### Modify the output
+### Modifier le message de sortie
 
-#### Use all the arguments
+#### Utiliser l’ensemble des arguments
 
-For a SNMP trap, when configuring the output message, the argument **$\*** will display all the information (the value of
-arguments) contained within the SNMP trap. However, it is possible to display only certain information contained in the
-SNMP trap by calling unitary arguments.
+Pour un trap SNMP, lors de la configuration du message de sortie, l’argument **$\*** permet d’afficher l’ensemble des
+informations (valeur des arguments) contenu au sein du trap SNMP. Cependant, il est possible d’afficher uniquement
+certaines informations contenues au sein du trap SNMP en appelant unitairement les arguments.
 
-For example:
+Exemple :
 ![image](assets/configuration/06servicetrapsrelation.png)
 
-The output message **Link down on interface $2. State: $4.** will display only the name of the interface and its status
-($2 and $4 argument).
+Le message de sortie **Link down on interface $2. State: $4.**” permet d’afficher uniquement le nom de l’interface et
+l’état de celle-ci (argument $2 et $4).
 
-Where can I find the arguments?
+Où trouver les arguments ?
 
-The arguments are in the documentation of the MIB manufacturer or in the **Comments** field of the SNMP trap.
+Les arguments se trouvent au sein de la documentation de la MIB de votre constructeur ou bien au sein du champ
+**Comments** de votre trap SNMP.
 
+Par exemple :
 ![image](assets/configuration/klinkcomment.png)
 
-To show:
+Pour afficher :
 
-* The index link, use the $1 argument
-* The interface name , use the $2 argument
-* The administrative state of the interface, use the $3 argument
-* The state interface, use the $4 argument
+* L’index du lien tombé, utilisez l’argument $1
+* Le nom de l’interface tombée, utilisez l’argument $2
+* L’état administratif de l’interface, utilisez l’argument $3
+* L’état de l’interface, utilisez l’argument $4
 
-For example, the following output message displays all the arguments:
+Par exemple, le message de sortie suivant permet d’afficher l’ensemble des arguments :
 ```Bash
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3
 ```
 
-#### Active checks after trap reception
+#### Effectuer un contrôle actif suite à la reception d’un trap
 
-**Reschedule associated services** option to actively check the service after the trap reception.
+Il est possible par l’utilisation de l’option **Reschedule associated services** de réaliser un contrôle actif sur le
+service suite à la réception du trap SNMP.
 
-The active service linked in the service configuration is executed.
+Le contrôle actif défini au niveau du service est alors effectué.
 
-#### Execute special command
+#### Executer une commande spéciale
 
-Its possible with Centreontrapd to execute a special command after the reception of a SNMP trap. Just use the option
-**Execute special command** followed by the description of this command.
+Centreontrapd peut éxecuter une commande spéciale suite à la réception d’un trap SNMP. Pour utiliser cela, il suffit de
+cocher l’option **Execute special command** et d’écrire la commande voulue.
 
-#### Use all the arguments (via OID)
+#### Utiliser l’ensemble des arguments (via les OID)
 
-It's also possible to have directly an argument value without knowing arguments order ($1, $2, $3, etc.). to do this,
-use the complete OID number of needed arguments.
+Il est également possible de récupérer directement la valeur d’un argument sans connaître son ordre d’arrivée ($1, $2,
+$3, ...). Pour cela, utilisez l’OID complet de l’argument.
 
-For example:
+Voici un exemple :
 ```Bash
 Link down on interface: @{.1.3.6.1.2.1.2.2.1.2} (index: @{.1.3.6.1.2.1.2.2.1.1}). Operational state: @{.1.3.6.1.2.1.2.2.1.8}, Administration state: @{.1.3.6.1.2.1.2.2.1.7}
 ```
 
-#### Use an external variable
+#### Utiliser une variable externe
 
-It's also possible to modify the output message by retrieving information via scripts or external commands and get the
-result to insert it in the output.
-To do this, within the definition of your SNMP trap, go to the **Advanced** tab and add one (or more) preexec commands.
+Il est également possible de modifier le message de sortie en récupérant des informations via des scripts ou commandes
+externes et de récupérer le résultat pour l’insérer au sein du message. Pour cela, au sein de la définition de votre
+trap SNMP, rendez-vous dans l’onglet **Advanced** et ajoutez une (ou plusieurs) commande(s) PREEXEC.
 
-For example:
+Exemple :
 ![image](assets/configuration/kpreexec.png)
 
-The first command **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** and allows you to retrieve the alias
-interface. The "$1" variable is for the argument 1 associated value of linkUp/linkDown traps.
+La première commande est **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** et permet de récupérer l’alias de
+l’interface. La variable “$1” correspond ici à la valeur associée à l’argument 1 des traps linkUp/linkDown, soit l’index.
 
-The second command **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifSpeed.$1** and allows you to retrieve interface speed.
-The "$1" variable is for the argument 1 associated value of linkUp/linkDown traps.
+La seconde commande contient **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifSpeed.$1** et permet de récupérer la vitesse
+de l’interface. La variable “$1” correspond ici à la valeur associée à l’argument 1 des traps linkUp/linkDown, soit l’index.
 
-In order to exploit the result of the first command in the output, you have to use $p1 argument. For exploiting the
-result of the second command in output, you have to use $p2 argument.
+Pour utiliser le résultat de la première commande dans le message de sortie, utilisez l’argument $p1 et pour utiliser le résultat de la seconde commande dans le message de sortie, utilisez l’argument $p2.
 
-Therefore, we can deduce the following output message:
+Par conséquent, nous pouvons déduire le message de sortie suivant :
 ```Bash
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3, Alias : $p1, Speed : $p2
 ```
 
-#### Use a Regular expression
+#### Utiliser une expression régulière
 
-It's also possible to modify the output by using a regular expression with **Output Transform** option. You just have
-to define the regexp and it will be executed at trap reception.
+Il est également possible de modifier le message de sortie en utilisant une expression régulière par l’intermédiaire de
+l’option **Output Transform**. Il suffit de renseigner une expression régulière et elle sera éxécutée à la réception
+d’un trap SNMP.
 
 For example:
 ```Bash
@@ -122,63 +126,66 @@ Will replace **|** in the output to **-**.
 
 ### Route/Transfer SNMP traps
 
-It's possible to have a SNMP trap concentrator. Eg: Oracle GRID.
-Oracle GRID is responsible for federating information for all Oracle servers if necessary, it's the Oracle GRID server who sends the SNMP trap to the monitoring server.
+Parfois, il existe un concentrateur de traps SNMP au sein d’une société. Exemple : Oracle GRID. Oracle GRID est chargé
+de fédérer les informations de tous les serveurs Oracle en cas de nécessité, c’est le serveur Oracle GRID qui envoie un
+trap SNMP au serveur de supervision.
 
-However, from a SNMP trap sent from Oracle GRID, we want to extract the IP address of the host and display the message in the service trap not belonging to Oracle Grid but to the correct host.
+Or, à partir d’un trap SNMP reçu par Oracle GRID, on souhaite pouvoir extraire l’adresse IP de l’hôte concerné et
+afficher le message du trap dans un service appartenant non pas à Oracle Grid mais à l’hôte concerné par le trap (le
+véritable émetteur).
 
-To do this, perform the following steps:
+Pour cela, exécutez la procédure suivante :
 
-1. Create a generic trap, with the following parameters:
+1. Créez un trap générique, ayant les paramètres suivants :
 
-* In **Main** Tab:
+* Dans l'onglet **Main** :
 
-| Attributes                        | Description                                |
+| Attributs                         | Description                                |
 |-----------------------------------|--------------------------------------------|
-| Trap Name                         | Trap name                                  |
+| Trap Name                         | Nom du trap                                |
 | Mode                              | Unique                                     |
-| OID                               | OID of the trap                            |
-| Default Status                    | Trap default status                        |
-| Output Message                    | Custom output message                      |
+| OID                               | OID du trap                                |
+| Default Status                    | Statut par défaut du trap                  |
+| Output Message                    | Message de sortie personnalisé             |
 
-* In **Advanced** Tab:
+* Dans l'onglet **Advanced**:
 
-| Attributes                        | Description                                                    |
-|-----------------------------------|----------------------------------------------------------------|
-| Enable routing                    | Checked                                                        |
-| Route definition                  | $2 (In this example $2 argument is for IP address of the host) |
+| Attributes                        | Description                                                                                                       |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Enable routing                    | Cochez la case                                                                                                    |
+| Route definition                  | $2 (ici on part du principe que l’argument numéro 2 du trap contient l’adresse IP de l’hôte concerné par le trap) |
 
-2. Create a second trap definition:
+2. Créer une deuxième définition du trap avec :
 
-* In **Main** Tab:
+* Dans l'onglet **Main** :
 
-| Attributes                        | Description                                |
+| Attributs                         | Description                                |
 |-----------------------------------|--------------------------------------------|
-| Trap Name                         | Trap name (not the same as previous)       |
-| OID                               | OID of the trap (same as previous)         |
-| Default Status                    | Trap default status                        |
-| Output Message                    | Custom output message                      |
+| Trap Name                         | Nom du trap                                |
+| OID                               | OID du trap                                |
+| Default Status                    | Statut par défaut du trap                  |
+| Output Message                    | Message de sortie personnalisé             |
 
-3. Associate the first definition to a service (eg PING) of Oracle GRID server
-4. Associate the second definition to a passive service of the host.
-5. Generate SNMP traps definitions and restart centreontrapd
+3. Associer la première définition à un service (par exemple PING) du serveur Oracle GRID
+4. Associer la deuxième définition à un service passif de l’hôte concerné
+5. Générer les définitions de traps SNMP et redémarrer centreontrapd
 
-In the **Route definition** field you can use the following arguments:
+Au sein du champ **Route definition** vous pouvez utiliser les arguments suivants :
 
-|   Variable name      |   Description                                                                        |
-|----------------------|--------------------------------------------------------------------------------------|
-| @GETHOSTBYADDR($2)@  | Reverse DNS resolution to know the DNS name from IP address (127.0.0.1 -> localhost) |
-| @GETHOSTBYNAME($2)@  | DNS resolution to know the Ip address from the DNS (localhost -> 127.0.0.1)          |
+| Nom de la variable  | Description                                                                                                 |
+|---------------------|-------------------------------------------------------------------------------------------------------------|
+| @GETHOSTBYADDR($1)@ | Résolution DNS inverse permettant de connaitre le nom DNS à partir de l’adresse IP (127.0.0.1 -> localhost) |
+| @GETHOSTBYNAME($1)@ | Résolution DNS permettant de connaitre l’adresse IP à partir du nom DNS (localhost -> 127.0.0.1)            |
 
-### Ignore SNMP Trap when resource is on downtime
+### Ne pas soumettre le trap SNMP durant un downtime
 
-**Check Downtime** allow centreontrapd to check if the service is not in Downtime status at trap reception. The
-submission can be canceled.
+L’option **Check Downtime** permet à centreontrapd de contrôler si le service n’est pas dans un statut de downtime lors
+de la réception du trap SNMP. Il est possible alors d’annuler la soumission du trap.
 
-> It's only possible with Centreon Broker and on central monitoring.
+> Ce mode de focntionnement n’est compatible qu’avec Centreon Broker et des services supervisés depuis le central.
 
-There are three ways to configure this:
+Il est possible d’adapter le comportement selon ces trois méthodes :
 
-* None : nothing to do, the trap is sent as normal;
-* Real-Time : with this option, a trap sent with a current downtime, the service state is not updated;
-* History : option used to do not acknowledge a trap snmp that concerning a past event during a downtime.
+* None : Rien de spécial, le trap SNMP est envoyé normalement
+* Real-Time : Si un downtime est actif sur le service, il n’est pas mis à jour.
+* History : Ooption utilisée pour ne pas prendre en compte un trap SNMP qui concerne un événement passé lors d’un temps d’arrêt.

@@ -1,132 +1,136 @@
 ---
 id: groups-categories
-title: Groups & Categories
+title: Groupes et Catégories
 ---
 
 ## Description
 
-In Centreon, it is possible to group together one or more objects within different groups:
+Au sein de Centreon, il est possible de regrouper un ou plusieurs objets au sein de différents groupes :
 
-* [Host Groups](#hosts-group)
-* [Service Groups](#services-group)
-* [Contact Groups](#contacts-group)
+* [Les groupes d'hôtes](#les-groupes-dhôtes)
+* [Les groupes de services](#les-groupes-de-services)
+* [Les groupes de contacts](#les-groupes-de-contacts-1)
 
-It is also possible to create categories of [hosts](#hosts-category) or [services](#services-category).
+Il est également possible de créer des catégorie [d'hôtes](#les-catégories-dhôtes) ou de [services](#les-catégories-de-services).
 
-### Groups
+### Les groupes
 
-Generally speaking, the groups are containers in which sets of objects having a common property can be grouped together:
+D’une manière générale, les groupes sont des containeurs permettant de regrouper un ensemble d’objet possédant une
+propriété commune :
 
-* Same material identity (Dell, HP, IBM, etc., servers), logical identity (network equipment) or geographical identity
-  (Europe, Asia, Africa, North America, etc.)
-* Belonging to the same application (CMS application, etc.) or to a same sector of activity (Salary management, etc.)
-* Etc.
+* Même identité matérielle (serveurs Dell, HP, IBM, ...), identité logique (équipements réseau) ou identité géographique
+  (Europe, Asie, Afrique, Amérique du nord, ...)
+* Appartenance à une même application (application CMS, ...) ou à un même secteur d’activité (Gestion de la paie, ...)
 
-#### Service Groups and Host Groups
+#### Les groupes d’hôtes et de services
 
-Host groups and service groups are used to group together objects by logical entities. They are used to:
+Les groupes d’hôtes et de services permettent de regrouper des objets par entités logiques. Ils sont utilisés pour :
 
-* Configure ACLs to link a set of resources to a type of profile
-* Allow viewing of availability reports per group. Generate a “Paris Agency” availability report for resources.
-* Enable viewing the status of a set of objects by selecting in the search filters of a group of objects
-* Search several performance graphs quickly by browsing the object tree structure by group and then by resource
+* La configuration des ACLs afin de lier un ensemble de ressources à un type de profil
+* Permettre de visualiser les rapports de disponibilité par groupe. Générer un rapport de disponibilité des ressources
+  "Agence Paris".
+* Permettre de visualiser le statut d’un ensemble d’objets en sélectionnant dans les filtres de recherche un groupe d’objets
+* Rechercher rapidement un à plusieurs graphiques de performances en parcourant l’arbre des objets par groupes puis par ressource
+* D’une manière générale, on cherche à regrouper les hôtes par niveau fonctionnel. Exemple : Hôtes DELL, HP ou encore
+  Hôtes Linux, Windows... On cherche également à regrouper les services par applications métiers. Exemple : Application de
+  gestion de la paie, Application ERP, ...
 
-Generally speaking, we try to group together hosts by functional level. E.g.: DELL and HP hosts or Linux, Windows,
-etc., hosts. 
-We also try to group services by application jobs. E.g.: Salary management application, ERP Application, etc.
+> Pour les hôtes appartenant à un groupe d’hôtes, la rétention des fichiers RRD peut être définie au sein du groupe
+> d’hôtes auquel il appartient. Cette définition vient surcharger la définition globale. Dans le cas où un même hôte
+> appartient à plusieurs groupes possédant chacun une définition de rétention, la valeur la plus élevée sera
+> sélectionnée pour l’hôte.
 
-> For the hosts belonging to a host group, the retention of RRD files can be defined in the host group. This definition
-> overrides the global definition. In the event that the same host belongs to several groups each possessing a
-> retention definition, the highest value will be selected for the host.
+#### Les groupes de contacts
 
-#### Contact Groups
+Les groupes de contacts sont utilisés pour pouvoir notifier des contacts :
 
-Contact Groups are used to notify contacts:
+* Lors de la définition d’un hôte ou d’un service
+* Lors de la définition d’une escalade de notifications
 
-* On definition of a host or of a service
-* On definition of an escalation of notifications
+De plus, les groupes de contacts sont également utilisés lors de la définition d’un groupe d’accès.
 
-In addition, the groups of contacts are also used during the definition of an access group.
+Par conséquent, il est nécessaire de regrouper les contacts d’une manière logique. La plupart du temps, ils sont regroupés
+suivant leurs rôles au sein du système d’informations. Exemple : DSI, Administrateurs Windows, Administrateurs Linux,
+Responsable de l’application de Gestion de la paie, ...
 
-Consequently, it is necessary to group together contacts in a logical way. Most of the time, they are grouped together
-according to their roles in the information systems. E.g.: DSI, Windows Administrators, Linux Administrators, Person
-in charge of the application of Salary Management, etc.
+### Les catégories
 
-### Categories
-
-Generally speaking, the categories serve either to define a criticality level for a host or a service, or to group
-together technically a set of objects (services linked to the execution of a request on a MariaDB DBMS, etc.).
-Good practice requires that we group hosts or services together into categories to facilitate the filtration of these
-objects in ACL.
-The categories are also used to define types of objects in the Centreon MAP module or to classify the objects within
-sub-groups in the Centreon BI module.
+D’une manière générale, les catégories servent soit à définir un niveau de criticité pour un hôte ou un service, soit à
+regrouper techniquement un ensemble d’objets (services liés à une exécution de requête sur un SGBD MariaDB, ...). La
+bonne pratique demande à ce qu’on regroupe des hôtes ou des services au sein de catégories pour pouvoir faciliter le
+filtrage de ces objets au sein d’ACL. Les catégories sont également utilisées pour définir des types d’objets au sein
+du module Centreon MAP ou pour classer les objets au sein de sous-groupes dans le module Centreon BI.
 
 ## Configuration
 
-### Hosts Group
+### Les groupes d’hôtes
 
-Go to the  **Configuration \> Hosts \> Host Groups** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> Hosts \> Host Groups** et cliquez sur **Add**
 
 ![image](assets/configuration/07hostgroup.png)
 
-* The **Host Group Name** and **Alias** defines the name and the alias of the host group.
-* The **Linked Hosts** list allows us to add hosts in the hostgroup.
-* The **Notes** field allows us to add optional notes concerning the host group.
-* The **Notes URL** field defined a URL which can be used to give more information on the hostgroup.
-* The **Action URL** field defined a URL normally use to give information on actions on the hostgroup (maintenance, etc.).
-* The **Icon** field indicates the icon to be use for the host group.
-* The **Map Icon** is the icon use for mapping.
-* The **RRD retention** field is expressed in days, it serves to define the duration of retention of the services
-  belonging to this hostgroup in the RRD database. It will be the default duration defined in the
-  **Administration \> Options \> CentStorage** menu if this value is not defined.
-* The **Status** and **Comments** fields allow to enable or disable the host group and to make comments on it.
+* Les champs **Host Group Name** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
+* La liste **Linked Hosts** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
+* Le champ **Notes** permet d’ajouter des notes optionnelles concernant le groupe d’hôtes.
+* Le champ **Notes URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur le groupe d’hôtes.
+* Le champ **Action URL** définit une URL habituellement utilisée pour donner des informations d’actions sur le groupe
+  d’hôtes (maintenance...).
+* Le champ **Icon** indique l’icône à utiliser pour le groupe d’hôtes.
+* Le champ **Map Icon** est l’icône utilisée pour la cartographie.
+* Le champ **RRD retention** est exprimé en jours, il permet de définir la durée de rétention des services appartenant
+  à ce groupe d’hôtes au sein de la base de données RRD. Si cette valeur est vide, la valeur sera celle par défaut
+  définie dans le menu **Administration \> Options \> CentStorage**.
+* Les champs **Status** et **Comments** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
 
-### Services Group
+### Les groupes de services
 
-Go to the  **Configuration \> Services \> Service Groups** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> Services \> Service Groups** et cliquez sur **Add**
 
 ![image](assets/configuration/07servicegroup.png)
 
-* The **Service Group Name** and **Description** fields describes the name and the description of the service group.
-* The **Linked Host Services** list allows us to choose the various services that will be included in this group.
-* The **Linked Host Group Services** list allows us to choose the services linked to a host group that will be part
-  of this group.
-* The **Linked Service Templates** list allows to deploy a service based on this template on all hosts linked to this group.
-* The **Status** and **Comments** fields allow to enable or disable the service group and to make comment on it.
+* Les champ **Service Group Name** et **Description** regroupent le nom et la description du groupe de services.
+* La liste **Linked Host Services** permet de choisir les différents services qui feront partie de ce groupe.
+* La liste **Linked Host Group Services** permet de choisir les services liés à un groupe d’hôtes qui feront partie de
+  ce groupe.
+* Si un modèle de service appartient à la liste  **Linked Service Templates** alors tous les services qui héritent de
+  ce modèle appartiennent à ce groupe.
+* Les champs  **Status** et **Comments** permettent d’activer ou de désactiver le groupe de services et de commenter
+  celui-ci.
 
-### Contacts Group
+### Les groupes de contacts
 
-Go to the  **Configuration \> Users \> Contact Groups** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> Users \> Contact Groups** et cliquez sur **Add**
 
 ![image](assets/configuration/07contactgroup.png)
 
-* The **Contact Group Name** and **Alias** fields define the name and the description of the contact group.
-* The **Linked Contacts** list allows us to add contacts to the contact group.
-* The **Status** and **Comment** fields allow to enable or disable the group of contacts and to make comment on it.
+* Les champs **Contact Group Name** et **Alias** éfinissent le nom et la description du groupe de contacts.
+* La liste **Linked Contacts** permet d’ajouter les contacts au groupe de contacts.
+* Les champs **Status** et **Comment** permettent d’activer ou de désactiver le groupe de contacts et de commenter
+  celui-ci.
 
-### Hosts category
+### Les catégories d’hôtes
 
-Go to the  **Configuration \> Hosts \> Categories** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> Hosts \> Categories** et cliquez sur **Add**
 
 ![image](assets/configuration/08hostcategory.png)
  
-* The **Host Category Name** and **Alias** fields contain respectively the name and the alias of the category of host.
-* The **Linked hosts** list allows us to add hosts to the category.
-* If a host template is added to **Linked host template** list all the hosts which inherit from this Model belong to
-  this category.
-* The **Severity type** box signifies that the category of hosts has a criticality level.
-* The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
-* The **Status** and **Comment** fields allow us to enable or disable the category of host and to comment on it.
+* Les champs **Host Category Name** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
+* La liste **Linked hosts** permet d’ajouter des hôtes à la catégorie.
+* Si un modèle d’hôte est ajouté à **Linked host template** alors tous les hôtes qui héritent de ce modèle appartiennent
+  à cette catégorie.
+* La case  **Severity type** signifie que la catégorie d’hôtes à un niveau de criticité.
+* Les champs **Level** et **Icon** définissent respectivement un niveau de criticité et une icône associée.
+* Les champs **Status** et **Comment** permettent d’activer ou de désactiver la catégorie d’hôte et de commenter celle-ci.
 
-### Services category
+### Les catégories de services
 
-Go to the  **Configuration \> Services \> Categories** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> Services \> Categories** et cliquez sur **Add**
 
 ![image](assets/configuration/08servicecategory.png)
  
-* The **Name** and **Description** fields define the name and the description of the category of service.
-* if a service template is added to **Service Template Descriptions** list all the services which inherit from this
-  template belong to this category. 
-* The **Severity type** box signifies that the category of service has a criticality level.
-* The **Level** and **Icon** fields define a criticality level and an associated icon respectively.
-* The **Status** field allows us to enable or disable the category of services.
+* Les champs **Name** et **Description** définissent le nom et la description de la catégorie de service.
+* Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle
+  de services font partie de cette catégorie.
+* La case **Severity type** ignifie que la catégorie de service à un niveau de criticité.
+* Les champs **Level** et **Icon** définissent respectivement un niveau de criticité et une icône associée.
+* Le champ **Status** permet d’activer ou de désactiver la catégorie de services.

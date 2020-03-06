@@ -1,148 +1,147 @@
 ---
 id: definition-snmp-traps
-title: SNMP Traps definition
+title: Définition des Traps SNMP
 ---
 
-## Add a manufacturer
+## Ajouter un constructeur
 
-Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To add a manufacturer:
+Au sein de Centreon, les OIDs racines des traps SNMP sont classés par constructeur. Pour ajouter un constructeur :
 
-Go into the **Configuration \> SNMP traps \> Manufacturer** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> SNMP traps \> Manufacturer** et cliquez sur **Add**
 
 ![image](assets/configuration/06constructors.png)
 
-* The **Name** and **Alias** fields define the name and the alias of the manufacturer
-* The **Description** field provides an indication about the manufacturer
+* Les champ **Name** et **Alias** définissent le nom et l’alias du constructeur
+* Le champ **Description** fournit une indication sur le constructeur
 
-## Importation of MIBs
+## Importation des MIB
 
-Go into the **Configuration \> SNMP traps \> MIBs** menu
+Rendez-vous dans le menu**Configuration \> SNMP traps \> MIBs**
 
 ![image](assets/configuration/06importmibssuccess.png)
 
-* The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing  belongs
-* The **File (.mib)** field can be used to load the MIB
+* La liste **Manufacturer** permet de choisir le constructeur auquel appartient la MIB que vous importez
+* Le champ **File (.mib)** permet de charger la MIB
 
-When import a MiB file, it’s possible that dependencies are necessary. In order to find the dependencies of your MIB,
-you must open your MIB file using a standard text editor, then:
+Lors de l'importation d'un fichier MiB, il est possible que des dépendances soient nécessaires. Pour trouver les
+dépendances de votre MIB, vous devez ouvrir votre fichier MIB à l'aide d'un éditeur de texte standard, puis :
 
-1. Locate the line that starts with IMPORTS
-2. All dependencies required to import your MIB file are after the keyword **FROM**
+1. Recherchez la ligne commençant par IMPORT
+2. Toutes les dépendances requises pour importer votre fichier MIB se trouvent après le mot clé **FROM**
 
 ![image](assets/configuration/kdependances.png)
 
-In the MIB file shown above, there are four dependencies required to import the MIB: SNMPv2-SMI, SNMPv2-TC, SNMPv2-CONF,
-SNMP-FRAMEWORK-MIB.
+Dans le fichier MIB illustré ci-dessus, quatre dépendances sont requises pour importer la MIB : SNMPv2-SMI, SNMPv2-TC,
+SNMPv2-CONF, SNMP-FRAMEWORK-MIB.
 
-> The dependencies of the MIBS that you import must be present in the folder **/usr/share/snmp/mibs**. Once the import
-> is completed, delete the dependencies previously copied.
+> TLes dépendances des MIBS que vous importez doivent être présentes dans le dossier **/usr/share/snmp/mibs**. Une fois
+> l’import terminé, supprimez les dépendances préalablement copiées.
 
-## Manual configuration of traps
+## Configuration manuelle des traps
 
-### Basic configuration
+### Configuration basique
 
-It is also possible to create definitions of SNMP traps manually:
+Il est également possible de créer manuellement des définitions de trap SNMP :
 
-Go into the **Configuration \> SNMP traps \> SNMP traps** menu and click on **Add**
+Rendez-vous dans le menu **Configuration \> SNMP traps \> SNMP traps** et cliquez sur **Add**
 
 ![image](assets/configuration/06addsnmptrap.png)
 
-* The field **Trap name** defines the name of the trap.
-* The field **Mode** defines how to check the trap **OID** received.
-* The field **OID** defines the Root OID to be received for this trap to be considered as received.
-* The field **Vendor name** defines the name of the manufacturer to which the trap to be selected in the drop-down
-  list belongs.
-* The field **Output message** of contains the message to be displayed in the event of reception of a trap containing
-  the OID configured above.
+* Le champ **Trap name** éfinit le nom du trap.
+* Le champ **Mode** éfinit comment le champ **OID** est interpreté lors de la réception de ce trap.
+* Le champ **OID** définit l’OID racine à recevoir pour que ce trap soit considéré comme reçu.
+* Le champ **Vendor name** définit le nom du constructeur auquel appartient le trap à sélectionner dans la liste
+  déroulante.
+* Le champ **Output message** contient le message à afficher en cas de réception d’un trap contenant l’OID configuré
+  au-dessus.
 
-> By default, the MIB contains the definition of this variable (E.g.: “Link up on interface $2. State: $4.”, here $2
-> will be replaced by the 2nd argument received in the event.). In the opposite situation, the variable **$*** can be
-> used to display all the arguments contained in the trap.
+> Par défaut, la MIB contient la définition de cette variable (Exemple : “Link up on interface $2. State: $4.”, ici $2
+> sera remplacé par le 2ème argument reçu dans l’évènement.). Dans le cas contraire, la variable **$\*** permet
+> d’afficher l’ensemble des arguments contenu dans le trap.
 
-> It is possible to construct the output message yourself. For this, use the MIB to know the arguments that will be
-> present in the body of the event and retrieve the arguments with the variables **$n**. As each argument is identified
-> by a OID, it is possible to use this OID directly to place it in the output message without knowing its position via
-> the variable **@{OID}**.
+> Il est possible de construire soit même le message de sortie. Pour cela, utilisez la MIB afin de connaitre les
+> arguments qui seront présents dans le corps de l’évènement et récupérer les arguments avec les variables **$n**.
+> Chaque argument étant identifié par un OID, il est possible d’utiliser directement cet OID afin de le placer dans le
+> message de sortie sans connaitre sa position via la variable **@{OID}**..
 
-* The **Default status** field defines the “monitoring” status of the service in case of reception of the trap.
-* If the **Submit result** box is checked the result is submitted to the Network supervisor engine.
-* The **Comments** field (last field) contains by default the comment by the manufacturer of the SNMP trap. Most of the
-  time, this comment indicates the list of variables contained in the SNMP trap (see the next chapter on advanced configuration).
+* Le champ **Default status** définit le statut "supervision" par défaut du service en cas de réception du trap.
+* Si la case **Submit result** est cochée alors le résultat est soumis au moteur de supervision.
+* Le champ **Comments** (dernier champ) contient par défaut le commentaire constructeur du trap SNMP. La plupart du
+  temps, ce commentaire indique la liste des variables contenues dans le trap SNMP (voir chapitre suivant sur la
+  configuration avancée).
 
-### Advanced configuration of the traps
+### Configuration avancée des traps
 
-It is possible to determine the status of a service from the value of a setting of the SNMP trap rather than from the
-Root OID. Previously the manufacturer defined an SNMP trap (Root OID) by type of event to be sent (linkUp / linkDown).
-Today, the tendency is to define a Root OID by category of events and then to define the event via a set of settings.
+Il est possible de détermine le statut d’un service à partir de la valeur d’un paramètre du trap SNMP plutôt qu’à
+partir de l’OID racine. Anciennement les constructeurs définissaient un trap SNMP (OID racine) par type d’évènement à
+envoyer (linkUp / linkDown). Aujourd’hui, la tendance est de définir un OID racine par catégorie d’évènements puis de
+définir l’évènement via un ensemble de paramètres.
 
-To do this, it is possible of define **Advanced Matching mode** by clicking on **Add a new entry** and by creating as
-many rules as necessary.
-For each rule, define the settings:
+Pour cela, il est possible de définir des **Advanced Matching mode** en cliquant sur le bouton **Add a new entry** et
+de créer autant de règles que nécessaire. Pour chaque règle, définir les paramètres :
 
-* **String** defines the element on which the search will be applied (@OUTPUT@ defined all the **Output messages**
-  translated).
-* **Regexp** defined the REGEXP type search to be applied.
-* **Status** defines the status of the service in the event of concordance.
+* **String** définit l’élément sur lequel sera appliqué la recherche (@OUTPUT@ défini l’ensemble du **Output messages**
+  traduit).
+* **Regexp** définit la recherche de type REGEXP à appliquer.
+* **Status** définit le statut du service en cas de concordance.
 
-> The order is important in the rules of correspondence because the process will stop at the first rule of which the
-correspondence is assured.
+> L’ordre est important dans les règles de correspondance car le processus s’arrêtera à la première règle dont la
+> correspondance est assurée.
 
-* The **Disable submit result if no matched rules** field disables the sending of information to the scheduling engine
-  if no correspondence with a rule is confirmed.
-* If the **Reschedule associated services** box is checked, the next check on the service, which should be ‘active’,
-  should be reprogrammed as soon as possible after reception of the trap.
-* If the **Execute special command** box is checked, the command defined in Special command is executed.
+* Le champ **Disable submit result if no matched rules** désactive l’envoi des informations au moteur d’ordonnancement
+  si aucune correspondance avec une règle n’est validée.
+* Si la case **Reschedule associated services** est cochée alors le prochain contrôle du service, qui doit être ‘actif’,
+  sera reprogrammé au plus tôt après la réception du trap.
+* Si la case **Execute special command** est cochée alors la commande définie dans **Special command** est exécutée.
 
-### Routing
+### Onglet Advanced 
 
-The **Advanced** tab serves to configure the behavior of the handling process of the SNMP traps on its reception of the latter.
+L’onglet **Advanced** permet de configurer le comportement d’exécution du processus de traitement des traps SNMP lors
+de la réception de ce dernier.
 
 ![image](assets/configuration/06advancedconfiguration.png)
 
-* **Enable routing** is used to enable the routing of information.
-* **Route definition** is used to define the command to be used for routing.
+* **Enable routing** permet d’activer le routage des informations.
+* **Route definition** permet de définir la commande à utiliser pour le routage.
 
-Before performing the processing of the event (translation of the **Output message**), it is possible to execute a
-command called PREEXEC. To do this, it is possible to define **PREEXEC command (SNMPTT type)** by clicking on
-**Add a new entry** and create as many rules as necessary.
+Avant d’exécuter le traitement de l’évènement (traduction du **Output message**), il est possible d’exécuter une
+commande appelée PREEXEC. Pour cela, il est possible de définir des **PREEXEC command (SNMPTT type)** en cliquant sur
+le bouton **Add a new entry** et de créer autant de règles que nécessaire.
 
-* **PREEXEC command** defines the command to be executed.
+* **PREEXEC command** définit la commande à exécuter.
 
-Here is an example of use with the linkUP trap:
+Voici un exemple d’utilisation avec le trap linkUP : Pour un équipement Cisco, $2 == ifDescr contient le numéro de port
+de l’interface (GigabitEthernet0/1 par exemple). La meilleure description de l’interface est contenue dans le champ
+SNMP ifAlias.
 
-For a Cisco equipment, $2 == ifDescr contains the port number of the interface (GigabitEthernet0/1 for instance).
-The best description of the interface is in the SNMP if Alias field.
-
-The following command can be used to retrieve this value:
+La commande suivante permet de récupérer cette valeur :
 ```Bash
 snmpget -v 2c -Ovq -c <community> <cisco switch> ifAlias.$1
 ```
 
-To use the result of the PREEXEC command in the **Output message**, it is necessary to use the variable $p{n} where ‘n’
-corresponds to the order of definition of the command.
+Pour utiliser le résultat de la commande PREEXEC dans le **Output message**, il faut utiliser la variable $p{n} où ‘n’
+correspond à l’ordre de définition de la commande.
 
-Example:
+Exemple :
 ```Bash
 "Interface $2 ( $p1 ) linkUP. State: $4." "$CA"
 ```
 
-The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) linkUP. State: up
+Le résultat sera de la forme : Interface GigabitEthernet0/1 ( SERVEUR NAS ) linkUP. State: up @TODOTODO@
 
-* The **Insert trap's information into database** box, if checked, record the SNMP trap information in the database
-  field can be used define whether or not to classify the traps by day in the database.
-* The **Timeout** field expressed in seconds is used to define the maximum processing time of the event including the
-  pre-processing commands (PREEXEC) and post-processing commands (special command).
-* The **Execution interval** field expressed in seconds is used to define the maximum waiting time between two
-  processing operations of an event.
-* The **Execution Type** field is used to enable the Execution interval by defining the conditions by Root OID, by the
-  Root OID and host combination or, to disable this restriction, None.
-* The **Execution Method** field is used to define if on reception of multiple same events (Root OID). The execution is
-  either **Sequential** or **Parallel**.
+* Le champ **Insert trap's information into database** permet de journaliser ou non les traps en base de données.
+* Le champ **Timeout** exprimé en secondes, permet de définir le temps maximum de traitement de l’évènement y compris
+  les commandes de prétraitement (PREEXEC) ainsi que celles de post-traitement (special command).
+* Le champ **Execution interval** exprimé en secondes, permet de définir le temps minimum d’attente entre deux
+  traitements d’un évènement.
+* Le champ **Execution Type** permet d’activer **Execution interval** en définissant les conditions
+* Le champ **Execution Method** permet de définir si lors de la réception de plusieurs mêmes évènements (OID racine).
+  L’exécution est soit **Sequential** ou **Parallel**.
 
-### Custom code
+### Le code personnalisé
 
-The field **custom code** allows custom Perl processing. To enable this feature, you must set **secure_mode** to 0 in
-**/etc/centreon/centreontrapd.pm** file as:
+Le champ **custom code** permet d’ajouter un traitement Perl personnalisé. Pour l’activer, il est nécessaire de
+modifier la variable **secure_mode** à 0 dans le fichier **/etc/centreon/centreontrapd.pm** tel que :
 ```Perl
 our %centreontrapd_config = (
     ...
@@ -153,7 +152,7 @@ our %centreontrapd_config = (
 1;
 ````
 
-For example, to decode the 4 arguments from hexadecimal, the custom code will be:
+Par exemple, pour décoder le 4ème argument dont la valeur est en hexadécimal, le code personnalisé sera :
 ```Perl
 if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
     my $hexa_value = $self->{trap_data}->{entvar}->[3];
@@ -162,36 +161,36 @@ if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
 }
 ```
 
-> Beware the argument table starts at 0 for argument 1 of the SNMP trap.
+> Attention le tableau des arguments démarre à 0 pour l’argument 1 du trap SNMP.
 
-### Variables
+### Les variables
 
-When adding a rule of correspondence or executing a special command it is possible to transmit arguments to the **String**
-or **Special command** fields. These arguments are listed in the table below:
+Lors de l’ajout d’une règle de correspondance ou de l’exécution d’une commande spéciale il est possible de passer des
+arguments aux champs **String** ou **Special command**. Ces arguments sont listés dans le tableau ci-dessous :
 
-| Macro name               | Description                                                                                                               |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| @{NUMERIC_OID}           | Retrieval of the value of an argument via its OID, e.g.: @{.1.3.6.1.4.1.9.9.43.1.1.1}                                     |
-| $1, $2...                | Retrieval of the value of an argument via its order of appearance                                                         |
-| $p1, $p2,...             | Value of the command: PREEXEC ($p1 = at the first command, $p2 at the second, ...)                                        |
-| $*                       | All the arguments separated by a space                                                                                    |
-| @HOSTNAME@               | Host name (in centreon) to which the service is attached                                                                  |
-| @HOSTADDRESS@            | IP address of the host sending the trap                                                                                   |
-| @HOSTADDRESS2@           | DNS name of the host sending the trap (if the server fails to effect a reverse DNS resolution we retrieve the IP address) |
-| @SERVICEDESC@            | Service name                                                                                                              |
-| @TRAPOUTPUT@ ou @OUTPUT@ | Output of the traps                                                                                                       |
-| @STATUS@                 | Service state                                                                                                             |
-| @SEVERITYNAME@           | Criticality name                                                                                                          |
-| @SEVERITYLEVEL@          | Criticality level                                                                                                         |
-| @TIME@                   | Trap reception timestamp                                                                                                  |
-| @POLLERID@               | ID of the poller having received the trap                                                                                 |
-| @POLLERADDRESS@          | IP address of the poller having received the trap                                                                         |
-| @CMDFILE@                | Path to the command file of CentCore (central) or of centreon Engine (collector)                                          |
+| Nom de la variable       | Description                                                                                                                               |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| @{NUMERIC_OID}           | Récupération de la valeur d’un argument via son OID, exemple @{.1.3.6.1.4.1.9.9.43.1.1.1}                                                 |
+| $1, $2...                | Récupération de la valeur d’un argument via son ordre d’apparition                                                                        |
+| $p1, $p2,...             | VValeur de la commande PREEXEC ($p1 = pour la première commande, $p2 pour la seconde, ...)                                                |
+| $*                       | Tous les arguments séparés par un espace                                                                                                  |
+| @HOSTNAME@               | Nom d’hôte (dans Centreon) auquel le service est rattaché                                                                                 |
+| @HOSTADDRESS@            | Adresse IP de l’hôte ayant envoyé le trap                                                                                                 |
+| @HOSTADDRESS2@           | Nom DNS de l’hôte ayant envoyé le trap (si le serveur n’arrive pas à effectuer une résolution DNS inversée alors on récupère l’adresse IP |
+| @SERVICEDESC@            | Nom du service                                                                                                                            |
+| @TRAPOUTPUT@ ou @OUTPUT@ | Message envoyé par l’expéditeur du trap                                                                                                   |
+| @STATUS@                 | Statut du service                                                                                                                         |
+| @SEVERITYNAME@           | Nom du niveau de criticité de l’évènement                                                                                                 |
+| @SEVERITYLEVEL@          | Niveau de criticité de l’évènement                                                                                                        |
+| @TIME@                   | Heure de réception du trap                                                                                                                |
+| @POLLERID@               | ID du collecteur ayant reçu le trap                                                                                                       |
+| @POLLERADDRESS@          | Adresse IP du collecteur ayant reçu le trap                                                                                               |
+| @CMDFILE@                | Chemin vers le fichier de commande de CentCore (central) ou de Centreon Engine (collecteur)                                               |
 
-In addition, there are special variables that can be used in the **Routing settings** section at the level of the
-**Routing command** if the option Enable routing is selected:
+De plus, il existe des variables spéciales pouvant être utilisées dans la section **Routing settings**  au niveau de la
+**Routing command** si l’option **Enable routing** est sélectionnée :
 
-| Macro name          | Description                                                                                       |
-|---------------------|---------------------------------------------------------------------------------------------------|
-| @GETHOSTBYADDR($1)@ | Reverse DNS resolution used to find the DNS name DNS from the IP address (127.0.0.1 -> localhost) |
-| @GETHOSTBYNAME($1)@ | DNS resolution used to find the IP address from the DNS name (localhost -> 127.0.0.1)             |
+| Nom de la variable  | Description                                                                                                 |
+|---------------------|-------------------------------------------------------------------------------------------------------------|
+| @GETHOSTBYADDR($1)@ | Résolution DNS inverse permettant de connaitre le nom DNS à partir de l’adresse IP (127.0.0.1 -> localhost) |
+| @GETHOSTBYNAME($1)@ | Résolution DNS permettant de connaitre l’adresse IP à partir du nom DNS (localhost -> 127.0.0.1)            |
