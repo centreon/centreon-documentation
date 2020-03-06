@@ -1,6 +1,6 @@
 ---
 id: disco-hosts
-title: Hosts Discovery
+title: D2couverte des hôtes
 ---
 
 > The discovery rules are provided  from installation of Plugin Packs (MS Azure, Amazon Web Services, VMware, etc.). To

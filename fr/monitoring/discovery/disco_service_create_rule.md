@@ -1,6 +1,6 @@
 ---
 id: disco-service-create-rule
-title: Create services discovery rules
+title: Créer des règles de découverte des services
 ---
 
 ## Discovery rules

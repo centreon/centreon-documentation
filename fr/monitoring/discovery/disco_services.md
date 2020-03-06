@@ -1,6 +1,6 @@
 ---
 id: disco-services
-title: Services Discovery
+title: Découverte des services
 ---
 
 After the discovery rules programmed it is possible to run them from the Centreon web interface.
