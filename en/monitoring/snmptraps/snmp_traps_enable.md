@@ -107,7 +107,7 @@ our %centreontrapd_config = (
 1;
 ```
 
-You can also map the folder in the RAM, by adding the following line in the file: **/etc/fstab**:
+You can also map the folder in the RAM, by adding the following line in the file **/etc/fstab**:
 ```Bash
 tmpfs /var/spool/centreontrapd      tmpfs defaults,size=512m 0 0
 ```

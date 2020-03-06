@@ -179,6 +179,6 @@ submission can be canceled.
 
 There are three ways to configure this:
 
-* None : nothing to do, the trap is sent as normal;
-* Real-Time : with this option, a trap sent with a current downtime, the service state is not updated;
-* History : option used to do not acknowledge a trap snmp that concerning a past event during a downtime.
+* None: nothing to do, the trap is sent as normal;
+* Real-Time: with this option, a trap sent with a current downtime, the service state is not updated;
+* History: option used to do not acknowledge a trap snmp that concerning a past event during a downtime.

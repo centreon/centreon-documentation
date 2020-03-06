@@ -208,8 +208,8 @@ Then check that you do not have new errors while executing new plugins.
 
 ### Deletion
 
-as with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
-cross,
+As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
+cross:
 
 ![image](assets/configuration/pluginpacks/uninstall.png)
 

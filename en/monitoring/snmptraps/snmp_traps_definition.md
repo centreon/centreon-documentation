@@ -20,7 +20,7 @@ Go into the **Configuration \> SNMP traps \> MIBs** menu
 
 ![image](assets/configuration/06importmibssuccess.png)
 
-* The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing  belongs
+* The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
 
 When import a MiB file, it’s possible that dependencies are necessary. In order to find the dependencies of your MIB,
@@ -91,9 +91,9 @@ correspondence is assured.
   if no correspondence with a rule is confirmed.
 * If the **Reschedule associated services** box is checked, the next check on the service, which should be ‘active’,
   should be reprogrammed as soon as possible after reception of the trap.
-* If the **Execute special command** box is checked, the command defined in Special command is executed.
+* If the **Execute special command** box is checked, the command defined in **Special command** is executed.
 
-### Routing
+### Advanced tab
 
 The **Advanced** tab serves to configure the behavior of the handling process of the SNMP traps on its reception of the latter.
 

@@ -65,7 +65,7 @@ sub-groups in the Centreon BI module.
 
 ### Hosts Group
 
-Go to the  **Configuration \> Hosts \> Host Groups** menu and click on **Add**
+Go to the **Configuration \> Hosts \> Host Groups** menu and click on **Add**
 
 ![image](assets/configuration/07hostgroup.png)
 
@@ -83,7 +83,7 @@ Go to the  **Configuration \> Hosts \> Host Groups** menu and click on **Add**
 
 ### Services Group
 
-Go to the  **Configuration \> Services \> Service Groups** menu and click on **Add**
+Go to the **Configuration \> Services \> Service Groups** menu and click on **Add**
 
 ![image](assets/configuration/07servicegroup.png)
 
@@ -96,7 +96,7 @@ Go to the  **Configuration \> Services \> Service Groups** menu and click on **A
 
 ### Contacts Group
 
-Go to the  **Configuration \> Users \> Contact Groups** menu and click on **Add**
+Go to the **Configuration \> Users \> Contact Groups** menu and click on **Add**
 
 ![image](assets/configuration/07contactgroup.png)
 
@@ -106,7 +106,7 @@ Go to the  **Configuration \> Users \> Contact Groups** menu and click on **Add*
 
 ### Hosts category
 
-Go to the  **Configuration \> Hosts \> Categories** menu and click on **Add**
+Go to the **Configuration \> Hosts \> Categories** menu and click on **Add**
 
 ![image](assets/configuration/08hostcategory.png)
  
@@ -120,12 +120,12 @@ Go to the  **Configuration \> Hosts \> Categories** menu and click on **Add**
 
 ### Services category
 
-Go to the  **Configuration \> Services \> Categories** menu and click on **Add**
+Go to the **Configuration \> Services \> Categories** menu and click on **Add**
 
 ![image](assets/configuration/08servicecategory.png)
  
 * The **Name** and **Description** fields define the name and the description of the category of service.
-* if a service template is added to **Service Template Descriptions** list all the services which inherit from this
+* If a service template is added to **Service Template Descriptions** list all the services which inherit from this
   template belong to this category. 
 * The **Severity type** box signifies that the category of service has a criticality level.
 * The **Level** and **Icon** fields define a criticality level and an associated icon respectively.

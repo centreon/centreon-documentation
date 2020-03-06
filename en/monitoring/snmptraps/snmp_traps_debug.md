@@ -1,6 +1,6 @@
 ---
 id: debug-snmp-traps
-title: Debug SNMP Traps managment
+title: Debug SNMP Traps management
 ---
 
 ## Debug SNMP Traps
