@@ -7,9 +7,9 @@ In the Configuration menu it is possible to perform certain “generic” action
 
 ## Add / Delete
 
-The addition of a new object is done via the **Add** instruction next to the **More actions menu...**.
+The addition of a new object is done via the **Add** instruction next to the **More actions...** menu.
 
-To delete an object :
+To delete an object:
 
 1. Select the object(s) that you want to delete by checking the box(s) next to its name.
 2. In the **More actions...** menu click on **Delete**.
@@ -39,8 +39,7 @@ Thanks to this method, it is no longer necessary to create each host individuall
 To duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box
-2. Click on the duplciate icon: <img src="../assets/configuration/common/duplicate_new.png" width="32" />
-
+2. Click on the duplicate icon: <img src="../assets/configuration/common/duplicate_new.png" width="32" />
 3. Enter the number of duplications that you want to obtain
 
 <img src="../assets/configuration/common/duplicate_objects_new.png" width="400" />
@@ -52,7 +51,7 @@ To duplicate a Business Activity:
 To duplicate a host:
 
 1. Select the host that you want to duplicate
-2. In the **Options column**, enter the number of duplications that you want to obtain
+2. In the **Options** column, enter the number of duplications that you want to obtain
 
 ![image](assets/configuration/common/01duplicate.png)
 
@@ -80,8 +79,8 @@ To perform a massive change:
 
 The change menu opens, there are 2 types to change:
 
-* Incremental: signifies that the change will be added to the existing options
-* Replacement: signifies that the change will overwrite the existing options
+* **Incremental**: signifies that the change will be added to the existing options
+* **Replacement**: signifies that the change will overwrite the existing options
 
 ## Enable / disable
 
@@ -127,10 +126,8 @@ It is also possible to enable or disable an object via the **Status** field of t
 To delete an object:
 
 1. Select the objects you want to delete
-2. Click on icon to delte <img src="../assets/configuration/common/delete_new.png" width="32" />
+2. Click on icon to delete <img src="../assets/configuration/common/delete_new.png" width="32" />
 3. Confirm the action
-
-It is also possible to enable or disable an object via the **State** field of the object detail sheet or by using the following icons
 
 <!--Legacy pages-->
 

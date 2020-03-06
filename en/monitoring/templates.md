@@ -55,9 +55,7 @@ The diagram below shows a host inheriting from multiple host templates.
 
 To add a host template:
 
-1. Go into the menu: **Configuration > Hosts**
-2. In the left menu, click on **Templates**
-3. Click on **Add**
+Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of [hosts](hosts) to configure a template because the form is
 > identical.
@@ -76,9 +74,7 @@ A service or a service template can only inherit from a single service template 
 
 To add a Service Template:
 
-1. Go into the menu: **Configuration > Services**
-2. In the left menu, click on **Templates**
-3. Click on **Add**
+Go into the **Configuration > Services > Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of [services](services) to configure a template because the form is identical.
 
@@ -127,9 +123,7 @@ A contact or a contact template can only inherit one contact template.
 
 To add a contact template:
 
-1. Go into the menu: **Configuration > Users**
-2. In the left menu, click on **Contact Templates**
-3. Click on **Add**
+Go into the menu: **Configuration > Users > Contact Templates** menu and click on **Add**
 
 > Refer to the chapter covering configuration of [contacts](contacts). In addition, the contacts templates are used for
 > automatic import of profiles via @TODO@:ref:`LDAP<ldapconfiguration>`.

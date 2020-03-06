@@ -88,7 +88,7 @@ They are complementary to standard macros. E.g.:
 
 * The standard macro $CONTACTEMAIL$ makes reference to the e-mail address of the contact who uses the command of
   notification
-* The  environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
+* The environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
 
 The complete documentation on macros “on demand” is available at this address: @TODO@`macro list <http://nagios.sourceforge.net/docs/3_0/macrolist.html>`_.
 

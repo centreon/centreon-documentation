@@ -68,22 +68,15 @@ A Plugin Pack contains:
 The Centreon Plugin Packs subscription gives you access to specific connectors:
 
 | Connector  | Description
-|------------|----------------------------------------------------------------------------------------
-| JMX        | Centreon Plugin based on Jolokai to monitor an application server through JMX          
+|------------|----------------------------------------------------------------------------------------        
 | NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs  
 | NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins
 | VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                               
 | AS400      | Java-based connector allowing you to execute checks on an AS400
 
-> For JMX monitoring, the previous Java connector has been deprecated and replaced by a Centreon Plugin based on Jolokai technology.
-> The source code is available as with other Centreon Plugins.
->
-> For VMWare monitoring, the previous ESXD connector was available until version 1.5 but has now been deprecated and replaced by Centreon VMWare 2.x.
-> The change of name and version is due to major technical refactoring, and there is no direct upgrade from version 1.5 to 2.0.
-
 ## Plugin Packs management
 
-### Instalaltion
+### Installation
 
 Installation is a 3-step process:
 
@@ -198,9 +191,9 @@ Your Plugin Pack is up to date.
 
 #### Plugin updates
 
-To update the plugins, stop the Centreon Engine on **all pollers**.
+To update the plugins, execute the following command on **all pollers**.
 
-Update the plugins on **all pollers**::
+Update the plugins on **all pollers**:
 ```Bash
 yum update centreon-plugins*
 ```

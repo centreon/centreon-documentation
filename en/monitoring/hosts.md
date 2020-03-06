@@ -21,13 +21,13 @@ All these host additions take place in the menu: **Configuration \> Hosts \> Add
 * The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
 * The **Monitored from** field indicates which poller server is charged with monitoring this host.
 * The **Timezone / Location** field indicates the timezone location of the monitored hosts.
-* The **Host Templates** field enables us to associated one or more models of hosts with this object.
+* The **Host Templates** field enables us to associated one or more templates of hosts with this object.
 
-In case of conflicts of settings present on multiple models, the host model above overwrites the identical properties
-defined in host models below.
+In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
+defined in host templates below.
 
-This button enables us to change the order of host models ![image](assets/configuration/common/move.png)
-This button serves to delete the host model ![image](assets/configuration/common/delete.png)
+This button enables us to change the order of host templates ![image](assets/configuration/common/move.png)
+This button serves to delete the host template ![image](assets/configuration/common/delete.png)
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services based their self on the service templates linked to the host templates defined above (see the chapter @TODO@():ref:`hosttemplates`).
@@ -69,7 +69,7 @@ To change the order of the macros, click on ![image](assets/configuration/common
 * The **First notification delay** is expressed in minutes. It refers to the time delay to be respected before sending
   the first notification when a Not-OK status is validated.
 * If the **Contact additive inheritance** box is checked, Centreon does not overwrite the configuration of the parent
-  host model but adds the contacts in addition to the contacts defined in the parent model.
+  host template but adds the contacts in addition to the contacts defined in the parent template.
 * The list of **Linked contacts** indicates the contacts which will receive the notifications.
 * If the **Contact group additive inheritance** box is checked, Centreon does not overwrite the configuration of the
   parent host template but adds the contact groups in addition to the contact groups defined in the parent template.
@@ -92,8 +92,6 @@ To change the order of the macros, click on ![image](assets/configuration/common
   value changing too often on a given period).
 * The **Low Flap Threshold** and **High Flap Threshold** fields define the high and low thresholds for the detection of
   flapping in percentage of status change.
-* The **Process Perf Data** field allows us to enable or disable performance data processing (and so the generation of
-  performance graphics). This option is not necessary when Centreon Broker is use.
 * The **Retain Status Information** and **Retain Non Status Information** fields indicate if the information concerning
   the status is saved after every time the check command is repeated.
 * The **Stalking Options** field defined the options to be recorded if retention is enabled.
@@ -111,14 +109,14 @@ To change the order of the macros, click on ![image](assets/configuration/common
 * The **Icon** field indicates the icon use for the host.
 * The **Alt Icon** field is the text use if the icon cannot be Display.
 * The **Severity level** field indicates the severity level of the host.
+* The **Status Map Image** field defined the logo for Centreon Map module.
+* The **Geo coordinates** field defined Geographical coordinates use by Centreon Map module to position element on map.
+  Define "Latitude,Longitude", for example for Paris coordinates set "48.51,2.20"
 
-The fields presented below are fields that are only use by the CGI of the scheduler (usually Nagios). Consequently, they
-do not present much interest if Centreon Engine and Centreon Broker are in use.
+The fields presented below are obsolete:
 
-* The **Status Map Image** field defined the logo for the scheduler CGI.
-* The **Geo coordinates** field defined geographic coordinate (Latitude,Longitude) of the element. This is useful for
-  Centreon Map module.
-* The **2d Coords** and **3d Coords** fields indicates the 2D and 3D coordinates use by the CGI.
+* **2d Coords**
+* **3d Coords**
 
 ### Access groups
 

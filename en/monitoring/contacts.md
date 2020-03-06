@@ -22,14 +22,12 @@ To display the matrix of notification of a contact, click on **View contact noti
 * The **Full Name** field contains the name and first name of the user.
 * The **Email** and **Pager** fields contain respectively the e-mail address and the telephone number of the user (in
   the case of a notification by SMS or call for instance).
-* The field **Contact template used** allows us to link the contact to a Model of contact.
+* The **Contact template used** field allows us to link the contact to a Model of contact.
 * The **Linked to Contact Groups** list associated the contact to one or more groups of contacts.
 * The **Enable Notifications** field allows us to enable the sending of notifications to the user.
 * The **Host / Service Notification Options** field serves to define the statuses to which notifications are sent.
 * The **Host / Service Notification Period** field serves to choose the time period in which notifications are sent.
 * The **Host / Service Notification Command** field serves to choose the notification command to a host or a service.
-
-.. _autologin:
 
 ## Centreon authentication
  
@@ -50,7 +48,7 @@ http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token
   stored locally on the server.
 * The **Access list groups** field serves to define an access group to a user (group use for access control (ACL)).
 
-> A Administrative user is never concerned by access control even linked to an access group.
+> An Administrative user is never concerned by access control even linked to an access group.
 
 ## Additional information
 

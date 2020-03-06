@@ -12,7 +12,7 @@ to the scheduler. To apply the changes performed, it is necessary to follow the 
 
 ### First step
 
-1. Go into the menu: **Configuration \> Pollers**
+1. Go into the **Configuration \> Pollers** menu
 2. Choose the pollers which you want to export configuration
 3. Click on **Apply configuration**
 
