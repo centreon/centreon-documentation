@@ -59,7 +59,7 @@ To show:
 * The administrative state of the interface, use the $3 argument
 * The state interface, use the $4 argument
 
-For example, the following output message displays all the arguments::
+For example, the following output message displays all the arguments:
 ```Bash
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3
 ```

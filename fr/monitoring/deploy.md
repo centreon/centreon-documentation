@@ -1,50 +1,53 @@
 ---
 id: deploy
-title: Deploying a configuration
+title: Déployer une configuration
 ---
 
-## Procedure
+## Procédure
 
-On creation/deletion/change of objects via the configuration interface, the changes performed are not applied automatically
-to the scheduler. To apply the changes performed, it is necessary to follow the procedure below.
+Lors de la création/suppression/modification des objets via l’interface de configuration, les changements effectués ne
+sont pas appliqués de manière automatique aux serveurs de supervision. Afin de pouvoir appliquer les modifications
+effectuées, il est nécessaire de suivre la procédure suivante ci-dessous.
 
-> It should always be done in 2 steps.
+> Cela doit toujours être fait en 2 étapes.
 
-### First step
+### Première étape
 
-1. Go into the menu: **Configuration \> Pollers**
-2. Choose the pollers which you want to export configuration
-3. Click on **Apply configuration**
+1. Rendez-vous dans le menu : **Configuration \> Pollers**
+2. Choisissez les collecteurs sur lesquels exporter la configuration
+3. Cliquez sur **Apply configuration**
 
 ![image](assets/configuration/poller_menu_generate.png)
 
-4. Check the boxes: **Generate Configuration Files** and **Run monitoring engine debug (-v)**
-5. Click on **Export**
+4. Cochez les cases **Generate Configuration Files** et **Run monitoring engine debug (-v)**
+5. Cliquez sur **Export**
 
 ![image](assets/configuration/poller_generate_1.png)
 
-Check that no error appears during generation.
+Vérifier qu’aucune erreur n’apparait lors de la génération.
 
-> If there are errors, correct the errors and repeat the first step.
+> Si cela est le cas, corriger les erreurs et refaire la première étape.
 
-### Second step
+### Deuxième étape
 
-1. Uncheck the boxes: **Generate Configuration Files** and **Run monitoring engine debug (-v)**
-2. Then check the boxes: **Move Export Files** and **Restart Monitoring Engine**
-3. Click on **Export**
+1. Décochez les cases **Generate Configuration Files** et **Run monitoring engine debug (-v)**
+2. Puis cochez les cases **Move Export Files** et **Restart Monitoring Engine**
+3. Cliquez sur **Export**
 
 ![image](assets/configuration/poller_generate_2.png)
 
-> The **Post generation command** option can be used to request the execution of the command post-generation set at the
-> configuration of the scheduler.
+> L’option **Post generation command** permet de demander l’exécution de la commande post-génération paramétrée au
+> niveau de la configuration de l’ordonnanceur.
 
-## Explanations
+## Explications
 
-Multiple options are available in the configuration generation page:
+Au sein de la page de génération de la configuration, plusieurs options sont disponibles :
 
-* **Generate Configuration Files**: Generates the scheduler configuration files in a temporary directory. This configuration
-  is generated from objects configured via the web interface
-* **Run monitoring engine debug (-v)**: Enables the scheduler to check the generated configuration
-* **Move Export Files**: Moves the configuration files from the temporary directory to the  scheduler directory
-* **Restart Monitoring Engine**: Restarts the scheduler to apply the new configuration files
-* **Post generation command**: Executes the command post-generation set at the configuration of the scheduler level 
+* **Generate Configuration Files** : Génère les fichiers de configuration de l’ordonnanceur dans un répertoire
+  temporaire. Cette configuration est générée à partir des objets configurés via l’interface web
+* **Run monitoring engine debug (-v)** : Permet à l’ordonnanceur de vérifier la configuration générée
+* **Move Export Files** : Déplace les fichiers de configuration du répertoire temporaire vers le répertoire de
+  l’ordonnanceur
+* **Restart Monitoring Engine** : Redémarre l’ordonnanceur afin d’appliquer les nouveaux fichiers de configuration
+* **Post generation command** : Exécute la commande post-génération paramétrée au niveau de la configuration de
+  l’ordonnanceur

@@ -1,135 +1,130 @@
 ---
 id: templates
-title: Objects templates
+title: Les modèles d'objets
 ---
 
-## Definition
+## Définition
 
-A Template is a pre-configuration of settings of an object that could be used to configure it.
-The main advantage is to be able to define default values for certain objects to speed up the creation of similar objects.
+Un modèle est une pré-configuration de paramètres d’un objet qui pourra être utilisé pour configurer ce dernier. Le
+principal avantage est de pouvoir définir des valeurs par défaut pour certains objets afin d’accélérer la création
+d’objets similaires.
 
-On creation of a Template, only the template name is mandatory. The other attributes are optional.
+Lors de la création d’un modèle, seul le nom du modèle est obligatoire. Les autres attributs sont optionnels.
 
-There are 3 types of templates:
+Il existe trois types de modèles :
 
-* Hosts Templates
-* Services Templates
-* Contacts Templates
+* Les modèles d’hôtes
+* Les modèles de services
+* Les modèles de contacts
 
-The advantages are:
+Les avantages sont :
 
-* Simplified element definition
-* No duplication of data
-* Facility of addition of new resources
-* Predefined configurations assimilated to a “catalog of indicators”
-* Templates can inherit from other templates.
+* Définition simplifiée des éléments
+* Pas de redondance d’information
+* Facilité d’ajout de nouvelles ressources
+* Configurations prédéfinies assimilées à un « catalogue d’indicateurs»
+* Les modèles peuvent hériter d’autres modèles
 
-## Host Templates
+## Les modèles d’hôtes
 
-### Inheritance
+### Héritage
 
-A host or a host template can inherit from one or more host templates. This heritage may be:
+Un hôte ou un modèle d’hôte peut hériter d’un ou plusieurs modèles d’hôtes. Cet héritage peut être :
 
-* associative (addition of multiple host templates)
-* parent-child type
+* de type associatif (addition de plusieurs modèles d’hôte)
+* de type père-fils
 
-#### Parent-child type inheritance
+#### Héritage de type Père-Fils
 
-This is a predefinition of settings at “n” levels. The object inherits from its Template which can itself inherit from
-its Template. If the child redefines a setting, this setting overwrites that defined in the higher level templates.
-Otherwise it is added to the settings.
+Il s’agit d’une prédéfinition de paramètres à “n” niveaux. L’objet hérite de son modèle qui peut lui même hériter de
+son modèle. Si le fils redéfini un paramètre, ce dernier écrase celui défini dans les modèles de niveaux supérieurs.
+Sinon il vient compléter le paramétrage.
 
-#### Associative type inheritance
+#### Héritage de type associatif
 
-This consists of adding together several templates within the same object in order to add together all the settings
-available. If a host inherits from several host templates and if the same setting is defined on several templates, the
-host templates situated above the other templates has priority in relation to its ancestors.
+Il s’agit d’additionner plusieurs modèles au sein d’un même objet afin d’additionner l’ensemble des paramètres
+disponibles. Si un hôte hérite de plusieurs modèles d’hôtes et si un même paramètre est défini sur plusieurs modèles,
+alors le modèle d’hôte situé au-dessus des autres modèles est prioritaire par rapport à ses ascendants.
 
 ![image](assets/configuration/09hostmodels.png)
 
-The diagram below shows a host inheriting from multiple host templates.
+Le schéma ci-dessous présente un hôte héritant de plusieurs modèles d’hôtes.
 
 ![image](assets/configuration/09hostmodelsheritage.png)
 
 ### Configuration
 
-To add a host template:
+Pour ajouter un modèle d’hôtes :
 
-1. Go into the menu: **Configuration > Hosts**
-2. In the left menu, click on **Templates**
-3. Click on **Add**
+Rendez-vous dans le menu **Configuration > Hosts > Templates** et cliquez sur le bouton **Add**
 
-> Refer to the chapter covering configuration of [hosts](hosts) to configure a template because the form is
-> identical.
+> Rapportez-vous au chapitre de configuration des [hôtes](hosts) pour configurer un modèle car le formulaire est identique.
 
-> By default, locked host templates are hidden. Check the "Locked elements" box to list all templates.
+> Par défaut, les modèles d’hôte verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
 
 ## Services Templates
 
 ### Inheritance
 
-A service or a service template can only inherit from a single service template (parent-child type inheritance).
+Un service ou un modèle de service ne peut hériter que d’un seul modèle de service (héritage de type Père-Fils).
 
 ![image](assets/configuration/09heritageservice.png)
 
 ### Configuration
 
-To add a Service Template:
+Pour ajouter un modèle de services :
 
-1. Go into the menu: **Configuration > Services**
-2. In the left menu, click on **Templates**
-3. Click on **Add**
+Rendez-vous dans le menu **Configuration > Services > Templates** et cliquez sur le bouton **Add**
 
-> Refer to the chapter covering configuration of [services](services) to configure a template because the form is identical.
+> Rapportez-vous au chapitre de configuration des [services](services) pour configurer un modèle car le formulaire est
+> identique.
 
-> By default, locked service templates are hidden. Check the "Locked elements" box to list all templates.
+> Par défaut, les modèles de service verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
 
-## Best practice
+## Les bonnes pratiques
 
-### Explanations
+### Explications
 
-Good practice requires that services templates be associated with host's templates: on creation of a host, the services
-are generated automatically from host's templates. There are two advantages in linking services templates to hosts
-templates:
+La bonne pratique veut que des modèles de services soient associés à des modèles d’hôtes : lors de la création d’un hôte,
+les services sont générés automatiquement à partir des modèles d’hôtes. Il y a deux intérêts à lier les modèles de
+services aux modèles d’hôtes :
 
-* The services generated automatically retain their granularity: it is possible to change the Attributes of a service
-  without affecting the other services obtained from this template
-* The creation of new hosts is speeded up greatly: you simply have to define the host and the host's templates
-  associated with it
+* Les services générés automatiquement conservent leur granularité : il est donc possible de modifier les attributs d’un
+  service sans impacter les autres services issus de ce modèle
+* La création de nouveaux hôtes est grandement accélérée : vous n’avez qu’à définir l’hôte et les modèles d’hôtes associés
+  à celui-ci
 
-E.g.: We create the srvi-web-01 host according to the template below:
+Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
 ![image](assets/configuration/09hostexemple.png)
 
-The host srvi-web-01 will automatically possess the following services:
+L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 
-* Load, CPU, Memory, disk-/ from services templates linked to the host template “Linux-Server-RedHat-5”
-* Broken-jobs, hit-ratio, tablespaces, listener from services templates linked to the host template “DB-MySQL”
-* Process and connection from services templates linked to the host template “Web-Server-Apache”
+* Load, CPU, Memoiry, disk-/ à partir des modèles de services issus du modèle d’hôte “Linux-Server-RedHat-5”
+* broken-jobs, hit-ratio, tablespaces, listener à partir des modèles de services issus du modèle d’hôte “DB-MySQL”
+* processus et connection à partir des modèles de services issus du modèle d’hôte “Web-Server-Apache”
 
-When the services of a host are generated from host's templates, it is possible that certain services generated are not
-checked by the supervision tool. In this case, it is necessary to disable the services that are not used (but not to
-delete them). In case of deletion of services, regeneration of services of the host from host's templates will re-create
-the services deleted.
+Lorsque les services d’un hôte sont générés à partir des modèles d’hôtes, il est possible que certains services générés
+ne soient plus ou pas vérifiés par l’outil de supervision. Dans ce cas, il est nécessaire de désactiver les services
+inutilisés (et non de les supprimer). En cas de suppression des services, la régénération des services de l’hôte à
+partir des modèles d’hôtes va recréer les services supprimés.
 
 ### Configuration
 
-The linking of services templates with host's templates takes place in the **Relations** tab of the services templates
-or hosts templates.
+La liaison des modèles de services avec les modèles d’hôtes a lieu dans l’onglet **Relations** des modèles de services
+ou des modèles d’hôtes.
 
-## Contact Templates
+## Les modèles de contacts
 
-A contact or a contact template can only inherit one contact template.
+Un contact ou un modèle de contact peut hériter d’un seul modèle de contact.
 
 ![image](assets/configuration/09contactmodel.png)
 
 ### Configuration
 
-To add a contact template:
+Pour ajouter un modèle de contacts :
 
-1. Go into the menu: **Configuration > Users**
-2. In the left menu, click on **Contact Templates**
-3. Click on **Add**
+Rendez-vous dans le menu **Configuration > Users > Contact Templates** et cliquez sur le bouton **Add**
 
-> Refer to the chapter covering configuration of [contacts](contacts). In addition, the contacts templates are used for
-> automatic import of profiles via @TODO@:ref:`LDAP<ldapconfiguration>`.
+> Se rapporter au chapitre de configuration des [contacts](contacts). De plus, les modèles de contacts sont utilisés
+> pour l’import automatique de profils via un annuaire @TODO@:ref:`LDAP<ldapconfiguration>`.

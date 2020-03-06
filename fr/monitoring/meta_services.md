@@ -1,107 +1,110 @@
 ---
 id: meta-services
-title: Meta Services
+title: Les méta-services
 ---
 
 ## Definition
 
-A meta-service is a virtual service providing the aggregation of metrics from different services via a mathematical
-operation. Meta-services are managed in the same way as a service i.e. they have thresholds, a notification process,
-generate a performance graph, etc.
+Un méta-service est un service virtuel permettant l’agrégation de métriques issues de différents services au travers
+d’une opération mathématique. Les méta-services sont gérés de la même manière qu’un service c’est à dire qu’ils
+possèdent des seuils, un processus de notification, génèrent un graphique de performance...
 
-E.g.: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
-the services supervising the WAN traffic individually.
+Exemple : Il est possible de déterminer la consommation totale de trafic WAN en additionnant au sein d’un méta-service
+l’ensemble des services supervisant le trafic WAN unitairement.
 
-### Types of computing
+### Les types de calcul
 
-Several types of calculation are possible on the metrics retrieved:
+Plusieurs types de calculs sont possibles sur les métriques récupérées :
 
-* **Average**: calculate the average of the performance data
-* **Sum**: calculate the sum of the performance data
-* **Min**: retrieve the minimum of all the performance data
-* **Max**: retrieve the maximum of all the performance data
+* **Average** : réalise la moyenne des données de performances
+* **Sum** : réalise la somme des données de performances
+* **Min** : récupère le minimum de l’ensemble des données de performances
+* **Max** : récupère le maximum de l’ensemble des données de performances
 
-### Types of data sources
+### Les types de sources de données
 
-The result of the calculation is an item of performance data (metric) which generates a performance graph. To trace the
-result most effectively, it is necessary to select the type of data source (GAUGE by default).
+Le résultat du calcul est une donnée de performance (métrique) qui génèrera un graphique de performance. Afin de tracer
+au mieux le résultat, il faut sélectionner le type de source de données (par défaut GAUGE). Les types de sources de
+données disponibles sont :
 
-The types of data sources available are:
+* Le type **GAUGE** enregistre une valeur instantanée (température, humidité, CPU, ...)
+* Le type **COUNTER** enregistre une valeur incrémentale par rapport au résultat précédent
+* Le type **DRIFT** stockera la dérivée de la ligne allant de la dernière à la valeur courante de la source de données.
+  Cela peut être utile pour des jauges, par exemple, de mesurer le taux de personnes entrant ou quittant une pièce.
+* Le type **ABSOLUTE** est pour les compteurs qui se réinitialisent à la lecture. Il est utilisé pour les compteurs
+  rapides qui ont tendance à déborder.
 
-* The **GAUGE** type records an instantaneous value (temperature, humidity, processor, etc.)
-* The **COUNTER** type records an incremental value in relation to the previous result
-* The **DRIFT** type stores the derivative of the line from the last to the current value of the data. This can be useful
-  for capacities, for example for measuring the rate of people entering or leaving a room.
-* The **ABSOLUTE** type is for counters which reset on reading. It is used for fast counters that have a tendency to over-run.
-
-> More information on the [RRDTools website](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html).
+> Plus d’informations sur le site de [RRDTools](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html).
 
 ## Configuration
 
-To add a meta-service:
+Pour ajouter un méta-service :
 
-Go into the menu: **Configuration \> Services \> Meta Services** and click on **Add**
+Rendez-vous dans le menu : **Configuration \> Services \> Meta Services** et cliquez sur le bouton **Add**
 
 ![image](assets/configuration/02addmetaservice.png)
  
-### General information
+### Informations générales
 
-* The **Meta Service Name** field corresponds to the name of the meta-service Displayed in the interface.
-* The **Output format string (printf-style)** field corresponds to the output message (‘output’) visible in Centreon.
-  The “%d” value corresponds to the value calculated by the meta-service
-* The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the meta-service
-  respectively.
-* The **Calculation Type** and **Data source Type** fields correspond to the calculations and to the description of the
-  data source respectively
-* The **Selection Mode** field serves to select the services containing the metrics that will be used in the meta-service calculation.
+* Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface.
+* Le champ **Output format string (printf-style)** correspond au message de sortie (‘output’) visible dans Centreon.
+  La valeur “%d” correspond à la valeur calculée par le méta-service.
+* Le champ **Warning level** and **Critical level** correspondent respectivement aux seuils "WARNING" et
+  "CRITICAL" du méta-service.
+* Les champs **Calculation Type** et **Data source Type** correspondent respectivement aux calculs et à la description
+  de la source de données
+* Le champ **Selection Mode** ermet de sélectionner les services contenant les métriques qui entreront dans le calcul
+  du méta-service.
 
-If the **Service list** selection mode is selected the metrics chosen will be obtained from services selected manually.
+Si l'option **Service list** est sélectionnée alors les métriques choisies seront issues de services sélectionnés
+manuellement.
 
-If the **SQL matching** selection mode is selected the services used will be selected automatically by Centreon via a search
-based on the LIKE type SQL expression to be searched field. The metric to be used in this case will be selected from the
-Metric drop down list.
+Si l’option **SQL matching**  est sélectionnée alors les services utilisés seront sélectionnés automatiquement par
+Centreon via une recherche à partir du champ Expression SQL à rechercher de type LIKE. La métrique à utiliser sera dans
+ce cas à sélectionner dans la liste déroulante Métrique.
 
-> More information on [PRINTF formatting](http://en.wikipedia.org/wiki/Printf_format_string).
+> Plus d’informations sur le formatage [PRINTF](http://en.wikipedia.org/wiki/Printf_format_string).
 
-### Meta Service status
+### Etat du Meta Service
 
-* The **Check Period** field defines the time period during which the scheduler checks the status of the meta-service.
-* The **Max Check Attempts** field defines the number of checks to be made before confirming the status of the meta-service:
-  when the status is valid a notification is sent.
-* The **Normal Check Interval** field is expressed in minutes. It defines the interval between checks when the status of
-  the meta-service is OK.
-* The **Retry Check Interval** field is expressed in minutes. It defines the checking interval of the Not-OK status of
-  the meta-service.
+* Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du méta-service.
+* Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut du méta-service
+  : lorsque le statut est validé, une notification est envoyée.
+* Le champ **Normal Check Interval** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
+  le statut du méta-service est OK.
+* Le champ **Retry Check Interval** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du
+  méta-service.
 
 ### Notification 
 
-* The **Notification Enabled** field serves to enable the notifications.
-* The **Linked Contacts Groups** list serves to define the groups of contacts that will be alerted.
-* The **Notification Interval** field is expressed in minutes and can be used to define the time interval between the
-  sending of two notifications.
-* The **Notification Period** field can be used define the period of notification.
-* The **Notification Type** field defines the types of notification sent.
+* Le champ **Notification Enabled** permet d’activer les notifications.
+* Le champ **Linked Contacts Groups** permet de définir les groupes de contacts qui seront alertés.
+* Le champ **Notification Interval** est exprimé en minutes et permet de définir l’intervalle de temps entre l’envoi
+  de deux notifications.
+* Le champ **Notification Period** permet de définir la période de notification.
+* Le champ **Notification Type** définit les types de notifications envoyées.
 
-### Additional informations
+### Informations supplémentaires
 
-* The **Graphic Template** list defines the graphic model used by this meta-service.
-* The **Status** and **Comments** fields serve to enable / disable or comment on the meta-service.
+* La liste **Graphic Template** définit le modèle de graphique utilisé par ce méta-service.
+* Les champs **Status** et **Comments** permettent d’activer / désactiver ou de commenter le méta-service.
 
-## Select services manually
+## Sélectionner manuellement des services
 
-If you have chosen the option **Service list**, in the screen containing all the meta-services:
+Si vous avez choisi l’option **Service list**, au sein de l’écran regroupant l’ensemble des méta-services :
 
-1. Click on the following icon to select the metrics entering into the calculation of the meta-service. These
-  metrics are called indicators. ![image](assets/configuration/common/flechedirection.png)
-2. Click on **Add**
+1. Cliquez sur fsuivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
+  sont appelées indicateurs. ![image](assets/configuration/common/flechedirection.png)
+2. Cliquez sur le bouton **Add**
 
 ![image](assets/configuration/02metaservicesindicators.png)
 
-* The **Host** field serves to select the host to which the service to be selected belongs.
-* The **Service** field serves to choose the service (first list) as well as the metric in this service (second list).
-* The **Status** and **Comment** fields serve to enable / disable or comment on the indicator.
+* Le champ **Host** permet de sélectionner l’hôte auquel le service à sélectionner appartient.
+* Le champ **Service** permet de choisir le service (première liste) ainsi que la métrique au sein de ce service
+  (seconde liste).
+* Les champs **Status** et **Comment** permettent d’activer / désactiver ou de commenter l’indicateur.
 
-3. Repeat the operation until you have added all the indicators necessary for the calculation of the meta-service.
+3. Répétez l’opération jusqu’à avoir ajouté tous les indicateurs nécessaires au calcul du méta-service.
 
-> A meta-service should be considered as a regular service. It is necessary to generate the configuration of the central
-> scheduler, to export it and then restart the scheduler.
+> Un méta-service est à considérer comme service régulier. Il est nécessaire de générer la configuration de
+> l’ordonnanceur central, d’exporter cette dernière puis de redémarrer l’ordonnanceur.

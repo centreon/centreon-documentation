@@ -129,6 +129,6 @@ ce service lié à plusieurs hôtes en un service unique pour chaque hôte:
 
 1. Dans la liste des services, sélectionnez le service lié à plusieurs hôtes (habituellement ce service est surligné en
   orange)
-2. Dans le menue **More actions....** cliquez sur le bouton **Detach** et validez
+2. Dans le menu **More actions....** cliquez sur le bouton **Detach** et validez
 
 Il existe maintenant un service unique par hôte.

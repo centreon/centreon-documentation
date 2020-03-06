@@ -1,211 +1,212 @@
 ---
 id: pluginpacks
-title: Plugin Packs
+title: Les Plugin Packs
 ---
 
-The Plugins Packs are a set of templates developed by Centreon. They offer a simplified and optimized way to monitor
-your IT infrastructure. These templates have been preconfigured to make deployment fast and efficient.
+Les Plugin Packs (ou pack de supervision en français) sont un ensemble de modèles de configuration Centreon (packs)
+développés et validés par la société Centreon. Ils offrent une supervision, simplifiée, standardisée et optimisée pour
+votre infrastructure IT. En effet, les modèles de supervision préconfigurés permettent un déploiement rapide et
+performant de la supervision.
 
-This chapter explains how to use Centreon Plugin Packs.
+Cette documentation explique comment utiliser les Centreon Plugin Packs.
 
 ![image](assets/configuration/pluginpacks/pp_list.png)
 
-## Prerequisites
+## Prérequis
 
 ### Centreon Plugin Pack Manager
 
-The **Centreon Plugin Pack Manager** module, included natively in Centreon, can install, update or remove the Plugin
-Packs. We recommended that you keep this module regularly updated.
+Le module **Centreon Plugin Pack Manager** est un module natif Centreon qui permet de gérer l’installation et de la
+suppression des Plugin Packs. C’est un élément clé, il fait régulièrement l’object de mises à jour. Il est donc
+recommandé de rester à jour sur ce composant.
 
-To update **Centreon Plugin Pack Manager** run the following command:
+Pour mettre à jour le module, lancez la commande :
 ```Bash
 yum update centreon-pp-manager
 ```
 
-> The centreon-pp-manager module is installed by default along with the Centreon software.
+> Le module centreon-pp-manager est installé par défaut. Vous n’aurez logiquement pas à l’installer.
 
-### License
+### Licence
 
-A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
-subscription your license will be directly downloaded to your server. Otherwise, contact the
-[Centreon support team](https://centreon.force.com) to get and install your license key.
+Une licence est nécessaire pour accéder au catalogue complet des Plugin Packs. Si votre plate-forme Centreon est
+connectée à une souscription en ligne, celle-ci sera automatiquement téléchargée sur votre serveur. Sinon contactez
+les équipes [support Centreon](https://centreon.force.com)
 
-### Access to Plugin Packs
+### Accès aux Plugin Pack
 
-If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
-Manager user interface. Otherwise, a dedicated RPM repository will be provided by
-[Centreon support team](https://centreon.force.com)
+Si votre plate-forme Centreon est connectée à une souscription en ligne vous pouvez télécharger les Plugin Packs depuis
+l’interface utilisateur Plugin Pack Manager. Sinon, un dépôt RPM vous sera délivré par les équipes
+[support Centreon](https://centreon.force.com)
 
-## Overview
+## Vue d’ensemble
 
-The **Centreon Plugin Packs** are a set of **standardized** **templates** that are **preconfigured** for rapid
-deployment of monitoring in your IT infrastructure.
+Les **Centreon Plugin Pack** sont des ensembles de **modèles** de supervision **standardisés**, **préconfigurés**
+permettant un **déploiement rapide** de la supervision de votre infrastructure IT.
 
-These templates (commands, hosts and services templates) are attached to the **monitoring plugins**, which can either be:
+Ces modèles (commandes, modèles de services et d’hôtes) sont rattachés à des **plugins** (sondes) de supervision. Ces
+plugins peuvent être :
 
-* existing community plugins selected and validated by Centreon as being fully functional and optimized, or
-* plugins written by Centreon that are distributed as free software under RPM or available on
-  [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
+* des plugins existants provenant de la communauté, ayant été sélectionnés et validés par Centreon comme étant
+  fonctionnels et optimisés,
+* des plugins développés par Centreon, distribués gratuitement et disponibles soit au travers de paquets RPM, soit via
+  le projet [Centreon Plugins](https://github.com/centreon/centreon-plugins)
 
-The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
-**the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
-**service templates** and **host or service discovery rules**.
+La valeur ajoutée des **Plugin Packs** est la **préconfiguration** de la **supervision** dans le logiciel Centreon.
+Lors de leur installation, **ils apportent** dans Centreon des **objets pré-paramétrés** tels que les **commandes**,
+des **modèles d’hôtes** et des **modèles de services**.
 
-After you install the Plugin Packs, the next step is to install the monitoring plugins used by the Plugin Pack commands.
-Refer to the documentation in the pack in case any features have to be configured or activated, and then create the
-required hosts and services based on these models.
+Une fois le Plugin Pack installé, l’étape suivante consiste à installer les plugins de supervision utilisés par les
+commandes du Plugin Pack. Pour cela, se référer à la documentation du pack (dans le cas où quelque chose doit être
+configuré ou activé), puis créer les hôtes et services basés sur ces modèles.
 
-### Inside a Plugin Pack
+### Contenu d’un Plugin Pack
 
-A Plugin Pack contains:
+Un Plugin Pack contient :
 
-* a description of the pack contents and the indicators that can be monitored.
-* Centreon preset objects (commands, host templates, service templates) packaged and validated.
-* documentation for a simple and quick deployment. It is available once the pack is installed. 
+* une description du contenu de pack ainsi que des indicateurs pouvant être contrôlés,
+* une préconfiguration d’objets Centreon (commandes, modèles d’hôtes, modèles de services) packagée et validée,
+* une documentation de déploiement, disponible dès l’installation du pack pour un déploiement rapide et simple
 
-### Connectors
+### Connecteurs
 
-The Centreon Plugin Packs subscription gives you access to specific connectors:
+La souscription aux Centreon Plugin Packs vous donne accès à certains connecteurs spécifiques listés ci-dessous :
 
-| Connector  | Description
-|------------|----------------------------------------------------------------------------------------
-| JMX        | Centreon Plugin based on Jolokai to monitor an application server through JMX          
-| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs  
-| NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins
-| VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                               
-| AS400      | Java-based connector allowing you to execute checks on an AS400
+| Connecteur | Description                                                                                          |
+|------------|------------------------------------------------------------------------------------------------------|
+| NRPE       | Serveur NRPE packagé par Centreon avec les patchs nécessaires pour fonctionner avec les Plugin Packs |
+| NSClient++ | NSClient++ packagé par Centreon et prêt à l’emploi à l’aide de Centreon plugins embarqués            |
+| VMWare     | Démon Perl utilisant le SDK VMware pour contrôler les plateformes VMware                             |
+| AS400      | Connecteur basé sur Java permettant d’exécuter des contrôles sur AS400                               |
 
-> For JMX monitoring, the previous Java connector has been deprecated and replaced by a Centreon Plugin based on Jolokai technology.
-> The source code is available as with other Centreon Plugins.
->
-> For VMWare monitoring, the previous ESXD connector was available until version 1.5 but has now been deprecated and replaced by Centreon VMWare 2.x.
-> The change of name and version is due to major technical refactoring, and there is no direct upgrade from version 1.5 to 2.0.
+## Gestion des Plugin Packs
 
-## Plugin Packs management
+### Installation
 
-### Instalaltion
+L’installation est en 3 étapes :
 
-Installation is a 3-step process:
+1. Accès au catalogue des Plugin Packs
+2. Installation du pack
+3. Installation des plugins
 
-1. Access to the Plugin Packs catalog
-2. Pack installtion
-3. Plugin installation
+#### Accès au catalogue des Plugin Packs
 
-#### Access to Plugin Packs catalog
-
-* **online platform**: if your platform is linked to an online subscription
-* **offline** otherwise
+* **en ligne**: if your platform is linked to an online subscription
+* **hors ligne** otherwise
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--Online platform-->
+<!--En ligne-->
 
-If you benefit from an online subscription, you must first authenticate your Centreon platform.
-Go to the **Administration \> Extension \> Subscription** menu and log in with your Centreon 
-username to authenticate your Centreon platform.
+Si vous bénéficiez d’une souscription en ligne, vous devez vous authentifier.
+
+Pour celà, rendez-vous dans le menu **Administration \> Extension \> Subscription** puis utilisez vos identifiants
+pour vous identifier.
 
 ![image](assets/configuration/pluginpacks/imp_authentification.png)
 
-Click on **install** to access the catalog:
+Cliquez sur **Install** pour pour accéder au catalogue :
 
 ![image](assets/configuration/pluginpacks/imp_install.png)
 
-You can now proceed to the pack installation.
+Vous pouvez maintenant installer vos packs.
 
-<!--Offline platform-->
+<!--Hors ligne-->
 
-From your Centreon Central server, install or update the Plugin Packs catalog:
+Pour installer ou mettre à jour le catalogue, exécutez :
 ```Bash
 yum install centreon-pack-*
 ```
 
-or:
+Ou:
 ```Bash
 yum update centreon-pack-*
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-#### Pack installation
+#### Installation du pack
 
-You now have access to the Plugin Packs catalog:
+Vous avez maintenant accès au catalogue des Plugin Packs :
 
 ![image](assets/configuration/pluginpacks/pp_list.png)
 
-To install a Plugin Pack, hover over the icon with the mouse and click on the ``+``
+Pour installer un plugin pack, cliquez sur le ``+``
 
 ![image](assets/configuration/pluginpacks/install_pp.png)
 
-You can also click on the Plugin Pack to display more details and click on the ``+``
+Vous pouvez aussi cliquer sur le Plugin Pack. Vous accéderez à sa description et un bouton ``+`` permettant
+de l’installer.
 
 ![image](assets/configuration/pluginpacks/install_pp_2.png)
 
-Once the Plugin Pack is installed, a green outline and an arrow icon will indicate successful installation.
+Une fois le plugin pack installé, il apparaitra avec un contour vert et une flèche indiquant qu’il est installé.
 
-| **before installation**                                       | **after installation**                                       |
+| **avant installation**                                        | **après installation**                                       |
 |---------------------------------------------------------------|--------------------------------------------------------------|
 | ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) | 
 
-> Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
-> well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
-> [Integration/Plugin Packs chapter](../integrations/plugin-packs/init-plugin-packs)
+> Veuillez lire la **monitoring procedure** associée à chaque pack installé pour comprendre le contenu du pack ainsi
+> que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
+> le chapitre [Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs)
 
-#### Managing dependencies
+#### Gestion les dépendances
 
-During installation, some objects in the pack may not be installed. These objects are often additional configuration
-objects and are not required to deploy the configuration templates provided by the pack.
+Il se peut que durant l’installation, certains objets du pack ne soient pas installés. Ces objets sont souvent des
+objets de configuration additionnels et ne sont pas obligatoire pour déployer les modèles de configuration apportés par
+le pack.
 
-Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
+La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.
 
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in 18.10.x version:
+Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
+mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
 
 ![image](assets/configuration/pluginpacks/objects_not_installed.png)
 
-#### Plugin installation
+#### Installation des plugins
 
-Next, install the required plugins as indicated in the steps above.
+Installez maintenant les plugins nécessaires référencés par les modèles installés dans les étapes précédentes.
 
-Run the following command for **each Centreon poller** that will execute the plugins:
+Utilisez la commande suivante sur **tous les pollers qui exécuteront les contrôles** :
 ```Bash
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
 
-Where ``$PLUGIN-PACK$`` is the name displayed by your YUM search.
+dans laquelle ``$PLUGIN-PACK$`` correspond au nom du Pack listé par la commande de recherche Yum.
 
-### Update
+### Mise à jour
 
-#### Plugin Pack update
+#### Mise à jour du Plugin Pack
 
-If an arrow appears on a Plugin Pack it means that an update is available.
+Si vous constatez une icône représentant une flèche sur un Plugin Pack, cela veut dire qu’une mise à jour du pack est
+disponible..
 
 ![image](assets/configuration/pluginpacks/update.png)
 
-Hover over the Plugin Pack and click on the arrow,
+Pour le mettre à jour, cliquez sur la flèche,
 
 ![image](assets/configuration/pluginpacks/update2.png)
 
-or click on the Plugin Pack to display more details, then click on the arrow. 
+ou cliquez sur le Plugin Pack. Une fenêtre affiche alors des informations relatives au Plugin Pack ainsi qu’une flèche
+permettant de le mettre à jour s’ouvre. Cliquer sur la flèche pour enclencher la mise à jour
 
 ![image](assets/configuration/pluginpacks/update3.png)
 
-Confirm the update.
+Confirmez la mise à jour.
 
 ![image](assets/configuration/pluginpacks/update_confirm.png)
 
-Your Plugin Pack is up to date.
+Votre Plugin Pack est maintenant à jour.
 
 ![image](assets/configuration/pluginpacks/update_finish.png)
 
-#### Plugin updates
+#### Mise à jour du plugin
 
-To update the plugins, stop the Centreon Engine on **all pollers**.
-
-Update the plugins on **all pollers**::
+To update the plugins, Exécutez la commande suivante sur **tous les collecteurs**
 ```Bash
 yum update centreon-plugins*
 ```
 
-Restart the Centreon Engine on **all pollers**.
+Puis redémarrez **tous les collecteurs**.
 
 Then check that you do not have new errors while executing new plugins.
 
