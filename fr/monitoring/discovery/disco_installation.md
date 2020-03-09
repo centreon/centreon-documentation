@@ -5,48 +5,50 @@ title: Installation
 
 ## Architecture
 
-The **Centreon Auto Discovery** module contains 3 parts:
+Le module **Centreon Auto Discovery** est composé de 3 parties :
 
-* The web UI: rules creation, administration and exploitation of the module
-* Discovery plugins
-* Scheduled job (cron) which executes discovery rules
+* Une interface Web : création des règles, administration et exploitation du module ;
+* Les sondes de découvertes ;
+* Les tâches CRON qui exécutent les règles de découverte.
 
-The discovery plugins look for new elements to monitor, see
-[Discovery plugins](disco-service-create-rule#discovery-plugins) for more detail.
+Les sondes de découverte vérifient la présence de nouveaux éléments à superviser. Voir
+[sondes de découvertes](disco-service-create-rule#discovery-plugins) pour plus de détails.
 
-The rules, managed through the web UI, are saved into **Centreon**'s database and are executed periodically (every
-night at 10:30 PM) by the *cron* jon. See @TODO@:ref:`Discovery job<sched_job>` pour more detail.
+Les règles, gérées à travers l’interface Web, sont sauvegardées dans la base de données Centreon et sont exécutées
+périodiquement (toutes les nuits à 22h30) par une [tâche planifiée cron](disco-administration#tâche-programmée).
 
-The following figure describes the general functioning of this module:
+disco-administration.html#tâche-programmée
+
+Les schémas suivants décrivent le fonctionnement général du module :
 
 ![image](assets/configuration/autodisco/centreon_auto_disco_schema.png)
 
 ## Installing packages
 
-Execute the following command:
+Exécutez la commande suivante :
 ```Bash
- yum install centreon-auto-discovery-server
+yum install centreon-auto-discovery-server
 ```
 
-## Configuring Centreon API access
+## Configuration des accès à l’API Centreon
 
-Edit the **/etc/centreon/centreon_autodisco.pm** file and configure the **clapi_user** and **clapi_password**
-parameters, then save modifications and close the file.
+Editez le fichier **/etc/centreon/centreon_autodisco.pm** et modifiez les valeurs des paramères **clapi_user** et
+**clapi_password** puis sauvegarder les modifications.
 
-## UI installation
+## Installation web
 
-Connect to the Centreon's web interface using an account allowed to administer products and go to the
-**Administration \> Extensions \> Manager** menu.
+Connectez-vous à l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
+rendez-vous dans le menu **Administration \> Extensions \> Manager**.
 
-Click on the installation icon corresponding to the **Centreon Auto Discovery** module:
+Cliquez sur l’icône d’installation correspondant au module **Centreon Auto Discovery** :
 
 ![image](assets/configuration/autodisco/install.png)
 
-The module is now installed:
+Le module est maintenant installé :
 
 ![image](assets/configuration/autodisco/list_modules.png)
 
-## Installing the Plugin Packs
+## Installer les Plugin Packs
 
-To get discovery rules ready to use, please go to **Configuration \> Pluin Packs** menu and
-[install your packs](pluginpacks#pack-installation)
+Afin de bénéficier de règles de découverte prêtes à l’emploi, rendez-vous dans le menu **Configuration \> Pluin Packs**
+et [installez vos premiers packs](../pluginpacks#installation-du-pack)

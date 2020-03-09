@@ -3,110 +3,116 @@ id: disco-service-create-rule
 title: Créer des règles de découverte des services
 ---
 
-## Discovery rules
+## Règles de découverte
 
 ### General options
 
-A discovery rule allows to dynamically create services and to link them to a host, based on the elements discovered by
-the probes. The created unit services will be attached to a service template so that Centreon's functionalities can be
-used (inheritance, overloading and more).
+Options générales
+Une règle de découverte permet de créer dynamiquement des services et de les lier à un hôte, en se basant sur les
+éléments remontés par les sondes. Les services unitaires créés sont attachés à des modèles de services ce qui permet
+d’utiliser les fonctionnalités de Centreon (héritage, surcharge, etc.)
 
-To create a rule, go to **Configuration \> Services \> Auto Discovery \> Rules** and click on the **Add** button:
+Pour créer une règle de découverte, rendez-vous dans le menu **Configuration \> Services \> Auto Discovery \> Rules**
+et cliquez sur **Add** :
 
 ![image](assets/configuration/autodisco/create_rule_1.png)
 
-Fill the first fields:
+Saisissez les premiers champs :
 
 ![image](assets/configuration/autodisco/create_rule_2.png)
 
-Here is the description of the firsts fields located inside the *General* tab:
+Voici une description des premiers champs à saisir :
 
-* **Rule name**: the rule's name
-* **Command Macro**: discovery command which allow to list available XML attributes
-* **Command Discover**: discovery command which will be executed to enumerate the elements
-* **Service template**: the service template used to dynamically create new services based 
-  on the discovery
+* **Rule name** : nom de la règle
+* **Command Macro** : la commande exécutée pour lister les attributs du flux XML
+* **Command Discover** : la commande de découverte exécutée pour lister les éléments
+* **Service template**: le modèle de service utilisé pour créer les nouveaux services
 
-Go to the second **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
+Rendez-vous dans le second onglet **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
 
 ![image](assets/configuration/autodisco/create_rule_3.png)
 
-Come back to the first **General** tab, define the **Service display name** and select values for the other fields:
+Revenez au premier onglet et définir le nom des services qui seront créés ainsi que les autres champs disponibles :
 
 ![image](assets/configuration/autodisco/create_rule_4.png)
 
-Define the name of the service that will be created.
+Saisir le nom du service qui sera créé via le champ **Service display name**.
 
-> The service name can contain a macro corresponding to an XML stream's attribute. For example: when looking for network
-> interfaces, the interface name will be given by the **name** attribute. **Traffic-$name$** will be replaced by
-> **Traffic-eth0** if the interface's name is **eth0**. The XML attribute's name must be described between two **$**
-> characters. You can use many XML attributes to build the service name.
+> Le nom du service peut contenir une macro correspondant à un attribut du flux XML. Par exemple, pour une interface
+> réseau, son nom peut être amené par l’attribut **name**. **Trafic-$name$ sera** remplacé par **Trafic-eth0** si le
+> nom de l’interface est **eth0**. Le nom de l’attribut XML doit être mis entre deux caractères **$**.
 
-Here is the description of the other fields located inside the *General* tab:
+Puis compléter la règle :
 
-* **Hosts templates**: the templates used to retrieve the list of hosts for which a discovery rule should be run
-* **Linked Instances**: execute only the rule for host attached to selected instances.
+* **Hosts templates** : Les modèles qui seront utilisés pour définir la liste des hôtes pour lesquels les règles de
+  découverte seront exécutées
+* **Linked Instances** : permet d’exécuter la règle que pour les hôtes liés aux collecteurs sélectionnées.
 
-> Keep empty to execute rule for any instance.
+> Laisser vide pour exécutr la règle depuis n’importe quel collecteur.
 
-* **Contacts**: contacts that will be notified about creation or deactivation during a discovery
-* **Contact groups**: contact groups that will be notified about creation or deactivation during a discovery
-* **Disable elements not found**: let the module deactivate services
-  associated to elements that cannot be found anymore
-* **Update existing services**: update created service property if enable (custom macro, etc.).
-* **Activate**: activate or deactivate the rule (will be ignored by the discovery process if deactivated)
+* **Contacts** : Les contacts qui seront notifiés sur la création ou la désactivation de services à la suite de la
+  découverte
+* **Contact groups**: Les groupes de contact qui seront notifiés sur la création ou la désactivation de services à la
+  suite de la découverte
+* **Disable elements not found** : Permettre au module de désactiver les services associés aux éléments qui ne sont
+  plus trouvés
+* **Update existing services** : Si actif, les services déjà découverts ne seront pas mis à jour si une propriété change
+  (valeur de macros personnalisées, etc.).
+* **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le processus de découverte si elle est désactivée).
 
-Click on the **Save** button to save the discovery rule.
+Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
 ### Inclusions / Exclusions & Macros
 
-The **Inclusions / Exclusions & Macros** tab works as follows:
+Les **Inclusions / Exclusions et Macro** fonctionnent de la manière suivante :
 
 ![image](assets/configuration/autodisco/create_rule_5.png)
 
-The **Inclusions / Exclusions** part allows elements to be included or excluded during the discovery. This
-inclusion/exclusion is relative to an XML attribute.
+Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion / 
+exclusion concerne les attributs XML
 
-The inclusion/exclusion rules, are defined using the following algorithm:
+Les règle d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
 
-* If only inclusion rules are present, the attribute's value corresponding to at least one inclusion will be considered
-* If only exclusion rules are present, every element will be considered, except the ones corresponding to an exclusion
-* If both types are present, the process checks if the element corresponds to an inclusion and then checks if it is not
-  listed into the exclusion list
-
-The second part **Macros** allows to define matches between an XML attribute and a service's template macro. For all
-created services the macros' values will be replaced by the attributes' values.
+* Si seules des règles d’inclusion sont présentes, la valeur de l’attribut correspondant à au moins une inclusion est
+  prise en compte
+* Si seulement des règles d’exclusion sont présentes, chaque élément sera pris en compte, sauf ceux correspondant à
+  une exclusion
+* Si les deux types sont présents, le processus vérifiera l’élément correspondant à une inclusion puis s’assurera qu’il
+  n’est pas listé dans une exclusion
+* Le seconde partie Macros permet de définir la relation entre l’attribut XML et la macro du modèle de service. Pour
+  tous les services créés, les valeurs des macros seront remplacées par les valeurs des attributs.
 
 ![image](assets/configuration/autodisco/create_rule_6.png)
 
-> On the image above all macros will be created for the service because the checkbox **Empty** are selected. To don't
-> create them do not check the **Empty** checkbox. The **$_SERVICEINTERFACEID** macro created on the service will contain
-> the value of **$interfaceid** from the value of XML element.
+> Sur cette image toutes les macros seront créées sur le nouveau service car toutes les cases **Empty** sont sélectionnées.
+> Pour ne pas créer ces macros, ne pas cocher les cases associées. La macro **$_SERVICEINTERFACEID** sera créée et contiendra
+> la valeur associée à l’attribut XML **$interfaceid** de l’élément.
 
-### Advanced options
+### Options avancées
 
-On the last **Advanced** tab you can apply a regexp on the **Service display name**.
-Click on **Add a new entry** button and define Pattern and expression result:
+Le dernier onglet **Advanced** permet d’appliquer des regexp sur le champ **Service display name** ou tout attribut du
+flux XML. Cliquer sur **Add a new entry** pour ajouter une nouvelle entrée en définissant l’expression et le résultat
+attendu :
 
 ![image](assets/configuration/autodisco/create_rule_7.png)
 
-The regexp can be apply on **String** field for:
+L’expression peut être appliquée sur :
 
-* **@SERVICENAME@**: The name of service will be created
-* All XML attributes defined by **$attribute_name$**
+* **@SERVICENAME@** : le nom du service qui sera créé
+* tous les attributs du flux XML via **$attribute_name$**
 
-The second part **Customize code** allows to use Perl code.
+La seconde partie **Customize** code permet d’utiliser du code Perl.
 
-**Custom display scan** gives you the capability to change the display of a manual scan.
-By default, manual scan display the service name. Here an example to add the size of the disk:
+**Custom display scan** permet de modifier l’affichage dans la découverte manuelle Par défaut, la découverte manuelle
+affiche le nom du service. Voici un exemple pour ajouter la taille des disques :
 
 ```Perl
 my ($value, $unit) = change_bytes(value => $total$);
 $description = "<span style='color: red; font-weight: bold'>@SERVICENAME@</span> [size = <b>$value $unit</b>]";
  ```
 
-**Custom variables** gives you the capability to create some custom macros. Here an example to have dynamic threshold
-according the disk size:
+**Custom variables** permet de créer des macros personnalisables. Voici un exemple pour définir des seuils dynamiques
+selon la taille des disques :
 ```Perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
@@ -121,41 +127,40 @@ if ($total_gb < 100) {
 }
 ```
 
-Now, you could use **$warning$** and **$critical$** macro in **Macros** part.
+Il est possible d’utiliser les macros **$warning$** et **$critical$** dans la partie **Macros**.
 
-.. _disco_cmd:
+## Commandes de découverte
 
-## Discovery commands
+Une **discovery commands** est la définition d’une ligne de commande exécutant la [sonde de découverte](#discovery-plugins).
 
-A **discovery commands** is a command line to execute a [discovery plugin](#discovery-plugins).
+Chaque sonde de découverte doit disposer de deux commandes :
 
-For each discovery plugins you need to define two commands:
-
-* The first one to get the list of available XML attributes
-* The second one to discover items on a host
+* La première pour récupérer la liste des attributs du flux XML
+* La seconde pour récupérer la liste des éléments découverts sur l’équipement
 
 ![image](assets/configuration/autodisco/commands_list.png)
 
-### Command to list available XML attributes
+### Commande pour récupérer la liste des attributs XML
 
-Go to **Configuration \> Commands \> Discovery** menu and click on **Add** button to create the first command.
+Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+commande.
 
-Fill the fileds:
+Saisissez les champs suivants :
 
-* **Command Name**: Name of your command
-* **Command type**: check **Discovery** option
-* **Command Line**: Define the command to get the list of XML attributes
+* **Command Name** : nom de la commande
+* **Command type** : sélectionnez l’option **Discovery**
+* **Command Line** : saisissez la ligne de commande pour exécuter la sonde et récupérer la liste des attributs XML
 
-> All commands using Centreon Plugin project need to set the **hostname** option so add **--hostname=127.0.0.1** in
-> your command line
+> Toute commande utilisant les sondes du projet Centreon Plugin doit définir l’option **hostname**. Donc ajoutez
+> l’option **--hostname=127.0.0.1** dans votre commande.
 
 ![image](assets/configuration/autodisco/command_attributes.png)
 
-This is an example of the command line executed in a shell:
+Voici un exemple de ligne de commande exécutée dans un terminal :
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
-And the result:
+Et le résultat :
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <data>
@@ -166,25 +171,26 @@ And the result:
 </data>
 ```
 
-Save the command.
+Sauvegardez votre commande.
 
 ### Command to get the list of items on a host
 
-Go to **Configuration \> Commands \> Discovery** menu and click on **Add** button to create the first command.
+Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+commande.
 
-Fill the fileds:
+Saisissez les champs suivants :
 
-* **Command Name**: Name of your command
-* **Command type**: check **Discovery** option
-* **Command Line**: Define the command to get the list of items.
+* **Command Name** : nom de la commande
+* **Command type** : sélectionnez l’option **Discovery**
+* **Command Line**: saisir la ligne de commande pour exécuter la sonde et récupérer la liste éléments disponibles
 
 ![image](assets/configuration/autodisco/command_disco.png)
 
-This is an example of the command line executed in a shell:
+Voici un exemple de ligne de commande exécutée dans un terminal :
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
-And the result:
+Et le résultat :
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <data>
@@ -193,20 +199,20 @@ And the result:
 </data>
 ```
 
-Save the command.
+Sauvegardez votre commande.
 
-## Discovery plugins
+## Sondes de découverte
 
-A **discovery plugin** (also called **plugin**) is a script that lists a set of similar elements such as file systems
-or network interfaces on a given equipment.
+Une **sonde de découverte** (aussi appelée **plugin**) est un script qui liste un ensemble d’éléments similaires comme
+les systèmes de fichiers ou les interfaces réseaux d’un équipement donné.
 
-This plugins must be executable from the command line (shell) by the **centreon** user (or the user running the
-monitoring engine). It can be run locally or remotely using protocols such as SSH or NRPE.
+Cette sonde doit être exécutable en ligne de commande (shell) par l’utilisateur **centreon** (ou l’utilisateur du moteur
+de supervision). Il peut être exécuté localement ou à distance en utilisant des protocoles comme SSH ou NRPE.
 
-The result must be a valid XML stream where each element must be described as an attribute of a XML node. This
-execution must be available using an option. The Centreon Plugins use '--mode=xxx --disco-show'.
+Les résultats doivent être présentés dans un flux XML valide où chaque élément doit être décrit comme un attribut d’un
+noeud XML. Pour obtenir ce flux XML les sondes de supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-show’.
 
-For example:
+Par exemple :
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
@@ -218,13 +224,13 @@ For example:
 </data>
 ```
 
-In the previous example, the ``name`` attribute corresponds to the network interface. The ``status`` describes the
-IFOPERSTATUS, ``total`` describes the IFSPEED of the interface and ``interfaceid`` describes the IFINDEX.
+Ici, l’attribut ``name`` correspond au nom de l’interface réseau. ``status`` représente l’état de l’interface
+(IFOPERSTATUS), ``total`` la bande passante (IFSPEED) et ``interfaceid`` l’identifiant de l’interface (IFINDEX).
 
-The discovery plugin should also list (XML output) the available XML attributes using an option.
-The The Centreon Plugins use '--mode=xxx --disco-format'.
+La sonde de découverte doit également lister les attributs disponibles du flux XML via une option. Les sondes de
+supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-format’.
 
-For example:
+Par exemple :
 ```Bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
@@ -238,47 +244,51 @@ For example:
 </data>
 ```
 
-Here, four attributes are available: ``name``, ``total``, ``status`` and ``interfaceid``.
+Ici 4 attributs sont disponibles : ``name``, ``total``, ``status`` et ``interfaceid``.
 
-## Manually test a rule
+## Tester manuellement une règle
 
-You can run manually discovery using following options:
+Il est possible de tester le fonctionnement du module manuellement grâce aux options :
 
-* ``--filter-rule=<rule_name>``: Run selected rule
-* ``--filter-host=<host_name>``: Run all rules linked to hosttemplates used by host
-* ``--filter-poller=<poller_name>``: Run rules for ressources linked to the poller
-* ``--dry-run``: Run tests without configuration change
+* ``--filter-rule=<rule_name>`` : Permet d’exécuter une règle précise ;
+* ``--filter-host=<host_name>`` Permet d’exécuter toutes les règles de découverte dont les modèles d’hôte de celui-ci
+  sont liés ;
+* ``--filter-poller=<poller_name>`` : Permet d’exécuter les règles de découverte pour les ressources appartenant au
+  collecteur ;
+* ``--dry-run` : Exécute la découverte sans créer de nouveaux objets en base. Permet de tester le fonctionnement d’une
+  règle de découverte.
 
-> You can combine ``--filter-*=<value>`` options. ``--dry-run`` option is an independant option.
+> YLes option ``--filter-*=<value>`` peut être combinées. L’option ``--dry-run``est indépendante des autres options.
 
-### Examples
+### Exemples
 
-Run all rules:
+Exécution de toutes les règles :
 ```Bash
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
 ```
 
-Test all rules:
+Test de toutes les règles :
 ```Bash
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --dry-run
 ```
 
-Test specific rule:
+Exécution de la règle **OS-Linux-SNMP-Network-Interfaces-Discovery** sans modification de la configuration Centreon :
 ```Bash
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
 
-Test all rules linked to hosttemplates used by specific host:
+Exécution des règles de découverte pour l’hôte “centreon-server” sans modification de la configuration Centreon :
 ```Bash
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-host="centreon-server" \
   --dry-run
 ```
 
-Test specific rule on predifined host:
+Exécution de la règle “OS-Linux-SNMP-Network-Interfaces-Discovery”, pour l’hôte “centreon-server”, sans modification de
+la configuration Centreon :
 ```Bash
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \

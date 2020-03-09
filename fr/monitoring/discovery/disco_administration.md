@@ -3,50 +3,50 @@ id: disco-administration
 title: Administration
 ---
 
-## Update
+## Mise à jour
 
-To update the module, run the following command:
+Pour mettre à jour le module, exécutez la commande suivante :
 ```Bash 
 yum update centreon-auto-discovery-server
 ```
 
-If an update is available, you will be asked for a confirmation. Just answer *yes* to the question.
+Si une mise à jour est disponible, une confirmation vous sera demandée. Répondre *oui* à la question..
 
-onnect to the Centreon’s web interface using an account allowed to administer products and go to the
-**Administration \> Extensions \> Manager menu**.
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
+rendez-vous dans le menu **Administration \> Extensions \> Manager menu**.
 
-Click on the update icon corresponding to the **Centreon Auto Discovery** module:
+Cliquez sur l’icône de mise à jour correspondant au module  **Centreon Auto Discovery** :
 
 ![image](assets/configuration/autodisco/update.png)
 
-The module is now updated:
+Le module est maintenant à jour :
 
 ![image](assets/configuration/autodisco/list_modules.png)
 
-## Uninstallation
+## Désinstallation
 
-Connect to the Centreon’s web interface using an account allowed to administer products and go to the
-**Administration > Extensions > Manager** menu.
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
+rendez-vous dans le menu **Administration \> Extensions \> Manager menu**.
 
-Click on the delete icon corresponding to the **Centreon Auto Discovery** module:
+Cliquer sur l’icône de suppression correspondant au module **Centreon Auto Discovery** :
 
 ![image](assets/configuration/autodisco/list_modules.png)
 
-A confirmation popup will appear, confirm the action:
+Une fenêtre de confirmation apparaît, confirmer l’action :
 
 ![image](assets/configuration/autodisco/uninstall.png)
 
-The module is now uninstalled:
+Le module est maintenant désinstallé :
 
 ![image](assets/configuration/autodisco/install.png)
 
-> Uninstalling the module will also remove all the associated data. Data won't be restorable unless a database backup
-> has been made.
+> La désinstallation du module supprimera toutes les données associées. Les données ne pourront être restaurées sauf
+> si une sauvegarde de la base de données a été faite.
 
-## Scheduled job
+## Tâche programmée
 
-All the active discovery rules are periodically executed through a scheduled job managed by the *cron* daemon. The
-execution's description is available into the **/etc/cron.d/centreon-auto-disco** file:
+Toutes les règles de découverte sont exécutées périodiquement à travers des tâches ordonnancées par le démon cron. La
+description des exécutions est disponible dans le fichier **/etc/cron.d/centreon-auto-disco** :
 ```Bash
 #####################################
 # Centreon Auto Discovery
@@ -55,14 +55,15 @@ execution's description is available into the **/etc/cron.d/centreon-auto-disco*
 30 22 * * * centreon /usr/share/centreon/www/modules/centreon-autodiscovery-server//cron/centreon_autodisco --config='/etc/centreon/conf.pm' --config-extra='/etc/centreon/centreon_autodisco.pm' --severity=error >> /var/log/centreon/centreon_auto_discovery.log 2>&1
 ```
 
-The default configuration runs the discovery every day at 10:30 PM.
+La configuration par défaut exécute les règles de découvertes tous les jours à 22h30.
 
-Information and errors relative to the execution will be saved into the **/var/log/centreon/centreon_auto_discovery.log** file.
+Les informations et les erreurs relatives à l’exécution des règles de découverte sont sauvegardées dans le fichier
+**/var/log/centreon/centreon_auto_discovery.log**.
 
-## Configuring the discovery engine
+## Configuration du moteur de découverte
 
-Here is an example of a complete possible configuration of the
-**/etc/centreon/centreon_autodisco.pm** file:
+Voici un exemple complet de la configuration possible du fichier
+**/etc/centreon/centreon_autodisco.pm** :
 ```Perl
 %centreon_autodisco_config = (
     internal_com_type => 'ipc',
@@ -98,10 +99,11 @@ Here is an example of a complete possible configuration of the
 1;
 ```
 
-## Distributed architecture
+## Architecture distribuée
 
-When a host is monitored by a remote collector, the discovery will be made from it. Thus to executed distant commands
-it is necessary to allow the Apache process to access the **centreon** SSH keys user. To do this run the following commands:
+Lorsqu’un hôte est supervisé par un collecteur distant, la découverte sera effectuée depuis ce dernier. Ainsi pour que
+les commandes puissent être exécutées correctement, il est nécessaire d’autoriser le processus Apache à accéder aux
+clés SSH de l’utilisateur **centreon**. Pour cela exécutez les commandes suivantes :
 ```Bash
 mkdir /var/www/.ssh/
 cp /var/spool/centreon/.ssh/* /var/www/.ssh/

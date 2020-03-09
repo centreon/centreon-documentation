@@ -1,92 +1,95 @@
 ---
 id: disco-hosts
-title: D2couverte des hôtes
+title: Découverte des hôtes
 ---
 
-> The discovery rules are provided  from installation of Plugin Packs (MS Azure, Amazon Web Services, VMware, etc.). To
-know the complete list, please go to the [Plugin Packs catalog](../../integrations/plugin-packs/init-plugin-packs).
+> Les règles de découverte sont apportées lors de l’installation de Plugin Packs (MS Azure, Amazon Web Services,
+> VMware, etc.). Pour connaître la liste complète, rendez-vous au
+> [catalogue des Plugin Packs.](../../integrations/plugin-packs/init-plugin-packs).
 
-Discovering new resources is done in two steps:
+La découverte de nouvelles ressources s’effectue en deux étapes :
 
-1. [Start a discovery task](#start-a-discovery-task)
-2. [Analyze the result of a discovery task](analyze-the-result-of-a-discovery-task)
+1. [Lancer une tâche de découverte](#lancer-une-tâche-de-découverte)
+2. [Analyser le résultat d’une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)
 
-## Start a discovery task
+## Lancer une tâche de découverte
 
-Go to **Configuration \> Hosts \> Discovery** and click on **Add**
+Rendez-vous dans le menu **Configuration \> Hosts \> Discovery** et cliquez sur **Add**
 
-Select the discovery rule and click on the **Next** button:
+Sélectionnez la règle de découverte, et cliquez sur **Next** :
 
 ![image](assets/configuration/autodisco/manual_host_scan_select_rule.png)
 
-Enter a name to save the settings to [reuse](#reload-a-discovery-task) them:
+Saisissez un nom pour la sauvegarde des paramètres afin de les [réutiliser](#relancer-une-tâche-de-découverte) par la
+suite :
 
 ![image](assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
 
-Enter remote API access settings, then click on the **Next** button:
+Saisissez les paramètres d’accès à l’API distante, puis cliquez sur **Next** :
 
 ![image](assets/configuration/autodisco/manual_host_scan_define_credential_2.png)
 
-A discovery task had been created, you go back to the listing of discovery tasks:
+Une tâche de découverte a été créée, vous revenez à la liste des tâches de découverte :
 
 ![image](assets/configuration/autodisco/manual_host_scan_list_tasks.png)
 
-Wait for the data recovery time.
+Patientez le temps de la récupération des données.
 
-## Analyze the result of a discovery task
+## Analyser le résultat d’une tâche de découverte
 
-Go to the **Configuration \> Hosts \> Discovery** menu to access to the list of discovery tasks:
+REndez-vous dans le menu **Configuration \> Hosts \> Discovery** , vous accédez à la liste des tâches de découverte
+exécutées :
 
 ![image](assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
 
-The legend is:
+La légende est la suivante :
 
 ![image](assets/configuration/autodisco/legend_task_status.png)
 
-* Pending task
-* Failed task
-* Completed task & ready for analysis
+* Tâche non exécutée
+* Tâche échouée
+* Tâche terminée et prête à être analysée
 
-Click on the name of the task to discover the result:
+Cliquez sur le nom de la tâche terminée et que vous souhaitez analyser, la liste des objets découverts est affichée :
 
 ![image](assets/configuration/autodisco/items_list.png)
 
-Available actions are:
+Les actions disponibles sont :
 
-* Filter by name of resources
-* Select resources one by one or all visible resources
-* Modify the selected monitoring template
-* Delete the selection of all resources
-* Back to the listing of tasks
-
-Once the resources are selected, you can:
+* Filtrer sur le nom des ressources
+* Sélectionner les ressources une à une ou toutes les ressources visibles
+* Modifier le modèle de supervision proposé
+* Supprimer la sélection de toutes les ressources
+* Revenir à la liste des résultats de découverte
+* Une fois les ressources sélectionnées, il est possible de :
 
 ![image](assets/configuration/autodisco/save.png)
 
-* **Save**: import resources in monitoring configuration.
-* **Save & monitor**: import resources in monitoring configuration and start the monitoring of them.
+* **Save** : enregistrer les ressources dans la configuration de la supervision.
+* **Save & monitor** : enregistrer les ressources dans la configuration de la supervision et démarrer la supervision
+  de ces dernières.
 
-You back to the list of discovery tasks.
+Vous revenez ensuite à la liste des résultats de découverte.
 
-Regarding your choice, go to **Configuration \> Hosts \> Hosts** or **Monitoring \> Status Details \> Services** menu to
-visualize the result:
+Suivant votre choix, rendez vous dans le menu **Configuration \> Hosts \> Hosts** or **Monitoring \> Status Details \>
+Services**  pour visualiser le résultat :
 
 ![image](assets/configuration/autodisco/host_conf_listing.png)
 
-## Reload a discovery task
+## Relancer une tâche de découverte
 
-During the first discovery task, the settings had been stored. So, it is possible to select them to create a new
-discovery task:
+Lors de la création de la première tâche de découverte, les paramètres ont été sauvegardé. Ainsi il est possible de
+sélectionner ces derniers pour créer une nouvelle tâche de découverte :
 
 ![image](assets/configuration/autodisco/reload_task.png)
 
 ## FAQ
 
-If any Plugin Packs containing discovery rules have been installed
-an error message prompts you to perform this action:
+Si aucun Plugin Packs contenant des règles de découverte n’a été installé, un message d’erreur vous invite à réaliser
+cette opération :
 
 ![image](assets/configuration/autodisco/manual_host_scan_error_pp.png)
 
-If a task is in failed status, place your cursor on the icon to know the reason:
+Lors de l’échec d’exécution d’une tâche, placez votre curseur sur l’icône d’échec pour en connaître la raison :
 
 ![image](assets/configuration/autodisco/manual_host_scan_error_missing_plugin.png)

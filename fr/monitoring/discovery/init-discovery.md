@@ -3,28 +3,30 @@ id: init-discovery
 title: Introduction
 ---
 
-> Centreon Auto Discovery is a Centreon **extension** that requires a valid license key. To purchase one and retrieve
-> the necessary repositories, contact [Centreon](sales@centreon.com).
+> Centreon Auto Discovery est une **extension** Centreon qui nécessite une clé de licence valide. Pour en acheter une
+> clé et récupérer les référentiels nécessaires, contactez [Centreon](sales@centreon.com).
 
-Centreon Auto Discovery is an add-on to the Enterprise Plugin Pack functionality.
+Centreon Auto Discovery est un complément de la fonctionnalité Enterprise Plugin Pack.
 
-The Auto Discovery module uses the plugins to get a list of new resources to monitor: new hosts or new services. These
-resources can then be configured in Centreon using host templates or service templates.
+Le module de découverte automatique utilise les plugins pour obtenir une liste des nouvelles ressources à surveiller :
+nouveaux hôtes ou nouveaux services. Ces ressources peuvent ensuite être configurées dans Centreon à l’aide de
+modèles d’hôte ou de modèle de service.
 
-Host Discovery Rules and Service Discovery Rules instruct Centreon how to connect to an equipment and get the list of
-resources that could be monitored. These discovery rules are included in the Plugin Packs.
+Les règles de découverte d’hôte et les règles de découverte de service indiquent à Centreon comment se connecter à un
+équipement et obtenir la liste des ressources pouvant être surveillées. Ces règles de découverte sont incluses dans les
+Plugin Packs.
 
-For example, ESX nodes and virtual machines can be automatically discovered in a VMware cluster. Or network interfaces
-and disk volumes in a Linux server.
+Par exemple, les noeuds ESX et les machines virtuelles peuvent être automatiquement découverts dans un cluster VMware.
+Ou interfaces réseau et volumes de disque sur un serveur Linux.
 
-For all hosts or services for which discovery rules are available, the Centreon configuration user interface propose to
-connect to the equipment and fetch a list of available resources with their associated template, ready to be configured
-in Centreon.
+Pour tous les hôtes ou services pour lesquels des règles de découverte sont disponibles, l’interface utilisateur de
+configuration de Centreon propose de se connecter à l’équipement et d’extraire une liste des ressources disponibles
+avec leur modèle associé, prêt à être configuré dans Centreon.
 
-This discovery mechanism can also be scheduled and automatically executed. New automatically discovered resources may
-optionally automatically be configured in Centreon.
+Ce mécanisme de découverte peut également être planifié et exécuté automatiquement. Les nouvelles ressources
+découvertes automatiquement peuvent éventuellement être configurées automatiquement dans Centreon.
 
-The same discovery mechanism may apply to resources that would no longer be available. They can be listed and
-optionally disabled from the configuration.
+Le même mécanisme de découverte peut s’appliquer à des ressources qui ne seraient plus disponibles. Ils peuvent être
+répertoriés et éventuellement désactivés à partir de la configuration.
 
-Contacts may be associated to a discovery rule to be notified when any configuration change occurs.
+Les contacts peuvent être associés à une règle de découverte pour être avertis en cas de modification de la configuration.

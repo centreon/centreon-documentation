@@ -30,7 +30,7 @@ Ce bouton nous permet de changer l'ordre des modèles hôtes ![image](assets/con
 Ce bouton sert à supprimer le modèle hôte ![image](assets/configuration/common/delete.png)
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
-  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus (voir chapitre Les modèles @TODO@():ref:`hosttemplates`).
+  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus (voir chapitre Les [modèles](templates)).
 
 ### Macros
 

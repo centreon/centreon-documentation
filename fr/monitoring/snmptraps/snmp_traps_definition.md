@@ -127,7 +127,7 @@ Exemple :
 "Interface $2 ( $p1 ) linkUP. State: $4." "$CA"
 ```
 
-Le résultat sera de la forme : Interface GigabitEthernet0/1 ( SERVEUR NAS ) linkUP. State: up @TODOTODO@
+Le résultat sera de la forme : Interface GigabitEthernet0/1 ( SERVEUR NAS ) linkUP. State: up
 
 * Le champ **Insert trap's information into database** permet de journaliser ou non les traps en base de données.
 * Le champ **Timeout** exprimé en secondes, permet de définir le temps maximum de traitement de l’évènement y compris

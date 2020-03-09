@@ -83,7 +83,7 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](assets/tutorials/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre Les modèles @TODO@(ref:hosttemplates>).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
 
 ## Installation des modèles de supervision de base
 

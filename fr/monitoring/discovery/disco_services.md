@@ -3,34 +3,35 @@ id: disco-services
 title: Découverte des services
 ---
 
-After the discovery rules programmed it is possible to run them from the Centreon web interface.
-Go to the **Configuration \> Services \> Auto Discovery > Scan** menu.
+Une fois les règles de découverte programmées, il est possible de les exécuter au travers de l’interface web Centreon.
+Pour cela, se connecter et accéder au menu **Configuration \> Services \> Auto Discovery > Scan**.
 
-Start to write the name of host and the web interface automatically complete the name:
+Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter
+automatiquement ce dernier :
 
 ![image](assets/configuration/autodisco/manual_scan_select_host.png)
 
-Select the discovery command to run	from the list that has just appeared:
+Sélectionnez ensuite la commande de découverte à exécuter dans la liste déroulante qui vient d’apparaître :
 
 ![image](assets/configuration/autodisco/manual_scan_select_command.png)
 
-> If the list is empty it means that your host doesn't belong to a group of hosts linked to a discovery rule.
+> Si cette liste est vide, cela signifie que cet hôte n’appartient pas à un groupe d’hôtes lié à une règle de découverte.
 
-Click on the **Scan** button and wait during the discovery:
+Cliquez sur le bouton **Scan** et patienter durant l’analyse des éléments disponibles :
 
 ![image](assets/configuration/autodisco/manual_scan_wait.png)
 
-The result is displayed. Select items to add to the monitoring and click on the **Save** button:
+Le résultat s’affiche. Sélectionnez les éléments à intégrer à la supervision et cliquez sur le bouton **Save** :
 
 ![image](assets/configuration/autodisco/manual_scan_result.png)
 
-The items were added and it is no longer possible to select them:
+Les éléments ont été ajoutés et il n’est plus possible de les sélectionner :
 
 ![image](assets/configuration/autodisco/manual_scan_added.png)
 
-> In the list of result it is possible that some items can't be selected. This indicates that they are already part of
-the configuration.
+> Dans la liste de résultat de la découverte des éléments, il se peut que certains éléments ne puissent être sélectionnés.
+> Cela indique qu’ils font déjà partie de la configuration.
 
-The services were added and can be displayed in the menu **Configuration \> Services \> Services by host**:
+Les services ont été ajoutés et sont visibles dans le menu **Configuration \> Services \> Services by host**:
 
 ![image](assets/configuration/autodisco/manual_scan_services.png)
