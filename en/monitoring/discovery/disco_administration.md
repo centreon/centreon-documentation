@@ -12,7 +12,7 @@ yum update centreon-auto-discovery-server
 
 If an update is available, you will be asked for a confirmation. Just answer *yes* to the question.
 
-onnect to the Centreon’s web interface using an account allowed to administer products and go to the
+Connect to the Centreon’s web interface using an account allowed to administer products and go to the
 **Administration \> Extensions \> Manager menu**.
 
 Click on the update icon corresponding to the **Centreon Auto Discovery** module:

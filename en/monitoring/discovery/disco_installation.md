@@ -25,7 +25,7 @@ The following figure describes the general functioning of this module:
 
 Execute the following command:
 ```Bash
- yum install centreon-auto-discovery-server
+yum install centreon-auto-discovery-server
 ```
 
 ## Configuring Centreon API access
@@ -49,4 +49,4 @@ The module is now installed:
 ## Installing the Plugin Packs
 
 To get discovery rules ready to use, please go to **Configuration \> Pluin Packs** menu and
-[install your packs](pluginpacks#pack-installation)
+[install your packs](../pluginpacks#pack-installation)

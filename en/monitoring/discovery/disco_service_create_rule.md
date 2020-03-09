@@ -123,8 +123,6 @@ if ($total_gb < 100) {
 
 Now, you could use **$warning$** and **$critical$** macro in **Macros** part.
 
-.. _disco_cmd:
-
 ## Discovery commands
 
 A **discovery commands** is a command line to execute a [discovery plugin](#discovery-plugins).
