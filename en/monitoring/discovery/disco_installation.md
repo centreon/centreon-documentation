@@ -15,7 +15,7 @@ The discovery plugins look for new elements to monitor, see
 [Discovery plugins](disco-service-create-rule#discovery-plugins) for more detail.
 
 The rules, managed through the web UI, are saved into **Centreon**'s database and are executed periodically (every
-night at 10:30 PM) by the *cron* jon. See @TODO@:ref:`Discovery job<sched_job>` pour more detail.
+night at 10:30 PM) by the *cron* jon. See [Scheduled job](disco-administration#scheduled-job) pour more detail.
 
 The following figure describes the general functioning of this module:
 

@@ -45,8 +45,7 @@ All the commands can be configured in the menu: **Configuration \> Commands**.
   using the command in a host or service form.
 
 * The **Connectors** selectlist serves to link a Connector to the command. For more information on Connectors refer to the
-  chapter entitled: @TODO@`Perl Connector's documentation <http://documentation.centreon.com/docs/centreon-perl-connector/en/latest/>`_
-  and @TODO@`SSH Connector's documentation <http://documentation.centreon.com/docs/centreon-ssh-connector/en/latest/>`_.
+  chapter entitled [Perl Connector](#perl-connector) and [SSH Connector](#ssh-connector).
 * The **Graph template** field serves to link the command to a graphic model.
 * The **Comment** field can be used to make a comment on the command.
 
@@ -69,7 +68,7 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 ## Connectors
 
-### SSH connectors
+### SSH connector
 
 Centreon SSH Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution checks over SSH when used along Centreon Engine.
@@ -329,7 +328,7 @@ check, Centreon Connector SSH only opens one session. However this does not limi
 host, as the SSH protocol allows multiple channels to be opened on the same session. Therefore if multiple checks are
 run on the same host simultaneously, they are executed concurrently but with separate execution environment.
 
-### Perl connectors
+### Perl connector
 
 Centreon Perl Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution of Perl scripts when used along Centreon Engine.

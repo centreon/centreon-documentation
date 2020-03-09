@@ -30,7 +30,7 @@ This button enables us to change the order of host templates ![image](assets/con
 This button serves to delete the host template ![image](assets/configuration/common/delete.png)
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
-  the services based their self on the service templates linked to the host templates defined above (see the chapter @TODO@():ref:`hosttemplates`).
+  the services based their self on the service templates linked to the host templates defined above (see the [templates chapter](templates#definition)).
 
 ### Monitoring properties of the host
 
