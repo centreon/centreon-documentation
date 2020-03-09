@@ -121,7 +121,7 @@ drop resources from your resource panel to the main panel.
 
 > You cannot add any objects (e.g., a gauge, pie chart or graph) to, or
 > modify/copy-paste the contents of, a host, host group, service group or
-> business activity. :::
+> business activity.
 
 Congratulations, your have just created your first view.
 

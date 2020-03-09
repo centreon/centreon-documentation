@@ -56,19 +56,20 @@ Events & availability statistics are automatically calculated daily. In case you
 modify the default reporting period, add an extra one or change BV association,
 you may need to rebuild the previously calculated data.
 
-To do so, run the following script::
-
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
-
-It is also possible to rebuild a specific BA::
-
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --ba=<id of ba>
-
-For more information regarding this script, run the following command::
-
-    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --help
-
+To do so, run the following script:
+```Bash
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+```
+It is also possible to rebuild a specific BA:
+```Bash
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --ba=<id of ba>
+```
+For more information regarding this script, run the following command:
+```Bash
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --help
+```
 If you are also using Centreon MBI and wish to use the updated data, run the
-following command on the reporting server: :
-
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+following command on the reporting server:
+```Bash
+/usr/share/centreon-bi/etl/importData.pl -r --bam-only
+```

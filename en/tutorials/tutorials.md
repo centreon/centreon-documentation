@@ -76,7 +76,7 @@ and then to implement them to monitor your first equipment.
 
 ![image](assets/tutorials/host_service_command.png)
 
-> To go further with templates, please read the Templates chapter @TODO@(ref:hosttemplates>).
+> To go further with templates, please read the [templates chapter](../monitoring/templates#definition).
 
 ## Installation of basic monitoring templates
 

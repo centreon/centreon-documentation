@@ -54,23 +54,22 @@ reporting ou d\'association à des vues métier, il est possible d\'avoir
 à reconstruire ces statistiques pour appliquer les modifications de
 configuration sur la passé.
 
-Pour cela, lancer le script suivant::
-
-    # cd /usr/share/centreon/www/modules/centreon-bam-server/engine
-    # ./centreon-bam-rebuild-events --all
-
-Il est également possible de reconstruire les données d\'une BA
-spécifique::
-
-    # ./centreon-bam-rebuild-events --ba=<id of ba>
-
-Pour plus d\'informations concernant ce script, lancer la commande
-suivante::
-
-    # ./centreon-bam-rebuild-events --help
-
+Pour cela, lancer le script suivant:
+```Bash
+cd /usr/share/centreon/www/modules/centreon-bam-server/engine
+./centreon-bam-rebuild-events --all
+```
+Il est également possible de reconstruire les données d'une BA spécifique:
+```Bash
+./centreon-bam-rebuild-events --ba=<id of ba>
+```
+Pour plus d\'informations concernant ce script, lancer la commande suivante:
+```Bash
+./centreon-bam-rebuild-events --help
+```
 **Si vous disposez de Centreon MBI** et souhaitez également exploiter
 ces données à jour, la commande suivante est à exécuter sur le serveur
 de reporting :
-
-    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+```Bash
+/usr/share/centreon-bi/etl/importData.pl -r --bam-only
+```
