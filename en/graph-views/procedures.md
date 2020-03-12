@@ -72,7 +72,7 @@ Also add the following only if you have a local MySQL DB on you Map server:
 
   - App-DB-MySQL-custom
 
-![image](assets/data-presentation/map4-host-configuration.png)
+![image](assets/graph-views/map4-host-configuration.png)
 
 Important:
 
@@ -103,7 +103,7 @@ Important:
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
-![image](assets/data-presentation/map4-services.png)
+![image](assets/graph-views/map4-services.png)
 
 ## Migrating your Centreon MAP server
 
@@ -284,7 +284,7 @@ the Main menu \> Centreon-broker-master.
 
 The output configuration should look like this:
 
-![image](assets/data-presentation/output_broker.png)
+![image](assets/graph-views/output_broker.png)
 
 ### Setup TLS connection between broker and map server
 
@@ -297,7 +297,7 @@ You could enable TLS output and set up broker's private key and public
 certificate as described in [broker TLS
 output](https://documentation.centreon.com/docs/centreon-broker/en/latest/user/modules.html#tls)
 
-![image](assets/data-presentation/output_broker_tls.png)
+![image](assets/graph-views/output_broker_tls.png)
 
 > "Trusted CA's certificate" field is optional. If you activate broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
@@ -527,7 +527,7 @@ http://\<IP\_MAP\_SERVER\>/centreon-studio/docs
 
 You should see this page:
 
-![image](assets/data-presentation/server-api-rest.png)
+![image](assets/graph-views/server-api-rest.png)
 
 > Don't forget to update both your desktop client configuration and your web
 > interface configuration. For your desktop client, follow the instructions for

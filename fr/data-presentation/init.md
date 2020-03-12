@@ -1,5 +1,5 @@
 ---
-id: init-data-presentation
+id: init-graph-views
 title: About Data Presentation
 ---
 
