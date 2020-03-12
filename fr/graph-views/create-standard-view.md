@@ -63,11 +63,11 @@ memory on the computer.*
 
 To connect the desktop client to the server you must first create a profile:
 
-![image](assets/data-presentation/install-desktop-1.png)
+![image](assets/graph-views/install-desktop-1.png)
 
 Add a profile by clicking on the "+" to the right of the Profile window:
 
-![image](assets/data-presentation/install-desktop-2.png)
+![image](assets/graph-views/install-desktop-2.png)
 
   - **Address**: Address of the Map Server
   - **Login**: Your Centreon Web username
@@ -98,7 +98,7 @@ Here is how to create your first view:
 
 Once you are logged in to your desktop client, you will see this screen:
 
-![image](assets/data-presentation/desktop_client_empty.png)
+![image](assets/graph-views/desktop_client_empty.png)
 
 Click on *File \> Create View* or right click on the empty left panel, then
 "Add".
@@ -106,14 +106,14 @@ Click on *File \> Create View* or right click on the empty left panel, then
 A new wizard will appear. Enter a name for the new view (and an optional
 description).
 
-![image](assets/data-presentation/new_view_wizard.png)
+![image](assets/graph-views/new_view_wizard.png)
 
 You can then either click "Finish" to create the view or click "Next" to
 associate an image to it.
 
 Once done, you will see your new view in the left tab panel.
 
-![image](assets/data-presentation/new_view_panel.png)
+![image](assets/graph-views/new_view_panel.png)
 
 Now, double click on the view to open it. Your main panel will have a white
 background and you will be able to start adding elements to it: simply drag and
@@ -125,7 +125,7 @@ drop resources from your resource panel to the main panel.
 
 Congratulations, your have just created your first view.
 
-![image](assets/data-presentation/create_view.gif)
+![image](assets/graph-views/create_view.gif)
 
 ### From an existing container
 
@@ -139,7 +139,7 @@ To do so, right click on the container or inside the target one and click on
 > If you rename the view that is linked to the container, the container will
 > automatically be renamed.
 
-![image](assets/data-presentation/create_view_from_container.gif)
+![image](assets/graph-views/create_view_from_container.gif)
 
 ### Add a geographic background
 
@@ -151,7 +151,7 @@ role="ref"}) you can create a standard view and define a geo background:
 3)  Right click on the background of the view and select "Edit."
 4)  Check the "Geographic" checkbox.
 
-![image](assets/data-presentation/mapbox-change-style.png)
+![image](assets/graph-views/mapbox-change-style.png)
 
 Your view will now appear as a geographic background on which you can zoom and
 move around.
@@ -163,7 +163,7 @@ Navigate around your view, zoom and go to the exact point where you would like
 your view to open by default. Then use the "Set current lat / long / zoom as
 defaut" button on the top of your desktop client.
 
-![image](assets/data-presentation/set_current_lat_long.png)
+![image](assets/graph-views/set_current_lat_long.png)
 
 Whenever you open this view either through the desktop or the web interface, the
 geographic view will always appear with the pre-defined zoom level.
@@ -173,13 +173,13 @@ geographic view will always appear with the pre-defined zoom level.
 When displaying any resource (group, host, services, business activity, etc.) or
 container in a view, three different styles may be applied:
 
-![image](assets/data-presentation/style_example.png)
+![image](assets/graph-views/style_example.png)
 
 To change the style of an element, simply right click on it, select the "Style"
 menu and pick the style you want. You can also select multiple elements at the
 same time.
 
-![image](../assets/data-presentation/modify_styles.png)
+![image](../assets/graph-views/modify_styles.png)
 
 The default style for a geographic view is "geometric".
 
@@ -190,7 +190,7 @@ The default style for a standard view is "Icon".
 Dedicated data reprezentation called "Widgets" are available in the "Palette"
 tab panel:
 
-![image](assets/data-presentation/palette-part.png)
+![image](assets/graph-views/palette-part.png)
 
 Here is a description of all the widgets available in Centreon MAP:
 
@@ -200,19 +200,19 @@ A graph describes a service and displays the performance data related to it. You
 can specify a various parameters (the number of points you want to display,
 stack lines, fill lines, etc.):
 
-![image](assets/data-presentation/graph-example.png)
+![image](assets/graph-views/graph-example.png)
 
 Once you create the graph, you can edit it on the wizard page, selecting which
 lines you would like to display, their color and other properties:
 
-![image](assets/data-presentation/graph-line-wizard.png)
+![image](assets/graph-views/graph-line-wizard.png)
 
 ### Gauges
 
 A gauge displays the percentage of a metric. Create a gauge by selecting a
 service and choosing the metric you want to display.
 
-![image](assets/data-presentation/gauge-example.png)
+![image](assets/graph-views/gauge-example.png)
 
 You can place a gauge in any position and in any direction (left to right,
 bottom to top, etc.). By default, the color of the gauge is associated with the
@@ -226,7 +226,7 @@ For a host, the number of OK, Warning, Critical and NA states will be displayed.
 For a host group, the number of hosts in OK, Warning, Critical and NA states
 will be displayed.
 
-![image](assets/data-presentation/piechart-example.png)
+![image](assets/graph-views/piechart-example.png)
 
 ### Output
 
@@ -234,13 +234,13 @@ will be displayed.
 
 The output widget describes the output of a service.
 
-![image](assets/data-presentation/output-example.png)
+![image](assets/graph-views/output-example.png)
 
 By default, the background is in the same color as the status. However, you can
 edit it by double-clicking on the output and modifing the "Status color
 background" checkbox in the output wizard.
 
-![image](assets/data-presentation/status-background-color.png)
+![image](assets/graph-views/status-background-color.png)
 
 #### Customizing the output
 
@@ -249,7 +249,7 @@ edit the output (by double-clicking) then click twice on the Next button.
 
 You will see this page:
 
-![image](assets/data-presentation/output-wizard-metric.png)
+![image](assets/graph-views/output-wizard-metric.png)
 
 Here you can create the displayed content by using the properties listed in the
 table (3). **Double clic** on a line in the table and it will be inserted in the
@@ -272,7 +272,7 @@ number of users connected.
 
 To display the following output :
 
-![image](assets/data-presentation/output-example-2.png)
+![image](assets/graph-views/output-example-2.png)
 
 Configure the output widget as follows:
 
@@ -303,7 +303,7 @@ restart the Apache service from the view by double-clicking on the widget.
 
 When creating the process widget, you must choose a service.
 
-![image](assets/data-presentation/widget_process.png)
+![image](assets/graph-views/widget_process.png)
 
 To create a service dedicated to an "action":
 
@@ -335,7 +335,7 @@ creation of lot of links with the same properties.
 The simple link in this view show the logical connection between different
 elements.
 
-![image](assets/data-presentation/link_simple_example.png)
+![image](assets/graph-views/link_simple_example.png)
 
 ### Status links
 
@@ -348,7 +348,7 @@ Citrix and then the ability of different technical areas to reach each others.
 Detailed information are available when putting your mouse over a link **on the
 web interface** (see `tooltip chapter <tooltip>`{.interpreted-text role="ref"}).
 
-![image](assets/data-presentation/link_status_example.png)
+![image](assets/graph-views/link_status_example.png)
 
 ### Metric link
 
@@ -358,7 +358,7 @@ When configuring a metric link, choose a metric to associate it with. For
 A good example is the traffic metric. You generaly have a *traffic\_in* and
 *traffic\_out* associated with your traffic service.
 
-![image](assets/data-presentation/link_metric_example.png)
+![image](assets/graph-views/link_metric_example.png)
 
 Detailed informations are available when mouse hovering a link **on the web
 interface**.
@@ -378,7 +378,7 @@ used in Centreon MAP, follow this procedure:
   - Create at least one folder.
   - right click on the new folder and then. click on "Import."
 
-![image](assets/data-presentation/media_add.png)
+![image](assets/graph-views/media_add.png)
 
 When adding new images to your Centreon platform (not from Centreon MAP) you may
 click on "Actions \> Synchronize Media" so that added or deleted images from
@@ -404,7 +404,7 @@ Here is how you would create a SSH command using the binary *terminator*.
 Start by creating a new system command. Go to the Preferences page, under the
 System commands menu. Then enter the following:
 
-![image](assets/data-presentation/system-preference-page.png)
+![image](assets/graph-views/system-preference-page.png)
 
   - Label: SSH
 
@@ -424,7 +424,7 @@ System commands submenu.
 
 ### Example for Windows with Putty
 
-![image](assets/data-presentation/system-command-putty.png)
+![image](assets/graph-views/system-command-putty.png)
 
 ### Advanced configuration
 
