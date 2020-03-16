@@ -674,7 +674,8 @@
             "integrations/external/init-external-integrations"
         ],
         "API": [
-            "api/clapi"
+            "api/clapi",
+            "api/rest-api-v1"
         ],
         "Développeur": [
             "developer/init-developer"

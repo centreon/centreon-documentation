@@ -713,7 +713,7 @@
         "API": [
             "api/introduction",
             "api/clapi",
-            "api/ega-rest-api-v1",
+            "api/rest-api-v1",
             "api/map-api"
         ],
         "Developer resources": [
