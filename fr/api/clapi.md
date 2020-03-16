@@ -5279,6 +5279,533 @@ Required fields are:
 | Name     | Name of Vendor    |
 | Mib file | File path of .mib |
 
+
+
+## Service Mapping
+
+The service mapping capabilities in Centreon relies on the **Centreon Business Activity Monitoring (BAM)** extension. 
+
+
+> Centreon BAM is a Centreon **extension** that requires a valid license key. To purchase one and retrieve
+the necessary repositories, contact [Centreon](sales@centreon.com).
+
+### Business View
+
+Object name: **BV**
+
+#### SHOW
+
+To list available BVs, use the **SHOW** action:
+
+    ./centreon -u admin -p centreon -o BV -a SHOW
+    id;name;description
+    4;BV1;BV1
+    5;BV2;BV2
+    6;BV4;BV3
+    [...]
+
+The following columns are required:
+
+| Column         | Description               |
+|----------------|---------------------------|
+| BV ID          | Business View id          |
+| BV name        | Business View name        |
+| BV description | Business View description |
+
+#### ADD
+
+To add a BV, use the **ADD** action:
+
+    ./centreon -u admin -p centreon -o BV -a ADD -v 'BV1;BV1'
+
+The following columns are required:
+
+|Column           |Description                |
+|-----------------|---------------------------|
+|Name             |Business View name         |
+|Description      | Business View description |
+
+#### DEL
+
+To remove a BV, use the **DEL** action:
+
+    ./centreon -u admin -p centreon -o BV -a DEL -v 'BV1'
+
+#### SETPARAM
+
+To change specific parameters for a BV, use the **SETPARAM** action:
+
+    ./centreon -u admin -p centreon -o BV -a SETPARAM -v 'BV1;description;BV description'
+
+You can change the following parameters:
+
+| Parameter   | Description                   |
+|-------------|-------------------------------|
+| name        | Business Activity name        |
+| description | Business Activity description |
+| overview    | Visible in overview (0 or 1)  |
+
+#### SETBA
+
+To set the Business Activity (BA) to a BV, use the **SETBA** action:
+
+    ./centreon -u admin -p centreon -o BV -a SETBA -v 'bv1;ba1'
+
+The following columns are required:
+
+| Column  | Description                                             |
+|---------|---------------------------------------------------------|
+| Bv name | Business View name                                      |
+| Ba name | Business Activity name (multiple with "pipe" separator) |
+
+#### ADDBA
+
+To add BA to a BV, use the **ADDBA** action:
+
+    ./centreon -u admin -p centreon -o BV -a ADDBA -v 'bv1;ba1'
+
+The following columns are required:
+
+|  Column |  Description                                                |
+|---------|-------------------------------------------------------------|
+|  Bv name|   Business View name                                        |
+|  Ba name|   Business Activity name (multiple with a "pipe" separator) |  
+
+#### DELBA
+
+To delete a BA from a BV, use the **DELBA** action:
+
+    ./centreon -u admin -p centreon -o BV -a DELBA -v 'bv1;ba1'
+
+The following columns are required:
+
+| Column   | Description                                                     |
+|----------|-----------------------------------------------------------------|
+|  Bv name |  Business View name                                             |
+|  Ba name |  Business Activity name (multiple with a "pipe" separator)      |
+
+#### SETACLGROUP
+
+To set an ACL group to a BV, use the **SETACLGROUP** action:
+
+    ./centreon -u admin -p centreon -o BV -a SETACLGROUP -v 'bv1;ALL'
+
+The following columns are required:
+
+|  Column        |         Description                                             |
+|----------------|-----------------------------------------------------------------|
+| Bv name        |  Business View name                                             |
+|  Acl group name|   Acl group name (multiple with a pipe separator)               |
+
+#### ADDACLGROUP
+
+To add an ACL group to a BV, use the **ADDACLGROUP** action:
+
+    ./centreon -u admin -p centreon -o BV -a ADDACLGROUP -v 'bv1;ALL'
+
+The following columns are required:
+
+|  Column        |   Description
+|----------------|-----------------------------------------------------------------|
+|  Bv name       |   Business View name                                            |
+|  Acl group name|   Acl group name (multiple with a "pipe" separator)             |
+
+#### DELACLGROUP
+
+To delete an ACL group from a BV, use the **DELACLGROUP** action:
+
+    ./centreon -u admin -p centreon -o BV -a DELACLGROUP -v 'bv1;ALL'
+
+The following columns are required:
+
+|  Column        |   Description
+|----------------|-----------------------------------------------------------------|
+|  Bv name       |   Business View name                                            |
+|  Acl group name|   Acl group name (multiple with a "pipe" separator)             |
+
+### Business Activity (BA)
+
+Object name: **BA**
+
+#### SHOW
+
+To list available business activities, use the **SHOW** action:
+
+    ./centreon -u admin -p centreon -o BA -a SHOW
+    id;name;description;state_source;level_w;level_c;notification_interval
+    1;ba1;ba1;1;80;70;3
+    2;ba2;ba2;2;;;2
+    3;ba3;ba3;3;;;
+    [...]
+
+The following columns are displayed:
+
+  * BA ID: Business Activity id
+  * BA name: Business Activity name
+  * Ba description: Business Activity description
+  * Ba state_source: Business Activity Calculation Method
+  * level\_w: Warning threshold (only applicable for Impact and Ratio modes)
+  * level\_c: Critical threshold (only applicable for Impact and Ratio modes)
+  
+Business Activity Calculation Methods (state_source):
+  * 0 - Impact Mode (requires level\_w to be > level\_c)
+  * 1 - Best Status
+  * 2 - Worst Status
+  * 3 - Ratio Percentage (requires level\_c to be > level\_w)
+  * 4 - Ratio Number (requires level\_c to be > level\_w)
+
+#### ADD
+
+To add a BA, use the **ADD** action:
+
+    ./centreon -u admin -p centreon -o BA -a ADD -v 'ba1;ba1;0;90;80;5'
+
+The following columns are required:
+
+  |Column                  | Description                     |
+  |------------------------|---------------------------------|
+  |Name                    | Business Activity name          |
+  |Description             | Business Activity description   |
+  |State Source            | BA Calcuation Method            |
+  |Warning threshold       | Warning threshold (if needed)   |
+  |Critical threshold      | Critical threshold (if needed)  |
+  |Notification interval   | Notification interval (minutes) |
+
+#### DEL
+
+To remove a BA, use the **DEL** action:
+
+    ./centreon -u admin -p centreon -o BA -a DEL -v 'ba1'
+
+#### SETPARAM
+
+To change a specific parameters for a BV, use the **SETPARAM** action:
+
+    ./centreon -u admin -p centreon -o BA -a SETPARAM -v 'ba1;enable;1'
+    ./centreon -u admin -p centreon -o BA -a SETPARAM -v 'ba1;comment;new comments'
+    ./centreon -u admin -p centreon -o BA -a SETPARAM -v 'ba1;notification_options;r,w,c'
+
+Parameters that you can change are the following:
+
+  |Parameter                       |Description                                                          |
+  |--------------------------------|---------------------------------------------------------------------|
+  |name                            |Business Activity name                                               |
+  |description                     |Business Activity description                                        |
+  |level\_w                        |Warning threshold                                                    |
+  |level\_c                        |Critical threshold                                                   |        
+  |reporting\_period               |reporting period                                                     |
+  |comment                         |Comments                                                             |
+  |notifications\_enabled          |Enable notifications (0 or 1)                                        |
+  |notification\_options           |Notification options (r, w, c, f)                                    |
+  |notification\_period            |Notification period                                                  |
+  |notification\_interval          |Notification interval                                                |
+  |first\_notification\_delay      |Delay before sending first notification when entering non-OK status  |
+  |recovery\_notification\_delay   |Delay before sending first notification when entering OK status      |
+  |icon                            |Business Activity icon                                               |
+  |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs (0 or 1)                         |
+  |geo_coords                      |Geo-coordinate to position the BA                                    |
+  |enable                          |Enable (0 or 1)                                                      |
+  |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |
+  
+    Please note changing State Source will require updating your Level W and Level C to match the appropriate 
+    Calculation Method!
+
+#### SETBV
+
+To set a BV to a BA, use the **SETBV** action:
+
+    ./centreon -u admin -p centreon -o BA -a SETBV -v 'ba1;bv1'
+    ./centreon -u admin -p centreon -o BA -a SETBV -v 'ba1;bv1|bv2'
+
+The following columns are required:
+
+  Column    Description
+  --------- -------------------------------------------------
+  Ba name   Business Activity name
+  Bv name   Business View name (multiple with \| seperator)
+
+#### ADDBV
+
+To add a BV to a BA, use the **ADDBV** action:
+
+    ./centreon -u admin -p centreon -o BA -a ADDBV -v 'ba1;bv1'
+    ./centreon -u admin -p centreon -o BA -a ADDBV -v 'ba1;bv2|bv3'
+
+The following columns are required:
+
+| Column   | Description                                                     |
+|----------|-----------------------------------------------------------------|
+|  Ba name |  Business Aiew name                                             |
+|  Bv name |  Business View name (multiple with a "pipe" separator)          |
+
+#### DELBV
+
+To delete a BV from a BA, use the **DELBV** action:
+
+    ./centreon -u admin -p centreon -o BA -a DELBV -v 'ba1;bv1'
+
+The following columns are required:
+
+| Column   | Description                                                     |
+|----------|-----------------------------------------------------------------|
+|  Ba name |  Business Aiew name                                             |
+|  Bv name |  Business View name (multiple with a "pipe" separator)          |
+
+#### SETCONTACTGROUP
+
+To set contact group to a BA, use the **SETCONTACTGROUP** action:
+
+    ./centreon -u admin -p centreon -o BA -a SETCONTACTGROUP -v 'ba1;Guest'
+    ./centreon -u admin -p centreon -o BA -a SETCONTACTGROUP -v 'ba1;Guest|Supervisors'
+
+The following columns are required:
+
+| Column              | Description                                                     |
+|---------------------|-----------------------------------------------------------------|
+|  Ba name            |  Business Aiew name                                             |
+|  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
+
+#### ADDCONTACTGROUP
+
+To add contact group to a BA, use the **ADDCONTACTGROUP** action:
+
+    ./centreon -u admin -p centreon -o BA -a ADDCONTACTGROUP -v 'ba1;Guest'
+
+The following columns are required:
+
+| Column              | Description                                                     |
+|---------------------|-----------------------------------------------------------------|
+|  Ba name            |  Business Aiew name                                             |
+|  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
+
+#### DELCONTACTGROUP
+
+To delete a contact group from a BA, use the **DELCONTACTGROUP** action:
+
+    ./centreon -u admin -p centreon -o BA -a DELCONTACTGROUP -v 'ba1;Guest'
+
+The following columns are required:
+
+| Column              | Description                                                     |
+|---------------------|-----------------------------------------------------------------|
+|  Ba name            |  Business Aiew name                                             |
+|  Contact group name |  Contact group name (multiple with a "pipe" separator)          |
+
+#### SETEXTRAREPORTINGPERIOD
+
+To set extra reporting periods for Centreon MBI, use the
+**SETEXTRAREPORTINGPERIOD** action:
+
+    ./centreon -u admin -p centreon -o BA -a SETEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+
+The following columns are required:
+
+| Column                   | Description                                                     |
+|--------------------------|-----------------------------------------------------------------|
+|  Ba name                 |  Business Aiew name                                             |
+|  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
+
+#### ADDEXTRAREPORTINGPERIOD
+
+To add extra reporting periods for Centreon MBI, use the
+**ADDEXTRAREPORTINGPERIOD** action:
+
+    ./centreon -u admin -p centreon -o BA -a ADDEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+
+The following columns are required:
+
+| Column                   | Description                                                     |
+|--------------------------|-----------------------------------------------------------------|
+|  Ba name                 |  Business Aiew name                                             |
+|  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
+
+#### DELEXTRAREPORTINGPERIOD
+
+To delete extra reporting periods from a BA, use the
+**DELEXTRAREPORTINGPERIOD** action:
+
+    ./centreon -u admin -p centreon -o BA -a DELEXTRAREPORTINGPERIOD -v 'ba1;workhours'
+
+The following columns are required:
+
+| Column                   | Description                                                     |
+|--------------------------|-----------------------------------------------------------------|
+|  Ba name                 |  Business Aiew name                                             |
+|  Extra reporting period  |  Extra reporting period (multiple with a "pipe" separator)      |
+
+#### SETPOLLER
+
+To set the poller where the BA is calculated (in addition to central), 
+use the **SETPOLLER** action:
+
+    ./centreon -u admin -p centreon -o BA -a SETPOLLER -v 'ba1;poller1'
+
+The following columns are required:
+
+| Column                   | Description                                                     |
+|--------------------------|-----------------------------------------------------------------|
+|  Ba name                 |  Business Aiew name                                             |
+| Poller name              |  Poller name where Business Activity can be calculated          |
+
+#### DELPOLLER
+
+To delete poller where the BA is calculated, use the **DELPOLLER**
+action:
+
+    ./centreon -u admin -p centreon -o BA -a DELPOLLER -v 'ba1;poller1'
+
+The following columns are required:
+
+| Column                   | Description                                                     |
+|--------------------------|-----------------------------------------------------------------|
+|  Ba name                 |  Business Aiew name                                             |
+| Poller name              |  Poller name where Business Activity is  calculated             |
+
+### Indicators (KPI)
+
+Object name: **KPI**
+
+#### SHOW
+
+To list available KPI, use the **SHOW** action:
+
+    ./centreon -u admin -p centreon -o KPI -a SHOW
+    id;type;name;impacted_ba;warning_impact;critical_impact;unknown_impact
+    1;service;Centreon-Server Load;ba1;25;50;20
+    2;metaservice;meta1;toto;50;100;75 
+    [...]
+
+Columns are the following:
+
+  |Column           |Description                                  |
+  |-----------------|---------------------------------------------|   
+  |KPI ID           |KPI id                                       | 
+  |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
+  |KPI name         |KPI name                                     |                       
+  |Impacted BA      |Impacted business activity                   | 
+  |Warning impact   |Warning impact                               | 
+  |Critical impact  |Critical impact                              | 
+  |Unknown impact   |Unknown impact                               | 
+
+#### ADD
+
+To add a KPI, use the **ADD** action:
+
+    ./centreon -u admin -p centreon -o KPI -a ADD -v 'service;host1|service1;ba1;10;20;5'
+    ./centreon -u admin -p centreon -o KPI -a ADD -v 'metaservice;meta11;ba2;minor;major;null'
+    ./centreon -u admin -p centreon -o KPI -a ADD -v 'ba;ba1;ba3;10;20;5'
+    ./centreon -u admin -p centreon -o KPI -a ADD -v 'boolean;rule1;ba4;10;20;5'
+
+Required columns are the following:
+
+  |Column           |Description                                  |
+  |-----------------|---------------------------------------------|   
+  |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
+  |Object           | Object used in KPI                          | 
+  |Impacted BA      |Impacted business activity                   | 
+  |Warning impact   |Warning impact                               | 
+  |Critical impact  |Critical impact                              | 
+  |Unknown impact   |Unknown impact                               | 
+
+#### DEL
+
+If you want to remove a KPI, use the **DEL** action:
+
+    ./centreon -u admin -p centreon -o KPI -a DEL -v 'ba;ba1;ba3'
+
+#### SETPARAM
+
+If you want to change a specific parameters for a KPI, use the
+**SETPARAM** action:
+
+    ./centreon -u admin -p centreon -o KPI -a SETPARAM -v 'service;host1|service1;ba1;enable;0'
+    ./centreon -u admin -p centreon -o KPI -a SETPARAM -v 'metaservice;meta1;ba1;warning_impact;50'
+
+Parameters that you can change are the following:
+
+  |Column           |Description                                  |
+  |-----------------|---------------------------------------------|   
+  |Warning impact   |Warning impact                               | 
+  |Critical impact  |Critical impact                              | 
+  |Unknown impact   |Unknown impact                               | 
+  |impacted\_ba     |Impacted business activity                   |
+  |enable           | Enable (0 or 1)                              |
+
+#### SETIMPACTMODE
+
+If you want to change configuration mode, use the **SETIMPACTMODE**
+action:
+
+    ./centreon -u admin -p centreon -o KPI -a SETIMPACTMODE -v 'ba;ba1;ba3;advanced'
+
+Parameters that you can change are the following:
+
+  |Parameter     |Description                                 |
+  |--------------|--------------------------------------------|
+  |KPI type      |*service*, *metaservice*, *ba* or *boolean* |
+  |Object        |Object used in KPI                          |
+  |Impacted BA   |Impacted business activity                  |
+  |Impact mode   |regular or advanced                         |
+
+### Boolean Rule
+
+Object name: **BOOLEANRULE**
+
+#### SHOW
+
+To list available boolean rules, use the **SHOW** action:
+
+    ./centreon -u admin -p centreon -o BOOLEANRULE -a SHOW 
+    id;name;expression;bool_state
+    8;rule1;expression1;1
+    9;rule2;expression2;1
+    [...]
+
+The following columns are required:
+
+  |Column           |Description                                           |
+  |-----------------|------------------------------------------------------|
+  |Rule ID          |Boolean rule id                                       |
+  |Rule name        | Boolean rule name                                    |                             
+  |Rule expression  |Boolean rule expression                               |
+  |Bool state       |Impact is applied when expression returns this state  |
+
+#### ADD
+
+To add a boolean rule, use the **ADD** action:
+
+    ./centreon -u admin -p centreon -o BOOLEANRULE -a ADD -v 'rule1;expression1;1'
+
+The following columns are required:
+
+  |Column           |Description                                           |
+  |-----------------|------------------------------------------------------|
+  |Rule name        | Boolean rule name                                    |                             
+  |Rule expression  |Boolean rule expression                               |
+  |Bool state       |Impact is applied when expression returns this state  |
+
+#### DEL
+
+To remove a boolean rule, use the **DEL** action:
+
+    ./centreon -u admin -p centreon -o BOOLEANRULE -a DEL -v 'rule1'
+
+#### SETPARAM
+
+To change a specific parameter for a boolean rule, use the **SETPARAM**
+command:
+
+    ./centreon -u admin -p centreon -o BOOLEANRULE -a setparam -v 'rule1;expression;new expression'
+
+Parameters that you can change are the following:
+
+  |Column           |Description                                           |
+  |-----------------|------------------------------------------------------|
+  |Rule name        | Boolean rule name                                    |                             
+  |Rule expression  |Boolean rule expression                               |
+  |Bool state       |Impact is applied when expression returns this state  |
+
+
 ## Poller management
 
 ### List available pollers
