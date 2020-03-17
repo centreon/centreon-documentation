@@ -169,7 +169,7 @@ FLUSH PRIVILEGES;
 > Change the method to store the password using following command:
 >
 > ``` SQL
-> ALTER USER 'root'@'<IP>' IDENTIFIED WITH mysql_native_password BY 'PASSWORD';
+> ALTER USER 'root'@'<IP>' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
 > FLUSH PRIVILEGES;
 > ```
 
@@ -216,7 +216,7 @@ DROP USER 'root'@'<IP>';
 ### Database management system
 
 We recommend using MariaDB for your database because it is open source. Ensure the database server is available to
-complete the installation (locally or noM).
+complete the installation (locally or no).
 
 It is necessary to modify **LimitNOFILE** limitation. Do not try to set this option in **/etc/my.cnf** because it will
 *not* work. Run the commands:
