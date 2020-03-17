@@ -1,22 +1,22 @@
 ---
-id: poller_from_iso
+id: centreon-from-iso
 title: Using Centreon ISO
 ---
 
-## Step 1: Starting up the server
+## Step 1: Startup the server
 
-To install a Centreon Poller, start up your server from the Centreon ISO image in version el7.
+To install Centreon, start up your server from the Centreon ISO image in version el7.
 Start up with **Install CentOS 7**:
 
 ![image](assets/installation/01_bootmenu.png)
 
-## Step 2: Choosing a language
+## Step 2: Choose a language
 
 Choose the language for the installation process and click on **Continue**:
 
 ![image](assets/installation/02_select_install_lang.png)
 
-## Step 3: Selecting components
+## Step 3: Select components
 
 Click on the **Installation Type** menu:
 
@@ -24,18 +24,18 @@ Click on the **Installation Type** menu:
 
 You have different options to choose from:
 
-![image](assets/installation/poller/07installpoller.png)
+![image](assets/installation/04_form_type_install.png)
 
 * **Central with database**: Install Centreon (web interface and database), monitoring engine and Broker.
 * **Central without database**: Install Centreon (web interface only), monitoring engine and Broker.
 * **Poller**: Install poller (monitoring engine and Broker only).
 * **Database**: Install database server (if you have already installed a **Central server without a database** option).
 
-Select **Poller** and click **Done**.
+After selecting your installation type, click **Done**.
 
 ## Step 4: System configuration
 
-### Partitioning the disk
+### Configure disk partitioning
 
 Click on the **Installation Destination** menu:
 
@@ -46,7 +46,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](prerequisites#define-disk-space). Then click on **Done**:
+[prerequisites chapter](prerequisites.html). Then click on **Done**:
 
 ![image](assets/installation/07_partitioning_filesystem.png)
 
@@ -56,7 +56,7 @@ A confirmation window appears. Click on **Accept Changes** to validate the parti
 
 ![image](assets/installation/08_apply_changes.png)
 
-### Configuring the timezone
+### Configure the timezone
 
 Click on the **Date & Time** menu:
 
@@ -74,7 +74,7 @@ predefined NTP servers then click **OK** and then **Done**:
 > It is okay that you can't enable the “network time” option in this screen. It will become enabled automatically when
 > you configure the network and hostname.
 
-### Configuring the network
+### Configure the network
 
 Click on the **Network & Hostname** menu:
 
@@ -84,7 +84,7 @@ Enable all network interfaces by clicking the button in the top right from **off
 
 ![image](assets/installation/10_network_hostname.png)
 
-## Beginning the installation
+## Beginn the installation
 
 Once configuration is complete, click on **Begin Installation**:
 
@@ -107,12 +107,12 @@ When the installation is complete, click on **Reboot**:
 
 ![image](assets/installation/18_reboot_server.png)
 
-## Updating the system packages
+## Update the system packages
 
 Connect to your server using a terminal, and execute the command:
 
-```Bah
-# yum update
+``` shell
+yum update
 ```
 
 ![image](assets/installation/19_update_system.png)
@@ -123,62 +123,10 @@ Accept all GPG keys if you are prompted:
 
 Then restart your server with the following command:
 
-```Bah
-# reboot
+``` shell
+reboot
 ```
 
-## Exchanging SSH Keys
+## First configuration
 
-Communication between a central server and a poller server is done through SSH.
-
-You need to exchange SSH keys between the servers.
-
-If you do not have any private SSH keys on the central server for the **centreon** user:
-```Bash
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Hit enter when it prompts for a file to save the key to use the default location, or, create one in a specified
-> directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
-
-Generate a password for the **centreon** user on the new server:
-```Bash
-passwd centreon
-```
-
-Copy this key on to the new server:
-```Bash
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
-```
-
-## Configuring a new poller in Centreon
-
-Go to the **Configuration > Pollers** menu and click on **Add server with wizard** to configure a new poller.
-
-Select **Add a Centreon Poller** and click on **Next**:
-
-![image](assets/installation/poller/wizard_add_poller_1.png)
-
-Type in the name, the IP address of the poller and IP address of the Central Server. Click on **Next**:
-
-![image](assets/installation/poller/wizard_add_poller_2.png)
-
-> The IP address of the poller is the IP address or the FQDN used to access this poller from the Central Server.
->
-> The IP address of the Central Server is the IP address or the FQDN used to access the Central Server from the poller.
-
-If you want to link the poller to the Centreon Server, click on **Apply**:
-
-![image](assets/installation/poller/wizard_add_poller_3.png)
-
-Otherwise, if you want to link the poller to an existing Centreon Remote Server, select one from the list. Then click **Apply**.
-
-In a few seconds the wizard will configure your new poller.
-
-![image](assets/installation/poller/wizard_add_poller_5.png)
-
-## Getting started
-
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your first monitoring.
+Conclude installation by performing [first configuration](post-install.html#Web-installation)..

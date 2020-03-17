@@ -1,5 +1,5 @@
 ---
-id: tutorials-howto
+id: how-to
 title: How to
 ---
 

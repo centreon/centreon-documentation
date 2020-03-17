@@ -1,32 +1,33 @@
 ---
-id: centreon_from_sources
-title: Using sources
+id: centreon-from-sources
+title: A partir des sources
 ---
 
-## Prerequisites
+## Prérequis
 
-> Most CentOS users will find easier to install Centreon Web by [Using Packages](from_packages)
+> La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
+[les paquets fournis par Centreon](centreon-from-packages.html)
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Redhat/CentOS-->
+Afin d’installer les logiciels Centreon, le dépôt Software collections de Red Hat doit être activé.
 
-To install Centreon you will need to set up the official software collections repository supported by Redhat.
+> Le dépôt Software collections est nécessaire pour l’installation de PHP 7 et les librairies associées.
 
-> Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
+Exécutez la commande suivante :
 
-Install the software collections repository using this command:
-
-```Bash
-yum install centos-release-scl
+``` shell
+yum install -y centos-release-scl
 ```
 
-The repository is now installed.
+Le dépôt est maintenant installé.
 
-You can now install the necessary prerequisites:
+Vous pouvez maintenant installer les prérequis :
 
-```Bash
+``` shell
 yum update
 yum install -y \
+    rh-php72
     rh-php72-php-zip \
     rh-php72-php-xml \
     rh-php72-php-fpm \
@@ -68,167 +69,241 @@ yum install -y \
     glib2-devel
 ```
 
-Additional commands are necessary to configure the environment correctly:
+Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :
 
-```Bash
+``` shell
 usermod -U apache
 /opt/rh/rh-php72/root/bin/pear channel-update pear.php.net
 ```
 
-If you can’t access the Internet directly but have to pass via a proxy,
-perform the following command:
+Si vous ne pouvez pas accéder directement à Internet directement mais passer par un proxy, exécutez la commande
+suivante :
 
-```Bash
+``` shell
 /opt/rh/rh-php72/root/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
-Then execute:
-```Bash
+Puis exécutez :
+
+``` shell
 /opt/rh/rh-php72/root/bin/pear upgrade-all
 ```
 <!--Debian Stretch / Ubuntu 18.04-->
+Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
 
-Add the php 7.2 repository:
+### For Debian Stretch
 
-#### For Debian Stretch
-
-```Bash
+``` shell
 apt-get install wget apt-transport-https lsb-release ca-certificates
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" >> /etc/apt/sources.list.d/php.list
 apt-get update
 ```
 
-#### For Ubuntu 18.04
+### For Ubuntu 18.04
 
-> It is necessary to add sudo in front of the following commands:
-> ```Bash  
-> $ apt-get install software-properties-common
-> $ add-apt-repository ppa:ondrej/php
-> $ apt update
+> Il est nécessaire d'ajouter sudo devant les commandes ci-dessous :
+>
+> ``` shell  
+> apt-get install software-properties-common
+> add-apt-repository ppa:ondrej/php
+> apt update
+> ```
 
-Install the following prerequisites:
-```Bash
-apt-get install php7.2 php7.2-opcache libapache2-mod-php7.2 php7.2-mysql php7.2-curl php7.2-json \
-    php7.2-gd php7.2-mcrypt php7.2-intl php7.2-mbstring php7.2-xml php7.2-zip php7.2-fpm php7.2-readline \
-    php7.2-sqlite3 php-pear sudo tofrodos bsd-mailx lsb-release mariadb-server libconfig-inifiles-perl \
-    libcrypt-des-perl libdigest-hmac-perl libdigest-sha-perl libgd-perl php7.2-ldap php7.2-snmp php-db php-date
+Installez les dépendances nécessaires :
+
+``` shell
+apt-get install \
+    php7.2 \
+    php7.2-opcache \
+    libapache2-mod-php7.2 \
+    php7.2-mysql \
+    php7.2-curl \
+    php7.2-json \
+    php7.2-gd \
+    php7.2-mcrypt \
+    php7.2-intl \
+    php7.2-mbstring \
+    php7.2-xml \
+    php7.2-zip \
+    php7.2-fpm \
+    php7.2-readline \
+    php7.2-sqlite3 \
+    php7.2-ldap \
+    php7.2-snmp \
+    php-db \
+    php-date
+    php-pear \
+    sudo \
+    tofrodos \
+    bsd-mailx \
+    lsb-release \
+    mariadb-server \
+    libconfig-inifiles-perl \
+    libcrypt-des-perl \
+    libdigest-hmac-perl \
+    libdigest-sha-perl \
+    libgd-perl
 ```
 
-Activate the modules:
-```Bash
+Activez les modules :
+
+``` shell
 a2enmod proxy_fcgi setenvif proxy rewrite
 a2enconf php7.2-fpm
 a2dismod php7.2
 systemctl restart apache2 php7.2-fpm
 ```
 
-Additional commands are necessary to configure the environment correctly:
-```Bash
+Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :
+
+``` shell
 groupadd -g 6000 centreon
 useradd -u 6000 -g centreon -m -r -d /var/lib/centreon -c "Centreon Admin" -s /bin/sh centreon
 ```
 
-To finish, you should install SNMP MIBs. Because of a license problem the MIB files are not available by default in
-Debian. To add them, change the /etc/apt/sources.list file and add the *non-free* category.
+Pour finir, vous devez installer des MIBs SNMP. En raison d'un problème de licence, les fichiers MIBs ne sont pas
+disponibles par défaut sous Debian. Pour les ajouter, modifiez le fichier */etc/apt/sources.list* et ajouter la
+catégorie **non-free**.
 
-Execute the following commands:
-```Bash
+Puis exécutez les commandes suivantes :
+
+``` shell
 apt-get update
 apt-get install snmp-mibs-downloader
 ```
 
-Then modify the SNMP configuration file */etc/default/snmpd* by adding:
-```Bash
+Modifiez le fichier de configuration SNMP */etc/default/snmpd* en ajoutant :
+
+``` shell
 export MIBDIRS=/usr/share/snmp/mibs
 export MIBS=ALL
 ```
 
-And commenting:
-```Bash
+Commentez :
+
+``` shell
 #mibs ALL
 ```
 
-Restart SNMP service:
-```Bash
+Redémarrez le service SNMP :
+
+``` shell
 service snmpd restart
 service snmptrapd restart
 ```
-
 <!--Suse-->
-Install the following prerequisites:
-```Bash
-yast -i gcc gcc-c++ make automake apache2 php5 php5-mysql apache2-mod_php5 php5-pear \
-    php5-ldap php5-snmp php5-gd php5-soap php5-intl php5-posix php5-gettext php5-mbstring mysql \
-    libmysqlclient-devel perl-DBD-mysql mysql-community-server rrdtool perl-Config-IniFiles \
-    net-snmp perl-Net-SNMP perl-SNMP gd libjpeg-devel libpng-devel fontconfig-devel \
-    freetype2-devel sudo mailx fping iputils dos2unix cron dejavu nagios-plugins
+Installez les dépendances nécessaires :
+
+``` shell
+yast -i gcc \
+    gcc-c++ \
+    make \
+    automake \
+    apache2 \
+    php5 \
+    php5-mysql \
+    apache2-mod_php5 \
+    php5-pear \
+    php5-ldap \
+    php5-snmp \
+    php5-gd \
+    php5-soap \
+    php5-intl \
+    php5-posix \
+    php5-gettext \
+    php5-mbstring \
+    mysql \
+    libmysqlclient-devel \
+    perl-DBD-mysql \
+    mysql-community-server \
+    rrdtool \
+    perl-Config-IniFiles \
+    net-snmp \
+    perl-Net-SNMP \
+    perl-SNMP \
+    gd \
+    libjpeg-devel \
+    libpng-devel \
+    fontconfig-devel \
+    freetype2-devel \
+    sudo \
+    mailx \
+    fping \
+    iputils \
+    dos2unix \
+    cron \
+    dejavu \
+    nagios-plugins
 ```
 
-On some OpenSuse distributions, the default settings of the **mine** type are not valid to function with the Centreon
-web interface. Edit the */etc/mime.types* file and find the lines:
-```Bash
+Sur certaines distributions OpenSuse, le paramétrage par défaut des type **mine** n'est pas valide pour fonctionner
+avec l'interface web Centreon. Editez le fichier */etc/mime.types* et rechercher les lignes :
+
+``` shell
 text/x-xsl xsl
 text/x-xslt xslt xsl
 ```
 
-Replace them by:
-```Bash
+Remplacez-les par :
+
+``` shell
 text/xml xsl
 text/xml xslt xsl
 ```
 
-Save the file and restart Apache:
-```Bash
+Sauvegardez le fichier et redémarrez apache :
+
+``` shell
 /etc/init.d/apache2 restart
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Monitoring engine (Centreon Engine)
+## Moteur de supervision (Centreon Engine)
 
-Centreon is tested and approved only for the monitoring engine @TODO@(:ref:`Centreon Engine <centreon-engine:user_installation_using_sources>`).
+Installez ce moteur avant de poursuivre l'installation. N'oubliez pas d'installer les
+[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) vous ne l'avez pas déjà fait.
 
-You can install it following the procedure in documentation. Don’t forget to install the
-[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) if you have not already done so.
+## Multiplexeur de flux (Centreon Broker)
 
-## Stream Multiplexer (Centreon Broker)
-
-Centreon is tested and approved only for the stream multiplexer @TODO@(:ref:`Centreon Broker <centreon-broker:user_installation_using_sources>`).
-
-Install this Stream Multiplexers before continuing with the installation.
+Installez ce multiplexeurs de flux avant de poursuivre l'installation.
 
 ## Centreon
 
-Download the latest version of [Centreon here](https://download.centreon.com).
+Téléchargez la dernière version de [Centreon ici](https://download.centreon.com).
 
-Extract the Centreon archive:
-```Bash
+Extraire Centreon de l'archive :
+
+``` shell
 tar zxf centreon-web-YY.MM.x.tar.gz
 cd centreon-web-YY.MM.x
 ```
 
-> The installation script allows customized configuration; this process will show you the best paths to use. Furthermore
-quick yes/no questions can be replied to by [y] most of the time.
-
-> If centreon sources have been downloaded from github, run those commands:
->```Bash
+> Le script d'installation permet une configuration personnalisée, cette procédure vous montrera les meilleurs chemins
+> à utiliser.
+>
+> En outre, les questions rapides Yes/No peuvent être répondues par [y] la plupart du temps.
+>
+> Si les sources de centreon ont été téléchargées depuis github, exécutez ces commandes :
+>
+>``` shell
 > composer install --no-dev --optimize-autoloader
 > npm install
 > npm run build
 > ```
 
-Run the installation script:
+Exécutez le script d'installation :
 
-```Bash
+``` shell
 ./install.sh -i
 ```
 
-### Prerequisites check
+### Contrôle de prérequis
 
-If the Prerequisites installation step has been run successfully you should have
-no problem during this stage. Otherwise repeat the Prerequisites installation
-process:
-```Bash
+> Si l'étape d'installation des prérequis s'est déroulée avec succès, vous ne devriez avoir aucun problème lors de cette
+> étape. Sinon, reprennez la procédure d'installation des prérequis.
+
+``` shell
 ###############################################################################
 #                                                                             #
 #                         Centreon (www.centreon.com)                         #
@@ -259,8 +334,9 @@ find                                                       OK
 /bin/sed                                                   OK
 ```
 
-### License agreement
-```Bash
+### Approbation de la licence
+
+``` shell
 This General Public License does not permit incorporating your program into
 proprietary programs.  If your program is a subroutine library, you may
 consider it more useful to permit linking proprietary applications with the
@@ -272,10 +348,11 @@ Do you accept GPLv2 license ?
 > y
 ```
 
-### Main components
+### Composants principaux
 
-Answer **[y]** to all the questions:
-```Bash
+Répondez **[y]** à toutes les questions :
+
+``` shell
 ------------------------------------------------------------------------
         Please choose what you want to install
 ------------------------------------------------------------------------
@@ -297,8 +374,9 @@ Do you want to install : CentreonTrapd process
 > y
 ```
 
-### Definition of installation paths
-```Bash
+### Définition des chemins d'installation
+
+``` shell
 ------------------------------------------------------------------------
         Start CentWeb Installation
 ------------------------------------------------------------------------
@@ -360,11 +438,12 @@ Finding Apache user :                                      www-data
 Finding Apache group :                                     www-data
 ```
 
-### Centreon user and group
+### Utilisateur et groupe centreon
 
-Le groupe d'applications **centreon** est utilisé pour les droits d'accès
-entre les différents logiciels de la suite Centreon:
-```Bash
+Le groupe d'applications **centreon** est utilisé pour les droits d'accès entre les différents logiciels de la suite
+Centreon :
+
+``` shell
 What is the Centreon group ? [centreon]
 default to [centreon]
 >
@@ -374,28 +453,27 @@ default to [centreon]
 >
 ```
 
-### Monitoring user
+### Utilisateur de la supervision
 
-This is the user used to run the monitoring engine (Centreon Engine). If you followed the
-@TODO@(`Centreon Engine official installation procedure <https://documentation.centreon.com/docs/centreon-engine/en/latest/installation/index.html#using-sources>`_)
-the user will likely be *centreon-engine*.
-```Bash
+Cet utilisateur exécute le moteur de supervision Centreon Engine.
+
+``` shell
 What is the Monitoring engine user ? [centreon-engine]
 default to [centreon-engine]
 >
 ```
 
-This is the user used to run the stream broker (Centreon Broker). If you followed the
-@TODO@(`Centreon Broker official installation procedure <https://documentation.centreon.com/docs/centreon-broker/en/3.0/installation/index.html#using-sources>`_)
-the user will likely be *centreon-broker*.
-```Bash
+Cet utilisateur exécute le multiplexeur de flux Centreon Broker.
+
+``` shell
 What is your Centreon Broker user ? [centreon-broker]
 default to [centreon-broker]
 >
 ```
 
-### Monitoring logs directory
-```Bash
+### Répertoire des journaux d'évènements
+
+``` shell
 What is the Monitoring engine log directory ?[/var/log/centreon-engine]
 default to [/var/log/centreon-engine]
 >
@@ -408,8 +486,9 @@ Add group centreon-engine to user centreon                 OK
 Add group www-data to user centreon                        OK
 ```
 
-### Sudo configuration
-```Bash
+### Configuration des droits sudo
+
+``` shell
 ------------------------------------------------------------------------
         Configure Sudo
 ------------------------------------------------------------------------
@@ -446,8 +525,9 @@ Do you want me to configure your sudo ? (WARNING)
 Configuring Sudo                                           OK
 ```
 
-### Apache configuration
-```Bash
+### Configuration du serveur Apache
+
+``` shell
 ------------------------------------------------------------------------
         Configure Apache server
 ------------------------------------------------------------------------
@@ -464,8 +544,9 @@ Do you want to reload your Apache ?
 Reloading Apache service                                   OK
 ```
 
-### PHP FPM configuration
-```Bash
+### Configuration de PHP FPM
+
+``` shell
 ------------------------------------------------------------------------
         Configure PHP FPM service
 ------------------------------------------------------------------------
@@ -533,8 +614,9 @@ Install clapi binary                                       OK
 Centreon Web Perl lib installed                            OK
 ```
 
-### Pear module installation
-```Bash
+### Installation des modules pear
+
+``` shell
 ------------------------------------------------------------------------
 Pear Modules
 ------------------------------------------------------------------------
@@ -545,8 +627,9 @@ Date                            1.4.6       1.4.7          OK
 All PEAR modules                                           OK
 ```
 
-### Configuration file installation
-```Bash
+### Installation du fichier de configuration
+
+``` shell
 ------------------------------------------------------------------------
             Centreon Post Install
 ------------------------------------------------------------------------
@@ -554,8 +637,9 @@ Create /usr/share/centreon/www/install/install.conf.php    OK
 Create /etc/centreon/instCentWeb.conf                      OK
 ```
 
-### Performance data component (Centstorage) installation
-```Bash
+### Installation du composant Centstorage
+
+``` shell
 ------------------------------------------------------------------------
         Starting CentStorage Installation
 ------------------------------------------------------------------------
@@ -591,8 +675,9 @@ Install CentStorage cron                                   OK
 Create /etc/centreon/instCentStorage.conf                  OK
 ```
 
-### Poller communication subsystem (Centcore) installation
-```Bash
+### Installation du composant Centcore
+
+``` shell
 ------------------------------------------------------------------------
         Starting CentCore Installation
 ------------------------------------------------------------------------
@@ -623,8 +708,9 @@ CentCore Perl lib installed                                OK
 Create /etc/centreon/instCentCore.conf                     OK
 ```
 
-### Plugin installation
-```Bash
+### Installation des plugins
+
+``` shell
 ------------------------------------------------------------------------
         Starting Centreon Plugins Installation
 ------------------------------------------------------------------------
@@ -642,8 +728,9 @@ Path /var/lib/centreon/centplugins                         OK
 Create /etc/centreon/instCentPlugins.conf                  OK
 ```
 
-### Centreon SNMP trap management installation
-```Bash
+### Installation du système de gestion des traps SNMP (Centreontrapd)
+
+``` shell
 ------------------------------------------------------------------------
         Starting CentreonTrapD Installation
 ------------------------------------------------------------------------
@@ -685,8 +772,9 @@ Install Centreon Trapd logrotate.d file                    OK
 Create /etc/centreon/instCentPlugins.conf                  OK
 ```
 
-#### End
-```Bash
+#### Fin de l'installation
+
+``` shell
 ###############################################################################
 #                                                                             #
 #                 Go to the URL : http://localhost.localdomain/centreon/      #
@@ -703,59 +791,65 @@ Create /etc/centreon/instCentPlugins.conf                  OK
 ###############################################################################
 ```
 
-### PHP dependencies installation
+### Installation des dépendances PHP
 
-First, you need to install PHP dependency installer **composer**. Composer can be downloaded
-[here](https://getcomposer.org/download/) (it is also available in EPEL repository).
+Tout d'abord, vous devez installer l'installeur de dépendance PHP **composer**. Composer peut être téléchargé
+[ici](https://getcomposer.org/download/) (celui-ci est également disponible dans les dépôts EPEL).
 
-Once composer is installed, go to the centreon directory (usually **/usr/share/centreon/**) and run the following
-command:
-```Bash
+Une fois que composer est installé, rendez-vous dans les répertoires Centreon (habituellement **/usr/share/centreon/**)
+et exécutez la commande suivante :
+
+``` shell
 composer install --no-dev --optimize-autoloader
 ```
 
-### Javascript dependencies installation
+### Installation des dépendances Javascript
 
-First, you need to install javascript runtime **nodejs**. Installation instructions are available
-[here](https://nodejs.org/en/download/package-manager/).
+Tout d'abord, vous devez installer l'environnement d'exécution javascript **nodejs**. Les instructions d'installation
+sont disponibles [ici](https://nodejs.org/en/download/package-manager/).
 
-Once nodejs is installed, copy the JSON files to the installation folder:
-```Bash
+Une fois que nodejs est installé, copiez les fichiers JSON vers le dossier d'installation :
+
+``` shell
 cp /usr/local/src/centreon-web-YY.MM.x/package* /usr/share/centreon/
 ```
 
-Then go to the centreon directory (usually **/usr/share/centreon/**) and run the following commands:
-```Bash
+Puis, rendez vous dans le répertoire centreon (habituellement **/usr/share/centreon/**) et exécutez les commandes
+suivantes :
+
+``` shell
 npm install
 npm run build
 rm -rf node_modules
 ```
 
-### Any operating system
+### Pour tous les OS
 
-SELinux should be disabled; for this, you have to modify the file **/etc/sysconfig/selinux**
-and replace **enforcing** by **disabled**:
-```Bash
+SELinux doit être désactivé. Pour cela, vous devez modifier le fichier **/etc/sysconfig/selinux** et remplacer
+**enforcing** par **disabled** comme dans l'exemple suivant :
+
+``` shell
 SELINUX=disabled
 ```
 
-After saving the file, please reboot your operating system to apply the changes.
+Après avoir sauvegardé le fichier, veuillez redémarrer votre système d'exploitation pour prendre en compte les changements.
 
-Timezone and mandatory PHP parameters have to be set: go to `/etc/php/7.2/cli/conf.d` or `/etc/php/7.2/apache2/conf.d`
-directory and create a file named `centreon.ini` which contains the following lines:
-```Bash
+La timezone par défaut ainsi que des paramètres requis de PHP doivent être configurés. Pour cela, allez dans le
+répertoire `/etc/php/7.2/cli/conf.d` ou `/etc/php/7.2/apache2/conf.d` et créez un fichier nommé `centreon.ini` contenant
+les lignes suivantes :
+
+``` shell
 date.timezone = Europe/Paris
 max_execution_time = 300
 session.use_strict_mode = 1
 session.gc_maxlifetime = 7200
 ```
 
-After saving the file, please don't forget to restart apache server.
+Après avoir sauvegardé le fichier, n'oubliez pas de redémarrer le service apache de votre serveur.
 
-The Mysql database server should be available to complete installation (locally or not). MariaDB is recommended.
+La base de données MySQL doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
+information, nous recommandons MariaDB.
 
-After this step you should connect to Centreon to finalize the installation process.
+## Première configuration
 
-## First configuration
-
-Conclude installation by performance [first configuration](post-install#Web-installation).
+Terminez l'installation en réalisant la [première configuration](post-install.html).

@@ -1,5 +1,5 @@
 ---
-id: centreon_from_iso
+id: centreon-from-iso
 title: A partir de l'ISO Centreon
 ---
 
@@ -10,15 +10,15 @@ Démarrez avec l'option **Install CentOS 7** :
 
 ![image](assets/installation/01_bootmenu.png)
 
-## Etape 2 : Choix de la langue
+## Etape 2 : Choisir la langue
 
 Choisissez la langue du processus d'installation puis cliquez sur **Continue** :
 
 ![image](assets/installation/02_select_install_lang.png)
 
-## Step 3: Selecting components
+## Step 3: Choisir les composants
 
-Cliquez sur le menu **Installation Type** : 
+Cliquez sur le menu **Installation Type** :
 
 ![image](assets/installation/03_menu_type_install.png)
 
@@ -35,7 +35,7 @@ Après avoir sélectionné le type d'installation, cliquez sur **Done**.
 
 ## Etape 4 : Configuration système
 
-### Partitionnement des disques
+### Configurer le partitionnement des disques
 
 Cliquez sur le menu **Installation Destination** :
 
@@ -56,7 +56,7 @@ Une fenêtre de confirmation apparaît, cliquez sur **Accept Changes** pour vali
 
 ![image](assets/installation/08_apply_changes.png)
 
-### Configuration du fuseau horaire
+### Configurer le fuseau horaire
 
 Cliquez sur le menu **Date & Time** :
 
@@ -73,7 +73,7 @@ Activez ou ajouter des serveurs NTP, cliquez sur **OK** puis **Done** :
 > Il est normal que vous ne puissiez pas activer l'option *network time* dans cet écran. Il deviendra automatiquement
 > activé lorsque vous configurerez le réseau et le nom d'hôte.
 
-### Configuration réseau
+### Configurer le réseau
 
 Cliquez sur le menu **Network & Hostname** :
 
@@ -108,7 +108,8 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
-```Bah
+
+``` shell
 yum update
 ```
 
@@ -119,10 +120,11 @@ Acceptez toutes les clés GPG proposées :
 ![image](assets/installation/20_accept_gpg_key.png)
 
 Redémarrez votre système avec la commande:
-```Bah
+
+``` shell
 reboot
 ```
 
 ## Première configuration
 
-Terminez l'installation en réalisant la [première configuration](post-install#Web-installation).
+Terminez l'installation en réalisant la [première configuration](post-install.html#Web-installation)..

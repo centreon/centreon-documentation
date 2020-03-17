@@ -51,7 +51,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | RRDtools | 1.4.7           |
 | zlib     | 1.2.3           |
 
-## CSélectionner votre architecture
+## Sélectionner votre architecture
 
 > Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.

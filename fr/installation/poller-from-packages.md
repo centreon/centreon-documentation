@@ -1,5 +1,5 @@
 ---
-id: poller_from_packages
+id: poller-from-packages
 title: A partir des paquets
 ---
 
@@ -8,26 +8,31 @@ title: A partir des paquets
 ### Désactiver SELinux
 
 SELinux doit être désactivé. Pour cela vous devez modifier le fichier */etc/selinux/config* et remplacer "enforcing"
-par "disabled" comme dans l'exemple suivant : 
-```Bash
+par "disabled" comme dans l'exemple suivant :
+
+``` shell
 SELINUX=disabled
 ```
 
 > Après avoir sauvegardé le fichier, veuillez redémarrer votre système d'exploitation pour prendre en compte les changements.
 
 Une vérification rapide permet de confirmer le statut de SELinux:
-```Bash
+
+``` shell
 getenforce
 ```
+
 Vous devriez avoir le résultat suivant :
-```Bash
+
+``` shell
 Disabled
 ```
 
 ### Configuration du pare-feu
 
 aramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce dernier exécuter les commandes suivantes :
-```Bash
+
+``` shell
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl status firewalld
@@ -37,7 +42,8 @@ systemctl status firewalld
 
 Afin d’installer les logiciels Centreon à partir des dépôts, vous devez au préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante à partir d’un utilisateur possédant les droits suffisants :
-```Bash
+
+``` shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
@@ -47,7 +53,7 @@ Le dépôt est maintenant installé.
 
 Exécutez la commande :
 
-```Bash
+``` shell
 yum install centreon-poller-centreon-engine
 ```
 
@@ -58,7 +64,8 @@ La communication entre le serveur central et un collecteur se fait via SSH.
 Vous devez échanger les clés SSH entre les serveurs.
 
 Si vous n’avez pas de clé SSH privée sur le serveur central pour l’utilisateur **centreon** :
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -67,12 +74,14 @@ ssh-keygen -t rsa
 > mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
 
 Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Vous devez copier cette clé sur le nouveau serveur :
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_POLLER
 ```

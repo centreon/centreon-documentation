@@ -1,5 +1,5 @@
 ---
-id: poller_from_iso
+id: poller-from-iso
 title: A partir de l'ISO Centreon
 ---
 
@@ -18,7 +18,7 @@ Choisissez la langue du processus d'installation puis cliquez sur **Continue** :
 
 ## Step 3: Selecting components
 
-Cliquez sur le menu **Installation Type** : 
+Cliquez sur le menu **Installation Type** :
 
 ![image](assets/installation/03_menu_type_install.png)
 
@@ -46,7 +46,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](prerequisites#define-disk-space) puis cliquez sur **Done** :
+[prérequis de la documentation](prerequisites.html) puis cliquez sur **Done** :
 
 ![image](assets/installation/07_partitioning_filesystem.png)
 
@@ -108,7 +108,8 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
-```Bah
+
+``` shell
 yum update
 ```
 
@@ -119,7 +120,8 @@ Acceptez toutes les clés GPG proposées :
 ![image](assets/installation/20_accept_gpg_key.png)
 
 Redémarrez votre système avec la commande:
-```Bah
+
+``` shell
 reboot
 ```
 
@@ -130,7 +132,8 @@ La communication entre le serveur central et un collecteur se fait via SSH.
 Vous devez échanger les clés SSH entre les serveurs.
 
 Si vous n’avez pas de clé SSH privée sur le serveur central pour l’utilisateur **centreon** :
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -139,12 +142,14 @@ ssh-keygen -t rsa
 > mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
 
 Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Vous devez copier cette clé sur le nouveau serveur :
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_POLLER
 ```
@@ -182,4 +187,4 @@ Le collecteur est maintenant configuré :
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../tutorials/first-steps.html) pour mettre en place votre première supervision.

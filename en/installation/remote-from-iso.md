@@ -1,24 +1,24 @@
 ---
-id: remote_from_iso
+id: remote-from-iso
 title: Using Centreon ISO
 ---
 
 Installing a Remote Server is similar to installing a Centreon Central Server.
 
-## Step 1: Starting up the server
+## Step 1: Startup the server
 
 To install Centreon, start up your server from the Centreon ISO image in version el7.
 Start up with **Install CentOS 7**:
 
 ![image](assets/installation/01_bootmenu.png)
 
-## Step 2: Choosing a language
+## Step 2: Choose a language
 
 Choose the language for the installation process and click on **Continue**:
 
 ![image](assets/installation/02_select_install_lang.png)
 
-## Step 3: Selecting components
+## Step 3: Select the component
 
 Click on the **Installation Type** menu:
 
@@ -37,7 +37,7 @@ After selecting your installation type, click **Done**.
 
 ## Step 4: System configuration
 
-### Partitioning the disk
+### Configure disk Partitioning
 
 Click on the **Installation Destination** menu:
 
@@ -48,7 +48,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](prerequisites#define-disk-space). Then click on **Done**:
+[prerequisites chapter](prerequisites.html). Then click on **Done**:
 
 ![image](assets/installation/07_partitioning_filesystem.png)
 
@@ -58,7 +58,7 @@ A confirmation window appears. Click on **Accept Changes** to validate the parti
 
 ![image](assets/installation/08_apply_changes.png)
 
-### Configuring the timezone
+### Configure the timezone
 
 Click on the **Date & Time** menu:
 
@@ -76,7 +76,7 @@ predefined NTP servers then click **OK** and then **Done**:
 > It is okay that you can't enable the “network time” option in this screen. It will become enabled automatically when
 > you configure the network and hostname.
 
-### Configuring the network
+### Configure the network
 
 Click on the **Network & Hostname** menu:
 
@@ -86,7 +86,7 @@ Enable all network interfaces by clicking the button in the top right from **off
 
 ![image](assets/installation/10_network_hostname.png)
 
-## Beginning the installation
+## Begin the installation
 
 Once configuration is complete, click on **Begin Installation**:
 
@@ -109,12 +109,12 @@ When the installation is complete, click on **Reboot**:
 
 ![image](assets/installation/18_reboot_server.png)
 
-## Updating the system packages
+## Update the system
 
 Connect to your server using a terminal, and execute the command:
 
-```Bah
-# yum update
+``` shell
+yum update
 ```
 
 ![image](assets/installation/19_update_system.png)
@@ -125,28 +125,29 @@ Accept all GPG keys if you are prompted:
 
 Then restart your server with the following command:
 
-```Bah
-# reboot
+``` shell
+reboot
 ```
 
 ## First configuration
 
-Conclude installation by performance [first configuration](post-install#Web-installation).
+Conclude installation by performing [first configuration](post-install.html#Web-installation).
 
-## Enabling the Remote Server option
+## Enable the Remote Server option
 
 Connect to your **Remoter Server** and execute following command:
-```Bash
+
+``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '@IP_CENTREON_CENTRAL;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
+-v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-Replace **@IP_CENTREON_CENTRAL** by the IP of the Centreon server seen by the poller. You can define multiple IP
+Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by the poller. You can define multiple IP
 address using a coma as separator.
 
-> To use HTTPS, replace **@IP_CENTREON_CENTRAL** by **https://@IP_CENTREON_CENTRAL**.
+> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by **https://\<IP_CENTREON_CENTRAL\>**.
 >
-> To use non default port, replace **@IP_CENTREON_CENTRAL** by **@IP_CENTREON_CENTRAL:\<port\>**
+> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
 
 For the **\<not check SSL CA on Central\>** option you can put **1** to do not check the SS CA on the Centreon Central
 Server if HTTPS is enabled, or put **0**.
@@ -162,7 +163,8 @@ For the **\<no proxy to call Central\>** option you can put **1** to do not use 
 Central server.
 
 This command will enable **Remote Server** mode:
-```Bash
+
+``` shell
 Starting Centreon Remote enable process:
 Limiting Menu Access...               Success
 Limiting Actions...                   Done
@@ -174,7 +176,8 @@ Centreon Remote enabling finished.
 ```
 
 Add rights to centreon database user to use **LOAD DATA INFILE** command:
-```SQL
+
+``` SQL
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
@@ -185,7 +188,8 @@ Communication between a central server and a poller server is done through SSH.
 You need to exchange SSH keys between the servers.
 
 If you do not have any private SSH keys on the central server for the **centreon** user:
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -194,17 +198,19 @@ ssh-keygen -t rsa
 > directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
 
 Generate a password for the **centreon** user on the new server:
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Copy this key on to the new server:
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
 ```
 
-## Configuring a new Centreon Remote Server
+## Configure a new Centreon Remote Server
 
 Go to the **Configuration > Pollers** menu and click **Add server with wizard** to configure a new poller.
 
@@ -245,7 +251,8 @@ The wizard will configure your new server:
 
 Once the configuration is exported, restart the Centreon Broker process on the
 Remote Server using the following command:
-```Bash
+
+``` shell
 systemctl restart cbd
 ```
 
@@ -255,4 +262,4 @@ The Remote Server is now configured:
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your first monitoring.
+Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.

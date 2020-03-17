@@ -1,5 +1,5 @@
 ---
-id: remote_from_iso
+id: remote-from-iso
 title: A partir de l'ISO Centreon
 ---
 
@@ -12,15 +12,15 @@ Démarrez avec l'option **Install CentOS 7** :
 
 ![image](assets/installation/01_bootmenu.png)
 
-## Etape 2 : Choix de la langue
+## Etape 2 : Choisir la langue
 
 Choisissez la langue du processus d'installation puis cliquez sur **Continue** :
 
 ![image](assets/installation/02_select_install_lang.png)
 
-## Step 3: Selecting components
+## Step 3: Choisir les composants
 
-Cliquez sur le menu **Installation Type** : 
+Cliquez sur le menu **Installation Type** :
 
 ![image](assets/installation/03_menu_type_install.png)
 
@@ -37,7 +37,7 @@ Après avoir sélectionné le type d'installation, cliquez sur **Done**.
 
 ## Etape 4 : Configuration système
 
-### Partitionnement des disques
+### Configurer le partitionnement des disques
 
 Cliquez sur le menu **Installation Destination** :
 
@@ -48,7 +48,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](prerequisites#define-disk-space) puis cliquez sur **Done** :
+[prérequis de la documentation](prerequisites.html) puis cliquez sur **Done** :
 
 ![image](assets/installation/07_partitioning_filesystem.png)
 
@@ -58,7 +58,7 @@ Une fenêtre de confirmation apparaît, cliquez sur **Accept Changes** pour vali
 
 ![image](assets/installation/08_apply_changes.png)
 
-### Configuration du fuseau horaire
+### Configurer le fuseau horaire
 
 Cliquez sur le menu **Date & Time** :
 
@@ -75,7 +75,7 @@ Activez ou ajouter des serveurs NTP, cliquez sur **OK** puis **Done** :
 > Il est normal que vous ne puissiez pas activer l'option *network time* dans cet écran. Il deviendra automatiquement
 > activé lorsque vous configurerez le réseau et le nom d'hôte.
 
-### Configuration réseau
+### Configurer le réseau
 
 Cliquez sur le menu **Network & Hostname** :
 
@@ -110,7 +110,8 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
-```Bah
+
+``` shell
 yum update
 ```
 
@@ -120,8 +121,9 @@ Acceptez toutes les clés GPG proposées :
 
 ![image](assets/installation/20_accept_gpg_key.png)
 
-Redémarrez votre système avec la commande:
-```Bah
+Redémarrez votre système avec la commande :
+
+``` shell
 reboot
 ```
 
@@ -132,17 +134,18 @@ Continuez l'installation en réalisant la [première configuration](post-install
 ## Activer l'option Remote Server
 
 Connectez-vous à votre serveur ayant la fonction **Remote Server** et exécutez la commande suivante :
-```Bash
+
+``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '@IP_CENTREON_CENTRAL;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
+-v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-Remplacez **@IP_CENTREON_CENTRAL** par l'IP du serveur Centreon vu par le collecteur. Vous pouvez définir plusieurs
+Remplacez **<IP_CENTREON_CENTRAL>** par l'IP du serveur Centreon vu par le collecteur. Vous pouvez définir plusieurs
 adresses IP en utilisant la virgule comme séparateur.
 
-> Pour utiliser HTTPS, remplacez **@IP_CENTREON_CENTRAL** par **https://@IP_CENTREON_CENTRAL**.
+> Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par **https://<IP_CENTREON_CENTRAL>**.
 >
-> Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par **@IP_CENTREON_CENTRAL:\<port\>**.
+> Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par **<@IP_CENTREON_CENTRAL>:\<PORT\>**.
 
 Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre à **1** l'option **\<not check SSL CA
 on Central\>**, sinon **0**.
@@ -158,7 +161,8 @@ Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central, mettre
 Central\>**, sinon **0**.
 
 Cette commande va activer le mode **Remote Server** :
-```Bash
+
+``` shell
 Starting Centreon Remote enable process:
 Limiting Menu Access...               Success
 Limiting Actions...                   Done
@@ -170,7 +174,8 @@ Centreon Remote enabling finished.
 ```
 
 Ajout des droits pour que l'utilisateur de base de données centreon puisse utiliser la commande **LOAD DATA INFILE** :
-```SQL
+
+``` SQL
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
@@ -181,7 +186,8 @@ La communication entre le serveur central et un collecteur se fait via SSH.
 Vous devez échanger les clés SSH entre les serveurs.
 
 Si vous n’avez pas de clé SSH privée sur le serveur central pour l’utilisateur **centreon** :
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -190,12 +196,14 @@ ssh-keygen -t rsa
 > mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
 
 Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Vous devez copier cette clé sur le nouveau serveur :
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_POLLER
 ```
@@ -242,7 +250,8 @@ L'assistant va configurer votre nouveau serveur :
 
 Une fois la configuration exportée, redémarrez le processus Centreon Broker sur le Remote Server via la commande
 suivante :
-```Bash
+
+``` shell
 systemctl restart cbd
 ```
 
@@ -252,4 +261,4 @@ Le Remote Server est maintenant configuré :
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../tutorials/first-steps.html) pour mettre en place votre première supervision.

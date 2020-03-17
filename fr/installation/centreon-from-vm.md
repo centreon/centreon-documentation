@@ -1,5 +1,5 @@
 ---
-id: centreon_from_vm
+id: centreon-from-vm
 title: A partir des VMs
 ---
 
@@ -37,4 +37,4 @@ obligatoires**.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../tutorials/first-steps.html) pour mettre en place votre première supervision.

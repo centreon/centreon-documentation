@@ -1,19 +1,19 @@
 {
     "docs": {
         "Getting Started": [
-            "tutorials/tutorials",
-            "tutorials/tutorials-monitor",
-            "tutorials/tutorials-howto"
+            "tutorials/first-steps",
+            "tutorials/start-to-monitor",
+            "tutorials/how-to"
         ],
         "Installation": [
-            "installation/init-installation",
+            "installation/introduction",
             "installation/prerequisites",
             "installation/architectures",
             "installation/download",
             {
                 "ids": [
-                    "installation/centreon_from_iso",
-                    "installation/centreon_from_packages",
+                    "installation/centreon-from-iso",
+                    "installation/centreon-from-packages",
                     "installation/centreon_from_vm",
                     "installation/centreon_from_sources"
                 ],
@@ -23,16 +23,16 @@
             "installation/post-install",
             {
                 "ids": [
-                    "installation/poller_from_iso",
-                    "installation/poller_from_packages"
+                    "installation/poller-from-iso",
+                    "installation/poller-from-packages"
                 ],
                 "label": "Installation of a Poller",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "installation/remote_from_iso",
-                    "installation/remote_from_packages"
+                    "installation/remote-from-iso",
+                    "installation/remote-from-packages"
                 ],
                 "label": "Installation of a Remote server",
                 "type": "subcategory"

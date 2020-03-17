@@ -1,5 +1,5 @@
 ---
-id: centreon_from_vm
+id: centreon-from-vm
 title: Using virtual machines (VMs)
 ---
 
@@ -34,4 +34,4 @@ additional oerations to be performed. **It is imperative that you complete the i
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your first monitoring.
+Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.

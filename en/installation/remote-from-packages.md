@@ -1,5 +1,5 @@
 ---
-id: remote_from_packages
+id: remote-from-packages
 title: Using packages 
 ---
 
@@ -11,22 +11,26 @@ Installing a Remote Server is similar to installing a Centreon Central Server.
 
 First, *SELinux* should be disabled. To do this, you have to edit the file
 */etc/selinux/config* and replace *enforcing* by *disabled*:
-```Bash
+
+``` shell
 SELINUX=disabled
 ```
 
 > After saving the file, reboot your operating system to apply the changes.
 
 Perform a quick check of the SELinux status:
-```Bash
+
+``` shell
 getenforce
 ```
+
 You should have this result:
-```Bash
+
+``` shell
 Disabled
 ```
 
-### Installing the repository
+### Installing the repositories
 
 #### Redhat Software Collections Repository
 
@@ -35,8 +39,9 @@ To install Centreon you will need to set up the official software collections re
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
 
 Install the software collections repository using this command:
-```Bash
-yum install centos-release-scl
+
+``` shell
+yum install -y centos-release-scl
 ```
 
 The repository is now installed.
@@ -47,28 +52,30 @@ To install Centreon software from the repository, you should first install the c
 provide the repository file.
 
 Install the Centreon repository using this command:
-```Bash
+
+``` shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
 The repository is now installed.
 
 Some may not have the wget package installed. If not perform the following:
-```Bash
-yum install wget
+
+``` shell
+yum install -y wget
 ```
 
-## Installing a Centreon Central Server
+## Install a Centreon Central server
 
-This section describes how to install a Centreon central server.
+This section describes how to install a Centreon Central server.
 
-### Installing a Centreon Central Server with database
+### Install a Centreon Central server with local database
 
 Run the command:
 
-```Bash
-yum install centreon
-systemctl restart mysql
+``` shell
+yum install -y centreon centreon-database
+systemctl restart mariadb
 ```
 
 > Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
@@ -78,65 +85,68 @@ systemctl restart mysql
 <!--MariaDB-->
 Execute the following SQL request:
 
-```SQL
+``` SQL
 SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 ```
 
 or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
 
-```Bash    
+``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 <!--MySQL-->
 Execute the following SQL request:
 
-```SQL   
+``` SQL
 SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
 SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
 ```
 
 or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
 
-```Bash
+``` shell
 sql_mode = 'NO_ENGINE_SUBSTITUTION'
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-then restart your DBMS.
 
-### Installing a Centreon Central Server without database
+Then restart your DBMS.
+
+### Install a Centreon Central server with a remote database
 
 Run the command:
 
-```Bash
-yum install centreon-base-config-centreon-engine
+``` shell
+yum install -y centreon-base-config-centreon-engine
 ```
 
-#### Installing the DBMS on the dedicated server
+#### Install the DBMS on the dedicated server
 
 Run the commands:
 
-```Bash
-yum install centreon-database
+``` shell
+yum install -y centreon-database
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mariadb
 ```
-> **centreon-database** package installs a database server optimized for use with Centreon.
+
+> **centreon-database** package installs a database server with an optimized configuration for Centreon.
 
 Then create a distant **root** account:
 
-```SQL
-CREATE USER 'root'@'IP' IDENTIFIED BY 'PASSWORD';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'IP' WITH GRANT OPTION;
+``` SQL
+CREATE USER 'root'@'<IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **IP** by the public IP address of the Centreon server and **PASSWORD**     by the **root** password.
+> Replace **\<IP\>** by the public IP address of the Centreon server and **\<PASSWORD\>** by the **root** password.
 
 > MySQL >= 8 require a strong password. Please use uppercase, numeric and special characters; or uninstall the
 > **validate_password** using following command:
-> ```SQL
+>
+> ``` SQL
 > uninstall plugin validate_password;
 > ```
 
@@ -147,8 +157,9 @@ FLUSH PRIVILEGES;
 >releases. Instead, change it by setting *default_authentication_plugin=mysql_native_password* in **my.cnf**.
 >
 > Change the method to store the password using following command:
-> ```SQL
-> ALTER USER 'root'@'IP' IDENTIFIED WITH mysql_native_password BY 'PASSWORD';
+>
+> ``` SQL
+> ALTER USER 'root'@'<IP>' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
 > FLUSH PRIVILEGES;
 > ```
 
@@ -166,31 +177,31 @@ SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 
 or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
 
-```Bash    
+``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 <!--MySQL-->
 Execute the following SQL request:
 
-```SQL   
+```SQL
 SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
 SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
 ```
 
 or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
 
-```Bash
+``` shell
 sql_mode = 'NO_ENGINE_SUBSTITUTION'
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Then restart your DBMS.
 
-
 Once the installation is complete you can delete this account using:
-```SQL
-DROP USER 'root'@'IP';
+
+``` SQL
+DROP USER 'root'@'<IP>';
 ```
 
 ### Database management system
@@ -203,16 +214,14 @@ It is necessary to modify **LimitNOFILE** limitation. Do not try to set this opt
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--MariaDB-->
-```SQL
+``` SQL
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mariadb
 ```
-
 <!--MySQL-->
-
-```SQL
+``` SQL
 mkdir -p  /etc/systemd/system/mysqld.service.d
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysqld.service.d/limits.conf
 systemctl daemon-reload
@@ -220,11 +229,11 @@ systemctl restart mysqld
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Setting the PHP time zone
+### Set the PHP time zone
 
 You are required to set the PHP time zone. Run the command:
 
-```Bash
+``` shell
 echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
 ```
 
@@ -233,24 +242,25 @@ echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.in
 
 After saving the file, please do not forget to restart the PHP-FPM server:
 
-```Bash
+``` shell
 systemctl restart rh-php72-php-fpm
 ```
 
-### Configuring/disabling the firewall
+### Configure/disable the firewall
 
 Add firewall rules or disable the firewall by running the following commands:
-```Bash
+
+``` shell
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl status firewalld
 ```
 
-### Launching services during system bootup
+### Configure services startup during system bootup
 
 To make services start automatically during system bootup, run these commands on the central server:
 
-```Bash
+``` shell
 systemctl enable httpd24-httpd
 systemctl enable snmpd
 systemctl enable snmptrapd
@@ -262,20 +272,24 @@ systemctl enable centengine
 systemctl enable centreon
 ```
 
-> If the MariaDB database is on a dedicated server, execute this command on the database server:
-> ```Bash      
-> systemctl enable mysql
-> ```
-> or for Mysql:
-> ```Bash
-> systemctl enable mysqld
-> ```
+<!--DOCUSAURUS_CODE_TABS-->
+<!--MariaDB-->
+``` shell
+systemctl enable mariadb
+```
+<!--MySQL-->
+``` shell
+systemctl enable mysqld
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Concluding the installation
+> If the database is on a dedicated server, execute this last command on the database server.
+
+### Conclude the installation
 
 Before starting the web installation process, you will need to execute the following commands:
 
-```Bash
+``` shell
 systemctl start rh-php72-php-fpm
 systemctl start httpd24-httpd
 systemctl start mysqld
@@ -283,24 +297,26 @@ systemctl start centreon
 systemctl start snmpd
 systemctl start snmptrapd
 ```
+
 ## First configuration
 
-Conclude installation by performance [first configuration](post-install#Web-installation).
+Conclude installation by performance [first configuration](post-install.html#Web-installation).
 
-## Enabling the Remote Server option
+## Enable the Remote Server option
 
 Connect to your **Remoter Server** and execute following command:
-```Bash
+
+``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '@IP_CENTREON_CENTRAL;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
+-v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-Replace **@IP_CENTREON_CENTRAL** by the IP of the Centreon server seen by the poller. You can define multiple IP
+Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by the poller. You can define multiple IP
 address using a coma as separator.
 
-> To use HTTPS, replace **@IP_CENTREON_CENTRAL** by **https://@IP_CENTREON_CENTRAL**.
+> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by **https://\<IP_CENTREON_CENTRAL\>**.
 >
-> To use non default port, replace **@IP_CENTREON_CENTRAL** by **@IP_CENTREON_CENTRAL:\<port\>**
+> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
 
 For the **\<not check SSL CA on Central\>** option you can put **1** to do not check the SS CA on the Centreon Central
 Server if HTTPS is enabled, or put **0**.
@@ -316,7 +332,8 @@ For the **\<no proxy to call Central\>** option you can put **1** to do not use 
 Central server.
 
 This command will enable **Remote Server** mode:
-```Bash
+
+``` shell
 Starting Centreon Remote enable process:
 Limiting Menu Access...               Success
 Limiting Actions...                   Done
@@ -328,7 +345,8 @@ Centreon Remote enabling finished.
 ```
 
 Add rights to centreon database user to use **LOAD DATA INFILE** command:
-```SQL
+
+``` SQL
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
@@ -339,7 +357,8 @@ Communication between a central server and a poller server is done through SSH.
 You need to exchange SSH keys between the servers.
 
 If you do not have any private SSH keys on the central server for the **centreon** user:
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -348,17 +367,19 @@ ssh-keygen -t rsa
 > directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
 
 Generate a password for the **centreon** user on the new server:
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Copy this key on to the new server:
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
 ```
 
-## Configuring a new Centreon Remote Server
+## Configure a new Centreon Remote Server
 
 Go to the **Configuration > Pollers** menu and click **Add server with wizard** to configure a new poller.
 
@@ -399,7 +420,8 @@ The wizard will configure your new server:
 
 Once the configuration is exported, restart the Centreon Broker process on the
 Remote Server using the following command:
-```Bash
+
+``` shell
 systemctl restart cbd
 ```
 
@@ -409,4 +431,4 @@ The Remote Server is now configured:
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your first monitoring.
+Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.

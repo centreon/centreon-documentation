@@ -1,5 +1,5 @@
 ---
-id: poller_from_packages
+id: poller-from-packages
 title: Using packages 
 ---
 
@@ -10,38 +10,42 @@ title: Using packages
 First, *SELinux* should be disabled. To do this, you have to edit the file
 */etc/selinux/config* and replace *enforcing* by *disabled*:
 
-```Bash
+``` shell
 SELINUX=disabled
 ```
 
 > After saving the file, reboot your operating system to apply the changes.
 
 Perform a quick check of the SELinux status:
-```Bash
+
+``` shell
 getenforce
 ```
+
 You should have this result:
-```Bash
+
+``` shell
 Disabled
 ```
 
 ### Configure the firewall
 
 Add firewall rules or disable the firewall by running the following commands:
-```Bash
+
+``` shell
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl status firewalld
 ```
 
-### Installing the repository
+### Installing the repositories
 
 To install Centreon software from the repository, you should first install the centreon-release package, which will
 provide the repository file.
 
 Install the Centreon repository using this command:
 
-```Bash
+``` shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
@@ -51,8 +55,8 @@ The repository is now installed.
 
 Run the command:
 
-```Bash
-yum install centreon-poller-centreon-engine
+``` shell
+yum install -y centreon-poller-centreon-engine
 ```
 
 ## Exchanging SSH Keys
@@ -62,7 +66,8 @@ Communication between a central server and a poller server is done through SSH.
 You need to exchange SSH keys between the servers.
 
 If you do not have any private SSH keys on the central server for the **centreon** user:
-```Bash
+
+``` shell
 su - centreon
 ssh-keygen -t rsa
 ```
@@ -71,12 +76,14 @@ ssh-keygen -t rsa
 > directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
 
 Generate a password for the **centreon** user on the new server:
-```Bash
+
+``` shell
 passwd centreon
 ```
 
 Copy this key on to the new server:
-```Bash
+
+``` shell
 su - centreon
 ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
 ```
@@ -109,4 +116,4 @@ In a few seconds the wizard will configure your new poller.
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your first monitoring.
+Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.

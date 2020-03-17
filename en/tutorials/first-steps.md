@@ -1,5 +1,5 @@
 ---
-id: tutorials
+id: first-steps
 title: First steps
 ---
 
