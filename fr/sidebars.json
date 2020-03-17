@@ -61,23 +61,23 @@
             "monitoring/groups-categories",
             {
                 "ids": [
-                    "monitoring/snmptraps/enable-snmp-traps",
-                    "monitoring/snmptraps/definition-snmp-traps",
-                    "monitoring/snmptraps/monitoring-snmp-traps",
-                    "monitoring/snmptraps/debug-snmp-traps",
-                    "monitoring/dsm"
+                    "monitoring/passive/enable-snmp-traps",
+                    "monitoring/passive/create-snmp-traps-definitions",
+                    "monitoring/passive/monitoring-with-snmp-traps",
+                    "monitoring/passive/debug-snmp-traps-management",
+                    "monitoring/passive/dsm"
                 ],
                 "label": "Supervision passive",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "monitoring/discovery/init-discovery",
-                    "monitoring/discovery/disco-installation",
-                    "monitoring/discovery/disco-hosts",
-                    "monitoring/discovery/disco-services",
-                    "monitoring/discovery/disco-service-create-rule",
-                    "monitoring/discovery/disco-administration"
+                    "monitoring/discovery/introduction",
+                    "monitoring/discovery/installation",
+                    "monitoring/discovery/hosts-discovery",
+                    "monitoring/discovery/services-discovery",
+                    "monitoring/discovery/create-services-discovery-rules",
+                    "monitoring/discovery/administration"
                 ],
                 "label": "Découverte",
                 "type": "subcategory"

@@ -1,5 +1,5 @@
 ---
-id: debug-snmp-traps
+id: debug-snmp-traps-management
 title: Debug SNMP Traps management
 ---
 
@@ -25,7 +25,8 @@ and routers) or software tcpdump/wireshark on the poller may help you to confirm
 After validation of the connection, check the operating status of snmptrapd process (which must be running) and its
 configuration options. It is possible to enable logging of the process. To do this change the
 **/etc/sysconfig/snmptrapd.options** file and replace the "OPTIONS" line:
-```Bash
+
+``` shell
 # snmptrapd command line options
 # OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 OPTIONS="-On -Lf /var/log/snmptrapd.log -p /var/run/snmptrapd.pid"
@@ -37,12 +38,14 @@ in the **/var/log/snmptrapd.log** log.
 In case you filter by SNMP community, check allowed communities in the configuration file **/etc/snmp/snmptrapd.conf**.
 If after all these checks, SNMP traps are not included in the log, verify that the process is listening on UDP port 162
 for remote equipment using the command:
-```Bash
+
+``` shell
 netstat -ano | grep 162
 ```
 
 You must have a result like:
-```Bash
+
+``` shell
 udp        0      0 0.0.0.0:162             0.0.0.0:*                           off (0.00/0/0)
 ```
 
@@ -57,7 +60,8 @@ parameters of this process snmptrapd in the file **/etc/snmp/snmptrapd.conf**
 
 * Check that snmptrapd service executes centreontrapdforward. To do this, edit the file **/etc/snmp/snmptrapd.conf**
    and verify that its contains:
-```Bash
+
+``` shell
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
 
@@ -89,7 +93,8 @@ configuration file. The path should be **/var/lib/centreon/centcore.cmd** for a 
 The monitoring engine must receive external commands from Centcore process in order to change status and output of the
 passive service. Please check the event log. For Centreon Engine, the path is **/var/log/centreon-engine/centengine.log**.
 You should find lines as:
-```Bash
+
+``` shell
 [1352838428] EXTERNAL COMMAND: PROCESS_SERVICE_CHECK_RESULT;Centreon-Server;Traps-SNMP;2;Critical problem
 [1352838433] PASSIVE SERVICE CHECK: Centreon-Server;Traps-SNMP;2;Critical problem
 ```

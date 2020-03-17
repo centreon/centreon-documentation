@@ -1,5 +1,5 @@
 ---
-id: debug-snmp-traps
+id: debug-snmp-traps-management
 title: Déboguer la gestion des traps SNMP
 ---
 

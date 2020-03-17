@@ -1,5 +1,5 @@
 ---
-id: monitoring-snmp-traps
+id: monitoring-with-snmp-traps
 title: Monitoring SNMP Traps
 ---
 

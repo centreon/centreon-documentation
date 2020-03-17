@@ -1,5 +1,5 @@
 ---
-id: disco-installation
+id: installation
 title: Installation
 ---
 

@@ -1,6 +1,6 @@
 ---
-id: definition-snmp-traps
-title: SNMP Traps definition
+id: create-snmp-traps-definitions
+title: Create SNMP Traps definitions
 ---
 
 ## Add a manufacturer
@@ -114,7 +114,8 @@ For a Cisco equipment, $2 == ifDescr contains the port number of the interface (
 The best description of the interface is in the SNMP if Alias field.
 
 The following command can be used to retrieve this value:
-```Bash
+
+``` shell
 snmpget -v 2c -Ovq -c <community> <cisco switch> ifAlias.$1
 ```
 
@@ -122,7 +123,8 @@ To use the result of the PREEXEC command in the **Output message**, it is necess
 corresponds to the order of definition of the command.
 
 Example:
-```Bash
+
+``` shell
 "Interface $2 ( $p1 ) linkUP. State: $4." "$CA"
 ```
 

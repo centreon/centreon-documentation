@@ -1,5 +1,5 @@
 ---
-id: disco-administration
+id: administration
 title: Administration
 ---
 

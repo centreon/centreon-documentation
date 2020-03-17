@@ -1,6 +1,6 @@
 ---
-id: monitoring-snmp-traps
-title: Monitoring SNMP Traps
+id: monitoring-with-snmp-traps
+title: Monitoring with SNMP Traps
 ---
 
 ## Monitoring configuration
@@ -60,7 +60,8 @@ To show:
 * The state interface, use the $4 argument
 
 For example, the following output message displays all the arguments:
-```Bash
+
+``` shell
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3
 ```
 
@@ -81,7 +82,8 @@ It's also possible to have directly an argument value without knowing arguments 
 use the complete OID number of needed arguments.
 
 For example:
-```Bash
+
+``` shell
 Link down on interface: @{.1.3.6.1.2.1.2.2.1.2} (index: @{.1.3.6.1.2.1.2.2.1.1}). Operational state: @{.1.3.6.1.2.1.2.2.1.8}, Administration state: @{.1.3.6.1.2.1.2.2.1.7}
 ```
 
@@ -104,7 +106,8 @@ In order to exploit the result of the first command in the output, you have to u
 result of the second command in output, you have to use $p2 argument.
 
 Therefore, we can deduce the following output message:
-```Bash
+
+``` shell
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3, Alias : $p1, Speed : $p2
 ```
 
@@ -114,7 +117,8 @@ It's also possible to modify the output by using a regular expression with **Out
 to define the regexp and it will be executed at trap reception.
 
 For example:
-```Bash
+
+``` shell
 s/\|/-/g
 ```
 

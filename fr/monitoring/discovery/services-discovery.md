@@ -1,5 +1,5 @@
 ---
-id: disco-services
+id: services-discovery
 title: Découverte des services
 ---
 

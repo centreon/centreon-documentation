@@ -1,5 +1,5 @@
 ---
-id: definition-snmp-traps
+id: create-snmp-traps-definitions
 title: Définition des Traps SNMP
 ---
 

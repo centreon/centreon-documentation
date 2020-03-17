@@ -1,5 +1,5 @@
 ---
-id: init-discovery
+id: introduction
 title: Introduction
 ---
 

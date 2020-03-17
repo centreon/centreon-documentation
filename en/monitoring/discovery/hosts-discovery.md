@@ -1,5 +1,5 @@
 ---
-id: disco-hosts
+id: hosts-discovery
 title: Hosts Discovery
 ---
 

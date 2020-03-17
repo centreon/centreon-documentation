@@ -1,5 +1,5 @@
 ---
-id: disco-service-create-rule
+id: create-services-discovery-rules
 title: Créer des règles de découverte des services
 ---
 

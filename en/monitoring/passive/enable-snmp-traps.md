@@ -73,7 +73,8 @@ Successive actions by the centreontrapd process are:
 ### Snmptrapd
 
 To call the ‘centreontrapdfoward’ script, the file **/etc/snmp/snmptrapd.conf** must contain the following lines:
-```Bash
+
+``` shell
 disableAuthorization yes
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
@@ -85,13 +86,15 @@ You can optimize the performances of snmptrapd by using the following options:
 * **-n** don’t try to convert the IP addresses into host names
 
 These options can be changed in the file **/etc/sysconfig/snmptrapd**:
-```Bash
+
+``` shell
 OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 ```
 
 It is also possible to place the snmptrapd buffer folder in the RAM. For this, add the following line in the file
 **/etc/fstab**:
-```Bash
+
+``` shell
 tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
 ```
 
@@ -108,7 +111,8 @@ our %centreontrapd_config = (
 ```
 
 You can also map the folder in the RAM, by adding the following line in the file **/etc/fstab**:
-```Bash
+
+``` shell
 tmpfs /var/spool/centreontrapd      tmpfs defaults,size=512m 0 0
 ```
 
