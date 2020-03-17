@@ -1,5 +1,5 @@
 ---
-id: init-monitoring
+id: about
 title: À propos de la surveillance
 ---
 

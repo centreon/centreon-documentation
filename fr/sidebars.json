@@ -40,7 +40,7 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Supervision": [
-            "monitoring/init-monitoring",
+            "monitoring/about",
             "monitoring/generic-actions",
             {
                 "ids": [

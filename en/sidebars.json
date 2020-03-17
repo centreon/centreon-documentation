@@ -14,8 +14,8 @@
                 "ids": [
                     "installation/centreon-from-iso",
                     "installation/centreon-from-packages",
-                    "installation/centreon_from_vm",
-                    "installation/centreon_from_sources"
+                    "installation/centreon-from-vm",
+                    "installation/centreon-from-sources"
                 ],
                 "label": "Installation of a Central server",
                 "type": "subcategory"
@@ -40,7 +40,7 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
-            "monitoring/init-monitoring",
+            "monitoring/about",
             "monitoring/generic-actions",
             {
                 "ids": [

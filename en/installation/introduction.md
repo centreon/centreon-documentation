@@ -1,5 +1,5 @@
 ---
-id: init-installation
+id: introduction
 title: Introduction
 ---
 
