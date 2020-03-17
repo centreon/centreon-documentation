@@ -312,7 +312,7 @@ Run the installation script:
 #                              infos@centreon.com                             #
 #                                                                             #
 #                   Make sure you have installed and configured               #
-#                   sudo - sed - php - apache - rrdtool - mysql               #
+#         centreon-gorgone - sudo - sed - php - apache - rrdtool - mysql      #
 #                                                                             #
 ###############################################################################
 ------------------------------------------------------------------------
@@ -330,6 +330,14 @@ find                                                       OK
 /bin/grep                                                  OK
 /bin/cat                                                   OK
 /bin/sed                                                   OK
+
+------------------------------------------------------------------------
+        Check mandatory gorgone service status
+------------------------------------------------------------------------
+
+Is the Gorgone module already installed?
+[y/n], default to [n]:
+> y
 ```
 
 ### License agreement
@@ -356,10 +364,6 @@ Answer **[y]** to all the questions:
 ------------------------------------------------------------------------
 
 Do you want to install : Centreon Web Front
-[y/n], default to [n]:
-> y
-
-Do you want to install : Centreon Centcore
 [y/n], default to [n]:
 > y
 
@@ -673,39 +677,6 @@ Install CentStorage cron                                   OK
 Create /etc/centreon/instCentStorage.conf                  OK
 ```
 
-### Poller communication subsystem (Centcore) installation
-
-``` shell
-------------------------------------------------------------------------
-        Starting CentCore Installation
-------------------------------------------------------------------------
-Where is your Centreon binary directory
-default to [/usr/share/centreon/bin]
->
-Path /usr/share/centreon/bin                               OK
-Preparing Centreon temporary files
-/tmp/centreon-setup exists, it will be moved...
-Copy CentCore in binary directory                          OK
-Change right : /var/run/centreon                           OK
-Change right : /var/lib/centreon                           OK
-Change macros for centcore.logrotate                       OK
-Install Centreon Core logrotate.d file                     OK
-Replace CentCore init script Macro                         OK
-Replace CentCore default script Macro                      OK
-
-Do you want me to install CentCore init script ?
-[y/n], default to [n]:
-> y
-CentCore init script installed                             OK
-CentCore default script installed                          OK
-
-Do you want me to install CentCore run level ?
-[y/n], default to [n]:
-> y
-CentCore Perl lib installed                                OK
-Create /etc/centreon/instCentCore.conf                     OK
-```
-
 ### Plugin installation
 
 ``` shell
@@ -775,16 +746,25 @@ Create /etc/centreon/instCentPlugins.conf                  OK
 ``` shell
 ###############################################################################
 #                                                                             #
+#                         Thanks for using Centreon.                          #
+#                          -----------------------                            #
+#                                                                             #
 #                 Go to the URL : http://localhost.localdomain/centreon/      #
 #                          to finish the setup                                #
 #                                                                             #
-#          Report bugs at https://github.com/centreon/centreon/issues         #
-#          Read documentation at https://documentation.centreon.com           #
+#                Please read the documentation available here :               #
+#                         documentation.centreon.com                          #
 #                                                                             #
-#                         Thanks for using Centreon.                          #
-#                          -----------------------                            #
-#                        Contact : infos@centreon.com                         #
+#      ------------------------------------------------------------------     #
+#                                                                             #
+#         Report bugs at https://github.com/centreon/centreon/issues          #
+#                                                                             #
+#                        Contact : contact@centreon.com                       #
 #                          http://www.centreon.com                            #
+#                                                                             #
+#                          -----------------------                            #
+#              For security issues, please read our security policy           #
+#              https://github.com/centreon/centreon/security/policy           #
 #                                                                             #
 ###############################################################################
 ```

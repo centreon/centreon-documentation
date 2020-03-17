@@ -153,9 +153,32 @@
         "Administration": [
             "administrate/init-administrate"
         ],
-        "Upgrade & Migrate": [
-            "upgrade/init-upgrade",
-            "migrate/init-migrate"
+        "Update, Upgrade & Migrate": [
+            {
+                "ids": [
+                    "update/introduction"
+                ],
+                "label": "Update",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "upgrade/introduction",
+                    "upgrade/upgrade-from-19-10",
+                    "upgrade/upgrade-from-19-04",
+                    "upgrade/upgrade-from-18-10",
+                    "upgrade/upgrade-from-3-4"
+                ],
+                "label": "Upgrade",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "migrate/introduction"
+                ],
+                "label": "Migrate",
+                "type": "subcategory"
+            }
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",

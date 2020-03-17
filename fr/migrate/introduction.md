@@ -1,5 +1,5 @@
 ---
-id: init-migrate
+id: introduction
 title: About Migrate
 ---
 

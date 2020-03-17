@@ -129,4 +129,4 @@ reboot
 
 ## First configuration
 
-Conclude installation by performing [first configuration](post-install.html#Web-installation)..
+Conclude installation by performing [first configuration](post-install.html#Web-installation).
