@@ -112,24 +112,24 @@ jour :
 
 Cliquez sur **Next** :
 
-![image](/_static/images/upgrade/web_update_1.png)
+![image](assets/upgrade/web_update_1.png)
 
 Cliquez sur **Next** :
 
-![image](/_static/images/upgrade/web_update_2.png)
+![image](assets/upgrade/web_update_2.png)
 
 La note de version présente les principaux changements, cliquez sur **Next** :
 
-![image](/_static/images/upgrade/web_update_3.png)
+![image](assets/upgrade/web_update_3.png)
 
 Le processus réalise les différentes mises à jour, cliquez sur **Next** :
 
-![image](/_static/images/upgrade/web_update_4.png)
+![image](assets/upgrade/web_update_4.png)
 
 Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
 accéder à la page de connexion :
 
-![image](/_static/images/upgrade/web_update_5.png)
+![image](assets/upgrade/web_update_5.png)
 
 Pour mettre à jour votre module Centreon BAM, TODO
 
