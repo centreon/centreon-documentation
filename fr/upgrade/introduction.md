@@ -11,8 +11,8 @@ l'ISO ou des RPMS, sinon sélectionner **A partir des sources**. Avant de mettre
 à jour réaliser une sauvegarde.
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
-> Display 1.6.x**, référez-vous à la `procédure de migration suivante
-> <migratefrompollerdisplay>`.
+> Display 1.6.x**, référez-vous à la
+> [procédure de migration](../migrate/poller-display-to-remote-server.html).
 >
 > Le processus de mise à jour ne peut démarrer qu'à partir des versions **2.8.0**
 > et ultérieures. Si vous avez une version précédente, veuillez d'abord mettre à

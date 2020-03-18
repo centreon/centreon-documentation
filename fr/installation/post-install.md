@@ -5,7 +5,7 @@ title: Première configuration
 
 ## Installation web
 
-Connectez-vous à l'interface web via *http://<IP>/centreon*.
+Connectez-vous à l'interface web via *http://\<IP\>/centreon*.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 

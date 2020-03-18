@@ -177,7 +177,10 @@
             },
             {
                 "ids": [
-                    "migrate/introduction"
+                    "migrate/introduction",
+                    "migrate/migrate-from-3-4",
+                    "migrate/nagios-to-centreon",
+                    "migrate/poller-display-to-remote-server"
                 ],
                 "label": "Migrate",
                 "type": "subcategory"
