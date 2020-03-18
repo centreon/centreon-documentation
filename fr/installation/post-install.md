@@ -5,74 +5,69 @@ title: Première configuration
 
 ## Installation web
 
-Pour obtenir l'adresse IP de votre serveur, exécutez la commande :
+Connectez-vous à l'interface web via *http://<IP>/centreon*.
 
-```Bash
-ip addr
-```
-
-Connectez-vous à l'interface web via http://[ADRESSE_IP_DE_VOTRE_SERVEUR]/centreon.
-L'assistant de configuration de Centreon s'affiche, cliquez sur **Next**.
+L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
 ![image](assets/installation/acentreonwelcome.png)
 
-L'assistant de configuration de Centreon contrôle la disponibilité des modules, cliquez sur **Next**.
+Les modules et les prérequis nécessaires sont vérifiés.
+
+Ils doivent tous être satisfait. Cliquez sur **Refresh** lorsque les actions
+correctrices nécessaires ont été effectuées.
+
+Puis cliquez sur **Next**.
 
 ![image](assets/installation/acentreoncheckmodules.png)
 
-Cliquez sur **Next**.
+Definissez les chemins utilisés par le moteur de supervision. Nous recommandons
+d'utiliser ceux par défaut.
+
+Puis cliquez sur **Next**.
 
 ![image](assets/installation/amonitoringengine2.png)
 
-Cliquez sur **Next**.
+Definissez les chemins utilisés par le multiplexeur. Nous recommandons
+d'utiliser ceux par défaut.
+
+Puis cliquez sur **Next**.
 
 ![image](assets/installation/abrokerinfo2.png)
 
-Définissez les informations concernant l'utilisateur admin, cliquez sur **Next**.
+Définissez les informations pour la création de l'utilisateur admin.
+
+Puis cliquez sur **Next**.
 
 ![image](assets/installation/aadmininfo.png)
 
-Par défaut, le serveur 'localhost' est défini, l'utilisateur root est défini à *root* et le mot de passe root est vide.
-Si vous utilisez un serveur de base de données déporté, il convient de modifier ces deux informations.
-Dans notre cas, nous avons uniquement besoin de définir un mot de passe pour l'utilisateur accédant aux bases de données
-Centreon, à savoir 'centreon'.
+Fournissez les informations de connexion à l'instance de base de données.
+
+Par défaut, l'adresse de l'instance est défini à *localhost*, l'utilisateur
+root est défini à *root* et le mot de passe root est vide.
+
+> Si vous utilisez un serveur de base de données distant, ou un utilisateur
+> root spécifique, il convient de modifier ces deux informations.
+
+Puis définissez les noms et identifiants des bases de données qui seront créés.
+Nous recommandons d'utiliser les valeurs par défaut.
+
+> Le mot de passe de l'utilisateur des bases de données Centreon devrait être
+> le seul paramètre modifié ici
+
+Puis cliquez sur **Next**.
 
 ![image](assets/installation/adbinfo.png)
 
-> Si le message d'erreur suivant apparaît **Add innodb_file_per_table=1 in my.cnf file under the [mysqld] section and
-> restart MySQL Server**, effectuez les opérations ci-dessous :
-> 
-> 1. Connectez-vous avec l'utilisateur *root* sur votre serveur
-> 
-> 2. Editez le fichier suivant **/etc/my.cnf**
-> 
-> 3. Ajoutez la ligne suivante au fichier :
->
->```Bash
->[mysqld]
->innodb_file_per_table=1
->```
->
->4. Redémarrez le service mysql :
->
->```Bash
->systemctl restart mysql
->```
->
->5. Cliquez sur **Refresh**
+L'assistant de configuration crée les fichiers de configuration et les bases de
+données.
 
-> Si vous utilisez une base de données déportée MySQL 8.x, vous pouvez avoir l'erreur suivante : *erreur*.
-> Référez-vous à [l'aide suivante](centreon_from_packages#installer-le-sgbd-sur-un-serveur-dédié) pour corriger le problème.
-
-L'assistant de configuration configure les bases de données.
-
-Cliquez sur **Next**.
+Quand le processus est terminé, cliquez sur **Next**.
 
 ![image](assets/installation/adbconf.png)
 
-L'assistant de configuration propose ensuite d'installer les modules présents sur le serveur Centreon.
+Sélectionnez les modules et widgets disponibles à l'installation.
 
-Cliquez sur **Install**.
+Puis cliquez sur **Install**.
 
 ![image](assets/installation/module_installationa.png)
 
@@ -80,8 +75,13 @@ Une fois les modules installés, cliquez sur **Next**.
 
 ![image](assets/installation/module_installationb.png)
 
-À cette étape une publicité permet de connaître les dernières nouveautés de Centreon. Si votre plate-forme est connectée
-à Internet vous disposez des dernières informations, sinon l’information présente dans cette version sera proposée.
+À cette étape une publicité permet de connaître les dernières nouveautés de
+Centreon.
+
+Si votre plate-forme est connectée à Internet vous disposez des dernières
+informations.
+
+Sinon l’information présente dans cette version sera proposée.
 
 ![image](assets/installation/aendinstall.png)
 
@@ -93,56 +93,50 @@ Vous pouvez maintenant vous connecter.
 
 ## Initialisation de la supervision
 
-To start the monitoring engine:
+Pour démarrer les processus de supervision :
 
-Pour démarrer l'ordonnanceur de supervision :
+1. Depuis l'interface web, rendez-vous dans le menu
+**Configuration \> Collecteurs \> Collecteurs**,
+2. Sélectionnez le collecteur **Central** dans la liste et cliquez sur
+**Exporter la configuration**,
+3. Cochez **Déplacer les fichiers générés** en plus de la sélection par défaut
+et cliquez sur **Exporter**,
+4. Connectez-vous au serveur Central,
+5. Démarrez/redémarrez les processus de collecte :
 
-1. Sur l'interface web, rendez-vous dans le menu **Configuration > Collecteurs**
-2. Laissez les options par défaut, et cliquez sur **Exporter la configuration**
-3. Sélectionnez le collecteur **Central** dans la liste de sélection
-4. Décochez **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)**
-5. Cochez **Déplacer les fichiers générés** ainsi que **Redémarrer l'ordonnanceur** en sélectionnant l'option **Redémarrer**
-6. Cliquez à nouveau sur **Exporter**
-7. Connectez-vous avec l'utilisateur 'root' sur votre serveur
-8. Démarrez le composant Centreon Broker :
-```Bash
-systemctl start cbd
-```
+    ```shell
+    systemctl restart cbd centengine
+    ```
 
-9. Démarrez Centreon Engine :
-```Bash
-systemctl start centengine
-```
+6. Démarrez le gestionnaire de tâches :
 
-10.  Démarrez centcore :
-```Bash
-systemctl start centcore
-```
+    ```shell
+    systemctl start gorgoned
+    ```
 
-11. Démarrez centreontrapd :
-```Bash
-systemctl start centreontrapd
-```
+7. Démarrez le démon de supervision passive :
+
+    ```shell
+    systemctl start centreontrapd
+    ```
 
 La supervision est maintenant opérationnelle.
 
-Activer le lancement automatique de services au démarrage.
+Pour activer le lancement automatique des services au démarrage, exécuter la
+commande suivante sur le serveur Central :
 
-Lancer les commandes suivantes sur le serveur Central :
-```Bash
-systemctl enable centcore
-systemctl enable centreontrapd
-systemctl enable cbd
-systemctl enable centengine
-systemctl enable centreon
+```shell
+systemctl enable cbd centengine gorgoned centreontrapd centreon
 ```
 
 ### Installer les extensions disponibles
 
-Rendez-vous au menu **Administration \> Extensions \> Manager** et clicquez sur le bouton **Install all** :
+Rendez-vous au menu **Administration \> Extensions \> Manager** et cliquez sur
+le bouton **Install all** :
 
 ![image](assets/installation/install_imp_2.png)
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre
+en place votre première supervision.
