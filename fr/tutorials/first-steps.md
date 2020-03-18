@@ -92,10 +92,14 @@ Rendez-vous dans le menu **Configuration \> Plugin Packs**.
 > Avant toute chose, appliquez la procédure de configuration du proxy @TODO@(add the link ref:proxyimp)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
-Commencez par installer le Plugin Pack **base-generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
+Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
 l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
 
-![image](assets/tutorials/pp_base_generic.png)
+![image](assets/tutorials/pp_base_generic_1.png)
+
+Vous pouvez aussi cliquer sur le Plugin Pack afin d'en connaître son contenu avant de l'installer :
+
+![image](assets/tutorials/pp_base_generic_2.png)
 
 Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
 
