@@ -1,4 +1,7 @@
-# Migration depuis une plate-forme Centreon 3.4
+---
+id: migrate-from-3-4
+title: Migration depuis une plateforme Centreon 3.4
+---
 
 ## Prérequis
 
