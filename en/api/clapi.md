@@ -5431,9 +5431,10 @@ Object name: **BA**
 To list available business activities, use the **SHOW** action:
 
     ./centreon -u admin -p centreon -o BA -a SHOW
-    id;name;description;level_w;level_c
-    1;ba1;ba1;80;70
-    2;ba2;ba2;80;70
+    id;name;description;state_source;level_w;level_c;notification_interval
+    1;ba1;ba1;1;80;70;3
+    2;ba2;ba2;2;;;2
+    3;ba3;ba3;3;;;
     [...]
 
 The following columns are displayed:
@@ -5441,14 +5442,22 @@ The following columns are displayed:
   * BA ID: Business Activity id
   * BA name: Business Activity name
   * Ba description: Business Activity description
-  * level\_w: Warning threshold
-  * level\_c: Critical threshold
+  * Ba state_source: Business Activity Calculation Method
+  * level\_w: Warning threshold (only applicable for Impact and Ratio modes)
+  * level\_c: Critical threshold (only applicable for Impact and Ratio modes)
+  
+Business Activity Calculation Methods (state_source):
+  * 0 - Impact Mode (requires level\_w to be > level\_c)
+  * 1 - Best Status
+  * 2 - Worst Status
+  * 3 - Ratio Percentage (requires level\_c to be > level\_w)
+  * 4 - Ratio Number (requires level\_c to be > level\_w)
 
 #### ADD
 
 To add a BA, use the **ADD** action:
 
-    ./centreon -u admin -p centreon -o BA -a ADD -v 'ba1;ba1;90;80;5'
+    ./centreon -u admin -p centreon -o BA -a ADD -v 'ba1;ba1;0;90;80;5'
 
 The following columns are required:
 
@@ -5456,8 +5465,9 @@ The following columns are required:
   |------------------------|---------------------------------|
   |Name                    | Business Activity name          |
   |Description             | Business Activity description   |
-  |Warning threshold       | Warning threshold               |
-  |Critical threshold      | Critical threshold              |
+  |State Source            | BA Calcuation Method            |
+  |Warning threshold       | Warning threshold (if needed)   |
+  |Critical threshold      | Critical threshold (if needed)  |
   |Notification interval   | Notification interval (minutes) |
 
 #### DEL
@@ -5494,6 +5504,10 @@ Parameters that you can change are the following:
   |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs (0 or 1)                         |
   |geo_coords                      |Geo-coordinate to position the BA                                    |
   |enable                          |Enable (0 or 1)                                                      |
+  |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |
+  
+> Note: Changing State Source will require updating your Level W and Level C to match the appropriate 
+>    Calculation Method!
 
 #### SETBV
 
