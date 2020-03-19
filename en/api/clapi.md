@@ -5506,8 +5506,8 @@ Parameters that you can change are the following:
   |enable                          |Enable (0 or 1)                                                      |
   |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |
   
-    Please note changing State Source will require updating your Level W and Level C to match the appropriate 
-    Calculation Method!
+> Note: Changing State Source will require updating your Level W and Level C to match the appropriate 
+>    Calculation Method!
 
 #### SETBV
 
