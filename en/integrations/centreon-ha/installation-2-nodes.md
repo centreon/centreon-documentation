@@ -53,8 +53,8 @@ In this procedure, we will refer to characteristics that are bound to change fro
 
 On a standard Centreon platform, cbd service manages two processes of `centreon-broker-daemon` (`cbd`):
 
-* `central-broker-master` : also called "central broker" or "SQL broker", redirects input-output from pollers to database, RRD broker, and so on.
-* `central-rrd-master` : also called "RRD broker", receives the stream from the central broker and updates the RRD binary data files (used to display graphs).
+* `central-broker-master`: also called "central broker" or "SQL broker", redirects input-output from pollers to database, RRD broker, and so on.
+* `central-rrd-master`: also called "RRD broker", receives the stream from the central broker and updates the RRD binary data files (used to display graphs).
 
 In the context of a *Centreon HA* cluster, both broker processes will be handled by a separate service, managed by the cluster.
 
@@ -76,10 +76,15 @@ Once the previous actions have been done, you will have to export the central po
 
 All the previous actions have to be applied to `@CENTRAL_MASTER_NAME@` and the exported files have to be copied to `@CENTRAL_SLAVE_NAME@`, for example with `rsync`:
 
-
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
+
+### Customizing poller reload command
+
+You may ignore that, but the central broker daemon has to be reloaded every time you update your central poller's configuration, hence the "Centreon Broker reload command" parameter in *Configuration > Pollers > Central*.
+
+As stated above, the centreon-broker processes will be divided into `cbd` (for RRD) and `cbd-sql` (for central broker) services. In this perspective, the service that needs to be reloaded is `cbd-sql` and not `cbd` any more. So you will have to set the "Centreon Broker reload command" parameter to `service cbd-sql reload`.
 
 ## System settings
 
@@ -87,7 +92,7 @@ Before actually setting the cluster up, some system prerequisites have to be met
 
 ### Kernel network tuning
 
-In order to improve the cluster reliability, and since *Centreon HA* only supports IP v4, we recommend to apply the following kernel settings all your Centreon servers (including pollers):
+In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon servers (including pollers):
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -103,7 +108,7 @@ systemctl restart network
 
 ### Name resolution
 
-So that the *Centreon HA* cluster can stay in operation in the event of e DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
+So that the *Centreon HA* cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -115,8 +120,6 @@ EOF
 ```
 
 From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `@CENTRAL_SLAVE_NAME@` the "secondary server/node". This designation is arbitrary, the two nodes will of course be interchangeable once the setup is done.
-
-**FIXME:** Here I am
 
 ### Installing system packages
 
@@ -138,6 +141,8 @@ There are two ways of exchanging such keys:
 
 * By using `sh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advice you to revoke this password afterwards with these commands: `passwd -d centreon` and `passwd -d mysql`.
 * By manually copying the public key in `~/.ssh/authorized_keys`. This method is safer.
+
+The second method will be documented below.
 
 #### `centreon` account
 
@@ -258,7 +263,6 @@ systemctl status mysql
 
 To avoid useless exposure of your databases, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended choice at every step. We suggest you choose a strong password.
 
-
 ```bash
 mysql_secure_installation
 ```
@@ -326,14 +330,14 @@ EOF
 
 The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MySQL can work properly. These variables are:
 
-* `DBHOSTNAMEMASTER` : `@CENTRAL_MASTER_NAME@`
-* `DBHOSTNAMESLAVE` : `@CENTRAL_SLAVE_NAME@`
-* `DBREPLUSER` : `@MYSQL_REPL_USER@`
-* `DBREPLPASSWORD` : `@MYSQL_REPL_PASSWD@`
-* `DBROOTUSER` : `@MYSQL_CENTREON_USER@`
-* `DBROOTPASSWORD` : `@MYSQL_CENTREON_PASSWD@`
-* `CENTREON_DB` : name of the *Centreon* configuration database (default: `centreon`)
-* `CENTREON_STORAGE_DB` : name of the *Centreon* live monitoring database (default: `centreon_storage`)
+* `DBHOSTNAMEMASTER`: `@CENTRAL_MASTER_NAME@`
+* `DBHOSTNAMESLAVE`: `@CENTRAL_SLAVE_NAME@`
+* `DBREPLUSER`: `@MYSQL_REPL_USER@`
+* `DBREPLPASSWORD`: `@MYSQL_REPL_PASSWD@`
+* `DBROOTUSER`: `@MYSQL_CENTREON_USER@`
+* `DBROOTPASSWORD`: `@MYSQL_CENTREON_PASSWD@`
+* `CENTREON_DB`: name of the *Centreon* configuration database (default: `centreon`)
+* `CENTREON_STORAGE_DB`: name of the *Centreon* live monitoring database (default: `centreon_storage`)
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
@@ -441,6 +445,8 @@ In addition, the output of this command must display only `OK` results:
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
+The expected output is:
+
 ```text
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
 Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
@@ -496,14 +502,13 @@ First we enable all the services and start `pcsd` on both central nodes:
 ```bash
 systemctl enable pacemaker pcsd corosync
 systemctl start pcsd
-passwd hacluster
 ```
 
 The last command will ask you to define the `hacluster` user's password. As always, the stronger the better.
 
 #### Preparing the server that will hold the function of *quorum device* 
 
-You can use one of your pollers to fit this role. It must be prepared with the commands below: 
+You can use one of your pollers to play this role. It must be prepared with the commands below: 
 
 ```bash
 yum install pcs corosync-qnetd
@@ -511,23 +516,28 @@ systemctl start pcsd.service
 systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
-passwd hacluster
 ```
-
-The last command will ask you to define the `hacluster` user's password. Use the same password as above.
 
 #### Authenticating the cluster
 
-Now that both central nodes **and** the *quorum device* server share the same password, **you will run this command only on one of the central nodes** in order to authenticate all the hosts to the cluster.
+For the sake of simplicity, the `hacluster` user will be assigned the same password on both central nodes **and `@QDEVICE_NAME@`**.
+
+```bash
+passwd hacluster
+```
+
+Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
+
+Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate all the hosts to the cluster.
 
 ```bash
 pcs cluster auth \
-"@CENTRAL_MASTER_NAME@" \
-"@CENTRAL_SLAVE_NAME@" \
-"@QDEVICE_NAME@" \
--u "hacluster" \
--p '@CENTREON_CLUSTER_PASSWD@' \
---force
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
+    --force
 ```
 
 #### Creating the cluster
@@ -540,12 +550,13 @@ pcs cluster setup \
     --name centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
+
 pcs property set symmetric-cluster="true"
 pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
 ```
 
-Then start the `pacemaker` service **on both central nodes**.
+Then start the `pacemaker` service **on both central nodes**:
 
 ```bash
 systemctl start pacemaker
@@ -555,9 +566,10 @@ You can now follow the state of the cluster with the `crm_mon` command.
 
 #### Creating the *Quorum Device*
 
-
 ```bash
-pcs quorum device add model net host="@QDEVICE_NAME@" algorithm="ffsplit"
+pcs quorum device add model net \
+    host="@QDEVICE_NAME@" \
+    algorithm="ffsplit"
 ```
 
 ### Creating the MySQL cluster resources
@@ -608,6 +620,7 @@ pcs resource create "php7" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+
 ##### RRD broker resource
 
 ```bash
@@ -678,6 +691,29 @@ pcs resource create centreon_central_sync \
     --group centreon
 ```
 
+##### SQL Broker
+
+```bash
+pcs resource create cbd_central_broker \
+    systemd:cbd-sql \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
+##### Centengine service
+
+```bash
+pcs resource create centengine \
+    systemd:centengine \
+    meta multiple-active="stop_start" target-role="started" \
+    op start interval="0s" timeout="90s" stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
 ##### Centreontrapd service
 
 ```bash
@@ -702,29 +738,6 @@ pcs resource create snmptrapd \
     --group centreon
 ```
 
-##### SQL Broker
-
-```bash
-pcs resource create cbd_central_broker \
-    systemd:cbd-sql \
-    meta target-role="started" \
-    op start interval="0s" timeout="90s" \
-    stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
-    --group centreon
-```
-
-##### Centengine service
-
-```bash
-pcs resource create centengine \
-    systemd:centengine \
-    meta multiple-active="stop_start" target-role="started" \
-    op start interval="0s" timeout="90s" stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
-    --group centreon
-```
-
 #### Colocation constraints
 
 In order to force the cluster running both `centreon` resource group and the MySQL Master on the same node, you have to declare these colocation constraints:
@@ -736,15 +749,11 @@ pcs constraint colocation add master "ms_mysql-master" with "centreon"
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
 
-**FIXME:** customize poller commands
+### Checking the cluster's state
 
-**FIXME:** continue translation
+#### Checking the resources' states
 
-### Contrôle de l'état du cluster
-
-#### Contrôle de l'état des ressources
-
-Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon` :
+You can monitor the cluster's resources in real time using the `crm_mon` command:
 
 ```bash
 Stack: corosync
@@ -775,16 +784,17 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-
 ```
 
-#### Contrôler la synchronisation des bases
+#### Checking the database replication thread
+
+The MySQL replication state can be monitored at any time with the `mysql-check-status.sh` command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Résultat attendu :
+The expected output is:
 
 ```bash
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -793,15 +803,15 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-Il est possible qu'immédiatement après l'installation, le thread de réplication ne soit pas actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
+It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
 ```bash 
 pcs resource restart ms_mysql
 ```
 
-#### Contrôle de l'absence de contraintes
+#### Checking the constraints
 
-En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint` doit retourner :
+Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
 ```bash
 Location Constraints:
@@ -811,5 +821,4 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
-
 

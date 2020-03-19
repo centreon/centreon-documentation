@@ -80,9 +80,15 @@ Ces actions doivent être réalisées sur `@CENTRAL_SLAVE_NAME@` et les fichiers
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
+### Customizing poller reload command
+
+Cela n'est pas forcément connu de tous les utilisateurs de Centreon, mais chaque fois qu'un rechargement de la configuration du poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
+
+Ainsi que cela a été expliqué plus haut, les processus broker sont répartis entre deux services : `cbd` pour le broker RRD, `cbd-sql` pour le broker central. Dans le cadre d'un cluster centreon-ha, service que l'on doit recharger lors de l'export de configuration est `cbd-sql` et non plus `cbd`. Il faut donc appliquer la valeur `service cbd-sql reload` au paramètre "Centreon Broker reload command".
+
 ## Préparation du système
 
-Avant d'en arriver au paramétrage du cluster à proprement parler, un certain nombre d'étapes préparatoires sont nécessaires.
+Avant d'en arriver au paramétrage du cluster à proprement parler, quelques étapes préparatoires sont nécessaires au niveau de l'OS.
 
 ### Tuning de la configuration réseau
 
@@ -124,7 +130,6 @@ yum install epel-release
 yum install centreon-ha
 ```
 
-
 ### Échanges de clefs SSH
 
 Afin de permettre aux deux serveurs centraux d'échanger des fichiers et des commandes, il faut mettre en place la possibilité de se connecter *via* SSH d'un serveur à l'autre pour les utilisateurs :
@@ -165,8 +170,7 @@ Puis sortir de la session de `centreon` avec `exit` ou `Ctrl-D`.
 
 #### Compte `mysql`
 
-Pour le compte `mysql` la procédure diffère quelque peu car cet utilisateur n'a normalement pas de *home directory* ni la possibilité d'ouvrir une session Shell.
-Cette procédure est également à appliquer sur les deux nœuds centraux.
+Pour le compte `mysql` la procédure diffère quelque peu car cet utilisateur n'a normalement pas de *home directory* ni la possibilité d'ouvrir une session Shell. Cette procédure est également à appliquer sur les deux nœuds centraux.
 
 ```bash
 systemctl stop mysql
@@ -235,7 +239,6 @@ max_allowed_packet=64M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
 sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-
 ```
 
 **Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
@@ -385,7 +388,9 @@ systemctl restart mysql
 
 ### Synchroniser les bases et lancer la réplication MySQL
 
-Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. Il faut donc lancer **sur le nœud secondaire** :
+Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. 
+
+Il faut donc lancer la commande suivante **sur le nœud secondaire** :
 
 ```bash
 systemctl stop mysql
@@ -509,7 +514,7 @@ pcs qdevice status net --full
 
 #### Authentification du cluster
 
-Puis définir le mot de passe du compte hacluster (ce compte est purement applicatif et ne peut pas ouvrir de session). Ce mot de passe doit être identique sur les deux nœuds **et sur `@QDEVICE_NAME@`**.
+Par mesure de simplicité, nous allons définir le même mot de passe pour le compte `hacluster` sur les deux nœuds **et sur `@QDEVICE_NAME@`** :
 
 ```bash
 passwd hacluster
@@ -535,6 +540,7 @@ pcs cluster setup \
     --name centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
+
 pcs property set symmetric-cluster="true"
 pcs property set stonith-enabled="false"
 pcs resource defaults resource-stickiness="100"
@@ -551,10 +557,14 @@ L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`.
 #### Ajout du *Quorum Device*
 
 ```bash
-pcs quorum device add model net host="@QDEVICE_NAME@" algorithm="ffsplit"
+pcs quorum device add model net \
+    host="@QDEVICE_NAME@" \
+    algorithm="ffsplit"
 ```
 
 ### Création des ressources MySQL
+
+Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -587,6 +597,8 @@ pcs resource meta ms_mysql-master \
 
 Certaines ressources ne doivent être démarrées que sur un seul nœud, mais pour d'autres, il n'est pas gênant voire souhaitable de les démarrer sur les deux nœuds. Pour ces dernières, nous déclarerons des ressources *clones*.
 
+**Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des deux nœuds centraux.
+
 ##### PHP7
 
 ```bash
@@ -598,6 +610,7 @@ pcs resource create "php7" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+
 ##### Broker RRD
 
 ```bash
@@ -668,6 +681,29 @@ pcs resource create centreon_central_sync \
     --group centreon
 ```
 
+##### Broker SQL
+
+```bash
+pcs resource create cbd_central_broker \
+    systemd:cbd-sql \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
+##### Service centengine
+
+```bash
+pcs resource create centengine \
+    systemd:centengine \
+    meta multiple-active="stop_start" target-role="started" \
+    op start interval="0s" timeout="90s" stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
 ##### Service centreontrapd
 
 ```bash
@@ -689,29 +725,6 @@ pcs resource create snmptrapd \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="20s" \
-    --group centreon
-```
-
-##### Broker SQL
-
-```bash
-pcs resource create cbd_central_broker \
-    systemd:cbd-sql \
-    meta target-role="started" \
-    op start interval="0s" timeout="90s" \
-    stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
-    --group centreon
-```
-
-##### Service centengine
-
-```bash
-pcs resource create centengine \
-    systemd:centengine \
-    meta multiple-active="stop_start" target-role="started" \
-    op start interval="0s" timeout="90s" stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
     --group centreon
 ```
 
@@ -761,10 +774,11 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-
 ```
 
 #### Contrôler la synchronisation des bases
+
+L'état de la réplication MySQL peut être vérifié à n'importe quel moment grâce à la commande `mysql-check-status.sh` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -797,5 +811,4 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
-
 

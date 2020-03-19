@@ -3,14 +3,16 @@ id: centreon-ha-architectures
 title: Architectures
 ---
 
-## Architectures possibles pour un cluster Centreon HA
+## Available architectures for a Centreon HA cluster 
 
-| Type de cluster | Nombre de serveurs | VIP centreon | VIP MySQL | Statut |
+| Cluster type | Number of servers | Centreon VIP | MySQL VIP | Supported? |
 | --------------- | ------------------ | ------------ | --------- | ------ |
-| 2 nœuds | 2 (+ qdevice) | oui | non | supporté |
-| 3 nœuds |  | oui | oui | déprécié |
-| 5 nœuds |  | oui | oui | déprécié |
+| 2 nodes | 2 (+ qdevice) | oui | non | yes |
+| 3 nodes |  | oui | oui | no |
+| 5 nodes |  | oui | oui | no |
 
-## Cluster à 2 nœuds
+## 2 nodes cluster
+
+**FIXME: to be documented**
 
 
