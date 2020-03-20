@@ -23,12 +23,14 @@
 
 .homepageCustom .containerBloc .cardBar {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .homepageCustom .containerBloc .cardBar .cardContent {
   width: 170px;
   margin: 44px;
+  text-align: center;
 }
 
 .homepageCustom .containerBloc .cardBar .cardContent .buttonLink {
