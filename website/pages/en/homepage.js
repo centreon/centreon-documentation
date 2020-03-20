@@ -18,44 +18,12 @@ class FirstBloc extends React.Component {
       h1: "L’Excellence IT au service de la Performance Métier",
       subTitle: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
     }
-    const globalStyle = {
-      container : {
-        textAlign: 'center',
-        padding: '0 40px',
-        margin: 'auto',
-        alignItems: 'center',
-      },
-      subTitle: {
-        margin: 'auto',
-        color: 'rgba(34, 46, 59, 1)'
-      },
-      font: {
-        h1: {
-          color: 'rgba(34, 46, 59, 1)',
-          fontSize: '50px',
-          margin: 'auto',
-        },
-      },
-      cardBar: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    }
-    };
-
 
     const Button = props => {
-      const btnStyle = {
-        backgroundColor: 'rgb(0, 114, 206)',
-        width: '170px',
-        color: 'rgba(255, 255, 255, 1)',
-        borderRadius: '5px',
-        height: '45px',
-      };
-
       return (
         <>
           <div className="pluginWrapper buttonWrapper">
-            <a className="button" href={props.href} target={props.target} style={btnStyle}>
+            <a className="button buttonLink" href={props.href} target={props.target}>
               {props.label}
             </a>
           </div>
@@ -68,15 +36,9 @@ class FirstBloc extends React.Component {
     )
 
     const Card = props => {
-      const cardSstyle = {
-        width: '170px',
-        margin: '44px',
-        left: '268px',
-      }
-
       return (
         <>
-        <div className="CardLink" style={cardSstyle}>
+        <div className="cardContent">
           <Image imageSrc={props.imageSrc} />
           <Button href={'#'} target={'_blank'} label={props.btnLabel} />
         </div>
@@ -86,10 +48,10 @@ class FirstBloc extends React.Component {
 
     return (
       <>
-      <div style={globalStyle.container}>
-        <h1 style={globalStyle.font.h1}>{stringLabels.h1}</h1>
-        <p style={globalStyle.subTitle}>{stringLabels.subTitle}</p>
-        <div style={globalStyle.cardBar}>
+      <div className="containerBloc">
+        <h1>{stringLabels.h1}</h1>
+        <p className="subTitle">{stringLabels.subTitle}</p>
+        <div className="cardBar">
           <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} />
           <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} />
           <Card imageSrc={'Groupe-386.svg'} btnLabel={'Voir les API'} />
@@ -102,12 +64,8 @@ class FirstBloc extends React.Component {
 
 class Homepage extends React.Component {
   render() {
-    const style = {
-      background: 'rgba(0, 159, 223, 0.1)',
-    }
-
     return (
-        <Container background='dark' className="mainContainer documentContainer postContainer">
+        <Container className="mainContainer documentContainer postContainer homepageCustom">
           <FirstBloc />
         </Container>
     );

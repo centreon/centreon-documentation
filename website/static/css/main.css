@@ -1,0 +1,40 @@
+.homepageCustom {
+  font-family: $openSansLight;
+  background: $bgLightBlue;
+  color: $fontColor;
+}
+
+.homepageCustom h1 {
+  font-family: $openSansSemiBold;
+  font-size: 50px;
+  color: rgba(34, 46, 59, 1);
+  margin: 0 auto;
+}
+
+.homepageCustom .subTitle {
+  margin: auto;
+}
+
+.homepageCustom .containerBloc {
+  text-align: center;
+  margin: auto;
+  align-items: center;
+}
+
+.homepageCustom .containerBloc .cardBar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homepageCustom .containerBloc .cardBar .cardContent {
+  width: 170px;
+  margin: 44px;
+}
+
+.homepageCustom .containerBloc .cardBar .cardContent .buttonLink {
+  background-color: rgb(0, 114, 206);
+  width: 170px;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  height: 45px;
+}
