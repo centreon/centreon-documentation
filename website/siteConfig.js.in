@@ -55,21 +55,21 @@ const siteConfig = {
   colors: {
     primaryColor: '#23303A',
     secondaryColor: '#10069F',
+    bgLightBlue: 'rgba(0, 159, 223, 0.1)',
+    fontColor: 'rgba(34, 46, 59, 1)',
   },
 
   /* Custom fonts for website */
-  /*
   fonts: {
-    myFont: [
-      "Times New Roman",
-      "Serif"
+    openSansLight: [
+      "Open Sans",
+      "light"
     ],
-    myOtherFont: [
-      "-apple-system",
-      "system-ui"
-    ]
+    openSansSemiBold: [
+      "Open Sans",
+      "Semibold"
+    ],
   },
-  */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
