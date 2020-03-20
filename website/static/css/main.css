@@ -33,10 +33,24 @@
   text-align: center;
 }
 
+.homepageCustom .containerBloc .cardBar .cardContent .imageContainer {
+  display: flex;
+  width: 120px;
+  height: 120px;
+}
+
+.homepageCustom .containerBloc .cardBar .cardContent .imageContainer img {
+  align-items: flex-end;
+}
+
 .homepageCustom .containerBloc .cardBar .cardContent .buttonLink {
   background-color: rgb(0, 114, 206);
   width: 170px;
   color: rgba(255, 255, 255, 1);
   border-radius: 5px;
   height: 45px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

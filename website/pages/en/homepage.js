@@ -32,7 +32,9 @@ class FirstBloc extends React.Component {
     }
 
     const Image = props => (
-       <img src={basePathImg + props.imageSrc} />
+      <div className="imageContainer">
+        <img src={basePathImg + props.imageSrc} />
+      </div>
     )
 
     const Card = props => {
