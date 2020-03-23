@@ -21,13 +21,11 @@ class FirstBloc extends React.Component {
 
     const Button = props => {
       return (
-        <>
           <div className="pluginWrapper buttonWrapper">
             <a className="button buttonLink" href={props.href} target={props.target}>
               {props.label}
             </a>
           </div>
-        </>
         )
     }
 
@@ -39,18 +37,15 @@ class FirstBloc extends React.Component {
 
     const Card = props => {
       return (
-        <>
         <div className="cardContent">
           <Image imageSrc={props.imageSrc} />
           <Button href={'#'} target={'_blank'} label={props.btnLabel} />
         </div>
-        </>
       )
     }
 
     return (
-      <>
-      <div className="containerBloc">
+      <div className="containerBloc bgLightBlue">
         <h1>{stringLabels.h1}</h1>
         <p className="subTitle">{stringLabels.subTitle}</p>
         <div className="cardBar">
@@ -59,7 +54,16 @@ class FirstBloc extends React.Component {
           <Card imageSrc={'Groupe-386.svg'} btnLabel={'Voir les API'} />
         </div>
       </div>
-      </>
+    )
+  }
+}
+
+class SecondBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <p className="subTitle">Second bloc</p>
+      </div>
     )
   }
 }
@@ -67,9 +71,14 @@ class FirstBloc extends React.Component {
 class Homepage extends React.Component {
   render() {
     return (
-        <Container className="mainContainer documentContainer postContainer homepageCustom">
+      <>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
           <FirstBloc />
         </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom">
+          <SecondBloc />
+        </Container>
+      </>
     );
   }
 }
