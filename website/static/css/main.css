@@ -1,7 +1,10 @@
 .homepageCustom {
   font-family: $openSansLight;
-  background: $bgLightBlue;
   color: $fontColor;
+}
+
+.homepageCustom.bgLightBlue {
+  background: $bgLightBlue;
 }
 
 .homepageCustom h1 {
