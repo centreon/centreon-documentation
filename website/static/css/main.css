@@ -3,8 +3,17 @@
   color: $fontColor;
 }
 
+.homepageCustom.borderTop {
+  border-top: 1px solid rgba(185, 185, 185, 1);
+}
+
 .homepageCustom.bgLightBlue {
   background: $bgLightBlue;
+}
+
+.homepageCustom.bgLightPurple {
+  background: rgba(94, 83, 199, 14%);
+  color: rgba(94, 83, 199, 1);
 }
 
 .homepageCustom h1 {

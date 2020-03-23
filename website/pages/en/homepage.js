@@ -10,7 +10,7 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
-class FirstBloc extends React.Component {
+class ExcellenceBloc extends React.Component {
   render () {
     const basePathImg = './img/homepage/';
 
@@ -45,7 +45,7 @@ class FirstBloc extends React.Component {
     }
 
     return (
-      <div className="containerBloc bgLightBlue">
+      <div className="containerBloc">
         <h1>{stringLabels.h1}</h1>
         <p className="subTitle">{stringLabels.subTitle}</p>
         <div className="cardBar">
@@ -58,11 +58,51 @@ class FirstBloc extends React.Component {
   }
 }
 
-class SecondBloc extends React.Component {
+class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <p className="subTitle">Second bloc</p>
+        <h2>Les prérequis</h2>
+      </div>
+    )
+  }
+}
+
+class InstallationBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2>L'installation</h2>
+      </div>
+    )
+  }
+}
+
+class SupervisionBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2>La supervision</h2>
+      </div>
+    )
+  }
+}
+
+class CommunityBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2>Une communauté solide</h2>
+      </div>
+    )
+  }
+}
+
+class HeartOpenSourceBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2>Un cœur Open Source</h2>
       </div>
     )
   }
@@ -73,10 +113,22 @@ class Homepage extends React.Component {
     return (
       <>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
-          <FirstBloc />
+          <ExcellenceBloc />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom">
-          <SecondBloc />
+          <PrerequisiteBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
+          <InstallationBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom">
+          <SupervisionBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom borderTop">
+          <CommunityBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightPurple">
+          <HeartOpenSourceBloc />
         </Container>
       </>
     );
