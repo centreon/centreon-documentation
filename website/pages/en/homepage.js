@@ -111,7 +111,7 @@ class HeartOpenSourceBloc extends React.Component {
 class Homepage extends React.Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
           <ExcellenceBloc />
         </Container>
@@ -130,7 +130,7 @@ class Homepage extends React.Component {
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightPurple">
           <HeartOpenSourceBloc />
         </Container>
-      </>
+      </React.Fragment>
     );
   }
 }
