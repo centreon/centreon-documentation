@@ -1,5 +1,5 @@
 .homepageCustom {
-  font-family: 'Roboto', sans-serif;
+  font-family: $roboto;
   color: $fontColor;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .homepageCustom h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family:  $roboto;
   font-size: 50px;
   color: rgba(34, 46, 59, 1);
   margin: 0 auto;
@@ -69,6 +69,6 @@
 
 .tittle-section {
   color: rgb(0, 114, 206);
-  font-family: 'Roboto', sans-serif;
+  font-family: $roboto;
 
 }

@@ -61,13 +61,9 @@ const siteConfig = {
 
   /* Custom fonts for website */
   fonts: {
-    openSansLight: [
-      "Open Sans",
-      "light"
-    ],
-    openSansSemiBold: [
-      "Open Sans",
-      "Semibold"
+    roboto: [
+      "Roboto",
+      "sans-serif"
     ],
   },
 
