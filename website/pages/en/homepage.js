@@ -9,40 +9,46 @@ const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
+const stringLabels = {
+  h1: "L’Excellence IT au service de la Performance Métier",
+  subTitle: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
+  tittleSection1 : "Les prérequis",
+  contentSection1: "Veuillez à bien suivre les prérequis d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.", 
+  tittleSection2 : "L'installation",
+  contentSection2: "La plateforme de supervision peut-être installée de plusieurs manières.Cependant,nous vous recommandons vivement d'utiliser Centreon Iso(ex CES) pour installer votre plateforme.",
+  tittleSection3 : "La supervision",
+  contentSection3: "Bénéficier rapidement d'une supervision prête à l'emploi grâce à nos Plugin Packs.Plus de 400 domaines IT déjà couverts: réseaux, serveurs, applications,stockage,base de données, appareils, matériels, etc. sur des infratructures physiques, virtuekkes, ou hybrides.",
+}
 
-class ExcellenceBloc extends React.Component {
-  render () {
-    const basePathImg = './img/homepage/';
+const basePathImg = './img/homepage/';
 
-    const stringLabels = {
-      h1: "L’Excellence IT au service de la Performance Métier",
-      subTitle: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
-    }
 
-    const Button = props => {
-      return (
-          <div className="pluginWrapper buttonWrapper">
-            <a className="button buttonLink" href={props.href} target={props.target}>
-              {props.label}
-            </a>
-          </div>
-        )
-    }
-
-    const Image = props => (
-      <div className="imageContainer">
-        <img src={basePathImg + props.imageSrc} />
+const Button = props => {
+  return (
+      <div className="pluginWrapper buttonWrapper">
+        <a className="button buttonLink" href={props.href} target={props.target}>
+          {props.label}
+        </a>
       </div>
     )
+}
 
-    const Card = props => {
-      return (
-        <div className="cardContent">
-          <Image imageSrc={props.imageSrc} />
-          <Button href={'#'} target={'_blank'} label={props.btnLabel} />
-        </div>
-      )
-    }
+const Image = props => (
+  <div className="imageContainer">
+    <img src={basePathImg + props.imageSrc} />
+  </div>
+)
+
+const Card = props => {
+  return (
+    <div className="cardContent">
+      <Image imageSrc={props.imageSrc} />
+      <Button href={'#'} target={'_blank'} label={props.btnLabel} />
+    </div>
+  )
+}
+class ExcellenceBloc extends React.Component {
+  render () {
 
     return (
       <div className="containerBloc">
@@ -62,7 +68,11 @@ class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2>Les prérequis</h2>
+        <h2 className="tittle-section">{stringLabels.tittleSection1}</h2>
+        <p>{stringLabels.contentSection1}</p>
+        <div className="cardBar">
+        <Card imageSrc={'Groupe-463.svg'}  />
+        </div>
       </div>
     )
   }
@@ -72,7 +82,8 @@ class InstallationBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2>L'installation</h2>
+        <h2 className="tittle-section">{stringLabels.tittleSection2}</h2>
+    <p>{stringLabels.contentSection2}</p>
       </div>
     )
   }
@@ -82,7 +93,8 @@ class SupervisionBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2>La supervision</h2>
+        <h2 className="tittle-section">{stringLabels.tittleSection3}</h2>
+    <p>{stringLabels.contentSection3}</p>
       </div>
     )
   }
@@ -92,7 +104,7 @@ class CommunityBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2>Une communauté solide</h2>
+        <h2 className="tittle-section">Une communauté solide</h2>
       </div>
     )
   }
@@ -102,7 +114,7 @@ class HeartOpenSourceBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2>Un cœur Open Source</h2>
+        <h2 className="tittle-section">Un cœur Open Source</h2>
       </div>
     )
   }
