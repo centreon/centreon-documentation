@@ -10,14 +10,14 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 const stringLabels = {
-  h1: "L’Excellence IT au service de la Performance Métier",
-  subTitle: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
-  tittleSection1 : "Les prérequis",
-  contentSection1: "Veuillez à bien suivre les prérequis d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.", 
-  tittleSection2 : "L'installation",
-  contentSection2: "La plateforme de supervision peut-être installée de plusieurs manières.Cependant,nous vous recommandons vivement d'utiliser Centreon Iso(ex CES) pour installer votre plateforme.",
-  tittleSection3 : "La supervision",
-  contentSection3: "Bénéficier rapidement d'une supervision prête à l'emploi grâce à nos Plugin Packs.Plus de 400 domaines IT déjà couverts: réseaux, serveurs, applications,stockage,base de données, appareils, matériels, etc. sur des infratructures physiques, virtuekkes, ou hybrides.",
+  tittleExcellenceBloc: "L’Excellence IT au service de la Performance Métier",
+  subTitleExcellenceBloc: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
+  tittlePrerequisiteBloc: "Les prérequis",
+  contentPrerequisiteBloc: "Veuillez à bien suivre les prérequis d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.", 
+  tittleInstallationBloc: "L'installation",
+  contentInstallationBloc: "La plateforme de supervision peut-être installée de plusieurs manières.Cependant,nous vous recommandons vivement d'utiliser Centreon Iso(ex CES) pour installer votre plateforme.",
+  tittleSupervisionBloc: "La supervision",
+  contentSupervisionBloc: "Bénéficier rapidement d'une supervision prête à l'emploi grâce à nos Plugin Packs.Plus de 400 domaines IT déjà couverts: réseaux, serveurs, applications,stockage,base de données, appareils, matériels, etc. sur des infratructures physiques, virtuekkes, ou hybrides.",
 }
 
 const basePathImg = './img/homepage/';
@@ -52,8 +52,8 @@ class ExcellenceBloc extends React.Component {
 
     return (
       <div className="containerBloc">
-        <h1>{stringLabels.h1}</h1>
-        <p className="subTitle">{stringLabels.subTitle}</p>
+        <h1>{stringLabels.tittleExcellenceBloc}</h1>
+        <p className="subTitle">{stringLabels.subTitleExcellenceBloc}</p>
         <div className="cardBar">
           <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} />
           <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} />
@@ -68,8 +68,8 @@ class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittleSection1}</h2>
-        <p>{stringLabels.contentSection1}</p>
+        <h2 className="tittle-section">{stringLabels.tittlePrerequisiteBloc}</h2>
+        <p>{stringLabels.contentPrerequisiteBloc}</p>
         <div className="cardBar">
         <Card imageSrc={'Groupe-463.svg'}  />
         </div>
@@ -93,8 +93,8 @@ class SupervisionBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittleSection3}</h2>
-    <p>{stringLabels.contentSection3}</p>
+        <h2 className="tittle-section">{stringLabels.tittleSupervisionBloc}</h2>
+    <p>{stringLabels.contentSupervisionBloc}</p>
       </div>
     )
   }
