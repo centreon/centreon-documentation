@@ -82,8 +82,11 @@ class InstallationBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittleSection2}</h2>
-    <p>{stringLabels.contentSection2}</p>
+        <h2 className="tittle-section">{stringLabels.tittleInstallationBloc}</h2>
+        <p>{stringLabels.contentInstallationBloc}</p>
+        <div className="cardBar">
+        <Card imageSrc={'Groupe-699.svg'}  />
+        </div>
       </div>
     )
   }
@@ -94,7 +97,11 @@ class SupervisionBloc extends React.Component {
     return (
       <div className="containerBloc">
         <h2 className="tittle-section">{stringLabels.tittleSupervisionBloc}</h2>
-    <p>{stringLabels.contentSupervisionBloc}</p>
+        <p>{stringLabels.contentSupervisionBloc}</p>
+        <div className="cardBar">
+        <Card imageSrc={'Groupe-387.svg'}  />
+        </div>
+
       </div>
     )
   }
