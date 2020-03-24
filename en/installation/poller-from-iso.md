@@ -127,61 +127,6 @@ Then restart your server with the following command:
 reboot
 ```
 
-## Exchanging SSH Keys
+## Add the Poller to configuration
 
-Communication between a central server and a poller server is done through SSH.
-
-You need to exchange SSH keys between the servers.
-
-If you do not have any private SSH keys on the central server for the **centreon** user:
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Hit enter when it prompts for a file to save the key to use the default location, or, create one in a specified
-> directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
-
-Generate a password for the **centreon** user on the new server:
-
-``` shell
-passwd centreon
-```
-
-Copy this key on to the new server:
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
-```
-
-## Configure a new poller in Centreon
-
-Go to the **Configuration > Pollers** menu and click on **Add server with wizard** to configure a new poller.
-
-Select **Add a Centreon Poller** and click on **Next**:
-
-![image](assets/installation/poller/wizard_add_poller_1.png)
-
-Type in the name, the IP address of the poller and IP address of the Central Server. Click on **Next**:
-
-![image](assets/installation/poller/wizard_add_poller_2.png)
-
-> The IP address of the poller is the IP address or the FQDN used to access this poller from the Central Server.
->
-> The IP address of the Central Server is the IP address or the FQDN used to access the Central Server from the poller.
-
-If you want to link the poller to the Centreon Server, click on **Apply**:
-
-![image](assets/installation/poller/wizard_add_poller_3.png)
-
-Otherwise, if you want to link the poller to an existing Centreon Remote Server, select one from the list. Then click **Apply**.
-
-In a few seconds the wizard will configure your new poller.
-
-![image](assets/installation/poller/wizard_add_poller_5.png)
-
-## Getting started
-
-Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.
+Go to the [Add a Poller to configuration](add-poller-to-configuration.html).

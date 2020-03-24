@@ -24,7 +24,8 @@
             {
                 "ids": [
                     "installation/poller-from-iso",
-                    "installation/poller-from-packages"
+                    "installation/poller-from-packages",
+                    "installation/add-poller-to-configuration"
                 ],
                 "label": "Installation of a Poller",
                 "type": "subcategory"
