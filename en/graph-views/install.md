@@ -261,10 +261,6 @@ http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health.
 If your server is running in HTTPS mode:
 https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health.
 
-You should see the server's state:
-
-![image](assets/graph-views/server-api-rest.png)
-
 Installation of the Centreon MAP server is complete. If you want to configure
 the SSL, go to this page: `Advanced Centreon MAP Configuration
 <advanced_configuration>`{.interpreted-text role="ref"}.

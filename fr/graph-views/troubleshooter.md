@@ -45,10 +45,6 @@ If your server is running in http mode enter
 If your server is running in HTTPS mode enter
 *https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health*
 
-You should see the server's state:
-
-![image](assets/graph-views/server-api-rest.png)
-
 You can also check the SOAP API used by the desktop client:
 
 If your server is running in http mode enter
