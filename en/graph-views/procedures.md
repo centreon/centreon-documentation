@@ -170,27 +170,20 @@ Access the Centreon MAP server through SSH.
 
 Create a PKCS12 file with the following command line:
 
-::
-
-   # openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
+  openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 
 Then, import this file into a new keystore (a Java repository of security certificates):
 
-::
-
-   # keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+   keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
    
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
-
-::
 
    centreon-map.keystore=/etc/centreon-studio/studio.jks
    centreon-map.keystore-pass=xxx
 
 
-.. note::
-
-   Replace the keystore-pass value "xxx" with the password you used for the keystore and adapt the path (if it was changed) to the keystore.
+> Replace the keystore-pass value "xxx" with the password you used for 
+> the keystore and adapt the path (if it was changed) to the keystore.
 
 
 .. _tls_autosigned_key:
@@ -210,11 +203,11 @@ Create a keystore.
 
 Go to the folder where Java is installed:
 
-   cd $JAVA_HOME/bin
+  cd $JAVA_HOME/bin
 
 Then generate a keystore file with the following command:
 
-   keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
+  keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
 
 The alias value "studio" and the keystore file path /etc/centreon-studio/studio.jks may be changed, but unless there is a specific reason, we advise keeping the default values.
 
@@ -243,7 +236,6 @@ Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and 
 3. Restart Centreon MAP service.
 
    systemctl start centreon-map
-
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 For the requirement of changing service's port, refer to :ref:`change_server_port`
