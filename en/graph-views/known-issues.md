@@ -11,8 +11,8 @@ issues for future releases.
   ------------------------------------------------------------------------------
   Issues                        Workaround if exists
   ----------------------------- ------------------------------------------------
-  In some rare case, the        To update the content: Restart Tomcat (type:
-  content of a container may    systemctl restart tomcat) and contact support so
+  In some rare case, the        To update the content: Restart centreon-map (type:
+  content of a container may    systemctl restart centreon-map) and contact support so
   not seem modifiable. In fact, we can analyze your platform.
   it can be edited but the      
   rendering is not updated on   

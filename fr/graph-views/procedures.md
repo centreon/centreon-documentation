@@ -118,9 +118,9 @@ new Centreon MAP server.
 
 ### Synchronize the data
 
-Stop Tomcat on **both** Centreon MAP servers:
+Stop Centreon Map service on **both** Centreon MAP servers:
 
-    service tomcat stop
+    systemctl stop centreon-map
 
 Dump the Centreon MAP data:
 
@@ -131,9 +131,9 @@ import it into the database:
 
     mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
 
-Start Tomcat on the new Centreon MAP servers:
+Start Centreon Map service on the new Centreon MAP servers:
 
-    service tomcat start
+    systemctl start centreon-map
 
 ## Centreon MAP configuration files
 
@@ -148,132 +148,109 @@ to the folder /etc/centreon-studio.
 
 If these files are modified, the server must be restarted with the command:
 
-    systemctl restart tomcat
+    systemctl restart centreon-map
 
 > Do not delete any variables in these files\! This may cause the server to
 > malfunction or not to start up.
 
 ## SSL Configuration
 
-### SSL configuration with a recognized key
+### HTTPS/TLS configuration with a recognized key
 
-> This section describes how to add a **recognized key** to the Tomcat server.
-> If you want to create an self-signed key and add it to your server, please
-> refer to the next section.
+>    This section describes how to add a **recognized key** to the Centreon Map server.
+> If you want to create an auto-signed key and add it to your server, please refer to the following section 
+> :ref:`tls_autosigned_key`.
 
 You will require:
 
-  - A key file, referred to as *key.key*.
-  - A certificate file, referred to as *certificate.crt*.
+- A key file, referred to as *key.key*.
+- A certificate file, referred to as *certificate.crt*.
 
 Access the Centreon MAP server through SSH.
 
 Create a PKCS12 file with the following command line:
 
-    openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
+::
 
-Then, import this file into a new keystore (a Java repository of security
-certificates):
+   # openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 
-    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+Then, import this file into a new keystore (a Java repository of security certificates):
 
-Edit our custom server.xml and uncomment the following lines by removing the
-surrounding \<\!-- and --\> .
+::
 
-    <!--
-    <Connector protocol="org.apache.coyote.http11.Http11Protocol"
-        compression="on"
-        compressionMinSize="128"
-        noCompressionUserAgents="gozilla, traviata"
-        compressableMimeType="text/html,text/xml,text/css,text/javascript,application/x-javascript,application/javascript"
-        port="8443"
-        secure="true"
-        scheme="https"
-        maxThreads="200"
-        SSLEnabled="true"
-        sslProtocol="TLS"
-        clientAuth="false"
-        keystorePass="xxx"
-        keystoreFile="/etc/centreon-studio/studio.jks"
-        ciphers="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA" />
-     -->
+   # keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+   
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
 
-> Replace the keystorePass value "xxx" with the password you used for the keystore
-> and adapt the path (if it was changed) to the keystore.
+::
 
-### SSL configuration with a self-signed key
+   centreon-map.keystore=/etc/centreon-studio/studio.jks
+   centreon-map.keystore-pass=xxx
 
-> Enabling the SSL mode with a self-signed key will force every user to add an
-> exception for the certificate before using the web interface. Enable it only if
-> your Centreon also uses this protocol. Users will have to open the URL
-> <https://centreon-map-url:8443/centreon-studio/docs>. *The solution we recommend
-> is to use a recognized key method, as explained above.*
 
-#### On the Centreon MAP server
+.. note::
+
+   Replace the keystore-pass value "xxx" with the password you used for the keystore and adapt the path (if it was changed) to the keystore.
+
+
+.. _tls_autosigned_key:
+
+### HTTPS/TLS configuration with an auto-signed key
+
+
+> Enabling the TLS mode with an auto-signed key will force every user to add an 
+> exception for the certificate before using the web interface. 
+> Enable it only if your Centreon also uses this protocol.
+> Users will have to open the URL https://centreon-map-url:8443/centreon-studio/api/beta/actuator/health.
+> *The solution we recommend is to use a recognized key method, as explained above.*
+
+On the Centreon MAP server
 
 Create a keystore.
 
 Go to the folder where Java is installed:
 
-    cd $JAVA_HOME/bin
+   cd $JAVA_HOME/bin
 
 Then generate a keystore file with the following command:
 
-    keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
+   keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
 
-The alias value "studio" and the keystore file path
-/etc/centreon-studio/studio.jks may be changed, but unless there is a specific
-reason, we advise keeping the default values.
+The alias value "studio" and the keystore file path /etc/centreon-studio/studio.jks may be changed, but unless there is a specific reason, we advise keeping the default values.
 
 Provide the needed information when creating the keystore.
 
-At the end of the screen form, when the "key password" is requested, use the
-same password as the one used for the keystore itself by pressing the ENTER key.
+At the end of the screen form, when the "key password" is requested, use the same password as the one used for the keystore itself by pressing the ENTER key.
 
-During installation, we added a custom server.xml and saved the old server as
-server.xml.map4.backup.
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
 
-Edit our custom server.xml and uncomment the following lines by removing the
-surrounding \<\!-- and --\> .
+   centreon-map.keystore=/etc/centreon-studio/studio.jks
+   centreon-map.keystore-pass=xxx
 
-    <!--
-    <Connector protocol="org.apache.coyote.http11.Http11Protocol"
-        compression="on"
-        compressionMinSize="128"
-        noCompressionUserAgents="gozilla, traviata"
-        compressableMimeType="text/html,text/xml,text/css,text/javascript,application/x-javascript,application/javascript"
-        port="8443"
-        secure="true"
-        scheme="https"
-        maxThreads="200"
-        SSLEnabled="true"
-        sslProtocol="TLS"
-        clientAuth="false"
-        keystorePass="xxx"
-        keystoreFile="/etc/centreon-studio/studio.jks"
-        ciphers="TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA" />
-     -->
+> Replace the keystore-pass value "xxx" with the password you used for the keystore 
+> and adapt the path (if it was changed to the keystore.
 
-> Replace the keystorePass value "xxx" with the password you used for the keystore
-> and adapt the path (if it was changed) to the keystore.
+### Activate TLS profile of Centreon MAP service
 
-Tomcat is now configured to respond to requests from HTTP and HTTPS.
+1. Stop Centreon MAP service:
 
-To disable non-secure mode, edit the file again and comment out the following
-lines by including the block within \<\!-- and --\>.
+   systemctl stop centreon-map
 
-    <Connector port="8080"
-        protocol="HTTP/1.1"
-        connectionTimeout="20000"
-        redirectPort="8443"
-        compression="on"
-        compressionMinSize="128"
-        noCompressionUserAgents="gozilla, traviata"
-        compressableMimeType="text/html,text/xml,text/css,text/javascript,application/x-javascript,application/javascript"/>
+2. Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
 
-Restart Tomcat.
+   RUN_ARGS="--spring.profiles.active=prod,tls"
 
-    systemctl restart tomcat
+3. Restart Centreon MAP service.
+
+   systemctl start centreon-map
+
+
+Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
+For the requirement of changing service's port, refer to :ref:`change_server_port`
+
+> Don't forget to modify the URL on Centreon side in 
+> **Administration** > **Extensions** > **Map** > **Options** => **Map server address** 
+
 
 ## Broker configuration
 
@@ -308,9 +285,9 @@ output](https://documentation.centreon.com/docs/centreon-broker/en/latest/user/m
 
 #### Map server side configuration
 
-First of all, set the following parameter in map server configuration at
-"/etc/centreon-studio/studio-config.properties" to enable TLS socket connection
-with broker :
+First of all, you should `activate HTTPS/TLS of Centreon MAP service <tls_configuration.html>`_
+
+Than, set the following parameter in map server configuration at “/etc/centreon-studio/studio-config.properties“ to enable TLS socket connection with broker :
 
     broker.tls=true
 
@@ -330,22 +307,25 @@ line:
 Then, put the generated output file "truststore.jks" into "/etc/centreon-studio"
 of map server host.
 
-and add JVM options to tomcat's configuration file - "/etc/tomcat/tomcat.conf" :
+and add truststore parameters in - “/etc/centreon-studio/studio-config.properties“
 
-    JAVA_OPTS="-Djavax.net.ssl.trustStore=/etc/centreon-studio/truststore.jks -Djavax.net.ssl.trustStorePassword=xxx"
+    centreon-map.truststore=/etc/centreon-studio/truststore.jks
+    centreon-map.truststore-pass=XXXX
 
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store
 
-Finally, restart Tomcat :
+Meanwhile, you should activate the "tls_broker" profile of Centreon MAP service:
+Edit the file  "/etc/centreon-studio/centreon-map.conf", replace ",tls" by ",tls_broker" after "prod" profile
 
-    sudo systemctl restart tomcat
+    RUN_ARGS="--spring.profiles.active=prod,tls_broker"
+
+> "tls_broker" profile implies "tls" profile. So Centreon MAP service serves necessarily HTTPS.    
+
 
 **2. Recognized CA signed broker certificate**
 
-If the broker public certificate is signed with a recognized CA, the JVM default
-trust store "cacerts (/etc/pki/java/cacerts)" will be used. Nothing to configure
-for Tomcat
+If the broker public certificate is signed with a recognized CA, the JVM default trust store "cacerts (/etc/pki/java/cacerts)" will be used. Nothing to configure for Centreon MAP service
 
 ## Backup of Centreon MAP server
 
@@ -369,7 +349,7 @@ The backup script is executed on a daily basis (2AM) with a cron job located in
     # rewrite file with new cron line
     CRONTAB_EXEC_USER=""
 
-    0 2 * * * root bash /usr/share/centreon-map-server/cron/centreon-map-server-backup.sh >> /var/log/centreon-map-server/centreon-map-server-backup.log 2>&1
+    0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
 
 The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
 **BACKUP\_DIR**, which is defined in configuration file.
@@ -413,9 +393,9 @@ To restore configuration files, run the following command:
 
 To restore **centreon\_studio** database, run the following command:
 
-    # systemctl stop tomcat
+    # systemctl stop centreon-map
     # mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
-    # systemctl start tomcat
+    # systemctl start centreon-map
 
 ## Change Centreon Map server port
 
@@ -428,11 +408,11 @@ these ports).
 > If the new port is below 1024, use this procedure `these
 > instructions<port_under_1024>` instead.
 
-On your Centreon MAP server, stop the Tomcat server:
+On your Centreon MAP server, stop the Centreon Map server:
 
-    systemctl stop tomcat
+    systemctl stop centreon-map
 
-Edit the server.xml settings file located in /etc/tomcat/server.xml:
+Edit the studio-config.properties settings file located in /etc/centreon-studio:
 
     vim /etc/tomcat/server.xml
 
@@ -443,17 +423,17 @@ And, in the following lines...
                 connectionTimeout="20000"
                 redirectPort="8443" />
 
-...replace *port=8080* with the port you want.
+...replace *XXXX* with the port you want.
 
-Then restart the Tomcat server:
+Then restart the Centreon Map server:
 
-    systemctl start tomcat
+    systemctl start centreon-map
 
-Wait for Tomcat to start (\~30 sec to 1 or 2 minutes). Test that your server is
+Wait for Centreon MAP service to start completely (~30 sec to 1 minutes). Test that your server is
 up and accessible on the new port you defined by entering the following URL in
 your web browser:
 
-http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/centreon-studio/docs
+http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
 
 ## Define port below 1024
 
@@ -523,7 +503,7 @@ Save this configuration so it will be applied each time you reboot your server:
 Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
-http://\<IP\_MAP\_SERVER\>/centreon-studio/docs
+http://\<IP\_MAP\_SERVER\>/api/beta/actuator/health
 
 You should see this page:
 

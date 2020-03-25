@@ -18,10 +18,8 @@ to suit your needs.
 
 Centreon MAP consists of three components:
 
-  - Centreon MAP Server, developed in Java, using Hibernate and CXF, and hosted
-    by Tomcat
-  - Centreon MAP Web interface, developed in Javascript, based on
-    [Backbone.js](http://backbonejs.org/)
+  - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
+  - Centreon MAP Web interface, developed in Javascript, based on [Backbone.js](http://backbonejs.org/)
   - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
     4](https://wiki.eclipse.org/Eclipse4/RCP).
 
@@ -73,12 +71,16 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | *MySQL data partition*   | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
 To correctly implement the dedicated memory, you have to edit the *JAVA\_OPTS*
-parameter in the Tomcat configurations file `/etc/tomcat/tomcat.conf` and
+parameter in the Centreon Map configurations file `/etc/centreon-studio/centreon-map.conf` and
 restart the service:
 
-    JAVA_OPTS=" -Xms512m -Xmx4G"
+    JAVA_OPTS="-Xms512m -Xmx4G"
 
 NB: The Xmx value depends on the amount of memory indicated in the above table.
+
+and restart the service: 
+
+  systemctl restart centreon-map
 
 The space used by Centreon MAP server is directly determined by the number of
 elements you add into your views. An element is any graphical object in Centreon
@@ -90,7 +92,7 @@ included in the count.
 **Software**
 
   - OS: CentOS 7 / Redhat 7
-  - DBMS: MariaDB 10.1
+  - DBMS: MariaDB 10.2
   - Firewall: Disabled
   - SELinux: Disabled
 
@@ -160,7 +162,7 @@ All the ports above are default values and can be changed if needed.
 
 Centreon MAP Desktop Client machines must access:
 
-  - Centreon MAP Server, using TCP port 8080 or 8443 when SSL is enabled
+  - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
   - Internet with or without proxy.
 
 Ports 8080 and 8443 are recommanded default values, but other configurations are
@@ -194,8 +196,8 @@ to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP server
 
-Install Centreon MAP from the Centreon MAP yum repository. It will automatically
-install java and Tomcat if needed. You need to have a MySQL/MariadDB database to
+Install Centreon MAP from the Centreon MAP yum repository. It will automatically install java (OpenJDK 11) if needed.
+You need to have a MySQL/MariadDB database to
 store Centreon Map data, wether it's on localhost or somewhere else.
 
 If you installed your Centreon Map server from a "fresh CentOS installation" you
@@ -244,9 +246,9 @@ Check your configuration:
 
     /etc/centreon-studio/diagnostic.sh
 
-If the configuration is correct, then start Tomcat from the Centreon MAP server:
+If the configuration is correct, then start centreon-map from the Centreon MAP server:
 
-    # systemctl restart tomcat
+    # systemctl restart centreon-map
 
 ### Verifying your installation
 
@@ -254,12 +256,12 @@ Once your server is started, you can check if all its APIs are up and running by
 entering the following URL in your favorite web browser:
 
 If your server is running in http mode:
-http://\<IP\_SERVER\_MAP\>:8080/centreon-studio/docs.
+http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health.
 
 If your server is running in HTTPS mode:
-https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/docs.
+https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health.
 
-You should see the following page:
+You should see the server's state:
 
 ![image](assets/graph-views/server-api-rest.png)
 

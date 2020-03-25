@@ -48,7 +48,7 @@ Tomcat must be restarted:
 
 ## Centreon configuration
 
-### Create an Tomcat server
+### Create an Centreon Map server
 
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:

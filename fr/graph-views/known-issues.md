@@ -8,11 +8,11 @@ Centreon MAP. We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
 
-  ------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------
   Issues                        Workaround if exists
-  ----------------------------- ------------------------------------------------
-  In some rare case, the        To update the content: Restart Tomcat (type:
-  content of a container may    systemctl restart tomcat) and contact support so
+  ----------------------------- ----------------------------------------------------------
+  In some rare case, the        To update the content: Restart Centreon Map Service (type:
+  content of a container may    systemctl restart centreon-map) and contact support so
   not seem modifiable. In fact, we can analyze your platform.
   it can be edited but the      
   rendering is not updated on   

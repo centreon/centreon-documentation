@@ -15,37 +15,37 @@ We will continue to update this section based on your feedback.
 
 Their are two main ways to check if your Centreon MAP server is up and running.
 
-First of all, check that Tomcat is running. To do so, connect through SSH to the
+First of all, check that Centreon MAP service is running. To do so, connect through SSH to the
 server hosting Centreon MAP and run the following command:
 
-    systemctl status tomcat
+    systemctl status centreon-map
 
 You should receive the following output:
 
-    tomcat.service - Apache Tomcat Web Application Container
-    Loaded: loaded (/usr/lib/systemd/system/tomcat.service; disabled; vendor preset: disabled)
-    Active: active (running) since ven. 2018-09-07 13:46:53 CEST; 4s ago
+   centreon-map - Centreon Studio map server
+   Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
+   Active: active (running) since ...
 
-If your Tomcat is stopped the message will be:
+If your Centreon MAP service is stopped the message will be:
 
-    tomcat.service - Apache Tomcat Web Application Container
-    Loaded: loaded (/usr/lib/systemd/system/tomcat.service; disabled; vendor preset: disabled)
-    Active: inactive (dead)
+   centreon-map - Centreon Studio map server
+   Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
+   Active: inactive (dead)
 
-In this case, start the Tomcat service:
+In this case, start the Centreon MAP service:
 
-    sudo systemctl start tomcat
+    sudo systemctl start centreon-map
 
 Once you are sure your server is running, try to access its API through your web
 browser. Check the REST API used by the web interface as follows:
 
 If your server is running in http mode enter
-*http://\<IP\_SERVER\_MAP\>:8080/centreon-studio/docs*
+*http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health*
 
 If your server is running in HTTPS mode enter
-*https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/docs*
+*https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health*
 
-You should see the following page:
+You should see the server's state:
 
 ![image](assets/graph-views/server-api-rest.png)
 
@@ -59,7 +59,7 @@ If your server is running in HTTPS mode enter
 
 ![image](assets/graph-views/server-api-soap.png)
 
-### My Centreon MAP server (Tomcat) is running but I cannot access Centreon MAP API (/docs) pages
+### My Centreon MAP service is running but I cannot access Centreon MAP API (/actuator/health) pages
 
 You might want to check if the server containing Centreon MAP has a firewall
 preventing it from running correctly. Run the following command:
@@ -266,7 +266,7 @@ client, your database is probably in latin1. To change the database to UTF-8
 encoding, you need to access your Centreon MAP server in SSH and execute the
 following commands:
 
-    # systemctl stop tomcat
+    # systemctl stop centreon-map
     # mysqldump -uusername -p -h \<HOST\> centreon\_studio \> dump.sql
     # cp dump.sql dump-fixed.sql
     # vim dump-fixed.sql
@@ -275,7 +275,7 @@ following commands:
     :%s/DEFAULT CHARSET=latin1/DEFAULT CHARSET=utf8/
     :wq
     # mysql -uusername -ppassword -h \<HOST\> \< dump-fixed.sql
-    # systemctl start tomcat
+    # systemctl start centreon-map
 
 ### My Desktop client is slow and I often get disconnected.
 
@@ -357,9 +357,9 @@ To execute it:
 
         mysql centreon_studio < update-position-graph.sql
 
-  - Restart Tomcat:
+  - Restart Centreon Map service:
 
-        services tomcat restart
+        systemctl restart centreon-map
 
 ### My web interface is displaying "Authentication error."
 
