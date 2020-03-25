@@ -170,23 +170,21 @@ Access the Centreon MAP server through SSH.
 
 Create a PKCS12 file with the following command line:
 
-   openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
+    openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 
 Then, import this file into a new keystore (a Java repository of security certificates):
 
-   keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
    
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
 
-   centreon-map.keystore=/etc/centreon-studio/studio.jks
-   centreon-map.keystore-pass=xxx
+    centreon-map.keystore=/etc/centreon-studio/studio.jks
+    centreon-map.keystore-pass=xxx
 
 
 > Replace the keystore-pass value "xxx" with the password you used for 
 > the keystore and adapt the path (if it was changed) to the keystore.
 
-
-.. _tls_autosigned_key:
 
 ### HTTPS/TLS configuration with an auto-signed key
 
@@ -213,30 +211,31 @@ The alias value "studio" and the keystore file path /etc/centreon-studio/studio.
 
 Provide the needed information when creating the keystore.
 
-At the end of the screen form, when the "key password" is requested, use the same password as the one used for the keystore itself by pressing the ENTER key.
+At the end of the screen form, when the "key password" is requested, use the same password as the 
+one used for the keystore itself by pressing the ENTER key.
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters
+inside "/etc/centreon-studio/studio-config.properties"
 
-   centreon-map.keystore=/etc/centreon-studio/studio.jks
-   centreon-map.keystore-pass=xxx
+    centreon-map.keystore=/etc/centreon-studio/studio.jks
+    centreon-map.keystore-pass=xxx
 
 > Replace the keystore-pass value "xxx" with the password you used for the keystore 
 > and adapt the path (if it was changed to the keystore.
 
 ### Activate TLS profile of Centreon MAP service
 
-1. Stop Centreon MAP service:
+1) Stop Centreon MAP service:
 
-   systemctl stop centreon-map
+    systemctl stop centreon-map
 
-2. Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
+2) Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
 
-   RUN_ARGS="--spring.profiles.active=prod,tls"
+    RUN_ARGS="--spring.profiles.active=prod,tls"
 
 3. Restart Centreon MAP service.
 
-   systemctl start centreon-map
-
+    systemctl start centreon-map
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 For the requirement of changing service's port, refer to :ref:`change_server_port`
@@ -426,7 +425,7 @@ Wait for Centreon MAP service to start completely (~30 sec to 1 minutes). Test t
 up and accessible on the new port you defined by entering the following URL in
 your web browser:
 
-http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
+    http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
 
 ## Define port below 1024
 

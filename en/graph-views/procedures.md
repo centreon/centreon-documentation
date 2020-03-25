@@ -17,12 +17,12 @@ Use SSH to access the poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
     # yum install centreon-pack-operatingsystems-linux-snmp
-    # yum install centreon-pack-applications-monitoring-centreon-map-jmx
-    # yum install centreon-pack-applications-webservers-jmx
+    # yum install centreon-pack-applications-monitoring-centreon-map4-jmx
+    # yum install centreon-pack-applications-webservers-tomcat-jmx
 
     # yum install centreon-plugin-Operatingsystems-Linux-Snmp
-    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
-    # yum install centreon-plugin-Applications-Webservers-Jmx
+    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map4-Jmx
+    # yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
 
     ## OPTIONAL - Only if you have a local MySQL DB for your Map server
 
@@ -118,7 +118,7 @@ new Centreon MAP server.
 
 ### Synchronize the data
 
-Stop Centreon MAP service on **both** Centreon MAP servers:
+Stop Centreon Map service on **both** Centreon MAP servers:
 
     systemctl stop centreon-map
 
@@ -153,7 +153,7 @@ If these files are modified, the server must be restarted with the command:
 > Do not delete any variables in these files\! This may cause the server to
 > malfunction or not to start up.
 
-## TLS Configuration
+## HTTPS/TLS Configuration
 
 ### HTTPS/TLS configuration with a recognized key
 
@@ -170,23 +170,21 @@ Access the Centreon MAP server through SSH.
 
 Create a PKCS12 file with the following command line:
 
-  openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
+    openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
 
 Then, import this file into a new keystore (a Java repository of security certificates):
 
-   keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
+    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
    
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
 
-   centreon-map.keystore=/etc/centreon-studio/studio.jks
-   centreon-map.keystore-pass=xxx
+    centreon-map.keystore=/etc/centreon-studio/studio.jks
+    centreon-map.keystore-pass=xxx
 
 
 > Replace the keystore-pass value "xxx" with the password you used for 
 > the keystore and adapt the path (if it was changed) to the keystore.
 
-
-.. _tls_autosigned_key:
 
 ### HTTPS/TLS configuration with an auto-signed key
 
@@ -203,45 +201,48 @@ Create a keystore.
 
 Go to the folder where Java is installed:
 
-  cd $JAVA_HOME/bin
+    cd $JAVA_HOME/bin
 
 Then generate a keystore file with the following command:
 
-  keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
+    keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.jks
 
 The alias value "studio" and the keystore file path /etc/centreon-studio/studio.jks may be changed, but unless there is a specific reason, we advise keeping the default values.
 
 Provide the needed information when creating the keystore.
 
-At the end of the screen form, when the "key password" is requested, use the same password as the one used for the keystore itself by pressing the ENTER key.
+At the end of the screen form, when the "key password" is requested, use the same password as the 
+one used for the keystore itself by pressing the ENTER key.
 
-Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
+Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters
+inside "/etc/centreon-studio/studio-config.properties"
 
-   centreon-map.keystore=/etc/centreon-studio/studio.jks
-   centreon-map.keystore-pass=xxx
+    centreon-map.keystore=/etc/centreon-studio/studio.jks
+    centreon-map.keystore-pass=xxx
 
 > Replace the keystore-pass value "xxx" with the password you used for the keystore 
 > and adapt the path (if it was changed to the keystore.
 
 ### Activate TLS profile of Centreon MAP service
 
-1. Stop Centreon MAP service:
+1) Stop Centreon MAP service:
 
-   systemctl stop centreon-map
+    systemctl stop centreon-map
 
-2. Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
+2) Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
 
-   RUN_ARGS="--spring.profiles.active=prod,tls"
+    RUN_ARGS="--spring.profiles.active=prod,tls"
 
 3. Restart Centreon MAP service.
 
-   systemctl start centreon-map
+    systemctl start centreon-map
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 For the requirement of changing service's port, refer to :ref:`change_server_port`
 
 > Don't forget to modify the URL on Centreon side in 
 > **Administration** > **Extensions** > **Map** > **Options** => **Map server address** 
+
 
 ## Broker configuration
 
@@ -276,7 +277,7 @@ output](https://documentation.centreon.com/docs/centreon-broker/en/latest/user/m
 
 #### Map server side configuration
 
-First of all, you should `activate HTTPS/TLS of Centreon MAP service <tls_configuration>`_
+First of all, you should `activate HTTPS/TLS of Centreon MAP service <tls_configuration.html>`_
 
 Than, set the following parameter in map server configuration at “/etc/centreon-studio/studio-config.properties“ to enable TLS socket connection with broker :
 
@@ -302,7 +303,7 @@ and add truststore parameters in - “/etc/centreon-studio/studio-config.propert
 
     centreon-map.truststore=/etc/centreon-studio/truststore.jks
     centreon-map.truststore-pass=XXXX
-    
+
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store
 
@@ -311,11 +312,8 @@ Edit the file  "/etc/centreon-studio/centreon-map.conf", replace ",tls" by ",tls
 
     RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 
-> "tls_broker" profile implies "tls" profile. So Centreon MAP service serves necessarily HTTPS.   
+> "tls_broker" profile implies "tls" profile. So Centreon MAP service serves necessarily HTTPS.    
 
-Finally, restart Centreon MAP service :
-
-    systemctl restart centreon-map
 
 **2. Recognized CA signed broker certificate**
 
@@ -394,7 +392,7 @@ To restore **centreon\_studio** database, run the following command:
 ## Change Centreon Map server port
 
 By default, the Centreon MAP server is listening and sending information through
-the port 8080. If you set the HTTPS (see `tls_configuration`), use the port 8443.
+the port 8080. If you set the SSL (see `ssl_configuration`), use the port 8443.
 
 You can change this port (e.g., if you have a firewall on your network blocking
 these ports).
@@ -427,7 +425,7 @@ Wait for Centreon MAP service to start completely (~30 sec to 1 minutes). Test t
 up and accessible on the new port you defined by entering the following URL in
 your web browser:
 
-http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
+    http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
 
 ## Define port below 1024
 
