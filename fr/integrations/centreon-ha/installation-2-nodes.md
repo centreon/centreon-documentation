@@ -38,13 +38,13 @@ Dans cette procédure nous ferons référence à des paramètres variant d'une i
 * `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire
 * `@QDEVICE_IPADDR@` : adresse IP du serveur supportant le *quorum device*
 * `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device*
-* `@MYSQL_REPL_USER@` : nom du compte MySQL de réplication (par défaut : centreon-repl)
+* `@MYSQL_REPL_USER@` : nom du compte MySQL de réplication (suggéré : centreon-repl)
 * `@MYSQL_REPL_PASSWD@` : mot de passe de ce compte
-* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de Centreon (par défaut : centreon)
+* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de Centreon (suggéré : centreon)
 * `@MYSQL_CENTREON_PASSWD@` : mot de passe de ce compte
 * `@VIP_IPADDR@` : adresse IP virtuelle du cluster
-* `@VIP_IFNAME@` : nom de l'interface qui supportera la VIP
-* `@VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits (exemple : 24)
+* `@VIP_IFNAME@` : nom de l'interface qui portera la VIP
+* `@VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits sans le '/' (exemple : 24)
 * `@VIP_BROADCAST_IPADDR@` : adresse de broadcast
 
 ### Configuration de centreon-broker
@@ -65,22 +65,39 @@ Pour que tout se mette bien en place dans la suite, il faut dès à présent dé
 
 #### Double flux RRD
 
-Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure simplement dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output*. Les paramètres à changer sont :
+Plutôt que de mettre en place une réplication en temps réel des fichiers de données RRD, le choix technique qui a été fait pour permettre d'afficher les graphes sur n'importe quel nœud dès qu'il devient `master` a été de dupliquer le flux de sortie (`output`) de `central-broker-master` vers `central-rrd-master`. Cela se configure dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*. 
 
 * Modifier la sortie "IPv4" en remplaçant "localhost" par `@CENTRAL_MASTER_IPADDR@`
+
+| Output IPv4 |  |
+| --------------- | ------------------ |
+| Nom | centreon-broker-master-rrd |
+| Port de connexion | 5670 |
+| Hôte distant | @CENTRAL_MASTER_IPADDR@ |
+| Temps avant activation du processus de basculement (failover) | 0 |
+| Intervalle entre 2 tentatives | 60 |
+
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
+
+| Output IPv4 |  |
+| --------------- | ------------------ |
+| Nom | centreon-broker-slave-rrd |
+| Port de connexion | 5670 |
+| Hôte distant | @CENTRAL_SLAVE_IPADDR@ |
+| Temps avant activation du processus de basculement (failover) | 0 |
+| Intervalle entre 2 tentatives | 60 |
 
 #### Exporter la configuration
 
 Une fois que les actions des deux précédents paragraphes ont été réalisées, il faut exporter la configuration (3 premières cases pour l'export du poller "Central") pour que celle-ci soit effective.
 
-Ces actions doivent être réalisées sur `@CENTRAL_SLAVE_NAME@` et les fichiers de configuration de broker doivent être copiés (par exemple via rsync) vers `@CENTRAL_SLAVE_NAME@`.
+Ces actions doivent être réalisées soit sur les deux nœuds, soit uniquement sur `@CENTRAL_SLAVE_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
-### Customizing poller reload command
+### Modification de la commande de rechargement de `cbd`
 
 Cela n'est pas forcément connu de tous les utilisateurs de Centreon, mais chaque fois qu'un rechargement de la configuration du poller central est effectué via l'interface, le service broker (`cbd`) est rechargé (pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Pollers > Central*.
 
@@ -89,6 +106,8 @@ Ainsi que cela a été expliqué plus haut, les processus broker sont répartis 
 ## Préparation du système
 
 Avant d'en arriver au paramétrage du cluster à proprement parler, quelques étapes préparatoires sont nécessaires au niveau de l'OS.
+
+**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
 
 ### Tuning de la configuration réseau
 
@@ -206,6 +225,8 @@ Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
 
 Afin que les deux nœuds soient interchangeables à tout moment, il faut que les deux bases de données soient répliquées en continu. Pour cela nous allons mettre en place une réplication Master-Slave.
 
+**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+
 ### Configuration de MySQL
 
 Pour commencer, il faut tuner la configuration de MySQL, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
@@ -242,6 +263,8 @@ sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_
 ```
 
 **Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
+
+**NB :** Ne pas oublier de décommenter (supprimer le '#' en début de ligne) le paramètre `innodb_buffer_pool_size` qui correspond à votre plateforme.
 
 Pour que ces modifications soient bien prises en compte, il faut redémarrer le serveur de base de données :
 
@@ -326,16 +349,26 @@ EOF
 
 ### Configuration des variables d'environnement des scripts MySQL
 
-Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'environnement qu'il faut adapter à l'installation courante. Voici la liste de ces variables :
+Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'environnement qu'il faut adapter à l'installation courante en remplaçant les macros par la valeur qui convient.
 
-* `DBHOSTNAMEMASTER` : `@CENTRAL_MASTER_NAME@`
-* `DBHOSTNAMESLAVE` : `@CENTRAL_SLAVE_NAME@`
-* `DBREPLUSER` : `@MYSQL_REPL_USER@`
-* `DBREPLPASSWORD` : `@MYSQL_REPL_PASSWD@`
-* `DBROOTUSER` : `@MYSQL_CENTREON_USER@`
-* `DBROOTPASSWORD` : `@MYSQL_CENTREON_PASSWD@`
-* `CENTREON_DB` : nom de la base de données de configuration de Centreon (par défaut : `centreon`)
-* `CENTREON_STORAGE_DB` : nom de la base de données de supervision de Centreon (par défaut : `centreon_storage`)
+```bash
+#!/bin/bash
+
+###############################
+# Database access credentials #
+###############################
+
+DBHOSTNAMEMASTER="@CENTRAL_MASTER_NAME@"
+DBHOSTNAMESLAVE="@CENTRAL_SLAVE_NAME@"
+DBREPLUSER="@MYSQL_REPL_USER@"
+DBREPLPASSWORD="@MYSQL_REPL_PASSWD@"
+DBROOTUSER="@MYSQL_CENTREON_USER@"
+DBROOTPASSWORD="@MYSQL_CENTREON_USER@"
+CENTREON_DB="centreon"
+CENTREON_STORAGE_DB="centreon_storage"
+
+###############################
+```
 
 Pour s'assurer que les dernières étapes ont été effectuées correctement, et que les bons noms, logins et mots de passes ont bien été saisis dans le fichier de configuration, il faut lancer la commande :
 
@@ -358,7 +391,7 @@ Position Status [SKIP]
 
 Ce qu'il est important de vérifier est que les deux premiers tests de connexion soient `OK`.
 
-### Passage en read\_only
+### Passage en read-only
 
 Maintenant que tout est bien configuré, il faut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
 
@@ -454,11 +487,13 @@ Position Status [OK]
 
 ## Mise en place du cluster Centreon
 
+**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+
 ### Configuration du service de synchronisation
 
 Le service de synchronisation `centreon-central-sync` nécessite que l'on définisse pour chaque nœud dans `/etc/centreon-ha/centreon_central_sync.pm` l'adresse IP de son correspondant :
 
-Ainsi pour le serveur @CENTRAL_MASTER_NAME@ on doit avoir :
+Ainsi pour le serveur `@CENTRAL_MASTER_NAME@` on doit avoir :
 
 ```perl
 our %centreon_central_sync_config = (
@@ -467,7 +502,7 @@ our %centreon_central_sync_config = (
 1;
 ```
 
-Et pour le serveur @CENTRAL_SLAVE_NAME@ on doit avoir :
+Et pour le serveur `@CENTRAL_SLAVE_NAME@` on doit avoir :
 
 ```perl
 our %centreon_central_sync_config = (
@@ -485,7 +520,7 @@ systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd cen
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 ```
 
-Le service `mysql` étant sur un mode mixte entre system V et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
+Le service `mysql` étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
 ```bash
 chkconfig mysql off
@@ -512,7 +547,7 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-#### Authentification du cluster
+#### Authentification auprès des membres du cluster
 
 Par mesure de simplicité, nous allons définir le même mot de passe pour le compte `hacluster` sur les deux nœuds **et sur `@QDEVICE_NAME@`** :
 
@@ -524,15 +559,17 @@ Une fois ce mot de passe commun défini, il est possible pour un nœud de s'auth
 
 ```bash
 pcs cluster auth \
-"@CENTRAL_MASTER_NAME@" \
-"@CENTRAL_SLAVE_NAME@" \
-"@QDEVICE_NAME@" \
--u "hacluster" \
--p '@CENTREON_CLUSTER_PASSWD@' \
---force
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
+    --force
 ```
 
 #### Création du cluster
+
+Cette commande doit être lancée sur un des deux nœuds :
 
 ```bash
 pcs cluster setup \
@@ -540,21 +577,27 @@ pcs cluster setup \
     --name centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
-
-pcs property set symmetric-cluster="true"
-pcs property set stonith-enabled="false"
-pcs resource defaults resource-stickiness="100"
 ```
 
-Puis démarrer `pacemaker` sur les deux nœuds :
+Démarrer ensuite `pacemaker` sur les deux nœuds :
 
 ```bash
 systemctl start pacemaker
 ```
 
-L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`.
+Puis définir les propriétés par défaut sur un des deux nœuds:
+
+```bash
+pcs property set symmetric-cluster="true"
+pcs property set stonith-enabled="false"
+pcs resource defaults resource-stickiness="100"
+```
+
+L'état du cluster peut être suivi en temps réel avec la commande `crm_mon`, qui vous permettra de voir apparaître les nouvelles ressources au fur et à mesure.
 
 #### Ajout du *Quorum Device*
+
+Cette commande doit être lancée depuis l'un des deux nœuds :
 
 ```bash
 pcs quorum device add model net \

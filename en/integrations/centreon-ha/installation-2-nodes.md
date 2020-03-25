@@ -44,7 +44,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@MYSQL_CENTREON_PASSWD@`: MySQL Centreon password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
-* `@VIP_CIDR_NETMASK@`: subnet mask length in bits
+* `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
 
 ### Configuring  centreon-broker
@@ -68,13 +68,30 @@ So that everything goes well, you will have to unlink central-broker-master from
 In the event of a cluster switch, you will expect the newly elected master central server to be able to display the metrics graphs, which requires all RRD data files to be up-to-date on both nodes. In order to fit this condition, you will double the central broker output stream and send it to both RRD broker processes. You can configure this in the same menu as above, this time under the *Output* tab. The parameters that must be changed are:
 
 * In the first "IPv4" output, replace "localhost" with `@CENTRAL_MASTER_IPADDR@` in the "Host to connect to" field.
+
+| Output IPv4 |  |
+| --------------- | ------------------ |
+| Name | centreon-broker-master-rrd |
+| Connection port | 5670 |
+| Host to connect to | @CENTRAL_MASTER_IPADDR@ |
+| Buffering timeout | 0 |
+| Retry interval | 60 |
+
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed towards `@CENTRAL_SLAVE_IPADDR@`.
+
+| Output IPv4 |  |
+| --------------- | ------------------ |
+| Name | centreon-broker-slave-rrd |
+| Connection port | 5670 |
+| Host to connect to | @CENTRAL_SLAVE_IPADDR@ |
+| Buffering timeout | 0 |
+| Retry interval | 60 |
 
 #### Export the configuration
 
 Once the previous actions have been done, you will have to export the central poller configuration files to apply these changes. Select the central poller, export the configuration with the "Move Export Files" option checked.
 
-All the previous actions have to be applied to `@CENTRAL_MASTER_NAME@` and the exported files have to be copied to `@CENTRAL_SLAVE_NAME@`, for example with `rsync`:
+All the previous actions have to be applied either to both nodes, or to `@CENTRAL_MASTER_NAME@` only and the exported files have to be copied to `@CENTRAL_SLAVE_NAME@`:
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
@@ -206,6 +223,8 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Master-Slave MySQL cluster will be setup so that everything is synchronized in real-time. 
 
+**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+
 ### Configuration de MySQL
 
 For both optimization and cluster reliability purposes, you need to add this tuning options to MySQL configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
@@ -328,16 +347,27 @@ EOF
 
 ### Configuring the MySQL scripts environment variables
 
-The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MySQL can work properly. These variables are:
+The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MySQL can work properly. These variables must be assigned the chosen values for the macros.
 
-* `DBHOSTNAMEMASTER`: `@CENTRAL_MASTER_NAME@`
-* `DBHOSTNAMESLAVE`: `@CENTRAL_SLAVE_NAME@`
-* `DBREPLUSER`: `@MYSQL_REPL_USER@`
-* `DBREPLPASSWORD`: `@MYSQL_REPL_PASSWD@`
-* `DBROOTUSER`: `@MYSQL_CENTREON_USER@`
-* `DBROOTPASSWORD`: `@MYSQL_CENTREON_PASSWD@`
-* `CENTREON_DB`: name of the *Centreon* configuration database (default: `centreon`)
-* `CENTREON_STORAGE_DB`: name of the *Centreon* live monitoring database (default: `centreon_storage`)
+```bash
+#!/bin/bash
+
+###############################
+# Database access credentials #
+###############################
+
+DBHOSTNAMEMASTER="@CENTRAL_MASTER_NAME@"
+DBHOSTNAMESLAVE="@CENTRAL_SLAVE_NAME@"
+DBREPLUSER="@MYSQL_REPL_USER@"
+DBREPLPASSWORD="@MYSQL_REPL_PASSWD@"
+DBROOTUSER="@MYSQL_CENTREON_USER@"
+DBROOTPASSWORD="@MYSQL_CENTREON_USER@"
+CENTREON_DB="centreon"
+CENTREON_STORAGE_DB="centreon_storage"
+
+###############################
+```
+
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
 
@@ -456,6 +486,8 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
+**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+
 ### Configuring the file synchronization service
 
 The file synchronization `centreon-central-sync` service needs the IP address of the peer node to be entered in its configuration file (`/etc/centreon-ha/centreon_central_sync.pm`).
@@ -504,7 +536,6 @@ systemctl enable pacemaker pcsd corosync
 systemctl start pcsd
 ```
 
-The last command will ask you to define the `hacluster` user's password. As always, the stronger the better.
 
 #### Preparing the server that will hold the function of *quorum device* 
 
@@ -518,7 +549,7 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-#### Authenticating the cluster
+#### Authenticating to the cluster's members
 
 For the sake of simplicity, the `hacluster` user will be assigned the same password on both central nodes **and `@QDEVICE_NAME@`**.
 
@@ -526,9 +557,7 @@ For the sake of simplicity, the `hacluster` user will be assigned the same passw
 passwd hacluster
 ```
 
-Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
-
-Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate all the hosts to the cluster.
+Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 ```bash
 pcs cluster auth \
@@ -550,10 +579,6 @@ pcs cluster setup \
     --name centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
-
-pcs property set symmetric-cluster="true"
-pcs property set stonith-enabled="false"
-pcs resource defaults resource-stickiness="100"
 ```
 
 Then start the `pacemaker` service **on both central nodes**:
@@ -562,9 +587,19 @@ Then start the `pacemaker` service **on both central nodes**:
 systemctl start pacemaker
 ```
 
-You can now follow the state of the cluster with the `crm_mon` command.
+And afterwards define these properties **only on one node**:
+
+```bash
+pcs property set symmetric-cluster="true"
+pcs property set stonith-enabled="false"
+pcs resource defaults resource-stickiness="100"
+```
+
+You can now follow the state of the cluster with the `crm_mon` command, which will display new resources as they appear.
 
 #### Creating the *Quorum Device*
+
+Run this command on one of the central nodes:
 
 ```bash
 pcs quorum device add model net \
@@ -605,7 +640,7 @@ pcs resource meta ms_mysql-master \
 
 ### Creating the clone resources
 
-Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others must be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
+Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
 
 **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
