@@ -12,7 +12,7 @@ There are four types of command:
 
 * **Verification** commands are used by the schedulers to verify the status of a host or of a service.
 * **Notification** commands are used by the schedulers to alert the contacts (via mail, SMS, etc.).
-* **Discovery** commands are used by the schedulers to discover some elements on monitored node.
+* **Discovery** commands are used by the schedulers to discover.
 * **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
   data processing, etc.
 
@@ -37,26 +37,24 @@ All the commands can be configured in the menu: **Configuration \> Commands**.
 * The **Command Type** field allows us to choose the type of command.
 * The **Command Line** field indicates the application or the script use with the command.
 * The **Enable shell** box allows us to enable functions that are specific to a shell such as the pipe, etc.
-* The **Argument Example** fields define examples of arguments (each argument starts with a ”!”)
+* The **Argument Example** field define examples of arguments (each argument starts with a ”!”)
 * The **Describe arguments** button serves to add  a description to arguments of the “$ARGn$” type. This description
   will be visible when using the command in a host or service form.
 * The **Clear arguments** button deletes the description of arguments defined
 * The **Describe macros** button serves to add  a description to all macros. This description will be visible when
   using the command in a host or service form.
-
-* The **Connectors** field serves to link a Connector to the command. For more information on Connectors refer to the
-  chapter entitled: @TODO@`Perl Connector's documentation <http://documentation.centreon.com/docs/centreon-perl-connector/en/latest/>`_
-  and @TODO@`SSH Connector's documentation <http://documentation.centreon.com/docs/centreon-ssh-connector/en/latest/>`_.
+* The **Connectors** selectlist serves to link a Connector to the command. For more information on Connectors refer to the
+  chapter entitled [Perl Connector](#perl-connector) and [SSH Connector](#ssh-connector).
 * The **Graph template** field serves to link the command to a graphic model.
 * The **Comment** field can be used to make a comment on the command.
 
 ## Arguments and macros
 
-In the **Command Line** field it is possible to use macros and arguments.
+In the **Command Line** field it is possible to use [macros](macros) and arguments.
 
 The macros are used to be able to pass various settings to the scripts called up by the commands. During execution
 of the command by the scheduler, each of the arguments and macros are replaced by their respective values.
-Each argument appears in the form **$ARGn$** where n is naturel whole number greater than 0:
+Each macro appears in the form **$value$**:
 ```Bash
 $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
 --hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' \
@@ -69,7 +67,7 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 ## Connectors
 
-### SSH connectors
+### SSH connector
 
 Centreon SSH Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution checks over SSH when used along Centreon Engine.
@@ -329,7 +327,7 @@ check, Centreon Connector SSH only opens one session. However this does not limi
 host, as the SSH protocol allows multiple channels to be opened on the same session. Therefore if multiple checks are
 run on the same host simultaneously, they are executed concurrently but with separate execution environment.
 
-### Perl connectors
+### Perl connector
 
 Centreon Perl Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution of Perl scripts when used along Centreon Engine.

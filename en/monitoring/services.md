@@ -19,7 +19,7 @@ All additions of services are done in the menu: **Configuration \> Services \> A
 
 ### Service State
 
-* The field **Is Volatile** indicates if the service is volatile or not (normally only passive services are volatile).
+* The **Is Volatile** field indicates if the service is volatile or not (normally only passive services are volatile).
 * The **Check Period** field defined the time period during which the scheduler checks the status of the service.
 * The **Check Command** field indicates the command use to check the availability of the service.
 * The **Args** table defined the arguments given for the check command (the number of arguments varies according to the
@@ -104,7 +104,7 @@ The **Service Trap Relation** field allows us to define the SNMP traps that will
 ### Monitoring engine
 
 * The **URL** field defined a URL that can be used to give more information on the service.
-* The **Notes** field permits us to add  optional notes concerning the service.
+* The **Notes** field permits us to add optional notes concerning the service.
 * The **Action URL** field defined a URL normally use for giving information on actions on the service (maintenance, etc.).
 * The **Icon** field indicates the icon use for the service.
 * The **Alt icon** field is the text use if the icon cannot be Displays.
@@ -122,6 +122,6 @@ modify the service of one host individually to change a property. This why it is
 to multiple hosts into a single service for each host:
 
 1. In the list of services, select the service linked to multiple hosts (this service is usually highlighted in orange)
-2. In the **More actions....**  menu click on **Detach** and confirm
+2. In the **More actions....** menu click on **Detach** and confirm
 
 There is now a single service per host.

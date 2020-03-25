@@ -1,21 +1,21 @@
 {
     "docs": {
         "Getting Started": [
-            "tutorials/tutorials",
-            "tutorials/tutorials-monitor",
-            "tutorials/tutorials-howto"
+            "tutorials/first-steps",
+            "tutorials/start-to-monitor",
+            "tutorials/how-to"
         ],
         "Installation": [
-            "installation/init-installation",
+            "installation/introduction",
             "installation/prerequisites",
             "installation/architectures",
             "installation/download",
             {
                 "ids": [
-                    "installation/centreon_from_iso",
-                    "installation/centreon_from_packages",
-                    "installation/centreon_from_vm",
-                    "installation/centreon_from_sources"
+                    "installation/centreon-from-iso",
+                    "installation/centreon-from-packages",
+                    "installation/centreon-from-vm",
+                    "installation/centreon-from-sources"
                 ],
                 "label": "Installer un serveur central",
                 "type": "subcategory"
@@ -23,16 +23,16 @@
             "installation/post-install",
             {
                 "ids": [
-                    "installation/poller_from_iso",
-                    "installation/poller_from_packages"
+                    "installation/poller-from-iso",
+                    "installation/poller-from-packages"
                 ],
                 "label": "Installer un collecteur",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "installation/remote_from_iso",
-                    "installation/remote_from_packages"
+                    "installation/remote-from-iso",
+                    "installation/remote-from-packages"
                 ],
                 "label": "Installer un Remote Sever",
                 "type": "subcategory"
@@ -40,7 +40,49 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Supervision": [
-            "monitoring/init-monitoring"
+            "monitoring/about",
+            "monitoring/generic-actions",
+            {
+                "ids": [
+                    "monitoring/macros",
+                    "monitoring/commands",
+                    "monitoring/timeperiods",
+                    "monitoring/contacts",
+                    "monitoring/hosts",
+                    "monitoring/services",
+                    "monitoring/meta-services",
+                    "monitoring/deploy"
+                ],
+                "label": "Objets de base",
+                "type": "subcategory"
+            },
+            "monitoring/templates",
+            "monitoring/pluginpacks",
+            "monitoring/groups-categories",
+            {
+                "ids": [
+                    "monitoring/passive/enable-snmp-traps",
+                    "monitoring/passive/create-snmp-traps-definitions",
+                    "monitoring/passive/monitoring-with-snmp-traps",
+                    "monitoring/passive/debug-snmp-traps-management",
+                    "monitoring/passive/dsm"
+                ],
+                "label": "Supervision passive",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/discovery/introduction",
+                    "monitoring/discovery/installation",
+                    "monitoring/discovery/hosts-discovery",
+                    "monitoring/discovery/services-discovery",
+                    "monitoring/discovery/create-services-discovery-rules",
+                    "monitoring/discovery/administration"
+                ],
+                "label": "Découverte",
+                "type": "subcategory"
+            },
+            "monitoring/web-import-export"
         ],
         "Gestion des Alertes et Notifications": [
             "alerts-notifications/init-alerts-notifications"
@@ -54,11 +96,59 @@
             "metrology/chart-curves",
             "metrology/chart-virtual-metrics"
         ],
+        "Service Mapping": [
+            "service-mapping/introduction",
+            "service-mapping/getting-started",
+            {
+                "ids":[
+                    "service-mapping/ba-management",
+                    "service-mapping/ba-monitoring",
+                    "service-mapping/ba-reporting",
+                    "service-mapping/ba-settings",
+                    "service-mapping/widget"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "service-mapping/install",
+                    "service-mapping/update",
+                    "service-mapping/remote-server"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            }
+        ],
+        "Vues graphiques": [
+            "graph-views/introduction",
+            "graph-views/getting-started",
+            {
+                "ids": [
+                    "graph-views/create-standard-view",
+                    "graph-views/create-geo-view",
+                    "graph-views/display-view",
+                    "graph-views/share-view"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "graph-views/install",
+                    "graph-views/upgrade",
+                    "graph-views/configure",
+                    "graph-views/remote-server",
+                    "graph-views/procedures",
+                    "graph-views/known-issues"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            },
+            "graph-views/release-notes"
+        ],
         "Cartographie des Services et Corrélation": [
             "service-mapping-correlation/init-service-mapping-correlation"
-        ],
-        "Présentation des Données": [
-            "data-presentation/init-data-presentation"
         ],
         "Analytique": [
             "analytics/init-analytics"
@@ -66,9 +156,35 @@
         "Administrer la Plateforme": [
             "administrate/init-administrate"
         ],
-        "Mettre à Jour et Migrer": [
-            "upgrade/init-upgrade",
-            "migrate/init-migrate"
+        "Mettre à Jour, Monter de Version et Migrer": [
+            {
+                "ids": [
+                    "update/introduction"
+                ],
+                "label": "Update",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "upgrade/introduction",
+                    "upgrade/upgrade-from-19-10",
+                    "upgrade/upgrade-from-19-04",
+                    "upgrade/upgrade-from-18-10",
+                    "upgrade/upgrade-from-3-4"
+                ],
+                "label": "Upgrade",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "migrate/introduction",
+                    "migrate/migrate-from-3-4",
+                    "migrate/nagios-to-centreon",
+                    "migrate/poller-display-to-remote-server"
+                ],
+                "label": "Migrate",
+                "type": "subcategory"
+            }
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
@@ -584,7 +700,8 @@
             "integrations/external/init-external-integrations"
         ],
         "API": [
-            "api/clapi"
+            "api/clapi",
+            "api/rest-api-v1"
         ],
         "Développeur": [
             "developer/init-developer"

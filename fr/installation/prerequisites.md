@@ -51,7 +51,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | RRDtools | 1.4.7           |
 | zlib     | 1.2.3           |
 
-## CSélectionner votre architecture
+## Sélectionner votre architecture
 
 > Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.
@@ -60,7 +60,7 @@ Le tableau suivant présente les prérequis pour une installation de Centreon :
 
 |  Nombre de services  |  Nombre d'hôtes estimé      |  Nombre de collecteurs     |  Central       |  Collecteur   |
 |----------------------|-----------------------------|----------------------------|----------------|---------------|
-|           < 500      |             50              |        1 central           |  1 vCPU / 1 GB |               |
+|           < 500      |             50              |         1 central          |  1 vCPU / 1 GB |               |
 |       500 - 2000     |           50 - 200          |        1 central           |  2 vCPU / 2 GB |               |
 |      2000 - 7000     |          200 - 700          |  1 central + 1 collecteur  |  4 vCPU / 4 GB | 1 vCPU / 4 GB |
 |      7000 - 14000    |          700 - 1400         |  1 central + 1 collecteur  |  4 vCPU / 8 GB | 2 vCPU / 4 GB |

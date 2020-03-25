@@ -1,21 +1,21 @@
 {
     "docs": {
         "Getting Started": [
-            "tutorials/tutorials",
-            "tutorials/tutorials-monitor",
-            "tutorials/tutorials-howto"
+            "tutorials/first-steps",
+            "tutorials/start-to-monitor",
+            "tutorials/how-to"
         ],
         "Installation": [
-            "installation/init-installation",
+            "installation/introduction",
             "installation/prerequisites",
             "installation/architectures",
             "installation/download",
             {
                 "ids": [
-                    "installation/centreon_from_iso",
-                    "installation/centreon_from_packages",
-                    "installation/centreon_from_vm",
-                    "installation/centreon_from_sources"
+                    "installation/centreon-from-iso",
+                    "installation/centreon-from-packages",
+                    "installation/centreon-from-vm",
+                    "installation/centreon-from-sources"
                 ],
                 "label": "Installation of a Central server",
                 "type": "subcategory"
@@ -23,16 +23,18 @@
             "installation/post-install",
             {
                 "ids": [
-                    "installation/poller_from_iso",
-                    "installation/poller_from_packages"
+                    "installation/poller-from-iso",
+                    "installation/poller-from-packages",
+                    "installation/add-poller-to-configuration"
                 ],
                 "label": "Installation of a Poller",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "installation/remote_from_iso",
-                    "installation/remote_from_packages"
+                    "installation/remote-from-iso",
+                    "installation/remote-from-packages",
+                    "installation/add-remote-server-to-configuration"
                 ],
                 "label": "Installation of a Remote server",
                 "type": "subcategory"
@@ -40,7 +42,7 @@
             "ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
-            "monitoring/init-monitoring",
+            "monitoring/about",
             "monitoring/generic-actions",
             {
                 "ids": [
@@ -61,13 +63,27 @@
             "monitoring/groups-categories",
             {
                 "ids": [
-                    "monitoring/snmp-traps",
-                    "monitoring/dsm"
+                    "monitoring/passive/enable-snmp-traps",
+                    "monitoring/passive/create-snmp-traps-definitions",
+                    "monitoring/passive/monitoring-with-snmp-traps",
+                    "monitoring/passive/debug-snmp-traps-management",
+                    "monitoring/passive/dsm"
                 ],
                 "label": "Passive Monitoring",
                 "type": "subcategory"
             },
-            "monitoring/discovery",
+            {
+                "ids": [
+                    "monitoring/discovery/introduction",
+                    "monitoring/discovery/installation",
+                    "monitoring/discovery/hosts-discovery",
+                    "monitoring/discovery/services-discovery",
+                    "monitoring/discovery/create-services-discovery-rules",
+                    "monitoring/discovery/administration"
+                ],
+                "label": "Discovery",
+                "type": "subcategory"
+            },
             "monitoring/web-import-export"
         ],
         "Alert Management": [
@@ -139,9 +155,35 @@
         "Administration": [
             "administrate/init-administrate"
         ],
-        "Upgrade & Migrate": [
-            "upgrade/init-upgrade",
-            "migrate/init-migrate"
+        "Update, Upgrade & Migrate": [
+            {
+                "ids": [
+                    "update/introduction"
+                ],
+                "label": "Update",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "upgrade/introduction",
+                    "upgrade/upgrade-from-19-10",
+                    "upgrade/upgrade-from-19-04",
+                    "upgrade/upgrade-from-18-10",
+                    "upgrade/upgrade-from-3-4"
+                ],
+                "label": "Upgrade",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "migrate/introduction",
+                    "migrate/migrate-from-3-4",
+                    "migrate/nagios-to-centreon",
+                    "migrate/poller-display-to-remote-server"
+                ],
+                "label": "Migrate",
+                "type": "subcategory"
+            }
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/init-plugin-packs",
@@ -699,7 +741,7 @@
         "API": [
             "api/introduction",
             "api/clapi",
-            "api/ega-rest-api-v1",
+            "api/rest-api-v1",
             "api/map-api"
         ],
         "Developer resources": [
