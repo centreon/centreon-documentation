@@ -168,7 +168,7 @@ Le résultat devrait être similaire :
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
-<!--Using SSH-->
+<!--Avec SSH-->
 #### Sélectionner le type de communication
 
 Editer la configuration du Remote Server fraichement créé, et sélectionner **SSH**

@@ -54,7 +54,7 @@ Le dépôt est maintenant installé.
 Exécutez la commande :
 
 ``` shell
-yum install centreon-poller-centreon-engine
+yum install -y centreon-poller-centreon-engine
 ```
 
 ## Ajouter le Poller à la configuration

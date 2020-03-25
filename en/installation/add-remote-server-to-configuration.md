@@ -170,7 +170,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 #### Select communication type
 
 Edit the newly created Remote Server configuration, and select **SSH** a
-**Gorgone connection protocol**. Define the suitable **port**.
+**Gorgone connection protocol**. Define the suitable **port** (port **5556** is
+recommended).
 
 ![image](assets/installation/poller/remote-edit-ssh.png)
 

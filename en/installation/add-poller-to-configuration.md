@@ -11,8 +11,8 @@ Poller on the Centreon platform.
 > You also have the option of adding a new Poller `manually<add_manual_poller>`,
 > but we recommend using the following procedure.
 
-Go to the **Configuration \> Pollers \> Pollers** menu and click on **Add
-server with wizard** to configure a new Poller.
+Go to the **Configuration \> Pollers \> Pollers** menu and click on **Add server
+with wizard** to configure a new Poller.
 
 Select **Add a Centreon Poller** and click on **Next**:
 
@@ -36,11 +36,11 @@ If you want to link the poller to the Centreon Server, click on **Apply**:
 Otherwise, if you want to link the poller to an existing Centreon Remote Server,
 select one from the list. Then click **Apply**:
 
-> If you want to change the direction of the flow between the Centreon Server (or
-> the Remote Server and the Poller, check the **Advanced: reverse Centreon Broker
-> communication flow** checkbox. In this case, it will be necessary to export the
-> configuration of the collector as well as the server to which it will be
-> attached.
+> If you want to change the direction of the flow between the Centreon Server
+> (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
+> Broker communication flow** checkbox. In this case, it will be necessary to
+> export the configuration of the collector as well as the server to which it
+> will be attached.
 
 In a few seconds the wizard will configure your new poller.
 
@@ -53,11 +53,14 @@ be done using ZMQ (with a Gorgone running on the Poller, recommended) or using
 SSH protocol.
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Using ZMQ (Recommended)-->
+
 #### Select communication type
 
 Edit the newly created Poller configuration, and select **ZMQ** as **Gorgone
-connection protocol**. Define the suitable **port**.
+connection protocol**. Define the suitable **port** (port **5556** is
+recommended).
 
 ![image](assets/installation/poller/poller-edit-zmq.png)
 
@@ -76,7 +79,7 @@ A popin will show the configuration to copy into the Poller terminal. Click on
 Paste directly into the terminal as the clipboard contains the following
 content, and will fill the right file:
 
-```shell
+``` shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
 name:  gorgoned-My Poller
 description: Configuration for poller My Poller
@@ -109,19 +112,19 @@ EOF
 
 From the Poller, run the following command:
 
-```shell
+``` shell
 systemctl start gorgoned
 ```
 
 Make sure it is started by running the following command:
 
-```shell
+``` shell
 systemctl status gorgoned
 ```
 
 It should result as follow:
 
-```shell
+``` shell
 ● gorgoned.service - Centreon Gorgone
    Loaded: loaded (/etc/systemd/system/gorgoned.service; disabled; vendor preset: disabled)
    Active: active (running) since Mon 2020-03-24 19:45:00 CET; 20h ago
@@ -134,7 +137,9 @@ It should result as follow:
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
+
 <!--Using SSH-->
+
 #### Select communication type
 
 Edit the newly created Poller configuration, and select **SSH** as **Gorgone
@@ -149,7 +154,7 @@ Click on **Save**.
 If you do not have any private SSH keys on the central server for the
 **centreon-gorgone** user:
 
-```shell
+``` shell
 su - centreon-gorgone
 ssh-keygen -t rsa
 ```
@@ -160,22 +165,23 @@ ssh-keygen -t rsa
 
 Generate a password for the **centreon** user on the new server:
 
-```shell
+``` shell
 passwd centreon
 ```
 
 Copy this key on to the new server:
 
-```shell
+``` shell
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 To force the Central's Gorgone daemon to connect to the Poller, restart it with
 the following command:
 
-```shell
+``` shell
 systemctl restart gorgoned
 ```
 
@@ -195,4 +201,5 @@ The Poller will then connect to the Central Broker.
 
 ## Getting started
 
-Go to the *[Getting Started](../tutorials/first-steps.html)* chapter to configure your first monitoring.
+Go to the *[Getting Started](../tutorials/first-steps.html)* chapter to
+configure your first monitoring.
