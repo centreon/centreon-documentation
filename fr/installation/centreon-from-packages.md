@@ -164,7 +164,7 @@ FLUSH PRIVILEGES;
 > Ceci est dû au fait que MySQL 8 utilise par défaut caching_sha2_password, un plugin qui n'est pas reconnu par les
 > anciennes versions de PHP. À la place il faut modifier le paramètre *default_authentication_plugin=
 > mysql_native_password* dans le fichier **my.cnf**.
-> 
+>
 > Changez la méthode de stockage du mot de passe, utilisez la commande suivante :
 >
 > ``` SQL
@@ -276,10 +276,10 @@ systemctl enable httpd24-httpd
 systemctl enable snmpd
 systemctl enable snmptrapd
 systemctl enable rh-php72-php-fpm
-systemctl enable centcore
 systemctl enable centreontrapd
 systemctl enable cbd
 systemctl enable centengine
+systemctl enable gorgoned
 systemctl enable centreon
 ```
 
@@ -309,6 +309,5 @@ systemctl start snmpd
 systemctl start snmptrapd
 ```
 
-## Première configuration
-
-Terminez l'installation en réalisant la [première configuration](post-install.html).
+Terminez l'installation en réalisant les
+*[étapes de post-installation](post-install.html#Web-installation)*.

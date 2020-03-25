@@ -259,10 +259,10 @@ systemctl enable httpd24-httpd
 systemctl enable snmpd
 systemctl enable snmptrapd
 systemctl enable rh-php72-php-fpm
-systemctl enable centcore
 systemctl enable centreontrapd
 systemctl enable cbd
 systemctl enable centengine
+systemctl enable gorgoned
 systemctl enable centreon
 ```
 
@@ -291,8 +291,6 @@ systemctl start centreon
 systemctl start snmpd
 systemctl start snmptrapd
 ```
-
-## First configuration
 
 Conclude installation by performing *[post intallation steps](post-install.html#Web-installation)*.
 

@@ -264,10 +264,10 @@ systemctl enable httpd24-httpd
 systemctl enable snmpd
 systemctl enable snmptrapd
 systemctl enable rh-php72-php-fpm
-systemctl enable centcore
 systemctl enable centreontrapd
 systemctl enable cbd
 systemctl enable centengine
+systemctl enable gorgoned
 systemctl enable centreon
 ```
 
@@ -297,9 +297,8 @@ systemctl start snmpd
 systemctl start snmptrapd
 ```
 
-## Première configuration
-
-Continuez l'installation en réalisant la [première configuration](post-install#Web-installation).
+Terminez l'installation en réalisant les
+*[étapes de post-installation](post-install.html#Web-installation)*.
 
 ## Activer l'option Remote Server
 
@@ -349,86 +348,6 @@ Ajout des droits pour que l'utilisateur de base de données centreon puisse util
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
-## Echange de clés SSH
+## Ajouter le Remote Server à la configuration
 
-La communication entre le serveur central et un collecteur se fait via SSH.
-
-Vous devez échanger les clés SSH entre les serveurs.
-
-Si vous n’avez pas de clé SSH privée sur le serveur central pour l’utilisateur **centreon** :
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un fichier pour enregistrer la clé. **Laissez le
-> mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
-
-Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
-
-``` shell
-passwd centreon
-```
-
-Vous devez copier cette clé sur le nouveau serveur :
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_POLLER
-```
-
-## Configurer un nouveau Remote Server dans Centreon
-
-Rendez-vous au menu **Configuration > Pollers** et cliquez sur **Add server with wizard** pour accéder à l’assistant de
-configuration.
-
-Sélectionnez **Add a Centreon Remote Server** et cliquez sur **Next** :
-
-![image](assets/installation/poller/wizard_add_remote_1.png)
-
-Si vous avez activé votre serveur en suivant la documentation, sélectionnez l'option **Select a Remote Server**. Dans
-la liste déroulante sélectionnez votre serveur, puis saisissez les informations demandées :
-
-![image](assets/installation/poller/wizard_add_remote_2a.png)
-
-Sinon, sélectionnez l'option **Create new Remote Server** et saisissez les informations demandées :
-
-![image](assets/installation/poller/wizard_add_remote_2b.png)
-
-Les champs **Database user** et **Database password** sont les accès aux bases de données Centreon définis durant
-l'installation de votre Remote Server.
-
-Le champ **Server IP address** est de la forme : [(http|https)://]@IP[:(port)]. Si votre Remote Server est accessible
-en HTTPS, il est nécessaire de préciser la méthode d'accès et le port si celui-ci n'est pas par défaut.
-
-L'option **Do not check SSL certificate validation** permet de contacter le Remote Server si celui-ci possède un
-certificat SSL auto-signé.
-
-L'option **Do not use configured proxy tp connect to this server** permet de de contacter le Remote Server en
-n'utilisant pas la configuration du proxy configurée sur le serveur Centreon Central.
-
-Cliquez sur **Next** :
-
-Sélectionnez le(s) collecteur(s) à lier à ce Remote Server. Puis cliquez sur **Apply** :
-
-![image](assets/installation/poller/wizard_add_remote_3.png)
-
-L'assistant va configurer votre nouveau serveur :
-
-![image](assets/installation/poller/wizard_add_remote_4.png)
-
-Une fois la configuration exportée, redémarrez le processus
-Centreon Broker sur le Remote Server via la commande suivante :
-
-``` shell
-systemctl restart cbd
-```
-
-Le Remote Server est maintenant configuré :
-
-![image](assets/installation/poller/wizard_add_remote_5.png)
-
-## Premiers pas
-
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/first-steps.html) pour mettre en place votre première supervision.
+Rendez-vous au chapitre *[Ajouter un Remote Server à la configuration](add-remote-server-to-configuration.html)*.
