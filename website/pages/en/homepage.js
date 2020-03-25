@@ -53,8 +53,10 @@ class ExcellenceBloc extends React.Component {
 
     return (
       <div className="containerBloc">
+        <div className="titlle-and-text-excellence-bloc">
         <h1>{stringLabels.tittleExcellenceBloc}</h1>
         <p className="subTitle">{stringLabels.subTitleExcellenceBloc}</p>
+        </div>
         <div className="cardBar">
           <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} />
           <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} />

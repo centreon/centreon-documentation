@@ -21,10 +21,15 @@
   font-size: 50px;
   color: rgba(34, 46, 59, 1);
   margin: 0 auto;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .homepageCustom .subTitle {
   margin: auto;
+  padding-left: 20%;
+  padding-right: 20% ;
+  font-size: 18px;
 }
 
 .homepageCustom .containerBloc {
@@ -53,6 +58,7 @@
 
 .homepageCustom .containerBloc .cardBar .cardContent .imageContainer img {
   align-items: flex-end;
+  margin-left: 1.8em;
 }
 
 .homepageCustom .containerBloc .cardBar .cardContent .buttonLink {
@@ -70,5 +76,4 @@
 .tittle-section {
   color: rgb(0, 114, 206);
   font-family: $roboto;
-
 }
