@@ -24,7 +24,8 @@
             {
                 "ids": [
                     "installation/poller-from-iso",
-                    "installation/poller-from-packages"
+                    "installation/poller-from-packages",
+                    "installation/add-poller-to-configuration"
                 ],
                 "label": "Installer un collecteur",
                 "type": "subcategory"
@@ -32,7 +33,8 @@
             {
                 "ids": [
                     "installation/remote-from-iso",
-                    "installation/remote-from-packages"
+                    "installation/remote-from-packages",
+                    "installation/add-remote-server-to-configuration"
                 ],
                 "label": "Installer un Remote Sever",
                 "type": "subcategory"
