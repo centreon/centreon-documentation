@@ -47,7 +47,6 @@ const Card = props => {
     </div>
   )
 }
-
 class ExcellenceBloc extends React.Component {
   render () {
 
