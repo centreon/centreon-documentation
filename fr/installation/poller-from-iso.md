@@ -113,11 +113,7 @@ Connectez-vous via un terminal et exécutez la commande :
 yum update
 ```
 
-![image](assets/installation/19_update_system.png)
-
-Acceptez toutes les clés GPG proposées :
-
-![image](assets/installation/20_accept_gpg_key.png)
+> Acceptez toutes les clés GPG proposées.
 
 Redémarrez votre système avec la commande:
 

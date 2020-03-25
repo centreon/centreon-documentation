@@ -16,12 +16,12 @@ server with wizard** to configure a new Poller.
 
 Select **Add a Centreon Poller** and click on **Next**:
 
-![image](assets/installation/poller/wizard_add_poller_1.png)
+![image](assets/installation/poller/wizard-add-poller-1.png)
 
 Type in the name, the IP address of the Poller and IP address of the Central
 Server. Click on **Next**:
 
-![image](assets/installation/poller/wizard_add_poller_2.png)
+![image](assets/installation/poller/wizard-add-poller-2.png)
 
 > The IP address of the Poller is the IP address or the FQDN used to access this
 > poller from the Central server.
@@ -31,7 +31,7 @@ Server. Click on **Next**:
 
 If you want to link the poller to the Centreon Server, click on **Apply**:
 
-![image](assets/installation/poller/wizard_add_poller_3.png)
+![image](assets/installation/poller/wizard-add-poller-3.png)
 
 Otherwise, if you want to link the poller to an existing Centreon Remote Server,
 select one from the list. Then click **Apply**:
@@ -44,7 +44,7 @@ select one from the list. Then click **Apply**:
 
 In a few seconds the wizard will configure your new poller.
 
-![image](assets/installation/poller/list-poller-zmq.png)
+![image](assets/installation/poller/poller-list-zmq.png)
 
 ## Enable communication
 
@@ -54,16 +54,16 @@ SSH protocol.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Using ZMQ (Recommended)-->
-### Select communication type
+#### Select communication type
 
 Edit the newly created Poller configuration, and select **ZMQ** as **Gorgone
 connection protocol**. Define the suitable **port**.
 
-![image](assets/installation/poller/edit-poller-zmq.png)
+![image](assets/installation/poller/poller-edit-zmq.png)
 
 Click on **Save**.
 
-### Display Gorgone configuration
+#### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
 icon.
@@ -71,41 +71,41 @@ icon.
 A popin will show the configuration to copy into the Poller terminal. Click on
 **Copy to clipboard**.
 
-![image](assets/installation/poller/display-gorgone-config.png)
+![image](assets/installation/poller/poller-gorgone-display-config.png)
 
 Paste directly into the terminal as the clipboard contains the following
 content, and will fill the right file:
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
-> name:  gorgoned-My Poller
-> description: Configuration for poller My Poller
-> gorgone:
->   gorgonecore:
->     id: 2
->     external_com_type: tcp
->     external_com_path: "*:5556"
->     authorized_clients:
->       - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
->     privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
->     pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
->   modules:
->     - name: action
->       package: gorgone::modules::core::action::hooks
->       enable: true
->
->     - name: engine
->       package: gorgone::modules::centreon::engine::hooks
->       enable: true
->       command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
->
-> EOF
+name:  gorgoned-My Poller
+description: Configuration for poller My Poller
+gorgone:
+  gorgonecore:
+    id: 2
+    external_com_type: tcp
+    external_com_path: "*:5556"
+    authorized_clients:
+      - key: Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI
+    privkey: "/var/lib/centreon-gorgone/.keys/rsakey.priv.pem"
+    pubkey: "/var/lib/centreon-gorgone/.keys/rsakey.pub.pem"
+  modules:
+    - name: action
+      package: gorgone::modules::core::action::hooks
+      enable: true
+
+    - name: engine
+      package: gorgone::modules::centreon::engine::hooks
+      enable: true
+      command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+
+EOF
 ```
 
 > You can copy the configuration in a custom file by copying the content from
 > the popin.
 
-### Start Gorgone daemon
+#### Start Gorgone daemon
 
 From the Poller, run the following command:
 
@@ -135,19 +135,19 @@ It should result as follow:
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 <!--Using SSH-->
-### Select communication type
+#### Select communication type
 
 Edit the newly created Poller configuration, and select **SSH** as **Gorgone
-connection protocol**. Define the suitable port.
+connection protocol**. Define the suitable **port**.
 
-![image](assets/installation/poller/edit-poller-ssh.png)
+![image](assets/installation/poller/poller-edit-ssh.png)
 
 Click on **Save**.
 
-### Exchange SSH keys
+#### Exchange SSH keys
 
 If you do not have any private SSH keys on the central server for the
-**centreon-gorgone** user: :
+**centreon-gorgone** user:
 
 ```shell
 su - centreon-gorgone
@@ -158,13 +158,13 @@ ssh-keygen -t rsa
 > location, or, create one in a specified directory. **Leave the passphrase
 > blank**. You will receive a key fingerprint and a randomart image.
 
-Generate a password for the **centreon** user on the new server: :
+Generate a password for the **centreon** user on the new server:
 
 ```shell
 passwd centreon
 ```
 
-Copy this key on to the new server: :
+Copy this key on to the new server:
 
 ```shell
 su - centreon-gorgone
@@ -191,8 +191,8 @@ Then check the four first boxes, select the **Restart** method and click on
 
 The Poller will then connect to the Central Broker.
 
-![image](assets/installation/poller/list-poller-zmq-started.png)
+![image](assets/installation/poller/poller-list-zmq-started.png)
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.
+Go to the *[Getting Started](../tutorials/first-steps.html)* chapter to configure your first monitoring.

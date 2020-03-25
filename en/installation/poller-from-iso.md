@@ -115,11 +115,7 @@ Connect to your server using a terminal, and execute the command:
 yum update
 ```
 
-![image](assets/installation/19_update_system.png)
-
-Accept all GPG keys if you are prompted:
-
-![image](assets/installation/20_accept_gpg_key.png)
+> Accept all GPG keys if you are prompted
 
 Then restart your server with the following command:
 
@@ -129,4 +125,4 @@ reboot
 
 ## Add the Poller to configuration
 
-Go to the [Add a Poller to configuration](add-poller-to-configuration.html).
+Go to the *[Add a Poller to configuration](add-poller-to-configuration.html)*.

@@ -117,11 +117,7 @@ Connect to your server using a terminal, and execute the command:
 yum update
 ```
 
-![image](assets/installation/19_update_system.png)
-
-Accept all GPG keys if you are prompted:
-
-![image](assets/installation/20_accept_gpg_key.png)
+> Accept all GPG keys if you are prompted
 
 Then restart your server with the following command:
 
@@ -131,7 +127,7 @@ reboot
 
 ## First configuration
 
-Conclude installation by performing [first configuration](post-install.html#Web-installation).
+Conclude installation by performing *[post intallation steps](post-install.html#Web-installation)*.
 
 ## Enable the Remote Server option
 
@@ -142,25 +138,30 @@ Connect to your **Remoter Server** and execute following command:
 -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by the poller. You can define multiple IP
-address using a coma as separator.
+Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
+the poller. You can define multiple IP address using a coma as separator.
 
-> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by **https://\<IP_CENTREON_CENTRAL\>**.
+> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
+> **https://\<IP_CENTREON_CENTRAL\>**.
 >
-> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
+> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
+> **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
 
-For the **\<not check SSL CA on Central\>** option you can put **1** to do not check the SS CA on the Centreon Central
-Server if HTTPS is enabled, or put **0**.
+For the **\<not check SSL CA on Central\>** option you can put **1** to do not
+check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
+**0**.
 
-The **\<HTTP method\>** is to define how the Centreon Central server can contact the Remote server: HTTP or HTTPS.
+The **\<HTTP method\>** is to define how the Centreon Central server can
+contact the Remote server: HTTP or HTTPS.
 
-The **\<TCP port\>** is to define on wich TCP port the entreon Central server can contact the Remote server.
+The **\<TCP port\>** is to define on wich TCP port the entreon Central
+server can contact the Remote server.
 
-For the **\<not check SSL CA on Remote\>** option you can put **1** to do not check the SS CA on the Remote server if
-HTTPS is enabled, or put **0**.
+For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
+check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
 
-For the **\<no proxy to call Central\>** option you can put **1** to do not use HTTP(S) proxy to contact the Centreon
-Central server.
+For the **\<no proxy to call Central\>** option you can put **1** to do not use
+HTTP(S) proxy to contact the Centreon Central server.
 
 This command will enable **Remote Server** mode:
 
@@ -181,85 +182,6 @@ Add rights to centreon database user to use **LOAD DATA INFILE** command:
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
-## Exchanging SSH Keys
+## Add the Remote Server to configuration
 
-Communication between a central server and a poller server is done through SSH.
-
-You need to exchange SSH keys between the servers.
-
-If you do not have any private SSH keys on the central server for the **centreon** user:
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Hit enter when it prompts for a file to save the key to use the default location, or, create one in a specified
-> directory. **Leave the passphrase blank**. You will receive a key fingerprint and a randomart image.
-
-Generate a password for the **centreon** user on the new server:
-
-``` shell
-passwd centreon
-```
-
-Copy this key on to the new server:
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_SERVER
-```
-
-## Configure a new Centreon Remote Server
-
-Go to the **Configuration > Pollers** menu and click **Add server with wizard** to configure a new poller.
-
-Select **Add a Centreon Remote Server** and click on **Next**:
-
-![image](assets/installation/poller/wizard_add_remote_1.png)
-
-If you enabled the **Remote Server** option when installing your server, select the option **Select a Remote Server**,
-then select your server and fill in the form:
-
-![image](assets/installation/poller/wizard_add_remote_2a.png)
-
-Otherwise, select the **Manual input** option and fill in the form:
-
-![image](assets/installation/poller/wizard_add_remote_2b.png)
-
-The **Database username** and **Database password** are the credentials defined during the installation of the Remote
-Server.
-
-The **Server IP address** field is of the following form: [(http|https)://]@IP[:(port)]. If your Remote Server is only
-available on HTTPS, it is mandatory to define the HTTP method and the TCP port is this one is not the default one.
-
-The **Do not check SSL certificate validation** option allows to connect to the Remote Server using self-signed SSL
-certificate.
-
-The **Do not use configured proxy tp connect to this server** allows to connect to the Remote Server without using the
-proxy configuration of the Centreon Central server.
-
-Click on **Next**.
-
-Select the poller(s) to link to this Remote Server, then click on **Apply**:
-
-![image](assets/installation/poller/wizard_add_remote_3.png)
-
-The wizard will configure your new server:
-
-![image](assets/installation/poller/wizard_add_remote_4.png)
-
-Once the configuration is exported, restart the Centreon Broker process on the
-Remote Server using the following command:
-
-``` shell
-systemctl restart cbd
-```
-
-The Remote Server is now configured:
-
-![image](assets/installation/poller/wizard_add_remote_5.png)
-
-## Getting started
-
-Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.
+Go to the *[Add a Remote Server to configuration](add-remote-server-to-configuration.html)*.

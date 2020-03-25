@@ -61,4 +61,4 @@ yum install -y centreon-poller-centreon-engine
 
 ## Add the Poller to configuration
 
-Go to the [Add a Poller to configuration](add-poller-to-configuration.html).
+Go to the *[Add a Poller to configuration](add-poller-to-configuration.html)*.
