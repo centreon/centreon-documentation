@@ -29,9 +29,9 @@ repository**
 Run the following commands to upgrade your Centreon MAP server:
 
 ``` shell
-# systemctl stop tomcat
+# systemctl stop centreon-map
 # yum update centreon-map-server
-# systemctl start tomcat
+# systemctl start centreon-map
 ```
 
 ## Centreon MAP Web interface

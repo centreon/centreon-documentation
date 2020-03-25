@@ -72,7 +72,7 @@ Add a profile by clicking on the "+" to the right of the Profile window:
   - **Address**: Address of the Map Server
   - **Login**: Your Centreon Web username
   - **Password**: Password for your Centreon Web username
-  - **Use SSL**: Check here if the Map Server is configured for HTTPS
+  - **Use TLS**: Check here if the Map Server is configured for HTTPS
   - **Port**: Listening port for the Map Server -- it uses *8080* by default and
     *8443* if you have configured for HTTPS
   - **URL**: The URL for reaching Map Server. The default value is "/".

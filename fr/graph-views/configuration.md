@@ -65,7 +65,7 @@ You may change this configuration by opening the file
     resource.load.enabled.only=true
 
 > Be sure to restart the Centreon MAP server after editing the configuration
-> file: `systemctl restart tomcat.`
+> file: `systemctl restart centreon-map.`
 
 ## Define views & status computation parameters
 
@@ -84,7 +84,7 @@ adapt the behavior of inherited status computation to your use case.
 The following parameters can be configured in
 `/etc/centreon-studio/studio-config.properties`.
 
-If you had, remove or update a parameter, make sure to restart Tomcat.
+If you had, remove or update a parameter, make sure to restart Centreon Map service.
 
 **What's an inherited status ?**
 
@@ -117,10 +117,10 @@ may highly improve Centreon Map performances, here is why:
     of each view for each users)
 
 To configure these parameters you need to edit the following Centreon MAP server
-configuration file (modify or add missing parameters), then restart tomcat: :
+configuration file (modify or add missing parameters), then restart Centreon Map service:
 
     $ vim /etc/centreon-studio/studio-config.properties
-    $ systemctl restart tomcat
+    $ systemctl restart centreon-map
 
 ## Change link colors
 
@@ -238,6 +238,6 @@ Insert the token in the file `/etc/centreon-studio/studio-config.properties.`
     ##### GEO
     mapbox.token=sk.xxxxxxxx
 
-Then restart Tomcat.
+Then restart Centreon Map service.
 
-    systemctl restart tomcat
+    systemctl restart centreon-map
