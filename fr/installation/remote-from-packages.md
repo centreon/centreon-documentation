@@ -58,12 +58,6 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 Le dépôt est maintenant installé.
 
-Si le paquet n'est pas installé, exécutez la commande :
-
-``` shell
-yum install -y wget
-```
-
 ## Installation du serveur central
 
 Ce chapitre décrit l'installation d'un serveur central Centreon.

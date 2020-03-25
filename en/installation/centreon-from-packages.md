@@ -70,12 +70,6 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 The repository is now installed.
 
-Some may not have the wget package installed. If not perform the following:
-
-``` shell
-yum install -y wget
-```
-
 ## Install a Centreon Central server
 
 This section describes how to install a Centreon Central server.
