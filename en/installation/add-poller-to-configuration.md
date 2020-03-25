@@ -187,7 +187,7 @@ configuration**.
 Then check the four first boxes, select the **Restart** method and click on
 **Export**:
 
-![image](assets/installation/poller/generate-config.png)
+![image](assets/installation/poller/poller-generate-config.png)
 
 The Poller will then connect to the Central Broker.
 

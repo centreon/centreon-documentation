@@ -218,11 +218,11 @@ configuration**.
 Then check the four first boxes, select the **Restart** method and click on
 **Export**:
 
-![image](assets/installation/poller/generate-config-remote.png)
+![image](assets/installation/poller/remote-generate-config.png)
 
 The Remote Server will then connect to the Central Broker.
 
-![image](assets/installation/poller/list-remote-zmq-started.png)
+![image](assets/installation/poller/remote-list-zmq-started.png)
 
 ## Getting started
 
