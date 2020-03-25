@@ -47,6 +47,7 @@ const Card = props => {
     </div>
   )
 }
+
 class ExcellenceBloc extends React.Component {
   render () {
 
@@ -71,7 +72,7 @@ class PrerequisiteBloc extends React.Component {
         <h2 className="tittle-section">{stringLabels.tittlePrerequisiteBloc}</h2>
         <p>{stringLabels.contentPrerequisiteBloc}</p>
         <div className="cardBar">
-        <Card imageSrc={'Groupe-463.svg'}  />
+        <Image imageSrc={'Groupe-463.svg'}  />
         </div>
       </div>
     )
@@ -85,7 +86,7 @@ class InstallationBloc extends React.Component {
         <h2 className="tittle-section">{stringLabels.tittleInstallationBloc}</h2>
         <p>{stringLabels.contentInstallationBloc}</p>
         <div className="cardBar">
-        <Card imageSrc={'Groupe-699.svg'}  />
+        <Image imageSrc={'Groupe-699.svg'}  />
         </div>
       </div>
     )
@@ -99,7 +100,7 @@ class SupervisionBloc extends React.Component {
         <h2 className="tittle-section">{stringLabels.tittleSupervisionBloc}</h2>
         <p>{stringLabels.contentSupervisionBloc}</p>
         <div className="cardBar">
-        <Card imageSrc={'Groupe-387.svg'}  />
+        <Image imageSrc={'Groupe-387.svg'}  />
         </div>
 
       </div>
