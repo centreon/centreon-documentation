@@ -101,6 +101,12 @@ systemctl enable gorgoned
 systemctl start gorgoned
 ```
 
+> Par défaut, la communication entre le Central et les Pollers ou Remote
+> Servers sera toujours effectuée en utilisant le protocole SSH.
+>
+> Reportez vous à la procédure *TODO* pour modifier le protocole de
+> communication.
+
 #### Redémarrage des processus de supervision
 
 Le composant Centreon Broker a changé le format de son fichier de configuration.

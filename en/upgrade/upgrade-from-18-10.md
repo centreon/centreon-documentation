@@ -142,6 +142,11 @@ systemctl enable gorgoned
 systemctl start gorgoned
 ```
 
+> By default, the communication between Central and Pollers or Remote Servers
+> will still be using SSH protocol.
+>
+> Go to the *TODO* procedure to change the communication protocol.
+
 #### Restart monitoring processes
 
 Centreon Broker component has changed his configuration file format.
