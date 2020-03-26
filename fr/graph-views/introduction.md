@@ -5,6 +5,8 @@ title: Introduction
 
 > This documentation is only available in **english** for now
 
+The graphical view capabilities in Centreon relies on the **Centreon MAP** extension.
+
 > Centreon MAP is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](sales@centreon.com).

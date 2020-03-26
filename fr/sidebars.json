@@ -149,11 +149,8 @@
             },
             "graph-views/release-notes"
         ],
-        "Cartographie des Services et Corrélation": [
-            "service-mapping-correlation/init-service-mapping-correlation"
-        ],
-        "Analytique": [
-            "analytics/init-analytics"
+        "Reporting": [
+            "reporting/introduction"
         ],
         "Administration": [
             "administration/init-administrate"
