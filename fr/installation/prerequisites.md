@@ -53,7 +53,7 @@ Le tableau suivant décrit les dépendances logicielles :
 
 ## Sélectionner votre architecture
 
-> Centreon propose un [classeur](../../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
+> Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.
 
 Le tableau suivant présente les prérequis pour une installation de Centreon :
@@ -74,7 +74,7 @@ Le tableau suivant présente les prérequis pour une installation de Centreon :
 
 ### Définition de l'espace disque
 
-> Centreon propose un [classeur](../../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
+> Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.
 
 L'espace disque utilisé pour supporter les données issues de la collecte dépend de plusieurs critères :

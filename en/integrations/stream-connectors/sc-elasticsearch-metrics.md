@@ -8,7 +8,7 @@ title: Elasticsearch metrics
 Elasticsearch metrics stream connector sends metrics related data to
 Elasticsearch
 
-![architecture](../../../assets/integrations/stream-connectors/sc-elasticsearch-metrics-architecture.png)
+![architecture](../../assets/integrations/stream-connectors/sc-elasticsearch-metrics-architecture.png)
 
 ## Compatibility
 

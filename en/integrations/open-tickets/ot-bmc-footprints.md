@@ -8,7 +8,7 @@ title: BMC Footprints
 BMC Footprints open-tickets provider uses the BMC Footprints SOAP API to open
 incidents about your monitoring alerts.
 
-![architecture](../../../assets/integrations/open-tickets/ot-bmc-footprint-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-bmc-footprint-architecture.png)
 
 ## Compatibility
 

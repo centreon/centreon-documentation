@@ -38,7 +38,7 @@ Many components are used to build this architecture:
 
 The diagram below summarizes the architecture:
 
-![image](../../assets/architectures/Architecture_standalone.png)
+![image](../assets/architectures/Architecture_standalone.png)
 
 <!-- Distributed-->
 #### Description
@@ -90,7 +90,7 @@ Many components are used to build a poller:
 
 The diagram below summarizes the architecture:
 
-![image](../../assets/architectures/Architecture_distributed.png)
+![image](../assets/architectures/Architecture_distributed.png)
 
 <!--Deported DBMS-->
 #### Description
@@ -150,7 +150,7 @@ Many components are used to build a poller:
 
 The diagram below summarizes the architecture:
 
-![image](../../assets/architectures/Architecture_distributed_dbms.png)
+![image](../assets/architectures/Architecture_distributed_dbms.png)
 
 <!--Remote Server-->
 #### Description
@@ -218,6 +218,6 @@ Many components are used to build a poller:
 
 The diagram below summarizes the architecture:
 
-![image](../../assets/architectures/Architecture_distributed_remote.png)
+![image](../assets/architectures/Architecture_distributed_remote.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->

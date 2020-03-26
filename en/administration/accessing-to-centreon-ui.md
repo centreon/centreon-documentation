@@ -13,7 +13,7 @@ To update the Centreon URI, you need to follow those steps:
 1. Go to **Administration > Parameters > Centreon UI** and change the
 **Centreon Web Directory** value.
 
-![image](../../assets/administration/custom-uri.png)
+![image](../assets/administration/custom-uri.png)
 
 2. On the centreon central server:
 

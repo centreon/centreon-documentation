@@ -14,7 +14,7 @@ To connect to your Centreon web interface access to URL: http://IP_ADDRESS/centr
 
 Inform your user name and associated password and click on **Connect** button:
 
-![image](../../assets/tutorials/aconnection.png)
+![image](../assets/tutorials/aconnection.png)
 
 You are now connected to Centreon web interface.
 
@@ -22,7 +22,7 @@ You are now connected to Centreon web interface.
 
 The Centreon web interface contains several menus, each with a specific function:
 
-![image](../../assets/tutorials/amenu.png)
+![image](../assets/tutorials/amenu.png)
 
 * **Home** lets you access the first home screen after logging in. It provides a summary of overall monitoring status.
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
@@ -37,11 +37,11 @@ The Centreon web interface contains several menus, each with a specific function
 
 On the banner, click on the profile icon, then click on **Edit profile**:
 
-![image](../../assets/tutorials/change_language_1.png)
+![image](../assets/tutorials/change_language_1.png)
 
 In the select box of language, select your language:
 
-![image](../../assets/tutorials/change_language_2.png)
+![image](../assets/tutorials/change_language_2.png)
 
 Then click on **Save**. Your interface is now translated.
 
@@ -74,7 +74,7 @@ Nevertheless, to drastically simplify the configuration, we will rely on monitor
 This quick start guide proposes to install the monitoring templates supplied free of charge with the Centreon solution
 and then to implement them to monitor your first equipment.
 
-![image](../../assets/tutorials/host_service_command.png)
+![image](../assets/tutorials/host_service_command.png)
 
 > To go further with templates, please read the [templates chapter](../monitoring/templates#definition).
 
@@ -87,16 +87,16 @@ Go to the **Configuration \> Plugin Packs** menu.
 Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
 
-![image](../../assets/tutorials/pp_base_generic_1.png)
+![image](../assets/tutorials/pp_base_generic_1.png)
 
 You can also click on the Plugin Pack in order to know its content before installing it:
 
-![image](../../assets/tutorials/pp_base_generic_2.png)
+![image](../assets/tutorials/pp_base_generic_2.png)
 
 Install other Plugin Packs you probably need for your environment, for example **Linux SNMP** and **Windows SNMP** available
 for free:
 
-![image](../../assets/tutorials/pp_install_basic.gif)
+![image](../assets/tutorials/pp_install_basic.gif)
 
 Now you have the basic templates and plugins to initial monitoring!
 

@@ -16,12 +16,12 @@ Rendez-vous dans le menu **Configuration > Pollers > Pollers** et cliquez sur
 
 Sélectionnez **Add a Centreon Poller** et cliquez sur **Next** :
 
-![image](../../../assets/installation/poller/wizard-add-poller-1.png)
+![image](../assets/installation/poller/wizard-add-poller-1.png)
 
 Saisissez le nom, l'adresse IP du collecteur et celle du serveur Centreon Central,
 cliquez sur **Next** :
 
-![image](../../../assets/installation/poller/wizard-add-poller-2.png)
+![image](../assets/installation/poller/wizard-add-poller-2.png)
 
 > L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au collecteur depuis le serveur Centreon Central.
 >
@@ -29,14 +29,14 @@ cliquez sur **Next** :
 
 Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur **Apply** :
 
-![image](../../../assets/installation/poller/wizard-add-poller-3.png)
+![image](../assets/installation/poller/wizard-add-poller-3.png)
 
 Sinon, si vous souhaitez lier ce collecteur à un Remote Server, sélectionnez le Remote Server dans la liste et cliquez
 sur **Apply** :
 
 Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
 
-![image](../../../assets/installation/poller/poller-list-zmq.png)
+![image](../assets/installation/poller/poller-list-zmq.png)
 
 ## Activer la communication
 
@@ -52,7 +52,7 @@ Editer la configuration du Poller fraichement créé, et sélectionner **ZMQ**
 comme **Gorgone connection protocol**. Définir le **port** adéquat (le port
 **5556** est recommandé).
 
-![image](../../../assets/installation/poller/poller-edit-zmq.png)
+![image](../assets/installation/poller/poller-edit-zmq.png)
 
 Cliquer sur **Save**.
 
@@ -64,7 +64,7 @@ configuration**.
 Une popin affiche la configuration à copier dans le terminal du Poller. Cliquer
 sur **Copy to clipboard**.
 
-![image](../../../assets/installation/poller/poller-gorgone-display-config.png)
+![image](../assets/installation/poller/poller-gorgone-display-config.png)
 
 Copier directement dans le terminal car le contenu suivant est dans le
 presse-papier et créera le fichier de configuration attendu :
@@ -133,7 +133,7 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 Editer la configuration du Poller fraichement créé, et sélectionner **SSH**
 comme **Gorgone connection protocol**. Définir le **port** adéquat.
 
-![image](../../../assets/installation/poller/poller-edit-ssh.png)
+![image](../assets/installation/poller/poller-edit-ssh.png)
 
 Cliquer sur **Save**.
 
@@ -178,11 +178,11 @@ configuration**.
 Cocher ensuite les quatre premières cases, sélectionner la méthode **Restart**
 et cliquer sur  **Export** :
 
-![image](../../../assets/installation/poller/poller-generate-config.png)
+![image](../assets/installation/poller/poller-generate-config.png)
 
 Le Poller va alors se connecter au Broker Central.
 
-![image](../../../assets/installation/poller/poller-list-zmq-started.png)
+![image](../assets/installation/poller/poller-list-zmq-started.png)
 
 ## Premiers pas
 

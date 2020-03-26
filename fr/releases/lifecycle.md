@@ -48,7 +48,7 @@ troisième phase de Centreon 18.10 et la deuxième phase de Centreon 19.04.
 
 Le schéma présente le cycle de vie Centreon :
 
-![image](../../assets/releases/lifecycle.png)
+![image](../assets/releases/lifecycle.png)
 
 ## Tableau de maintenance des anciens produits
 
@@ -87,4 +87,3 @@ Le schéma présente le cycle de vie Centreon :
 | Centreon MAP            | 4.4.x   | 2017/01/02   | Centreon 20.04 | Blocking & security issues |
 | Centreon MBI            | 3.2.x   | 2018/07/09   | Centreon 20.04 | Blocking & security issues |
 | Centreon Auto Discovery | 2.3.x   | 2017/08/24   | Centreon 20.04 | Blocking & security issues |
-

@@ -8,7 +8,7 @@ title: OTRS RestAPI
 The OTRS provider uses the REST API of OTRS to retrieve data in order to open a
 ticket.
 
-![architecture](../../../assets/integrations/open-tickets/ot-otrs-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-otrs-architecture.png)
 
 ## Compatibility
 

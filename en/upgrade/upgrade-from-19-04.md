@@ -87,24 +87,24 @@ Log on to the Centreon web interface to continue the upgrade process:
 
 Click on **Next**:
 
-![image](../../assets/upgrade/web_update_1.png)
+![image](../assets/upgrade/web_update_1.png)
 
 Click on **Next**:
 
-![image](../../assets/upgrade/web_update_2.png)
+![image](../assets/upgrade/web_update_2.png)
 
 The release notes describe the main changes. Click on **Next**:
 
-![image](../../assets/upgrade/web_update_3.png)
+![image](../assets/upgrade/web_update_3.png)
 
 This process performs the various upgrades. Click on **Next**:
 
-![image](../../assets/upgrade/web_update_4.png)
+![image](../assets/upgrade/web_update_4.png)
 
 Your Centreon server is now up to date. Click on **Finish** to access the login
 page:
 
-![image](../../assets/upgrade/web_update_5.png)
+![image](../assets/upgrade/web_update_5.png)
 
 To upgrade your Centreon BAM module, TODO
 
