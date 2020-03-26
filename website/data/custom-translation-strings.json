@@ -1,0 +1,22 @@
+{
+  "_comment": "This file is used to provide custom strings for translations, including overriding defaults",
+  "localized-strings": {
+    "translation": "Translations and Localization"
+  },
+  "pages-strings": {
+    "titleExcellenceBloc|no description given": "IT Excellence at the Service of Business Performance",
+    "subTitleExcellenceBloc|no description given": "Our documentation is at your disposal to help you through all the steps from installation to configuration, updates and much more!",
+    "titlePrerequisiteBloc|no description given": "Prerequisites",
+    "contentPrerequisiteBloc|no description given": "Please follow the installation and provisioning requirements (CPU resources, memory, disks, partitioning, etc ...) and make sure you choose the right architecture for your needs before installing the platform.",
+    "titleInstallationBloc|no description given": "The installation",
+    "contentInstallationBloc|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to install your platform.",
+    "titleSupervisionBloc|no description given": "The supervision",
+    "contentSupervisionBloc|no description given": "More than 400 IT domains already covered: networks, servers, applications, storage, databases, devices, hardware, etc. on physical, virtuekkes, or hybrid infrastructures.",
+    "titleCommunityBloc|no description given": "A strong community",
+    "titleHeartOpenSourceBloc|no description given": "An Open Source Core",
+    "contentHeartOpenSourceBloc|no description given": "Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.",
+    "btnInstall|no description given": "Install",
+    "btnStart|no description given": "Start",
+    "btnApi|no description given": "See API"
+  }
+}

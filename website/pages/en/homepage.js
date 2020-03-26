@@ -9,19 +9,10 @@ const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
-const stringLabels = {
-  tittleExcellenceBloc: "L’Excellence IT au service de la Performance Métier",
-  subTitleExcellenceBloc: "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
-  tittlePrerequisiteBloc: "Les prérequis",
-  contentPrerequisiteBloc: "Veuillez à bien suivre les prérequis d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.", 
-  tittleInstallationBloc: "L'installation",
-  contentInstallationBloc: "La plateforme de supervision peut-être installée de plusieurs manières.Cependant,nous vous recommandons vivement d'utiliser Centreon Iso(ex CES) pour installer votre plateforme.",
-  tittleSupervisionBloc: "La supervision",
-  contentSupervisionBloc: "Bénéficier rapidement d'une supervision prête à l'emploi grâce à nos Plugin Packs.Plus de 400 domaines IT déjà couverts: réseaux, serveurs, applications,stockage,base de données, appareils, matériels, etc. sur des infratructures physiques, virtuekkes, ou hybrides.",
-}
 
-const basePathImg = './img/homepage/';
+const translate = require('../../server/translate.js').translate;
 
+const basePathImg = '/img/homepage/';
 
 const Button = props => {
   return (
@@ -49,17 +40,14 @@ const Card = props => {
 }
 class ExcellenceBloc extends React.Component {
   render () {
-
     return (
       <div className="containerBloc">
-        <div className="titlle-and-text-excellence-bloc">
-        <h1>{stringLabels.tittleExcellenceBloc}</h1>
-        <p className="subTitle">{stringLabels.subTitleExcellenceBloc}</p>
-        </div>
+        <h1><translate>titleExcellenceBloc</translate></h1>
+        <p className="subTitle"><translate>subTitleExcellenceBloc</translate></p>
         <div className="cardBar">
-          <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} btnLink={'/docs/installation/introduction.html'} />
-          <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} btnLink={'/docs/tutorials/first-steps.html'} />
-          <Card imageSrc={'Groupe-386.svg'} btnLabel={'Voir les API'} btnLink={'/docs/api/introduction.html'} />
+          <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={'/docs/installation/introduction.html'} />
+          <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={'/docs/tutorials/first-steps.html'} />
+          <Card imageSrc={'Groupe-386.svg'} btnLabel={<translate>btnApi</translate>} btnLink={'/docs/api/introduction.html'} />
         </div>
       </div>
     )
@@ -70,8 +58,8 @@ class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittlePrerequisiteBloc}</h2>
-        <p>{stringLabels.contentPrerequisiteBloc}</p>
+        <h2 className="tittle-section"><translate>titlePrerequisiteBloc</translate></h2>
+        <p><translate>contentPrerequisiteBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-463.svg'}  />
         </div>
@@ -84,8 +72,8 @@ class InstallationBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittleInstallationBloc}</h2>
-        <p>{stringLabels.contentInstallationBloc}</p>
+        <h2 className="tittle-section"><translate>titleInstallationBloc</translate></h2>
+        <p><translate>contentInstallationBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-699.svg'}  />
         </div>
@@ -98,8 +86,8 @@ class SupervisionBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">{stringLabels.tittleSupervisionBloc}</h2>
-        <p>{stringLabels.contentSupervisionBloc}</p>
+        <h2 className="tittle-section"><translate>titleSupervisionBloc</translate></h2>
+        <p><translate>contentSupervisionBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-387.svg'}  />
         </div>
@@ -113,7 +101,7 @@ class CommunityBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">Une communauté solide</h2>
+        <h2 className="tittle-section"><translate>titleCommunityBloc</translate></h2>
       </div>
     )
   }
@@ -123,13 +111,15 @@ class HeartOpenSourceBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section">Un cœur Open Source</h2>
+        <h2 className="tittle-section"><translate>titleHeartOpenSourceBloc</translate></h2>
+        <p><translate>contentHeartOpenSourceBloc</translate></p>
       </div>
     )
   }
 }
 
 class Homepage extends React.Component {
+
   render() {
     return (
       <React.Fragment>
