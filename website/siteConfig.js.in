@@ -42,7 +42,12 @@ const siteConfig = {
     { href: "https://api-documentation.centreon.com/centreon-web/centreon-api-v2.html", label: "API" },
     { search: true },
   ],
-
+  // Algolia search field 
+    algolia: {
+      apiKey: 'my-api-key',
+      indexName: 'my-index-name',
+      algoliaOptions: {} // Optional, if provided by Algolia
+    },
   // If you have users set above, you add it here:
   users,
 
@@ -55,21 +60,17 @@ const siteConfig = {
   colors: {
     primaryColor: '#23303A',
     secondaryColor: '#10069F',
+    bgLightBlue: 'rgba(0, 159, 223, 0.1)',
+    fontColor: 'rgba(34, 46, 59, 1)',
   },
 
   /* Custom fonts for website */
-  /*
   fonts: {
-    myFont: [
-      "Times New Roman",
-      "Serif"
+    roboto: [
+      "Roboto",
+      "sans-serif"
     ],
-    myOtherFont: [
-      "-apple-system",
-      "system-ui"
-    ]
   },
-  */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
