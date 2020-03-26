@@ -5,8 +5,41 @@
     "previous": "Previous",
     "tagline": "A documentation that rocks !",
     "docs": {
-      "administrate/init-administrate": {
-        "title": "About Administration"
+      "administration/access-control-lists": {
+        "title": "Access Control Lists"
+      },
+      "administration/accessing-to-centreon-ui": {
+        "title": "Accessing to Centreon UI"
+      },
+      "administration/extensions": {
+        "title": "Extensions"
+      },
+      "administration/parameters/centreon-ui": {
+        "title": "Centreon UI"
+      },
+      "administration/parameters/debug": {
+        "title": "Debug"
+      },
+      "administration/parameters/gorgone": {
+        "title": "Gorgone"
+      },
+      "administration/parameters/ldap": {
+        "title": "LDAP"
+      },
+      "administration/parameters/medias": {
+        "title": "Medias"
+      },
+      "administration/parameters/monitoring": {
+        "title": "Monitoring"
+      },
+      "administration/parameters/my-account": {
+        "title": "My Account"
+      },
+      "administration/parameters/performance-data-management": {
+        "title": "Performance data management"
+      },
+      "administration/parameters/rrdtool": {
+        "title": "RRDTool"
       },
       "alerts-notifications/init-alerts-notifications": {
         "title": "About Alerts and Notifications"
