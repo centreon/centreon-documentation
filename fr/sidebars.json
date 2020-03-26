@@ -155,8 +155,8 @@
         "Analytique": [
             "analytics/init-analytics"
         ],
-        "Administrer la Plateforme": [
-            "administrate/init-administrate"
+        "Administration": [
+            "administration/init-administrate"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {

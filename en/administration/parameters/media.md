@@ -25,7 +25,7 @@ click on **Add**.
 
 The following window is displayed:
 
-![image](assets/administrate/dmedias.png)
+![image](assets/administration/dmedias.png)
 
 - **Existing or new directory** field can be used to add a new folder in the
 image folder or to choose an existing folder into which the image can be
@@ -46,4 +46,4 @@ these images
 
 The following window imports the new images:
 
-![image](assets/administrate/dmediasimports.png)
+![image](assets/administration/dmediasimports.png)
