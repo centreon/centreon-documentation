@@ -43,7 +43,7 @@ const Card = props => {
   return (
     <div className="cardContent">
       <Image imageSrc={props.imageSrc} />
-      <Button href={'#'} target={'_blank'} label={props.btnLabel} />
+      <Button href={props.btnLink} target={'_blank'} label={props.btnLabel} />
     </div>
   )
 }
@@ -57,9 +57,9 @@ class ExcellenceBloc extends React.Component {
         <p className="subTitle">{stringLabels.subTitleExcellenceBloc}</p>
         </div>
         <div className="cardBar">
-          <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} />
-          <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} />
-          <Card imageSrc={'Groupe-386.svg'} btnLabel={'Voir les API'} />
+          <Card imageSrc={'Groupe-607.svg'} btnLabel={'Installer'} btnLink={'/docs/installation/introduction.html'} />
+          <Card imageSrc={'Groupe-608.svg'} btnLabel={'Démarrer'} btnLink={'/docs/tutorials/first-steps.html'} />
+          <Card imageSrc={'Groupe-386.svg'} btnLabel={'Voir les API'} btnLink={'/docs/api/introduction.html'} />
         </div>
       </div>
     )
