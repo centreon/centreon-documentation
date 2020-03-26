@@ -41,9 +41,15 @@
   align-items: center;
 }
 
-.homepageCustom .containerBloc .tittle-section {
+.homepageCustom .containerBloc .title-section {
   color: rgb(0, 114, 206);
-  font-family: $roboto;
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.homepageCustom .containerBloc .title-community {
+  font-size: 35px;
+  font-weight: normal;
 }
 
 .homepageCustom .containerBloc .cardBar {
@@ -81,4 +87,25 @@
   flex-direction: column;
   justify-content: center;
   font-size: 16px;
+}
+
+
+.homepageCustom .containerBloc ul.socialSet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+
+.homepageCustom .containerBloc ul.socialSet a {
+  display: flex;
+  padding: 30px 80px;
+}
+
+.homepageCustom .containerBloc ul.socialSet img {
+  width: 40px;
 }

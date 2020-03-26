@@ -58,7 +58,7 @@ class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section"><translate>titlePrerequisiteBloc</translate></h2>
+        <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
         <p><translate>contentPrerequisiteBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-463.svg'}  />
@@ -72,7 +72,7 @@ class InstallationBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section"><translate>titleInstallationBloc</translate></h2>
+        <h2 className="title-section"><translate>titleInstallationBloc</translate></h2>
         <p><translate>contentInstallationBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-699.svg'}  />
@@ -86,7 +86,7 @@ class SupervisionBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section"><translate>titleSupervisionBloc</translate></h2>
+        <h2 className="title-section"><translate>titleSupervisionBloc</translate></h2>
         <p><translate>contentSupervisionBloc</translate></p>
         <div className="cardBar">
         <Image imageSrc={'Groupe-387.svg'}  />
@@ -101,7 +101,23 @@ class CommunityBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section"><translate>titleCommunityBloc</translate></h2>
+        <h2 className="title-community"><translate>titleCommunityBloc</translate></h2>
+        <div className="cardBar">
+          <ul className="socialSet">
+            <a href="https://centreon.github.io/register-slack/">
+              <li><Image imageSrc={'social-network/slack.svg'} /></li>
+            </a>
+            <a href="https://github.com/centreon/centreon">
+              <li><Image imageSrc={'social-network/github.svg'} /></li>
+            </a>
+            <a href="https://twitter.com/CentreonFR">
+              <li><Image imageSrc={'social-network/twitter.svg'} /></li>
+            </a>
+            <a href="https://www.linkedin.com/company/merethis/">
+              <li><Image imageSrc={'social-network/linkedin.svg'} /></li>
+            </a>
+          </ul>
+        </div>
       </div>
     )
   }
@@ -111,7 +127,7 @@ class HeartOpenSourceBloc extends React.Component {
   render () {
     return (
       <div className="containerBloc">
-        <h2 className="tittle-section"><translate>titleHeartOpenSourceBloc</translate></h2>
+        <h2 className="title-section"><translate>titleHeartOpenSourceBloc</translate></h2>
         <p><translate>contentHeartOpenSourceBloc</translate></p>
       </div>
     )
