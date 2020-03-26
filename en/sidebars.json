@@ -150,7 +150,7 @@
             "graph-views/release-notes"
         ],
         "Reporting": [
-            "analytics/init-analytics"
+            "reporting/introduction"
         ],
         "Administration": [
             "administrate/accessing-to-centreon-ui",
