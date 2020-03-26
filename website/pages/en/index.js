@@ -8,205 +8,142 @@
 const React = require('react');
 
 const CompLibrary = require('../../core/CompLibrary.js');
-
-const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
-const GridBlock = CompLibrary.GridBlock;
 
-class HomeSplash extends React.Component {
-  render() {
-    const {siteConfig, language = ''} = this.props;
-    const {baseUrl, docsUrl} = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-    const langPart = `${language ? `${language}/` : ''}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+const translate = require('../../server/translate.js').translate;
 
-    const SplashContainer = props => (
-      <div className="homeContainer">
-        <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
-        </div>
-      </div>
-    );
+const basePathImg = '/img/homepage/';
 
-    const Logo = props => (
-      <div className="projectLogo">
-        <img src={props.img_src} alt="Project Logo" />
-      </div>
-    );
-
-    const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.title}
-        <small>{siteConfig.tagline}</small>
-      </h2>
-    );
-
-    const PromoSection = props => (
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
-      </div>
-    );
-
-    const Button = props => (
+const Button = props => {
+  return (
       <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
-          {props.children}
+        <a className="button buttonLink" href={props.href} target={props.target}>
+          {props.label}
         </a>
       </div>
-    );
+    )
+}
 
+const Image = props => (
+  <div className="imageContainer">
+    <img src={basePathImg + props.imageSrc} />
+  </div>
+)
+
+const Card = props => {
+  return (
+    <div className="cardContent">
+      <Image imageSrc={props.imageSrc} />
+      <Button href={props.btnLink} target={'_blank'} label={props.btnLabel} />
+    </div>
+  )
+}
+class ExcellenceBloc extends React.Component {
+  render () {
     return (
-      <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
-        <div className="inner">
-          <ProjectTitle siteConfig={siteConfig} />
-          <PromoSection>
-            <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html')}>Example Link</Button>
-            <Button href={docUrl('doc2.html')}>Example Link 2</Button>
-          </PromoSection>
+      <div className="containerBloc">
+        <h1><translate>titleExcellenceBloc</translate></h1>
+        <p className="subTitle"><translate>subTitleExcellenceBloc</translate></p>
+        <div className="cardBar">
+          <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={'/docs/installation/introduction.html'} />
+          <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={'/docs/tutorials/first-steps.html'} />
+          <Card imageSrc={'Groupe-386.svg'} btnLabel={<translate>btnApi</translate>} btnLink={'/docs/api/introduction.html'} />
         </div>
-      </SplashContainer>
-    );
+      </div>
+    )
   }
 }
 
-class Index extends React.Component {
+class PrerequisiteBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2 className="tittle-section"><translate>titlePrerequisiteBloc</translate></h2>
+        <p><translate>contentPrerequisiteBloc</translate></p>
+        <div className="cardBar">
+        <Image imageSrc={'Groupe-463.svg'}  />
+        </div>
+      </div>
+    )
+  }
+}
+
+class InstallationBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2 className="tittle-section"><translate>titleInstallationBloc</translate></h2>
+        <p><translate>contentInstallationBloc</translate></p>
+        <div className="cardBar">
+        <Image imageSrc={'Groupe-699.svg'}  />
+        </div>
+      </div>
+    )
+  }
+}
+
+class SupervisionBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2 className="tittle-section"><translate>titleSupervisionBloc</translate></h2>
+        <p><translate>contentSupervisionBloc</translate></p>
+        <div className="cardBar">
+        <Image imageSrc={'Groupe-387.svg'}  />
+        </div>
+
+      </div>
+    )
+  }
+}
+
+class CommunityBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2 className="tittle-section"><translate>titleCommunityBloc</translate></h2>
+      </div>
+    )
+  }
+}
+
+class HeartOpenSourceBloc extends React.Component {
+  render () {
+    return (
+      <div className="containerBloc">
+        <h2 className="tittle-section"><translate>titleHeartOpenSourceBloc</translate></h2>
+        <p><translate>contentHeartOpenSourceBloc</translate></p>
+      </div>
+    )
+  }
+}
+
+class Homepage extends React.Component {
+
   render() {
-    const {config: siteConfig, language = ''} = this.props;
-    const {baseUrl} = siteConfig;
-
-    const Block = props => (
-      <Container
-        padding={['bottom', 'top']}
-        id={props.id}
-        background={props.background}>
-        <GridBlock
-          align="center"
-          contents={props.children}
-          layout={props.layout}
-        />
-      </Container>
-    );
-
-    const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
-      </div>
-    );
-
-    const TryOut = () => (
-      <Block id="try">
-        {[
-          {
-            content:
-              'To make your landing page more attractive, use illustrations! Check out ' +
-              '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-              'The illustrations you see on this page are from unDraw.',
-            image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: 'left',
-            title: 'Wonderful SVG Illustrations',
-          },
-        ]}
-      </Block>
-    );
-
-    const Description = () => (
-      <Block background="dark">
-        {[
-          {
-            content:
-              'This is another description of how this project is useful',
-            image: `${baseUrl}img/undraw_note_list.svg`,
-            imageAlign: 'right',
-            title: 'Description',
-          },
-        ]}
-      </Block>
-    );
-
-    const LearnHow = () => (
-      <Block background="light">
-        {[
-          {
-            content:
-              'Each new Docusaurus project has **randomly-generated** theme colors.',
-            image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
-            imageAlign: 'right',
-            title: 'Randomly Generated Theme Colors',
-          },
-        ]}
-      </Block>
-    );
-
-    const Features = () => (
-      <Block layout="fourColumn">
-        {[
-          {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/undraw_react.svg`,
-            imageAlign: 'top',
-            title: 'Feature One',
-          },
-          {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/undraw_operating_system.svg`,
-            imageAlign: 'top',
-            title: 'Feature Two',
-          },
-        ]}
-      </Block>
-    );
-
-    const Showcase = () => {
-      if ((siteConfig.users || []).length === 0) {
-        return null;
-      }
-
-      const showcase = siteConfig.users
-        .filter(user => user.pinned)
-        .map(user => (
-          <a href={user.infoLink} key={user.infoLink}>
-            <img src={user.image} alt={user.caption} title={user.caption} />
-          </a>
-        ));
-
-      const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
-
-      return (
-        <div className="productShowcaseSection paddingBottom">
-          <h2>Who is Using This?</h2>
-          <p>This project is used by all these people</p>
-          <div className="logos">{showcase}</div>
-          <div className="more-users">
-            <a className="button" href={pageUrl('users.html')}>
-              More {siteConfig.title} Users
-            </a>
-          </div>
-        </div>
-      );
-    };
-
     return (
-      <div>
-        <HomeSplash siteConfig={siteConfig} language={language} />
-        <div className="mainContainer">
-          <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
-          <Showcase />
-        </div>
-      </div>
+      <React.Fragment>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
+          <ExcellenceBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom">
+          <PrerequisiteBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
+          <InstallationBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom">
+          <SupervisionBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom borderTop">
+          <CommunityBloc />
+        </Container>
+        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightPurple">
+          <HeartOpenSourceBloc />
+        </Container>
+      </React.Fragment>
     );
   }
 }
 
-module.exports = Index;
+module.exports = Homepage;
