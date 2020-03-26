@@ -28,7 +28,7 @@ Centreon MBI fournit un ensemble complet de rapports standards sur:
     management
 -   La gestion des performances
 
-**Voici quelques exemples de rapports disponibles dans Centreon MBI** : ![alt-text](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
+**Voici quelques exemples de rapports disponibles dans Centreon MBI** : [Exemple de rapports](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
 
 Et également grâce à de nombreux widgets de reporting exploitables
 directement sur Centreon
