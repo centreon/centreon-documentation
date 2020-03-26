@@ -14,10 +14,10 @@ shall be supported by the community.
 
 Before installation
 
-1. Be sure to follow [the prerequisites installation and sizing](prerequisites/#prerequisites) (resources CPU, memory, disks,
+1. Be sure to follow *[the prerequisites installation and sizing](prerequisites.html/#prerequisites)* (resources CPU, memory, disks,
 partitioning, etc ...).
 2. Take care to choose [the type of architecture](../architectures/standalone) that should be set up for your needs.
-3. [Download Centreon](download)
+3. *[Download Centreon](https://download.centreon.com/)*
 4. Finally, you can install the platform.
 
 To quickly test Centreon from a CentOS or Red Hat 7.x, you can run the following command as **root**:

@@ -8,7 +8,7 @@ title: Request Tracker RestAPI
 The Request Tracker provider uses the REST API of Request Tracker to retrieve
 data in order to open a ticket.
 
-![architecture](assets/integrations/open-tickets/ot-request-tracker2-architecture.png)
+![architecture](../../../assets/integrations/open-tickets/ot-request-tracker2-architecture.png)
 
 ## Compatibility
 

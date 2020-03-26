@@ -13,17 +13,17 @@ server with wizard** to configure a new Remote Server.
 
 Select **Add a Centreon Remote Server** and click on **Next**:
 
-![image](assets/installation/poller/wizard-add-remote-1.png)
+![image](../../../assets/installation/poller/wizard-add-remote-1.png)
 
 If you enabled the **Remote Server** option when installing your server, select
 the option **Select a Remote Server**, then select your server and fill in the
 form:
 
-![image](assets/installation/poller/wizard-add-remote-2a.png)
+![image](../../../assets/installation/poller/wizard-add-remote-2a.png)
 
 Otherwise, select the **Manual input** option and fill in the form:
 
-![image](assets/installation/poller/wizard-add-remote-2b.png)
+![image](../../../assets/installation/poller/wizard-add-remote-2b.png)
 
 The **Database username** and **Database password** are the credentials defined
 during the installation of the Remote Server.
@@ -44,16 +44,16 @@ Click on **Next**.
 
 Select the poller(s) to be linked to this Remote Server, then click on **Apply**:
 
-![image](assets/installation/poller/wizard-add-remote-3.png)
+![image](../../../assets/installation/poller/wizard-add-remote-3.png)
 
 **TO REMOVE**
     The wizard will configure your new server:
 
-    ![image](assets/installation/poller/wizard-add-remote-4.png)
+    ![image](../../../assets/installation/poller/wizard-add-remote-4.png)
 
 The Remote Server is now configured:
 
-![image](assets/installation/poller/remote-list-zmq.png)
+![image](../../../assets/installation/poller/remote-list-zmq.png)
 
 ## Enable communication
 
@@ -68,7 +68,7 @@ recommended) or using SSH protocol.
 Edit the newly created Remote Server configuration, and select **ZMQ** as
 **Gorgone connection protocol**. Define the suitable **port**.
 
-![image](assets/installation/poller/remote-edit-zmq.png)
+![image](../../../assets/installation/poller/remote-edit-zmq.png)
 
 Click on **Save**.
 
@@ -80,7 +80,7 @@ icon.
 A popin will show the configuration to copy into the Remote Server terminal.
 Click on **Copy to clipboard**.
 
-![image](assets/installation/poller/remote-gorgone-display-config.png)
+![image](../../../assets/installation/poller/remote-gorgone-display-config.png)
 
 Paste directly into the terminal as the clipboard contains the following
 content, and will fill the right file:
@@ -173,7 +173,7 @@ Edit the newly created Remote Server configuration, and select **SSH** a
 **Gorgone connection protocol**. Define the suitable **port** (port **5556** is
 recommended).
 
-![image](assets/installation/poller/remote-edit-ssh.png)
+![image](../../../assets/installation/poller/remote-edit-ssh.png)
 
 Click on **Save**.
 
@@ -220,11 +220,11 @@ configuration**.
 Then check the four first boxes, select the **Restart** method and click on
 **Export**:
 
-![image](assets/installation/poller/remote-generate-config.png)
+![image](../../../assets/installation/poller/remote-generate-config.png)
 
 The Remote Server will then connect to the Central Broker.
 
-![image](assets/installation/poller/remote-list-zmq-started.png)
+![image](../../../assets/installation/poller/remote-list-zmq-started.png)
 
 ## Getting started
 

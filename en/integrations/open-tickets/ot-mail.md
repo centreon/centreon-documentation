@@ -8,7 +8,7 @@ title: Mail
 The Mail provider sends a mail to a mailbox that an ITSM software will read and
 create a ticket based upon it
 
-![architecture](assets/integrations/open-tickets/ot-mail-architecture.png)
+![architecture](../../../assets/integrations/open-tickets/ot-mail-architecture.png)
 
 ## Compatibility
 

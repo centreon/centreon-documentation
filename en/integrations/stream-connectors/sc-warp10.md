@@ -8,7 +8,7 @@ title: Warp10
 Warp10 stream connector sends data to Warp10 using centreon neb events as a
 source
 
-![architecture](assets/integrations/stream-connectors/sc-warp10-architecture.png)
+![architecture](../../../assets/integrations/stream-connectors/sc-warp10-architecture.png)
 
 ## Compatibility
 

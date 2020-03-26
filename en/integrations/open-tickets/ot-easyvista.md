@@ -8,7 +8,7 @@ title: EasyVista
 EasyVista open-tickets provider uses the EasyVista SOAP API to open incidents
 about your monitoring alerts.
 
-![architecture](assets/integrations/open-tickets/ot-easyvista-architecture.png)
+![architecture](../../../assets/integrations/open-tickets/ot-easyvista-architecture.png)
 
 ## Compatibility
 

@@ -8,7 +8,7 @@ title: Jira
 The Jira provider connects to your Itop server and retrieve data through the
 Jira REST API.
 
-![architecture](assets/integrations/open-tickets/ot-jira-architecture.png)
+![architecture](../../../assets/integrations/open-tickets/ot-jira-architecture.png)
 
 ## Compatibility
 

@@ -15,11 +15,11 @@ l'installeur ne sera supporté quepar la communauté.
 
 Avant toute installation
 
-1. Veillez à bien suivre les [pré-requis d'installation](prerequisites/#prerequisites) et de dimensionnement (ressources
+1. Veillez à bien suivre les *[pré-requis d'installation](prerequisites.html/#prerequisites)* et de dimensionnement (ressources
   CPU, mémoire, disques, partitionnement, etc...)
 2. Prenez également soin de bien choisir le [type d'architecture](../architectures/standalone) qu'il convient de pour
   vos besoins.
-3. [Téléchargez Centreon](download)
+3. *[Téléchargez Centreon](https://download.centreon.com/)*
 4. Enfin, vous pourrez procéder à l'installation de la plate-forme.
 
 Pour tester rapidement Centreon à partir d'un serveur CentOS ou Red Hat en version 7.x, vous pouvez exécuter la commande

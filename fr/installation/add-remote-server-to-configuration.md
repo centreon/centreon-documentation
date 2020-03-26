@@ -13,18 +13,18 @@ with wizard** pour accéder à l’assistant de configuration.
 
 Sélectionnez **Add a Centreon Remote Server** et cliquez sur **Next** :
 
-![image](assets/installation/poller/wizard-add-remote-1.png)
+![image](../../../assets/installation/poller/wizard-add-remote-1.png)
 
 Si vous avez activé votre serveur en suivant la documentation, sélectionnez
 l'option **Select a Remote Server**. Dans la liste déroulante sélectionnez
 votre serveur, puis saisissez les informations demandées :
 
-![image](assets/installation/poller/wizard-add-remote-2a.png)
+![image](../../../assets/installation/poller/wizard-add-remote-2a.png)
 
 Sinon, sélectionnez l'option **Create new Remote Server** et saisissez les
 informations demandées :
 
-![image](assets/installation/poller/wizard-add-remote-2b.png)
+![image](../../../assets/installation/poller/wizard-add-remote-2b.png)
 
 Les champs **Database user** et **Database password** sont les accès aux bases
 de données Centreon définis durant l'installation de votre Remote Server.
@@ -44,17 +44,17 @@ Cliquez sur **Next** :
 
 Sélectionnez le(s) collecteur(s) à lier à ce Remote Server. Puis cliquez sur **Apply** :
 
-![image](assets/installation/poller/wizard-add-remote-3.png)
+![image](../../../assets/installation/poller/wizard-add-remote-3.png)
 
 **TO REMOVE**
 
     L'assistant va configurer votre nouveau serveur :
 
-    ![image](assets/installation/poller/wizard-add-remote-4.png)
+    ![image](../../../assets/installation/poller/wizard-add-remote-4.png)
 
 Le Remote Server est maintenant configuré :
 
-![image](assets/installation/poller/remote-list-zmq.png)
+![image](../../../assets/installation/poller/remote-list-zmq.png)
 
 ## Activer la communication
 
@@ -70,7 +70,7 @@ Editer la configuration du Remote Server fraichement créé, et sélectionner **
 comme **Gorgone connection protocol**. Définir le **port** adéquat (le port
 **5556** est recommandé).
 
-![image](assets/installation/poller/remote-edit-zmq.png)
+![image](../../../assets/installation/poller/remote-edit-zmq.png)
 
 Cliquer sur **Save**.
 
@@ -82,7 +82,7 @@ configuration**.
 Une popin affiche la configuration à copier dans le terminal du Remote Server. Cliquer
 sur **Copy to clipboard**.
 
-![image](assets/installation/poller/remote-gorgone-display-config.png)
+![image](../../../assets/installation/poller/remote-gorgone-display-config.png)
 
 Copier directement dans le terminal car le contenu suivant est dans le
 presse-papier et créera le fichier de configuration attendu :
@@ -174,7 +174,7 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 Editer la configuration du Remote Server fraichement créé, et sélectionner **SSH**
 comme **Gorgone connection protocol**. Définir le **port** adéquat.
 
-![image](assets/installation/poller/remote-edit-ssh.png)
+![image](../../../assets/installation/poller/remote-edit-ssh.png)
 
 Cliquer sur **Save**.
 
@@ -219,11 +219,11 @@ configuration**.
 Cocher ensuite les quatre premières cases, sélectionner la méthode **Restart**
 et cliquer sur  **Export** :
 
-![image](assets/installation/poller/remote-generate-config.png)
+![image](../../../assets/installation/poller/remote-generate-config.png)
 
 Le Remote Server va alors se connecter au Broker Central.
 
-![image](assets/installation/poller/remote-list-zmq-started.png)
+![image](../../../assets/installation/poller/remote-list-zmq-started.png)
 
 ## Premiers pas
 

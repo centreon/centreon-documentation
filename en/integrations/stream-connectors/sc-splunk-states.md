@@ -7,7 +7,7 @@ title: Splunk states
 
 Splunk states stream connector sends states related data to Splunk
 
-![architecture](assets/integrations/stream-connectors/sc-splunk-states-architecture.png)
+![architecture](../../../assets/integrations/stream-connectors/sc-splunk-states-architecture.png)
 
 ## Compatibility
 

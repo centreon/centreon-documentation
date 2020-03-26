@@ -5,13 +5,13 @@ title: Commencez à superviser
 
 ## Superviser un serveur Linux en SNMP
 
-Rendez-vous dans le men **Configuration \> Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
+Rendez-vous dans le men **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
-![image](assets/tutorials/quick_start_linux_0.gif)
+![image](../../assets/tutorials/quick_start_linux_0.gif)
 
-Rendez-vous maintenant dans le men **Configuration \> Hosts \> Hosts** et cliquez sur le bouton **Add**:
+Rendez-vous maintenant dans le men **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add**:
 
-![image](assets/tutorials/quick_start_linux_1.png)
+![image](../../assets/tutorials/quick_start_linux_1.png)
 
 Renseignez les informations suivantes :
 
@@ -26,53 +26,53 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_linux_2.png)
+![image](../../assets/tutorials/quick_start_linux_2.png)
 
-Rendez-vous dans le menu **Configuration \> Services \> Services by host**. Un ensemble d'indicateurs a été déployé
+Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_linux_3.png)
+![image](../../assets/tutorials/quick_start_linux_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision de
 la bande passante d'une interface réseau :
 
-![image](assets/tutorials/quick_start_linux_4a.png)
+![image](../../assets/tutorials/quick_start_linux_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Linux-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](assets/tutorials/quick_start_linux_4b.png)
+![image](../../assets/tutorials/quick_start_linux_4b.png)
 
 Saisissez le nom de votre interface pour la macro **INTERFACENAME** et cliquez sur le bouton **Save** pour ajouter cet
 indicateur à la configuration.
 
 Faites de même pour ajouter la supervision des erreurs de paquets :
 
-![image](assets/tutorials/quick_start_linux_5.png)
+![image](../../assets/tutorials/quick_start_linux_5.png)
 
 Ou la supervision d'une partition système :
 
-![image](assets/tutorials/quick_start_linux_6.png)
+![image](../../assets/tutorials/quick_start_linux_6.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
-Rendez-vous ensuite dans le menu **Monitoring \> Status Details \> Services** et sélectionnez la valeur **All** pour le
+Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_linux_7.png)
+![image](../../assets/tutorials/quick_start_linux_7.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Linux SNMP** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](assets/tutorials/quick_start_linux_8.png)
+![image](../../assets/tutorials/quick_start_linux_8.png)
 
-Il est également possible d'accèder au menu **Configuration \> Services \> Templates** pour en connaître la liste :
+Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](assets/tutorials/quick_start_linux_9.png)
+![image](../../assets/tutorials/quick_start_linux_9.png)
 
 Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -109,13 +109,13 @@ List interfaces:
 
 ## Superviser un serveur Windows en SNMP
 
-Rendez-vous dans le menu **Configuration \> Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
+Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
 
-![image](assets/tutorials/quick_start_windows_0.gif)
+![image](../../assets/tutorials/quick_start_windows_0.gif)
 
-Rendez-vous maintenant dans le menu **Configuration \> Hosts \> Hosts** et cliquez sur le bouton **Add** :
+Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](assets/tutorials/quick_start_windows_1.png)
+![image](../../assets/tutorials/quick_start_windows_1.png)
 
 Renseignez les informations suivantes :
 
@@ -131,24 +131,24 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_windows_2.png)
+![image](../../assets/tutorials/quick_start_windows_2.png)
 
-Rendez-vous dans le menu **Configuration \> Services \> Services by host**. Un ensemble d'indicateurs a été déployé
+Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_windows_3.png)
+![image](../../assets/tutorials/quick_start_windows_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision
 de la partition C :
 
-![image](assets/tutorials/quick_start_windows_4a.png)
+![image](../../assets/tutorials/quick_start_windows_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](assets/tutorials/quick_start_windows_4b.png)
+![image](../../assets/tutorials/quick_start_windows_4b.png)
 
 Saisissez le nom de votre partition pour la macro **DISKNAME**, ajoutez la valeur **--regexp** pour la macro
 **EXTRAOPTIONS** afin de ne pas donner le nom complet de la partition et cliquez sur le bouton **Save** pour ajouter
@@ -156,25 +156,25 @@ cet indicateur à la configuration.
 
 Faites de même pour ajouter la supervision de la bande passante des interfaces réseau :
 
-![image](assets/tutorials/quick_start_windows_5.png)
+![image](../../assets/tutorials/quick_start_windows_5.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
-Rendez-vous ensuite dans le menu **Monitoring \> Status Details \> Services** et sélectionnez la valeur **All** pour le
+Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_windows_6.png)
+![image](../../assets/tutorials/quick_start_windows_6.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](assets/tutorials/quick_start_windows_7.png)
+![image](../../assets/tutorials/quick_start_windows_7.png)
 
-Il est également possible d'accèder au menu **Configuration \> Services \> Templates** pour en connaître la liste :
+Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](assets/tutorials/quick_start_windows_8.png)
+![image](../../assets/tutorials/quick_start_windows_8.png)
 
 Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -217,13 +217,13 @@ List interfaces:
 
 ## Superviser un routeur Cisco en SNMP
 
-Rendez-vous dans le menu **Configuration \> Plugin Packs** et installez le Plugin Pack **Cisco Standard** :
+Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Cisco Standard** :
 
-![image](assets/tutorials/quick_start_cisco_0.gif)
+![image](../../assets/tutorials/quick_start_cisco_0.gif)
 
-Rendez-vous maintenant dans le menu **Configuration \> Hosts \> Hosts** et cliquez sur le bouton **Add** :
+Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](assets/tutorials/quick_start_cisco_1.png)
+![image](../../assets/tutorials/quick_start_cisco_1.png)
 
 Renseignez les informations suivantes :
 
@@ -239,49 +239,49 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_cisco_2.png)
+![image](../../assets/tutorials/quick_start_cisco_2.png)
 
-Rendez-vous dans le menu **Configuration \> Services \> Services by host**. Un ensemble d'indicateurs a été déployé
+Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_cisco_3.png)
+![image](../../assets/tutorials/quick_start_cisco_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision de
 la bande passante d'une interface réseau :
 
-![image](assets/tutorials/quick_start_cisco_4a.png)
+![image](../../assets/tutorials/quick_start_cisco_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **Net-Cisco-Standard-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](assets/tutorials/quick_start_cisco_4b.png)
+![image](../../assets/tutorials/quick_start_cisco_4b.png)
 
 Saisissez le nom de votre interface pour la macro **INTERFACENAME** et cliquez sur le bouton **Save** pour ajouter cet
 indicateur à la configuration.
 
 Faites de même pour ajouter la supervision des erreurs de paquets :
 
-![image](assets/tutorials/quick_start_cisco_5.png)
+![image](../../assets/tutorials/quick_start_cisco_5.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
-Rendez-vous ensuite dans le menu **Monitoring \> Status Details \> Services** et sélectionnez la valeur **All** pour le
+Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_cisco_6.png)
+![image](../../assets/tutorials/quick_start_cisco_6.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Cisco Standard** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](assets/tutorials/quick_start_cisco_7.png)
+![image](../../assets/tutorials/quick_start_cisco_7.png)
 
-Il est également possible d'accèder au menu **Configuration \> Services \> Templates** pour en connaître la liste :
+Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](assets/tutorials/quick_start_cisco_8.png)
+![image](../../assets/tutorials/quick_start_cisco_8.png)
 
 Pour connaître le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -329,13 +329,13 @@ List ports with Spanning Tree Protocol:
 
 ## Superviser une base de données MySQL ou MariaDB
 
-Rendez-vous dans le menu **Configuration \> Plugin Packs** et installez le Plugin Pack **MySQL/MariaDB** :
+Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **MySQL/MariaDB** :
 
-![image](assets/tutorials/quick_start_mysql_0.gif)
+![image](../../assets/tutorials/quick_start_mysql_0.gif)
 
-Rendez-vous maintenant dans le menu **Configuration \> Hosts \> Hosts** et cliquez sur le bouton **Add** :
+Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](assets/tutorials/quick_start_mysql_1a.png)
+![image](../../assets/tutorials/quick_start_mysql_1a.png)
 
 Renseignez les informations suivantes :
 
@@ -348,7 +348,7 @@ Cliquez sur le bouton **+ Add a new entry** pour le champ **Templates** puis sé
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](assets/tutorials/quick_start_mysql_1b.png)
+![image](../../assets/tutorials/quick_start_mysql_1b.png)
 
 Renseigner la valeur des macros suivantes :
 
@@ -360,40 +360,40 @@ Puis, cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_mysql_2.png)
+![image](../../assets/tutorials/quick_start_mysql_2.png)
 
-Rendez-vous dans le menu **Configuration \> Services \> Services by host**. Un ensemble d'indicateurs a été déployé
+Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_mysql_3.png)
+![image](../../assets/tutorials/quick_start_mysql_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
-Rendez-vous ensuite dans le menu **Monitoring \> Status Details \> Services** et sélectionnez la valeur **All** pour le
+Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_mysql_4.png)
+![image](../../assets/tutorials/quick_start_mysql_4.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](assets/tutorials/quick_start_mysql_5.png)
+![image](../../assets/tutorials/quick_start_mysql_5.png)
 
-Il est également possible d'accèder au menu **Configuration \> Services \> Templates** pour en connaître la liste :
+Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](assets/tutorials/quick_start_mysql_6.png)
+![image](../../assets/tutorials/quick_start_mysql_6.png)
 
 ## Superviser une imprimante en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Printer Standard** :
 
-![image](assets/tutorials/quick_start_printer_0.gif)
+![image](../../assets/tutorials/quick_start_printer_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](assets/tutorials/quick_start_printer_1.png)
+![image](../../assets/tutorials/quick_start_printer_1.png)
 
 Renseignez les informations suivantes :
 
@@ -409,29 +409,29 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_printer_2.png)
+![image](../../assets/tutorials/quick_start_printer_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_printer_3.png)
+![image](../../assets/tutorials/quick_start_printer_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_printer_4.png)
+![image](../../assets/tutorials/quick_start_printer_4.png)
 
 ## Superviser un onduleur en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **UPS Standard** :
 
-![image](assets/tutorials/quick_start_ups_0.gif)
+![image](../../assets/tutorials/quick_start_ups_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](assets/tutorials/quick_start_ups_1.png)
+![image](../../assets/tutorials/quick_start_ups_1.png)
 
 Renseignez les informations suivantes :
 
@@ -447,19 +447,19 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](assets/tutorials/quick_start_ups_2.png)
+![image](../../assets/tutorials/quick_start_ups_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](assets/tutorials/quick_start_ups_3.png)
+![image](../../assets/tutorials/quick_start_ups_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](assets/tutorials/quick_start_ups_4.png)
+![image](../../assets/tutorials/quick_start_ups_4.png)
 
 ## Déployer une configuration
 
@@ -469,16 +469,16 @@ effectuées, il est nécessaire de suivre la procédure suivante ci-dessous.
 
 #### Première étape
 
-1. Rendez-vous dans le menu **Configuration \> Pollers**
+1. Rendez-vous dans le menu **Configuration > Pollers**
 2. Choisissez les collecteurs sur lesquels exporter la configuration
 3. Cliquez sur **Apply configuration**
 
-![image](assets/configuration/poller_menu_generate.png)
+![image](../../assets/configuration/poller_menu_generate.png)
 
 4. Cochez les cases **Generate Configuration Files** et **Run monitoring engine debug (-v)**
 5. Cliquez sur **Export**
 
-![image](assets/configuration/poller_generate_1.png)
+![image](../../assets/configuration/poller_generate_1.png)
 
 Vérifier qu'aucune erreur n'apparait lors de la génération. 
 
@@ -490,4 +490,4 @@ Vérifier qu'aucune erreur n'apparait lors de la génération.
 2.	Puis cochez les cases **Move Export Files** ainsi que **Restart Monitoring Engine**
 3.	Cliquez sur **Export**
 
-![image](assets/configuration/poller_generate_2.png)
+![image](../../assets/configuration/poller_generate_2.png)

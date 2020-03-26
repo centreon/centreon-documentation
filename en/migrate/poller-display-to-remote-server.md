@@ -7,7 +7,7 @@ title: Migrate a platform with Poller Display module
 
 If the module **centreon-poller-display-central-1.6.x** is installed:
 
-1. Go to the **Administration \> Extensions \> Modules** menu and uninstall the
+1. Go to the **Administration > Extensions > Modules** menu and uninstall the
 **centreon-poller-display-central**.
 
 2. Remove the associated package:
@@ -17,15 +17,15 @@ If the module **centreon-poller-display-central-1.6.x** is installed:
     ```
 
 If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4.html) to upgrade your Central server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
+*[upgrade procedure](../upgrade/upgrade-from-3-4.html)* to upgrade your Central server.
+Otherwise, refer to the *[migration procedure](../migrate/migrate-from-3-4.html)*.
 
 > If you use the Centreon EMS modules, you must update these repositories. Be sure
 > to contact Centreon support and request new licenses.
 
 ## Migrate a Poller from Poller Display module to Remote Server
 
-1. Go to the **Administration \> Extensions \> Modules** menu and uninstall the
+1. Go to the **Administration > Extensions > Modules** menu and uninstall the
 **Centreon Poller Display** module.
 
 2. If you installed the module using an RPM package, remove it with the
@@ -36,13 +36,13 @@ following command:
     ```
 
 3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
-[upgrade procedure](../upgrade/upgrade-from-3-4.html) to upgrade your Central server.
-Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
+*[upgrade procedure](../upgrade/upgrade-from-3-4.html)* to upgrade your Central server.
+Otherwise, refer to the *[migration procedure](../migrate/migrate-from-3-4.html)*.
 
     > If you use Centreon EMS modules, you must update the repositories. Be sure to
     > contact your Centreon support and request new licenses.
 
-4. Go to **Administration \> Extensions \> Modules** menu and install the
+4. Go to **Administration > Extensions > Modules** menu and install the
 **centreon-license-manager** module.
 
 5. Execute the following command:
@@ -92,8 +92,8 @@ user on the central server:
 8. **On the Centreon Central server**, edit all pollers and attach them to the
 **Remote Server** using the selection list.
 
-> Remember to [generate the configuration](../monitoring/deploy.html) for your **Remote
-> Server**.
+> Remember to *[generate the configuration](../monitoring/deploy.html)* for your
+> **Remote Server**.
 
 > A Centreon Remote Server is self-administered.
 >

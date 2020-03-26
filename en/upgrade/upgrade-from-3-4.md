@@ -6,7 +6,7 @@ title: Upgrade from Centreon 3.4
 This chapter describes how to upgrade your platform to version Centreon 20.04.
 
 > Upon completing the upgrade procedure, Centreon EMS users will have to request a
-> new license from [Centreon support](https://centreon.force.com).
+> new license from *[Centreon support](https://centreon.force.com)*.
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on **Red Hat / CentOS version 7** distributions.
@@ -128,24 +128,24 @@ Log on to the Centreon web interface to continue the upgrade process:
 
 Click on **Next**:
 
-![image](assets/upgrade/web_update_1.png)
+![image](../../assets/upgrade/web_update_1.png)
 
 Click on **Next**:
 
-![image](assets/upgrade/web_update_2.png)
+![image](../../assets/upgrade/web_update_2.png)
 
 The release notes describe the main changes. Click on **Next**:
 
-![image](assets/upgrade/web_update_3.png)
+![image](../../assets/upgrade/web_update_3.png)
 
 This process performs the various upgrades. Click on **Next**:
 
-![image](assets/upgrade/web_update_4.png)
+![image](../../assets/upgrade/web_update_4.png)
 
 Your Centreon server is now up to date. Click on **Finish** to access the login
 page:
 
-![image](assets/upgrade/web_update_5.png)
+![image](../../assets/upgrade/web_update_5.png)
 
 To upgrade your Centreon BAM module, TODO
 
@@ -178,7 +178,7 @@ To make sure Broker and Engine's Broker module are using new configuration files
 follow this steps:
 
 1. Deploy Central's configuration from the Centreon web UI by following
-[this procedure](../monitoring/deploy.html),
+*[this procedure](../monitoring/deploy.html)*,
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
@@ -212,7 +212,7 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-[this procedure](../monitoring/deploy.html), and choose *Restart* method for Engine process.
+*[this procedure](../monitoring/deploy.html)*, and choose *Restart* method for Engine process.
 
 ## Upgrading the Centreon Poller Display
 

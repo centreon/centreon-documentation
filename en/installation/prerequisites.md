@@ -51,7 +51,7 @@ The following table describes the software dependencies:
 
 ## Centreon Server Requirements
 
-> Centreon offers a [workbook](../assets/files/Centreon_platform_sizing.xlsx) to calculate the size of your platform.
+> Centreon offers a [workbook](../../assets/files/Centreon_platform_sizing.xlsx) to calculate the size of your platform.
 
 The table below describes requirements for installing Centreon:
 
@@ -71,7 +71,7 @@ The table below describes requirements for installing Centreon:
 
 ### Define disk space
 
-> Centreon offers a [workbook](../assets/files/Centreon_platform_sizing.xlsx) to calculate the size of your platform.
+> Centreon offers a [workbook](../../assets/files/Centreon_platform_sizing.xlsx) to calculate the size of your platform.
 
 The space used to store collected performance data depends on several criteria:
 

@@ -7,7 +7,7 @@ title: HP OMI
 
 HP OMI stream connector sends events related data to HP OMI
 
-![architecture](assets/integrations/stream-connectors/sc-omi-architecture.png)
+![architecture](../../../assets/integrations/stream-connectors/sc-omi-architecture.png)
 
 ## Compatibility
 
