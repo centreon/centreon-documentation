@@ -3,10 +3,9 @@ id: introduction
 title: Introduction
 ---
 
-The service mapping capabilities in Centreon relies on the **Centreon Business
-Activity Monitoring (BAM)** extension.
+The reporting capabilities in Centreon relies on the **Centreon Monitoring Business Intelligence (MBI)** extension.
 
-> Centreon BAM is a Centreon **extension** that requires a valid license key. To
+> Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](sales@centreon.com).
 
