@@ -16,15 +16,25 @@ facilitate management of an IT environment. Centreon MBI analyzes data
 from monitored events, performance counters and capacity accessed from
 the Centreon Enterprise Monitoring Solution (EMS), providing you with
 full visibility of your infrastructures and application activities
-through *ITIL compliant* reporting. Centreon MBI provides a full package
-of standard reports that address:
+through *ITIL compliant* reporting. 
+
+
+Generate insightful statistics using our 30+ reports designs\...
+
+![image](_static/first_page.png)
+
+Centreon MBI provides a full package of standard reports that address:
 
 -   Capacity planning and management
 -   Availability management
 -   SLA (Service Level Agreement) management
 -   Performance management.
 
-**Here are some examples of reports available in Centreon MBI** : ![alt-text](assets/reportnig/Centreon-MBI-Samples-of-Reports.pdf)
+**Here are some examples of reports available in Centreon MBI** : ![alt-text](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
+
+or simply create your own reporting Dashboard using our widgets.
+
+![image](assets/reporting/dashboard.png)
 
 Main features:
 
