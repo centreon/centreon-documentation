@@ -14,21 +14,24 @@
 .homepageCustom.bgLightPurple {
   background: rgba(94, 83, 199, 14%);
   color: rgba(94, 83, 199, 1);
+  
 }
 
 .homepageCustom h1 {
+  line-height: 1;
   font-family:  $roboto;
   font-size: 50px;
   color: rgba(34, 46, 59, 1);
-  margin: 0 auto;
-  padding-left: 15%;
-  padding-right: 15%;
+  margin-top: 1em;
+  height: 5%;
+  width: 48%;
+  margin-left: 25%;
 }
 
 .homepageCustom .subTitle {
   margin: auto;
-  padding-left: 20%;
-  padding-right: 20% ;
+  padding-left: 30%;
+  padding-right: 30% ;
   font-size: 18px;
 }
 
@@ -45,7 +48,7 @@
 }
 
 .homepageCustom .containerBloc .cardBar .cardContent {
-  width: 300px;
+  width: 200px;
   height: 160px;
   margin: 44px;
   text-align: center;
@@ -67,11 +70,12 @@
   width: 170px;
   color: rgba(255, 255, 255, 1);
   border-radius: 5px;
-  height: 45px;
-  margin-top: 20px;
+  height: 40px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 16px;
 }
 
 .tittle-section {
