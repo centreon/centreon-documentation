@@ -15,6 +15,11 @@ vous apporte une visibilité complète sur vos infrastructures et vos
 activités avec un reporting aux normes ITIL  sur les évènements, les 
 compteurs de performances ainsi que les données de capacité provenant de Centreon.
 
+Vous pouvez suivre la santé de votre SI grâce à de nombreux modèles de
+rapports paramétrables
+
+![image](_static/first_page.png)
+
 Centreon MBI fournit un ensemble complet de rapports standards sur:
 
 -   La gestion de capacité
@@ -23,9 +28,14 @@ Centreon MBI fournit un ensemble complet de rapports standards sur:
     management
 -   La gestion des performances
 
-**Voici quelques exemples de rapports disponibles dans Centreon MBI** : ![alt-text](assets/reportnig/Centreon-MBI-Samples-of-Reports.pdf)
+**Voici quelques exemples de rapports disponibles dans Centreon MBI** : ![alt-text](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
 
-Principales catactéristiques:
+Et également grâce à de nombreux widgets de reporting exploitables
+directement sur Centreon
+
+![image](assets/reporting/dashboard.png)
+
+Principales fonctionnalités:
 
 -   Planification et génération des rapports aux formats PDF, Excel,
     Word et PPT
