@@ -153,7 +153,24 @@
             "analytics/init-analytics"
         ],
         "Administration": [
-            "administrate/init-administrate"
+            "administration/accessing-to-centreon-ui",
+            {
+                "ids": [
+                    "administration/parameters/centreon-ui",
+                    "administration/parameters/monitoring",
+                    "administration/parameters/gorgone",
+                    "administration/parameters/my-account",
+                    "administration/parameters/ldap",
+                    "administration/parameters/rrdtool",
+                    "administration/parameters/debug",
+                    "administration/parameters/performance-data-management",    
+                    "administration/parameters/media"
+                ],
+                "label": "Parameters",
+                "type": "subcategory"
+            },
+            "administration/access-control-lists",
+            "administration/extensions"
         ],
         "Update, Upgrade & Migrate": [
             {

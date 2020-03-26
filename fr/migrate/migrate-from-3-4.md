@@ -17,7 +17,7 @@ et disposant des prérequis suivants :
 
 > Si votre plate-forme a été installé à partir de l'ISO Centreon ou des dépôts
 > Centreon 3.4 sur CentOS ou Red Hat en version 7, référez-vous à la documentation
-> de [montée de version](../upgrade/upgrade-from-3-4.html).
+> de *[montée de version](../upgrade/upgrade-from-3-4.html)*.
 
 ## Migration
 
@@ -27,15 +27,15 @@ et disposant des prérequis suivants :
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
 > Display 1.6.x**, référez-vous à la
-> [procédure de migration](../upgrade/poller-display-to-remote-server.html).
+> *[procédure de migration](../upgrade/poller-display-to-remote-server.html)*.
 
 ### Installation du nouveau serveur
 
 Réalisez les actions suivantes :
 
 1. Installez un nouveau serveur Centreon à partir de
-[l'ISO](../installation/centreon-from-iso.html) ou des
-[paquets](../installation/centreon-from-packages.html) jusqu'à terminer le
+*[l'ISO](../installation/centreon-from-iso.html)* ou des
+*[paquets](../installation/centreon-from-packages.html)* jusqu'à terminer le
 processus d'installation en vous connectant à l'interface web.
 
 2. Réalisez les mises à jour logicielle et système :

@@ -7,7 +7,7 @@ Ce chapitre décrit la procédure de mise à jour de votre plate-forme vers
 Centreon 20.04.
 
 > A la fin de cette procédure, les utilisateurs de Centreon EMS devront demander
-> de nouvelles licenses au [Support Centreon](https://centreon.force.com).
+> de nouvelles licenses au *[Support Centreon](https://centreon.force.com)*.
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -134,24 +134,24 @@ jour :
 
 Cliquez sur **Next** :
 
-![image](assets/upgrade/web_update_1.png)
+![image](../assets/upgrade/web_update_1.png)
 
 Cliquez sur **Next** :
 
-![image](assets/upgrade/web_update_2.png)
+![image](../assets/upgrade/web_update_2.png)
 
 La note de version présente les principaux changements, cliquez sur **Next** :
 
-![image](assets/upgrade/web_update_3.png)
+![image](../assets/upgrade/web_update_3.png)
 
 Le processus réalise les différentes mises à jour, cliquez sur **Next** :
 
-![image](assets/upgrade/web_update_4.png)
+![image](../assets/upgrade/web_update_4.png)
 
 Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
 accéder à la page de connexion :
 
-![image](assets/upgrade/web_update_5.png)
+![image](../assets/upgrade/web_update_5.png)
 
 Pour mettre à jour votre module Centreon BAM, TODO
 
@@ -170,6 +170,12 @@ systemctl enable gorgoned
 systemctl start gorgoned
 ```
 
+> Par défaut, la communication entre le Central et les Pollers ou Remote
+> Servers sera toujours effectuée en utilisant le protocole SSH.
+>
+> Reportez vous à la procédure *TODO* pour modifier le protocole de
+> communication.
+
 #### Redémarrage des processus de supervision
 
 Le composant Centreon Broker a changé le format de son fichier de configuration.
@@ -180,7 +186,7 @@ Pour être sur que Broker et que le module Broker de Engine utilisent les nouvea
 fichiers de configuration, suivez ces étapes :
 
 1. Déployer la configuration du Central depuis l'interface web en suivant
-[cette procedure](../monitoring/deploy.html),
+*[cette procedure](../monitoring/deploy.html)*,
 2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
 suivante:
 
@@ -214,7 +220,7 @@ Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-[cette procedure](../monitoring/deploy.html), et en choisissant la méthode
+*[cette procedure](../monitoring/deploy.html)*, et en choisissant la méthode
 *Redémarrer* pour le processus Engine
 
 ## Mise à jour des serveurs Poller Display

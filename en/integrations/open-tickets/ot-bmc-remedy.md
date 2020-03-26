@@ -8,7 +8,7 @@ title: BMC Remedy
 BMC Remedy open-tickets provider uses the BMC Remedy SOAP API to open incidents
 about your monitoring alerts.
 
-![architecture](assets/integrations/open-tickets/ot-bmc-remedy-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-bmc-remedy-architecture.png)
 
 ## Compatibility
 

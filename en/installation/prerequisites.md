@@ -127,7 +127,6 @@ Files system description:
 | /var/lib/mysql             | [defined in a previous chapter](#define-disk-space)                    |
 | /var/cache/centreon/backup | at least 10 Go (export the backups and delete the exported data daily) |
 
-
 #### Monitoring poller
 
 Files system description:
@@ -159,7 +158,6 @@ Description of software and linked users:
 | Centreon Engine | centengine       | centreon-engine | automatic start       |
 
 Description of optional software and linked users:
-
 
 | Software        | Service         | User      | Comment                                            |
 |-----------------|-----------------|-----------|----------------------------------------------------|

@@ -59,12 +59,6 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 The repository is now installed.
 
-Some may not have the wget package installed. If not perform the following:
-
-``` shell
-yum install -y wget
-```
-
 ## Install a Centreon Central server
 
 This section describes how to install a Centreon Central server.
@@ -265,10 +259,10 @@ systemctl enable httpd24-httpd
 systemctl enable snmpd
 systemctl enable snmptrapd
 systemctl enable rh-php72-php-fpm
-systemctl enable centcore
 systemctl enable centreontrapd
 systemctl enable cbd
 systemctl enable centengine
+systemctl enable gorgoned
 systemctl enable centreon
 ```
 
@@ -297,8 +291,6 @@ systemctl start centreon
 systemctl start snmpd
 systemctl start snmptrapd
 ```
-
-## First configuration
 
 Conclude installation by performing *[post intallation steps](post-install.html#Web-installation)*.
 

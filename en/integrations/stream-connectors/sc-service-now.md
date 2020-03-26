@@ -8,7 +8,7 @@ title: ServiceNow
 Servicenow stream connector send hosts and services check results from
 centreon-engine to Service Now using its REST API and Service Now Event Manager
 
-![architecture](assets/integrations/stream-connectors/sc-service-now-architecture.png)
+![architecture](../../assets/integrations/stream-connectors/sc-service-now-architecture.png)
 
 ## Compatibility
 

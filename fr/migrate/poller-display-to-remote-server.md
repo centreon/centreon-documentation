@@ -7,7 +7,7 @@ title: Migration d'une plate-forme avec Poller Display
 
 Si le module **centreon-poller-display-central-1.6.x** est installé :
 
-1. Rendez-vous dans le menu **Administration \> Extensions \> Modules** et
+1. Rendez-vous dans le menu **Administration > Extensions > Modules** et
 désinstallez le module **centreon-poller-display-central**
 
 2. Supprimez le paquet associé :
@@ -16,9 +16,9 @@ désinstallez le module **centreon-poller-display-central**
     yum remove centreon-poller-display-central
     ```
 
-Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.html)
+Puis suivez la *[procédure de montée de version](../upgrade/upgrade-from-3-4.html)*
 si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
-[procédure de migration](../migrate/migrate-from-3-4.html) d'un serveur Centreon
+*[procédure de migration](../migrate/migrate-from-3-4.html)* d'un serveur Centreon
 Central vers 20.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
@@ -27,7 +27,7 @@ Central vers 20.04.
 
 ## Migrer un Poller avec Poller Display vers Remote Server
 
-1. Rendez-vous dans le menu **Administration \> Extensions \> Modules** et
+1. Rendez-vous dans le menu **Administration > Extensions > Modules** et
 supprimez le module **Centreon Poller Display**.
 
 2. Si vous avez installé le module à partir du paquet RPM, supprimez le paquet
@@ -38,16 +38,16 @@ en exécutant la commande suivante :
     ```
 
 3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
-7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4.html),
-sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4.html).
+7, réalisez la montée de version en suivant *[cette procédure](../upgrade/upgrade-from-3-4.html)*,
+sinon référez vous à *[la procédure de migration](../migrate/migrate-from-3-4.html)*.
 
     > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
     > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers.
 
-4. Rendez-vous dans le menu **Administration \> Extensions \> Modules** et
+4. Rendez-vous dans le menu **Administration > Extensions > Modules** et
 installez le module **centreon-license-manager**.
 
-5.  Exécutez la commande suivante :
+5. Exécutez la commande suivante :
 
     ```shell
     /usr/share/centreon/bin/centreon -u admin -p <PASSWORD> -a enableRemote -o CentreonRemoteServer -v <IP_CENTREON_CENTRAL>
@@ -98,7 +98,7 @@ commande **LOAD DATA INFILE**:
 tous les collecteurs rattachés au **Remote Server** et liez ceux-ci au
 nouveau Remote Server via la liste de sélection.
 
-> N'oubliez pas de [générer la configuration](../monitoring/deploy.html) de votre
+> N'oubliez pas de *[générer la configuration](../monitoring/deploy.html)* de votre
 > **Remote Server**.
 
 > Un serveur Centreon Remote Server est un serveur dont l’administration est

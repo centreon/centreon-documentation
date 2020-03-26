@@ -13,7 +13,7 @@ Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/cent
 
 Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bouton **Connect** :
 
-![image](assets/tutorials/aconnection.png)
+![image](../assets/tutorials/aconnection.png)
 
 Vous êtes maintenant connecté à l'interface web Centreon.
 
@@ -21,7 +21,7 @@ Vous êtes maintenant connecté à l'interface web Centreon.
 
 L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise :
 
-![image](assets/tutorials/amenu.png)
+![image](../assets/tutorials/amenu.png)
 
 * Le menu **Accueil** permet d'accéder au premier écran d'accueil après s'être connecté. Il résume l'état général de
   la supervision. Votre espace de travail peut être vide pour l'instant. Une fois que vous avez configuré les widgets
@@ -39,11 +39,11 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 Dans le bandeau, cliquez sur l'icône profile, puis cliquez sur **Edit profile**:
 
-![image](assets/tutorials/change_language_1.png)
+![image](../assets/tutorials/change_language_1.png)
 
 Dans la liste de sélection des langages, sélectionnez le vôtre :
 
-![image](assets/tutorials/change_language_2.png)
+![image](../assets/tutorials/change_language_2.png)
 
 Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
@@ -81,13 +81,13 @@ Néanmoins, pour simplifier drastiquement la configuration on s'appuyera avantag
 Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
 Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements. 
 
-![image](assets/tutorials/host_service_command.png)
+![image](../assets/tutorials/host_service_command.png)
 
 > Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
 
 ## Installation des modèles de supervision de base
 
-Rendez-vous dans le menu **Configuration \> Plugin Packs**.
+Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
 > Avant toute chose, appliquez la procédure de configuration du proxy @TODO@(add the link ref:proxyimp)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
@@ -95,15 +95,15 @@ Rendez-vous dans le menu **Configuration \> Plugin Packs**.
 Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
 l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
 
-![image](assets/tutorials/pp_base_generic_1.png)
+![image](../assets/tutorials/pp_base_generic_1.png)
 
 Vous pouvez aussi cliquer sur le Plugin Pack afin d'en connaître son contenu avant de l'installer :
 
-![image](assets/tutorials/pp_base_generic_2.png)
+![image](../assets/tutorials/pp_base_generic_2.png)
 
 Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
 
-![image](assets/tutorials/pp_install_basic.gif)
+![image](../assets/tutorials/pp_install_basic.gif)
 
 Vous disposez maintenant des modèles de base pour configurer votre supervision !
 

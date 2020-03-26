@@ -9,7 +9,7 @@ The GlpiRestApi provider uses the REST API of Glpi to retrieve data in order to
 open a ticket. Since it gathers a lot of configurations objects from Glpi, it
 puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
-![architecture](assets/integrations/open-tickets/ot-glpi-rest-api-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-glpi-rest-api-architecture.png)
 
 ## Compatibility
 
@@ -65,7 +65,7 @@ custom lists
 ## Configuration
 
 You'll find the required **app token** in the following menu:
-![app\_token](assets/integrations/open-tickets/ot-glpi-rest-api-app-token.png)
+![app\_token](../../assets/integrations/open-tickets/ot-glpi-rest-api-app-token.png)
 
 You'll find the **user token** in the following menu:
-![user\_token](iassets/integrations/open-ticketsmg/ot-glpi-rest-api-user-token.png)
+![user\_token](../../assets/integrations/open-ticketsmg/ot-glpi-rest-api-user-token.png)
