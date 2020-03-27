@@ -18,7 +18,7 @@ compteurs de performances ainsi que les données de capacité provenant de Centr
 Vous pouvez suivre la santé de votre SI grâce à de nombreux modèles de
 rapports paramétrables
 
-![image](_static/first_page.png)
+![image](../assets/reporting/first_page.png)
 
 Centreon MBI fournit un ensemble complet de rapports standards sur:
 
@@ -28,7 +28,7 @@ Centreon MBI fournit un ensemble complet de rapports standards sur:
     management
 -   La gestion des performances
 
-**Voici quelques exemples de rapports disponibles dans Centreon MBI** : [Exemple de rapports](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
+**Voici quelques exemples de rapports disponibles dans Centreon MBI** : [Exemple de rapports](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
 
 Et également grâce à de nombreux widgets de reporting exploitables
 directement sur Centreon
