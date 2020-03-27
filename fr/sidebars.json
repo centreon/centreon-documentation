@@ -149,14 +149,11 @@
             },
             "graph-views/release-notes"
         ],
-        "Cartographie des Services et Corrélation": [
-            "service-mapping-correlation/init-service-mapping-correlation"
+        "Reporting": [
+            "reporting/introduction"
         ],
-        "Analytique": [
-            "analytics/init-analytics"
-        ],
-        "Administration": [
-            "administration/init-administrate"
+        "Administrer la Plateforme": [
+            "administrate/init-administrate"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {
