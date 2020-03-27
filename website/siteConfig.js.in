@@ -79,6 +79,7 @@ const siteConfig = {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     themeUrl: '/@BASEURL@/highlight.js-9.12.0-default.min.css',
   },
+  separateCss: ['static/css/highlight.js-9.12.0-default.min.css'],
 
   // Add custom scripts here that would be placed in <script> tags.
   scripts: [
