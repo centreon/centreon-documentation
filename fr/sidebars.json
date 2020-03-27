@@ -150,7 +150,8 @@
             "graph-views/release-notes"
         ],
         "Reporting": [
-            "reporting/introduction"
+            "reporting/introduction",
+            "reporting/installation"
         ],
         "Administrer la Plateforme": [
             "administrate/init-administrate"
