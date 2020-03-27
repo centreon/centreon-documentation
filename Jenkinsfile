@@ -41,7 +41,9 @@ node {
     ])
   }
 
-  stage('Delivery') {
-    sh "./centreon-build/jobs/doc/doc-delivery.sh"
+  if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
+    stage('Delivery') {
+      sh "./centreon-build/jobs/doc/doc-delivery.sh"
+    }
   }
 }
