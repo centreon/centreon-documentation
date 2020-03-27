@@ -15,7 +15,7 @@ Dans ce chapitre, vous trouverez :
 -   le diagramme d'architecture logicielle
 -   le diagramme d'architecture des RPMs
 
-### Une seule architecture possible : un serveur de reporting dédié à Centreon MBI
+### Un serveur de reporting dédié
 
 Cette architecture et les pré-requis présentés sont valables pour les
 environnements suivant:
@@ -24,15 +24,13 @@ environnements suivant:
 -   production
 -   pré-production
 
-Le schéma ci-dessous met en avant les principaux composants de Centreon
-MBI :
+Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 
 ![image](../assets/reporting/installation/architecture.png)
 
-*La base de monitoring n\'est pas nécessairement sur le même serveur que
-le serveur Centreon*
+*La base de monitoring n'est pas nécessairement sur le même serveur que le serveur Centreon*
 
--   **ETL** : Mécanisme d\'extraction, calcul et chargement des données
+-   **ETL** : Mécanisme d'extraction, calcul et chargement des données
     dans la base de données dediée reporting.
 -   **CBIS** : Ordonnanceur gérant la génération et la publication
     automatique des rapports.
@@ -40,30 +38,19 @@ le serveur Centreon*
     de reporting et certaines données extraites de la base de
     monitoring.
 
-Tableaux des flux réseau
-------------------------
+### Tableaux des flux réseau
 
 Dans le tableau ci-dessous, sont représentés les différents flux
 présents entre le serveur de reporting dédié, le serveur Centreon et les
 bases de données, par défaut.
 
-  ---------------------------------------------------------------------------------------
-  **Application**   **Source**        **Destination**           **Port**   **Protocol**
-  ----------------- ----------------- ------------------------- ---------- --------------
-  ETL/CBIS          Serveur de        Serveur de bases de       3306       TCP
-                    reporting         données Centreon                     
-
-  SSH               Serveur de        Serveur Centreon          22         TCP
-                    reporting                                              
-
-  CBIS              Serveur de        Serveur Centreon          80         HTTP\*
-                    reporting                                              
-
-  CBIS              Centreon          Serveur de reporting      1234       TCP
-
-  Widgets           Serveur central   Serveur de reporting      3306       TCP
-                    Centreon                                               
-  ---------------------------------------------------------------------------------------
+  **Application** |  **Source**   |     **Destination**      |     **Port** |  **Protocol**
+  -----------------|-----------------|-------------------------|----------|--------------
+  ETL/CBIS   |       Serveur de reporting   |     Serveur de bases de données Centreon  |     3306   |    TCP
+  SSH               Serveur de reporting    |    Serveur Centreon     |     22     |    TCP
+  CBIS  |            Serveur de reporting |       Serveur Centreon     |     80     |    HTTP\*
+  CBIS   |    Centreon    |      Serveur de reporting   |   1234    |   TCP
+  Widgets      |     Serveur central Centreon |  Serveur de reporting    |  3306    |   TCP
 
 \**Uniquement nécessaire pour les rapports Host-Graph-v2 and
 Hostgroup-Graph-v2*
@@ -71,7 +58,7 @@ Hostgroup-Graph-v2*
 Les RPMs de Centreon MBI
 ------------------------
 
-L\'installation de Centreon MBI est basée sur deux paquets RPM :
+L'installation de Centreon MBI est basée sur deux paquets RPM :
 
 -   **Centreon-bi-server :** Ce paquet installe l\'interface de Centreon
     MBI sur le frontend de Centreon. Ce paquet doit être installé sur le
@@ -81,7 +68,7 @@ L\'installation de Centreon MBI est basée sur deux paquets RPM :
     rapports, les rapports standards et l\'ETL. Il doit être installé
     sur un serveur dédié aux processus de reporting.
 
-L\'installation du moteur de base de données doit être faite en même
+L'installation du moteur de base de données doit être faite en même
 temps. Nous conseillons fortement d\'installer la base MariaDB sur le
 serveur de reporting pour des questions de performances & d\'isolation.
 
@@ -94,20 +81,12 @@ installées mais ne sont pas représentées ici.
 
 ## Pré-requis 
 
-Pré-requis : serveur Centreon
------------------------------
+### Server Centreon central
 
 **Logiciels**
 
-  -------------- ---------
-  Centreon Web   19.10.x
+* Centreon Web 20.10
 
-  -------------- ---------
-
-::: {.note}
-::: {.title}
-Note
-:::
 
 \* Vérifiez que *date.timezone* est correctement configurée dans le
 fichier /etc/opt/rh/rh-php71/php.ini (même que celui retourné par la
