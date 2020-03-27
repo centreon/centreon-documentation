@@ -1,0 +1,630 @@
+---
+id: installation
+title: Installation
+---
+
+> Centreon MBI is a Centreon **extension** that requires a valid license key. To
+> purchase one and retrieve the necessary repositories, contact
+> [Centreon](sales@centreon.com).
+
+
+Four major steps to installing Centreon MBI:
+
+-   Check the system prerequisites.
+-   Install the Centreon MBI interface in the Centreon application (Centreon MBI Server).
+-   Install the reporting server (Centreon MBI Reporting Server).
+-   Configure Extract, Transform, Load (ETL) in the Centreon MBI.
+
+## Architecture
+
+This chapter describes the Centreon MBI architecture and provides an
+overview of how the extension is integrated into Centreon monitoring
+software.
+
+The information is addressed to administrators who will be installing or
+configuring Centreon MBI.
+
+### Dedicated reporting server
+
+This architecture and prerequisites apply to:
+
+-   Test environnements
+-   Pre-production environments
+-   Production environments.
+
+The diagram below shows the main components of Centreon MBI:
+
+![image](../assets/reporting/installation/architecture.png)
+
+*The monitoring database can be installed on a server other than the
+Centreon server.*
+
+-   **ETL**: Process that extracts, transforms and loads data into the
+    reporting database.
+-   **CBIS**: Scheduler that manages job execution and publication.
+-   **Reporting database**: MySQL database that contains reporting data
+    and some raw data extracted from the monitoring database.
+
+### Network flow table
+
+The table below presents the different types of flow, by default,
+between the dedicated BI server, Centreon server and databases:
+
+  **Application** |  **Source** |       Destination     |   Port |  Protocol
+  -----------------|-----------------|------------------|------|----------
+  ETL/CBIS        |  Reporting server|  Centreon Database|  3306   |TCP
+  SSH    |           Reporting server |  Centreon           | 22|     TCP
+  CBIS    |          Centreon       |   Reporting server |  1234 |  TCP
+  CBIS    |          Reporting server | Centreon  |         80 |    HTTP\*
+  Widgets    |       Centreon   |       Reporting server  | 3306  | TCP
+
+
+\**Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use Centreon API to generate graphs*
+
+### Packages information
+
+Centreon MBI installation requires two RPM packages:
+
+-   Centreon-bi-server: Installs the Centreon MBI interface integrated
+    into the Centreon front end and must reside on the Centreon Web
+    Server.
+-   Centreon-bi-reporting-server: Contains all the components needed to
+    run the reporting server -- report scheduler, ETL, standards reports
+    -- and must reside on a dedicated server for reporting processes.
+
+You should install the MariaDB database at the same time. We highly
+recommand installing the database on the same server for performance &
+isolation considerations.
+
+## Prerequisites
+
+### Centreon central server
+
+**Software**
+
+-   Centreon 20.04
+-   Check that the parameter *date.timezone* is correctly configured in
+    /etc/opt/rh/rh-php72/php.ini (same timezone displayed with the
+    command "timedatectl status")
+
+-   Avoid the usage of the following variables in your monitoring MySQL
+    configuration. They halt long queries execution and can stop the ETL
+    or the report generation jobs:
+
+    -   wait_timeout
+    -   interactive_timeout
+
+**Users and groups**
+
+  User       |         Group
+  ----|---
+  centreonBI (new) |   apache, centreon, centreonBI 
+  apache (existing)  | centreonBI
+
+**Description of users, umask and home directory**
+
+  User     | umask |  home
+  --|--|--
+  centreonBI |  0002  |  /home/centreonBI
+
+
+### Reporting dedicated server
+
+**Hardware**
+
+|Monitored services  |    CPU        |         RAM
+---------------------|----------------|---------------
+|  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum     |
+|  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum     |
+| >= 20 000 and < 40 000      | 4 CPU (3GHz) minimum   | 24GB minimum     |
+| > 40 000 and < 100 000    | 8 CPU (3GHz) minimum   | 32GB minimum     |
+| > 100 000              | > Contact Centr        | eon              |
+
+**Storage space**: Use the following storage estimation file 
+
+**File system**
+  
+| File system        |   Size |
+---------------------|--------
+| /                  |    5GB minimum |
+| /var               |(containing Use the result of the above disk-space simulation file MySQL data) |
+| MySQL temp folder  |    We recommand keeping it in /var  |
+| Volume group\*     | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data** |
+                   
+To check the free space use the command below, replacing vg\_data by the
+Volume group name:
+
+  vgdisplay vg_data | grep -i free
+
+**Software**
+
+  - *OS*         CentOS 7 / Redhat 7
+  - *SGBD*       MariaDB 10.3.x (automatically installed)
+  - *Firewall*   Disabled
+  - *SELinux*    Disabled
+
+We advise to tune your MySQL database server on your reporting server in
+order to have better performance. You will need at least 12GB on your
+reporting server to run the configuration file provided below. Add the
+[following file](assets/reporting/centreon.cnf) on your reporting server in /etc/my.cnf.d/.
+Make sure to have a *tmp* folder in */var/lib/mysql*.
+
+> Do not set these MySQL optimizations on your monitoring server.
+
+Users and groups :
+
+| User       | Group      |
+|------------|------------|
+| centreonBI | centreonBI |
+
+Description of users, umask and home directory:
+
+| User       | umask      | home              |
+|------------|------------|-------------------|
+| centreonBI | 0002       |  /home/centreonBI |
+
+
+
+### Best practices for monitoring 
+
+
+#### Quality of plugins, performance and capacity data
+
+To obtain reporting on performance data using default Centreon MBI
+reports, you should monitor at least some basic performance indicators
+(metrics):
+
+-   CPU -- Should return a percentage value, using one or more metrics
+    (cpu_total, cpu_sys, cpu_1, etc.), with 100 as the maximum value.
+-   Memory should return at least one metric with this information:
+
+  -   Memory usage: the value expressed in bytes only
+  -   Memory usage warning threshold
+  -   Memory usage critical threshold
+  -   Total allocated memory in Bytes.
+ 
+The plugin for monitoring this indicator must return the following output:
+ 
+    status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value
+
+-   Storage usage -- Two possible kinds of service:
+
+  -  Monitoring one partition by service (metrics are often designated  as "used" and "size")
+  -   Monitoring multiple partitions by service and each metric corresponds to a partition name.
+
+ In this two cases, the performance data returned by storage plugins have to correspond to this format:
+
+    status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value metric_name_2=value...
+
+-   Traffic -- Standard traffic reports use two metrics in parameters,
+    one for the inbound traffic and one for the outbound. For
+    compatibility, your plugins must return two metrics, although their
+    names do not matter. For each metric, the maximum possible value
+    must be specified. This is the recommended plugin format:
+
+
+    any status information | $inboundTrafic=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value $outBoundTrafic=...
+
+
+> Using the Centreon Plugin Packs guarantees the quality of your data.
+
+#### Default units
+
+Be sure that the data sent by the plugins is expressed in the same units
+as similar data used with other services. We strongly recommend
+verifying that the plugins use these units:
+
+-   Time: seconds
+-   Traffic: bits/sec
+-   Storage: bytes
+-   Memory/Swap: bytes
+
+
+> Using the Centreon Plugin Packs guarantees the quality of your data.
+
+### Best practices for configuring Centreon objects
+
+In Centreon MBI, each report design has several parameters that allow
+you to generate customized documents according to your business
+requirements.
+
+Parameter types can be:
+
+-   A main object on which the report will be generated, such as:
+    -   A host  
+    -   A host group: functional group defined in Centreon to classify 
+  hosts by customer, application, business unit, country, etc.
+    -   Several host groups.
+
+-   A time period (or "Business hours" also called "Live service")
+    for which statistics will be calculated.
+-   Filters that take into account only specific types of hardware,
+    services and metrics from selected host groups:
+
+ -   Host categories: Classifies hosts into technical groups for determining the type or technical function 
+ of a host (e.g., Linux servers, Windows servers, Cisco routers, printers).
+ -   Service categories: Defines the type of service (e.g., CPU, physical memory, storage).
+ -   Metrics: Indicates performance data collected by the services
+ (monitoring indicators). One monitoring service can collect
+ several metrics. However metric names and units are not
+ standardized. For instance, one CPU-type service can collect only
+ a metric called "cpu_average" defined in percentages, and
+ another CPU-type service can collect a metric by CPU core
+ configured in the hardware. Therefore, when generating a report,
+ it is essential to select the metrics used in the statistic calculation.
+
+### Host groups and categories
+
+The definitions of host groups and categories listed in the previous
+chapter comply with the best practices established by Centreon.
+
+However, the groups and categories that you create should correspond to
+your business requirements.
+
+Example:
+
+If you need to report the number of alerts generated by IT field, with a
+detailed distribution by type of hardware, you will have to define the
+host groups and categories using this method:
+
+-   Host groups: **Databases**, Applications, Security, Network, Mail,
+    etc.
+-   Host categories: DB2-Servers, MySQL-Servers, Oracle-Servers,
+    SQL-Servers, etc.
+
+Here is an exemple of statistics that you can obtain using those groups
+and categories:
+
+![image](assets/reporting/installation/pie_charts.png)
+
+The host group is the first analysis axis. The host category allows you
+to analyze the statistics in subsets.
+
+In the same way, we can analyze the statistics using the following
+dimensions:
+
+-   By country (host group) with a data distribution by type of network
+    hardware (host category)
+-   By country (host group) with a data distribution by customer (host
+    category)
+-   By customer (host group) with a data distribution by country (host
+    category)
+-   By customer (host group) with a data distribution by application
+    server (host category)
+
+There is no standard set of rules for defining host groups and
+categories. They must correspond to your reporting needs.
+
+**Creating categories and groups**
+
+-   You associate hosts to host groups in the *Configuration \> Hosts \>
+    Host groups* menu on the Centreon interface. You can also use the
+    Tab *Relations* in the host add/modification form.
+-   You associate hosts and host categories in the menu
+    *Configuration \> Hosts \> Categories*. You can also use the Tab
+    *Relations* in the host add/modification form.
+
+### Service categories
+
+Service categories allow you to organize services (monitoring
+indicators) into subsets. The most common usage of service categories is
+for defining categories based on service types, e.g., CPU, physical
+memory, storage, Process-Oracle, DNS, Process-WebSphere.
+
+This type of configuration lets you:
+
+-   Compare the number of alerts generated by each type of service.
+-   Select the service category that indicates storage usage information
+    when you need to generate a capacity report.
+
+**Like the host groups and categories, service categories must be
+defined according to your reporting needs.**
+
+For instance, if you need to analyze the storage space allocated and
+used by DBMS or an application type, you may need to create several
+service categories. Instead of using only one service category named
+\"Storage\" or \"Disk\" you could create these service categories:
+
+-   "Operating system"
+-   "Oracle"
+-   "SQL Server"
+
+Here is an exemple of statistics that you can obtain using these service
+categories:
+
+![image](assets/reporting/installation/storage_example.png)
+
+You associate services and service categories in the *Configuration > Services > Categories* menu in
+the Centreon Interface. You can also use the *Relation* tab in the add/modification form of a given service.
+
+> For managing service categories, we highly recommand that you only use the service templates.
+
+
+## Install the extension on Centreon
+
+The tasks explained in this chapter must be performed on the Centreon
+central server.
+
+Contact the CENTREON service desk to access and install the Centreon MBI
+repository on the Centreon central server.
+
+Run the following command: :
+
+    yum install centreon-bi-server
+
+### Activate the extension
+
+The menu *Administration > Extension > Manager* of Centreon enables you to
+install the different extension detected by Centreon. Click on the "Centreon MBI" card to install it.
+
+Upload the license sent by the Centreon team to be able to start configuring the General Options.
+
+### Configure the general options
+
+Set the following parameters in the General Options menu *Reporting \>
+Monitoring Business Intelligence \> General Options* :
+
+
+  Tab     |     Option |                   Value
+  ------------|-------------------------|--------------------------------
+  Scheduler  Options | CBIS Host |                Reporting server IP Address
+  ETL Options  | Reporting engine uses a dedicated MySQL server |  Yes
+  Reporting Widgets \* |  Reporting MySQL database | Reporting database IP Address (default = same as CBIS Host)
+
+
+\* *The connection test will not yet work at this stage of the
+installation process.*
+
+### Centreon central databases access
+
+
+#### Case #1: MySQL monitoring database is hosted on the Central monitoring server
+
+Launch the command below to authorize the reporting server to connect to
+the monitoring server databases. Use the following option:
+
+**\@ROOTPWD@**: Root MySQL password of the monitoring databases
+server.If there is no password for \"root\" user, don\'t specify the
+option **root-password**.
+
+    /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+
+#### Case #2: MySQL monitoring database is hosted on a dedicated server
+
+Connect by SSH to the database server, and the run the following
+commands: :
+
+    mysql -u root -p
+    mysql> CREATE USER 'centreonbi'@'$BI_ENGINE_IP$' IDENTIFIED BY 'centreonbi';
+    mysql> GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+    mysql> GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+
+**$BI_ENGINE_IP$**: IP address of the reporting server.
+
+> If you\'re using MySQL replication for your **monitoring databases**,
+> certain views are created during installation of Centreon MBI. You need
+> to exclude them from replication by adding the following line in the
+> my.cnf file of the slave server.
+>
+>       replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
+>
+> Then, create the views manually on the slave server by launching the
+> following command line:
+>
+> #mysql centreon < [view_creation.sql](assets/reporting/view_creation.sql)
+
+
+Please go to the next chapter to continue the installation.
+
+## Install the dedicated reporting server
+
+You need the following information available before proceeding with the
+installation process:
+
+-   IP/DNS of the monitoring database
+-   IP/DNS of the Centreon web interface
+-   IP/DNS of the reporting database (localhost highly recommanded)
+-   Access (user/password) to the reporting database
+-   Knowledge of the SSH password (after defining it) for the Centreon
+    BI user on the central monitoring server (to publish reports on the
+    interface).
+
+Contact Centreon Service Desk to obtain and install the Centreon MBI
+repository, then run the following command:
+
+    yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+
+If you installed your reporting server using a fresh CentOS image you
+need to add the following GPG key: :
+
+    cd /etc/pki/rpm-gpg/
+    wget http://yum.centreon.com/standard/20.04/el7/stable/RPM-GPG-KEY-CES
+
+### Reporting server configuration
+
+#### MySQL optimization
+
+Make sure you have installed the MySQL configuration file provided in
+the pre-requisites before starting the MySQL service [following file](assets/reporting/centreon.cnf)
+
+    systemctl restart mysql
+
+For installation, it is necessary to modify **LimitNOFILE** limitation.
+Setting this option in /etc/my.cnf will NOT work.
+
+    mkdir -p  /etc/systemd/system/mariadb.service.d/
+    echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+    systemctl daemon-reload
+    systemctl restart mysql
+
+Then start the service MySQL. If this service cannot start, remove the
+ib_log files before restarting MySQL (be sure MySQL is stopped):
+
+    rm -f /var/lib/mysql/ib_logfile*
+    systemctl restart mysql
+
+If you are using a custom MySQL socket file, modify the `/etc/my.cnf` file
+and in the [client] section, add the following variable:
+
+    socket=$PATH_TO_SOCKET$
+
+### Installation and configuration of the reporting server
+
+First check that the reporting MySQL is running. Then launch the
+following command, answering the questions:
+
+    /usr/share/centreon-bi/config/install.sh
+
+The script handles the SSH exchange key between the monitoring and
+reporting servers and configures the default SFTP publication rule in
+order to publish reports on the Centreon web interface. Finally, it
+activates the backup and starts the CBIS service.
+
+Once installation is complete, go to the next chapter to configure the
+ETL.
+
+### ETL: Configuration
+
+Centreon MBI integrates its own extract, transform, load (ETL)
+capabilities to:
+
+-   Synchronize raw monitoring data with the reporting server.
+-   Calculate availability and performance statistics on the reporting
+    server.
+-   Manage data retention on the reporting server.
+
+Before following the next steps, you should have read
+`the best practice parts <centreon_best_practices>`#TODO to ensure that the Centreon objects (e.g., groups and
+categories) are configured according to Centreon MBI requirements.
+
+In the *Reporting > Business Intelligence > General Options > ETL options* menu 
+of the Centreon server, specify the following options:
+
+
+| **Options**                                                                               |   **Values**                           
+|-------------------------------------------------------------------------------------------|----------------------------------------
+| **General options**                                                                       |                                        |
+  Reporting engine uses a dedicated dedicated MySQL server                                  | Yes. You **must** use a reporting server 
+  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
+  Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
+  Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
+  Use large memory tweaks (store MySQL temporary tables in memory)	                        | Activated only if your MySQL configuration and allocated physical memory on the server permit.
+| **Reporting perimeter selection**                                                         |                                         |
+  Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
+  Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.
+  Service categories	                                                                    | Select only service categories for which you want to aggregate data.
+|**Availability statistic calculation**                                                     |                                         |
+ Live services for availability statistics calculation                                      |   Select required time periods.
+| **Performance and capacity statistic calculation**	                                    |                                         | 
+ Granularity required for performance data statistics                                       | Select level of granularity required to run the desired performance reports (1).
+ Live services for performance data statistics calculation		                            | Select required time periods.
+| **Capacity statistic aggregated by month**                                                |                                         |
+  Live services for capacity statistics calculation	                                        | Select the “24x7” time period.
+  Service categories related to capacity data monitoring	                                | Select the service categories that have been associated with capacity-type services.
+  Exclude metrics from service categories that do not return capacity USAGE information	    | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).
+| **Centile parameters**                                                                    |                                         |
+ Calculating centile aggregation by	                                                        | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.
+ Select service categories to aggregate centile on	                                        | Filter on relevant service categories for centile statistics (e.g., Traffic).
+ First day of the week	                                                                    | Select the first day of the week for Week aggregation.
+ Centile / Timeperiod combination	                                                        | Create a new centile/timeperiod combination on which to perform the calculation.
+
+**(1)** Reports requiring a precise value per hour of performance data
+are listed below. If you do not use the following reports, disable the
+statistics calculation per hour:
+
+-   Hostgroup-Host-details-1
+-   Host-detail-v2
+-   Hostgroup-traffic-Average-Usage-By-Interface
+-   Hostgroup-traffic-by-Interface-And-Bandwith-Ranges.
+
+### ETL: Data retention
+
+The reporting server contains statistics tables specific to Centreon MBI
+in the database \"centreon\_storage\". The storage space used by these
+tables increases every day. It is possible to control the size of these
+tables by setting data retention rules.
+
+Under *Reporting > Monitoring Business Intelligence > General options > Data retention*, 
+data retention can be managed by:
+
+-   Type of data (availability, performance).
+-   Precision of data (raw data, hourly, daily or monthly values).
+
+
+> Before enabling the data retention options, check that the **Reporting
+> engine uses a dedicated MySQL server** option is correctly set to
+> "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
+
+Enable data retention management by selecting \"Yes\", then set the
+options in the configuration (example below).
+
+![image](../assets/reporting/installation/bi_retention.png)
+
+To activate automatic purge of old data, edit the cron file
+`/etc/cron.d/centreon-bi-purge` on the reporting server, then uncomment the following line:
+
+    #0 20 * * * root @CENTREON_BI_HOME@/*etl*/dataRetentionManager.pl >> @CENTREON_BI_LOG@/dataRetentionManager.log 2>&1
+
+Avoid periods scheduled for statistical calculations with Centreon MBI
+ETL and report generations.
+
+You can run this cron daily or weekly, depending on the execution time of the batch and the load generated on the server.
+
+Then restart the service cron:
+
+    systemctl restart crond
+
+**BEST PRACTICE**: Select different retention periods according to the
+granularity of the statistical data:
+
+-   Hourly aggregated values are used to analyze a metric over a short period, they take a 
+    lot of space on the disk. You may not need to keep these statistics more that two or three months.
+-   Beyond five or six months, you may only need to view the trend for
+    availability or performance statistics. You could then keep the
+    daily aggregated data for a maximum of six months, for example, and
+    configure the retention of monthly aggregated data for a period of
+    several dozen months.
+
+Please go to the next chapter to continue the installation.
+
+
+### ETL: Execution
+
+
+> Before continuing, be sure that you have installed the MySQL
+> configuration file as specified above in the prerequisites. Configure
+> and activate data retention so that only the required data is imported
+> and calculated.
+
+#### Rebuilding statistics using historical data
+
+Run the following command on the *REPORTING* server, it will:
+
+-   Delete all existing data from the reporting server.
+-   Import raw monitoring data from the monitoring server to the
+    reporting server (based on retention parameters).
+-   Populate the tables containing the availability statistics for hosts
+    and services.
+-   Populate the tables containing the performance and capacity
+    statistics.
+
+        /usr/share/centreon-bi/bin/centreonBIETL -r
+
+#### Activating daily execution (of the script)
+
+Once the rebuild process is finished, you can activate the daily
+statistic calculation. On the reporting server, edit the file
+*/etc/cron.d/centreon-bi-engine* and uncomment the following line:
+
+    #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+
+Restart the service cron::
+
+    systemctl restart crond
+
+> Make sure that the batch *centreonBIETL* starts only once the batch
+> *eventReportBuilder* has finished on the monitoring server (see the cron
+> file \* /etc/cron.d/centreon\* on the monitoring server).
+
+Centreon MBI installation is now complete, check the tutorial #TODO 
+
