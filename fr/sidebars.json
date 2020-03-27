@@ -152,8 +152,8 @@
         "Reporting": [
             "reporting/introduction"
         ],
-        "Administration": [
-            "administration/init-administrate"
+        "Administrer la Plateforme": [
+            "administrate/init-administrate"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {
