@@ -36,8 +36,7 @@ The diagram below shows the main components of Centreon MBI:
 
 ![image](../assets/reporting/installation/architecture.png)
 
-*The monitoring database can be installed on a server other than the
-Centreon server.*
+*The monitoring database can be installed on a server other than the Centreon server.*
 
 -   **ETL**: Process that extracts, transforms and loads data into the
     reporting database.
@@ -82,7 +81,7 @@ isolation considerations.
 
 **Software**
 
--   Centreon 20.04
+-   Centreon 20.10
 -   Check that the parameter *date.timezone* is correctly configured in
     /etc/opt/rh/rh-php72/php.ini (same timezone displayed with the
     command "timedatectl status")
