@@ -5,17 +5,15 @@ title: Installation
 
 ## Architecture
 
-Ce chapitre présente l\'architecture logicielle de *Centreon MBI*. Il
-permet d\'acquérir une compréhension de son intégration à la suite
-logicielle Centreon.
+Ce chapitre présente l'architecture logicielle de l'extension **Centreon MBI**. Il
+permet d'acquérir une compréhension de son intégration à la plateforme Centreon.
 
-Ce document s\'adresse aux administrateurs qui vont installer ou
-configurer Centreon MBI.
+Ce document s'adresse aux administrateurs qui vont installer ou configurer Centreon MBI.
 
 Dans ce chapitre, vous trouverez :
 
--   le diagramme d\'architecture logicielle
--   le diagramme d\'architecture des RPMs
+-   le diagramme d'architecture logicielle
+-   le diagramme d'architecture des RPMs
 
 ### Une seule architecture possible : un serveur de reporting dédié à Centreon MBI
 
@@ -29,7 +27,7 @@ environnements suivant:
 Le schéma ci-dessous met en avant les principaux composants de Centreon
 MBI :
 
-![image](images/architecture_3.x.png)
+![image](../assets/reporting/installation/architecture.png)
 
 *La base de monitoring n\'est pas nécessairement sur le même serveur que
 le serveur Centreon*
@@ -91,7 +89,7 @@ Ci-dessous le schéma représentant les paquets RPM installés pour
 Centreon MBI. De nombreuses dépendances liées à ces paquets sont
 installées mais ne sont pas représentées ici.
 
-![image](images/architecture_rpms.png)
+![image](../assets/reporting/installation/architecture_rpms.png)
 
 
 ## Pré-requis 
@@ -379,7 +377,7 @@ catégories d\'hôtes de la manière suivante :
 Voici un exemple de statistiques que vous pourriez obtenir en utilisant
 ces groupes et catégories :
 
-![image](images/10000000000002C700000152DFAFBA51.png)
+![image](../assets/reporting/installation/10000000000002C700000152DFAFBA51.png)
 
 Le groupe d\'hôte est le premier axe d\'analyse. La catégorie d\'hôte
 permet d\'analyser les statistiques en sous-domaines.
@@ -444,7 +442,7 @@ catégorie nommée « Stockage » ou « Disque » nous aurons :
 Voici un exemple de statistiques que vous pourriez obtenir en utilisant
 ces catégories de services :
 
-![image](images/10000000000002A80000010F4E7C325A.png)
+![image](../assets/reporting/installation/10000000000002A80000010F4E7C325A.png)
 
 La relation entre les services et leurs catégories peut être faite à
 partir de menu *Configuration \> Services \> Categories* sur
@@ -511,7 +509,7 @@ doit référencer **Centreon MBI**. Cliquez sur l\'icône de la colonne
 La page suivante (avec la bonne version) sera affichée, cliquez sur
 *Installer le module* :
 
-![image](images/moduleInstalled.png)
+![image](../assets/reporting/installation/moduleInstalled.png)
 
 Une page d\'information informe qu\'aucune procédure supplémentaire
 n\'est à effectuer avant ou après l\'installation. Cliquez sur *Retour*.
@@ -842,7 +840,7 @@ Intelligence \> Options générales \> Options de l ETL*
 Activez la rétention de données en cochant \"Yes\" puis paramétrez les
 différents options de configuration.
 
-![image](images/bi_retention.png)
+![image](../assets/reporting/installation/bi_retention.png)
 
 Pour activer la purge automatique des données, éditez le cron
 */etc/cron.d/centreon-bi-purge* sur le serveur de reporting puis
