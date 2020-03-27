@@ -49,13 +49,13 @@ The diagram below shows the main components of Centreon MBI:
 The table below presents the different types of flow, by default,
 between the dedicated BI server, Centreon server and databases:
 
-  **Application** |  **Source** |       Destination     |   Port |  Protocol
-  -----------------|-----------------|------------------|------|----------
-  ETL/CBIS        |  Reporting server|  Centreon Database|  3306   |TCP
-  SSH    |           Reporting server |  Centreon           | 22|     TCP
-  CBIS    |          Centreon       |   Reporting server |  1234 |  TCP
-  CBIS    |          Reporting server | Centreon  |         80 |    HTTP\*
-  Widgets    |       Centreon   |       Reporting server  | 3306  | TCP
+  **Application**  |  **Source**      |       Destination     |   Port |  Protocol
+  -----------------|------------------|-----------------------|--------|----------
+  ETL/CBIS         | Reporting server |  Centreon Database    | 3306   | TCP
+  SSH              | Reporting server |  Centreon             | 22     | TCP
+  CBIS             | Centreon         |  Reporting server     | 1234   | TCP
+  CBIS             | Reporting server |  Centreon             | 80     |    HTTP\*
+  Widgets          | Centreon         |  Reporting server     | 3306   | TCP
 
 
 \**Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use Centreon API to generate graphs*
@@ -82,9 +82,9 @@ isolation considerations.
 **Software**
 
 -   Centreon 20.10
--   Check that the parameter *date.timezone* is correctly configured in
-    /etc/opt/rh/rh-php72/php.ini (same timezone displayed with the
-    command "timedatectl status")
+-   Check that the parameter `date.timezone` is correctly configured in
+    `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
+    command `timedatectl status`)
 
 -   Avoid the usage of the following variables in your monitoring MySQL
     configuration. They halt long queries execution and can stop the ETL
@@ -95,40 +95,40 @@ isolation considerations.
 
 **Users and groups**
 
-  User       |         Group
-  ----|---
-  centreonBI (new) |   apache, centreon, centreonBI 
-  apache (existing)  | centreonBI
+  User              |         Group
+  ------------------|-------------------------------
+  centreonBI (new)  | apache, centreon, centreonBI 
+  apache (existing) | centreonBI
 
 **Description of users, umask and home directory**
 
-  User     | umask |  home
-  --|--|--
-  centreonBI |  0002  |  /home/centreonBI
+  User       | umask  | home
+  -----------|--------|------------------
+  centreonBI |  0002  | /home/centreonBI
 
 
 ### Reporting dedicated server
 
 **Hardware**
 
-|Monitored services  |    CPU        |         RAM
----------------------|----------------|---------------
-|  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum     |
-|  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum     |
-| >= 20 000 and < 40 000      | 4 CPU (3GHz) minimum   | 24GB minimum     |
-| > 40 000 and < 100 000    | 8 CPU (3GHz) minimum   | 32GB minimum     |
-| > 100 000              | > Contact Centr        | eon              |
+Monitored services       |    CPU                 |         RAM
+-------------------------|------------------------|------------------
+  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum     
+  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum     
+ >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum     
+ > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum     
+ > 100 000               | > Contact Centr        | eon              
 
-**Storage space**: Use the following storage estimation file 
+**Storage space**: Use the following storage estimation file  #TODO
 
 **File system**
   
-| File system        |   Size |
----------------------|--------
-| /                  |    5GB minimum |
-| /var               |(containing Use the result of the above disk-space simulation file MySQL data) |
-| MySQL temp folder  |    We recommand keeping it in /var  |
-| Volume group\*     | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data** |
+ File system                  |   Size 
+------------------------------|----------------------------------------------------------------------------------
+ /                            | 5GB minimum 
+ /var (containing MySQl data) | Use the result of the above disk-space simulation file MySQL data)
+ MySQL temp folder            | We recommand keeping it in /var 
+ Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data**
                    
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
@@ -137,10 +137,10 @@ Volume group name:
 
 **Software**
 
-  - *OS*         CentOS 7 / Redhat 7
-  - *SGBD*       MariaDB 10.3.x (automatically installed)
-  - *Firewall*   Disabled
-  - *SELinux*    Disabled
+-  OS : CentOS 7 / Redhat 7
+-  SGBD :  MariaDB 10.3
+-  Firewall :   Désactivé
+-  SELinux :   Désactivé
 
 We advise to tune your MySQL database server on your reporting server in
 order to have better performance. You will need at least 12GB on your
@@ -417,6 +417,8 @@ Please go to the next chapter to continue the installation.
 
 ## Install the dedicated reporting server
 
+### Install the packages
+
 You need the following information available before proceeding with the
 installation process:
 
@@ -428,8 +430,8 @@ installation process:
     BI user on the central monitoring server (to publish reports on the
     interface).
 
-Contact Centreon Service Desk to obtain and install the Centreon MBI
-repository, then run the following command:
+To start installing the reporting server, install the corresponding repository 
+(sent by Centreon Service Desk) and execute the following command:
 
     yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 
@@ -467,7 +469,7 @@ and in the [client] section, add the following variable:
 
     socket=$PATH_TO_SOCKET$
 
-### Installation and configuration of the reporting server
+### Start configuring 
 
 First check that the reporting MySQL is running. Then launch the
 following command, answering the questions:

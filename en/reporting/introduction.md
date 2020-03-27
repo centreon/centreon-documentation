@@ -20,7 +20,7 @@ through *ITIL compliant* reporting.
 
 Generate insightful statistics using our 30+ reports designs\...
 
-![image](assets/reporting/first_page.png)
+![image](../assets/reporting/first_page.png)
 
 Centreon MBI provides a full package of standard reports that address:
 
@@ -29,11 +29,11 @@ Centreon MBI provides a full package of standard reports that address:
 -   SLA (Service Level Agreement) management
 -   Performance management.
 
-**Here are some examples of reports available in Centreon MBI** : [Reports examples](assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
+**Here are some examples of reports available in Centreon MBI** : [Reports examples](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf)
 
 or simply create your own reporting Dashboard using our widgets.
 
-![image](assets/reporting/dashboard.png)
+![image](../assets/reporting/dashboard.png)
 
 Main features:
 
