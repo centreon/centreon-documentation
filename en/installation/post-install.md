@@ -5,7 +5,7 @@ title: First configuration
 
 ## Web installation
 
-Log in to Centreon web interface via the URL *http://\<IP\>/centreon*.
+Log in to Centreon web interface via the URL <http://\<IP\>/centreon>.
 
 The Centreon setup wizard is displayed. Click on **Next**.
 
@@ -105,10 +105,10 @@ To start the monitoring processes:
     systemctl restart cbd centengine
     ```
 
-6. Start the tasks manager
+6. Retart the tasks manager
 
     ```shell
-    systemctl start gorgoned
+    systemctl restart gorgoned
     ```
 
 7. Start the passive monitoring daemon:

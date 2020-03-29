@@ -18,7 +18,7 @@ to the scheduler. To apply the changes performed, it is necessary to follow the 
 **Move Export Files** and **Restart Monitoring Engine**
 5. Click on **Export**
 
-![image](assets/configuration/poller_generate_1.png)
+![image](../assets/configuration/poller_generate_1.png)
 
 > The **Post generation command** option can be used to request the execution of the command post-generation set at the
 > configuration of the scheduler.

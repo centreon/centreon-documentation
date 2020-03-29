@@ -113,8 +113,8 @@ To enable / disable an object:
 
 It is also possible to enable or disable an object via the **Status** field of the object detail sheet or by using the following icons:
 
-* <img src="assets/configuration/common/enabled.png" width="32" />
-* <img src="(assets/configuration/common/disabled.png" width="32" />
+* <img src="../assets/configuration/common/enabled.png" width="32" />
+* <img src="../assets/configuration/common/disabled.png" width="32" />
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

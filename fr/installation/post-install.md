@@ -5,7 +5,7 @@ title: Première configuration
 
 ## Installation web
 
-Connectez-vous à l'interface web via *http://\<IP\>/centreon*.
+Connectez-vous à l'interface web via <http://<IP\>/centreon>.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
@@ -108,10 +108,10 @@ et cliquez sur **Exporter**,
     systemctl restart cbd centengine
     ```
 
-6. Démarrez le gestionnaire de tâches :
+6. Redémarrez le gestionnaire de tâches :
 
     ```shell
-    systemctl start gorgoned
+    systemctl restart gorgoned
     ```
 
 7. Démarrez le démon de supervision passive :
