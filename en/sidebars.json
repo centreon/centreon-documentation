@@ -24,8 +24,7 @@
             {
                 "ids": [
                     "installation/poller-from-iso",
-                    "installation/poller-from-packages",
-                    "installation/add-poller-to-configuration"
+                    "installation/poller-from-packages"
                 ],
                 "label": "Installation of a Poller",
                 "type": "subcategory"
@@ -33,8 +32,7 @@
             {
                 "ids": [
                     "installation/remote-from-iso",
-                    "installation/remote-from-packages",
-                    "installation/add-remote-server-to-configuration"
+                    "installation/remote-from-packages"
                 ],
                 "label": "Installation of a Remote server",
                 "type": "subcategory"
@@ -46,28 +44,36 @@
             "monitoring/generic-actions",
             {
                 "ids": [
-                    "monitoring/macros",
-                    "monitoring/commands",
-                    "monitoring/timeperiods",
-                    "monitoring/contacts",
-                    "monitoring/hosts",
-                    "monitoring/services",
-                    "monitoring/meta-services",
-                    "monitoring/deploy"
+                    "monitoring/basic-objects/macros",
+                    "monitoring/basic-objects/commands",
+                    "monitoring/basic-objects/timeperiods",
+                    "monitoring/basic-objects/contacts",
+                    "monitoring/basic-objects/hosts",
+                    "monitoring/basic-objects/services",
+                    "monitoring/basic-objects/meta-services"
                 ],
-                "label": "Basic objects",
+                "label": "Basic Objects",
                 "type": "subcategory"
             },
             "monitoring/templates",
             "monitoring/pluginpacks",
+            {
+                "ids": [
+                    "monitoring/monitoring-servers/add-a-poller-to-configuration",
+                    "monitoring/monitoring-servers/add-a-remote-server-to-configuration",
+                    "monitoring/monitoring-servers/deploying-a-configuration"
+                ],
+                "label": "Monitoring Servers",
+                "type": "subcategory"
+            },
             "monitoring/groups-categories",
             {
                 "ids": [
-                    "monitoring/passive/enable-snmp-traps",
-                    "monitoring/passive/create-snmp-traps-definitions",
-                    "monitoring/passive/monitoring-with-snmp-traps",
-                    "monitoring/passive/debug-snmp-traps-management",
-                    "monitoring/passive/dsm"
+                    "monitoring/passive-monitoring/enable-snmp-traps",
+                    "monitoring/passive-monitoring/create-snmp-traps-definitions",
+                    "monitoring/passive-monitoring/monitoring-with-snmp-traps",
+                    "monitoring/passive-monitoring/debug-snmp-traps-management",
+                    "monitoring/passive-monitoring/dsm"
                 ],
                 "label": "Passive Monitoring",
                 "type": "subcategory"

@@ -184,4 +184,4 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 
 ## Add the Remote Server to configuration
 
-Go to the *[Add a Remote Server to configuration](add-remote-server-to-configuration.html)*.
+Go to the *[Add a Remote Server to configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.

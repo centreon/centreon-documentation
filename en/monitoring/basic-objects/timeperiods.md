@@ -37,7 +37,7 @@ Here are a few examples:
 * 24 hours a day and 7 days a week: 00:00-24:00 (to be applied on every day of the week).
 * From 08h00 to 12h00 and from 14h00 to 18h45 on weekdays: 08:00-12:00,14:00-18:45 (to be applied on weekdays only).
 
-![image](../assets/configuration/05timeperiod.png)
+![image](../../assets/configuration/05timeperiod.png)
 
 ### Time Range exceptions
 
@@ -51,7 +51,7 @@ E.g.: An administrator wants to define a time period which covers the times when
 * National holidays and exceptional closure days
 
 To be able to define the national holidays days and the exceptional closure days, it is necessary to use the exceptions.
-To add  an exception, click on the button <img src="../assets/configuration/common/navigate_plus.png" width="32" />.
+To add  an exception, click on the button <img src="../../assets/configuration/common/navigate_plus.png" width="32" />.
 For each exceptional day, you will need to define a time period. The table below shows some possible examples :
 
 | Day(s)            | Time period             | Meaning                                                |

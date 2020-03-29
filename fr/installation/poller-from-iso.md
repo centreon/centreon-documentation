@@ -121,66 +121,6 @@ Redémarrez votre système avec la commande:
 reboot
 ```
 
-## Echange de clés SSH
+## Ajouter le Poller à la configuration
 
-La communication entre le serveur central et un collecteur se fait via SSH.
-
-Vous devez échanger les clés SSH entre les serveurs.
-
-Si vous n’avez pas de clé SSH privée sur le serveur central pour l’utilisateur **centreon** :
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un fichier pour enregistrer la clé. **Laissez le
-> mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
-
-Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
-
-``` shell
-passwd centreon
-```
-
-Vous devez copier cette clé sur le nouveau serveur :
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@IP_NEW_POLLER
-```
-
-## Configurer un nouveau collecteur dans Centreon
-
-Rendez-vous dans le menu **Configuration > Pollers** et cliquez sur **Add server with wizard** pour accéder à
-l'assistant de configuration.
-
-Sélectionnez **Add a Centreon Poller** et cliquez sur **Next** :
-
-![image](../assets/installation/poller/wizard_add_poller_1.png)
-
-Saisissez le nom, l'adresse IP du collecteur et celle du serveur Centreon central,
-cliquez sur **Next** :
-
-![image](../assets/installation/poller/wizard_add_poller_2.png)
-
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au collecteur depuis le serveur Centreon Central.
->
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au collecteur serveur Centreon Central vers le collecteur.
-
-Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur **Apply** :
-
-![image](../assets/installation/poller/wizard_add_poller_3.png)
-
-Sinon, si vous souhaitez lier ce collecteur à un Remote Server, sélectionnez le Remote Server dans la liste et cliquez
-sur **Apply** :
-
-Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
-
-Le collecteur est maintenant configuré :
-
-![image](../assets/installation/poller/wizard_add_poller_5.png)
-
-## Premiers pas
-
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/first-steps.html) pour mettre en place votre première supervision.
+Rendez-vous au chapitre *[Ajouter un Poller à la configuration](../monitoring/monitoring-servers/add-a-poller-to-configuration.html)*.

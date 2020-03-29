@@ -29,7 +29,7 @@ procédure suivante :
 3. Cochez **Generate traps database** et **Apply configurations**
 4. Dans la liste déroulante **Send signal** (préférez l’option **Reload**)
 5. Cliquez sur le bouton **Generate**
-6. *[Export the monitoring configuration](../deploy.html)*
+6. *[Export the monitoring configuration](../monitoring-servers/deploying-a-configuration.html)*
 
 ## Pour aller plus loin
 

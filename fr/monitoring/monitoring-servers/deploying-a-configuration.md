@@ -1,5 +1,5 @@
 ---
-id: deploy
+id: deploying-a-configuration
 title: Déployer une configuration
 ---
 
@@ -13,13 +13,13 @@ effectuées, il est nécessaire de suivre la procédure suivante ci-dessous.
 2. Choisissez les collecteurs sur lesquels exporter la configuration
 3. Cliquez sur **Apply configuration**
 
-![image](../assets/configuration/poller_menu_generate.png)
+![image](../../assets/configuration/poller_menu_generate.png)
 
 4. Cochez les cases **Generate Configuration Files**, **Run monitoring engine debug (-v)**,
 **Move Export Files** et **Restart Monitoring Engine**
 5. Cliquez sur **Export**
 
-![image](../assets/configuration/poller_generate_1.png)
+![image](../../assets/configuration/poller_generate_1.png)
 
 > L’option **Post generation command** permet de demander l’exécution de la commande post-génération paramétrée au
 > niveau de la configuration de l’ordonnanceur.

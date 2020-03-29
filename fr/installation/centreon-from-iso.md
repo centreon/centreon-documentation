@@ -127,4 +127,4 @@ reboot
 
 ## Première configuration
 
-Terminez l'installation en réalisant la [première configuration](post-install.html#Web-installation)..
+Terminez l'installation en réalisant la *[première configuration](post-install.html#Web-installation)*.

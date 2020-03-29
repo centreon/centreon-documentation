@@ -1,60 +1,62 @@
 ---
 id: commands
-title: Commands
+title: Les commandes
 ---
 
-## Definition
+## Définition
 
-A command is the definition of a line of command which uses a script or an application to perform an action. It is
-possible execute this command by specifying arguments.
+Une commande est la définition d’une ligne de commande qui utilise un script ou une application afin de réaliser une
+action. Il est possible d’exécuter cette commande en précisant des arguments.
 
-There are four types of command:
+Il existe quatre types de commandes :
 
-* **Verification** commands are used by the schedulers to verify the status of a host or of a service.
-* **Notification** commands are used by the schedulers to alert the contacts (via mail, SMS, etc.).
-* **Discovery** commands are used by the schedulers to discover.
-* **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
-  data processing, etc.
+* **Verification** sont utilisées par les ordonnanceurs afin de vérifier le statut d’un hôte ou d’un service
+* **Notification** sont utilisées par les ordonnanceurs pour alerter les contacts (via mail, SMS...).
+* **Discovery** sont utilisées par les règles de découverte.
+* **Miscellaneous** sont utilisées par les modules complémentaires (pour effectuer certaines actions), par
+  l’ordonnanceur pour le traitement des données...
 
-All the commands can be configured in the menu: **Configuration > Commands**.
+Toutes les commandes peuvent être configurées au sein du menu : **Configuration > Commands**.
 
-![image](../assets/configuration/04commandlist.png)
+![image](../../assets/configuration/04commandlist.png)
 
-> By default, locked commands are hidden. Check the "Locked elements" box to list all commands.
+> Par défaut, les commandes verrouillées sont masquées. Cocher la case "Eléments verrouillés" pour les afficher toutes.
 
-## Adding a command
+## Ajouter une commande
 
-1. Go to the **Configuration > Commands** menu
-2. Click on **Add**
+1. Renez-vous dans le menu **Configuration > Commands**
+2. Cliquez sur le bouton **Add**
 
-![image](../assets/configuration/04command.png)
+![image](../../assets/configuration/04command.png)
 
-> The configuration fields of a command are the same regardless of the type of command chosen.
+> Les champs de configuration d’une commande sont les mêmes qu’importe le type de commande choisi.
 
-## Configuration fields
+## Les champs de configuration
 
-* The **command Name** field defined the name of the command.
-* The **Command Type** field allows us to choose the type of command.
-* The **Command Line** field indicates the application or the script use with the command.
-* The **Enable shell** box allows us to enable functions that are specific to a shell such as the pipe, etc.
-* The **Argument Example** field define examples of arguments (each argument starts with a ”!”)
-* The **Describe arguments** button serves to add  a description to arguments of the “$ARGn$” type. This description
-  will be visible when using the command in a host or service form.
-* The **Clear arguments** button deletes the description of arguments defined
-* The **Describe macros** button serves to add  a description to all macros. This description will be visible when
-  using the command in a host or service form.
-* The **Connectors** selectlist serves to link a Connector to the command. For more information on Connectors refer to the
-  chapter entitled *[Perl Connector](#perl-connector)* and *[SSH Connector](#ssh-connector)*.
-* The **Graph template** field serves to link the command to a graphic model.
-* The **Comment** field can be used to make a comment on the command.
+* Le champ **command Name** définit le nom de la commande.
+* Le champ **Command Type** permet de choisir le type de commande.
+* Le champ **Command Line** indique l’application ou le script utilisé avec la commande.
+* La case **Enable shell**  permet d’activer des fonctions propres à un shell tel que le pipe...
+* Le champ **Argument Example** définir des exemples d'arguments (chaque argument commence par un "!")
+* Le bouton **Describe arguments** permet d’ajouter une description aux arguments de type “$ARGn$”. Cette description
+  sera visible lors de l’utilisation de la commande dans un formulaire d’hôte ou de service.
+* Le bouton **Clear arguments** efface la description des arguments définie
+* Le bouton **Describe macros** permet d’ajouter une description aux macros personalisées. Ces descriptions seront
+  visibles lors de l’ajout de la commande sur un host ou un service.
 
-## Arguments and macros
+* La liste de sélection **Connectors** permet de lier un connecteur à la commande. Pour davantage d’informations sur
+  les connecteurs reportez-vous au chapitre [les connecteurs](#les-connecteurs).
+* Le champ **Graph template** permet de lier la commande à un modèle de graphique.
+* Le champ **Comment** permet de commenter la commande.
 
-In the **Command Line** field it is possible to use *[macros](macros.html)* and arguments.
+## Arguments et macros
 
-The macros are used to be able to pass various settings to the scripts called up by the commands. During execution
-of the command by the scheduler, each of the arguments and macros are replaced by their respective values.
-Each macro appears in the form **$value$**:
+Au sein du champ **Command Line** il est possible de faire appel à des
+*[macros](macros.html)* ainsi qu’à des arguments.
+
+Les arguments sont utilisés afin de pouvoir passer différents paramètres aux scripts appelés par les commandes. Lors de
+l’exécution de la commande par l’ordonnanceur, chacun des arguments et macros sont remplacés par leur valeur respective.
+Chaque macro se présente sous la forme **$valeur$** :
 
 ```shell
 $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
@@ -64,11 +66,14 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 --critical-average='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
 ```
 
-> Good practice requires replacing the arguments by *[custom macros](macros.html#custom-macros)*.
+> La bonne pratique veut que nous remplacions les arguments par des
+*[macros personnalisées](macros.html#les-macros-personnalisées)*.
 
-## Connectors
+## Les connecteurs
 
-### SSH connector
+> Ce chapitre technique n'est disponible qu'en langue anglaise
+
+### SSH connectors
 
 Centreon SSH Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution checks over SSH when used along Centreon Engine.
@@ -102,13 +107,13 @@ the yum tool to install them. You should check packages version when necessary.
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| ssh2 library                | libssh2-devel       | SSH library.
-| gcrypt library              | libgcrypt-devel     | Gcrypt library.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| ssh2 library                | libssh2-devel       | SSH library.                                               |
+| gcrypt library              | libgcrypt-devel     | Gcrypt library.                                            |
 
 1. Install basic compilation tools
 
@@ -132,13 +137,13 @@ Either use the Package Manager or the apt-get tool to install them. You should c
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | build-essential     | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| ssh2 library                | libssh2-1-dev       | SSH library.
-| gcrypt library              | libgcrypt11-dev     | Gcrypt library.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | build-essential     | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| ssh2 library                | libssh2-1-dev       | SSH library.                                               |
+| gcrypt library              | libgcrypt11-dev     | Gcrypt library.                                            |
 
 1. Install compilation tools
 
@@ -156,13 +161,13 @@ the Package Manager or the zypper tool to install them. You should check package
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| ssh2 library                | libssh2-devel       | SSH library.
-| gcrypt library              | libgcrypt-devel     | Gcrypt library.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| ssh2 library                | libssh2-devel       | SSH library.                                               |
+| gcrypt library              | libgcrypt-devel     | Gcrypt library.                                            |
 
 1. Install compilation tools
 
@@ -180,7 +185,7 @@ See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_ins
 
 ###### Get sources
 
-Centreon SSH Connector can be checked out from *[GitHub](https://github.com/centreon/centreon-connectors)*.
+Centreon SSH Connector can be checked out from [GitHub](https://github.com/centreon/centreon-connectors).
 The SSH connector sources reside in the ssh subdirectory. On a Linux box with git installed this is just a matter of:
 
 ```shell
@@ -221,7 +226,7 @@ Here's the list of variables available and their description:
 | WITH\_PREFIX\_BINARY               | Define specific directory for Centreon Connector SSH binary.                                                                               | `${WITH_PREFIX}/bin` |
 | WITH\_TESTING                      | Enable generation of unit tests. They can later be run by typing *make test*. OFF                                                          |                      |
 
-Example
+Example:
 
 ```shell
 cmake \
@@ -340,7 +345,7 @@ check, Centreon Connector SSH only opens one session. However this does not limi
 host, as the SSH protocol allows multiple channels to be opened on the same session. Therefore if multiple checks are
 run on the same host simultaneously, they are executed concurrently but with separate execution environment.
 
-### Perl connector
+### Perl connectors
 
 Centreon Perl Connector is a free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
 It speeds up execution of Perl scripts when used along Centreon Engine.
@@ -382,11 +387,13 @@ Package required to build:
 | Perl                        | perl                | Scripting language.                                        |
 
 1. Install basic compilation tools
+
 ```shell
 yum install gcc gcc-c++ make perl
 ```
 
 2. Install cmake
+
 ```shell
 yum install cmake
 ```
@@ -481,7 +488,7 @@ Here's the list of variables available and their description:
 | WITH\_PREFIX\_BINARY               | Define specific directory for Centreon Connector Perl binary.                                                                               | `${WITH_PREFIX}/bin` |
 | WITH\_TESTING                      | Enable generation of unit tests. They can later be run by typing *make test*.                                                               | OFF                  |
 
-Example
+Example:
 
 ```shell
 cmake \

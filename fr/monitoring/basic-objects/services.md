@@ -8,7 +8,7 @@ serveur, niveau d’encre sur une imprimante.
 
 Tous les ajouts de services se font dans le menu : **Configuration > Services > Add**.
 
-![image](../assets/configuration/03addservice.png)
+![image](../../assets/configuration/03addservice.png)
 
 ## Configuration du service
 
@@ -37,13 +37,13 @@ Tous les ajouts de services se font dans le menu : **Configuration > Services > 
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../assets/configuration/common/undo.png" width="32" />
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../../assets/configuration/common/undo.png" width="32" />
 
-Pour afficher la description de la macro, cliquez sur <img src="../assets/configuration/common/description.png" width="32" />
+Pour afficher la description de la macro, cliquez sur <img src="../../assets/configuration/common/description.png" width="32" />
 
-Pour supprimer la macro, cliquez sur <img src="../assets/configuration/common/delete.png" width="32" />
+Pour supprimer la macro, cliquez sur <img src="../../assets/configuration/common/delete.png" width="32" />
 
-Pour déplacer l’ordre des macros, cliquez sur <img src="../assets/configuration/common/move.png" width="32" />
+Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configuration/common/move.png" width="32" />
 
 ### Notification
 

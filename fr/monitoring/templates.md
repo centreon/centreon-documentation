@@ -58,7 +58,7 @@ Pour ajouter un modèle d’hôtes :
 
 Rendez-vous dans le menu **Configuration > Hosts > Templates** et cliquez sur le bouton **Add**
 
-> Rapportez-vous au chapitre de configuration des *[hôtes](hosts.html)* pour configurer un modèle car le formulaire est identique.
+> Rapportez-vous au chapitre de configuration des *[hôtes](basic-objects/hosts.html)* pour configurer un modèle car le formulaire est identique.
 
 > Par défaut, les modèles d’hôte verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
 
@@ -76,7 +76,7 @@ Pour ajouter un modèle de services :
 
 Rendez-vous dans le menu **Configuration > Services > Templates** et cliquez sur le bouton **Add**
 
-> Rapportez-vous au chapitre de configuration des *[services](services.html)* pour configurer un modèle car le formulaire est
+> Rapportez-vous au chapitre de configuration des *[services](basic-objects/services.html)* pour configurer un modèle car le formulaire est
 > identique.
 
 > Par défaut, les modèles de service verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
@@ -126,5 +126,5 @@ Pour ajouter un modèle de contacts :
 
 Rendez-vous dans le menu **Configuration > Users > Contact Templates** et cliquez sur le bouton **Add**
 
-> Se rapporter au chapitre de configuration des *[contacts](contacts.html)*. De plus, les modèles de contacts sont utilisés
-> pour l’import automatique de profils via un annuaire *[LDAP](../administration/parameters/ldap.html)*.
+> Se rapporter au chapitre de configuration des *[contacts](basic-objects/contacts.html)*. De plus, les modèles de contacts sont utilisés
+> pour l’import automatique de profils via un annuaire *[LDAP](../../administration/parameters/ldap.html)*.

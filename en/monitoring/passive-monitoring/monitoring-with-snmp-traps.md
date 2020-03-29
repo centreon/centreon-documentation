@@ -28,7 +28,7 @@ To be able to export the OID present in the database in the configuration file t
 3. Check **Generate traps database** and **Apply configurations**
 4. In the drop-down list **Send signal** (the **Reload** option is preferable)
 5. Click on the **Generate** button
-6. *[Export the monitoring configuration](../deploy.html)*
+6. *[Export the monitoring configuration](../monitoring-servers/deploying-a-configuration.html)*
 
 ## To go further
 

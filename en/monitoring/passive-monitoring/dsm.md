@@ -107,7 +107,7 @@ An example of passive service template is available below:
 > The macro **ALARM_ID** is mandatory. The default **empty** value is also necessary.
 
 When you validate the form, Centreon will create or update all slot. If you don't have changed any value, you don't
-have to do other action. Else you have to *[deploy the configuration](../monitoring/deploy.html)*.
+have to do other action. Else you have to *[deploy the configuration](../monitoring-servers/deploying-a-configuration.html)*.
 
 ### Configure traps
 
