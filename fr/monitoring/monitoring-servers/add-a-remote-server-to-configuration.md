@@ -1,5 +1,5 @@
 ---
-id: add-remote-server-to-configuration
+id: add-a-remote-server-to-configuration
 title: Ajouter un Remote Server à la configuration
 ---
 
