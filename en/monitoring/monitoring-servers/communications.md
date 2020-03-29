@@ -1,9 +1,9 @@
 ---
-id: gorgone
-title: Gorgone
+id: communications
+title: Communications
 ---
 
-## Architecture
+## Gorgone architecture
 
 TODO
 
