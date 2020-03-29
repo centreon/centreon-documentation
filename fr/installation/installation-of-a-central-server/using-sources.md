@@ -6,7 +6,7 @@ title: A partir des sources
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
-*[les paquets fournis par Centreon](centreon-from-packages.html)*.
+*[les paquets fournis par Centreon](using-packages.html)*.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Redhat/CentOS-->
@@ -832,4 +832,4 @@ information, nous recommandons MariaDB.
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](post-installation.html#installation-web)*.
+Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.

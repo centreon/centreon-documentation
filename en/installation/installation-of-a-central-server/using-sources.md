@@ -5,7 +5,7 @@ title: Using sources
 
 ## Prerequisites
 
-> Most CentOS users will find easier to install Centreon Web by [Using packages](centreon-from-packages.html)
+> Most CentOS users will find easier to install Centreon Web by *[using packages](using-packages.html)*.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Redhat/CentOS-->

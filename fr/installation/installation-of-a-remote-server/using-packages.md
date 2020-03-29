@@ -299,7 +299,7 @@ systemctl start snmptrapd
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](post-installation.html#installation-web)*.
+Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.
 
 ## Activer l'option Remote Server
 

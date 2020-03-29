@@ -59,4 +59,4 @@ yum install -y centreon-poller-centreon-engine
 
 ## Ajouter le Poller à la configuration
 
-Rendez-vous au chapitre *[Ajouter un Poller à la configuration](../monitoring/monitoring-servers/add-a-poller-to-configuration.html)*.
+Rendez-vous au chapitre *[Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.html)*.
