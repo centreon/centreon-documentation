@@ -66,7 +66,8 @@ recommended) or using SSH protocol.
 #### Select communication type
 
 Edit the newly created Remote Server configuration, and select **ZMQ** as
-**Gorgone connection protocol**. Define the suitable **port**.
+**Gorgone connection protocol**. Define the suitable **port** (port **5556**
+is recommended).
 
 ![image](../assets/installation/poller/remote-edit-zmq.png)
 
