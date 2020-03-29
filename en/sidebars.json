@@ -12,27 +12,27 @@
             "installation/download",
             {
                 "ids": [
-                    "installation/centreon-from-iso",
-                    "installation/centreon-from-packages",
-                    "installation/centreon-from-vm",
-                    "installation/centreon-from-sources"
+                    "installation/installation-of-a-central-server/using-centreon-iso",
+                    "installation/installation-of-a-central-server/using-packages",
+                    "installation/installation-of-a-central-server/using-virtual-machines",
+                    "installation/installation-of-a-central-server/using-sources"
                 ],
                 "label": "Installation of a Central server",
                 "type": "subcategory"
             },
-            "installation/post-install",
+            "installation/post-installation",
             {
                 "ids": [
-                    "installation/poller-from-iso",
-                    "installation/poller-from-packages"
+                    "installation/installation-of-a-poller/using-centreon-iso",
+                    "installation/installation-of-a-poller/using-packages"
                 ],
                 "label": "Installation of a Poller",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "installation/remote-from-iso",
-                    "installation/remote-from-packages"
+                    "installation/installation-of-a-remote-server/using-centreon-iso",
+                    "installation/installation-of-a-remote-server/using-packages"
                 ],
                 "label": "Installation of a Remote server",
                 "type": "subcategory"

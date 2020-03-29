@@ -1,11 +1,11 @@
 ---
-id: poller-from-iso
+id: using-centreon-iso
 title: Using Centreon ISO
 ---
 
 ## Step 1: Startup the server
 
-To install a Centreon Poller, start up your server from the Centreon ISO image in version el7.
+To install Centreon, start up your server from the Centreon ISO image in version el7.
 Start up with **Install CentOS 7**:
 
 ![image](../assets/installation/01_bootmenu.png)
@@ -16,7 +16,7 @@ Choose the language for the installation process and click on **Continue**:
 
 ![image](../assets/installation/02_select_install_lang.png)
 
-## Step 3: Select the component
+## Step 3: Select components
 
 Click on the **Installation Type** menu:
 
@@ -24,14 +24,14 @@ Click on the **Installation Type** menu:
 
 You have different options to choose from:
 
-![image](../assets/installation/poller/07installpoller.png)
+![image](../assets/installation/04_form_type_install.png)
 
 * **Central with database**: Install Centreon (web interface and database), monitoring engine and Broker.
 * **Central without database**: Install Centreon (web interface only), monitoring engine and Broker.
 * **Poller**: Install poller (monitoring engine and Broker only).
 * **Database**: Install database server (if you have already installed a **Central server without a database** option).
 
-Select **Poller** and click **Done**.
+After selecting your installation type, click **Done**.
 
 ## Step 4: System configuration
 
@@ -84,7 +84,7 @@ Enable all network interfaces by clicking the button in the top right from **off
 
 ![image](../assets/installation/10_network_hostname.png)
 
-## Begin the installation
+## Beginn the installation
 
 Once configuration is complete, click on **Begin Installation**:
 
@@ -107,7 +107,7 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../assets/installation/18_reboot_server.png)
 
-## Update the system
+## Update the system packages
 
 Connect to your server using a terminal, and execute the command:
 
@@ -115,7 +115,11 @@ Connect to your server using a terminal, and execute the command:
 yum update
 ```
 
-> Accept all GPG keys if you are prompted
+![image](../assets/installation/19_update_system.png)
+
+Accept all GPG keys if you are prompted:
+
+![image](../assets/installation/20_accept_gpg_key.png)
 
 Then restart your server with the following command:
 
@@ -123,6 +127,6 @@ Then restart your server with the following command:
 reboot
 ```
 
-## Add the Poller to configuration
+## Web installation
 
-Go to the *[Add a Poller to configuration](../monitoring/monitoring-servers/add-a-poller-to-configuration.html)*.
+Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.

@@ -1,5 +1,5 @@
 ---
-id: poller-from-packages
+id: using-packages
 title: A partir des paquets
 ---
 

@@ -1,20 +1,9 @@
 ---
-id: centreon-from-packages
-title: Using packages
+id: using-packages
+title: Using packages 
 ---
 
-Centreon provides RPM packages for its products through the Centreon open source version available free of charge in
-our repository.
-
-These packages have been successfully tested in version 7.x CentOS and Red Hat environments.
-
-Update your operating system via the command:
-
-``` shell
-yum update
-```
-
-> Accept all GPG keys and consider rebooting your server if a kernel update is proposed.
+Installing a Remote Server is similar to installing a Centreon Central Server.
 
 ## Pre-installation steps
 
@@ -41,9 +30,9 @@ You should have this result:
 Disabled
 ```
 
-### Install the repositories
+### Installing the repositories
 
-#### Redhat Software Collections repository
+#### Redhat Software Collections Repository
 
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
@@ -74,7 +63,7 @@ The repository is now installed.
 
 This section describes how to install a Centreon Central server.
 
-### Install a Centreon Central server with a local database
+### Install a Centreon Central server with local database
 
 Run the command:
 
@@ -84,7 +73,7 @@ systemctl restart mariadb
 ```
 
 > Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
-> disable the strict mode if you use MariaDB \>= 10.2.4 or MySQL \>= 5.7.5 for your production environments.
+> disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--MariaDB-->
@@ -100,6 +89,7 @@ or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section
 ``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
+
 <!--MySQL-->
 Execute the following SQL request:
 
@@ -115,7 +105,7 @@ sql_mode = 'NO_ENGINE_SUBSTITUTION'
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-then restart your DBMS.
+Then restart your DBMS.
 
 ### Install a Centreon Central server with a remote database
 
@@ -135,7 +125,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-> **centreon-database** package installs a database server with default optimized configuration for Centreon.
+> **centreon-database** package installs a database server with an optimized configuration for Centreon.
 
 Then create a distant **root** account:
 
@@ -146,6 +136,7 @@ FLUSH PRIVILEGES;
 ```
 
 > Replace **\<IP\>** by the public IP address of the Centreon server and **\<PASSWORD\>** by the **root** password.
+
 > MySQL >= 8 require a strong password. Please use uppercase, numeric and special characters; or uninstall the
 > **validate_password** using following command:
 >
@@ -156,7 +147,6 @@ FLUSH PRIVILEGES;
 > When running a PHP version before 7.1.16, or PHP 7.2 before 7.2.4, set MySQL 8 Server's default password plugin to
 > mysql_native_password or else you will see errors similar to *The server requested authentication method unknown
 > to the client [caching_sha2_password]* even when caching_sha2_password is not used.
-> 
 > This is because MySQL 8 defaults to caching_sha2_password, a plugin that is not recognized by the older PHP
 >releases. Instead, change it by setting *default_authentication_plugin=mysql_native_password* in **my.cnf**.
 >
@@ -174,7 +164,7 @@ FLUSH PRIVILEGES;
 <!--MariaDB-->
 Execute the following SQL request:
 
-``` SQL
+```SQL
 SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 ```
@@ -184,10 +174,11 @@ or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section
 ``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
+
 <!--MySQL-->
 Execute the following SQL request:
 
-``` SQL
+```SQL
 SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
 SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
 ```
@@ -199,7 +190,7 @@ sql_mode = 'NO_ENGINE_SUBSTITUTION'
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-then restart your DBMS.
+Then restart your DBMS.
 
 Once the installation is complete you can delete this account using:
 
@@ -259,7 +250,7 @@ systemctl disable firewalld
 systemctl status firewalld
 ```
 
-### Enable services startup during system bootup
+### Configure services startup during system bootup
 
 To make services start automatically during system bootup, run these commands on the central server:
 
@@ -295,10 +286,69 @@ Before starting the web installation process, you will need to execute the follo
 ``` shell
 systemctl start rh-php72-php-fpm
 systemctl start httpd24-httpd
-systemctl start mariadb
+systemctl start mysqld
 systemctl start centreon
 systemctl start snmpd
 systemctl start snmptrapd
 ```
 
-Conclude installation by performing *[post intallation steps](post-install.html#Web-installation)*.
+## Web installation
+
+Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.
+
+## Enable the Remote Server option
+
+Connect to your **Remoter Server** and execute following command:
+
+``` shell
+/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
+-v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
+```
+
+Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
+the poller. You can define multiple IP address using a coma as separator.
+
+> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
+> **https://\<IP_CENTREON_CENTRAL\>**.
+>
+> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
+> **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
+
+For the **\<not check SSL CA on Central\>** option you can put **1** to do not
+check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
+**0**.
+
+The **\<HTTP method\>** is to define how the Centreon Central server can
+contact the Remote server: HTTP or HTTPS.
+
+The **\<TCP port\>** is to define on wich TCP port the entreon Central
+server can contact the Remote server.
+
+For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
+check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
+
+For the **\<no proxy to call Central\>** option you can put **1** to do not use
+HTTP(S) proxy to contact the Centreon Central server.
+
+This command will enable **Remote Server** mode:
+
+``` shell
+Starting Centreon Remote enable process:
+Limiting Menu Access...               Success
+Limiting Actions...                   Done
+Authorizing Master...                 Done
+Set 'remote' instance type...         Done
+Notifying Master...
+Trying host '10.1.2.3'... Success
+Centreon Remote enabling finished.
+```
+
+Add rights to centreon database user to use **LOAD DATA INFILE** command:
+
+``` SQL
+GRANT FILE on *.* to 'centreon'@'localhost';
+```
+
+## Add the Remote Server to configuration
+
+Go to the *[Add a Remote Server to configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.

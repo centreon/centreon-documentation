@@ -1,5 +1,5 @@
 ---
-id: centreon-from-sources
+id: using-sources
 title: Using sources
 ---
 
@@ -827,6 +827,6 @@ The Mysql database server should be available to complete installation (locally 
 
 After this step you should connect to Centreon to finalize the installation process.
 
-## First configuration
+## Web installation
 
-Conclude installation by performance [first configuration](post-install.html).
+Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.

@@ -1,5 +1,5 @@
 ---
-id: poller-from-iso
+id: using-centreon-iso
 title: A partir de l'ISO Centreon
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: centreon-from-vm
+id: using-virtual-machines
 title: A partir des VMs
 ---
 

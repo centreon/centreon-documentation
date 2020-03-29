@@ -1,6 +1,6 @@
 ---
-id: post-install
-title: Première configuration
+id: post-installation
+title: Post Installation
 ---
 
 ## Installation web

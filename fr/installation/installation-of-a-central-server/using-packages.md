@@ -1,5 +1,5 @@
 ---
-id: centreon-from-packages
+id: using-packages
 title: A partir des paquets
 ---
 
@@ -309,5 +309,6 @@ systemctl start snmpd
 systemctl start snmptrapd
 ```
 
-Terminez l'installation en réalisant les
-*[étapes de post-installation](post-install.html#Web-installation)*.
+## Installation web
+
+Terminez l'installation en réalisant les *[étapes de l'installation web](post-installation.html#installation-web)*.

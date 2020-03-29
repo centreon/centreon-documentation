@@ -1,9 +1,7 @@
 ---
-id: remote-from-iso
+id: using-centreon-iso
 title: A partir de l'ISO Centreon
 ---
-
-Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
 
 ## Etape 1 : Démarrage
 
@@ -48,7 +46,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](../assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](prerequisites.html) puis cliquez sur **Done** :
+[prérequis de la documentation](prerequisites#define-disk-space) puis cliquez sur **Done** :
 
 ![image](../assets/installation/07_partitioning_filesystem.png)
 
@@ -115,66 +113,18 @@ Connectez-vous via un terminal et exécutez la commande :
 yum update
 ```
 
-> Acceptez toutes les clés GPG proposées.
+![image](../assets/installation/19_update_system.png)
 
-Redémarrez votre système avec la commande :
+Acceptez toutes les clés GPG proposées :
+
+![image](../assets/installation/20_accept_gpg_key.png)
+
+Redémarrez votre système avec la commande:
 
 ``` shell
 reboot
 ```
 
-## Première configuration
+## Installation web
 
-Continuez l'installation en réalisant la [première configuration](post-install#Web-installation).
-
-## Activer l'option Remote Server
-
-Connectez-vous à votre serveur ayant la fonction **Remote Server** et exécutez la commande suivante :
-
-``` shell
-/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
-```
-
-Remplacez **\<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le collecteur. Vous pouvez définir plusieurs
-adresses IP en utilisant la virgule comme séparateur.
-
-> Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par **https://\<IP_CENTREON_CENTRAL\>**.
->
-> Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par **\<IP_CENTREON_CENTRAL\>:\<PORT\>**.
-
-Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre à **1** l'option **\<not check SSL CA
-on Central\>**, sinon **0**.
-
-L'option **\<HTTP method\>** permet de définir la méthode de connexion pour contacter le Remote Server : HTTP ou HTTPS.
-
-L'option **\<TCP port\>** permet de définir sur quel port TCP communiquer avec le Remote Server.
-
-Pour ne pas contrôler le certificat SSL sur le Remote server, mettre à **1** l'option **\<not check SSL CA on Central\>**,
-sinon **0**.
-
-Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central, mettre à **1** l'option **\<no proxy to call
-Central\>**, sinon **0**.
-
-Cette commande va activer le mode **Remote Server** :
-
-``` shell
-Starting Centreon Remote enable process:
-Limiting Menu Access...               Success
-Limiting Actions...                   Done
-Authorizing Master...                 Done
-Set 'remote' instance type...         Done
-Notifying Master...
-Trying host '10.1.2.3'... Success
-Centreon Remote enabling finished.
-```
-
-Ajout des droits pour que l'utilisateur de base de données centreon puisse utiliser la commande **LOAD DATA INFILE** :
-
-``` SQL
-GRANT FILE on *.* to 'centreon'@'localhost';
-```
-
-## Ajouter le Remote Server à la configuration
-
-Rendez-vous au chapitre *[Ajouter un Remote Server à la configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.
+Terminez l'installation en réalisant les *[étapes de l'installation web](post-installation.html#installation-web)*.

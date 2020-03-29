@@ -9,12 +9,12 @@ De manière générale, les logiciels Open Sources fournis par Centreon sont dis
 * *[Paquets RPM pour la distribution CentOS v7](https://download.centreon.com)* (recommandé)
 * *[Machines virtuelles; basées sur les distributions CentOS v7](https://download.centreon.com)*, aux formats OVA (VMware)
   et OVF (VirtualBox et autres).
-* Archives contenant les sources
+* *[Archives contenant les sources](https://download.centreon.com)*.
 
 Les paquets RPM sont le meilleur format pour obtenir nos logiciels. Ces derniers ont été packagés par des experts
 Centreon et permettent de ne pas se soucier du processus d'installation.
 
-> Centreon recommande l'utilisation de la version *[packagée Centreon ISO](centreon_from_iso.html)*.
+> Centreon recommande l'utilisation de la version *[packagée Centreon ISO](installation-of-a-central-server/using-centreon-iso.html)*.
 
 Si votre plate-forme ne supporte pas les paquets RPMs, vous devrez utiliser les archives contenant les sources des
 versions stables de nos logiciels et installer ces derniers manuellement. La compilation manuelle de certains paquets

@@ -1,13 +1,11 @@
 ---
-id: remote-from-iso
+id: using-centreon-iso
 title: Using Centreon ISO
 ---
 
-Installing a Remote Server is similar to installing a Centreon Central Server.
-
 ## Step 1: Startup the server
 
-To install Centreon, start up your server from the Centreon ISO image in version el7.
+To install a Centreon Poller, start up your server from the Centreon ISO image in version el7.
 Start up with **Install CentOS 7**:
 
 ![image](../assets/installation/01_bootmenu.png)
@@ -26,18 +24,18 @@ Click on the **Installation Type** menu:
 
 You have different options to choose from:
 
-![image](../assets/installation/04_form_type_install.png)
+![image](../assets/installation/poller/07installpoller.png)
 
 * **Central with database**: Install Centreon (web interface and database), monitoring engine and Broker.
 * **Central without database**: Install Centreon (web interface only), monitoring engine and Broker.
 * **Poller**: Install poller (monitoring engine and Broker only).
 * **Database**: Install database server (if you have already installed a **Central server without a database** option).
 
-After selecting your installation type, click **Done**.
+Select **Poller** and click **Done**.
 
 ## Step 4: System configuration
 
-### Configure disk Partitioning
+### Configure disk partitioning
 
 Click on the **Installation Destination** menu:
 
@@ -125,63 +123,6 @@ Then restart your server with the following command:
 reboot
 ```
 
-## First configuration
+## Add the Poller to configuration
 
-Conclude installation by performing *[post intallation steps](post-install.html#Web-installation)*.
-
-## Enable the Remote Server option
-
-Connect to your **Remoter Server** and execute following command:
-
-``` shell
-/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
-```
-
-Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
-the poller. You can define multiple IP address using a coma as separator.
-
-> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
-> **https://\<IP_CENTREON_CENTRAL\>**.
->
-> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
-> **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
-
-For the **\<not check SSL CA on Central\>** option you can put **1** to do not
-check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
-**0**.
-
-The **\<HTTP method\>** is to define how the Centreon Central server can
-contact the Remote server: HTTP or HTTPS.
-
-The **\<TCP port\>** is to define on wich TCP port the entreon Central
-server can contact the Remote server.
-
-For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
-check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
-
-For the **\<no proxy to call Central\>** option you can put **1** to do not use
-HTTP(S) proxy to contact the Centreon Central server.
-
-This command will enable **Remote Server** mode:
-
-``` shell
-Starting Centreon Remote enable process:
-Limiting Menu Access...               Success
-Limiting Actions...                   Done
-Authorizing Master...                 Done
-Set 'remote' instance type...         Done
-Notifying Master...
-Trying host '10.1.2.3'... Success
-Centreon Remote enabling finished.
-```
-
-Add rights to centreon database user to use **LOAD DATA INFILE** command:
-
-``` SQL
-GRANT FILE on *.* to 'centreon'@'localhost';
-```
-
-## Add the Remote Server to configuration
-
-Go to the *[Add a Remote Server to configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.
+Go to the *[Add a Poller to configuration](../monitoring/monitoring-servers/add-a-poller-to-configuration.html)*.

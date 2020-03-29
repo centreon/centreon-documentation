@@ -1,6 +1,6 @@
 ---
-id: post-install
-title: First configuration
+id: post-installation
+title: Post Installation
 ---
 
 ## Web installation
@@ -105,7 +105,7 @@ To start the monitoring processes:
     systemctl restart cbd centengine
     ```
 
-6. Retart the tasks manager
+6. Restart the tasks manager
 
     ```shell
     systemctl restart gorgoned

@@ -1,5 +1,5 @@
 ---
-id: centreon-from-sources
+id: using-sources
 title: A partir des sources
 ---
 
@@ -830,6 +830,6 @@ Après avoir sauvegardé le fichier, n'oubliez pas de redémarrer le service apa
 La base de données MySQL doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
 information, nous recommandons MariaDB.
 
-## Première configuration
+## Installation web
 
-Terminez l'installation en réalisant la *[première configuration](post-install.html)*.
+Terminez l'installation en réalisant les *[étapes de l'installation web](post-installation.html#installation-web)*.
