@@ -67,7 +67,7 @@ traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforwa
 
 If path to the file is incorrect, change it and restart the snmptrapd process.
 You can check the proper functioning of binary centreontrapdforward by checking the configuration part of
-[centreontrapdforward](#centreontrapdforward).
+*[centreontrapdforward](enable-snmp-traps.html#centreontrapdforward)*.
 
 ### Centreontrapd
 
@@ -75,13 +75,13 @@ The next process to check is Centreontrapd. This daemon allows to connect a SNMP
 host in Centreon using IP address or DNS from distant equipment.
 To check its operation, you should check the centreontrapd configuration settings.
 
-You can check the proper functioning of binary centreontrapdforward by checking the configuration part of
-[centreontrapd](#centreontrapd).
+You can check the proper functioning of binary centreontrapd by checking the configuration part of
+*[centreontrapd](enable-snmp-traps.html#centreontrapd)*.
 
 ### CentCore
 
 CentCore daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.
-Enable the debug mode via **Administration \> Options \> Debug** menu and restart process.
+Enable the debug mode via **Administration > Options > Debug** menu and restart process.
 
 > You can edit debug severity level in **/etc/sysconfig/centcore** file.
 
@@ -117,4 +117,4 @@ connection failure between the monitoring engine and the broker can be the root 
 
 You will find below a detailed diagram of all the processes used and/or present at the reception of an SNMP trap:
 
-![image](assets/configuration/kcentreontrapd_schema.png)
+![image](../../assets/configuration/kcentreontrapd_schema.png)

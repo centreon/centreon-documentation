@@ -6,9 +6,9 @@ title: Les hôtes
 Un hôte est toute entité possédant une adresse IP correspondant à une ressource du système d’informations. Exemples : Un
 serveur, une imprimante réseau, un serveur NAS, une base de données, une sonde de température, une caméra IP...
 
-Tous les ajouts d’hôtes se font dans le menu : **Configuration \> Hosts \> Add**.
+Tous les ajouts d’hôtes se font dans le menu : **Configuration > Hosts > Add**.
 
-![image](assets/configuration/02addhost.png)
+![image](../assets/configuration/02addhost.png)
 
 ## Configuration de l’hôte
 
@@ -26,11 +26,12 @@ Tous les ajouts d’hôtes se font dans le menu : **Configuration \> Hosts \> Ad
 En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
 identiques définies dans modèles d’hôtes en dessous.
 
-Ce bouton nous permet de changer l'ordre des modèles hôtes ![image](assets/configuration/common/move.png)
-Ce bouton sert à supprimer le modèle hôte ![image](assets/configuration/common/delete.png)
+Ce bouton nous permet de changer l'ordre des modèles hôtes <img src="../assets/configuration/common/move.png" width="32" />
+Ce bouton sert à supprimer le modèle hôte <img src="../assets/configuration/common/delete.png" width="32" />
 
 * Si la case **Create Services linked to the Template too** est définit à **Yes**, Centreon génère automatiquement les
-  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus (voir chapitre Les [modèles](templates)).
+  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
+  (voir chapitre Les *[modèles](templates)*).
 
 ### Macros
 
@@ -42,13 +43,13 @@ La partie Macros permet d’ajouter des macros personnalisées.
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur ![image](assets/configuration/common/undo.png)
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../assets/configuration/common/undo.png" width="32" />
 
-Pour afficher la description de la macro, cliquez sur ![image](assets/configuration/common/description.png)
+Pour afficher la description de la macro, cliquez sur <img src="../assets/configuration/common/description.png" width="32" />
 
-Pour supprimer la macro, cliquez sur ![image](assets/configuration/common/delete.png)
+Pour supprimer la macro, cliquez sur <img src="../assets/configuration/common/delete.png" width="32" />
 
-Pour déplacer l’ordre des macros, cliquez sur ![image](assets/configuration/common/move.png)
+Pour déplacer l’ordre des macros, cliquez sur <img src="../assets/configuration/common/move.png" width="32" />
 
 ### Propriété d’ordonancement de l’hôte
 
@@ -125,7 +126,8 @@ Les champs présentés ci-dessous sont obsolètes :
 ### Groupes d'accès
 
 * Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateur), permet de lier l’hôte
-  à un groupe d’hôtes afin de pouvoir visualiser ce dernier (Voir le chapitre sur les contrôles d'accès @TODO@:ref:`acl`).
+  à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
+  *[les listes de contrôles d'accès](../administration/access-control-lists.html)*).
 
 ### Informations supplémentaires
 

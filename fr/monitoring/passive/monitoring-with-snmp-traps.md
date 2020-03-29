@@ -5,17 +5,17 @@ title: Monitoring SNMP Traps
 
 ## Configuration de la supervision
 
-Rendez-vous dans le menu **Configuration \> Services \> Services by host** et cliquez sur **Add**.
+Rendez-vous dans le menu **Configuration > Services > Services by host** et cliquez sur **Add**.
 
 * Définir une description du service
 * Sélectionnez l'hôte auquel attacher ce service
 * Sélectionnez le modèle de service **generic-passive-service-custom**
 
-![image](assets/configuration/06createpassiveservice.png)
+![image](../../assets/configuration/06createpassiveservice.png)
 
 * Rendez-vous dans l'onglet **Relation** et sélectionnez les traps SNMP
 
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 * Cliquez sur **Save**
 
@@ -24,12 +24,12 @@ Rendez-vous dans le menu **Configuration \> Services \> Services by host** et cl
 Pour pouvoir exporter les OID présents en base de données en fichier de configuration pour centreontrapd, suivez la
 procédure suivante :
 
-1. Rendez-vous dans le menu **Configuration \> SNMP traps \> Generate**
+1. Rendez-vous dans le menu **Configuration > SNMP traps > Generate**
 2. Sélectionnez le collecteur vers lequel vous souhaitez exporter les fichiers de configuration
 3. Cochez **Generate traps database** et **Apply configurations**
 4. Dans la liste déroulante **Send signal** (préférez l’option **Reload**)
 5. Cliquez sur le bouton **Generate**
-6. [Export the monitoring configuration](deploy)
+6. *[Export the monitoring configuration](../monitoring/deploy.html)*
 
 ## Pour aller plus loin
 
@@ -42,7 +42,7 @@ informations (valeur des arguments) contenu au sein du trap SNMP. Cependant, il 
 certaines informations contenues au sein du trap SNMP en appelant unitairement les arguments.
 
 Exemple :
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 Le message de sortie **Link down on interface $2. State: $4.**” permet d’afficher uniquement le nom de l’interface et
 l’état de celle-ci (argument $2 et $4).
@@ -53,7 +53,7 @@ Les arguments se trouvent au sein de la documentation de la MIB de votre constru
 **Comments** de votre trap SNMP.
 
 Par exemple :
-![image](assets/configuration/klinkcomment.png)
+![image](../../assets/configuration/klinkcomment.png)
 
 Pour afficher :
 
@@ -63,7 +63,8 @@ Pour afficher :
 * L’état de l’interface, utilisez l’argument $4
 
 Par exemple, le message de sortie suivant permet d’afficher l’ensemble des arguments :
-```Bash
+
+```shell
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3
 ```
 
@@ -85,7 +86,8 @@ Il est également possible de récupérer directement la valeur d’un argument 
 $3, ...). Pour cela, utilisez l’OID complet de l’argument.
 
 Voici un exemple :
-```Bash
+
+```shell
 Link down on interface: @{.1.3.6.1.2.1.2.2.1.2} (index: @{.1.3.6.1.2.1.2.2.1.1}). Operational state: @{.1.3.6.1.2.1.2.2.1.8}, Administration state: @{.1.3.6.1.2.1.2.2.1.7}
 ```
 
@@ -96,7 +98,7 @@ externes et de récupérer le résultat pour l’insérer au sein du message. Po
 trap SNMP, rendez-vous dans l’onglet **Advanced** et ajoutez une (ou plusieurs) commande(s) PREEXEC.
 
 Exemple :
-![image](assets/configuration/kpreexec.png)
+![image](../../assets/configuration/kpreexec.png)
 
 La première commande est **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** et permet de récupérer l’alias de
 l’interface. La variable “$1” correspond ici à la valeur associée à l’argument 1 des traps linkUp/linkDown, soit l’index.
@@ -107,7 +109,8 @@ de l’interface. La variable “$1” correspond ici à la valeur associée à 
 Pour utiliser le résultat de la première commande dans le message de sortie, utilisez l’argument $p1 et pour utiliser le résultat de la seconde commande dans le message de sortie, utilisez l’argument $p2.
 
 Par conséquent, nous pouvons déduire le message de sortie suivant :
-```Bash
+
+```shell
 Link down on interface: $2 (index: $1). Operational state: $4, Administration state: $3, Alias : $p1, Speed : $p2
 ```
 
@@ -118,7 +121,8 @@ l’option **Output Transform**. Il suffit de renseigner une expression réguli�
 d’un trap SNMP.
 
 For example:
-```Bash
+
+```shell
 s/\|/-/g
 ```
 
@@ -140,31 +144,31 @@ Pour cela, exécutez la procédure suivante :
 
 * Dans l'onglet **Main** :
 
-| Attributs                         | Description                                |
-|-----------------------------------|--------------------------------------------|
-| Trap Name                         | Nom du trap                                |
-| Mode                              | Unique                                     |
-| OID                               | OID du trap                                |
-| Default Status                    | Statut par défaut du trap                  |
-| Output Message                    | Message de sortie personnalisé             |
+| Attributs      | Description                    |
+| -------------- | ------------------------------ |
+| Trap Name      | Nom du trap                    |
+| Mode           | Unique                         |
+| OID            | OID du trap                    |
+| Default Status | Statut par défaut du trap      |
+| Output Message | Message de sortie personnalisé |
 
 * Dans l'onglet **Advanced**:
 
-| Attributes                        | Description                                                                                                       |
-|-----------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Enable routing                    | Cochez la case                                                                                                    |
-| Route definition                  | $2 (ici on part du principe que l’argument numéro 2 du trap contient l’adresse IP de l’hôte concerné par le trap) |
+| Attributes       | Description                                                                                                       |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Enable routing   | Cochez la case                                                                                                    |
+| Route definition | $2 (ici on part du principe que l’argument numéro 2 du trap contient l’adresse IP de l’hôte concerné par le trap) |
 
 2. Créer une deuxième définition du trap avec :
 
 * Dans l'onglet **Main** :
 
-| Attributs                         | Description                                |
-|-----------------------------------|--------------------------------------------|
-| Trap Name                         | Nom du trap                                |
-| OID                               | OID du trap                                |
-| Default Status                    | Statut par défaut du trap                  |
-| Output Message                    | Message de sortie personnalisé             |
+| Attributs      | Description                    |
+| -------------- | ------------------------------ |
+| Trap Name      | Nom du trap                    |
+| OID            | OID du trap                    |
+| Default Status | Statut par défaut du trap      |
+| Output Message | Message de sortie personnalisé |
 
 3. Associer la première définition à un service (par exemple PING) du serveur Oracle GRID
 4. Associer la deuxième définition à un service passif de l’hôte concerné
@@ -172,10 +176,10 @@ Pour cela, exécutez la procédure suivante :
 
 Au sein du champ **Route definition** vous pouvez utiliser les arguments suivants :
 
-| Nom de la variable  | Description                                                                                                 |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| @GETHOSTBYADDR($1)@ | Résolution DNS inverse permettant de connaitre le nom DNS à partir de l’adresse IP (127.0.0.1 -> localhost) |
-| @GETHOSTBYNAME($1)@ | Résolution DNS permettant de connaitre l’adresse IP à partir du nom DNS (localhost -> 127.0.0.1)            |
+| Nom de la variable  | Description                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| @GETHOSTBYADDR($1)@ | Résolution DNS inverse permettant de connaitre le nom DNS à partir de l’adresse IP (127.0.0.1 -\> localhost) |
+| @GETHOSTBYNAME($1)@ | Résolution DNS permettant de connaitre l’adresse IP à partir du nom DNS (localhost -\> 127.0.0.1)            |
 
 ### Ne pas soumettre le trap SNMP durant un downtime
 

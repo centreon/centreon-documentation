@@ -16,7 +16,7 @@ Exemple :
 * La macro **$HOSTADDRESS$** permet de récupérer l’adresse IP d’un hôte
 * La macro **$CONTACTEMAIL$** permet de récupérer l’adresse mail du contact
 
-> La liste complète des macros est disponible à l’adresse suivante : @TODO@`Liste des macros <http://nagios.sourceforge.net/docs/3_0/macrolist.html>`_
+> La liste complète des macros est disponible à cette *[adresse](http://nagios.sourceforge.net/docs/3_0/macrolist.html)*.
 
 ## Les macros personnalisées
 
@@ -45,14 +45,14 @@ une partition à interroger...
 
 Lors de la définition d’un hôte, les macros suivantes sont créées :
 
-![image](assets/configuration/01hostmacros.png)
+![image](../assets/configuration/01hostmacros.png)
 
 Pour faire appel à ces macros dans une commande de vérification, il faudra les invoquer en utilisant les variables
 suivantes : $_HOSTUSERLOGIN$, $_HOSTUSERPASSWORD$.
 
 Lors de la définition d’un service, les macros suivantes sont créées :
 
-![image](assets/configuration/01servicemacros.png)
+![image](../assets/configuration/01servicemacros.png)
 
 Pour faire appel à ces macros dans une commande de vérification, il faudra les invoquer en utilisant les variables
 suivantes : $_SERVICEPARTITION$, $_SERVICEWARNING$, $_SERVICECRITICAL$.
@@ -73,10 +73,10 @@ Par défaut, la macro $USER1$ est créée et sa valeur est la suivante : /usr/li
 
 Pour ajouter une macro de ressources :
 
-* Renez-vous dans le menu **Configuration \> Pollers \> Resources**
+* Renez-vous dans le menu **Configuration > Pollers > Resources**
 * Cliquez sur le bouton **Add**
 
-![image](assets/configuration/01macrosressources.png)
+![image](../assets/configuration/01macrosressources.png)
 
 * Le champ **Resource Name** définit le nom de la macro de ressources. Exemple : $USER3$
 * Le champ **MACRO Expression** définit la valeur de la macro.
@@ -95,7 +95,7 @@ Elles sont complémentaires aux macros standards. Exemple :
 * La macro standard $CONTACTEMAIL$ fait référence à l’adresse email du contact qui utilisera la commande de notification
 * La macro d’environnement $CONTACTEMAIL:centreon$ retournera l’adresse email de l’utilisateur "centreon"
 
-La documentation complète des macros à la demande est disponible à cette adresse @TODO@`Liste des macros <http://nagios.sourceforge.net/docs/3_0/macrolist.html>`_.
+La documentation complète des macros à la demande est disponible à cette *[adresse](http://nagios.sourceforge.net/docs/3_0/macrolist.html)*.
 
 > L’utilisation de ces macros n’est pas recommandée car la recherche d’une valeur d’un paramètre d’un objet depuis un
 > autre objet est consommateur en termes de ressources.

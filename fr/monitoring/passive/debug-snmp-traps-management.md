@@ -27,7 +27,8 @@ permettre de valider la réception du flux de données sur le port UDP 162.
 Une fois la réception du flux validé, vérifiez l’état de fonctionnement du processus snmptrapd, qui doit être en cours
 d’exécution, ainsi que ses options de configuration. Il est possible d’activer la journalisation du processus. Pour
 cela modifiez le fichier **/etc/sysconfig/snmptrapd.option** et remplacez la ligne "OPTIONS" pour avoir :
-```Bash
+
+```shell
 # snmptrapd command line options
 # OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 OPTIONS="-On -Lf /var/log/snmptrapd.log -p /var/run/snmptrapd.pid"
@@ -40,12 +41,14 @@ supprimez la journalisation et passez à l’étape suivante.
 Dans le cas où vous filtrez par communauté SNMP, vérifiez les communautés autorisées dans le fichier de configuration
 **/etc/snmp/snmptrapd.conf**. Si après toutes ces vérifications les traps SNMP ne sont pas inscrites dans le journal,
 vérifiez que le processus écoute sur le port UDP 162 pour les équipements distants en utilisant la commande :
-```Bash
+
+```shell
 netstat -ano | grep 162
 ```
 
 Vous devez avoir un résultat comme :
-```Bash
+
+```shell
 udp        0      0 0.0.0.0:162             0.0.0.0:*                           off (0.00/0/0)
 ```
 
@@ -61,13 +64,14 @@ consiste à vérifier l’appel de ce processus par snmptrapd dans le fichier **
 
 Vérifier que le service snmptrapd appelle bien centreontrapdforward. Pour cela, éditez le fichier **/etc/snmp/snmptrapd.conf**
 et vérifiez que le fichier contient :
-```Bash
+
+```shell
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
 
 Si l’accès au fichier est incorrect, modifiez le et redémarrez le processus snmptrapd. Vous pouvez contrôler le bon
 fonctionnement du binaire centreontrapdforward en vous rendant au chapitre de configuration de
-[centreontrapdforward](#centreontrapdforward).
+*[centreontrapdforward](enable-snmp-traps.html#centreontrapdforward)*.
 
 ### Centreontrapd
 
@@ -76,13 +80,13 @@ l’émetteur ainsi que le service lié à cet hôte et auquel est reliée la d�
 son fonctionnement, il convient de vérifier les paramètres de configuration de centreontrapd.
 
 Vous pouvez vérifier la bonne configuration de centreontrapd au sein du chapitre de configuration de
-[centreontrapd](#centreontrapd).
+*[centreontrapd](enable-snmp-traps.html#centreontrapd)*.
 
 ### CentCore
 
 Dans le cas d’un serveur central, le processus Centcore doit être démarré pour transférer la commande externe à
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
-menu **Administration \> Options \> Debug** et redémarrez le processus.
+menu **Administration > Options > Debug** et redémarrez le processus.
 
 > Vous pouvez modifier le niveau de débogage du processus via le fichier **/etc/sysconfig/centcore** en modifiant la
 > sévérité.
@@ -99,7 +103,8 @@ doit recevoir la commande externe de changement de statut et/ou de message de so
 de l’ordonnanceur. Dans le cas de Centreon Engine le fichier est **/var/log/centreon-engine/centengine.log**.
 
 Les lignes suivantes doivent apparaître :
-```Bash
+
+```shell
 [1352838428] EXTERNAL COMMAND: PROCESS_SERVICE_CHECK_RESULT;Centreon-Server;Traps-SNMP;2;Critical problem
 [1352838433] PASSIVE SERVICE CHECK: Centreon-Server;Traps-SNMP;2;Critical problem
 ```
@@ -128,4 +133,4 @@ problèmes peuvent être les suivants :
 Vous trouverez ci-dessous un schéma détaillé de tous les processus utilisés et/ou présents lors de la réception d’une
 interruption SNMP :
 
-![image](assets/configuration/kcentreontrapd_schema.png)
+![image](../../assets/configuration/kcentreontrapd_schema.png)

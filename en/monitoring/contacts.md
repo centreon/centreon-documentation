@@ -10,9 +10,9 @@ The contacts in Centreon are used to:
 * Log in to the Centreon web interface: each contact has its own rights of connection to the web interface.
 * Be warned in case of necessity (notification).
 
-To add  a contact, simply go to the menu: **Configuration \> Users \> Add**.
- 
-![image](assets/configuration/06useradd.png)
+To add  a contact, simply go to the menu: **Configuration > Users > Add**.
+
+![image](../assets/configuration/06useradd.png)
 
 To display the matrix of notification of a contact, click on **View contact notifications** next to the **Add** menu).
 
@@ -30,7 +30,7 @@ To display the matrix of notification of a contact, click on **View contact noti
 * The **Host / Service Notification Command** field serves to choose the notification command to a host or a service.
 
 ## Centreon authentication
- 
+
 * The **Reach Centreon Front-end** field serves to authorize the user to access the Centreon web interface.
 * The **Password** and **Confirm Password** fields contain the user password.
 * The **Default Language** field serves to define the language of the Centreon interface for this user.
@@ -38,7 +38,7 @@ To display the matrix of notification of a contact, click on **View contact noti
 * The **Autologin key** serves to define a connection key for the user. The user will no longer need to enter his / her
   login and password but will use this key to log in directly. Connection syntax:
 
-```Url
+```url
 http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
 ```
 

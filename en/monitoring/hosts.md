@@ -8,7 +8,7 @@ network printer, a NAS server, a temperature sensor, an IP camera, etc.
 
 All these host additions take place in the menu: **Configuration \> Hosts \> Add**.
 
-![image](assets/configuration/02addhost.png)
+![image](../assets/configuration/02addhost.png)
 
 ## Configuration of the host
 
@@ -26,11 +26,12 @@ All these host additions take place in the menu: **Configuration \> Hosts \> Add
 In case of conflicts of settings present on multiple templates, the host template above overwrites the identical properties
 defined in host templates below.
 
-This button enables us to change the order of host templates ![image](assets/configuration/common/move.png)
-This button serves to delete the host template ![image](assets/configuration/common/delete.png)
+This button enables us to change the order of host templates <img src="../assets/configuration/common/move.png" width="32" />
+This button serves to delete the host template <img src="../assets/configuration/common/delete.png" width="32" />
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
-  the services based their self on the service templates linked to the host templates defined above (see the [templates chapter](templates#definition)).
+  the services based their self on the service templates linked to the host templates defined above
+  (see the *[templates chapter](templates.html#definition)*).
 
 ### Monitoring properties of the host
 
@@ -42,13 +43,13 @@ The Macros part serves to add custom macros.
 * The **Macro name** and **Macro value** field enable us to define the name and value of the macro.
 * The **Password** box enables the value of the macro to be hidden.
 
-To reinitialize to the default value (defined in template) click on ![image](assets/configuration/common/undo.png)
+To reinitialize to the default value (defined in template) click on <img src="../assets/configuration/common/undo.png" width="32" />
 
-To view the description of the macro, click on ![image](assets/configuration/common/description.png)
+To view the description of the macro, click on <img src="../assets/configuration/common/description.png" width="32" />
 
-To delete the macro, click on ![image](assets/configuration/common/delete.png)
+To delete the macro, click on <img src="../assets/configuration/common/delete.png" width="32" />
 
-To change the order of the macros, click on ![image](assets/configuration/common/move.png)
+To change the order of the macros, click on <img src="../assets/configuration/common/move.png" width="32" />
 
 ### Scheduling options of the host
 
@@ -121,7 +122,7 @@ The fields presented below are obsolete:
 ### Access groups
 
 * The **ACL Resource Groups** (only displayed for non administrator) allows to link this host to an hostgroup in order
-  to visualize it (See @TODO@:ref:`acl` chapter).
+  to visualize it (see *[Access Control Lists](../administration/access-control-lists.html)* chapter).
 
 ### Additional Information
 

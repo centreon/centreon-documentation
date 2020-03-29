@@ -39,7 +39,7 @@ The processing of an SNMP trap is as follows:
   information to a remote scheduler) which changes the status and the information associated with service to which the
   SNMP trap is linked.
 
-![image](assets/configuration/06_trap_centreon.png)
+![image](../../assets/configuration/06_trap_centreon.png)
 
 ### SNMP trap processing by a poller server
 
@@ -58,7 +58,7 @@ The processing of an SNMP trap is as follows:
 4. The ‘centreontrapd’ service transmits the information to the scheduler which changes the status and the information
   associated with the service to which the SNMP trap is linked.
 
-![image](assets/configuration/06_trap_poller.png)
+![image](../../assets/configuration/06_trap_poller.png)
 
 > The Centcore process is responsible to copy the SQLite base on the remote poller.
 
@@ -66,7 +66,7 @@ The processing of an SNMP trap is as follows:
 
 Successive actions by the centreontrapd process are:
 
-![image](assets/configuration/SNMP_Traps_management_general_view.png)
+![image](../../assets/configuration/SNMP_Traps_management_general_view.png)
 
 ## Configuring services
 
@@ -102,7 +102,8 @@ tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
 
 To change the buffer folder towards which the information will be written, change the configuration file
 **/etc/centreon/centreontrapd.pm**:
-```Perl
+
+```perl
 our %centreontrapd_config = (
     spool_directory => '/var/spool/centreontrapd/',
 );
@@ -135,7 +136,8 @@ In the file **/etc/centreon/centreontrapd.pm** we advise changing three settings
 
 Here is an example of possible configuration of the file **/etc/centreon/centreontrapd.pm** (the configuration file can
 be changed with ‘-config-extra = xxx’):
-```Perl
+
+```perl
 our %centreontrapd_config = (
     # Time in seconds before killing not gently sub process
     timeout_end => 30,
@@ -177,7 +179,8 @@ our %centreontrapd_config = (
 #### Configuring the database connection
 
 On Centreon Central server, edit the **/etc/centreon/conf.pm** file:
-```Perl
+
+```perl
 $centreon_config = {
     VarLib => "/var/lib/centreon",
     CentreonDir => "/usr/share/centreon/",
@@ -192,7 +195,8 @@ $centreon_config = {
 ```
 
 On a poller, edit the **/etc/centreon/centreontrapd.pm** file:
-```Perl
+
+```perl
 our %centreontrapd_config = (
     ...
     "centreon_db" => "dbname=/etc/snmp/centreon_traps/centreontrapd.sdb",

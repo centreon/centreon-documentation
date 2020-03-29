@@ -34,7 +34,7 @@ The types of data sources available are:
   for capacities, for example for measuring the rate of people entering or leaving a room.
 * The **ABSOLUTE** type is for counters which reset on reading. It is used for fast counters that have a tendency to over-run.
 
-> More information on the [RRDTools website](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html).
+> More information on the *[RRDTools website](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)*.
 
 ## Configuration
 
@@ -42,8 +42,8 @@ To add a meta-service:
 
 Go into the menu: **Configuration \> Services \> Meta Services** and click on **Add**
 
-![image](assets/configuration/02addmetaservice.png)
- 
+![image](../assets/configuration/02addmetaservice.png)
+
 ### General information
 
 * The **Meta Service Name** field corresponds to the name of the meta-service Displayed in the interface.
@@ -61,7 +61,7 @@ If the **SQL matching** selection mode is selected the services used will be sel
 based on the LIKE type SQL expression to be searched field. The metric to be used in this case will be selected from the
 Metric drop down list.
 
-> More information on [PRINTF formatting](http://en.wikipedia.org/wiki/Printf_format_string).
+> More information on *[PRINTF formatting](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
 ### Meta Service status
 
@@ -92,10 +92,10 @@ Metric drop down list.
 If you have chosen the option **Service list**, in the screen containing all the meta-services:
 
 1. Click on the following icon to select the metrics entering into the calculation of the meta-service. These
-  metrics are called indicators. ![image](assets/configuration/common/flechedirection.png)
+  metrics are called indicators. <img src="../assets/configuration/common/flechedirection.png" width="32" />
 2. Click on **Add**
 
-![image](assets/configuration/02metaservicesindicators.png)
+![image](../assets/configuration/02metaservicesindicators.png)
 
 * The **Host** field serves to select the host to which the service to be selected belongs.
 * The **Service** field serves to choose the service (first list) as well as the metric in this service (second list).

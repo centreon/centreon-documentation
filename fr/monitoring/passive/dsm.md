@@ -23,23 +23,25 @@ Cette partie consiste à installer **Centreon DSM** sur un serveur central. Le s
 installés sur le serveur principal.
 
 Exécutez la commande :
-```Bash
+
+```shell
 yum install centreon-dsm-server centreon-dsm-client
 ```
 
 Après avoir installé le rpm, vous devez terminer l'installation du module via l'interface Web. Rendez-vous dans le menu
-**Administration \> Extensions \> Manager** et recherchez **dsm**:
+**Administration > Extensions > Manager** et recherchez **dsm**:
 
-![image](assets/configuration/dsm/module-setup.png)
+![image](../../assets/configuration/dsm/module-setup.png)
 
 Cliquez sur le bouton ``+`` d'installation.
 
 Votre module Centreon DSM est maintenant installé.
 
-![image](assets/configuration/dsm/module-setup-finished.png)
+![image](../../assets/configuration/dsm/module-setup-finished.png)
 
 Vous pouvez maintenant démarrer et activer le service sur votre serveur :
-```Bash
+
+```shell
 systemctl enable dsmd
 systemctl start dsmd
 ```
@@ -49,7 +51,8 @@ systemctl start dsmd
 Cette partie consiste à installer **Centreon DSM** sur un poller. Seul le client sera installé.
 
 Exécutez la commande :
-```Bash
+
+```shell
 yum install centreon-dsm-client
 ```
 
@@ -77,9 +80,9 @@ modifier l'état de l'emplacement. Sinon, les données resteront en attend de la
 
 ### Configurer les emplacements (slot)
 
-Rendez-vous dans le menu **Administration \> Modules \> Dynamic Services** et cliquez sur **Add**
+Rendez-vous dans le menu **Administration > Modules > Dynamic Services** et cliquez sur **Add**
 
-![image](assets/configuration/dsm/form-slot.png)
+![image](../../assets/configuration/dsm/form-slot.png)
 
 Veuillez suivre le tableau ci-dessous afin de comprendre le rôle de tous les paramètres:
 
@@ -97,24 +100,26 @@ Veuillez suivre le tableau ci-dessous afin de comprendre le rôle de tous les pa
 * **Status**: Le statut de la configuration.
 
 Un exemple de modèle de service passif est disponible ci-dessous:
- 
-![image](assets/configuration/dsm/form-passive-service.png)
+
+![image](../../assets/configuration/dsm/form-passive-service.png)
 
 > La macro **ALARM_ID** est obligatoire. La valeur par défaut **empty** est également nécessaire.
 
 Lorsque vous validez le formulaire, Centreon crée ou met à jour tous les emplacements. Si vous n'avez modifié aucune
-valeur, vous n'avez pas à effectuer d'autre action. Sinon, vous avez devez [générer et exporter la configuration](deploy).
+valeur, vous n'avez pas à effectuer d'autre action. Sinon, vous avez devez
+*[générer et exporter la configuration](../monitoring/deploy.html)*.
 
 ### Configuration des traps
 
 La dernière étape consiste à configurer les traps que vous souhaitez rediriger vers vos emplacements.
 
 Modifiez un trap SNMP que vous souhaitez rediriger vers les systèmes de emplacements. Rendez-vous dans le menu
-**Configuration \> SNMP traps \> SNMP traps** et éditez un trap.
+**Configuration > SNMP traps > SNMP traps** et éditez un trap.
 
 Pour rediriger les alarmes vers les emplacements, vous devez activer l'option **Execute special command** dans le
 formulaire et ajoutez cette commande dans le champ **special command** :
-```Bash
+
+```shell
 /usr/share/centreon/bin/dsmclient.pl -H @HOSTADDRESS@ -o 'Example output : $*' -i 'linkdown' -s 1 -t @TIME@
 ```
 
@@ -140,9 +145,10 @@ paramètre :
 
 Votre formulaire devrait maintenant être comme ça :
 
-![image](assets/configuration/dsm/trap-form-2.png)
+![image](../../assets/configuration/dsm/trap-form-2.png)
 
-Après avoir enregistré le formulaire, veuillez générer la [définition des traps SNMP](snmp-traps#applying-the-changes)
+Après avoir enregistré le formulaire, veuillez générer la
+*[définition des traps SNMP](monitoring-with-snmp-traps.html#Applying-the-changes)*.
 
 ### Configurer les liens d'évènement
 
@@ -157,7 +163,8 @@ Vous devez lier les interruptions à un service actif de la ressource, par exemp
 
 Il est possible de modifier la configuration par défaut du module en créant / éditant le fichier
 **/etc/centreon/centreon_dsmd.pm** :
-```Bash
+
+```shell
 %centreon_dsmd_config = (
     # which user will send action to Centcore
     centreon_user => 'centreon',
@@ -183,7 +190,8 @@ Toutes les actions effectuées par le moteur DSMD sont enregistrées dans la bas
 
 Pour modifier la période de rétention, par défaut **180 jours**, vous pouvez créer / modifier le fichier
 **/etc/centreon/centreon_dsm_purge.pm** :
-```Bash
+
+```shell
 %centreon_dsm_purge_config = (
     # period in days
     history_time => 180,
@@ -193,7 +201,8 @@ Pour modifier la période de rétention, par défaut **180 jours**, vous pouvez 
 ``` 
 
 Pour modifier l'heure de la tâche cron, vous pouvez modifier le fichier **/etc/cron.d/centreon-dsm** :
-```Bash
+
+```shell
 #####################################
 # Centreon DSM
 #

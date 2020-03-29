@@ -16,19 +16,19 @@ There are four types of command:
 * **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
   data processing, etc.
 
-All the commands can be configured in the menu: **Configuration \> Commands**.
+All the commands can be configured in the menu: **Configuration > Commands**.
 
-![image](assets/configuration/04commandlist.png)
+![image](../assets/configuration/04commandlist.png)
 
 > By default, locked commands are hidden. Check the "Locked elements" box to list all commands.
 
 ## Adding a command
 
-1. Go to the **Configuration \> Commands** menu
+1. Go to the **Configuration > Commands** menu
 2. Click on **Add**
 
-![image](assets/configuration/04command.png)
- 
+![image](../assets/configuration/04command.png)
+
 > The configuration fields of a command are the same regardless of the type of command chosen.
 
 ## Configuration fields
@@ -44,18 +44,19 @@ All the commands can be configured in the menu: **Configuration \> Commands**.
 * The **Describe macros** button serves to add  a description to all macros. This description will be visible when
   using the command in a host or service form.
 * The **Connectors** selectlist serves to link a Connector to the command. For more information on Connectors refer to the
-  chapter entitled [Perl Connector](#perl-connector) and [SSH Connector](#ssh-connector).
+  chapter entitled *[Perl Connector](#perl-connector)* and *[SSH Connector](#ssh-connector)*.
 * The **Graph template** field serves to link the command to a graphic model.
 * The **Comment** field can be used to make a comment on the command.
 
 ## Arguments and macros
 
-In the **Command Line** field it is possible to use [macros](macros) and arguments.
+In the **Command Line** field it is possible to use *[macros](macros.html)* and arguments.
 
 The macros are used to be able to pass various settings to the scripts called up by the commands. During execution
 of the command by the scheduler, each of the arguments and macros are replaced by their respective values.
 Each macro appears in the form **$value$**:
-```Bash
+
+```shell
 $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
 --hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' \
 --snmp-community='$_HOSTSNMPCOMMUNITY$' $_HOSTSNMPEXTRAOPTIONS$ \
@@ -63,7 +64,7 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 --critical-average='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
 ```
 
-> Good practice requires replacing the arguments by [custom macros](macros#custom-macros).
+> Good practice requires replacing the arguments by *[custom macros](macros.html#custom-macros)*.
 
 ## Connectors
 
@@ -78,7 +79,7 @@ Centreon recommends using its official packages. Most of Centreon’ endorsed so
 
 Run the following commands as privileged user:
 
-```Bash
+```shell
 yum install centreon-connector-ssh
 ```
 
@@ -110,12 +111,14 @@ Package required to build:
 | gcrypt library              | libgcrypt-devel     | Gcrypt library.
 
 1. Install basic compilation tools
-```Bash
+
+```shell
 yum install gcc gcc-c++ make libssh2-devel libgcrypt-devel
 ```
 
 2. Install cmake
-```Bash
+
+```shell
 yum install cmake
 ```
 
@@ -138,9 +141,11 @@ Package required to build:
 | gcrypt library              | libgcrypt11-dev     | Gcrypt library.
 
 1. Install compilation tools
-```Bash
+
+```shell
 apt-get install build-essential cmake libssh2-1-dev libgcrypt11-dev
 ```
+
 2. Install Centreon Clib
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
@@ -160,9 +165,11 @@ Package required to build:
 | gcrypt library              | libgcrypt-devel     | Gcrypt library.
 
 1. Install compilation tools
-```Bash
+
+```shell
 zypper install gcc gcc-c++ make cmake libssh2-devel libgcrypt-devel
 ```
+
 2. Install Centreon Clib
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
@@ -173,9 +180,10 @@ See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_ins
 
 ###### Get sources
 
-Centreon SSH Connector can be checked out from [GitHub](https://github.com/centreon/centreon-connectors).
+Centreon SSH Connector can be checked out from *[GitHub](https://github.com/centreon/centreon-connectors)*.
 The SSH connector sources reside in the ssh subdirectory. On a Linux box with git installed this is just a matter of:
-```Bash
+
+```shell
 git clone https://github.com/centreon/centreon-connectors
 ```
 
@@ -183,36 +191,39 @@ git clone https://github.com/centreon/centreon-connectors
 
 At the root of the project directory you'll find a ssh/build directory which holds build scripts. Generate the Makefile
 by running the following command:
-```Bash
+
+```shell
 cd /path_to_centreon_connector/ssh/build
 ```
 
 Your Centreon SSH Connector can be tweaked to your particular needs using CMake's variable system. Variables can be set
 like this:
-```Bash
+
+```shell
 cmake -D<variable1>=<value1> [-D<variable2>=<value2>] .
 ```
 
 Here's the list of variables available and their description:
 
-| Variable                       | Description                                                                                                                                | Default value
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------
-| WITH_CENTREON_CLIB_INCLUDE_DIR | Set the directory path of centreon-clib include.                                                                                           | auto detection
-| WITH_CENTREON_CLIB_LIBRARIES   |  Set the centreon-clib library to use.                                                                                                     | auto detection
-| WITH_CENTREON_CLIB_LIBRARY_DIR | Set the centreon-clib library directory (don't use it if you use WITH_CENTREON_CLIB_LIBRARIES)                                             | auto detection
-| WITH_KNOWN_HOSTS_CHECK         | Enable or disable Check hosts against user's known_hosts file.                                                                             | OFF
-| WITH_LIBGCRYPT_INCLUDE_DIR     | Set the directory path of libgcrypt include.                                                                                               | auto detection
-| WITH_LIBGCRYPT_LIBRARIES       | Set the libgcrypt library to use.                                                                                                          | auto detection
-| WITH_LIBGCRYPT_LIBRARY_DIR     | Set the libgcrypt library directory (don't use it if you use WITH_LIBGCRYPT_LIBRARIES)                                                     | auto detection
-| WITH_LIBSSH2_INCLUDE_DIR       | Set the directory path of libssh2 include.                                                                                                 | auto detection
-| WITH_LIBSSH2_LIBRARIES         | Set the libssh2 library to use.                                                                                                            | auto detection
-| WITH_LIBSSH2_LIBRARY_DIR       | Set the libssh2 library directory (don't use it if you use WITH_LIBSSH2_LIBRARIES)                                                         | auto detection
-| WITH_PREFIX                    | Base directory for Centreon SSH Connector installation. If other prefixes are expressed as relative paths, they are relative to this path. | ``/usr/local``
-| WITH_PREFIX_BINARY             | Define specific directory for Centreon Connector SSH binary.                                                                               | ``${WITH_PREFIX}/bin``                      
-| WITH_TESTING                   | Enable generation of unit tests. They can later be run by typing *make test*.       OFF
+| Variable                           | Description                                                                                                                                | Default value        |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| WITH\_CENTREON\_CLIB\_INCLUDE\_DIR | Set the directory path of centreon-clib include.                                                                                           | auto detection       |
+| WITH\_CENTREON\_CLIB\_LIBRARIES    | Set the centreon-clib library to use.                                                                                                      | auto detection       |
+| WITH\_CENTREON\_CLIB\_LIBRARY\_DIR | Set the centreon-clib library directory (don't use it if you use WITH\_CENTREON\_CLIB\_LIBRARIES)                                          | auto detection       |
+| WITH\_KNOWN\_HOSTS\_CHECK          | Enable or disable Check hosts against user's known\_hosts file.                                                                            | OFF                  |
+| WITH\_LIBGCRYPT\_INCLUDE\_DIR      | Set the directory path of libgcrypt include.                                                                                               | auto detection       |
+| WITH\_LIBGCRYPT\_LIBRARIES         | Set the libgcrypt library to use.                                                                                                          | auto detection       |
+| WITH\_LIBGCRYPT\_LIBRARY\_DIR      | Set the libgcrypt library directory (don't use it if you use WITH\_LIBGCRYPT\_LIBRARIES)                                                   | auto detection       |
+| WITH\_LIBSSH2\_INCLUDE\_DIR        | Set the directory path of libssh2 include.                                                                                                 | auto detection       |
+| WITH\_LIBSSH2\_LIBRARIES           | Set the libssh2 library to use.                                                                                                            | auto detection       |
+| WITH\_LIBSSH2\_LIBRARY\_DIR        | Set the libssh2 library directory (don't use it if you use WITH\_LIBSSH2\_LIBRARIES)                                                       | auto detection       |
+| WITH\_PREFIX                       | Base directory for Centreon SSH Connector installation. If other prefixes are expressed as relative paths, they are relative to this path. | `/usr/local`         |
+| WITH\_PREFIX\_BINARY               | Define specific directory for Centreon Connector SSH binary.                                                                               | `${WITH_PREFIX}/bin` |
+| WITH\_TESTING                      | Enable generation of unit tests. They can later be run by typing *make test*. OFF                                                          |                      |
 
 Example
-```Bash
+
+```shell
 cmake \
     -DWITH_PREFIX=/usr \
     -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
@@ -229,7 +240,8 @@ appropriate error message will be printed. Otherwise an installation summary wil
 ###### Compilation
 
 Once properly configured, the compilation process is really simple:
-```Bash
+
+```shell
 make
 ```
 
@@ -238,7 +250,8 @@ And wait until compilation completes.
 ###### Install
 
 Once compiled, the following command must be run as privileged user to finish installation:
-```Bash
+
+```shell
 make install
 ```
 
@@ -257,44 +270,44 @@ Engine, one might configure commands that relates to SSH check
 
 These arguments are centreon_connector_ssh options.
 
-| Short name | Long name | Description
-|------------|-----------|----------------------------------------------------
-| -d         | --debug   | If this flag is specified, print all logs messages.
-| -h         | --help    | Print help and exit.
-| -v         | --version | Print software version and exit.
+| Short name | Long name  | Description                                         |
+| ---------- | ---------- | --------------------------------------------------- |
+| \-d        | \--debug   | If this flag is specified, print all logs messages. |
+| \-h        | \--help    | Print help and exit.                                |
+| \-v        | \--version | Print software version and exit.                    |
 
 ##### Check arguments
 
 These arguments are checks options (like check_by_ssh options).
 
-|Short name|Long name       |Description                                      |
-|----------|----------------|-------------------------------------------------|
-|-1        |--proto1        |This option is not supported.                    |
-|-2        |--proto2        |Tell ssh to use Protocol 2.                      |
-|-4        |--use-ipv4      |Enable IPv4 connection.                          |
-|-6        |--use-ipv6      |Enable IPv6 connection.                          |
-|-a        |--authentication|Authentication password.                         |
-|-C        |--command       |Command to execute on the remote machine.        |
-|-E        |--skip-stderr   |Ignore all or first n lines on STDERR.           |
-|-f        |--fork          |This option is not supported.                    |
-|-h        |--help          |Not used.                                        |
-|-H        |--hostname      |Host name, IP Address.                           |
-|-i        |--identity      |Identity of an authorized key.                   |
-|-l        |--logname       |SSH user name on remote host.                    |
-|-n        |--name          |This option is not supported.                    |
-|-o        |--ssh-option    |This option is not supported.                    |
-|-O        |--output        |This option is not supported.                    |
-|-p        |--port          |Port number (default 22).                        |
-|-q        |--quiet         |Not used.                                        |
-|-s        |--services      |This option is not supported.                    |
-|-S        |--skip-stdout   |Ignore all or first n lines on STDOUT.           |
-|-t        |--timeout       |Seconds before connection times out (default 10).|
-|-v        |--verbose       |Not used.                                        |
-|-V        |--version       |Not used.                                        |
-
+| Short name | Long name         | Description                                       |
+| ---------- | ----------------- | ------------------------------------------------- |
+| \-1        | \--proto1         | This option is not supported.                     |
+| \-2        | \--proto2         | Tell ssh to use Protocol 2.                       |
+| \-4        | \--use-ipv4       | Enable IPv4 connection.                           |
+| \-6        | \--use-ipv6       | Enable IPv6 connection.                           |
+| \-a        | \--authentication | Authentication password.                          |
+| \-C        | \--command        | Command to execute on the remote machine.         |
+| \-E        | \--skip-stderr    | Ignore all or first n lines on STDERR.            |
+| \-f        | \--fork           | This option is not supported.                     |
+| \-h        | \--help           | Not used.                                         |
+| \-H        | \--hostname       | Host name, IP Address.                            |
+| \-i        | \--identity       | Identity of an authorized key.                    |
+| \-l        | \--logname        | SSH user name on remote host.                     |
+| \-n        | \--name           | This option is not supported.                     |
+| \-o        | \--ssh-option     | This option is not supported.                     |
+| \-O        | \--output         | This option is not supported.                     |
+| \-p        | \--port           | Port number (default 22).                         |
+| \-q        | \--quiet          | Not used.                                         |
+| \-s        | \--services       | This option is not supported.                     |
+| \-S        | \--skip-stdout    | Ignore all or first n lines on STDOUT.            |
+| \-t        | \--timeout        | Seconds before connection times out (default 10). |
+| \-v        | \--verbose        | Not used.                                         |
+| \-V        | \--version        | Not used.                                         |
 
 Example:
-```Bash
+
+```shell
 define connector{
     connector_name centreon_connector_ssh
     connector_line /usr/bin/centreon-connector/centreon_connector_ssh
@@ -338,7 +351,7 @@ Centreon recommends using its official packages. Most of Centreon’ endorsed so
 
 Run the following commands as privileged user:
 
-```Bash
+```shell
 yum install centreon-connector-perl
 ```
 
@@ -361,20 +374,20 @@ the yum tool to install them. You should check packages version when necessary.
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| Perl                        | perl                | Scripting language.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| Perl                        | perl                | Scripting language.                                        |
 
 1. Install basic compilation tools
-```Bash
+```shell
 yum install gcc gcc-c++ make perl
 ```
 
 2. Install cmake
-```Bash
+```shell
 yum install cmake
 ```
 
@@ -388,17 +401,19 @@ Either use the Package Manager or the apt-get tool to install them. You should c
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | build-essential     | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| Perl                        | libperl-dev         | Scripting language.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | build-essential     | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| Perl                        | libperl-dev         | Scripting language.                                        |
 
 1. Install compilation tools
-```Bash
+
+```shell
 apt-get install build-essential cmake libperl-dev
 ```
+
 2. Install Centreon Clib
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
@@ -409,17 +424,19 @@ the Package Manager or the zypper tool to install them. You should check package
 
 Package required to build:
 
-| Software                    | Package Name        | Description
-|-----------------------------|---------------------|------------------------------------------------------------
-| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.
-| CMake **(>= 2.8)**          | cmake               | Read the build script and prepare sources for compilation.
-| Centreon Clib (>= 1.0)      | centreon-clib-devel | Core library used by Centreon Connector.
-| Perl                        | perl                | Scripting language.
+| Software                    | Package Name        | Description                                                |
+| --------------------------- | ------------------- | ---------------------------------------------------------- |
+| C++ compilation environment | gcc gcc-c++ make    | Mandatory tools to compile.                                |
+| CMake **(\>= 2.8)**         | cmake               | Read the build script and prepare sources for compilation. |
+| Centreon Clib (\>= 1.0)     | centreon-clib-devel | Core library used by Centreon Connector.                   |
+| Perl                        | perl                | Scripting language.                                        |
 
 1. Install compilation tools
-```Bash
+
+```shell
 zypper install gcc gcc-c++ make cmake perl
 ```
+
 2. Install Centreon Clib
 
 See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_install>`.
@@ -432,7 +449,8 @@ See the Centreon Clib @TODO@:ref:`documentation <centreon-clib:centreon_clib_ins
 
 Centreon Perl Connector can be checked out from [GitHub](https://github.com/centreon/centreon-connectors).
 The Perl connector sources reside in the perl subdirectory. On a Linux box with git installed this is just a matter of:
-```Bash
+
+```shell
 git clone https://github.com/centreon/centreon-connectors
 ```
 
@@ -440,29 +458,32 @@ git clone https://github.com/centreon/centreon-connectors
 
 At the root of the project directory you'll find a perl/build directory which holds build scripts. Generate the Makefile
 by running the following command:
-```Bash
+
+```shell
 cd /path_to_centreon_connector/perl/build
 ```
 
 Your Centreon Perl Connector can be tweaked to your particular needs using CMake's variable system. Variables can be set
 like this:
-```Bash
+
+```shell
 cmake -D<variable1>=<value1> [-D<variable2>=<value2>] .
 ```
 
 Here's the list of variables available and their description:
 
-| Variable                       | Description                                                                                                                                 | Default value
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------
-| WITH_CENTREON_CLIB_INCLUDE_DIR | Set the directory path of centreon-clib include.                                                                                            | auto detection
-| WITH_CENTREON_CLIB_LIBRARIES   |  Set the centreon-clib library to use.                                                                                                      | auto detection
-| WITH_CENTREON_CLIB_LIBRARY_DIR | Set the centreon-clib library directory (don't use it if you use WITH_CENTREON_CLIB_LIBRARIES)                                              | auto detection
-| WITH_PREFIX                    | Base directory for Centreon PErl Connector installation. If other prefixes are expressed as relative paths, they are relative to this path. | ``/usr/local``
-| WITH_PREFIX_BINARY             | Define specific directory for Centreon Connector Perl binary.                                                                               | ``${WITH_PREFIX}/bin``                      
-| WITH_TESTING                   | Enable generation of unit tests. They can later be run by typing *make test*.                                                               | OFF
+| Variable                           | Description                                                                                                                                 | Default value        |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| WITH\_CENTREON\_CLIB\_INCLUDE\_DIR | Set the directory path of centreon-clib include.                                                                                            | auto detection       |
+| WITH\_CENTREON\_CLIB\_LIBRARIES    | Set the centreon-clib library to use.                                                                                                       | auto detection       |
+| WITH\_CENTREON\_CLIB\_LIBRARY\_DIR | Set the centreon-clib library directory (don't use it if you use WITH\_CENTREON\_CLIB\_LIBRARIES)                                           | auto detection       |
+| WITH\_PREFIX                       | Base directory for Centreon PErl Connector installation. If other prefixes are expressed as relative paths, they are relative to this path. | `/usr/local`         |
+| WITH\_PREFIX\_BINARY               | Define specific directory for Centreon Connector Perl binary.                                                                               | `${WITH_PREFIX}/bin` |
+| WITH\_TESTING                      | Enable generation of unit tests. They can later be run by typing *make test*.                                                               | OFF                  |
 
 Example
-```Bash
+
+```shell
 cmake \
     -DWITH_PREFIX=/usr \
     -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector \
@@ -479,7 +500,8 @@ appropriate error message will be printed. Otherwise an installation summary wil
 ###### Compilation
 
 Once properly configured, the compilation process is really simple:
-```Bash
+
+```shell
 make
 ```
 
@@ -488,7 +510,8 @@ And wait until compilation completes.
 ###### Install
 
 Once compiled, the following command must be run as privileged user to finish installation:
-```Bash
+
+```shell
 make install
 ```
 
@@ -508,14 +531,15 @@ definition.
 
 These arguments are centreon_connector_perl options.
 
-| Short name | Long name | Description
-|------------|-----------|----------------------------------------------------
-| -d         | --debug   | If this flag is specified, print all logs messages.
-| -h         | --help    | Print help and exit.
-| -v         | --version | Print software version and exit.
+| Short name | Long name  | Description                                         |
+| ---------- | ---------- | --------------------------------------------------- |
+| \-d        | \--debug   | If this flag is specified, print all logs messages. |
+| \-h        | \--help    | Print help and exit.                                |
+| \-v        | \--version | Print software version and exit.                    |
 
 Example:
-```Bash
+
+```shell
 define connector{
     connector_name centreon_connector_perl
     connector_line /usr/bin/centreon-connector/centreon_connector_perl
@@ -558,4 +582,4 @@ follow.
 * The precompiled script gets executed
 
 This way Perl scripts are only parsed once during the lifetime of the monitoring engine. This heavily relates to
-[prepared statements](http://en.wikipedia.org/wiki/Prepared_statements) in SQL.
+*[prepared statements](http://en.wikipedia.org/wiki/Prepared_statements)* in SQL.

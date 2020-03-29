@@ -5,17 +5,17 @@ title: Monitoring with SNMP Traps
 
 ## Monitoring configuration
 
-Go to the **Configuration \> Services \> Services by host** menu and click on **Add**.
+Go to the **Configuration > Services > Services by host** menu and click on **Add**.
 
 * Set a description of the service
 * Select the host to which to attach this service
 * Select the **generic-passive-service-custom** template
 
-![image](assets/configuration/06createpassiveservice.png)
+![image](../../assets/configuration/06createpassiveservice.png)
 
 * Go on the **Relation** tab and select the SNMP traps
 
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 * Click on **Save**
 
@@ -23,12 +23,12 @@ Go to the **Configuration \> Services \> Services by host** menu and click on **
 
 To be able to export the OID present in the database in the configuration file to centreontrapd, follow the following procedure:
 
-1. Go to the **Configuration \> SNMP traps \> Generate** menu
+1. Go to the **Configuration > SNMP traps > Generate** menu
 2. Select the poller to which you want to export the configuration files
 3. Check **Generate traps database** and **Apply configurations**
 4. In the drop-down list **Send signal** (the **Reload** option is preferable)
 5. Click on the **Generate** button
-6. [Export the monitoring configuration](deploy)
+6. *[Export the monitoring configuration](../monitoring/deploy.html)*
 
 ## To go further
 
@@ -41,7 +41,7 @@ arguments) contained within the SNMP trap. However, it is possible to display on
 SNMP trap by calling unitary arguments.
 
 For example:
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 The output message **Link down on interface $2. State: $4.** will display only the name of the interface and its status
 ($2 and $4 argument).
@@ -50,7 +50,7 @@ Where can I find the arguments?
 
 The arguments are in the documentation of the MIB manufacturer or in the **Comments** field of the SNMP trap.
 
-![image](assets/configuration/klinkcomment.png)
+![image](../../assets/configuration/klinkcomment.png)
 
 To show:
 
@@ -94,7 +94,7 @@ result to insert it in the output.
 To do this, within the definition of your SNMP trap, go to the **Advanced** tab and add one (or more) preexec commands.
 
 For example:
-![image](assets/configuration/kpreexec.png)
+![image](../../assets/configuration/kpreexec.png)
 
 The first command **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** and allows you to retrieve the alias
 interface. The "$1" variable is for the argument 1 associated value of linkUp/linkDown traps.
@@ -137,31 +137,31 @@ To do this, perform the following steps:
 
 * In **Main** Tab:
 
-| Attributes                        | Description                                |
-|-----------------------------------|--------------------------------------------|
-| Trap Name                         | Trap name                                  |
-| Mode                              | Unique                                     |
-| OID                               | OID of the trap                            |
-| Default Status                    | Trap default status                        |
-| Output Message                    | Custom output message                      |
+| Attributes     | Description           |
+| -------------- | --------------------- |
+| Trap Name      | Trap name             |
+| Mode           | Unique                |
+| OID            | OID of the trap       |
+| Default Status | Trap default status   |
+| Output Message | Custom output message |
 
 * In **Advanced** Tab:
 
-| Attributes                        | Description                                                    |
-|-----------------------------------|----------------------------------------------------------------|
-| Enable routing                    | Checked                                                        |
-| Route definition                  | $2 (In this example $2 argument is for IP address of the host) |
+| Attributes       | Description                                                    |
+| ---------------- | -------------------------------------------------------------- |
+| Enable routing   | Checked                                                        |
+| Route definition | $2 (In this example $2 argument is for IP address of the host) |
 
 2. Create a second trap definition:
 
 * In **Main** Tab:
 
-| Attributes                        | Description                                |
-|-----------------------------------|--------------------------------------------|
-| Trap Name                         | Trap name (not the same as previous)       |
-| OID                               | OID of the trap (same as previous)         |
-| Default Status                    | Trap default status                        |
-| Output Message                    | Custom output message                      |
+| Attributes     | Description                          |
+| -------------- | ------------------------------------ |
+| Trap Name      | Trap name (not the same as previous) |
+| OID            | OID of the trap (same as previous)   |
+| Default Status | Trap default status                  |
+| Output Message | Custom output message                |
 
 3. Associate the first definition to a service (eg PING) of Oracle GRID server
 4. Associate the second definition to a passive service of the host.
@@ -169,10 +169,10 @@ To do this, perform the following steps:
 
 In the **Route definition** field you can use the following arguments:
 
-|   Variable name      |   Description                                                                        |
-|----------------------|--------------------------------------------------------------------------------------|
-| @GETHOSTBYADDR($2)@  | Reverse DNS resolution to know the DNS name from IP address (127.0.0.1 -> localhost) |
-| @GETHOSTBYNAME($2)@  | DNS resolution to know the Ip address from the DNS (localhost -> 127.0.0.1)          |
+| Variable name       | Description                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| @GETHOSTBYADDR($2)@ | Reverse DNS resolution to know the DNS name from IP address (127.0.0.1 -\> localhost) |
+| @GETHOSTBYNAME($2)@ | DNS resolution to know the Ip address from the DNS (localhost -\> 127.0.0.1)          |
 
 ### Ignore SNMP Trap when resource is on downtime
 

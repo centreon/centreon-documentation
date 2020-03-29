@@ -16,7 +16,7 @@ E.g.:
 * The macro called **$HOSTADDRESS$** enables us to retrieve the IP address of a host
 * The macro called **$CONTACTEMAIL$** enables us to retrieve the e-mail address of the contact
 
-> A complete list of macros is available at the following address: @TODO@`List of macros <http://nagios.sourceforge.net/docs/3_0/macrolist.html>`_
+> A complete list of macros is available at the following *[address](http://nagios.sourceforge.net/docs/3_0/macrolist.html)*.
 
 ## Custom macros
 
@@ -42,14 +42,14 @@ to be questioned, etc.
 
 During the definition of a host, the following macros are created:
 
-![image](assets/configuration/01hostmacros.png)
+![image](../assets/configuration/01hostmacros.png)
 
 To retrieve these macros in a check command, you need to call it using the following variables: $_HOSTUSERLOGIN$,
 $_HOSTUSERPASSWORD$.
 
 On definition of a service, the following macros are created:
 
-![image](assets/configuration/01servicemacros.png)
+![image](../assets/configuration/01servicemacros.png)
 
 To retrieve these macros in a check command, you need to invoke them using the following variables: $_SERVICEPARTITION$,
 $_SERVICEWARNING$, $_SERVICECRITICAL$.
@@ -72,7 +72,7 @@ To add a resources macro:
 * Go into the **Configuration \> Pollers \> Resources** menu
 * Click on **Add**
 
-![image](assets/configuration/01macrosressources.png)
+![image](../assets/configuration/01macrosressources.png)
 
 * The **Resource Name** field defines the name of the resource macro. E.g.: $USER3$
 * The **MACRO Expression** field defines the value of the macro.
@@ -90,7 +90,7 @@ They are complementary to standard macros. E.g.:
   notification
 * The environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
 
-The complete documentation on macros “on demand” is available at this address: @TODO@`macro list <http://nagios.sourceforge.net/docs/3_0/macrolist.html>`_.
+The complete documentation on macros “on demand” is available at this *[address](http://nagios.sourceforge.net/docs/3_0/macrolist.html>)*.
 
 > The use of these macros is not recommended because the search for a value of a setting of an object from another
 object is a consumer in terms of resources.

@@ -7,18 +7,18 @@ title: Create SNMP Traps definitions
 
 Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To add a manufacturer:
 
-Go into the **Configuration \> SNMP traps \> Manufacturer** menu and click on **Add**
+Go into the **Configuration > SNMP traps > Manufacturer** menu and click on **Add**
 
-![image](assets/configuration/06constructors.png)
+![image](../../assets/configuration/06constructors.png)
 
 * The **Name** and **Alias** fields define the name and the alias of the manufacturer
 * The **Description** field provides an indication about the manufacturer
 
 ## Importation of MIBs
 
-Go into the **Configuration \> SNMP traps \> MIBs** menu
+Go into the **Configuration > SNMP traps > MIBs** menu
 
-![image](assets/configuration/06importmibssuccess.png)
+![image](../../assets/configuration/06importmibssuccess.png)
 
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
@@ -29,7 +29,7 @@ you must open your MIB file using a standard text editor, then:
 1. Locate the line that starts with IMPORTS
 2. All dependencies required to import your MIB file are after the keyword **FROM**
 
-![image](assets/configuration/kdependances.png)
+![image](../../assets/configuration/kdependances.png)
 
 In the MIB file shown above, there are four dependencies required to import the MIB: SNMPv2-SMI, SNMPv2-TC, SNMPv2-CONF,
 SNMP-FRAMEWORK-MIB.
@@ -43,9 +43,9 @@ SNMP-FRAMEWORK-MIB.
 
 It is also possible to create definitions of SNMP traps manually:
 
-Go into the **Configuration \> SNMP traps \> SNMP traps** menu and click on **Add**
+Go into the **Configuration > SNMP traps > SNMP traps** menu and click on **Add**
 
-![image](assets/configuration/06addsnmptrap.png)
+![image](../../assets/configuration/06addsnmptrap.png)
 
 * The field **Trap name** defines the name of the trap.
 * The field **Mode** defines how to check the trap **OID** received.
@@ -97,7 +97,7 @@ correspondence is assured.
 
 The **Advanced** tab serves to configure the behavior of the handling process of the SNMP traps on its reception of the latter.
 
-![image](assets/configuration/06advancedconfiguration.png)
+![image](../../assets/configuration/06advancedconfiguration.png)
 
 * **Enable routing** is used to enable the routing of information.
 * **Route definition** is used to define the command to be used for routing.
@@ -145,7 +145,8 @@ The result will have the form:  Interface GigabitEthernet0/1 ( NAS Server ) link
 
 The field **custom code** allows custom Perl processing. To enable this feature, you must set **secure_mode** to 0 in
 **/etc/centreon/centreontrapd.pm** file as:
-```Perl
+
+```perl
 our %centreontrapd_config = (
     ...
     secure_mode => 0,
@@ -153,10 +154,11 @@ our %centreontrapd_config = (
 );
 
 1;
-````
+```
 
 For example, to decode the 4 arguments from hexadecimal, the custom code will be:
-```Perl
+
+```perl
 if ($self->{trap_data}->{entvar}->[3] =~ /[[:xdigit:]]+/) {
     my $hexa_value = $self->{trap_data}->{entvar}->[3];
     $hexa_value =~ s/ //g;

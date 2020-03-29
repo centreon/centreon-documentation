@@ -15,7 +15,7 @@ Les périodes temporelles s’appliquent à deux types d’actions :
 
 ## Configuration
 
-La configuration des périodes temporelles se déroule dans le menu : **Configuration \> Users \> Time periods**.
+La configuration des périodes temporelles se déroule dans le menu : **Configuration > Users > Time periods**.
 
 ### Options basiques
 
@@ -39,7 +39,7 @@ Quelques exemples :
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de la semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours
   de la semaine uniquement).
 
-![image](assets/configuration/05timeperiod.png)
+![image](../assets/configuration/05timeperiod.png)
 
 ### Les exceptions
 
@@ -56,16 +56,16 @@ c’est à dire :
 Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exceptionnelle, il est nécessaire d’utiliser
 les exceptions.
 
-Pour ajouter une exception, cliquez sur le bouton ![image](assets/configuration/common/navigate_plus.png).
+Pour ajouter une exception, cliquez sur le bouton <img src="../assets/configuration/common/navigate_plus.png" width="32" />.
 Par journée exceptionnelle, vous devez définir une plage horaire. Le tableau ci-dessous présente quelques exemples
 possibles :
 
-| Jour(s)               | 	Période de temps      | Explications                                                    |
-|-----------------------|-------------------------|-----------------------------------------------------------------|
-|     january 1         |       00:00-24:00       | Toute la journée le premier janvier de chaque année             |
-|     2014-02-10        |       00:00-24:00       | Toute la journée du 10 février 2014                             |
-|  july 1 - august 1    |       00:00-24:00       | Tous les jours de chaque année du 1 juillet au 1 août           |
-|     november 30       |       08:00-19:00       | De 08h00 à 19h00 tous les 30 novembre de chaque année           |
-|      day 1 - 20       |       00:00-24:00       | Toute la journée du premier au 20 de chaque mois                |
-|     saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées             |
-|     monday -2         |       00:00-24:00       | Tous les avant derniers lundi du mois toute la journée          |
+| Jour(s)           | Période de temps        | Explications                                           |
+| ----------------- | ----------------------- | ------------------------------------------------------ |
+| january 1         | 00:00-24:00             | Toute la journée le premier janvier de chaque année    |
+| 2014-02-10        | 00:00-24:00             | Toute la journée du 10 février 2014                    |
+| july 1 - august 1 | 00:00-24:00             | Tous les jours de chaque année du 1 juillet au 1 août  |
+| november 30       | 08:00-19:00             | De 08h00 à 19h00 tous les 30 novembre de chaque année  |
+| day 1 - 20        | 00:00-24:00             | Toute la journée du premier au 20 de chaque mois       |
+| saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées    |
+| monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée |

@@ -34,16 +34,16 @@ données disponibles sont :
 * Le type **ABSOLUTE** est pour les compteurs qui se réinitialisent à la lecture. Il est utilisé pour les compteurs
   rapides qui ont tendance à déborder.
 
-> Plus d’informations sur le site de [RRDTools](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html).
+> Plus d’informations sur le site de *[RRDTools](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)*.
 
 ## Configuration
 
 Pour ajouter un méta-service :
 
-Rendez-vous dans le menu : **Configuration \> Services \> Meta Services** et cliquez sur le bouton **Add**
+Rendez-vous dans le menu : **Configuration > Services > Meta Services** et cliquez sur le bouton **Add**
 
-![image](assets/configuration/02addmetaservice.png)
- 
+![image](../assets/configuration/02addmetaservice.png)
+
 ### Informations générales
 
 * Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface.
@@ -63,7 +63,7 @@ Si l’option **SQL matching**  est sélectionnée alors les services utilisés 
 Centreon via une recherche à partir du champ Expression SQL à rechercher de type LIKE. La métrique à utiliser sera dans
 ce cas à sélectionner dans la liste déroulante Métrique.
 
-> Plus d’informations sur le formatage [PRINTF](http://en.wikipedia.org/wiki/Printf_format_string).
+> Plus d’informations sur le formatage *[PRINTF](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
 ### Etat du Meta Service
 
@@ -75,7 +75,7 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 * Le champ **Retry Check Interval** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du
   méta-service.
 
-### Notification 
+### Notification
 
 * Le champ **Notification Enabled** permet d’activer les notifications.
 * Le champ **Linked Contacts Groups** permet de définir les groupes de contacts qui seront alertés.
@@ -93,11 +93,11 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 
 Si vous avez choisi l’option **Service list**, au sein de l’écran regroupant l’ensemble des méta-services :
 
-1. Cliquez sur fsuivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
-  sont appelées indicateurs. ![image](assets/configuration/common/flechedirection.png)
+1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
+  sont appelées indicateurs. ![image](../assets/configuration/common/flechedirection.png)
 2. Cliquez sur le bouton **Add**
 
-![image](assets/configuration/02metaservicesindicators.png)
+![image](../assets/configuration/02metaservicesindicators.png)
 
 * Le champ **Host** permet de sélectionner l’hôte auquel le service à sélectionner appartient.
 * Le champ **Service** permet de choisir le service (première liste) ainsi que la métrique au sein de ce service

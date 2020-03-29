@@ -6,9 +6,9 @@ title: Les services
 Un service est un point de contrôle lié/rattaché à un hôte. Par exemple : Pourcentage d’utilisation partition sur un
 serveur, niveau d’encre sur une imprimante.
 
-Tous les ajouts de services se font dans le menu : **Configuration \> Services \> Add**.
+Tous les ajouts de services se font dans le menu : **Configuration > Services > Add**.
 
-![image](assets/configuration/03addservice.png)
+![image](../assets/configuration/03addservice.png)
 
 ## Configuration du service
 
@@ -37,13 +37,13 @@ Tous les ajouts de services se font dans le menu : **Configuration \> Services \
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur ![image](assets/configuration/common/undo.png)
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../assets/configuration/common/undo.png" width="32" />
 
-Pour afficher la description de la macro, cliquez sur ![image](assets/configuration/common/description.png)
+Pour afficher la description de la macro, cliquez sur <img src="../assets/configuration/common/description.png" width="32" />
 
-Pour supprimer la macro, cliquez sur ![image](assets/configuration/common/delete.png)
+Pour supprimer la macro, cliquez sur <img src="../assets/configuration/common/delete.png" width="32" />
 
-Pour déplacer l’ordre des macros, cliquez sur ![image](assets/configuration/common/move.png)
+Pour déplacer l’ordre des macros, cliquez sur <img src="../assets/configuration/common/move.png" width="32" />
 
 ### Notification
 
@@ -129,6 +129,6 @@ ce service lié à plusieurs hôtes en un service unique pour chaque hôte:
 
 1. Dans la liste des services, sélectionnez le service lié à plusieurs hôtes (habituellement ce service est surligné en
   orange)
-2. Dans le menu **More actions....** cliquez sur le bouton **Detach** et validez
+2. Dans le menu **More actions...** cliquez sur le bouton **Detach** et validez
 
 Il existe maintenant un service unique par hôte.

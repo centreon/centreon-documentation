@@ -12,14 +12,14 @@ Une règle de découverte permet de créer dynamiquement des services et de les 
 éléments remontés par les sondes. Les services unitaires créés sont attachés à des modèles de services ce qui permet
 d’utiliser les fonctionnalités de Centreon (héritage, surcharge, etc.)
 
-Pour créer une règle de découverte, rendez-vous dans le menu **Configuration \> Services \> Auto Discovery \> Rules**
+Pour créer une règle de découverte, rendez-vous dans le menu **Configuration > Services > Auto Discovery > Rules**
 et cliquez sur **Add** :
 
-![image](assets/configuration/autodisco/create_rule_1.png)
+![image](../../assets/configuration/autodisco/create_rule_1.png)
 
 Saisissez les premiers champs :
 
-![image](assets/configuration/autodisco/create_rule_2.png)
+![image](../../assets/configuration/autodisco/create_rule_2.png)
 
 Voici une description des premiers champs à saisir :
 
@@ -30,11 +30,11 @@ Voici une description des premiers champs à saisir :
 
 Rendez-vous dans le second onglet **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
 
-![image](assets/configuration/autodisco/create_rule_3.png)
+![image](../../assets/configuration/autodisco/create_rule_3.png)
 
 Revenez au premier onglet et définir le nom des services qui seront créés ainsi que les autres champs disponibles :
 
-![image](assets/configuration/autodisco/create_rule_4.png)
+![image](../../assets/configuration/autodisco/create_rule_4.png)
 
 Saisir le nom du service qui sera créé via le champ **Service display name**.
 
@@ -66,9 +66,9 @@ Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
 Les **Inclusions / Exclusions et Macro** fonctionnent de la manière suivante :
 
-![image](assets/configuration/autodisco/create_rule_5.png)
+![image](../../assets/configuration/autodisco/create_rule_5.png)
 
-Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion / 
+Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion/
 exclusion concerne les attributs XML
 
 Les règle d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
@@ -82,7 +82,7 @@ Les règle d’inclusion/exclusion sont définies à partir de l’algorithme su
 * Le seconde partie Macros permet de définir la relation entre l’attribut XML et la macro du modèle de service. Pour
   tous les services créés, les valeurs des macros seront remplacées par les valeurs des attributs.
 
-![image](assets/configuration/autodisco/create_rule_6.png)
+![image](../../assets/configuration/autodisco/create_rule_6.png)
 
 > Sur cette image toutes les macros seront créées sur le nouveau service car toutes les cases **Empty** sont sélectionnées.
 > Pour ne pas créer ces macros, ne pas cocher les cases associées. La macro **$_SERVICEINTERFACEID** sera créée et contiendra
@@ -94,7 +94,7 @@ Le dernier onglet **Advanced** permet d’appliquer des regexp sur le champ **Se
 flux XML. Cliquer sur **Add a new entry** pour ajouter une nouvelle entrée en définissant l’expression et le résultat
 attendu :
 
-![image](assets/configuration/autodisco/create_rule_7.png)
+![image](../../assets/configuration/autodisco/create_rule_7.png)
 
 L’expression peut être appliquée sur :
 
@@ -106,14 +106,15 @@ La seconde partie **Customize** code permet d’utiliser du code Perl.
 **Custom display scan** permet de modifier l’affichage dans la découverte manuelle Par défaut, la découverte manuelle
 affiche le nom du service. Voici un exemple pour ajouter la taille des disques :
 
-```Perl
+```perl
 my ($value, $unit) = change_bytes(value => $total$);
 $description = "<span style='color: red; font-weight: bold'>@SERVICENAME@</span> [size = <b>$value $unit</b>]";
  ```
 
 **Custom variables** permet de créer des macros personnalisables. Voici un exemple pour définir des seuils dynamiques
 selon la taille des disques :
-```Perl
+
+```perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
     $warning$ = 80;
@@ -131,18 +132,19 @@ Il est possible d’utiliser les macros **$warning$** et **$critical$** dans la 
 
 ## Commandes de découverte
 
-Une **discovery commands** est la définition d’une ligne de commande exécutant la [sonde de découverte](#discovery-plugins).
+Une **discovery commands** est la définition d’une ligne de commande exécutant
+la *[sonde de découverte](#discovery-plugins)*.
 
 Chaque sonde de découverte doit disposer de deux commandes :
 
 * La première pour récupérer la liste des attributs du flux XML
 * La seconde pour récupérer la liste des éléments découverts sur l’équipement
 
-![image](assets/configuration/autodisco/commands_list.png)
+![image](../../assets/configuration/autodisco/commands_list.png)
 
 ### Commande pour récupérer la liste des attributs XML
 
-Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+Rendez-vous dans le menu **Configuration > Commands > Discovery** et cliquez sur **Add** pour ajouter une nouvelle
 commande.
 
 Saisissez les champs suivants :
@@ -154,14 +156,17 @@ Saisissez les champs suivants :
 > Toute commande utilisant les sondes du projet Centreon Plugin doit définir l’option **hostname**. Donc ajoutez
 > l’option **--hostname=127.0.0.1** dans votre commande.
 
-![image](assets/configuration/autodisco/command_attributes.png)
+![image](../../assets/configuration/autodisco/command_attributes.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
+
 Et le résultat :
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -173,9 +178,9 @@ Et le résultat :
 
 Sauvegardez votre commande.
 
-### Command to get the list of items on a host
+### Commande pour récupérer la liste des items d'un hôte
 
-Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+Rendez-vous dans le menu **Configuration > Commands > Discovery** et cliquez sur **Add** pour ajouter une nouvelle
 commande.
 
 Saisissez les champs suivants :
@@ -184,14 +189,17 @@ Saisissez les champs suivants :
 * **Command type** : sélectionnez l’option **Discovery**
 * **Command Line**: saisir la ligne de commande pour exécuter la sonde et récupérer la liste éléments disponibles
 
-![image](assets/configuration/autodisco/command_disco.png)
+![image](../../assets/configuration/autodisco/command_disco.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
+
 Et le résultat :
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -213,10 +221,12 @@ Les résultats doivent être présentés dans un flux XML valide où chaque él�
 noeud XML. Pour obtenir ce flux XML les sondes de supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-show’.
 
 Par exemple :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -231,10 +241,12 @@ La sonde de découverte doit également lister les attributs disponibles du flux
 supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-format’.
 
 Par exemple :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -263,25 +275,29 @@ Il est possible de tester le fonctionnement du module manuellement grâce aux op
 ### Exemples
 
 Exécution de toutes les règles :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
 ```
 
 Test de toutes les règles :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --dry-run
 ```
 
 Exécution de la règle **OS-Linux-SNMP-Network-Interfaces-Discovery** sans modification de la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
 
 Exécution des règles de découverte pour l’hôte “centreon-server” sans modification de la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-host="centreon-server" \
   --dry-run
@@ -289,7 +305,8 @@ Exécution des règles de découverte pour l’hôte “centreon-server” sans 
 
 Exécution de la règle “OS-Linux-SNMP-Network-Interfaces-Discovery”, pour l’hôte “centreon-server”, sans modification de
 la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --filter-host="centreon-server" \

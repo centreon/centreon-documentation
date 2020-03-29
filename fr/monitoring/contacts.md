@@ -11,9 +11,9 @@ Les contacts au sein de Centreon sont utilisés afin de :
   connecter à l’interface web.
 * Etre alerté en cas de nécessité (notification).
 
-Afin d’ajouter un contact, il suffit de se rendre dans le menu **Configuration \> Users \> Add**.
- 
-![image](assets/configuration/06useradd.png)
+Afin d’ajouter un contact, il suffit de se rendre dans le menu **Configuration > Users > Add**.
+
+![image](../assets/configuration/06useradd.png)
 
 Pour afficher la matrice de notification d’un contact, cliquez sur **View contact notifications** (à côté du menu
 **Add**).
@@ -43,11 +43,11 @@ Pour afficher la matrice de notification d’un contact, cliquez sur **View cont
 * Le champ **Autologin key** permet de définir une clé de connexion pour l’utilisateur. L’utilisateur n’aura plus
   besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
 
-```Url
+```url
 http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
 ```
 
-> La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration \> Options**.
+> La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
 
 * Le champ **Authentication Source** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou
   d’informations stockées localement sur le serveur.

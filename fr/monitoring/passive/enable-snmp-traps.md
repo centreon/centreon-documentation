@@ -36,11 +36,11 @@ Voici le processus de traitement d’un trap SNMP :
   dans un dossier tampon (par défaut : **/var/spool/centreontrapd/**).
 3. Le service ‘centreontrapd’ lit les informations reçues dans le dossier tampon et interprète les différents traps
   reçus en vérifiant dans la base de données Centreon les actions à entreprendre pour traiter ces évènements.
-3. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur ou au service ‘centcore’ (pour transmettre
+4. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur ou au service ‘centcore’ (pour transmettre
   les informations à un ordonnanceur distant) qui se charge de modifier le statut et les informations associées au
   service auquel est lié le trap SNMP.
 
-![image](assets/configuration/06_trap_centreon.png)
+![image](../../assets/configuration/06_trap_centreon.png)
 
 ### Processus de traitement d’un trap par un collecteur
 
@@ -59,7 +59,7 @@ Voici le processus de traitement d’un trap SNMP :
 4. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur qui se charge de modifier le statut et les
   informations associées au service dont est lié le trap SNMP.
 
-![image](assets/configuration/06_trap_poller.png)
+![image](../../assets/configuration/06_trap_poller.png)
 
 > Le processus Centcore à la charge, comme pour l’export de configuration de la supervision, de copier la base SQLite
 > sur le collecteur distant..
@@ -68,7 +68,7 @@ Voici le processus de traitement d’un trap SNMP :
 
 Voici l’ordre des actions réalisé par le processus centreontrapd :
 
-![image](assets/configuration/SNMP_Traps_management_general_view.png)
+![image](../../assets/configuration/SNMP_Traps_management_general_view.png)
 
 ## Configuration des services
 
@@ -76,7 +76,8 @@ Voici l’ordre des actions réalisé par le processus centreontrapd :
 
 Afin d’appeler le script ‘centreontrapdfoward’, le fichier **/etc/snmp/snmptrapd.conf** doit contenir les lignes
 suivantes :
-```Bash
+
+```shell
 disableAuthorization yes
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
@@ -88,13 +89,15 @@ Vous pouvez optimiser les performances de snmptrapd en utilisant les options sui
 * **-n** n’essaye pas de transformer les adresses IP en nom d’hôtes
 
 Ces options peuvent être modifiées dans le fichier **/etc/sysconfig/snmptrapd**:
-```Bash
+
+```shell
 OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 ```
 
 Il est également possible de placer le dossier tampon snmptrapd en mémoire vive. Pour cela, ajoutez la ligne suivante
 dans le fichier **/etc/fstab** :
-```Bash
+
+```shell
 tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
 ```
 
@@ -102,7 +105,8 @@ tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
 
 Pour modifier le dossier tampon vers lequel les informations seront écrites, modifiez le fichier de configuration
 **/etc/centreon/centreontrapd.pm** :
-```Perl
+
+```perl
 our %centreontrapd_config = (
     spool_directory => '/var/spool/centreontrapd/',
 );
@@ -112,7 +116,8 @@ our %centreontrapd_config = (
 
 Vous pouvez également mapper le dossier dans le cache en mémoire vive, en ajoutant la ligne suivante dans le fichier
 **/etc/fstab** :
-```Bash
+
+```shell
 tmpfs /var/spool/centreontrapd      tmpfs defaults,size=512m 0 0
 ```
 
@@ -136,7 +141,8 @@ nécessaire) :
 
 Voici un exemple de configuration possible du fichier **/etc/centreon/centreontrapd.pm** (le fichier de configuration
 peut être modifiée avec ‘-config-extra = xxx’) :
-```Perl
+
+```perl
 our %centreontrapd_config = (
     # Time in seconds before killing not gently sub process
     timeout_end => 30,
@@ -178,7 +184,8 @@ our %centreontrapd_config = (
 #### Configuration de la connexion à la base de données
 
 Sur un serveur Centreon central, éditer le fichier **/etc/centreon/conf.pm** :
-```Perl
+
+```perl
 $centreon_config = {
     VarLib => "/var/lib/centreon",
     CentreonDir => "/usr/share/centreon/",
@@ -193,7 +200,8 @@ $centreon_config = {
 ```
 
 Sur un collecteur, éditer le fichier **/etc/centreon/centreontrapd.pm** :
-```Perl
+
+```perl
 our %centreontrapd_config = (
     ...
     "centreon_db" => "dbname=/etc/snmp/centreon_traps/centreontrapd.sdb",

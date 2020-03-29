@@ -8,7 +8,7 @@ printer.
 
 All additions of services are done in the menu: **Configuration \> Services \> Add**.
 
-![image](assets/configuration/03addservice.png)
+![image](../assets/configuration/03addservice.png)
 
 ## Configuration of the service
 
@@ -36,13 +36,13 @@ The **Macros** part serves to add customized macros.
 The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
 
-To reinitialize to the default value (defined in template) click on ![image](assets/configuration/common/undo.png)
+To reinitialize to the default value (defined in template) click on <img src="../assets/configuration/common/undo.png" width="32" />
 
-To view the description of the macro, click on ![image](assets/configuration/common/description.png)
+To view the description of the macro, click on <img src="../assets/configuration/common/description.png" width="32" />
 
-To delete the macro, click on ![image](assets/configuration/common/delete.png)
+To delete the macro, click on <img src="../assets/configuration/common/delete.png" width="32" />
 
-To change the order of the macros, click on ![image](assets/configuration/common/move.png)
+To change the order of the macros, click on <img src="../assets/configuration/common/move.png" width="32" />
 
 ### Notification
 
@@ -122,6 +122,6 @@ modify the service of one host individually to change a property. This why it is
 to multiple hosts into a single service for each host:
 
 1. In the list of services, select the service linked to multiple hosts (this service is usually highlighted in orange)
-2. In the **More actions....** menu click on **Detach** and confirm
+2. In the **More actions...** menu click on **Detach** and confirm
 
 There is now a single service per host.

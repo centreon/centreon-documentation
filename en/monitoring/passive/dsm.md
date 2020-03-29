@@ -24,21 +24,23 @@ This part is to install **Centreon DSM** on a central server. Centreon DSM serve
 main server.
 
 Run the command:
-```Bash
+
+```shell
 yum install centreon-dsm-server centreon-dsm-client
 ```
 
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
-**Administration \> Extensions \> Manager** menu and search **dsm**:
+**Administration > Extensions > Manager** menu and search **dsm**:
 
-![image](assets/configuration/dsm/module-setup.png)
+![image](../../assets/configuration/dsm/module-setup.png)
 
 Your Centreon DSM Module is now installed.
 
-![image](assets/configuration/dsm/module-setup-finished.png)
+![image](../../assets/configuration/dsm/module-setup-finished.png)
 
 You can now start and enable the daemon on your server:
-```Bash
+
+```shell
 systemctl enable dsmd
 systemctl start dsmd
 ```
@@ -48,7 +50,8 @@ systemctl start dsmd
 This part is to install **Centreon DSM** on a poller. Only client will be installed.
 
 Run the command:
-```Bash
+
+```shell
 yum install centreon-dsm-client
 ```
 
@@ -66,21 +69,21 @@ The **centreontrapd** service reads the information received in the buffer folde
 checking, in the centreon database, the actions necessary to process these events. In Centreon DSM we execute a **special command**.
 
 This special command is executing binary **dsmclient.pl** with arguments. This client will store the new trap in a slot
-queue that the daemon read every 5 seconds. 
+queue that the daemon read every 5 seconds.
 
 The daemon **dsmd.pl** will search in database "centreon" name slots (pool service liabilities) associated with the host.
 If no slot is created, the event is deleted. Otherwise, the binary will look if there is at least one free slot. If at
 least one slot is free, then it will transmit to monitoring engine external commands to change the state of the slot.
 Otherwise the data will be made no secret pending the release of a slot. A slot is releasable served by paying the
-liabilities. 
+liabilities.
 
 ## Configuration
 
 ### Configure Slots
 
-Go to **Administration \> Modules \> Dynamic Services** menu and click on **Add**
+Go to **Administration > Modules > Dynamic Services** menu and click on **Add**
 
-![image](assets/configuration/dsm/form-slot.png)
+![image](../../assets/configuration/dsm/form-slot.png)
 
 Please follow the table below in order to understand the role of all parameters:
 
@@ -98,29 +101,29 @@ Please follow the table below in order to understand the role of all parameters:
 * **Status**: The status of the slot.
 
 An example of passive service template is available below:
- 
-![image](assets/configuration/dsm/form-passive-service.png)
+
+![image](../../assets/configuration/dsm/form-passive-service.png)
 
 > The macro **ALARM_ID** is mandatory. The default **empty** value is also necessary.
 
-
 When you validate the form, Centreon will create or update all slot. If you don't have changed any value, you don't
-have to do other action. Else you have to [deploy the configuration](deploy).
+have to do other action. Else you have to *[deploy the configuration](../monitoring/deploy.html)*.
 
 ### Configure traps
 
 The last step is to configure traps that you want to redirect to you slots.
 
-Edit a SNMP trap that you want to redirect to slots systems. Go to **Configuration \> SNMP traps \> SNMP traps** menu
+Edit a SNMP trap that you want to redirect to slots systems. Go to **Configuration > SNMP traps > SNMP traps** menu
 and edit a SNMP trap definition.
 
 In order to redirect alarms to slots, you have to enable **Execute special command** in the form and add the following
 command into the **special command** field:
-```Bash
+
+```shell
 /usr/share/centreon/bin/dsmclient.pl -H @HOSTADDRESS@ -o 'Example output : $*' -i 'linkdown' -s 1 -t @TIME@
 ```
 
-This command launch for each trap received this command in order to redirect alarms to dsmd daemon. 
+This command launch for each trap received this command in order to redirect alarms to dsmd daemon.
 
 This command take some parameters. You can find in the following table the list and the description of each parameter:
 
@@ -139,16 +142,17 @@ This command take some parameters. You can find in the following table the list 
   follow the syntax below: macro1=value1|macro2=value2|macro3=value3 This function is used to update some parameters in
   live on Centreon-Engine core memory without a restart.
 
-Your form should now be like that: 
+Your form should now be like that:
 
-![image](assets/configuration/dsm/trap-form-2.png)
+![image](../../assets/configuration/dsm/trap-form-2.png)
 
-After saving the form, please generate the [SNMP traps database definition](snmp-traps#applying-the-changes)
+After saving the form, please generate the
+*[SNMP traps database definition](monitoring-with-snmp-traps.html#Applying-the-changes)*.
 
 ### Configure Traps links
 
 One thing is different compared to Centreon Trap system is that you cannot link directly the service template of the
-slot to the trap in order to not received x time the trap (x represent here the number of slots). 
+slot to the trap in order to not received x time the trap (x represent here the number of slots).
 
 You have to link traps to an active service of the resource, for example the **Ping** service.
 
@@ -158,7 +162,8 @@ You have to link traps to an active service of the resource, for example the **P
 
 It is possible to overwrite default configuration of the module by creating/editing the
 **/etc/centreon/centreon_dsmd.pm** file:
-```Bash
+
+```shell
 %centreon_dsmd_config = (
     # which user will send action to Centcore
     centreon_user => 'centreon',
@@ -182,19 +187,21 @@ It is possible to overwrite default configuration of the module by creating/edit
 All actions performed by the DSMD engine are logged in the database
 **centreon_storage**. A cron is provided to delete the data based on retention.
 
-To modify the retention period, by default **180 days**, you can create/edit the 
+To modify the retention period, by default **180 days**, you can create/edit the
 **/etc/centreon/centreon_dsm_purge.pm** file:
-```Bash
+
+```shell
 %centreon_dsm_purge_config = (
     # period in days
     history_time => 180,
 );
 
 1;
-``` 
+```
 
 To modify the hour of the cron job, you can edit the **/etc/cron.d/centreon-dsm** file:
-```Bash
+
+```shell
 #####################################
 # Centreon DSM
 #

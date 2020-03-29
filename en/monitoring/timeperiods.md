@@ -17,7 +17,7 @@ Time periods apply to two types of actions:
 
 The configuration of time periods is done in the menu: **Configuration \> Users \> Time periods**.
 
-### Basic options 
+### Basic options
 
 * The **Time period name** and **Alias** fields define the name and description of the time period respectively.
 * The fields belonging to the **Time range** sub-category define the days of the week for which it is necessary to
@@ -37,7 +37,7 @@ Here are a few examples:
 * 24 hours a day and 7 days a week: 00:00-24:00 (to be applied on every day of the week).
 * From 08h00 to 12h00 and from 14h00 to 18h45 on weekdays: 08:00-12:00,14:00-18:45 (to be applied on weekdays only).
 
-![image](assets/configuration/05timeperiod.png)
+![image](../assets/configuration/05timeperiod.png)
 
 ### Time Range exceptions
 
@@ -51,15 +51,15 @@ E.g.: An administrator wants to define a time period which covers the times when
 * National holidays and exceptional closure days
 
 To be able to define the national holidays days and the exceptional closure days, it is necessary to use the exceptions.
-To add  an exception, click on the button ![image](assets/configuration/common/navigate_plus.png)
+To add  an exception, click on the button <img src="../assets/configuration/common/navigate_plus.png" width="32" />.
 For each exceptional day, you will need to define a time period. The table below shows some possible examples :
 
-|         Day(s)        |       Time period       |                            Meaning                              |
-|-----------------------|-------------------------|-----------------------------------------------------------------|
-|     january 1         |       00:00-24:00       |   All day on the 1st of January, every year.                    |
-|     2014-02-10        |       00:00-24:00       |   All day on 10 February 2014                                   |
-|  july 1 - august 1    |       00:00-24:00       |   All day, every day from July 1 to August 1, every year        |
-|     november 30       |       08:00-19:00       |   From 08h00 to 19h00 every November 30, every year             |
-|      day 1 - 20       |       00:00-24:00       |   All day from the 1st to 20th of every month                   |
-|     saturday -1       | 08:00-12:00,14:00-18:45 |   Every last Saturday of the month during opening hours         |
-|     monday -2         |       00:00-24:00       |   All day every second to the last Monday of the month          |
+| Day(s)            | Time period             | Meaning                                                |
+| ----------------- | ----------------------- | ------------------------------------------------------ |
+| january 1         | 00:00-24:00             | All day on the 1st of January, every year.             |
+| 2014-02-10        | 00:00-24:00             | All day on 10 February 2014                            |
+| july 1 - august 1 | 00:00-24:00             | All day, every day from July 1 to August 1, every year |
+| november 30       | 08:00-19:00             | From 08h00 to 19h00 every November 30, every year      |
+| day 1 - 20        | 00:00-24:00             | All day from the 1st to 20th of every month            |
+| saturday -1       | 08:00-12:00,14:00-18:45 | Every last Saturday of the month during opening hours  |
+| monday -2         | 00:00-24:00             | All day every second to the last Monday of the month   |
