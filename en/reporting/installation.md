@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Installation
+title: Install the extension
 ---
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To

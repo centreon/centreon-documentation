@@ -116,6 +116,8 @@
                 "ids":[
                     "service-mapping/install",
                     "service-mapping/update",
+                    "service-mapping/upgrade",
+                    "service-mapping/migrate",
                     "service-mapping/remote-server"
                 ],
                 "label": "Administrate",
@@ -138,7 +140,9 @@
             {
                 "ids": [
                     "graph-views/install",
+                    "graph-views/update",
                     "graph-views/upgrade",
+                    "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
                     "graph-views/procedures",
@@ -151,7 +155,16 @@
         ],
         "Reporting": [
             "reporting/introduction",
-            "reporting/installation"
+            {
+                "ids": [
+                    "reporting/installation",
+                    "reporting/update",
+                    "reporting/upgrade",
+                    "reporting/migrate"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            }
         ],
         "Administration": [
             "administration/accessing-to-centreon-ui",

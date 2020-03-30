@@ -1,6 +1,6 @@
 ---
-id: upgrade
-title: Upgrade the extension
+id: update
+title: Update the extension
 ---
 
 #TODO

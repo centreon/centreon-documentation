@@ -151,7 +151,16 @@
         ],
         "Reporting": [
             "reporting/introduction",
-            "reporting/installation"
+            {
+                "ids": [
+                    "reporting/installation",
+                    "reporting/update",
+                    "reporting/upgrade",
+                    "reporting/migrate"
+                ],
+            "label": "Administrate",
+            "type": "subcategory"
+            }
         ],
         "Administrer la Plateforme": [
             "administrate/init-administrate"

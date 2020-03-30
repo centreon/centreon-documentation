@@ -1,6 +1,6 @@
 ---
-id: update
-title: Mettre à jour l'extension
+id: upgrade
+title: Monter de version l'extension
 ---
 
 #TODO
