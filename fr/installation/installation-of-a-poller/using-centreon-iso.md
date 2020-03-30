@@ -24,7 +24,7 @@ Cliquez sur le menu **Installation Type** :
 
 Il est possible de choisir différentes options :
 
-![image](../../assets/installation/poller/07installpoller.png)
+![image](../../assets/installation/07installpoller.png)
 
 * **Central with database** : Installe Centreon (interface web + base de données) ainsi que l'ordonnanceur et le broker
 * **Central without database** : Installe Centreon (interface web uniquement) ainsi que l'ordonnanceur et le broker
