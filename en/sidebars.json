@@ -171,7 +171,7 @@
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",
                     "administration/parameters/data-management",
-                    "administration/parameters/media"
+                    "administration/parameters/medias"
                 ],
                 "label": "Parameters",
                 "type": "subcategory"

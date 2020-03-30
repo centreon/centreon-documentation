@@ -28,7 +28,7 @@ wiki database.
 For this go to **Administration \> Parameters \> Knowledge Base** and complete
 the form
 
-![image](../assets/administation/parameters-wiki.png)
+![image](../assets/administration/parameters-wiki.png)
 
 ## User guide
 
@@ -46,7 +46,7 @@ Procedures can be of different natures:
 
 A procedure can be defined for an host or a service.
 
-![image](../assets/administation/parameters-wiki-article.png)
+![image](../assets/administration/parameters-wiki-article.png)
 
 ### Displayed procedure: template and overload
 
@@ -92,7 +92,7 @@ The module allows to:
 
 The technical procedure is available in Centreon front-end through a link icon:
 
-![image](../assets/administation/parameters-wiki-host-monitoring.png)
+![image](../assets/administration/parameters-wiki-host-monitoring.png)
 
 By clicking on link icon, the user is redirected to the corresponding procedure.
 
