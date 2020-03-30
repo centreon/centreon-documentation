@@ -1,48 +1,49 @@
 ---
 id: accessing-to-centreon-ui
-title: Accessing to Centreon UI
+title: Accès à l'interface web
 ---
 
-## Custom URI
+## URI personnalisée
 
-It is possible to update the URI of Centreon. For example, **/centreon** can be
-replaced by **/monitoring**.
+Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut
+être remplacé par **/monitoring**.
 
-To update the Centreon URI, you need to follow those steps:
+Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
-1. Go to **Administration > Parameters > Centreon UI** and change the
-**Centreon Web Directory** value.
+1. Rendez-vous dans le menu **Administration \> Parameters \> Centreon UI** et
+modifier le champ **Centreon Web Directory**
 
 ![image](../assets/administration/custom-uri.png)
 
-2. On the centreon central server:
+2. Sur le serveur Centreon :
 
-- Replace **/centreon** occurences by **/your\_custom\_uri** in
-**centreon/www/.htaccess**.
-- Navigate to your Centreon URL.
+- Remplacez les occurences **/centreon** par **/votre\_uri\_personnalise**
+dans **centreon/www/.htaccess**
+- Naviguez vers l'URL Centreon
 
-## HTTPS access
+## Accès en mode HTTPS
 
-To access to the UI using HTTPS, follow those steps:
+Pour accéder à l'interface web Centreon en mode HTTPS, réaliser les actions
+suivantes :
 
-1. Install SSL module for Apache:
+1. Installez le module SSL pour Apache :
 
 ```shell
 yum install httpd24-mod_ssl openssl
 ```
 
-2. Install your certificats or generate self-signed certificates:
+2. Installez vos certificats, ou générez des certificats auto-signés :
 
 - /etc/pki/tls/certs/ca.crt
 - /etc/pki/tls/private/ca.key
 
-3. Backup previous Apache configuration for Centreon:
+3. Sauvegarder votre configuration Apache pour Centreon :
 
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
-4. Then edit the file as following:
+4. Editez la configuration comme suivant :
 
 ```text
 Alias /centreon /usr/share/centreon/www/

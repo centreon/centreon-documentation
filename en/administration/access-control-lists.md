@@ -14,20 +14,20 @@ Access groups are groups containing the Centreon users. For each access group,
 it is possible to define three types of access:
 
 - Access filters to resources serve to limit access to Centreon objects
-(hosts, services, etc.)
-- Access filters to menus serve to limit access to Centreon menus
+(hosts, services, etc.),
+- Access filters to menus serve to limit access to Centreon menus,
 - Access filters on actions serve to limit access to actions that the user can
 undertake on a monitoring engine or on the resources themselves (program a
-downtime, stop a monitoring engine, etc.)
+downtime, stop a monitoring engine, etc.).
 
 > A user can belong to several access groups thus making it possible to add
 > together all the access authorizations.
 
 The ACLs respect very strict rules:
 
-- Centreon administrators are not subject to ACLs (property of the contact).
+- Centreon administrators are not subject to ACLs (property of the contact),
 - A user (non-administrator) who does not belong to any access group has no
-right on the monitoring platform (screen empty after logging in).
+right on the monitoring platform (screen empty after logging in),
 - The ACLs are recalculated every minute; this why it is sometimes necessary
 to wait a few seconds before seeing the change applied to the profile.
 

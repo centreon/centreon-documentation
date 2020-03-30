@@ -4,17 +4,17 @@ title: Extensions
 ---
 
 The extensions can be used to add additional functionalities to Centreon. It is
-possible to install extensions using the YUM utility or source files
+possible to install extensions using the package manager or using source files
 (\*.tar.gz).
 
 There are 3 kinds of extensions:
 
-- **Community**, under license GPL v2, developed by the Centreon community
-- **Core**, under license GPL v2, developed by the Centreon team
+- **Community**, under license GPL v2, developed by the Centreon community,
+- **Core**, under license GPL v2, developed by the Centreon team,
 - **Proprietary**, subject to a license, developed by
-*[Centreon](http://www.centreon.com)*
+*[Centreon](http://www.centreon.com)*.
 
-To install an exentsion:
+To install an extension:
 
 1. Install the extensions from the associated documentation.
 2. Go into the **Administration > Extensions > Manager** menu.

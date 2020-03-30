@@ -20,7 +20,7 @@ to communicate with Gorgone API.
 - **Port** field allows to define the port to communicate with Gorgone API.
 - **Username** field allows to define the username used to connect to
 Gorgone API.
-- **Password** field allows to define the username used to connect to
+- **Password** field allows to define the password used to connect to
 Gorgone API.
 - **Use SSL/TLS** allows to define wether SSL/TLS has to be used to communicate
 with Gorgone API.
