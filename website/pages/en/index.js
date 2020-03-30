@@ -45,9 +45,9 @@ class ExcellenceBloc extends React.Component {
         <h1><translate>titleExcellenceBloc</translate></h1>
         <p className="subTitle"><translate>subTitleExcellenceBloc</translate></p>
         <div className="cardBar">
-          <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={'/docs/installation/introduction.html'} />
-          <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={'/docs/tutorials/first-steps.html'} />
-          <Card imageSrc={'Groupe-386.svg'} btnLabel={<translate>btnApi</translate>} btnLink={'/docs/api/introduction.html'} />
+          <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
+          <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={<translate>btnLinkTutorial</translate>} />
+          <Card imageSrc={'Groupe-386.svg'} btnLabel={<translate>btnApi</translate>} btnLink={<translate>btnLinkApi</translate>} />
         </div>
       </div>
     )
