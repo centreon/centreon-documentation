@@ -60,7 +60,7 @@ class PrerequisiteBloc extends React.Component {
       <div className="containerBloc">
         <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
         <p><translate>contentPrerequisiteBloc</translate></p>
-        <div className="cardBar">
+        <div className="cardBarPrerequisite">
         <Image imageSrc={'Groupe-463.svg'}  />
         </div>
       </div>
