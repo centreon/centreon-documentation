@@ -10,7 +10,7 @@ performant de la supervision.
 
 Cette documentation explique comment utiliser les Centreon Plugin Packs.
 
-![image](assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.png)
 
 ## Prérequis
 
@@ -21,7 +21,8 @@ suppression des Plugin Packs. C’est un élément clé, il fait régulièrement
 recommandé de rester à jour sur ce composant.
 
 Pour mettre à jour le module, lancez la commande :
-```Bash
+
+```shell
 yum update centreon-pp-manager
 ```
 
@@ -31,13 +32,13 @@ yum update centreon-pp-manager
 
 Une licence est nécessaire pour accéder au catalogue complet des Plugin Packs. Si votre plate-forme Centreon est
 connectée à une souscription en ligne, celle-ci sera automatiquement téléchargée sur votre serveur. Sinon contactez
-les équipes [support Centreon](https://centreon.force.com)
+les équipes *[support Centreon](https://centreon.force.com)*.
 
 ### Accès aux Plugin Pack
 
 Si votre plate-forme Centreon est connectée à une souscription en ligne vous pouvez télécharger les Plugin Packs depuis
 l’interface utilisateur Plugin Pack Manager. Sinon, un dépôt RPM vous sera délivré par les équipes
-[support Centreon](https://centreon.force.com)
+*[support Centreon](https://centreon.force.com)*.
 
 ## Vue d’ensemble
 
@@ -50,7 +51,7 @@ plugins peuvent être :
 * des plugins existants provenant de la communauté, ayant été sélectionnés et validés par Centreon comme étant
   fonctionnels et optimisés,
 * des plugins développés par Centreon, distribués gratuitement et disponibles soit au travers de paquets RPM, soit via
-  le projet [Centreon Plugins](https://github.com/centreon/centreon-plugins)
+  le projet *[Centreon Plugins](https://github.com/centreon/centreon-plugins)*.
 
 La valeur ajoutée des **Plugin Packs** est la **préconfiguration** de la **supervision** dans le logiciel Centreon.
 Lors de leur installation, **ils apportent** dans Centreon des **objets pré-paramétrés** tels que les **commandes**,
@@ -102,23 +103,25 @@ Si vous bénéficiez d’une souscription en ligne, vous devez vous authentifier
 Pour celà, rendez-vous dans le menu **Administration \> Extension \> Subscription** puis utilisez vos identifiants
 pour vous identifier.
 
-![image](assets/configuration/pluginpacks/imp_authentification.png)
+![image](../assets/configuration/pluginpacks/imp_authentification.png)
 
 Cliquez sur **Install** pour pour accéder au catalogue :
 
-![image](assets/configuration/pluginpacks/imp_install.png)
+![image](../assets/configuration/pluginpacks/imp_install.png)
 
 Vous pouvez maintenant installer vos packs.
 
 <!--Hors ligne-->
 
 Pour installer ou mettre à jour le catalogue, exécutez :
-```Bash
+
+```shell
 yum install centreon-pack-*
 ```
 
 Ou:
-```Bash
+
+```shell
 yum update centreon-pack-*
 ```
 
@@ -128,26 +131,26 @@ yum update centreon-pack-*
 
 Vous avez maintenant accès au catalogue des Plugin Packs :
 
-![image](assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.png)
 
 Pour installer un plugin pack, cliquez sur le ``+``
 
-![image](assets/configuration/pluginpacks/install_pp.png)
+![image](../assets/configuration/pluginpacks/install_pp.png)
 
 Vous pouvez aussi cliquer sur le Plugin Pack. Vous accéderez à sa description et un bouton ``+`` permettant
 de l’installer.
 
-![image](assets/configuration/pluginpacks/install_pp_2.png)
+![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
 Une fois le plugin pack installé, il apparaitra avec un contour vert et une flèche indiquant qu’il est installé.
 
-| **avant installation**                                        | **après installation**                                       |
-|---------------------------------------------------------------|--------------------------------------------------------------|
-| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) | 
+| **Avant installation**                                           | **Après installation**                                          |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
 > Veuillez lire la **monitoring procedure** associée à chaque pack installé pour comprendre le contenu du pack ainsi
 > que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
-> le chapitre [Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs)
+> le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs.html)*
 
 #### Gestion les dépendances
 
@@ -160,14 +163,15 @@ La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Cent
 Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
 mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
 
-![image](assets/configuration/pluginpacks/objects_not_installed.png)
+![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 #### Installation des plugins
 
 Installez maintenant les plugins nécessaires référencés par les modèles installés dans les étapes précédentes.
 
 Utilisez la commande suivante sur **tous les pollers qui exécuteront les contrôles** :
-```Bash
+
+```shell
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
 
@@ -180,30 +184,31 @@ dans laquelle ``$PLUGIN-PACK$`` correspond au nom du Pack listé par la commande
 Si vous constatez une icône représentant une flèche sur un Plugin Pack, cela veut dire qu’une mise à jour du pack est
 disponible..
 
-![image](assets/configuration/pluginpacks/update.png)
+![image](../assets/configuration/pluginpacks/update.png)
 
 Pour le mettre à jour, cliquez sur la flèche,
 
-![image](assets/configuration/pluginpacks/update2.png)
+![image](../assets/configuration/pluginpacks/update2.png)
 
 ou cliquez sur le Plugin Pack. Une fenêtre affiche alors des informations relatives au Plugin Pack ainsi qu’une flèche
 permettant de le mettre à jour s’ouvre. Cliquer sur la flèche pour enclencher la mise à jour
 
-![image](assets/configuration/pluginpacks/update3.png)
+![image](../assets/configuration/pluginpacks/update3.png)
 
 Confirmez la mise à jour.
 
-![image](assets/configuration/pluginpacks/update_confirm.png)
+![image](../assets/configuration/pluginpacks/update_confirm.png)
 
 Votre Plugin Pack est maintenant à jour.
 
-![image](assets/configuration/pluginpacks/update_finish.png)
+![image](../assets/configuration/pluginpacks/update_finish.png)
 
 #### Mise à jour du plugin
 
-Exécutez la commande suivante sur **tous les collecteurs**
-```Bash
-yum update centreon-plugins*
+Exécutez la commande suivante sur **tous les collecteurs**:
+
+```shell
+yum update centreon-plugins\*
 ```
 
 Puis redémarrez **tous les collecteurs**.
@@ -222,27 +227,27 @@ Vérifier ensuite qu’il n’y a pas de nouvelles erreurs suite à l’exécuti
 Comme pour l’installation, la désinstallation du pack peut se faire soit en survolant le pack souhaité puis en cliquant
 sur la croix rouge :
 
-![image](assets/configuration/pluginpacks/uninstall.png)
+![image](../assets/configuration/pluginpacks/uninstall.png)
 
 Ou alors en cliquant sur le pack, s’ouvre un pop-up affichant le nom, la version et la description du pack, ainsi qu’une
 croix permettant la désinstallation :
 
-![image](assets/configuration/pluginpacks/uninstall_2.png)
+![image](../assets/configuration/pluginpacks/uninstall_2.png)
 
 Confirmez la désinstallation.
 
-![image](assets/configuration/pluginpacks/uninstall_confirm.png)
+![image](../assets/configuration/pluginpacks/uninstall_confirm.png)
 
 Votre Plugin Pack est désinstallé.
 
-![image](assets/configuration/pluginpacks/uninstall_3.png)
+![image](../assets/configuration/pluginpacks/uninstall_3.png)
 
 #### Gestion des dépendances
 
 Si les modèles d’hôtes et de services créés par le Plugin Pack sont utilisés par des hôtes et services actifs, le Plugin
 Pack ne pourra être désinstallé.
 
-![image](assets/configuration/pluginpacks/uninstall_pp_used.png)
+![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
 Pour pouvoir le désinstaller, soit vous :
 

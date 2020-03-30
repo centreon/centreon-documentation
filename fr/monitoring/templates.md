@@ -46,11 +46,11 @@ Il s’agit d’additionner plusieurs modèles au sein d’un même objet afin d
 disponibles. Si un hôte hérite de plusieurs modèles d’hôtes et si un même paramètre est défini sur plusieurs modèles,
 alors le modèle d’hôte situé au-dessus des autres modèles est prioritaire par rapport à ses ascendants.
 
-![image](assets/configuration/09hostmodels.png)
+![image](../assets/configuration/09hostmodels.png)
 
 Le schéma ci-dessous présente un hôte héritant de plusieurs modèles d’hôtes.
 
-![image](assets/configuration/09hostmodelsheritage.png)
+![image](../assets/configuration/09hostmodelsheritage.png)
 
 ### Configuration
 
@@ -58,7 +58,7 @@ Pour ajouter un modèle d’hôtes :
 
 Rendez-vous dans le menu **Configuration > Hosts > Templates** et cliquez sur le bouton **Add**
 
-> Rapportez-vous au chapitre de configuration des [hôtes](hosts) pour configurer un modèle car le formulaire est identique.
+> Rapportez-vous au chapitre de configuration des *[hôtes](basic-objects/hosts.html)* pour configurer un modèle car le formulaire est identique.
 
 > Par défaut, les modèles d’hôte verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
 
@@ -68,7 +68,7 @@ Rendez-vous dans le menu **Configuration > Hosts > Templates** et cliquez sur le
 
 Un service ou un modèle de service ne peut hériter que d’un seul modèle de service (héritage de type Père-Fils).
 
-![image](assets/configuration/09heritageservice.png)
+![image](../assets/configuration/09heritageservice.png)
 
 ### Configuration
 
@@ -76,7 +76,7 @@ Pour ajouter un modèle de services :
 
 Rendez-vous dans le menu **Configuration > Services > Templates** et cliquez sur le bouton **Add**
 
-> Rapportez-vous au chapitre de configuration des [services](services) pour configurer un modèle car le formulaire est
+> Rapportez-vous au chapitre de configuration des *[services](basic-objects/services.html)* pour configurer un modèle car le formulaire est
 > identique.
 
 > Par défaut, les modèles de service verrouillés sont masqués. Cocher la case “Eléments verrouillés” pour les afficher tous.
@@ -96,7 +96,7 @@ services aux modèles d’hôtes :
 
 Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
-![image](assets/configuration/09hostexemple.png)
+![image](../assets/configuration/09hostexemple.png)
 
 L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 
@@ -118,7 +118,7 @@ ou des modèles d’hôtes.
 
 Un contact ou un modèle de contact peut hériter d’un seul modèle de contact.
 
-![image](assets/configuration/09contactmodel.png)
+![image](../assets/configuration/09contactmodel.png)
 
 ### Configuration
 
@@ -126,5 +126,5 @@ Pour ajouter un modèle de contacts :
 
 Rendez-vous dans le menu **Configuration > Users > Contact Templates** et cliquez sur le bouton **Add**
 
-> Se rapporter au chapitre de configuration des [contacts](contacts). De plus, les modèles de contacts sont utilisés
-> pour l’import automatique de profils via un annuaire @TODO@:ref:`LDAP<ldapconfiguration>`.
+> Se rapporter au chapitre de configuration des *[contacts](basic-objects/contacts.html)*. De plus, les modèles de contacts sont utilisés
+> pour l’import automatique de profils via un annuaire *[LDAP](../../administration/parameters/ldap.html)*.

@@ -1,6 +1,6 @@
 ---
 id: templates
-title: Objects templates
+title: Templates
 ---
 
 ## Definition
@@ -45,11 +45,11 @@ This consists of adding together several templates within the same object in ord
 available. If a host inherits from several host templates and if the same setting is defined on several templates, the
 host templates situated above the other templates has priority in relation to its ancestors.
 
-![image](assets/configuration/09hostmodels.png)
+![image](../assets/configuration/09hostmodels.png)
 
 The diagram below shows a host inheriting from multiple host templates.
 
-![image](assets/configuration/09hostmodelsheritage.png)
+![image](../assets/configuration/09hostmodelsheritage.png)
 
 ### Configuration
 
@@ -57,7 +57,7 @@ To add a host template:
 
 Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [hosts](hosts) to configure a template because the form is
+> Refer to the chapter covering configuration of *[hosts](basic-objects/hosts.html)* to configure a template because the form is
 > identical.
 
 > By default, locked host templates are hidden. Check the "Locked elements" box to list all templates.
@@ -68,7 +68,7 @@ Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
 A service or a service template can only inherit from a single service template (parent-child type inheritance).
 
-![image](assets/configuration/09heritageservice.png)
+![image](../assets/configuration/09heritageservice.png)
 
 ### Configuration
 
@@ -76,7 +76,7 @@ To add a Service Template:
 
 Go into the **Configuration > Services > Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [services](services) to configure a template because the form is identical.
+> Refer to the chapter covering configuration of *[services](basic-objects/services.html)* to configure a template because the form is identical.
 
 > By default, locked service templates are hidden. Check the "Locked elements" box to list all templates.
 
@@ -95,7 +95,7 @@ templates:
 
 E.g.: We create the srvi-web-01 host according to the template below:
 
-![image](assets/configuration/09hostexemple.png)
+![image](../assets/configuration/09hostexemple.png)
 
 The host srvi-web-01 will automatically possess the following services:
 
@@ -117,7 +117,7 @@ or hosts templates.
 
 A contact or a contact template can only inherit one contact template.
 
-![image](assets/configuration/09contactmodel.png)
+![image](../assets/configuration/09contactmodel.png)
 
 ### Configuration
 
@@ -125,5 +125,5 @@ To add a contact template:
 
 Go into the menu: **Configuration > Users > Contact Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [contacts](contacts). In addition, the contacts templates are used for
-> automatic import of profiles via @TODO@:ref:`LDAP<ldapconfiguration>`.
+> Refer to the chapter covering configuration of *[*contacts](basic-objects/contacts.html)*. In addition, the contacts templates are used for
+> automatic import of profiles via *[LDAP](../administration/parameters/ldap.html)*.

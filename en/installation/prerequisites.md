@@ -38,16 +38,16 @@ This will require installing the platform from source files and therefore be mor
 
 The following table describes the software dependencies:
 
-| Software | Version         |
-|----------|-----------------|
-| Apache   | 2.4             |
-| GnuTLS   | >= 2.0          |
-| Net-SNMP | 5.7             |
-| openssl  | >= 1.0.1k       |
-| PHP      | 7.2             |
-| Qt       | >= 4.7.4        |
-| RRDtools | 1.4.7           |
-| zlib     | 1.2.3           |
+| Software | Version    |
+| -------- | ---------- |
+| Apache   | 2.4        |
+| GnuTLS   | \>= 2.0    |
+| Net-SNMP | 5.7        |
+| openssl  | \>= 1.0.1k |
+| PHP      | 7.2        |
+| Qt       | \>= 4.7.4  |
+| RRDtools | 1.4.7      |
+| zlib     | 1.2.3      |
 
 ## Centreon Server Requirements
 
@@ -55,15 +55,15 @@ The following table describes the software dependencies:
 
 The table below describes requirements for installing Centreon:
 
-|  Number of Services  |  Estimated number of hosts  |  Number of pollers       |  Central       |  Poller       |
-|----------------------|-----------------------------|--------------------------|----------------|---------------|
-|           < 500      |             50              |        1 central         |  1 vCPU / 1 GB |               |
-|       500 - 2000     |           50 - 200          |        1 central         |  2 vCPU / 2 GB |               |
-|      2000 - 7000     |          200 - 700          |  1 central + 1 poller    |  4 vCPU / 4 GB | 1 vCPU / 4 GB |
-|      7000 - 14000    |          700 - 1400         |  1 central + 1 poller    |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|     14000 - 21000    |         1400 - 2100         |  1 central + 2 pollers   |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|     21000 - 28000    |         2100 - 2800         |  1 central + 3 pollers   |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|         ...          |             ...             |            ...           |       ...      |       ...     |
+| Number of Services | Estimated number of hosts | Number of pollers     | Central       | Poller        |
+| ------------------ | ------------------------- | --------------------- | ------------- | ------------- |
+| \< 500             | 50                        | 1 central             | 1 vCPU / 1 GB |               |
+| 500 - 2000         | 50 - 200                  | 1 central             | 2 vCPU / 2 GB |               |
+| 2000 - 7000        | 200 - 700                 | 1 central + 1 poller  | 4 vCPU / 4 GB | 1 vCPU / 4 GB |
+| 7000 - 14000       | 700 - 1400                | 1 central + 1 poller  | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| 14000 - 21000      | 1400 - 2100               | 1 central + 2 pollers | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| 21000 - 28000      | 2100 - 2800               | 1 central + 3 pollers | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| ...                | ...                       | ...                   | ...           | ...           |
 
 > A poller can monitor around 7000 active services. vCPU must have a frequency of approximately 3 GHz. The number of
 > vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
@@ -86,7 +86,7 @@ The following table provides an estimate of disk space required for your platfor
 * Each performance graph has 2 curves.
 
 | Number of Services | /var/lib/mysql (in GB) | /var/lib/centreon (in GB) |
-|--------------------|------------------------|---------------------------|
+| ------------------ | ---------------------- | ------------------------- |
 | 500                | 10                     | 2.5                       |
 | 2000               | 42                     | 10                        |
 | 10 000             | 93                     | 27                        |
@@ -146,16 +146,16 @@ Files system description:
 
 Description of software and linked users:
 
-| Software        | Service          | User            | Comment               |
-|-----------------|------------------|-----------------|-----------------------|
-| Apache          | httpd24-httpd    | apache          | automatic start       |
-| PHP-FPM         | rh-php72-php-fpm | apache          | automatic start       |
-| MySQL (MariaDB) | mysqld (mysql)   | mysql           | automatic start       |
-| Centreon        | centcore         | centreon        | automatic start       |
-| Centreon        | centreontrapd    | centreon        | automatic start       |
-| Centreon Broker | cbwd             | centreon-broker | automatic start       |
-| Centreon Broker | cbd              | centreon-broker | automatic start       |
-| Centreon Engine | centengine       | centreon-engine | automatic start       |
+| Software        | Service          | User            | Comment         |
+| --------------- | ---------------- | --------------- | --------------- |
+| Apache          | httpd24-httpd    | apache          | automatic start |
+| PHP-FPM         | rh-php72-php-fpm | apache          | automatic start |
+| MySQL (MariaDB) | mysqld (mysql)   | mysql           | automatic start |
+| Centreon        | centcore         | centreon        | automatic start |
+| Centreon        | centreontrapd    | centreon        | automatic start |
+| Centreon Broker | cbwd             | centreon-broker | automatic start |
+| Centreon Broker | cbd              | centreon-broker | automatic start |
+| Centreon Engine | centengine       | centreon-engine | automatic start |
 
 Description of optional software and linked users:
 

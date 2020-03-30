@@ -43,7 +43,7 @@ Pour dupliquer une Business Activity:
 2. Cliquez sur l'icône de duplication : <img src="../assets/configuration/common/duplicate_new.png" width="32" />
 3. Entrez le nombre de duplications que vous souhaitez obtenir
 
-<img src="../assets/configuration/common/duplicate_objects_new.png" width="400" />
+![image](../assets/configuration/common/duplicate_objects_new.png)
 
 4. Cliquez sur le bouton **OK**
 
@@ -54,11 +54,11 @@ Pour dupliquer un hôte :
 1. Sélectionnez l’hôte que vous souhaitez dupliquer
 2. Dans la colonne **Options**, entrez le nombre de duplication que vous souhaitez obtenir
 
-![image](assets/configuration/common/01duplicate.png)
+![image](../assets/configuration/common/01duplicate.png)
 
-3.	Dans le menu **More actions...** cliquez sur le bouton **Duplicate**
+3. Dans le menu **More actions...** cliquez sur le bouton **Duplicate**
 
-![image](assets/configuration/common/01duplicateobjects.png)
+![image](../assets/configuration/common/01duplicateobjects.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -116,8 +116,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **Status** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* ![image](assets/configuration/common/enabled.png)
-* ![image](assets/configuration/common/disabled.png)
+* <img src="../assets/configuration/common/enabled.png" width="32" />
+* <img src="../assets/configuration/common/disabled.png" width="32" />
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

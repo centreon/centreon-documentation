@@ -12,7 +12,7 @@ There are 3 kinds of extensions:
 - **Community**, under license GPL v2, developed by the Centreon community
 - **Core**, under license GPL v2, developed by the Centreon team
 - **Proprietary**, subject to a license, developed by
-[Centreon](http://www.centreon.com)
+*[Centreon](http://www.centreon.com)*
 
 To install an exentsion:
 
