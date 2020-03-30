@@ -41,7 +41,7 @@
   align-items: center;
 }
 
-.homepageCustom .containerBloc .title-section {
+.homepageCustom .title-section {
   color: rgb(0, 114, 206);
   font-size: 35px;
   font-weight: normal;
@@ -89,6 +89,30 @@
   font-size: 16px;
 }
 
+.homepageCustom .containerBlocPrerequisite {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+}
+
+.homepageCustom .cardBarPrerequisite {
+  width: 300px;
+  height: 200px;
+  margin-top: 4em;
+  margin-left: 9em;
+}
+
+.homepageCustom .containerContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-style: justify;
+  text-align: left;
+  
+
+}
 
 .homepageCustom .containerBloc ul.socialSet {
   display: flex;

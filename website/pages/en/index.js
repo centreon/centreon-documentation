@@ -57,11 +57,13 @@ class ExcellenceBloc extends React.Component {
 class PrerequisiteBloc extends React.Component {
   render () {
     return (
-      <div className="containerBloc">
-        <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
-        <p><translate>contentPrerequisiteBloc</translate></p>
+      <div className="containerBlocPrerequisite">
         <div className="cardBarPrerequisite">
         <Image imageSrc={'Groupe-463.svg'}  />
+        </div>
+        <div className="containerContent">
+        <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
+        <p><translate>contentPrerequisiteBloc</translate></p>
         </div>
       </div>
     )
