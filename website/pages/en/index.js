@@ -58,10 +58,10 @@ class PrerequisiteBloc extends React.Component {
   render () {
     return (
       <div className="containerBlocPrerequisite">
-        <div className="cardBarPrerequisite">
+        <div className="imageSection">
         <Image imageSrc={'Groupe-463.svg'}  />
         </div>
-        <div className="containerContent">
+        <div className="containerContentPrerequisite">
         <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
         <p><translate>contentPrerequisiteBloc</translate></p>
         </div>
@@ -73,11 +73,13 @@ class PrerequisiteBloc extends React.Component {
 class InstallationBloc extends React.Component {
   render () {
     return (
-      <div className="containerBloc">
+      <div className="containerBlocInstallation">
+        <div className="imageSection">
+        <Image imageSrc={'Groupe-699.svg'}  />
+        </div>
+        <div className="containerContentInstallation">
         <h2 className="title-section"><translate>titleInstallationBloc</translate></h2>
         <p><translate>contentInstallationBloc</translate></p>
-        <div className="cardBar">
-        <Image imageSrc={'Groupe-699.svg'}  />
         </div>
       </div>
     )
@@ -90,7 +92,7 @@ class SupervisionBloc extends React.Component {
       <div className="containerBloc">
         <h2 className="title-section"><translate>titleSupervisionBloc</translate></h2>
         <p><translate>contentSupervisionBloc</translate></p>
-        <div className="cardBar">
+        <div className="imageSection">
         <Image imageSrc={'Groupe-387.svg'}  />
         </div>
 

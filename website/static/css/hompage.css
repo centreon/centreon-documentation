@@ -91,27 +91,44 @@
 
 .homepageCustom .containerBlocPrerequisite {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 15%;
   
 }
 
-.homepageCustom .cardBarPrerequisite {
-  width: 300px;
-  height: 200px;
+/* .homepageCustom .imageSection {
   margin-top: 4em;
   margin-left: 9em;
-}
+  margin-right: 4em;
+} */
 
-.homepageCustom .containerContent {
-  width: 50%;
+.homepageCustom .containerContentPrerequisite {
+  width: 40vw;
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  font-style: justify;
-  text-align: left;
-  
+  margin-left: 8em;
+  align-content: flex-start;
+}
 
+.homepageCustom .containerBlocInstallation {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  margin-right: 16%;
+  flex-wrap: wrap;
+
+}
+
+.homepageCustom .containerContentInstallation {
+  width: 38vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  text-align: left;
+  margin-top: 3%;
 }
 
 .homepageCustom .containerBloc ul.socialSet {
