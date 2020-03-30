@@ -12,29 +12,27 @@
             "installation/download",
             {
                 "ids": [
-                    "installation/centreon-from-iso",
-                    "installation/centreon-from-packages",
-                    "installation/centreon-from-vm",
-                    "installation/centreon-from-sources"
+                    "installation/installation-of-a-central-server/using-centreon-iso",
+                    "installation/installation-of-a-central-server/using-packages",
+                    "installation/installation-of-a-central-server/using-virtual-machines",
+                    "installation/installation-of-a-central-server/using-sources"
                 ],
                 "label": "Installer un serveur central",
                 "type": "subcategory"
             },
-            "installation/post-install",
+            "installation/post-installation",
             {
                 "ids": [
-                    "installation/poller-from-iso",
-                    "installation/poller-from-packages",
-                    "installation/add-poller-to-configuration"
+                    "installation/installation-of-a-poller/using-centreon-iso",
+                    "installation/installation-of-a-poller/using-packages"
                 ],
                 "label": "Installer un collecteur",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "installation/remote-from-iso",
-                    "installation/remote-from-packages",
-                    "installation/add-remote-server-to-configuration"
+                    "installation/installation-of-a-remote-server/using-centreon-iso",
+                    "installation/installation-of-a-remote-server/using-packages"
                 ],
                 "label": "Installer un Remote Sever",
                 "type": "subcategory"
@@ -46,30 +44,38 @@
             "monitoring/generic-actions",
             {
                 "ids": [
-                    "monitoring/macros",
-                    "monitoring/commands",
-                    "monitoring/timeperiods",
-                    "monitoring/contacts",
-                    "monitoring/hosts",
-                    "monitoring/services",
-                    "monitoring/meta-services",
-                    "monitoring/deploy"
+                    "monitoring/basic-objects/macros",
+                    "monitoring/basic-objects/commands",
+                    "monitoring/basic-objects/timeperiods",
+                    "monitoring/basic-objects/contacts",
+                    "monitoring/basic-objects/hosts",
+                    "monitoring/basic-objects/services",
+                    "monitoring/basic-objects/meta-services"
                 ],
-                "label": "Objets de base",
+                "label": "Objets de Base",
                 "type": "subcategory"
             },
             "monitoring/templates",
             "monitoring/pluginpacks",
+            {
+                "ids": [
+                    "monitoring/monitoring-servers/add-a-poller-to-configuration",
+                    "monitoring/monitoring-servers/add-a-remote-server-to-configuration",
+                    "monitoring/monitoring-servers/deploying-a-configuration"
+                ],
+                "label": "Serveurs de Supervision",
+                "type": "subcategory"
+            },
             "monitoring/groups-categories",
             {
                 "ids": [
-                    "monitoring/passive/enable-snmp-traps",
-                    "monitoring/passive/create-snmp-traps-definitions",
-                    "monitoring/passive/monitoring-with-snmp-traps",
-                    "monitoring/passive/debug-snmp-traps-management",
-                    "monitoring/passive/dsm"
+                    "monitoring/passive-monitoring/enable-snmp-traps",
+                    "monitoring/passive-monitoring/create-snmp-traps-definitions",
+                    "monitoring/passive-monitoring/monitoring-with-snmp-traps",
+                    "monitoring/passive-monitoring/debug-snmp-traps-management",
+                    "monitoring/passive-monitoring/dsm"
                 ],
-                "label": "Supervision passive",
+                "label": "Supervision Passive",
                 "type": "subcategory"
             },
             {

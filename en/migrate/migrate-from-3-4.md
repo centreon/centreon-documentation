@@ -183,8 +183,8 @@ If the IP of your Centreon server has changed, edit the configuration for all
 the Centreon Broker modules on your pollers and change the IP to connect to the
 Centreon central server (output IPv4).
 
-Then *[generate](../monitoring/deploy.html)* the configuration of all your pollers and
-export it.
+Then *[generate](../monitoring/monitoring-servers/deploying-a-configuration.html)* the
+configuration of all your pollers and export it.
 
 ### Upgrade the modules
 

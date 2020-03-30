@@ -186,7 +186,7 @@ Pour être sur que Broker et que le module Broker de Engine utilisent les nouvea
 fichiers de configuration, suivez ces étapes :
 
 1. Déployer la configuration du Central depuis l'interface web en suivant
-*[cette procedure](../monitoring/deploy.html)*,
+*[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*,
 2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
 suivante:
 
@@ -220,7 +220,7 @@ Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-*[cette procedure](../monitoring/deploy.html)*, et en choisissant la méthode
+*[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*, et en choisissant la méthode
 *Redémarrer* pour le processus Engine
 
 ## Mise à jour des serveurs Poller Display

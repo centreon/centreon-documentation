@@ -7,11 +7,11 @@ title: Groupes et Catégories
 
 Au sein de Centreon, il est possible de regrouper un ou plusieurs objets au sein de différents groupes :
 
-* [Les groupes d'hôtes](#les-groupes-dhôtes)
-* [Les groupes de services](#les-groupes-de-services)
-* [Les groupes de contacts](#les-groupes-de-contacts-1)
+* *[Les groupes d'hôtes](#les-groupes-dhôtes)*
+* *[Les groupes de services](#les-groupes-de-services)*
+* *[Les groupes de contacts](#les-groupes-de-contacts-1)*
 
-Il est également possible de créer des catégorie [d'hôtes](#les-catégories-dhôtes) ou de [services](#les-catégories-de-services).
+Il est également possible de créer des catégorie *[d'hôtes](#les-catégories-dhôtes)* ou de *[services](#les-catégories-de-services)*.
 
 ### Les groupes
 
@@ -65,9 +65,9 @@ du module Centreon MAP ou pour classer les objets au sein de sous-groupes dans l
 
 ### Les groupes d’hôtes
 
-Rendez-vous dans le menu **Configuration \> Hosts \> Host Groups** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07hostgroup.png)
+![image](../assets/configuration/07hostgroup.png)
 
 * Les champs **Host Group Name** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
 * La liste **Linked Hosts** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
@@ -79,14 +79,14 @@ Rendez-vous dans le menu **Configuration \> Hosts \> Host Groups** et cliquez su
 * Le champ **Map Icon** est l’icône utilisée pour la cartographie.
 * Le champ **RRD retention** est exprimé en jours, il permet de définir la durée de rétention des services appartenant
   à ce groupe d’hôtes au sein de la base de données RRD. Si cette valeur est vide, la valeur sera celle par défaut
-  définie dans le menu **Administration \> Options \> CentStorage**.
+  définie dans le menu **Administration > Options > CentStorage**.
 * Les champs **Status** et **Comments** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
 
 ### Les groupes de services
 
-Rendez-vous dans le menu **Configuration \> Services \> Service Groups** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Services > Service Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07servicegroup.png)
+![image](../assets/configuration/07servicegroup.png)
 
 * Les champ **Service Group Name** et **Description** regroupent le nom et la description du groupe de services.
 * La liste **Linked Host Services** permet de choisir les différents services qui feront partie de ce groupe.
@@ -99,9 +99,9 @@ Rendez-vous dans le menu **Configuration \> Services \> Service Groups** et cliq
 
 ### Les groupes de contacts
 
-Rendez-vous dans le menu **Configuration \> Users \> Contact Groups** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Users > Contact Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07contactgroup.png)
+![image](../assets/configuration/07contactgroup.png)
 
 * Les champs **Contact Group Name** et **Alias** éfinissent le nom et la description du groupe de contacts.
 * La liste **Linked Contacts** permet d’ajouter les contacts au groupe de contacts.
@@ -110,10 +110,10 @@ Rendez-vous dans le menu **Configuration \> Users \> Contact Groups** et cliquez
 
 ### Les catégories d’hôtes
 
-Rendez-vous dans le menu **Configuration \> Hosts \> Categories** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Hosts > Categories** et cliquez sur **Add**
 
-![image](assets/configuration/08hostcategory.png)
- 
+![image](../assets/configuration/08hostcategory.png)
+
 * Les champs **Host Category Name** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
 * La liste **Linked hosts** permet d’ajouter des hôtes à la catégorie.
 * Si un modèle d’hôte est ajouté à **Linked host template** alors tous les hôtes qui héritent de ce modèle appartiennent
@@ -124,10 +124,10 @@ Rendez-vous dans le menu **Configuration \> Hosts \> Categories** et cliquez sur
 
 ### Les catégories de services
 
-Rendez-vous dans le menu **Configuration \> Services \> Categories** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Services > Categories** et cliquez sur **Add**
 
-![image](assets/configuration/08servicecategory.png)
- 
+![image](../assets/configuration/08servicecategory.png)
+
 * Les champs **Name** et **Description** définissent le nom et la description de la catégorie de service.
 * Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle
   de services font partie de cette catégorie.

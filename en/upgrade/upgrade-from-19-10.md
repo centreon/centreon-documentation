@@ -110,7 +110,7 @@ To make sure Broker and Engine's Broker module are using new configuration files
 follow this steps:
 
 1. Deploy Central's configuration from the Centreon web UI by following
-*[this procedure](../monitoring/deploy.html)*,
+*[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*,
 2. Restart both Broker and Engine on the Central server by running this
 command:
 
@@ -144,7 +144,7 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-*[this procedure](../monitoring/deploy.html)*, and choose *Restart* method for Engine process.
+*[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*, and choose *Restart* method for Engine process.
 
 ## Upgrade the remote servers
 
