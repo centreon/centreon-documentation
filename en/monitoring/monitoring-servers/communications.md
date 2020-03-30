@@ -255,7 +255,7 @@ EOF
 > You can copy the configuration in a custom file by copying the content from
 > the popin.
 
-#### Start Gorgone daemon
+#### Restart Gorgone daemon
 
 From the Remote Server, run the following command:
 

@@ -61,6 +61,7 @@
                 "ids": [
                     "monitoring/monitoring-servers/add-a-poller-to-configuration",
                     "monitoring/monitoring-servers/add-a-remote-server-to-configuration",
+                    "monitoring/monitoring-servers/communications",
                     "monitoring/monitoring-servers/deploying-a-configuration"
                 ],
                 "label": "Serveurs de Supervision",

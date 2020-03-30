@@ -10,12 +10,12 @@ below.
 
 ## Procedure
 
-1.  Go into the **Configuration \> Pollers** menu
+1.  Go to the **Configuration \> Pollers** menu
 2.  Choose the pollers which you want to export configuration
 
 ![image](../../assets/monitoring/monitoring-servers/monitoring-servers-list.png)
 
-3.  Click on **Apply configuration**
+3.  Click on **Export configuration**
 4.  Check the boxes: **Generate Configuration Files**, **Run monitoring
     engine debug (-v)**, **Move Export Files** and **Restart Monitoring
     Engine**
