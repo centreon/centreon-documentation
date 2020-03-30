@@ -23,34 +23,62 @@ platform.
 
 Communication modes are listed below:
 
+### Without Remote Server
+
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Without Remote-->
+<!--Modern (recommended)-->
 
-| Mode                 | Communications                         | Allowed actions                                                           |
-| -------------------- | -------------------------------------- | ------------------------------------------------------------------------- |
-| Modern (recommended) | **Central** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
-| Legacy (ex-Centcore) | **Central** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| Communications                         | Allowed actions                                                           |
+| -------------------------------------- | ------------------------------------------------------------------------- |
+| **Central** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
-\* Monitoring actions are all actions provided by Centreon UI like downtimes,
-acknowledgements, etc and configuration export.
+<!--Legacy (ex-Centcore)-->
 
-<!--With Remote-->
-
-| Mode                          | Communications                                                    | Allowed actions                                                                                       |
-| ----------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Modern (recommended)          | **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery                             |
-| Mixed                         | **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery                             |
-| Legacy (ex-Centcore)          | **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
-| *Other*\*\* (not recommended) | **Central** \<-- *SSH* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*                                                                                  |
-
-\* Monitoring actions are all actions provided by Centreon UI like downtimes,
-acknowledgements, etc and configuration export.
-
-\*\* This mode does not allow to retrieve Remote's thumbprint therefore it's
-not possible to display Poller's Gorgone configuration from Centreon UI.
+| Communications                         | Allowed actions                                                           |
+| -------------------------------------- | ------------------------------------------------------------------------- |
+| **Central** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+\* Monitoring actions are all actions provided by Centreon UI like downtimes,
+acknowledgements, etc and configuration export.
+
+### With Remote Server
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Modern (recommended)-->
+
+| Communications                                                    | Allowed actions                                                           |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+
+<!--Mixed-->
+
+| Communications                                                    | Allowed actions                                                           |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+
+<!--Legacy (ex-Centcore)-->
+
+| Communications                                                    | Allowed actions                                                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
+
+<!--Other (not recommended)-->
+
+| Communications                                                    | Allowed actions      |
+| ----------------------------------------------------------------- | -------------------- |
+| **Central** \<-- *SSH* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\* |
+
+> This mode does not allow to retrieve Remote's thumbprint therefore it's
+> not possible to display Poller's Gorgone configuration from Centreon UI.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+\* Monitoring actions are all actions provided by Centreon UI like downtimes,
+acknowledgements, etc and configuration export.
 
 ## Change communication from SSH to ZMQ
 
