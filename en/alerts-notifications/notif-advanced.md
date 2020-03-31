@@ -1,6 +1,6 @@
 ---
 id: notif-advanced
-title: Advanced
+title: To go further
 ---
 
 ## Commands
@@ -21,5 +21,5 @@ communication between a Team chat like Mattermost or Slack and Centreon throught
 
 ## Stream connector
 
-You can also forward event to a third party application using the **Centreon Stream Connector** functionnality.
+You can also forward event to a third party application using the **Centreon Stream Connector** functionality.
 See the **Intregration / Stream-Connectors** chapter.

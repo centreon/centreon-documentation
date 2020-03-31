@@ -15,7 +15,7 @@ the functions of these icons:
 |-------------------------------------|----------------------------------------------------------|
 | ![image](assets/alerts/refresh.png) | Serves to refresh the results manually.                  |
 | ![image](assets/alerts/pause.png)   | Serves to put the automatic data refreshment into pause. |
-| ![image](assets/alerts/pause.png)   | Serves to restart automatic data refreshment.            |
+| ![image](assets/alerts/resume.png)  | Serves to restart automatic data refreshment.            |
 
 ## Hosts
 
@@ -23,7 +23,7 @@ To view the status of hosts, go into the **Monitoring > Status Details > Hosts**
 
 ![image](assets/alerts/04unhandledproblems.png) 
 
-### Columns descrption
+### Columns description
 
 * **S**: Displays the severity level of the host
 * **Hosts**: Displays the name of the host
@@ -59,11 +59,11 @@ You can filter the result presented via the following filters:
 
 ## Host groups 
 
-To view the status of hosts, go into the **Monitoring > Status Details > Hostgroups Summary** menu
+To view the status of host groups, go into the **Monitoring > Status Details > Hostgroups Summary** menu
 
 ![image](assets/alerts/04hostgroup.png)
 
-### Columns descrption
+### Columns description
 
 * **Host Group**: List of available groups of hosts
 * **Hosts Status**: Allows to display the number of hosts in UP, DOWN, UNREACHABLE or in PENDING status
@@ -71,14 +71,12 @@ To view the status of hosts, go into the **Monitoring > Status Details > Hostgro
 
 ### Available filters
 
-You can filter result by selecting poller in the select box. Only hosts monitored by poller will be displayed.
-
 * **Hostgroup**: Can be used to filter by name of group of hosts via an SQL LIKE type search.
 * **Poller**: Can be used to filter the hosts by poller. Only the hosts of the poller selected will be displayed.
 
 ## Host details
 
-When you click on the name of a host, the access to the details page of the resource.
+When you click on the name of a host, you access to the details page of the resource.
 
 4 tabs are available:
 
@@ -136,13 +134,13 @@ To view the status of service, go into the **Monitoring > Status Details > Servi
 
 ![image](assets/alerts/04servicelist.png)
 
-### Columns descrption
+### Columns description
 
 * **S**: Displays the severity level of the service.
-* **Host**: Displays the name of host. The url_link icon allows to access to host’s page details.
+* **Host**: Displays the name of host.
 * **Services**: Displays the name of service.
-  * The following icon indicates that the notifications for this host are disabled: ![image](assets/alerts/nonotifications.png)
-  * The following icon can be used to view all the performance graphs for this host: ![image](assets/alerts/graphperformances.png)
+  * The following icon indicates that the notifications for this service are disabled: ![image](assets/alerts/nonotifications.png)
+  * The following icon can be used to view the performance graph for this service: ![image](assets/alerts/graphperformances.png)
   * The following icon allows to access to a predefined url configured: ![image](assets/alerts/url_link.png)
 * **Duration**: Displays the duration of the actual status.
 * **Hard State Duration**: Displays the duration of the validated non-ok status.

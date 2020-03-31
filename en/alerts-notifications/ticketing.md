@@ -29,7 +29,7 @@ After installing the rpm, you have to finish the module installation through the
 
 ![image](assets/alerts/open_tickets_install_01.png)
 
-Your Centreon DSM Module is now installed.
+Your Centreon Open Tickets Module is now installed.
 
 ![image](assets/alerts/open_tickets_install_02.png)
 
@@ -79,8 +79,8 @@ this one. Add the macro **TICKET_ID** and click on **Save**:
 
 ![image](assets/alerts/open_tickets_macro.png)
 
-Go to the **Configuration > Services > Templates** menu and look for the **generic-active-service** template and edit
-this one. Add the macro **TICKET_ID** and click on **Save**:
+Go to the **Configuration > Services > Templates** menu and look for the **generic-active-service-custom** template and
+edit this one. Add the macro **TICKET_ID** and click on **Save**:
 
 ![image](assets/alerts/open_tickets_macro.png)
 
@@ -156,7 +156,7 @@ provider, you can configure it in ``Lists`` and ``Custom list definition``. For 
 * **Label** : displayed in the popup 
 * **Type** : which kind of list. There is 3 kinds of lists
 
-  * Provider lists (data from the ticketting software directly)
+  * Provider lists (data from the ticketing software directly)
   * Centreon lists (like ``Host group``)
   * Custom lists (data from ``Custom list definition`` configuration. **Id** fields must be identical)
 

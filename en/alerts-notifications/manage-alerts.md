@@ -136,7 +136,7 @@ E.g.: A back-up of the virtual machines is performed every day from 20h00 to mid
 to saturate the CPU use of all the virtual machines. It is necessary to program recurrent Downtime periods on the services
 concerned to avoid receiving notifications from 20h00 to midnight.
 
-> The Downtime periods are taken into account in the calculation of the availability ratio of the resource in the menu: "Dashboard".
+> The Downtime periods are taken into account in the calculation of the availability ratio of the resource in the menu: @TODO@"Dashboard".
 
 #### Practice
  
@@ -156,7 +156,7 @@ To add a recurrent downtime period go into the **Monitoring > Downtimes > Recurr
 * The **Name** and **Description** fields serve to give a name and describe the recurrent downtime period.
 * The **Enable** field serves to enable or disable the downtime period.
 * The **Periods** field serves to define one or more periods of recurrent downtime periods. To add a period, click on
-  the symbol. 
+  the symbol ![image](assets/common/navigate_plus.png).
 
 It is possible to choose three types of period:
 
@@ -215,7 +215,7 @@ The following window appears:
 ![image](assets/alerts/comment.png)
 
 * The **Host Name** field defines the host concerned by the comment.
-* If you have chosen to add a comment to a **Service**, the Service field can be used to select the service concerned
+* If you have chosen to add a comment to a service, the **Service** field can be used to select the service concerned
   by the comment.
 * If the **Persistent** box is checked, the comment will be maintained in the event of a restart of the scheduler.
 * The **Comments** field contains the comment itself.
