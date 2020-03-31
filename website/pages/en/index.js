@@ -80,13 +80,13 @@ function InstallationBlock() {
     )
 }
 
-function SupervisionBlock() {
+function MonitoringBlock() {
     return (
       <div className="containerBlock">
-        <h2 className="title-section"><translate>titleSupervisionBlock</translate></h2>
-        <p><translate>contentSupervisionBlock</translate></p>
+        <h2 className="title-section"><translate>titleMonitoringBlock</translate></h2>
+        <p><translate>contentMonitoringBlock</translate></p>
         <div className="imageSection">
-        <Image imageSrc={'image-supervision-block.svg'}  />
+        <Image imageSrc={'image-monitoring-block.svg'}  />
         </div>
       </div>
     )
@@ -139,7 +139,7 @@ function Homepage() {
           <InstallationBlock />
         </Container>
         <Container className={classesDefaultContainer + ` homepageCustom`}>
-          <SupervisionBlock />
+          <MonitoringBlock />
         </Container>
         <Container className={classesDefaultContainer + ` borderTop`}>
           <CommunityBlock />
