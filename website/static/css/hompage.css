@@ -88,28 +88,25 @@
   justify-content: center;
   font-size: 16px;
 }
-
 .homepageCustom .containerBlockPrerequisite {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-left: 15%;
   
 }
 
-/* .homepageCustom .imageSection {
-  margin-top: 4em;
-  margin-left: 9em;
-  margin-right: 4em;
-} */
+.homepageCustom .imageSection {
+  margin-top: 4%;
+}
 
 .homepageCustom .containerContentPrerequisite {
-  width: 40vw;
+  width: 38vw;
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  margin-left: 8em;
+  margin-left: 10%;
   align-content: flex-start;
 }
 
@@ -117,19 +114,20 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
-  margin-right: 16%;
+  margin-right: 17%;
   flex-wrap: wrap;
 
 }
 
 .homepageCustom .containerContentInstallation {
-  width: 38vw;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   font-size: 18px;
   text-align: left;
-  margin-top: 3%;
+  margin-right: 14%;
 }
+
 
 .homepageCustom .containerBlock ul.socialSet {
   display: flex;
