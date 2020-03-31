@@ -38,8 +38,7 @@ const Card = props => {
     </div>
   )
 }
-class ExcellenceBloc extends React.Component {
-  render () {
+function ExcellenceBloc() {
     return (
       <div className="containerBloc">
         <h1><translate>titleExcellenceBloc</translate></h1>
@@ -51,11 +50,9 @@ class ExcellenceBloc extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-class PrerequisiteBloc extends React.Component {
-  render () {
+function PrerequisiteBloc() {
     return (
       <div className="containerBlocPrerequisite">
         <div className="imageSection">
@@ -67,11 +64,9 @@ class PrerequisiteBloc extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-class InstallationBloc extends React.Component {
-  render () {
+function InstallationBloc() {
     return (
       <div className="containerBlocInstallation">
         <div className="imageSection">
@@ -83,11 +78,9 @@ class InstallationBloc extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-class SupervisionBloc extends React.Component {
-  render () {
+function SupervisionBloc() {
     return (
       <div className="containerBloc">
         <h2 className="title-section"><translate>titleSupervisionBloc</translate></h2>
@@ -98,11 +91,9 @@ class SupervisionBloc extends React.Component {
 
       </div>
     )
-  }
 }
 
-class CommunityBloc extends React.Component {
-  render () {
+function CommunityBloc() {
     return (
       <div className="containerBloc">
         <h2 className="title-community"><translate>titleCommunityBloc</translate></h2>
@@ -124,23 +115,19 @@ class CommunityBloc extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-class HeartOpenSourceBloc extends React.Component {
-  render () {
+function HeartOpenSourceBloc(){
     return (
       <div className="containerBloc">
         <h2 className="title-section"><translate>titleHeartOpenSourceBloc</translate></h2>
         <p><translate>contentHeartOpenSourceBloc</translate></p>
       </div>
     )
-  }
 }
 
-class Homepage extends React.Component {
+function Homepage() {
 
-  render() {
     return (
       <React.Fragment>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
@@ -163,7 +150,6 @@ class Homepage extends React.Component {
         </Container>
       </React.Fragment>
     );
-  }
 }
 
 module.exports = Homepage;
