@@ -158,6 +158,8 @@
             {
                 "ids": [
                     "reporting/manage-reports",
+                    "reporting/reports",
+                    "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts"
                 ],

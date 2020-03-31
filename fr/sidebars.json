@@ -17,7 +17,7 @@
                     "installation/centreon-from-vm",
                     "installation/centreon-from-sources"
                 ],
-                "label": "Installer un serveur central",
+                "label": "Installation of a Central server",
                 "type": "subcategory"
             },
             "installation/post-install",
@@ -27,7 +27,7 @@
                     "installation/poller-from-packages",
                     "installation/add-poller-to-configuration"
                 ],
-                "label": "Installer un collecteur",
+                "label": "Installation of a Poller",
                 "type": "subcategory"
             },
             {
@@ -36,12 +36,12 @@
                     "installation/remote-from-packages",
                     "installation/add-remote-server-to-configuration"
                 ],
-                "label": "Installer un Remote Sever",
+                "label": "Installation of a Remote server",
                 "type": "subcategory"
             },
             "ceip/what-is-centreon-ceip"
         ],
-        "Supervision": [
+        "Monitoring": [
             "monitoring/about",
             "monitoring/generic-actions",
             {
@@ -55,7 +55,7 @@
                     "monitoring/meta-services",
                     "monitoring/deploy"
                 ],
-                "label": "Objets de base",
+                "label": "Basic objects",
                 "type": "subcategory"
             },
             "monitoring/templates",
@@ -69,7 +69,7 @@
                     "monitoring/passive/debug-snmp-traps-management",
                     "monitoring/passive/dsm"
                 ],
-                "label": "Supervision passive",
+                "label": "Passive Monitoring",
                 "type": "subcategory"
             },
             {
@@ -81,18 +81,18 @@
                     "monitoring/discovery/create-services-discovery-rules",
                     "monitoring/discovery/administration"
                 ],
-                "label": "Découverte",
+                "label": "Discovery",
                 "type": "subcategory"
             },
             "monitoring/web-import-export"
         ],
-        "Gestion des Alertes et Notifications": [
+        "Alert Management": [
             "alerts-notifications/init-alerts-notifications"
         ],
-        "Tableau de Bord": [
+        "Dashboards": [
             "dashboard/init-dashboard"
         ],
-        "Graphiques de performance": [
+        "Performance graphs": [
             "metrology/chart-management",
             "metrology/chart-template",
             "metrology/chart-curves",
@@ -102,7 +102,7 @@
             "service-mapping/introduction",
             "service-mapping/getting-started",
             {
-                "ids":[
+                "ids": [
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
@@ -113,16 +113,18 @@
                 "type": "subcategory"
             },
             {
-                "ids":[
+                "ids": [
                     "service-mapping/install",
                     "service-mapping/update",
+                    "service-mapping/upgrade",
+                    "service-mapping/migrate",
                     "service-mapping/remote-server"
                 ],
                 "label": "Administrate",
                 "type": "subcategory"
             }
         ],
-        "Vues graphiques": [
+        "Graphical views": [
             "graph-views/introduction",
             "graph-views/getting-started",
             {
@@ -138,7 +140,9 @@
             {
                 "ids": [
                     "graph-views/install",
+                    "graph-views/update",
                     "graph-views/upgrade",
+                    "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
                     "graph-views/procedures",
@@ -153,19 +157,45 @@
             "reporting/introduction",
             {
                 "ids": [
+                    "reporting/manage-reports",
+                    "reporting/configure",
+                    "reporting/concepts"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
                     "reporting/installation",
                     "reporting/update",
                     "reporting/upgrade",
                     "reporting/migrate"
                 ],
-            "label": "Administrate",
-            "type": "subcategory"
+                "label": "Administrate",
+                "type": "subcategory"
             }
         ],
-        "Administrer la Plateforme": [
-            "administrate/init-administrate"
+        "Administration": [
+            "administration/accessing-to-centreon-ui",
+            {
+                "ids": [
+                    "administration/parameters/centreon-ui",
+                    "administration/parameters/monitoring",
+                    "administration/parameters/gorgone",
+                    "administration/parameters/my-account",
+                    "administration/parameters/ldap",
+                    "administration/parameters/rrdtool",
+                    "administration/parameters/debug",
+                    "administration/parameters/performance-data-management",
+                    "administration/parameters/media"
+                ],
+                "label": "Parameters",
+                "type": "subcategory"
+            },
+            "administration/access-control-lists",
+            "administration/extensions"
         ],
-        "Mettre à Jour, Monter de Version et Migrer": [
+        "Update, Upgrade & Migrate": [
             {
                 "ids": [
                     "update/introduction"
@@ -703,19 +733,61 @@
                 "type": "subcategory"
             }
         ],
-        "Intégrations": [
-            "integrations/notifications/init-notification-integrations",
-            "integrations/ticketing/init-ticketing",
-            "integrations/external/init-external-integrations"
+        "Integrations": [
+            {
+                "ids": [
+                    "integrations/external/accedian-pvx-skylight"
+                ],
+                "label": "External",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/open-tickets/bmc-footprints",
+                    "integrations/open-tickets/bmc-remedy",
+                    "integrations/open-tickets/easyvista",
+                    "integrations/open-tickets/glpi",
+                    "integrations/open-tickets/glpi-restapi",
+                    "integrations/open-tickets/itop",
+                    "integrations/open-tickets/iws-isilog",
+                    "integrations/open-tickets/jira",
+                    "integrations/open-tickets/mail",
+                    "integrations/open-tickets/otrs-restapi",
+                    "integrations/open-tickets/request-tracker-restapi",
+                    "integrations/open-tickets/serena",
+                    "integrations/open-tickets/servicenow"
+                ],
+                "label": "Open Tickets",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/stream-connectors/elasticsearch-events",
+                    "integrations/stream-connectors/elasticsearch-metrics",
+                    "integrations/stream-connectors/ndo",
+                    "integrations/stream-connectors/hp-omi",
+                    "integrations/stream-connectors/servicenow",
+                    "integrations/stream-connectors/splunk-metrics",
+                    "integrations/stream-connectors/splunk-states",
+                    "integrations/stream-connectors/warp10"
+                ],
+                "label": "Stream Connectors",
+                "type": "subcategory"
+            }
+        ],
+        "Mobile App.": [
+            "mobile/introduction"
         ],
         "API": [
+            "api/introduction",
             "api/clapi",
-            "api/rest-api-v1"
+            "api/rest-api-v1",
+            "api/map-api"
         ],
-        "Développeur": [
+        "Developer resources": [
             "developer/init-developer"
         ],
-        "Versions": [
+        "Releases": [
             "releases/lifecycle",
             "releases/release-notes"
         ]

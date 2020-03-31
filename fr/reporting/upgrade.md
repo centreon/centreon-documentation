@@ -22,7 +22,9 @@ Lors d'une montée de version mineure ou majeure (ex: 19.10.x à 20.04.x) il fau
 
 Exécutez la commande suivante pour installer le nouveau dépôt:
 
-    #TODO
+    yum update $(IFS=$'\n' BASE=( $(sed -n 's/baseurl=\(.*\/stable\/noarch\)/\1/p' /etc/yum.repos.d/centreon-mbi.repo) ) ; echo "${BASE[0]/19.10/20.04}RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm")
+
+*Si vous n'êtes pas en 19.10, adapté la commande*
 
 ## Mettre à jour l'interface
 

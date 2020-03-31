@@ -13,9 +13,7 @@ A job is an entity that you configure to be able to generate a report and should
 
 - A report design to use 
 - Centreon objects (hosts, services, host groups, service groups, business activities, etc.)
-- A specific period (monthly report, weekly report, etc.).
-
-Each report design can have a several parameters, which must be defined in the Centreon interface.
+- A specific period (last month, current month, yesterday etc.. )
 
 ### Job list
 
@@ -281,13 +279,13 @@ groups`
 
 ![image](../assets/reporting/guide/action_duplicationDelete.png)
 
-  Action      |  Description
-  
+  Action        |  Description
+  --------------|---------------
   - Delete      | Delete group
   - Duplicate   | Duplicate group
 
 
-### Adding / Editing
+### Add / Edit
 
 A job group can be added or modified through the following menu:
 
@@ -335,7 +333,7 @@ Description of the above table:
   Weight        | Report weight: report generation work load index.
 
 
-### Adding / editing
+### Add / edit
 
 A report design can be edited or a new one can be added if you develop your own reports (using BIRT)
 
@@ -379,7 +377,7 @@ MBI `Reporting > Monitoring Business Intelligence > Configuration > Report desig
 
 ![image](../assets/reporting/guide/list_report_design_groups.png)
 
-### Adding / Editing
+### Add / Edit
 
 The following menu is used for adding or editing a report design group:
 
