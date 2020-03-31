@@ -126,25 +126,25 @@ function HeartOpenSourceBlock(){
 }
 
 function Homepage() {
-
+  const classesDefaultContainer = 'mainContainer documentContainer postContainer homepageCustom';
     return (
       <React.Fragment>
-        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
+        <Container className={classesDefaultContainer + ` bgLightBlue`}>
           <ExcellenceBlock />
         </Container>
-        <Container className="mainContainer documentContainer postContainer homepageCustom">
+        <Container className={classesDefaultContainer + ` homepageCustom`}>
           <PrerequisiteBlock />
         </Container>
-        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
+        <Container className={classesDefaultContainer + ` bgLightBlue`}>
           <InstallationBlock />
         </Container>
-        <Container className="mainContainer documentContainer postContainer homepageCustom">
+        <Container className={classesDefaultContainer + ` homepageCustom`}>
           <SupervisionBlock />
         </Container>
-        <Container className="mainContainer documentContainer postContainer homepageCustom borderTop">
+        <Container className={classesDefaultContainer + ` borderTop`}>
           <CommunityBlock />
         </Container>
-        <Container className="mainContainer documentContainer postContainer homepageCustom bgLightPurple">
+        <Container className={classesDefaultContainer + ` bgLightPurple`}>
           <HeartOpenSourceBlock />
         </Container>
       </React.Fragment>
