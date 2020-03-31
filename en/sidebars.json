@@ -94,7 +94,24 @@
             "monitoring/web-import-export"
         ],
         "Alert Management": [
-            "alerts-notifications/init-alerts-notifications"
+            "alerts-notifications/init-alerts-notifications",
+            "alerts-notifications/concepts",
+            "alerts-notifications/event-console",
+            "alerts-notifications/manage-alerts",
+            {
+                "ids": [
+                    "alerts-notifications/notif-concept",
+                    "alerts-notifications/notif-configuration",
+                    "alerts-notifications/notif-dependencies",
+                    "alerts-notifications/notif-escalation",
+                    "alerts-notifications/notif-flapping",
+                    "alerts-notifications/notif-advanced"
+                ],
+                "label": "Notification",
+                "type": "subcategory"
+            },
+            "alerts-notifications/ticketing",
+            "alerts-notifications/event-log"
         ],
         "Dashboards": [
             "dashboard/init-dashboard"
