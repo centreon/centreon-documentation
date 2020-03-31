@@ -38,11 +38,11 @@ const Card = props => {
     </div>
   )
 }
-function ExcellenceBloc() {
+function ExcellenceBlock() {
     return (
-      <div className="containerBloc">
-        <h1><translate>titleExcellenceBloc</translate></h1>
-        <p className="subTitle"><translate>subTitleExcellenceBloc</translate></p>
+      <div className="containerBlock">
+        <h1><translate>titleExcellenceBlock</translate></h1>
+        <p className="subTitle"><translate>subTitleExcellenceBlock</translate></p>
         <div className="cardBar">
           <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
           <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={<translate>btnLinkTutorial</translate>} />
@@ -52,39 +52,39 @@ function ExcellenceBloc() {
     )
 }
 
-function PrerequisiteBloc() {
+function PrerequisiteBlock() {
     return (
-      <div className="containerBlocPrerequisite">
+      <div className="containerBlockPrerequisite">
         <div className="imageSection">
         <Image imageSrc={'Groupe-463.svg'}  />
         </div>
         <div className="containerContentPrerequisite">
-        <h2 className="title-section"><translate>titlePrerequisiteBloc</translate></h2>
-        <p><translate>contentPrerequisiteBloc</translate></p>
+        <h2 className="title-section"><translate>titlePrerequisiteBlock</translate></h2>
+        <p><translate>contentPrerequisiteBlock</translate></p>
         </div>
       </div>
     )
 }
 
-function InstallationBloc() {
+function InstallationBlock() {
     return (
-      <div className="containerBlocInstallation">
+      <div className="containerBlockInstallation">
         <div className="imageSection">
         <Image imageSrc={'Groupe-699.svg'}  />
         </div>
         <div className="containerContentInstallation">
-        <h2 className="title-section"><translate>titleInstallationBloc</translate></h2>
-        <p><translate>contentInstallationBloc</translate></p>
+        <h2 className="title-section"><translate>titleInstallationBlock</translate></h2>
+        <p><translate>contentInstallationBlock</translate></p>
         </div>
       </div>
     )
 }
 
-function SupervisionBloc() {
+function SupervisionBlock() {
     return (
-      <div className="containerBloc">
-        <h2 className="title-section"><translate>titleSupervisionBloc</translate></h2>
-        <p><translate>contentSupervisionBloc</translate></p>
+      <div className="containerBlock">
+        <h2 className="title-section"><translate>titleSupervisionBlock</translate></h2>
+        <p><translate>contentSupervisionBlock</translate></p>
         <div className="imageSection">
         <Image imageSrc={'Groupe-387.svg'}  />
         </div>
@@ -93,10 +93,10 @@ function SupervisionBloc() {
     )
 }
 
-function CommunityBloc() {
+function CommunityBlock() {
     return (
-      <div className="containerBloc">
-        <h2 className="title-community"><translate>titleCommunityBloc</translate></h2>
+      <div className="containerBlock">
+        <h2 className="title-community"><translate>titleCommunityBlock</translate></h2>
         <div className="cardBar">
           <ul className="socialSet">
             <a href="https://centreon.github.io/register-slack/">
@@ -117,11 +117,11 @@ function CommunityBloc() {
     )
 }
 
-function HeartOpenSourceBloc(){
+function HeartOpenSourceBlock(){
     return (
-      <div className="containerBloc">
-        <h2 className="title-section"><translate>titleHeartOpenSourceBloc</translate></h2>
-        <p><translate>contentHeartOpenSourceBloc</translate></p>
+      <div className="containerBlock">
+        <h2 className="title-section"><translate>titleHeartOpenSourceBlock</translate></h2>
+        <p><translate>contentHeartOpenSourceBlock</translate></p>
       </div>
     )
 }
@@ -131,22 +131,22 @@ function Homepage() {
     return (
       <React.Fragment>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
-          <ExcellenceBloc />
+          <ExcellenceBlock />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom">
-          <PrerequisiteBloc />
+          <PrerequisiteBlock />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightBlue">
-          <InstallationBloc />
+          <InstallationBlock />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom">
-          <SupervisionBloc />
+          <SupervisionBlock />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom borderTop">
-          <CommunityBloc />
+          <CommunityBlock />
         </Container>
         <Container className="mainContainer documentContainer postContainer homepageCustom bgLightPurple">
-          <HeartOpenSourceBloc />
+          <HeartOpenSourceBlock />
         </Container>
       </React.Fragment>
     );

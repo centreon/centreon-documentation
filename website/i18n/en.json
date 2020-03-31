@@ -11,11 +11,26 @@
       "administration/accessing-to-centreon-ui": {
         "title": "Accessing to Centreon UI"
       },
+      "administration/backup": {
+        "title": "Backup"
+      },
+      "administration/database-partitioning": {
+        "title": "Database partitioning"
+      },
       "administration/extensions": {
         "title": "Extensions"
       },
+      "administration/knowledge-base": {
+        "title": "Knowledge Base"
+      },
+      "administration/logging-configuration-changes": {
+        "title": "Logging configuration changes"
+      },
       "administration/parameters/centreon-ui": {
         "title": "Centreon UI"
+      },
+      "administration/parameters/data-management": {
+        "title": "Data management"
       },
       "administration/parameters/debug": {
         "title": "Debug"
@@ -34,9 +49,6 @@
       },
       "administration/parameters/my-account": {
         "title": "My Account"
-      },
-      "administration/parameters/performance-data-management": {
-        "title": "Performance data management"
       },
       "administration/parameters/rrdtool": {
         "title": "RRDTool"
@@ -110,50 +122,44 @@
       "graph-views/upgrade": {
         "title": "Upgrade the extension"
       },
-      "installation/add-poller-to-configuration": {
-        "title": "Add a Poller to configuration"
-      },
-      "installation/add-remote-server-to-configuration": {
-        "title": "Add a Remote Server to configuration"
-      },
       "installation/architectures": {
         "title": "Architectures"
-      },
-      "installation/centreon-from-iso": {
-        "title": "Using Centreon ISO"
-      },
-      "installation/centreon-from-packages": {
-        "title": "Using packages"
-      },
-      "installation/centreon-from-sources": {
-        "title": "Using sources"
-      },
-      "installation/centreon-from-vm": {
-        "title": "Using virtual machines (VMs)"
       },
       "installation/download": {
         "title": "Download"
       },
+      "installation/installation-of-a-central-server/using-centreon-iso": {
+        "title": "Using Centreon ISO"
+      },
+      "installation/installation-of-a-central-server/using-packages": {
+        "title": "Using packages"
+      },
+      "installation/installation-of-a-central-server/using-sources": {
+        "title": "Using sources"
+      },
+      "installation/installation-of-a-central-server/using-virtual-machines": {
+        "title": "Using virtual machines (VMs)"
+      },
+      "installation/installation-of-a-poller/using-centreon-iso": {
+        "title": "Using Centreon ISO"
+      },
+      "installation/installation-of-a-poller/using-packages": {
+        "title": "Using packages"
+      },
+      "installation/installation-of-a-remote-server/using-centreon-iso": {
+        "title": "Using Centreon ISO"
+      },
+      "installation/installation-of-a-remote-server/using-packages": {
+        "title": "Using packages"
+      },
       "installation/introduction": {
         "title": "Introduction"
       },
-      "installation/poller-from-iso": {
-        "title": "Using Centreon ISO"
-      },
-      "installation/poller-from-packages": {
-        "title": "Using packages"
-      },
-      "installation/post-install": {
-        "title": "First configuration"
+      "installation/post-installation": {
+        "title": "Post Installation"
       },
       "installation/prerequisites": {
         "title": "Prerequisites"
-      },
-      "installation/remote-from-iso": {
-        "title": "Using Centreon ISO"
-      },
-      "installation/remote-from-packages": {
-        "title": "Using packages"
       },
       "integrations/external/accedian-pvx-skylight": {
         "title": "Accedian PVX Skylight"
@@ -1505,17 +1511,26 @@
       "monitoring/about": {
         "title": "About Monitoring"
       },
-      "monitoring/commands": {
+      "monitoring/basic-objects/commands": {
         "title": "Commands"
       },
-      "monitoring/contacts": {
+      "monitoring/basic-objects/contacts": {
         "title": "Contacts"
       },
-      "monitoring/deploy": {
-        "title": "Deploying a configuration"
+      "monitoring/basic-objects/hosts": {
+        "title": "Hosts"
       },
-      "monitoring/discovery": {
-        "title": "monitoring/discovery"
+      "monitoring/basic-objects/macros": {
+        "title": "Macros"
+      },
+      "monitoring/basic-objects/meta-services": {
+        "title": "Meta Services"
+      },
+      "monitoring/basic-objects/services": {
+        "title": "Services"
+      },
+      "monitoring/basic-objects/timeperiods": {
+        "title": "Time periods"
       },
       "monitoring/discovery/administration": {
         "title": "Administration"
@@ -1535,56 +1550,44 @@
       "monitoring/discovery/services-discovery": {
         "title": "Services Discovery"
       },
-      "monitoring/dsm": {
-        "title": "Dynamic Service Management"
-      },
       "monitoring/generic-actions": {
         "title": "Generic actions"
       },
       "monitoring/groups-categories": {
         "title": "Groups & Categories"
       },
-      "monitoring/hosts": {
-        "title": "Hosts"
+      "monitoring/monitoring-servers/add-a-poller-to-configuration": {
+        "title": "Add a Poller to configuration"
       },
-      "monitoring/macros": {
-        "title": "Macros"
+      "monitoring/monitoring-servers/add-a-remote-server-to-configuration": {
+        "title": "Add a Remote Server to configuration"
       },
-      "monitoring/meta-services": {
-        "title": "Meta Services"
+      "monitoring/monitoring-servers/communications": {
+        "title": "Communications"
       },
-      "monitoring/passive/create-snmp-traps-definitions": {
+      "monitoring/monitoring-servers/deploying-a-configuration": {
+        "title": "Deploying a configuration"
+      },
+      "monitoring/passive-monitoring/create-snmp-traps-definitions": {
         "title": "Create SNMP Traps definitions"
       },
-      "monitoring/passive/debug-snmp-traps-management": {
+      "monitoring/passive-monitoring/debug-snmp-traps-management": {
         "title": "Debug SNMP Traps management"
       },
-      "monitoring/passive/dsm": {
+      "monitoring/passive-monitoring/dsm": {
         "title": "Dynamic Service Management"
       },
-      "monitoring/passive/enable-snmp-traps": {
+      "monitoring/passive-monitoring/enable-snmp-traps": {
         "title": "Enable SNMP Traps"
       },
-      "monitoring/passive/monitoring-with-snmp-traps": {
+      "monitoring/passive-monitoring/monitoring-with-snmp-traps": {
         "title": "Monitoring with SNMP Traps"
       },
       "monitoring/pluginpacks": {
         "title": "Plugin Packs"
       },
-      "monitoring/services": {
-        "title": "Services"
-      },
-      "monitoring/snmp-traps": {
-        "title": "SNMP Traps managment"
-      },
       "monitoring/templates": {
-        "title": "Objects templates"
-      },
-      "monitoring/timeperiods": {
-        "title": "Time periods"
-      },
-      "monitoring/web_import_export": {
-        "title": "monitoring/web_import_export"
+        "title": "Templates"
       },
       "monitoring/web-import-export": {
         "title": "Import/Export"
@@ -1679,23 +1682,23 @@
     "translation": "Translations and Localization"
   },
   "pages-strings": {
-    "titleExcellenceBloc|no description given": "IT Excellence at the Service of Business Performance",
-    "subTitleExcellenceBloc|no description given": "Our documentation is at your disposal to help you through all the steps from installation to configuration, updates and much more!",
+    "titleExcellenceBlock|no description given": "IT Excellence at the Service of Business Performance",
+    "subTitleExcellenceBlock|no description given": "Our documentation is at your disposal to help you through all the steps from installation to configuration, updates and much more!",
     "btnInstall|no description given": "Install",
     "btnLinkInstallation|no description given": "/docs/en/installation/introduction.html",
     "btnStart|no description given": "Start",
     "btnLinkTutorial|no description given": "/docs/en/tutorials/first-steps.html",
     "btnApi|no description given": "See API",
     "btnLinkApi|no description given": "/docs/en/api/introduction.html",
-    "titlePrerequisiteBloc|no description given": "Prerequisites",
-    "contentPrerequisiteBloc|no description given": "Please follow the installation and provisioning requirements (CPU resources, memory, disks, partitioning, etc ...) and make sure you choose the right architecture for your needs before installing the platform.",
-    "titleInstallationBloc|no description given": "The installation",
-    "contentInstallationBloc|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to install your platform.",
-    "titleSupervisionBloc|no description given": "The supervision",
-    "contentSupervisionBloc|no description given": "More than 400 IT domains already covered: networks, servers, applications, storage, databases, devices, hardware, etc. on physical, virtuekkes, or hybrid infrastructures.",
-    "titleCommunityBloc|no description given": "A strong community",
-    "titleHeartOpenSourceBloc|no description given": "An Open Source Core",
-    "contentHeartOpenSourceBloc|no description given": "Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.",
+    "titlePrerequisiteBlock|no description given": "Prerequisites",
+    "contentPrerequisiteBlock|no description given": "Please follow the installation and provisioning requirements (CPU resources, memory, disks, partitioning, etc ...) and make sure you choose the right architecture for your needs before installing the platform.",
+    "titleInstallationBlock|no description given": "The installation",
+    "contentInstallationBlock|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to install your platform.",
+    "titleSupervisionBlock|no description given": "The supervision",
+    "contentSupervisionBlock|no description given": "More than 400 IT domains already covered: networks, servers, applications, storage, databases, devices, hardware, etc. on physical, virtuekkes, or hybrid infrastructures.",
+    "titleCommunityBlock|no description given": "A strong community",
+    "titleHeartOpenSourceBlock|no description given": "An Open Source Core",
+    "contentHeartOpenSourceBlock|no description given": "Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.",
     "Help Translate|recruit community translators for your project": "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
     "Translate this Doc|recruitment message asking to translate the docs": "Translate"

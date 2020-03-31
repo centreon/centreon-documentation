@@ -35,7 +35,7 @@
   font-size: 18px;
 }
 
-.homepageCustom .containerBloc {
+.homepageCustom .containerBlock {
   text-align: center;
   margin: auto;
   align-items: center;
@@ -47,36 +47,36 @@
   font-weight: normal;
 }
 
-.homepageCustom .containerBloc .title-community {
+.homepageCustom .containerBlock .title-community {
   font-size: 35px;
   font-weight: normal;
 }
 
-.homepageCustom .containerBloc .cardBar {
+.homepageCustom .containerBlock .cardBar {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.homepageCustom .containerBloc .cardBar .cardContent {
+.homepageCustom .containerBlock .cardBar .cardContent {
   width: 200px;
   height: 160px;
   margin: 44px;
   text-align: center;
 }
 
-.homepageCustom .containerBloc .cardBar .cardContent .imageContainer {
+.homepageCustom .containerBlock .cardBar .cardContent .imageContainer {
   display: flex;
   width: 120px;
   height: 120px;
 }
 
-.homepageCustom .containerBloc .cardBar .cardContent .imageContainer img {
+.homepageCustom .containerBlock .cardBar .cardContent .imageContainer img {
   align-items: flex-end;
   margin-left: 1.8em;
 }
 
-.homepageCustom .containerBloc .cardBar .cardContent .buttonLink {
+.homepageCustom .containerBlock .cardBar .cardContent .buttonLink {
   background-color: rgb(0, 114, 206);
   width: 170px;
   color: rgba(255, 255, 255, 1);
@@ -89,7 +89,7 @@
   font-size: 16px;
 }
 
-.homepageCustom .containerBlocPrerequisite {
+.homepageCustom .containerBlockPrerequisite {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -113,7 +113,7 @@
   align-content: flex-start;
 }
 
-.homepageCustom .containerBlocInstallation {
+.homepageCustom .containerBlockInstallation {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
@@ -131,7 +131,7 @@
   margin-top: 3%;
 }
 
-.homepageCustom .containerBloc ul.socialSet {
+.homepageCustom .containerBlock ul.socialSet {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -142,11 +142,11 @@
   width: auto;
 }
 
-.homepageCustom .containerBloc ul.socialSet a {
+.homepageCustom .containerBlock ul.socialSet a {
   display: flex;
   padding: 30px 80px;
 }
 
-.homepageCustom .containerBloc ul.socialSet img {
+.homepageCustom .containerBlock ul.socialSet img {
   width: 40px;
 }
