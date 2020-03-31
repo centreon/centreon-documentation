@@ -44,9 +44,9 @@ function ExcellenceBlock() {
         <h1><translate>titleExcellenceBlock</translate></h1>
         <p className="subTitle"><translate>subTitleExcellenceBlock</translate></p>
         <div className="cardBar">
-          <Card imageSrc={'Groupe-607.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
-          <Card imageSrc={'Groupe-608.svg'} btnLabel={<translate>btnStart</translate>} btnLink={<translate>btnLinkTutorial</translate>} />
-          <Card imageSrc={'Groupe-386.svg'} btnLabel={<translate>btnApi</translate>} btnLink={<translate>btnLinkApi</translate>} />
+          <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
+          <Card imageSrc={'icon-tutorial.svg'} btnLabel={<translate>btnStart</translate>} btnLink={<translate>btnLinkTutorial</translate>} />
+          <Card imageSrc={'icon-api.svg'} btnLabel={<translate>btnApi</translate>} btnLink={<translate>btnLinkApi</translate>} />
         </div>
       </div>
     )
@@ -56,7 +56,7 @@ function PrerequisiteBlock() {
     return (
       <div className="containerBlockPrerequisite">
         <div className="imageSection">
-        <Image imageSrc={'Groupe-463.svg'}  />
+        <Image imageSrc={'image-prerequisite-block.svg'}  />
         </div>
         <div className="containerContentPrerequisite">
         <h2 className="title-section"><translate>titlePrerequisiteBlock</translate></h2>
@@ -70,7 +70,7 @@ function InstallationBlock() {
     return (
       <div className="containerBlockInstallation">
         <div className="imageSection">
-        <Image imageSrc={'Groupe-699.svg'}  />
+        <Image imageSrc={'image-installation-block.svg'}  />
         </div>
         <div className="containerContentInstallation">
         <h2 className="title-section"><translate>titleInstallationBlock</translate></h2>
@@ -86,9 +86,8 @@ function SupervisionBlock() {
         <h2 className="title-section"><translate>titleSupervisionBlock</translate></h2>
         <p><translate>contentSupervisionBlock</translate></p>
         <div className="imageSection">
-        <Image imageSrc={'Groupe-387.svg'}  />
+        <Image imageSrc={'image-supervision-block.svg'}  />
         </div>
-
       </div>
     )
 }
