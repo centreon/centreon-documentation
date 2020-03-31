@@ -53,8 +53,41 @@
       "administration/parameters/rrdtool": {
         "title": "RRDTool"
       },
+      "alerts-notifications/concepts": {
+        "title": "Concepts"
+      },
+      "alerts-notifications/event-console": {
+        "title": "Event console"
+      },
+      "alerts-notifications/event-log": {
+        "title": "Event Logs"
+      },
       "alerts-notifications/init-alerts-notifications": {
         "title": "About Alerts and Notifications"
+      },
+      "alerts-notifications/manage-alerts": {
+        "title": "Manage Alerts"
+      },
+      "alerts-notifications/notif-advanced": {
+        "title": "To go further"
+      },
+      "alerts-notifications/notif-concept": {
+        "title": "Concept"
+      },
+      "alerts-notifications/notif-configuration": {
+        "title": "Configuration"
+      },
+      "alerts-notifications/notif-dependencies": {
+        "title": "Dependencies"
+      },
+      "alerts-notifications/notif-escalation": {
+        "title": "Escalation"
+      },
+      "alerts-notifications/notif-flapping": {
+        "title": "Flapping"
+      },
+      "alerts-notifications/ticketing": {
+        "title": "Ticketing"
       },
       "analytics/init-analytics": {
         "title": "About Analytics"

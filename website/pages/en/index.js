@@ -12,7 +12,7 @@ const Container = CompLibrary.Container;
 
 const translate = require('../../server/translate.js').translate;
 
-const basePathImg = '/img/homepage/';
+const basePathImg = './img/homepage/';
 
 const Button = props => {
   return (
