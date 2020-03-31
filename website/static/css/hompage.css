@@ -1,0 +1,152 @@
+.homepageCustom {
+  font-family: $roboto;
+  color: $fontColor;
+}
+
+.homepageCustom.borderTop {
+  border-top: 1px solid rgba(185, 185, 185, 1);
+}
+
+.homepageCustom.bgLightBlue {
+  background: $bgLightBlue;
+}
+
+.homepageCustom.bgLightPurple {
+  background: rgba(94, 83, 199, 14%);
+  color: rgba(94, 83, 199, 1);
+
+}
+
+.homepageCustom h1 {
+  line-height: 1;
+  font-family:  $roboto;
+  font-size: 50px;
+  color: rgba(34, 46, 59, 1);
+  margin-top: 1em;
+  height: 5%;
+  width: 48%;
+  margin-left: 25%;
+}
+
+.homepageCustom .subTitle {
+  margin: auto;
+  padding-left: 30%;
+  padding-right: 30% ;
+  font-size: 18px;
+}
+
+.homepageCustom .containerBlock {
+  text-align: center;
+  margin: auto;
+  align-items: center;
+}
+
+.homepageCustom .title-section {
+  color: rgb(0, 114, 206);
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.homepageCustom .containerBlock .title-community {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.homepageCustom .containerBlock .cardBar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.homepageCustom .containerBlock .cardBar .cardContent {
+  width: 200px;
+  height: 160px;
+  margin: 44px;
+  text-align: center;
+}
+
+.homepageCustom .containerBlock .cardBar .cardContent .imageContainer {
+  display: flex;
+  width: 120px;
+  height: 120px;
+}
+
+.homepageCustom .containerBlock .cardBar .cardContent .imageContainer img {
+  align-items: flex-end;
+  margin-left: 1.8em;
+}
+
+.homepageCustom .containerBlock .cardBar .cardContent .buttonLink {
+  background-color: rgb(0, 114, 206);
+  width: 170px;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  height: 40px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.homepageCustom .containerBlockPrerequisite {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  
+}
+
+/* .homepageCustom .imageSection {
+  margin-top: 4em;
+  margin-left: 9em;
+  margin-right: 4em;
+} */
+
+.homepageCustom .containerContentPrerequisite {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-left: 8em;
+  align-content: flex-start;
+}
+
+.homepageCustom .containerBlockInstallation {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  margin-right: 16%;
+  flex-wrap: wrap;
+
+}
+
+.homepageCustom .containerContentInstallation {
+  width: 38vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  text-align: left;
+  margin-top: 3%;
+}
+
+.homepageCustom .containerBlock ul.socialSet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+
+.homepageCustom .containerBlock ul.socialSet a {
+  display: flex;
+  padding: 30px 80px;
+}
+
+.homepageCustom .containerBlock ul.socialSet img {
+  width: 40px;
+}
