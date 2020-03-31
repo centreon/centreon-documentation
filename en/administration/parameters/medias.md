@@ -14,7 +14,7 @@ All the images are stored in the folder entitled:
 
 There are two methods for adding images to this folder:
 
-- Do it manually
+- Do it manually,
 - Use automatic synchronization: this method has the advantage of being able
 to import multiple images at the same time.
 

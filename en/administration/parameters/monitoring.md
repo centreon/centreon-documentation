@@ -5,7 +5,7 @@ title: Monitoring
 
 This part covers the general options of the real time monitoring interface.
 
-GO to **Administration > Parameters > Monitoring**.
+Go to **Administration > Parameters > Monitoring**.
 
 ![image](../../assets/administration/parameters-monitoring.png)
 

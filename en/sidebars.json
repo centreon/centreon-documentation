@@ -170,14 +170,18 @@
                     "administration/parameters/ldap",
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",
-                    "administration/parameters/performance-data-management",
-                    "administration/parameters/media"
+                    "administration/parameters/data-management",
+                    "administration/parameters/medias"
                 ],
                 "label": "Parameters",
                 "type": "subcategory"
             },
             "administration/access-control-lists",
-            "administration/extensions"
+            "administration/extensions",
+            "administration/database-partitioning",
+            "administration/backup",
+            "administration/knowledge-base",
+            "administration/logging-configuration-changes"
         ],
         "Update, Upgrade & Migrate": [
             {
