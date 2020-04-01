@@ -119,9 +119,7 @@ const siteConfig = {
   customDocsPath: '@LANGUAGE@',
 
   // Add google analytics testing tag before production tag
-  gTrackingId: UA-8418698-12
+  gTrackingId: 'UA-8418698-12'
 };
-
-
 
 module.exports = siteConfig;
