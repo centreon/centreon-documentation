@@ -55,7 +55,7 @@ function ExcellenceBlock() {
 function PrerequisiteBlock() {
     return (
       <div className="containerBlockPrerequisite">
-        <div className="imageSection">
+        <div className="imageSectionPrerequisite">
         <Image imageSrc={'image-prerequisite-block.svg'}  />
         </div>
         <div className="containerContentPrerequisite">
@@ -69,7 +69,7 @@ function PrerequisiteBlock() {
 function InstallationBlock() {
     return (
       <div className="containerBlockInstallation">
-        <div className="imageSection">
+        <div className="imageSectionInstallation">
         <Image imageSrc={'image-installation-block.svg'}  />
         </div>
         <div className="containerContentInstallation">
