@@ -65,12 +65,14 @@ const siteConfig = {
   },
 
   /* Custom fonts for website */
+  /*
   fonts: {
     roboto: [
       "Roboto",
       "sans-serif"
     ],
   },
+  */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
@@ -116,7 +118,10 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
 
-  customDocsPath: '@LANGUAGE@'
+  customDocsPath: '@LANGUAGE@',
+
+  // Add google analytics testing tag before production tag
+  gaTrackingId: 'UA-8418698-12'
 };
 
 module.exports = siteConfig;
