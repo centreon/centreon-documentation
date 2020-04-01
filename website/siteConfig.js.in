@@ -116,7 +116,10 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
 
-  customDocsPath: '@LANGUAGE@'
+  customDocsPath: '@LANGUAGE@',
+
+  // Add google analytics testing tag before production tag
+  gTrackingId: 'UA-8418698-12'
 };
 
 module.exports = siteConfig;
