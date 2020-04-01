@@ -1,6 +1,6 @@
 ---
 id: widgets
-title: widgets
+title: Widgets
 ---
 
 #TODO

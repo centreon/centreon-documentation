@@ -166,7 +166,9 @@ daemon.
 The default theme can also be defined in this menu, using the option
 "Default report color theme".
 
-### Extract/load/transform (ETL) options
+### ETL options
+
+*ETL stands for **E**xtract **T**ransform **L**oad*
 
 The ETL integrated in Centreon is used to
 
@@ -204,7 +206,7 @@ specify the following options:
   Live services for capacity statistics calculation	                                        | Select the “24x7” time period.
   Service categories related to capacity data monitoring	                                | Select the service categories that have been associated with capacity-type services.
   Exclude metrics from service categories that do not return capacity USAGE information	    | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).
-| **Centile parameters**                                                                    |                                         |
+| **Centile parameters (2)**                                                                    |                                         |
  Calculating centile aggregation by	                                                        | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.
  Select service categories to aggregate centile on	                                        | Filter on relevant service categories for centile statistics (e.g., Traffic).
  First day of the week	                                                                    | Select the first day of the week for Week aggregation.
@@ -218,6 +220,20 @@ statistics calculation per hour:
 -   Host-detail-v2
 -   Hostgroup-traffic-Average-Usage-By-Interface
 -   Hostgroup-traffic-by-Interface-And-Bandwith-Ranges.
+
+**(2)** Centile statistics: To use the "Monthly Network Percentile" report you must activate
+centile calculation. Here is an example: 
+
+![image](../assets/reporting/guide/centileParameters.png)
+
+Only service categories selected in "Reporting perimeter selection"
+will appear in the list of service categories available for centile
+statistics.
+
+You can create as many centile-time period combinations as you like, **but
+we strongly recommand** not having more than 2 or 3 combination* on a small number of metrics 
+contained in the category.
+
 
 ### Data retention options
 
