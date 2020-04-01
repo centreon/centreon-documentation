@@ -495,7 +495,7 @@ capabilities to:
 -   Manage data retention on the reporting server.
 
 Before following the next steps, you should have read
-`the best practice parts <centreon_best_practices>`#TODO to ensure that the Centreon objects (e.g., groups and
+[the best practice parts](#TODO) to ensure that the Centreon objects (e.g., groups and
 categories) are configured according to Centreon MBI requirements.
 
 In the *Reporting > Business Intelligence > General Options > ETL options* menu 
@@ -541,7 +541,7 @@ statistics calculation per hour:
 ### ETL: Data retention
 
 The reporting server contains statistics tables specific to Centreon MBI
-in the database \"centreon\_storage\". The storage space used by these
+in the database "centreon_storage". The storage space used by these
 tables increases every day. It is possible to control the size of these
 tables by setting data retention rules.
 

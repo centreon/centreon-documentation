@@ -518,31 +518,31 @@ Dans le menu « Rapports > Monitoring Business Intelligence > General
 Options > Options de l ETL »  de Centreon, spécifiez les options
 suivantes :
 
-Option | Values
--------|---------
-| **Options générales** | |
-  Une base de données MySQL dédiée au reporting a été mise en place.		 | Oui. Vous devez avoir un serveur de reporting dédié.
-  Espace de stockage des fichiers temporaires sur le serveur de reporting *		 | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés
-  Type de statistiques à traiter		| <ul><li>Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité. </li><li>Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance</li><li>Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.</li></ul>
-  Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante)	| Activé uniquement si votre configuration MySQL et la mémoire physique allouée au serveur de reporting le permet.
-| **Sélection du périmètre du reporting** | |
-Groupes d hotes | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.
-Catégories d hôtes | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.
-Catégories de services	 | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques.
-| **Calcul des données de disponibilité** | |
-  Sélectionner les plages de services pour le calcul des statistiques de disponibilité	| Plages horaires (time periods) pour lesquelles les calculs de disponibiltié des hôtes et des services sont réalisées
-| **Calcul des données de performance et de capacité** | |
-  Granularité des données statistiques à calculer	| Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1)
-  Sélectionner les plages de services pour le calcul des statistiques de performance | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance
-| **Capacity statistic aggregated by month** | |
-  Sélectionner la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité	| Selectionnez la plage horaire 24x7.
-    Sélectionner les catégories de services liées aux indicateurs de capacité | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité
-  Exclure les métriques qui ne renvoient pas une indication d utilisation des espaces de stockage (métriques indiquant uniquement l espace total alloué, par exemple) | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (exemple, la métrique “ size ” returnée par le plugins check_centreon_snmp_remote_storage »)
- | **Paramètres pour le calcul des centiles** | |
-   Calculating centile aggregation by	| Selectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois.
-  Sélectionner les catégories de services sur lesquelles aggréger les données | Selectionnez uniquement les catégories de services pertinente (Ex: Traffic)
-  Premier jour de la semaine	| Selectionnez le premier jour à considérer pour les statistiques à la semaine
-Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)	| Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées
+Option                                                                                                                                      | Values
+--------------------------------------------------------------------------------------------------------------------------------------------|---------
+| **Options générales**                                                                                                                     | |
+  Une base de données MySQL dédiée au reporting a été mise en place.		                                                                | Oui. Vous devez avoir un serveur de reporting dédié.
+  Espace de stockage des fichiers temporaires sur le serveur de reporting *		                                                            | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés
+  Type de statistiques à traiter		                                                                                                    | <ul><li>Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité. </li><li>Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance</li><li>Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.</li></ul>
+  Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante)  | Activé uniquement si votre configuration MySQL et la mémoire physique allouée au serveur de reporting le permet.
+| **Sélection du périmètre du reporting**                                                                                                   | |
+Groupes d hotes                                                                                                                             | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.
+Catégories d hôtes                                                                                                                          | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.
+Catégories de services	                                                                                                                    | Sélectionnez les catégories de services pour lesquels vous souhaitez conserver les statistiques.
+| **Calcul des données de disponibilité**                                                                                                   | |
+  Sélectionner les plages de services pour le calcul des statistiques de disponibilité	                                                    | Plages horaires (time periods) pour lesquelles les calculs de disponibiltié des hôtes et des services sont réalisées
+| **Calcul des données de performance et de capacité**                                                                                      | |
+  Granularité des données statistiques à calculer	                                                                                        | Sélectionnez le ou les niveaux de granularité pour le calcul des données de performance (1)
+  Sélectionner les plages de services pour le calcul des statistiques de performance                                                        | Plages horaires sur les jours de la semaine pris en compte dans le calcul des données de capacité et de performance
+| **Capacity statistic aggregated by month**                                                                                                | |
+  Sélectionner la plage de service 24h/24, 7j/7 pour le calcul des statistiques mensuelles de capacité	                                    | Selectionnez la plage horaire 24x7.
+  Sélectionner les catégories de services liées aux indicateurs de capacité                                                                 | Sélectionnez les catégories de services ayant été rattachés à des services de type capacité
+  Exclure les métriques qui ne renvoient pas une indication d utilisation des espaces de stockage                                           | Concerne uniquement les métriques liées aux services qui renvoient une information de capacité. Sélectionnez uniquement les métriques qui donnent une valeur maximale ou une valeur totale de capacité et non une valeur d’utilisation. (exemple, la métrique “ size ” returnée par le plugins check_centreon_snmp_remote_storage »)
+ | **Paramètres pour le calcul des centiles**                                                                                               | |
+   Calculating centile aggregation by	                                                                                                    | Selectionnez la granularité des calculs. Le rapport de trafic fourni en standard avec BI 2.1 utilise les données au Mois.
+  Sélectionner les catégories de services sur lesquelles aggréger les données                                                               | Selectionnez uniquement les catégories de services pertinente (Ex: Traffic)
+  Premier jour de la semaine	                                                                                                            | Selectionnez le premier jour à considérer pour les statistiques à la semaine
+Créer les combinaisons centile-plage horaire qui couvrent vos besoins (Format du centile : 00.0000)	                                        | Créez des combinaisons centile/plage horaire sur lesquels les statistiques seront effectuées
 
 **(1)** Les rapports nécessitant une granularité des données à l'heure
 sont listés ci-dessous. Si vous ne souhaitez pas utiliser ces rapports,
