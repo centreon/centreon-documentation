@@ -218,55 +218,6 @@ Reporting dimensions (combination of groups/host
 categories/services/metrics) with no relating data are automatically
 deleted from the reporting database.
 
-### Centile statistics
-
-To use the "Monthly Network Percentile" report you must activate
-centile calculation and storage. Go to the *Reporting > Business
-Intelligence > General Options | ETL Tab* page and configure the
-subsection "Centile parameters" as described below to create a
-relevant centile/timeperiod combination(s). If this report is not
-required, simple leave the default values.
-
-  Parameter                                                | Value
-  ---------------------------------------------------------|--------------------------
-  Calculate centile aggregation                            | Monthly (minimum)
-  Select service categories to aggregate centile on        | Select at least one traffic service category
-  Set first day of the week                                | Monday (default)
-  Create the required centile-time period combination(s)   | Create at least one combination, e.g. 99.0000 - 24x7
-
-See example in the screenshot below:
-
-![image](../assets/reporting/guide/centileParameters.png)
-
-Only service categories selected in "Reporting perimeter selection"
-will appear in the list of service categories available for centile
-statistics.
-
-You can create as many centile-time period combinations as you like, but
-be advised that this may increase calculation time. Start with a small
-number of parameter combinations to determine the impact on calculation
-time.
-
-
-> To generate the centile traffic report on historical data, run the
-> following commands. To generate future centile reports (calculated from
-> now on), proceed to the next chapter.
-
-On the **reporting** server, run the following command to import the
-configuration data:
-
-    /usr/share/centreon-bi/bin/centreonBIETL -rIC
-
-Then, run the following command to update the centile configuration in
-the datawarehouse:
-
-    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
-
-Finally, run the following command to calculate only the centile
-statistics:
-
-    /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only
-
 ### How to apply a new configuration to historical data
 
 > This procedure deletes all previously calculated data (and links between
@@ -375,12 +326,10 @@ Before running the commands in the procedure below, check that:
 
 
 > For the following commands, we advise you to use "screen" or "nohup" to
-> prevent disconnection due to timeout.
-
-In the following commands: 
-
-- $date_start$ should be replaced according to the data you want to retrieve (based on retention or starting point of missing data)
-- $date_end$ most of the time corresponds to the "today" date 
+> prevent disconnection due to timeout. And you have to manually replace the following elements:
+> 
+>   - $date_start$ should be replaced according to the data you want to retrieve (based on retention or starting point of missing data)
+>   - $date_end$ most of the time corresponds to the "today" date 
 
 ### Import the missing data
 
@@ -488,3 +437,52 @@ then import them using the previous command
 
     /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
 
+
+### How to rebuild only Centile statistics
+
+To use the "Monthly Network Percentile" report you must activate
+centile calculation and storage. Go to the *Reporting > Business
+Intelligence > General Options | ETL Tab* page and configure the
+subsection "Centile parameters" as described below to create a
+relevant centile/timeperiod combination(s). If this report is not
+required, simple leave the default values.
+
+  Parameter                                                | Value
+  ---------------------------------------------------------|--------------------------
+  Calculate centile aggregation                            | Monthly (minimum)
+  Select service categories to aggregate centile on        | Select at least one traffic service category
+  Set first day of the week                                | Monday (default)
+  Create the required centile-time period combination(s)   | Create at least one combination, e.g. 99.0000 - 24x7
+
+See example in the screenshot below:
+
+![image](../assets/reporting/guide/centileParameters.png)
+
+Only service categories selected in "Reporting perimeter selection"
+will appear in the list of service categories available for centile
+statistics.
+
+You can create as many centile-time period combinations as you like, but
+be advised that this may increase calculation time. Start with a small
+number of parameter combinations to determine the impact on calculation
+time.
+
+
+> To generate the centile traffic report on historical data, run the
+> following commands. To generate future centile reports (calculated from
+> now on), proceed to the next chapter.
+
+On the **reporting** server, run the following command to import the
+configuration data:
+
+    /usr/share/centreon-bi/bin/centreonBIETL -rIC
+
+Then, run the following command to update the centile configuration in
+the datawarehouse:
+
+    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
+
+Finally, run the following command to calculate only the centile
+statistics:
+
+    /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only
