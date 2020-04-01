@@ -1,5 +1,5 @@
 .homepageCustom {
-  font-family: $roboto;
+  font-family: inherit;
   color: $fontColor;
 }
 
@@ -19,7 +19,6 @@
 
 .homepageCustom h1 {
   line-height: 1;
-  font-family:  $roboto;
   font-size: 50px;
   color: rgba(34, 46, 59, 1);
   margin-top: 1em;
@@ -95,7 +94,6 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-left: 15%;
-  
 }
 
 /* .homepageCustom .imageSection {
