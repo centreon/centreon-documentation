@@ -150,3 +150,35 @@
 .homepageCustom .containerBlock ul.socialSet img {
   width: 40px;
 }
+
+@media only screen and (max-width: 769px) {
+  .homepageCustom .containerContentPrerequisite {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .homepageCustom .containerContentInstallation {
+    text-align: center;
+    padding: 0px ;
+  }
+
+  .homepageCustom .containerBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .homepageCustom h1 {
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .homepageCustom .subTitle {
+    margin-top: 10%;
+    padding: 0;
+  }
+
+}
