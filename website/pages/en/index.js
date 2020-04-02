@@ -123,6 +123,7 @@ function HeartOpenSourceBlock(){
       <div className="containerBlock">
         <h2 className="title-section"><translate>titleHeartOpenSourceBlock</translate></h2>
         <p><translate>contentHeartOpenSourceBlock</translate></p>
+        <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
       </div>
     )
 }
