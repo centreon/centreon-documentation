@@ -71,7 +71,6 @@
 }
 
 .homepageCustom .containerBlock .cardBar .cardContent .imageContainer img {
-  align-items: flex-end;
   margin-left: 1.8em;
 }
 
@@ -90,43 +89,46 @@
 
 .homepageCustom .containerBlockPrerequisite {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-left: 15%;
+  
 }
 
-/* .homepageCustom .imageSection {
-  margin-top: 4em;
-  margin-left: 9em;
-  margin-right: 4em;
-} */
+.homepageCustom .imageSectionPrerequisite {
+  display: flex;
+  padding-top: 4%;
+}
 
 .homepageCustom .containerContentPrerequisite {
-  width: 40vw;
+  width: 700px;
   display: flex;
   flex-direction: column;
   font-size: 18px;
-  margin-left: 8em;
-  align-content: flex-start;
+  padding-left: 8%;
 }
 
 .homepageCustom .containerBlockInstallation {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start;
-  margin-right: 16%;
+  justify-content: center;
   flex-wrap: wrap;
 
 }
 
+.homepageCustom .imageSectionInstallation {
+  display: flex;
+  padding-top: 4%;
+}
+
+
 .homepageCustom .containerContentInstallation {
-  width: 38vw;
+  width: 550px;
   display: flex;
   flex-direction: column;
   font-size: 18px;
   text-align: left;
-  margin-top: 3%;
+  padding-right: 10%;
 }
 
 .homepageCustom .containerBlock ul.socialSet {
@@ -147,4 +149,36 @@
 
 .homepageCustom .containerBlock ul.socialSet img {
   width: 40px;
+}
+
+@media only screen and (max-width: 769px) {
+  .homepageCustom .containerContentPrerequisite {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .homepageCustom .containerContentInstallation {
+    text-align: center;
+    padding: 0px ;
+  }
+
+  .homepageCustom .containerBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .homepageCustom h1 {
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .homepageCustom .subTitle {
+    margin-top: 10%;
+    padding: 0;
+  }
+
 }
