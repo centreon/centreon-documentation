@@ -1732,6 +1732,8 @@
     "titleCommunityBlock|no description given": "A strong community",
     "titleHeartOpenSourceBlock|no description given": "An Open Source Core",
     "contentHeartOpenSourceBlock|no description given": "Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.",
+    "btnOpenSource|no description given": "contribute to the Open Source project",
+    "btnLinkOpenSource|no description given": "https://github.com/centreon/centreon",
     "Help Translate|recruit community translators for your project": "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
     "Translate this Doc|recruitment message asking to translate the docs": "Translate"

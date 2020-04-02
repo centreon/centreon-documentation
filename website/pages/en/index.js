@@ -59,7 +59,7 @@ function PrerequisiteBlock() {
         <Image imageSrc={'image-prerequisite-block.svg'}  />
         </div>
         <div className="containerContentPrerequisite">
-        <h2 className="title-section"><translate>titlePrerequisiteBlock</translate></h2>
+        <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
         <p><translate>contentPrerequisiteBlock</translate></p>
         </div>
       </div>
@@ -73,7 +73,7 @@ function InstallationBlock() {
         <Image imageSrc={'image-installation-block.svg'}  />
         </div>
         <div className="containerContentInstallation">
-        <h2 className="title-section"><translate>titleInstallationBlock</translate></h2>
+        <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
         <p><translate>contentInstallationBlock</translate></p>
         </div>
       </div>
@@ -87,7 +87,7 @@ function MonitoringBlock() {
         <Image imageSrc={'image-monitoring-block.svg'}  />
         </div>
         <div className="containerContentMonitoring">
-        <h2 className="title-section"><translate>titleMonitoringBlock</translate></h2>
+        <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
         <p><translate>contentMonitoringBlock</translate></p>
         </div>
       </div>
@@ -97,7 +97,7 @@ function MonitoringBlock() {
 function CommunityBlock() {
     return (
       <div className="containerBlock">
-        <h2 className="title-community"><translate>titleCommunityBlock</translate></h2>
+        <h2 className="titleSectionCommunity"><translate>titleCommunityBlock</translate></h2>
         <div className="cardBar">
           <ul className="socialSet">
             <a href="https://centreon.github.io/register-slack/">
@@ -121,9 +121,13 @@ function CommunityBlock() {
 function HeartOpenSourceBlock(){
     return (
       <div className="containerBlock">
-        <h2 className="title-section"><translate>titleHeartOpenSourceBlock</translate></h2>
-        <p><translate>contentHeartOpenSourceBlock</translate></p>
-        <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
+        <div className="containerContentOpenSource">
+          <h2 className="titleSectionOpenSource"><translate>titleHeartOpenSourceBlock</translate></h2>
+          <p className="textOpenSource"><translate>contentHeartOpenSourceBlock</translate></p>
+        </div>
+        <div className="cardBarOpenSource">      
+          <Card imageSrc={'icon-openSource.svg'} btnLabel={<translate>btnOpenSource</translate>} btnLink={<translate>btnLinkOpenSource</translate>} />
+        </div>
       </div>
     )
 }
