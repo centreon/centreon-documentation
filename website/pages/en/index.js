@@ -82,11 +82,13 @@ function InstallationBlock() {
 
 function MonitoringBlock() {
     return (
-      <div className="containerBlock">
+      <div className="containerBlockMonitoring">
+        <div className="imageSectionMonitoring">
+        <Image imageSrc={'image-monitoring-block.svg'}  />
+        </div>
+        <div className="containerContentMonitoring">
         <h2 className="title-section"><translate>titleMonitoringBlock</translate></h2>
         <p><translate>contentMonitoringBlock</translate></p>
-        <div className="imageSection">
-        <Image imageSrc={'image-monitoring-block.svg'}  />
         </div>
       </div>
     )
@@ -121,6 +123,7 @@ function HeartOpenSourceBlock(){
       <div className="containerBlock">
         <h2 className="title-section"><translate>titleHeartOpenSourceBlock</translate></h2>
         <p><translate>contentHeartOpenSourceBlock</translate></p>
+        <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
       </div>
     )
 }
