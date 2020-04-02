@@ -82,11 +82,13 @@ function InstallationBlock() {
 
 function MonitoringBlock() {
     return (
-      <div className="containerBlock">
+      <div className="containerBlockMonitoring">
+        <div className="imageSectionMonitoring">
+        <Image imageSrc={'image-monitoring-block.svg'}  />
+        </div>
+        <div className="containerContentMonitoring">
         <h2 className="title-section"><translate>titleMonitoringBlock</translate></h2>
         <p><translate>contentMonitoringBlock</translate></p>
-        <div className="imageSection">
-        <Image imageSrc={'image-monitoring-block.svg'}  />
         </div>
       </div>
     )
