@@ -78,7 +78,10 @@ function InstallationBlock() {
         </div>
         <div className="containerContentInstallation">
         <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
-        <p><translate>contentInstallationBlock</translate></p>
+        <p>
+          <translate>contentInstallationBlock1stPart</translate>&nbsp;
+          <a href="#"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+        </p>
         </div>
       </div>
     )

@@ -1727,8 +1727,8 @@
     "contentPrerequisiteBlock1stPart|no description given": "Please",
     "contentPrerequisiteBlockLinkPart|no description given": "follow provisioning requirements",
     "contentPrerequisiteBlock2ndPart|no description given": "and the installation (CPU resources, memory, disks, partitioning, etc ...) and make sure you choose the right architecture for your needs before installing the platform.",
-    "titleInstallationBlock|no description given": "The installation",
-    "contentInstallationBlock|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to install your platform.",
+    "contentInstallationBlock1stPart|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to",
+    "contentInstallationBlockLinkPart|no description given": "install your platform.",
     "titleMonitoringBlock|no description given": "The monitoring",
     "contentMonitoringBlock|no description given": "More than 400 IT domains already covered: networks, servers, applications, storage, databases, devices, hardware, etc. on physical, virtuekkes, or hybrid infrastructures.",
     "titleCommunityBlock|no description given": "A strong community",
@@ -1738,6 +1738,7 @@
     "btnLinkOpenSource|no description given": "https://github.com/centreon/centreon",
     "Help Translate|recruit community translators for your project": "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "Translate this Doc|recruitment message asking to translate the docs": "Translate",
+    "contentInstallationBlock|no description given": "The monitoring platform can be installed in several ways, however, we strongly recommend that you use Centreon Iso (ex CES) to install your platform."
   }
 }
