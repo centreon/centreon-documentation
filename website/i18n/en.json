@@ -1691,7 +1691,7 @@
     },
     "links": {
       "Docs": "Docs",
-      "API": "API"
+      "API References": "API References"
     },
     "categories": {
       "Getting Started": "Getting Started",
@@ -1704,7 +1704,7 @@
       "Graphical views": "Graphical views",
       "Reporting": "Reporting",
       "Administration": "Administration",
-      "Upgrade & Migrate": "Upgrade & Migrate",
+      "Update, Upgrade & Migrate": "Update, Upgrade & Migrate",
       "Plugin Packs": "Plugin Packs",
       "Integrations": "Integrations",
       "Mobile App.": "Mobile App.",
