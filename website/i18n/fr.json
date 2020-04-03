@@ -1695,6 +1695,8 @@
     "contentHeartOpenSourceBlock|no description given": "Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.",
     "btnInstall|no description given": "Installer",
     "btnStart|no description given": "Démarrer",
-    "btnApi|no description given": "Voir les API"
+    "btnApi|no description given": "Voir les API",
+    "btnOpenSource|no description given": "contribuez au projet Open Source"
+
   }
 }

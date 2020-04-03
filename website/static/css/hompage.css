@@ -40,13 +40,13 @@
   align-items: center;
 }
 
-.homepageCustom .title-section {
+.homepageCustom .titleSection {
   color: rgb(0, 114, 206);
   font-size: 35px;
   font-weight: normal;
 }
 
-.homepageCustom .containerBlock .title-community {
+.homepageCustom .containerBlock .titleSectionCommunity {
   font-size: 35px;
   font-weight: normal;
 }
@@ -174,6 +174,42 @@
   width: 40px;
 }
 
+.homepageCustom .containerBlockOpenSource {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
+
+.homepageCustom .titleSectionOpenSource {
+  color : #5E53C7;
+  font-size: 35px;
+  font-weight: normal;
+  margin: 24px
+}
+
+.homepageCustom .cardBarOpenSource {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.homepageCustom .cardBarOpenSource .buttonLink {
+  background-color: white;
+  color: #5E53C7;
+  border-radius: 5px;
+  margin-top: 10px;
+  
+}
+
+.homepageCustom .textOpenSource {
+  color: #222E3B;
+  font: 18px;
+  width: 50%;
+  margin-left:25%;
+  text-align: center;  
+}
+
 @media only screen and (max-width: 769px) {
   .homepageCustom .containerContentPrerequisite {
     text-align: center;
@@ -208,6 +244,13 @@
   .homepageCustom .subTitle {
     margin-top: 10%;
     padding: 0;
+  }
+
+  .homepageCustom .textOpenSource {
+    width: 100%;
+    padding-bottom: 10px ;
+    margin: 0;
+    text-align: center;
   }
 
 }
