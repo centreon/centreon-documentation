@@ -95,7 +95,15 @@ function MonitoringBlock() {
         </div>
         <div className="containerContentMonitoring">
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
-        <p><translate>contentMonitoringBlock</translate></p>
+        <p>
+          <translate>contentMonitoringBlock1stPart</translate>&nbsp;
+          <a href="/docs/en/integrations/plugin-packs/init-plugin-packs.html"><translate>contentMonitoringBlock1stLinkPart</translate></a>&nbsp;
+          <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
+          <a href="#"><translate>contentMonitoringBlock2ndLinkPart</translate></a>&nbsp;
+          <translate>contentMonitoringBlock3stPart</translate>&nbsp;
+
+
+        </p>
         </div>
       </div>
     )
