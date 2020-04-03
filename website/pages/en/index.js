@@ -62,7 +62,7 @@ function PrerequisiteBlock() {
         <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
         <p>
           <translate>contentPrerequisiteBlock1stPart</translate>&nbsp;
-          <a href="#"><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
+          <a href="/docs/en/installation/prerequisites.html"><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
           <translate>contentPrerequisiteBlock2ndPart</translate>
         </p>
         </div>
@@ -80,7 +80,7 @@ function InstallationBlock() {
         <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
         <p>
           <translate>contentInstallationBlock1stPart</translate>&nbsp;
-          <a href="#"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+          <a href="/docs/en/installation/introduction.html"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
           <translate>contentInstallationBlock2ndPart</translate>&nbsp;
 
         </p>
@@ -99,7 +99,7 @@ function MonitoringBlock() {
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
         <p>
           <translate>contentMonitoringBlock1stPart</translate>&nbsp;
-          <a href="/docs/en/integrations/plugin-packs/init-plugin-packs.html"><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
+          <a href="/docs/en/integrations/plugin-packs/introduction.html"><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
           <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
         </p>
         </div>

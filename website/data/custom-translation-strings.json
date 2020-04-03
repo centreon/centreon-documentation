@@ -24,7 +24,7 @@
     "btnInstall|no description given": "How To",
     "btnStart|no description given": "Getting Started",
     "btnApi|no description given": "API Reference",
-    "btnLinkInstallation|no description given": "/docs/en/installation/introduction.html",
+    "btnLinkInstallation|no description given": "/docs/en/tutorials/how-to.html",
     "btnLinkTutorial|no description given": "/docs/en/tutorials/first-steps.html",
     "btnLinkApi|no description given": "/docs/en/api/introduction.html",
     "btnLinkOpenSource|no description given": "https://github.com/centreon/centreon",

@@ -1718,7 +1718,7 @@
     "titleExcellenceBlock|no description given": "Welcome to Centreon documentation!",
     "subTitleExcellenceBlock|no description given": "Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.",
     "btnInstall|no description given": "How To",
-    "btnLinkInstallation|no description given": "/docs/en/installation/introduction.html",
+    "btnLinkInstallation|no description given": "/docs/en/tutorials/how-to.html",
     "btnStart|no description given": "Getting Started",
     "btnLinkTutorial|no description given": "/docs/en/tutorials/first-steps.html",
     "btnApi|no description given": "API Reference",
