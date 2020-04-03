@@ -1,0 +1,8 @@
+article a {
+  color: $fontLinkColor;
+}
+
+article a:hover {
+  color: $fontLinkColor;
+  text-decoration: underline;
+}

@@ -62,6 +62,7 @@ const siteConfig = {
     secondaryColor: '#10069F',
     bgLightBlue: 'rgba(0, 159, 223, 0.1)',
     fontColor: 'rgba(34, 46, 59, 1)',
+    fontLinkColor: 'rgb(0, 114, 206)',
   },
 
   /* Custom fonts for website */
