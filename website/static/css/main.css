@@ -7,6 +7,11 @@ article a:hover {
   text-decoration: underline;
 }
 
+/* Overload classes already present by docusaurus for the sidebar font */
+#docsNav .toc .toggleNav .navGroup .navGroupCategoryTitle {
+  font-size: 0.9em;
+}
+
 /* your custom css */
 .nav-footer {
   background: #47525b!important;
