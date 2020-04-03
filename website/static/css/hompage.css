@@ -40,6 +40,11 @@
   align-items: center;
 }
 
+.homepageCustom p > a {
+  color: rgb(0, 114, 206);
+  font-weight: 700;
+}
+
 .homepageCustom .titleSection {
   color: rgb(0, 114, 206);
   font-size: 35px;

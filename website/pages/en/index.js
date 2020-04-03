@@ -60,7 +60,11 @@ function PrerequisiteBlock() {
         </div>
         <div className="containerContentPrerequisite">
         <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
-        <p><translate>contentPrerequisiteBlock</translate></p>
+        <p>
+          <translate>contentPrerequisiteBlock1stPart</translate>&nbsp;
+          <a href="#"><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
+          <translate>contentPrerequisiteBlock2ndPart</translate>
+        </p>
         </div>
       </div>
     )

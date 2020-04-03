@@ -1685,7 +1685,9 @@
     "titleExcellenceBlock|no description given": "L’Excellence IT au service de la Performance Métier",
     "subTitleExcellenceBlock|no description given": "Notre documentation est à votre disposition pour vous aider dans toutes les étapes de l'installation à la configuration, des mises à jour et bien plus !",
     "titlePrerequisiteBlock|no description given": "Les prérequis",
-    "contentPrerequisiteBlock|no description given": "Veuillez à bien suivre les prérequis d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.",
+    "contentPrerequisiteBlock1stPart|no description given": "Veuillez à bien",
+    "contentPrerequisiteBlockLinkPart|no description given": "suivre les prérequis",
+    "contentPrerequisiteBlock2ndPart|no description given": "d'installation et de dimensionnement (ressources CPU, mémoire, disques, partitionnement, etc ...).Prenez également soin de bien choisir le type d'architecture qu'il convient de pour vos besoins et avant l'installation de la plateforme.",
     "titleInstallationBlock|no description given": "L'installation",
     "contentInstallationBlock|no description given": "La plateforme de supervision peut-être installée de plusieurs manières.Cependant,nous vous recommandons vivement d'utiliser Centreon Iso(ex CES) pour installer votre plateforme.",
     "titleMonitoringBlock|no description given": "La supervision",
@@ -1697,6 +1699,5 @@
     "btnStart|no description given": "Démarrer",
     "btnApi|no description given": "Voir les API",
     "btnOpenSource|no description given": "contribuez au projet Open Source"
-
   }
 }
