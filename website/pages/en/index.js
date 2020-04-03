@@ -81,6 +81,8 @@ function InstallationBlock() {
         <p>
           <translate>contentInstallationBlock1stPart</translate>&nbsp;
           <a href="#"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+          <translate>contentInstallationBlock2ndPart</translate>&nbsp;
+
         </p>
         </div>
       </div>
@@ -97,12 +99,8 @@ function MonitoringBlock() {
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
         <p>
           <translate>contentMonitoringBlock1stPart</translate>&nbsp;
-          <a href="/docs/en/integrations/plugin-packs/init-plugin-packs.html"><translate>contentMonitoringBlock1stLinkPart</translate></a>&nbsp;
+          <a href="/docs/en/integrations/plugin-packs/init-plugin-packs.html"><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
           <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
-          <a href="#"><translate>contentMonitoringBlock2ndLinkPart</translate></a>&nbsp;
-          <translate>contentMonitoringBlock3stPart</translate>&nbsp;
-
-
         </p>
         </div>
       </div>
