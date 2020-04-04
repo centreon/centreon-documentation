@@ -3,9 +3,8 @@ id: widgets
 title: Les widgets
 ---
 
-Les widgets de Centreon MBI ont été développés en utilisant les
-mécanismes de Centreon. Il vous êtes de ce fait possible de créer des
-dashboard contenant des données temps réel ET des données agrégées
+Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](#TODO) de Centreon. Il vous êtes de ce fait possible de créer des
+dashboard combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 
 ![image](../assets/reporting/guide/dashboard.png)
