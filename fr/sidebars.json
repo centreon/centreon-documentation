@@ -185,7 +185,9 @@
                 "ids": [
                     "reporting/manage-reports",
                     "reporting/configure",
-                    "reporting/concepts"
+                    "reporting/concepts",
+                    "reporting/widgets",
+                    "reporting/reports"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
