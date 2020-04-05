@@ -1,6 +1,6 @@
 ---
-id: report-dev-guide
-title: Report dev. guide
+id: report-development
+title: Dév. de rapport
 ---
 
 Compatibilité : BIRT 4.4.2
@@ -647,7 +647,8 @@ Ci-dessous les possibles valeurs pour l'attribut **data**.
 - businessactivity
 - liveservice*
 - timeperiodBA
-- liveservice (correspond à période de "service" ex: 24x7)
+
+\**Liveservice correspond à la période de "service" ex: 24x7)*
 
 
 > **Important**

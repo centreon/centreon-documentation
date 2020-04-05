@@ -188,7 +188,7 @@
                     "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
-                    "reporting/report-dev-guide"
+                    "reporting/report-development"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
@@ -198,7 +198,8 @@
                     "reporting/installation",
                     "reporting/update",
                     "reporting/upgrade",
-                    "reporting/migrate"
+                    "reporting/migrate",
+                    "reporting/backup-restore"
                 ],
                 "label": "Administrer",
                 "type": "subcategory"
