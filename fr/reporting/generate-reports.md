@@ -1,6 +1,6 @@
 ---
 id: manage-reports
-title: Gérer les rapports
+title: Générer des rapports
 ---
 
 Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer les rapports. 
@@ -12,7 +12,7 @@ Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer
 
 Une tâche planifiée est une entité qui permet de générer un rapport et sa configuration prend en compte :
 
- - Un modèle de rapport à utiliser 
+ - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](#TODO)
  - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](#TODO)])
  - Une période de reporting (mois en cours, mois dernier, veille etc..)
 

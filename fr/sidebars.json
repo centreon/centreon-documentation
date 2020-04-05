@@ -184,10 +184,11 @@
             {
                 "ids": [
                     "reporting/manage-reports",
+                    "reporting/reports",
+                    "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
-                    "reporting/widgets",
-                    "reporting/reports"
+                    "reporting/report-dev-guide"
                 ],
                 "label": "Guide",
                 "type": "subcategory"

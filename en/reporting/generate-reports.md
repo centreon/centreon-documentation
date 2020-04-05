@@ -1,6 +1,6 @@
 ---
 id: manage-reports
-title: Manage reports
+title: Generate reports
 ---
 
 This chapters describes features you need to manipulate to be able to generate & manage reports.

@@ -1,6 +1,6 @@
 ---
 id: reports
-title: Reports
+title: Available reports
 ---
 
 #TODO
