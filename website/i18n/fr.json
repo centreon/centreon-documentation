@@ -1654,8 +1654,10 @@
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API"
+      "Read the doc": "Lire la doc",
+      "Slack": "Slack",
+      "GitHub": "GitHub",
+      "API References": "Références API"
     },
     "categories": {
       "Getting Started": "Getting Started",
