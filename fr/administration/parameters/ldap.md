@@ -12,7 +12,7 @@ Cette partie permet de configurer la connexion au(x) annuaire(s) LDAP.
 Rendez-vous dans le menu **Administration \> Paramétres \> LDAP** et cliquez
 sur **Ajouter**.
 
-![image](../../assets/administration/parameters-ldap-add.png)
+![image](assets/administration/parameters-ldap-add.png)
 
 - Les champs **Nom de la configuration** et **Description** définissent le nom
 et la description du serveur LDAP

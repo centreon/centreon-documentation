@@ -18,7 +18,7 @@ Il existe quatre types de commandes :
 
 Toutes les commandes peuvent être configurées au sein du menu : **Configuration > Commands**.
 
-![image](../../assets/configuration/04commandlist.png)
+![image](assets/configuration/04commandlist.png)
 
 > Par défaut, les commandes verrouillées sont masquées. Cocher la case "Eléments verrouillés" pour les afficher toutes.
 
@@ -27,7 +27,7 @@ Toutes les commandes peuvent être configurées au sein du menu : **Configuratio
 1. Renez-vous dans le menu **Configuration > Commands**
 2. Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/04command.png)
+![image](assets/configuration/04command.png)
 
 > Les champs de configuration d’une commande sont les mêmes qu’importe le type de commande choisi.
 

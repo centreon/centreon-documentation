@@ -45,11 +45,11 @@ This consists of adding together several templates within the same object in ord
 available. If a host inherits from several host templates and if the same setting is defined on several templates, the
 host templates situated above the other templates has priority in relation to its ancestors.
 
-![image](../assets/configuration/09hostmodels.png)
+![image](assets/configuration/09hostmodels.png)
 
 The diagram below shows a host inheriting from multiple host templates.
 
-![image](../assets/configuration/09hostmodelsheritage.png)
+![image](assets/configuration/09hostmodelsheritage.png)
 
 ### Configuration
 
@@ -68,7 +68,7 @@ Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
 A service or a service template can only inherit from a single service template (parent-child type inheritance).
 
-![image](../assets/configuration/09heritageservice.png)
+![image](assets/configuration/09heritageservice.png)
 
 ### Configuration
 
@@ -95,7 +95,7 @@ templates:
 
 E.g.: We create the srvi-web-01 host according to the template below:
 
-![image](../assets/configuration/09hostexemple.png)
+![image](assets/configuration/09hostexemple.png)
 
 The host srvi-web-01 will automatically possess the following services:
 
@@ -117,7 +117,7 @@ or hosts templates.
 
 A contact or a contact template can only inherit one contact template.
 
-![image](../assets/configuration/09contactmodel.png)
+![image](assets/configuration/09contactmodel.png)
 
 ### Configuration
 

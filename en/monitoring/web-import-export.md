@@ -26,11 +26,11 @@ yum install centreon-awie
 Go to **Administration \> Extensions \> Manager** and search **awie**.
 Click on **Install selection**:
 
-![imaage](../assets/configuration/awie/install_01.png)
+![imaage](assets/configuration/awie/install_01.png)
 
 Your module is now installed:
 
-![imaage](../assets/configuration/awie/install_02.png)
+![imaage](assets/configuration/awie/install_02.png)
 
 ## Export configuration
 
@@ -39,7 +39,7 @@ then you can export them towards another Centreon Web platform by going to **Con
 
 Default page is Export one.
 
-![imaage](../assets/configuration/awie/exportdefault.png)
+![imaage](assets/configuration/awie/exportdefault.png)
 
 ### Exported Archive Name
 
@@ -48,7 +48,7 @@ archive is identical to the name of the file contained in the archive.
 
 ### Poller Export
 
-![imaage](../assets/configuration/awie/poller.png)
+![imaage](assets/configuration/awie/poller.png)
 
 If you set the **All** check-box to yes (default value is no) then all configured pollers will be exported with their
 configuration files (for engine, broker...) after you have clicked on **Export** button.
@@ -58,11 +58,11 @@ this field has no list of items proposed).
 
 ### Hosts Export
 
-![imaage](../assets/configuration/awie/hostsetc.png)
+![imaage](assets/configuration/awie/hostsetc.png)
 
 #### Hosts
 
-![imaage](../assets/configuration/awie/hosts.png)
+![imaage](assets/configuration/awie/hosts.png)
 
 Same principle as Poller export but :
 
@@ -76,7 +76,7 @@ in the new platform with all its services.
 
 #### Host templates
 
-![imaage](../assets/configuration/awie/hoststemplates.png)
+![imaage](assets/configuration/awie/hoststemplates.png)
 
 Check the *Host templates* check-box if you want to export all hosts templates. 
 
@@ -84,7 +84,7 @@ Use the *Filter* field for one single value if you want to export one specific h
 
 #### Host groups
 
-![imaage](../assets/configuration/awie/hostgroups.png)
+![imaage](assets/configuration/awie/hostgroups.png)
 
 Check the **Host groups** check-box if you want to export all host groups.
 
@@ -92,18 +92,18 @@ Use the **Filter** field for one single value if you want to export one specific
 
 #### Host categories
 
-![imaage](../assets/configuration/awie/hostscat.png)
+![imaage](assets/configuration/awie/hostscat.png)
 
 Check the **Host categories** check-box if you want to export all host categories. There is no **Filter** field for
 this object.
 
 ### Services Export
 
-![imaage](../assets/configuration/awie/servicesetc.png)
+![imaage](assets/configuration/awie/servicesetc.png)
 
 #### Services
 
-![imaage](../assets/configuration/awie/services.png)
+![imaage](assets/configuration/awie/services.png)
 
 Same principle as Poller export but :
 
@@ -112,7 +112,7 @@ first host linked to the filtered service.
 
 #### Service templates
 
-![imaage](../assets/configuration/awie/servicestemplates.png)
+![imaage](assets/configuration/awie/servicestemplates.png)
 
 Check the **Service templates** check-box if you want to export all service templates.
 
@@ -120,7 +120,7 @@ Use the **Filter** field for one single value if you want to export one specific
 
 #### Service groups
 
-![imaage](../assets/configuration/awie/servicegroups.png)
+![imaage](assets/configuration/awie/servicegroups.png)
 
 Check the **Service groups** check-box if you want to export all service groups.
 
@@ -128,20 +128,20 @@ Use the **Filter** field for one single value if you want to export one specific
 
 #### Service categories
 
-![imaage](../assets/configuration/awie/servicescat.png)
+![imaage](assets/configuration/awie/servicescat.png)
 
 Check the **Service categories** check-box if you want to export all service categories. There is no **Filter** field
 for this object.
 
 ### Contacts Export
 
-![imaage](../assets/configuration/awie/contacts.png)
+![imaage](assets/configuration/awie/contacts.png)
 
 You can export all Contacts (without linked contact groups) or all Contact groups (with linked users). No **Filter**.
 
 ### Commands Export
 
-![imaage](../assets/configuration/awie/commands.png)
+![imaage](assets/configuration/awie/commands.png)
 
 Check the check-box corresponding to the type of command you want to export (Check, Notification, Miscellaneous or
 Discovery). No **Filter**.
@@ -150,7 +150,7 @@ Discovery). No **Filter**.
 
 ### Resources Export
 
-![imaage](../assets/configuration/awie/resources.png)
+![imaage](assets/configuration/awie/resources.png)
 
 ### ACL
 
@@ -175,15 +175,15 @@ This is the file that you will upload in the Import Page of another Centreon Web
 
 Go to **Configuration \> Import/Export \> Import** menu:
 
-![imaage](../assets/configuration/awie/Import.png)
+![imaage](assets/configuration/awie/Import.png)
 
 Select the centreon-clapi-export zip file you want to import then click on the **Import** button:
 
-![imaage](../assets/configuration/awie/zipfileuploaded.png)
+![imaage](assets/configuration/awie/zipfileuploaded.png)
 
 You should get **Import successful** message at the end of the process:
 
-![imaage](../assets/configuration/awie/success.png)
+![imaage](assets/configuration/awie/success.png)
 
 To check that objects have been properly imported, go to Configuration pages as usual.
 

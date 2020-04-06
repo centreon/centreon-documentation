@@ -8,7 +8,7 @@ title: GLPI
 The Glpi provider uses the webservice plugin of Glpi to retrieve data in order
 to open a ticket.
 
-![architecture](../../assets/integrations/open-tickets/ot-glpi-rest-api-architecture.png)
+![architecture](assets/integrations/open-tickets/ot-glpi-rest-api-architecture.png)
 
 ## Compatibility
 

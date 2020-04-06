@@ -13,11 +13,11 @@ used (inheritance, overloading and more).
 
 To create a rule, go to **Configuration > Services > Auto Discovery > Rules** and click on the **Add** button:
 
-![image](../../assets/configuration/autodisco/create_rule_1.png)
+![image](assets/configuration/autodisco/create_rule_1.png)
 
 Fill the first fields:
 
-![image](../../assets/configuration/autodisco/create_rule_2.png)
+![image](assets/configuration/autodisco/create_rule_2.png)
 
 Here is the description of the firsts fields located inside the *General* tab:
 
@@ -29,11 +29,11 @@ Here is the description of the firsts fields located inside the *General* tab:
 
 Go to the second **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
 
-![image](../../assets/configuration/autodisco/create_rule_3.png)
+![image](assets/configuration/autodisco/create_rule_3.png)
 
 Come back to the first **General** tab, define the **Service display name** and select values for the other fields:
 
-![image](../../assets/configuration/autodisco/create_rule_4.png)
+![image](assets/configuration/autodisco/create_rule_4.png)
 
 Define the name of the service that will be created.
 
@@ -62,7 +62,7 @@ Click on the **Save** button to save the discovery rule.
 
 The **Inclusions / Exclusions & Macros** tab works as follows:
 
-![image](../../assets/configuration/autodisco/create_rule_5.png)
+![image](assets/configuration/autodisco/create_rule_5.png)
 
 The **Inclusions / Exclusions** part allows elements to be included or excluded during the discovery. This
 inclusion/exclusion is relative to an XML attribute.
@@ -77,7 +77,7 @@ The inclusion/exclusion rules, are defined using the following algorithm:
 The second part **Macros** allows to define matches between an XML attribute and a service's template macro. For all
 created services the macros' values will be replaced by the attributes' values.
 
-![image](../../assets/configuration/autodisco/create_rule_6.png)
+![image](assets/configuration/autodisco/create_rule_6.png)
 
 > On the image above all macros will be created for the service because the checkbox **Empty** are selected. To don't
 > create them do not check the **Empty** checkbox. The **$_SERVICEINTERFACEID** macro created on the service will contain
@@ -88,7 +88,7 @@ created services the macros' values will be replaced by the attributes' values.
 On the last **Advanced** tab you can apply a regexp on the **Service display name**.
 Click on **Add a new entry** button and define Pattern and expression result:
 
-![image](../../assets/configuration/autodisco/create_rule_7.png)
+![image](assets/configuration/autodisco/create_rule_7.png)
 
 The regexp can be apply on **String** field for:
 
@@ -133,7 +133,7 @@ For each discovery plugins you need to define two commands:
 * The first one to get the list of available XML attributes
 * The second one to discover items on a host
 
-![image](../../assets/configuration/autodisco/commands_list.png)
+![image](assets/configuration/autodisco/commands_list.png)
 
 ### Command to list available XML attributes
 
@@ -148,7 +148,7 @@ Fill the fileds:
 > All commands using Centreon Plugin project need to set the **hostname** option so add **--hostname=127.0.0.1** in
 > your command line
 
-![image](../../assets/configuration/autodisco/command_attributes.png)
+![image](assets/configuration/autodisco/command_attributes.png)
 
 This is an example of the command line executed in a shell:
 
@@ -180,7 +180,7 @@ Fill the fileds:
 * **Command type**: check **Discovery** option
 * **Command Line**: Define the command to get the list of items.
 
-![image](../../assets/configuration/autodisco/command_disco.png)
+![image](assets/configuration/autodisco/command_disco.png)
 
 This is an example of the command line executed in a shell:
 

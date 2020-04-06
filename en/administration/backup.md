@@ -57,7 +57,7 @@ This part covers the configuration of centreon-backup.
 
 The following window is displayed:
 
-![image](../assets/administation/backup.png)
+![image](assets/administation/backup.png)
 
   - **Backup enabled** Enable/Disable backup
   - **Backup directory** Directory where backup will be stored

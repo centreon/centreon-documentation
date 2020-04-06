@@ -11,7 +11,7 @@ This part allows to configure the connection to LDAP directories.
 
 Go to **Administration > Parameters > LDAP** and click on **Add**.
 
-![image](../../assets/administration/parameters-ldap-add.png)
+![image](assets/administration/parameters-ldap-add.png)
 
 - **Configuration name** and **Description** fields define the name and the
 description of the LDAP server

@@ -42,14 +42,14 @@ to be questioned, etc.
 
 During the definition of a host, the following macros are created:
 
-![image](../../assets/configuration/01hostmacros.png)
+![image](assets/configuration/01hostmacros.png)
 
 To retrieve these macros in a check command, you need to call it using the following variables: $_HOSTUSERLOGIN$,
 $_HOSTUSERPASSWORD$.
 
 On definition of a service, the following macros are created:
 
-![image](../../assets/configuration/01servicemacros.png)
+![image](assets/configuration/01servicemacros.png)
 
 To retrieve these macros in a check command, you need to invoke them using the following variables: $_SERVICEPARTITION$,
 $_SERVICEWARNING$, $_SERVICECRITICAL$.
@@ -72,7 +72,7 @@ To add a resources macro:
 * Go into the **Configuration \> Pollers \> Resources** menu
 * Click on **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](assets/configuration/01macrosressources.png)
 
 * The **Resource Name** field defines the name of the resource macro. E.g.: $USER3$
 * The **MACRO Expression** field defines the value of the macro.

@@ -179,7 +179,7 @@ To change the style of an element, simply right click on it, select the "Style"
 menu and pick the style you want. You can also select multiple elements at the
 same time.
 
-![image](../assets/graph-views/modify_styles.png)
+![image](assets/graph-views/modify_styles.png)
 
 The default style for a geographic view is "geometric".
 

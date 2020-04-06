@@ -96,7 +96,7 @@ comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 
-![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
+![image](assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
 Cliquer sur **Save**.
 
@@ -108,7 +108,7 @@ configuration**.
 Une popin affiche la configuration à copier dans le terminal du Poller. Cliquer
 sur **Copy to clipboard**.
 
-![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
+![image](assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
 Copier directement dans le terminal car le contenu suivant est dans le
 presse-papier et créera le fichier de configuration attendu :
@@ -196,7 +196,7 @@ comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 
-![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
+![image](assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
 Cliquer sur **Save**.
 
@@ -208,7 +208,7 @@ configuration**.
 Une popin affiche la configuration à copier dans le terminal du Remote Server. Cliquer
 sur **Copy to clipboard**.
 
-![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
+![image](assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
 Copier directement dans le terminal car le contenu suivant est dans le
 presse-papier et créera le fichier de configuration attendu :

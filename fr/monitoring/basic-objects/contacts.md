@@ -13,7 +13,7 @@ Les contacts au sein de Centreon sont utilisés afin de :
 
 Afin d’ajouter un contact, il suffit de se rendre dans le menu **Configuration > Users > Add**.
 
-![image](../../assets/configuration/06useradd.png)
+![image](assets/configuration/06useradd.png)
 
 Pour afficher la matrice de notification d’un contact, cliquez sur **View contact notifications** (à côté du menu
 **Add**).

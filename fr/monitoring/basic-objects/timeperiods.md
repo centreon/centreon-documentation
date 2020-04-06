@@ -39,7 +39,7 @@ Quelques exemples :
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de la semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours
   de la semaine uniquement).
 
-![image](../../assets/configuration/05timeperiod.png)
+![image](assets/configuration/05timeperiod.png)
 
 ### Les exceptions
 
@@ -56,7 +56,7 @@ c’est à dire :
 Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exceptionnelle, il est nécessaire d’utiliser
 les exceptions.
 
-Pour ajouter une exception, cliquez sur le bouton <img src="../../assets/configuration/common/navigate_plus.png" width="32" />.
+Pour ajouter une exception, cliquez sur le bouton <img src="assets/configuration/common/navigate_plus.png" width="32" />.
 Par journée exceptionnelle, vous devez définir une plage horaire. Le tableau ci-dessous présente quelques exemples
 possibles :
 
