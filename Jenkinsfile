@@ -30,14 +30,9 @@ node {
   stage('Build') {
     sh "./centreon-build/jobs/doc/doc-build.sh"
     publishHTML([
-      reportDir: 'build/unstable/en',
+      reportDir: 'build/unstable',
       reportFiles: 'index.html',
-      reportName: 'Centreon en documentation preview'
-    ])
-    publishHTML([
-      reportDir: 'build/unstable/fr',
-      reportFiles: 'index.html',
-      reportName: 'Centreon fr documentation preview'
+      reportName: 'Centreon documentation preview'
     ])
   }
 
