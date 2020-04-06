@@ -25,6 +25,7 @@ const siteConfig = {
   tagline: 'A documentation that rocks !',
   url: 'https://www.centreon.com', // Your website URL
   baseUrl: '/@BASEURL@/', // Base URL for your project */
+  docsUrl: '', // Documentation subdirectory.
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
