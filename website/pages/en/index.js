@@ -12,7 +12,25 @@ const Container = CompLibrary.Container;
 
 const translate = require('../../server/translate.js').translate;
 
+const uriBlocks = {
+  prerequisite: 'installation/prerequisites',
+  installation: 'installation/introduction.html',
+  monitoring: 'integrations/plugin-packs/introduction.html'
+}
+
 const basePathImg = '../img/homepage/';
+
+/**
+ * @param {string} [uri='']
+ * @param {string} [lang='en']
+ * @param {boolean} [docReference=true]
+ * @returns {string} Url to link in docs or a external page
+ */
+function createUrl(uri = '', lang = 'en', docReference = true) {
+  let url = docReference ? '/docs/' : '';
+  url += lang + '/' + uri;
+  return url;
+}
 
 const Button = props => {
   return (
@@ -52,7 +70,7 @@ function ExcellenceBlock() {
     )
 }
 
-function PrerequisiteBlock() {
+function PrerequisiteBlock(lang) {
     return (
       <div className="containerBlockPrerequisite">
         <div className="imageSectionPrerequisite">
@@ -62,7 +80,7 @@ function PrerequisiteBlock() {
         <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
         <p>
           <translate>contentPrerequisiteBlock1stPart</translate>&nbsp;
-          <a href="/docs/en/installation/prerequisites.html"><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.prerequisite, lang.language)}><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
           <translate>contentPrerequisiteBlock2ndPart</translate>
         </p>
         </div>
@@ -70,7 +88,7 @@ function PrerequisiteBlock() {
     )
 }
 
-function InstallationBlock() {
+function InstallationBlock(lang) {
     return (
       <div className="containerBlockInstallation">
         <div className="imageSectionInstallation">
@@ -80,7 +98,7 @@ function InstallationBlock() {
         <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
         <p>
           <translate>contentInstallationBlock1stPart</translate>&nbsp;
-          <a href="/docs/en/installation/introduction.html"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.installation, lang.language)}><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
           <translate>contentInstallationBlock2ndPart</translate>&nbsp;
 
         </p>
@@ -89,7 +107,7 @@ function InstallationBlock() {
     )
 }
 
-function MonitoringBlock() {
+function MonitoringBlock(lang) {
     return (
       <div className="containerBlockMonitoring">
         <div className="imageSectionMonitoring">
@@ -99,7 +117,7 @@ function MonitoringBlock() {
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
         <p>
           <translate>contentMonitoringBlock1stPart</translate>&nbsp;
-          <a href="/docs/en/integrations/plugin-packs/introduction.html"><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.monitoring, lang.language)}><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
           <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
         </p>
         </div>
@@ -145,7 +163,9 @@ function HeartOpenSourceBlock(){
     )
 }
 
-function Homepage() {
+function Homepage(props) {
+  const {language} = props || 'en';
+
   const classesDefaultContainer = 'mainContainer documentContainer postContainer homepageCustom';
     return (
       <React.Fragment>
@@ -153,13 +173,13 @@ function Homepage() {
           <ExcellenceBlock />
         </Container>
         <Container className={classesDefaultContainer + ` homepageCustom`}>
-          <PrerequisiteBlock />
+          <PrerequisiteBlock language={language} />
         </Container>
         <Container className={classesDefaultContainer + ` bgLightBlue`}>
-          <InstallationBlock />
+          <InstallationBlock language={language} />
         </Container>
         <Container className={classesDefaultContainer + ` homepageCustom`}>
-          <MonitoringBlock />
+          <MonitoringBlock language={language} />
         </Container>
         <Container className={classesDefaultContainer + ` borderTop`}>
           <CommunityBlock />
