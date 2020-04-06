@@ -40,8 +40,6 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { doc: "tutorials/first-steps", label: "Read the doc" },
-    { href: "https://centreon.github.io/register-slack/", label: "Slack", external: true },
-    { href: "https://github.com/centreon/centreon", label: "GitHub", external: true },
     { href: "https://api-documentation.centreon.com", label: "API References", external: true },
     { languages: true },
     { search: true },
