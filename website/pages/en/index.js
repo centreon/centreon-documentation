@@ -44,8 +44,8 @@ function ExcellenceBlock() {
         <h1><translate>titleExcellenceBlock</translate></h1>
         <p className="subTitle"><translate>subTitleExcellenceBlock</translate></p>
         <div className="cardBar">
-          <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
           <Card imageSrc={'icon-tutorial.svg'} btnLabel={<translate>btnStart</translate>} btnLink={<translate>btnLinkTutorial</translate>} />
+          <Card imageSrc={'icon-install.svg'} btnLabel={<translate>btnInstall</translate>} btnLink={<translate>btnLinkInstallation</translate>} />
           <Card imageSrc={'icon-api.svg'} btnLabel={<translate>btnApi</translate>} btnLink={<translate>btnLinkApi</translate>} />
         </div>
       </div>
