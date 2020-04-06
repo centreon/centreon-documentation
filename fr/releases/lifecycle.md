@@ -48,7 +48,7 @@ troisième phase de Centreon 18.10 et la deuxième phase de Centreon 19.04.
 
 Le schéma présente le cycle de vie Centreon :
 
-![image](../assets/releases/lifecycle.png)
+![image](assets/releases/lifecycle.png)
 
 ## Tableau de maintenance des anciens produits
 

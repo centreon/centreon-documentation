@@ -18,7 +18,7 @@ There are four types of command:
 
 All the commands can be configured in the menu: **Configuration > Commands**.
 
-![image](../../assets/configuration/04commandlist.png)
+![image](assets/configuration/04commandlist.png)
 
 > By default, locked commands are hidden. Check the "Locked elements" box to list all commands.
 
@@ -27,7 +27,7 @@ All the commands can be configured in the menu: **Configuration > Commands**.
 1. Go to the **Configuration > Commands** menu
 2. Click on **Add**
 
-![image](../../assets/configuration/04command.png)
+![image](assets/configuration/04command.png)
 
 > The configuration fields of a command are the same regardless of the type of command chosen.
 

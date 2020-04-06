@@ -19,15 +19,15 @@ To install an extension:
 1. Install the extensions from the associated documentation.
 2. Go into the **Administration > Extensions > Manager** menu.
 
-![image](../assets/administration/install-imp-1.png)
+![image](assets/administration/install-imp-1.png)
 
 To install all extensions, click on **Install all**:
 
-![image](../assets/administration/install-imp-2.png)
+![image](assets/administration/install-imp-2.png)
 
 You can also update all extensions by clicking **Update all**, or manage
 extension by extension.
 
 By clicking on the extension, you can access to the description:
 
-![image](../assets/administration/extension-popin.png)
+![image](assets/administration/extension-popin.png)

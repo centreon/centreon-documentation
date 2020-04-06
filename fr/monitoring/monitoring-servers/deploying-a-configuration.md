@@ -12,14 +12,14 @@ effectuées, il est nécessaire de suivre la procédure suivante ci-dessous.
 1. Rendez-vous dans le menu **Configuration > Pollers**
 2. Choisissez les collecteurs sur lesquels exporter la configuration
 
-![image](../../assets/monitoring/monitoring-servers/monitoring-servers-list.png)
+![image](assets/monitoring/monitoring-servers/monitoring-servers-list.png)
 
 3. Cliquez sur **Export configuration**
 4. Cochez les cases **Generate Configuration Files**, **Run monitoring engine debug (-v)**,
 **Move Export Files** et **Restart Monitoring Engine**
 5. Cliquez sur **Export**
 
-![image](../../assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
+![image](assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
 
 > L’option **Post generation command** permet de demander l’exécution de la commande post-génération paramétrée au
 > niveau de la configuration de l’ordonnanceur.

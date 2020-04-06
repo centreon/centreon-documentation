@@ -26,7 +26,7 @@ Pour ajouter une image dans Centreon, rendez-vous dans le menu **Administration
 
 La fenêtre suivante s'affiche :
 
-![image](../../assets/administration/dmedias.png)
+![image](assets/administration/dmedias.png)
 
 - Le champ **Nouveau dossier ou dossier existant** permet d'ajouter un nouveau
 dossier au sein du dossier d'images ou de choisir un dossier déjà existant
@@ -48,4 +48,4 @@ lecture sur ces images
 
 La fenêtre suivante importe les nouvelles images :
 
-![image](../../assets/administration/dmediasimports.png)
+![image](assets/administration/dmediasimports.png)

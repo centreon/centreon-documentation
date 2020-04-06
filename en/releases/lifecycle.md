@@ -46,7 +46,7 @@ Centreon 18.10 and the second phase of Centreon 19.04.
 
 This schema shows the Centreon lifecycle:
 
-![image](../assets/releases/lifecycle.png)
+![image](assets/releases/lifecycle.png)
 
 ## Maintenance table for earlier products
 

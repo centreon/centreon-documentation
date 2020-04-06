@@ -8,7 +8,7 @@ des processus Centreon.
 
 Rendez-vous dans le menu **Administration \> Paramètres \> Débogage**.
 
-![image](../../assets/administration/parameters-debug.png)
+![image](assets/administration/parameters-debug.png)
 
 - Le champ **Répertoire d'enregistrement des journaux** définir le chemin où
 seront enregistrés les journaux d'évènements

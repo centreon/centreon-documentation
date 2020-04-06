@@ -133,4 +133,4 @@ problèmes peuvent être les suivants :
 Vous trouverez ci-dessous un schéma détaillé de tous les processus utilisés et/ou présents lors de la réception d’une
 interruption SNMP :
 
-![image](../../assets/configuration/kcentreontrapd_schema.png)
+![image](assets/configuration/kcentreontrapd_schema.png)

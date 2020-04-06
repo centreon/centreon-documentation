@@ -8,7 +8,7 @@ interface.
 
 Go to **Administration > Parameters > Centreon UI**.
 
-![image](../../assets/administration/parameters-centreon-ui.png)
+![image](assets/administration/parameters-centreon-ui.png)
 
 ## General options
 

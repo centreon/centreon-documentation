@@ -117,4 +117,4 @@ connection failure between the monitoring engine and the broker can be the root 
 
 You will find below a detailed diagram of all the processes used and/or present at the reception of an SNMP trap:
 
-![image](../../assets/configuration/kcentreontrapd_schema.png)
+![image](assets/configuration/kcentreontrapd_schema.png)

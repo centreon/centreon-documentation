@@ -42,7 +42,7 @@ To add a meta-service:
 
 Go into the menu: **Configuration \> Services \> Meta Services** and click on **Add**
 
-![image](../../assets/configuration/02addmetaservice.png)
+![image](assets/configuration/02addmetaservice.png)
 
 ### General information
 
@@ -92,10 +92,10 @@ Metric drop down list.
 If you have chosen the option **Service list**, in the screen containing all the meta-services:
 
 1. Click on the following icon to select the metrics entering into the calculation of the meta-service. These
-  metrics are called indicators. <img src="../../assets/configuration/common/flechedirection.png" width="32" />
+  metrics are called indicators. <img src="assets/configuration/common/flechedirection.png" width="32" />
 2. Click on **Add**
 
-![image](../../assets/configuration/02metaservicesindicators.png)
+![image](assets/configuration/02metaservicesindicators.png)
 
 * The **Host** field serves to select the host to which the service to be selected belongs.
 * The **Service** field serves to choose the service (first list) as well as the metric in this service (second list).

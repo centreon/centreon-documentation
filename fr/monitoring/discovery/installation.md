@@ -19,7 +19,7 @@ périodiquement (toutes les nuits à 22h30) par une *[tâche planifiée cron](ad
 
 Les schémas suivants décrivent le fonctionnement général du module :
 
-![image](../../assets/configuration/autodisco/centreon_auto_disco_schema.png)
+![image](assets/configuration/autodisco/centreon_auto_disco_schema.png)
 
 ## Installing packages
 
@@ -41,11 +41,11 @@ rendez-vous dans le menu **Administration > Extensions > Manager**.
 
 Cliquez sur l’icône d’installation correspondant au module **Centreon Auto Discovery** :
 
-![image](../../assets/configuration/autodisco/install.png)
+![image](assets/configuration/autodisco/install.png)
 
 Le module est maintenant installé :
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](assets/configuration/autodisco/list_modules.png)
 
 ## Installer les Plugin Packs
 

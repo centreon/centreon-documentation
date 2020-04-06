@@ -15,11 +15,11 @@ d’utiliser les fonctionnalités de Centreon (héritage, surcharge, etc.)
 Pour créer une règle de découverte, rendez-vous dans le menu **Configuration > Services > Auto Discovery > Rules**
 et cliquez sur **Add** :
 
-![image](../../assets/configuration/autodisco/create_rule_1.png)
+![image](assets/configuration/autodisco/create_rule_1.png)
 
 Saisissez les premiers champs :
 
-![image](../../assets/configuration/autodisco/create_rule_2.png)
+![image](assets/configuration/autodisco/create_rule_2.png)
 
 Voici une description des premiers champs à saisir :
 
@@ -30,11 +30,11 @@ Voici une description des premiers champs à saisir :
 
 Rendez-vous dans le second onglet **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
 
-![image](../../assets/configuration/autodisco/create_rule_3.png)
+![image](assets/configuration/autodisco/create_rule_3.png)
 
 Revenez au premier onglet et définir le nom des services qui seront créés ainsi que les autres champs disponibles :
 
-![image](../../assets/configuration/autodisco/create_rule_4.png)
+![image](assets/configuration/autodisco/create_rule_4.png)
 
 Saisir le nom du service qui sera créé via le champ **Service display name**.
 
@@ -66,7 +66,7 @@ Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
 Les **Inclusions / Exclusions et Macro** fonctionnent de la manière suivante :
 
-![image](../../assets/configuration/autodisco/create_rule_5.png)
+![image](assets/configuration/autodisco/create_rule_5.png)
 
 Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion/
 exclusion concerne les attributs XML
@@ -82,7 +82,7 @@ Les règle d’inclusion/exclusion sont définies à partir de l’algorithme su
 * Le seconde partie Macros permet de définir la relation entre l’attribut XML et la macro du modèle de service. Pour
   tous les services créés, les valeurs des macros seront remplacées par les valeurs des attributs.
 
-![image](../../assets/configuration/autodisco/create_rule_6.png)
+![image](assets/configuration/autodisco/create_rule_6.png)
 
 > Sur cette image toutes les macros seront créées sur le nouveau service car toutes les cases **Empty** sont sélectionnées.
 > Pour ne pas créer ces macros, ne pas cocher les cases associées. La macro **$_SERVICEINTERFACEID** sera créée et contiendra
@@ -94,7 +94,7 @@ Le dernier onglet **Advanced** permet d’appliquer des regexp sur le champ **Se
 flux XML. Cliquer sur **Add a new entry** pour ajouter une nouvelle entrée en définissant l’expression et le résultat
 attendu :
 
-![image](../../assets/configuration/autodisco/create_rule_7.png)
+![image](assets/configuration/autodisco/create_rule_7.png)
 
 L’expression peut être appliquée sur :
 
@@ -140,7 +140,7 @@ Chaque sonde de découverte doit disposer de deux commandes :
 * La première pour récupérer la liste des attributs du flux XML
 * La seconde pour récupérer la liste des éléments découverts sur l’équipement
 
-![image](../../assets/configuration/autodisco/commands_list.png)
+![image](assets/configuration/autodisco/commands_list.png)
 
 ### Commande pour récupérer la liste des attributs XML
 
@@ -156,7 +156,7 @@ Saisissez les champs suivants :
 > Toute commande utilisant les sondes du projet Centreon Plugin doit définir l’option **hostname**. Donc ajoutez
 > l’option **--hostname=127.0.0.1** dans votre commande.
 
-![image](../../assets/configuration/autodisco/command_attributes.png)
+![image](assets/configuration/autodisco/command_attributes.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
 
@@ -189,7 +189,7 @@ Saisissez les champs suivants :
 * **Command type** : sélectionnez l’option **Discovery**
 * **Command Line**: saisir la ligne de commande pour exécuter la sonde et récupérer la liste éléments disponibles
 
-![image](../../assets/configuration/autodisco/command_disco.png)
+![image](assets/configuration/autodisco/command_disco.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
 
