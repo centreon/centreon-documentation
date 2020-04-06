@@ -96,29 +96,19 @@ activity, in terms of percentages and minutes.
 
 Parameters required for the report:
 
-> -   Start date representing the month in which you want to generate
->     the report (matching the start date in the Centreon MBI interface)
-> -   The following Centreon objects:
+ -   Start date representing the month in which you want to generate
+     the report (matching the start date in the Centreon MBI interface)
+ -   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**         **Type**   **Description**
-  --------------------- ---------- ---------------------------------------
-  logo                  Dropdown   Select logo to display in header.
-                        list       
-
-  Business View         Dropdown   Select a Business View for generating
-                        list       the report.
-
-  hide event            Radio      Hide events list in the Business
-                        button     activity.
-
-  calendar color        Radio      Color the calendar in green/orange/red
-                        button     based on SLA.
-
-  title                 text field Specify report title.
-
-  time period           Dropdown   Specify reporting time period.\*
-                        list       
+  Parameter             | Type              |  Description
+  ----------------------|-------------------|---------------------------------------
+  logo                  |  Dropdown list    | Select logo to display in header.
+  Business View         |  Dropdown list    | Select a Business View for generating the report.
+  hide event            |  Radio button     |     Hide events list in the Business activity.
+  calendar color        |  Radio button     | Color the calendar in green/orange/red based on SLA.
+  title                 |  Text field       | Specify report title.
+  time period           |  Dropdown list    |  Specify reporting time period.\*
+                               
 
 \* *If different from \"Default\", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
@@ -168,29 +158,18 @@ activity, in terms of percentages and minutes.
 
 Parameters required for the report:
 
-> -   Start date representing the month in which you want to generate
->     the report (matching the start date in the Centreon MBI interface)
-> -   The following Centreon objects:
+ -   Start date representing the month in which you want to generate
+     the report (matching the start date in the Centreon MBI interface)
+-   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**         **Type**   **Description**
-  --------------------- ---------- ---------------------------------------
-  logo                  Dropdown   Select logo to display in header.
-                        list       
-
-  Business Activity     Dropdown   Select a Business Activity for
-                        list       generating the report.
-
-  hide event            Radio      Hide events list in the business
-                        button     activity.
-
-  calendar color        Radio      Color the calendar in green/orange/red
-                        button     based on SLA.
-
-  title                 text field Specify report title.
-
-  time period           Dropdown   Specify reporting time period.\*
-                        list       
+  Parameter             | Type              |  Description
+  ----------------------|-------------------|---------------------------------------
+  logo                  |  Dropdown list    | Select logo to display in header.
+  Business View         |  Dropdown list    | Select a Business View for generating the report.
+  hide event            |  Radio button     |     Hide events list in the Business activity.
+  calendar color        |  Radio button     | Color the calendar in green/orange/red based on SLA.
+  title                 |  Text field       | Specify report title.
+  time period           |  Dropdown list    |  Specify reporting time period.\*
 
 \* *If different from \"Default\", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
@@ -231,25 +210,14 @@ Parameters required for the report:
 >     the report (matching the start date in the Centreon MBI interface)
 > -   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**         **Type**   **Description**
-  --------------------- ---------- ---------------------------------------
-  logo                  Dropdown   Select logo to display in header.
-                        list       
-
-  Business View         Dropdown   Select a Business View for generating
-                        list       the report.
-
-  hide event            Radio      Hide events list in the Business
-                        button     activity
-
-  calendar color        Radio      Coloring the calendar in
-                        button     green/orange/red based on SLA.
-
-  title                 text field Specify report title.
-
-  time period           Dropdown   Specify reporting time period.\*
-                        list       
+  Parameter             | Type              |  Description
+  ----------------------|-------------------|---------------------------------------
+  logo                  |  Dropdown list    | Select logo to display in header.
+  Business View         |  Dropdown list    | Select a Business View for generating the report.
+  hide event            |  Radio button     |     Hide events list in the Business activity.
+  calendar color        |  Radio button     | Color the calendar in green/orange/red based on SLA.
+  title                 |  Text field       | Specify report title.
+  time period           |  Dropdown list    |  Specify reporting time period.\* 
 
 \* *If different from \"Default\", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
@@ -284,27 +252,16 @@ each application.
 
 Parameters required for the report:
 
-  ------------------------------------------------------------------------
-  **Parameters**    **Type**   **Description**
-  ----------------- ---------- -------------------------------------------
-  logo              List box   Select logo to display in header.
-
-  title             Text field Specify report title.
-
-  Business View     List box   Select a Business View for generating the
-                               report.
-
-  compare\_with     Radio      Display historical data according to
-                    button     specified period.
-
-  show the          Radio      Show or hide the default time period
-  reporting         botton     related to the business activity.
-  timeperiod                   
-
-  title             text field Specify report title.
-
-  time period       Dropdown   Specify reporting time period or a other.\*
-                    list       
+  Parameters                    | Type          |  Description
+  ------------------------------|---------------|-------------------------------------------
+  logo                          | List box      |  Select logo to display in header.
+  title                         | Text field    | Specify report title.
+  Business View                 | List box      |  Select a Business View for generating the report.
+  compare\_with                 | Radio button  |    Display historical data according to specified period.
+  show the reporting timeperiod | Radio botton  |    Show or hide the default time period related to the business activity.
+  title                         | Text field    | Specify report title.
+  time period                   | Dropdown list |  Specify reporting time period or a other.\*
+                           
 
 \* *If different from \"Default\", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
@@ -362,31 +319,18 @@ Parameters required for the report:
 >     Centreon MBI interface)
 > -   The following objects:
 
-  -------------------------------------------------------------------------------
-  **Parameter**   **Type**   **Description**
-  --------------- ---------- ----------------------------------------------------
-  logo            Dropdown   Select logo to display in header.
-                  list       
 
-  business View   Dropdown   Select a Business View for generating the report.
-                  list       
-
-  sla 1\*         Text field Time in minutes corresponding to the high threshold
-                             of the first interval \[0 min, **sla1** \[
-
-  sla 2\*         Text field Time in minutes corresponding to the high threshold
-                             of the second interval \[sla1, **sla2** \[
-
-  sla 3\*         Text field Time in minutes corresponding to the high threshold
-                             of the third interval \[sla2, **sla3** \[
-
-  sla 4\*         Text field Time in minutes corresponding to the high threshold
-                             of the fourth interval \[sla3, **sla4** \[
-
-  title           text field Specify report title.
-
-  time period     Dropdown   Specify reporting time period or a specific one.\*\*
-                  list       
+  Parameter      | Type          |  Description
+  ---------------|---------------|----------------------------------------------------
+  logo           | Dropdown list | Select logo to display in header.
+  business View  | Dropdown list | Select a Business View for generating the report.
+  sla 1\*        | Text field    | Time in minutes corresponding to the high threshold of the first interval \[0 min, **sla1** \[
+  sla 2\*        | Text field    | Time in minutes corresponding to the high threshold of the second interval \[sla1, **sla2** \[
+  sla 3\*        | Text field    | Time in minutes corresponding to the high threshold of the third interval \[sla2, **sla3** \[
+  sla 4\*        | Text field    | Time in minutes corresponding to the high threshold of the fourth interval \[sla3, **sla4** \[
+  title          | Text field    | Specify report title.
+  time period    | Dropdown list | Specify reporting time period or a specific one.\*\*
+                         
 \* SLA thresholds appear above the calendar displaying availability by
 day.
 
@@ -452,18 +396,13 @@ Parameters required for the report:
 -   The reporting period.
 -   The following Centreon objects :
 
-  -----------------------------------------------------------------------
-  **Parameter**     **Parameter       **Description**
-                    type**            
-  ----------------- ----------------- -----------------------------------
-  Hostgroups        Multi selection   Select host groups.
-
-  Host Categories   Multi selection   Select host categories.
-
-  Live service      Dropdown list     Specify time period.
-
-  Trend graphs      Text field        Specify no. of months in trend
-                                      graphs.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroups        | Multi selection |  Select host groups.
+  Host Categories   | Multi selection |  Select host categories.
+  Time period       | Dropdown list   |  Specify time period.
+  Interval          | Text field      |  Specify no. of months in trend graphs.
+                                      
 
 
 ### Hostgroups-Availability-1
@@ -510,22 +449,14 @@ Parameters required for the report:
 -   The reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**     **Parameter       
-                    type**            
-  ----------------- ----------------- -----------------------------------
-  Hostgroups        Multi selection   Select host groups.
 
-  Host Categories   Multi selection   Select host categories.
-
-  Service           Multi selection   Select service categories.
-  Categories                          
-
-  Time period       Dropdown list     Specify time period.
-
-  Interval          Text field        Specify no. of months in trend
-                                      graphs.
-  -----------------------------------------------------------------------
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroups        | Multi selection | Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Time period       | Dropdown list   | Specify time period.
+  Interval          | Text field      | Specify no. of months in trend graphs.
 
 
 ### Hostgroup-Availability-2 
@@ -574,26 +505,13 @@ Parameters required for the report:
 > -   Reporting period
 > -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Drop-down   | Select host group.                     |
-| > group     | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Services    | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Time period | Dropdown list | Time period to report. Note: Only use  |
-|             |               | the time period from the ETL month     |
-|             |               | properties.                            |
-+-------------+---------------+----------------------------------------+
-| Evolution   | Text field    | Specify no. of months of history for   |
-| interval    |               | the evolution graph                    |
-+-------------+---------------+----------------------------------------+
+| Parameter           | **Parameter type**   | **Description**                                                                      
+| ------------------- | -------------------- | ------------------------------------------------------------------------------------
+| Host group          | Drop-downlist | Select host group.                                                                   
+| Host Categories     | Multi select         | Select host categories.                                                              
+| Services Categories | Multi select         | Select host categories.                                                              
+| Time period         | Dropdown list        | Time period to report. Note: Only use the time period from the ETL month properties. 
+| Evolution interval  | Text field           | Specify no. of months of history for the evolution graph                             
 
 
 ### Hostgroup-Service-Incident-Resolution-2
@@ -632,22 +550,18 @@ Finally, the top 10 hosts generating the most events.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   SLA of acknowledgment in minutes
-> -   SLA of resolution in minutes
-> -   The number of rows to display in top objects
-> -   The following Centreon objects:
+ -   Reporting period
+ -   SLA of acknowledgment in minutes
+ -   SLA of resolution in minutes
+ -   The number of rows to display in top objects
+ -   The following Centreon objects:
 
-  -------------------------------------------------------------------------
-  **Paramètres**   **Type**        **Description**
-  ---------------- --------------- ----------------------------------------
-  Time period      Drop-down list  Specify time period.
-
-  Host group       Drop-down list  Select host group.
-
-  Host category    Multi select    Select host categories.
-
-  Service category Multi select    Select service categories.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroups        | Multi selection | Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Time period       | Dropdown list   | Specify time period.
 
 ### Hostgroup-Host-Availability-List
 
@@ -669,22 +583,14 @@ This report is optimized for generating XLS files.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+-   Reporting period
+-   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Drop-down   | Select host group.                     |
-| > group     | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Hosts       | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Time period | Drop-down     | Specifiy time period                   |
-|             | list          |                                        |
-+-------------+---------------+----------------------------------------+
+Parameter         | Parameter type        | Description             
+------------------|-----------------------|-----------------------
+Host group        | Drop-down list        | Select host group.      
+Hosts Categories  | Multi select          | Select host categories. 
+Time period       | Drop-down list        | Specifiy time period    
 
 
 ### Hostgroup-Host-Event-List
@@ -708,23 +614,14 @@ This report is optimized for for generating XLS files.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+ -   Reporting period
+ -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Drop-down   | Select host group.                     |
-| > group     | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Hosts       | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Time period | Drop-down     | Specify time period.                   |
-|             | list          |                                        |
-+-------------+---------------+----------------------------------------+
-
+Parameter         | Parameter type        | Description             
+------------------|-----------------------|-----------------------
+Host group        | Drop-down list        | Select host group.      
+Hosts Categories  | Multi select          | Select host categories. 
+Time period       | Drop-down list        | Specifiy time period  
 
 ### Hostgroup-Service-Availability-List
 
@@ -750,19 +647,12 @@ Parameters required for the report:
 -   The reporting period
 -   The following Centreon objects:
 
-  ---------------------------------------------------------------------
-  **Parameter**        **Parameter type**   
-  -------------------- -------------------- ---------------------------
-  Host group           Drop-down list       Select host group.
-
-  Host categories      Multi select         Select host categories.
-
-  Service categories   Mutli select         Select service categories.
-
-  Time period          Dropdown list        Specify time period.
-
-  Theme                Dropdown list        Select theme.
-
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Drop-down list  | Select host group.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Time period       | Dropdown list   | Specify time period.
 
 ### Hostgroup-Service-Event-List 
 
@@ -773,9 +663,9 @@ services in a hostgroup.
 
 **How to interpret the report**
 
-> The report also calculates the real and the effective MTRS for each
-> alarm. A table contains detailed statistics on events occuring on
-> hosts indicating start, acknowledgement and end dates.
+ The report also calculates the real and the effective MTRS for each
+ alarm. A table contains detailed statistics on events occuring on
+ hosts indicating start, acknowledgement and end dates.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
 
@@ -786,16 +676,12 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  ---------------------------------------------------------------------
-  Parameter            Parameter type       Description
-  -------------------- -------------------- ---------------------------
-  Host group           Drop-down list       Select host group.
-
-  Host categories      Multi select         Select host categories.
-
-  Service categories   Mutli select         Select service categories.
-
-  Time period          Dropdown list        Specify time period.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Drop-down list  | Select host group.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Time period       | Dropdown list   | Specify time period.
 
 
 ### Hostgroup-Host-Pareto
@@ -822,20 +708,14 @@ come from 20% of the causes.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+ -   Reporting period
+ -   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**   **Parameter     **Description**
-                  type**          
-  --------------- --------------- ----------------------------------------
-  Host group      Drop-down list  Select host group.
-
-  Hosts           Multi select    Select host categories.
-  Categories                      
-
-  Time period     Drop-down list  Specify time period to use.
-
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Drop-down list  | Select host group.
+  Host Categories   | Multi selection | Select host categories.
+  Time period       | Dropdown list   | Specify time period.
 
 ### Hostgroups-Host-Current-Events
 
@@ -864,52 +744,23 @@ addition:
 
 Parameters required for the report:
 
-+-------------+---------------+----------------------------------------+
-| **P         | **Type**      | **Description**                        |
-| arameters** |               |                                        |
-+=============+===============+========================================+
-| > title     | > Text field  | Specify the title for part 1 of        |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Select host groups for part 1 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 2 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 2 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Select host groups for part 2 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Specify host categories for part 2 of  |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 3 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi Select  | Select host groups to use for part 3   |
-|             |               | of report.                             |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 3 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 4 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Specify host groups for part 4 of      |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 4 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| > sort\_by  | > Radio       | Sort results by state, duration or     |
-|             | > button      | host name.                             |
-+-------------+---------------+----------------------------------------+
-| d           | > Radio       | Display or filter acknowledged hosts.  |
-| isplay\_ack | > button      |                                        |
-+-------------+---------------+----------------------------------------+
-| display     | > Radio       | Display or filter hosts in downtime.   |
-| \_downtimes | > button      |                                        |
-+-------------+---------------+----------------------------------------+
+|   Parameters    |  Type              |   Description                                   |
+| --------------- | ------------------ | ----------------------------------------------- |
+| Title           |    Text field      | Specify the title for part 1 of report.         |
+| Hostgroups      | Multi select       | Select host groups for part 1 of report.        |
+| Host category   | Multi select       | Select host categories for part 2 of report.    |
+| Title           |    Text field      | Specify title for part 2 of report.             |
+| Hostgroups      | Multi select       | Select host groups for part 2 of report.        |
+| Host category   | Multi select       | Specify host categories for part 2 of report.   |
+| Title           |    Text field      | Specify title for part 3 of report.             |
+| Hostgroups      | Multi Select       | Select host groups to use for part 3 of report. |
+| Host category   | Multi select       | Select host categories for part 3 of report.    |
+| Title           |    Text field      | Specify title for part 4 of report.             |
+| Hostgroups      | Multi select       | Specify host groups for part 4 of report.       |
+| Host category   | Multi select       | Select host categories for part 4 of report.    |
+| sort_by         |    Radio button    | Sort results by state, duration or host name.   |
+| display_ack     |    Radio button    | Display or filter acknowledged hosts.           |
+| display_downtime|    Radio button    | Display or filter hosts in downtime.            |
 
 
 ### Hostgroups-Service-Current-Events
@@ -939,69 +790,28 @@ report is generated. In addition:
 
 Parameters needed by the report are :
 
-+-------------+---------------+----------------------------------------+
-| **P         | **Type**      | **Description**                        |
-| arameters** |               |                                        |
-+=============+===============+========================================+
-| > title     | > Text field  | Specify title for part 1 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Select host groups for part 1 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 2 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service categories for part 1   |
-| category    |               | of report.                             |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 2 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Select host groups for part 2 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 2 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service categories for part 2   |
-| category    |               | of report.                             |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 3 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi Select  | Select host groups for part 3 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 3 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service categories for part 3   |
-| category    |               | of report.                             |
-+-------------+---------------+----------------------------------------+
-| > title     | > Text field  | Specify title for part 4 of report.    |
-+-------------+---------------+----------------------------------------+
-| Hostgroups  | Multi select  | Select host groups for part 4 of       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for part 4 of   |
-| category    |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service categories for part 4   |
-| category    |               | of report.                             |
-+-------------+---------------+----------------------------------------+
-| > sort\_by  | > Radio       | Sort results by state, duration or     |
-|             | > button      | hostname.                              |
-+-------------+---------------+----------------------------------------+
-| d           | > Radio       | Display or filter acknowledged hosts.  |
-| isplay\_ack | > button      |                                        |
-+-------------+---------------+----------------------------------------+
-| display     | > Radio       | Display or filter hosts in downtime.   |
-| \_downtimes | > button      |                                        |
-+-------------+---------------+----------------------------------------+
-| d           | > Radio       | Display only services in critical      |
-| isplay\_onl | > bouton      | state.                                 |
-| y\_critical |               |                                        |
-+-------------+---------------+----------------------------------------+
-
-
+| **P arameters**           | **Type**           | **Description**                                 |
+| ------------------------- | ------------------ | ----------------------------------------------- |
+|    title                  |    Text field      | Specify title for part 1 of report.             |
+| Hostgroups                | Multi select       | Select host groups for part 1 of report.        |
+| Host category             | Multi select       | Select host categories for part 2 of report.    |
+| Service category          | Multi select       | Select service categories for part 1 of report. |
+|    title                  |    Text field      | Specify title for part 2 of report.             |
+| Hostgroups                | Multi select       | Select host groups for part 2 of report.        |
+| Host category             | Multi select       | Select host categories for part 2 of report.    |
+| Service category          | Multi select       | Select service categories for part 2 of report. |
+|    title                  |    Text field      | Specify title for part 3 of report.             |
+| Hostgroups                | Multi Select       | Select host groups for part 3 of report.        |
+| Host category             | Multi select       | Select host categories for part 3 of report.    |
+| Service category          | Multi select       | Select service categories for part 3 of report. |
+|    title                  |    Text field      | Specify title for part 4 of report.             |
+| Hostgroups                | Multi select       | Select host groups for part 4 of report.        |
+| Host category             | Multi select       | Select host categories for part 4 of report.    |
+| Service category          | Multi select       | Select service categories for part 4 of report. |
+|    sort_by                |    Radio    button | Sort results by state, duration or hostname.    |
+| display_ack               |    Radio    button | Display or filter acknowledged hosts.           |
+| display_downtimes         |    Radio    button | Display or filter hosts in downtime.            |
+| display_only_critical     |    Radio    bouton | Display only services in critical state.        |
 
 ## Performance
 
@@ -1018,31 +828,20 @@ and performance of Centreon services over a defined period.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+ -   Reporting period
+ -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Selection   | Select host.                           |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service category.               |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Metrics     | Multi select  | Metrics to use. If no metric is        |
-|             |               | selected, graphs by metric will not    |
-|             |               | displayed.                             |
-+-------------+---------------+----------------------------------------+
-| Graphs      | Check box     | Sets whether you want to see all the   |
-| display     |               | metrics on one graph for each service, |
-| rule        |               | one graph per metric, or both.         |
-+-------------+---------------+----------------------------------------+
+|     Parameter       |   Parameter type   |   Description                                                                                              |
+| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+|    Host             |    Selection       | Select host.                                                                                               |
+| Service Categories  | Multi select       | Select service category.                                                                                   |
+| Metrics             | Multi select       | Metrics to use. If no metric is selected, graphs by metric will not displayed.                             |
+| Graphs display rule | Check box          | Sets whether you want to see all the metrics on one graph for each service, one graph per metric, or both. |
 
 #### Prerequisites
 
-Go to \"Reporting \> Business Intelligence \> General Options \>
-Scheduler Options\" and configure the following field:
+Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
 
@@ -1050,13 +849,13 @@ In order to export RRD graphs using the Centreon API, the reporting
 server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
->     curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+    curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 
 Replace the \'\$xxxx\$\' by real values.
 
 Example:
 
->     http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600 
+    http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600 
 
 
 ### Hostgroup-Graphs-v2
@@ -1073,38 +872,22 @@ defined period.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+-   Reporting period
+-   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| Report      | Text          | Select title on cover page and report  |
-| title       |               | header.                                |
-+-------------+---------------+----------------------------------------+
-| > Host      | Drop-down     | Select host group.                     |
-| > group     | list          |                                        |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service category.               |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Hosts       | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Metrics     | Multi select  | Select metrics. If no metric is        |
-|             |               | selected, graphs by metric will not be |
-|             |               | displayed.                             |
-+-------------+---------------+----------------------------------------+
-| Graphs      | Check box     | Specify whether you want to see all    |
-| display     |               | the metrics on one graph for each      |
-| rule        |               | service, a graph by metric, or both.   |
-+-------------+---------------+----------------------------------------+
+|     Parameter       | Parameter type     | Description                                                                                                |
+| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| Report title        | Text               | Select title on cover page and report header.                                                              |
+| Host group          | Drop-down list     | Select host group.                                                                                         |
+| Service Categories  | Multi select       | Select service category.                                                                                   |
+| Hosts Categories    | Multi select       | Select host categories.                                                                                    |
+| Metrics             | Multi select       | Select metrics. If no metric is selected, graphs by metric will not be displayed.                          |
+| Graphs display rule | Check box          | Specify whether you want to see all the metrics on one graph for each service, a graph by metric, or both. |
 
 #### Prerequisites
 
-Go to \"Reporting \> Business Intelligence \> General Options \>
-Scheduler Options\" and configure the following field:
+Go to `Reporting > Business Intelligence > General Options > Scheduler Options` 
+and configure the following field:
 
 ![image](../assets/reporting/guide/available-reports/graph_url.png)
 
@@ -1112,13 +895,13 @@ In order to export RRD graphs using the Centreon API, the reporting
 server needs to access it using HTTP or HTTPS protocole. A curl command
 sent to the URL of the API should generate an image file.
 
->     curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
+    curl https://$CENTREON-IP-OR-DNS$//include/views/graphs/generateGraphs/generateImage.php?akey=$AUTH_KEY$&username=$USER$&hostname=$HOSTNAME$&service=$SERVICENAME$&start=$TIMESTAMPSTART$&end=$TIMESTAMPEND$
 
 Replace the \'\$xxxx\$\' by real values.
 
 Example:
 
->     http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600 
+    http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImage.php?akey=af9c583c5f31bd2459c07&username=myUser&hostname=host-1&service=cpu&start=1490997600&end=1493157600 
 
 
 ### Hostgroup-Capacity-Planning-Linear-Regression
@@ -1141,39 +924,18 @@ about critical threshold and days before saturation.
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+-   Reporting period
+-   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Multi       | Select host groups for filter.         |
-| > groups    | > select      |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for filter.     |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Services    | Multi select  | Select service categories for filter.  |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Time period | Dropdown list | Specify time period.                   |
-+-------------+---------------+----------------------------------------+
-| Metrics     | Multi select  | Select metric to **include** in        |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
-| Historical  | Number        | Specify days used to calcutate the     |
-| period in   |               | linear regression before reporting     |
-| days in     |               | period.                                |
-| addition to |               |                                        |
-| the         |               |                                        |
-| reporting   |               |                                        |
-| period      |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Forecast    | Number        | Specify forecast days calculated by    |
-| period in   |               | linear regression.                     |
-| days        |               |                                        |
-+-------------+---------------+----------------------------------------+
+| Parameter                                                     |   Parameter type   |  Description                                                                  |
+| ------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
+| Host groups                                                   | Multi select       | Select host groups for filter.                                                |
+| Host Categories                                               | Multi select       | Select host categories for filter.                                            |
+| Services Categories                                           | Multi select       | Select service categories for filter.                                         |
+| Time period                                                   | Dropdown list      | Specify time period.                                                          |
+| Metrics                                                       | Multi select       | Select metric to **include** in report.                                       |
+| Historical period in days in addition to the reporting period | Number             | Specify days used to calcutate the linear regression before reporting period. |
+| Forecast period in days                                       | Number             | Specify forecast days calculated by linear regression.                        |
 
 #### Prerequisites:
 
@@ -1214,38 +976,25 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**   **Parameter    **Description**
-                  type**         
-  --------------- -------------- -----------------------------------------
-  Hostgroups      Multi select   Select host groups.
-
-  Host Categories Multi select   Select host categories.
-
-  Service         Dropdown list  Select service category.
-  Categories                     
-
-  Metrics         Multi select   Select metrics.
-
-  Time period     Dropdown list  Specify time period.
-
-  Intervalle      Text field     Specify no. of months to show in trend
-                                 graphs.
-
-  overloaded      number         Specify threshold determining resource is
-                                 overloaded. *Unit : see prerequisites*.
-
-  underused       number         Specify threshold determining resource is
-                                 underused. *Unit : see prerequisites*.
-  ------------------------------------------------------------------------
+  
+|     Parameter       | Parameter type     | Description                                                                                                |
+| ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| Host groups         | Multi select       | Select host group.                                                                                           |
+| Service Categories  | Multi select       | Select service category.                                                                                   |
+| Hosts Categories    | Multi select       | Select host categories.                                                                                    |
+| Metrics             | Multi select       | Select metrics. If no metric is selected, graphs by metric will not be displayed.                          |
+| Time period         | Dropdown list      | Specify whether you want to see all the metrics on one graph for each service, a graph by metric, or both. |
+| Intervalle          | Text field         | Specify no. of months to show in trend graphs.
+| overloaded          | number             | Specify threshold determining resource is overloaded. *Unit : see prerequisites*.
+| underused           | number             | Specify threshold determining resource is underused. *Unit : see prerequisites*.
 
 #### Prerequisites 
 
 This report can be generated using indicators that return a maximum value or not.
 
-:   -   If the metric has a maximum value, the threshold must be filled
+-   If the metric has a maximum value, the threshold must be filled
         with a **percent** value (between 0 et 100).
-    -   If the metric does not have a maximum value (e.g., counter for
+-   If the metric does not have a maximum value (e.g., counter for
         visitors on a website), the thresholds must be expressed in the
         same unit as the indicator (the counter for visitors).
 
@@ -1273,18 +1022,14 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**       **Parameter type**  **Description**
-  ------------------- ------------------- -------------------------------
-  Hostgroup           Dropdown list       Select host group.
 
-  Host categories     Multi select        Select host categories.
-
-  Service categories  Mutli select        Select service categories.
-
-  Metrics             Mutli select        Specify metric to INCLUDE.
-
-  Time period         Dropdown list       Specify time period.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Drop-down list  | Select host group.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Metrics           |  Mutli select   | Specify metric to INCLUDE.
+  Time period       |  Dropdown list  | Specify time period.
 
 
 ### Hostgroups-Categories-Performance-List
@@ -1310,18 +1055,14 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**       **Parameter type**  **Description**
-  ------------------- ------------------- -------------------------------
-  Hostgroups          Multi selectt       Select host groups.
 
-  Host categories     Multi select        SelectHost categories.
-
-  Service categories  Mutli select        SelectService categories.
-
-  Metrics             Mutli select        Specify Metric to INCLUDE.
-
-  Time period         Dropdown list       Specify Time period.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroups        | Multi selection| Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Metrics           |  Mutli select   | Specify metric to INCLUDE.
+  Time period       |  Dropdown list  | Specify time period.
 
 
 ## Storage 
@@ -1355,50 +1096,31 @@ group, displayed by host categories and service categories.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_3.png)
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-Statistics displayed in evolution tables and graphs by month correspond
-to values of indicators measured on the last day of the month.
-\"Snapshot\" statistics (versus evolution statistics by month)
-correspond to values of indicators measured the last day of the
-reporting period. Evolution calculations are based on a comparison of
-the values of indicators the last day of the reporting period with the
-values of indicators the day before the first day of the reporting
-period.
-:::
+> Statistics displayed in evolution tables and graphs by month correspond
+> to values of indicators measured on the last day of the month.
+> \"Snapshot\" statistics (versus evolution statistics by month)
+> correspond to values of indicators measured the last day of the
+> reporting period. Evolution calculations are based on a comparison of
+> the values of indicators the last day of the reporting period with the
+> values of indicators the day before the first day of the reporting
+> period.
 
 ##### Parameters
 
 Parameters required for the report:
 
-> -   Reporting period
-> -   The following Centreon objects:
+-   Reporting period
+-   The following Centreon objects:
 
-+------------+-------------+-------------------------------------------+
-| **P        | **Parameter | **Description**                           |
-| arameter** | type**      |                                           |
-+============+=============+===========================================+
-| >          | > Multi     | Select the host groups.                   |
-| Hostgroups | > select    |                                           |
-+------------+-------------+-------------------------------------------+
-| Host       | Multi       | Select the host categories.               |
-| Categories | select      |                                           |
-+------------+-------------+-------------------------------------------+
-| Services   | Multi       | Select host categories                    |
-| Categories | select      |                                           |
-+------------+-------------+-------------------------------------------+
-| Metric     | Multi       | Specify metric to exclude from the        |
-| names      | select      | report.                                   |
-+------------+-------------+-------------------------------------------+
-| Time       | Dropdown    | Specify time period to report. /!Only the |
-| period     | list        | timeperiod 24x7 should be used /!         |
-+------------+-------------+-------------------------------------------+
-| Evolution  | Text field  | Specify number of historical months for   |
-| interval   |             | the evolution graphics.                   |
-+------------+-------------+-------------------------------------------+
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroups        | Multi selection| Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Metrics           |  Mutli select   | Specify metric to INCLUDE.
+  Time period       |  Dropdown list  | Specify time period.
+  Evolution interval| Text field      | Specify number of historical months for the evolution graphics.
 
 ##### Prerequisites
 
@@ -1411,25 +1133,14 @@ formatted as follows, preceded by a pipe (\|):
 Make sure that the plugins return the maximum value, which is required
 in order to calculate statistics. The unit must be expressed in bytes.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-The ETL configuration must include service categories for storage,
-otherwise the evolution graphics remain empty.
-:::
-
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-This report is compatible with the 24x7 time period only. This time
-period must be configured on the menu \"General options \| Capacity
-statistic aggregated by month \| Live services for capacity statistics
-calculation\".
-:::
+> **Warning**
+>
+> - The ETL configuration must include service categories for storage,
+>  otherwise the evolution graphics remain empty.
+> - This report is compatible with the 24x7 time period only. This time
+> period must be configured on the menu \"General options \| Capacity
+> statistic aggregated by month \| Live services for capacity statistics
+> calculation\".
 
 
 ### Hostgroup-Storage-Capacity-2
@@ -1471,20 +1182,15 @@ and estimated time before saturation.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_4.png)
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-Statistics displayed in evolution tables and graphs by month correspond
-to values of indicators measured on the last day of the month.
-\"Snapshot\" statistics (versus evolution statistics by month)
-correspond to values of indicators measured the last day of the
-reporting period. Evolution calculations are based on comparing the
-values of indicators the last day of the reporting period with the
-values of indicators the day before the first day of the reporting
-period.
-:::
+> Statistics displayed in evolution tables and graphs by month correspond
+> to values of indicators measured on the last day of the month.
+> \"Snapshot\" statistics (versus evolution statistics by month)
+> correspond to values of indicators measured the last day of the
+> reporting period. Evolution calculations are based on comparing the
+> values of indicators the last day of the reporting period with the
+> values of indicators the day before the first day of the reporting
+> period.
 
 #### Parameters
 
@@ -1493,26 +1199,15 @@ Parameters required for this report:
 -   The reporting period
 -   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameters**   **Parameter      **Description**
-                   type**           
-  ---------------- ---------------- --------------------------------------
-  Host group       Dropdown list    Select host group.
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Dropdown list   | Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Metrics           |  Mutli select   | Specify metric to INCLUDE.
+  Time period       |  Dropdown list  | Specify time period.
+  Evolution interval| Text field      | Specify number of historical months for the evolution graphics.
 
-  Host categories  Multi select     Select categories.
-
-  Service          Mutli select     Select storage service categories.
-  categories                        
-
-  Metrics          Mutli select     Metric to *exclude* from the list.
-
-  Time period      Dropdown list    Specify time period. /!Only the
-                                    timeperiod 24x7 should be used /!
-
-  Theme            Dropdown list    Select theme.
-
-  Intervalle       Text field       Specify no. of months for evolution
-                                    graphs.
 #### Prerequisites
 
 For consistency in graphs and statistics, certain prerequisites apply to
@@ -1524,25 +1219,14 @@ formatted as follows, preceded by a pipe (\|):
 Make sure that the plugins return the maximum value, which is required
 in order to calculate statistics. The unit must be expressed in bytes.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-The ETL configuration must include service categories for storage,
-otherwise the evolution graphics remain empty.
-:::
-
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-This report is compatible with the 24x7 time period only. This time
-period must be configured on the menu \"General options \| Capacity
-statistic aggregated by month \| Live services for capacity statistics
-calculation\"
-:::
+> **Warning**
+>
+> - The ETL configuration must include service categories for storage,
+>  otherwise the evolution graphics remain empty.
+> - This report is compatible with the 24x7 time period only. This time
+> period must be configured on the menu \"General options \| Capacity
+> statistic aggregated by month \| Live services for capacity statistics
+> calculation\".
 
 ### Hostgroup-Storage-Capacity-List
 
@@ -1559,20 +1243,15 @@ estimate time before saturation.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-Statistics displayed in evolution tables and graphs by month correspond
-to values of indicators measured on the last day of the month.
-\"Snapshot\" statistics (versus evolution statistics by month)
-correspond to values of indicators measured the last day of the
-reporting period. Evolution calculations are based on comparing the
-values of indicators the last day of the reporting period with the
-values of indicators the day before the first day of the reporting
-period.
-:::
+> Statistics displayed in evolution tables and graphs by month correspond
+> to values of indicators measured on the last day of the month.
+> \"Snapshot\" statistics (versus evolution statistics by month)
+> correspond to values of indicators measured the last day of the
+> reporting period. Evolution calculations are based on comparing the
+> values of indicators the last day of the reporting period with the
+> values of indicators the day before the first day of the reporting
+> period.
 
 #### Parameters
 
@@ -1581,21 +1260,13 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**   **Parameter     **Description**
-                  type**          
-  --------------- --------------- ---------------------------------------
-  Hostgroup       Dropdown list   Select host group.
-
-  Host categories Multi select    Select host categories
-
-  Service         Mutli select    Select service categories
-  categories                      
-
-  Metrics         Mutli select    Metric to exclude from the list.
-
-  Time period     Dropdown list   Specify time period. /!Only the
-                                  timeperiod 24x7 should be used /!
+  Parameter         | Parameter type  | Description
+  ------------------|-----------------|-----------------------------------
+  Hostgroup         | Dropdown list   | Select host groups.
+  Host Categories   | Multi selection | Select host categories.
+  Service Categories| Multi selection | Select service categories.
+  Metrics           |  Mutli select   | Specify metric to INCLUDE.
+  Time period       |  Dropdown list  | Specify time period.
 
 #### Prerequisites
 
@@ -1658,32 +1329,17 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**           **Parameter      **Description**
-                          type**           
-  ----------------------- ---------------- ------------------------------
-  Host Group              Dropdown list    Select host group.
-
-  Host Categories         Multi select     Select host categories.
-
-  Service Categories      Multi select     Select service categories.
-
-  Low-level treshold (%)  Number           Specify low threshold of
-                                           bandwidth usage (between 0 and
-                                           100).
-
-  Average-level threshold Number           Average threshold of bandwidh
-  (%)                                      usage (between 0 and 100)
-
-  High-level threshold    Number           Specify high threshold of
-  (%)                                      bandwidth usage (between 0 and
-                                           100)
-
-  Inbound traffic metric  Dropdown list    Specify metric of inbound
-                                           traffic.
-
-  Outbound traffic metric Dropdown list    Specify metric of outbound
-                                           traffic.
+  Parameter                     | Parameter type  | Description
+  ------------------------------|-----------------|-----------------------------------
+  Host Group                    | Dropdown list   | Select host group.
+  Host Categories               | Multi select    | Select host categories.
+  Service Categories            | Multi select    | Select service categories.
+  Low-level treshold (%)        | Number          | Specify low threshold of bandwidth usage (between 0 and 100).
+  Average-level threshold (%)   | Number          | Average threshold of bandwidh usage (between 0 and 100)
+  High-level threshold (%)      | Number          | Specify high threshold of bandwidth usage (between 0 and 100)
+  Inbound traffic metric        | Dropdown list   | Specify metric of inbound traffic.                                           
+  Outbound traffic metric       | Dropdown list   | Specify metric of outbound traffic.
+                                           
 
 #### Prerequisites :
 
@@ -1733,24 +1389,24 @@ bandwidth distribution by:
 
 **Hour of the day** displaying:
 
-> -   The average usage by hour of the day of incoming and outgoing
->     traffic for the selected reporting period.
-> -   The maximum reached of incoming and outgoing traffic per hour of
->     the day for the reporting period.
+-   The average usage by hour of the day of incoming and outgoing
+     traffic for the selected reporting period.
+-   The maximum reached of incoming and outgoing traffic per hour of
+     the day for the reporting period.
 
 **Day of the week** displaying
 
-> -   The average usage by day of the week of incoming and outgoing
->     traffic for the selected reporting period.
-> -   The maximum reached of incoming and outgoing traffic per day of
->     the week for the reporting period.
+-   The average usage by day of the week of incoming and outgoing
+    traffic for the selected reporting period.
+-   The maximum reached of incoming and outgoing traffic per day of
+    the week for the reporting period.
 
 **Day of the month** displaying
 
-> -   The average usage by day of the month of incoming and outgoing
->     traffic for the selected reporting period.
-> -   The maximum reached of incoming and outgoing traffic per day of
->     the month for the reporting period.
+-   The average usage by day of the month of incoming and outgoing
+    traffic for the selected reporting period.
+-   The maximum reached of incoming and outgoing traffic per day of
+    the month for the reporting period.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
 
@@ -1761,34 +1417,16 @@ Parameters required for the report:
 -   Reporting period
 -   The following Centreon objects:
 
-+----------------------+---------------+------------------------------+
-| **Parameter**        | **Parameter   | **Description**              |
-|                      | type**        |                              |
-+======================+===============+==============================+
-| Hostgroups           | Dropdown list | > Select host group.         |
-+----------------------+---------------+------------------------------+
-| Host Categories      | Multi select  | > Select host categories.    |
-+----------------------+---------------+------------------------------+
-| Service Categories   | Multi select  | > Select service categories. |
-+----------------------+---------------+------------------------------+
-| Low level treshold   | Number        | Specify low threshold of     |
-| (%)                  |               | bandwidth usage (between 0   |
-|                      |               | and 100)                     |
-+----------------------+---------------+------------------------------+
-| Average level        | Number        | Average threshold of         |
-| treshold (%)         |               | brandwidh usage (between 0   |
-|                      |               | and 100).                    |
-+----------------------+---------------+------------------------------+
-| High level treshold  | Number        | Specify high threshold of    |
-| (%)                  |               | bandwidth usage (between 0   |
-|                      |               | and 100).                    |
-+----------------------+---------------+------------------------------+
-| Inbound traffic      | Dropdown list | Specify metric of inbound    |
-| metric               |               | traffic.                     |
-+----------------------+---------------+------------------------------+
-| Outbound traffic     | Dropdown list | Specify metric of outbound   |
-| metric               |               | traffic.                     |
-+----------------------+---------------+------------------------------+
+|   Parameter                |   Parameter type   |   Description                                                  |
+| -------------------------- | ------------------ | -------------------------------------------------------------- |
+| Hostgroup                  | Dropdown list      | Select host group.                                             |
+| Host Categories            | Multi select       | Select host categories.                                        |
+| Service Categories         | Multi select       | Select service categories.                                     |
+| Low level treshold (%)     | Number             | Specify low threshold of bandwidth usage (between 0 and 100)   |
+| Average level treshold (%) | Number             | Average threshold of brandwidh usage (between 0 and 100).      |
+| High level treshold (%)    | Number             | Specify high threshold of bandwidth usage (between 0 and 100). |
+| Inbound traffic metric     | Dropdown list      | Specify metric of inbound traffic.                             |
+| Outbound traffic metric    | Dropdown list      | Specify metric of outbound traffic.                            |
 
 > It is important to make sure that plugins return the maximum value
 > because lot of statistics are based on percentage, calculated using
@@ -1845,28 +1483,16 @@ Parameters required for the reports:
     (corresponding to the start date on the Centreon MBI interface).
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**          **Parameter    **Description**
-                         type**         
-  ---------------------- -------------- ---------------------------------
-  Host groups            Dropdown list  Select host group.
-
-  Host Categories        Multi select   Select host categories.
-
-  Traffic service        Dropdown list  Select service category.
-  categories                            
-
-  Time period for        Dropdown list  Specify low threshold of
-  average usage                         bandwidth usage.
-
-  Centile/Time period    Dropdown list  Specify combination for centile
-                                        statistics.
-
-  Inbound traffic metric Dropdown list  Specify metric name of inbound
-                                        traffic.
-
-  Outbound traffic       Dropdown list  Specify metric name of outbound
-  metric                                traffic.
+  Parameters                     |Parameter type |  Description
+  -------------------------------|---------------|---------------------------------
+  Host group                     | Dropdown list | Select host group.
+  Host Categories                | Multi select  | Select host categories.
+  Traffic service categories     | Dropdown list | Select service category.
+  Time period for average usage  | Dropdown list | Specify low threshold of bandwidth usage.
+  Centile/Time period            | Dropdown list | Specify combination for centile statistics.
+  Inbound traffic metric         | Dropdown list | Specify metric name of inbound traffic.
+  Outbound traffic metric        | Dropdown list | Specify metric name of outbound traffic.
+                                  
 
 #### Prerequisites
 
@@ -1956,38 +1582,20 @@ Parameters required for the report:
 > -   The reporting period
 > -   The following Centreon objects:
 
-  -----------------------------------------------------------------------
-  **Parameter**      **Type**    **Description**
-  ------------------ ----------- ----------------------------------------
-  Time period        Dropdown    Select time period.
-                     list        
 
-  Host group         Dropdown    Select cluster.
-                     list        
-
-  Host category      Multi       Select host categories for filtering on
-                     selection   cluster.
-
-  Datastore Service  Multi       Select service categories with datastore
-  category           selection   usage.
-
-  IOPs Service       Multi       Select service categories with datastore
-  category           selection   IOPS.
-
-  CPU Service        Multi       Select service categories with the ESX
-  category           selection   CPU usage.
-
-  Memory Service     Multi       Select service categories with the ESX
-  category           selection   Memory usage.
-
-  VM Count Service   Multi       Select service categories with the VM
-  category           selection   count services on ESXs.
-
-  Datastore usage    Text field  Type common part for filter and
-  (filter)                       replacement (% to keep all).
-
-  Datastore iops     Text field  Type common part for filter and
-  (filter)                       replacement (% to keep all).
+  Parameter                 |    Type         | Description
+  --------------------------|-----------------|----------------------------------------
+  Time period               | Dropdown list   | Select time period.
+  Host group                | Dropdown list   | Select cluster.
+  Host category             | Multi selection | Select host categories for filtering on cluster.
+  Datastore Service category| Multi selection | Select service categories with datastore usage.
+  IOPs Service category     | Multi selection | Select service categories with datastore IOPS.
+  CPU Service category      | Multi selection | Select service categories with the ESX CPU usage.
+  Memory Service category   | Multi selection | Select service categories with the ESX Memory usage.
+  VM Count Service category | Multi selection | Select service categories with the VM count services on ESXs.
+  Datastore usage (filter)  | Text field      | Type common part for filter and replacement (% to keep all).
+  Datastore iops (filter)   | Text field      | Type common part for filter and replacement (% to keep all).
+                         
 
 #### Prerequisites
 
@@ -1997,22 +1605,22 @@ prerequisites for the proper generation of the report shall apply.
 
 Implement monitoring of the following indicators:
 
-> -   CPU service, a memory service and a VM Count service for each ESX.
-> -   Datastore-usage service for each datastore, or for all datastores,
->     linked to the VCenter or to only one ESX of the cluster. By
->     default, the service will have the following nomenclature:
->     Datastore-Usage-xxxx (xxxx is the datastore name).
-> -   Datastore-IOPS service for each datastore or for all datastores,
->     linked to the VCenter or to only on ESX of the cluster. By
->     default, the service will have the following nomenclature:
->     Datastore-Iops-xxxx (xxxx is the datastore name).
+-   CPU service, a memory service and a VM Count service for each ESX.
+-   Datastore-usage service for each datastore, or for all datastores,
+    linked to the VCenter or to only one ESX of the cluster. By
+    default, the service will have the following nomenclature:
+    Datastore-Usage-xxxx (xxxx is the datastore name).
+-   Datastore-IOPS service for each datastore or for all datastores,
+    linked to the VCenter or to only on ESX of the cluster. By
+    default, the service will have the following nomenclature:
+    Datastore-Iops-xxxx (xxxx is the datastore name).
 
 Create host groups that correspond to the clusters. A cluster (host
 group) contains:
 
-> -   Several ESXs (hosts).
-> -   The VCenter, only if Datastore-usage and Datastore-IOPS services
->     are linked to the VCenter and not to one cluster\'s ESX.
+-   Several ESXs (hosts).
+-   The VCenter, only if Datastore-usage and Datastore-IOPS services
+    are linked to the VCenter and not to one cluster\'s ESX.
 
 Create at least one host category containing the whole cluster (vCenter
 + ESXs). If there are multiple ESX clusters, you can split them into
@@ -2020,20 +1628,14 @@ several host categories to filter the report on a single cluster.
 
 Create the following service categories:
 
-> -   CPU-ESX: combines all CPU indicators on ESXs.
-> -   Memory-ESX: combines all memory indicators on ESXs.
-> -   VMcount-ESX: combines all VM Count indicators on ESXs.
-> -   Datastore-usage: combines all datastore usage indicators.
-> -   Datastore-IOPS: combines all datastore IOPS indicators.
+-   CPU-ESX: combines all CPU indicators on ESXs.
+-   Memory-ESX: combines all memory indicators on ESXs.
+-   VMcount-ESX: combines all VM Count indicators on ESXs.
+-   Datastore-usage: combines all datastore usage indicators.
+-   Datastore-IOPS: combines all datastore IOPS indicators.
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-If a datastore or an ESX host name contains more than 16 characters,
-only the first 16 will be shown, supplemented by 3 dots.
-:::
+> If a datastore or an ESX host name contains more than 16 characters,
+> only the first 16 will be shown, supplemented by 3 dots.
 
 
 ### VMWare-VM-Performances-List
@@ -2069,23 +1671,16 @@ read/write IOPS usage showing the average and the maximum reached.
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+-   The reporting period
+-   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameters**   **Type**    **Description**
-  ---------------- ----------- -------------------------------------------
-  Time period      Dropdown    Specify the reporting live service.
-                   list        
-
-  Host to report   Dropdown    Select the VCenter for report.
-                   list        
-
-  Host category    Multi       Select host category for filter.
-                   selection   
-
-  Service category Multi       Select service category containing the
-                   selection   global VM statistics.
+  Parameters        | Type            | Description
+  ------------------|-----------------|----------------------------------
+  Time period       | Dropdown list   | Specify the reporting live service.
+  Host to report    | Dropdown list   | Select the VCenter for report.                           
+  Host category     | Multi selection | Select host category for filter.
+  Service category  | Multi selection | Select service category containing the global VM statistics.
+                      
 
 
 #### Prerequisites
@@ -2096,14 +1691,14 @@ prerequisites apply to ensure proper report creation:
 
 Monitoring of the following indicators:
 
-> -   Vm-Cpu-Global service
-> -   Vm-Memory-Global service
-> -   Vm-Datastore-Iops-Global service.
+-   Vm-Cpu-Global service
+-   Vm-Memory-Global service
+-   Vm-Datastore-Iops-Global service.
 
 Creation of the following service category:
 
-> -   VM-Statistics with these indicators: Vm-Cpu-Global,
->     Vm-Memory-Global and Vm-Datastore-Iops-Global.
+-   VM-Statistics with these indicators: Vm-Cpu-Global,
+    Vm-Memory-Global and Vm-Datastore-Iops-Global.
 
 
 ## Electric consumption
@@ -2135,15 +1730,9 @@ consumption distribution by UPS, average consumption and cost by UPS.
 
 ![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
 
-::: {.note}
-::: {.title}
-Note
-:::
-
-If the host group contains more that five UPSs, only the four most
-energy-consuming ones will be displayed. A fifth category will include
-the remaining UPSs.
-:::
+>If the host group contains more that five UPSs, only the four most
+> energy-consuming ones will be displayed. A fifth category will include
+> the remaining UPSs.
 
 Finally, a graph is shown of the monthly cost year over year (YOY).
 
@@ -2153,46 +1742,31 @@ Finally, a graph is shown of the monthly cost year over year (YOY).
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+-   The reporting period
+-   The following Centreon objects:
 
-+-----------------+--------------+-------------------------------------+
-| **Parameters**  | **Type**     | **Description**                     |
-+=================+==============+=====================================+
-| > Time period   | Dropdown     | Select time period.                 |
-|                 | list         |                                     |
-+-----------------+--------------+-------------------------------------+
-| Host group      | Dropdown     | Select the host group.              |
-|                 | list         |                                     |
-+-----------------+--------------+-------------------------------------+
-| Host category   | Multi select | Select host categories.             |
-+-----------------+--------------+-------------------------------------+
-| Service         | Multi select | Select service categories           |
-| category        |              | containing the power indicators.    |
-+-----------------+--------------+-------------------------------------+
-| Select metrics  | Multi select | Select the metric name of the       |
-| to include      |              | output power.                       |
-+-----------------+--------------+-------------------------------------+
-| Prix KWh        | Text         | Enter price of the kilowatt-hour.   |
-+-----------------+--------------+-------------------------------------+
+
+| Parameters                | type          | Description                                                |
+| ------------------------- | ------------- | ---------------------------------------------------------- |
+| Time period               | Dropdown list | Select time period.                                        |
+| Host group                | Dropdown list | Select the host group.                                     |
+| Host category             | Multi select  | Select host categories.                                    |
+| Service category          | Multi select  | Select service categories containing the power indicators. |
+| Select metrics to include | Multi select  | Select the metric name of the output power.                |
+| Price KWh                 | Text          | Enter price of the kilowatt-hour.                          |
 
 #### Prerequisites
 
 The prerequisites for the report are:
 
-> -   Monitoring of the output power of the UPSs.
-> -   Creation of a service category containing all the power-output
->     indicators.
-> -   Sufficient historical data for the evolution graphs.
+-   Monitoring of the output power of the UPSs.
+-   Creation of a service category containing all the power-output
+    indicators.
+-   Sufficient historical data for the evolution graphs.
 
-::: {.note}
-::: {.title}
-Note
-:::
 
-UPS consumption corresponds to the consumption by all hosts connected to
-the UPS.
-:::
+> UPS consumption corresponds to the consumption by all hosts connected to
+> the UPS.
 
 ## Profiling
 
@@ -2246,41 +1820,20 @@ the last day of the previous period.
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+ -   The reporting period
+ -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Time      | > Dropdown    | Select time period.                    |
-| > period    | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Interval    | Text field    | Specify number of months to display in |
-|             |               | evolution graphs.                      |
-+-------------+---------------+----------------------------------------+
-| Host        | Dropdown list | Select host.                           |
-+-------------+---------------+----------------------------------------+
-| CPU service | Dropdown list | Select service category containing CPU |
-| category    |               | service(s).                            |
-+-------------+---------------+----------------------------------------+
-| CPU         | Multi Select  | Select metric(s) for CPU statistics.   |
-| metric(s)   |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Select storage service categories      |
-| service     |               | containing the storage service(s).     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Specify metric to exclude from the     |
-| Metric(s)   |               | storage statistics.                    |
-+-------------+---------------+----------------------------------------+
-| Memory      | Dropdown list | Select service category containing     |
-| service     |               | memory service(s).                     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Memory      | Multi select  | Specify metric(s) to use for memory    |
-| metric(s)   |               | statistics.                            |
-+-------------+---------------+----------------------------------------+
+|      Parameter           | **Parameter type**  | **Description**                                                      |
+| ------------------------ | ------------------- | -------------------------------------------------------------------- |
+| Time period              | Dropdown list       | Select time period.                                                  |
+| Interval                 | Text field          | Specify number of months to display in evolution graphs.             |
+| Host                     | Dropdown list       | Select host.                                                         |
+| CPU service category     | Dropdown list       | Select service category containing CPU service(s).                   |
+| CPU metric(s)            | Multi Select        | Select metric(s) for CPU statistics.                                 |
+| Storage service category | Multi Select        | Select storage service categories containing the storage service(s). |
+| Storage Metric(s)        | Multi Select        | Specify metric to exclude from the storage statistics.               |
+| Memory service category  | Dropdown list       | Select service category containing memory service(s).                |
+| Memory metric(s)         | Multi select        | Specify metric(s) to use for memory statistics.                      |
 
 #### Prerequisites
 
@@ -2294,16 +1847,12 @@ Make sure that the storage and memory plugins return a maximum value,
 which is required in order to calculate statistics. The unit must be
 expressed in bytes for storage and memory plugins.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-This report is compatible with the 24x7 time period only. This time
-period must be configured on the menu \"General options \| Capacity
-statistic aggregated by month \| Live services for capacity statistics
-calculation\".
-:::
+> **Warning**
+>
+> This report is compatible with the 24x7 time period only. This time
+> period must be configured on the menu \"General options \| Capacity
+> statistic aggregated by month \| Live services for capacity statistics
+> calculation\".
 
 
 ### Host-Detail-3 
@@ -2367,48 +1916,20 @@ Parameters needed by report are:
 > -   The reporting period
 > -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Time      | > Dropdown    | Select time period to use.             |
-| > period    | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Interval    | Text field    | Specify number of months to display in |
-|             |               | evolution graphs.                      |
-+-------------+---------------+----------------------------------------+
-| Host        | Dropdown list | Select host.                           |
-+-------------+---------------+----------------------------------------+
-| CPU service | Dropdown list | Select service category containing CPU |
-| category    |               | service(s).                            |
-+-------------+---------------+----------------------------------------+
-| CPU         | Multi Select  | Select metric(s) to use for CPU        |
-| metric(s)   |               | statistics.                            |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Select storage service categories      |
-| service     |               | containing the storage service(s).     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Specify metric to exclude from the     |
-| Metric(s)   |               | storage statistics.                    |
-+-------------+---------------+----------------------------------------+
-| Memory      | Dropdown list | Select service category containing     |
-| service     |               | memory service(s).                     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Memory      | Multi select  | Select metric(s) to use for memory     |
-| metric(s)   |               | statistics.                            |
-+-------------+---------------+----------------------------------------+
-| Traffic     | Multi         | Select service category containing     |
-| service     | sélection     | traffic service(s).                    |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Traffic In  | Dropdown list | Select inbound traffic metric.         |
-| metric      |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Traffic out | Dropdown list | Select outbound traffic metric.        |
-| metric      |               |                                        |
-+-------------+---------------+----------------------------------------+
+|      Parameter           | **Parameter type**  | **Description**                                                      |
+| ------------------------ | ------------------- | -------------------------------------------------------------------- |
+| Time period              | Dropdown list       | Select time period.                                                  |
+| Interval                 | Text field          | Specify number of months to display in evolution graphs.             |
+| Host                     | Dropdown list       | Select host.                                                         |
+| CPU service category     | Dropdown list       | Select service category containing CPU service(s).                   |
+| CPU metric(s)            | Multi Select        | Select metric(s) for CPU statistics.                                 |
+| Storage service category | Multi Select        | Select storage service categories containing the storage service(s). |
+| Storage Metric(s)        | Multi Select        | Specify metric to exclude from the storage statistics.               |
+| Memory service category  | Dropdown list       | Select service category containing memory service(s).                |
+| Memory metric(s)         | Multi select        | Specify metric(s) to use for memory statistics.                      |
+| Traffic service category | Multi sélection     | Select service category containing traffic service(s).               |
+| Traffic In metric        | Dropdown list       | Select inbound traffic metric.                                       |
+| Traffic out metric       | Dropdown list       | Select outbound traffic metric.                                      |
 
 #### Prerequisites
 
@@ -2487,54 +2008,24 @@ the last day of the previous period.
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+-   The reporting period
+-   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Time      | > Dropdown    | Select time period.                    |
-| > period    | > list        |                                        |
-+-------------+---------------+----------------------------------------+
-| Interval    | Text field    | Select number of months to display in  |
-|             |               | evolution graphs.                      |
-+-------------+---------------+----------------------------------------+
-| Hostgroup   | Dropdown list | Select host group.                     |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi Select  | Select host category.                  |
-| Category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| CPU service | Dropdown list | Select service category containing CPU |
-| category    |               | service(s).                            |
-+-------------+---------------+----------------------------------------+
-| CPU         | Multi Select  | Select metric(s) to use for CPU        |
-| metric(s)   |               | statistics.                            |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Select storage service categories      |
-| service     |               | containing the storage service(s).     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Storage     | Multi Select  | Specify metric to exclude from the     |
-| Metric(s)   |               | storage statistics.                    |
-+-------------+---------------+----------------------------------------+
-| Memory      | Dropdown list | Select service category containing     |
-| service     |               | memory service(s).                     |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Memory      | Multi select  | Select metric(s) for memory            |
-| metric(s)   |               | statistics.                            |
-+-------------+---------------+----------------------------------------+
-| Traffic     | Dropdown list | Select service category containing     |
-| service     |               | traffic service(s).                    |
-| category    |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Traffic In  | Dropdown list | Select inbound metric traffic.         |
-| metric      |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Traffic Out | Dropdown list | Select outbound metric traffic.        |
-| metric      |               |                                        |
-+-------------+---------------+----------------------------------------+
+| \*\* Parameter\*\*       | **Parameter type**  | **Description**                                                      |
+| ------------------------ | ------------------- | -------------------------------------------------------------------- |
+| \> Time \> period        | \> Dropdown \> list | Select time period.                                                  |
+| Interval                 | Text field          | Select number of months to display in evolution graphs.              |
+| Hostgroup                | Dropdown list       | Select host group.                                                   |
+| Host Category            | Multi Select        | Select host category.                                                |
+| CPU service category     | Dropdown list       | Select service category containing CPU service(s).                   |
+| CPU metric(s)            | Multi Select        | Select metric(s) to use for CPU statistics.                          |
+| Storage service category | Multi Select        | Select storage service categories containing the storage service(s). |
+| Storage Metric(s)        | Multi Select        | Specify metric to exclude from the storage statistics.               |
+| Memory service category  | Dropdown list       | Select service category containing memory service(s).                |
+| Memory metric(s)         | Multi select        | Select metric(s) for memory statistics.                              |
+| Traffic service category | Dropdown list       | Select service category containing traffic service(s).               |
+| Traffic In metric        | Dropdown list       | Select inbound metric traffic.                                       |
+| Traffic Out metric       | Dropdown list       | Select outbound metric traffic.                                      |
 
 #### Prerequisites
 
@@ -2549,16 +2040,12 @@ value, which is required in order to calculate statistics. The unit must
 be expressed in bytes for storage and memory plugins and in Kbps for
 traffic plugins.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-This report is compatible with the 24x7 time period only. This time
-period must be configured on the menu \"General options \| Capacity
-statistic aggregated by month \| Live services for capacity statistics
-calculation\".
-:::
+> **Warning**
+> 
+> This report is compatible with the 24x7 time period only. This time
+> period must be configured on the menu \"General options \| Capacity
+> statistic aggregated by month \| Live services for capacity statistics
+> calculation\".
 
 
 ## Inventory & Configuration
@@ -2590,19 +2077,14 @@ check and notification properties:
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+ -   The reporting period
+ -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| >           | Multi select  | Select host groups.                    |
-|  Hostgroups |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
+
+ Parameter         | Parameter type     | Description
+-------------------|--------------------|-------------------------
+ Hostgroups        | Multi select       | Select host groups. 
+ Host Categories   | Multi select       | Select host categories.
 
 
 ### Hostgroups-Service-Templates
@@ -2632,24 +2114,16 @@ their check and notification properties:
 #### Parameters
 
 Parameters expected by the report are:
+ 
+ -   The reporting period
+ -   The following Centreon objects:
 
-> -   The reporting period
-> -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| >           | Multi select  | Select host groups.                    |
-|  Hostgroups |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories.                |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service categories.             |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-
+ Parameter         | Parameter type     | Description
+-------------------|--------------------|-------------------------
+ Hostgroups        | Multi select       | Select host groups. 
+ Host Categories   | Multi select       | Select host categories.
+ Service Categories| Multi select       | Select service categories.
 
 ### Poller-Performances
 
@@ -2684,25 +2158,13 @@ The data appearing in the report is real-time data.
 
 Parameters required for the report:
 
-> -   The following Centreon objects:
+ -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Type**      | **Description**                        |
-| Parameter** |               |                                        |
-+=============+===============+========================================+
-| Select      | > Radio       | Generate the report on the central     |
-| poller(s)   | > bouton      | poller, the remote pollers, or all     |
-| for the     |               | pollers.                               |
-| report      |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Limit       | Text field    | Specify latency threshold. Hosts /     |
-| latency     |               | services exceeding the threshold are   |
-| (sec)       |               | listed.                                |
-+-------------+---------------+----------------------------------------+
-| Limit       | Text field    | Specify execution time threshold.      |
-| exceution   |               | Hosts / services exceeding the         |
-| time (sec)  |               | threshold are listed.                  |
-+-------------+---------------+----------------------------------------+
+|       Parameter                 |   Type             |   Description                                                                          |
+| ------------------------------- | ------------------ | -------------------------------------------------------------------------------------- |
+| Select poller(s) for the report | Radio bouton       | Generate the report on the central poller, the remote pollers, or all pollers.         |
+| Limit latency (sec)             | Text field         | Specify latency threshold. Hosts / services exceeding the threshold are listed.        |
+| Limit exceution time (sec)      | Text field         | Specify execution time threshold. Hosts / services exceeding the threshold are listed. |
 
 #### Prerequisites
 
@@ -2778,13 +2240,7 @@ time period.
 -   Green = a value is available
 -   Red = no value is available
 
-::: {.warning}
-::: {.title}
-Warning
-:::
-
-This report does not describe data quality, only data availability.
-:::
+> This report does not describe data quality, only data availability.
 
 ![image](../assets/reporting/guide/available-reports/Content-diagnostic_png.png)
 
@@ -2792,24 +2248,15 @@ This report does not describe data quality, only data availability.
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+-   The reporting period
+-   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | Multi select  | Select host group.                     |
-| > group     |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Service     | Multi select  | Select service category.               |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host category.                  |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Metrics     | Multi select  | Specify metrics for filtering.         |
-+-------------+---------------+----------------------------------------+
+|  Parameter         |   Parameter type   |   Description                  |
+| ------------------ | ------------------ | ------------------------------ |
+| Host group         | Multi select       | Select host group.             |
+| Service Categories | Multi select       | Select service category.       |
+| Host Categories    | Multi select       | Select host category.          |
+| Metrics            | Multi select       | Specify metrics for filtering. |
 
 
 ### Content-diagnostic-availability
@@ -2827,18 +2274,13 @@ period and organized by group and category.
 
 Parameters required for the report:
 
-> -   The reporting period
-> -   The following Centreon objects:
+-   The reporting period
+-   The following Centreon objects:
 
-  ------------------------------------------------------------------------
-  **Parameter**   **Parameter     **Description**
-                  type**          
-  --------------- --------------- ----------------------------------------
-  Host group \|   Drop-down list  Select host group.
-
-  Hosts           Multi select    Select host categories.
-  Categories                      
-  ------------------------------------------------------------------------
+Parameter           | Parameter type  |     Description  
+--------------------|-----------------|----------------------------------------
+Host group          | Drop-down list  | Select host group.
+Hosts Categories    | Multi select    | Select host categories.
 
 ### Content-diagnostic-service-availability
 
@@ -2859,15 +2301,11 @@ Parameters required for the report:
 -   The following Centreon objects:
 
 
-  ---------------------------------------------------------------------
-  **Parameter**        **Parameter type**   
-  -------------------- -------------------- ---------------------------
-  Host group           Drop-down list       Select host group.
-
-  Host categories      Multi select         Select host categories.
-
-  Service categories   Mutli select         Select service categories.
-
+Parameter           | Parameter type  |     Description  
+--------------------|-----------------|----------------------------------------
+Host group          | Drop-down list  | Select host group.
+Hosts Categories    | Multi select    | Select host categories.
+Service Categories  | Multi select    | Select service categories.
 
 ### Content-diagnostic-performance
 
@@ -2886,22 +2324,12 @@ Parameters required for the report:
 > -   The reporting period
 > -   The following Centreon objects:
 
-+-------------+---------------+----------------------------------------+
-| **          | **Parameter   | **Description**                        |
-| Parameter** | type**        |                                        |
-+=============+===============+========================================+
-| > Host      | > Multi       | Select host groups for filter.         |
-| > groups    | > select      |                                        |
-+-------------+---------------+----------------------------------------+
-| Host        | Multi select  | Select host categories for filter.     |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Services    | Multi select  | Select service categories for filter.  |
-| Categories  |               |                                        |
-+-------------+---------------+----------------------------------------+
-| Metrics     | Multi select  | Specify metric to **include** in       |
-|             |               | report.                                |
-+-------------+---------------+----------------------------------------+
+    Parameter       | Parameter type  |     Description  
+  ------------------|-----------------|----------------------------------------
+  Host group        | Drop-down list  | Select host group.
+  Hosts Categories  | Multi select    | Select host categories.
+  Service Categories| Multi select    | Select service categories.
+  Metrics           | Multi select    | Select metrics to include
 
 ### Metric-integrity-check
 
@@ -2927,12 +2355,11 @@ Parameters required for the report:
 -   The reporting period
 -   The following Centreon objects:
 
-  -----------------------------------------------------------------
-  **Parameter**    **Parameter type**   **Description**
-  ---------------- -------------------- ---------------------------
-  Service Categories          Multi select         Select service categories.          
-  Metrics          Multi select         Specify metrics name.
 
+Parameter           | Parameter type  |     Description  
+--------------------|-----------------|----------------------------------------
+Service Categories  | Multi select    | Select service categories.
+Metrics             | Multi select    | Select metrics to include
 
 ## Report translation
 
