@@ -60,7 +60,11 @@ function PrerequisiteBlock() {
         </div>
         <div className="containerContentPrerequisite">
         <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
-        <p><translate>contentPrerequisiteBlock</translate></p>
+        <p>
+          <translate>contentPrerequisiteBlock1stPart</translate>&nbsp;
+          <a href="/docs/en/installation/prerequisites.html"><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
+          <translate>contentPrerequisiteBlock2ndPart</translate>
+        </p>
         </div>
       </div>
     )
@@ -74,7 +78,12 @@ function InstallationBlock() {
         </div>
         <div className="containerContentInstallation">
         <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
-        <p><translate>contentInstallationBlock</translate></p>
+        <p>
+          <translate>contentInstallationBlock1stPart</translate>&nbsp;
+          <a href="/docs/en/installation/introduction.html"><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+          <translate>contentInstallationBlock2ndPart</translate>&nbsp;
+
+        </p>
         </div>
       </div>
     )
@@ -88,7 +97,11 @@ function MonitoringBlock() {
         </div>
         <div className="containerContentMonitoring">
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
-        <p><translate>contentMonitoringBlock</translate></p>
+        <p>
+          <translate>contentMonitoringBlock1stPart</translate>&nbsp;
+          <a href="/docs/en/integrations/plugin-packs/introduction.html"><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
+          <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
+        </p>
         </div>
       </div>
     )
