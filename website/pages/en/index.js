@@ -12,7 +12,7 @@ const Container = CompLibrary.Container;
 
 const translate = require('../../server/translate.js').translate;
 
-const basePathImg = './img/homepage/';
+const basePathImg = '../img/homepage/';
 
 const Button = props => {
   return (
@@ -125,7 +125,7 @@ function HeartOpenSourceBlock(){
           <h2 className="titleSectionOpenSource"><translate>titleHeartOpenSourceBlock</translate></h2>
           <p className="textOpenSource"><translate>contentHeartOpenSourceBlock</translate></p>
         </div>
-        <div className="cardBarOpenSource">      
+        <div className="cardBarOpenSource">
           <Card imageSrc={'icon-openSource.svg'} btnLabel={<translate>btnOpenSource</translate>} btnLink={<translate>btnLinkOpenSource</translate>} />
         </div>
       </div>
