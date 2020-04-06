@@ -4,11 +4,13 @@
 window.addEventListener('load', function() {
   const versions = ['20.04', '19.10', '19.04', '18.10', '3.4'];
 
-  const elements = document.getElementsByClassName('nav-site nav-site-internal');
-  const versionsLi = document.createElement('li');
+  // Add the version selector before the search bar
+  const container = document.getElementsByClassName('nav-site nav-site-internal')[0];
+  const numberOfLi = document.querySelectorAll('.nav-site-internal > li').length;
 
-  elements[0].insertBefore(versionsLi, document.getElementsByClassName('siteNavItemActive')[2]);
-  
+  const versionsLi = document.createElement('li');
+  container.insertBefore(versionsLi, container.children[numberOfLi]);
+
   const currentUrl = window.location.href;
   const matches = currentUrl.match(/.+\/(\d+\.\d+)\/.+/);
 

@@ -39,8 +39,9 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "tutorials/first-steps", label: "Docs" },
+    { doc: "tutorials/first-steps", label: "Read the doc" },
     { href: "https://api-documentation.centreon.com", label: "API References", external: true },
+    { languages: true },
     { search: true },
   ],
   // Algolia search field

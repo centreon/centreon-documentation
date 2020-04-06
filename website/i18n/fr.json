@@ -1654,8 +1654,8 @@
       }
     },
     "links": {
-      "Docs": "Docs",
-      "API": "API"
+      "Read the doc": "Lire la doc",
+      "API References": "Références API"
     },
     "categories": {
       "Getting Started": "Getting Started",
