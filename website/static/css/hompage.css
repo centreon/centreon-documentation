@@ -14,7 +14,6 @@
 .homepageCustom.bgLightPurple {
   background: rgba(94, 83, 199, 14%);
   color: rgba(94, 83, 199, 1);
-
 }
 
 .homepageCustom h1 {
@@ -66,7 +65,9 @@
   width: 200px;
   height: 160px;
   margin: 44px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .homepageCustom .containerBlock .cardBar .cardContent .imageContainer {
@@ -75,9 +76,6 @@
   height: 120px;
 }
 
-.homepageCustom .containerBlock .cardBar .cardContent .imageContainer img {
-  margin-left: 1.8em;
-}
 
 .homepageCustom .containerBlock .cardBar .cardContent .buttonLink {
   background-color: rgb(0, 114, 206);
@@ -89,7 +87,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .homepageCustom .containerBlockPrerequisite {
@@ -97,7 +95,6 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 .homepageCustom .imageSectionPrerequisite {
@@ -118,7 +115,6 @@
   flex-direction: row-reverse;
   justify-content: center;
   flex-wrap: wrap;
-
 }
 
 .homepageCustom .imageSectionInstallation {
@@ -141,7 +137,6 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 .homepageCustom .imageSectionMonitoring {
@@ -204,7 +199,6 @@
   color: #5E53C7;
   border-radius: 5px;
   margin-top: 10px;
-  
 }
 
 .homepageCustom .textOpenSource {
