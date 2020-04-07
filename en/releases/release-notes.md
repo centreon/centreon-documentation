@@ -17,6 +17,27 @@ changes integrated into each releases of Centreon components and extensions.
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
+## Centreon Core (Open source)
+
+### Centreon Web 
+
+### Centreon Engine 
+
+### Centreon Engine 
+
+## Centreon Open source extensions 
+
+### Centreon Open Ticket
+
+### Centreon DSM
+
+## Centreon Commercial Extensions
+
+### Centreon MAP 
+
+### Centreon BAM 
+
+### Centreon MBI
 
 ## Centreon Core (Open source)
 
