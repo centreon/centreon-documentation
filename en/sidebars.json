@@ -126,7 +126,7 @@
             "service-mapping/introduction",
             "service-mapping/getting-started",
             {
-                "ids":[
+                "ids": [
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
@@ -137,9 +137,11 @@
                 "type": "subcategory"
             },
             {
-                "ids":[
+                "ids": [
                     "service-mapping/install",
                     "service-mapping/update",
+                    "service-mapping/upgrade",
+                    "service-mapping/migrate",
                     "service-mapping/remote-server"
                 ],
                 "label": "Administrate",
@@ -162,7 +164,9 @@
             {
                 "ids": [
                     "graph-views/install",
+                    "graph-views/update",
                     "graph-views/upgrade",
+                    "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
                     "graph-views/procedures",
@@ -174,7 +178,30 @@
             "graph-views/release-notes"
         ],
         "Reporting": [
-            "analytics/init-analytics"
+            "reporting/introduction",
+            {
+                "ids": [
+                    "reporting/manage-reports",
+                    "reporting/reports",
+                    "reporting/widgets",
+                    "reporting/configure",
+                    "reporting/concepts",
+                    "reporting/report-development"
+                ],
+                "label": "Guide",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "reporting/installation",
+                    "reporting/update",
+                    "reporting/upgrade",
+                    "reporting/migrate",
+                    "reporting/backup-restore"
+                ],
+                "label": "Administrate",
+                "type": "subcategory"
+            }
         ],
         "Administration": [
             "administration/accessing-to-centreon-ui",
