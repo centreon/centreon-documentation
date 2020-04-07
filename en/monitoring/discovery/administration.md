@@ -18,11 +18,11 @@ Connect to the Centreon’s web interface using an account allowed to administer
 
 Click on the update icon corresponding to the **Centreon Auto Discovery** module:
 
-![image](assets/configuration/autodisco/update.png)
+![image](../../assets/configuration/autodisco/update.png)
 
 The module is now updated:
 
-![image](assets/configuration/autodisco/list_modules.png)
+![image](../../assets/configuration/autodisco/list_modules.png)
 
 ## Uninstallation
 
@@ -31,15 +31,15 @@ Connect to the Centreon’s web interface using an account allowed to administer
 
 Click on the delete icon corresponding to the **Centreon Auto Discovery** module:
 
-![image](assets/configuration/autodisco/list_modules.png)
+![image](../../assets/configuration/autodisco/list_modules.png)
 
 A confirmation popup will appear, confirm the action:
 
-![image](assets/configuration/autodisco/uninstall.png)
+![image](../../assets/configuration/autodisco/uninstall.png)
 
 The module is now uninstalled:
 
-![image](assets/configuration/autodisco/install.png)
+![image](../../assets/configuration/autodisco/install.png)
 
 > Uninstalling the module will also remove all the associated data. Data won't be restorable unless a database backup
 > has been made.

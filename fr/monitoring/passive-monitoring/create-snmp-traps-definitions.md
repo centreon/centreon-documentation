@@ -9,7 +9,7 @@ Au sein de Centreon, les OIDs racines des traps SNMP sont classés par construct
 
 Rendez-vous dans le menu **Configuration > SNMP traps > Manufacturer** et cliquez sur **Add**
 
-![image](assets/configuration/06constructors.png)
+![image](../../assets/configuration/06constructors.png)
 
 * Les champ **Name** et **Alias** définissent le nom et l’alias du constructeur
 * Le champ **Description** fournit une indication sur le constructeur
@@ -18,7 +18,7 @@ Rendez-vous dans le menu **Configuration > SNMP traps > Manufacturer** et clique
 
 Rendez-vous dans le menu**Configuration > SNMP traps > MIBs**
 
-![image](assets/configuration/06importmibssuccess.png)
+![image](../../assets/configuration/06importmibssuccess.png)
 
 * La liste **Manufacturer** permet de choisir le constructeur auquel appartient la MIB que vous importez
 * Le champ **File (.mib)** permet de charger la MIB
@@ -29,7 +29,7 @@ dépendances de votre MIB, vous devez ouvrir votre fichier MIB à l'aide d'un é
 1. Recherchez la ligne commençant par IMPORT
 2. Toutes les dépendances requises pour importer votre fichier MIB se trouvent après le mot clé **FROM**
 
-![image](assets/configuration/kdependances.png)
+![image](../../assets/configuration/kdependances.png)
 
 Dans le fichier MIB illustré ci-dessus, quatre dépendances sont requises pour importer la MIB : SNMPv2-SMI, SNMPv2-TC,
 SNMPv2-CONF, SNMP-FRAMEWORK-MIB.
@@ -45,7 +45,7 @@ Il est également possible de créer manuellement des définitions de trap SNMP 
 
 Rendez-vous dans le menu **Configuration > SNMP traps > SNMP traps** et cliquez sur **Add**
 
-![image](assets/configuration/06addsnmptrap.png)
+![image](../../assets/configuration/06addsnmptrap.png)
 
 * Le champ **Trap name** éfinit le nom du trap.
 * Le champ **Mode** éfinit comment le champ **OID** est interpreté lors de la réception de ce trap.
@@ -99,7 +99,7 @@ de créer autant de règles que nécessaire. Pour chaque règle, définir les pa
 L’onglet **Advanced** permet de configurer le comportement d’exécution du processus de traitement des traps SNMP lors
 de la réception de ce dernier.
 
-![image](assets/configuration/06advancedconfiguration.png)
+![image](../../assets/configuration/06advancedconfiguration.png)
 
 * **Enable routing** permet d’activer le routage des informations.
 * **Route definition** permet de définir la commande à utiliser pour le routage.

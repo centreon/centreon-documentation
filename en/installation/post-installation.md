@@ -9,7 +9,7 @@ Log in to Centreon web interface via the URL <http://\<IP\>/centreon>.
 
 The Centreon setup wizard is displayed. Click on **Next**.
 
-![image](assets/installation/acentreonwelcome.png)
+![image](../assets/installation/acentreonwelcome.png)
 
 Needed modules and prerequisites are checked.
 
@@ -18,25 +18,25 @@ have been made.
 
 Then click on **Next**.
 
-![image](assets/installation/acentreoncheckmodules.png)
+![image](../assets/installation/acentreoncheckmodules.png)
 
 Define pathes used by monitoring engine. We recommand to use defaults.
 
 Then click on **Next**.
 
-![image](assets/installation/amonitoringengine2.png)
+![image](../assets/installation/amonitoringengine2.png)
 
 Define pathes used by broker module. We recommand to use defaults.
 
 Then click on **Next**.
 
-![image](assets/installation/abrokerinfo2.png)
+![image](../assets/installation/abrokerinfo2.png)
 
 Define informations for the admin account creation.
 
 Then click on **Next**.
 
-![image](assets/installation/aadmininfo.png)
+![image](../assets/installation/aadmininfo.png)
 
 Provide informations to connect to the database instance.
 
@@ -54,23 +54,23 @@ to use default values.
 
 Then click on **Next**.
 
-![image](assets/installation/adbinfo.png)
+![image](../assets/installation/adbinfo.png)
 
 The Centreon setup wizard creates configuration files and databases structure.
 
 When done, click on **Next**.
 
-![image](assets/installation/adbconf.png)
+![image](../assets/installation/adbconf.png)
 
 Select the available modules and widgets to be installed.
 
 Then click on **Install**.
 
-![image](assets/installation/module_installationa.png)
+![image](../assets/installation/module_installationa.png)
 
 Once the installation is complete, click on **Next**.
 
-![image](assets/installation/module_installationb.png)
+![image](../assets/installation/module_installationb.png)
 
 At this point, an advertisement informs you of the latest Centreon news and
 roducts.
@@ -81,13 +81,13 @@ will be up to date.
 If you are not online, only information on the current version will be
 displayed.
 
-![image](assets/installation/aendinstall.png)
+![image](../assets/installation/aendinstall.png)
 
 The installation is complete. Click on **Finish**.
 
 You can now log in.
 
-![image](assets/installation/aconnection.png)
+![image](../assets/installation/aconnection.png)
 
 ## Initialization of the monitoring
 
@@ -131,7 +131,7 @@ systemctl enable cbd centengine gorgoned centreontrapd centreon
 Go to **Administration \> Extensions \> Manager** menu and click on
 **Install all**:
 
-![image](assets/installation/install_imp_2.png)
+![image](../assets/installation/install_imp_2.png)
 
 ## Getting started
 

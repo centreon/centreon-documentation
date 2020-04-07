@@ -11,11 +11,11 @@ Rendez-vous dans le menu **Configuration > Services > Services by host** et cliq
 * Sélectionnez l'hôte auquel attacher ce service
 * Sélectionnez le modèle de service **generic-passive-service-custom**
 
-![image](assets/configuration/06createpassiveservice.png)
+![image](../../assets/configuration/06createpassiveservice.png)
 
 * Rendez-vous dans l'onglet **Relation** et sélectionnez les traps SNMP
 
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 * Cliquez sur **Save**
 
@@ -42,7 +42,7 @@ informations (valeur des arguments) contenu au sein du trap SNMP. Cependant, il 
 certaines informations contenues au sein du trap SNMP en appelant unitairement les arguments.
 
 Exemple :
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 Le message de sortie **Link down on interface $2. State: $4.**” permet d’afficher uniquement le nom de l’interface et
 l’état de celle-ci (argument $2 et $4).
@@ -53,7 +53,7 @@ Les arguments se trouvent au sein de la documentation de la MIB de votre constru
 **Comments** de votre trap SNMP.
 
 Par exemple :
-![image](assets/configuration/klinkcomment.png)
+![image](../../assets/configuration/klinkcomment.png)
 
 Pour afficher :
 
@@ -98,7 +98,7 @@ externes et de récupérer le résultat pour l’insérer au sein du message. Po
 trap SNMP, rendez-vous dans l’onglet **Advanced** et ajoutez une (ou plusieurs) commande(s) PREEXEC.
 
 Exemple :
-![image](assets/configuration/kpreexec.png)
+![image](../../assets/configuration/kpreexec.png)
 
 La première commande est **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** et permet de récupérer l’alias de
 l’interface. La variable “$1” correspond ici à la valeur associée à l’argument 1 des traps linkUp/linkDown, soit l’index.

@@ -67,7 +67,7 @@ du module Centreon MAP ou pour classer les objets au sein de sous-groupes dans l
 
 Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07hostgroup.png)
+![image](../assets/configuration/07hostgroup.png)
 
 * Les champs **Host Group Name** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
 * La liste **Linked Hosts** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
@@ -86,7 +86,7 @@ Rendez-vous dans le menu **Configuration > Hosts > Host Groups** et cliquez sur 
 
 Rendez-vous dans le menu **Configuration > Services > Service Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07servicegroup.png)
+![image](../assets/configuration/07servicegroup.png)
 
 * Les champ **Service Group Name** et **Description** regroupent le nom et la description du groupe de services.
 * La liste **Linked Host Services** permet de choisir les différents services qui feront partie de ce groupe.
@@ -101,7 +101,7 @@ Rendez-vous dans le menu **Configuration > Services > Service Groups** et clique
 
 Rendez-vous dans le menu **Configuration > Users > Contact Groups** et cliquez sur **Add**
 
-![image](assets/configuration/07contactgroup.png)
+![image](../assets/configuration/07contactgroup.png)
 
 * Les champs **Contact Group Name** et **Alias** éfinissent le nom et la description du groupe de contacts.
 * La liste **Linked Contacts** permet d’ajouter les contacts au groupe de contacts.
@@ -112,7 +112,7 @@ Rendez-vous dans le menu **Configuration > Users > Contact Groups** et cliquez s
 
 Rendez-vous dans le menu **Configuration > Hosts > Categories** et cliquez sur **Add**
 
-![image](assets/configuration/08hostcategory.png)
+![image](../assets/configuration/08hostcategory.png)
 
 * Les champs **Host Category Name** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
 * La liste **Linked hosts** permet d’ajouter des hôtes à la catégorie.
@@ -126,7 +126,7 @@ Rendez-vous dans le menu **Configuration > Hosts > Categories** et cliquez sur *
 
 Rendez-vous dans le menu **Configuration > Services > Categories** et cliquez sur **Add**
 
-![image](assets/configuration/08servicecategory.png)
+![image](../assets/configuration/08servicecategory.png)
 
 * Les champs **Name** et **Description** définissent le nom et la description de la catégorie de service.
 * Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle

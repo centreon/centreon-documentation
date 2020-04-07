@@ -18,20 +18,20 @@ Rendez-vous dans le menu **Configuration > Hosts > Discovery** et cliquez sur **
 
 Sélectionnez la règle de découverte, et cliquez sur **Next** :
 
-![image](assets/configuration/autodisco/manual_host_scan_select_rule.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_select_rule.png)
 
 Saisissez un nom pour la sauvegarde des paramètres afin de les [réutiliser](#relancer-une-tâche-de-découverte) par la
 suite :
 
-![image](assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
 
 Saisissez les paramètres d’accès à l’API distante, puis cliquez sur **Next** :
 
-![image](assets/configuration/autodisco/manual_host_scan_define_credential_2.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_2.png)
 
 Une tâche de découverte a été créée, vous revenez à la liste des tâches de découverte :
 
-![image](assets/configuration/autodisco/manual_host_scan_list_tasks.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks.png)
 
 Patientez le temps de la récupération des données.
 
@@ -40,11 +40,11 @@ Patientez le temps de la récupération des données.
 REndez-vous dans le menu **Configuration > Hosts > Discovery** , vous accédez à la liste des tâches de découverte
 exécutées :
 
-![image](assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
 
 La légende est la suivante :
 
-![image](assets/configuration/autodisco/legend_task_status.png)
+![image](../../assets/configuration/autodisco/legend_task_status.png)
 
 * Tâche non exécutée
 * Tâche échouée
@@ -52,7 +52,7 @@ La légende est la suivante :
 
 Cliquez sur le nom de la tâche terminée et que vous souhaitez analyser, la liste des objets découverts est affichée :
 
-![image](assets/configuration/autodisco/items_list.png)
+![image](../../assets/configuration/autodisco/items_list.png)
 
 Les actions disponibles sont :
 
@@ -63,7 +63,7 @@ Les actions disponibles sont :
 * Revenir à la liste des résultats de découverte
 * Une fois les ressources sélectionnées, il est possible de :
 
-![image](assets/configuration/autodisco/save.png)
+![image](../../assets/configuration/autodisco/save.png)
 
 * **Save** : enregistrer les ressources dans la configuration de la supervision.
 * **Save & monitor** : enregistrer les ressources dans la configuration de la supervision et démarrer la supervision
@@ -74,22 +74,22 @@ Vous revenez ensuite à la liste des résultats de découverte.
 Suivant votre choix, rendez vous dans le menu **Configuration > Hosts > Hosts** or **Monitoring > Status Details >
 Services**  pour visualiser le résultat :
 
-![image](assets/configuration/autodisco/host_conf_listing.png)
+![image](../../assets/configuration/autodisco/host_conf_listing.png)
 
 ## Relancer une tâche de découverte
 
 Lors de la création de la première tâche de découverte, les paramètres ont été sauvegardé. Ainsi il est possible de
 sélectionner ces derniers pour créer une nouvelle tâche de découverte :
 
-![image](assets/configuration/autodisco/reload_task.png)
+![image](../../assets/configuration/autodisco/reload_task.png)
 
 ## FAQ
 
 Si aucun Plugin Packs contenant des règles de découverte n’a été installé, un message d’erreur vous invite à réaliser
 cette opération :
 
-![image](assets/configuration/autodisco/manual_host_scan_error_pp.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_error_pp.png)
 
 Lors de l’échec d’exécution d’une tâche, placez votre curseur sur l’icône d’échec pour en connaître la raison :
 
-![image](assets/configuration/autodisco/manual_host_scan_error_missing_plugin.png)
+![image](../../assets/configuration/autodisco/manual_host_scan_error_missing_plugin.png)

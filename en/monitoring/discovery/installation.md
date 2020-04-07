@@ -19,7 +19,7 @@ night at 10:30 PM) by the *cron* jon. See *[Scheduled job](administration.html#S
 
 The following figure describes the general functioning of this module:
 
-![image](assets/configuration/autodisco/centreon_auto_disco_schema.png)
+![image](../../assets/configuration/autodisco/centreon_auto_disco_schema.png)
 
 ## Installing packages
 
@@ -41,11 +41,11 @@ Connect to the Centreon's web interface using an account allowed to administer p
 
 Click on the installation icon corresponding to the **Centreon Auto Discovery** module:
 
-![image](assets/configuration/autodisco/install.png)
+![image](../../assets/configuration/autodisco/install.png)
 
 The module is now installed:
 
-![image](assets/configuration/autodisco/list_modules.png)
+![image](../../assets/configuration/autodisco/list_modules.png)
 
 ## Installing the Plugin Packs
 
