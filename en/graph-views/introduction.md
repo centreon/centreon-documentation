@@ -3,6 +3,8 @@ id: introduction
 title: Introduction
 ---
 
+The graphical view capabilities in Centreon relies on the **Centreon MAP** extension.
+
 > Centreon MAP is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](sales@centreon.com).

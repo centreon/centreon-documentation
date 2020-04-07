@@ -10,7 +10,7 @@ itop REST API. The data is refreshed dynamically depending on your choices.
 Since it gathers a lot of configurations objects from Itop, it puts them in
 cache. Loging out or waiting 10 hours will flush the cache.
 
-![architecture](assets/integrations/open-tickets/ot-itop-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-itop-architecture.png)
 
 ## Compatibility
 

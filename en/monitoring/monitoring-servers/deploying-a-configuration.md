@@ -13,7 +13,7 @@ below.
 1.  Go to the **Configuration \> Pollers** menu
 2.  Choose the pollers which you want to export configuration
 
-![image](assets/monitoring/monitoring-servers/monitoring-servers-list.png)
+![image](../../assets/monitoring/monitoring-servers/monitoring-servers-list.png)
 
 3.  Click on **Export configuration**
 4.  Check the boxes: **Generate Configuration Files**, **Run monitoring
@@ -21,7 +21,7 @@ below.
     Engine**
 5.  Click on **Export**
 
-![image](assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
+![image](../../assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
 
 > The **Post generation command** option can be used to request the
 > execution of the command post-generation set at the configuration of

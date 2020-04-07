@@ -13,7 +13,7 @@ You can create geographic views using the web interface, to do so:
 3.  After configuring these parameters, resources will appear on this geographic
     view
 
-![image](assets/graph-views/geo_view_creation.gif)
+![image](../assets/graph-views/geo_view_creation.gif)
 
 The following resources can be displayed on a GeoView:
 
@@ -26,7 +26,7 @@ for host, hostgroups or business activity.
 
 Example with a host:
 
-![image](assets/graph-views/host_geocoord.png)
+![image](../assets/graph-views/host_geocoord.png)
 
 ## How resources are displayed
 
@@ -50,7 +50,7 @@ level, then they're grouped into one single circle displaying two things:
     and gray)
   - Number of resources in this state
 
-![image](assets/graph-views/geo_marker_clustering_infos.png)
+![image](../assets/graph-views/geo_marker_clustering_infos.png)
 
 *This behavior can be disabled in the global Centreon Map parameters*
 
@@ -72,4 +72,4 @@ the top left icon.
 
 **Examples**
 
-![image](assets/graph-views/geoview_datalayers.gif)
+![image](../assets/graph-views/geoview_datalayers.gif)

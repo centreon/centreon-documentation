@@ -9,7 +9,7 @@ The IWS Isilog provider uses the SOAP API of Isilog to retrieve data in order to
 open a ticket. Since it gathers a lot of configurations objects from Isilog, it
 puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
-![architecture](assets/integrations/open-tickets/ot-iws-isilog-architecture.png)
+![architecture](../../assets/integrations/open-tickets/ot-iws-isilog-architecture.png)
 
 ## Compatibility
 

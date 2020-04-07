@@ -68,7 +68,7 @@ systemctl restart mariadb
 The data retention time is programmed in the **Administration \> Parameters \>
 Options** menu:
 
-![image](assets/administration/partitioning-configuration.png)
+![image](../assets/administration/partitioning-configuration.png)
 
 The setting is as follows:
 
@@ -155,9 +155,9 @@ It is also possible to view the partitioned tables and the consumption
 associated with each partition via the **Administration \> Platform Status \>
 Databases** menu:
 
-![image](assets/administration/partitioning-state.png)
+![image](../assets/administration/partitioning-state.png)
 
 More general information on the state of health of the databases is also
 present:
 
-![image](assets/administration/database-information.png)
+![image](../assets/administration/database-information.png)

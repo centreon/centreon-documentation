@@ -41,7 +41,6 @@ const siteConfig = {
   headerLinks: [
     { doc: "tutorials/first-steps", label: "Read the doc" },
     { href: "https://api-documentation.centreon.com", label: "API References", external: true },
-    { languages: true },
     { search: true },
   ],
   // Algolia search field
@@ -91,6 +90,7 @@ const siteConfig = {
     '/@BASEURL@/js/buttons.js',
     '/@BASEURL@/js/clipboard.min.js',
     '/@BASEURL@/js/code-block-button.js',
+    '/@BASEURL@/js/languages-select.js',
     '/@BASEURL@/js/versions-select.js'
   ],
 
