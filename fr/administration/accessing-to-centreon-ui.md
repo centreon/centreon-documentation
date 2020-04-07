@@ -15,11 +15,8 @@ modifier le champ **Centreon Web Directory**
 
 ![image](assets/administration/custom-uri.png)
 
-2. Sur le serveur Centreon :
-
-- Remplacez les occurences **/centreon** par **/votre\_uri\_personnalise**
-dans **centreon/www/.htaccess**
-- Naviguez vers l'URL Centreon
+2. Modifiez le fichier de configuration Apache pour Centreon Web :
+**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
 ## Accès en mode HTTPS
 
@@ -46,6 +43,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 4. Editez la configuration comme suivant :
 
 ```text
+Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(.*\.php(/.*)?)$>
@@ -69,30 +67,36 @@ ProxyTimeout 300
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
     <Directory "/usr/share/centreon/www">
-    DirectoryIndex index.php
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
-    </IfModule>
+        DirectoryIndex index.php
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-    AddType text/plain hbs
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.html [L]
+        ErrorDocument 404 /centreon/index.html
+
+        AddType text/plain hbs
     </Directory>
 
     <Directory "/usr/share/centreon/api">
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
-    </IfModule>
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-    AddType text/plain hbs
+        AddType text/plain hbs
     </Directory>
 </VirtualHost>
 
