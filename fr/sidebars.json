@@ -185,6 +185,7 @@
                 "ids": [
                     "reporting/manage-reports",
                     "reporting/reports",
+                    "reporting/available-reports",
                     "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
