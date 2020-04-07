@@ -510,7 +510,7 @@ Centreon MBI intègre un ETL qui permet de :
 -   Contrôler la rétention des données sur le serveur de reporting
 
 Avant de passer aux étapes suivantes, il est nécessaire de lire le
-chapitre `centreon_best_practices`{.interpreted-text role="ref"} #TODO afin de
+chapitre des [bonnes pratiques](#TODO) afin de
 vous assurer que la configuration des objets dans Centreon (groupes,
 categories...) est conforme aux attentes de Centreon MBI.
 
@@ -648,4 +648,4 @@ Redémarrez le service cron sur le serveur de reporting : :
 > *eventReportBuilder* est terminé sur le serveur de monitoring (vérifiez
 > les heures dans le cron `/etc/cron.d/centreon`).
 
-La configuration de votre installation de Centreon MBI est terminée, consultez le tutorial #TODO
+La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](#TODO)

@@ -7,7 +7,7 @@ We have included a set of generic reports that you can reconfigure for
 your environment based on Centreon concepts (e.g., business activities, host groups and
 categories, service categories, metrics). 
 
-> You can have a look to our [report book](#TODO) to find the report you need before consulting this report guide.
+> You can have a look to our [Reports book](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf) to find the report you need before consulting this report guide.
 
 
 Most of these reports have been designed to be perfectly rendered in

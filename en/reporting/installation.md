@@ -119,7 +119,7 @@ Monitored services       |    CPU                 |         RAM
  > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum     
  > 100 000               | > Contact Centr        | eon              
 
-**Storage space**: Use the following storage estimation file  #TODO
+**Storage space**: Use the following [storage estimation file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
 **File system**
   
@@ -627,5 +627,5 @@ Restart the service cron::
 > *eventReportBuilder* has finished on the monitoring server (see the cron
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
-Centreon MBI installation is now complete, check the tutorial #TODO 
+Centreon MBI installation is now complete, check [the tutorial](#TODO)
 

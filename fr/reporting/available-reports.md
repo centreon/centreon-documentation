@@ -19,16 +19,16 @@ objets Centreon.
 
 Vous trouverez les rapports par type de données adressées:
 
-- [Activité Métier (BAM)](#business-activity-monitoring)
-- [Disponibilité et évènements](#availability--events)
+- [Activité Métier (BAM)](#activité-métier-bam)
+- [Disponibilité et évènements](#disponibilité-et-événements)
 - [Performance](#performance)
-- [Stockage](#storage)
-- [Réseau](#network)
-- [Virtualisation](#virtualization)
-- [Consommation éléctrique](#electric-consumption)
+- [Stockage](#stockage)
+- [Réseau](#réseau)
+- [Virtualisation](#virtualisation)
+- [Consommation éléctrique](#consommation-électrique)
 - [Profiling](#profiling)
-- [Inventaire & configuration](#inventory--configuration)
-- [Diagnostic de la base de données Centreon/Reporting](#centreon-database-diagnostics)
+- [Inventaire & configuration](#inventaire-et-configuration)
+- [Diagnostic de la base de données Centreon/Reporting](#diagnostic-de-base-de-données-centreonreporting)
 
 
 ## Activité Métier (BAM)
@@ -878,7 +878,7 @@ Les paramètres attendus dans ce rapport :
 | display–downtimes       | Radio bouton    | Permet d'afficher ou de filtrer les services dans un temps d'arrêt |
 | display only_critical   | Radio bouton    | Permet d'afficher uniquement les services dans un état critique    |
 
-## Performance**
+## Performance
 
 ### Host-Graphs-V2
 
@@ -1552,7 +1552,7 @@ Les paramètres attendus dans ce rapport :
 > des valeurs en **bits/secondes**.
 
 
-## Virtualisation*
+## Virtualisation
 
 ### VMWare-Cluster-Performances-1 
 
@@ -2293,7 +2293,7 @@ Ce rapport n'a besoin d'aucun paramètre.
 Aucun prérequis n'est necessaire.
 
 
-## Diagnostic de base de données Centreon/Reporting**
+## Diagnostic de base de données Centreon/Reporting
 
 ### Content-diagnostic 
 
