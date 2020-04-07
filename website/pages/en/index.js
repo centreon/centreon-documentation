@@ -68,7 +68,7 @@ function ExcellenceBlock() {
     )
 }
 
-function PrerequisiteBlock(lang) {
+function PrerequisiteBlock({ language }) {
     return (
       <div className="containerBlockPrerequisite">
         <div className="imageSectionPrerequisite">
@@ -78,7 +78,7 @@ function PrerequisiteBlock(lang) {
         <h2 className="titleSection"><translate>titlePrerequisiteBlock</translate></h2>
         <p>
           <translate>contentPrerequisiteBlock1stPart</translate>&nbsp;
-          <a href={createUrl(uriBlocks.prerequisite, lang.language)}><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.prerequisite, language)}><translate>contentPrerequisiteBlockLinkPart</translate></a>&nbsp;
           <translate>contentPrerequisiteBlock2ndPart</translate>
         </p>
         </div>
@@ -86,7 +86,7 @@ function PrerequisiteBlock(lang) {
     )
 }
 
-function InstallationBlock(lang) {
+function InstallationBlock({ language }) {
     return (
       <div className="containerBlockInstallation">
         <div className="imageSectionInstallation">
@@ -96,7 +96,7 @@ function InstallationBlock(lang) {
         <h2 className="titleSection"><translate>titleInstallationBlock</translate></h2>
         <p>
           <translate>contentInstallationBlock1stPart</translate>&nbsp;
-          <a href={createUrl(uriBlocks.installation, lang.language)}><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.installation, language)}><translate>contentInstallationBlockLinkPart</translate></a>&nbsp;
           <translate>contentInstallationBlock2ndPart</translate>&nbsp;
 
         </p>
@@ -105,7 +105,7 @@ function InstallationBlock(lang) {
     )
 }
 
-function MonitoringBlock(lang) {
+function MonitoringBlock({ language }) {
     return (
       <div className="containerBlockMonitoring">
         <div className="imageSectionMonitoring">
@@ -115,7 +115,7 @@ function MonitoringBlock(lang) {
         <h2 className="titleSection"><translate>titleMonitoringBlock</translate></h2>
         <p>
           <translate>contentMonitoringBlock1stPart</translate>&nbsp;
-          <a href={createUrl(uriBlocks.monitoring, lang.language)}><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
+          <a href={createUrl(uriBlocks.monitoring, language)}><translate>contentMonitoringBlockLinkPart</translate></a>&nbsp;
           <translate>contentMonitoringBlock2ndPart</translate>&nbsp;
         </p>
         </div>
