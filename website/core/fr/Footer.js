@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ const labels = {
   documentationPart: {
     headerTitle: `Documentation`,
     links: [{
-      title: `Prerequisites`,
+      title: `Pré requis`,
       link: `#`,
     },
     {
@@ -19,7 +19,7 @@ const labels = {
       link: `#`,
     },
     {
-      title: `Getting Started`,
+      title: `Démarrage`,
       link: `#`,
     },
     {
@@ -27,7 +27,7 @@ const labels = {
       link: `#`,
     },
     {
-      title: `Monitoring`,
+      title: `Supervision`,
       link: `#`,
     },
     {
@@ -36,7 +36,7 @@ const labels = {
     }],
   },
   communityPart: {
-    headerTitle: `Community`,
+    headerTitle: `Communauté`,
     links: [{
       title: `GitHub`,
       link: `#`,
@@ -54,35 +54,35 @@ const labels = {
       link: `#`,
     },
     {
-      title: `Open Source Download`,
+      title: `Téléchargement Open Source`,
       link: `#`,
     }],
   },
   helpPart: {
-    headerTitle: `Help me`,
+    headerTitle: `Aidez-moi`,
     links: [{
       title: `FAQ`,
       link: `#`,
     },
     {
-      title: `Best practices`,
+      title: `Bonnes pratiques`,
       link: `#`,
     },
     {
-      title: `Tutorials`,
+      title: `Tutoriels`,
       link: `#`,
     },
     {
-      title: `Contact us`,
+      title: `Contactez-nous`,
       link: `#`,
     },
     {
-      title: `Produits`,
+      title: `Nos produits`,
       link: `#`,
     }],
   },
   socialPart: {
-    headerTitle: `Follow us`,
+    headerTitle: `Suivez-nous`,
   }
 }
 
@@ -155,7 +155,7 @@ function SocialColumn({ config }) {
       {config.twitterUsername && (
         <div className="contentSocial">
           <a
-            href={`https://twitter.com/${config.twitterUsername}`}
+            href={`https://twitter.com/${config.twitterUsername}FR`}
             className="twitter-follow-button">
             Follow @{config.twitterUsername}
           </a>

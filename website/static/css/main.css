@@ -14,24 +14,15 @@ article a:hover {
 
 /* your custom css */
 .nav-footer {
-  background: #23303A!important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 22px;
-  height: 368px;
-  justify-content: space-between;
+  background: #23303A !important;
 }
-
 .nav-footer .sitemap {
-  margin: 0;
-  width: 1000px;
+  margin: 0 auto 2em;
 }
-
-.nav-footer .sitemap .img {
-  height: 250px;
-  width: 200px;
-
+.nav-footer .sitemap .nav-home {
+  width: auto;
+  position: relative;
+  right: 80px;
 }
 
 .languages-icon {
@@ -74,6 +65,10 @@ article a:hover {
 }
 
 @media only screen and (max-width: 735px) {
+  .nav-footer .sitemap .nav-home {
+    right: 0;
+    text-align: center;
+  }
   .selec-vers {
       margin: .95em .5em;
   }
