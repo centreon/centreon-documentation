@@ -8,7 +8,7 @@ Centreon.
 
 Depuis le menu **Administration > Paramètres > Centreon web**.
 
-![image](assets/administration/parameters-centreon-ui.png)
+![image](../../assets/administration/parameters-centreon-ui.png)
 
 - Le champ **Répertoire** désigne le répertoire dans lequel Centreon est
 installé

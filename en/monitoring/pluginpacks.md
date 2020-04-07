@@ -8,7 +8,7 @@ your IT infrastructure. These templates have been preconfigured to make deployme
 
 This chapter explains how to use Centreon Plugin Packs.
 
-![image](assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.png)
 
 ## Prerequisites
 
@@ -97,11 +97,11 @@ If you benefit from an online subscription, you must first authenticate your Cen
 Go to the **Administration \> Extension \> Subscription** menu and log in with your Centreon 
 username to authenticate your Centreon platform.
 
-![image](assets/configuration/pluginpacks/imp_authentification.png)
+![image](../assets/configuration/pluginpacks/imp_authentification.png)
 
 Click on **install** to access the catalog:
 
-![image](assets/configuration/pluginpacks/imp_install.png)
+![image](../assets/configuration/pluginpacks/imp_install.png)
 
 You can now proceed to the pack installation.
 
@@ -125,21 +125,21 @@ yum update centreon-pack-*
 
 You now have access to the Plugin Packs catalog:
 
-![image](assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.png)
 
 To install a Plugin Pack, hover over the icon with the mouse and click on the ``+``
 
-![image](assets/configuration/pluginpacks/install_pp.png)
+![image](../assets/configuration/pluginpacks/install_pp.png)
 
 You can also click on the Plugin Pack to display more details and click on the ``+``
 
-![image](assets/configuration/pluginpacks/install_pp_2.png)
+![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
 Once the Plugin Pack is installed, a green outline and an arrow icon will indicate successful installation.
 
 | **Before installation**                                          | **After installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) |
+| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
 > Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
 > well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
@@ -155,7 +155,7 @@ Most of the time, it is necessary to update your Centreon platform and then rein
 In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
 this one is only available for Centreon in 18.10.x version:
 
-![image](assets/configuration/pluginpacks/objects_not_installed.png)
+![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 #### Plugin installation
 
@@ -175,23 +175,23 @@ Where ``$PLUGIN-PACK$`` is the name displayed by your YUM search.
 
 If an arrow appears on a Plugin Pack it means that an update is available.
 
-![image](assets/configuration/pluginpacks/update.png)
+![image](../assets/configuration/pluginpacks/update.png)
 
 Hover over the Plugin Pack and click on the arrow,
 
-![image](assets/configuration/pluginpacks/update2.png)
+![image](../assets/configuration/pluginpacks/update2.png)
 
 or click on the Plugin Pack to display more details, then click on the arrow. 
 
-![image](assets/configuration/pluginpacks/update3.png)
+![image](../assets/configuration/pluginpacks/update3.png)
 
 Confirm the update.
 
-![image](assets/configuration/pluginpacks/update_confirm.png)
+![image](../assets/configuration/pluginpacks/update_confirm.png)
 
 Your Plugin Pack is up to date.
 
-![image](assets/configuration/pluginpacks/update_finish.png)
+![image](../assets/configuration/pluginpacks/update_finish.png)
 
 #### Plugin updates
 
@@ -216,26 +216,26 @@ Then check that you do not have new errors while executing new plugins.
 As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
 cross:
 
-![image](assets/configuration/pluginpacks/uninstall.png)
+![image](../assets/configuration/pluginpacks/uninstall.png)
 
 or by clicking first on the pack and then on the red cross:
 
-![image](assets/configuration/pluginpacks/uninstall_2.png)
+![image](../assets/configuration/pluginpacks/uninstall_2.png)
 
 Confirm the uninstallation.
 
-![image](assets/configuration/pluginpacks/uninstall_confirm.png)
+![image](../assets/configuration/pluginpacks/uninstall_confirm.png)
 
 Your Plugin Pack is now uninstalled.
 
-![image](assets/configuration/pluginpacks/uninstall_3.png)
+![image](../assets/configuration/pluginpacks/uninstall_3.png)
 
 #### Managing dependencies
 
 You will not be able remove a pack if host and service templates created by the Plugin Pack are being used by any
 monitored hosts and services.
 
-![image](assets/configuration/pluginpacks/uninstall_pp_used.png)
+![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
 To uninstall the pack you will need either to:
 

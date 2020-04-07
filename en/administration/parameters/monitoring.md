@@ -7,7 +7,7 @@ This part covers the general options of the real time monitoring interface.
 
 Go to **Administration > Parameters > Monitoring**.
 
-![image](assets/administration/parameters-monitoring.png)
+![image](../../assets/administration/parameters-monitoring.png)
 
 - **Interval Length** field indicates the time interval in seconds used to
 program the checks and notifications

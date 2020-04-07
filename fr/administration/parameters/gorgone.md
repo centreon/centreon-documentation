@@ -8,7 +8,7 @@ intéragir avec Gorgone.
 
 Rendez-vous dans le menu **Administration \> Paramètres \> Gorgone**.
 
-![image](assets/administration/parameters-gorgone.png)
+![image](../../assets/administration/parameters-gorgone.png)
 
 - Le champ **Activer la récupération des statistiques de Centreon Broker**
 active la récupération des statistiques de Centreon Broker.

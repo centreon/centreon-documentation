@@ -8,7 +8,7 @@ réel.
 
 Rendez-vous dans le menu **Administration \> Paramétres \> Supervision**
 
-![image](assets/administration/parameters-monitoring.png)
+![image](../../assets/administration/parameters-monitoring.png)
 
 - Le champ **Unité de temps de référence** indique l'intervalle de temps en
 seconde utilisé pour planifier les contrôles et les notifications

@@ -7,7 +7,7 @@ This part allows to enable debug level logging of Centreon processes.
 
 Go to **Administration > Parameters > Debug**.
 
-![image](assets/administration/parameters-debug.png)
+![image](../../assets/administration/parameters-debug.png)
 
 - **Logs Directory** field defines the path where event logs will be recorded
 - **Authentication debug** box can be used to log authentications to the

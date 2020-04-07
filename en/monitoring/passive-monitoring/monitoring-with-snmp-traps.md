@@ -11,11 +11,11 @@ Go to the **Configuration > Services > Services by host** menu and click on **Ad
 * Select the host to which to attach this service
 * Select the **generic-passive-service-custom** template
 
-![image](assets/configuration/06createpassiveservice.png)
+![image](../../assets/configuration/06createpassiveservice.png)
 
 * Go on the **Relation** tab and select the SNMP traps
 
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 * Click on **Save**
 
@@ -41,7 +41,7 @@ arguments) contained within the SNMP trap. However, it is possible to display on
 SNMP trap by calling unitary arguments.
 
 For example:
-![image](assets/configuration/06servicetrapsrelation.png)
+![image](../../assets/configuration/06servicetrapsrelation.png)
 
 The output message **Link down on interface $2. State: $4.** will display only the name of the interface and its status
 ($2 and $4 argument).
@@ -50,7 +50,7 @@ Where can I find the arguments?
 
 The arguments are in the documentation of the MIB manufacturer or in the **Comments** field of the SNMP trap.
 
-![image](assets/configuration/klinkcomment.png)
+![image](../../assets/configuration/klinkcomment.png)
 
 To show:
 
@@ -94,7 +94,7 @@ result to insert it in the output.
 To do this, within the definition of your SNMP trap, go to the **Advanced** tab and add one (or more) preexec commands.
 
 For example:
-![image](assets/configuration/kpreexec.png)
+![image](../../assets/configuration/kpreexec.png)
 
 The first command **snmpget -v 2c -Ovq -c public @HOSTADDRESS@ ifAlias.$1** and allows you to retrieve the alias
 interface. The "$1" variable is for the argument 1 associated value of linkUp/linkDown traps.

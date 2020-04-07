@@ -180,14 +180,14 @@ Street Map Tile usage policy.
 
 To change the tile provider, select one in the list and click save.
 
-![image](assets/graph-views/geo_options.png)
+![image](../assets/graph-views/geo_options.png)
 
 If you want to use your own Tile service provider, if for example you have an
 internal Open Street Map server, go to the *Administration \> Extension | Map
 Option* and choose the "Custom" style. Define the parameters needed and then
 save.
 
-![image](assets/graph-views/geo_custom_provider.png)
+![image](../assets/graph-views/geo_custom_provider.png)
 
 ### Configure data layers
 
@@ -201,7 +201,7 @@ Most of the time, the data layer configuration will consist in :
   - Setting your token
   - Adding any extra parameters in a JSON format
 
-![image](assets/graph-views/geo_datalayers_conf_form.png)
+![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
 ## Create and link a Mapbox account
 

@@ -32,11 +32,11 @@ yum install centreon-dsm-server centreon-dsm-client
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
 **Administration > Extensions > Manager** menu and search **dsm**:
 
-![image](assets/configuration/dsm/module-setup.png)
+![image](../../assets/configuration/dsm/module-setup.png)
 
 Your Centreon DSM Module is now installed.
 
-![image](assets/configuration/dsm/module-setup-finished.png)
+![image](../../assets/configuration/dsm/module-setup-finished.png)
 
 You can now start and enable the daemon on your server:
 
@@ -83,7 +83,7 @@ liabilities.
 
 Go to **Administration > Modules > Dynamic Services** menu and click on **Add**
 
-![image](assets/configuration/dsm/form-slot.png)
+![image](../../assets/configuration/dsm/form-slot.png)
 
 Please follow the table below in order to understand the role of all parameters:
 
@@ -102,7 +102,7 @@ Please follow the table below in order to understand the role of all parameters:
 
 An example of passive service template is available below:
 
-![image](assets/configuration/dsm/form-passive-service.png)
+![image](../../assets/configuration/dsm/form-passive-service.png)
 
 > The macro **ALARM_ID** is mandatory. The default **empty** value is also necessary.
 
@@ -144,7 +144,7 @@ This command take some parameters. You can find in the following table the list 
 
 Your form should now be like that:
 
-![image](assets/configuration/dsm/trap-form-2.png)
+![image](../../assets/configuration/dsm/trap-form-2.png)
 
 After saving the form, please generate the
 *[SNMP traps database definition](monitoring-with-snmp-traps.html#Applying-the-changes)*.

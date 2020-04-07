@@ -40,10 +40,10 @@ Grâce à cette méthode, il n’est plus nécessaire de créer unitairement cha
 Pour dupliquer une Business Activity:
 
 1. Sélectionnez la Business Activity que vous souhaitez dupliquer en cochant la case associée
-2. Cliquez sur l'icône de duplication : <img src="assets/configuration/common/duplicate_new.png" width="32" />
+2. Cliquez sur l'icône de duplication : <img src="../assets/configuration/common/duplicate_new.png" width="32" />
 3. Entrez le nombre de duplications que vous souhaitez obtenir
 
-![image](assets/configuration/common/duplicate_objects_new.png)
+![image](../assets/configuration/common/duplicate_objects_new.png)
 
 4. Cliquez sur le bouton **OK**
 
@@ -54,11 +54,11 @@ Pour dupliquer un hôte :
 1. Sélectionnez l’hôte que vous souhaitez dupliquer
 2. Dans la colonne **Options**, entrez le nombre de duplication que vous souhaitez obtenir
 
-![image](assets/configuration/common/01duplicate.png)
+![image](../assets/configuration/common/01duplicate.png)
 
 3. Dans le menu **More actions...** cliquez sur le bouton **Duplicate**
 
-![image](assets/configuration/common/01duplicateobjects.png)
+![image](../assets/configuration/common/01duplicateobjects.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -103,8 +103,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **State** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src="assets/configuration/common/enabled_new.png" width="32" />
-* <img src="assets/configuration/common/disabled_new.png" width="32" />
+* <img src="../assets/configuration/common/enabled_new.png" width="32" />
+* <img src="../assets/configuration/common/disabled_new.png" width="32" />
 
 <!--Legacy pages-->
 
@@ -116,8 +116,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **Status** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src="assets/configuration/common/enabled.png" width="32" />
-* <img src="assets/configuration/common/disabled.png" width="32" />
+* <img src="../assets/configuration/common/enabled.png" width="32" />
+* <img src="../assets/configuration/common/disabled.png" width="32" />
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -129,7 +129,7 @@ ou en utilisant les icônes suivantes :
 Pour supprimer un objet :
 
 1. Sélectionnez les objets que vous souhaitez supprimer
-2. Cliquez sur l'icône pour supprimer <img src="assets/configuration/common/delete_new.png" width="32" />
+2. Cliquez sur l'icône pour supprimer <img src="../assets/configuration/common/delete_new.png" width="32" />
 3. Confirmer l'action
 
 <!--Legacy pages-->
