@@ -91,6 +91,7 @@ const siteConfig = {
     '/@BASEURL@/js/buttons.js',
     '/@BASEURL@/js/clipboard.min.js',
     '/@BASEURL@/js/code-block-button.js',
+    '/@BASEURL@/js/languages-select.js',
     '/@BASEURL@/js/versions-select.js'
   ],
 

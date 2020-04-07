@@ -8,7 +8,7 @@ title: NDO
 NDO stream connector emulates the NDO protocol that is no longer used by
 Centreon in favor of BBDO.
 
-![architecture](assets/integrations/stream-connectors/sc-ndo-architecture.png)
+![architecture](../../assets/integrations/stream-connectors/sc-ndo-architecture.png)
 
 ## Compatibility
 

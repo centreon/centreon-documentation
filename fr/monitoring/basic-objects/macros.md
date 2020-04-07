@@ -45,14 +45,14 @@ une partition à interroger...
 
 Lors de la définition d’un hôte, les macros suivantes sont créées :
 
-![image](assets/configuration/01hostmacros.png)
+![image](../../assets/configuration/01hostmacros.png)
 
 Pour faire appel à ces macros dans une commande de vérification, il faudra les invoquer en utilisant les variables
 suivantes : $_HOSTUSERLOGIN$, $_HOSTUSERPASSWORD$.
 
 Lors de la définition d’un service, les macros suivantes sont créées :
 
-![image](assets/configuration/01servicemacros.png)
+![image](../../assets/configuration/01servicemacros.png)
 
 Pour faire appel à ces macros dans une commande de vérification, il faudra les invoquer en utilisant les variables
 suivantes : $_SERVICEPARTITION$, $_SERVICEWARNING$, $_SERVICECRITICAL$.
@@ -76,7 +76,7 @@ Pour ajouter une macro de ressources :
 * Renez-vous dans le menu **Configuration > Pollers > Resources**
 * Cliquez sur le bouton **Add**
 
-![image](assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01macrosressources.png)
 
 * Le champ **Resource Name** définit le nom de la macro de ressources. Exemple : $USER3$
 * Le champ **MACRO Expression** définit la valeur de la macro.

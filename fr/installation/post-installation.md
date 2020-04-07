@@ -9,7 +9,7 @@ Connectez-vous à l'interface web via <http://<IP\>/centreon>.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
-![image](assets/installation/acentreonwelcome.png)
+![image](../assets/installation/acentreonwelcome.png)
 
 Les modules et les prérequis nécessaires sont vérifiés.
 
@@ -18,27 +18,27 @@ correctrices nécessaires ont été effectuées.
 
 Puis cliquez sur **Next**.
 
-![image](assets/installation/acentreoncheckmodules.png)
+![image](../assets/installation/acentreoncheckmodules.png)
 
 Definissez les chemins utilisés par le moteur de supervision. Nous recommandons
 d'utiliser ceux par défaut.
 
 Puis cliquez sur **Next**.
 
-![image](assets/installation/amonitoringengine2.png)
+![image](../assets/installation/amonitoringengine2.png)
 
 Definissez les chemins utilisés par le multiplexeur. Nous recommandons
 d'utiliser ceux par défaut.
 
 Puis cliquez sur **Next**.
 
-![image](assets/installation/abrokerinfo2.png)
+![image](../assets/installation/abrokerinfo2.png)
 
 Définissez les informations pour la création de l'utilisateur admin.
 
 Puis cliquez sur **Next**.
 
-![image](assets/installation/aadmininfo.png)
+![image](../assets/installation/aadmininfo.png)
 
 Fournissez les informations de connexion à l'instance de base de données.
 
@@ -56,24 +56,24 @@ Nous recommandons d'utiliser les valeurs par défaut.
 
 Puis cliquez sur **Next**.
 
-![image](assets/installation/adbinfo.png)
+![image](../assets/installation/adbinfo.png)
 
 L'assistant de configuration crée les fichiers de configuration et les bases de
 données.
 
 Quand le processus est terminé, cliquez sur **Next**.
 
-![image](assets/installation/adbconf.png)
+![image](../assets/installation/adbconf.png)
 
 Sélectionnez les modules et widgets disponibles à l'installation.
 
 Puis cliquez sur **Install**.
 
-![image](assets/installation/module_installationa.png)
+![image](../assets/installation/module_installationa.png)
 
 Une fois les modules installés, cliquez sur **Next**.
 
-![image](assets/installation/module_installationb.png)
+![image](../assets/installation/module_installationb.png)
 
 À cette étape une publicité permet de connaître les dernières nouveautés de
 Centreon.
@@ -83,13 +83,13 @@ informations.
 
 Sinon l’information présente dans cette version sera proposée.
 
-![image](assets/installation/aendinstall.png)
+![image](../assets/installation/aendinstall.png)
 
 L’installation est terminée, cliquez sur **Finish**.
 
 Vous pouvez maintenant vous connecter.
 
-![image](assets/installation/aconnection.png)
+![image](../assets/installation/aconnection.png)
 
 ## Initialisation de la supervision
 
@@ -134,7 +134,7 @@ systemctl enable cbd centengine gorgoned centreontrapd centreon
 Rendez-vous au menu **Administration \> Extensions \> Manager** et cliquez sur
 le bouton **Install all** :
 
-![image](assets/installation/install_imp_2.png)
+![image](../assets/installation/install_imp_2.png)
 
 ## Premiers pas
 

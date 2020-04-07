@@ -178,7 +178,7 @@ configuration file, you should not use a Centreon admin user account.
 
 Provide this user with access to the Centreon Web real-time API:
 
-![image](assets/graph-views/reach-api.png)
+![image](../assets/graph-views/reach-api.png)
 
 ### Centreon Central server
 

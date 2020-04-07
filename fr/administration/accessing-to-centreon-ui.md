@@ -13,7 +13,7 @@ Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 1. Rendez-vous dans le menu **Administration \> Parameters \> Centreon UI** et
 modifier le champ **Centreon Web Directory**
 
-![image](assets/administration/custom-uri.png)
+![image](../assets/administration/custom-uri.png)
 
 2. Modifiez le fichier de configuration Apache pour Centreon Web :
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**

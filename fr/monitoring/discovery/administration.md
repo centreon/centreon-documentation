@@ -18,11 +18,11 @@ rendez-vous dans le menu **Administration > Extensions > Manager menu**.
 
 Cliquez sur l’icône de mise à jour correspondant au module  **Centreon Auto Discovery** :
 
-![image](assets/configuration/autodisco/update.png)
+![image](../../assets/configuration/autodisco/update.png)
 
 Le module est maintenant à jour :
 
-![image](assets/configuration/autodisco/list_modules.png)
+![image](../../assets/configuration/autodisco/list_modules.png)
 
 ## Désinstallation
 
@@ -31,15 +31,15 @@ rendez-vous dans le menu **Administration > Extensions > Manager menu**.
 
 Cliquer sur l’icône de suppression correspondant au module **Centreon Auto Discovery** :
 
-![image](assets/configuration/autodisco/list_modules.png)
+![image](../../assets/configuration/autodisco/list_modules.png)
 
 Une fenêtre de confirmation apparaît, confirmer l’action :
 
-![image](assets/configuration/autodisco/uninstall.png)
+![image](../../assets/configuration/autodisco/uninstall.png)
 
 Le module est maintenant désinstallé :
 
-![image](assets/configuration/autodisco/install.png)
+![image](../../assets/configuration/autodisco/install.png)
 
 > La désinstallation du module supprimera toutes les données associées. Les données ne pourront être restaurées sauf
 > si une sauvegarde de la base de données a été faite.
