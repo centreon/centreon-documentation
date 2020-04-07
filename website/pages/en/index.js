@@ -21,15 +21,13 @@ const uriBlocks = {
 const basePathImg = '../img/homepage/';
 
 /**
- * @param {string} [uri='']
+ * @param {string} uri
  * @param {string} [lang='en']
- * @param {boolean} [docReference=true]
+ * @param {string} [prefix='/docs/']
  * @returns {string} Url to link in docs or a external page
  */
-function createUrl(uri = '', lang = 'en', docReference = true) {
-  let url = docReference ? '/docs/' : '';
-  url += lang + '/' + uri;
-  return url;
+function createUrl(uri, lang = 'en', prefix = 'docs') {
+  return `/${prefix}/${lang}/${uri}/`;
 }
 
 const Button = props => {
@@ -163,9 +161,7 @@ function HeartOpenSourceBlock(){
     )
 }
 
-function Homepage(props) {
-  const {language} = props || 'en';
-
+function Homepage({ language = 'en' }) {
   const classesDefaultContainer = 'mainContainer documentContainer postContainer homepageCustom';
     return (
       <React.Fragment>
