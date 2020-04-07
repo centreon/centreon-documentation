@@ -1,6 +1,6 @@
 ---
-id: map-api
-title: Data presentation API (beta)
+id: graph-views-api
+title: Graphical views API (beta)
 ---
 
 If you want to automate standard views creation or maintenance, you may
