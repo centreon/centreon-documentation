@@ -10,7 +10,7 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
-const basePathImg = './img/homepage/';
+const basePathImg = '../img/homepage/';
 
 const links = {
   doc: {
@@ -28,46 +28,46 @@ const links = {
 
 const stringsAndParagraphs = {
   excellenceBlock: {
-    title: `Welcome to Centreon documentation !`,
-    subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
-    btnStart: `Getting Started`,
-    btnInstall: `How To`,
-    btnApi: `API Reference`,
+    title: `Bienvenue dans la documentation Centreon !`,
+    subTitle: `La plateforme de supervision informatique orientée AIOps de Centreon offre une visibilité globale des workflows les plus complexes, du cloud jusqu’au Edge.`,
+    btnStart: `Démarrer`,
+    btnInstall: `Tutoriels`,
+    btnApi: `Voir les APIs`,
   },
   prerequisiteBlock: {
-    title: `Prerequisites`,
-    content1stPart: `We provide a software appliance complete with its Linux Operating System, Databases or Web Server. Install Centreon on a virtual or physical server. Read this chapter to understand`,
-    link: ` dimensioning guidelines `,
-    content2ndPart: `and distributed architectures.`,
+    title: `Pré-requis`,
+    content1stPart: `Nous proposons une appliance logicielle qui embarque son Linux, son SGBD et tous les composants logiciels nécessaires à un démarrage immédiat. Installez Centreon sur un serveur physique ou virtuel. Lisez ce chapitre pour comprendre les`,
+    link: ` règles de dimensionnement `,
+    content2ndPart: `et les architectures distribuées.`,
   },
   installationBlock: {
-    title: `Installing`,
-    content1stPart: `You may install Centreon from its ISO image or from an OVA or OVF file. Read this chapter and follow the`,
-    link: ` step-by-step procedure`,
-    content2ndPart: `.`,
+    title: `Installation`,
+    content1stPart: `Il existe plusieurs méthodes pour installer Centreon, depuis une ISO ou depuis une image OVA ou OVF. Dans tous les cas,`,
+    link: ` suivez pas à pas `,
+    content2ndPart: `les étapes de ce chapitre.`,
   },
   monitoringBlock: {
-    title: `Monitoring from Cloud-to-Edge`,
-    content1stPart: `Monitoring should be that easy: we packaged everything you need for 1-click setup into a library of 400+ Enterprise Plugin Packs. Find here`,
-    link: ` which KPIs are monitored `,
-    content2ndPart: `by each one of them.`,
+    title: `Supervision de bout-en-bout`,
+    content1stPart: `La supervision simple et intuitive : tout ce dont vous avez besoin pour une configuration en 1-clic se trouve dans notre bibliothèque de 400 Plugin Packs. Retrouvez ici`,
+    link: ` les métriques supervisées `,
+    content2ndPart: `pour chacun d’entre eux.`,
   },
   communityBlock: {
     title: `A strong community`,
   },
   heartOpenSourceBlock: {
-    title: `An Open Source Core`,
-    content: `Praised by hundreds of thousands of IT professionals around the world with 6,000 monthly downloads, Centreon has become the number 1 in open source monitoring in Europe.`,
-    btnOpen: `Contribute to the Open Source project`,
+    title: `Un coeur Open Source`,
+    content: `Plébiscité par des centaines de milliers de professionnels de l’IT à travers le monde avec 6 000 téléchargements mensuels, Centreon est devenu le numéro 1 de la supervision open source en Europe.`,
+    btnOpen: `Contribuez au projet Open Source`,
   }
 };
 
 /**
  * @param {string} uri
- * @param {string} [lang='en']
+ * @param {string} [lang='fr']
  * @returns {string} Url to link in docs or a external page
  */
-function createUrl(uri, lang = 'en') {
+function createUrl(uri, lang = 'fr') {
   return `/${lang}/${uri}/`;
 }
 
