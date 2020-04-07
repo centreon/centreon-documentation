@@ -392,11 +392,11 @@ lkjqsd lk
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Centreon Web -->
 
-### Centreon Web 20.04.0-beta.1
+#### Centreon Web 20.04.0-beta.1
 
-#### Enhancements
+##### Enhancements
 
-#### Bug Fixes
+##### Bug Fixes
 
 <!--Centreon Engine -->
 
