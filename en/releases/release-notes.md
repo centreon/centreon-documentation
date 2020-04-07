@@ -17,6 +17,8 @@ changes integrated into each releases of Centreon components and extensions.
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
+## Version 1 
+
 ## Centreon Core (Open source)
 
 ### Centreon Web 
@@ -136,23 +138,72 @@ lkjqsd lk
 
 #### Centreon MAP 20.04.2
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 ### Centreon BAM 
 
 #### Centreon BAM 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon BAM 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon BAM 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 ### Centreon MBI
 
 #### Centreon MBI 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon MBI 20.04.1
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 #### Centreon MBI 20.04.2
 
----
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
+## Version 2
 
 ## Centreon Core (Open source)
 
@@ -384,8 +435,7 @@ lkjqsd lk
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 
----
-
+## Version 3
 
 ## Centreon Core (Open source)
 
