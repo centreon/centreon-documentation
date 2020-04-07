@@ -93,7 +93,7 @@ The following table describes the different options:
 To generate a report, you need to create a job by clicking on "Add" in the job listing page. The job configuration 
 is done in two main steps (tabs):
 
-- Select the report design you want to use (see all the designs available here #TODO)
+- Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Samples-of-Reports.pdf))
 - Select the perimeter on which to generate the report 
 
 Two optionals steps (tabs) can be done to :
@@ -191,8 +191,8 @@ By defaut, all metrics will be applied.
 
  Once a report is generated, it can be automatically published using pre-defined rules. When creating
  a job, you can create several rules under the tab "Publication" (refer to 
- the [publication rules section](publication_rules) chapter for more information on 
- the various report publication protocols). #TODO
+ the [publication rules section](#TODO) chapter for more information on 
+ the various report publication protocols).
 
 ![image](../assets/reporting/guide/jobPublication.png)
 

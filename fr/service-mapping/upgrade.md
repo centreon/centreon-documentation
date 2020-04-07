@@ -3,8 +3,6 @@ id: upgrade
 title: Monter de version l'extension
 ---
 
-#TODO
-
 > Si vous mettez à jour d'une version inférieure à 18.10 vers une version
 > supérieure à 18.10, une nouvelle license doit être récupérée auprès du
 > support Centreon.
