@@ -823,7 +823,7 @@
             "api/introduction",
             "api/clapi",
             "api/rest-api-v1",
-            "api/map-api"
+            "api/graph-views-api"
         ],
         "Developer resources": [
             "developer/init-developer"
