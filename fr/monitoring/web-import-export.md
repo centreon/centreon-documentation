@@ -16,13 +16,14 @@ Centreon AWIE is based on CLAPI commands but its added value is to allow using C
 ### Installing packages
 
 Run the following commands as a privileged user:
-```Bash
+
+```shell
 yum install centreon-awie
 ```
 
 ### UI installation
 
-Go to **Administration \> Extensions \> Manager** and search **awie**.
+Go to **Administration > Extensions > Manager** and search **awie**.
 Click on **Install selection**:
 
 ![imaage](assets/configuration/awie/install_01.png)
@@ -34,7 +35,7 @@ Your module is now installed:
 ## Export configuration
 
 Once you have properly configured all Centreon Web objects you need (Poller, Hosts, Services, Contacts, Time Periods... )
-then you can export them towards another Centreon Web platform by going to **Configuration \> Import/Export** menu.
+then you can export them towards another Centreon Web platform by going to **Configuration > Import/Export** menu.
 
 Default page is Export one.
 
@@ -45,7 +46,7 @@ Default page is Export one.
 Be aware that if you change the name of the created archive, you will not be able to import it until the name of the
 archive is identical to the name of the file contained in the archive.
 
-### Poller Export 
+### Poller Export
 
 ![imaage](assets/configuration/awie/poller.png)
 
@@ -68,7 +69,7 @@ Same principle as Poller export but :
 If you choose to export all hosts, then host configurations, linked host templates and linked services templates will
 be exported but hosts will be created in target environment without their services.
 However, you will be able to create services by selecting value "Yes" for the **Create Services linked to the Template
-too** radio-button in **Configuration \> Hosts page**, for each host. Save host configuration and export configuration.
+too** radio-button in **Configuration > Hosts page**, for each host. Save host configuration and export configuration.
 
 If you export a specific host by using the *Filter* field (only one host at the same time) then the host will be created
 in the new platform with all its services.
@@ -172,7 +173,7 @@ In the Export page, each time that the Export button is pressed, a zip archive f
 
 This is the file that you will upload in the Import Page of another Centreon Web platform.
 
-Go to **Configuration \> Import/Export \> Import** menu:
+Go to **Configuration > Import/Export > Import** menu:
 
 ![imaage](assets/configuration/awie/Import.png)
 

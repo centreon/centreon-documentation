@@ -40,33 +40,33 @@ complexe à partir des fichiers sources de chaque composant.
 
 Le tableau suivant décrit les dépendances logicielles :
 
-| Logiciel | Version         |
-|----------|-----------------|
-| Apache   | 2.4             |
-| GnuTLS   | >= 2.0          |
-| Net-SNMP | 5.7             |
-| openssl  | >= 1.0.1k       |
-| PHP      | 7.2             |
-| Qt       | >= 4.7.4        |
-| RRDtools | 1.4.7           |
-| zlib     | 1.2.3           |
+| Logiciel | Version    |
+| -------- | ---------- |
+| Apache   | 2.4        |
+| GnuTLS   | \>= 2.0    |
+| Net-SNMP | 5.7        |
+| openssl  | \>= 1.0.1k |
+| PHP      | 7.2        |
+| Qt       | \>= 4.7.4  |
+| RRDtools | 1.4.7      |
+| zlib     | 1.2.3      |
 
 ## Sélectionner votre architecture
 
-> Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
+> Centreon propose un [classeur](assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.
 
 Le tableau suivant présente les prérequis pour une installation de Centreon :
 
-|  Nombre de services  |  Nombre d'hôtes estimé      |  Nombre de collecteurs     |  Central       |  Collecteur   |
-|----------------------|-----------------------------|----------------------------|----------------|---------------|
-|           < 500      |             50              |         1 central          |  1 vCPU / 1 GB |               |
-|       500 - 2000     |           50 - 200          |        1 central           |  2 vCPU / 2 GB |               |
-|      2000 - 7000     |          200 - 700          |  1 central + 1 collecteur  |  4 vCPU / 4 GB | 1 vCPU / 4 GB |
-|      7000 - 14000    |          700 - 1400         |  1 central + 1 collecteur  |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|     14000 - 21000    |         1400 - 2100         |  1 central + 2 collecteurs |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|     21000 - 28000    |         2100 - 2800         |  1 central + 3 collecteurs |  4 vCPU / 8 GB | 2 vCPU / 4 GB |
-|         ...          |             ...             |            ...             |       ...      |       ...     |
+| Nombre de services | Nombre d'hôtes estimé | Nombre de collecteurs     | Central       | Collecteur    |
+| ------------------ | --------------------- | ------------------------- | ------------- | ------------- |
+| \< 500             | 50                    | 1 central                 | 1 vCPU / 1 GB |               |
+| 500 - 2000         | 50 - 200              | 1 central                 | 2 vCPU / 2 GB |               |
+| 2000 - 7000        | 200 - 700             | 1 central + 1 collecteur  | 4 vCPU / 4 GB | 1 vCPU / 4 GB |
+| 7000 - 14000       | 700 - 1400            | 1 central + 1 collecteur  | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| 14000 - 21000      | 1400 - 2100           | 1 central + 2 collecteurs | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| 21000 - 28000      | 2100 - 2800           | 1 central + 3 collecteurs | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
+| ...                | ...                   | ...                       | ...           | ...           |
 
 > Un collecteur peut superviser en moyenne 7000 services actifs. Les vCPU doivent avoir une fréquence avoisinant les 3 GHz.
 > Le nombre de vCPU par collecteur dépend principalement de la complexité des contrôles. Si vous utilisez des connecteurs
@@ -74,7 +74,7 @@ Le tableau suivant présente les prérequis pour une installation de Centreon :
 
 ### Définition de l'espace disque
 
-> Centreon propose un [classeur](../assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
+> Centreon propose un [classeur](assets/files/Centreon_platform_sizing.xlsx) permettant de calculer le dimensionnement
 > de votre plate-forme.
 
 L'espace disque utilisé pour supporter les données issues de la collecte dépend de plusieurs critères :

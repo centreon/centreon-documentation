@@ -11,7 +11,7 @@ A discovery rule allows to dynamically create services and to link them to a hos
 the probes. The created unit services will be attached to a service template so that Centreon's functionalities can be
 used (inheritance, overloading and more).
 
-To create a rule, go to **Configuration \> Services \> Auto Discovery \> Rules** and click on the **Add** button:
+To create a rule, go to **Configuration > Services > Auto Discovery > Rules** and click on the **Add** button:
 
 ![image](assets/configuration/autodisco/create_rule_1.png)
 
@@ -24,7 +24,7 @@ Here is the description of the firsts fields located inside the *General* tab:
 * **Rule name**: the rule's name
 * **Command Macro**: discovery command which allow to list available XML attributes
 * **Command Discover**: discovery command which will be executed to enumerate the elements
-* **Service template**: the service template used to dynamically create new services based 
+* **Service template**: the service template used to dynamically create new services based
   on the discovery
 
 Go to the second **Inclusions / Exclusions & Macros** tab. You should see available XML attributes:
@@ -100,14 +100,15 @@ The second part **Customize code** allows to use Perl code.
 **Custom display scan** gives you the capability to change the display of a manual scan.
 By default, manual scan display the service name. Here an example to add the size of the disk:
 
-```Perl
+```perl
 my ($value, $unit) = change_bytes(value => $total$);
 $description = "<span style='color: red; font-weight: bold'>@SERVICENAME@</span> [size = <b>$value $unit</b>]";
  ```
 
 **Custom variables** gives you the capability to create some custom macros. Here an example to have dynamic threshold
 according the disk size:
-```Perl
+
+```perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
     $warning$ = 80;
@@ -125,7 +126,7 @@ Now, you could use **$warning$** and **$critical$** macro in **Macros** part.
 
 ## Discovery commands
 
-A **discovery commands** is a command line to execute a [discovery plugin](#discovery-plugins).
+A **discovery commands** is a command line to execute a *[discovery plugin](#discovery-plugins)*.
 
 For each discovery plugins you need to define two commands:
 
@@ -136,7 +137,7 @@ For each discovery plugins you need to define two commands:
 
 ### Command to list available XML attributes
 
-Go to **Configuration \> Commands \> Discovery** menu and click on **Add** button to create the first command.
+Go to **Configuration > Commands > Discovery** menu and click on **Add** button to create the first command.
 
 Fill the fileds:
 
@@ -150,11 +151,14 @@ Fill the fileds:
 ![image](assets/configuration/autodisco/command_attributes.png)
 
 This is an example of the command line executed in a shell:
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
+
 And the result:
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -168,7 +172,7 @@ Save the command.
 
 ### Command to get the list of items on a host
 
-Go to **Configuration \> Commands \> Discovery** menu and click on **Add** button to create the first command.
+Go to **Configuration > Commands > Discovery** menu and click on **Add** button to create the first command.
 
 Fill the fileds:
 
@@ -179,11 +183,14 @@ Fill the fileds:
 ![image](assets/configuration/autodisco/command_disco.png)
 
 This is an example of the command line executed in a shell:
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
+
 And the result:
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -205,10 +212,12 @@ The result must be a valid XML stream where each element must be described as an
 execution must be available using an option. The Centreon Plugins use '--mode=xxx --disco-show'.
 
 For example:
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -223,10 +232,12 @@ The discovery plugin should also list (XML output) the available XML attributes 
 The The Centreon Plugins use '--mode=xxx --disco-format'.
 
 For example:
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -252,32 +263,37 @@ You can run manually discovery using following options:
 ### Examples
 
 Run all rules:
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
 ```
 
 Test all rules:
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --dry-run
 ```
 
 Test specific rule:
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
 
 Test all rules linked to hosttemplates used by specific host:
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-host="centreon-server" \
   --dry-run
 ```
 
 Test specific rule on predifined host:
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --filter-host="centreon-server" \

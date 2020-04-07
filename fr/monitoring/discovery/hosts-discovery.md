@@ -14,7 +14,7 @@ La découverte de nouvelles ressources s’effectue en deux étapes :
 
 ## Lancer une tâche de découverte
 
-Rendez-vous dans le menu **Configuration \> Hosts \> Discovery** et cliquez sur **Add**
+Rendez-vous dans le menu **Configuration > Hosts > Discovery** et cliquez sur **Add**
 
 Sélectionnez la règle de découverte, et cliquez sur **Next** :
 
@@ -37,7 +37,7 @@ Patientez le temps de la récupération des données.
 
 ## Analyser le résultat d’une tâche de découverte
 
-REndez-vous dans le menu **Configuration \> Hosts \> Discovery** , vous accédez à la liste des tâches de découverte
+REndez-vous dans le menu **Configuration > Hosts > Discovery** , vous accédez à la liste des tâches de découverte
 exécutées :
 
 ![image](assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
@@ -71,7 +71,7 @@ Les actions disponibles sont :
 
 Vous revenez ensuite à la liste des résultats de découverte.
 
-Suivant votre choix, rendez vous dans le menu **Configuration \> Hosts \> Hosts** or **Monitoring \> Status Details \>
+Suivant votre choix, rendez vous dans le menu **Configuration > Hosts > Hosts** or **Monitoring > Status Details >
 Services**  pour visualiser le résultat :
 
 ![image](assets/configuration/autodisco/host_conf_listing.png)

@@ -12,7 +12,7 @@ Une règle de découverte permet de créer dynamiquement des services et de les 
 éléments remontés par les sondes. Les services unitaires créés sont attachés à des modèles de services ce qui permet
 d’utiliser les fonctionnalités de Centreon (héritage, surcharge, etc.)
 
-Pour créer une règle de découverte, rendez-vous dans le menu **Configuration \> Services \> Auto Discovery \> Rules**
+Pour créer une règle de découverte, rendez-vous dans le menu **Configuration > Services > Auto Discovery > Rules**
 et cliquez sur **Add** :
 
 ![image](assets/configuration/autodisco/create_rule_1.png)
@@ -68,7 +68,7 @@ Les **Inclusions / Exclusions et Macro** fonctionnent de la manière suivante :
 
 ![image](assets/configuration/autodisco/create_rule_5.png)
 
-Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion / 
+Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments durant la découverte. Cette inclusion/
 exclusion concerne les attributs XML
 
 Les règle d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
@@ -106,14 +106,15 @@ La seconde partie **Customize** code permet d’utiliser du code Perl.
 **Custom display scan** permet de modifier l’affichage dans la découverte manuelle Par défaut, la découverte manuelle
 affiche le nom du service. Voici un exemple pour ajouter la taille des disques :
 
-```Perl
+```perl
 my ($value, $unit) = change_bytes(value => $total$);
 $description = "<span style='color: red; font-weight: bold'>@SERVICENAME@</span> [size = <b>$value $unit</b>]";
  ```
 
 **Custom variables** permet de créer des macros personnalisables. Voici un exemple pour définir des seuils dynamiques
 selon la taille des disques :
-```Perl
+
+```perl
 my $total_gb = $total$ / 1000 / 1000 / 1000;
 if ($total_gb < 100) {
     $warning$ = 80;
@@ -131,7 +132,8 @@ Il est possible d’utiliser les macros **$warning$** et **$critical$** dans la 
 
 ## Commandes de découverte
 
-Une **discovery commands** est la définition d’une ligne de commande exécutant la [sonde de découverte](#discovery-plugins).
+Une **discovery commands** est la définition d’une ligne de commande exécutant
+la *[sonde de découverte](#discovery-plugins)*.
 
 Chaque sonde de découverte doit disposer de deux commandes :
 
@@ -142,7 +144,7 @@ Chaque sonde de découverte doit disposer de deux commandes :
 
 ### Commande pour récupérer la liste des attributs XML
 
-Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+Rendez-vous dans le menu **Configuration > Commands > Discovery** et cliquez sur **Add** pour ajouter une nouvelle
 commande.
 
 Saisissez les champs suivants :
@@ -157,11 +159,14 @@ Saisissez les champs suivants :
 ![image](assets/configuration/autodisco/command_attributes.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
+
 Et le résultat :
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -173,9 +178,9 @@ Et le résultat :
 
 Sauvegardez votre commande.
 
-### Command to get the list of items on a host
+### Commande pour récupérer la liste des items d'un hôte
 
-Rendez-vous dans le menu **Configuration \> Commands \> Discovery** et cliquez sur **Add** pour ajouter une nouvelle
+Rendez-vous dans le menu **Configuration > Commands > Discovery** et cliquez sur **Add** pour ajouter une nouvelle
 commande.
 
 Saisissez les champs suivants :
@@ -187,11 +192,14 @@ Saisissez les champs suivants :
 ![image](assets/configuration/autodisco/command_disco.png)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
+
 Et le résultat :
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -213,10 +221,12 @@ Les résultats doivent être présentés dans un flux XML valide où chaque él�
 noeud XML. Pour obtenir ce flux XML les sondes de supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-show’.
 
 Par exemple :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=192.168.220.129 --snmp-version=2 --snmp-community=public --disco-show
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <label status="1" name="lo" total="10" interfaceid="1"/>
@@ -231,10 +241,12 @@ La sonde de découverte doit également lister les attributs disponibles du flux
 supervision Centreon Plugins utilisent l’option ‘–mode=xxx –disco-format’.
 
 Par exemple :
-```Bash
+
+```shell
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 ```
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
     <element>name</element>
@@ -263,25 +275,29 @@ Il est possible de tester le fonctionnement du module manuellement grâce aux op
 ### Exemples
 
 Exécution de toutes les règles :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
 ```
 
 Test de toutes les règles :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --dry-run
 ```
 
 Exécution de la règle **OS-Linux-SNMP-Network-Interfaces-Discovery** sans modification de la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
 
 Exécution des règles de découverte pour l’hôte “centreon-server” sans modification de la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-host="centreon-server" \
   --dry-run
@@ -289,7 +305,8 @@ Exécution des règles de découverte pour l’hôte “centreon-server” sans 
 
 Exécution de la règle “OS-Linux-SNMP-Network-Interfaces-Discovery”, pour l’hôte “centreon-server”, sans modification de
 la configuration Centreon :
-```Bash
+
+```shell
 /usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --filter-host="centreon-server" \

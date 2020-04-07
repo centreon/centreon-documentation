@@ -8,7 +8,7 @@ interface.
 
 Go to **Administration > Parameters > Centreon UI**.
 
-![image](../../assets/administration/parameters-centreon-ui.png)
+![image](assets/administration/parameters-centreon-ui.png)
 
 ## General options
 
@@ -66,7 +66,6 @@ Proxy Configuration** button.
 via the autologin mechanism
 - **Display Autologin shortcut** box serves to display the connection
 short-cut at the top right
-- **Enable SSO authentication** box enables SSO authentication
 
 ## SSO
 
@@ -90,8 +89,8 @@ the username.
 
 ## Keycloak SSO
 
-To use Keycloak SSO login, you need an external [Keycloak
-server](https://www.keycloak.org/docs/latest/getting_started/index.html)
+To use Keycloak SSO login, you need an external *[Keycloak
+server](https://www.keycloak.org/docs/latest/getting_started/index.html)*.
 
 - **Enable Keycloak authentication** allows to enable or disable Keycloak
 authentication.

@@ -3,14 +3,15 @@ id: ldap
 title: LDAP
 ---
 
-> If you want to use SSO for authentication, please read this `procedure <sso>`.
-> You can also use Keycloack SSO using this `procedure <keycloak>`.
+> If you want to use SSO for authentication, please read
+> *[this procedure](centreon-ui#sso)*. You can also use Keycloack SSO using
+> *[this procedure](centreon-ui#keycloak-sso)*.
 
 This part allows to configure the connection to LDAP directories.
 
 Go to **Administration > Parameters > LDAP** and click on **Add**.
 
-![image](../../assets/administration/parameters-ldap-add.png)
+![image](assets/administration/parameters-ldap-add.png)
 
 - **Configuration name** and **Description** fields define the name and the
 description of the LDAP server
@@ -26,8 +27,8 @@ can chose the users that you want to import
 > If the **Auto import users** option is checked, the LDAP settings of any new
 > user who logs into the Centreon interface will automatically be imported into
 > Centreon (name, first name, e-mail address, etc.). ACL profiles will be applied
-> on access (link to `ACL <acl>`). However, if this option is not checked, only
-> the users imported manually will be able to authenticate.
+> on access (see *[ACL](../access-control-lists)*). However, if this option
+> is not checked, only the users imported manually will be able to authenticate.
 
 - **LDAP search size limit** field can be used to limit the size of user
 searches.
@@ -68,7 +69,7 @@ synchronization.
 > / options.
 
 - **LDAP servers** field can be used to add one or more LDAP directories to
-which Centreon will connect
+which Centreon will connect.
 
 The table below summarizes the settings to add an LDAP server:
 

@@ -7,11 +7,11 @@ title: Groups & Categories
 
 In Centreon, it is possible to group together one or more objects within different groups:
 
-* [Host Groups](#hosts-group)
-* [Service Groups](#services-group)
-* [Contact Groups](#contacts-group)
+* *[Host Groups](#hosts-group)*
+* *[Service Groups](#services-group)*
+* *[Contact Groups](#contacts-group)*
 
-It is also possible to create categories of [hosts](#hosts-category) or [services](#services-category).
+It is also possible to create categories of *[hosts](#hosts-category)* or *[services](#services-category)*.
 
 ### Groups
 
@@ -65,7 +65,7 @@ sub-groups in the Centreon BI module.
 
 ### Hosts Group
 
-Go to the **Configuration \> Hosts \> Host Groups** menu and click on **Add**
+Go to the **Configuration > Hosts > Host Groups** menu and click on **Add**
 
 ![image](assets/configuration/07hostgroup.png)
 
@@ -78,12 +78,12 @@ Go to the **Configuration \> Hosts \> Host Groups** menu and click on **Add**
 * The **Map Icon** is the icon use for mapping.
 * The **RRD retention** field is expressed in days, it serves to define the duration of retention of the services
   belonging to this hostgroup in the RRD database. It will be the default duration defined in the
-  **Administration \> Options \> CentStorage** menu if this value is not defined.
+  **Administration > Options > CentStorage** menu if this value is not defined.
 * The **Status** and **Comments** fields allow to enable or disable the host group and to make comments on it.
 
 ### Services Group
 
-Go to the **Configuration \> Services \> Service Groups** menu and click on **Add**
+Go to the **Configuration > Services > Service Groups** menu and click on **Add**
 
 ![image](assets/configuration/07servicegroup.png)
 
@@ -96,7 +96,7 @@ Go to the **Configuration \> Services \> Service Groups** menu and click on **Ad
 
 ### Contacts Group
 
-Go to the **Configuration \> Users \> Contact Groups** menu and click on **Add**
+Go to the **Configuration > Users > Contact Groups** menu and click on **Add**
 
 ![image](assets/configuration/07contactgroup.png)
 
@@ -106,10 +106,10 @@ Go to the **Configuration \> Users \> Contact Groups** menu and click on **Add**
 
 ### Hosts category
 
-Go to the **Configuration \> Hosts \> Categories** menu and click on **Add**
+Go to the **Configuration > Hosts > Categories** menu and click on **Add**
 
 ![image](assets/configuration/08hostcategory.png)
- 
+
 * The **Host Category Name** and **Alias** fields contain respectively the name and the alias of the category of host.
 * The **Linked hosts** list allows us to add hosts to the category.
 * If a host template is added to **Linked host template** list all the hosts which inherit from this Model belong to
@@ -120,10 +120,10 @@ Go to the **Configuration \> Hosts \> Categories** menu and click on **Add**
 
 ### Services category
 
-Go to the **Configuration \> Services \> Categories** menu and click on **Add**
+Go to the **Configuration > Services > Categories** menu and click on **Add**
 
 ![image](assets/configuration/08servicecategory.png)
- 
+
 * The **Name** and **Description** fields define the name and the description of the category of service.
 * If a service template is added to **Service Template Descriptions** list all the services which inherit from this
   template belong to this category. 

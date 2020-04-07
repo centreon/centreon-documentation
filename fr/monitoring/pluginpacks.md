@@ -21,7 +21,8 @@ suppression des Plugin Packs. C’est un élément clé, il fait régulièrement
 recommandé de rester à jour sur ce composant.
 
 Pour mettre à jour le module, lancez la commande :
-```Bash
+
+```shell
 yum update centreon-pp-manager
 ```
 
@@ -31,13 +32,13 @@ yum update centreon-pp-manager
 
 Une licence est nécessaire pour accéder au catalogue complet des Plugin Packs. Si votre plate-forme Centreon est
 connectée à une souscription en ligne, celle-ci sera automatiquement téléchargée sur votre serveur. Sinon contactez
-les équipes [support Centreon](https://centreon.force.com)
+les équipes *[support Centreon](https://centreon.force.com)*.
 
 ### Accès aux Plugin Pack
 
 Si votre plate-forme Centreon est connectée à une souscription en ligne vous pouvez télécharger les Plugin Packs depuis
 l’interface utilisateur Plugin Pack Manager. Sinon, un dépôt RPM vous sera délivré par les équipes
-[support Centreon](https://centreon.force.com)
+*[support Centreon](https://centreon.force.com)*.
 
 ## Vue d’ensemble
 
@@ -50,7 +51,7 @@ plugins peuvent être :
 * des plugins existants provenant de la communauté, ayant été sélectionnés et validés par Centreon comme étant
   fonctionnels et optimisés,
 * des plugins développés par Centreon, distribués gratuitement et disponibles soit au travers de paquets RPM, soit via
-  le projet [Centreon Plugins](https://github.com/centreon/centreon-plugins)
+  le projet *[Centreon Plugins](https://github.com/centreon/centreon-plugins)*.
 
 La valeur ajoutée des **Plugin Packs** est la **préconfiguration** de la **supervision** dans le logiciel Centreon.
 Lors de leur installation, **ils apportent** dans Centreon des **objets pré-paramétrés** tels que les **commandes**,
@@ -113,12 +114,14 @@ Vous pouvez maintenant installer vos packs.
 <!--Hors ligne-->
 
 Pour installer ou mettre à jour le catalogue, exécutez :
-```Bash
+
+```shell
 yum install centreon-pack-*
 ```
 
 Ou:
-```Bash
+
+```shell
 yum update centreon-pack-*
 ```
 
@@ -141,13 +144,13 @@ de l’installer.
 
 Une fois le plugin pack installé, il apparaitra avec un contour vert et une flèche indiquant qu’il est installé.
 
-| **avant installation**                                        | **après installation**                                       |
-|---------------------------------------------------------------|--------------------------------------------------------------|
-| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) | 
+| **Avant installation**                                           | **Après installation**                                          |
+|------------------------------------------------------------------|-----------------------------------------------------------------|
+| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) |
 
 > Veuillez lire la **monitoring procedure** associée à chaque pack installé pour comprendre le contenu du pack ainsi
 > que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
-> le chapitre [Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs)
+> le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs.html)*
 
 #### Gestion les dépendances
 
@@ -167,7 +170,8 @@ mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
 Installez maintenant les plugins nécessaires référencés par les modèles installés dans les étapes précédentes.
 
 Utilisez la commande suivante sur **tous les pollers qui exécuteront les contrôles** :
-```Bash
+
+```shell
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
 
@@ -201,9 +205,10 @@ Votre Plugin Pack est maintenant à jour.
 
 #### Mise à jour du plugin
 
-Exécutez la commande suivante sur **tous les collecteurs**
-```Bash
-yum update centreon-plugins*
+Exécutez la commande suivante sur **tous les collecteurs**:
+
+```shell
+yum update centreon-plugins\*
 ```
 
 Puis redémarrez **tous les collecteurs**.

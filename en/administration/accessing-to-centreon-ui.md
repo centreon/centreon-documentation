@@ -13,7 +13,7 @@ To update the Centreon URI, you need to follow those steps:
 1. Go to **Administration > Parameters > Centreon UI** and change the
 **Centreon Web Directory** value.
 
-![image](../assets/administration/custom-uri.png)
+![image](assets/administration/custom-uri.png)
 
 2. On the centreon central server:
 
@@ -44,7 +44,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 
 4. Then edit the file as following:
 
-```shell
+```text
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(.*\.php(/.*)?)$>

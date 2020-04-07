@@ -4,7 +4,7 @@ title: Découverte des services
 ---
 
 Une fois les règles de découverte programmées, il est possible de les exécuter au travers de l’interface web Centreon.
-Pour cela, se connecter et accéder au menu **Configuration \> Services \> Auto Discovery > Scan**.
+Pour cela, se connecter et accéder au menu **Configuration > Services > Auto Discovery > Scan**.
 
 Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter
 automatiquement ce dernier :
@@ -32,6 +32,6 @@ Les éléments ont été ajoutés et il n’est plus possible de les sélectionn
 > Dans la liste de résultat de la découverte des éléments, il se peut que certains éléments ne puissent être sélectionnés.
 > Cela indique qu’ils font déjà partie de la configuration.
 
-Les services ont été ajoutés et sont visibles dans le menu **Configuration \> Services \> Services by host**:
+Les services ont été ajoutés et sont visibles dans le menu **Configuration > Services > Services by host**:
 
 ![image](assets/configuration/autodisco/manual_scan_services.png)

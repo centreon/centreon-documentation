@@ -1,6 +1,6 @@
 ---
 id: templates
-title: Objects templates
+title: Templates
 ---
 
 ## Definition
@@ -57,7 +57,7 @@ To add a host template:
 
 Go into the **Configuration > Hosts > Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [hosts](hosts) to configure a template because the form is
+> Refer to the chapter covering configuration of *[hosts](basic-objects/hosts.html)* to configure a template because the form is
 > identical.
 
 > By default, locked host templates are hidden. Check the "Locked elements" box to list all templates.
@@ -76,7 +76,7 @@ To add a Service Template:
 
 Go into the **Configuration > Services > Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [services](services) to configure a template because the form is identical.
+> Refer to the chapter covering configuration of *[services](basic-objects/services.html)* to configure a template because the form is identical.
 
 > By default, locked service templates are hidden. Check the "Locked elements" box to list all templates.
 
@@ -125,5 +125,5 @@ To add a contact template:
 
 Go into the menu: **Configuration > Users > Contact Templates** menu and click on **Add**
 
-> Refer to the chapter covering configuration of [contacts](contacts). In addition, the contacts templates are used for
-> automatic import of profiles via @TODO@:ref:`LDAP<ldapconfiguration>`.
+> Refer to the chapter covering configuration of *[*contacts](basic-objects/contacts.html)*. In addition, the contacts templates are used for
+> automatic import of profiles via *[LDAP](../administration/parameters/ldap.html)*.

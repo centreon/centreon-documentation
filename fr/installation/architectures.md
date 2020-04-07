@@ -40,7 +40,7 @@ Plusieurs entités servent à mettre en place cette architecture :
 
 Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
-![image](../assets/architectures/Architecture_standalone.png)
+![image](assets/architectures/Architecture_standalone.png)
 
 <!-- Architecture distribuée-->
 #### Description
@@ -93,7 +93,7 @@ Le collecteure fonctionne de la manière suivante :
 
 Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
-![image](../assets/architectures/Architecture_distributed.png)
+![image](assets/architectures/Architecture_distributed.png)
 
 <!--SGBD déporté-->
 #### Description
@@ -158,7 +158,7 @@ Le collecteur fonctionne de la manière suivante :
 
 Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
-![image](../assets/architectures/Architecture_distributed_dbms.png)
+![image](assets/architectures/Architecture_distributed_dbms.png)
 
 <!--Remote Server-->
 #### Description
@@ -238,6 +238,6 @@ Le collecteur fonctionne de la manière suivante :
 
 Le schéma ci-dessous résume le fonctionnement de l'architecture :
 
-![image](../assets/architectures/Architecture_distributed_remote.png)
+![image](assets/architectures/Architecture_distributed_remote.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->

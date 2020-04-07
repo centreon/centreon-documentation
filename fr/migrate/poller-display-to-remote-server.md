@@ -98,7 +98,7 @@ commande **LOAD DATA INFILE**:
 tous les collecteurs rattachés au **Remote Server** et liez ceux-ci au
 nouveau Remote Server via la liste de sélection.
 
-> N'oubliez pas de *[générer la configuration](../monitoring/deploy.html)* de votre
+> N'oubliez pas de *[générer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html)* de votre
 > **Remote Server**.
 
 > Un serveur Centreon Remote Server est un serveur dont l’administration est

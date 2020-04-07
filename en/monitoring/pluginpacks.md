@@ -18,7 +18,8 @@ The **Centreon Plugin Pack Manager** module, included natively in Centreon, can 
 Packs. We recommended that you keep this module regularly updated.
 
 To update **Centreon Plugin Pack Manager** run the following command:
-```Bash
+
+```shell
 yum update centreon-pp-manager
 ```
 
@@ -28,13 +29,13 @@ yum update centreon-pp-manager
 
 A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
 subscription your license will be directly downloaded to your server. Otherwise, contact the
-[Centreon support team](https://centreon.force.com) to get and install your license key.
+*[Centreon support team](https://centreon.force.com)* to get and install your license key.
 
 ### Access to Plugin Packs
 
 If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
 Manager user interface. Otherwise, a dedicated RPM repository will be provided by
-[Centreon support team](https://centreon.force.com)
+*[Centreon support team](https://centreon.force.com)*.
 
 ## Overview
 
@@ -45,7 +46,7 @@ These templates (commands, hosts and services templates) are attached to the **m
 
 * existing community plugins selected and validated by Centreon as being fully functional and optimized, or
 * plugins written by Centreon that are distributed as free software under RPM or available on
-  [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
+  *[Centreon Plugins](https://github.com/centreon/centreon-plugins)* project
 
 The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
 **the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
@@ -67,12 +68,12 @@ A Plugin Pack contains:
 
 The Centreon Plugin Packs subscription gives you access to specific connectors:
 
-| Connector  | Description
-|------------|----------------------------------------------------------------------------------------        
-| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs  
-| NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins
-| VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                               
-| AS400      | Java-based connector allowing you to execute checks on an AS400
+| Connector  | Description                                                                           |
+| ---------- | ------------------------------------------------------------------------------------- |
+| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs |
+| NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins         |
+| VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                              |
+| AS400      | Java-based connector allowing you to execute checks on an AS400                       |
 
 ## Plugin Packs management
 
@@ -107,12 +108,14 @@ You can now proceed to the pack installation.
 <!--Offline platform-->
 
 From your Centreon Central server, install or update the Plugin Packs catalog:
-```Bash
+
+```shell
 yum install centreon-pack-*
 ```
 
 or:
-```Bash
+
+```shell
 yum update centreon-pack-*
 ```
 
@@ -134,9 +137,9 @@ You can also click on the Plugin Pack to display more details and click on the `
 
 Once the Plugin Pack is installed, a green outline and an arrow icon will indicate successful installation.
 
-| **before installation**                                       | **after installation**                                       |
-|---------------------------------------------------------------|--------------------------------------------------------------|
-| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) | 
+| **Before installation**                                          | **After installation**                                          |
+| ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| ![image](assets/configuration/pluginpacks/before_install.png) | ![image](assets/configuration/pluginpacks/after_install.png) |
 
 > Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
 > well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
@@ -159,7 +162,8 @@ this one is only available for Centreon in 18.10.x version:
 Next, install the required plugins as indicated in the steps above.
 
 Run the following command for **each Centreon poller** that will execute the plugins:
-```Bash
+
+```shell
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
 
@@ -194,8 +198,9 @@ Your Plugin Pack is up to date.
 To update the plugins, execute the following command on **all pollers**.
 
 Update the plugins on **all pollers**:
-```Bash
-yum update centreon-plugins*
+
+```shell
+yum update centreon-plugins\*
 ```
 
 Restart the Centreon Engine on **all pollers**.

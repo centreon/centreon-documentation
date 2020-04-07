@@ -7,7 +7,7 @@ title: Splunk metrics
 
 Splunk metrics stream connector sends metric related data to Splunk
 
-![architecture](../../assets/integrations/stream-connectors/sc-splunk-metrics-architecture.png)
+![architecture](assets/integrations/stream-connectors/sc-splunk-metrics-architecture.png)
 
 ## Compatibility
 

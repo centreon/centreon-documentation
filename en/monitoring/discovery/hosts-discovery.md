@@ -4,22 +4,22 @@ title: Hosts Discovery
 ---
 
 > The discovery rules are provided  from installation of Plugin Packs (MS Azure, Amazon Web Services, VMware, etc.). To
-know the complete list, please go to the [Plugin Packs catalog](../../integrations/plugin-packs/init-plugin-packs).
+know the complete list, please go to the *[Plugin Packs catalog](../../integrations/plugin-packs/init-plugin-packs.html)*.
 
 Discovering new resources is done in two steps:
 
-1. [Start a discovery task](#start-a-discovery-task)
-2. [Analyze the result of a discovery task](analyze-the-result-of-a-discovery-task)
+1. *[Start a discovery task](#start-a-discovery-task)*
+2. *[Analyze the result of a discovery task](analyze-the-result-of-a-discovery-task)*
 
 ## Start a discovery task
 
-Go to **Configuration \> Hosts \> Discovery** and click on **Add**
+Go to **Configuration > Hosts > Discovery** and click on **Add**
 
 Select the discovery rule and click on the **Next** button:
 
 ![image](assets/configuration/autodisco/manual_host_scan_select_rule.png)
 
-Enter a name to save the settings to [reuse](#reload-a-discovery-task) them:
+Enter a name to save the settings to *[reuse](#reload-a-discovery-task)* them:
 
 ![image](assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
 
@@ -35,7 +35,7 @@ Wait for the data recovery time.
 
 ## Analyze the result of a discovery task
 
-Go to the **Configuration \> Hosts \> Discovery** menu to access to the list of discovery tasks:
+Go to the **Configuration > Hosts > Discovery** menu to access to the list of discovery tasks:
 
 ![image](assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
 
@@ -68,7 +68,7 @@ Once the resources are selected, you can:
 
 You back to the list of discovery tasks.
 
-Regarding your choice, go to **Configuration \> Hosts \> Hosts** or **Monitoring \> Status Details \> Services** menu to
+Regarding your choice, go to **Configuration > Hosts > Hosts** or **Monitoring > Status Details > Services** menu to
 visualize the result:
 
 ![image](assets/configuration/autodisco/host_conf_listing.png)

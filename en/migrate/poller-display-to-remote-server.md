@@ -92,7 +92,7 @@ user on the central server:
 8. **On the Centreon Central server**, edit all pollers and attach them to the
 **Remote Server** using the selection list.
 
-> Remember to *[generate the configuration](../monitoring/deploy.html)* for your
+> Remember to *[generate the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html)* for your
 > **Remote Server**.
 
 > A Centreon Remote Server is self-administered.

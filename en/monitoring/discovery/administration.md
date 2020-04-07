@@ -6,14 +6,15 @@ title: Administration
 ## Update
 
 To update the module, run the following command:
-```Bash 
+
+```shell
 yum update centreon-auto-discovery-server
 ```
 
 If an update is available, you will be asked for a confirmation. Just answer *yes* to the question.
 
 Connect to the Centreon’s web interface using an account allowed to administer products and go to the
-**Administration \> Extensions \> Manager menu**.
+**Administration > Extensions > Manager menu**.
 
 Click on the update icon corresponding to the **Centreon Auto Discovery** module:
 
@@ -47,7 +48,8 @@ The module is now uninstalled:
 
 All the active discovery rules are periodically executed through a scheduled job managed by the *cron* daemon. The
 execution's description is available into the **/etc/cron.d/centreon-auto-disco** file:
-```Bash
+
+```shell
 #####################################
 # Centreon Auto Discovery
 #
@@ -63,7 +65,8 @@ Information and errors relative to the execution will be saved into the **/var/l
 
 Here is an example of a complete possible configuration of the
 **/etc/centreon/centreon_autodisco.pm** file:
-```Perl
+
+```perl
 %centreon_autodisco_config = (
     internal_com_type => 'ipc',
     internal_com_path => '/tmp/centreonautodisco/routing.ipc',
@@ -100,9 +103,11 @@ Here is an example of a complete possible configuration of the
 
 ## Distributed architecture
 
-When a host is monitored by a remote collector, the discovery will be made from it. Thus to executed distant commands
-it is necessary to allow the Apache process to access the **centreon** SSH keys user. To do this run the following commands:
-```Bash
+When a host is monitored by a remote collector, the discovery will be made from
+it. Thus to executed distant commands it is necessary to allow the Apache process
+to access the **centreon** SSH keys user. To do this run the following commands:
+
+```shell
 mkdir /var/www/.ssh/
 cp /var/spool/centreon/.ssh/* /var/www/.ssh/
 chown -R apache. /var/www/.ssh
