@@ -194,6 +194,15 @@
       "installation/prerequisites": {
         "title": "Prerequisites"
       },
+      "integrations/centreon-ha/centreon-ha-architectures": {
+        "title": "Architectures"
+      },
+      "integrations/centreon-ha/centreon-ha-installation-2-nodes": {
+        "title": "Installing a Centreon HA 2-nodes cluster"
+      },
+      "integrations/centreon-ha/centreon-ha-troubleshooting": {
+        "title": "Troubleshooting"
+      },
       "integrations/external/accedian-pvx-skylight": {
         "title": "Accedian PVX Skylight"
       },
@@ -1690,8 +1699,8 @@
       }
     },
     "links": {
-      "Read the doc": "Read the doc",
-      "API References": "API References"
+      "Docs": "Docs",
+      "API": "API"
     },
     "categories": {
       "Getting Started": "Getting Started",
@@ -1704,7 +1713,7 @@
       "Graphical views": "Graphical views",
       "Reporting": "Reporting",
       "Administration": "Administration",
-      "Update, Upgrade & Migrate": "Update, Upgrade & Migrate",
+      "Upgrade & Migrate": "Upgrade & Migrate",
       "Plugin Packs": "Plugin Packs",
       "Integrations": "Integrations",
       "Mobile App.": "Mobile App.",
@@ -1717,10 +1726,10 @@
   "pages-strings": {
     "titleExcellenceBlock|no description given": "Welcome to Centreon documentation!",
     "subTitleExcellenceBlock|no description given": "Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.",
-    "btnInstall|no description given": "How To",
-    "btnLinkInstallation|no description given": "/docs/en/tutorials/how-to.html",
     "btnStart|no description given": "Getting Started",
     "btnLinkTutorial|no description given": "/docs/en/tutorials/first-steps.html",
+    "btnInstall|no description given": "How To",
+    "btnLinkInstallation|no description given": "/docs/en/tutorials/how-to.html",
     "btnApi|no description given": "API Reference",
     "btnLinkApi|no description given": "/docs/en/api/introduction.html",
     "titlePrerequisiteBlock|no description given": "Prerequisites",
