@@ -101,6 +101,9 @@ const siteConfig = {
 
   // Open Graph and Twitter card images.
   ogImage: 'img/undraw_online.svg',
+
+  twitter: true,
+  twitterUsername: 'Centreon',
   twitterImage: 'img/undraw_tweetstorm.svg',
 
   scrollToTop: true,
