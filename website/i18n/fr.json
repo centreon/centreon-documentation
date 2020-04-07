@@ -1703,5 +1703,10 @@
     "btnStart|no description given": "Démarrer",
     "btnApi|no description given": "Voir les APIs",
     "btnOpenSource|no description given": "contribuez au projet Open Source"
+  },
+  "footer-strings": {
+    "documentationLinkPrerequisite|no description given":"Prérequis"
   }
+
+
 }

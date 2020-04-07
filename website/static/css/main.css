@@ -14,7 +14,24 @@ article a:hover {
 
 /* your custom css */
 .nav-footer {
-  background: #47525b!important;
+  background: #23303A!important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  height: 368px;
+  justify-content: space-between;
+}
+
+.nav-footer .sitemap {
+  margin: 0;
+  width: 1000px;
+}
+
+.nav-footer .sitemap .img {
+  height: 250px;
+  width: 200px;
+
 }
 
 .languages-icon {
@@ -31,7 +48,7 @@ article a:hover {
 
 .selec-vers {
   margin: .4em 1em;
-  background: #23303A;
+  background: rgb(215, 221, 226);
   border: none;
   color: #ffffff;
   font-size: 1em;

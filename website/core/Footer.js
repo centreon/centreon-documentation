@@ -7,6 +7,8 @@
 
 const React = require('react');
 
+// const translate = require('../../server/translate.js').translate;
+
 class Footer extends React.Component {
   docUrl(doc, language) {
     const baseUrl = this.props.config.baseUrl;
@@ -25,6 +27,7 @@ class Footer extends React.Component {
     return (
       <footer className="nav-footer" id="footer">
         <section className="sitemap">
+          <div>
           <a href={this.props.config.baseUrl} className="nav-home">
             {this.props.config.footerIcon && (
               <img
@@ -35,41 +38,43 @@ class Footer extends React.Component {
               />
             )}
           </a>
-          <div>
-            <h5>Docs</h5>
+          </div>
+          <div className="documentation">
+            <h5>Documentation</h5>
             <a href={this.docUrl('doc1.html', this.props.language)}>
-              Getting Started (or other categories)
+              Prerequisite
             </a>
             <a href={this.docUrl('doc2.html', this.props.language)}>
-              Guides (or other categories)
+              Installation
             </a>
             <a href={this.docUrl('doc3.html', this.props.language)}>
-              API Reference (or other categories)
+              Getting Started
+            </a>
+            <a href={this.docUrl('doc3.html', this.props.language)}>
+              Plugin Packs
+            </a>
+            <a href={this.docUrl('doc3.html', this.props.language)}>
+              Monitoring
+            </a>
+            <a href={this.docUrl('doc3.html', this.props.language)}>
+              Exploitation
             </a>
           </div>
-          <div>
+          <div className="community">
             <h5>Community</h5>
-            <a href={this.pageUrl('users.html', this.props.language)}>
-              User Showcase
-            </a>
-            <a
-              href="https://stackoverflow.com/questions/tagged/"
-              target="_blank"
-              rel="noreferrer noopener">
-              Stack Overflow
-            </a>
-            <a href="https://discordapp.com/">Project Chat</a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noreferrer noopener">
-              Twitter
-            </a>
-          </div>
-          <div>
-            <h5>More</h5>
+            <a href="https://github.com/centreon/centreon">GitHub</a>
+            <a href="https://centreon.github.io/register-slack/">Slack</a>
             <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
-            <a href="https://github.com/">GitHub</a>
+            <a href="">Newsletter</a>
+            <a href="">Open Source download</a>
+          </div>
+          <div className="help">
+            <h5>Help Me</h5>
+            <a href="">FAQ</a>
+            <a href="">Tutorial</a>
+            <a href="">Ecrivez-nous</a>
+            <a href="">Appelez-nous</a>
+            <a href="">Nos produits</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}
@@ -82,9 +87,7 @@ class Footer extends React.Component {
             </a>
             {this.props.config.twitterUsername && (
               <div className="social">
-                <a
-                  href={`https://twitter.com/${
-                    this.props.config.twitterUsername
+                <a href={`https://twitter.com/${this.props.config.twitterUsername
                   }`}
                   className="twitter-follow-button">
                   Follow @{this.props.config.twitterUsername}
@@ -107,18 +110,6 @@ class Footer extends React.Component {
           </div>
         </section>
 
-        <a
-          href="https://opensource.facebook.com/"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="fbOpenSource">
-          <img
-            src={`${this.props.config.baseUrl}img/oss_logo.png`}
-            alt="Facebook Open Source"
-            width="170"
-            height="45"
-          />
-        </a>
         <section className="copyright">{this.props.config.copyright}</section>
       </footer>
     );

@@ -29,5 +29,9 @@
     "btnLinkApi|no description given": "/docs/en/api/introduction.html",
     "btnLinkOpenSource|no description given": "https://github.com/centreon/centreon",
     "btnOpenSource|no description given": "contribute to the Open Source project"
+  },
+  "footer-strings": {
+    "documentationLinkPrerequisite|no description given":"Prerequisite"
   }
+
 }
