@@ -23,25 +23,88 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### Centreon Web 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Web 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Web 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 ### Centreon Engine 
 
 #### Centreon Engine 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Engine 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Engine 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 ### Centreon Broker 
 
 #### Centreon Broker 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Broker 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Broker 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 ## Centreon Open source extensions 
 
@@ -55,7 +118,21 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### Centreon MAP 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon MAP 20.04.1
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 #### Centreon MAP 20.04.2
 
@@ -85,9 +162,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -97,9 +195,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -109,9 +228,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -123,9 +263,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -135,9 +296,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -150,9 +332,30 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!-- 20.04.0 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.1 -->
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 <!-- 20.04.2 -->
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -199,17 +402,59 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### Centreon Engine 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Engine 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Engine 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--Centreon Broker -->
 
 #### Centreon Broker 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Broker 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Broker 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -221,25 +466,87 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### Centreon MAP 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon MAP 20.04.1
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 #### Centreon MAP 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--Centreon BAM -->
 
 #### Centreon BAM 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon BAM 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon BAM 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--Centreon MBI -->
 
 #### Centreon MBI 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon MBI 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon MBI 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -252,17 +559,59 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### Centreon DSM 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon DSM 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon DSM 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--Centreon Open Ticket  -->
 
 #### Centreon Open Ticket 20.04.0
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Open Ticket 20.04.1
 
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
+
 #### Centreon Open Ticket 20.04.2
+
+* Bug fix 1 
+* Bug fix 2 qklsdmkjh 
+* Bug lksqdfkl o^s
+
+KLJqklsdh kjlqshd 
+lkjqsd lk 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
