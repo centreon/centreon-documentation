@@ -21,9 +21,27 @@ questions on our [github](https://github.com/centreon/centreon).
 
 ### Centreon Web 
 
-### Centreon Engine 
+#### Centreon Web 20.04.0
+
+#### Centreon Web 20.04.1
+
+#### Centreon Web 20.04.2
 
 ### Centreon Engine 
+
+#### Centreon Engine 20.04.0
+
+#### Centreon Engine 20.04.1
+
+#### Centreon Engine 20.04.2
+
+### Centreon Broker 
+
+#### Centreon Broker 20.04.0
+
+#### Centreon Broker 20.04.1
+
+#### Centreon Broker 20.04.2
 
 ## Centreon Open source extensions 
 
@@ -35,9 +53,136 @@ questions on our [github](https://github.com/centreon/centreon).
 
 ### Centreon MAP 
 
+#### Centreon MAP 20.04.0
+
+#### Centreon MAP 20.04.1
+
+#### Centreon MAP 20.04.2
+
 ### Centreon BAM 
 
+#### Centreon BAM 20.04.0
+
+#### Centreon BAM 20.04.1
+
+#### Centreon BAM 20.04.2
+
 ### Centreon MBI
+
+#### Centreon MBI 20.04.0
+
+#### Centreon MBI 20.04.1
+
+#### Centreon MBI 20.04.2
+
+---
+
+## Centreon Core (Open source)
+
+### Centreon Web 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Centreon Engine 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Centreon Broker 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Centreon Open Source Extensions
+
+### Centreon Open Ticket 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Centreon DSM 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+## Centreon Commercial Extensions
+
+### Centreon MAP 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Centreon BAM 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Centreon MBI
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- 20.04.0 -->
+
+<!-- 20.04.1 -->
+
+<!-- 20.04.2 -->
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+---
+
 
 ## Centreon Core (Open source)
 
@@ -52,8 +197,19 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!--Centreon Engine -->
 
+#### Centreon Engine 20.04.0
+
+#### Centreon Engine 20.04.1
+
+#### Centreon Engine 20.04.2
+
 <!--Centreon Broker -->
 
+#### Centreon Broker 20.04.0
+
+#### Centreon Broker 20.04.1
+
+#### Centreon Broker 20.04.2
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -63,27 +219,27 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!--Centreon MAP -->
 
-### Centreon MAP 20.04.0
+#### Centreon MAP 20.04.0
 
-### Centreon MAP 20.04.1
+#### Centreon MAP 20.04.1
 
-### Centreon MAP 20.04.2
+#### Centreon MAP 20.04.2
 
 <!--Centreon BAM -->
 
-### Centreon BAM 20.04.0
+#### Centreon BAM 20.04.0
 
-### Centreon BAM 20.04.1
+#### Centreon BAM 20.04.1
 
-### Centreon BAM 20.04.2
+#### Centreon BAM 20.04.2
 
 <!--Centreon MBI -->
 
-### Centreon MBI 20.04.0
+#### Centreon MBI 20.04.0
 
-### Centreon MBI 20.04.1
+#### Centreon MBI 20.04.1
 
-### Centreon MBI 20.04.2
+#### Centreon MBI 20.04.2
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -94,8 +250,19 @@ questions on our [github](https://github.com/centreon/centreon).
 
 <!--Centreon DSM -->
 
+#### Centreon DSM 20.04.0
+
+#### Centreon DSM 20.04.1
+
+#### Centreon DSM 20.04.2
+
 <!--Centreon Open Ticket  -->
 
+#### Centreon Open Ticket 20.04.0
+
+#### Centreon Open Ticket 20.04.1
+
+#### Centreon Open Ticket 20.04.2
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
