@@ -1,9 +1,7 @@
 ---
-id: how-to
-title: Pour aller plus loin
+id: create-custom-view
+title: Créer une vue personnalisée
 ---
-
-## Créez votre première vue personnalisée
 
 Rendez-vous au menu **Home > Custom Views** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
 le mode d'édition.

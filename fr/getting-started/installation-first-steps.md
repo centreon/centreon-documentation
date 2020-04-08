@@ -1,6 +1,6 @@
 ---
-id: Introduction
-title: Introduction
+id: installation-first-steps
+title: Installation & premier pas
 ---
 
 This chapter describes you how to quickly start on Centreon. It's composed of a quick start to install 
