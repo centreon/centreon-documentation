@@ -11,7 +11,7 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 * [Simple installation](#simple-installation)
 * [First login](#first-login)
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
-* [Start to monitor](#start-to-monitor)
+* [Start to monitor](#start-to-monitor-your-first-host)
 
 Tutorials
 
@@ -24,7 +24,7 @@ Tutorials
 
 #TODO
 
-## Login
+## First login
 
 To connect to your Centreon web interface access to URL: http://IP_ADDRESS/centreon
 

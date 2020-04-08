@@ -9,14 +9,15 @@ supervision de votre IT via Centreon.
 Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
-* [Simple installation](#TODO)
-* [Première connexion à l'interface](#TODO)
-* [Superviser votre premier hôte](#TODO)
-* [Deployer la configuration](#TODO)
+* [Installation rapide](#installation-rapide)
+* [Première connexion à l'interface](#première-connexion-à-linterface)
+* [Principe de base de la supervision](#principe-de-base-de-la-supervision)
+* [Superviser votre premier hôte](#superviser-votre-premier-hôte)
+* [Deployer la configuration](#deployer-la-configuration)
 
 Tutorials
 
-* [Create a custom view](#TODO)
+* [Créer une vue personnalisée](#create-custom-view)
 * [Visualy display your IT (Graphical View)](#TODO)
 * [Model your business (Service Mapping)](#TODO)
 * [Analyze resources availability (Reporting)](#TODO)
