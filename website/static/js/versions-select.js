@@ -1,8 +1,9 @@
 // Turn off ESLint for this file because it's sent down to users as-is.
 /* eslint-disable */
 
-window.addEventListener('load', function() {
-  const versions = ['20.04', '19.10', '19.04', '18.10', '3.4'];
+window.addEventListener('load', () => {
+  const versions = ['20.04'];
+  const oldestUrl = 'https://documentation.centreon.com/';
 
   // Add the version selector before the search bar
   const container = document.getElementsByClassName('nav-site nav-site-internal')[0];
@@ -23,7 +24,10 @@ window.addEventListener('load', function() {
     const regexp = new RegExp('/' + version + '/', 'g');
     const selected = currentUrl.match(regexp) ? 'selected' : '';
     selectHtml += '<option value="' + versionHref + '" ' + selected + '>v.' + version + '</option>';
-  })
+  });
+
+  selectHtml += '<option value="' + oldestUrl + '">Oldest</option>';
+
   selectHtml += '</select>';
   versionsLi.innerHTML = selectHtml;
 });
