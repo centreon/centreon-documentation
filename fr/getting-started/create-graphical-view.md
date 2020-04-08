@@ -3,6 +3,8 @@ id: create-graphical-view
 title: Create a graphical view
 ---
 
+> Only available in english for now
+
 The objective of this tutorial is to help you understand how you can provide
 real time IT infrastructure status overviews with the data presentation
 extension called Centreon MAP to your ITOM teams and operational users.
@@ -24,6 +26,10 @@ In this tutorial, I am going to show you how to create views using Centreon MAP.
 After reading this article, you will have discovered Centreon MAP main features
 and you will be able to create views that meet your technical or business users'
 needs.
+
+> Centreon MAP is a Centreon **extension** that requires a valid license key. To
+> purchase one and retrieve the necessary repositories, contact
+> [Centreon](sales@centreon.com).
 
 ## Before creating a view: define the objective
 

@@ -17,6 +17,9 @@ Le principe est simple :
 -   Vous configurez votre rapport via l'ajout d'une "tâche planifiée"
 -   Vous récupérer votre rapport via l'interface
 
+> Centreon MBI est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
+> [contactez nous](sales@centreon.com).
+
 ## Définition du besoin
 
 Partons d'un besoin assez simple qui est souvent le point de départ de

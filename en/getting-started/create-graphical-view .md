@@ -25,6 +25,10 @@ After reading this article, you will have discovered Centreon MAP main features
 and you will be able to create views that meet your technical or business users'
 needs.
 
+> Centreon MAP is a Centreon **extension** that requires a valid license key. To
+> purchase one and retrieve the necessary repositories, contact
+> [Centreon](sales@centreon.com).
+
 ## Before creating a view: define the objective
 
 Define what is the main objective of the view: what need does it meet and who

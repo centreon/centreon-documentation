@@ -11,6 +11,10 @@ status of a service in real time, tracking any changes, thereby allowing you to
 measure results against business-oriented service level agreements (SLAs) with
 internal or external users.
 
+> Centreon BAM is a Centreon **extension** that requires a valid license key. To
+> purchase one and retrieve the necessary repositories, contact
+> [Centreon](sales@centreon.com).
+
 ## Concept
 
 Centreon BAM aggregates raw sets of values, or indicators, against which to
