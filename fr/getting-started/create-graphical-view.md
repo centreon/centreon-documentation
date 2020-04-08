@@ -31,7 +31,9 @@ needs.
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](sales@centreon.com).
 
-## Before creating a view: define the objective
+## Create a logical view
+
+### Before creating a view: define the objective
 
 Define what is the main objective of the view: what need does it meet and who
 are the recipients, are the main topics to consider before creating a view. Here
@@ -46,7 +48,7 @@ are some questions you might consider:
   - Now that you have defined the objectives, let's start showing you how to
     make it.
 
-## The view designer's workspace
+### The view designer's workspace
 
 Connect to your Centreon MAP server using the desktop client, the following
 workspace environment appears (empty). To illustrate the explanation, we've
@@ -64,7 +66,7 @@ Information and area are organized as follow:
 6.  **Palette**: graphical elements that you can use in a view
 7.  **Properties**: selected element's properties
 
-## Create a new view
+### Create a new view
 
 Nothing simpler: right click in the "View" panel and click on "Add"
 
