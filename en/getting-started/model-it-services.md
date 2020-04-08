@@ -1,7 +1,9 @@
 ---
-id: getting-started
-title: Getting started
+id: model-it-services
+title: Model your IT services
 ---
+
+#TODO 
 
 Centreon Business Activity Monitoring (Centreon-BAM) is a feature for modelizing
 IT services and applications from end users point of view. It reports on the

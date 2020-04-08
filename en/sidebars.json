@@ -4,7 +4,10 @@
             "getting-started/installation-first-steps",
             {
                 "ids": [
-                    "getting-started/create-custom-view"
+                    "getting-started/create-custom-view",
+                    "getting-started/create-graphical-view",
+                    "getting-started/model-it-services",
+                    "getting-started/analyze-resources-availability"
                 ],
                 "label": "Tutorials",
                 "type": "subcategory"

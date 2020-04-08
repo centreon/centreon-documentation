@@ -14,12 +14,12 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 * [Start to monitor your first host](#start-to-monitor-your-first-host)
 * [Deploying a configuration](#deploying-a-configuration)
 
-Tutorials
+**Tutorials**
 
-* [Create a custom view](#TODO)
-* [Visualy display your IT (Graphical View)](#TODO)
-* [Model your business (Service Mapping)](#TODO)
-* [Analyze resources availability (Reporting)](#TODO)
+* [Create a custom view](#create-custom-view)
+* [Create a graphical view (Graphical View)](#create-graphical-view)
+* [Model your IT services (Service Mapping)](#model-it-services)
+* [Analyze resources availability (Reporting)](#analyze-resources-availability)
 
 ## Simple installation
 
@@ -33,7 +33,7 @@ To connect to your Centreon web interface access to URL: http://IP_ADDRESS/centr
 
 Inform your user name and associated password and click on **Connect** button:
 
-![image](../assets/tutorials/aconnection.png)
+![image](../assets/getting-started/aconnection.png)
 
 You are now connected to Centreon web interface.
 
@@ -41,7 +41,7 @@ You are now connected to Centreon web interface.
 
 The Centreon web interface contains several menus, each with a specific function:
 
-![image](../assets/tutorials/amenu.png)
+![image](../assets/getting-started/amenu.png)
 
 * **Home** lets you access the first home screen after logging in. It provides a summary of overall monitoring status.
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
@@ -56,11 +56,11 @@ The Centreon web interface contains several menus, each with a specific function
 
 On the banner, click on the profile icon, then click on **Edit profile**:
 
-![image](../assets/tutorials/change_language_1.png)
+![image](../assets/getting-started/change_language_1.png)
 
 In the select box of language, select your language:
 
-![image](../assets/tutorials/change_language_2.png)
+![image](../assets/getting-started/change_language_2.png)
 
 Then click on **Save**. Your interface is now translated.
 
@@ -93,7 +93,7 @@ Nevertheless, to drastically simplify the configuration, we will rely on monitor
 This quick start guide proposes to install the monitoring templates supplied free of charge with the Centreon solution
 and then to implement them to monitor your first equipment.
 
-![image](../assets/tutorials/host_service_command.png)
+![image](../assets/getting-started/host_service_command.png)
 
 > To go further with templates, please read the [templates chapter](../monitoring/templates#definition).
 
@@ -106,16 +106,16 @@ Go to the **Configuration \> Plugin Packs** menu.
 Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
 
-![image](../assets/tutorials/pp_base_generic_1.png)
+![image](../assets/getting-started/pp_base_generic_1.png)
 
 You can also click on the Plugin Pack in order to know its content before installing it:
 
-![image](../assets/tutorials/pp_base_generic_2.png)
+![image](../assets/getting-started/pp_base_generic_2.png)
 
 Install other Plugin Packs you probably need for your environment, for example **Linux SNMP** and **Windows SNMP** available
 for free:
 
-![image](../assets/tutorials/pp_install_basic.gif)
+![image](../assets/getting-started/pp_install_basic.gif)
 
 Now you have the basic templates and plugins to initial monitoring!
 
@@ -132,11 +132,11 @@ more if you subscribe to the [IMP offer](https://store.centreon.com). @TODO@(cha
 
 Go to the **Configuration \> Plugin Packs** menu and install **Linux SNMP** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_linux_0.gif)
+![image](../assets/getting-started/quick_start_linux_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_linux_1.png)
+![image](../assets/getting-started/quick_start_linux_1.png)
 
 Fill in the following information:
 
@@ -151,51 +151,51 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_linux_2.png)
+![image](../assets/getting-started/quick_start_linux_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_linux_3.png)
+![image](../assets/getting-started/quick_start_linux_3.png)
 
 Other indicators can be monitored. Click on **Add** button to add a new service as bandwidth usage for example:
 
-![image](../assets/tutorials/quick_start_linux_4a.png)
+![image](../assets/getting-started/quick_start_linux_4a.png)
 
 In the **Description** field, enter the name of the service to create, then select the host to link this service. In
 the **Template** filed, select the **OS-Linux-Traffic-Generic-Name-SNMP-custom** template.
 
 A list of macros corresponding to the model will then appear:
 
-![image](../assets/tutorials/quick_start_linux_4b.png)
+![image](../assets/getting-started/quick_start_linux_4b.png)
 
 Enter the name of the network interface for the **INTERFACENAME** macro value and click on **Save** to add this
 indicator into the monitoring configuration.
 
 Do the same to add packet error monitoring:
 
-![image](../assets/tutorials/quick_start_linux_5.png)
+![image](../assets/getting-started/quick_start_linux_5.png)
 
 Or for file system:
 
-![image](../assets/tutorials/quick_start_linux_6.png)
+![image](../assets/getting-started/quick_start_linux_6.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_linux_7.png)
+![image](../assets/getting-started/quick_start_linux_7.png)
 
 #### To go further
 
 The **Linux SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to search
 the available models in the selection list: 
 
-![image](../assets/tutorials/quick_start_linux_8.png)
+![image](../assets/getting-started/quick_start_linux_8.png)
 
 It is also possible to access the **Configuration \> Services \> Templates** menu to know the complete list:
 
-![image](../assets/tutorials/quick_start_linux_9.png)
+![image](../assets/getting-started/quick_start_linux_9.png)
 
 To know the name of the available files system you can execute the plugin in command line:
 
@@ -234,11 +234,11 @@ List interfaces:
 
 Go to the **Configuration \> Plugin Packs** menu and install **Windows SNMP** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_windows_0.gif)
+![image](../assets/getting-started/quick_start_windows_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_windows_1.png)
+![image](../assets/getting-started/quick_start_windows_1.png)
 
 Fill in the following information:
 
@@ -254,47 +254,47 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_windows_2.png)
+![image](../assets/getting-started/quick_start_windows_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_windows_3.png)
+![image](../assets/getting-started/quick_start_windows_3.png)
 
 Other indicators can be monitored. Click on **Add** button to add a new service as file system usage for example:
 
-![image](../assets/tutorials/quick_start_windows_4a.png)
+![image](../assets/getting-started/quick_start_windows_4a.png)
 
 In the **Description** field, enter the name of the service to create, then select the host to link this service. In
 the **Template** filed, select the **OS-Windows-Disk-Generic-Name-SNMP-custom** template.
 
 A list of macros corresponding to the model will then appear:
 
-![image](../assets/tutorials/quick_start_windows_4b.png)
+![image](../assets/getting-started/quick_start_windows_4b.png)
 
 Enter the name of the file system for the **DISKNAME** macro value and add **--regexp** for the value of **EXTRAOPTIONS**
 macro, then and click on **Save** to add this indicator into the monitoring configuration.
 
 Do the same to network bandwidth usage monitoring:
 
-![image](../assets/tutorials/quick_start_windows_5.png)
+![image](../assets/getting-started/quick_start_windows_5.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_windows_6.png)
+![image](../assets/getting-started/quick_start_windows_6.png)
 
 #### To go further
 
 The **Windows SNMP** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
 search the available models in the selection list: 
 
-![image](../assets/tutorials/quick_start_windows_7.png)
+![image](../assets/getting-started/quick_start_windows_7.png)
 
 It is also possible to access the **Configuration \> Services \> Templates** menu to know the complete list:
 
-![image](../assets/tutorials/quick_start_windows_8.png)
+![image](../assets/getting-started/quick_start_windows_8.png)
 
 To know the name of the available files system you can execute the plugin in command line:
 
@@ -339,11 +339,11 @@ List interfaces:
 
 Go to the **Configuration \> Plugin Packs** menu and install **Cisco Standard** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_cisco_0.gif)
+![image](../assets/getting-started/quick_start_cisco_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_cisco_1.png)
+![image](../assets/getting-started/quick_start_cisco_1.png)
 
 Fill in the following information:
 
@@ -359,47 +359,47 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_cisco_2.png)
+![image](../assets/getting-started/quick_start_cisco_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_cisco_3.png)
+![image](../assets/getting-started/quick_start_cisco_3.png)
 
 Other indicators can be monitored. Click on **Add** button to add a new service as bandwidth usage for example:
 
-![image](../assets/tutorials/quick_start_cisco_4a.png)
+![image](../assets/getting-started/quick_start_cisco_4a.png)
 
 In the **Description** field, enter the name of the service to create, then select the host to link this service. In
 the **Template** filed, select the **OS-Linux-Traffic-Generic-Name-SNMP-custom** template.
 
 A list of macros corresponding to the model will then appear:
 
-![image](../assets/tutorials/quick_start_cisco_4b.png)
+![image](../assets/getting-started/quick_start_cisco_4b.png)
 
 Enter the name of the network interface for the **INTERFACENAME** macro value and click on **Save** to add this indicator
 into the monitoring configuration.
 
 Do the same to add packet error monitoring:
 
-![image](../assets/tutorials/quick_start_cisco_5.png)
+![image](../assets/getting-started/quick_start_cisco_5.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_cisco_6.png)
+![image](../assets/getting-started/quick_start_cisco_6.png)
 
 #### To go further
 
 The **Cisco Standard** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
 search the available models in the selection list: 
 
-![image](../assets/tutorials/quick_start_cisco_7.png)
+![image](../assets/getting-started/quick_start_cisco_7.png)
 
 It is also possible to access the **Configuration \> Services \> Templates** menu to know the complete list:
 
-![image](../assets/tutorials/quick_start_cisco_8.png)
+![image](../assets/getting-started/quick_start_cisco_8.png)
 
 To know the name of the available network interfaces you can execute the plugin in command line:
 
@@ -449,11 +449,11 @@ List ports with Spanning Tree Protocol:
 
 Go to the **Configuration \> Plugin Packs** menu and install **MySQL/MariaDB** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_mysql_0.gif)
+![image](../assets/getting-started/quick_start_mysql_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_mysql_1a.png)
+![image](../assets/getting-started/quick_start_mysql_1a.png)
 
 Fill in the following information:
 
@@ -465,7 +465,7 @@ Click on **+ Add a new entry button** in **Templates** field, then select the **
 
 A list of macros corresponding to the model will then appear:
 
-![image](../assets/tutorials/quick_start_mysql_1b.png)
+![image](../assets/getting-started/quick_start_mysql_1b.png)
 
 Fill in the value of following macros:
 
@@ -477,39 +477,39 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_mysql_2.png)
+![image](../assets/getting-started/quick_start_mysql_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_mysql_3.png)
+![image](../assets/getting-started/quick_start_mysql_3.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_mysql_4.png)
+![image](../assets/getting-started/quick_start_mysql_4.png)
 
 #### To go further
 
 The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
 search the available models in the selection list: 
 
-![image](../assets/tutorials/quick_start_mysql_5.png)
+![image](../assets/getting-started/quick_start_mysql_5.png)
 
 It is also possible to access the **Configuration \> Services \> Templates** menu to know the complete list:
 
-![image](../assets/tutorials/quick_start_mysql_6.png)
+![image](../assets/getting-started/quick_start_mysql_6.png)
 
 ### Monitor Printer equipment with SNMP
 
 Go to the **Configuration \> Plugin Packs** menu and install **Printer Standard** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_printer_0.gif)
+![image](../assets/getting-started/quick_start_printer_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_printer_1.png)
+![image](../assets/getting-started/quick_start_printer_1.png)
 
 Fill in the following information:
 
@@ -525,28 +525,28 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_printer_2.png)
+![image](../assets/getting-started/quick_start_printer_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_printer_3.png)
+![image](../assets/getting-started/quick_start_printer_3.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_printer_4.png)
+![image](../assets/getting-started/quick_start_printer_4.png)
 
 ### Monitor UPS equipment with SNMP
 
 Go to the **Configuration \> Plugin Packs** menu and install **UPS Standard** Plugin Pack:
 
-![image](../assets/tutorials/quick_start_ups_0.gif)
+![image](../assets/getting-started/quick_start_ups_0.gif)
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click on **Add**:
 
-![image](../assets/tutorials/quick_start_ups_1.png)
+![image](../assets/getting-started/quick_start_ups_1.png)
 
 Fill in the following information:
 
@@ -562,18 +562,18 @@ Click on **Save**.
 
 Your equipment has been added to the monitoring configuration:
 
-![image](../assets/tutorials/quick_start_ups_2.png)
+![image](../assets/getting-started/quick_start_ups_2.png)
 
 Go to **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/tutorials/quick_start_ups_3.png)
+![image](../assets/getting-started/quick_start_ups_3.png)
 
 It is now time to [deploy the supervision](#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/tutorials/quick_start_ups_4.png)
+![image](../assets/getting-started/quick_start_ups_4.png)
 
 ## Deploying a configuration
 
