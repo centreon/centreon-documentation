@@ -3,8 +3,6 @@ id: upgrade
 title: Upgrade the extension
 ---
 
-#TODO
-
 > When upgrading from a version below 18.10 to one above 18.10, you must obtain
 > a new license from Centreon support.
 

@@ -3,8 +3,6 @@ id: upgrade
 title: Update the extension
 ---
 
-#TODO
-
 This chapter describes how to upgrade your Centreon MAP extension. This is done
 by upgrading the three main components:
 
