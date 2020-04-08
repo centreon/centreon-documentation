@@ -1,9 +1,7 @@
 {
     "docs": {
         "Getting Started": [
-            "getting-started/introduction",
-            "getting-started/first-login",
-            "getting-started/start-to-monitor",
+            "getting-started/installation-first-steps",
             {
                 "ids": [
                     "getting-started/create-custom-view"
