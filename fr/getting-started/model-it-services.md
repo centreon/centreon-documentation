@@ -1,7 +1,9 @@
 ---
-id: getting-started
-title: Getting started
+id: model-it-services
+title: Model your IT services
 ---
+
+#TODO - rework new case
 
 ## Objectif
 
@@ -12,6 +14,9 @@ de comparer les résultats à des engagements (SLA) pris auprès des
 métier, utilisateurs internes ou externes.
 
 ![image](assets/service-mapping/example.png)
+
+> Centreon BAM est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
+> [contactez nous](sales@centreon.com).
 
 ## Concepts
 

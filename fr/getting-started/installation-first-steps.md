@@ -1,17 +1,153 @@
 ---
-id: start-to-monitor
-title: Commencez à superviser
+id: installation-first-steps
+title: Installation & premier pas
 ---
 
-## Superviser un serveur Linux en SNMP
+Bonjour et bienvenu ! Nous sommes heureux que vous ayiez décidé de mettre en place la
+supervision de votre IT via Centreon.  
+
+Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
+plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
+
+* [Installation rapide](#installation-rapide)
+* [Première connexion à l'interface](#première-connexion-à-linterface)
+* [Principe de base de la supervision](#principe-de-base-de-la-supervision)
+* [Superviser votre premier hôte](#superviser-votre-premier-hôte)
+* [Deployer la configuration](#deployer-la-configuration)
+
+Tutorials
+
+* [Créer une vue personnalisée](#create-custom-view)
+* [Create a Graphical View](#create-graphical-view)
+* [Model your IT services (Service Mapping)](#model-it-services)
+* [Analyze resources availability (Reporting)](#analyze-resources-availability)
+
+## Installation rapide
+
+#TODO
+
+## Première connexion à l'interface
+
+Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/centreon
+
+> Remplacer **IP_ADDRESS** par l'adresse IP ou FQDN du serveur web Centreon.
+
+Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bouton **Connect** :
+
+![image](../assets/getting-started/aconnection.png)
+
+Vous êtes maintenant connecté à l'interface web Centreon.
+
+### Présentation rapide des menus
+
+L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise :
+
+![image](../assets/getting-started/amenu.png)
+
+* Le menu **Accueil** permet d'accéder au premier écran d'accueil après s'être connecté. Il résume l'état général de
+  la supervision. Votre espace de travail peut être vide pour l'instant. Une fois que vous avez configuré les widgets
+  personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
+* Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
+  visualisation des logs.
+* Le menu **Vues** permet de visualiser et de configurer les graphiques de performances pour chaque élément du système
+  d'informations.
+* Le menu **Rapports** permet de visualiser de manière intuitive (via des diagrammes) l'évolution de la supervision sur
+  une période donnée.
+* Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
+* Le menu **Administration** permet de configurer l'interface web Centreon ainsi que de visualiser l'état général des serveurs.
+
+### Choisissez la langue de l'interface utilisateur
+
+Dans le bandeau, cliquez sur l'icône profile, puis cliquez sur **Edit profile**:
+
+![image](../assets/getting-started/change_language_1.png)
+
+Dans la liste de sélection des langages, sélectionnez le vôtre :
+
+![image](../assets/getting-started/change_language_2.png)
+
+Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
+langue.
+
+> Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
+> Rendez-vous dans le chapitre @TODO@(:ref:`How to translate Centreon<howtotranslate>`) pour plus d'informations.
+
+## Principe de base de la supervision
+
+Avant de commencer à superviser, voyons ensemble quelques notions principales :
+
+* Un **hôte** (ou **host** en anglais) est tout équipement qui possède une adresse IP et que l'on souhaite superviser :
+  un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
+  stockage, par exemple.
+* Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation
+  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
+* Afin de mesurer chaque indicateur, on utilise des **sondes** de supervision (**plugin** en anglais) qui sont exécutées
+  périodiquement par un moteur de collecte appelé **Centreon Engine**.
+* Pour être exécutée, une sonde a besoin d'un ensemble d'arguments qui définissent par exemple à quel hôte se connecter
+  ou via quel protocole. La sonde et ses arguments associés forment une **commande** (**command** en anglais).
+  
+Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des commandes nécessaires à la mesure des
+indicateurs désirés, puis à déployer cette configuration sur le moteur de collecte afin que ces commandes soient
+exécutées périodiquement.
+
+Néanmoins, pour simplifier drastiquement la configuration on s'appuyera avantageusement sur des modèles de supervision :
+
+* Un **modèle d'hôte** (**host template** en anglais) définit la configuration des indicateurs pour un type d'équipement donné.
+* Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
+  nécessaires à la mesure de ces indicateurs.
+* Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
+  Pack regroupe modèles de hôte et de services pour configurer en quelques clics la supervision d'un équipement
+  particulier.
+
+Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
+Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements. 
+
+![image](../assets/getting-started/host_service_command.png)
+
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
+
+### Installation des modèles de supervision de base
+
+Rendez-vous dans le menu **Configuration > Plugin Packs**.
+
+> Avant toute chose, appliquez la procédure de configuration du proxy @TODO@(add the link ref:proxyimp)
+> pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
+
+Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
+l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
+
+![image](../assets/getting-started/pp_base_generic_1.png)
+
+Vous pouvez aussi cliquer sur le Plugin Pack afin d'en connaître son contenu avant de l'installer :
+
+![image](../assets/getting-started/pp_base_generic_2.png)
+
+Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
+
+![image](../assets/getting-started/pp_install_basic.gif)
+
+Vous disposez maintenant des modèles de base pour configurer votre supervision !
+
+Five additional Packs are available once you register on [our web site](https://store.centreon.com), and over 300
+more if you subscribe to the [IMP offer](https://store.centreon.com). @TODO@(change this sentence!!!)
+
+Cinq Plugin Packs supplémentaires sont débloqués après vous être inscrit sur [notre site web](https://store.centreon.com)
+et plus de 300 packs sont disponibles si vous souscrivez à [l'offre IMP](https://store.centreon.com). @TODO@(change this sentence!!!)
+
+> Si vous avez déjà un compte Centreon, [vous pouvez maintenant authentifier votre plate-forme](https://documentation-fr.centreon.com/docs/plugins-packs/en/latest/installation.html>)
+> afin de recevoir ces Plugin Packs additionnels ainsi que tout autre service associé à votre compte.
+
+## Superviser votre premier hôte
+
+### Superviser un serveur Linux en SNMP
 
 Rendez-vous dans le men **Configuration > Plugin Packs** et installez le Plugin Pack **Linux SNMP** :
 
-![image](../assets/tutorials/quick_start_linux_0.gif)
+![image](../assets/getting-started/quick_start_linux_0.gif)
 
 Rendez-vous maintenant dans le men **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add**:
 
-![image](../assets/tutorials/quick_start_linux_1.png)
+![image](../assets/getting-started/quick_start_linux_1.png)
 
 Renseignez les informations suivantes :
 
@@ -26,53 +162,53 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_linux_2.png)
+![image](../assets/getting-started/quick_start_linux_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_linux_3.png)
+![image](../assets/getting-started/quick_start_linux_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision de
 la bande passante d'une interface réseau :
 
-![image](../assets/tutorials/quick_start_linux_4a.png)
+![image](../assets/getting-started/quick_start_linux_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Linux-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](../assets/tutorials/quick_start_linux_4b.png)
+![image](../assets/getting-started/quick_start_linux_4b.png)
 
 Saisissez le nom de votre interface pour la macro **INTERFACENAME** et cliquez sur le bouton **Save** pour ajouter cet
 indicateur à la configuration.
 
 Faites de même pour ajouter la supervision des erreurs de paquets :
 
-![image](../assets/tutorials/quick_start_linux_5.png)
+![image](../assets/getting-started/quick_start_linux_5.png)
 
 Ou la supervision d'une partition système :
 
-![image](../assets/tutorials/quick_start_linux_6.png)
+![image](../assets/getting-started/quick_start_linux_6.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_linux_7.png)
+![image](../assets/getting-started/quick_start_linux_7.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Linux SNMP** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](../assets/tutorials/quick_start_linux_8.png)
+![image](../assets/getting-started/quick_start_linux_8.png)
 
 Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](../assets/tutorials/quick_start_linux_9.png)
+![image](../assets/getting-started/quick_start_linux_9.png)
 
 Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -107,15 +243,15 @@ List interfaces:
 'enp0s3' [speed = 1000, status = up, id = 2]
 ```
 
-## Superviser un serveur Windows en SNMP
+### Superviser un serveur Windows en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Windows SNMP** :
 
-![image](../assets/tutorials/quick_start_windows_0.gif)
+![image](../assets/getting-started/quick_start_windows_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](../assets/tutorials/quick_start_windows_1.png)
+![image](../assets/getting-started/quick_start_windows_1.png)
 
 Renseignez les informations suivantes :
 
@@ -131,24 +267,24 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_windows_2.png)
+![image](../assets/getting-started/quick_start_windows_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_windows_3.png)
+![image](../assets/getting-started/quick_start_windows_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision
 de la partition C :
 
-![image](../assets/tutorials/quick_start_windows_4a.png)
+![image](../assets/getting-started/quick_start_windows_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](../assets/tutorials/quick_start_windows_4b.png)
+![image](../assets/getting-started/quick_start_windows_4b.png)
 
 Saisissez le nom de votre partition pour la macro **DISKNAME**, ajoutez la valeur **--regexp** pour la macro
 **EXTRAOPTIONS** afin de ne pas donner le nom complet de la partition et cliquez sur le bouton **Save** pour ajouter
@@ -156,25 +292,25 @@ cet indicateur à la configuration.
 
 Faites de même pour ajouter la supervision de la bande passante des interfaces réseau :
 
-![image](../assets/tutorials/quick_start_windows_5.png)
+![image](../assets/getting-started/quick_start_windows_5.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_windows_6.png)
+![image](../assets/getting-started/quick_start_windows_6.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Windows SNMP** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](../assets/tutorials/quick_start_windows_7.png)
+![image](../assets/getting-started/quick_start_windows_7.png)
 
 Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](../assets/tutorials/quick_start_windows_8.png)
+![image](../assets/getting-started/quick_start_windows_8.png)
 
 Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -215,15 +351,15 @@ List interfaces:
 'ethernet_2' [speed = , status = up, id = 9]
 ```
 
-## Superviser un routeur Cisco en SNMP
+### Superviser un routeur Cisco en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Cisco Standard** :
 
-![image](../assets/tutorials/quick_start_cisco_0.gif)
+![image](../assets/getting-started/quick_start_cisco_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](../assets/tutorials/quick_start_cisco_1.png)
+![image](../assets/getting-started/quick_start_cisco_1.png)
 
 Renseignez les informations suivantes :
 
@@ -239,49 +375,49 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_cisco_2.png)
+![image](../assets/getting-started/quick_start_cisco_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_cisco_3.png)
+![image](../assets/getting-started/quick_start_cisco_3.png)
 
 D'autres indicateurs peuvent être supervisés. Cliquez sur le bouton **Add** pour ajouter par exemple la supervision de
 la bande passante d'une interface réseau :
 
-![image](../assets/tutorials/quick_start_cisco_4a.png)
+![image](../assets/getting-started/quick_start_cisco_4a.png)
 
 Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **Net-Cisco-Standard-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](../assets/tutorials/quick_start_cisco_4b.png)
+![image](../assets/getting-started/quick_start_cisco_4b.png)
 
 Saisissez le nom de votre interface pour la macro **INTERFACENAME** et cliquez sur le bouton **Save** pour ajouter cet
 indicateur à la configuration.
 
 Faites de même pour ajouter la supervision des erreurs de paquets :
 
-![image](../assets/tutorials/quick_start_cisco_5.png)
+![image](../assets/getting-started/quick_start_cisco_5.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_cisco_6.png)
+![image](../assets/getting-started/quick_start_cisco_6.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **Cisco Standard** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](../assets/tutorials/quick_start_cisco_7.png)
+![image](../assets/getting-started/quick_start_cisco_7.png)
 
 Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](../assets/tutorials/quick_start_cisco_8.png)
+![image](../assets/getting-started/quick_start_cisco_8.png)
 
 Pour connaître le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -327,15 +463,15 @@ List ports with Spanning Tree Protocol:
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
 ```
 
-## Superviser une base de données MySQL ou MariaDB
+### Superviser une base de données MySQL ou MariaDB
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **MySQL/MariaDB** :
 
-![image](../assets/tutorials/quick_start_mysql_0.gif)
+![image](../assets/getting-started/quick_start_mysql_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](../assets/tutorials/quick_start_mysql_1a.png)
+![image](../assets/getting-started/quick_start_mysql_1a.png)
 
 Renseignez les informations suivantes :
 
@@ -348,7 +484,7 @@ Cliquez sur le bouton **+ Add a new entry** pour le champ **Templates** puis sé
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
-![image](../assets/tutorials/quick_start_mysql_1b.png)
+![image](../assets/getting-started/quick_start_mysql_1b.png)
 
 Renseigner la valeur des macros suivantes :
 
@@ -360,40 +496,40 @@ Puis, cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_mysql_2.png)
+![image](../assets/getting-started/quick_start_mysql_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_mysql_3.png)
+![image](../assets/getting-started/quick_start_mysql_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_mysql_4.png)
+![image](../assets/getting-started/quick_start_mysql_4.png)
 
 #### Pour aller plus loin
 
 Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
-![image](../assets/tutorials/quick_start_mysql_5.png)
+![image](../assets/getting-started/quick_start_mysql_5.png)
 
 Il est également possible d'accèder au menu **Configuration > Services > Templates** pour en connaître la liste :
 
-![image](../assets/tutorials/quick_start_mysql_6.png)
+![image](../assets/getting-started/quick_start_mysql_6.png)
 
-## Superviser une imprimante en SNMP
+### Superviser une imprimante en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **Printer Standard** :
 
-![image](../assets/tutorials/quick_start_printer_0.gif)
+![image](../assets/getting-started/quick_start_printer_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](../assets/tutorials/quick_start_printer_1.png)
+![image](../assets/getting-started/quick_start_printer_1.png)
 
 Renseignez les informations suivantes :
 
@@ -409,29 +545,29 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_printer_2.png)
+![image](../assets/getting-started/quick_start_printer_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_printer_3.png)
+![image](../assets/getting-started/quick_start_printer_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_printer_4.png)
+![image](../assets/getting-started/quick_start_printer_4.png)
 
-## Superviser un onduleur en SNMP
+### Superviser un onduleur en SNMP
 
 Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **UPS Standard** :
 
-![image](../assets/tutorials/quick_start_ups_0.gif)
+![image](../assets/getting-started/quick_start_ups_0.gif)
 
 Rendez-vous maintenant dans le menu **Configuration > Hosts > Hosts** et cliquez sur le bouton **Add** :
 
-![image](../assets/tutorials/quick_start_ups_1.png)
+![image](../assets/getting-started/quick_start_ups_1.png)
 
 Renseignez les informations suivantes :
 
@@ -447,19 +583,19 @@ Cliquez sur le bouton **Save**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/tutorials/quick_start_ups_2.png)
+![image](../assets/getting-started/quick_start_ups_2.png)
 
 Rendez-vous dans le menu **Configuration > Services > Services by host**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/tutorials/quick_start_ups_3.png)
+![image](../assets/getting-started/quick_start_ups_3.png)
 
 Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/tutorials/quick_start_ups_4.png)
+![image](../assets/getting-started/quick_start_ups_4.png)
 
 ## Déployer une configuration
 
