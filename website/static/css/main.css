@@ -14,7 +14,15 @@ article a:hover {
 
 /* your custom css */
 .nav-footer {
-  background: #47525b!important;
+  background: #23303A !important;
+}
+.nav-footer .sitemap {
+  margin: 0 auto 2em;
+}
+.nav-footer .sitemap .nav-home {
+  width: auto;
+  position: relative;
+  right: 80px;
 }
 
 .languages-icon {
@@ -57,6 +65,10 @@ article a:hover {
 }
 
 @media only screen and (max-width: 735px) {
+  .nav-footer .sitemap .nav-home {
+    right: 0;
+    text-align: center;
+  }
   .selec-vers {
       margin: .95em .5em;
   }
