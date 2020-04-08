@@ -104,7 +104,7 @@ function ExcellenceBlock() {
       <div className="cardBar">
         <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={createUrl(links.doc.tutorial)} />
         <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={createUrl(links.doc.installation)} />
-        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={createUrl(links.doc.apis)} />
+        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={createUrl(links.doc.api)} />
       </div>
     </div>
   )
