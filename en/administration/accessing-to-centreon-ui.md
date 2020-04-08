@@ -15,11 +15,8 @@ To update the Centreon URI, you need to follow those steps:
 
 ![image](../assets/administration/custom-uri.png)
 
-2. On the centreon central server:
-
-- Replace **/centreon** occurences by **/your\_custom\_uri** in
-**centreon/www/.htaccess**.
-- Navigate to your Centreon URL.
+2. Edit Apache configuration file for Centreon Web :
+**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
 ## HTTPS access
 
@@ -31,7 +28,7 @@ To access to the UI using HTTPS, follow those steps:
 yum install httpd24-mod_ssl openssl
 ```
 
-2. Install your certificats or generate self-signed certificates:
+2. Install your certificates or generate self-signed certificates:
 
 - /etc/pki/tls/certs/ca.crt
 - /etc/pki/tls/private/ca.key
@@ -44,7 +41,8 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 
 4. Then edit the file as following:
 
-```text
+```apacheconf
+Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
 <LocationMatch ^/centreon/(.*\.php(/.*)?)$>
@@ -68,30 +66,36 @@ ProxyTimeout 300
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
     <Directory "/usr/share/centreon/www">
-    DirectoryIndex index.php
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
-    </IfModule>
+        DirectoryIndex index.php
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-    AddType text/plain hbs
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.html [L]
+        ErrorDocument 404 /centreon/index.html
+
+        AddType text/plain hbs
     </Directory>
 
     <Directory "/usr/share/centreon/api">
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
-    </IfModule>
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
 
-    AddType text/plain hbs
+        AddType text/plain hbs
     </Directory>
 </VirtualHost>
 

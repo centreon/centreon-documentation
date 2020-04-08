@@ -125,6 +125,70 @@ suivante:
     systemctl restart cbd centengine
     ```
 
+#### Configure Apache API access
+
+Si vous utilisez le https, vous pouvez suivre
+*[cette procédure](../administration/accessing-to-centreon-ui.html)*
+
+Si vous avez une configuration personnalisée d'apache, vous devrez probablement ajouter la section d'accès à l'API
+dans votre fichier de configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+
+```diff
++Alias /centreon/api /usr/share/centreon
+Alias /centreon /usr/share/centreon/www/
+
++<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
++  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
++</LocationMatch>
+
++<LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
++  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
++</LocationMatch>
+
+ProxyTimeout 300
+
+<Directory "/usr/share/centreon/www">
+    DirectoryIndex index.php
+    Options Indexes
+    AllowOverride all
+    Order allow,deny
+    Allow from all
+    Require all granted
+    <IfModule mod_php5.c>
+        php_admin_value engine Off
+    </IfModule>
+
++    RewriteRule ^index\.html$ - [L]
++    RewriteCond %{REQUEST_FILENAME} !-f
++    RewriteCond %{REQUEST_FILENAME} !-d
++    RewriteRule . /index.html [L]
++    ErrorDocument 404 /centreon/index.html
+
+    AddType text/plain hbs
+</Directory>
+
++<Directory "/usr/share/centreon/api">
++    Options Indexes
++    AllowOverride all
++    Order allow,deny
++    Allow from all
++    Require all granted
++    <IfModule mod_php5.c>
++        php_admin_value engine Off
++    </IfModule>
++
++    AddType text/plain hbs
++</Directory>
+
+RedirectMatch ^/$ /centreon
+```
+
+Redémarrez ensuite le service apache :
+
+```shell
+systemctl restart httpd24-httpd
+```
+
 ## Montée de version des collecteurs
 
 ### Mise à jour des dépôts
