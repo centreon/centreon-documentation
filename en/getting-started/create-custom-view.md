@@ -1,6 +1,6 @@
 ---
-id: how-to
-title: How to
+id: create-custom-view
+title: Create a custom view
 ---
 
 ## Create your first custom view

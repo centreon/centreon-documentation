@@ -1,9 +1,16 @@
 {
     "docs": {
         "Getting Started": [
-            "tutorials/first-steps",
-            "tutorials/start-to-monitor",
-            "tutorials/how-to"
+            "getting-started/introduction",
+            "getting-started/first-login",
+            "getting-started/start-to-monitor",
+            {
+                "ids": [
+                    "getting-started/create-custom-view"
+                ],
+                "label": "Tutorials",
+                "type": "subcategory"
+            }
         ],
         "Installation": [
             "installation/introduction",

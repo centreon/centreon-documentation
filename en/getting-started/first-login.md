@@ -1,10 +1,22 @@
 ---
-id: first-steps
-title: First steps
+id: first-login
+title: First Login
 ---
 
-This chapter describes you how to quickly start to configure your Centreon monitoring interface by using configuration
-objects.
+This chapter describes you how to quickly start on Centreon. It's composed of a quick start to install 
+& use Centreon followed by tutorials to help you use the main capabilities of Centreon.
+
+* [Simple installation](#TODO)
+* [First login](#first-login)
+* [Start to monitor](#start-to-monitor)
+
+Tutorials
+
+* [Create a custom view](#TODO)
+* [Visualy display your IT (Graphical View)](#TODO)
+* [Model your business (Service Mapping)](#TODO)
+* [Analyze resources availability (Reporting)](#TODO)
+
 
 ## Login
 
