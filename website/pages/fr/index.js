@@ -24,6 +24,7 @@ const links = {
   slack: 'https://centreon.github.io/register-slack/',
   twitter: 'https://twitter.com/CentreonFR/',
   linkedin: 'https://www.linkedin.com/company/merethis/',
+  contribute: 'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
 }
 
 const stringsAndParagraphs = {
