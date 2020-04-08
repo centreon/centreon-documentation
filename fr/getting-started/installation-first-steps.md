@@ -3,8 +3,11 @@ id: installation-first-steps
 title: Installation & premier pas
 ---
 
-This chapter describes you how to quickly start on Centreon. It's composed of a quick start to install 
-& use Centreon followed by tutorials to help you use the main capabilities of Centreon.
+Bonjour et bienvenu ! Nous sommes heureux que vous ayiez décidé de mettre en place la
+supervision de votre IT via Centreon.  
+
+Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
+plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
 * [Simple installation](#TODO)
 * [Première connexion à l'interface](#TODO)
@@ -17,7 +20,6 @@ Tutorials
 * [Visualy display your IT (Graphical View)](#TODO)
 * [Model your business (Service Mapping)](#TODO)
 * [Analyze resources availability (Reporting)](#TODO)
-
 
 ## Installation rapide
 

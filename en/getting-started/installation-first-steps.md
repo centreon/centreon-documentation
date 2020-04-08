@@ -3,7 +3,9 @@ id: installation-first-steps
 title: Installation & first steps
 ---
 
-This chapter describes you how to quickly start on Centreon. It's composed of a quick start to install 
+Hello & Welcome! We are excited to help you begin your Centreon journey.
+
+You will fin in this chapter how to quickly start on Centreon. It's composed of a quick start to install 
 & use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
 * [Simple installation](#simple-installation)
