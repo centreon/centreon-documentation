@@ -11,7 +11,8 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 * [Simple installation](#simple-installation)
 * [First login](#first-login)
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
-* [Start to monitor](#start-to-monitor-your-first-host)
+* [Start to monitor your first host](#start-to-monitor-your-first-host)
+* [Deploying a configuration](#deploying-a-configuration)
 
 Tutorials
 
@@ -125,7 +126,7 @@ more if you subscribe to the [IMP offer](https://store.centreon.com). @TODO@(cha
 > (https://documentation.centreon.com/docs/plugins-packs/en/latest/installation.html)
 > to receive additional Plugin Packs or any services associated with your account.
 
-## Start to monitor your first hosts
+## Start to monitor your first host
 
 ### Monitor a Linux server with SNMP
 
