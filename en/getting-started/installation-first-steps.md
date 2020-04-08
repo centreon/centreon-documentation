@@ -17,7 +17,7 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 **Tutorials**
 
 * [Create a custom view](#create-custom-view)
-* [Create a graphical view (Graphical View)](#create-graphical-view)
+* [Create a Graphical view](#create-graphical-view)
 * [Model your IT services (Service Mapping)](#model-it-services)
 * [Analyze resources availability (Reporting)](#analyze-resources-availability)
 

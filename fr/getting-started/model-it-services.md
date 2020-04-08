@@ -1,6 +1,6 @@
 ---
-id: getting-started
-title: Getting started
+id: model-it-services
+title: Model your IT services
 ---
 
 ## Objectif

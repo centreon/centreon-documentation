@@ -1,6 +1,6 @@
 ---
-id: getting-started
-title: Getting started
+id: create-graphical-view
+title: Create a graphical view
 ---
 
 The objective of this tutorial is to help you understand how you can provide
