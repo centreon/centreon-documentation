@@ -1,6 +1,6 @@
 ---
-id: first-steps
-title: Premiers pas
+id: first-login
+title: Premiers login
 ---
 
 Ce chapitre vous explique comment démarrer rapidement la configuration des principaux objets contrôlés par Centreon.
