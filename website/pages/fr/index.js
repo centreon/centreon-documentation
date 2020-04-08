@@ -196,7 +196,7 @@ function HeartOpenSourceBlock() {
         <p className="textOpenSource">{stringsAndParagraphs.heartOpenSourceBlock.content}</p>
       </div>
       <div className="cardBarOpenSource">
-        <Card imageSrc={'icon-openSource.svg'} btnLabel={stringsAndParagraphs.heartOpenSourceBlock.btnOpen} btnLink={links.github} />
+        <Card imageSrc={'icon-openSource.svg'} btnLabel={stringsAndParagraphs.heartOpenSourceBlock.btnOpen} btnLink={links.contribute} />
       </div>
     </div>
   )
