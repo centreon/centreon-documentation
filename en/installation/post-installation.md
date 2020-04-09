@@ -5,7 +5,7 @@ title: Post Installation
 
 ## Web installation
 
-Log in to Centreon web interface via the URL <http://\<IP\>/centreon>.
+Log in to Centreon web interface via the URL *http://\<IP\>/centreon*.
 
 The Centreon setup wizard is displayed. Click on **Next**.
 
@@ -126,12 +126,12 @@ Central server:
 systemctl enable cbd centengine gorgoned centreontrapd centreon
 ```
 
-### Install available extensions
+## Install available extensions
 
 Go to **Administration \> Extensions \> Manager** menu and click on
 **Install all**:
 
-![image](../assets/installation/install_imp_2.png)
+![image](../assets/installation/extensions-manager.png)
 
 ## Getting started
 
