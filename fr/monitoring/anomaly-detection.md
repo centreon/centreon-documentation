@@ -1,0 +1,231 @@
+---
+id: anomaly-detection
+title: Détection d'anomalies
+---
+
+> Centreon Anomaly Detection est actuellement en **phase de béta fermée** et nécessitent un jeton valide fourni par Centreon.
+> Nous ouvrirons bientôt la phase bêta au public sous certaines conditions.
+
+## Description
+
+Le module **Centreon Anomaly Detection** détecte les déviations par rapport au comportement de service normal.
+
+Les données collectées sont envoyées à la plateforme centrale Centreon SaaS afin de pouvoir calculer un modèle de
+comportement régulier grâce à l'historique de ces données.
+
+Une fois le modèle calculé, les prédictions sont ensuite générées et récupérées sur la plateforme Centreon sur site.
+
+Ces prévisions serviront de seuils flottants qui seront ensuite utilisés par le moteur de surveillance pour comparer la
+valeur collectée avec les seuils prévus pour mettre en évidence les écarts et générer des alertes.
+
+
+![image](assets/monitoring/anomaly/saas_centreon.png)
+
+## Prérequis
+
+Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
+
+* Centreon en version minimale 20.04
+* Un jeton fourni par Centreon pour accéder à la plateforme Centreon SaaS
+* Une connexion Internet depuis le serveur Centreon Central
+* La prédiction fonctionne mieux avec des services surveillés qui présentent un comportement saisonnier comme indiqué
+  ci-dessous :
+
+![image](assets/monitoring/anomaly/simple_scheme.png)
+
+## Installation
+
+### Installation des paquets
+
+Exécutez la commande suivante en tant qu'utilisateur privilégié :
+
+```shell
+yum install centreon-anomaly-detection
+```
+
+### Installation via l'interface
+
+Rendez-vous dans le menu **Administration \> Extensions \> Manager** et recherchez **anomaly**.
+Cliquez sur le bouton **Install selection** :
+
+![imaage](assets/monitoring/anomaly/install_01.png)
+
+Le module est maintenant installé :
+
+![imaage](assets/monitoring/anomaly/install_02.png)
+
+### Redémarrage du processus
+
+Exécutez la commande suivante en tant qu'utilisateur privilégié:
+
+```shell
+systemctl restart gorgoned
+```
+
+### Ajouter votre jeton
+
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et cliquez sur le bouton
+**Add SaaS Configuration** :
+
+![imaage](assets/monitoring/anomaly/install_03.png)
+
+Saisissez votre jeton et cliquez sur **Save** :
+
+![imaage](assets/monitoring/anomaly/install_04.png)
+
+> Si votre serveur Centreon Central a besoin d'une configuration proxy pour accéder à Internet, cochez la case
+> **Use proxy**.
+
+Votre plateforme Centreon est maintenant prête à utiliser la détection d'anomalies Centreon.
+
+## Configuration
+
+> Dans sa version bêta, le module Centreon Anomaly Detection ne vous permet pas de configurer des services à partir de
+> services classiques déjà supervisés par votre plateforme Centreon.
+
+La configuration doit se faire en 3 étapes :
+
+1. [Activer l'envoi des données collectées vers SaaS Centreon](#activer-lenvoi-des-données-collectées-vers-saas-centreon)
+  afin de démarrer la modélisation du comportement régulier puis de contrôler via le menu **Monitoring> Performances> Graphiques**
+  les premiers calculs de modélisation effectués.
+2. Une fois que les modèles semblent corrects, [activer la génération d'alertes](#activer-la-génération-dalertes)
+3. Dès que les alertes générées semblent correctes, [activer le processus de notification](#activer-le-processus-de-notification)
+
+### Activer l'envoi des données collectées vers SaaS Centreon
+
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et cliquez sur le bouton **Add service Anomaly** :
+
+![imaage](assets/monitoring/anomaly/configure_01.png)
+
+#### Champs de configuration
+
+* Le champ **Description** permet de définir le nom du service.
+* Le champ **Status** permet d'activer ou désactiver le service.
+* Le champ **Select host - service** permet de sélectionner le couple hôte / service à partir duquel les données seront utilisées.
+* Le champ **Select metric** permet de sélectionner la métrique sur laquelle appliquer la détection d'anomalie.
+* Sélectionnez un contact par défaut pour le champ **Implied Contacts**.
+* Sélectionnez **0** pour le champ **Notification Interval**.
+* Sélectionnez une période par défaut pour le champ **Notification Period**.
+* Sélectionnez **None** pour le champ **Notification Type**.
+* Vous pouvez sélectionner une criticité via le champ **Severity level**.
+
+Cliquez sur **Save**.
+
+Il est maintenant temps de [déployer la supervision](./monitoring-servers/deploying-a-configuration).
+
+Accédez ensuite au menu **Monitoring > Status Details > Services** et sélectionnez **All** pour le filtre État du service.
+Après quelques minutes, les premiers résultats de la surveillance apparaissent.
+
+> Le calcul du modèle de comportement démarre. Cependant, pour obtenir un modèle représentant un comportement régulier,
+> il faut attendre plusieurs semaines (environ 6 semaines) afin d'obtenir un modèle stable.
+
+> Si les données sur lesquelles vous appliquez la détection d'anomalies ont été supervisées depuis un certain temps,
+> il est possible de [transférer l'historique des données](#transférer-lhistorique-des-données) pour obtenir plus
+> rapidement un modèle fiable.
+
+### Activer la génération d'alertes
+
+Si, en suivant régulièrement le modèle généré et les données du menu **Monitoring > Performances > Graphs**, vous pensez
+que votre modèle est stable, vous pouvez activer la génération d'alertes.
+
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et éditez un service de détection d'anomalie:
+
+![imaage](assets/monitoring/anomaly/configure_02.png)
+
+Vous pouvez activer le champ **Enable change of status** et sélectionner un nombre de déviation à partir duquel le service
+se critique en utilisant le champ **Detect anomalies after**.
+
+Cliquez sur **Save** et [déployer la supervision](./monitoring-servers/deploying-a-configuration).
+
+### Activer le processus de notification
+
+Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et éditez un service de détection d'anomalie:
+
+![imaage](assets/monitoring/anomaly/configure_03.png)
+
+* Sélectionnez **Enabled** pour le champ **Enable notification**.
+* Sélectionnez les contacts qui seront notifiés via le champ **Implied Contacts**.
+* Sélectionnez les groupes contacts qui seront notifiés via le champ **Implied Contact Groups**.
+* Sélectionnez l'intervalle de notification, par défaut **0** via le champ **Notification Interval**.
+* Sélectionnez la période de notification via le champ **Notification Period**.
+* Sélectionnez les type de notification que vous souhaitez recevoir via le champ **Notification Type**.
+
+Cliquez sur **Save** et [déployer la supervision](./monitoring-servers/deploying-a-configuration).
+
+## Visualiser les anomalies détectées
+
+Les services d'anomalies sont des services réguliers mais disposant de seuils flottants qui s'adaptent selon le modèle
+calculé. Il est donc possible de visualiser ses services et les alertes détectées :
+
+* Dans le menu **Monitoring > Status Details > Services**.
+* Dans le menu **Monitoring > Performances > Graphs**.
+* Dans le menu **Monitoring > Event Logs > vent Logs**.
+* Dans la widget **service-monitoring** via le menu **Home > Custom Views**.
+* Et tous les menus où vous pouvez opérer sur les services.
+
+## Transférer l'historique des données
+
+> L'envoi de l'historique des données est un processus très consommateur de CPU. Selon le nombre de services surveillés,
+> l'extraction des données de la base de données **centreon_storage** peut prendre plusieurs dizaines de minutes. Cela
+> aura un impact important sur les performances de la base de données et pourrait ralentir globalement la plate-forme de
+> supervision.
+
+Pour envoyer l'historique des données d'un service d'anomalie, connectez-vous à votre serveur Centreon Central et accédez
+à l'utilisateur **centreon**:
+```Shell
+su - centreon
+```
+
+Sélectionnez le service d'anomalie à l'aide de la commande suivante :
+```Shell
+/usr/share/centreon/bin/anomaly_detection --list-services
+```
+
+Vous verrez la liste des services avec leur identifiant :
+```Shell
+List of available anomaly detection services:
+
+- id: 14, hostname: fw-beijing, servicename: anomaly-nbr-connect, metric name: connection
+- id: 15, hostname: fw-brasilia, servicename: anomaly-nbr-connect, metric name: connection
+- id: 17, hostname: fw-mexico, servicename: anomaly-nbr-connect, metric name: connection
+- id: 18, hostname: fw-berlin, servicename: anomaly-nbr-connect, metric name: connection
+- id: 22, hostname: fw-brasilia, servicename: anomaly-traffic-in, metric name: traffic_in
+```
+
+Pour envoyer l'historique des données du service d'anomalies avec l'ID 14 pour les 4 dernières semaines, exécutez la
+commande suivante :
+```Shell
+/usr/share/centreon/bin/anomaly_detection --send-history 14 --history-period 4w
+```
+
+Attendez la fin du processus :
+```Shell
+Sending data from 2020-03-09T09:32:31 to 2020-03-10T00:00:00
+Sending data from 2020-03-10T00:00:00 to 2020-03-11T00:00:00
+Sending data from 2020-03-11T00:00:00 to 2020-03-12T00:00:00
+Sending data from 2020-03-12T00:00:00 to 2020-03-13T00:00:00
+Sending data from 2020-03-13T00:00:00 to 2020-03-14T00:00:00
+Sending data from 2020-03-14T00:00:00 to 2020-03-15T00:00:00
+Sending data from 2020-03-15T00:00:00 to 2020-03-16T00:00:00
+Sending data from 2020-03-16T00:00:00 to 2020-03-17T00:00:00
+Sending data from 2020-03-17T00:00:00 to 2020-03-18T00:00:00
+Sending data from 2020-03-18T00:00:00 to 2020-03-19T00:00:00
+Sending data from 2020-03-19T00:00:00 to 2020-03-20T00:00:00
+Sending data from 2020-03-20T00:00:00 to 2020-03-21T00:00:00
+Sending data from 2020-03-21T00:00:00 to 2020-03-22T00:00:00
+Sending data from 2020-03-22T00:00:00 to 2020-03-23T00:00:00
+Sending data from 2020-03-23T00:00:00 to 2020-03-24T00:00:00
+Sending data from 2020-03-24T00:00:00 to 2020-03-25T00:00:00
+Sending data from 2020-03-25T00:00:00 to 2020-03-26T00:00:00
+Sending data from 2020-03-26T00:00:00 to 2020-03-27T00:00:00
+Sending data from 2020-03-27T00:00:00 to 2020-03-28T00:00:00
+Sending data from 2020-03-28T00:00:00 to 2020-03-29T00:00:00
+Sending data from 2020-03-29T00:00:00 to 2020-03-30T00:00:00
+Sending data from 2020-03-30T00:00:00 to 2020-03-31T00:00:00
+Sending data from 2020-03-31T00:00:00 to 2020-04-01T00:00:00
+Sending data from 2020-04-01T00:00:00 to 2020-04-02T00:00:00
+Sending data from 2020-04-02T00:00:00 to 2020-04-03T00:00:00
+Sending data from 2020-04-03T00:00:00 to 2020-04-04T00:00:00
+Sending data from 2020-04-04T00:00:00 to 2020-04-05T00:00:00
+Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
+```
