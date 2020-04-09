@@ -8,7 +8,7 @@ Hello & Welcome! We are excited to help you begin your Centreon journey.
 You will fin in this chapter how to quickly start on Centreon. It's composed of a quick start to install 
 & use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
-* [Simple installation](#simple-installation)
+* [Setup your first platform](#setup-your-first-platform)
 * [First login](#first-login)
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
 * [Start to monitor your first host](#start-to-monitor-your-first-host)
@@ -21,9 +21,62 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 * [Model your IT services (Service Mapping)](#model-it-services)
 * [Analyze resources availability (Reporting)](#analyze-resources-availability)
 
-## Simple installation
+## Setup your first platform
+
+To setup your first Centreon platform, we suggest using a ready-to-use virtual machine.
+
+
+**Prerequisites**
+
+These virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS v7** operating system including a Centreon installation allowing to start easially your first monitoring.
+
+The virtual machine needs:
+
+- Processor. Any recent Intel or AMD processor with at least 2 vCPUs should do.
+- Memory. Depending on your operating systems, you will need at least 1 GB of RAM. To get the full experience, you need at least 2 GB of free memory.
+- Hard disk space. The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want to continue using Centreon, it is recommended to have at least 10 GB because its size will grow over time.
+- An Internet access to benefit from the IT-100 free offer
+
+> For a more custom installation, the complete prerequisites are available [here](#installation/prerequisites).
+
+### Download
+
+The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMWare environment-->
+
+
+ Go to to **File > Deploy OVF Template and select the OVA file**. Because the menu selections are actually linked to your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use Thin Provision to save as much free space as possible on the disk.
+
+Once you virtual machine is imported, you need to add a network card. Edit the settings of the virtual machine and a network card. Select the correct associated network to access to Internet.
+
+You can now start the virtual machine.
+
+#### First boot
+
+Once your virtual machine has started. You must connect to it via a shell terminal and perform the requested operations.
+
+> It is imperative that you complete the instructions, especially operations 4 and 5.
+
+Once these operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
+
+#### Default credential
+
+- The default Centreon web interface accout is: **admin / centreon**.
+- The server administration account (through SSH) is: **root / centreon**.
+- The root password of the DBMS is not initialized.
+
+> For security reasons, we highly recommend for you to change these passwords after installation.
+
+You can now perform continue to the first login section.
+
+<!--Oracle Virtualbox-->
 
 #TODO
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## First login
 
