@@ -87,6 +87,7 @@
                 "label": "Passive Monitoring",
                 "type": "subcategory"
             },
+            "monitoring/anomaly-detection",
             {
                 "ids": [
                     "monitoring/discovery/introduction",
