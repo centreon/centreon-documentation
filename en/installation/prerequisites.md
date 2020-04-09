@@ -27,12 +27,11 @@ This will require installing the platform from source files and therefore be mor
 
 ### DBMS
 
-> Centreon advises you to use MariaDB instead of MySQL.
+> Centreon advises you to use MariaDB.
 
 | Software | Version |
 |----------|---------|
 | MariaDB  | 10.3.x  |
-| MySQL    | 5.7.x   |
 
 ### Software dependencies
 

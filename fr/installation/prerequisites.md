@@ -29,12 +29,11 @@ complexe à partir des fichiers sources de chaque composant.
 
 ### SGBD
 
-> Centreon vous recommande d'utiliser MariaDB plutôt que le moteur MySQL.
+> Centreon vous recommande d'utiliser MariaDB.
 
 | Logiciel | Version |
 |----------|---------|
 | MariaDB  | 10.3.x  |
-| MySQL    | 5.7.x   |
 
 ### Dépendances logicielles
 
