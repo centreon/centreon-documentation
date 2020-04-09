@@ -8,7 +8,7 @@ title: Anomaly detection
 
 ## Description
 
-The **Centreon Anomaly** Detection module detects deviations from the regular service behavior.
+The **Centreon Anomaly Detection** module detects deviations from the regular service behavior.
 
 Collected data is  sent to the Centreon SaaS central platform in order to be able to compute a regular behavior model
 thanks to the history of this data.
@@ -108,7 +108,7 @@ Go to the **Configuration > Services > Anomaly Detection** menu and click on **A
 
 Click on **Save**.
 
-It is now time to [deploy the supervision](./monitoring-servers/deploying-a-configuration).
+It is now time to [deploy the monitoring](./monitoring-servers/deploying-a-configuration).
 
 Then go to the **Monitoring > Status Details > Services** menu and select **All** value for the Service Status filter.
 After a few minutes, the first results of the monitoring appear.
@@ -178,7 +178,7 @@ Select the anomaly service using the following command:
 /usr/share/centreon/bin/anomaly_detection --list-services
 ```
 
-You will sse the list of services with their ID:
+You will see the list of services with their ID:
 ```Shell
 List of available anomaly detection services:
 
