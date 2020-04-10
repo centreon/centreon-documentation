@@ -1,5 +1,5 @@
 ---
-id: events-views
+id: events-view
 title: Events View (beta)
 ---
 
