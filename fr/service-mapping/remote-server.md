@@ -70,7 +70,7 @@ Le tableau ci-dessous présente les champs à saisir :
   DB name            |  centreon_storage
   DB password        |  *Retrieve it from /etc/centreon/conf.pm on the Centreon Remote Server*
   DB port            |  3306
-  DB type            |  MariaDB
+  DB type            |  MySQL
   DB user            |  *Retrieve it from /etc/centreon/conf.pm on the Centreon Remote Server*                      
   Maximum queries per transaction |    0
   Transaction commit timeout | -
