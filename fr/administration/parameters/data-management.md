@@ -34,7 +34,7 @@ de données :
 des données des rapports de disponibilité, par défaut **365 jours**.
 - **Retention duration for logs** : durée de rétention du journal d'activité
 des moteurs de collecte, par défaut **31 jours**.
-- **Retention duration for performance data in MariaDB database** : durée de
+- **Retention duration for performance data in MySQL database** : durée de
 rétention des données de performance en base de données, par défaut **365
 jours**
 - **Retention duration for performance data in RRDTool databases** : durée de
