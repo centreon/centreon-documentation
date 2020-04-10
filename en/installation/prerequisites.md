@@ -149,7 +149,7 @@ Description of software and linked users:
 | ----------------- | ---------------- | --------------- | --------------- |
 | Apache            | httpd24-httpd    | apache          | automatic start |
 | PHP-FPM           | rh-php72-php-fpm | apache          | automatic start |
-| MariaDB (MariaDB) | mysqld (mysql)   | mysql           | automatic start |
+| MariaDB           | mariadb          | mysql           | automatic start |
 | Centreon          | centcore         | centreon        | automatic start |
 | Centreon          | centreontrapd    | centreon        | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker | automatic start |
