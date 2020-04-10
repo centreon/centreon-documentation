@@ -17,7 +17,7 @@ You will find here all architectures supported:
 The simple architecture is to have all oversight entities within the same server, ie:
 
 * Centreon web interface
-* Databases (MySQL + RRD)
+* Databases (MariaDB + RRD)
 * Monitoring Engine
 * Broker
 
@@ -51,7 +51,7 @@ The distributed architecture is to have two types of entities:
 The central Centreon server includes the following items:
 
 * Centreon web interface
-* Databases (MySQL + RRD)
+* Databases (MariaDB + RRD)
 * Monitoring Engine
 * Broker
 
@@ -108,7 +108,7 @@ The central Centreon server includes the following items:
 * Broker
 * RRD files
 
-The DBMS server store information into MySQL databases.
+The DBMS server store information into MariaDB databases.
 
 The poller includes the following items:
 
@@ -166,13 +166,13 @@ The central Centreon server includes the following items:
 * Centreon web interface(configure, display & operate)
 * Monitoring Engine
 * Broker
-* Databases (MySQL + RRD)
+* Databases (MariaDB + RRD)
 
 The Remote servers include the following items:
 
 * Centreon web interface (display & operate a subset of data)
 * Monitoring Engine
-* Databases (MySQL + RRD)
+* Databases (MariaDB + RRD)
 * Broker module to forward collected data to a central broker
 
 This architecture is used for:

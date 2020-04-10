@@ -172,11 +172,11 @@ Ce sous-chapitre illustre l'utilisation de ces dépendances via quelques cas ré
 
 Un service est vérifié en utilisant un scénario Sélénium.
 Ce scénario se connecte à une interface web avec un identifiant et un mot de passe. Ces informations de connexions sont
-stockées dans une base de données MySQL.
+stockées dans une base de données MariaDB.
 
 Par conséquent, si jamais le serveur de base de données ne répond plus, alors le scénario Sélénium ne peut aboutir.
 Il parait évident qu'il est nécessaire de créer un lien de dépendance logique entre le service qui utilise le scénario
-Sélénium et le service qui est chargé de vérifier le statut du serveur MySQL.
+Sélénium et le service qui est chargé de vérifier le statut du serveur MariaDB.
 
 De plus, étant donné que le scénario Sélénium ne peut pas s'exécuter correctement, aucune donnée de performances ne peut
 être stockée en base de données. Il faut donc arrêter non seulement la notification pour le service utilisant le scénario
@@ -188,11 +188,11 @@ cliquez sur **Add**.
 1. Entrez le nom et la description de la dépendance
 2. Pour les champs **Execution Failure Criteria** et **Notification Failure Criteria**, cochez Alerte, Critique, Inconnu
   et En attente
-3. Dans la liste **Services**, sélectionnez le service qui est chargé de vérifier le statut du serveur MySQL
+3. Dans la liste **Services**, sélectionnez le service qui est chargé de vérifier le statut du serveur MariaDB
 4. Dans la liste **Dependent Services**, sélectionnez le service qui utilise le scénario Sélénium
 5. Sauvegardez
 
-A partir de ce moment, si le service chargé de vérifier le statut du serveur MySQL a un statut "Warning", "Critical",
+A partir de ce moment, si le service chargé de vérifier le statut du serveur MariaDB a un statut "Warning", "Critical",
 "Unknown" ou "Pendinge", alors le service chargé d'exécuter le scénario Sélénium ne sera plus exécuté jusqu'à ce que le
 service maître redevienne OK.
 

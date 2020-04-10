@@ -37,7 +37,7 @@ issues for future releases.
   hexadecimal data. This can be /etc/centreon-studio/findSpecialCharacters.sh.
   due to some special UTF-8     It will locate any special characters. If the
   characters that may appear in script does not highlight any characters, please
-  the Centreon configuration or contact us. This script requires a MySQL user
+  the Centreon configuration or contact us. This script requires a MariaDB user
   real-time database, making    with select, create and drop privileges on the
   XML files invalid.            \"centreon\" database.
 

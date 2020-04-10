@@ -165,7 +165,7 @@ Exemple:
     /usr/share/centreon-bi/bin/centreonBIETL -r
 
 Afin d'obtenir des temps d'exécution raisonnables, la configuration
-matérielle, l'espace de stockage disponible et les optimisations MySQL
+matérielle, l'espace de stockage disponible et les optimisations MariaDB
 doivent avoir été bien positionnés lors de l'installation.
 
 Toutes les recommandations matérielles, logicielles et
@@ -187,10 +187,10 @@ Si les traitements de l'ETL vous semblent anormalement longs, en mode
 journalier ou en mode reconstruction, veillez à optimiser votre serveur
 de reporting. Cela peut être fait en :
 
--   améliorant la configuration MySQL
+-   améliorant la configuration MariaDB
 -   s'assurant de la bonne performance des disques (pas d'I/O wait par
     exemple)
--   ajoutant de la mémoire physique (+ optimisation MySQL)
+-   ajoutant de la mémoire physique (+ optimisation MariaDB)
 -   veillant à ne pas mutualiser la base de données ni le stockage
 
 #### Options d'exécution

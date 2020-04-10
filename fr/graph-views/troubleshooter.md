@@ -111,7 +111,7 @@ database. On your desktop client, you should see all your files from Centreon
 Web under the Media tab panel in the "Centreon" folder. If not, you may want to
 verify the following:
 
-Check your MySQL configuration:
+Check your MariaDB configuration:
 
   - On your Centreon MAP server, open the file my.cnf and check if the line
     'max\_allowed\_packet=20M' is present.
@@ -119,7 +119,7 @@ Check your MySQL configuration:
         # vi /etc/my.cnf
         max_allowed_packet=20M
 
-Then reload your MySQL database:
+Then reload your MariaDB database:
 
     sudo systemctl reload mysqld
 

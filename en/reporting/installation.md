@@ -41,7 +41,7 @@ The diagram below shows the main components of Centreon MBI:
 -   **ETL**: Process that extracts, transforms and loads data into the
     reporting database.
 -   **CBIS**: Scheduler that manages job execution and publication.
--   **Reporting database**: MySQL database that contains reporting data
+-   **Reporting database**: MariaDB database that contains reporting data
     and some raw data extracted from the monitoring database.
 
 ### Network flow table
@@ -86,7 +86,7 @@ isolation considerations.
     `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
     command `timedatectl status`)
 
--   Avoid the usage of the following variables in your monitoring MySQL
+-   Avoid the usage of the following variables in your monitoring MariaDB
     configuration. They halt long queries execution and can stop the ETL
     or the report generation jobs:
 
@@ -126,8 +126,8 @@ Monitored services       |    CPU                 |         RAM
  File system                  |   Size 
 ------------------------------|----------------------------------------------------------------------------------
  /                            | 5GB minimum 
- /var (containing MySQl data) | Use the result of the above disk-space simulation file MySQL data)
- MySQL temp folder            | We recommand keeping it in /var 
+ /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)
+ MariaDB temp folder          | We recommand keeping it in /var 
  Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data**
                    
 To check the free space use the command below, replacing vg\_data by the
@@ -142,13 +142,13 @@ Volume group name:
 -  Firewall :   Désactivé
 -  SELinux :   Désactivé
 
-We advise to tune your MySQL database server on your reporting server in
+We advise to tune your MariaDB database server on your reporting server in
 order to have better performance. You will need at least 12GB on your
 reporting server to run the configuration file provided below. Add the
 [following file](assets/reporting/centreon.cnf) on your reporting server in /etc/my.cnf.d/.
 Make sure to have a *tmp* folder in */var/lib/mysql*.
 
-> Do not set these MySQL optimizations on your monitoring server.
+> Do not set these MariaDB optimizations on your monitoring server.
 
 Users and groups :
 
@@ -367,8 +367,8 @@ Monitoring Business Intelligence \> General Options* :
   Tab     |     Option |                   Value
   ------------|-------------------------|--------------------------------
   Scheduler  Options | CBIS Host |                Reporting server IP Address
-  ETL Options  | Reporting engine uses a dedicated MySQL server |  Yes
-  Reporting Widgets \* |  Reporting MySQL database | Reporting database IP Address (default = same as CBIS Host)
+  ETL Options  | Reporting engine uses a dedicated MariaDB server |  Yes
+  Reporting Widgets \* |  Reporting MariaDB database | Reporting database IP Address (default = same as CBIS Host)
 
 
 \* *The connection test will not yet work at this stage of the
@@ -377,18 +377,18 @@ installation process.*
 ### Centreon central databases access
 
 
-#### Case #1: MySQL monitoring database is hosted on the Central monitoring server
+#### Case #1: MariaDB monitoring database is hosted on the Central monitoring server
 
 Launch the command below to authorize the reporting server to connect to
 the monitoring server databases. Use the following option:
 
-**\@ROOTPWD@**: Root MySQL password of the monitoring databases
+**\@ROOTPWD@**: Root MariaDB password of the monitoring databases
 server.If there is no password for \"root\" user, don\'t specify the
 option **root-password**.
 
     /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 
-#### Case #2: MySQL monitoring database is hosted on a dedicated server
+#### Case #2: MariaDB monitoring database is hosted on a dedicated server
 
 Connect by SSH to the database server, and the run the following
 commands: :
@@ -400,7 +400,7 @@ commands: :
 
 **$BI_ENGINE_IP$**: IP address of the reporting server.
 
-> If you\'re using MySQL replication for your **monitoring databases**,
+> If you\'re using MariaDB replication for your **monitoring databases**,
 > certain views are created during installation of Centreon MBI. You need
 > to exclude them from replication by adding the following line in the
 > my.cnf file of the slave server.
@@ -443,10 +443,10 @@ need to add the following GPG key: :
 
 ### Reporting server configuration
 
-#### MySQL optimization
+#### MariaDB optimization
 
-Make sure you have installed the MySQL configuration file provided in
-the pre-requisites before starting the MySQL service [following file](assets/reporting/centreon.cnf)
+Make sure you have installed the MariaDB configuration file provided in
+the pre-requisites before starting the MariaDB service [following file](assets/reporting/centreon.cnf)
 
     systemctl restart mysql
 
@@ -458,20 +458,20 @@ Setting this option in /etc/my.cnf will NOT work.
     systemctl daemon-reload
     systemctl restart mysql
 
-Then start the service MySQL. If this service cannot start, remove the
-ib_log files before restarting MySQL (be sure MySQL is stopped):
+Then start the service MariaDB. If this service cannot start, remove the
+ib_log files before restarting MariaDB (be sure MariaDB is stopped):
 
     rm -f /var/lib/mysql/ib_logfile*
     systemctl restart mysql
 
-If you are using a custom MySQL socket file, modify the `/etc/my.cnf` file
+If you are using a custom MariaDB socket file, modify the `/etc/my.cnf` file
 and in the [client] section, add the following variable:
 
     socket=$PATH_TO_SOCKET$
 
 ### Start configuring 
 
-First check that the reporting MySQL is running. Then launch the
+First check that the reporting MariaDB is running. Then launch the
 following command, answering the questions:
 
     /usr/share/centreon-bi/config/install.sh
@@ -505,11 +505,11 @@ of the Centreon server, specify the following options:
 | **Options**                                                                               |   **Values**                           
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MySQL server                                  | Yes. You **must** use a reporting server 
+  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server 
   Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
   Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
   Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
-  Use large memory tweaks (store MySQL temporary tables in memory)	                        | Activated only if your MySQL configuration and allocated physical memory on the server permit.
+  Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
 | **Reporting perimeter selection**                                                         |                                         |
   Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
   Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.
@@ -553,7 +553,7 @@ data retention can be managed by:
 
 
 > Before enabling the data retention options, check that the **Reporting
-> engine uses a dedicated MySQL server** option is correctly set to
+> engine uses a dedicated MariaDB server** option is correctly set to
 > "Yes" in the *Reporting > Business Intelligence > General options ETL options* menu.
 
 Enable data retention management by selecting \"Yes\", then set the
@@ -592,7 +592,7 @@ Please go to the next chapter to continue the installation.
 ### ETL: Execution
 
 
-> Before continuing, be sure that you have installed the MySQL
+> Before continuing, be sure that you have installed the MariaDB
 > configuration file as specified above in the prerequisites. Configure
 > and activate data retention so that only the required data is imported
 > and calculated.

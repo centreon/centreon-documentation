@@ -151,7 +151,7 @@ The ETL operates in **two modes**:
 
     To obtain acceptable execution times and manage all the data generated
     by your Centreon platform, the hardware configuration, storage
-    capacity and MySQL optimizations are three important points to
+    capacity and MariaDB optimizations are three important points to
     consider when installing Centreon MBI. For recommendations, consult
     the online documentation in the Architecture & Pre-requisites
     chapters.
@@ -201,7 +201,7 @@ Parameter.
 If ETL processing seems too long in daily or rebuild mode, you should
 consider optimizing your reporting server by:
 
--   Optimizing the MySQL configuration.
+-   Optimizing the MariaDB configuration.
 -   Storing the database on a high-performance disk (e.g., with no i/o
     wait time).
 -   Adding more physical memory (+ optimize configuration).

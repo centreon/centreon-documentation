@@ -28,7 +28,7 @@ Execute the following command to ensure database files compatibility:
 
     mysql_upgrade
 
--   If no error is visible, restart MySQL and continue to the section
+-   If no error is visible, restart MariaDB and continue to the section
     "Move generated reports"
 -   If you see errors, especially on the following tables mysql
     innodb_index_stats, innodb_table_stats, gtid_slave_pos, it

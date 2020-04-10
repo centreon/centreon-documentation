@@ -44,7 +44,7 @@ day).
 - **Retention duration for audit logs**: audit logs data, unlimited by default
 (0 day).
 
-> It is possible not to save performance data to the MySQL database if you are not
+> It is possible not to save performance data to the MariaDB database if you are not
 > using extraction to add-on software such as Centreon MBI.
 
 > If you change the retention time for performance charts, this value will only be
