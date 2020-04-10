@@ -73,7 +73,7 @@ Détail des champs :
   **Port de connexion à la base de   3306
   données**                          
 
-  **Type de base de données**        MariaDB
+  **Type de base de données**        MySQL
 
   **Utilisateur pour se connecter à  centreon
   la base de données**               
