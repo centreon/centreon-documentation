@@ -80,10 +80,10 @@ Il est possible de filters les évènements par nom de ressource. La mécanique 
 
 Par défaut la recherche se fait sur les champs suivants:
 
-    - Nom d'hôtes
-    - Alias de l'hôte
-    - Addresse / FQDN de l'hôte
-    - Description du service
+- Nom d'hôtes
+- Alias de l'hôte
+- Addresse / FQDN de l'hôte
+- Description du service
 
 ![image](assets/alerts/events-view/simple-search.png)
 
@@ -98,11 +98,11 @@ Il est possible de forcer le champ sur lequel on souhaite rechercher en utilisan
 
 ### Par critères avancés
 
-    - types de resource    
-    - Statut (Ok,Warning, Critical, Unknown, Pending, Up, Down)
-    - état : y'a t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
-    - Groupes d'hôtes
-    - Groupe de services 
+- types de resource    
+- Statut (Ok,Warning, Critical, Unknown, Pending, Up, Down)
+- état : y'a t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
+- Groupes d'hôtes
+- Groupe de services 
 
 ![image](assets/alerts/events-view/advanced-search.png)
 
