@@ -216,7 +216,7 @@ It is necessary to modify **LimitNOFILE** limitation. Do not try to set this opt
 *not* work. Run the commands:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
+<!--MariaDB-->
 ``` SQL
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
