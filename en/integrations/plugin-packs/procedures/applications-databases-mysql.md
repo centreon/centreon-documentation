@@ -1,6 +1,6 @@
 ---
 id: applications-databases-mysql
-title: MySQL/MariaDB
+title: MariaDB/MariaDB
 ---
 
 | Current version | Status | Date |
@@ -26,14 +26,14 @@ database user with specific privileges is required:
 
     # grant usage on *.* to 'centreon'@'pollerip' identified by 'password'
 
-### MySQL, perl-dbi, perl-dbd-mysql
+### MariaDB, perl-dbi, perl-dbd-mysql
 
 All prerequisites needed to run mysql plugins are packaged and installed with
 Centreon Entreprise Server: perl-DBI , perl-DBD-mysql , mysql.
 
 ## Centreon Configuration
 
-### Create a new MySQL server
+### Create a new MariaDB server
 
 Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
 the following table :
@@ -44,7 +44,7 @@ the following table :
 | Alias                   | *Host description*         |
 | IP                      | *Host IP Address*          |
 | Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-DB-MySQL-custom        |
+| Host Multiple Templates | App-DB-MariaDB-custom        |
 
 Click "Save" button.
 

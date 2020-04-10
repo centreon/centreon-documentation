@@ -10,7 +10,7 @@ by upgrading the three main components:
   - Centreon MAP web interface & its widget
   - Desktop client (automatically updated).
 
-Before upgrading Centreon MAP server, we highly recommand performing a MySQL
+Before upgrading Centreon MAP server, we highly recommand performing a MariaDB
 dump (backup) of your `centreon_studio` database. This will allow you easily to
 roll back to the previous state if necessary.
 

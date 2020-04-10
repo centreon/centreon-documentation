@@ -34,7 +34,7 @@ de données :
 des données des rapports de disponibilité, par défaut **365 jours**.
 - **Retention duration for logs** : durée de rétention du journal d'activité
 des moteurs de collecte, par défaut **31 jours**.
-- **Retention duration for performance data in MySQL database** : durée de
+- **Retention duration for performance data in MariaDB database** : durée de
 rétention des données de performance en base de données, par défaut **365
 jours**
 - **Retention duration for performance data in RRDTool databases** : durée de
@@ -48,7 +48,7 @@ par défaut illimitée (0 jour).
 par défaut illimitée (0 jour).
 
 > Il est possible de ne pas sauvegarder les données de performance en base de
-> données MySQL si vous n'utilisez pas d'extraction vers des logiciels
+> données MariaDB si vous n'utilisez pas d'extraction vers des logiciels
 > complémentaires tels que Centreon MBI.
 
 > Si vous changez la durée de rétention pour les graphiques de performance, cette

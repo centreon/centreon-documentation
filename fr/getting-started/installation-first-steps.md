@@ -463,9 +463,9 @@ List ports with Spanning Tree Protocol:
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
 ```
 
-### Superviser une base de données MySQL ou MariaDB
+### Superviser une base de données MariaDB ou MariaDB
 
-Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **MySQL/MariaDB** :
+Rendez-vous dans le menu **Configuration > Plugin Packs** et installez le Plugin Pack **MariaDB/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
@@ -480,7 +480,7 @@ Renseignez les informations suivantes :
 * Son adresse IP
 
 Cliquez sur le bouton **+ Add a new entry** pour le champ **Templates** puis sélectionnez le modèle
-**App-DB-MySQL-custom**.
+**App-DB-MariaDB-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
@@ -512,7 +512,7 @@ filtre **Service Status**. Après quelques minutes, les premiers résultats de l
 
 #### Pour aller plus loin
 
-Le Plugin Pack **MySQL/MariaDB** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
+Le Plugin Pack **MariaDB/MariaDB** apporte de nombreux modèles de supervision. Lors de la création d'un service, il est
 possible de rechercher les modèles disponibles dans la liste de sélection :
 
 ![image](../assets/getting-started/quick_start_mysql_5.png)

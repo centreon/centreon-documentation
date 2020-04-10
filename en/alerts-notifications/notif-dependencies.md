@@ -172,11 +172,11 @@ This sub-chapter illustrates the use of these dependencies via a few actual case
 
 A service is checked using a Selenium scenario.
 This scenario connects to a web interface with an identifier and a password. This connection information is stored in a
-MySQL database.
+MariaDB database.
 
 Consequently, if the database server does not reply, the Selenium scenario cannot complete.
 It seems obvious that it is necessary to create a logical dependency link between the service which uses the Selenium
-scenario and the service that is responsible for checking the status of the MySQL server.
+scenario and the service that is responsible for checking the status of the MariaDB server.
 
 Moreover, considering that the Selenium scenario cannot perform properly, no performance data can be stored in the database.
 So, it is necessary not only to stop the notification for the service using the Selenium scenario but also the check.
@@ -186,11 +186,11 @@ To create this dependency, go into the **Configuration > Notifications > Depende
 1. Enter the name and the description of the dependency
 2. For the **Execution Failure Criteria** and **Notification Failure Criteria** fields, check Warning, Critical, Unknown
   and Pending
-3. In the **Services** list select the service that is responsible for checking the status of the MySQL server
+3. In the **Services** list select the service that is responsible for checking the status of the MariaDB server
 4. In the **Dependent Services** list, select the service that uses the Selenium scenario
 4. Save
 
-From now on, if the service responsible for checking the status of the MySQL server has “Warning”, “Critical”, “Unknown”
+From now on, if the service responsible for checking the status of the MariaDB server has “Warning”, “Critical”, “Unknown”
 or “Pending” status, the service responsible for executing the Selenium scenario will not be executed until the master
 recovers its OK status.
 

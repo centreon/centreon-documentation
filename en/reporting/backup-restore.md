@@ -53,7 +53,7 @@ To modify this value, update **RETENTION_AGE** in the backup script
 
 
 > It is important to have at least 5 GB of free space on the **Volum Group**
-> hosting the **data** storage MySQL/MariaDB DBMS. To check free
+> hosting the **data** storage MariaDB/MariaDB DBMS. To check free
 > space run the following command by entering the name of the **Volum Group**
 >
 >       vgdisplay vg_data | grep -i free
@@ -122,7 +122,7 @@ The restore process is divided into several steps:
 -   Integrating generated reports
 -   Integrating custom reports settings
 -   Integrating Centreon MBI configuration data
--   Integrating MySQL data
+-   Integrating MariaDB data
 -   Deleting data extracted from the backup
 -   Reinstalling the backup.
 
@@ -236,9 +236,9 @@ Then copy the report designs:
     /bin/cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
     chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 
-### Integrating MySQL data
+### Integrating MariaDB data
 
-Stop the MySQL service:
+Stop the MariaDB service:
 
      systemctl stop mysql
 
@@ -260,7 +260,7 @@ Change the rights on the directory */var/lib/mysql*:
 
     chown -R mysql:root /var/lib/mysql
 
-Start MySQL service:
+Start MariaDB service:
 
     systemctl start mysql
 

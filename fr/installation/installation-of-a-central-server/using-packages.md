@@ -83,7 +83,7 @@ systemctl restart mariadb
 ```
 
 > Centreon a démarré sa compatibilité avec le mode strict SQL. Cependant, tous ses composants ne sont pas encore prêts.
-> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MySQL
+> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MariaDB
 > \>= 5.7.5 pour vos environnements de production.
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -100,7 +100,7 @@ ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '
 ``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
-<!--MySQL-->
+<!--MariaDB-->
  Exécutez les commandes suivantes :
 
 ``` SQL
@@ -148,8 +148,8 @@ FLUSH PRIVILEGES;
 > Remplacez **\<IP\>** par l'adresse IP publique du serveur Centreon et **\<PASSWORD\>** par le mot de passe de l'utilisateur
 > **root**.
 
-> MySQL >= 8 requiert un mot de passe fort. Utilisez des lettres minuscules et majuscules ainsi que des caractères
-> numériques et spéciaux; ou désinstallez le plugin **validate_password** de MySQL en utilisant la commande
+> MariaDB >= 8 requiert un mot de passe fort. Utilisez des lettres minuscules et majuscules ainsi que des caractères
+> numériques et spéciaux; ou désinstallez le plugin **validate_password** de MariaDB en utilisant la commande
 > suivantes :
 >
 > ``` SQL
@@ -157,11 +157,11 @@ FLUSH PRIVILEGES;
 > ```
 
 > Si PHP est utilisé dans une version 7.1 antérieure à la version 7.1.16, ou PHP 7.2 antérieure à 7.2.4, le
-> plugin de mot de passe doit être défini à mysql_native_password pour MySQL 8 Server, car sinon des erreurs
+> plugin de mot de passe doit être défini à mysql_native_password pour MariaDB 8 Server, car sinon des erreurs
 > similaires à *The server requested authentication method unknown to the client [caching_sha2_password]* peuvent
 > apparaitre, même si caching_sha2_password n'est pas utilisé.
 >  
-> Ceci est dû au fait que MySQL 8 utilise par défaut caching_sha2_password, un plugin qui n'est pas reconnu par les
+> Ceci est dû au fait que MariaDB 8 utilise par défaut caching_sha2_password, un plugin qui n'est pas reconnu par les
 > anciennes versions de PHP. À la place il faut modifier le paramètre *default_authentication_plugin=
 > mysql_native_password* dans le fichier **my.cnf**.
 >
@@ -173,7 +173,7 @@ FLUSH PRIVILEGES;
 > ```
 
 > Centreon a démarré sa compatibilité avec le mode strict SQL. Cependant, tous ses composants ne sont pas encore prêts.
-> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MySQL
+> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MariaDB
 > \>= 5.7.5 pour vos environnements de production.
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -190,7 +190,7 @@ ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '
 ``` shell
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
-<!--MySQL-->
+<!--MariaDB-->
  Exécutez les commandes suivantes :
 
 ```SQL
@@ -215,7 +215,7 @@ DROP USER 'root'@'<IP>';
 
 ### Système de gestion de base de données
 
-La base de données MySQL doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
+La base de données MariaDB doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
 information nous recommandons MariaDB.
 
 Pour les systèmes CentOS / RHEL en version 7, il est nécessaire de modifier la limitation **LimitNOFILE**. Changer
@@ -229,7 +229,7 @@ echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.serv
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--MySQL-->
+<!--MariaDB-->
 
 ```SQL
 mkdir -p  /etc/systemd/system/mysqld.service.d
@@ -288,7 +288,7 @@ systemctl enable centreon
 ``` shell
 systemctl enable mariadb
 ```
-<!--MySQL-->
+<!--MariaDB-->
 ``` shell
 systemctl enable mysqld
 ```

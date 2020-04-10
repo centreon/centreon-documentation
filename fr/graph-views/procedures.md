@@ -24,7 +24,7 @@ Install all the required plugins with the following commands:
     # yum install centreon-plugin-Applications-Monitoring-Centreon-Map4-Jmx
     # yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
 
-    ## OPTIONAL - Only if you have a local MySQL DB for your Map server
+    ## OPTIONAL - Only if you have a local MariaDB DB for your Map server
 
     # yum install centreon-pack-applications-databases-mysql
     # yum install centreon-plugin-Applications-Databases-Mysql
@@ -44,7 +44,7 @@ Or you can use the following command:
 
 ### Configure your database
 
-Access your MySQL server where the Centreon MAP database is stored (the Centreon
+Access your MariaDB server where the Centreon MAP database is stored (the Centreon
 MAP database is called 'centreon\_studio' by default).
 
 Run the following commands:
@@ -68,9 +68,9 @@ templates:
   - App-Monitoring-Centreon-Map4-JMX-custom
   - App-Webserver-Tomcat-JMX-custom
 
-Also add the following only if you have a local MySQL DB on you Map server:
+Also add the following only if you have a local MariaDB DB on you Map server:
 
-  - App-DB-MySQL-custom
+  - App-DB-MariaDB-custom
 
 ![image](assets/graph-views/map4-host-configuration.png)
 
@@ -79,7 +79,7 @@ Important:
 1)  The above host templates are the three main templates required for
     monitoring your Centreon MAP server.
 
-2)  The MySQL template is useful only if there is a MySQL server on your
+2)  The MariaDB template is useful only if there is a MariaDB server on your
     Centreon MAP server (for Centreon MAP database).
 
 3)  Enter the Jolokia URL as follows:
@@ -94,7 +94,7 @@ Important:
 
     > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
-4)  *If you have installed a MySQL server on your Centreon MAP server*, enter
+4)  *If you have installed a MariaDB server on your Centreon MAP server*, enter
     the user/password you used in [Configure your
     database](#configure-your-database).
 

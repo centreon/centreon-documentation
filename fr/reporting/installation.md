@@ -34,7 +34,7 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
     dans la base de données dediée reporting.
 -   **CBIS** : Ordonnanceur gérant la génération et la publication
     automatique des rapports.
--   **Reporting database** : Base de données MySQL contenant les données
+-   **Reporting database** : Base de données MariaDB contenant les données
     de reporting et certaines données extraites de la base de
     monitoring.
 
@@ -90,7 +90,7 @@ installées mais ne sont pas représentées ici.
 fichier `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la
 commande `timedatectl status`) 
 - Evitez l'utilisation des variables
-ci dessous dans le fichier de configuration MySQL `/etc/my.cnf`: Elles
+ci dessous dans le fichier de configuration MariaDB `/etc/my.cnf`: Elles
 arrêtent l'exécution des requêtes longues et ceci pourrait arrêter
 l'exécution des ETL ainsi que la génération des rapports.
 
@@ -131,9 +131,9 @@ l'exécution des ETL ainsi que la génération des rapports.
   File system   |    Taille
 ------------------------------|-----------------------------------------------------
   /                           |  5GB minimum
-  /var (containing MySQL data)|   utiliser le résultat du fichier de simulation de l'espace disque ci-dessus
-  Dossier temporaire de MySQL | Fortement recommandé de le positionner dans /var
-  Volume group*              |  5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MySQL/MariaDB.
+  /var (containing MariaDB data)|   utiliser le résultat du fichier de simulation de l'espace disque ci-dessus
+  Dossier temporaire de MariaDB | Fortement recommandé de le positionner dans /var
+  Volume group*              |  5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB/MariaDB.
 
 Pour controler l'espace libre, utiliser la commande suivante en
 remplaçant vg_data par le nom du volume groupe:
@@ -148,7 +148,7 @@ remplaçant vg_data par le nom du volume groupe:
 *  SELinux :   Désactivé
 
 
-Veillez à optimiser MySQL sur votre serveur de reporting.Vous aurez
+Veillez à optimiser MariaDB sur votre serveur de reporting.Vous aurez
 besoin d'au moins 12GB de mémoire vive afin d'utiliser le 
 [fichier suivant](../assets/reporting/centreon.cnf) Veillez à créer un dossier `tmp` dans `/var/lib/mysql/`.
 
@@ -275,7 +275,7 @@ catégories d'hôtes de la manière suivante :
 
 -   Groupe d'hôtes : **Databases**, Applications, Security, Network,
     Mail ...
--   Catégorie d'hôtes : DB2-Servers, MySQL-Servers, Oracle-Servers,
+-   Catégorie d'hôtes : DB2-Servers, MariaDB-Servers, Oracle-Servers,
     SQL-Servers ...
 
 Voici un exemple de statistiques que vous pourriez obtenir en utilisant
@@ -385,24 +385,24 @@ MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
   Tab           |    Option            |         Value
   -----------------|-------------------------|---------------------------------
   Options de  l'ordonnanceur |    Hôte de CBIS    |      Adresse IP du serveur de reporting
-  Options de l'ETL Une base de données MySQL dédiée au reporting a été  mise en place. |  Oui
-  Widgets de reporting*   |     Reporting MySQL database |  Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting)                                  
+  Options de l'ETL Une base de données MariaDB dédiée au reporting a été  mise en place. |  Oui
+  Widgets de reporting*   |     Reporting MariaDB database |  Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting)                                  
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
 ### Accès à la base de données Centrale
 
-#### Cas #1 : La base MySQL de monitoring est hébèrgée sur le même serveur que le serveur Central Centreon
+#### Cas #1 : La base MariaDB de monitoring est hébèrgée sur le même serveur que le serveur Central Centreon
 
 Lancez la commande ci dessous pour autoriser le serveur de reporting à
 se connecter aux bases de données du serveur de supervision.
 
     /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 
-**@ROOTPWD@ :** Mot de passe root du serveur MySQL du serveur de supervision.
+**@ROOTPWD@ :** Mot de passe root du serveur MariaDB du serveur de supervision.
 Si il n'y a pas de mot de passe root, ne spécifiez pas l'option "root-password".
 
-#### Cas2 # La base MySQL de monitoring est hébergée sur un serveur dédié
+#### Cas2 # La base MariaDB de monitoring est hébergée sur un serveur dédié
 
 Connectez vous en SSH sur le serveur de base de données, et lancez les
 commandes suivantes : :
@@ -414,7 +414,7 @@ commandes suivantes : :
 
 **$BI_ENGINE_IP$ :** Adresse IP du serveur de reporting
 
-> Si vous utilisez une réplication MySQL pour vos bases de données de
+> Si vous utilisez une réplication MariaDB pour vos bases de données de
 > **monitoring**, lors de l'installation de Centreon MBI, des vues sont
 > créées. Il faut les exclure de la réplication en rajoutant la ligne
 > suivante dans le fichier my.cnf du slave
@@ -455,10 +455,10 @@ Dans le cas d'une installation basée sur une image CentOS vierge, installez la 
 
 ### Configurer le serveur de reporting
 
-#### Optimisations MySQL
+#### Optimisations MariaDB
 
 Assurez vous que [le fichier](assets/reporting/centreon.cnf) de configuration optimisé fourni dans les
-pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL
+pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB
 
     systemctl restart mysql
 
@@ -471,21 +471,21 @@ modifier la limitation **LimitNOFILE**. Changer cette option dans
     systemctl daemon-reload
     systemctl restart mysql
 
-Si le service MySQL échoue lors du démarrage, supprimer les fichiers
-*ib_logfile* (MySQL doit absolument être stoppé) puis redémarrer à
-nouveau MySQL:
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
+*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
+nouveau MariaDB:
 
     rm -f /var/lib/mysql/ib_logfile*
     systemctl start mysql
 
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
 fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 
     socket=$PATH_TO_SOCKET$
 
 #### Installer la configuration
 
-Vérifiez que le MySQL de reporting est bien démarré puis lancez les
+Vérifiez que le MariaDB de reporting est bien démarré puis lancez les
 commandes ci dessous et répondez aux questions:
 
     /usr/share/centreon-bi/config/install.sh
@@ -521,10 +521,10 @@ suivantes :
 Option                                                                                                                                      | Values
 --------------------------------------------------------------------------------------------------------------------------------------------|---------
 | **Options générales**                                                                                                                     | |
-  Une base de données MySQL dédiée au reporting a été mise en place.		                                                                | Oui. Vous devez avoir un serveur de reporting dédié.
+  Une base de données MariaDB dédiée au reporting a été mise en place.		                                                                | Oui. Vous devez avoir un serveur de reporting dédié.
   Espace de stockage des fichiers temporaires sur le serveur de reporting *		                                                            | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés
   Type de statistiques à traiter		                                                                                                    | <ul><li>Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité. </li><li>Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance</li><li>Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.</li></ul>
-  Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante)  | Activé uniquement si votre configuration MySQL et la mémoire physique allouée au serveur de reporting le permet.
+  Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante)  | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.
 | **Sélection du périmètre du reporting**                                                                                                   | |
 Groupes d hotes                                                                                                                             | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.
 Catégories d hôtes                                                                                                                          | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.
@@ -612,7 +612,7 @@ Passez à la section suivante pour continuer l'installation.
 ### ETL : Execution
 
 > Avant d'aller plus loin, assurez vous d'avoir positionné les
-> optimisations MySQL fournis dans les pré-requis. Assurez vous également
+> optimisations MariaDB fournis dans les pré-requis. Assurez vous également
 > d'avoir configuré la rétention des données et de l'avoir activée afin
 > de ne récupérer et calculer que les données dont vous avez besoins.
 

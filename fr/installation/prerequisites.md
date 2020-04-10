@@ -154,7 +154,7 @@ Description des logiciels et utilisateurs liés :
 |-----------------|------------------|-----------------|-----------------------|
 | Apache          | httpd24-httpd    | apache          | démarrage automatique |
 | PHP-FPM         | rh-php72-php-fpm | apache          | démarrage automatique |
-| MySQL (MariaDB) | mysqld (mysql)   | mysql           | démarrage automatique |
+| MariaDB (MariaDB) | mysqld (mysql)   | mysql           | démarrage automatique |
 | Centreon        | centcore         | centreon        | démarrage automatique |
 | Centreon        | centreontrapd    | centreon        | démarrage automatique |
 | Centreon Broker | cbwd             | centreon-broker | démarrage automatique |

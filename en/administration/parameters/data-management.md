@@ -33,7 +33,7 @@ Setting the retention time limits the size of the database:
 data, by default **365 days**.
 - **Retention duration for logs**: activity log of the monitoring engines, by
 default **31 days**.
-- **Retention duration for performance data in MySQL database**: performance
+- **Retention duration for performance data in MariaDB database**: performance
 data stored into database, by default **365 days**
 - **Retention duration for performance data in RRDTool databases**: graphs
 performance data, by default **180 days**.
@@ -44,7 +44,7 @@ day).
 - **Retention duration for audit logs**: audit logs data, unlimited by default
 (0 day).
 
-> It is possible not to save performance data to the MySQL database if you are not
+> It is possible not to save performance data to the MariaDB database if you are not
 > using extraction to add-on software such as Centreon MBI.
 
 > If you change the retention time for performance charts, this value will only be

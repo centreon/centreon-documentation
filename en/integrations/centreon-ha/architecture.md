@@ -5,7 +5,7 @@ title: Architectures
 
 ## Available architectures for a Centreon HA cluster 
 
-| Cluster type | Number of servers | Centreon VIP | MySQL VIP | Supported? |
+| Cluster type | Number of servers | Centreon VIP | MariaDB VIP | Supported? |
 | --------------- | ------------------ | ------------ | --------- | ------ |
 | 2 nodes | 2 (+ qdevice) | oui | non | yes |
 | 3 nodes |  | oui | oui | no |

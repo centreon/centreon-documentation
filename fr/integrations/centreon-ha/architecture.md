@@ -5,7 +5,7 @@ title: Architectures
 
 ## Architectures possibles pour un cluster Centreon HA
 
-| Type de cluster | Nombre de serveurs | VIP centreon | VIP MySQL | Statut |
+| Type de cluster | Nombre de serveurs | VIP centreon | VIP MariaDB | Statut |
 | --------------- | ------------------ | ------------ | --------- | ------ |
 | 2 nœuds | 2 (+ qdevice) | oui | non | supporté |
 | 3 nœuds |  | oui | oui | déprécié |

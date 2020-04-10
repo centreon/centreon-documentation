@@ -29,7 +29,7 @@ Lancer la commande suivante pour assurer la compatibilité des données:
 
     mysql_upgrade
 
--   Si aucune erreur n\'apparaît, redémarrez MySQL et continuer à la
+-   Si aucune erreur n\'apparaît, redémarrez MariaDB et continuer à la
     section ci-dessous \"Déplacer les rapports générés\".
 -   Si des erreurs sont visibles, notamment sur les tables mysql
     innodb\_index\_stats, innodb\_table\_stats, gtid\_slave\_pos, cela

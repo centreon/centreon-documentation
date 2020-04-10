@@ -43,7 +43,7 @@ When designing a report, you may require several data sources from a
 number of storage systems accessible through different protocols:
 
 -   Delimited flat files (CSV).
--   JDBC data sources (MySQL, etc.).
+-   JDBC data sources (MariaDB, etc.).
 -   XML files.
 -   Web services.
 
@@ -51,7 +51,7 @@ BIRT also allows you to script your own data sources accessed by Java or
 Javascript objects.
 
 We highly recommend collecting and consolidating report data into a
-single type of data source, and storing it as such (e.g., a MySQL data).
+single type of data source, and storing it as such (e.g., a MariaDB data).
 Multiplying your data sources in a report might have an impact on
 performance and maintenance. You are advised not to use more than of two
 types of data sources in the same report project (e.g., JDBC and CSV).
@@ -345,7 +345,7 @@ users to connect to the above servers.
 > **Warning**
 > 
 > Never upload the L2_Datasource.rptlibrary file to your reporting
-> server. This will delete the configuration for connection to the MySQL
+> server. This will delete the configuration for connection to the MariaDB
 > server and cause Centreon MBI (for ETL & report generation) to crash.
 
 All standard reports use the library L2_datasources to connect to data.

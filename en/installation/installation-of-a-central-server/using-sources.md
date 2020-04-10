@@ -42,11 +42,11 @@ yum install -y \
     rh-php72-php-cli \
     rh-php72-php-mbstring \
     rh-php72-php-snmp \
-    perl-DBD-MySQL \
+    perl-DBD-MariaDB \
     perl-Sys-Syslog \
     httpd24-httpd \
     perl-DBI \
-    perl-DBD-MySQL \
+    perl-DBD-MariaDB \
     rrdtool \
     perl-rrdtool \
     perl-Crypt-DES \

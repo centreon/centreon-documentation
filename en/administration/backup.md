@@ -31,8 +31,8 @@ There are two kinds of database backup:
 
   - MySQLdump: mysqldump command is used to backup databases. Be careful,
     mysqldump can take long time on large databases.
-  - LVM Snapshot  Binary copy of MySQL files is done. You need to have a
-    specific LV for MySQL (i.e. /var/lib/mysql) and 1GB of space in its VG.
+  - LVM Snapshot  Binary copy of MariaDB files is done. You need to have a
+    specific LV for MariaDB (i.e. /var/lib/mysql) and 1GB of space in its VG.
 
 Backup filename format:
 
@@ -41,7 +41,7 @@ Backup filename format:
 
 #### Configuration files backup
 
-All configuration files of central server can be saved : MySQL, Apache, PHP,
+All configuration files of central server can be saved : MariaDB, Apache, PHP,
 SNMP, centreon, centreon-broker)
 
 Backup filename format:
@@ -71,7 +71,7 @@ The following window is displayed:
     snapshot backup)
   - **Backup retention** Retention for backups (in days)
   - **Backup configuration files** Enable backup of configuration files
-  - **MySQL configuration file path** Path for MySQL configuration file
+  - **MariaDB configuration file path** Path for MariaDB configuration file
   - **SCP export enabled** Enable SCP export of backups
   - **Remote user** Remote user for SCP export
   - **Remote host** Remote host for SCP export
