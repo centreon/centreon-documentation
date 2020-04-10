@@ -107,6 +107,7 @@
             [
                 "alerts-notifications/init-alerts-notifications",
                 "alerts-notifications/concepts",
+                "alerts-notifications/events-view",
                 "alerts-notifications/event-console",
                 "alerts-notifications/manage-alerts",
                 {
