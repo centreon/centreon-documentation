@@ -267,7 +267,7 @@ systemctl enable centreon
 ```
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
+<!--MariaDB-->
 ``` shell
 systemctl enable mariadb
 ```
