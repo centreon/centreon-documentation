@@ -1,6 +1,6 @@
 ---
 id: applications-databases-mysql
-title: MariaDB/MariaDB
+title: MySQL/MariaDB
 ---
 
 | Current version | Status | Date |
@@ -44,7 +44,7 @@ the following table :
 | Alias                   | *Host description*         |
 | IP                      | *Host IP Address*          |
 | Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-DB-MariaDB-custom        |
+| Host Multiple Templates | App-DB-MySQL-custom        |
 
 Click "Save" button.
 

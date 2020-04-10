@@ -188,11 +188,11 @@ specify the following options:
 | **Options**                                                                               |   **Values**                           
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MariaDB server                                  | Yes. You **must** use a reporting server 
+  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server 
   Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
   Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
   Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
-  Use large memory tweaks (store MariaDB temporary tables in memory)	                        | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
+  Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
 | **Reporting perimeter selection**                                                         |                                         |
   Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
   Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.

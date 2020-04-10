@@ -100,7 +100,7 @@ E.g.: We create the srvi-web-01 host according to the template below:
 The host srvi-web-01 will automatically possess the following services:
 
 * Load, CPU, Memory, disk-/ from services templates linked to the host template “Linux-Server-RedHat-5”
-* Broken-jobs, hit-ratio, tablespaces, listener from services templates linked to the host template “DB-MariaDB”
+* Broken-jobs, hit-ratio, tablespaces, listener from services templates linked to the host template “DB-MySQL”
 * Process and connection from services templates linked to the host template “Web-Server-Apache”
 
 When the services of a host are generated from host's templates, it is possible that certain services generated are not

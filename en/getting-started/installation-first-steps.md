@@ -498,9 +498,9 @@ List ports with Spanning Tree Protocol:
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
 ```
 
-### Monitor a MariaDB or MariaDB database
+### Monitor a MySQL or MariaDB database
 
-Go to the **Configuration \> Plugin Packs** menu and install **MariaDB/MariaDB** Plugin Pack:
+Go to the **Configuration \> Plugin Packs** menu and install **MySQL/MariaDB** Plugin Pack:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
@@ -514,7 +514,7 @@ Fill in the following information:
 * A description of the server
 * The IP address
 
-Click on **+ Add a new entry button** in **Templates** field, then select the **App-DB-MariaDB-custom** template in the list.
+Click on **+ Add a new entry button** in **Templates** field, then select the **App-DB-MySQL-custom** template in the list.
 
 A list of macros corresponding to the model will then appear:
 
@@ -545,7 +545,7 @@ filter. After a few minutes, the first results of the monitoring appear:
 
 #### To go further
 
-The **MariaDB/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
+The **MySQL/MariaDB** Plugin Pack provides several monitoring templates. When creating a service, it is possible to
 search the available models in the selection list: 
 
 ![image](../assets/getting-started/quick_start_mysql_5.png)

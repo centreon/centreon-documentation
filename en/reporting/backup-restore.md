@@ -53,7 +53,7 @@ To modify this value, update **RETENTION_AGE** in the backup script
 
 
 > It is important to have at least 5 GB of free space on the **Volum Group**
-> hosting the **data** storage MariaDB/MariaDB DBMS. To check free
+> hosting the **data** storage MySQL/MariaDB DBMS. To check free
 > space run the following command by entering the name of the **Volum Group**
 >
 >       vgdisplay vg_data | grep -i free

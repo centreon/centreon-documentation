@@ -33,7 +33,7 @@ Lancer la commande suivante pour assurer la compatibilité des données:
     section ci-dessous \"Déplacer les rapports générés\".
 -   Si des erreurs sont visibles, notamment sur les tables mysql
     innodb\_index\_stats, innodb\_table\_stats, gtid\_slave\_pos, cela
-    peut être dû à une incompatibilité entre MySQl/MariaDB 5.5 et
+    peut être dû à une incompatibilité entre MySQL/MariaDB 5.5 et
     MariaDB 10.1. Dans ce cas, effectuer les actions suivantes:
 
         service mysql stop

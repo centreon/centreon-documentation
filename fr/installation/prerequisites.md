@@ -150,16 +150,16 @@ Description des partitions :
 
 Description des logiciels et utilisateurs liés :
 
-| Logiciel        | Service          | Utilisateur     | Commentaire           |
-|-----------------|------------------|-----------------|-----------------------|
-| Apache          | httpd24-httpd    | apache          | démarrage automatique |
-| PHP-FPM         | rh-php72-php-fpm | apache          | démarrage automatique |
+| Logiciel          | Service          | Utilisateur     | Commentaire           |
+|-------------------|------------------|-----------------|-----------------------|
+| Apache            | httpd24-httpd    | apache          | démarrage automatique |
+| PHP-FPM           | rh-php72-php-fpm | apache          | démarrage automatique |
 | MariaDB (MariaDB) | mysqld (mysql)   | mysql           | démarrage automatique |
-| Centreon        | centcore         | centreon        | démarrage automatique |
-| Centreon        | centreontrapd    | centreon        | démarrage automatique |
-| Centreon Broker | cbwd             | centreon-broker | démarrage automatique |
-| Centreon Broker | cbd              | centreon-broker | démarrage automatique |
-| Centreon Engine | centengine       | centreon-engine | démarrage automatique |
+| Centreon          | centcore         | centreon        | démarrage automatique |
+| Centreon          | centreontrapd    | centreon        | démarrage automatique |
+| Centreon Broker   | cbwd             | centreon-broker | démarrage automatique |
+| Centreon Broker   | cbd              | centreon-broker | démarrage automatique |
+| Centreon Engine   | centengine       | centreon-engine | démarrage automatique |
 
 Description des logiciels optionnels et utilisateurs liés :
 

@@ -127,8 +127,8 @@ Monitored services       |    CPU                 |         RAM
 ------------------------------|----------------------------------------------------------------------------------
  /                            | 5GB minimum 
  /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)
- MariaDB temp folder            | We recommand keeping it in /var 
- Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB/MariaDB DBMS **data**
+ MariaDB temp folder          | We recommand keeping it in /var 
+ Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data**
                    
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
@@ -268,7 +268,7 @@ host groups and categories using this method:
 
 -   Host groups: **Databases**, Applications, Security, Network, Mail,
     etc.
--   Host categories: DB2-Servers, MariaDB-Servers, Oracle-Servers,
+-   Host categories: DB2-Servers, MySQL-Servers, Oracle-Servers,
     SQL-Servers, etc.
 
 Here is an exemple of statistics that you can obtain using those groups
@@ -505,11 +505,11 @@ of the Centreon server, specify the following options:
 | **Options**                                                                               |   **Values**                           
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MariaDB server                                  | Yes. You **must** use a reporting server 
+  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server 
   Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
   Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
   Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
-  Use large memory tweaks (store MariaDB temporary tables in memory)	                        | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
+  Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
 | **Reporting perimeter selection**                                                         |                                         |
   Hostgroups                                                                                | Select only host groups for which you want to aggregate data.
   Hostcategories	                                                                        | Select only host categories for which you want to aggregate data.

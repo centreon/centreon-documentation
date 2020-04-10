@@ -59,7 +59,7 @@ Pour modifier la valeur de rotation des sauvegardes, éditer la valeur
 
 > Il est important de disposer d\'au moins 5 Go d\'espace libre sur le
 > **Volum Group** hébergeant l\'espace de stockage **data** du SGBD
-> MariaDB/MariaDB. Pour cela, exécuter la commande suivante en renseignant
+> MySQL/MariaDB. Pour cela, exécuter la commande suivante en renseignant
 > le nom du **Volum Group** :
 
     vgdisplay vg_data | grep -i free 

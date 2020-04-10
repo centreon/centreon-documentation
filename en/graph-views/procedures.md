@@ -70,7 +70,7 @@ templates:
 
 Also add the following only if you have a local MariaDB DB on you Map server:
 
-  - App-DB-MariaDB-custom
+  - App-DB-MySQL-custom
 
 ![image](assets/graph-views/map4-host-configuration.png)
 
@@ -79,7 +79,7 @@ Important:
 1)  The above host templates are the three main templates required for
     monitoring your Centreon MAP server.
 
-2)  The MariaDB template is useful only if there is a MariaDB server on your
+2)  The MySQL/MariaDB template is useful only if there is a MariaDB server on your
     Centreon MAP server (for Centreon MAP database).
 
 3)  Enter the Jolokia URL as follows:

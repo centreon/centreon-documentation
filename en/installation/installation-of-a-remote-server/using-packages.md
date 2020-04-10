@@ -73,10 +73,10 @@ systemctl restart mariadb
 ```
 
 > Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
-> disable the strict mode if you use MariaDB >= 10.2.4 or MariaDB >= 5.7.5 for your production environments.
+> disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 Execute the following SQL request:
 
 ``` SQL
@@ -90,7 +90,7 @@ or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-<!--MariaDB-->
+<!--MySQL-->
 Execute the following SQL request:
 
 ``` SQL
@@ -137,17 +137,17 @@ FLUSH PRIVILEGES;
 
 > Replace **\<IP\>** by the public IP address of the Centreon server and **\<PASSWORD\>** by the **root** password.
 
-> MariaDB >= 8 require a strong password. Please use uppercase, numeric and special characters; or uninstall the
+> MySQL >= 8 require a strong password. Please use uppercase, numeric and special characters; or uninstall the
 > **validate_password** using following command:
 >
 > ``` SQL
 > uninstall plugin validate_password;
 > ```
 
-> When running a PHP version before 7.1.16, or PHP 7.2 before 7.2.4, set MariaDB 8 Server's default password plugin to
+> When running a PHP version before 7.1.16, or PHP 7.2 before 7.2.4, set MySQL 8 Server's default password plugin to
 > mysql_native_password or else you will see errors similar to *The server requested authentication method unknown
 > to the client [caching_sha2_password]* even when caching_sha2_password is not used.
-> This is because MariaDB 8 defaults to caching_sha2_password, a plugin that is not recognized by the older PHP
+> This is because MySQL 8 defaults to caching_sha2_password, a plugin that is not recognized by the older PHP
 >releases. Instead, change it by setting *default_authentication_plugin=mysql_native_password* in **my.cnf**.
 >
 > Change the method to store the password using following command:
@@ -158,10 +158,10 @@ FLUSH PRIVILEGES;
 > ```
 
 > Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
-> disable the strict mode if you use MariaDB >= 10.2.4 or MariaDB >= 5.7.5 for your production environments.
+> disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 Execute the following SQL request:
 
 ```SQL
@@ -175,7 +175,7 @@ or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-<!--MariaDB-->
+<!--MySQL-->
 Execute the following SQL request:
 
 ```SQL
@@ -207,14 +207,14 @@ It is necessary to modify **LimitNOFILE** limitation. Do not try to set this opt
 *not* work. Run the commands:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 ``` SQL
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-<!--MariaDB-->
+<!--MySQL-->
 ``` SQL
 mkdir -p  /etc/systemd/system/mysqld.service.d
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysqld.service.d/limits.conf
@@ -267,11 +267,11 @@ systemctl enable centreon
 ```
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 ``` shell
 systemctl enable mariadb
 ```
-<!--MariaDB-->
+<!--MySQL-->
 ``` shell
 systemctl enable mysqld
 ```

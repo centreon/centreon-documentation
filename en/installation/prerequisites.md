@@ -145,16 +145,16 @@ Files system description:
 
 Description of software and linked users:
 
-| Software        | Service          | User            | Comment         |
-| --------------- | ---------------- | --------------- | --------------- |
-| Apache          | httpd24-httpd    | apache          | automatic start |
-| PHP-FPM         | rh-php72-php-fpm | apache          | automatic start |
+| Software          | Service          | User            | Comment         |
+| ----------------- | ---------------- | --------------- | --------------- |
+| Apache            | httpd24-httpd    | apache          | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache          | automatic start |
 | MariaDB (MariaDB) | mysqld (mysql)   | mysql           | automatic start |
-| Centreon        | centcore         | centreon        | automatic start |
-| Centreon        | centreontrapd    | centreon        | automatic start |
-| Centreon Broker | cbwd             | centreon-broker | automatic start |
-| Centreon Broker | cbd              | centreon-broker | automatic start |
-| Centreon Engine | centengine       | centreon-engine | automatic start |
+| Centreon          | centcore         | centreon        | automatic start |
+| Centreon          | centreontrapd    | centreon        | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker | automatic start |
+| Centreon Broker   | cbd              | centreon-broker | automatic start |
+| Centreon Engine   | centengine       | centreon-engine | automatic start |
 
 Description of optional software and linked users:
 

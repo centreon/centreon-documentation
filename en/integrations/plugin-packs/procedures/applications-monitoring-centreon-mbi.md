@@ -119,6 +119,6 @@ Click on the *Save* button.
 
 #### Notice
 
-We advice you to also link your reporting server to *App-DB-MariaDB* template.
+We advice you to also link your reporting server to *App-DB-MySQL* template.
 Refer to its monitoring procedure for the configuration.
 

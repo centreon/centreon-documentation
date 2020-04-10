@@ -133,7 +133,7 @@ l'exécution des ETL ainsi que la génération des rapports.
   /                           |  5GB minimum
   /var (containing MariaDB data)|   utiliser le résultat du fichier de simulation de l'espace disque ci-dessus
   Dossier temporaire de MariaDB | Fortement recommandé de le positionner dans /var
-  Volume group*              |  5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB/MariaDB.
+  Volume group*              |  5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MySQL/MariaDB.
 
 Pour controler l'espace libre, utiliser la commande suivante en
 remplaçant vg_data par le nom du volume groupe:
@@ -143,7 +143,7 @@ remplaçant vg_data par le nom du volume groupe:
 **Logiciels**
 
 *  OS : CentOS 7 / Redhat 7
-*  SGBD :  MariaDB 10.1.x
+*  SGBD :  MariaDB 10.3.x
 *  Firewall :   Désactivé
 *  SELinux :   Désactivé
 
@@ -275,7 +275,7 @@ catégories d'hôtes de la manière suivante :
 
 -   Groupe d'hôtes : **Databases**, Applications, Security, Network,
     Mail ...
--   Catégorie d'hôtes : DB2-Servers, MariaDB-Servers, Oracle-Servers,
+-   Catégorie d'hôtes : DB2-Servers, MySQL-Servers, Oracle-Servers,
     SQL-Servers ...
 
 Voici un exemple de statistiques que vous pourriez obtenir en utilisant
@@ -521,7 +521,7 @@ suivantes :
 Option                                                                                                                                      | Values
 --------------------------------------------------------------------------------------------------------------------------------------------|---------
 | **Options générales**                                                                                                                     | |
-  Une base de données MariaDB dédiée au reporting a été mise en place.		                                                                | Oui. Vous devez avoir un serveur de reporting dédié.
+  Une base de données MariaDB dédiée au reporting a été mise en place.		                                                            | Oui. Vous devez avoir un serveur de reporting dédié.
   Espace de stockage des fichiers temporaires sur le serveur de reporting *		                                                            | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés
   Type de statistiques à traiter		                                                                                                    | <ul><li>Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité. </li><li>Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance</li><li>Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.</li></ul>
   Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante)  | Activé uniquement si votre configuration MariaDB et la mémoire physique allouée au serveur de reporting le permet.
