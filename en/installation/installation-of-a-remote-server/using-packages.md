@@ -76,7 +76,7 @@ systemctl restart mariadb
 > disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
+<!--MariaDB-->
 Execute the following SQL request:
 
 ``` SQL
