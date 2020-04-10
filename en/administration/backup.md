@@ -71,7 +71,7 @@ The following window is displayed:
     snapshot backup)
   - **Backup retention** Retention for backups (in days)
   - **Backup configuration files** Enable backup of configuration files
-  - **MariaDB configuration file path** Path for MariaDB configuration file
+  - **MySQL configuration file path** Path for MariaDB configuration file
   - **SCP export enabled** Enable SCP export of backups
   - **Remote user** Remote user for SCP export
   - **Remote host** Remote host for SCP export
