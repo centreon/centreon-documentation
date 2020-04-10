@@ -105,7 +105,7 @@
         ],
         "Gestion des Alertes et Notifications": [
             [
-                "alerts-notifications/init-alerts-notifications",
+                "alerts-notifications/introduction",
                 "alerts-notifications/concepts",
                 "alerts-notifications/events-view",
                 "alerts-notifications/event-console",
