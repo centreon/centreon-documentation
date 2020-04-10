@@ -43,7 +43,7 @@ Please consult the following table for the appropriate field values:
 | DB name                         | centreon                                                               |
 | DB password                     | *Retrieve it from /etc/centreon/conf.pm on the Centreon Remote Server* |
 | DB port                         | 3306                                                                   |
-| DB type                         | MariaDB                                                                |
+| DB type                         | MySQL                                                                  |
 | DB user                         | centreon                                                               |
 | Maximum queries per transaction | 0                                                                      |
 | Transaction commit timeout      | 5                                                                      |
