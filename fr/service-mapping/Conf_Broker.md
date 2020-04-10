@@ -128,7 +128,7 @@ Détail des champs :
 
   **Port de connexion à la base de données**         3306
 
-  **Type de base de données**                        MariaDB
+  **Type de base de données**                        MySQL
 
   **Utilisateur pour se connecter à la base de       centreon
   données**                                          
