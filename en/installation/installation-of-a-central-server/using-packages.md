@@ -134,6 +134,11 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
+> Replace **\<IP\>** with the Centreon Central IP address that will connect to
+> the database server.
+>
+> Replace **\<USER\>** and **\<PASSWORD\>** by user's credentials.
+
 Once the installation is complete you can delete this user using:
 
 ```SQL
