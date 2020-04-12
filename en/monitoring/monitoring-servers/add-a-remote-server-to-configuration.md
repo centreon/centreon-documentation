@@ -46,10 +46,9 @@ Select the poller(s) to be linked to this Remote Server, then click on **Apply**
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
-**TO REMOVE**
-    The wizard will configure your new server:
+The wizard will configure your new server:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
 
 The Remote Server is now configured:
 

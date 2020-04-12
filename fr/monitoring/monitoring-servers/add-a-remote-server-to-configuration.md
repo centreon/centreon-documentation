@@ -46,11 +46,9 @@ Sélectionnez le(s) collecteur(s) à lier à ce Remote Server. Puis cliquez sur 
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
-**TO REMOVE**
+L'assistant va configurer votre nouveau serveur :
 
-    L'assistant va configurer votre nouveau serveur :
-
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
 
 Le Remote Server est maintenant configuré :
 
