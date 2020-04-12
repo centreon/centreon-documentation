@@ -107,7 +107,7 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-### Update the operating system
+## Update the operating system
 
 Connect to your server using a terminal, and execute the command:
 
