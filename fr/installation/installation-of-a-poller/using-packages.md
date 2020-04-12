@@ -23,7 +23,7 @@ $ getenforce
 Disabled
 ```
 
-### Pare-feu
+### Configurer ou désactiver le pare-feu
 
 Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
 dernier exécuter les commandes suivantes :
@@ -31,7 +31,6 @@ dernier exécuter les commandes suivantes :
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
-systemctl status firewalld
 ```
 
 ### Installation du dépôt Centreon

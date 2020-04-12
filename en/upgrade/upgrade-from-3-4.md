@@ -110,8 +110,6 @@ systemctl disable httpd
 systemctl stop httpd
 systemctl enable httpd24-httpd
 systemctl start httpd24-httpd
-systemctl enable centreon
-systemctl restart centreon
 ```
 
 #### Configure Apache API access

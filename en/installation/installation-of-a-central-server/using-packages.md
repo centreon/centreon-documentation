@@ -37,14 +37,13 @@ $ getenforce
 Disabled
 ```
 
-### Firewall
+### Configure or disable firewall
 
 Add firewall rules or disable the firewall by running the following commands:
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
-systemctl status firewalld
 ```
 
 ### Install the repositories

@@ -228,7 +228,7 @@ Refer to the official MariaDB documentation to perform this upgrade.
 
 ## Upgrade the Remote Servers
 
-This procedure is the same than to update a Centreon server.
+This procedure is the same than to upgrade a Centreon Central server.
 
 ## Upgrade the Pollers
 
