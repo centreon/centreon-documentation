@@ -33,7 +33,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installation du dépôt Centreon
+### Installer le dépôt Centreon
 
 Afin d’installer les logiciels Centreon à partir des dépôts, vous devez au
 préalable installer le fichier lié au dépôt.

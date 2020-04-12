@@ -43,7 +43,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installation des dépôts
+### Installer le dépôts
 
 #### Dépôt *Software collections* de Red Hat
 

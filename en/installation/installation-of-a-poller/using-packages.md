@@ -31,7 +31,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installing the repository
+### Install the repository
 
 To install Centreon software from the repository, you should first install the
 centreon-release package, which will provide the repository file.
