@@ -5,7 +5,7 @@ title: Post Installation
 
 ## Installation web
 
-Connectez-vous à l'interface web via <http://<IP\>/centreon>.
+Connectez-vous à l'interface web via *http://\<IP\>/centreon*.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
@@ -129,14 +129,14 @@ commande suivante sur le serveur Central :
 systemctl enable cbd centengine gorgoned centreontrapd centreon
 ```
 
-### Installer les extensions disponibles
+## Installer les extensions disponibles
 
 Rendez-vous au menu **Administration \> Extensions \> Manager** et cliquez sur
 le bouton **Install all** :
 
-![image](../assets/installation/install_imp_2.png)
+![image](../assets/installation/extensions-manager.png)
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../tutorials/tutorials) pour mettre
-en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
+pour mettre en place votre première supervision.
