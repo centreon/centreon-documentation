@@ -140,7 +140,7 @@ Le processus de restauration comprend plusieurs étapes :
 -   Intégration des anciens rapports générés.
 -   Intégration des paramètres de rapports personnalisés.
 -   Intégration des données de configuration Centreon MBI.
--   Intégration des données MySQL.
+-   Intégration des données MariaDB.
 -   Supprimer les données extraites de la sauvegarde.
 -   Réinstaller la sauvegarde.
 
@@ -254,9 +254,9 @@ Intégrer les modèles de rapports via les commandes ::
     /bin/cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
     chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 
-### Intégration des données MySQL
+### Intégration des données MariaDB
 
-Arrêter le service MySQL ::
+Arrêter le service MariaDB ::
 
     systemctl stop mysql
 
@@ -279,7 +279,7 @@ Modifier les droits sur le répértoire */var/lib/mysql* ::
 
     chown -R mysql:root /var/lib/mysql
 
-Démarrer le service MySQL::
+Démarrer le service MariaDB::
 
     systemctl start mysql
 

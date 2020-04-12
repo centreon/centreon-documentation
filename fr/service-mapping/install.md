@@ -47,7 +47,7 @@ Cliquer sur "Back", le module est maintenant installé :
 ![image](assets/service-mapping/installation/install_module_4.png)
 
 
-> Si vous utilisez une réplication MySQL pour vos bases de données de
+> Si vous utilisez une réplication MariaDB pour vos bases de données de
 > **monitoring**, lors de l'installation de Centreon BAM, une vue est
 > créée. Il faut l'exclure de la réplication en rajoutant la ligne
 > suivante dans le fichier my.cnf du slave

@@ -48,7 +48,7 @@ par défaut illimitée (0 jour).
 par défaut illimitée (0 jour).
 
 > Il est possible de ne pas sauvegarder les données de performance en base de
-> données MySQL si vous n'utilisez pas d'extraction vers des logiciels
+> données MariaDB si vous n'utilisez pas d'extraction vers des logiciels
 > complémentaires tels que Centreon MBI.
 
 > Si vous changez la durée de rétention pour les graphiques de performance, cette

@@ -45,7 +45,7 @@ issues de différents systèmes de stockage et accessibles par différents
 protocoles :
 
 -   Fichiers plats (CSV)
--   sources de données JDBC (MySQL, ...)
+-   sources de données JDBC (MariaDB, ...)
 -   documents XML
 -   services Web
 
@@ -54,7 +54,7 @@ alimentées par des objets Java ou Javascript.
 
 Cependant, il est fortement recommandé de collecter, consolider et
 stocker vos données de reporting dans un seul type de sources de données
-(source de données MySQL par exemple, avec peut-être plusieurs
+(source de données MariaDB par exemple, avec peut-être plusieurs
 connexions à la base de données). Multiplier les sources de données dans
 un rapport entraînera des problèmes de performances et de
 maintenabilité. Il est conseillé d'utiliser au maximum deux types de

@@ -76,7 +76,7 @@ systemctl restart mariadb
 > \>= 5.7.5 pour vos environnements de production.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
  Exécutez les commandes suivantes :
 
 ```SQL
@@ -166,7 +166,7 @@ FLUSH PRIVILEGES;
 > \>= 5.7.5 pour vos environnements de production.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
  Exécutez les commandes suivantes :
 
 ``` SQL
@@ -204,14 +204,14 @@ DROP USER 'root'@'<IP>';
 
 ### Système de gestion de base de données
 
-La base de données MySQL doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
+La base de données MariaDB doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
 information nous recommandons MariaDB.
 
 Pour les systèmes CentOS / RHEL en version 7, il est nécessaire de modifier la limitation **LimitNOFILE**. Changer
 cette option dans /etc/my.cnf *ne fonctionnera pas*.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 ``` SQL
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
@@ -272,7 +272,7 @@ systemctl enable centreon
 ```
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
+<!--MySQL-->
 ``` shell
 systemctl enable mariadb
 ```

@@ -827,7 +827,7 @@ session.gc_maxlifetime = 7200
 
 Après avoir sauvegardé le fichier, n'oubliez pas de redémarrer le service apache de votre serveur.
 
-La base de données MySQL doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
+La base de données MariaDB doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
 information, nous recommandons MariaDB.
 
 ## Installation web

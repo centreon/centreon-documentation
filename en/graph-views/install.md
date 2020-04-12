@@ -29,17 +29,17 @@ The diagram below summarizes the architecture:
 
 **Table of network flow**
 
-| **Application** | **Source** | **Destination**         | **Port**  | **Protocol** | **Purpose**                                         |
-| --------------- | ---------- | ----------------------- | --------- | ------------ | --------------------------------------------------- |
-| Map Server      | Map server | Centreon central broker | 5758      | TCP          | Get real-time status updates                        |
-| Map Server      | Map server | Centreon MySQL database | 3306      | TCP          | Retrieve configuration and other data from Centreon |
-| Map Server      | Map server | Map server database     | 3306      | TCP          | Store all views and data related to Centreon MAP    |
-| Web + Desktop   | Map server | Centreon central        | 80/443    | HTTP/HTTPS   | Authentication & data retrieval                     |
-| Web interface   | User       | Map server              | 8080/8443 | HTTP/HTTPS   | Retrieve views & content                            |
-| Web interface   | User       | Internet\* (Mapbox)     | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Map server              | 8080/8443 | HTTP/HTTPS   | Retrieve and create views & content                 |
-| Desktop client  | User       | Internet\* (Mapbox)     | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Internet\* (p2 repo)    | 80        | HTTP         | Retrieve automatic desktop client update            |
+| **Application** | **Source** | **Destination**           | **Port**  | **Protocol** | **Purpose**                                         |
+| --------------- | ---------- | ------------------------- | --------- | ------------ | --------------------------------------------------- |
+| Map Server      | Map server | Centreon central broker   | 5758      | TCP          | Get real-time status updates                        |
+| Map Server      | Map server | Centreon MariaDB database | 3306      | TCP          | Retrieve configuration and other data from Centreon |
+| Map Server      | Map server | Map server database       | 3306      | TCP          | Store all views and data related to Centreon MAP    |
+| Web + Desktop   | Map server | Centreon central          | 80/443    | HTTP/HTTPS   | Authentication & data retrieval                     |
+| Web interface   | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve views & content                            |
+| Web interface   | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
+| Desktop client  | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve and create views & content                 |
+| Desktop client  | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
+| Desktop client  | User       | Internet\* (p2 repo)      | 80        | HTTP         | Retrieve automatic desktop client update            |
 
 \* *With or without a proxy*
 
@@ -68,7 +68,7 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
 | *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
 | *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MySQL data partition*   | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
 To correctly implement the dedicated memory, you have to edit the *JAVA\_OPTS*
 parameter in the Centreon Map configurations file `/etc/centreon-studio/centreon-map.conf` and
@@ -92,7 +92,7 @@ included in the count.
 **Software**
 
   - OS: CentOS 7 / Redhat 7
-  - DBMS: MariaDB 10.2
+  - DBMS: MariaDB 10.3
   - Firewall: Disabled
   - SELinux: Disabled
 
@@ -197,7 +197,7 @@ to create new Centreon Broker output. It will be revoked later.
 ### Centreon MAP server
 
 Install Centreon MAP from the Centreon MAP yum repository. It will automatically install java (OpenJDK 11) if needed.
-You need to have a MySQL/MariadDB database to
+You need to have a MySQL/MariaDB database to
 store Centreon Map data, wether it's on localhost or somewhere else.
 
 If you installed your Centreon Map server from a "fresh CentOS installation" you
@@ -219,7 +219,7 @@ added by the RPM in /etc/my.cnf.d/map.cnf):
     max_allowed_packet=20M
     innodb_log_file_size = 200M
 
-Then, restart MySQL:
+Then, restart MariaDB:
 
     systemctl restart mysql
 

@@ -31,7 +31,7 @@ Extensions > Manager` and upload the license using the interface.
 Log on to the Centreon web interface using an account with privileges sufficient
 to install extension. Then go to the `Administration > Extension > Manager`
 
-> If you are using MySQL replication for your monitoring databases, installing
+> If you are using MariaDB replication for your monitoring databases, installing
 > Centreon BAM generates a view. You need to exclude it from replication by
 > adding the following line on the my.cnf file of the slave server:
 >

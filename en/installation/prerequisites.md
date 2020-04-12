@@ -27,12 +27,11 @@ This will require installing the platform from source files and therefore be mor
 
 ### DBMS
 
-> Centreon advises you to use MariaDB instead of MySQL.
+> Centreon advises you to use MariaDB.
 
 | Software | Version |
 |----------|---------|
 | MariaDB  | 10.3.x  |
-| MySQL    | 5.7.x   |
 
 ### Software dependencies
 
@@ -146,16 +145,16 @@ Files system description:
 
 Description of software and linked users:
 
-| Software        | Service          | User            | Comment         |
-| --------------- | ---------------- | --------------- | --------------- |
-| Apache          | httpd24-httpd    | apache          | automatic start |
-| PHP-FPM         | rh-php72-php-fpm | apache          | automatic start |
-| MySQL (MariaDB) | mysqld (mysql)   | mysql           | automatic start |
-| Centreon        | centcore         | centreon        | automatic start |
-| Centreon        | centreontrapd    | centreon        | automatic start |
-| Centreon Broker | cbwd             | centreon-broker | automatic start |
-| Centreon Broker | cbd              | centreon-broker | automatic start |
-| Centreon Engine | centengine       | centreon-engine | automatic start |
+| Software          | Service          | User            | Comment         |
+| ----------------- | ---------------- | --------------- | --------------- |
+| Apache            | httpd24-httpd    | apache          | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache          | automatic start |
+| MariaDB           | mariadb          | mysql           | automatic start |
+| Centreon          | centcore         | centreon        | automatic start |
+| Centreon          | centreontrapd    | centreon        | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker | automatic start |
+| Centreon Broker   | cbd              | centreon-broker | automatic start |
+| Centreon Engine   | centengine       | centreon-engine | automatic start |
 
 Description of optional software and linked users:
 

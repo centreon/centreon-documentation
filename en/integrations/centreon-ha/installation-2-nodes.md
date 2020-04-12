@@ -13,7 +13,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](https://documentation.centreon.com/docs/centreon/en/latest/installation/index.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MySQL data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](https://documentation.centreon.com/docs/centreon/en/latest/installation/index.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -38,10 +38,10 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@CENTRAL_SLAVE_NAME@`: secondary central server's name
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name
-* `@MYSQL_REPL_USER@`:  MySQL replication login (default: `centreon-repl`)
-* `@MYSQL_REPL_PASSWD@`: MySQL replication password
-* `@MYSQL_CENTREON_USER@`: MySQL Centreon login (default: `centreon`)
-* `@MYSQL_CENTREON_PASSWD@`: MySQL Centreon password
+* `@MYSQL_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
+* `@MYSQL_REPL_PASSWD@`: MariaDB replication password
+* `@MYSQL_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
+* `@MYSQL_CENTREON_PASSWD@`: MariaDB Centreon password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
 * `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
@@ -219,15 +219,15 @@ ssh <peer node ip address>
 
 Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
-## Configuring the MySQL databases replication
+## Configuring the MariaDB databases replication
 
-A Master-Slave MySQL cluster will be setup so that everything is synchronized in real-time. 
+A Master-Slave MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
 **Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
-### Configuration de MySQL
+### Configuration de MariaDB
 
-For both optimization and cluster reliability purposes, you need to add this tuning options to MySQL configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
 ```ini
 [server]
@@ -286,7 +286,7 @@ To avoid useless exposure of your databases, you should restrict access to it as
 mysql_secure_installation
 ```
 
-### Creating the `centreon` MySQL account
+### Creating the `centreon` MariaDB account
 
 First log in as `root` on both database servers (using the newly defined password):
 
@@ -294,7 +294,7 @@ First log in as `root` on both database servers (using the newly defined passwor
 mysql -p
 ```
 
-Then paste on both sides the following SQL commands to the MySQL prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
+Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
 
 ```sql
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'localhost';
@@ -310,7 +310,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-### Creating the replication MySQL account
+### Creating the replication MariaDB account
 
 Still in the same prompt, create the replication user (default: `centreon-repl`):
 
@@ -327,7 +327,7 @@ TO '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASS
 
 ### Setting up the binary logs purge jobs
 
-MySQL binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
+MariaDB binary logs must be purged on both nodes, but not at the same time, therefore the cron jobs definitions must be set on different times:
 
 * On the primary node:
 
@@ -345,9 +345,9 @@ cat >/etc/cron.d/centreon-ha-mysql <<EOF
 EOF
 ```
 
-### Configuring the MySQL scripts environment variables
+### Configuring the MariaDB scripts environment variables
 
-The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MySQL can work properly. These variables must be assigned the chosen values for the macros.
+The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon HA* scripts dedicated to MariaDB can work properly. These variables must be assigned the chosen values for the macros.
 
 ```bash
 #!/bin/bash
@@ -412,13 +412,13 @@ read_only
 log-bin=mysql-bin
 ```
 
-Then apply this change by restarting MySQL on both nodes:
+Then apply this change by restarting MariaDB on both nodes:
 
 ```bash
 systemctl restart mysql
 ```
 
-### Synchronizing the databases and enabling MySQL replication
+### Synchronizing the databases and enabling MariaDB replication
 
 In the process of synchronizing the databases, you will first stop the secondary database process so that its data can be overwritten by the primary node's data. 
 
@@ -428,13 +428,13 @@ Run this command **on the secondary node:**
 systemctl stop mysql
 ```
 
-It is important to make sure that MySQL is completely shut down. You will run this command and check that it returns no output:
+It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
 
 ```bash
 ps -ef | grep mysql[d]
 ```
 
-In case one or more process are still alive, then run this other command (it will prompt for the MySQL root password):
+In case one or more process are still alive, then run this other command (it will prompt for the MariaDB root password):
 
 ```bash
 mysqladmin -p shutdown
@@ -448,10 +448,10 @@ Once the service is stopped **on the secondary node**, you will run the synchron
 
 This script will perform the following actions:
 
-* checking that MySQL is stopped on the secondary node
-* stopping MySQL on the primary node
-* mounting a LVM snapshot on the same volume group that bears the `/var/lib/mysql` (or whatever mount point holds the MySQL data files)
-* starting MySQL again on the primary node
+* checking that MariaDB is stopped on the secondary node
+* stopping MariaDB on the primary node
+* mounting a LVM snapshot on the same volume group that bears the `/var/lib/mysql` (or whatever mount point holds the MariaDB data files)
+* starting MariaDB again on the primary node
 * recording the current position in the binary log
 * disabling the `read_only` mode on the primary node (this node will now be able to write into its database)
 * synchronizing/overwriting all the data files (except for the `mysql` system database) 
@@ -463,7 +463,7 @@ This script's output is very verbose and you can't expect to understand everythi
 ```text
 Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
-Start MySQL Slave
+Start MariaDB Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
 3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
@@ -607,7 +607,7 @@ pcs quorum device add model net \
     algorithm="ffsplit"
 ```
 
-### Creating the MySQL cluster resources
+### Creating the MariaDB cluster resources
 
 To be run **only on one central node**:
 
@@ -775,7 +775,7 @@ pcs resource create snmptrapd \
 
 #### Colocation constraints
 
-In order to force the cluster running both `centreon` resource group and the MySQL Master on the same node, you have to declare these colocation constraints:
+In order to force the cluster running both `centreon` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-master"
@@ -823,7 +823,7 @@ Active resources:
 
 #### Checking the database replication thread
 
-The MySQL replication state can be monitored at any time with the `mysql-check-status.sh` command:
+The MariaDB replication state can be monitored at any time with the `mysql-check-status.sh` command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
