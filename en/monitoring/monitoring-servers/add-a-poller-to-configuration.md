@@ -8,9 +8,6 @@ title: Add a Poller to configuration
 As of Centreon version 18.10, a new wizard has been added for defining a new
 Poller on the Centreon platform.
 
-> You also have the option of adding a new Poller `manually<add_manual_poller>`,
-> but we recommend using the following procedure.
-
 Go to the **Configuration \> Pollers \> Pollers** menu and click on **Add server
 with wizard** to configure a new Poller.
 
@@ -178,7 +175,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-To force the Central's Gorgone daemon to connect to the Poller, restart it with
+**To force the Central's Gorgone daemon to connect to the Poller**, restart it with
 the following command:
 
 ``` shell
@@ -201,5 +198,5 @@ The Poller will then connect to the Central Broker.
 
 ## Getting started
 
-Go to the *[Getting Started](../../tutorials/first-steps.html)* chapter to
+Go to the [Getting Started](../../tutorials/first-steps.html) chapter to
 configure your first monitoring.

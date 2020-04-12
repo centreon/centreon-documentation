@@ -1,6 +1,6 @@
 ---
-id: post-installation
-title: Post Installation
+id: web-and-post-installation
+title: Installation Web
 ---
 
 ## Installation web
@@ -114,10 +114,10 @@ et cliquez sur **Exporter**,
     systemctl restart gorgoned
     ```
 
-7. Démarrez le démon de supervision passive :
+7. Démarrez les services de supervision passive :
 
     ```shell
-    systemctl start centreontrapd
+    systemctl start snmptrapd centreontrapd
     ```
 
 La supervision est maintenant opérationnelle.
@@ -126,7 +126,7 @@ Pour activer le lancement automatique des services au démarrage, exécuter la
 commande suivante sur le serveur Central :
 
 ```shell
-systemctl enable cbd centengine gorgoned centreontrapd centreon
+systemctl enable cbd centengine gorgoned snmptrapd centreontrapd centreon
 ```
 
 ## Installer les extensions disponibles

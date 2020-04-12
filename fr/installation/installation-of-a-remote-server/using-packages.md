@@ -3,303 +3,196 @@ id: using-packages
 title: A partir des paquets
 ---
 
-Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
+Après avoir installer votre serveur, considérez la mise à jour votre système
+d'exploitation via la commande :
 
-## Étapes pré-installation
+```shell
+yum update
+```
+
+> Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
+> si une mise à jour du noyau est proposée.
+
+## Étapes de pré-installation
 
 ### Désactiver SELinux
 
-SELinux doit être désactivé. Pour cela vous devez modifier le fichier */etc/selinux/config* et remplacer "enforcing"
-par "disabled" comme dans l'exemple suivant :
+SELinux doit être désactivé en exécutant la commande suivante :
 
-``` shell
-SELINUX=disabled
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Après avoir sauvegardé le fichier, veuillez redémarrer votre système d'exploitation pour prendre en compte les changements.
+> Redémarrez votre système d'exploitation pour prendre en compte le changement.
 
-Une vérification rapide permet de confirmer le statut de SELinux:
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
 
-``` shell
-getenforce
-```
-
-Vous devriez avoir le résultat suivant :
-
-``` shell
+```shell
+$ getenforce
 Disabled
+```
+
+### Pare-feu
+
+Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
+dernier exécuter les commandes suivantes :
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+systemctl status firewalld
 ```
 
 ### Installation des dépôts
 
 #### Dépôt *Software collections* de Red Hat
 
-Afin d'installer les logiciels Centreon, le dépôt *Software collections* de Red Hat doit être activé.
+Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
+Hat doit être activé.
 
-> Le dépôt *Software collections* est nécessaire pour l'installation de PHP 7 et les librairies associées.
+> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
+> et les librairies associées.
 
 Exécutez la commande suivante :
 
-``` shell
+```shell
 yum install -y centos-release-scl
 ```
 
-Le dépôt est maintenant installé.
-
 #### Dépôt Centreon
 
-Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au préalable installer le fichier lié au dépôt.
+Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
+préalable installer le fichier lié au dépôt.
 
-Exécutez la commande suivante:
+Exécutez la commande suivante :
 
-``` shell
+```shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
-Le dépôt est maintenant installé.
+## Installation
 
-## Installation du serveur central
+Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
 
-Ce chapitre décrit l'installation d'un serveur central Centreon.
+Il est possible d'installer ce serveur avec une base de données locale au
+serveur, ou déportée sur un serveur dédié.
 
-### Installer un serveur Centreon central avec base de données
+<!--DOCUSAURUS_CODE_TABS-->
 
-Exécutez la commande :
+<!--Avec base de données locale-->
 
-``` shell
+Exécutez les commandes suivante :
+
+```shell
 yum install -y centreon centreon-database
+systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-> Centreon a démarré sa compatibilité avec le mode strict SQL. Cependant, tous ses composants ne sont pas encore prêts.
-> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MySQL
-> \>= 5.7.5 pour vos environnements de production.
+> Le paquet **centreon-database** installe une configuration MariaDB optimisée
+> pour l'utilisation avec Centreon.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
- Exécutez les commandes suivantes :
+<!--Avec base de données déportée-->
 
-```SQL
-SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-```
+> Dans le cas d'une installation avec un serveur dédié à la base de données, ce
+> dernier doit aussi avoir les dépôts prérequis.
 
-ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '[server]' la ligne suivante :
+Exécutez la commande suivante sur le serveur Centreon Remote Server :
 
-``` shell
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
-```
-<!--MySQL-->
- Exécutez les commandes suivantes :
-
-``` SQL
-SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
-```
-
-ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '[server]' la ligne suivante :
-
-``` shell
-sql_mode = 'NO_ENGINE_SUBSTITUTION'
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-Puis redémarrez votre SGBD.
-
-### Installer un serveur Centreon central avec une base de données déportée
-
-Exécutez la commande :
-
-``` shell
+```shell
 yum install -y centreon-base-config-centreon-engine
 ```
 
-#### Installer le SGBD sur un serveur dédié
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 
-Exécutez la commande :
-
-``` shell
+```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-> Le paquet **centreon-database** installe un serveur de base de données avec une configuration optimisée pour l'utilisation avec Centreon.
+> Le paquet **centreon-database** installe une configuration MariaDB optimisée
+> pour l'utilisation avec Centreon.
+>
+> Si ce paquet n'est pas installé, il faut à minima adapter la limitation
+> **LimitNOFILE** à **32000** via une configuration dédiée, example:
+>
+> ```shell
+> $ cat /etc/systemd/system/mariadb.service.d/limits.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
 
-Puis créer un utilisateur **root** distant :
+Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
+Centreon :
 
-``` SQL
-CREATE USER 'root'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'<IP>' WITH GRANT OPTION;
+```SQL
+CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **\<IP\>** par l'adresse IP publique du serveur Centreon et **\<PASSWORD\>** par le mot de passe de l'utilisateur
-> **root**.
-
-> MySQL >= 8 requiert un mot de passe fort. Utilisez des lettres minuscules et majuscules ainsi que des caractères
-> numériques et spéciaux; ou désinstallez le plugin **validate_password** de MySQL en utilisant la commande
-> suivantes :
+> Remplacez **\<IP\>** par l'adresse IP avec laquelle le serveur Centreon
+> Remote Server se connectera au serveur de base de données.
 >
-> ``` SQL
-> uninstall plugin validate_password;
-> ```
+> Remplacez **\<USER\>** et **\<PASSWORD\>** par les identifiants de
+> l'utilisateur.
 
-> Si PHP est utilisé dans une version 7.1 antérieure à la version 7.1.16, ou PHP 7.2 antérieure à 7.2.4, le
-> plugin de mot de passe doit être défini à mysql_native_password pour MySQL 8 Server, car sinon des erreurs
-> similaires à *The server requested authentication method unknown to the client [caching_sha2_password]* peuvent
-> apparaitre, même si caching_sha2_password n'est pas utilisé.
->  
-> Ceci est dû au fait que MySQL 8 utilise par défaut caching_sha2_password, un plugin qui n'est pas reconnu par les
-> anciennes versions de PHP. À la place il faut modifier le paramètre *default_authentication_plugin=
-> mysql_native_password* dans le fichier **my.cnf**.
-> 
-> Changez la méthode de stockage du mot de passe, utilisez la commande suivante :
->
-> ```SQL
-> ALTER USER 'root'@'<IP>' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
-> FLUSH PRIVILEGES;
-> ```
-
-> Centreon a démarré sa compatibilité avec le mode strict SQL. Cependant, tous ses composants ne sont pas encore prêts.
-> C'est pourquoi il est impératif de désactiver le mode strict SQL si vous utilisez MariaDB \>= 10.2.4 ou MySQL
-> \>= 5.7.5 pour vos environnements de production.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
- Exécutez les commandes suivantes :
-
-``` SQL
-SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-```
-
-ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '[server]' la ligne suivante :
-
-``` shell
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
-```
-<!--MySQL-->
- Exécutez les commandes suivantes :
+Une fois l'installation terminée vous pouvez supprimer cet utilisateur via la
+commande :
 
 ```SQL
-SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
+DROP USER '<USER>'@'<IP>';
 ```
 
-ou modifiez le fichier */etc/my.cnf.d/centreon.cnf* pour ajouter à la section '[server]' la ligne suivante :
-
-``` shell
-sql_mode = 'NO_ENGINE_SUBSTITUTION'
-```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Puis redémarrez votre SGBD.
-
-Une fois l'installation terminée vous pouvez supprimer ce compte via la commande :
-
-``` SQL
-DROP USER 'root'@'<IP>';
-```
-
-### Système de gestion de base de données
-
-La base de données MariaDB doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour
-information nous recommandons MariaDB.
-
-Pour les systèmes CentOS / RHEL en version 7, il est nécessaire de modifier la limitation **LimitNOFILE**. Changer
-cette option dans /etc/my.cnf *ne fonctionnera pas*.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
-``` SQL
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-<!--MySQL-->
-``` SQL
-mkdir -p  /etc/systemd/system/mysqld.service.d
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysqld.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysqld
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
+## Configuration
 
 ### Fuseau horaire PHP
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
-``` shell
+```shell
 echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
 ```
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux horaires est disponible
-> [ici](http://php.net/manual/en/timezones.php).
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
-``` shell
+```shell
 systemctl restart rh-php72-php-fpm
 ```
 
-### Pare-feu
+### Lancement des services au démarrage
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce dernier exécuter les commandes suivantes :
+Pour activer le lancement automatique des services au démarrage, exécutez la
+commande suivante sur le serveur Central :
 
-``` shell
-systemctl stop firewalld
-systemctl disable firewalld
-systemctl status firewalld
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
-### Lancer les services au démarrage
-
-Activer le lancement automatique de services au démarrage.
-Lancer les commandes suivantes sur le serveur :
-
-``` shell
-systemctl enable httpd24-httpd
-systemctl enable snmpd
-systemctl enable snmptrapd
-systemctl enable rh-php72-php-fpm
-systemctl enable centreontrapd
-systemctl enable cbd
-systemctl enable centengine
-systemctl enable gorgoned
-systemctl enable centreon
-```
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MySQL-->
-``` shell
-systemctl enable mariadb
-```
-<!--MySQL-->
-``` shell
-systemctl enable mysqld
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> Si la base de données MariaDB est sur un serveur dédié, lancer la dernière commande d'activation sur ce dernier.
-
-### Terminer l'installation
-
-Avant de démarrer la configuration via l'interface web les commandes suivantes doivent être exécutées :
-
-``` shell
-systemctl start rh-php72-php-fpm
-systemctl start httpd24-httpd
-systemctl start mysqld
-systemctl start centreon
-systemctl start snmpd
-systemctl start snmptrapd
-```
+> Si la base de données est sur un serveur dédié, pensez à activer le
+> lancement du service **mariadb** sur ce dernier.
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.
+Avant de démarrer l'installation web, démarrez le serveur Apache avec la
+commande suivante :
+
+```shell
+systemctl start httpd24-httpd
+```
+
+Terminez l'installation en réalisant les
+[étapes de l'installation web](../web-and-post-installation.html#installation-web).
+
+> L'étape d'**Initialisation de la supervision** ne doit pas être faite pour le
+> moment.
 
 ## Activer l'option Remote Server
 
@@ -351,4 +244,4 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 
 ## Ajouter le Remote Server à la configuration
 
-Rendez-vous au chapitre *[Ajouter un Remote Server à la configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.
+Rendez-vous au chapitre [Ajouter un Remote Server à la configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).

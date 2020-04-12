@@ -28,7 +28,7 @@
                 "label": "Installer un serveur central",
                 "type": "subcategory"
             },
-            "installation/post-installation",
+            "installation/web-and-post-installation",
             {
                 "ids": [
                     "installation/installation-of-a-poller/using-centreon-iso",

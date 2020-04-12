@@ -3,7 +3,7 @@ id: using-virtual-machines
 title: Using virtual machines (VMs)
 ---
 
-Two preconfigured virtual machines are available on the [Centreon download web site](https://download.centreon.com)
+Two preconfigured virtual machines are available on the Centreon [download web site](https://download.centreon.com)
 
 These virtual machines are available in OVA (VMware) and OVF (VirtualBox) format.
 
@@ -34,4 +34,5 @@ additional oerations to be performed. **It is imperative that you complete the i
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/first-steps.html) chapter to configure your first monitoring.
+Go to the [Getting Started](../getting-started/installation-first-steps.html)
+chapter to configure your first monitoring.

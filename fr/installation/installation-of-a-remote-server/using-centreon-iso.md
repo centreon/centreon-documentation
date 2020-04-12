@@ -125,7 +125,11 @@ reboot
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.
+Terminez l'installation en réalisant les
+[étapes de l'installation web](../web-and-post-installation.html#installation-web).
+
+> L'étape d'**Initialisation de la supervision** ne doit pas être faite pour le
+> moment.
 
 ## Activer l'option Remote Server
 
@@ -177,4 +181,4 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 
 ## Ajouter le Remote Server à la configuration
 
-Rendez-vous au chapitre *[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.
+Rendez-vous au chapitre [Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).

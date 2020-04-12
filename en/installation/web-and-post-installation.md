@@ -1,6 +1,6 @@
 ---
-id: post-installation
-title: Post Installation
+id: web-and-post-installation
+title: Web And Post Installation
 ---
 
 ## Web installation
@@ -105,16 +105,16 @@ To start the monitoring processes:
     systemctl restart cbd centengine
     ```
 
-6. Restart the tasks manager
+6. Restart the tasks manager:
 
     ```shell
     systemctl restart gorgoned
     ```
 
-7. Start the passive monitoring daemon:
+7. Start the passive monitoring services:
 
     ```shell
-    systemctl start centreontrapd
+    systemctl start snmptrapd centreontrapd
     ```
 
 Monitoring is now working. You can start monitoring your IT system.
@@ -123,7 +123,7 @@ To automatically start services at system bootup, run this command on the
 Central server:
 
 ```shell
-systemctl enable cbd centengine gorgoned centreontrapd centreon
+systemctl enable cbd centengine gorgoned snmptrapd centreontrapd centreon
 ```
 
 ## Install available extensions

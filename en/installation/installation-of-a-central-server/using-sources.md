@@ -5,7 +5,7 @@ title: Using sources
 
 ## Prerequisites
 
-> Most CentOS users will find easier to install Centreon Web by *[using packages](using-packages.html)*.
+> Most CentOS users will find easier to install Centreon Web by [using packages](using-packages.html).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Redhat/CentOS-->
@@ -269,7 +269,7 @@ Install this Stream Multiplexers before continuing with the installation.
 
 ## Centreon
 
-Download the latest version of [Centreon here](https://download.centreon.com).
+Download the latest version of Centreon [here](https://download.centreon.com).
 
 Extract the Centreon archive:
 
@@ -829,4 +829,5 @@ After this step you should connect to Centreon to finalize the installation proc
 
 ## Web installation
 
-Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.
+Conclude installation by performing
+[web intallation steps](../web-and-post-installation.html#web-installation).

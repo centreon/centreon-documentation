@@ -105,6 +105,11 @@ gorgone:
       package: gorgone::modules::core::action::hooks
       enable: true
 
+    - name: cron
+      package: "gorgone::modules::core::cron::hooks"
+      enable: true
+      cron: !include cron.d/*.yaml
+
     - name: nodes
       package: gorgone::modules::centreon::nodes::hooks
       enable: true
@@ -125,6 +130,22 @@ gorgone:
       package: gorgone::modules::centreon::engine::hooks
       enable: true
       command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
+
+    - name: statistics
+      package: "gorgone::modules::centreon::statistics::hooks"
+      enable: true
+      broker_cache_dir: "/var/cache/centreon/broker-stats/"
+      cron:
+        - id: broker_stats
+          timespec: "*/5 * * * *"
+          action: BROKERSTATS
+          parameters:
+            timeout: 10
+        - id: engine_stats
+          timespec: "*/5 * * * *"
+          action: ENGINESTATS
+          parameters:
+            timeout: 10
 
 EOF
 ```
@@ -204,7 +225,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Pour forcer le Gorgone du Central à se connecter au Remote Server, redémarrez le avec
+**Pour forcer le Gorgone du Central à se connecter au Remote Server**, redémarrez le avec
 la commande suivante :
 
 ```shell

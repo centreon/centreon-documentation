@@ -163,7 +163,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Pour forcer le Gorgone du Central à se connecter au Poller, redémarrez le avec
+**Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez le avec
 la commande suivante :
 
 ```shell

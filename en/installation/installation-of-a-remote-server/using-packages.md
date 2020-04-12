@@ -3,298 +3,185 @@ id: using-packages
 title: Using packages 
 ---
 
-Installing a Remote Server is similar to installing a Centreon Central Server.
+After installating your server, consider updating your operating system via the
+command:
+
+```shell
+yum update
+```
+
+> Accept all GPG keys and consider rebooting your server if a kernel update is
+> proposed.
 
 ## Pre-installation steps
 
 ### Disable SELinux
 
-First, *SELinux* should be disabled. To do this, you have to edit the file
-*/etc/selinux/config* and replace *enforcing* by *disabled*:
+SELinux should be disabled by running the following command:
 
-``` shell
-SELINUX=disabled
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> After saving the file, reboot your operating system to apply the changes.
+> Reboot your operating system to apply the change.
 
-Perform a quick check of the SELinux status:
+After system startup, perform a quick check of the SELinux status:
 
-``` shell
-getenforce
-```
-
-You should have this result:
-
-``` shell
+```shell
+$ getenforce
 Disabled
 ```
 
-### Installing the repositories
-
-#### Redhat Software Collections Repository
-
-To install Centreon you will need to set up the official software collections repository supported by Redhat.
-
-> Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
-
-Install the software collections repository using this command:
-
-``` shell
-yum install -y centos-release-scl
-```
-
-The repository is now installed.
-
-#### Centreon repository
-
-To install Centreon software from the repository, you should first install the centreon-release package, which will
-provide the repository file.
-
-Install the Centreon repository using this command:
-
-``` shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
-```
-
-The repository is now installed.
-
-## Install a Centreon Central server
-
-This section describes how to install a Centreon Central server.
-
-### Install a Centreon Central server with local database
-
-Run the command:
-
-``` shell
-yum install -y centreon centreon-database
-systemctl restart mariadb
-```
-
-> Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
-> disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
-Execute the following SQL request:
-
-``` SQL
-SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-```
-
-or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
-
-``` shell
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
-```
-
-<!--MySQL-->
-Execute the following SQL request:
-
-``` SQL
-SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
-```
-
-or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
-
-``` shell
-sql_mode = 'NO_ENGINE_SUBSTITUTION'
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-Then restart your DBMS.
-
-### Install a Centreon Central server with a remote database
-
-Run the command:
-
-``` shell
-yum install -y centreon-base-config-centreon-engine
-```
-
-#### Install the DBMS on the dedicated server
-
-Run the commands:
-
-``` shell
-yum install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-> **centreon-database** package installs a database server with an optimized configuration for Centreon.
-
-Then create a distant **root** account:
-
-``` SQL
-CREATE USER 'root'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'<IP>' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-> Replace **\<IP\>** by the public IP address of the Centreon server and **\<PASSWORD\>** by the **root** password.
-
-> MySQL >= 8 require a strong password. Please use uppercase, numeric and special characters; or uninstall the
-> **validate_password** using following command:
->
-> ``` SQL
-> uninstall plugin validate_password;
-> ```
-
-> When running a PHP version before 7.1.16, or PHP 7.2 before 7.2.4, set MySQL 8 Server's default password plugin to
-> mysql_native_password or else you will see errors similar to *The server requested authentication method unknown
-> to the client [caching_sha2_password]* even when caching_sha2_password is not used.
-> This is because MySQL 8 defaults to caching_sha2_password, a plugin that is not recognized by the older PHP
->releases. Instead, change it by setting *default_authentication_plugin=mysql_native_password* in **my.cnf**.
->
-> Change the method to store the password using following command:
->
-> ``` SQL
-> ALTER USER 'root'@'<IP>' IDENTIFIED WITH mysql_native_password BY '<PASSWORD>';
-> FLUSH PRIVILEGES;
-> ```
-
-> Centreon started the compatibility with SQL strict mode but not all components are ready yet. It is mandatory to
-> disable the strict mode if you use MariaDB >= 10.2.4 or MySQL >= 5.7.5 for your production environments.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
-Execute the following SQL request:
-
-```SQL
-SET sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-```
-
-or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
-
-``` shell
-sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
-```
-
-<!--MySQL-->
-Execute the following SQL request:
-
-```SQL
-SET sql_mode = 'NO_ENGINE_SUBSTITUTION';
-SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
-```
-
-or modify the */etc/my.cnf.d/centreon.cnf* file to add in the '[server]' section the following line:
-
-``` shell
-sql_mode = 'NO_ENGINE_SUBSTITUTION'
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-Then restart your DBMS.
-
-Once the installation is complete you can delete this account using:
-
-``` SQL
-DROP USER 'root'@'<IP>';
-```
-
-### Database management system
-
-We recommend using MariaDB for your database because it is open source. Ensure the database server is available to
-complete the installation (locally or no).
-
-It is necessary to modify **LimitNOFILE** limitation. Do not try to set this option in **/etc/my.cnf** because it will
-*not* work. Run the commands:
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
-``` SQL
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mariadb
-```
-<!--MySQL-->
-``` SQL
-mkdir -p  /etc/systemd/system/mysqld.service.d
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysqld.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysqld
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-### Set the PHP time zone
-
-You are required to set the PHP time zone. Run the command:
-
-``` shell
-echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
-```
-
-> Change **Europe/Paris** to your time zone. You can find the supported list of time zone
-> [here](http://php.net/manual/en/timezones.php).
-
-After saving the file, please do not forget to restart the PHP-FPM server:
-
-``` shell
-systemctl restart rh-php72-php-fpm
-```
-
-### Configure/disable the firewall
+### Firewall
 
 Add firewall rules or disable the firewall by running the following commands:
 
-``` shell
+```shell
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl status firewalld
 ```
 
-### Configure services startup during system bootup
+### Install the repositories
 
-To make services start automatically during system bootup, run these commands on the central server:
+#### Redhat Software Collections repository
 
-``` shell
-systemctl enable httpd24-httpd
-systemctl enable snmpd
-systemctl enable snmptrapd
-systemctl enable rh-php72-php-fpm
-systemctl enable centreontrapd
-systemctl enable cbd
-systemctl enable centengine
-systemctl enable gorgoned
-systemctl enable centreon
+To install Centreon you will need to set up the official Software Collections
+repository supported by Redhat.
+
+> Software collections are required for installing PHP 7 and associated libraries.
+
+Install the Software Collections repository using this command:
+
+```shell
+yum install -y centos-release-scl
 ```
+
+#### Centreon repository
+
+To install Centreon software from the repository, you should first install the
+centreon-release package, which will provide the repository file.
+
+Install the Centreon repository using this command:
+
+```shell
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+```
+
+## Installation
+
+This section describes how to install a Centreon Remote Server.
+
+It's possible to install this server with a local database on the server, or
+a remote database on a dedicated server.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--MariaDB-->
-``` shell
-systemctl enable mariadb
+
+<!--With a local database-->
+
+Run the commands:
+
+```shell
+yum install -y centreon centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
 ```
-<!--MySQL-->
-``` shell
-systemctl enable mysqld
+
+> The package **centreon-database** installs an optimized MariaDB configuration
+> to be used with Centreon
+
+<!--With a remote database-->
+
+> If installing database on a dedicated server, this server should also have
+> the prerequired repositories.
+
+Run the following command on the Central Remote Server:
+
+```shell
+yum install -y centreon-base-config-centreon-engine
 ```
+
+Then run the following commands on the dedicated server:
+
+```shell
+yum install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+> The package **centreon-database** installs an optimized MariaDB configuration
+> to be used with Centreon
+>
+> If this package is not installed, limitation **LimitNOFILE** should be at
+> least set to **32000** using a dedicated configuration file, exemple:
+>
+> ```shell
+> $ cat /etc/systemd/system/mariadb.service.d/limits.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
+
+Then create a distant user with **root** privileges needed for Centreon
+installation:
+
+```SQL
+CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
+GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+Once the installation is complete you can delete this user using:
+
+```SQL
+DROP USER '<USER>'@'<IP>';
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> If the database is on a dedicated server, execute this last command on the database server.
+## Configuration
 
-### Conclude the installation
+### Set the PHP time zone
 
-Before starting the web installation process, you will need to execute the following commands:
+You are required to set the PHP time zone. Run the command:
 
-``` shell
-systemctl start rh-php72-php-fpm
-systemctl start httpd24-httpd
-systemctl start mysqld
-systemctl start centreon
-systemctl start snmpd
-systemctl start snmptrapd
+```shell
+echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
 ```
+
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
+
+After saving the file, please do not forget to restart the PHP-FPM service:
+
+```shell
+systemctl restart rh-php72-php-fpm
+```
+
+### Services startup during system bootup
+
+To make services start automatically during system bootup, run these commands
+on the central server:
+
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+
+> If the database is on a dedicated server, remember to enable **mariadb**
+> service on it.
 
 ## Web installation
 
-Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.
+Before starting the web installation process, start the Apache server with the
+following command:
+
+```shell
+systemctl start httpd24-httpd
+```
+
+Conclude installation by performing
+[web intallation steps](../web-and-post-installation.html#web-installation).
+
+> The **Initialization of the monitoring** step must not be done at this point.
 
 ## Enable the Remote Server option
 
@@ -351,4 +238,4 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 
 ## Add the Remote Server to configuration
 
-Go to the *[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html)*.
+Go to the [Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).
