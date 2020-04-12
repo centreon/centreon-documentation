@@ -233,7 +233,8 @@
                 "type": "subcategory"
             },
             "administration/access-control-lists",
-            "administration/extensions"
+            "administration/extensions",
+            "administration/platform-statistics"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {

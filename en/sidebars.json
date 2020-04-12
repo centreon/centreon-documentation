@@ -234,7 +234,8 @@
             "administration/database-partitioning",
             "administration/backup",
             "administration/knowledge-base",
-            "administration/logging-configuration-changes"
+            "administration/logging-configuration-changes",
+            "administration/platform-statistics"
         ],
         "Update, Upgrade & Migrate": [
             {
