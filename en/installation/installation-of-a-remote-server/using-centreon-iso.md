@@ -141,34 +141,39 @@ execute following command:
 -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
-the poller. You can define multiple IP address using a coma as separator.
+  - Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
+    the poller. You can define multiple IP address using a coma as separator.
 
-> To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
-> **https://\<IP_CENTREON_CENTRAL\>**.
->
-> To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
-> **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
+    > To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
+    > **https://\<IP_CENTREON_CENTRAL\>**.
+    >
+    > To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
+    > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
 
-For the **\<not check SSL CA on Central\>** option you can put **1** to do not
-check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
-**0**.
+  - For the **\<not check SSL CA on Central\>** option you can put **1** to do not
+    check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
+    **0**.
 
-The **\<HTTP method\>** is to define how the Centreon Central server can
-contact the Remote server: HTTP or HTTPS.
+  - The **\<HTTP method\>** is to define how the Centreon Central server can
+    contact the Remote server: HTTP or HTTPS.
 
-The **\<TCP port\>** is to define on wich TCP port the entreon Central
-server can contact the Remote server.
+  - The **\<TCP port\>** is to define on wich TCP port the entreon Central
+    server can contact the Remote server.
 
-For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
-check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
+  - For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
+    check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
 
-For the **\<no proxy to call Central\>** option you can put **1** to do not use
-HTTP(S) proxy to contact the Centreon Central server.
+  - For the **\<no proxy to call Central\>** option you can put **1** to do not use
+    HTTP(S) proxy to contact the Centreon Central server.
 
 This command will enable **Remote Server** mode:
+  
+  - by limiting menu access,
+  - by limiting possible actions,
+  - by allowing the Central to connect to it,
+  - by pre-registering the server to the Central.
 
-``` shell
+```text
 Starting Centreon Remote enable process:
 Limiting Menu Access...               Success
 Limiting Actions...                   Done
@@ -179,12 +184,14 @@ Trying host '10.1.2.3'... Success
 Centreon Remote enabling finished.
 ```
 
-Add rights to centreon database user to use **LOAD DATA INFILE** command:
+Finally, add rights to **centreon** database user to use **LOAD DATA INFILE**
+command:
 
-``` SQL
+```sql
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
 ## Add the Remote Server to configuration
 
-Go to the [Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).
+Go to the
+[Add a Remote Server to configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).

@@ -95,9 +95,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-> Le paquet **centreon-database** installe une configuration MariaDB optimisée
-> pour l'utilisation avec Centreon.
-
 <!--Avec base de données déportée-->
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
@@ -116,21 +113,6 @@ yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-> Le paquet **centreon-database** installe une configuration MariaDB optimisée
-> pour l'utilisation avec Centreon.
->
-> Si ce paquet n'est pas installé, il faut à minima adapter la limitation
-> **LimitNOFILE** à **32000** via une configuration dédiée, example:
->
-> ```shell
-> $ cat /etc/systemd/system/mariadb.service.d/limits.conf
-> [Service]
-> LimitNOFILE=32000
-> ```
->
-> Pensez à redémarrer le service mariadb après chaque changement de
-> configuration
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
@@ -155,6 +137,30 @@ DROP USER '<USER>'@'<IP>';
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> Le paquet **centreon-database** installe une configuration MariaDB optimisée
+> pour l'utilisation avec Centreon.
+>
+> Si ce paquet n'est pas installé, il faut à minima adapter la limitation
+> **LimitNOFILE** à **32000** via une configuration dédiée, exemple:
+>
+> ```shell
+> $ cat /etc/systemd/system/mariadb.service.d/limits.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
+>
+> De même pour la directive MariaDB **open_files_limit**, exemple:
+>
+> ```shell
+> $ cat /etc/my.cnf.d/server.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit = 32000
+> ```
+>
+> Pensez à redémarrer le service mariadb après chaque changement de
+> configuration.
 
 ## Configuration
 
