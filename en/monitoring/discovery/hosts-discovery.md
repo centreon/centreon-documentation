@@ -75,11 +75,9 @@ If a job is on a *Failed* status, hover on to the icon to know the reason.
 If a job is on a *Finished* status, click on it to analyse the result. See
 [Analyse a discovery job result](#analyse-a-discovery-job-result) to know more.
 
-Jobs can be rescheduled using the *Reschedule* action
-<img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />.
+Jobs can be rescheduled using the *Reschedule* action <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />.
 
-They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
-or deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />.
+They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" /> or deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />.
 
 ## Analyse a discovery job result
 
@@ -110,7 +108,7 @@ On the panel on the right, every parameters of the job can be edited.
 
 Edition of the *mapper* will have a direct effect on the job result.
 
-Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />.
+Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="25" />.
 
 ## How to use the *mappers*
 
@@ -150,8 +148,7 @@ Click on **SAVE** to add the *mapper*.
 ### Edit a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Edit* icon
-<img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />.
+section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />.
 
 Change any fields wanted or even the type of *mapper*.
 
@@ -160,8 +157,7 @@ Click on **SAVE** to save the *mapper*.
 ### Delete a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Delete* icon
-<img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />.
+section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />.
 
 A popin window will ask you to confirm the action.
 
