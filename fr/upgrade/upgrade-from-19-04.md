@@ -224,8 +224,8 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Reférez vous à la documentation officiel de MariaDB pour réaliser cette
 montée de version.
 
-> Sachez que MariaDB recommande vivement de monter en version le serveur par
-> chacune des versions majeures.
+> Sachez que MariaDB recommande vivement de monter en version le serveur en
+> passant par chacune des versions majeures.
 >
 > Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
 > 10.3.
