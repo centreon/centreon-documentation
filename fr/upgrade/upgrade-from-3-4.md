@@ -265,8 +265,8 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Reférez vous à la documentation officiel de MariaDB pour réaliser cette
 montée de version.
 
-> Sachez que MariaDB recommande vivement de monter en version le serveur par
-> chacune des versions majeures.
+> Sachez que MariaDB recommande vivement de monter en version le serveur en
+> passant par chacune des versions majeures.
 >
 > Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
 > 10.3.
@@ -308,9 +308,6 @@ Déployer la configuration du Poller depuis l'interface web en suivant
 *Redémarrer* pour le processus Engine
 
 ## Migrer Centreon Poller Display vers Remote Server
-
-Référez-vous à la documentation de `migration d'un serveur Poller Display
-vers Remote Server 20.04 <migratefrompollerdisplay>`.
 
 Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à la procédure
 [Migration d'une plate-forme avec Poller Display](../migrate/poller-display-to-remote-server.html).

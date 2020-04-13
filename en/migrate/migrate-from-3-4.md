@@ -178,8 +178,10 @@ Go to *http://\<IP_NEW_CENTREON\>/centreon* URL and perform the upgrade.
 > 4. Edit the /etc/centreon/config.d/10-database.yaml file.
 
 If the IP of your Centreon server has changed, edit the configuration for all
-the Centreon Broker modules on your pollers and change the IP to connect to
-the Centreon central server (output IPv4).
+the Centreon Broker modules of your Pollers and change the IP to connect to
+the Centreon Central server (output IPv4). See the
+[Advanced configuration](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
+chapter for more information.
 
 Then [generate](../monitoring/monitoring-servers/deploying-a-configuration.html) the
 configuration of all your pollers and export it.

@@ -133,7 +133,8 @@ Conclude installation by performing [web intallation steps](../web-and-post-inst
 
 ## Enable the Remote Server option
 
-Connect to your **Remoter Server** and execute following command:
+To transform the server into a Remote Server, connect to the server and
+execute following command:
 
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \

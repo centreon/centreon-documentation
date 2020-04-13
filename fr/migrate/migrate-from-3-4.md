@@ -188,7 +188,9 @@ de mise à jour.
 
 Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
 l'ensemble des modules broker de vos collecteurs et modifiez l'adresse IP de
-connexion au serveur Centreon central (output IPv4).
+connexion au serveur Centreon central (output IPv4). Consultez le chapitre
+[Configuration avancée](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
+pour plus d'information.
 
 Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.html) la configuration de l'ensemble de la
 plateforme et exportez là.

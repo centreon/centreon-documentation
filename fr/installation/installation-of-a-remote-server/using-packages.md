@@ -122,6 +122,9 @@ systemctl restart mariadb
 > [Service]
 > LimitNOFILE=32000
 > ```
+>
+> Pensez à redémarrer le service mariadb après chaque changement de
+> configuration
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
@@ -195,7 +198,8 @@ Terminez l'installation en réalisant les
 
 ## Activer l'option Remote Server
 
-Connectez-vous à votre serveur ayant la fonction **Remote Server** et exécutez la commande suivante :
+Pour transformer le serveur en Remote Server, connectez-vous au serveur et
+exécutez la commande suivante :
 
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \

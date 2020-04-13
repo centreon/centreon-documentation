@@ -128,6 +128,9 @@ systemctl restart mariadb
 > [Service]
 > LimitNOFILE=32000
 > ```
+>
+> Pensez à redémarrer le service mariadb après chaque changement de
+> configuration
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :

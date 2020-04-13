@@ -133,7 +133,8 @@ Terminez l'installation en réalisant les
 
 ## Activer l'option Remote Server
 
-Connectez-vous à votre serveur ayant la fonction **Remote Server** et exécutez la commande suivante :
+Pour transformer le serveur en Remote Server, connectez-vous au serveur et
+exécutez la commande suivante :
 
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
