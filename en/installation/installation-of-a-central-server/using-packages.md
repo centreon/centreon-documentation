@@ -124,6 +124,8 @@ systemctl restart mariadb
 > [Service]
 > LimitNOFILE=32000
 > ```
+>
+> Remember to restart MariaDB after a change to configuration.
 
 Then create a distant user with **root** privileges needed for Centreon
 installation:
