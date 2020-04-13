@@ -63,29 +63,30 @@ La fenêtre suivante est affichée:
 
 ![image](../assets/administation/backup.png)
 
-  - **Backup enabled** Activer/Désactiver la sauvegarde
-  - **Backup directory** Répertoire de stockage des sauvegardes
-  - **Temporary directory** Répertoire utilisé durant le processus de sauvegarde
-  - **Backup database centreon** Activer la sauvegarde de la base de données
-    centreon
-  - **Backup database centreon\_storage** Activer la sauvegarde de la base de
-    données centreon\_storage
-  - **Backup type** Type de sauvegarde (MySQLdump or LVM snapshot)
-  - **Full backup** Période pour la sauvegarde complète
-  - **Partial backup** Période pour la sauvegarde partielle (seulement
+  - **Activer la sauvegarde** Activer/Désactiver la sauvegarde
+  - **Répertoire des sauvegardes** Répertoire de stockage des sauvegardes
+  - **Répertoire temporaire** Répertoire utilisé durant le processus de
+    sauvegarde
+  - **Sauvegarder la base de données Centreon** Activer la sauvegarde de la
+    base de données centreon
+  - **Sauvegarder la base de données 'centreon\_storage'** Activer la
+    sauvegarde de la base de données centreon\_storage
+  - **Méthode de sauvegarde** Type de sauvegarde (MySQL dump ou snapshot LVM)
+  - **Sauvegarde complète** Période pour la sauvegarde complète
+  - **Sauvegarde de type partielle** Période pour la sauvegarde partielle (seulement
     disponible pour la sauvegarde par LVM snapshot)
-  - **Backup retention** Durée de rétention des sauvegardes (en jours)
-  - **Backup configuration files** Activer la sauvegarde des fichiers de
+  - **Durée de rétention des sauvegardes** Durée de rétention des sauvegardes (en jours)
+  - **Sauvegarder les fichiers de configuration** Activer la sauvegarde des fichiers de
     configuration
-  - **MySQL configuration file path** Chemin d'accès au fichier de configuration
+  - **Chemin d'accès au fichier de configuration MySQL** Chemin d'accès au fichier de configuration
     MySQL
-  - **SCP export enabled** Activer l'export des sauvegardes par SCP
-  - **Remote user** Utilisateur distant pour l'export SCP
-  - **Remote host** Hôte distant pour l'export SCP
-  - **Remote directory** Répertoire distant pour l'export SCP
+  - **SActiver l'export SCP** Activer l'export des sauvegardes par SCP
+  - **Utilisateur** Utilisateur distant pour l'export SCP
+  - **Hôte distant** Hôte distant pour l'export SCP
+  - **Répertoire distant** Répertoire distant pour l'export SCP
 
->**Temporary directory** ne peut pas être un sous répertoire de **Backup
-directory**.
+> **Répertoire temporaire** ne peut pas être un sous répertoire de **Répertoire
+> des sauvegardes**.
 
 ## Restauration d'un serveur central Centreon
 
@@ -239,7 +240,8 @@ en ordre, il faudra reconstruire les fichiers RRD afin de retrouver tous vos
 "anciens" graphiques de performance.
 
 Pour reconstruire les graphiques de performance, il faudra vous rendre dans le
-menu `Administration > Options > Centstorage > Manage`. Sur cette page, il
-faudra sélectionner tous les services et cliquer sur **Rebuild RRD Database**.
+menu `Administration > Paramètres > Données`. Sur cette page, il
+faudra sélectionner tous les services et cliquer sur **Regénérer les bases de
+données RRD**.
 
 **Le serveur central est maintenant restauré.**
