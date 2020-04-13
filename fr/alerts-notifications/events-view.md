@@ -75,15 +75,26 @@ Signification des filtres:
 
 ### Barre de recherche 
 
-Il est possible de filters les évènements par nom avec la possibilité d'utiliser les mécaniques d'expression régulière, 
-la recherche se fait par défaut sur tous les champs suivants:
+Il est possible de filters les évènements par nom de ressource. La mécanique d'expressions régulières est intégrée 
+à cette barre de recherche, rendant cette dernière plus flexible.
+
+Par défaut la recherche se fait sur les champs suivants:
 
     - Nom d'hôtes
     - Alias de l'hôte
     - Addresse / FQDN de l'hôte
     - Description du service
 
-#TODO: image filtre search bar avec regexp
+![image](assets/alerts/events-view/simple-search.png)
+
+Il est possible de forcer le champ sur lequel on souhaite rechercher en utilisant les label suivants:
+
+- h.name: chercher uniquement sur le nom d'hôte
+- h.alias: chercher uniquement sur l'alias de l'hôte
+- h.address: chercher uniquement sur le FQDN / l'adresse IP de l'hôte
+- s.description: chercher uniquement sur la description du service
+
+![image](assets/alerts/events-view/label-search.png)
 
 ### Par critères avancés
 
@@ -93,9 +104,28 @@ la recherche se fait par défaut sur tous les champs suivants:
     - Groupes d'hôtes
     - Groupe de services 
 
-#TODO: image filtre simple 
+![image](assets/alerts/events-view/advanced-search.png)
 
 
+## Panneau de détail
 
+Lorsque vous cliquez sur une ligne, un panneau de détail s'affiche pour présenter les informations principale de la ressource.
 
+En fonction du type de ressource, différents onglets sont disponibles
 
+### Panneau d'hôte
+
+Le panneau d'hôte contient les informations détailles sur le statut ses principaux indicateurs.
+
+![image](assets/alerts/events-view/host-panel.gif)
+
+Si l'hôte est acquitté ou en downtime, des informations supplémentaires seront visibles sur le panneau.
+
+### Panneau de service
+
+Le panneau de service contient les informations détaillées du statut du service ainsi qu'un onglet "Graph". L'onglet 
+"Graphique" permet de visualiser rapidement l'évolution des métriques du service.
+
+![image](assets/alerts/events-view/service-panel.gif)
+
+Si le service est acquitté ou en downtime, des informations supplémentaires seront visibles sur le panneau.
