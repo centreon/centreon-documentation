@@ -6,8 +6,8 @@ title: Logging configuration changes
 ## Principle
 
 By default, Centreon retains all user actions concerning changes to
-configuration in a log. To access this data, go into the menu: **Administration
-\> Logs**.
+configuration in a log. To access this data, go into the menu `Administration
+> Logs`.
 
 ![image](../assets/administration/fsearchlogs.png)
 
@@ -113,7 +113,7 @@ The table below defines the columns of the changes table:
 
 ## Configuration
 
-To enable user audit logs, go to **Administration \> Parameters \> Options** and
+To enable user audit logs, go to `Administration > Parameters > Options` and
 check the **Enable/Disable audit logs** option:
 
 ![image](../assets/administration/logs_audit_enable.png)

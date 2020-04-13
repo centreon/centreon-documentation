@@ -51,9 +51,9 @@ Backup filename format:
 
 ## Configuration
 
-This part covers the configuration of centreon-backup.
+This part covers the configuration of the backup.
 
-1.  Go into the menu: **Administration \> Parameters \> Backup**
+1.  Go into the menu: `Administration > Parameters > Backup`
 
 The following window is displayed:
 
@@ -198,8 +198,8 @@ configuration:
 cd /var/backup
 tar -xvf YYYY-MM-DD-centreon-engine.tar.gz
 cd backup/etc
-cp  nrpe.cfg /etc/centreon-engine/
-cp  nsca.cfg /etc/centreon-engine/
+cp nrpe.cfg /etc/centreon-engine/
+cp nsca.cfg /etc/centreon-engine/
 ```
 
 > You have to do this only if you're using the monitoring agents.
@@ -214,8 +214,8 @@ within Centreon UI.
 Once your monitoring platform is restored and all is doing well, you can rebuild
 RRD files in order to restore all performance graphs.
 
-To rebuild performance graphics, go to the menu **Administration > Parameters >
-Data**. On this page, you must select all the services, click the drop-down
+To rebuild performance graphics, go to the menu `Administration > Parameters >
+Data`. On this page, you must select all the services, click the drop-down
 menu **More actions...** and select the option **Rebuild RRD Database**.
 
 **Your server is now restored.**

@@ -25,7 +25,7 @@ repository.
 Before starting with **Knowledge Base**, you need to configure it to access the
 wiki database.
 
-For this go to **Administration \> Parameters \> Knowledge Base** and complete
+For this go to `Administration > Parameters > Knowledge Base` and complete
 the form
 
 ![image](../assets/administration/parameters-wiki.png)
@@ -60,7 +60,7 @@ If a procedure is defined at template level, all children of the template will
 have the procedure attached as well unless overloaded by a specific one. The
 mechanism is identical to template system in Centreon with inheritance.
 
-**Centreon Knowledge Base** function is designed to avoid adding or updating
+**Knowledge Base** function is designed to avoid adding or updating
 manually several times the same procedure in knowledge base.
 
 When a user clicks on a host procedure:
@@ -77,9 +77,8 @@ It's the same for services.
 
 ### Create / Update / Delete a procedure
 
-Navigate in Centreon front-end to **Configuration \> Knowledge Base** menu.
-
-The module allows to:
+Navigate in Centreon front-end to `Configuration > Knowledge Base` sub-menus
+to:
 
   - List Hosts / Services / Host Templates / Service Templates and attached
     procedures
