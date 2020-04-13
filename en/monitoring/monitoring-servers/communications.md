@@ -136,6 +136,8 @@ gorgone:
 EOF
 ```
 
+Hit the enter key for the command to be applied.
+
 > You can copy the configuration in a custom file by copying the content from
 > the popin.
 
@@ -272,6 +274,8 @@ gorgone:
 
 EOF
 ```
+
+Hit the enter key for the command to be applied.
 
 > You can copy the configuration in a custom file by copying the content from
 > the popin.

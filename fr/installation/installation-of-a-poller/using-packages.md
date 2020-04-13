@@ -41,7 +41,7 @@ préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante à partir d’un utilisateur possédant les droits
 suffisants :
 
-``` shell
+```shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
@@ -49,8 +49,15 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 Exécutez la commande :
 
-``` shell
+```shell
 yum install -y centreon-poller-centreon-engine
+```
+
+Pour activer le démarrage automatique des services au démarrage du serveur,
+exécuter la commande suivant :
+
+```shell
+systemctl enable centengine centreontrapd
 ```
 
 ## Ajouter le Poller à la configuration

@@ -152,7 +152,7 @@ DROP USER '<USER>'@'<IP>';
 You are required to set the PHP time zone. Run the command:
 
 ```shell
-echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 
 > Change **Europe/Paris** to your time zone. You can find the supported list of

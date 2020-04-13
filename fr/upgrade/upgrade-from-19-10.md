@@ -214,7 +214,7 @@ montée de version.
 
 Cette procédure est identique à la montée de version d'un serveur Centreon Central.
 
-## Montée de version des Collecteurs
+## Montée de version des Pollers
 
 ### Mise à jour des dépôts
 
@@ -225,6 +225,12 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 ```
 
 ### Montée de version de la solution Centreon
+
+Videz le cache de yum :
+
+```shell
+yum clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 

@@ -278,7 +278,7 @@ montée de version.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
 
-## Montée de version des Collecteurs
+## Montée de version des Pollers
 
 ### Mise à jour des dépôts
 
@@ -289,6 +289,12 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 ```
 
 ### Montée de version de la solution Centreon
+
+Videz le cache de yum :
+
+```shell
+yum clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 

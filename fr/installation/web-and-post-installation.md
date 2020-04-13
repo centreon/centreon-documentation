@@ -120,14 +120,13 @@ et cliquez sur **Exporter**,
     systemctl start snmptrapd centreontrapd
     ```
 
+8. Si vous voulez superviser ce serveur, démarrer le démon SNMP :
+
+    ```shell
+    systemctl start snmpd
+    ```
+
 La supervision est maintenant opérationnelle.
-
-Pour activer le lancement automatique des services au démarrage, exécuter la
-commande suivante sur le serveur Central :
-
-```shell
-systemctl enable cbd centengine gorgoned snmptrapd centreontrapd centreon
-```
 
 ## Installer les extensions disponibles
 

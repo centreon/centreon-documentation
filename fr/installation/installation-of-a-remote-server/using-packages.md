@@ -163,7 +163,7 @@ DROP USER '<USER>'@'<IP>';
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 ```shell
-echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 
 > Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux

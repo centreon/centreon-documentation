@@ -117,14 +117,13 @@ To start the monitoring processes:
     systemctl start snmptrapd centreontrapd
     ```
 
+8. If you want to monitor this server, start the SNMP daemon:
+
+    ```shell
+    systemctl start snmpd
+    ```
+
 Monitoring is now working. You can start monitoring your IT system.
-
-To automatically start services at system bootup, run this command on the
-Central server:
-
-```shell
-systemctl enable cbd centengine gorgoned snmptrapd centreontrapd centreon
-```
 
 ## Install available extensions
 

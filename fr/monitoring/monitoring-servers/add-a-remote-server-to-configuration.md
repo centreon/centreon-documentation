@@ -148,6 +148,8 @@ gorgone:
 EOF
 ```
 
+Appuyer sur la touche entrée pour que la commande soit appliquée.
+
 > Vous pouvez copier la configuration en sélectionnant le contenu de la popin
 > pour la copier dans un fichier de configuration personnalisé.
 

@@ -242,6 +242,12 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+Clean yum cache:
+
+```shell
+yum clean all --enablerepo=*
+```
+
 Upgrade all the components with the following command:
 
 ```shell
