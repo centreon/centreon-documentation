@@ -156,7 +156,7 @@ DROP USER '<USER>'@'<IP>';
 > $ cat /etc/my.cnf.d/server.cnf
 > [server]
 > innodb_file_per_table=1
-> open_files_limit = 32000
+> open_files_limit=32000
 > ```
 >
 > Pensez à redémarrer le service mariadb après chaque changement de
