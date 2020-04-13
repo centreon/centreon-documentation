@@ -219,7 +219,7 @@ suivante:
 
 ### Montée de version du serveur MariaDB
 
-Les composants MariaDB peuvent maintenan être mis à jour.
+Les composants MariaDB peuvent maintenant être mis à jour.
 
 Reférez vous à la documentation officiel de MariaDB pour réaliser cette
 montée de version.
