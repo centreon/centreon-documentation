@@ -3,90 +3,54 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
-> The discovery rules are provided  from installation of Plugin Packs (MS Azure, Amazon Web Services, VMware, etc.). To
-know the complete list, please go to the *[Plugin Packs catalog](../../integrations/plugin-packs/init-plugin-packs.html)*.
+> The discovery providers are provided from installation of Plugin Packs (Azure,
+> Amazon AWS, VMware, etc.). To know the complete list, please go to
+> the [Plugin Packs
+> catalog](../../integrations/plugin-packs/init-plugin-packs.html).
 
-Discovering new resources is done in two steps:
+## Add a discovery job
 
-1. *[Start a discovery task](#start-a-discovery-task)*
-2. *[Analyze the result of a discovery task](analyze-the-result-of-a-discovery-task)*
+To launch a discovery, you need to add a discovery job.
 
-## Start a discovery task
+The job addition wizard is a 6 steps wizard that will allow you to choose a
+provider, define parameters, define mapping rules and update/execution
+policies.
 
-Go to **Configuration > Hosts > Discovery** and click on **Add**
+Go to `Configuration > Hosts > Discovery` and click on **+ADD**.
 
-Select the discovery rule and click on the **Next** button:
+First, choose a provider by clicking on it:
 
-![image](../../assets/configuration/autodisco/manual_host_scan_select_rule.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-Enter a name to save the settings to *[reuse](#reload-a-discovery-task)* them:
+The search bar allows to search for a specific provider:
 
-![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
-Enter remote API access settings, then click on the **Next** button:
+The second step allows to define access parameters, especially the monitoring
+server from which the discovery will be made:
 
-![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_2.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
-A discovery task had been created, you go back to the listing of discovery tasks:
+Then, some additional parameters might be needed to define the scope of the
+discovery:
 
-![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
 
-Wait for the data recovery time.
+The fourth step defines how the discovery result will be processed to create
+hosts in the configuration.
 
-## Analyze the result of a discovery task
+In this step, *mappers* can be added or rearranged to match needs. Realtime
+simulation on a set of example data gives a preview of what it could look
+like:
 
-Go to the **Configuration > Hosts > Discovery** menu to access to the list of discovery tasks:
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
 
-![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
+The fifth and sixth steps only allow to define manual analysis as update
+policy and immediate as execution policy.
 
-The legend is:
+There will be more choices in the futur to allow automatic update and cyclic
+execution.
 
-![image](../../assets/configuration/autodisco/legend_task_status.png)
+Click on **FINISH** on the last step to add and schedule the discovery job.
 
-* Pending task
-* Failed task
-* Completed task & ready for analysis
-
-Click on the name of the task to discover the result:
-
-![image](../../assets/configuration/autodisco/items_list.png)
-
-Available actions are:
-
-* Filter by name of resources
-* Select resources one by one or all visible resources
-* Modify the selected monitoring template
-* Delete the selection of all resources
-* Back to the listing of tasks
-
-Once the resources are selected, you can:
-
-![image](../../assets/configuration/autodisco/save.png)
-
-* **Save**: import resources in monitoring configuration.
-* **Save & monitor**: import resources in monitoring configuration and start the monitoring of them.
-
-You back to the list of discovery tasks.
-
-Regarding your choice, go to **Configuration > Hosts > Hosts** or **Monitoring > Status Details > Services** menu to
-visualize the result:
-
-![image](../../assets/configuration/autodisco/host_conf_listing.png)
-
-## Reload a discovery task
-
-During the first discovery task, the settings had been stored. So, it is possible to select them to create a new
-discovery task:
-
-![image](../../assets/configuration/autodisco/reload_task.png)
-
-## FAQ
-
-If any Plugin Packs containing discovery rules have been installed
-an error message prompts you to perform this action:
-
-![image](../../assets/configuration/autodisco/manual_host_scan_error_pp.png)
-
-If a task is in failed status, place your cursor on the icon to know the reason:
-
-![image](../../assets/configuration/autodisco/manual_host_scan_error_missing_plugin.png)
+## Analyze the result of a discovery job
