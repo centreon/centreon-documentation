@@ -235,6 +235,10 @@
             },
             "administration/access-control-lists",
             "administration/extensions",
+            "administration/database-partitioning",
+            "administration/backup",
+            "administration/knowledge-base",
+            "administration/logging-configuration-changes",
             "administration/platform-statistics"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
