@@ -117,7 +117,7 @@ systemctl restart mariadb
 > to be used with Centreon
 >
 > If this package is not installed, limitation **LimitNOFILE** should be at
-> least set to **32000** using a dedicated configuration file, exemple:
+> least set to **32000** using a dedicated configuration file, example:
 >
 > ```shell
 > $ cat /etc/systemd/system/mariadb.service.d/limits.conf
