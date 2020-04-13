@@ -103,8 +103,8 @@ n'y a pas touché.
 > Si vous utilisez le https, vous pouvez suivre
 > [cette procédure](../administration/accessing-to-centreon-ui.html)
 
-Vous devez donc ajouter la section d'accès à l'API
-dans votre fichier de configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
+configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
 ```diff
 +Alias /centreon/api /usr/share/centreon
