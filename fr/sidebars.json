@@ -103,7 +103,7 @@
             },
             "monitoring/web-import-export"
         ],
-        "Gestion des Alertes et Notifications": [
+        "Alertes et Notifications": [
             "alerts-notifications/introduction",
             "alerts-notifications/concepts",
             "alerts-notifications/events-view",
