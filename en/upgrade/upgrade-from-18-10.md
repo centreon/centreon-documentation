@@ -162,7 +162,14 @@ systemctl restart httpd24-httpd
 
 ### Finalizing the upgrade
 
-Log on to the Centreon web interface to continue the upgrade process:
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
+```shell
+systemctl reload httpd24-httpd
+```
+
+Then log on to the Centreon web interface to continue the upgrade process:
 
 Click on **Next**:
 

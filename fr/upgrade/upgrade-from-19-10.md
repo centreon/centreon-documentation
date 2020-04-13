@@ -120,8 +120,15 @@ systemctl restart httpd24-httpd
 
 ### Finalisation de la mise à jour
 
-Connectez-vous à l'interface web Centreon pour démarrer le processus de mise à
-jour :
+Avant de démarrer la montée de version via l'interface web, rechargez le
+serveur Apache avec la commande suivante :
+
+```shell
+systemctl reload httpd24-httpd
+```
+
+Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
+mise à jour :
 
 Cliquez sur **Next** :
 
