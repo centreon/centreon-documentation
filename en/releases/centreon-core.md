@@ -46,7 +46,15 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
-<video width="100%" height="100%">
+<video preload="metadata">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
+
+<video width="100%" height="100%" preload="metadata">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
+
+<video width="100%" height="100%" preload="metadata" controls="true" allowfullscreen="true">
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
