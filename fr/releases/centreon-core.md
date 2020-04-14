@@ -5,16 +5,14 @@ title: Centreon Core
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning Centreon Core.
+Vous trouverez dans ce chapitre tout ce qui concerne les **composants "Core"** de Centreon.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et 
+> de lire attentivement les notes de mise à jour afin d'être au courant de changements qui pourraient 
+> impacter votre usage ou votre plateforme ou des développements spécifiques que vous auriez 
+> fait.
 
-If you have any questions relating to the content of the notes, you can ask your
-questions on our [github](https://github.com/centreon/centreon).
+Pour faire des demandes d'évolutions ou de bug sur les composants, utilisez le [formulaire suivant](https://github.com/centreon/centreon/issues/new/choose)
 
 ## Centreon Web
 

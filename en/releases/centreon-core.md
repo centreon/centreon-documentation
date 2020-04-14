@@ -13,8 +13,7 @@ You can find in this chapter all changelogs concerning **Centreon Core**.
 > versions on the features you use or the specific developments that you have
 > built on your platform (modules, widgets, plugins).
 
-If you have any questions relating to the content of the notes, you can ask your
-questions on our [github](https://github.com/centreon/centreon).
+If you have feature requests or want to report a bug, please go to our [Github](https://github.com/centreon/centreon/issues/new/choose)
 
 ## Centreon Web 
 

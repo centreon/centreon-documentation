@@ -13,8 +13,7 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 > versions on the features you use or the specific developments that you have
 > built on your platform (modules, widgets, plugins).
 
-If you have any questions relating to the content of the notes, you can ask your
-questions on our [github](https://github.com/centreon/centreon).
+If you have feature requests or want to report a bug, please go to our [Github](https://github.com/centreon/centreon/issues/new/choose)
 
 ## Centreon MAP
 
@@ -22,7 +21,19 @@ questions on our [github](https://github.com/centreon/centreon).
 
 Released April, 17 2020.
 
-**New features**
+#### New features
+
+
+**Packaging simplified**
+
+The packaging has been simplified so we don't require Tomcat. Logs are now accessible in `/var/log/centreon-map/`
+and the service is now `centreon-map` (*systemctl restart centreon-map for instance*).
+
+**Silent installation**
+
+It's now possible to install Centreon Map using a silent mode instead of the only interactive mode.
+
+**License on Central server**
 
 The licensing system has been simplified.
 
@@ -31,9 +42,8 @@ commercial extension. No worry, the compatibility with the previous licensing
 mecanism (license on the map server) is maintained.
 
 Anyway, if you want to perfectly finish your migration, you may ask the support
-team to generate a new Centreon Map license for your Central server and upload :
-
-  - Administration > Extensions > Manager
+team to generate a new Centreon Map license for your Central server 
+and upload at `Administration > Extensions > Manager`
 
 
 ## Centreon BAM

@@ -5,17 +5,14 @@ title: Extensions Commerciales
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning Centreon Core.
+Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et 
+> de lire attentivement les notes de mise à jour afin d'être au courant de changements qui pourraient 
+> impacter votre usage ou votre plateforme ou des développements spécifiques que vous auriez 
+> fait.
 
-If you have any questions relating to the content of the notes, you can ask your
-questions on our [github](https://github.com/centreon/centreon).
-
+Pour faire des demandes d'évolutions ou de bug sur les extensions commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
@@ -25,16 +22,27 @@ questions on our [github](https://github.com/centreon/centreon).
 
 #### New features
 
-The licensing system has been simplified.
+**Nouveau packaging**
 
-The MAP license resides now on the Centreon **central** server, as any other
-commercial extension. No worry, the compatibility with the previous licensing
-mecanism (license on the map server) is maintained.
+Le packaging et le service du serveur Centreon Map ont été simplifiés et la dépendance avec Tomcat a été retirée.
 
-Anyway, if you want to perfectly finish your migration, you may ask the support
-team to generate a new Centreon Map license for your Central server and upload :
+Les logs sont maintenant dans `/var/log/centreon-map/` et le service à manipuler est désormais `centreon-map` 
+(*systemctl restart centreon-map par exemple*)
 
-  - Administration > Extensions > Manager
+**Mode d'installation**
+
+Il est désormais possible d'installer Centreon Map en mode "silencieux" en plus du mode "interactif" actuel.
+
+**License en Central**
+
+Le système de licensing a été simplifié. La license de Centreon Map se situe maintenant sur le serveur Central
+permettant des installation & mise en place de license facilitée. 
+
+Pas d'inquiétude, la mise à jour reste compatible avec une license positionnée sur le serveur Map (cas pour toutes 
+les versions < 20.04.0)
+
+Si vous le souhaitez et pour anticiper des futures mises à jour, vous pouvez demander au Support une nouvelle license
+puis l'uploader dans `Administration > Extension > Manager`
 
 ## Centreon BAM
 
