@@ -101,8 +101,10 @@ If you had a custom Apache configuration, upgrade process through RPM did not up
 > If you use https, you can follow
 > [this procedure](../administration/accessing-to-centreon-ui.html#https-access)
 
-You'll then need to add API access section
-to your configuration file : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+You'll then need to add API access section to your configuration file:
+**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+
+Only lines with "+" symbol must be taken into account.
 
 ```diff
 +Alias /centreon/api /usr/share/centreon
@@ -247,9 +249,10 @@ Refer to the official MariaDB documentation to perform this upgrade.
 >
 > You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
 >
-> Centreon only provides MariaDB 10.3.
+> That is why Centreon provides both 10.2 and 10.3 versions on its stable
+> repositories.
 >
-> See:
+> Refer to the following documentations to know how to proceed:
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade

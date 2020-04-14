@@ -127,8 +127,10 @@ n'y a pas touché.
 > Si vous utilisez le https, vous pouvez suivre
 > [cette procédure](../administration/accessing-to-centreon-ui.html)
 
-Vous devez donc ajouter la section d'accès à l'API
-dans votre fichier de configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
+configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+
+Seules les lignes avec le symbole "+" doivent être prises en compte.
 
 ```diff
 +Alias /centreon/api /usr/share/centreon
@@ -278,9 +280,10 @@ montée de version.
 > Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
 > 10.3.
 >
-> Centreon ne met à disposition que MariaDB 10.3.
+> Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
+> dépôts stables.
 >
-> Consultez :
+> Consultez les documentations suivantes pour savoir comment procéder :
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
