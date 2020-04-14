@@ -10,6 +10,8 @@ de les comprendre, les prendre en compte et les traiter rapidement.
 
 Cette vue rassemble à la fois les hôtes et les services afin de proposer une interface unique et unifiée de gestion des évènements.
 
+![image](../assets/alerts/events-view/events-view-demo.gif)
+
 Cette vue offre les possibilités décrites dans les sections ci-dessous.
 
 ## Lister les évènements
