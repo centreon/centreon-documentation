@@ -150,7 +150,7 @@ Une fois le plugin pack installé, il apparaitra avec un contour vert et une fl�
 
 > Veuillez lire la **monitoring procedure** associée à chaque pack installé pour comprendre le contenu du pack ainsi
 > que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
-> le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/init-plugin-packs.html)*
+> le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/introduction.html)*
 
 #### Gestion les dépendances
 

@@ -6,7 +6,7 @@ title: Hosts Discovery
 > The discovery providers are provided from installation of Plugin Packs (Azure,
 > Amazon AWS, VMware, etc.). To know the complete list, please go to
 > the [Plugin Packs
-> catalog](../../integrations/plugin-packs/init-plugin-packs.html).
+> catalog](../../integrations/plugin-packs/introduction.html).
 
 ## Add a discovery job
 

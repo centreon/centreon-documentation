@@ -143,7 +143,7 @@ Once the Plugin Pack is installed, a green outline and an arrow icon will indica
 
 > Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
 > well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
-> [Integration/Plugin Packs chapter](../integrations/plugin-packs/init-plugin-packs)
+> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction)
 
 #### Managing dependencies
 

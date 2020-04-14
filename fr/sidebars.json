@@ -272,7 +272,7 @@
             }
         ],
         "Plugin Packs": [
-            "integrations/plugin-packs/init-plugin-packs",
+            "integrations/plugin-packs/introduction",
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
