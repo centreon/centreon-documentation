@@ -141,7 +141,7 @@ DROP USER '<USER>'@'<IP>';
 > **LimitNOFILE** à **32000** via une configuration dédiée, exemple:
 >
 > ```shell
-> $ cat /etc/systemd/system/mariadb.service.d/limits.conf
+> $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
 > [Service]
 > LimitNOFILE=32000
 > ```
@@ -149,7 +149,7 @@ DROP USER '<USER>'@'<IP>';
 > De même pour la directive MariaDB **open_files_limit**, exemple:
 >
 > ```shell
-> $ cat /etc/my.cnf.d/server.cnf
+> $ cat /etc/my.cnf.d/centreon.cnf
 > [server]
 > innodb_file_per_table=1
 > open_files_limit=32000
