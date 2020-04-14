@@ -19,8 +19,8 @@ fine-tuned later-on.
 
 Some Plugin Packs also contain discovery rules. Discovery rules instruct the
 Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, Virtual
-Machines on VmWare) while Service discovery rules will look for new services
+discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtual
+machines on VMware) while Service discovery rules will look for new services
 (e.g. Disk Volumes or Ethernet Interfaces on a server).
 
 Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager

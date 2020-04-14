@@ -3,12 +3,31 @@ id: pluginpacks
 title: Les Plugin Packs
 ---
 
-Les Plugin Packs (ou pack de supervision en français) sont un ensemble de modèles de configuration Centreon (packs)
-développés et validés par la société Centreon. Ils offrent une supervision, simplifiée, standardisée et optimisée pour
-votre infrastructure IT. En effet, les modèles de supervision préconfigurés permettent un déploiement rapide et
-performant de la supervision.
+A Plugin Pack is a downloadable package containing a set of configuration
+templates that make it fast and easy to monitor your IT infrastructure.
 
-Cette documentation explique comment utiliser les Centreon Plugin Packs.
+The templates (commands, hosts and services templates) configure a monitoring
+plugin that actually executes the monitoring commands on a Centreon Poller.
+Plugins are not packaged with Plugin Packs and must be installed separately:
+this is explained in the monitoring procedure that comes with each Plugin Pack.
+Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
+(e.g. Windows NRPE).
+
+For each type of equipment, the templates determine which indicators will be
+monitored and set default warning and critical thresholds. These may be
+fine-tuned later-on.
+
+Some Plugin Packs also contain discovery rules. Discovery rules instruct the
+Centreon discovery engine to fetch additional assets to be monitored. Host
+discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtua
+ machines on VMware) while Service discovery rules will look for new services
+ (e.g. Disk Volumes or Ethernet Interfaces on a server).
+
+Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
+user interface, described in this chapter.
+
+To get an up-to-date list of all Plugin Packs with their respective monitoring
+procedure, please refer to the Pugin Packs chapter in this documentation.
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
