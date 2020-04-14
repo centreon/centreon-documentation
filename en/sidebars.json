@@ -849,7 +849,7 @@
                     "releases/centreon-commercial-extensions",
                     "releases/centreon-os-extensions"
                 ],
-                "label": "Release notes",
+                "label": "Release notes (Version 2)",
                 "type": "subcategory"
             }
         ]
