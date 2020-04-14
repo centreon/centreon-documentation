@@ -42,7 +42,11 @@ en place de plage de maintenance, rafraîchissement du statut)
 et d'accéder facilement à d'autres ressources
 * *... et bien plus à venir dans les semaines & mois qui viennent*
 
-![image](../assets/alerts/events-view/events-view-demo.gif)
+<figure class="video_container">
+  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/alerts/events-view/listing.png">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+  </video>
+</figure>
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts/events-view)
 
