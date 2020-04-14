@@ -78,10 +78,11 @@ Centreon 20.04 uses a new version of PHP.
 The PHP timezone should be set. Run the command:
 
 ```shell
-echo "date.timezone = Europe/Paris" > /etc/opt/rh/rh-php72/php.d/php-timezone.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 
-> Change **Europe/Paris** to your timezone.
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
 
 Then, run the following commands:
 
