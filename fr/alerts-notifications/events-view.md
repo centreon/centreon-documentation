@@ -3,6 +3,8 @@ id: events-view
 title: Vue d'évènements (beta)
 ---
 
+> Cete fonctionnalité est en beta, nous vons encourageons fortement à l'utiliser et nous faire vos retours via [Github](https://github.com/centreon/centreon/issues/new/choose)
+
 La vue d'évènements est votre vue principale pour connaître les évènements en cours et être en mesure 
 de les comprendre, les prendre en compte et les traiter rapidement.
 
@@ -41,7 +43,7 @@ les notifications partant de la ressource.
 
 Il est possible de planifier une plage de maintenance :
 
-- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne 
+- En définissant directrement une plage de maintenance via le bouton qui s'affiche au survol de la ligne 
 - En sélectionne une ou plusieurs lignes et en cliquant sur le bouton "Downtime"
 
 ![image](assets/alerts/events-view/downtime.gif)
@@ -64,8 +66,8 @@ lançant un controle manuellement via l'interface. Cela est possible de deux man
 
 ### Filtres prédéfinis
 
-Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est positionné sur "Unhandled problems", cette 
-vue permet de visualiser rapidement tous les problèmes n'ayant pas encore été pris en compte ou associés à 
+Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est positionné sur "Unhandled problems", ce filtre
+permet de visualiser rapidement tous les problèmes n'ayant pas encore été pris en compte ou associés à 
 une plage de maintenance. Il est possible de choisir parmis 2 autres filtre: "Resource Problems" & "All". 
 
 Signification des filtres:
@@ -105,7 +107,7 @@ Si les filtres pré-définis et la barre de recherche ne suffisent pas, il est p
 les filtres afin d'accéder à plus de critères:
 
 - types de ressource (hôte ou service)    
-- Statut (Ok,Warning, Critical, Unknown, Pending, Up, Down)
+- Statut (Ok,Warning, Critical, Unknown, Pending, Up, Down, Unreachable)
 - Etat : y'a t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
 - Groupes d'hôtes
 - Groupe de services 
