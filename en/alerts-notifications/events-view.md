@@ -9,7 +9,9 @@ This view mixes host & services to have a unified interface and way to manage ev
 
 > This feature is in beta, we highly recommand you to use and send your feedbacks via [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-![image](../assets/alerts/events-view/events-view-demo.gif)
+<video width="100%" height="100%" controls="true" allowfullscreen="true" autoplay poster="../assets/alerts/events-view/listing.png">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
 
 ## Events list
 

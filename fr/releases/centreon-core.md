@@ -42,7 +42,9 @@ en place de plage de maintenance, rafraîchissement du statut)
 et d'accéder facilement à d'autres ressources
 * *... et bien plus à venir dans les semaines & mois qui viennent*
 
-![image](../assets/alerts/events-view/events-view-demo.gif)
+<video width="100%" height="100%" controls="true" allowfullscreen="true" autoplay poster="../assets/alerts/events-view/listing.png">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts/events-view)
 
@@ -57,7 +59,7 @@ d'être en mesure d'effectuer les actions suivantes, sur votre mobile:
 * Afficher le détail du statut des ressources et un graphiques lorsque disponible
 
 <figure class="video_container">
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
+  <video width="375" height="812" controls="true" allowfullscreen="true" autoplay poster="../assets/mobile/mobile-login.png">
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 </figure>
