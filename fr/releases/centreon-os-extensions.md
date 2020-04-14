@@ -19,10 +19,14 @@ questions on our [github](https://github.com/centreon/centreon).
 
 ## Centreon Open source extensions 
 
-### Centreon DSM 20.04.0
+## Centreon DSM 
+
+### 20.04.0
 
 Manage compatibility with Centreon 20.04
 
-### Centreon Open Ticket 20.04.0
+## Centreon Open Ticket
+
+### 20.04.0
 
 Manage compatibility with Centreon 20.04

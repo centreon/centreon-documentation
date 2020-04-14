@@ -20,7 +20,7 @@ questions on our [github](https://github.com/centreon/centreon).
 
 *22 Avril 2020*
 
-### Nouvelles fonctionnalités
+### 20.04
 
 #### Vue d'évènements (beta)
 
@@ -71,8 +71,8 @@ Plus d'information sur l'installation et l'utilisation de l'application mobile s
 
 ## Centreon Engine
 
-### Centreon Engine 20.04.0
+### 20.04.0
 
 ## Centreon Broker
 
-### Centreon Broker 20.04.0
+### 20.04.0
