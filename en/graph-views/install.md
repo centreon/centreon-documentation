@@ -78,7 +78,7 @@ restart the service:
 
 NB: The Xmx value depends on the amount of memory indicated in the above table.
 
-and restart the service: 
+and restart the service:
 
   systemctl restart centreon-map
 
@@ -256,10 +256,10 @@ Once your server is started, you can check if all its APIs are up and running by
 entering the following URL in your favorite web browser:
 
 If your server is running in http mode:
-http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health.
+http://\<IP\_SERVER\_MAP\>:8080/centreon-studio/api/beta/actuator/health.
 
 If your server is running in HTTPS mode:
-https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health.
+https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/api/beta/actuator/health.
 
 Installation of the Centreon MAP server is complete. If you want to configure
 the SSL, go to this page: `Advanced Centreon MAP Configuration
