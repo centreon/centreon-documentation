@@ -84,7 +84,7 @@ Enable all network interfaces by clicking the button in the top right from **off
 
 ![image](../../assets/installation/10_network_hostname.png)
 
-## Beginn the installation
+## Begin the installation
 
 Once configuration is complete, click on **Begin Installation**:
 
@@ -107,7 +107,7 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-## Update the system packages
+## Update the operating system
 
 Connect to your server using a terminal, and execute the command:
 
@@ -115,11 +115,7 @@ Connect to your server using a terminal, and execute the command:
 yum update
 ```
 
-![image](../../assets/installation/19_update_system.png)
-
-Accept all GPG keys if you are prompted:
-
-![image](../../assets/installation/20_accept_gpg_key.png)
+> Accept all GPG keys if needed.
 
 Then restart your server with the following command:
 
@@ -129,4 +125,5 @@ reboot
 
 ## Web installation
 
-Conclude installation by performing *[web intallation steps](../post-installation.html#Web-installation)*.
+Conclude installation by performing
+[web intallation steps](../web-and-post-installation.html#web-installation).

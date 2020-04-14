@@ -6,7 +6,7 @@ title: A partir des sources
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
-*[les paquets fournis par Centreon](using-packages.html)*.
+[les paquets fournis par Centreon](using-packages.html).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Redhat/CentOS-->
@@ -262,7 +262,7 @@ Sauvegardez le fichier et redémarrez apache :
 ## Moteur de supervision (Centreon Engine)
 
 Installez ce moteur avant de poursuivre l'installation. N'oubliez pas d'installer les
-*[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html)* vous ne l'avez pas déjà fait.
+[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) si vous ne l'avez pas déjà fait.
 
 ## Multiplexeur de flux (Centreon Broker)
 
@@ -270,7 +270,7 @@ Installez ce multiplexeurs de flux avant de poursuivre l'installation.
 
 ## Centreon
 
-Téléchargez la dernière version de *[Centreon ici](https://download.centreon.com)*.
+Téléchargez la dernière version de [Centreon ici](https://download.centreon.com).
 
 Extraire Centreon de l'archive :
 
@@ -832,4 +832,5 @@ information, nous recommandons MariaDB.
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.
+Terminez l'installation en réalisant les
+[étapes de l'installation web](../web-and-post-installation.html#installation-web).

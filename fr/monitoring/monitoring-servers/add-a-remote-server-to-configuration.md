@@ -46,11 +46,9 @@ Sélectionnez le(s) collecteur(s) à lier à ce Remote Server. Puis cliquez sur 
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
-**TO REMOVE**
+L'assistant va configurer votre nouveau serveur :
 
-    L'assistant va configurer votre nouveau serveur :
-
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
 
 Le Remote Server est maintenant configuré :
 
@@ -105,6 +103,11 @@ gorgone:
       package: gorgone::modules::core::action::hooks
       enable: true
 
+    - name: cron
+      package: "gorgone::modules::core::cron::hooks"
+      enable: true
+      cron: !include cron.d/*.yaml
+
     - name: nodes
       package: gorgone::modules::centreon::nodes::hooks
       enable: true
@@ -126,8 +129,26 @@ gorgone:
       enable: true
       command_file: "/var/lib/centreon-engine/rw/centengine.cmd"
 
+    - name: statistics
+      package: "gorgone::modules::centreon::statistics::hooks"
+      enable: true
+      broker_cache_dir: "/var/cache/centreon/broker-stats/"
+      cron:
+        - id: broker_stats
+          timespec: "*/5 * * * *"
+          action: BROKERSTATS
+          parameters:
+            timeout: 10
+        - id: engine_stats
+          timespec: "*/5 * * * *"
+          action: ENGINESTATS
+          parameters:
+            timeout: 10
+
 EOF
 ```
+
+Appuyer sur la touche entrée pour que la commande soit appliquée.
 
 > Vous pouvez copier la configuration en sélectionnant le contenu de la popin
 > pour la copier dans un fichier de configuration personnalisé.
@@ -204,7 +225,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Pour forcer le Gorgone du Central à se connecter au Remote Server, redémarrez le avec
+**Pour forcer le Gorgone du Central à se connecter au Remote Server**, redémarrez le avec
 la commande suivante :
 
 ```shell

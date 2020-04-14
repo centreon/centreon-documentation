@@ -17,7 +17,7 @@ et disposant des prérequis suivants :
 
 > Si votre plate-forme a été installé à partir de l'ISO Centreon ou des dépôts
 > Centreon 3.4 sur CentOS ou Red Hat en version 7, référez-vous à la documentation
-> de *[montée de version](../upgrade/upgrade-from-3-4.html)*.
+> de [montée de version](../upgrade/upgrade-from-3-4.html).
 
 ## Migration
 
@@ -27,15 +27,15 @@ et disposant des prérequis suivants :
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
 > Display 1.6.x**, référez-vous à la
-> *[procédure de migration](../upgrade/poller-display-to-remote-server.html)*.
+> [procédure de migration](../upgrade/poller-display-to-remote-server.html).
 
 ### Installation du nouveau serveur
 
 Réalisez les actions suivantes :
 
 1. Installez un nouveau serveur Centreon à partir de
-*[l'ISO](../installation/centreon-from-iso.html)* ou des
-*[paquets](../installation/centreon-from-packages.html)* jusqu'à terminer le
+[l'ISO](../installation/centreon-from-iso.html) ou des
+[paquets](../installation/centreon-from-packages.html) jusqu'à terminer le
 processus d'installation en vous connectant à l'interface web.
 
 2. Réalisez les mises à jour logicielle et système :
@@ -156,7 +156,7 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 Vous pouvez générer les configurations depuis Centreon 20.04
 indifféremment vers un collecteur en 20.04 ou 1.8.1.
 
-### Montée de version de la suite Centreon
+### Montée de version de la solution Centreon
 
 Forcez la montée de version du nouveau serveur en déplacant le contenu du répertoire
 **/var/lib/centreon/installs/install-20.04.0-YYYYMMDD\_HHMMSS** dans le
@@ -171,9 +171,8 @@ mv install-20.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 > web Centreon et le nouveau, videz completement le cache de votre navigateur pour
 > éviter des problemes de scripts JS.
 
-Se connecter à l'url
-[http://<IP_NOUVEAU_CENTREON>/centreon](http://<IP_NOUVEAU_CENTREON>/centreon)
-et suivre les étapes de mise à jour.
+Se connecter à l'url *http://\<IP_NEW_CENTREON\>/centreon* et suivre les étapes
+de mise à jour.
 
 > Si vous avez modifié le mot de passe de l'utilisateur 'centreon' lors de
 > l'installation de votre nouveau serveur Centreon pour accéder aux bases de
@@ -189,7 +188,9 @@ et suivre les étapes de mise à jour.
 
 Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
 l'ensemble des modules broker de vos collecteurs et modifiez l'adresse IP de
-connexion au serveur Centreon central (output IPv4).
+connexion au serveur Centreon central (output IPv4). Consultez le chapitre
+[Configuration avancée](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
+pour plus d'information.
 
 Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.html) la configuration de l'ensemble de la
 plateforme et exportez là.

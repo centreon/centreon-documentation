@@ -113,13 +113,9 @@ Connectez-vous via un terminal et exécutez la commande :
 yum update
 ```
 
-![image](../../assets/installation/19_update_system.png)
+> Acceptez toutes les clés GPG proposées.
 
-Acceptez toutes les clés GPG proposées :
-
-![image](../../assets/installation/20_accept_gpg_key.png)
-
-Redémarrez votre système avec la commande:
+Redémarrez votre système avec la commande :
 
 ``` shell
 reboot
@@ -127,4 +123,5 @@ reboot
 
 ## Installation web
 
-Terminez l'installation en réalisant les *[étapes de l'installation web](../post-installation.html#installation-web)*.
+Terminez l'installation en réalisant les
+[étapes de l'installation web](../web-and-post-installation.html#installation-web).

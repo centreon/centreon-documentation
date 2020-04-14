@@ -1,11 +1,11 @@
 ---
-id: post-installation
-title: Post Installation
+id: web-and-post-installation
+title: Web And Post Installation
 ---
 
 ## Web installation
 
-Log in to Centreon web interface via the URL <http://\<IP\>/centreon>.
+Log in to Centreon web interface via the URL *http://\<IP\>/centreon*.
 
 The Centreon setup wizard is displayed. Click on **Next**.
 
@@ -105,35 +105,34 @@ To start the monitoring processes:
     systemctl restart cbd centengine
     ```
 
-6. Restart the tasks manager
+6. Restart the tasks manager:
 
     ```shell
     systemctl restart gorgoned
     ```
 
-7. Start the passive monitoring daemon:
+7. Start the passive monitoring services:
 
     ```shell
-    systemctl start centreontrapd
+    systemctl start snmptrapd centreontrapd
+    ```
+
+8. If you want to monitor this server, start the SNMP daemon:
+
+    ```shell
+    systemctl start snmpd
     ```
 
 Monitoring is now working. You can start monitoring your IT system.
 
-To automatically start services at system bootup, run this command on the
-Central server:
-
-```shell
-systemctl enable cbd centengine gorgoned centreontrapd centreon
-```
-
-### Install available extensions
+## Install available extensions
 
 Go to **Administration \> Extensions \> Manager** menu and click on
 **Install all**:
 
-![image](../assets/installation/install_imp_2.png)
+![image](../assets/installation/extensions-manager.png)
 
 ## Getting started
 
-Go to the [Getting Started](../tutorials/tutorials) chapter to configure your
-first monitoring.
+Go to the [Getting Started](../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
+chapter to configure your first monitoring.

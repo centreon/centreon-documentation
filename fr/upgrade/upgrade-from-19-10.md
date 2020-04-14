@@ -3,33 +3,18 @@ id: upgrade-from-19-10
 title: Montée de version depuis Centreon 19.10
 ---
 
-Ce chapitre décrit la procédure de mise à jour de votre plate-forme vers
-Centreon 20.04.
-
-Pour mettre à jour votre serveur Centreon Map, TODO
-
-Pour mettre à jour votre serveur Centreon MBI, TODO
+Ce chapitre décrit la procédure de montée de version de votre plate-forme
+Centreon depuis la version 19.10 vers la version 20.04.
 
 ## Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
-- Serveur(s) Centreon central(aux) ;
-- Serveur(s) de gestion de base de données ;
+- Serveur Centreon Central,
+- Serveur de gestion de base de données.
 
-## Montée de version du serveur Centreon central
-
-### Mise à jour du système d’exploitation
-
-Pensez à mettre à jour votre système d'exploitation via la commande :
-
-```shell
-yum update
-```
-
-> Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur si
-> une mise à jour du noyau est proposée.
+## Montée de version du serveur Centreon Central
 
 ### Mise à jour des dépôts
 
@@ -43,7 +28,14 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 ### Montée de version de la solution Centreon
 
-Mettez à jour le cache de yum :
+> Centreon 20.04 utilise **MariaDB 10.3**.
+>
+> Le processus suivant met seulement à jour les composants Centreon pour le
+> moment.
+>
+> MariaDB sera mis à jour après.
+
+Videz le cache de yum :
 
 ```shell
 yum clean all --enablerepo=*
@@ -57,81 +49,20 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-### Finalisation de la mise à jour
+### Actions complémentaires
 
-Connectez-vous à l'interface web Centreon pour démarrer le processus de mise à
-jour :
+#### Configurer l'accès à l'API
 
-Cliquez sur **Next** :
+Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
+n'y a pas touché.
 
-![image](../assets/upgrade/web_update_1.png)
+> Si vous utilisez le https, vous pouvez suivre
+> [cette procédure](../administration/accessing-to-centreon-ui.html)
 
-Cliquez sur **Next** :
+Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
+configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
-![image](../assets/upgrade/web_update_2.png)
-
-La note de version présente les principaux changements, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_3.png)
-
-Le processus réalise les différentes mises à jour, cliquez sur **Next** :
-
-![image](../assets/upgrade/web_update_4.png)
-
-Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
-accéder à la page de connexion :
-
-![image](../assets/upgrade/web_update_5.png)
-
-Pour mettre à jour votre module Centreon BAM, référez-vous à la [documentation
-associée](https://documentation-fr.centreon.com/docs/centreon-bam/en/latest/update/index.html).
-
-### Actions post montée de version
-
-#### Démarrer le gestionnaire de tâches
-
-Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
-*Gorgone*.
-
-Pour acter ce changement, réalisez les actions suivantes :
-
-```shell
-systemctl stop centcore
-systemctl enable gorgoned
-systemctl start gorgoned
-```
-
-> Par défaut, la communication entre le Central et les Pollers ou Remote
-> Servers sera toujours effectuée en utilisant le protocole SSH.
->
-> Reportez vous à la procédure *TODO* pour modifier le protocole de
-> communication.
-
-#### Redémarrage des processus de supervision
-
-Le composant Centreon Broker a changé le format de son fichier de configuration.
-
-Il utilise maintenant JSON à la place de XML.
-
-Pour être sur que Broker et que le module Broker de Engine utilisent les nouveaux
-fichiers de configuration, suivez ces étapes :
-
-1. Déployer la configuration du Central depuis l'interface web en suivant
-*[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*,
-2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
-suivante:
-
-    ```shell
-    systemctl restart cbd centengine
-    ```
-
-#### Configure Apache API access
-
-Si vous utilisez le https, vous pouvez suivre
-*[cette procédure](../administration/accessing-to-centreon-ui.html)*
-
-Si vous avez une configuration personnalisée d'apache, vous devrez probablement ajouter la section d'accès à l'API
-dans votre fichier de configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+Seules les lignes avec le symbole "+" doivent être prises en compte.
 
 ```diff
 +Alias /centreon/api /usr/share/centreon
@@ -183,13 +114,117 @@ ProxyTimeout 300
 RedirectMatch ^/$ /centreon
 ```
 
-Redémarrez ensuite le service apache :
+Redémarrez ensuite le service Apache :
 
 ```shell
 systemctl restart httpd24-httpd
 ```
 
-## Montée de version des collecteurs
+### Finalisation de la mise à jour
+
+Avant de démarrer la montée de version via l'interface web, rechargez le
+serveur Apache avec la commande suivante :
+
+```shell
+systemctl reload httpd24-httpd
+```
+
+Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
+mise à jour :
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_1.png)
+
+Cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_2.png)
+
+La note de version présente les principaux changements, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_3.png)
+
+Le processus réalise les différentes mises à jour, cliquez sur **Next** :
+
+![image](../assets/upgrade/web_update_4.png)
+
+Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
+accéder à la page de connexion :
+
+![image](../assets/upgrade/web_update_5.png)
+
+Si le module Centreon BAM est installé, référez-vous à la [documentation
+associée](../service-mapping/upgrade.html) pour le mettre à jour.
+
+### Actions post montée de version
+
+#### Démarrer le gestionnaire de tâches
+
+Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
+*Gorgone*.
+
+Pour acter ce changement, réalisez les actions suivantes :
+
+```shell
+systemctl stop centcore
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Les statistiques Engine qui étaient collectées par *Centcore* le seront
+maintenant par *Gorgone*
+
+Il faut alors changer les droits sur les fichiers RRD de statistique en
+exécutant la commande suivante:
+
+```shell
+chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
+```
+
+#### Redémarrage des processus de supervision
+
+Le composant Centreon Broker a changé le format de son fichier de configuration.
+
+Il utilise maintenant JSON à la place de XML.
+
+Pour être sur que Broker et que le module Broker de Engine utilisent les nouveaux
+fichiers de configuration, suivez ces étapes :
+
+1. Déployer la configuration du Central depuis l'interface web en suivant
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html),
+2. Redémarrer Broker et Engine sur le serveur Central en exécutant la commande
+suivante:
+
+    ```shell
+    systemctl restart cbd centengine
+    ```
+
+### Montée de version du serveur MariaDB
+
+Les composants MariaDB peuvent maintenan être mis à jour.
+
+Reférez vous à la documentation officiel de MariaDB pour réaliser cette
+montée de version.
+
+> Sachez que MariaDB recommande vivement de monter en version le serveur en
+> passant par chacune des versions majeures.
+>
+> Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
+> 10.3.
+>
+> Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
+> dépôts stables.
+>
+> Consultez les documentations suivantes pour savoir comment procéder :
+>
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+
+## Montée de version des Remote Servers
+
+Cette procédure est identique à la montée de version d'un serveur Centreon Central.
+
+## Montée de version des Pollers
 
 ### Mise à jour des dépôts
 
@@ -200,6 +235,12 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 ```
 
 ### Montée de version de la solution Centreon
+
+Videz le cache de yum :
+
+```shell
+yum clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 
@@ -215,9 +256,13 @@ Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-*[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*, et en choisissant la méthode
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html), et en choisissant la méthode
 *Redémarrer* pour le processus Engine
 
-## Mise à jour des Remote Servers
+## Communications
 
-Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
+Par défaut, la communication entre le serveur Central et les Pollers ou les
+Remote Servers utilisera toujours SSH.
+
+Considérez changer le protocole de communication en suivant la procédure
+[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.html#changer-la-communication-de-ssh-a-zmq).

@@ -95,6 +95,8 @@ gorgone:
 EOF
 ```
 
+Appuyer sur la touche entrée pour que la commande soit appliquée.
+
 > Vous pouvez copier la configuration en sélectionnant le contenu de la popin
 > pour la copier dans un fichier de configuration personnalisé.
 
@@ -163,7 +165,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Pour forcer le Gorgone du Central à se connecter au Poller, redémarrez le avec
+**Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez le avec
 la commande suivante :
 
 ```shell

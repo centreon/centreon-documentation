@@ -3,11 +3,8 @@ id: upgrade-from-19-10
 title: Upgrade from Centreon 19.10
 ---
 
-This chapter describes how to upgrade your platform to version Centreon 20.04.
-
-To upgrade your Centreon MAP server, TODO
-
-To upgrade your Centreon MBI server, TODO
+This chapter describes how to upgrade your Centreon platform from version 19.10
+to version 20.04.
 
 ## Perform a backup
 
@@ -19,17 +16,6 @@ servers:
 
 ## Upgrade the Centreon Central server
 
-### Update the operating system
-
-Remember to update your operating system via the command:
-
-```shell
-yum update
-```
-
-> Accept all GPG keys and consider rebooting your server if a kernel update is
-> proposed.
-
 ### Update the Centreon repository
 
 Run the following commands:
@@ -40,13 +26,19 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+> Centreon 20.04 uses **MariaDB 10.3**.
+>
+> This upgrade process will only upgrade Centreon components first.
+>
+> MariaDB will be upgraded afterwards.
+
 Clean yum cache:
 
 ```shell
 yum clean all --enablerepo=*
 ```
 
-Upgrade all the components with the following command:
+Then upgrade all the components with the following command:
 
 ```shell
 yum update centreon\*
@@ -54,77 +46,19 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-### Finalizing the upgrade
-
-Log on to the Centreon web interface to continue the upgrade process:
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_1.png)
-
-Click on **Next**:
-
-![image](../assets/upgrade/web_update_2.png)
-
-The release notes describe the main changes. Click on **Next**:
-
-![image](../assets/upgrade/web_update_3.png)
-
-This process performs the various upgrades. Click on **Next**:
-
-![image](../assets/upgrade/web_update_4.png)
-
-Your Centreon server is now up to date. Click on **Finish** to access the login
-page:
-
-![image](../assets/upgrade/web_update_5.png)
-
-To upgrade your Centreon BAM module, TODO
-
-### Post-upgrade actions
-
-#### Start the tasks manager
-
-Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
-
-To act this change, run the following commands:
-
-```shell
-systemctl stop centcore
-systemctl enable gorgoned
-systemctl start gorgoned
-```
-
-> By default, the communication between Central and Pollers or Remote Servers
-> will still be using SSH protocol.
->
-> Go to the *TODO* procedure to change the communication protocol.
-
-#### Restart monitoring processes
-
-Centreon Broker component has changed his configuration file format.
-
-It now uses JSON instead of XML.
-
-To make sure Broker and Engine's Broker module are using new configuration files,
-follow this steps:
-
-1. Deploy Central's configuration from the Centreon web UI by following
-*[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*,
-2. Restart both Broker and Engine on the Central server by running this
-command:
-
-    ```shell
-    systemctl restart cbd centengine
-    ```
+### Additional actions
 
 #### Configure Apache API access
 
-If you use https, you can follow
-*[this procedure](../administration/accessing-to-centreon-ui.html)*
+If you had a custom apache configuration, upgrade process through RPM did not update it.
 
-If you have a custom apache configuration, you'll probably need to add API access section
-to your configuration file : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+> If you use https, you can follow
+> [this procedure](../administration/accessing-to-centreon-ui.html#https-access)
+
+You'll then need to add API access section to your configuration file:
+**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
+
+Only lines with "+" symbol must be taken into account.
 
 ```diff
 +Alias /centreon/api /usr/share/centreon
@@ -182,6 +116,105 @@ Then, restart apache service :
 systemctl restart httpd24-httpd
 ```
 
+### Finalizing the upgrade
+
+Before starting the web upgrade process, reload the Apache server with the
+following command:
+
+```shell
+systemctl reload httpd24-httpd
+```
+
+Then log on to the Centreon web interface to continue the upgrade process:
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_1.png)
+
+Click on **Next**:
+
+![image](../assets/upgrade/web_update_2.png)
+
+The release notes describe the main changes. Click on **Next**:
+
+![image](../assets/upgrade/web_update_3.png)
+
+This process performs the various upgrades. Click on **Next**:
+
+![image](../assets/upgrade/web_update_4.png)
+
+Your Centreon server is now up to date. Click on **Finish** to access the login
+page:
+
+![image](../assets/upgrade/web_update_5.png)
+
+If the Centreon BAM module is installed, refer to the
+[upgrade procedure](../service-mapping/upgrade.html).
+
+### Post-upgrade actions
+
+#### Start the tasks manager
+
+Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
+
+To act this change, run the following commands:
+
+```shell
+systemctl stop centcore
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Engine statistics that have been collected by *Centcore* will know be collected
+by *Gorgone*.
+
+Change the rights on the statistics RRD files by running the following command:
+
+```shell
+chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
+```
+
+#### Restart monitoring processes
+
+Centreon Broker component has changed his configuration file format.
+
+It now uses JSON instead of XML.
+
+To make sure Broker and Engine's Broker module are using new configuration files,
+follow this steps:
+
+1. Deploy Central's configuration from the Centreon web UI by following
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html),
+2. Restart both Broker and Engine on the Central server by running this
+command:
+
+    ```shell
+    systemctl restart cbd centengine
+    ```
+
+### Upgrade MariaDB server
+
+The MariaDB components can now be upgraded.
+
+Refer to the official MariaDB documentation to perform this upgrade.
+
+> Be aware that MariaDB strongly recommends to upgrade the server through each
+> major release.
+>
+> You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+>
+> That is why Centreon provides both 10.2 and 10.3 versions on its stable
+> repositories.
+>
+> Refer to the following documentations to know how to proceed:
+>
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+
+## Upgrade the Remote Servers
+
+This procedure is the same than to upgrade a Centreon Central server.
+
 ## Upgrade the Pollers
 
 ### Update the Centreon repository
@@ -193,6 +226,12 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 ```
 
 ### Upgrade the Centreon solution
+
+Clean yum cache:
+
+```shell
+yum clean all --enablerepo=*
+```
 
 Upgrade all the components with the following command:
 
@@ -208,8 +247,14 @@ Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
 Deploy Poller's configuration from the Centreon web UI by following
-*[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html)*, and choose *Restart* method for Engine process.
+[this procedure](../monitoring/monitoring-servers/deploying-a-configuration.html),
+and choose *Restart* method for Engine process.
 
-## Upgrade the remote servers
+## Communications
 
-This procedure is the same than to update a Centreon server.
+By default, the communication between Central and Pollers or Remote Servers
+will still be using SSH protocol.
+
+Consider changing the communication protocol by following the
+[Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.html#change-communication-from-ssh-to-zmq)
+procedure.

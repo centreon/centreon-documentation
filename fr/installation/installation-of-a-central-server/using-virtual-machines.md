@@ -3,8 +3,8 @@ id: using-virtual-machines
 title: A partir des VMs
 ---
 
-Deux machines virtuelles pré-configurées sont disponibles sur le site de
-*[téléchargement de Centreon](https://download.centreon.com)*.
+Deux machines virtuelles pré-configurées sont disponibles sur le [site de
+téléchargement](https://download.centreon.com) de Centreon.
 
 Ces machines virtuelles sont disponibles au format OVA (VMware) et OVF (VirtualBox).
 
@@ -37,4 +37,5 @@ obligatoires**.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre *[Premiers pas](../../tutorials/first-steps.html)* pour mettre en place votre première supervision.
+Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.html)
+pour mettre en place votre première supervision.
