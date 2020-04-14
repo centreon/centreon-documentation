@@ -58,6 +58,28 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
+<video width="100%" height="100%" preload="metadata" controls="true" allowfullscreen="true">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
+
+<video width="100%" height="100%" preload="metadata" controls="true" allowfullscreen="true">
+    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
+</video>
+
+<video id="video" controls="" preload="none" poster="https://media.w3.org/2010/05/sintel/poster.png">
+      <source id="mp4" src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      <source id="webm" src="https://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+      <source id="ogv" src="https://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+      <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+
+<video width="100%" height="100%" controls="" preload="none" poster="https://media.w3.org/2010/05/sintel/poster.png">
+      <source id="mp4" src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      <source id="webm" src="https://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+      <source id="ogv" src="https://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+      <p>Your user agent does not support the HTML5 Video element.</p>
+</video>
+
 To know more about this feature, have a look to [the documentation](../alerts/events-view)
 
 #### Mobility
