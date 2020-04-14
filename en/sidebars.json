@@ -842,7 +842,16 @@
         ],
         "Releases": [
             "releases/lifecycle",
-            "releases/release-notes"
+            "releases/release-notes",
+            {
+                "ids": [
+                    "releases/centreon-core",
+                    "releases/centreon-commercial-extensions",
+                    "releases/centreon-os-extensions"
+                ],
+                "label": "Release notes",
+                "type": "subcategory"
+            }
         ]
     }
 }

@@ -5,8 +5,7 @@ title: Release notes
 
 ## Introduction
 
-You can find in this chapter all changelogs that give you knowledges about the
-changes integrated into each releases of Centreon components and extensions.
+You can find in this chapter all changelogs concerning **Centreon Core**.
 
 > It is very important when you update your system to refer to this section in
 > order to learn about behavior changes or major changes that have been made on
@@ -17,20 +16,13 @@ changes integrated into each releases of Centreon components and extensions.
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
-#TODO
+## Centreon Web 
 
-## Centreon Core (Open source)
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Centreon Web -->
-
-#### Centreon Web 20.04.0
+### 20.04.0
 
 *Released April, 22  2020*
 
-#### New features
-
-##### Events view (beta)
+#### Events view (beta)
 
 Centreon Web comes with a brand new events view management experience. This new view is released 
 as a beta feature becauwe we want to make this new view the most efficient monitoring view dedicated to operators
@@ -51,7 +43,7 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
 
 To know more about this feature, have a look to [the documentation](../alerts/events-view)
 
-##### Mobility
+#### Mobility
 
 Centreon comes now with a Mobile App. that you can install on your phone to be able to perform the 
 most common actions on resources:
@@ -71,76 +63,10 @@ Find more about this mobile application in the [dedicated section](../mobile/int
 
 #### Bug fixes
 
-<!--Centreon Engine -->
+## Centreon Engine 
 
-#### Centreon Engine 20.04.0
+### 20.04.0
 
+## Centreon Broker 
 
-<!--Centreon Broker -->
-
-#### Centreon Broker 20.04.0
-
-
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-## Centreon Commercial Extensions
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centreon MAP -->
-
-#### Centreon MAP 20.04.0
-
-Released April, 17 2020.
-
-**New features**
-
-The licensing system has been simplified.
-
-The MAP license resides now on the Centreon **central** server, as any other
-commercial extension. No worry, the compatibility with the previous licensing
-mecanism (license on the map server) is maintained.
-
-Anyway, if you want to perfectly finish your migration, you may ask the support
-team to generate a new Centreon Map license for your Central server and upload :
-
-  - Administration > Extensions > Manager
-
-
-<!--Centreon BAM -->
-
-#### Centreon BAM 20.04.0
-
-#TODO
-
-
-<!--Centreon MBI -->
-
-#### Centreon MBI 20.04.0
-
-Manage compatibility with Centreon 20.04
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-
-## Centreon Open source extensions 
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centreon DSM -->
-
-#### Centreon DSM 20.04.0
-
-Manage compatibility with Centreon 20.04
-
-
-<!--Centreon Open Ticket  -->
-
-#### Centreon Open Ticket 20.04.0
-
-Manage compatibility with Centreon 20.04
-
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
+### 20.04.0
