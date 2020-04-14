@@ -1,6 +1,6 @@
 ---
-id: release-notes
-title: Release notes
+id: centreon-core
+title: Centreon Core
 ---
 
 ## Introduction

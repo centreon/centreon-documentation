@@ -1,6 +1,6 @@
 ---
-id: release-notes
-title: Release notes
+id: centreon-os-extensions
+title: Externsions Open Source
 ---
 
 ## Introduction
