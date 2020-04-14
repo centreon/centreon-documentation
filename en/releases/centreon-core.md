@@ -42,7 +42,7 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
-To know more about this feature, have a look to [the documentation](../alerts/events-view)
+To know more about this feature, have a look to [the documentation](../alerts-notifications/events-view)
 
 #### Mobility
 

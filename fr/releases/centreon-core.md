@@ -46,7 +46,7 @@ et d'accéder facilement à d'autres ressources
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
-Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts/events-view)
+Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts-notifications/events-view)
 
 #### Mobilité
 
