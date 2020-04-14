@@ -67,7 +67,7 @@ d'être en mesure d'effectuer les actions suivantes, sur votre mobile:
 * Afficher le détail du statut des ressources et un graphiques lorsque disponible
 
 <figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 </figure>
