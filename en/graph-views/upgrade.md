@@ -28,10 +28,26 @@ repository**
 
 Run the following commands to upgrade your Centreon MAP server:
 
+- Stop and disable legacy tomcat service coming from precedent version
 ``` shell
-# systemctl stop centreon-map
+# systemctl stop tomcat
+# systemctl disable tomcat
+```
+- Update Centreon repo and update Centreon MAP server
+``` shell
+# yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 # yum update centreon-map-server
+```
+- Enable and start centreon-map service
+``` shell
+# systemctl enable centreon-map
 # systemctl start centreon-map
+```
+> If you want totally clean up legacy Tomcat service, you can just remove Tomcat and move old log file to new log folder:
+``` shell
+# yum remove tomcat
+# cp /var/log/centreon-studio/* /var/log/centreon-map/ 
+# rm -rf /var/log/centreon-studio
 ```
 
 ## Centreon MAP Web interface
