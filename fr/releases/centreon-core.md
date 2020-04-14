@@ -42,11 +42,7 @@ en place de plage de maintenance, rafraîchissement du statut)
 et d'accéder facilement à d'autres ressources
 * *... et bien plus à venir dans les semaines & mois qui viennent*
 
-<figure class="video_container">
-<video width="100%" height="100%" playsinline autoplay muted loop poster="../assets/alerts/events-view/listing.png">
-    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
-  </video>
-</figure>
+![image](../assets/alerts/events-view/events-view-demo.gif)
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts/events-view)
 
