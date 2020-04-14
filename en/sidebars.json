@@ -103,9 +103,10 @@
             },
             "monitoring/web-import-export"
         ],
-        "Alert Management": [
-            "alerts-notifications/init-alerts-notifications",
+        "Alerts & Notifications": [
+            "alerts-notifications/introduction",
             "alerts-notifications/concepts",
+            "alerts-notifications/events-view",
             "alerts-notifications/event-console",
             "alerts-notifications/manage-alerts",
             {
@@ -841,7 +842,15 @@
         ],
         "Releases": [
             "releases/lifecycle",
-            "releases/release-notes"
+            {
+                "ids": [
+                    "releases/centreon-core",
+                    "releases/centreon-commercial-extensions",
+                    "releases/centreon-os-extensions"
+                ],
+                "label": "Release notes",
+                "type": "subcategory"
+            }
         ]
     }
 }

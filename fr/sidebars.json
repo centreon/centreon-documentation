@@ -103,27 +103,26 @@
             },
             "monitoring/web-import-export"
         ],
-        "Gestion des Alertes et Notifications": [
-            [
-                "alerts-notifications/init-alerts-notifications",
-                "alerts-notifications/concepts",
-                "alerts-notifications/event-console",
-                "alerts-notifications/manage-alerts",
-                {
-                    "ids": [
-                        "alerts-notifications/notif-concept",
-                        "alerts-notifications/notif-configuration",
-                        "alerts-notifications/notif-dependencies",
-                        "alerts-notifications/notif-escalation",
-                        "alerts-notifications/notif-flapping",
-                        "alerts-notifications/notif-advanced"
-                    ],
-                    "label": "Notification",
-                    "type": "subcategory"
-                },
-                "alerts-notifications/ticketing",
-                "alerts-notifications/event-log"
-            ]
+        "Alertes et Notifications": [
+            "alerts-notifications/introduction",
+            "alerts-notifications/concepts",
+            "alerts-notifications/events-view",
+            "alerts-notifications/event-console",
+            "alerts-notifications/manage-alerts",
+            {
+                "ids": [
+                    "alerts-notifications/notif-concept",
+                    "alerts-notifications/notif-configuration",
+                    "alerts-notifications/notif-dependencies",
+                    "alerts-notifications/notif-escalation",
+                    "alerts-notifications/notif-flapping",
+                    "alerts-notifications/notif-advanced"
+                ],
+                "label": "Notification",
+                "type": "subcategory"
+            },
+            "alerts-notifications/ticketing",
+            "alerts-notifications/event-log"
         ],
         "Tableau de Bord": [
             "dashboard/init-dashboard"
@@ -802,9 +801,17 @@
         "Développeur": [
             "developer/init-developer"
         ],
-        "Versions": [
+        "Releases": [
             "releases/lifecycle",
-            "releases/release-notes"
+            {
+                "ids": [
+                    "releases/centreon-core",
+                    "releases/centreon-commercial-extensions",
+                    "releases/centreon-os-extensions"
+                ],
+                "label": "Release notes",
+                "type": "subcategory"
+            }
         ]
     }
 }
