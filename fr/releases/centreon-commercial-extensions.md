@@ -16,10 +16,11 @@ You can find in this chapter all changelogs concerning Centreon Core.
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
+<!--DOCUSAURUS_CODE_TABS-->
 
-## Centreon MAP
+<!--Centreon MAP  -->
 
-### 20.04.0
+###  Centreon MAP20.04.0
 
 *Released April, 22  2020*
 
@@ -36,14 +37,16 @@ team to generate a new Centreon Map license for your Central server and upload :
 
   - Administration > Extensions > Manager
 
-## Centreon BAM
+<!--Centreon BAM  -->
 
-### 20.04.0
+### Centreon BAM 20.04.0
+
+Manage compatibility with Centreon 20.04
+
+<!--Centreon MBI  -->
+
+### Centreon MBI 20.04.0
 
 Manage compatibility with Centreon 20.04
 
-#### Centreon MBI 
-
-### 20.04.0
-
-Manage compatibility with Centreon 20.04
+<!--END_DOCUSAURUS_CODE_TABS-->
