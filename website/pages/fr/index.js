@@ -10,7 +10,7 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
-const basePathImg = '../img/homepage/';
+const basePathImg = './img/homepage/';
 
 const links = {
   doc: {
