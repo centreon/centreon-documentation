@@ -3,31 +3,35 @@ id: pluginpacks
 title: Les Plugin Packs
 ---
 
-A Plugin Pack is a downloadable package containing a set of configuration
-templates that make it fast and easy to monitor your IT infrastructure.
+Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
+de modèles de configuration qui rendent la supervision de votre infrastructure
+facile et intuitive.
 
-The templates (commands, hosts and services templates) configure a monitoring
-plugin that actually executes the monitoring commands on a Centreon Poller.
-Plugins are not packaged with Plugin Packs and must be installed separately:
-this is explained in the monitoring procedure that comes with each Plugin Pack.
-Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE).
+Ces modèles (modèles d’hôtes et de services, commandes associées) configurent
+une sonde (aussi appelée plugin) qui elle-même exécute les commandes de
+supervision depuis un Centreon Poller. Les sondes ne sont pas téléchargées avec
+les Plugin Packs et doivent être installées par ailleurs : ceci est expliqué
+dans la procédure de mise en supervision associée à chaque Plugin Pack.
+Certains Plugin Packs nécessitent aussi un Connecteur (ex : AS400 ou VMware)
+ou un agent (ex : Windows NRPE).
 
-For each type of equipment, the templates determine which indicators will be
-monitored and set default warning and critical thresholds. These may be
-fine-tuned later-on.
+Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
+supervisés et définissent les valeurs par défaut des seuils Warning et
+Critical. Ceux-ci sont modifiables par la suite.
 
-Some Plugin Packs also contain discovery rules. Discovery rules instruct the
-Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtua
- machines on VMware) while Service discovery rules will look for new services
- (e.g. Disk Volumes or Ethernet Interfaces on a server).
+Certains Plugin Packs contiennent aussi des règles de découverte. Ces règles
+sont exécutées par le moteur de découverte Centreon pour déterminer une liste
+de ressources supplémentaires à superviser. Les règles de découverte de hôtes
+listent de nouveaux hôtes (ex : des ressources AWS EC2, des machines virtuelles
+VMware) alors que les règles de découverte de services listent des services
+supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
 
-Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
-user interface, described in this chapter.
+Les Plugin Packs de votre plateforme Centreon sont gérés à travers l’IHM Plugin
+Pack Manager décrites dans ce chapitre.
 
-To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the Pugin Packs chapter in this documentation.
+Pour obtenir une liste à jour de tous les Plugin Packs disponibles dans la
+bibliothèque en ligne Centreon et lire leur procédure de mise en supervision
+associée, référez-vous au chapitre Plugin Packs de cette documentation.
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 

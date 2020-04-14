@@ -3,41 +3,46 @@ id: introduction
 title: Introduction to Plugin Packs
 ---
 
-A Plugin Pack is a downloadable package containing a set of configuration
-templates that make it fast and easy to monitor your IT infrastructure.
+Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
+de modèles de configuration qui rendent la supervision de votre infrastructure
+facile et intuitive.
 
-The templates (commands, hosts and services templates) configure a monitoring
-plugin that actually executes the monitoring commands on a Centreon Poller.
-Plugins are not packaged with Plugin Packs and must be installed separately:
-this is explained in the monitoring procedure that comes with each Plugin Pack.
-Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE).
+Ces modèles (modèles d’hôtes et de services, commandes associées) configurent
+une sonde (aussi appelée plugin) qui elle-même exécute les commandes de
+supervision depuis un Centreon Poller. Les sondes ne sont pas téléchargées avec
+les Plugin Packs et doivent être installées par ailleurs : ceci est expliqué
+dans la procédure de mise en supervision associée à chaque Plugin Pack.
+Certains Plugin Packs nécessitent aussi un Connecteur (ex : AS400 ou VMware)
+ou un agent (ex : Windows NRPE).
 
-For each type of equipment, the templates determine which indicators will be
-monitored and set default warning and critical thresholds. These may be
-fine-tuned later-on.
+Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
+supervisés et définissent les valeurs par défaut des seuils Warning et
+Critical. Ceux-ci sont modifiables par la suite.
 
-Some Plugin Packs also contain discovery rules. Discovery rules instruct the
-Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtual
-machines on VMware) while Service discovery rules will look for new services
-(e.g. Disk Volumes or Ethernet Interfaces on a server).
+Certains Plugin Packs contiennent aussi des règles de découverte. Ces règles
+sont exécutées par le moteur de découverte Centreon pour déterminer une liste
+de ressources supplémentaires à superviser. Les règles de découverte de hôtes
+listent de nouveaux hôtes (ex : des ressources AWS EC2, des machines virtuelles
+VMware) alors que les règles de découverte de services listent des services
+supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
 
-Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
-user interface. Plugin Packs may be updated or new Plugin Packs may be added to
-the Centreon online library on a weekly basis. These are accessed from the
-Plugin Pack Manager.
+Les Plugin Packs de votre plateforme Centreon sont gérés à travers l’IHM Plugin
+Pack Manager. Les Plugin Packs sont susceptibles d’être mis à jour, ou de
+nouveaux Plugin Packs sont susceptibles d’être ajouté à la bibliothèque en
+ligne Centreon chaque semaine. Ils sont tous accessibles depuis l’IHM Plugin
+Pack Manager.
 
-To learn more about how to use Plugin Packs, refer to the Monitoring/Plugin
-Packs chapter of the documentation.
+Pour en savoir plus sur le téléchargement et la mise en oeuvre des Plugin
+Packs, référez-vous au chapitre Monitoring/Plugin Packs de cette documentation.
 
-This chapter contains an up-to-date list of all Plugin Packs with their
-respective monitoring procedure. They are organized in 14 categories
-(Applications, Centreon, Cloud, Database, Hardware, Network, Operating System,
-Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU, Virtualization) and then listed
-alphabetically. The search function of your browser is your friend\!
+Le chapitre ci-dessous est la liste à jour de tous les Plugin Packs disponibles
+avec leur procédure de mise en supervision associée. Ils sont répartis en 14
+catégories (Applications, Centreon, Cloud, Database, Hardware, Network,
+Operating System, Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU,
+Virtualization) puis listés par ordre alphabétique : mais la fonction de
+recherche de votre navigateur est là pour vous aider !
 
-Here is a list of commonly used Plugin Packs:
+Vous trouverez ici une liste des Plugin Packs fréquemment utilisés :
 
   - [Linux SNMP](procedures/operatingsystems-linux-snmp.html)
   - [Windows SNMP](procedures/operatingsystems-windows-snmp.html)
@@ -51,7 +56,7 @@ Here is a list of commonly used Plugin Packs:
   - [Fortinet Fortigate](procedures/network-firewalls-fortinet-fortigate-snmp.html)
   - [Dell iDRAC](procedures/hardware-servers-dell-idrac-snmp.html)
 
-And a list of Plugin Packs with embedded Host Discovery providers:
+And a list of Plugin Packs avec des fournisseurs de découverte d'hôte intégrés :
 
   - [Generic SNMP](procedures/applications-protocol-snmp.html)
   - [VMware virtual machines](procedures/virtualization-vmware2-vm.html)
