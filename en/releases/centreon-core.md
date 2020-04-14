@@ -39,7 +39,7 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
 * ... *And more to come in the next weeks/months*
 
 <figure class="video_container">
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/alerts/events-view/listing.png">
+  <video controls="true" allowfullscreen="true" poster="../assets/alerts/events-view/listing.png">
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
   </video>
 </figure>

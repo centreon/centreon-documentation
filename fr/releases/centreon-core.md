@@ -43,7 +43,7 @@ et d'accéder facilement à d'autres ressources
 * *... et bien plus à venir dans les semaines & mois qui viennent*
 
 <figure class="video_container">
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/alerts/events-view/listing.png">
+  <video controls="true" allowfullscreen="true" poster="../assets/alerts/events-view/listing.png">
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
   </video>
 </figure>
