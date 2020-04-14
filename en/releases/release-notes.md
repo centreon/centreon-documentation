@@ -15,7 +15,7 @@ changes integrated into each releases of Centreon components and extensions.
 > built on your platform (modules, widgets, plugins).
 
 If you have any questions relating to the content of the notes, you can ask your
-questions on our [github](https://github.com/centreon/centreon).
+questions on our [github](https://github.com/centreon/centreon/issues/new/choose).
 
 #TODO
 
