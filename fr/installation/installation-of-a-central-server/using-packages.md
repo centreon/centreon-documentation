@@ -25,6 +25,10 @@ yum update
 
 SELinux doit être désactivé en exécutant la commande suivante :
 
+SELinux doit être désactivé. Pour se faire, vous devez éditer le fichier
+**/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou en
+exécutant la commande suivante :
+
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
