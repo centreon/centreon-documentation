@@ -16,18 +16,17 @@ You can find in this chapter all changelogs concerning Centreon Open Source exte
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
-<!--DOCUSAURUS_CODE_TABS-->
 
-<!--Centreon DSM -->
+## Centreon Open source extensions 
 
-## Centreon DSM 20.04.0
+## Centreon DSM 
 
-Manage compatibility with Centreon 20.04
-
-<!--Centreon Open ticket -->
-
-## Centreon Open ticket 20.04.0
+### 20.04.0
 
 Manage compatibility with Centreon 20.04
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+## Centreon Open Ticket
+
+### 20.04.0
+
+Manage compatibility with Centreon 20.04

@@ -16,13 +16,11 @@ You can find in this chapter all changelogs concerning Centreon Core.
 If you have any questions relating to the content of the notes, you can ask your
 questions on our [github](https://github.com/centreon/centreon).
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centreon Web -->
-
-### Centreon Web 20.04
+## Centreon Web
 
 *22 Avril 2020*
+
+### 20.04
 
 #### Vue d'évènements (beta)
 
@@ -70,12 +68,11 @@ Plus d'information sur l'installation et l'utilisation de l'application mobile s
 
 ### Bug fixes
 
-<!--Centreon Engine -->
 
-### Centreon Engine 20.04.0
+## Centreon Engine
 
-<!--Centreon Broker -->
+### 20.04.0
 
-### Centreon Broker 20.04.0
+## Centreon Broker
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+### 20.04.0

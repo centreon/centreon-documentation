@@ -13,9 +13,8 @@ You can find in this chapter all changelogs concerning **Centreon Commercial Ext
 > versions on the features you use or the specific developments that you have
 > built on your platform (modules, widgets, plugins).
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Centreon MAP -->
+If you have any questions relating to the content of the notes, you can ask your
+questions on our [github](https://github.com/centreon/centreon).
 
 ## Centreon MAP
 
@@ -36,18 +35,17 @@ team to generate a new Centreon Map license for your Central server and upload :
 
   - Administration > Extensions > Manager
 
-<!--Centreon BAM -->
 
-### Centreon BAM 20.04.0
+## Centreon BAM
+
+### 20.04.0
 
 #TODO 
 
 Manage compatibility with Centreon 20.04
 
-<!--Centreon MBI -->
+## Centreon MBI
 
 ### Centreon MBI 20.04.0
 
 Manage compatibility with Centreon 20.04
-
-<!--END_DOCUSAURUS_CODE_TABS-->
