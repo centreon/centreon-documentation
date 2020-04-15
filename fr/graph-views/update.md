@@ -1,44 +1,35 @@
 ---
-id: upgrade
+id: update
 title: Update the extension
 ---
 
-This chapter describes how to upgrade your Centreon MAP extension. This is done
-by upgrading the three main components:
+This chapter describes how to update your Centreon MAP extension. This is done
+by updating the three main components:
 
   - Centreon MAP server
   - Centreon MAP web interface & its widget
   - Desktop client (automatically updated).
 
-Before upgrading Centreon MAP server, we highly recommand performing a MariaDB
+Before updating Centreon MAP server, we highly recommand performing a MariaDB
 dump (backup) of your `centreon_studio` database. This will allow you easily to
 roll back to the previous state if necessary.
 
 Be sure to read the release notes for an explanation of features, fixes & custom
 procedures.
 
-**If you're updating to a new major or minor version (i.e:A.B.x with A or B that
-changes) you need to contact our Support service to retrieve the new
-repository**
-
 ## Centreon MAP Server
-
-> If you are still running version **4.0.X**, you **must first install and run
-> the server in version 4.1.X before upgrading to the latest version**.
 
 Run the following commands to upgrade your Centreon MAP server:
 
-``` shell
-# systemctl stop centreon-map
-# yum update centreon-map-server
-# systemctl start centreon-map
-```
+  systemctl stop centreon-map
+  yum update centreon-map-server
+  systemctl start centreon-map
+
 
 ## Centreon MAP Web interface
 
-``` shell
-yum update centreon-map-web-client
-```
+  yum update centreon-map-web-client
+
 
 Complete the upgrade by going to *Administration \> Extensions \> Manager*
 (module & widget parts):
