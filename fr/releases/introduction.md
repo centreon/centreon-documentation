@@ -11,7 +11,7 @@ Pour accéder aux notes de version détaillées par composants, rendez vous dans
 - [Extensions commerciales](centreon-commercial-extensions)
 - [Extensions Open Source](centreon-os-extensions)
 
-#### Vue d'évènements (beta)
+#### Nouvelle vue d'évènements (beta)
 
 L'interface de Centreon se voit ajouter une nouvelle expérience de consultation et gestion des évènements. Cela
 est mis en place grâce à une nouvelle vue "unifiée", mélangeant hôtes et services et permettant de filtrer et 
@@ -39,7 +39,7 @@ et d'accéder facilement à d'autres ressources
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette page](../alerts-notifications/events-view)
 
-#### Mobilité
+#### Centreon en Mobilité
 
 Une version mobile de Centreon est disponible ! Il est possible de l'installer sur votre téléphone afin 
 d'être en mesure d'effectuer les actions suivantes, sur votre mobile:
@@ -57,13 +57,13 @@ d'être en mesure d'effectuer les actions suivantes, sur votre mobile:
 
 Plus d'information sur l'installation et l'utilisation de l'application mobile sur [cette page](../mobile/introduction)
 
-## Auto-discovery
+## Auto-discovery plus flexible
 
 ##TODO
 
 ## Service mapping: nouvelles possibilités
 
-### New calculation methods
+#### New calculation methods
 
 La manière de modéliser les activités métier a été améliorer afin de proposer de nouvelles méthodes de calcul.
 
@@ -81,7 +81,7 @@ désormais le faire comme ci-dessous:
 
 ![image](../assets/releases/service-mapping-ratio.png)
 
-### New planned downtime inheritance management
+#### New planned downtime inheritance management
 
 Business activity (<=> App. & Services) appears “Down” even when a maintenance (<=> planned downtime) 
 was anticipated by the IT teams. That’s not convenient because it may be visible by external stakeholders 
@@ -94,15 +94,15 @@ is not impacted during this planned downtime.
 
 It's configurable at business’ activity level & globally (default behavior)
 
-## Graphical View 
+## Administration des vues graphiques simplifiée 
 
-### Système de license unifié
+#### Système de license unifié
 
 La license de l'extension est désormais gérée en local. Pas d'inquiétude si vous veniez d'une version < 20.04, 
 votre license est toujours valide, vous pourrez néanmoins en demander une nouvelle afin d'enlever le message d'erreur 
 apparaîssant dans le gestionnaire d'extension & license.
 
-### Packaging simplifié
+#### Packaging simplifié
 
 Le paquet du serveur Centreon Map ne dépend plus de tomcat mais uniquement de Java.
 
@@ -119,6 +119,6 @@ déjà présent.
 
 #TODO
 
-## High availability
+## Haute disponibilité pour tous 
 
 #TODO

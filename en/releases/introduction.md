@@ -11,7 +11,7 @@ To access detailed release note by component, use the following sections:
 - [Commercial extensions](centreon-commercial-extensions)
 - [Open Source extensions](centreon-os-extensions)
 
-## Events view (beta)
+## New Events view (beta)
 
 Centreon Web comes with a brand new events view management experience. This new view is released 
 as a beta feature becauwe we want to make this new view the most efficient monitoring view dedicated to operators
@@ -34,7 +34,7 @@ This new view is accessible directly from `Home > Events view (beta)"` and bring
 
 To know more about this feature, have a look to [the documentation](../alerts-notifications/events-view)
 
-## Mobility
+## Centreon on Mobility
 
 Centreon comes now with a Mobile App. that you can install on your phone to be able to perform the 
 most common actions on resources:
@@ -50,14 +50,14 @@ most common actions on resources:
 
 Find more about this mobile application in the [dedicated section](../mobile/introduction)
 
-## Auto-discovery
+## More flexible Auto-discovery
 
 ##TODO
 
 ## A better service mapping 
 *Easier to configure and more relevant complex IT workflow monitoring*
 
-### New calculation methods
+#### New calculation methods
 
 We've improve our service mapping capability (Centreon BAM extension) by adding new status calculation methods.
 
@@ -73,7 +73,7 @@ Ex: I want 50% of my indicators to be OK > in that case you use the "Ratio" meth
 
 ![image](../assets/releases/service-mapping-ratio.png)
 
-### New planned downtime inheritance management
+#### New planned downtime inheritance management
 
 Business activity (<=> App. & Services) appears “Down” even when a maintenance (<=> planned downtime) 
 was anticipated by the IT teams. That’s not convenient because it may be visible by external stakeholders 
@@ -86,16 +86,16 @@ is not impacted during this planned downtime.
 
 It's configurable at business’ activity level & globally (default behavior)
 
-## Graphical View 
+## Graphical View administration simplified
 
-### License management simplified
+#### License management simplified
 
 The license is now managed using the same mechanism than the other extensions: upload & activate it on the Centreon central server.
 
 Don't worry if you come from a < 20.04 version, your license is still valid. You'll only have a warning message 
 in the license manager telling you that the license is not up to date. You can ask a new one to our support.
 
-### Packaging simplified
+#### Packaging simplified
 
 Centreon Map server package doesn't require tomcat anymore, it only relies on Java.
 
