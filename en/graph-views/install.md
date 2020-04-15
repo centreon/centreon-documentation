@@ -233,7 +233,7 @@ Execute the Centreon MAP server configuration script. Two modes are available: i
 
 If it's your first installation, we advice you to use the standard mode (interactive) and choose "No" when asked for advanced installation mode:
 
-    /etc/centreon-studio/configure.sh 
+    /etc/centreon-studio/configure.sh
 
 ### Central server
 
@@ -254,11 +254,15 @@ Check your configuration:
 
     /etc/centreon-studio/diagnostic.sh
 
-If the configuration is correct, then start centreon-map from the Centreon MAP server:
+If configuration is correct, the centreon-map service can be started from the Centreon Map server:
 
     systemctl restart centreon-map
 
-Now the the server has started, let's install the interface part of the extension.
+Enable the service to start up automatically on server boot:
+
+    systemctl enable centreon-map
+
+Centreon Map server is now started and enabled, let's install the interface part of the extension.
 
 ## Web Interface installation
 
