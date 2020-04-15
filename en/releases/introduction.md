@@ -52,6 +52,8 @@ Find more about this mobile application in the [dedicated section](../mobile/int
 
 ## Auto-discovery
 
+##TODO
+
 ## A better service mapping 
 *Easier to configure and more relevant complex IT workflow monitoring*
 
@@ -88,7 +90,23 @@ It's configurable at business’ activity level & globally (default behavior)
 
 ### License management simplified
 
+The license is now managed using the same mechanism than the other extensions: upload & activate it on the Centreon central server.
+
+Don't worry if you come from a < 20.04 version, your license is still valid. You'll only have a warning message 
+in the license manager telling you that the license is not up to date. You can ask a new one to our support.
+
 ### Packaging simplified
+
+Centreon Map server package doesn't require tomcat anymore, it only relies on Java and come in one single package.
+
+When you manipulate the corresponding service, you have to use now 
+
+  systemctl restart centreon-map 
+
+And logs are now in `/var/log/centreon-map/`
+
+Finally, it's now possible to install Centreon Map using an "automatic" (silent) mode instead of the only interactive mode.
+
 
 ## Architecture & Performance 
 
