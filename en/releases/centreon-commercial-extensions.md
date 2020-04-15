@@ -50,9 +50,34 @@ and upload at `Administration > Extensions > Manager`
 
 ### 20.04.0
 
-#TODO 
+### New calculation methods
 
-Manage compatibility with Centreon 20.04
+We've improve our service mapping capability (Centreon BAM extension) by adding new status calculation methods.
+
+IT Service or App. modeling was hard to understand mainly because the only mechanism the user had to determine 
+an App./IT service status was a method based on an “Impact” mode.
+
+Now you're able to:
+
+- Model simple use cases using **Best** or **Worst** status calculation methods 
+- Model **cluster** concepts using a new **Ratio** calculation method 
+
+Ex: I want 50% of my indicators to be OK > in that case you use the "Ratio" method and configure it like that
+
+![image](../assets/releases/service-mapping-ratio.png)
+
+### New planned downtime inheritance management
+
+Business activity (<=> App. & Services) appears “Down” even when a maintenance (<=> planned downtime) 
+was anticipated by the IT teams. That’s not convenient because it may be visible by external stakeholders 
+& understandable in the reporting
+
+We add the possibility to exclude the indicator when it’s in planned downtime so the Business Activity 
+is not impacted during this planned downtime.
+
+![image](../assets/releases/service-mapping-inheritance.png)
+
+It's configurable at business’ activity level & globally (default behavior)
 
 ## Centreon MBI
 
