@@ -1,15 +1,15 @@
 ---
 id: introduction
-title: 20.04.0
+title: Centreon Platform 20.04.0
 ---
 
-You'll find in this chapter the global **Centreon 20.04.0** release note.
+You'll find in this chapter the global **Centreon Plateform 20.04.0**  release note.
 
-In case you want to understand changelogs by component, refer to the following sections
-
-- [Core](centreon-core)
-- [Commercial extensions](centreon-commercial-extensions)
-- [Open Source extensions](centreon-os-extensions)
+> To access detailed release note (bugfixes) by component, use the following sections:
+> 
+> - [Core](centreon-core)
+> - [Commercial extensions](centreon-commercial-extensions)
+> - [Open Source extensions](centreon-os-extensions)
 
 ## Events view (beta)
 
