@@ -5,11 +5,11 @@ title: Centreon Platform 20.04.0
 
 You'll find in this chapter the global **Centreon Plateform 20.04.0**  release note.
 
-> To access detailed release note (bugfixes) by component, use the following sections:
-> 
-> - [Core](centreon-core)
-> - [Commercial extensions](centreon-commercial-extensions)
-> - [Open Source extensions](centreon-os-extensions)
+To access detailed release note by component, use the following sections:
+
+- [Core](centreon-core)
+- [Commercial extensions](centreon-commercial-extensions)
+- [Open Source extensions](centreon-os-extensions)
 
 ## Events view (beta)
 
@@ -69,7 +69,7 @@ Now you're able to:
 
 Ex: I want 50% of my indicators to be OK > in that case you use the "Ratio" method and configure it like that
 
-![image](../assets/release/service-mapping-ratio.png)
+![image](../assets/releases/service-mapping-ratio.png)
 
 ### New planned downtime inheritance management
 
@@ -80,17 +80,20 @@ was anticipated by the IT teams. That’s not convenient because it may be visib
 We add the possibility to exclude the indicator when it’s in planned downtime so the Business Activity 
 is not impacted during this planned downtime.
 
-![image](../assets/release/service-mapping-inheritance.png)
-
+![image](../assets/releases/service-mapping-inheritance.png)
 
 It's configurable at business’ activity level & globally (default behavior)
-
-## Architecture & Performance 
-
-#TODO
 
 ## Graphical View 
 
 ### License management simplified
 
 ### Packaging simplified
+
+## Architecture & Performance 
+
+#TODO
+
+## High availability
+
+#TODO
