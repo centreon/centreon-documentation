@@ -182,7 +182,7 @@ Provide this user with access to the Centreon Web real-time API:
 
 ### Centreon Central server
 
-Create a user in the mysql instance hosting 'centreon' and 'centreon\_storage'
+Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
 databases:
 
     mysql
