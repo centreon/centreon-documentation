@@ -105,6 +105,12 @@ monitored.
 
 ![image](assets/graph-views/map4-services.png)
 
+
+> You may also just check the access to the following URL that tells that the server is Up or not 
+> 
+> - If your server is running in http mode: http://<IP_SERVER\_MAP>:8080/centreon-studio/api/beta/actuator/health.
+> - If your server is running in HTTPS mode: https://<IP_SERVER_MAP>:8443/centreon-studio/api/beta/actuator/health.
+
 ## Migrating your Centreon MAP server
 
 This section explains how to move Centreon MAP server over to another server.
