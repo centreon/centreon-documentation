@@ -802,6 +802,7 @@
             "developer/init-developer"
         ],
         "Releases": [
+            "releases/introduction",
             "releases/lifecycle",
             {
                 "ids": [

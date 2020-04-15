@@ -97,11 +97,11 @@ in the license manager telling you that the license is not up to date. You can a
 
 ### Packaging simplified
 
-Centreon Map server package doesn't require tomcat anymore, it only relies on Java and come in one single package.
+Centreon Map server package doesn't require tomcat anymore, it only relies on Java.
 
 When you manipulate the corresponding service, you have to use now 
 
-  systemctl restart centreon-map 
+    systemctl restart centreon-map 
 
 And logs are now in `/var/log/centreon-map/`
 
