@@ -18,10 +18,8 @@ to suit your needs.
 
 Centreon MAP consists of three components:
 
-  - Centreon MAP Server, developed in Java, using Hibernate and CXF, and hosted
-    by Tomcat
-  - Centreon MAP Web interface, developed in Javascript, based on
-    [Backbone.js](http://backbonejs.org/)
+  - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
+  - Centreon MAP Web interface, developed in Javascript, based on [Backbone.js](http://backbonejs.org/)
   - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
     4](https://wiki.eclipse.org/Eclipse4/RCP).
 
@@ -73,14 +71,14 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
 To correctly implement the dedicated memory, you have to edit the *JAVA\_OPTS*
-parameter in the Tomcat configurations file `/etc/tomcat/tomcat.conf` and
+parameter in the Centreon Map configurations file `/etc/centreon-studio/centreon-map.conf` and
 restart the service:
 
     JAVA_OPTS="-Xms512m -Xmx4G"
 
 NB: The Xmx value depends on the amount of memory indicated in the above table.
 
-and restart the service: 
+and restart the service:
 
   systemctl restart centreon-map
 
@@ -129,13 +127,13 @@ Resolution must be at least 1280 x 768.
   - **Java 64 bits version 8**
   - Resolution must be at least 1280 x 768.
 
-> Desktop Client is not compatible with Microsoft Windows Server. \* If a
+> Desktop Client is not compatible with Microsoft Windows Server. * If a
 > version of Java other than 8 is installed, consider installing Java 8 and
 > modifying Centreon-Map4.ini to add the following line `-vm
-> \$path\_to\_java8\$` BEFORE `-vmwargs`.
+> $path_to_java8$` BEFORE `-vmwargs`.
 
 To optimize the desktop client, you have to "give" it more memory than the
-default value. To do so, modify the Centreon-Map4.ini\* file and add the
+default value. To do so, modify the Centreon-Map4.ini* file and add the
 following parameters:
 
     -Xms512m
@@ -184,22 +182,23 @@ Provide this user with access to the Centreon Web real-time API:
 
 ### Centreon Central server
 
-Create a user in the mysql instance hosting 'centreon' and 'centreon\_storage'
+Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
 databases:
 
-    # mysql
+    mysql
 
-    > CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
-    > GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
-    > GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+
+    CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+    GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+    GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 
 The INSERT privilege will only be used during the installation process in order
 to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP server
 
-Install Centreon MAP from the Centreon MAP yum repository. It will automatically
-install java (OpenJDK 11) and Tomcat if needed. You need to have a MySQL/MariaDB database to
+Install Centreon MAP from the Centreon MAP yum repository. It will automatically install java (OpenJDK 11) if needed.
+You need to have a MySQL/MariaDB database to
 store Centreon Map data, wether it's on localhost or somewhere else.
 
 If you installed your Centreon Map server from a "fresh CentOS installation" you
@@ -225,9 +224,14 @@ Then, restart MariaDB:
 
     systemctl restart mysql
 
-Execute the Centreon MAP server configuration script:
+Execute the Centreon MAP server configuration script. Two modes are available: interactive or automatic.
 
-    /etc/centreon-studio/configure.sh
+- interactive *(no option/default mode)*: Several questions will be asked to interactively fill in the installation variables.
+- automatic *(--automatic or -a)*: The installation will be done automatically from the values set in `/etc/centreon-studio/vars.sh` file
+
+If it's your first installation, we advice you to use the standard mode (interactive) and choose "No" when asked for advanced installation mode:
+
+    /etc/centreon-studio/configure.sh 
 
 ### Central server
 
@@ -238,7 +242,7 @@ Restart Centreon Broker on the Central server:
 
     systemctl restart cbd
 
-Remove the INSERT privilege from user centreon\_map:
+Remove the INSERT privilege from user centreon_map:
 
     REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 
@@ -248,24 +252,11 @@ Check your configuration:
 
     /etc/centreon-studio/diagnostic.sh
 
-If the configuration is correct, then start Tomcat from the Centreon MAP server:
+If the configuration is correct, then start centreon-map from the Centreon MAP server:
 
-    # systemctl restart centreon-map
+    systemctl restart centreon-map
 
-### Verifying your installation
-
-Once your server is started, you can check if all its APIs are up and running by
-entering the following URL in your favorite web browser:
-
-If your server is running in http mode:
-http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health.
-
-If your server is running in HTTPS mode:
-https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health.
-
-Installation of the Centreon MAP server is complete. If you want to configure
-the SSL, go to this page: `Advanced Centreon MAP Configuration
-<advanced_configuration>`{.interpreted-text role="ref"}.
+Now the the server has started, let's install the interface part of the extension.
 
 ## Web Interface installation
 
@@ -275,8 +266,7 @@ the SSL, go to this page: `Advanced Centreon MAP Configuration
 
 ### Web
 
-Go to *Centreon \> Administration \> Extensions* and click on the install
-button:
+Go to `Centreon > Administration > Extensions` and click on the install button:
 
   - License Manager (*if not yet installed*)
   - Map Web Client
@@ -285,7 +275,7 @@ button:
 
 You can see a red stripe asking for a license.
 
-Upload the license *map.license* given by the support team. Refresh the page and
+Upload the license **map.license** given by the support team. Refresh the page and
 the banner must be green with the valid license date.
 
 ![image](assets/graph-views/install-web-step-2.png)
@@ -295,7 +285,7 @@ installed, we will configure it.
 
 ### Configuration
 
-Go to *Administration \> Extensions \> Options*, and in the Centreon MAP menu
+Go to `Administration > Extensions > Options`, and in the Centreon MAP menu
 update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
@@ -304,17 +294,15 @@ update the Centreon MAP server address field:
 
 ### Using the client
 
-The Centreon MAP Web interface is now available in Centreon -\> Monitoring -\>
-MAP.
+The Centreon MAP Web interface is now available in `Monitoring > MAP`.
 
 ![image](assets/graph-views/install-web-step-4.png)
 
 ### Centreon MAP Widget
 
 By installing the Web interface, you automatically add the Centreon MAP Widget,
-but you need to perform one last task. Go to *Centreon \> Administration \>
-Extensions* and click on the "Install" button on the widget. The result after
-installed:
+but you need to perform one last task. Go to `Administration > Extensions`
+and click on the "Install" button on the widget. The result after installed:
 
 ![image](assets/graph-views/install-web-step-widget.png)
 
@@ -352,12 +340,12 @@ To check the Java version run the command:
 
 **For Windows:**
 
-Execute centreon-map4-desktop-client\*.exe:
+Execute centreon-map4-desktop-client-xxxx.exe:
 
 > You do not need to be the administrator of your computer to perform the
 > installation. All the files are will be installed in your personnal folders.
 
-The default installation folder is C:UsersuserAppDataLocalCentreon-Map4.
+The default installation folder is `C:\Users\$user$\AppData\LocalCentreon-Map4`.
 
 You can install the software at this location without administrator rights but
 can change the destination to Program files if you have the sufficient rights.
@@ -369,6 +357,8 @@ Windows dedicated configuration page.
 ![image](assets/graph-views/windows_start_menu.png)
 
 **For Debian**
+
+> Debian 7 or 8 only
 
 Download the provided DEB file and run the command from the root directory:
 
