@@ -3,8 +3,12 @@ id: introduction
 title: Introduction
 ---
 
+## Reporting complet: Centreon MBI
+
 La fonctionnalité de "Reporting" de Centreon se base sur l'extension appellée 
 "Centreon Monitoring Business Intelligence" (Centreon MBI)
+
+Une fonctionnalité de reporting est également disponible dans la version open source de Centreon. Plus d'information ci-dessous
 
 > Centreon MBI est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
 > [contactez nous](sales@centreon.com).
@@ -47,3 +51,40 @@ Principales fonctionnalités:
 -   Interface d'administration et d'exploitation intégrée dans
     Centreon
 -   Bibliothèques de développement de rapports
+
+## Reporting simple
+
+Les rapports de disponibilités des objets accessibles via l'interface web Centreon 
+permettent de visualiser de manière intuitive le taux de disponibilité d'un hôte, 
+d'un groupe d'hôtes ou d'un groupe de services sur une période de temps donnée.
+
+Pour visualiser le rapport de disponibilité d'un 'hôte :
+
+- Rendez-vous dans le menu **Rapports > Tableau de bord**
+- Dans le menu de gauche, sélectionnez **Hôte**
+- Sélectionnez l'hôte désiré dans la liste déroulante **Hôte**
+
+![image](../assets/reporting/os-host-reporting.png)
+
+* La liste **Période de génération** permet de choisir la période de temps sur laquelle on souhaite visualiser le taux de disponibilité. Il est possible de sélectionner une période prédéfinie via la liste déroulante ou de sélectionner manuellement sa période en définissant les champs **Du** et **Au**
+* Le tableau **Etat de l'hôte** permet de visualiser le taux et la durée de disponibilité associé par état de l'objet
+* Le tableau **Statuts des éléments du rapport** permettent de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts  
+* La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au court du temps
+
+![image](../assets/reporting/os-host-timeline.png)
+
+De plus, en cliquant sur une journée de la frise chronologique, vous obtenez le rapport de la journée :
+
+![image](../assets/reporting/os-host-tooltip.png)
+
+Il est également possible de visualiser des rapports web pour :
+
+- Les groupes d'hôtes : Cliquez sur **Groupes d'hôtes** dans le menu de gauche
+- Les groupes de services : Cliquez sur **Groupes de services** dans le menu de gauche
+
+
+L'icône CSV permet d'exporter les données du rapport au format CSV.
+
+![image](../assets/reporting/os-csv.png)
+
+> Cliquez sur le service d'un hôte dans le rapport de disponibilité de l'hôte pour obtenir un rapport détaillé du service.
