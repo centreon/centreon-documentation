@@ -238,8 +238,8 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-**Pour forcer le Gorgone du Central à se connecter au Remote Server**, redémarrez le avec
-la commande suivante depuis le **serveur Central** :
+**Pour forcer le Gorgone du Central à se connecter au Remote Server**,
+redémarrez le avec la commande suivante depuis le **serveur Central** :
 
 ```shell
 systemctl restart gorgoned
@@ -247,13 +247,19 @@ systemctl restart gorgoned
 
 ## Exporter la configuration
 
-Depuis la liste des Pollers, sélectionner le Remote Server et cliquer sur
+Depuis la liste des Pollers, sélectionnez le Remote Server et cliquer sur
 **Exporter la configuration**.
 
-Cocher ensuite les quatre premières cases, sélectionner la méthode **Redémarrer**
-et cliquer sur  **Exporter** :
+Cochez ensuite les trois premières cases et cliquer sur  **Exporter** :
 
 ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
+
+Pour finir, depuis le Remote Server, démarrez/redémarrez les services de
+collecte :
+
+```shell
+systemctl restart cbd centengine
+```
 
 Le moteur de supervision du Remote Server va alors démarrer et se connecter au
 Broker Central.
@@ -262,5 +268,5 @@ Broker Central.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../../tutorials/first-steps.html)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
 pour mettre en place votre première supervision.

@@ -245,15 +245,22 @@ systemctl restart gorgoned
 From the Pollers listing, select the Remote Server and click on **Export
 configuration**.
 
-Then check the four first boxes, select the **Restart** method and click on
-**Export**:
+Then check the three first boxes and click on **Export**:
 
 ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
 
-The Poller's engine will then start and connect to the Central Broker.
+Finally, from the Remote Server, start/restart the collect processes:
+
+```shell
+systemctl restart cbd centengine
+```
+
+The Remote Server's Broker and Engine will then start and connect to the
+Central Broker.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 ## Getting started
 
-Go to the *[Getting Started](../../tutorials/first-steps.html)* chapter to configure your first monitoring.
+Go to the [Getting Started](../../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
+chapter to configure your first monitoring.

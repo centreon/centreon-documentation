@@ -208,5 +208,5 @@ Central.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../../tutorials/first-steps.html)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
 pour mettre en place votre première supervision.
