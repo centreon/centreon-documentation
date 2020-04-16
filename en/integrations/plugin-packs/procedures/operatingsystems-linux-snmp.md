@@ -1,101 +1,234 @@
 ---
-id: operatingsystems-linux-snmp
-title: Linux SNMP
+id: os-linux-snmp
+title: Linux Snmp
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.3 | `STABLE` | Nov 21 2019 |
+## Overview
+
+Linux is a family of open source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds. Linux is typically packaged in a Linux distribution. 
+
+## Plugin-pack assets
+
+### Monitored objects
+
+This Plugin-Pack provides assets to monitor all types of Linux based systems with a SNMP server enabled:
+
+    * Centos 
+    * Redhat
+    * Debian
+    * Ubuntu
+    * ...
+
+### Discovery rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Host-->
+
+| Rule name                                  | Description                                                                 |
+| :----------------------------------------- | :-------------------------------------------------------------------------- |
+| App-Protocol-SNMP-HostDiscovery            | Discover Linux box based upon Sysdesc value by scanning a subnet            |
+
+<!--Services-->
+
+| Rule name                                  | Description                                                                 |
+| :----------------------------------------- | :-------------------------------------------------------------------------- |
+| OS-Linux-SNMP-Disk-Name                    | Discover the disk partitions and monitor space occupation                   |
+| OS-Linux-SNMP-Inodes-Name                  | Discover the disk partitions and monitor inodes usage                       |
+| OS-Linux-SNMP-Packet-Errors-Name           | Discover network interfaces and monitor errored and discarded packets       |
+| OS-Linux-SNMP-Traffic-Name                 | Discover network interfaces and monitor bandwidth utilization               |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Collected Metrics
+
+In addition to modes and metrics described here, it is also possible to monitor the following indicators: 
+
+    *  CPU detailed: Advanced monitoring of the CPU (User, Nice, Idle, ...)
+    *  Process state: State of one or several processes running on the server. It's also possible to check CPU and Memory utilization of a specific process. 
+    *  TCP connection: Check number of TCP connections. [State:listen, closeWait, ...] [type: ipv4, dns, ...] [service]
+    *  Uptime: Elapsed time since the last reboot
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--cpu-->
+
+| Metric name                        | Description                                   |
+| :--------------------------------- | :-------------------------------------------- |
+| cpu.utilization.percentage         | CPU utilization. Unit : %                     |
+| core.cpu.utilization.percentage    | Per Core CPU utilization. Unit : %            |
+
+<!--Memory-->
+
+| Metric name             | Description                                              |
+| :---------------------  | :------------------------------------------------------- |
+| memory.usage.bytes      | Memory usage on the device. Unit : Bytes                 |
+| memory.free.bytes       | Free memory on the device. Unit : Bytes                  |
+| memory.usage.percentage | Percentage of Memory usage on the device. Unit : %       |
+| memory.buffer.bytes     | Buffered Memory allocation. Unit : Bytes                 |
+| memory.cached.bytes     | Cached Memory allocation. Unit : Bytes                   |
+| memory.shared.bytes     | Shared Memory allocation. Unit : Bytes                   |
+
+<!--Traffic-->
+
+| Metric name                         | Description                                                      |
+| :---------------------------------- | :--------------------------------------------------------------- |
+| status                              | Status of the interface                                          |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
+
+A regexp filter is available to target a specific interface identifier - ifName [```--interface='^ens160$' --name```]
+
+<!--Swap-->
+
+| Metric name                 | Description                                       |
+| :-------------------------- | :------------------------------------------------ |
+| swap.usage.bytes            | Used swap. Unit: Bytes                            |
+| swap.free.bytes             | Free swap. Unit: Bytes                            |
+| swap.usage.percentage       | Percentage of used swap. Unit: %                  |
+
+<!--Load-->
+
+| Metric name                 | Description                                        |
+| :-------------------------- | :------------------------------------------------- |
+| load1                       | System load 1 minute-sample                        |
+| load5                       | System load 5 minutes-sample                       |
+| load15                      | System load 15 minutes-sample                      |
+
+<!--Disk-IO-->
+
+| Metric name                 | Description                                           |
+| :-------------------------- | :---------------------------------------------------- |
+| disk#sum_read_write         | I/O READ volume on all devices. Unit: B/s             |
+| disk#sum_read_write_iops    | I/O WRITE volume on all devices. Unit: B/s            |
+| disk#read                   | I/O READ volume on a specific device. Unit: B/s       |
+| disk#write                  | I/O WRITE volume on a specific device. Unit: B/s      |
+| disk#read_iops              | Number of read operations on a device. Unit: iops     | 
+| disk#write_iops             | Number of read operations on a device. Unit: iops     | 
+
+<!--Storage-->
+
+| Metric name                             | Description                                  |
+| :-------------------------------------- | :------------------------------------------- |
+| partition#storage.space.usage.bytes     | Used space on a disk partition. Unit: Bytes  |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
+To monitor a Linux based device, the SNMP service must be installed and configured. Most of Linux distributions rely on net-snmp. 
 
-### Centreon Plugin
+## net-snmp server configuration
 
-Install this plugin on each needed poller:
+:note: A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
 
-``` shell
+Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the relevant value).
+
+```
+com2sec notConfigUser  default       my-snmp-community
+group   notConfigGroup v1           notConfigUser
+group   notConfigGroup v2c           notConfigUser
+view centreon included .1.3.6.1
+view    systemview    included   .1.3.6.1.2.1.1
+view    systemview    included   .1.3.6.1.2.1.25.1.1
+access notConfigGroup "" any noauth exact centreon none none
+access  notConfigGroup ""      any       noauth    exact  systemview none none
+includeAllDisks 10%
+```
+
+The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot. 
+
+### Network flow
+
+The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
+
+## Installation
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices: 
+
+```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-Prerequistes concerns a RHEL like distribution, you may need to adapt it if you
-run an other Linux distro.
+2. Install the 'OS-Linux-SNMP' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-Be sure to have with you the following information:
+<!--Offline IMP License-->
 
-  - Read-Only SNMP community
-  - IP Address of the monitoring server
+1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices:
 
-### Install the SNMP service
+```bash
+yum install centreon-plugin-Operatingsystems-Linux-Snmp
+```
 
-With the `root` user, install the following package and its dependencies:
+2. Install the Centreon Plugin-Pack RPM: 
 
-    root@yourserver#&gt; yum install net-snmp
+```bash
+yum install centreon-pack-operatingsystems-linux-snmp
+```
 
-### Configure SNMP on your server
+3. Install the 'OS-Linux-SNMP' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-1.  Open the file */etc/snmp/snmpd.conf* with your favorite text editor
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-2.  Modify the following lines (Replace the `<SNMPCOMMUNITY>`):
-    
-    com2sec notConfigUser default <SNMPCOMMUNITY>
+## Host configuration
 
-3.  Comment all the lines which begin by `view`:
-    
-    view systemview included .1.3.6.1.2 view systemview included .1.3.6.1.2.1.25
+When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
-4.  Just after the previous lines, add the following line:
-    
-    view systemview included .1
+  :warning: When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 
-5.  save the file
+| Obligatoire | Nom              | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-6.  start the snmp service:
-    
-    service snmpd start
+## FAQ
 
-7.  Add SNMP to booting services:
-    
-    chkconfig --add snmpd; chkconfig --level 2345 snmpd on
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
-#### Check your SNMP installation
+Once you've installed the plugin, you can test it logging with centreon-engine user:
 
-Try to execute this command:
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl
+    --plugin=os::linux::snmp::plugin
+    --mode=cpu
+    --hostname=10.30.2.114
+    --snmp-version='2c'
+    --snmp-community='linux_ro'
+    --verbose
+```
 
-    $ snmpwalk -v 1 -c <SNMPCOMMUNITY> <IPSERVER> .1.3.6.1.2.1.1.1
+This check monitors CPU utilization (```--mode=cpu```) of a Linux server. The server's IP address is 10.30.2.114 (```--hostname=10.30.2.114```). SNMP version 2 is used and the community is linux_ro (```--snmp-community='linux_ro'```).
 
-You should get a response looking like the following:
+All available modes with the plugin can be displayed with: 
 
-    SNMPv2-MIB::sysDescr.0 = STRING: Linux <SERVER> 2.6.18-128.1.10.el5 #1 SMP Thu May 7 10:39:21 EDT 2009 i686
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+    --plugin=os::linux::snmp::plugin \
+    --list-mode
+```
 
-### SNMP Permissions
+The available options for a mode can be displayed using the ```--help``` parameter: 
 
-You need a SNMP read access on following OIDs:
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+    --plugin=os::linux::snmp::plugin \
+    --mode=cpu \
+    --help
+```
 
-  - HOST-RESOURCES-MIB: .1.3.6.1.2.1.25 (cpu, uptime, storage, process)
-  - UCD-SNMP-MIB: .1.3.6.1.4.1.2021 (swap, memory, inodes, diskio)
-  - IF-MIB: .1.3.6.1.2.1.2 (traffic)
+### UNKNOWN: SNMP GET Request : Timeout
 
-### Troubleshooting
+If you get this message, you're probably facing one of theses issues: 
+* Your SNMP server isn't started or misconfigured 
+* An external device is blocking your request (firewall, ...)
 
-Read [Troubleshooting
-SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp);
+### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-## Centreon Configuration
+This message generally means that SNMP privileges are not wide enough for the mode/plugin to work properly. 
 
-### Create a host using the appropriate template
+If it only happens on the Inodes mode, make sure the following directive is set in the SNMP server configuration file: 
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | OS-Linux-SNMP-custom       |
-
-Click on the *Save* button.
-
+includeAllDisks 10%
