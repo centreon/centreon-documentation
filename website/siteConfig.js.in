@@ -90,7 +90,8 @@ const siteConfig = {
     '/@BASEURL@/js/clipboard.min.js',
     '/@BASEURL@/js/code-block-button.js',
     '/@BASEURL@/js/languages-select.js',
-    '/@BASEURL@/js/versions-select.js'
+    '/@BASEURL@/js/versions-select.js',
+    '/@BASEURL@/js/lightbox-centreon.js',
   ],
 
   // On page navigation for the current documentation page.
