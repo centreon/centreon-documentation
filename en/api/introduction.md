@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: About API
+title: Introduction
 ---
 
 Centreon comes with several APIs to manipulate or retrieve Configuration & Real time data.
