@@ -56,10 +56,16 @@ Run the following commands to upgrade your Centreon MAP server:
 yum update centreon-map-web-client
 ```
 
-Complete the upgrade by going to *Administration \> Extensions \> Manager*
+Complete the upgrade by going to `Administration > Extensions > Manager`
 (module & widget parts):
 
 ![image](assets/graph-views/update-web-client.png)
+
+An error message concerning the license is displayed while you don't have a license on the Central server, don't worry
+Centreon Map still works, you can ask for a new license to the support Team to remove this error message.
+
+![image](assets/graph-views/license-error.png)
+
 
 ## Centreon MAP Desktop client
 

@@ -93,7 +93,7 @@ It's configurable at business’ activity level & globally (default behavior)
 The license is now managed using the same mechanism than the other extensions: upload & activate it on the Centreon central server.
 
 Don't worry if you come from a < 20.04 version, your license is still valid. You'll only have a warning message 
-in the license manager telling you that the license is not up to date. You can ask a new one to our support.
+in the license manager telling you that a license is required but it has no impact on Centreno Map. You can ask a new one to our support.
 
 #### Packaging simplified
 

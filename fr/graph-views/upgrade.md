@@ -61,6 +61,11 @@ Complete the upgrade by going to *Administration \> Extensions \> Manager*
 
 ![image](assets/graph-views/update-web-client.png)
 
+An error message concerning the license is displayed while you don't have a license on the Central server, don't worry
+Centreon Map still works, you can ask for a new license to the support Team to remove this error message.
+
+![image](assets/graph-views/license-error.png)
+
 ## Centreon MAP Desktop client
 
 If the user's computer has an online connection, the desktop client is

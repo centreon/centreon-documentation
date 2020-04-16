@@ -100,7 +100,7 @@ It's configurable at business’ activity level & globally (default behavior)
 
 La license de l'extension est désormais gérée en local. Pas d'inquiétude si vous veniez d'une version < 20.04, 
 votre license est toujours valide, vous pourrez néanmoins en demander une nouvelle afin d'enlever le message d'erreur 
-apparaîssant dans le gestionnaire d'extension & license.
+apparaîssant dans le gestionnaire d'extensions.
 
 #### Packaging simplifié
 
