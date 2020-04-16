@@ -128,8 +128,8 @@ reboot
 Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation.html#installation-web).
 
-> L'étape d'**Initialisation de la supervision** ne doit pas être faite pour le
-> moment.
+> A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
+> doivent être faites.
 
 ## Activer l'option Remote Server
 

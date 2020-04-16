@@ -137,6 +137,12 @@ Le résultat devrait être similaire :
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
+Enfin, activez le démarrage automatique du service avec la commande :
+
+```shell
+systemctl enable gorgoned
+```
+
 <!--Avec SSH-->
 
 #### Sélectionner le type de communication

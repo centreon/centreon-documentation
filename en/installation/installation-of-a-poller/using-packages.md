@@ -46,7 +46,7 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 ## Installation
 
-Run the command:
+To install the monitoring engine, run the command:
 
 ```shell
 yum install -y centreon-poller-centreon-engine
@@ -56,8 +56,17 @@ To make services start automatically during system bootup, run the following
 command:
 
 ``` shell
-systemctl enable centengine centreontrapd
+systemctl enable centengine centreontrapd snmptrapd
 ```
+
+Passive monitoring services can be started:
+
+```shell
+systemctl start centreontrapd snmptrapd
+```
+
+> Active monitoring service will be started following the generation of its
+> configuration.
 
 ## Add the Poller to configuration
 

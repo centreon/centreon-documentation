@@ -137,6 +137,12 @@ It should result as follow:
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
+Finally, enable the automatic startup of the service with the command:
+
+```shell
+systemctl enable gorgoned
+```
+
 <!--Using SSH-->
 
 #### Select communication type

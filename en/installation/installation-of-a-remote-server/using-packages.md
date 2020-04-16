@@ -190,7 +190,8 @@ systemctl start httpd24-httpd
 Conclude installation by performing
 [web intallation steps](../web-and-post-installation.html#web-installation).
 
-> The **Initialization of the monitoring** step must not be done at this point.
+> In the step **Initialization of the monitoring**, only the actions from 6 to 8
+> must be done.
 
 ## Enable the Remote Server option
 

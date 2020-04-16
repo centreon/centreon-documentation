@@ -49,18 +49,27 @@ yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/cen
 
 ## Installation
 
-Exécutez la commande :
+Pour installer le moteur de supervision, exécutez la commande :
 
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
 
-Pour activer le démarrage automatique des services au démarrage du serveur,
-exécuter la commande suivant :
+Pour activer le démarrage automatique des services de supervision au démarrage
+du serveur, exécuter la commande suivant :
 
 ```shell
-systemctl enable centengine centreontrapd
+systemctl enable centengine centreontrapd snmptrapd
 ```
+
+Les services de supervision passive peuvent être démarrés :
+
+```shell
+systemctl start centreontrapd snmptrapd
+```
+
+> Le service de supervision active sera démarré suite à la génération de sa
+> configuration.
 
 ## Ajouter le Poller à la configuration
 
