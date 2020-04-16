@@ -246,7 +246,7 @@ suivante:
 
 ### Montée de version du serveur MariaDB
 
-Les composants MariaDB peuvent maintenan être mis à jour.
+Les composants MariaDB peuvent maintenant être mis à jour.
 
 Sachez que MariaDB recommande vivement de monter en version le serveur en
 passant par chacune des versions majeures.
@@ -257,7 +257,7 @@ Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
 Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
 dépôts stables.
 
-> Reférez vous à la documentation officiel de MariaDB pour en savoir d'avantage
+> Référez vous à la documentation officiel de MariaDB pour en savoir d'avantage
 > sur ce processus :
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
@@ -298,7 +298,7 @@ recommande :
     mysql_upgrade
     ```
 
-> Réferez vous à la [documentation officiel](https://mariadb.com/kb/en/mysql_upgrade/)
+> Référez vous à la [documentation officiel](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.2 à 10.3
@@ -336,7 +336,7 @@ recommande :
     mysql_upgrade
     ```
 
-> Réferez vous à la [documentation officiel](https://mariadb.com/kb/en/mysql_upgrade/)
+> Référez vous à la [documentation officiel](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
 ## Montée de version des Remote Servers
