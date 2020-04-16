@@ -69,7 +69,7 @@ const stringsAndParagraphs = {
  * @returns {string} Url to link in docs or a external page
  */
 function createUrl(uri, lang = 'en') {
-  return `/${lang}/${uri}/`;
+  return `@BASEURL@/${uri}`;
 }
 
 const Button = props => {
