@@ -5,7 +5,7 @@ title: Docker
 
 ## Vue d'ensemble
 
-Docker permet d'embarquer une application dans un ou plusieurs containers logiciels qui pourra s'exécuter sur n'importe quel système d'exploitation hôte. Docker fonctionne sous Linux comme Windows Server. C'est une technologie qui a pour but de faciliter les déploiements d'application, et la gestion du dimensionnement de l'infrastructure sous-jacente.
+Docker permet d'embarquer une application dans un ou plusieurs containers logiciels qui pourront s'exécuter sur n'importe quel système d'exploitation hôte. Docker fonctionne sous Linux comme Windows Server. C'est une technologie qui a pour but de faciliter les déploiements d'application et la gestion du dimensionnement de l'infrastructure sous-jacente.
 
 ## Contenu du pack de supervision
 
@@ -16,7 +16,7 @@ Docker permet d'embarquer une application dans un ou plusieurs containers logici
 
 ## Métriques collectées                                                                                                   
 
-Plus d'informations sur les métriques remontées sont consultables sur la documentation officiel de l'api Rest Docker: https://docs.docker.com/engine/api/v1.30/
+Plus d'informations sur les métriques remontées sont disponibles sur la documentation officielle de l'Api Rest Docker: https://docs.docker.com/engine/api/v1.30/
 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -39,9 +39,9 @@ Plus d'informations sur les métriques remontées sont consultables sur la docum
 | Metric name        | Description                                                                                             |
 | :----------------- | :------------------------------------------------------------------------------------------------------ |
 | Node-status        | The status of node. Units: text                                                                         |
-| Containers-running | The number of Contaniers system running. Units: counter                                                 |
-| Containers-stopped | The number of Contaniers system stopped. Units: counter                                                 |
-| Containers_paused  | The Number of Contaniers system paused. Units: counter                                                  |
+| Containers-running | The number of Containers system running. Units: counter                                                 |
+| Containers-stopped | The number of Containers system stopped. Units: counter                                                 |
+| Containers_paused  | The Number of Containers system paused. Units: counter                                                  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -49,7 +49,7 @@ Plus d'informations sur les métriques remontées sont consultables sur la docum
 
 * Le plugin nécessite une version de l'API Docker >= 1.21 (https://docs.docker.com/engine/api/v1.30/).
 
-### Connection à l'api rest de Docker
+### Connexion à l'Api Rest de Docker
 
 Ouvrez votre terminal ssh préféré : 
 * vi /lib/systemd/system/docker.service
@@ -60,8 +60,8 @@ Execstart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ```
 
 * Enregistrer les modifications
-* Recharger les services du système : systemctl daemon-reload
-* Redémarrer Docker : système Docker restart
+* Recharger les services du système : ```systemctl daemon-reload```
+* Redémarrer Docker : ```system docker restart```
  
 ## Installation
 
@@ -75,7 +75,7 @@ Execstart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
@@ -108,9 +108,9 @@ Choisissez le modèle d'hôte correspondant aux nodes ou containers "App-Docker-
 
 #### Je supervise mes nodes et containers Docker, les temps de contrôle sont anormalement longs, est-ce normal ?
 
-L’api webservice 'container stats' est relativement lente (entre 1s et 2s), les temps de réponse peuvent donc être un peu long.
+L’api webservice 'container stats' est relativement lente (entre 1s et 2s), les temps de réponse peuvent donc être un peu longs.
 
-#### Comment tester en ligne de commande et quelles significations portent les options principales ?
+#### Comment tester en ligne de commande et quelles sont les significations des options principales ?
 
 A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
 
