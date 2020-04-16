@@ -5,7 +5,7 @@ title: Amazon RDS
 
 ## Vue d'ensemble
 
-Amazon Relational Database Service (Amazon RDS) est un service web qui facilite la configuration, l'exploitation et la mise à l'échelle d'une base de données relationnelle dans le Cloud AWS. Il fournit des capacités redimensionnables, à faible coût, pour les bases de données relationnelles classiques, et gère les tâches courantes d'administration de base de données.
+Amazon Relational Database Service (Amazon RDS) est un service web qui facilite la configuration, l'exploitation et la mise à l'échelle d'une base de données relationnelle dans le Cloud AWS. Il fournit des capacités redimensionnables, à faible coût, pour les bases de données relationnelles classiques et gère les tâches courantes d'administration de base de données.
 
 ## Contenu du pack de supervision
 
@@ -25,13 +25,13 @@ Amazon Relational Database Service (Amazon RDS) est un service web qui facilite 
 
 <!--Services-->
 
-No services discovery rule available on this pack
+Pas de règle de découverte de services.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci après sur la documentation officiel du service RDS: https://docs.aws.amazon.com/rds/index.html
+Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle du service RDS: https://docs.aws.amazon.com/rds/index.html
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Connections-->
@@ -99,9 +99,9 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci aprè
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisistes
+## Prérequis
 
-### AWS Configuration
+### Configuration AWS
 
 Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS/RDS: 
 
@@ -111,9 +111,9 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/RDS namespace on Cloudwatch               |
 
 
-### Plugin dependencies
+### Dépendances du plugin
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy !
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -143,7 +143,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
@@ -160,13 +160,13 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 yum install centreon-pack-cloud-aws-rds.noarch
 ```
 
-3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-En fonction du type d'instance et de la base de données supervisée, choisissez le modèle d'hôte correspondant dans ceux commençant par "Cloud-Aws-Rds-". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
+En fonction du type d'instance et de la base de données supervisée, choisissez le modèle d'hôte correspondant parmi ceux commençant par "Cloud-Aws-Rds-". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
 
 | Obligatoire | Nom             | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -183,7 +183,7 @@ En fonction du type d'instance et de la base de données supervisée, choisissez
 
 ## FAQ
 
-### Comment tester en ligne de commande et quelles significations portent les options principales ?
+### Comment tester en ligne de commande et que signifient les options principales ?
 
 A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
 
@@ -211,7 +211,7 @@ Cluster 'dev-cluster' average DatabaseConnections: 3
 
 ```
 
-La commande ci-dessus interroge le nombre de connections (```--mode=connections``` sur un cluster de base de données (```--type='cluster'```) dont le nom est dev-cluster (```--name='dev-cluster'```). Ce cluster est herbergé sur la zone/région eu-west-1 d'AWS (```--region='eu-west-1'```). La valeur de la métrique sera une moyenne (```--statistic='average'```) sur une période de 600 secondes / 10 min (```--timeframe='600'```) et échantilloné à un point par minute (```--period='60'```).
+La commande ci-dessus interroge le nombre de connexions (```--mode=connections``` sur un cluster de base de données (```--type='cluster'```) dont le nom est dev-cluster (```--name='dev-cluster'```). Ce cluster est herbergé sur la zone/région "eu-west-1" d'AWS (```--region='eu-west-1'```). La valeur de la métrique sera une moyenne (```--statistic='average'```) sur une période de 600 secondes / 10 min (```--timeframe='600'```) et échantilloné à un point par minute / 60 secondes (```--period='60'```).
 
 Une alerte WARNING sera déclenchée si la valeur dépasse 25, et CRITICAL si elle dépasse 50 (```--warning-databaseconnections-average='25' --critical-databaseconnections-average='50'```).
 
