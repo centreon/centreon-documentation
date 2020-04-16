@@ -11,7 +11,7 @@ Linux is a family of open source Unix-like operating systems based on the Linux 
 
 ### Monitored objects
 
-This plugin-pack provides monitoring of every Linux based systems with a SNMP server enabled
+This Plugin-Pack provides assets to monitor all types of Linux based systems with a SNMP server enabled:
 
     * Centos 
     * Redhat
@@ -33,19 +33,19 @@ This plugin-pack provides monitoring of every Linux based systems with a SNMP se
 
 | Rule name                                  | Description                                                                 |
 | :----------------------------------------- | :-------------------------------------------------------------------------- |
-| OS-Linux-SNMP-Disk-Name                    | Discover your disk partition and monitor space occupation                   |
-| OS-Linux-SNMP-Inodes-Name                  | Discover your disk partition and Inodes usage                               |
+| OS-Linux-SNMP-Disk-Name                    | Discover the disk partitions and monitor space occupation                   |
+| OS-Linux-SNMP-Inodes-Name                  | Discover the disk partitions and monitor inodes usage                       |
 | OS-Linux-SNMP-Packet-Errors-Name           | Discover network interfaces and monitor errored and discarded packets       |
 | OS-Linux-SNMP-Traffic-Name                 | Discover network interfaces and monitor bandwidth utilization               |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Métriques collectées
+## Collected Metrics
 
-In addition to modes and metrics described here, it is also possible to deploy the followin monitoring on your Linux box: 
+In addition to modes and metrics described here, it is also possible to monitor the following indicators: 
 
     *  CPU detailed: Advanced monitoring of the CPU (User, Nice, Idle, ...)
-    *  Process state: State of one or several processes running on the server. It's possible to check CPU and Memory utilization of a specific process. 
+    *  Process state: State of one or several processes running on the server. It's also possible to check CPU and Memory utilization of a specific process. 
     *  TCP connection: Check number of TCP connections. [State:listen, closeWait, ...] [type: ipv4, dns, ...] [service]
     *  Uptime: Elapsed time since the last reboot
 
@@ -53,21 +53,21 @@ In addition to modes and metrics described here, it is also possible to deploy t
 
 <!--cpu-->
 
-| Metric name                        | Description                                                          |
+| Metric name                        | Description                                   |
 | :--------------------------------- | :-------------------------------------------- |
-| cpu.utilization.percentage         | CPU utilization. Units : %                    |
-| core.cpu.utilization.percentage    | CPU Core utilization. Units : %               |
+| cpu.utilization.percentage         | CPU utilization. Unit : %                     |
+| core.cpu.utilization.percentage    | Per Core CPU utilization. Unit : %            |
 
 <!--Memory-->
 
 | Metric name             | Description                                              |
 | :---------------------  | :------------------------------------------------------- |
-| memory.usage.bytes      | Memory usage on the device. Units : Bytes                |
-| memory.free.bytes       | Memory free on the device. Units : Bytes                 |
-| memory.usage.percentage | Memory usage on the device. Units : %                    |
-| memory.buffer.bytes     | Buffered Memory allocation. Units : Bytes                |
-| memory.cached.bytes     | Cached Memory allocation. Units : Bytes                  |
-| memory.shared.bytes     | Shared Memory allocation. Units : Bytes                  |
+| memory.usage.bytes      | Memory usage on the device. Unit : Bytes                 |
+| memory.free.bytes       | Free memory on the device. Unit : Bytes                  |
+| memory.usage.percentage | Percentage of Memory usage on the device. Unit : %       |
+| memory.buffer.bytes     | Buffered Memory allocation. Unit : Bytes                 |
+| memory.cached.bytes     | Cached Memory allocation. Unit : Bytes                   |
+| memory.shared.bytes     | Shared Memory allocation. Unit : Bytes                   |
 
 <!--Traffic-->
 
@@ -77,52 +77,52 @@ In addition to modes and metrics described here, it is also possible to deploy t
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
 
-A regexp filter is available to target a specific interface identifier - ifName [```--interface='^ens160$' --name]
+A regexp filter is available to target a specific interface identifier - ifName [```--interface='^ens160$' --name```]
 
 <!--Swap-->
 
-| Metric name                 | Description                                        |
-| :-------------------------- | :------------------------------------------------- |
-| swap.usage.bytes            | Swap usage Units: Bytes                           |
-| swap.free.bytes             | Swap free Units: Bytes                            |
-| swap.usage.percentage       | Swap usage Units: %                               |
+| Metric name                 | Description                                       |
+| :-------------------------- | :------------------------------------------------ |
+| swap.usage.bytes            | Used swap. Unit: Bytes                            |
+| swap.free.bytes             | Free swap. Unit: Bytes                            |
+| swap.usage.percentage       | Percentage of used swap. Unit: %                  |
 
 <!--Load-->
 
 | Metric name                 | Description                                        |
 | :-------------------------- | :------------------------------------------------- |
 | load1                       | System load 1 minute-sample                        |
-| load5                       | System load 5 minute-sample                        |
-| load15                      | System load 15 minute-sample                       |
+| load5                       | System load 5 minutes-sample                       |
+| load15                      | System load 15 minutes-sample                      |
 
 <!--Disk-IO-->
 
-| Metric name                 | Description                                          |
-| :-------------------------- | :--------------------------------------------------- |
-| disk#sum_read_write         | I/O READ volume on all devices. Units: B/s           |
-| disk#sum_read_write_iops    | I/O WRITE volume on all devices. Units: B/s          |
-| disk#read                   | I/O READ volume on a specific device. Units: B/s     |
-| disk#write                  | I/O WRITE volume on a specific device. Units: B/s    |
-| disk#read_iops              | Number or read operation on a device. Unis: iops     | 
-| disk#write_iops             | Number or read operation on a device. Unis: iops     | 
+| Metric name                 | Description                                           |
+| :-------------------------- | :---------------------------------------------------- |
+| disk#sum_read_write         | I/O READ volume on all devices. Unit: B/s             |
+| disk#sum_read_write_iops    | I/O WRITE volume on all devices. Unit: B/s            |
+| disk#read                   | I/O READ volume on a specific device. Unit: B/s       |
+| disk#write                  | I/O WRITE volume on a specific device. Unit: B/s      |
+| disk#read_iops              | Number of read operations on a device. Unit: iops     | 
+| disk#write_iops             | Number of read operations on a device. Unit: iops     | 
 
 <!--Storage-->
 
-| Metric name                            | Description                                   |
-| :------------------------------------- | :-------------------------------------------- |
-| parition#storage.space.usage.bytes     | Used space on a disk partition. Units: Bytes  |
+| Metric name                             | Description                                  |
+| :-------------------------------------- | :------------------------------------------- |
+| partition#storage.space.usage.bytes     | Used space on a disk partition. Unit: Bytes  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-To monitor your Linux box, your SNMP has to be installed and configured. Most of the distrib relies on net-snmp. 
+To monitor a Linux based device, the SNMP service must be installed and configured. Most of Linux distributions rely on net-snmp. 
 
 ## net-snmp server configuration
 
-:note: A detailed documentation on how-to configure SNMP is available in the documentation of all Linux distribution.
+:note: A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
 
-Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the value you want).
+Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the relevant value).
 
 ```
 com2sec notConfigUser  default       my-snmp-community
@@ -136,11 +136,11 @@ access  notConfigGroup ""      any       noauth    exact  systemview none none
 includeAllDisks 10%
 ```
 
-You must restart your SNMP server after modifying its configuration. Also make sure that your SNMP server is configured to start automatically during boot. 
+The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot. 
 
 ### Network flow
 
-Monitoring server should have the capability to reach the target server through TCP/161 SNMP port
+The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
 ## Installation
 
@@ -148,35 +148,35 @@ Monitoring server should have the capability to reach the target server through 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install plugin code on every pollers monitoring Linux box 
+1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices: 
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the 'OS-Linux-SNMP' pack from "Configuration > Plugin packs > Manager" page 
+2. Install the 'OS-Linux-SNMP' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
 <!--Offline IMP License-->
 
-1. Install plugin code on every pollers monitoring Linux box
+1. Install the Linux SNMP Centreon Plugin on every poller expected to monitor the devices:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the pack RPM to get plugin-pack assets locally 
+2. Install the Centreon Plugin-Pack RPM: 
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-snmp
 ```
 
-3. Install the 'OS-Linux-SNMP' pack from "Configuration > Plugin packs > Manager" page 
+3. Install the 'OS-Linux-SNMP' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
-When adding a new Linux host, make sure to fill Snmp Version and Snmp Community fields. 
+When adding a new Linux host into Centreon, make sure to fill the Snmp Version and Snmp Community fields. 
 
   :warning: When using snmp v3, set extra SNMP parameters in the SNMPEXTRAOPTIONS macro. 
 
@@ -186,9 +186,9 @@ When adding a new Linux host, make sure to fill Snmp Version and Snmp Community 
 
 ## FAQ
 
-### How do I run my plugin through CLI and what does main parameters stand for ?
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
-Once you've installed the plugin, you can test it under the centreon-engine system user
+Once you've installed the plugin, you can test it logging with centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl
@@ -200,9 +200,9 @@ Once you've installed the plugin, you can test it under the centreon-engine syst
     --verbose
 ```
 
-This check monitors CPU utilization (```--mode=cpu```) of a Linux server correspondint to 10.30.2.114 IP addr (```--hostname=10.30.2.114```). SNMP version 2 is used and the community is linux_ro (```--snmp-community='linux_ro'```).
+This check monitors CPU utilization (```--mode=cpu```) of a Linux server. The server's IP address is 10.30.2.114 (```--hostname=10.30.2.114```). SNMP version 2 is used and the community is linux_ro (```--snmp-community='linux_ro'```).
 
-All avalable modes with the plugin can be displayed with: 
+All available modes with the plugin can be displayed with: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
@@ -210,7 +210,7 @@ All avalable modes with the plugin can be displayed with:
     --list-mode
 ```
 
-For each mode, you can display all the options available with something like that: 
+The available options for a mode can be displayed using the ```--help``` parameter: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
@@ -227,8 +227,8 @@ If you get this message, you're probably facing one of theses issues:
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This message generally means that SNMP privileges are not wide enough for the mode/plugin to work correctly. 
+This message generally means that SNMP privileges are not wide enough for the mode/plugin to work properly. 
 
-If it only happens on the Inodes mode, make sur you have the following directive in your SNMP server configuration: 
+If it only happens on the Inodes mode, make sure the following directive is set in the SNMP server configuration file: 
 
 includeAllDisks 10%
