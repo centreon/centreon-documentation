@@ -3,7 +3,7 @@
 
 window.addEventListener('load', () => {
   const versions = ['20.04'];
-  const oldestUrl = 'https://documentation.centreon.com/';
+  const oldertUrl = 'https://documentation.centreon.com/';
 
   // Add the version selector before the search bar
   const container = document.getElementsByClassName('nav-site nav-site-internal')[0];
@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
     selectHtml += '<option value="' + versionHref + '" ' + selected + '>v.' + version + '</option>';
   });
 
-  selectHtml += '<option value="' + oldestUrl + '">Oldest</option>';
+  selectHtml += '<option value="' + oldertUrl + '">Older</option>';
 
   selectHtml += '</select>';
   versionsLi.innerHTML = selectHtml;
