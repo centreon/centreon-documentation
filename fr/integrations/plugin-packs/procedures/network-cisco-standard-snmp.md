@@ -5,13 +5,13 @@ title: Cisco Standard
 
 ## Vue d'ensemble
 
-Cisco développe et fabrique des équipements réseaux & télécoms et des logiciels. Ils fournissent des solutions pour de multiples usages (mobiles, IOT, routage, ...). 
+Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Ils fournissent des solutions pour de multiples usages (mobiles, IOT, routage, ...). 
 
 ## Contenu du plugin-pack
 
 ### Elements supervisés
 
-Vous pouvez superviser tous les équipements embarquant les MIBs standard de Cisco
+Vous pouvez superviser tous les équipements embarquant les MIBs standards de Cisco
     * Routeurs
     * Points d'accès 
     * Switchs
@@ -29,20 +29,20 @@ Vous pouvez superviser tous les équipements embarquant les MIBs standard de Cis
 
 <!--Services-->
 
-| Nom de la règle                            | Description                                                              |
-| :----------------------------------------- | :----------------------------------------------------------------------- |
-| Net-Cisco-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errors and discards              |
-| Net-Cisco-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor status and bandwidth utilization |
+| Nom de la règle                            | Description                                                                |
+| :----------------------------------------- | :------------------------------------------------------------------------- |
+| Net-Cisco-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces réseau et supervision des paquets en erreur/discard sur l'interface |
+| Net-Cisco-Standard-SNMP-Traffic-Name       | Découverte des interfaces réseau et supervision du trafic sur l'interface  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Collected metrics
+## Métriques collectées
 
-Seul les métriques de base sont décrites dans cette section. De nombreux modes sont disponibles en supplément selon l'usage spécifique fait de votre équipement:
+Seul les métriques de base sont décrites dans cette section. De nombreux modes supplémentaires sont disponibles selon la catégorie de votre équipement Cisco:
 
 	* hsrp: Statut du protocole HSRP
 	* ipsectunnel: Etat des tunnels VPN ipsec
-	* ipsla: Métriques de performances des probes SLA configurées sur l'équipement
+	* ipsla: Métriques de performances des sondes SLA configurées sur l'équipement
 	* load: Load sur les coeurs de l'équipement sur le format Linux
 	* memoryflash: Utilisation de la mémoire flash 
 	* qosusage: Contrôle des configurations et consommations sur la partie QOS
@@ -77,7 +77,7 @@ Seul les métriques de base sont décrites dans cette section. De nombreux modes
 | interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface. Units: Count & %   |
 | interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface. Units: Count & % |
 
-AIl est possible de filtrer sur une interface en particulier. Par défaut ce filtre se base sur l'OID 'ifName' [```--interface='^my-interface-name$' --name```] 
+Il est possible de filtrer sur une interface en particulier. Par défaut ce filtre se base sur l'OID 'ifName' [```--interface='^my-interface-name$' --name```] 
 
 <!--Environment-->
 
@@ -88,7 +88,7 @@ AIl est possible de filtrer sur une interface en particulier. Par défaut ce fil
 
 Supervision de tous les éléments hardware qui sont embarqués dans l'équipement. Par exemple: fan, module, physical, psu, sensor, temperature, voltage, etc.
 
-Il est possible d'utiliser l'option --absent-problem si vous souhaitez avoir une alerte si un composant est enlevé/non-detecté. Les états par défaut peuvent également être paramétré via l'option --threshold-overload. 
+Il est possible d'utiliser l'option --absent-problem si vous souhaitez avoir une alerte lorsqu'un composant est enlevé/non-detecté. Les états par défaut peuvent également être paramétrés via l'option --threshold-overload. 
 
 <!--Configuration-->
 
@@ -104,11 +104,11 @@ Il est possible d'utiliser l'option --absent-problem si vous souhaitez avoir une
 
 ### Configuration de votre équipement
 
-Pour utiliser ce plugin-pack, vous devez configurer le SNMP sur votre équipement. Une description complète est disponible sur leur site officiel: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
+Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur votre équipement. Une description complète est disponible sur le site officiel de Cisco: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html
 
 Voici un exemple: 
 
-  * Connecter vous à l'équipement en mode configuration 
+  * Se connecter à l'équipement en mode configuration 
 
 Router#configure terminal 
 Enter configuration commands, one per line.  End with CNTL/Z. 
@@ -118,11 +118,11 @@ Router(config)#
 
 Router(config)#snmp-server community public RO 
 
-Dans l'exemple ci-dessus, la communauté choisie est 'public'. Personnalisez ça quand vous agissez en production. 
+Dans l'exemple ci-dessus, la communauté choisie est 'public'. Cette valeur est ici utilisée à titre d'exemple et est à proscrire en utilisation normale. 
 
 ### Network flow
 
-Vos serveurs Centreon doivent pouvoir communiquer via le port TCP/161 SNMP avec votre équipement.
+Vos serveurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec votre équipement.
 
 ## Installation
 
@@ -130,38 +130,38 @@ Vos serveurs Centreon doivent pouvoir communiquer via le port TCP/161 SNMP avec 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le plugin sur tous les collecteurs supervisant des équipements Cisco
+1. Installer le plugin sur tous les collecteurs Centreon supervisant des équipements Cisco:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
-2. Installer le pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager". 
+2. Installer le pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
 
-1. Installer le plugin sur tous les collecteurs supervisant des équipements Cisco
+1. Installer le plugin sur tous les collecteurs Centreon supervisant des équipements Cisco:
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
-2. Installer le RPM pour avoir à disposition le pack dans votre interface web 
+2. Installer le RPM pour avoir à disposition le pack dans l'interface Web de Centreon:
 
 ```bash
 yum install centreon-pack-network-cisco-standard-snmp
 ```
 
-3. Installer le pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager". 
+3. Installer le pack 'Cisco-Standard-Snmp' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 
-Lorsque vous ajoutez un hôte, compléter les champs 'Communauté Snmp' et 'Version Snmp' pour refléter la configuration de l'équipement cible. 
+Lorsque vous ajoutez un hôte, complétez les champs 'Communauté Snmp' et 'Version Snmp' pour refléter la configuration de l'équipement cible. 
 
-  :warning: Si vous utilisez SNMP en v3, vous devez configurer vos paramètres spécifiques via la macro SNMPEXTRAOPTIONS
+  :warning: Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -169,7 +169,7 @@ Lorsque vous ajoutez un hôte, compléter les champs 'Communauté Snmp' et 'Vers
 
 ## FAQ
 
-### Comment tester mes configuration et le plugin en ligne de commande ? 
+### Comment tester mes configurations et le plugin en ligne de commande ? 
 
 Une fois le plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine: 
 
@@ -185,7 +185,7 @@ Une fois le plugin installé, vous pouvez le tester en ligne de commande avec l'
 
 Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté cisco_ro (```--snmp-version='2c' --snmp-community='cisco_ro'```) 
 
-Tous les modes disponibles peuvent être affiché via l'option --list-mode:
+Tous les modes disponibles peuvent être affichés via l'option --list-mode:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_standard_snmp.pl \
@@ -193,7 +193,7 @@ Tous les modes disponibles peuvent être affiché via l'option --list-mode:
     --list-mode
 ```
 
-Pour un mode en particulier, il est possible d'utiliser le flag  ```--help``` pour connaître toutes les optiosn disponibles. 
+Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles. 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cisco_standard_snmp.pl \
@@ -204,10 +204,10 @@ Pour un mode en particulier, il est possible d'utiliser le flag  ```--help``` po
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter votre équipemnt Cisco sur le port 161, ou alors que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter votre équipement Cisco sur le port 161 (firewall ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas correcte.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est possible: 
+Les causes de cette erreur peuvent être les suivantes: 
   * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-  * les autorisations données à l'utilisateur en SNMP soient trop restreintes. Il faut qu'il ait accès à la branche entreprise Cisco: .1.3.6.1.4.1.9. 
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes. l'agent SNMP doit être en mesure d'accéder à la branche entreprise Cisco: .1.3.6.1.4.1.9. 
