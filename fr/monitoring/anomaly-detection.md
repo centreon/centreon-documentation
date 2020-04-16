@@ -76,6 +76,17 @@ Saisissez votre jeton et cliquez sur **Save** :
 > Si votre serveur Centreon Central a besoin d'une configuration proxy pour accéder à Internet, cochez la case
 > **Use proxy**.
 
+Rendez-vous dans le menu **Configuration > Poller > Pollers** et éditez le serveur **Centreon central** :
+
+![imaage](assets/monitoring/anomaly/install_05.png)
+
+Modifiez la commande de rechargement de Centreon Broker pour :
+```Shel
+service cbd restart
+```
+
+Cliquez sur **Save**.
+
 Votre plateforme Centreon est maintenant prête à utiliser la détection d'anomalies Centreon.
 
 ## Configuration
