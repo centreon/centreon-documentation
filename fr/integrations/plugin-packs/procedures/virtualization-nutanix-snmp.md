@@ -26,16 +26,16 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 
 | Rule name                                  | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
-| Virt-Nutanix-Hypervisor-SNMP-HostDiscovery | Découvrer vos hyperviseurs                                    |
-| Virt-Nutanix-VM-SNMP-HostDiscovery         | Découvrer vos machines virtuelles                             |
-| Virt-Nutanix-Container-SNMP-HostDiscovery  | Découvrer vos containers                                      |
+| Virt-Nutanix-Hypervisor-SNMP-HostDiscovery | Découvrez vos hyperviseurs                                    |
+| Virt-Nutanix-VM-SNMP-HostDiscovery         | Découvrez vos machines virtuelles                             |
+| Virt-Nutanix-Container-SNMP-HostDiscovery  | Découvrez vos containers                                      |
 
 <!--Services-->
 
 | Rule name                                  | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
-| Virt-Nutanix-Disk-SNMP                     |  Découvrer les disques attachés à votre cluster               |
-| Virt-Nutanix-Storage-Pools-SNMP            |  Découvrer les espaces de stockage exposés à vos ressources   |
+| Virt-Nutanix-Disk-SNMP                     |  Découvrez les disques attachés à votre cluster               |
+| Virt-Nutanix-Storage-Pools-SNMP            |  Découvrez les espaces de stockage exposés à vos ressources   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -47,7 +47,7 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 | Metric name              | Description                                              |
 | :----------------------- | :------------------------------------------------------- |
 | clusterStatus            | Status of the Nutanix cluster                            |
-| cluster*StorageCapacity  | Used and Total cluster storage allocated. Units: Bytes   |
+| cluster\*StorageCapacity | Used and Total cluster storage allocated. Units: Bytes   |
 | clusterIops              | Number of IOPS on the cluster. Units: Count/persecond    |
 | clusterLatency           | Cluster storage latency. Units: Microseconds             |
 
@@ -55,7 +55,7 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 
 | Metric name        | Description                                                    |
 | :----------------- | :------------------------------------------------------------- |
-| cit*Capacity       | Used and Total container storage allocated. Units: Bytes       |
+| cit\*Capacity      | Used and Total container storage allocated. Units: Bytes       |
 | citIOPerSecond     | Number of IOPS of the container. Units: Count/persecond        |
 | citAvgLatencyUsecs | Average Container I/O operations latency. Units: Microseconds  |
 
@@ -65,13 +65,13 @@ A regexp filter is available on the name of the container - citContainerName [``
 
 | Metric name       | Description                                              |
 | :---------------- | :------------------------------------------------------- |
-| dstNum*Bytes      | Used and Total disk storage allocated. Units: Bytes      |
-| dstNum*Inodes     | Used and Total Inodes available. Units: Count            |
+| dstNum\*Bytes      | Used and Total disk storage allocated. Units: Bytes      |
+| dstNum\*Inodes     | Used and Total Inodes available. Units: Count            |
 | dstAverageLatency | Average Disk I/O operations latency. Units: Microseconds |
 | dstNumberIops     | Number of Disk operations. Units: Count/persecond        |
 | dstState          | State of the disk (online/offline).                      |
 
-A regexp filter is available to target a specific disk identifier - dstDiskId [```--filter-name='^my-disk-name$']
+A regexp filter is available to target a specific disk identifier - dstDiskId [```--filter-name='^my-disk-name$'```]
 
 <!--Hypervisor-usage-->
 
@@ -91,7 +91,7 @@ A regexp filter is available on the name of the hypervisor - hypervisorName [```
 
 | Metric name               | Description                                                                                                                                              |
 | :------------------------ | :----------------------------------------------------------- |
-| spit*Capacity             | Used and Total Storage pool allocated. Units: Bytes          |
+| spit\*Capacity             | Used and Total Storage pool allocated. Units: Bytes          |
 | spitIOPerSecond           | Storage pool IO count. Units: Count/persecond                |
 | spitAvgLatencyUsecs       | Cluster storage latency. Units: Microseconds                 |
 
@@ -116,9 +116,9 @@ A regexp filter is available on the name of the VM - vmName [```--filter-name='^
 
 ## Prérequis
 
-Afin de superviser votre cluster Nutanix le SNMP v2 ou v3 doit être configuré comme indiqué sur leur documentation officielle: https://portal.nutanix.com/page/documents/details/?targetId=Web-Console-Guide-Prism-v511:wc-system-snmp-wc-t.html
+Afin de superviser votre cluster Nutanix, le SNMP v2 ou v3 doit être configuré comme indiqué sur la documentation officielle du constructeur: https://portal.nutanix.com/page/documents/details/?targetId=Web-Console-Guide-Prism-v511:wc-system-snmp-wc-t.html
 
-La communication doit être possible sur le port 161 depuis le poller de supervision vers le cluster Nutanix
+La communication doit être possible sur le port 161 depuis le collecteur de supervision vers le cluster Nutanix.
 
 ## Installation
 
@@ -133,7 +133,7 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
@@ -144,13 +144,13 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-2. Installer le RPM contenant les modèles de supervision
+2. Installer le RPM contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-virtualization-nutanix-snmp
 ```
 
-3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -158,7 +158,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 Dans le formulaire de création de votre hôte, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
-  :warning: Si vous utilisez SNMP en version 3, selectionner juste la version SNMP 3 et configurer les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+  :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et configureé les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -166,9 +166,9 @@ Dans le formulaire de création de votre hôte, il est nécessaire de renseigner
 
 ## FAQ
 
-### Comment tester en ligne de commande et quelles significations portent les options principales ?
+### Comment tester en ligne de commande et que signifient les options principales ?
 
-A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre collecteur de supervision Centreon avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
@@ -189,7 +189,7 @@ A partir du moment ou la sonde est installée, vous pouvez tester directement de
 OK: Cluster 'Nutanix-awesome-cluster' status : started, Usage Total: 14.64 TB Used: 430.39 GB (2.87%) Free: 14.22 TB (97.13%), Average Latency : 953 µs, IOPs : 2 | 'used'=462125867281B;;;0;16102324391545 'avg_latency'=953µs;;;0; 'iops'=2iops;;;0;
 ```
 
-La commande ci-dessus interroge les métriques de performances d'un cluster Nutanix (```--mode=cluster-usage```). Les informations importantes sont l'adresse IP/FQDN  (```--hostname=10.30.2.15```) et la communauté SNMP configurée sur mon équipement (```--snmp-community='test/nutanix'```) 
+La commande ci-dessus interroge les métriques de performances d'un cluster Nutanix (```--mode=cluster-usage```). Les informations importantes sont l'adresse IP/FQDN  (```--hostname=10.30.2.15```) et la communauté SNMP configurée sur l'équipement (```--snmp-community='test/nutanix'```) 
 
 Tous les modes sont affichables via la commande suivante:
 
@@ -199,7 +199,7 @@ Tous les modes sont affichables via la commande suivante:
     --list-mode
 ```
 
-Les options des différents modes sont consultables via le help du mode: 
+Les options des différents modes sont consultables via le parramètre ```--help``` du mode: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nutanix_snmp.pl \
@@ -214,4 +214,4 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'utilisateur en SNMP soit trop restreints. Il faut qu'il ait accès à la branche entreprise Nutanix: .1.3.6.1.4.1.41263 
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'utilisateur en SNMP soient trop restreintes. L'agent SNMP doit avoir accès à la branche entreprise Nutanix: .1.3.6.1.4.1.41263 
