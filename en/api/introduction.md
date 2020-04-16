@@ -9,5 +9,5 @@ Regarding the type of scripts or automation you want to perform on Centreon, you
 documentation:
 
 - [Command Line API (CLAPI)](clapi) to manage configuration data
-- Rest APIs [(v1)](rest-api-v1) [(v2)](https://documentation.centreon.com/api) to manage configuration and real time data
-- Rest APIs to manage Graphical Views data (Centreon Map extension): [(beta)](graph-views-api)
+- [Rest API (v1)](rest-api-v1) to manage configuration data or [Rest API (v2)](https://documentation.centreon.com/api) to manage configuration and real time data
+- [Rest API (beta)](graph-views-api) to manage specific Graphical Views data *(Centreon Map extension)*
