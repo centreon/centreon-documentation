@@ -63,15 +63,6 @@ const stringsAndParagraphs = {
   }
 };
 
-/**
- * @param {string} uri
- * @param {string} [lang='en']
- * @returns {string} Url to link in docs or a external page
- */
-function createUrl(uri, lang = 'en') {
-  return `@BASEURL@/${uri}`;
-}
-
 const Button = props => {
   return (
     <div className="pluginWrapper buttonWrapper">
@@ -102,9 +93,9 @@ function ExcellenceBlock() {
       <h1>{stringsAndParagraphs.excellenceBlock.title}</h1>
       <p className="subTitle">{stringsAndParagraphs.excellenceBlock.subTitle}</p>
       <div className="cardBar">
-        <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={createUrl(links.doc.tutorial)} />
-        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={createUrl(links.doc.installation)} />
-        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={createUrl(links.doc.api)} />
+        <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={links.doc.tutorial} />
+        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={links.doc.installation} />
+        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={links.doc.api} />
       </div>
     </div>
   )
@@ -120,7 +111,7 @@ function PrerequisiteBlock() {
         <h2 className="titleSection">{stringsAndParagraphs.prerequisiteBlock.title}</h2>
         <p>
           {stringsAndParagraphs.prerequisiteBlock.content1stPart}
-          <a href={createUrl(links.doc.prerequisite)}>{stringsAndParagraphs.prerequisiteBlock.link}</a>
+          <a href={links.doc.prerequisite}>{stringsAndParagraphs.prerequisiteBlock.link}</a>
           {stringsAndParagraphs.prerequisiteBlock.content2ndPart}
         </p>
       </div>
@@ -138,7 +129,7 @@ function InstallationBlock() {
         <h2 className="titleSection">{stringsAndParagraphs.installationBlock.title}</h2>
         <p>
           {stringsAndParagraphs.installationBlock.content1stPart}
-            <a href={createUrl(links.doc.installation)}>{stringsAndParagraphs.installationBlock.link}</a>
+            <a href={links.doc.installation}>{stringsAndParagraphs.installationBlock.link}</a>
           {stringsAndParagraphs.installationBlock.content2ndPart}
         </p>
       </div>
@@ -156,7 +147,7 @@ function MonitoringBlock() {
         <h2 className="titleSection">{stringsAndParagraphs.monitoringBlock.title}</h2>
         <p>
           {stringsAndParagraphs.monitoringBlock.content1stPart}
-            <a href={createUrl(links.doc.monitoring)}>{stringsAndParagraphs.monitoringBlock.link}</a>
+            <a href={links.doc.monitoring}>{stringsAndParagraphs.monitoringBlock.link}</a>
           {stringsAndParagraphs.monitoringBlock.content2ndPart}
         </p>
       </div>
