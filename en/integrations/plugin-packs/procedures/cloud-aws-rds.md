@@ -31,41 +31,41 @@ No services discovery rule available on this pack
 
 ## Monitored metrics 
 
-You can get an overview of all gathered metrics from AWS/RDS official documentation: https://docs.aws.amazon.com/rds/index.html
+You can get an overview of all gathered metrics from AWS/RDS in the official documentation: https://docs.aws.amazon.com/rds/index.html
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Connections-->
 
 | Metric name         | Description                                          |
 | :------------------ | :--------------------------------------------------- |
-| DatabaseConnections | Number of connections to the dtatabase. Units: Count |
+| DatabaseConnections | Number of connections to the dtatabase. Unit: Count  |
 
 <!--Cpu-->
 
 | Metric name      | Description                                                                            |
 | :--------------- | :------------------------------------------------------------------------------------- |
-| CPUCreditBalance | Balance of CU credit allocated to this type of instance. Units: Credits (vCPU-minutes) |
-| CPUCreditUsage   | Number of CPU credit consumed. Units: Credits (vCPU-minutes)                           |
-| CPUUtilization   | The percentage of CPU utilization. Units: Percent                                      |
+| CPUCreditBalance | Balance of allocated CPU credit to this type of instance. Unit: Credits (vCPU-minutes) |
+| CPUCreditUsage   | Number of CPU credit consumed. Unit: Credits (vCPU-minutes)                            |
+| CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
 
 <!--Disk-IO-->
 
 | Metric name     | Description                                                                                  |
 | :-------------- | :------------------------------------------------------------------------------------------- |
-| ReadIOPS        | The average number of disk read I/O operations per second. Units: Count/Second               |
-| WriteIOPS       | The average number of disk write I/O operations per second. Units: Count/Second              |
-| ReadThroughput  | The average number of bytes read from disk per second. Units: Bytes/Second                   |
-| WriteThroughput | The average number of bytes write to disk per second. Units: Bytes/Second                    |
-| ReadLatency     | The average amount of time taken per disk I/O read operation. Units: Seconds                 |
-| WriteLatency    | The average amount of time taken per disk I/O write operation. Units: Seconds                |
-| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Units: Count |
+| ReadIOPS        | The average number of disk read I/O operations per second. Unit: Count/Second                |
+| WriteIOPS       | The average number of disk write I/O operations per second. Unit: Count/Second               |
+| ReadThroughput  | The average number of bytes read from disk per second. Unit: Bytes/Second                    |
+| WriteThroughput | The average number of bytes write to disk per second. Unit: Bytes/Second                     |
+| ReadLatency     | The average amount of time taken per disk I/O read operation. Unit: Seconds                  |
+| WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
+| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
 <!--Network-->
 
 | Metric name               | Description                                                                                                                                              |
 | :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Units: Bytes/Second |
-| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Units: Bytes/Second |
+| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second  |
+| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second  |
 
 <!--Queries-->
 
@@ -138,55 +138,55 @@ yum install awscli
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install connector code on all pollers monitoring Amazon RDS ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Install monitoring templates from "Configuration > Plugin packs > Manager" page:
+2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 
 <!--Offline IMP License-->
 
-1. Install connector code on all pollers monitoring Amazon RDS ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Install RPM containing monitoring templates
+2. Install the Centreon Plugin-Pack RPM:
 
 ```bash
 yum install centreon-pack-cloud-aws-rds.noarch
 ```
 
-3. Install monitoring templates from "Configuration > Plugin packs > Manager" page:
+3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Apply to your host the template that is the most relevant for your instance/cluster type. They all start with "Cloud-Aws-Rds-". Once the template has been chosen, you have to set values on some macros: 
+Addinge a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with "Cloud-Aws-Rds-". Once the template chosen, you have to set values on the macros marked as mandatory: 
 
-| Obligatoire | Nom             | Description                                                                                 |
+| Mandatory | Nom             | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
 | X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
 | X           | AWSREGION       | Region where the instance is running                                                        |
 | X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
 | X           | AWSINSTANCENAME | Name of the instance you want to monitor                                                    |
-| X           | AWSINSTANCETYPE | Instance type checked ('instance' or 'cluster')                                             |
-|             | PROXYURL        | Configure proxy URL informations                                                            |
-|             | EXTRAOPTIONS    | Any extraoptions you may want to add to every command\_line (eg. a --verbose flag)          |
+| X           | AWSINSTANCETYPE | Type of instance to check ('instance' or 'cluster')                                         |
+|             | PROXYURL        | Configure proxy URL information                                                             |
+|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it until you know what you are doing               |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
 ## FAQ
 
-### How can I test it through CLI and what is the meaning of the command_line parameters ?
+### How can I test it through the CLI and what is the meaning of the command_line parameters ?
 
-You can directly run the plugin from command_line under centreon-engine user: 
+Logging with the centreon-engine user, you can directly run the plugin from the command line interface : 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_rds_api.pl \
@@ -212,11 +212,11 @@ Cluster 'dev-cluster' average DatabaseConnections: 3
 
 ```
 
-This CLI monitors the connections number (```--mode=connections```) on an Aurora db cluter (```--type='cluster'```) whose name is dev-cluster (```--name='dev-cluster'```). This cluster is deployed within AWS eu-west-1 region (```--region='eu-west-1'```). The collected metric will be an average (```--statistic='average'```) over a timefram of 600 secondes (```--timeframe='600'```) with a sample of 1 point per minute (```--period='60'```).
+This command aims to monitor the connections number (```--mode=connections```) on an Aurora db cluster (```--type='cluster'```) whose name is dev-cluster (```--name='dev-cluster'```). This cluster is deployed within the AWS eu-west-1 region (```--region='eu-west-1'```). The collected metrics will be parsed as average statistics (```--statistic='average'```) over a timeframe of 600 secondes (```--timeframe='600'```) with a sample of 1 point per minute (```--period='60'```).
 
-A WARNING alert will be triggered if the value raises 25 and a CRITICAL when raises 50 (```--warning-databaseconnections-average='25' --critical-databaseconnections-average='50'```).
+A WARNING alert will be triggered if the value raises beyond 25 and a CRITICAL alert beyond 50 (```--warning-databaseconnections-average='25' --critical-databaseconnections-average='50'```).
 
-All options are described through the plugin help
+All options are described through the plugin help:
 
 ```/usr/lib/centreon/plugins//centreon_aws_rds_api.pl --plugin=cloud::aws::rds::plugin --mode=<modename> --help```
 
@@ -225,8 +225,8 @@ All options are described through the plugin help
 
 When using AWS monitoring checks, I get the following message 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
 
-Sometimes it's because AWS doesn't have any information on that period or this specific metric is not available on this instance. 
+It may happen when the AWS Cloudwatch service doesn't have any entry for that period or this specific metric is not available on this instance. 
 
-Most of the time, AWS didn't store any value because your instance didn't have so much activity (e.g no transactions or IO disk in the last 10 minutes). 
+Most of the time, it is due to AWS Cloudwatch not storing any value because there isn't any activity related to the instance (e.g no transactions or IO disk in the last 10 minutes). 
 
 You can bypass this message adding ' --zeroed' flag within your **service** EXTRAOPTIONS macro to make the plugin return a 0 instead of this message. 
