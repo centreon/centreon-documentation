@@ -273,7 +273,7 @@ repositories.
 
 #### Upgrade from 10.1 to 10.2
 
-Follow those summarize steps to perform the upgrade in the way recommended by
+Follow those summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:
@@ -297,7 +297,7 @@ MariaDB:
 4. Start the mariadb service
 
     ```shell
-    systemctl start mariadb
+    systemctl start mariadb:
     ```
 
 5. Launch the MariaDB upgrade process:
@@ -311,7 +311,7 @@ MariaDB:
 
 #### Upgrade from 10.2 to 10.3
 
-Follow those summarize steps to perform the upgrade in the way recommended by
+Follow those summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:

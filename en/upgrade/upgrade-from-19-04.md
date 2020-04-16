@@ -237,7 +237,7 @@ repositories.
 
 #### Upgrade from 10.1 to 10.2
 
-Follow those summarize steps to perform the upgrade in the way recommended by
+Follow those summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:
@@ -258,7 +258,7 @@ MariaDB:
     yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
     ```
 
-4. Start the mariadb service
+4. Start the mariadb service:
 
     ```shell
     systemctl start mariadb
@@ -275,7 +275,7 @@ MariaDB:
 
 #### Upgrade from 10.2 to 10.3
 
-Follow those summarize steps to perform the upgrade in the way recommended by
+Follow those summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:
