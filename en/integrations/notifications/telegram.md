@@ -5,7 +5,7 @@ title: Telegram
 
 ## Introduction
 
-This documentation is brought to you thanks to our partner PILPRE Yann from
+This documentation is brought to you thanks to our partner PILPRÉ Yann from
 
 ![logo](../../assets/integrations/notifications/telegram/logo-YPSI.png)
 
