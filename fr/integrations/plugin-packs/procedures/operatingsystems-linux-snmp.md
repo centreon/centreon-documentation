@@ -1,6 +1,6 @@
 ---
-id: os-linux-snmp
-title: Linux Snmp
+id: operatingsystems-linux-snmp
+title: Linux SNMP
 ---
 
 ## Vue d'ensemble
