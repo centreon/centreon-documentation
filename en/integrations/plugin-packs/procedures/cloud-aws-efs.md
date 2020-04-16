@@ -39,18 +39,18 @@ More information about collected metrics is available in the official Amazon doc
 
 | Metric name         | Description                                                     |
 | :------------------ | :-------------------------------------------------------------- |
-| ClientConnections   | The number of client connections to a file system. Units: Count |
+| ClientConnections   | The number of client connections to a file system. Unit: Count  |
 
 
 <!--Data Usage-->
 
 | Metric name        | Description                                                                                                                                                                                |
 | :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DataReadIOBytes    | The number of bytes for each file system read operation. Units: Bytes                                                                                                                      |
-| DataWriteIOBytes   | The number of bytes for each file write operation. Units: Bytes                                                                                                                            |
-| MetadataIOBytes    | The number of bytes for each metadata operation. Units: Bytes                                                                                                                              |
-| TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Units: Bytes                                                                 |
-| BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Units: Bytes |
+| DataReadIOBytes    | The number of bytes for each file system read operation. Unit: Bytes                                                                                                                       |
+| DataWriteIOBytes   | The number of bytes for each file write operation. Unit: Bytes                                                                                                                             |
+| MetadataIOBytes    | The number of bytes for each metadata operation. Unit: Bytes                                                                                                                               |
+| TotalIOBytes       | The number of bytes for each file system operation, including data read, data write, and metadata operations. Unit: Bytes                                                                  |
+| BurstCreditBalance | The number of burst credits that a file system has. Burst credits allow a file system to burst to throughput levels above a file system’s baseline level for periods of time. Unit: Bytes  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -100,7 +100,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin Pack:
+2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
 
 
 <!--Offline IMP License-->
@@ -111,13 +111,13 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 yum install centreon-plugin-Cloud-Aws-Efs-Api
 ```
 
-2. Installer the Plugin Pack from the RPM:
+2. Installer the Centreon Plugin-Pack from the RPM:
 
 ```bash
 yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
-3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin Pack:
+3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack:
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
