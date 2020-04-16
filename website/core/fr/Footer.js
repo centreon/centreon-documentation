@@ -28,14 +28,17 @@ const labels = {
     links: [{
       title: `Site Centreon`,
       link: `https://www.centreon.com`,
+      external: true,
     },
     {
       title: `Blog`,
       link: `https://blog.centreon.com`,
+      external: true,
     },
     {
       title: `Download`,
       link: `https://download.centreon.com`,
+      external: true,
     }],
   },
   socialPart: {
@@ -45,7 +48,8 @@ const labels = {
 
 const linkElement = ({ baseUrl }, listLinks) => {
   const links = listLinks.map((linkProps) => {
-    return <a href={`${baseUrl}${linkProps.link}`}>{linkProps.title}</a>
+    const href = linkProps.external ? linkProps.link : baseUrl + linkProps.link;
+    return <a href={`${href}`}>{linkProps.title}</a>
   })
   return links;
 }
