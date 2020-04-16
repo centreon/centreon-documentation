@@ -11,74 +11,31 @@ const labels = {
   documentationPart: {
     headerTitle: `Documentation`,
     links: [{
-      title: `Prerequisites`,
-      link: `#`,
-    },
-    {
-      title: `Installation`,
-      link: `#`,
-    },
-    {
       title: `Getting Started`,
-      link: `#`,
+      link: `getting-started/installation-first-steps`,
     },
     {
-      title: `Plugin Packs`,
-      link: `#`,
+      title: `API References`,
+      link: `api/introduction`,
     },
     {
-      title: `Monitoring`,
-      link: `#`,
-    },
-    {
-      title: `Exploitation`,
-      link: `#`,
+      title: `Releases`,
+      link: `releases/introduction`,
     }],
   },
-  communityPart: {
-    headerTitle: `Community`,
+  resourcesPart: {
+    headerTitle: `Resources`,
     links: [{
-      title: `GitHub`,
-      link: `#`,
-    },
-    {
-      title: `Slack`,
-      link: `#`,
+      title: `Centreon Website`,
+      link: `https://www.centreon.com`,
     },
     {
       title: `Blog`,
-      link: `#`,
+      link: `https://blog.centreon.com`,
     },
     {
-      title: `Newsletter`,
-      link: `#`,
-    },
-    {
-      title: `Open Source Download`,
-      link: `#`,
-    }],
-  },
-  helpPart: {
-    headerTitle: `Help me`,
-    links: [{
-      title: `FAQ`,
-      link: `#`,
-    },
-    {
-      title: `Best practices`,
-      link: `#`,
-    },
-    {
-      title: `Tutorials`,
-      link: `#`,
-    },
-    {
-      title: `Contact us`,
-      link: `#`,
-    },
-    {
-      title: `Produits`,
-      link: `#`,
+      title: `Download`,
+      link: `https://download.centreon.com`,
     }],
   },
   socialPart: {
@@ -117,20 +74,11 @@ function DocumentationColumn({ config }) {
   )
 }
 
-function CommunityColumn({ config }) {
+function ResourceColumn({ config }) {
   return (
     <div className="footerSection">
-    <h5>{labels.communityPart.headerTitle}</h5>
-    {linkElement(config, labels.communityPart.links)}
-    </div>
-  )
-}
-
-function HelpColumn({ config }) {
-  return (
-    <div className="footerSection">
-    <h5>{labels.helpPart.headerTitle}</h5>
-    {linkElement(config, labels.helpPart.links)}
+    <h5>{labels.resourcesPart.headerTitle}</h5>
+    {linkElement(config, labels.resourcesPart.links)}
     </div>
   )
 }
@@ -172,8 +120,7 @@ function Footer({ config }) {
       <section className="sitemap">
         <LogoColumn config={config} />
         <DocumentationColumn config={config} />
-        <CommunityColumn config={config} />
-        <HelpColumn config={config} />
+        <ResourceColumn config={config} />
         <SocialColumn config={config} />
       </section>
       <section className="copyright">

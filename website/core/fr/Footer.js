@@ -11,74 +11,31 @@ const labels = {
   documentationPart: {
     headerTitle: `Documentation`,
     links: [{
-      title: `Pré requis`,
-      link: `#`,
+      title: `Démarrer`,
+      link: `getting-started/installation-first-steps`,
     },
     {
-      title: `Installation`,
-      link: `#`,
+      title: `API`,
+      link: `api/introduction`,
     },
     {
-      title: `Démarrage`,
-      link: `#`,
-    },
-    {
-      title: `Plugin Packs`,
-      link: `#`,
-    },
-    {
-      title: `Supervision`,
-      link: `#`,
-    },
-    {
-      title: `Exploitation`,
-      link: `#`,
+      title: `Releases`,
+      link: `releases/introduction`,
     }],
   },
-  communityPart: {
-    headerTitle: `Communauté`,
+  resourcesPart: {
+    headerTitle: `Ressources`,
     links: [{
-      title: `GitHub`,
-      link: `#`,
-    },
-    {
-      title: `Slack`,
-      link: `#`,
+      title: `Site Centreon`,
+      link: `https://www.centreon.com`,
     },
     {
       title: `Blog`,
-      link: `#`,
+      link: `https://blog.centreon.com`,
     },
     {
-      title: `Newsletter`,
-      link: `#`,
-    },
-    {
-      title: `Téléchargement Open Source`,
-      link: `#`,
-    }],
-  },
-  helpPart: {
-    headerTitle: `Aidez-moi`,
-    links: [{
-      title: `FAQ`,
-      link: `#`,
-    },
-    {
-      title: `Bonnes pratiques`,
-      link: `#`,
-    },
-    {
-      title: `Tutoriels`,
-      link: `#`,
-    },
-    {
-      title: `Contactez-nous`,
-      link: `#`,
-    },
-    {
-      title: `Nos produits`,
-      link: `#`,
+      title: `Download`,
+      link: `https://download.centreon.com`,
     }],
   },
   socialPart: {
@@ -117,20 +74,11 @@ function DocumentationColumn({ config }) {
   )
 }
 
-function CommunityColumn({ config }) {
+function ResourceColumn({ config }) {
   return (
     <div className="footerSection">
-    <h5>{labels.communityPart.headerTitle}</h5>
-    {linkElement(config, labels.communityPart.links)}
-    </div>
-  )
-}
-
-function HelpColumn({ config }) {
-  return (
-    <div className="footerSection">
-    <h5>{labels.helpPart.headerTitle}</h5>
-    {linkElement(config, labels.helpPart.links)}
+    <h5>{labels.resourcesPart.headerTitle}</h5>
+    {linkElement(config, labels.resourcesPart.links)}
     </div>
   )
 }
@@ -172,8 +120,7 @@ function Footer({ config }) {
       <section className="sitemap">
         <LogoColumn config={config} />
         <DocumentationColumn config={config} />
-        <CommunityColumn config={config} />
-        <HelpColumn config={config} />
+        <ResourceColumn config={config} />
         <SocialColumn config={config} />
       </section>
       <section className="copyright">
