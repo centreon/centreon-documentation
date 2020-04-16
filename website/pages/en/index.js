@@ -15,8 +15,8 @@ const basePathImg = './img/homepage/';
 const links = {
   doc: {
     api: 'api/introduction.html',
-    tutorial: 'tutorials/first-steps.html',
-    prerequisite: 'installation/prerequisites',
+    tutorial: 'getting-started/installation-first-steps.html',
+    prerequisite: 'installation/prerequisites.html',
     installation: 'installation/introduction.html',
     monitoring: 'integrations/plugin-packs/introduction.html',
   },
