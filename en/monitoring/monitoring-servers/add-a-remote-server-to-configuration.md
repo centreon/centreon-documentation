@@ -8,8 +8,8 @@ title: Add a Remote Server to configuration
 As of Centreon version 18.10, a new wizard has been added for defining a new
 Remote Server on the Centreon platform.
 
-Go to the **Configuration \> Pollers \> Pollers** menu and click on **Add
-server with wizard** to configure a new Remote Server.
+Go to the `Configuration > Pollers` menu and click on **Add server with
+wizard** to configure a new Remote Server.
 
 Select **Add a Centreon Remote Server** and click on **Next**:
 
@@ -42,7 +42,8 @@ Central server.
 
 Click on **Next**.
 
-Select the poller(s) to be linked to this Remote Server, then click on **Apply**:
+Select the poller(s) to be linked to this Remote Server, then click on
+**Apply**:
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
@@ -61,7 +62,9 @@ and can be done using ZMQ (with a Gorgone running on the Remote Server,
 recommended) or using SSH protocol.
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Using ZMQ (Recommended)-->
+
 #### Select communication type
 
 Edit the newly created Remote Server configuration, and select **ZMQ** as
@@ -75,15 +78,16 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon.
+icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-A popin will show the configuration to copy into the Remote Server terminal.
+A pop-in will show the configuration to copy into the **Remote Server
+terminal**.
 Click on **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
-Paste directly into the terminal as the clipboard contains the following
-content, and will fill the right file:
+Paste the content of the clipboard directly into the **Remote Server terminal**
+as it contains the following content, and will fill the right file:
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -148,14 +152,14 @@ gorgone:
 EOF
 ```
 
-Hit the enter key for the command to be applied.
+Hit the *Enter* key for the command to be applied.
 
 > You can copy the configuration in a custom file by copying the content from
 > the popin.
 
 #### Start Gorgone daemon
 
-From the Remote Server, run the following command:
+From the Remote Server, run the following command to restart Gorgone service:
 
 ```shell
 systemctl restart gorgoned
@@ -190,6 +194,7 @@ It should result as follow:
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 <!--Using SSH-->
+
 #### Select communication type
 
 Edit the newly created Remote Server configuration, and select **SSH** a
@@ -202,8 +207,8 @@ Click on **Save**.
 
 #### Exchange SSH keys
 
-If you do not have any private SSH keys on the central server for the
-**centreon-gorgone** user: :
+If you do not have any private SSH keys on the **Central server** for the
+**centreon-gorgone** user, create one with the following commands:
 
 ```shell
 su - centreon-gorgone
@@ -214,13 +219,13 @@ ssh-keygen -t rsa
 > location, or, create one in a specified directory. **Leave the passphrase
 > blank**. You will receive a key fingerprint and a randomart image.
 
-Generate a password for the **centreon** user on the new server: :
+Generate a password for the **centreon** user on the **new Remote Server**:
 
 ```shell
 passwd centreon
 ```
 
-Copy this key on to the new server: :
+Then, copy this key on to the **new Remote Server** with the following commands:
 
 ```shell
 su - centreon-gorgone
@@ -229,7 +234,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **To force the Central's Gorgone daemon to connect to the Remote Server**, restart
-it with the following command:
+it with the following command from the **Central server**:
 
 ```shell
 systemctl restart gorgoned
@@ -245,7 +250,7 @@ Then check the four first boxes, select the **Restart** method and click on
 
 ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
 
-The Remote Server will then connect to the Central Broker.
+The Poller's engine will then start and connect to the Central Broker.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 

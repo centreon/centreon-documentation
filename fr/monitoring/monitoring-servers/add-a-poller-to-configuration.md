@@ -11,28 +11,32 @@ toutes les configurations nécessaire pour ajouter un Poller.
 > Vous pouvez toujours ajouter un nouveau Poller manuellement mais la procédure
 > suivante est recommandée.
 
-Rendez-vous dans le menu **Configuration > Pollers > Pollers** et cliquez sur
-**Add server with wizard** pour accéder à l'assistant de configuration.
+Rendez-vous dans le menu `Configuration > Collecteurs` et cliquez sur
+**Ajouter un serveur à l'aide de l'assistant** pour accéder à l'assistant de
+configuration.
 
-Sélectionnez **Add a Centreon Poller** et cliquez sur **Next** :
+Sélectionnez **Ajouter un collecteur Centreon** et cliquez sur **Suivant** :
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.png)
 
 Saisissez le nom, l'adresse IP du collecteur et celle du serveur Centreon Central,
-cliquez sur **Next** :
+cliquez sur **Suivant** :
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au collecteur depuis le serveur Centreon Central.
+> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au
+> collecteur depuis le serveur Centreon Central.
 >
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au collecteur serveur Centreon Central vers le collecteur.
+> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au
+> collecteur serveur Centreon Central vers le collecteur.
 
-Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur **Apply** :
+Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur
+**Appliquer** :
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
-Sinon, si vous souhaitez lier ce collecteur à un Remote Server, sélectionnez le Remote Server dans la liste et cliquez
-sur **Apply** :
+Sinon, si vous souhaitez lier ce collecteur à un Remote Server, sélectionnez le
+Remote Server dans la liste et cliquez sur **Appliquer**.
 
 Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
 
@@ -45,29 +49,31 @@ La communication entre un Central et un Poller est assurée par Gorgone et peut
 recommandé) ou en utilisant le protocole SSH.
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Avec ZMQ (Recommandé)-->
+
 #### Sélectionner le type de communication
 
 Editer la configuration du Poller fraichement créé, et sélectionner **ZMQ**
-comme **Gorgone connection protocol**. Définir le **port** adéquat (le port
-**5556** est recommandé).
+comme **Protocole de connexion utilisé par Gorgone**. Définir le **port**
+adéquat (le port **5556** est recommandé).
 
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
-Cliquer sur **Save**.
+Cliquer sur **Sauvegarder**.
 
 #### Afficher la configuration de Gorgone
 
 Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration**.
+configuration** sur la ligne correspondant à votre Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-Une popin affiche la configuration à copier dans le terminal du Poller. Cliquer
-sur **Copy to clipboard**.
+Une pop-in affiche la configuration à copier dans le **terminal du Poller**.
+Cliquer sur **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-Copier directement dans le terminal car le contenu suivant est dans le
-presse-papier et créera le fichier de configuration attendu :
+Coller le contenu du presse-papier directement dans le **terminal du Poller**
+car celui-ci créera le fichier de configuration attendu :
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -95,20 +101,21 @@ gorgone:
 EOF
 ```
 
-Appuyer sur la touche entrée pour que la commande soit appliquée.
+Appuyer sur la touche *Entrée* pour que la commande soit appliquée.
 
-> Vous pouvez copier la configuration en sélectionnant le contenu de la popin
+> Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
 > pour la copier dans un fichier de configuration personnalisé.
 
 #### Démarrer le daemon Gorgone
 
-Depuis le Poller, exécuter la commande suivante :
+Depuis le Poller, exécuter la commande suivante pour démarrer le service
+Gorgone :
 
 ```shell
 systemctl start gorgoned
 ```
 
-Assurez vous que le service est démarrer en exécutant la commande suivante :
+Assurez vous que le service est démarré en exécutant la commande suivante :
 
 ```shell
 systemctl status gorgoned
@@ -129,35 +136,41 @@ Le résultat devrait être similaire :
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
+
 <!--Avec SSH-->
+
 #### Sélectionner le type de communication
 
 Editer la configuration du Poller fraichement créé, et sélectionner **SSH**
-comme **Gorgone connection protocol**. Définir le **port** adéquat.
+comme **Protocole de connexion utilisé par Gorgone**. Définir le **port** adéquat.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
-Cliquer sur **Save**.
+Cliquer sur **Sauvegarder**.
 
 ## Echange de clés SSH
 
-Si vous n’avez pas de clé SSH privée sur le serveur Central pour l’utilisateur **centreon-gorgone** :
+Si vous n’avez pas de clé SSH privée sur le **serveur Central** pour
+l’utilisateur **centreon-gorgone**, vous pouvez la créer avec la commande
+suivante :
 
 ``` shell
 su - centreon-gorgone
 ssh-keygen -t rsa
 ```
 
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un fichier pour enregistrer la clé. **Laissez le
-> mot de passe vide**. Vous recevrez une empreinte digitale de clé et une image randomart.
+> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un
+> fichier pour enregistrer la clé. **Laissez le mot de passe vide**. Vous
+> recevrez une empreinte digitale de clé et une image randomart.
 
-Générez un mot de passe sur le nouveau serveur pour l'utilisateur **centreon** :
+Générez un mot de passe sur le **nouveau Poller** pour l'utilisateur **centreon** :
 
 ``` shell
 passwd centreon
 ```
 
-Vous devez copier cette clé sur le nouveau serveur :
+Pour finir, vous devez copier cette clé sur le **nouveau Poller** avec les
+commandes suivantes :
 
 ``` shell
 su - centreon-gorgone
@@ -166,7 +179,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez le avec
-la commande suivante :
+la commande suivante depuis le **serveur Central** :
 
 ```shell
 systemctl restart gorgoned
@@ -174,15 +187,16 @@ systemctl restart gorgoned
 
 ## Exporter la configuration
 
-Depuis la liste des Pollers, sélectionner le Poller et cliquer sur **Export
-configuration**.
+Depuis la liste des Pollers, sélectionner le Poller et cliquer sur **Exporter
+la configuration**.
 
-Cocher ensuite les quatre premières cases, sélectionner la méthode **Restart**
-et cliquer sur  **Export** :
+Cocher ensuite les quatre premières cases, sélectionner la méthode **Redémarrer**
+et cliquer sur  **Exporter** :
 
 ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-Le Poller va alors se connecter au Broker Central.
+Le moteur de supervision du Poller va alors démarrer et se connecter au Broker
+Central.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
