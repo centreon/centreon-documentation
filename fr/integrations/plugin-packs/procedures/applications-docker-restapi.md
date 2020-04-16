@@ -7,7 +7,7 @@ title: Docker
 
 Docker permet d'embarquer une application dans un ou plusieurs containers logiciels qui pourront s'exécuter sur n'importe quel système d'exploitation hôte. Docker fonctionne sous Linux comme Windows Server. C'est une technologie qui a pour but de faciliter les déploiements d'application et la gestion du dimensionnement de l'infrastructure sous-jacente.
 
-## Contenu du pack de supervision
+## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
@@ -47,7 +47,7 @@ Plus d'informations sur les métriques remontées sont disponibles sur la docume
 
 ## Prérequis
 
-* Le plugin nécessite une version de l'API Docker >= 1.21 (https://docs.docker.com/engine/api/v1.30/).
+* Le Plugin nécessite une version de l'API Docker >= 1.21 (https://docs.docker.com/engine/api/v1.30/).
 
 ### Connexion à l'Api Rest de Docker
 
@@ -69,29 +69,29 @@ Execstart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources Docker:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Docker:
 
 ```bash
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
+2. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
 
 
 <!--Offline IMP License-->
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources Docker:
+1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Docker:
 
 ```bash
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Installer le RPM contenant les modèles de supervision
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-applications-docker-restapi
 ```
 
-3. Installer le pack depuis l'interface Web via la page "Configuration > Plugin packs > Manager":
+3. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -99,7 +99,7 @@ yum install centreon-pack-applications-docker-restapi
 
 Choisissez le modèle d'hôte correspondant aux nodes ou containers "App-Docker-Restapi-custom". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
 
-| Obligatoire | Nom                     | Description                                                                                 |
+| Mandatory   | Nom                     | Description                                                                                 |
 | :---------- | :---------------------- | :------------------------------------------------------------------------------------------ |
 | X           | DOCKERENGINEPORT        | Engine port application for monitoring containers api usages                                |
 |             | DOCKERENGINEEXTRAOPTIONS| Extra options for monitoring containers api usages                                          |
@@ -110,9 +110,9 @@ Choisissez le modèle d'hôte correspondant aux nodes ou containers "App-Docker-
 
 L’api webservice 'container stats' est relativement lente (entre 1s et 2s), les temps de réponse peuvent donc être un peu longs.
 
-#### Comment tester en ligne de commande et quelles sont les significations des options principales ?
+#### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
 
-A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_docker_restapi.pl \
@@ -128,6 +128,6 @@ OK: Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containe
 Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
 ```
 
-La commande ci-dessus requête un noeud Docker (```--mode=node-status```) sur le port 2375 (```--port='2375'```) et fournit son état (Ready ou pas) ainsi que l'état de ses containers en état "running","stopped" et "paused".
+La commande ci-dessus requête un noeud Docker (```--mode=node-status```) sur le port 2375 (```--port='2375'```) et fournit son état ('ready' ou pas) ainsi que l'état de ses containers en état "running","stopped" et "paused".
 
 Une alerte CRITICAL sera déclenchée si l'état du noeud n'est pas 'ready' ou que le statut du manager renvoie un autre état que 'reachable' (```--critical-node-status='%{status} !~ /ready/ || %{manager_status} !~ /reachable|-/'```)
