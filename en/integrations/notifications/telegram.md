@@ -94,7 +94,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 `
 /usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert
 --http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --chat-id='-xxxxxxxx'
---host-name='nirvana'  --service-description='yellow-submarine' --service-state=CRITICAL  --service-output='hightway to hell'
+--host-name='nirvana'  --service-description='yellow-submarine' --service-state=CRITICAL  --service-output='highway to hell'
 `
 
 ![service notification](../../assets/integrations/notifications/telegram/service-notification-telegram.png)
@@ -106,3 +106,19 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 `
 
 ![host notification](../../assets/integrations/notifications/telegram/host-notification-telegram.png)
+
+## Message options
+
+When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin
+Below are some of the available options
+
+| Options | Explanation | Example |
+| ------- | ----------- | ------- |
+| --centreon-token | an autologin token from centreon ||
+| --centreon-url | the centreon url ||
+| --graph-url | graph url. You can use the above options as macro here | **%{centreon_url}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%{centreon_token}**&hostname=**%{host_name}**&service=**%{service_description}**|
+| --link-url | a link url | **%{centreon_url}**/main.php?p=20201&o=svc&host_search=**%{host_name}**&svc_search=**%{service_description}** |
+| --proxyurl | the url to your proxy if needed ||
+
+all options can be displayed with the following command:
+`/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert --help`
