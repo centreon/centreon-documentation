@@ -68,4 +68,4 @@ You'll find the required **app token** in the following menu:
 ![app\_token](../../assets/integrations/open-tickets/ot-glpi-rest-api-app-token.png)
 
 You'll find the **user token** in the following menu:
-![user\_token](../../assets/integrations/open-ticketsmg/ot-glpi-rest-api-user-token.png)
+![user\_token](../../assets/integrations/open-tickets/ot-glpi-rest-api-user-token.png)

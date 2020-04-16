@@ -7,7 +7,7 @@ title: ServiceNow
 
 ServiceNow open-tickets provider uses the ServiceNow REST API to get
 configuration data and open incidents about your monitoring alerts. Since it
-gathers a lot of configurations objects from Itop, it puts them in cache. Loging
+gathers a lot of configurations objects from ServiceNow, it puts them in cache. Loging
 out or waiting 10 hours will flush the cache.
 
 ![architecture](../../assets/integrations/open-tickets/ot-service-now-architecture.png)
