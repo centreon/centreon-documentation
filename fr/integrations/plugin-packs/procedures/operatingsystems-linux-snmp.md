@@ -5,13 +5,13 @@ title: Linux Snmp
 
 ## Vue d'ensemble
 
-Linux est, au sens restreint, le noyau de système d'exploitation du même nom. Au sens large, il fait référence à tous systèmes d'exploitations s'appuyant sur le noyau Linux.
+Linux est, au sens restreint, le noyau de système d'exploitation du même nom. Au sens large, il fait référence à tout système d'exploitation s'appuyant sur le noyau Linux.
 
-## Contenu du pack de supervision
+## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-Plugin pack pour superviser les systèmes d'exploitation Linux: 
+Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés: 
 
     * Centos 
     * Redhat
@@ -25,18 +25,18 @@ Plugin pack pour superviser les systèmes d'exploitation Linux:
 
 <!--Host-->
 
-| Rule name                                  | Description                                                                 |
+| Nom de la règle                            | Description                                                                 |
 | :----------------------------------------- | :-------------------------------------------------------------------------- |
-| App-Protocol-SNMP-HostDiscovery            |  Découvrez vos serveurs Linux en scannant en SNMP un de vos sous-réseaux    |
+| App-Protocol-SNMP-HostDiscovery            |  Découvrez vos serveurs Linux en scannant en SNMP un sous-réseau            |
 
 <!--Services-->
 
-| Rule name                                  | Description                                                                                  |
+| Nom de la règle                            | Description                                                                                  |
 | :----------------------------------------- | :------------------------------------------------------------------------------------------- |
-| OS-Linux-SNMP-Disk-Name                    | Découvre les disques/partitions et leurs taux d'occupation                                   |
+| OS-Linux-SNMP-Disk-Name                    | Découvre les disques/partitions et leur taux d'occupation                                   |
 | OS-Linux-SNMP-Inodes-Name                  | Découvre les disques et supervise les Inodes                                                 |
 | OS-Linux-SNMP-Packet-Errors-Name           | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
-| OS-Linux-SNMP-Traffic-Name                 | Découvre les interfaces réseaux et supervise le status et l'utilisation de la bande passante |
+| OS-Linux-SNMP-Traffic-Name                 | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -44,9 +44,9 @@ Plugin pack pour superviser les systèmes d'exploitation Linux:
 
 En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants: 
     *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
-    *  Process state: Etat d'un ou plusieurs processus et la possibilité de superviser leur consommation de CPU et de mémoire RAM
-    *  TCP connection: Contrôle des connections TCP en cours ainsi que leur statut (ESTABLISHED, ...)
-    *  Uptime: Temps écoulé depuis le dernier redémarrage 
+    *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
+    *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
+    *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -77,7 +77,7 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
 
-A regexp filter is available to target a specific interface identifier - ifName [```--interface='^ens160$' --name]
+Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de la forme [```--interface='^ens160$' --name```]
 
 <!--Swap-->
 
@@ -99,25 +99,25 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 | Metric name                 | Description                                          |
 | :-------------------------- | :--------------------------------------------------- |
-| disk#sum_read_write         | I/O READ volume on all devices. Units: B/s           |
-| disk#sum_read_write_iops    | I/O WRITE volume on all devices. Units: B/s          |
-| disk#read                   | I/O READ volume on a specific device. Units: B/s     |
-| disk#write                  | I/O WRITE volume on a specific device. Units: B/s    |
-| disk#read_iops              | Number or read operation on a device. Unis: iops     | 
-| disk#write_iops             | Number or read operation on a device. Unis: iops     | 
+| disk\#sum_read_write         | I/O READ volume on all devices. Units: B/s           |
+| disk\#sum_read_write_iops    | I/O WRITE volume on all devices. Units: B/s          |
+| disk\#read                   | I/O READ volume on a specific device. Units: B/s     |
+| disk\#write                  | I/O WRITE volume on a specific device. Units: B/s    |
+| disk\#read_iops              | Number or read operation on a device. Unis: iops     | 
+| disk\#write_iops             | Number or read operation on a device. Unis: iops     | 
 
 <!--Storage-->
 
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
-| parition#storage.space.usage.bytes     | Used space on a disk partition. Units: Bytes  |
+| parition\#storage.space.usage.bytes     | Used space on a disk partition. Units: Bytes  |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de superviser vos équipement Linux, votre agent SNMP doit être configuré. Les versions 2 et 3 sont recommandées. 
+Afin de superviser vos équipements Linux, votre agent SNMP doit être configuré. Les versions 2 et 3 sont recommandées. 
 
 ## Configuration du serveur SNMP 
 
@@ -139,11 +139,11 @@ includeAllDisks 10%
 
 Il est nécessaire de redémarrer le processus SNMP après avoir modifié votre configuration. 
 
-Assurer vous que le processus SNMP est configuré pour démarrer automatiquement après une redémarrage de votre serveur.
+Assurez vous que le processus SNMP est configuré pour démarrer automatiquement après le redémarrage du serveur.
 
 ### Flux réseaux
 
-La communication doit être possible sur le port 161 depuis le poller de supervision vers le serveur Linux supervisé. 
+La communication doit être possible sur le port UDP 161 depuis le collecteur de supervision Centreon vers le serveur Linux supervisé. 
 
 ## Installation
 
@@ -151,7 +151,7 @@ La communication doit être possible sur le port 161 depuis le poller de supervi
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des serveurs Linux:
+1. Installer le code du connecteur sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
@@ -161,13 +161,13 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources Linux:
+1. Installer le code du connecteur sur l'ensemble des collecteurs Centreon supervisant des ressources Linux:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Installer le RPM contenant les modèles de supervision
+2. Installer le RPM contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-snmp
@@ -181,7 +181,7 @@ yum install centreon-pack-operatingsystems-linux-snmp
 
 Dans le formulaire de création de votre hôte, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
-  :warning: Si vous utilisez SNMP en version 3, selectionner juste la version SNMP 3 et configurer les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+  :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -189,9 +189,9 @@ Dans le formulaire de création de votre hôte, il est nécessaire de renseigner
 
 ## FAQ
 
-### Comment tester en ligne de commande et quelles significations portent les options principales ?
+### Comment tester en ligne de commande et que signifient les options principales ?
 
-A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre collecteur de supervision avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl
@@ -213,7 +213,7 @@ Tous les modes sont affichables via la commande suivante:
     --list-mode
 ```
 
-Les options des différents modes sont consultables via le help du mode: 
+Les options des différents modes sont consultables via le paramètre ```--help``` du mode: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl \
@@ -228,8 +228,8 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'utilisateur en SNMP soit trop restreintes. 
+Si vous rencontrez cette erreur, il est probable que les autorisations données à l'utilisateur en SNMP soient trop restreintes. 
 
-Si cela se produit sur le mode Inodes, il est probable que votre server net-snmp ne soit pas correctement configuré, il vous faut ajouter la directive ci-dessous puis redémarré le service: 
+Si cela se produit sur le mode Inodes, il est probable que votre service SNMP ne soit pas correctement configuré, il vous faut ajouter la directive ci-dessous dans le fichier de configuration SNMP puis redémarrer le service: 
 
 includeAllDisks 10%
