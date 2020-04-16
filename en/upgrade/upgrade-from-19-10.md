@@ -196,20 +196,94 @@ command:
 
 The MariaDB components can now be upgraded.
 
-Refer to the official MariaDB documentation to perform this upgrade.
+Be aware that MariaDB strongly recommends to upgrade the server through each
+major release.
 
-> Be aware that MariaDB strongly recommends to upgrade the server through each
-> major release.
->
-> You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
->
-> That is why Centreon provides both 10.2 and 10.3 versions on its stable
-> repositories.
->
-> Refer to the following documentations to know how to proceed:
+You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+
+That is why Centreon provides both 10.2 and 10.3 versions on its stable
+repositories.
+
+> Refer to the official MariaDB documentation to know more about this process:
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+
+#### Upgrade from 10.1 to 10.2
+
+Follow those summarize steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.1 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.2 version:
+
+    ```shell
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
+    ```
+
+4. Start the mariadb service
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.2 to 10.3
+
+Follow those summarize steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.2 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.3 version:
+
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
 
 ## Upgrade the Remote Servers
 
