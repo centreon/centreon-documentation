@@ -74,7 +74,7 @@ function DocumentationColumn({ config }) {
   )
 }
 
-function CommunityColumn({ config }) {
+function ResourceColumn({ config }) {
   return (
     <div className="footerSection">
     <h5>{labels.resourcesPart.headerTitle}</h5>
@@ -120,8 +120,7 @@ function Footer({ config }) {
       <section className="sitemap">
         <LogoColumn config={config} />
         <DocumentationColumn config={config} />
-        <CommunityColumn config={config} />
-        <HelpColumn config={config} />
+        <ResourceColumn config={config} />
         <SocialColumn config={config} />
       </section>
       <section className="copyright">
