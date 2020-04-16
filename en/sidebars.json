@@ -124,9 +124,6 @@
             "alerts-notifications/ticketing",
             "alerts-notifications/event-log"
         ],
-        "Dashboards": [
-            "dashboard/init-dashboard"
-        ],
         "Performance graphs": [
             "metrology/chart-management",
             "metrology/chart-template",

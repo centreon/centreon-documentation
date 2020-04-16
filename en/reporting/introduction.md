@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-## Complete reporting: Centreon MBI
+## Complete reporting with Centreon MBI
 
 The reporting capabilities in Centreon relies on the **Centreon Monitoring Business Intelligence (MBI)** extension.
 You also have simple reporting capabilities described below.
@@ -50,7 +50,7 @@ Main features:
 -   Administration and user interface integrated into Centreon
 -   Report development libraries
 
-## Basic reporting
+## Simple reporting
 
 The availability reports of monitoring objects from Centreon Web interface allows 
 to display the availability rate about hosts, hostgroup or servicegroup on a selected period.
