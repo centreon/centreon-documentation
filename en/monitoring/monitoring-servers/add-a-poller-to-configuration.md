@@ -8,8 +8,8 @@ title: Add a Poller to configuration
 As of Centreon version 18.10, a new wizard has been added for defining a new
 Poller on the Centreon platform.
 
-Go to the **Configuration \> Pollers \> Pollers** menu and click on **Add server
-with wizard** to configure a new Poller.
+Go to the `Configuration > Pollers` menu and click on **Add server with
+wizard** to configure a new Poller.
 
 Select **Add a Centreon Poller** and click on **Next**:
 
@@ -31,7 +31,7 @@ If you want to link the poller to the Centreon Server, click on **Apply**:
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
 Otherwise, if you want to link the poller to an existing Centreon Remote Server,
-select one from the list. Then click **Apply**:
+select one from the list. Then click **Apply**.
 
 > If you want to change the direction of the flow between the Centreon Server
 > (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
@@ -66,15 +66,15 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon.
+icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-A popin will show the configuration to copy into the Poller terminal. Click on
-**Copy to clipboard**.
+A pop-in will show the configuration to copy into the **Poller terminal**.
+Click on **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-Paste directly into the terminal as the clipboard contains the following
-content, and will fill the right file:
+Paste the content of the clipboard directly into the **Poller terminal** as it
+contains the following content, and will fill the right file:
 
 ``` shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -102,14 +102,14 @@ gorgone:
 EOF
 ```
 
-Hit the enter key for the command to be applied.
+Hit the *Enter* key for the command to be applied.
 
 > You can copy the configuration in a custom file by copying the content from
-> the popin.
+> the pop-in.
 
 #### Start Gorgone daemon
 
-From the Poller, run the following command:
+From the Poller, run the following command to start Gorgone service:
 
 ``` shell
 systemctl start gorgoned
@@ -150,8 +150,8 @@ Click on **Save**.
 
 #### Exchange SSH keys
 
-If you do not have any private SSH keys on the central server for the
-**centreon-gorgone** user:
+If you do not have any private SSH keys on the **Central server** for the
+**centreon-gorgone** user, create one with the following commands:
 
 ``` shell
 su - centreon-gorgone
@@ -162,13 +162,13 @@ ssh-keygen -t rsa
 > location, or, create one in a specified directory. **Leave the passphrase
 > blank**. You will receive a key fingerprint and a randomart image.
 
-Generate a password for the **centreon** user on the new server:
+Generate a password for the **centreon** user on the **new Poller**:
 
 ``` shell
 passwd centreon
 ```
 
-Copy this key on to the new server:
+Then, copy this key on to the **new Poller** with the following commands:
 
 ``` shell
 su - centreon-gorgone
@@ -178,7 +178,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
-the following command:
+the following command from the **Central server**:
 
 ``` shell
 systemctl restart gorgoned
@@ -194,7 +194,7 @@ Then check the four first boxes, select the **Restart** method and click on
 
 ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
-The Poller will then connect to the Central Broker.
+The Poller's engine will then start and connect to the Central Broker.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
