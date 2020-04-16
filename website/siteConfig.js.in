@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'Centreon documentation', // Title for your website.
-  tagline: 'A documentation that rocks !',
+  tagline: '',
   url: 'https://www.centreon.com', // Your website URL
   baseUrl: '/@BASEURL@/', // Base URL for your project */
   docsUrl: '', // Documentation subdirectory.
