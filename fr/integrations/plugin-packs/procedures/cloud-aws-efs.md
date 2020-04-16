@@ -5,7 +5,7 @@ title: Amazon EFS
 
 ## Vue d'ensemble
 
-Amazon Elastic File System (Amazon EFS) est un système de stockage de fichiers NFS simple, évolutif, élastique et entièrement géré qui s’utilise avec AWS Cloud Services et les ressources sur site. Il prend en charge plusieurs pétaoctets de données à la demande sans interrompre les applications, ajustant automatiquement sa capacité à la hausse ou à la baisse en fonction de l'ajout ou de la suppression de fichiers. De cette manière, il n’est plus nécessaire d’allouer et de gérer la capacité en fonction de la croissance.
+Amazon Elastic File System (Amazon EFS) est un système de stockage de fichiers NFS simple, évolutif, souple qui s’utilise avec AWS Cloud Services et les ressources sur site. Il prend en charge plusieurs pétaoctets de données à la demande sans interrompre les applications, ajustant automatiquement sa capacité à la hausse ou à la baisse en fonction de l'ajout ou de la suppression de fichiers. De cette manière, il n’est plus nécessaire d’allouer et de gérer la capacité en fonction de la croissance.
 
 ## Contenu du pack
 
@@ -30,7 +30,7 @@ Pas de règles de découverte de service pour ce pack
 
 ## Collected Metrics
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci après sur la documentation officiel du service RDS: https://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch.html
+Vous pouvez vous renseigner en détails sur les métriques présentées ci après sur la documentation officiel du service EFS: https://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch.html
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Connections-->
@@ -66,7 +66,7 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 
 ### Plugin dependencies
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy !
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -112,14 +112,14 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
-3. Dans l'interface Ceentreon, installer le plugin-pack Amazon EFS depuis la page "Configuration > Plugin packs > Manager"
+3. Dans l'interface Centreon, installer le plugin-pack Amazon EFS depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Quand vous ajouter un hôte à Centreon, appliquer lui le modèle "Cloud-Aws-EFS-custom". Une fois celui-ci configué, certaines macros doivent être remplies: 
+Lorsque vous ajoutez un hôte à Centreon, appliquez lui le modèle "Cloud-Aws-EFS-custom". Une fois celui-ci configué, certaines macros doivent être remplies: 
 
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -135,7 +135,7 @@ Quand vous ajouter un hôte à Centreon, appliquer lui le modèle "Cloud-Aws-EFS
 
 ## FAQ
 
-### Comment tester en ligne de commande et quelles significations portent les options principales ?
+### Comment tester en ligne de commande et que signifient les options principales ?
 
 A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
 
@@ -163,11 +163,11 @@ Statistic 'Sum' Metrics ClientConnections: 19.00
 
 ```
 
-La commande ci-dessus contrôle le nombre de connection (```--mode=connections```) sur le système de fichier *fs-1234abcd* (```--name='fs-1234abcd'```). Ce système de fichier est rattaché à une ressource hebergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La métrique obtenue est une somme de valeurs (```--statistic='sum'```) sur un intervale de 600 secondes  (```--timeframe='600'```) avec un point par minute (```--period='60'```).
+La commande ci-dessus contrôle le nombre de connexions (```--mode=connections```) sur le système de fichier *fs-1234abcd* (```--name='fs-1234abcd'```). Ce système de fichier est rattaché à une ressource hébergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La métrique obtenue est une somme de valeurs (```--statistic='sum'```) sur un intervalle de 600 secondes  (```--timeframe='600'```) avec un point par minute (```--period='60'```).
 
-Cette commande déclenche un WARNING si le nombre de connections est supérieur à 25 et un CRITICAL si il est supérieur à 50.
+Cette commande déclenche un WARNING si le nombre de connexions est supérieur à 25 et un CRITICAL s'il est supérieur à 50.
 
-Toutes les options peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
+Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```/usr/lib/centreon/plugins//centreon_aws_efs_api.pl --plugin=cloud::aws::efs::plugin --mode=connections --help```
 
