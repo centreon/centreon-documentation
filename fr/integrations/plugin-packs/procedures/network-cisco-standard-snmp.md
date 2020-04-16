@@ -5,7 +5,7 @@ title: Cisco Standard
 
 ## Vue d'ensemble
 
-Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Ils fournissent des solutions pour de multiples usages (mobiles, IOT, routage, ...). 
+Cisco développe et fabrique des équipements de télécommunications, réseaux et logiciels. Les solutions proposées répondent à de multiples usages (mobiles, IOT, routage, ...). 
 
 ## Contenu du plugin-pack
 
