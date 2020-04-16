@@ -17,30 +17,17 @@ Use SSH to access the poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
     # yum install centreon-pack-operatingsystems-linux-snmp
-    # yum install centreon-pack-applications-monitoring-centreon-map4-jmx
+    # yum install centreon-pack-applications-monitoring-centreon-map-jmx
     # yum install centreon-pack-applications-webservers-tomcat-jmx
 
     # yum install centreon-plugin-Operatingsystems-Linux-Snmp
-    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map4-Jmx
+    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
     # yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
 
     ## OPTIONAL - Only if you have a local MariaDB DB for your Map server
 
     # yum install centreon-pack-applications-databases-mysql
     # yum install centreon-plugin-Applications-Databases-Mysql
-
-### Configure Jolokia
-
-You need to deploy a Jolokia WAR agent on your Tomcat to monitor it.
-
-Download Jolokia and install it on your Centreon MAP server. The agent can be
-found [here](https://jolokia.org/download.html).
-
-Or you can use the following command:
-
-    # wget  http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.3.5/jolokia-war-1.3.5.war -O /var/lib/tomcat/webapps/jolokia.war
-
-> Adapt the download URL according to the current Jolokia version.
 
 ### Configure your database
 
@@ -65,7 +52,7 @@ Fill in the basic information about your host and add the following host
 templates:
 
   - OS-Linux-SNMP-custom
-  - App-Monitoring-Centreon-Map4-JMX-custom
+  - App-Monitoring-Centreon-Map-JMX-custom
   - App-Webserver-Tomcat-JMX-custom
 
 Also add the following only if you have a local MariaDB DB on you Map server:
@@ -82,15 +69,15 @@ Important:
 2)  The MySQL/MariaDB template is useful only if there is a MariaDB server on your
     Centreon MAP server (for Centreon MAP database).
 
-3)  Enter the Jolokia URL as follows:
+3)  Enter the Jolokia URL, accessible on the Centreon Map server, through actuator endpoint:
 
     For an HTTP configuration
 
-        http://<MAP_IP>:8080/jolokia
+        http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
 
     For an HTTPS configuration
 
-        https://<MAP_IP>:8443/jolokia
+        https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
 
     > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
