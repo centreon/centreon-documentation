@@ -63,7 +63,7 @@ systemctl restart gorgoned
 
 ### Add your token
 
-Go to the **Configuration > Services > Anomaly Detection** menu and click on **Add Cloud Configuration** button:
+Go to the **Configuration > Services > Anomaly Detection** menu and click on **Add Centreon Cloud Token** button:
 
 ![imaage](assets/monitoring/anomaly/install_03.png)
 
@@ -101,7 +101,7 @@ Configuration must be done in 3 steps:
 
 ### Activate the sending of the collected data to Centreon Cloud
 
-Go to the **Configuration > Services > Anomaly Detection** menu and click on **Add service Anomaly** button:
+Go to the **Configuration > Services > Anomaly Detection** menu and click on **Add Anomaly Service** button:
 
 ![imaage](assets/monitoring/anomaly/configure_01.png)
 
