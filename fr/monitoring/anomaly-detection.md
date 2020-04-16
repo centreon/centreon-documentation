@@ -10,7 +10,7 @@ title: Détection d'anomalies
 
 Le module **Centreon Anomaly Detection** détecte les déviations par rapport au comportement de service normal.
 
-Les données collectées sont envoyées à la plateforme centrale Centreon SaaS afin de pouvoir calculer un modèle de
+Les données collectées sont envoyées à la plateforme centrale Centreon Cloud afin de pouvoir calculer un modèle de
 comportement régulier grâce à l'historique de ces données.
 
 Une fois le modèle calculé, les prédictions sont ensuite générées et récupérées sur la plateforme Centreon sur site.
@@ -19,14 +19,14 @@ Ces prévisions serviront de seuils flottants qui seront ensuite utilisés par l
 valeur collectée avec les seuils prévus pour mettre en évidence les écarts et générer des alertes.
 
 
-![image](assets/monitoring/anomaly/saas_centreon.png)
+![image](assets/monitoring/anomaly/centreon_cloud.png)
 
 ## Prérequis
 
 Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
 
 * Centreon en version minimale 20.04
-* Un jeton fourni par Centreon pour accéder à la plateforme Centreon SaaS
+* Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
 * Une connexion Internet depuis le serveur Centreon Central
 * La prédiction fonctionne mieux avec des services surveillés qui présentent un comportement saisonnier comme indiqué
   ci-dessous :
@@ -65,7 +65,7 @@ systemctl restart gorgoned
 ### Ajouter votre jeton
 
 Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et cliquez sur le bouton
-**Add SaaS Configuration** :
+**Add Cloud Configuration** :
 
 ![imaage](assets/monitoring/anomaly/install_03.png)
 
@@ -85,13 +85,13 @@ Votre plateforme Centreon est maintenant prête à utiliser la détection d'anom
 
 La configuration doit se faire en 3 étapes :
 
-1. [Activer l'envoi des données collectées vers SaaS Centreon](#activer-lenvoi-des-données-collectées-vers-saas-centreon)
+1. [Activer l'envoi des données collectées vers Centreon Cloud](#activer-lenvoi-des-données-collectées-vers-centreon-cloud)
   afin de démarrer la modélisation du comportement régulier puis de contrôler via le menu **Monitoring> Performances> Graphiques**
   les premiers calculs de modélisation effectués.
 2. Une fois que les modèles semblent corrects, [activer la génération d'alertes](#activer-la-génération-dalertes)
 3. Dès que les alertes générées semblent correctes, [activer le processus de notification](#activer-le-processus-de-notification)
 
-### Activer l'envoi des données collectées vers SaaS Centreon
+### Activer l'envoi des données collectées vers Centreon Cloud
 
 Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et cliquez sur le bouton **Add service Anomaly** :
 
