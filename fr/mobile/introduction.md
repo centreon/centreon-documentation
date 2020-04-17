@@ -6,7 +6,7 @@ title: Introduction
 Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées 
 par Centreon, sur une tablette ou un téléphone.
 
-  ![image](../assets/releases/mobile-app-screens.png)
+  ![image](../assets/mobile/mobile-app-screens.png)
 
 Les fonctionnalités principales de cette application sont:
 

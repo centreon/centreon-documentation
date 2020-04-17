@@ -5,7 +5,7 @@ title: Introduction
 
 Centreon comes with its mobile App. to let you access resources status on mobility, wether you're on phone or tablet. 
 
-  ![image](../assets/releases/mobile-app-screens.png)
+  ![image](../assets/mobile/mobile-app-screens.png)
 
 The main capabilities of Centreon Mobile App. are :
 
