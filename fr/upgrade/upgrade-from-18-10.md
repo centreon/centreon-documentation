@@ -257,7 +257,7 @@ Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
 Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
 dépôts stables.
 
-> Référez vous à la documentation officiel de MariaDB pour en savoir d'avantage
+> Référez vous à la documentation officielle de MariaDB pour en savoir d'avantage
 > sur ce processus :
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
