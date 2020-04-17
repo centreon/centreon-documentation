@@ -319,7 +319,7 @@ recommande :
     mysql_upgrade
     ```
 
-> Référez vous à la [documentation officiel](https://mariadb.com/kb/en/mysql_upgrade/)
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
 ## Montée de version des Remote Servers
