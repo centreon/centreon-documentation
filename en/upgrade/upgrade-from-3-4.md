@@ -259,7 +259,7 @@ command:
 The MariaDB components can now be upgraded.
 
 Be aware that MariaDB strongly recommends to upgrade the server through each
-major release.
+major release. Please refer to the [official MariaDB documentation](https://mariadb.com/kb/en/upgrading/) for further information.
 
 You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
 
