@@ -8,8 +8,10 @@ Hello & Welcome! We are excited to help you begin your Centreon journey.
 You will fin in this chapter how to quickly start on Centreon. It's composed of a quick start to install 
 & use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
+* [Request your free trial](#request-your-free-trial)
 * [Setup your first platform](#setup-your-first-platform)
 * [First login](#first-login)
+* [Add your Centreon IT Edition token](#add-your-centreon-it-edition-token)
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
 * [Start to monitor your first host](#start-to-monitor-your-first-host)
 * [Deploying a configuration](#deploying-a-configuration)
@@ -21,10 +23,21 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 * [Model your IT services (Service Mapping)](#model-it-services)
 * [Analyze resources availability (Reporting)](#analyze-resources-availability)
 
+## Request your free trial
+
+Centreon offers you to test all the features of the **Centreon IT edition** for free.
+To do this, go to our website in the **[Try Centreon IT Edition](https://www.centreon.com/en/free-trial/)** section and
+fill in the form :
+
+![image](../assets/getting-started/it_100_free_token_form.png)
+
+You will receive an email containing your **token** to try **Centreon IT edition**.
+
+Now it's time to go to the next chapter to install your Centreon platform.
+
 ## Setup your first platform
 
 To setup your first Centreon platform, we suggest using a ready-to-use virtual machine.
-
 
 **Prerequisites**
 
@@ -37,20 +50,34 @@ The virtual machine needs:
 - Hard disk space. The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want to continue using Centreon, it is recommended to have at least 10 GB because its size will grow over time.
 - An Internet access to benefit from the IT-100 free offer
 
-> For a more custom installation, the complete prerequisites are available [here](#installation/prerequisites).
+> For a more custom installation, the complete prerequisites are available [here](../installation/prerequisites).
 
 ### Download
+
+You can install Centreon:
+
+- [Using Centreon ISO](../installation/installation-of-a-central-server/using-centreon-iso)
+- From ready-to-use virtual machines:
 
 The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--VMWare environment-->
+<!--VMware environment-->
+\
+Go to to **File > Deploy OVF Template** and select the **OVA file**. Because the menu selections are actually linked to
+your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use
+the **Thin Provision** option to save as much free space as possible on the disk.
 
+<!--Oracle Virtualbox-->
+\
+Extract the contents of the archive and double-click on the **OVF file**. Follow the instructions to import the virtual
+machine.
 
- Go to to **File > Deploy OVF Template and select the OVA file**. Because the menu selections are actually linked to your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use Thin Provision to save as much free space as possible on the disk.
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Once you virtual machine is imported, you need to add a network card. Edit the settings of the virtual machine and a network card. Select the correct associated network to access to Internet.
+Once you virtual machine is imported, you need to **add a network card**. Edit the settings of the virtual machine and
+a network card. Select the correct associated network to access to Internet.
 
 You can now start the virtual machine.
 
@@ -62,21 +89,15 @@ Once your virtual machine has started. You must connect to it via a shell termin
 
 Once these operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
 
-#### Default credential
+#### Default credentials
 
-- The default Centreon web interface accout is: **admin / centreon**.
+- The default Centreon web interface account is: **admin / centreon**.
 - The server administration account (through SSH) is: **root / centreon**.
 - The root password of the DBMS is not initialized.
 
 > For security reasons, we highly recommend for you to change these passwords after installation.
 
 You can now perform continue to the first login section.
-
-<!--Oracle Virtualbox-->
-
-#TODO
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## First login
 
@@ -119,6 +140,22 @@ Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the list of available language, you can help the Centreon community to translate
 > the web interface. Go to the @TODO@(ref to how to translate menu) chapter for more information.
+
+## Add your Centreon IT Edition token
+
+> Your **Centreon IT Edition** test token was sent to you by email.
+
+Go to the **Administration > Extensions > Manager** menu an click on **Add Token**:
+
+![image](../assets/getting-started/it_100_free_token_add_1.png)
+
+A window opens, enter your token and click on the save button:
+
+![image](../assets/getting-started/it_100_free_token_add_2.png)
+
+You now benefit from the **Centreon IT Edition** offer limited to the monitoring of 100 resources.
+
+Continue with the following chapters to start monitoring your IT.
 
 ## Basic principle of monitoring
 
@@ -171,13 +208,6 @@ for free:
 ![image](../assets/getting-started/pp_install_basic.gif)
 
 Now you have the basic templates and plugins to initial monitoring!
-
-Five additional Packs are available once you register on [our web site](https://store.centreon.com), and over 300
-more if you subscribe to the [IMP offer](https://store.centreon.com). @TODO@(change this sentence!!!)
-
-> If you already have a Centreon account, [you can now authenticate your Centreon platform]
-> (https://documentation.centreon.com/docs/plugins-packs/en/latest/installation.html)
-> to receive additional Plugin Packs or any services associated with your account.
 
 ## Start to monitor your first host
 
@@ -250,10 +280,18 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
-To know the name of the available files system you can execute the plugin in command line:
+> With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
 
-```Bash
-$  /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+To know manually the name of the available files system you can execute the plugin in command line:
+
+```Shell
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+```
+
+You will see the result:
+```Shell
 List storage:
 Skipping storage 'Physical memory': no type or no matching filter type
 Skipping storage 'Swap space': no type or no matching filter type
@@ -277,7 +315,11 @@ Skipping storage 'Shared memory': no type or no matching filter type
 It is the same to know the name of the available network interfaces:
 
 ```Bash
-$  /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+```
+You will see the result:
+```Shell
 List interfaces:
 'lo' [speed = 10, status = up, id = 1]
 'enp0s3' [speed = 1000, status = up, id = 2]
@@ -349,10 +391,17 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
-To know the name of the available files system you can execute the plugin in command line:
+> With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+To know manually the name of the available files system you can execute the plugin in command line:
+
+```Shell
+/usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
+    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+```
+You will see the result:
+```Shell
 List storage:
 'C:\ Label:  Serial Number 2cb607df' [size = 53317988352B] [id = 1]
 Skipping storage 'Virtual Memory': no type or no matching filter type
@@ -361,8 +410,12 @@ Skipping storage 'Physical Memory': no type or no matching filter type
 
 It is the same to know the name of the available network interfaces:
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+```Shell
+/usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
+--hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+```
+You will see the result:
+```Shell
 List interfaces:
 'loopback_0' [speed = 1073, status = up, id = 1]
 'ethernet_3' [speed = , status = notPresent, id = 10]
@@ -454,10 +507,18 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
-To know the name of the available network interfaces you can execute the plugin in command line:
+> With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+To know manually the name of the available network interfaces you can execute the plugin in command line:
+
+```Shell
+/usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
+    --plugin=network::cisco::standard::snmp::plugin \
+    --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+```
+You will see the result:
+```Shell
 List interfaces:
 'Gi1/0/1' [speed = 1000, status = up, id = 10101]
 'Gi1/0/2' [speed = 1000, status = up, id = 10102]
@@ -491,8 +552,13 @@ List interfaces:
 
 It is the same to know the name of the spanning-tree:
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+```Shell
+/usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
+    --plugin=network::cisco::standard::snmp::plugin \
+    --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+```
+You will see the result:
+```Shell
 List ports with Spanning Tree Protocol:
 [port = GigabitEthernet1/0/20] [state = forwarding] [op_status = up] [admin_status = up] [index = 10120]
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
