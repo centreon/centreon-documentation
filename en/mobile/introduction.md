@@ -38,13 +38,13 @@ For **Android**, you can:
  - Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp) 
  - Install it from [mobile.centreon.com](https://www.mobile.centreon.com/) using the "Add to home screen" feature
 
-    ![image](../assets/releases/andoid-add-to-home-screen.png)
+    ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
 
 For **Apple iOS**, go to [mobile.centreon.com](https://www.mobile.centreon.com/) using Safari and use the
 "Add to home screen" feature
 
-![image](../assets/releases/ios-add-to-home-screen.png)
+![image](../assets/mobile/ios-add-to-home-screen.png)
 
 
 ## How to connect 

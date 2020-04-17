@@ -41,12 +41,12 @@ Pour **Android**, deux possibilités:
   - Installer l'application via Google Chrome et en vous rendant sur 
   [mobile.centreon.com](https://www.mobile.centreon.com/)  utilsant la fonctionnalité "Ajouter à l'écran d'accueil"
 
-    ![image](../assets/releases/andoid-add-to-home-screen.png)
+    ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
 Pour **iOS**, rendez vous sur [mobile.centreon.com](https://www.mobile.centreon.com/)  avec le navigateur Safari 
 puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
-![image](../assets/releases/ios-add-to-home-screen.png)
+![image](../assets/mobile/ios-add-to-home-screen.png)
 
 
 ## Se connecter à l'application
