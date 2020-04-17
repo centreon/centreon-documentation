@@ -5,9 +5,7 @@ title: Introduction
 
 Centreon comes with its mobile App. to let you access resources status on mobility, wether you're on phone or tablet. 
 
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
-  </video>
+  ![image](../assets/releases/mobile-app-screens.png)
 
 The main capabilities of Centreon Mobile App. are :
 
@@ -16,6 +14,10 @@ The main capabilities of Centreon Mobile App. are :
 - Take actions: acknowledge or set a planned downtime
 - See detail information of host or service
 - Access metrics history via charts 
+
+  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
+    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
+  </video>
 
 ## Pre-requisites
 

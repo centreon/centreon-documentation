@@ -6,9 +6,7 @@ title: Introduction
 Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées 
 par Centreon, sur une tablette ou un téléphone.
 
-  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
-    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
-  </video>
+  ![image](../assets/releases/mobile-app-screens.png)
 
 Les fonctionnalités principales de cette application sont:
 
@@ -17,6 +15,10 @@ Les fonctionnalités principales de cette application sont:
 - Prendre des actions sur les ressources: acquitter ou démarrer une plage de maintenance programmée
 - Accéder aux informations détaillées des ressources
 - Accéder à l'historique d'une métrique via un graphique
+
+  <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
+    <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
+  </video>
 
 ## Pre-requis
 
