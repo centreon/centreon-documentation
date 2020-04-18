@@ -12,10 +12,11 @@ Cisco develops, manufactures and sells networking hardware, software, telecommun
 ### Monitored equipments
 
 All Cisco devices supporting standard MIBs can be monitored:
-    * Routers
-    * Access Points
-    * Switchs
-    * ...                     
+
+* Routers
+* Access Points
+* Switchs
+* ...                     
 
 ### Discovery rules
 
@@ -40,13 +41,14 @@ All Cisco devices supporting standard MIBs can be monitored:
 
 Only standard metrics are described in this section. Be aware that a lot of other checks and metrics are available from Cisco additionnal MIBS. Here is a non-exhaustive list: 
 
-	* hsrp: HSRP protocol state 
-	* ipsectunnel: State of ipsec tunnels
-	* ipsla: IP SLA configuration and performances
-	* load: Load of your device cores
-	* memoryflash: Memory flash pool usage
-	* qosusage: Check QOS configuration and associated consumptions
-	* stack: Check the health of your device stack
+* hsrp: HSRP protocol state 
+* ipsectunnel: State of ipsec tunnels
+* ipsla: IP SLA configuration and performances
+* load: Load of your device cores
+* memoryflash: Memory flash pool usage
+* qosusage: Check QOS configuration and associated consumptions
+* stack: Check the health of your device stack
+
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -110,14 +112,16 @@ Here is an example:
 
   * Connect to your router and reach the configuration prompt:
 
-```Router#configure terminal
+```
+Router#configure terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
 Router(config)# 
 ``` 
 
   * Use this command to enable snmp-server and set a read-only community
 
-```Router(config)#snmp-server community public RO 
+```
+Router(config)#snmp-server community public RO 
 ```
 
 In the example above, 'public' is your snmp community. You do now want to use it in production ;)  
