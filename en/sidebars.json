@@ -834,7 +834,11 @@
             "api/graph-views-api"
         ],
         "Developer resources": [
-            "developer/init-developer"
+            "developer/init-developer",
+            "developer/developer-module",
+            "developer/developer-stream-connector",
+            "developer/developer-translate-centreon",
+            "developer/developer-widget"
         ],
         "Releases": [
             "releases/introduction",
