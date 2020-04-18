@@ -13,11 +13,11 @@ Linux is a family of open source Unix-like operating systems based on the Linux 
 
 This Plugin-Pack provides assets to monitor all types of Linux based systems with a SNMP server enabled:
 
-    * Centos 
-    * Redhat
-    * Debian
-    * Ubuntu
-    * ...
+* Centos 
+* Redhat
+* Debian
+* Ubuntu
+* ...
 
 ### Discovery rules
 
@@ -44,10 +44,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 In addition to modes and metrics described here, it is also possible to monitor the following indicators: 
 
-    *  CPU detailed: Advanced monitoring of the CPU (User, Nice, Idle, ...)
-    *  Process state: State of one or several processes running on the server. It's also possible to check CPU and Memory utilization of a specific process. 
-    *  TCP connection: Check number of TCP connections. [State:listen, closeWait, ...] [type: ipv4, dns, ...] [service]
-    *  Uptime: Elapsed time since the last reboot
+*  CPU detailed: Advanced monitoring of the CPU (User, Nice, Idle, ...)
+*  Process state: State of one or several processes running on the server. It's also possible to check CPU and Memory utilization of a specific process. 
+*  TCP connection: Check number of TCP connections. [State:listen, closeWait, ...] [type: ipv4, dns, ...] [service]
+*  Uptime: Elapsed time since the last reboot
+
 
 <!--DOCUSAURUS_CODE_TABS-->
 
