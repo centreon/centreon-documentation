@@ -13,11 +13,11 @@ Linux est, au sens restreint, le noyau de système d'exploitation du même nom. 
 
 Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés: 
 
-    * Centos 
-    * Redhat
-    * Debian
-    * Ubuntu
-    * ...
+  * Centos 
+  * Redhat
+  * Debian
+  * Ubuntu
+  * ...
 
 ### Règles de découvertes
 
@@ -43,10 +43,10 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 ## Métriques collectées
 
 En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants: 
-    *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
-    *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
-    *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
-    *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
+  *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
+  *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
+  *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
+  *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
 
 <!--DOCUSAURUS_CODE_TABS-->
