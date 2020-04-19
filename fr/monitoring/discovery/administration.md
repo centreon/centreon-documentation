@@ -7,49 +7,56 @@ title: Administration
 
 Pour mettre à jour le module, exécutez la commande suivante :
 
-```shell 
-yum update centreon-auto-discovery-server
+``` shell
+yum update -y centreon-auto-discovery-server
 ```
 
-Si une mise à jour est disponible, une confirmation vous sera demandée. Répondre *oui* à la question..
+Si une mise à jour est disponible, une confirmation vous sera demandée. Répondre
+*oui* à la question..
 
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
-rendez-vous dans le menu **Administration > Extensions > Manager menu**.
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les
+droits d’installer des modules et rendez-vous dans le menu `Administration >
+Extensions > Gestionnaire`.
 
-Cliquez sur l’icône de mise à jour correspondant au module  **Centreon Auto Discovery** :
+Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :
 
 ![image](../../assets/configuration/autodisco/update.png)
 
 Le module est maintenant à jour :
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Désinstallation
 
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
-rendez-vous dans le menu **Administration > Extensions > Manager menu**.
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les
+droits d’installer des modules et rendez-vous dans le menu `Administration >
+Extensions > Gestionnaire`.
 
-Cliquer sur l’icône de suppression correspondant au module **Centreon Auto Discovery** :
+Cliquer sur l’icône de suppression correspondant au module **Auto Discovery** :
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](../../assets/monitoring/discovery/install-after.png)
 
 Une fenêtre de confirmation apparaît, confirmer l’action :
 
-![image](../../assets/configuration/autodisco/uninstall.png)
+![image](../../assets/monitoring/discovery/uninstall-popin.png)
 
 Le module est maintenant désinstallé :
 
-![image](../../assets/configuration/autodisco/install.png)
+![image](../../assets/monitoring/discovery/install-before.png)
 
-> La désinstallation du module supprimera toutes les données associées. Les données ne pourront être restaurées sauf
-> si une sauvegarde de la base de données a été faite.
+> La désinstallation du module supprimera toutes les données associées. Les
+> données ne pourront être restaurées sauf si une sauvegarde de la base de
+> données a été faite.
 
-## Tâche programmée
+## Découverte de services
 
-Toutes les règles de découverte sont exécutées périodiquement à travers des tâches ordonnancées par le démon cron. La
-description des exécutions est disponible dans le fichier **/etc/cron.d/centreon-auto-disco** :
+### Tâche programmée
 
-```shell
+Toutes les règles de découverte sont exécutées périodiquement à travers des
+tâches ordonnancées par le démon cron. La description des exécutions est
+disponible dans le fichier **/etc/cron.d/centreon-auto-disco** :
+
+``` shell
 #####################################
 # Centreon Auto Discovery
 #
@@ -57,17 +64,19 @@ description des exécutions est disponible dans le fichier **/etc/cron.d/centreo
 30 22 * * * centreon /usr/share/centreon/www/modules/centreon-autodiscovery-server//cron/centreon_autodisco --config='/etc/centreon/conf.pm' --config-extra='/etc/centreon/centreon_autodisco.pm' --severity=error >> /var/log/centreon/centreon_auto_discovery.log 2>&1
 ```
 
-La configuration par défaut exécute les règles de découvertes tous les jours à 22h30.
+La configuration par défaut exécute les règles de découvertes tous les jours à
+22h30.
 
-Les informations et les erreurs relatives à l’exécution des règles de découverte sont sauvegardées dans le fichier
-**/var/log/centreon/centreon_auto_discovery.log**.
+Les informations et les erreurs relatives à l’exécution des règles de découverte
+sont sauvegardées dans le fichier
+**/var/log/centreon/centreon\_auto\_discovery.log**.
 
 ## Configuration du moteur de découverte
 
 Voici un exemple complet de la configuration possible du fichier
-**/etc/centreon/centreon_autodisco.pm** :
+**/etc/centreon/centreon\_autodisco.pm** :
 
-```perl
+``` perl
 %centreon_autodisco_config = (
     internal_com_type => 'ipc',
     internal_com_path => '/tmp/centreonautodisco/routing.ipc',
@@ -102,13 +111,15 @@ Voici un exemple complet de la configuration possible du fichier
 1;
 ```
 
-## Architecture distribuée
+### Architecture distribuée
 
-Lorsqu’un hôte est supervisé par un collecteur distant, la découverte sera effectuée depuis ce dernier. Ainsi pour que
-les commandes puissent être exécutées correctement, il est nécessaire d’autoriser le processus Apache à accéder aux
-clés SSH de l’utilisateur **centreon**. Pour cela exécutez les commandes suivantes :
+Lorsqu’un hôte est supervisé par un collecteur distant, la découverte sera
+effectuée depuis ce dernier. Ainsi pour que les commandes puissent être
+exécutées correctement, il est nécessaire d’autoriser le processus Apache à
+accéder aux clés SSH de l’utilisateur **centreon**. Pour cela exécutez les
+commandes suivantes :
 
-```shell
+``` shell
 mkdir /var/www/.ssh/
 cp /var/spool/centreon/.ssh/* /var/www/.ssh/
 chown -R apache. /var/www/.ssh

@@ -3,6 +3,8 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
+TODO: gif
+
 > The discovery providers are provided from installation of Plugin Packs (Azure,
 > Amazon AWS, VMware, etc.). To know the complete list, please go to
 > the [Plugin Packs
@@ -60,7 +62,7 @@ Click on **FINISH** on the last step to add and schedule the discovery job.
 Go to the `Configuration > Hosts > Discovery` menu to access to the list of
 discovery jobs.
 
-TODO: add a screen of jobs listing
+![image](../../assets/monitoring/discovery/host-discovery-job-listing.png)
 
 The status of a job can be:
 
@@ -86,7 +88,7 @@ Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delet
 From the `Configuration > Hosts > Discovery` menu, click on a *Finished* job to
 visualize the result.
 
-TODO: add a screen of hosts listing
+![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 Select the hosts you want to add to the configuration and click on **SAVE**. A
 task will be launched in background to save the hosts.
@@ -95,7 +97,7 @@ Go to the `Configuration > Hosts` menu to see the newly created hosts. To
 deploy the services link to the host template, select the hosts and choose
 **Deploy Service** from the **More actions...** drop-down menu.
 
-TODO: add a screen of hosts in configuration
+![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
 If the hosts you selected are not visible in the configuration, go back to the
 job listing and see if an error occured during the saving task.
@@ -104,7 +106,7 @@ job listing and see if an error occured during the saving task.
 
 From the `Configuration > Hosts > Discovery` menu, click on the *Edit* action.
 
-TODO: add a screen of the edit panel
+![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
 On the panel on the right, every parameters of the job can be edited.
 

@@ -7,49 +7,55 @@ title: Administration
 
 To update the module, run the following command:
 
-```shell
-yum update centreon-auto-discovery-server
+``` shell
+yum update -y centreon-auto-discovery-server
 ```
 
-If an update is available, you will be asked for a confirmation. Just answer *yes* to the question.
+If an update is available, you will be asked for a confirmation. Just answer
+*yes* to the question.
 
-Connect to the Centreon’s web interface using an account allowed to administer products and go to the
-**Administration > Extensions > Manager menu**.
+Connect to the Centreon’s web interface using an account allowed to administer
+products and go to the `Administration > Extensions > Manager` menu.
 
-Click on the update icon corresponding to the **Centreon Auto Discovery** module:
+Click on the update icon corresponding to the **Auto Discovery**
+module:
 
 ![image](../../assets/configuration/autodisco/update.png)
 
 The module is now updated:
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Uninstallation
 
-Connect to the Centreon’s web interface using an account allowed to administer products and go to the
-**Administration > Extensions > Manager** menu.
+Connect to the Centreon’s web interface using an account allowed to administer
+products and go to the `Administration > Extensions > Manager` menu.
 
-Click on the delete icon corresponding to the **Centreon Auto Discovery** module:
+Click on the delete icon corresponding to the **Auto Discovery**
+module:
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](../../assets/monitoring/discovery/install-after.png)
 
 A confirmation popup will appear, confirm the action:
 
-![image](../../assets/configuration/autodisco/uninstall.png)
+![image](../../assets/monitoring/discovery/uninstall-popin.png)
 
 The module is now uninstalled:
 
-![image](../../assets/configuration/autodisco/install.png)
+![image](../../assets/monitoring/discovery/install-before.png)
 
-> Uninstalling the module will also remove all the associated data. Data won't be restorable unless a database backup
-> has been made.
+> Uninstalling the module will also remove all the associated data. Data won't
+> be restorable unless a database backup has been made.
 
-## Scheduled job
+## Services discovery
 
-All the active discovery rules are periodically executed through a scheduled job managed by the *cron* daemon. The
-execution's description is available into the **/etc/cron.d/centreon-auto-disco** file:
+### Scheduled job
 
-```shell
+All the active discovery rules are periodically executed through a scheduled job
+managed by the *cron* daemon. The execution's description is available into the
+**/etc/cron.d/centreon-auto-disco** file:
+
+``` shell
 #####################################
 # Centreon Auto Discovery
 #
@@ -59,14 +65,15 @@ execution's description is available into the **/etc/cron.d/centreon-auto-disco*
 
 The default configuration runs the discovery every day at 10:30 PM.
 
-Information and errors relative to the execution will be saved into the **/var/log/centreon/centreon_auto_discovery.log** file.
+Information and errors relative to the execution will be saved into the
+**/var/log/centreon/centreon\_auto\_discovery.log** file.
 
 ## Configuring the discovery engine
 
 Here is an example of a complete possible configuration of the
-**/etc/centreon/centreon_autodisco.pm** file:
+**/etc/centreon/centreon\_autodisco.pm** file:
 
-```perl
+``` perl
 %centreon_autodisco_config = (
     internal_com_type => 'ipc',
     internal_com_path => '/tmp/centreonautodisco/routing.ipc',
@@ -101,13 +108,14 @@ Here is an example of a complete possible configuration of the
 1;
 ```
 
-## Distributed architecture
+### Distributed architecture
 
 When a host is monitored by a remote collector, the discovery will be made from
-it. Thus to executed distant commands it is necessary to allow the Apache process
-to access the **centreon** SSH keys user. To do this run the following commands:
+it. Thus to executed distant commands it is necessary to allow the Apache
+process to access the **centreon** SSH keys user. To do this run the following
+commands:
 
-```shell
+``` shell
 mkdir /var/www/.ssh/
 cp /var/spool/centreon/.ssh/* /var/www/.ssh/
 chown -R apache. /var/www/.ssh

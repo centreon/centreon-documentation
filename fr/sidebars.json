@@ -95,7 +95,6 @@
                     "monitoring/discovery/installation",
                     "monitoring/discovery/hosts-discovery",
                     "monitoring/discovery/services-discovery",
-                    "monitoring/discovery/create-services-discovery-rules",
                     "monitoring/discovery/administration"
                 ],
                 "label": "Découverte",
