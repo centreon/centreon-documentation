@@ -1,6 +1,6 @@
 ---
 id: telegram
-title: Telegram
+title: Notify with Telegram bot
 ---
 
 ## Introduction
@@ -10,6 +10,7 @@ This documentation is brought to you thanks to our partner PILPRÉ Yann from
 ![logo](../../assets/integrations/notifications/telegram/logo-YPSI.png)
 
 ## How it works
+
 Telegram notifications connector uses the perl Centreon plugin to send notification through Telegram using their REST API
 
 ![architecture](../../assets/integrations/notifications/telegram/architecture-telegram.png)
@@ -20,13 +21,13 @@ Telegram notifications connector uses the perl Centreon plugin to send notificat
 
 First of all, you need the Centreon Telegram plugin to be installed on your Centreon server
 
-`
+```bash
 yum install git
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git
 chown -R centreon-engine. /usr/lib/centreon/git-plugins
-`
+```
 
 ### Telegram configuration
 
@@ -36,7 +37,7 @@ First of all, reach https://web.telegram.org and sign in
 
 Then, proceed to talk to the BotFather and tell him the following command
 
-`/newbot`
+```/newbot```
 
 ![newbot](../../assets/integrations/notifications/telegram/newbot-telegram.png)
 
@@ -58,7 +59,8 @@ When creating your group, add your bot to it
 ## Configuration
 
 ### Get your chat-id from telegram
-On the telegram webapp page, click on the group you created earlier and get your chat-id from the url
+
+On the telegram webapp page, click on the group previously created to obtain a chat-id from URL
 
 ![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
 
@@ -72,53 +74,81 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 
 ![service command](../../assets/integrations/notifications/telegram/service-command-telegram.png)
 
-`
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
---chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$  
+```bash
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+--plugin=notification::telegram::plugin \
+--mode=alert \
+--http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+--chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$ \
 --service-output='$SERVICEOUTPUT$'
-`
+``` 
 
 #### Host notification command
 
 ![host command](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
-`
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
---chat-id='-xxxxxxx' --host-name='$HOSTNAME$' --host-state=$HOSTSTATE$  --host-output='$HOSTOUTPUT$'
-`
+```bash
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+--plugin=notification::telegram::plugin \
+--mode=alert \
+--http-peer-addr='api.telegram.org' \
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+--chat-id='-xxxxxxx' \ 
+--host-name='$HOSTNAME$' \
+--host-state=$HOSTSTATE$  \
+--host-output='$HOSTOUTPUT$'
+```
 
 ## Exemple
 
-`
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --chat-id='-xxxxxxxx'
---host-name='nirvana'  --service-description='yellow-submarine' --service-state=CRITICAL  --service-output='highway to hell'
-`
+```bash
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \ 
+--plugin=notification::telegram::plugin \
+--mode=alert \
+--http-peer-addr='api.telegram.org' \
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+--chat-id='-xxxxxxxx' \
+--host-name='nirvana' \
+--service-description='yellow-submarine' \
+--service-state=CRITICAL 
+--service-output='highway to hell'
+```
 
 ![service notification](../../assets/integrations/notifications/telegram/service-notification-telegram.png)
 
-`
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --chat-id='-xxxxxxx'
---host-name='REM' --host-state=DOWN  --host-output='let the sky fall'
-`
+```bash
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+--plugin=notification::telegram::plugin \
+--mode=alert \
+--http-peer-addr='api.telegram.org' \
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+--chat-id='-xxxxxxx' \
+--host-name='REM' \
+--host-state=DOWN \
+--host-output='let the sky fall'
+```
 
 ![host notification](../../assets/integrations/notifications/telegram/host-notification-telegram.png)
 
 ## Message options
 
-When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin
-Below are some of the available options
+When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin. 
 
-| Options | Explanation | Example |
-| ------- | ----------- | ------- |
-| --centreon-token | an autologin token from centreon ||
-| --centreon-url | the centreon url ||
-| --graph-url | graph url. You can use the above options as macro here | **%{centreon_url}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%{centreon_token}**&hostname=**%{host_name}**&service=**%{service_description}**|
-| --link-url | a link url | **%{centreon_url}**/main.php?p=20201&o=svc&host_search=**%{host_name}**&svc_search=**%{service_description}** |
-| --proxyurl | the url to your proxy if needed ||
+Below are some of the available options:
 
-all options can be displayed with the following command:
-`/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl --plugin=notification::telegram::plugin --mode=alert --help`
+| Options           | Explanation                                            | Example                                                                                                                                                                                   |
+| ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \--centreon-token | an autologin token from centreon                       |                                                                                                                                                                                           |
+| \--centreon-url   | the centreon url                                       |                                                                                                                                                                                           |
+| \--graph-url      | graph url. You can use the above options as macro here | **%{centreon\_url}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser\&token=**%{centreon\_token}**\&hostname=**%{host\_name}**\&service=**%{service\_description}** |
+| \--link-url       | a link url                                             | **%{centreon\_url}**/main.php?p=20201\&o=svc\&host\_search=**%{host\_name}**\&svc\_search=**%{service\_description}**                                                                     |
+| \--proxyurl       | the url to your proxy if needed                        |                                                                                                                                                                                           |
+
+All options can be displayed with the following command:
+
+```bash
+/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+--plugin=notification::telegram::plugin \
+--mode=alert \
+--help
+```
