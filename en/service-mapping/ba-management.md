@@ -54,30 +54,19 @@ menu.
 
 ## Business Activities (BA)
 
-> To update business activity configuration, you need to push & reload the
-> configuration using the "Poller" menu
+> When you modify a business activity, you need to push & reload the
+> configuration using the "Poller" menu so that it's applied
 
 ### Definition
 
-BAs form the core of the Centreon BAM module. As aggregated indicators they are
-monitored by the software in real time. Based on a calculated value called
-"level". The Centreon BAM system is able to notify users if the level goes under
-a certain thresholds, revealing a problem with the IT service or application.
-
-This value between 0 and 100 (%) is often related to a service quality
-measurement. A variation in this value is used to determine whether the
-modelized IT service or application is in an **OK**, **Warning** or **Critical**
-state.
-
-**How does this level vary?**
-
-A BA is linked to one or more indicators that impact the health of the BA
-according to their state and the rules defined by the user.
+Business Activities form the core of the Centreon BAM module. As aggregated indicators they are
+monitored by the software in real time using spécific calculation methods. 
+The Centreon BAM system is able to notify users depending on 
+business activities status, revealing a problem with the IT service or application.
 
 ### List Business Activities
 
-The BA is managed through the **Configuration \> Business Activity \> Business
-Activity** menu.
+The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
 
 ![image](assets/service-mapping/guide/conf_ba.png)
 
@@ -91,10 +80,135 @@ appears:
 
 ![image](assets/service-mapping/guide/conf_add_ba.png)
 
-In this configuration panel, after giving a unique name (mandatory), start by
-linking indicators to the BA in the "Indicator section".
+In this configuration panel, after giving a unique name (mandatory), you need to configure multiple sections to 
+have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, you need at least
+to configure some indicators and an calculation methods. This can be done in the "Indicator" section.
 
-After that you'll be able to configure the following properties:
+#### Indicators
+
+This section is the most important section for a business activity: this is where you define the way
+the status will be calculated by attaching resources to the business activity and setting the calculation 
+method.
+
+The type of indicator you can use are :
+
+- Services
+- Other business activities: that is really important to understand that you can create "infinite" multi-level BA to model 
+simple to highly complex IT services or App.
+- Meta services
+- Boolean rules: a combination of services with AND/OR/XOR rules
+
+The default calculation method applied to the indicators is the **"Best"** status. You can
+change the way the calculation is done. 
+
+##### Calculation methods
+
+Business activities are agregated indicators based on resources monitored by Centreon. Therer are four 
+calculation method that you can use:
+
+- Best status: When you only need to be warned that ALL indicators are critical at the same times 
+- Wors status: When you immediately want to know that at least 1 indicator is not-ok
+- Ratio: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
+- Impact: When you want to precisely define the weight of each indicators and reflect that on your BA status 
+
+Some example / explanations
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Best Status -->
+
+![image](assets/service-mapping/best.png)
+
+The following order will be applied to find the "Best" status: OK > Unknown > Warning > Critical > Pending
+
+The configuration is as follow:
+
+![image](assets/service-mapping/conf-best.png)
+
+<!-- Worst Status -->
+
+![image](assets/service-mapping/worst.png)
+
+The configuration is as follow:
+
+![image](assets/service-mapping/conf-worst.png)
+
+The following order will be applied fto find the "Worst" status : CRITICAL > Warning > Unknown > OK > Pending
+
+<!-- Ratio -->
+
+For ratio, you can base the calculation of the **number of CRITICAL** indicators or a **percentage of CRITICAL**
+indicators that you don't want to exceed. 
+
+In the following example, we defined that we want number of Critical to be less than 80%.
+
+![image](assets/service-mapping/ratio.png)
+
+The configuration is as follow:
+
+![image](assets/service-mapping/conf-ratio.png)
+
+After choosing wether you want to define in percentage or number, the thresholds parameters 
+have to be configured as follow after :
+
+ - Critical: if the number/percentage of **Critical** indicators exceed that number of percentage, the Business activity will be Critical
+ - Warning: if the number/percentage of **Critical** indicators exceed that number of percentage, the Business activity will be Warning
+
+<!-- Impact -->
+
+This mode is complex to use but may help you model heighly severity-related concepts.
+
+When you use the mode impact, the business activity has a "Health" between 100% and 0%. When you attach
+indicators to it, you have to define the impact (in %) of each status for each indicator. When this indicators switch
+to these status (unknwon, critical etc..) Then the calculation is simple: BA Health = 100% - Current impacts.
+
+You then use the Warning & Critical thresholds to determine at what level you want the BA to become Warning or Critical
+
+- **Warning threshold**: Between 100 and 0, the threshold below which the BA
+    will switch to Warning status (orange) and send a notification (if
+    configured).
+- **Critical threshold**: Between 100 and 0 (\< the Warning threshold) below
+    which the BA will switch to Critical status (red) and send a notification
+    (if configured).
+
+![image](assets/service-mapping/conf-impact.png)
+
+The health value between 100% and 0% is often related to a service quality measurement. 
+A variation in this value is used to determine whether the modelized IT service or application 
+is in an **OK**, **Warning** or **Critical** state.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+##### How indicators in planned downtime should be handled ?
+
+Now that you've choosen the way the business activity status will be calculated, you can manage how planned
+maintenance time will be handled. You have three choices:
+
+- **Ignore the downtime**: In that case, the planned downtime positionned on child indicators will be ignored, the BA will 
+be impacted
+- **Inherit the downtime**: the BA is automatically sets in "planned downtime" whenever an indicators in non-ok state is in
+    planned downtime AND impact the BA. The BA will still be impacted but also set in planned downtime based on the rule defined below
+- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, it's ignore from the calculation.
+
+**Rules for planned downtime inheritance**
+
+  - A BA inherits planned downtime from its indicators only when its status is
+    not **OK**.
+  - When a BA is in planned downtime due to indicators downtime inheritance: If
+    the BA status switches to OK, planned downtime is stopped.
+  - When a BA is in planned downtime due to indicators downtime inheritance: If
+    an impact comes from an indicators that has no planned downtime, the BA
+    downtime is stopped.
+
+To have the BA level & status reflecting IT service or application
+availability/performance, you have to link indicators to the BA and configure
+the impact for each indicator depending on their status.
+
+![image](assets/service-mapping/guide/indicators_configuration.png)
+
+##### Other settings
+
+After configuring the way the business activity status is computed, you'll be able to configure the following properties:
 
   - Business View: what BV(s) to link the BA to. Mandatory if you want to give
     access to this BA to non-admin users
@@ -104,36 +218,6 @@ After that you'll be able to configure the following properties:
   - Reporting: What SLA & timeperiod you want to use to calculate the BA
     availability statistics
   - Event handler: parameters to auto-remediate the BA when state becomes non-ok
-
-#### Configuration in detail
-
-Remember that a BA starts with a 100% health level, and indicators can impact
-this value depending on their status.
-
-The state and behavior of a BA relies on the following parameters that are
-managed in the "Indicator" section:
-
-**Indicators**
-
-  - **Status calculation method**: Impact mode is the only available method for
-    now, the BA will be impacted based on indicators impact configuration.
-  - **Warning threshold**: Between 100 and 0, the threshold below which the BA
-    will switch to Warning status (orange) and send a notification (if
-    configured).
-  - **Critical threshold**: Between 100 and 0 (\< the Warning threshold) below
-    which the BA will switch to Critical status (red) and send a notification
-    (if configured).
-  - **Automatically inherit indicator's downtimes**: by default the BA is
-    automatically sets in downtime whenever an indicators in non-ok state is in
-    planned downtime.
-
-To have the BA level & status reflecting IT service or application
-availability/performance, you have to link indicators to the BA and configure
-the impact for each indicator depending on their status.
-
-![image](assets/service-mapping/guide/indicators_configuration.png)
-
-The following additional properties can be configured.
 
 **Business View**
 
@@ -183,18 +267,7 @@ an escalation, the service escalation definition will be applied to the BA.
 Activate or not the auto-remediation command that you may execute when the BA
 status switches.
 
-**Inheritance of planned downtime**
 
-This option ignores, and cancels notification of, a status change when downtime
-has been planned on the indicators of a BA. Note the following:
-
-  - A BA inherits planned downtime from its indicators only when its status is
-    not **OK**.
-  - When a BA is in planned downtime due to indicators downtime inheritance: If
-    the BA status switches to OK, planned downtime is stopped.
-  - When a BA is in planned downtime due to indicators downtime inheritance: If
-    an impact comes from an indicators that has no planned downtime, the BA
-    downtime is stopped.
 
 > In order for the new BA to be calculated and monitored, you must regenerate
 > the configuration on the scheduler and restart the monitoring services through
