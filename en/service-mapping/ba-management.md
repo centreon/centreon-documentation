@@ -94,6 +94,7 @@ is in an **OK**, **Warning** or **Critical** state.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 
+
 ### Create a Business Activity
 
 To add a Business Activity, click on the **Add** button. The following panel
@@ -206,11 +207,18 @@ an escalation, the service escalation definition will be applied to the BA.
 Activate or not the auto-remediation command that you may execute when the BA
 status switches.
 
-
-
 > In order for the new BA to be calculated and monitored, you must regenerate
 > the configuration on the scheduler and restart the monitoring services through
 > the interface in the `Configuration > Poller` menu.
+
+### List Business Activities
+
+The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
+
+![image](assets/service-mapping/guide/conf_ba.png)
+
+You have inline actions & global action to delete, duplicate, enable/disable the
+BA and massively change thresholds.
 
 ## Indicators (KPI)
 
@@ -361,15 +369,6 @@ To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 | KPI Type       | Type of indicator (KPI) to load                                 |
 | Format         | Formats of the SSV file depending on the chosen indicators type |
 | Manual Filling | Possibility to fill the field instead of loading a file         |
-
-### List Business Activities
-
-The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
-
-![image](assets/service-mapping/guide/conf_ba.png)
-
-You have inline actions & global action to delete, duplicate, enable/disable the
-BA and massively change thresholds.
 
 ## Business View (BV)
 
