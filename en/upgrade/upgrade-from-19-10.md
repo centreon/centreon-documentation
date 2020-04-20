@@ -244,6 +244,12 @@ MariaDB:
     mysql_upgrade
     ```
 
+6. Then restart the service if the service is interrupted
+
+    ```shell
+    systemctl start mysql
+    ```
+
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
 
@@ -280,6 +286,12 @@ MariaDB:
 
     ```shell
     mysql_upgrade
+    ```
+
+6. Then restart the service if the service is interrupted
+
+    ```shell
+    systemctl start mysql
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
