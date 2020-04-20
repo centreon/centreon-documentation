@@ -297,7 +297,7 @@ MariaDB:
 4. Start the mariadb service
 
     ```shell
-    systemctl start mariadb:
+    systemctl start mariadb
     ```
 
 5. Launch the MariaDB upgrade process:
