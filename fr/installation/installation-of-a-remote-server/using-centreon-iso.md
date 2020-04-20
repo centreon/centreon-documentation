@@ -123,6 +123,15 @@ Redémarrez votre système avec la commande :
 reboot
 ```
 
+### Lancement des services au démarrage
+
+Pour activer le lancement automatique des services au démarrage, exécutez la
+commande suivante sur le serveur Central :
+
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+
 ## Installation web
 
 Terminez l'installation en réalisant les
