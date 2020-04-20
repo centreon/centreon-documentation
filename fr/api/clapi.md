@@ -5287,7 +5287,7 @@ The service mapping capabilities in Centreon relies on the **Centreon Business A
 
 
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To purchase one and retrieve
-the necessary repositories, contact [Centreon](sales@centreon.com).
+the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 ### Business View
 

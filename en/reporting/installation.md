@@ -5,7 +5,7 @@ title: Install the extension
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
-> [Centreon](sales@centreon.com).
+> [Centreon](mailto:sales@centreon.com).
 
 
 Four major steps to installing Centreon MBI:

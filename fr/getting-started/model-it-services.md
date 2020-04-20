@@ -16,7 +16,7 @@ métier, utilisateurs internes ou externes.
 ![image](assets/service-mapping/example.png)
 
 > Centreon BAM est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
-> [contactez nous](sales@centreon.com).
+> [contactez Centreon](mailto:sales@centreon.com).
 
 ## Concepts
 

@@ -5,7 +5,7 @@ title: Introduction
 
 > Centreon Auto Discovery est une **extension** Centreon qui nécessite une clé
 > de licence valide. Pour en acheter une clé et récupérer les référentiels
-> nécessaires, contactez <sales@centreon.com>.
+> nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 Centreon Auto Discovery est un complément de la fonctionnalité Enterprise Plugin
 Pack.

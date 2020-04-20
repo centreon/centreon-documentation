@@ -11,7 +11,7 @@ La fonctionnalité de "Reporting" de Centreon se base sur l'extension appellée
 Une fonctionnalité de reporting est également disponible dans la version open source de Centreon. Plus d'information ci-dessous
 
 > Centreon MBI est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
-> [contactez nous](sales@centreon.com).
+> contactez [Centreon](mailto:sales@centreon.com).
 
 Centreon Monitoring Business Intelligence est une solution d'aide à la
 décision et facilite la gestion de votre infrastructure IT. Centreon MBI
