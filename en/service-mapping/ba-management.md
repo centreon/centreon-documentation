@@ -15,44 +15,10 @@ monitored by the software in real time using specific calculation methods.
 Business Activities are able to notify users depending their status, 
 revealing a problem with the IT service or application.
 
-### List Business Activities
+### Calculation methods
 
-The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
-
-![image](assets/service-mapping/guide/conf_ba.png)
-
-You have inline actions & global action to delete, duplicate, enable/disable the
-BA and massively change thresholds.
-
-### Create a Business Activity
-
-To add a Business Activity, click on the **Add** button. The following panel
-appears:
-
-![image](assets/service-mapping/guide/conf_add_ba.png)
-
-In this configuration panel, after giving a unique name (mandatory), you need to configure multiple sections to 
-have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, you need at least
-to configure some indicators and an calculation methods. This can be done in the "Indicator" section.
-
-#### Indicators
-
-This section is the most important section for a business activity: this is where you define the way
-the status will be calculated by attaching resources to the business activity and setting the calculation 
-method.
-
-The type of indicator you can use are :
-
-- Services
-- Other business activities: that is really important to understand that you can create "infinite" multi-level BA to model 
-simple to highly complex IT services or App.
-- Meta services
-- Boolean rules: a combination of services with AND/OR/XOR rules
-
-The default calculation method applied to the indicators is the **"Best"** status. You can
-change the way the calculation is done. 
-
-##### Calculation methods
+Business activities status rely on the way the calculation is done when applied to child resources. The calculation method
+is configured for each business activity.
 
 Therer are four calculation method that you can use:
 
@@ -129,10 +95,55 @@ is in an **OK**, **Warning** or **Critical** state.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-##### How indicators in planned downtime should be handled ?
+### List Business Activities
 
-Now that you've choosen the way the business activity status will be calculated, you can manage how planned
-maintenance time will be handled. You have three choices:
+The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
+
+![image](assets/service-mapping/guide/conf_ba.png)
+
+You have inline actions & global action to delete, duplicate, enable/disable the
+BA and massively change thresholds.
+
+
+### Create a Business Activity
+
+To add a Business Activity, click on the **Add** button. The following panel
+appears:
+
+![image](assets/service-mapping/guide/conf_add_ba.png)
+
+In this configuration panel, after giving a unique name (mandatory), you need to configure multiple sections to 
+have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, you need at least
+to configure some indicators and an calculation methods. This can be done in the "Indicator" section.
+
+#### Indicators
+
+This section is the most important section for a business activity: this is where you define the way
+the status will be calculated by attaching resources to the business activity and setting the calculation 
+method.
+
+The type of indicator you can use are :
+
+- Services
+- Other business activities: that is really important to understand that you can create "infinite" multi-level BA to model 
+simple to highly complex IT services or App.
+- Meta services
+- Boolean rules: a combination of services with AND/OR/XOR rules
+
+The default calculation method applied to the indicators is the **"Best"** status. You can
+change the way the calculation is done. 
+
+**Calculation methods**
+
+You can choose between the four calculation methods. Refer to the previous section to perfectly understand each calculation method.
+
+- Best status
+- Wors status
+- Ratio
+- Impact
+
+Now that you've choosen the way the business activity status will be calculated, you can manage how **planned
+maintenance** on indicators will be handled. You have three choices:
 
 - **Ignore the downtime**: In that case, the planned downtime positionned on child indicators will be ignored, the BA will 
 be impacted
@@ -147,8 +158,6 @@ be impacted
     downtime is stopped.
 - **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, it's ignore from the calculation.
 
-##### Other settings
-
 After configuring the way the business activity status is computed, you'll be able to configure the following properties:
 
   - Business View: what BV(s) to link the BA to. Mandatory if you want to give
@@ -160,12 +169,12 @@ After configuring the way the business activity status is computed, you'll be ab
     availability statistics
   - Event handler: parameters to auto-remediate the BA when state becomes non-ok
 
-**Business View**
+#### Business View
 
 Link the BA to one or multiple business view so it becomes available for
 non-admin users.
 
-**Display**
+ #### Display
 
   - Display on remote server: If you're using a remote server, you can send the
     business activity to it so that it's also available for remote teams. This
@@ -179,7 +188,7 @@ non-admin users.
     corresponding view to help users to drill down when a problem occurs on that
     BA.
 
-**Notification**
+#### Notification
 
 Configure when, for what status and who should be notified when the BA's status
 changes. You can also define escalation that applies to that BA.
@@ -187,7 +196,7 @@ changes. You can also define escalation that applies to that BA.
 The escalation is the same as with other **Centreon** objects, when you select
 an escalation, the service escalation definition will be applied to the BA.
 
-**Reporting**
+#### Reporting
 
   - Default reporting time period: Availability statistics for widgets & reports
     will be automatically calculated using this time period
@@ -203,7 +212,7 @@ an escalation, the service escalation definition will be applied to the BA.
   - Extra reporting time periods: Additionnal time period you may want to use in
     widget & reports
 
-**Event handler**
+#### Event handler
 
 Activate or not the auto-remediation command that you may execute when the BA
 status switches.
