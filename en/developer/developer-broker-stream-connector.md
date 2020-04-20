@@ -445,4 +445,4 @@ receives an information of a flush success, it can newly call the stream
   end
 ```
 
-For details on types, categories and their id, see [The BBDO protocol](developer-broker-bbdo)
+For details on types, categories and their id, see [The BBDO protocol](developer-broker-bbdo.html)

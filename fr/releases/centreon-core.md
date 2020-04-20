@@ -1,7 +1,7 @@
----	
-id: centreon-core	
-title: Centreon Core	
----	
+---
+id: centreon-core
+title: Centreon Core
+---
 
 ## Introduction	
 
