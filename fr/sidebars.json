@@ -799,7 +799,16 @@
             "developer/developer-module",
             "developer/developer-stream-connector",
             "developer/developer-translate-centreon",
-            "developer/developer-widget"
+            "developer/developer-widget",
+            {
+                "ids": [
+                    "developer/developer-broker-stream-connector",
+                    "developer/developer-broker-bbdo",
+                    "developer/developer-broker-mapping"
+                ],
+                "label": "Centreon Broker",
+                "type": "subcategory"
+            }
         ],
         "Releases": [
             "releases/introduction",
