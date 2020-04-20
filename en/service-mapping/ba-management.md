@@ -3,55 +3,6 @@ id: ba-management
 title: Manage Business Activities
 ---
 
-## Business Activity Management
-
-### Business View (BV)
-
-#### Definition
-
-BVs are used to gather multiple BAs into a single group. Similar to Centreon
-host groups, BV groups can be used in different Centreon BAM screens.
-
-Access restrictions (via ACL) for visualising BAs are managed by linking them to
-BVs, which are in turn linked to one or more *Centreon Access Groups*.
-
-> For root cause analysis purpose, as soon as you give access to a user to a
-> business activity, he'll see all indicators linked to it, no matter his
-> restriction concerning resources used in the BA definition
-
-A BV is not an indicator as such by which data can be calculated. The
-information in a BV depends on its content and is displayed in real time.
-
-### List Business Views
-
-Configure a BV in the **Configuration \> Business Activity \> Business Views**
-menu.
-
-![image](assets/service-mapping/guide/conf_bv.png)
-
-| Column      | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| Name        | Business view name                                                                   |
-| Description | Brief description of BV                                                              |
-| Displayed   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
-| Actions     | List of actions to be performed on the BV (modification/display)                     |
-
-> Deleting a BV:
->
->   - Does not delete the BAs that are linked to it.
->   - Is permanent.
-
-### Create a Business View
-
-![image](assets/service-mapping/guide/conf_add_bv.png)
-
-| Column              | Description                                            |
-| ------------------- | ------------------------------------------------------ |
-| Name                | BV name                                                |
-| Description         | Brief description of the BV                            |
-| Business activities | The BA(s) linked to the BV                             |
-| ACL Groups          | The access group(s) that can consult the BV and its BA |
-
 ## Business Activities (BA)
 
 > When you modify a business activity, you need to push & reload the
@@ -59,10 +10,10 @@ menu.
 
 ### Definition
 
-Business Activities form the core of the Centreon BAM module. As aggregated indicators they are
-monitored by the software in real time using spécific calculation methods. 
-The Centreon BAM system is able to notify users depending on 
-business activities status, revealing a problem with the IT service or application.
+Business Activities form the core of the Centreon BAM extension. As aggregated indicators they are
+monitored by the software in real time using specific calculation methods. 
+Business Activities are able to notify users depending their status, 
+revealing a problem with the IT service or application.
 
 ### List Business Activities
 
@@ -103,15 +54,14 @@ change the way the calculation is done.
 
 ##### Calculation methods
 
-Business activities are agregated indicators based on resources monitored by Centreon. Therer are four 
-calculation method that you can use:
+Therer are four calculation method that you can use:
 
 - Best status: When you only need to be warned that ALL indicators are critical at the same times 
 - Wors status: When you immediately want to know that at least 1 indicator is not-ok
 - Ratio: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
 - Impact: When you want to precisely define the weight of each indicators and reflect that on your BA status 
 
-Some example / explanations
+Find below examples & configuration of each calculation methods
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -187,24 +137,15 @@ maintenance time will be handled. You have three choices:
 - **Ignore the downtime**: In that case, the planned downtime positionned on child indicators will be ignored, the BA will 
 be impacted
 - **Inherit the downtime**: the BA is automatically sets in "planned downtime" whenever an indicators in non-ok state is in
-    planned downtime AND impact the BA. The BA will still be impacted but also set in planned downtime based on the rule defined below
-- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, it's ignore from the calculation.
-
-**Rules for planned downtime inheritance**
-
-  - A BA inherits planned downtime from its indicators only when its status is
+    planned downtime AND impact the BA. The BA will still be impacted and also set in planned downtime based on the following rules:
+    - A BA inherits planned downtime from its indicators only when its status is
     not **OK**.
   - When a BA is in planned downtime due to indicators downtime inheritance: If
     the BA status switches to OK, planned downtime is stopped.
   - When a BA is in planned downtime due to indicators downtime inheritance: If
     an impact comes from an indicators that has no planned downtime, the BA
     downtime is stopped.
-
-To have the BA level & status reflecting IT service or application
-availability/performance, you have to link indicators to the BA and configure
-the impact for each indicator depending on their status.
-
-![image](assets/service-mapping/guide/indicators_configuration.png)
+- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, it's ignore from the calculation.
 
 ##### Other settings
 
@@ -422,3 +363,50 @@ To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 | KPI Type       | Type of indicator (KPI) to load                                 |
 | Format         | Formats of the SSV file depending on the chosen indicators type |
 | Manual Filling | Possibility to fill the field instead of loading a file         |
+
+## Business View (BV)
+
+### Definition
+
+BVs are used to gather multiple BAs into a single group. Similar to Centreon
+host groups, BV groups can be used in different Centreon BAM screens.
+
+Access restrictions (via ACL) for visualising BAs are managed by linking them to
+BVs, which are in turn linked to one or more *Centreon Access Groups*.
+
+> For root cause analysis purpose, as soon as you give access to a user to a
+> business activity, he'll see all indicators linked to it, no matter his
+> restriction concerning resources used in the BA definition
+
+A BV is not an indicator as such by which data can be calculated. The
+information in a BV depends on its content and is displayed in real time.
+
+### List Business Views
+
+Configure a BV in the **Configuration \> Business Activity \> Business Views**
+menu.
+
+![image](assets/service-mapping/guide/conf_bv.png)
+
+| Column      | Description                                                                          |
+| ----------- | ------------------------------------------------------------------------------------ |
+| Name        | Business view name                                                                   |
+| Description | Brief description of BV                                                              |
+| Displayed   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
+| Actions     | List of actions to be performed on the BV (modification/display)                     |
+
+> Deleting a BV:
+>
+>   - Does not delete the BAs that are linked to it.
+>   - Is permanent.
+
+### Create a Business View
+
+![image](assets/service-mapping/guide/conf_add_bv.png)
+
+| Column              | Description                                            |
+| ------------------- | ------------------------------------------------------ |
+| Name                | BV name                                                |
+| Description         | Brief description of the BV                            |
+| Business activities | The BA(s) linked to the BV                             |
+| ACL Groups          | The access group(s) that can consult the BV and its BA |
