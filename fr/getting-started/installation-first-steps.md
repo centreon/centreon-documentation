@@ -56,13 +56,13 @@ La machine virtuelle a besoin de :
   le temps.
 - Un accès Internet pour bénéficier de l'offre gratuite IT-100.
 
-> Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites).
+> Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites.html).
 
 ### Download
 
 Vous pouvez installer Centreon :
 
-- [A partir de l'ISO](../installation/installation-of-a-central-server/using-centreon-iso)
+- [A partir de l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
 - A partir des machines virtuelles prêtes à l'emploi :
 
 Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
@@ -150,7 +150,7 @@ Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon.html) pour plus d'informations.
 
 ## Ajouter son jeton Centreon IT Edition
 
@@ -200,13 +200,13 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
 
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
-> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui#configuration-du-proxy)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
 Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
@@ -298,7 +298,7 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -411,7 +411,7 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -529,7 +529,7 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
 Pour connaître manuellement le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
