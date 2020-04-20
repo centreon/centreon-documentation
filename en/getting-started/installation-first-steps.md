@@ -5,8 +5,8 @@ title: Installation & first steps
 
 Hello & Welcome! We are excited to help you begin your Centreon journey.
 
-You will fin in this chapter how to quickly start on Centreon. It's composed of a quick start to install 
-& use Centreon followed by tutorials to help you use the main capabilities of Centreon.
+You will find in this chapter how to quickly start on Centreon. It is composed of a quick start to install 
+and use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
 * [Request your free trial](#request-your-free-trial)
 * [Setup your first platform](#setup-your-first-platform)
@@ -25,30 +25,30 @@ You will fin in this chapter how to quickly start on Centreon. It's composed of 
 
 ## Request your free trial
 
-Centreon offers you to test all the features of the **Centreon IT edition** for free.
-To do this, go to our website in the **[Try Centreon IT Edition](https://www.centreon.com/en/free-trial/)** section and
+Centreon offers you the possibility to test all the features of the **Centreon IT edition** for free.
+For this purpose, go to our website in the **[Try Centreon IT Edition](https://www.centreon.com/en/free-trial/)** section and
 fill in the form :
 
 ![image](../assets/getting-started/it_100_free_token_form.png)
 
 You will receive an email containing your **token** to try **Centreon IT edition**.
 
-Now it's time to go to the next chapter to install your Centreon platform.
+Now it is time to move on next chapter to install your Centreon platform.
 
 ## Setup your first platform
 
-To setup your first Centreon platform, we suggest using a ready-to-use virtual machine.
+To setup your first Centreon platform, we suggest you to use a ready-to-use virtual machine.
 
 **Prerequisites**
 
-These virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS v7** operating system including a Centreon installation allowing to start easially your first monitoring.
+Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS v7** operating system including a Centreon installation allowing to easily start your first monitoring.
 
 The virtual machine needs:
 
-- Processor. Any recent Intel or AMD processor with at least 2 vCPUs should do.
-- Memory. Depending on your operating systems, you will need at least 1 GB of RAM. To get the full experience, you need at least 2 GB of free memory.
-- Hard disk space. The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want to continue using Centreon, it is recommended to have at least 10 GB because its size will grow over time.
-- An Internet access to benefit from the IT-100 free offer
+- Processor: any recent Intel or AMD processor with at least 2 vCPUs should be enough.
+- Memory: depending on your operating system, you will need at least 1 GB of RAM. To fully enjoy Centreon's experience, you need at least 2 GB of free memory.
+- Hard Disk storage: The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want keep using Centreon, it is recommended to have at least 10 GB as its size will grow over time.
+- An Internet access to benefit from the IT-100 free offer.
 
 > For a more custom installation, the complete prerequisites are available [here](../installation/prerequisites.html).
 
@@ -65,7 +65,7 @@ The virtual machines are available on the [Centreon download web site](https://d
 
 <!--VMware environment-->
 \
-Go to to **File > Deploy OVF Template** and select the **OVA file**. Because the menu selections are actually linked to
+Go to to **File > Deploy OVF Template** and select the **OVA file**. Since the menu selections are actually linked to
 your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use
 the **Thin Provision** option to save as much free space as possible on the disk.
 
@@ -76,10 +76,10 @@ machine.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Once you virtual machine is imported, you need to **add a network card**. Edit the settings of the virtual machine and
+Once your virtual machine is imported, you will need to **add a network card**. Edit the settings of the virtual machine and
 a network card. Select the correct associated network to access to Internet.
 
-You can now start the virtual machine.
+The virtual machine can now be started.
 
 #### First boot
 
@@ -87,7 +87,7 @@ Once your virtual machine has started. You must connect to it via a shell termin
 
 > It is imperative that you complete the instructions, especially operations 4 and 5.
 
-Once these operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
+Once those operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
 
 #### Default credentials
 
@@ -95,21 +95,21 @@ Once these operations have been carried out, you can delete this message by dele
 - The server administration account (through SSH) is: **root / centreon**.
 - The root password of the DBMS is not initialized.
 
-> For security reasons, we highly recommend for you to change these passwords after installation.
+> For security reasons, we highly recommend you to change those passwords after the installation completed.
 
-You can now perform continue to the first login section.
+You can now move to the *First login* section.
 
 ## First login
 
 To connect to your Centreon web interface access to URL: http://IP_ADDRESS/centreon
+****
+> Replace ****IP_ADDRESS**** by the IP address or FQDN of your Centreon web server.
 
-> Replace **IP_ADDRESS** by the IP address or FQDN of your Centreon web server.
-
-Inform your user name and associated password and click on **Connect** button:
+Fill in your user name and associated password and click on **Connect** button:
 
 ![image](../assets/getting-started/aconnection.png)
 
-You are now connected to Centreon web interface.
+You are now connected to the Centreon web interface.
 
 ### Introduction to menus
 
@@ -120,9 +120,9 @@ The Centreon web interface contains several menus, each with a specific function
 * **Home** lets you access the first home screen after logging in. It provides a summary of overall monitoring status.
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
   to your customization.
-* **Monitoring** provides a combined view of the status of all monitored items in real and delayed time using logs and
+* **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
   performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given period.
+* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** allows you to configure the Centreon web interface and view the overall status of the servers.
 
@@ -132,14 +132,14 @@ On the banner, click on the profile icon, then click on **Edit profile**:
 
 ![image](../assets/getting-started/change_language_1.png)
 
-In the select box of language, select your language:
+In the language select box, choose your language:
 
 ![image](../assets/getting-started/change_language_2.png)
 
 Then click on **Save**. Your interface is now translated.
 
-> If your language doesn't appear in the list of available language, you can help the Centreon community to translate
-> the web interface. Go to the [How to translate menu](../developer/developer-translate-centreon.html) chapter for more information.
+> If your language doesn't appear in the available language list, you can help the Centreon community to translate
+> the web interface. For more details go to  [How to translate menu](../developer/developer-translate-centreon.html).
 
 ## Add your Centreon IT Edition token
 
@@ -153,9 +153,9 @@ A window opens, enter your token and click on the save button:
 
 ![image](../assets/getting-started/it_100_free_token_add_2.png)
 
-You now benefit from the **Centreon IT Edition** offer limited to the monitoring of 100 resources.
+You now benefit from the **Centreon IT Edition** limited offer for a **100** resources.
 
-Continue with the following chapters to start monitoring your IT.
+Move on next chapters to start monitoring your IT.
 
 ## Basic principle of monitoring
 
