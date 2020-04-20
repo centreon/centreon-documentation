@@ -150,7 +150,7 @@ Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre @TODO@(:ref:`How to translate Centreon<howtotranslate>`) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon) pour plus d'informations.
 
 ## Ajouter son jeton Centreon IT Edition
 
@@ -206,7 +206,7 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
-> Avant toute chose, appliquez la procédure de configuration du proxy @TODO@(add the link ref:proxyimp)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
 Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
