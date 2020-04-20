@@ -139,7 +139,7 @@ In the select box of language, select your language:
 Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the list of available language, you can help the Centreon community to translate
-> the web interface. Go to the @TODO@(ref to how to translate menu) chapter for more information.
+> the web interface. Go to the [How to translate menu](../developer/developer-translate-centreon) chapter for more information.
 
 ## Add your Centreon IT Edition token
 
@@ -191,7 +191,7 @@ and then to implement them to monitor your first equipment.
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> Configure the proxy @TODO@(add the link ref:proxyimp) to allow the Centreon server to access the Internet.
+> [Configure the proxy](../administration/parameters/centreon-ui#proxy-configuration) to allow the Centreon server to access the Internet.
 
 Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):

@@ -136,7 +136,7 @@ E.g.: A back-up of the virtual machines is performed every day from 20h00 to mid
 to saturate the CPU use of all the virtual machines. It is necessary to program recurrent Downtime periods on the services
 concerned to avoid receiving notifications from 20h00 to midnight.
 
-> The Downtime periods are taken into account in the calculation of the availability ratio of the resource in the menu: @TODO@"Dashboard".
+> The Downtime periods are taken into account in the calculation of the availability ratio of the resource in the **[Dashboard](../reporting/introduction.html#simple-reporting)**.
 
 #### Practice
  
