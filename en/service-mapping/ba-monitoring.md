@@ -1,6 +1,6 @@
 ---
 id: ba-monitoring
-title: Monitore Business Activities
+title: Monitor Business Activities
 ---
 
 After adding, editing or deleting the BAs, KPIs and BVs the objects linked to

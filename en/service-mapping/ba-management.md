@@ -156,9 +156,9 @@ have to be configured as follow after :
 
 <!-- Impact -->
 
-This mode is complex to use but may help you model heighly severity-related concepts.
+> This mode is complex to use but may help you model heighly severity-related concepts.
 
-When you use the mode impact, the business activity has a "Health" between 100% and 0%. When you attach
+When you use the impact mode, the business activity has a "Health" between 100% and 0%. When you attach
 indicators to it, you have to define the impact (in %) of each status for each indicator. When this indicators switch
 to these status (unknwon, critical etc..) Then the calculation is simple: BA Health = 100% - Current impacts.
 
