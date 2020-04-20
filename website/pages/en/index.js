@@ -83,7 +83,7 @@ const Card = props => {
   return (
     <div className="cardContent">
       <Image imageSrc={props.imageSrc} />
-      <Button href={props.btnLink} target={'_blank'} label={props.btnLabel} />
+      <Button href={props.btnLink} label={props.btnLabel} />
     </div>
   )
 }
