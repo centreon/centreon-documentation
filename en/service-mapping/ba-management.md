@@ -17,10 +17,10 @@ revealing a problem with the IT service or application.
 
 ### Calculation methods
 
-Business activities status rely on the way the calculation is done when applied to child resources. The calculation method
-is configured for each business activity.
+Business activities status rely on the calculation done on indicators (child resources). The calculation method
+is configured at business activity level.
 
-Therer are four calculation method that you can use:
+There are four calculation methods that you can use:
 
 - Best status: When you only need to be warned that ALL indicators are critical at the same times 
 - Wors status: When you immediately want to know that at least 1 indicator is not-ok
@@ -65,10 +65,10 @@ The configuration is as follow:
 ![image](assets/service-mapping/conf-ratio.png)
 
 After choosing wether you want to define in percentage or number, the thresholds parameters 
-have to be configured as follow after :
+have to be configured:
 
- - Critical: if the number/percentage of **Critical** indicators exceed that number of percentage, the Business activity will be Critical
- - Warning: if the number/percentage of **Critical** indicators exceed that number of percentage, the Business activity will be Warning
+ - Critical threshold: if the number/percentage of **Critical** indicators exceed that number/percentage, the Business activity will be Critical
+ - Warning threshold: if the number/percentage of **Critical** indicators exceed that number/percentage, the Business activity will be Warning
 
 <!-- Impact -->
 
@@ -81,11 +81,9 @@ to these status (unknwon, critical etc..) Then the calculation is simple: BA Hea
 You then use the Warning & Critical thresholds to determine at what level you want the BA to become Warning or Critical
 
 - **Warning threshold**: Between 100 and 0, the threshold below which the BA
-    will switch to Warning status (orange) and send a notification (if
-    configured).
+    will switch to Warning status
 - **Critical threshold**: Between 100 and 0 (\< the Warning threshold) below
-    which the BA will switch to Critical status (red) and send a notification
-    (if configured).
+    which the BA will switch to Critical status
 
 ![image](assets/service-mapping/conf-impact.png)
 
@@ -94,15 +92,6 @@ A variation in this value is used to determine whether the modelized IT service 
 is in an **OK**, **Warning** or **Critical** state.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-### List Business Activities
-
-The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
-
-![image](assets/service-mapping/guide/conf_ba.png)
-
-You have inline actions & global action to delete, duplicate, enable/disable the
-BA and massively change thresholds.
 
 
 ### Create a Business Activity
@@ -372,6 +361,15 @@ To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 | KPI Type       | Type of indicator (KPI) to load                                 |
 | Format         | Formats of the SSV file depending on the chosen indicators type |
 | Manual Filling | Possibility to fill the field instead of loading a file         |
+
+### List Business Activities
+
+The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
+
+![image](assets/service-mapping/guide/conf_ba.png)
+
+You have inline actions & global action to delete, duplicate, enable/disable the
+BA and massively change thresholds.
 
 ## Business View (BV)
 
