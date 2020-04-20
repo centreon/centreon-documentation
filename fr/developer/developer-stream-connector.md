@@ -76,7 +76,7 @@ mkdir -p /usr/share/centreon-broker/lua
 ```
 
 Centreon Broker provides several log functions to write logs, warnings or errors into a file. We will use one of these
-functions *info()* to write Broker events. [See technical documentation for more information](developer-broker-stream-connector#the-broker_log-object)
+functions *info()* to write Broker events. [See technical documentation for more information](developer-broker-stream-connector.html#the-broker_log-object)
 
 The function *info()* makes part of the *broker_log* object. To call it, the syntax is the following:
 
@@ -95,7 +95,7 @@ event is received from a poller through Broker, this function is called with the
 
 > You will never have to call the **write()** function by yourself, it is always Broker's work to do so. And it would
 > be a fault to make such a call. In other words, there should not be any call to the **write()** function in your script.
-> [See technical documentation for more information](developer-broker-stream-connector#the-write-function)
+> [See technical documentation for more information](developer-broker-stream-connector.html#the-write-function)
 
 Here is the **bbdo2file.lua** first version:
 
@@ -113,11 +113,11 @@ end
 ```
 
 > Information about the initialization of the Broker's log function and its parameters are given here
-> [see technical documentation](developer-broker-stream-connector#the-broker_log-object).
+> [see technical documentation](developer-broker-stream-connector.html#the-broker_log-object).
 
 Let's explain what we are doing in this script.
 
-We must provide an **init()** function, it is described in the [technical documentation](developer-broker-stream-connector#the-init-function)
+We must provide an **init()** function, it is described in the [technical documentation](developer-broker-stream-connector.html#the-init-function)
 
 This function is called during the stream connector initialization. Here, we use it to initialize the **broker_log**
 object. To achieve this, we call the **broker_log::set_parameters()** method that needs two parameters :
@@ -154,7 +154,7 @@ is a collection of keys/values. For example:
 
 In all events, you will find *category*, *element* and *type*.
 
-* Information about the *category* can be found [here in the bbdo documentation](developer-broker-bbdo#event-categories)
+* Information about the *category* can be found [here in the bbdo documentation](developer-broker-bbdo.html#event-categories)
 * The *element* is the *sub-category* (also called *type* in the bbdo documentation).
 * The *type* is a number built from the *category* and the *element* (binary concatenation).
 

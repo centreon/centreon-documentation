@@ -210,7 +210,7 @@ BBDO event ID.
 
 Most events listed in each [event category](#event-categories) have a mapping used to serialize their content. Indeed
 their content is directly serialized in the [packet payload data](#packet-format), one field after the other in the
-order described in the [mapping tables](developer-broker-mapping). They are encoded following rules described in the
+order described in the [mapping tables](developer-broker-mapping.html). They are encoded following rules described in the
 [types paragraph](#types).
 
 ## Example
