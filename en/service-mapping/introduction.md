@@ -8,7 +8,7 @@ Activity Monitoring (BAM)** extension.
 
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
-> [Centreon](sales@centreon.com).
+> [Centreon](mailto:sales@centreon.com).
 
 **Centreon Business Activity Monitoring (BAM)** helps ITSM and business
 operation teams gain a common perspective to align IT with business. Based on

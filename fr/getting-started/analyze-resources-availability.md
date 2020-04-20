@@ -18,7 +18,7 @@ Le principe est simple :
 -   Vous récupérer votre rapport via l'interface
 
 > Centreon MBI est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
-> [contactez nous](sales@centreon.com).
+> contactez [Centreon](mailto:sales@centreon.com).
 
 ## Définition du besoin
 

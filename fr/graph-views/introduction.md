@@ -9,7 +9,7 @@ The graphical view capabilities in Centreon relies on the **Centreon MAP** exten
 
 > Centreon MAP is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
-> [Centreon](sales@centreon.com).
+> [Centreon](mailto:sales@centreon.com).
 
 Centreon MAP is a data-mapping and visualization tool designed for IT Operations
 management (ITOM) administrators and developers. It is capable of displaying
