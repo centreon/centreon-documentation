@@ -281,7 +281,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -392,7 +392,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -508,7 +508,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery)** functionality.
+> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
 
 To know manually the name of the available network interfaces you can execute the plugin in command line:
 
