@@ -16,13 +16,7 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
 * [Superviser votre premier hôte](#superviser-votre-premier-hôte)
 * [Deployer la configuration](#deployer-la-configuration)
-
-Tutorials
-
-* [Créer une vue personnalisée](#create-custom-view)
-* [Create a Graphical View](#create-graphical-view)
-* [Model your IT services (Service Mapping)](#model-it-services)
-* [Analyze resources availability (Reporting)](#analyze-resources-availability)
+* [Tutoriels pour profiter de votre supervision](introduction-tutorials.html)
 
 ## Demander votre essai gratuit
 
