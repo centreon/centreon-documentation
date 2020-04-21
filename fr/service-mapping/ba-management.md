@@ -20,7 +20,7 @@ en cas de dépassement de seuils, révélateur d'un dysfonctionnement du service
 ### Méthodes de calcul
 
 Une des notions importantes à comprendre lorsqu'on manipule des BA est la méthode de calcul appliquée. Il
-y a quatre méthodes de calcul disponible afin de rendre compte de l'état d'une BA:
+y a quatre méthodes de calcul disponibles afin de rendre compte de l'état d'une BA:
 
 - **Best Status**: Lorsque vous souhaitez suivre le dysfonctionnement de TOUS les indicateurs au même moment
 - **Worst Status**: Lorsque vous souhaitez savoir dès qu'un indicateur ne fonctionne plus
@@ -34,7 +34,7 @@ Ci-dessous des explications et exemples pour chacune des méthodes
 
 <!-- Best Status -->
 
-L'ordre appliqué pour "Best" status est le suivant:`OK > Unknown > Warning > Critical > Pending`
+L'ordre appliqué pour "Best" status est le suivant: `OK > Unknown > Warning > Critical > Pending`
 
 ![image](../assets/service-mapping/best.png)
 
@@ -55,11 +55,11 @@ Et la configuration correspondante:
 <!-- Ratio -->
 
 La méthode ratio permet de modéliser des concepts de "Cluster" et s'appuie sur 
-le **nombre ou pourcentage d'indicateurs en statut CRITIQUE** et compare ces nombres à des seuils 
-(nombre/pourcentage) qu'il ne faut pas dépasser 
+le **nombre ou pourcentage d'indicateurs en statut CRITIQUE** et compare ces 
+nombres à des seuils (nombre/pourcentage) qu'il ne faut pas dépasser.
 
 Dans l'example suivant, on souhaite que le nombre d'indicateurs en statut Critique soit inférieur à 80%, lorsque ce seuil
-sera dépassé, la BA passera en statut "Critique" à son tour. 
+sera dépassé, la BA passera en statut "Critique" à son tour.
 
 ![image](../assets/service-mapping/ratio.png)
 
@@ -93,19 +93,9 @@ dépendra alors des paramètres présents dans la section Indicateur.
     métier de passer en "rouge" (non fonctionnel) et de déclencher
     l'envoi de notification si configuré.
 
-![image](assets/service-mapping/conf-impact.png)
-
-The health value between 100% and 0% is often related to a service quality measurement. 
-A variation in this value is used to determine whether the modelized IT service or application 
-is in an **OK**, **Warning** or **Critical** state.
+![image](../assets/service-mapping/conf-impact.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
--   **Automatically inherit indicator's downtimes**: par défaut à oui,
-    l'activité métier héritera automatiquement des plages de
-    maintenance de ses indicateurs. (see
-    `comportement détaillé ici <ref_inherit_planned_downtime>`{.interpreted-text
-    role="ref"})
 
 ### Création d'une activité métier
 
@@ -116,19 +106,19 @@ formulaire ci-dessous apparaît
 
 La création de l'activité métier se fait directement dans le panneau
 qui s'ouvre. Après avoir donner un nom (obligatoire & unique) à votre activité
-métier, vous devrez configuré plusieurs sections. La section **Indicateur** est la plus importante.
+métier, vous devrez configurer plusieurs sections. La section **Indicateur** est la plus importante.
 
 #### Indicateurs
 
-C'est la section la plus important: cet ici que vous définissez quels indicateurs vont être liés à la BA 
+C'est la section la plus important: c'est ici que vous définissez quels indicateurs vont être liés à la BA 
 et quelle méthode de calcul sera appliquée. 
 
 Vous pouvez lier ces types d'indicateurs à une activité métier:
 
 - Services 
 - D'autres activités métier
-- Des meta-services
-- Des règles booléennes
+- Meta-services
+- Règles booléennes
 
 **Méthode de calcul**
 
@@ -140,9 +130,9 @@ Vous pouvez choisir parmi les 4 méthodes suivantes:
 - Impact
 
 Une fois les indicateurs et la méthode de calcul sélectionnée, vous pouvez en option, définir la manière dont les 
-**plage de maintenance planifiées** sur les indicateurs vont se repercuter sur l'activité métier:
+**plages de maintenance planifiées** sur les indicateurs vont se repercuter sur l'activité métier:
 
-- **Ignore the downtime**: Dans ce cas, les plage de maintenance positionnées sur les indicateurs seront ignorées, la BA
+- **Ignore the downtime**: Dans ce cas, les plages de maintenance positionnées sur les indicateurs seront ignorées, la BA
 sera impactée
 - **Inherit the downtime**: Dans ce cas la BA hérite automatiquement de la plage de maintenance dès lorsqu'un indicateurs
 l'impactant est en plage de maintenance. L'héritage suit ces règles:
@@ -152,18 +142,18 @@ l'impactant est en plage de maintenance. L'héritage suit ces règles:
     - Lorsqu'une activité métier est en plage de maintenance planifiée grâce au mécanisme d'héritage, 
     si un des impacts provient d'un de ses indicateurs n'étant pas sous plage de maintenance planifiée,
     alors la plage de maintenance de la BA est arrêtée
-- **Ignore the indicatore in the calculation**: lorsqu'un indicateur est en plage de maintenance planifiée, son statut/impact
+- **Ignore the indicator in the calculation**: lorsqu'un indicateur est en plage de maintenance planifiée, son statut/impact
 est ignoré du calcul
 
 Une fois la configuration du calcul de la BA effectuée, il vous est possible de configurer les éléments suivant dans les
 différentes sections:
 
 -   Vue métier: Pour lier l'activité métier à une vue métier
--   Affichage: Paramètre les options d'affichage de l'activité métier
+-   Affichage: Paramètrer les options d'affichage de l'activité métier
 -   Notification: à quels moment et qui sera notifié en cas de
     dégradation de service sur cette activité métier
 -   Rapport: paramètres gérant les SLA cibles et période de reporting à
-    utiliser dans les widgets et rapports (lié à Centreon MBI)
+    utiliser dans les widgets et rapports (lié à l'extension Centreon MBI)
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
     script d'auto-correction
 
@@ -224,10 +214,8 @@ La gestion des activité(s) métier est réalisée via le menu `Configuration > 
 
 ![image](../assets/service-mapping/conf_ba.png)
 
-Des actions de duplication (ne dupplique pas les indicateurs liés),
-suppression, activation/désactivation ou changement massif sont possible
+Des actions de duplication, suppression, activation/désactivation ou changement massif sont possible
 lorsque vous cochez une ou plusieurs lignes
-
 
 > La suppression d'une activité métier la supprime définitivement avec
 > l'ensemble des données et indicateurs qui lui sont rattachés.

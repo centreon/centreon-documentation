@@ -142,7 +142,7 @@ be impacted, that's it.
       downtime is stopped.
     - When a BA is in planned downtime due to indicators downtime inheritance: If an impact comes from an indicators 
       that has no planned downtime, the BA downtime is stopped.
-- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, 
+- **Ignore the indicator in the calculation**: when the indicator impacts the BA and is it planned downtime, 
 its status/impact is ignored from the calculation.
 
 After configuring the way the business activity status is computed, you'll be able to configure the following properties:
