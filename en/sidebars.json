@@ -237,7 +237,7 @@
         "Update, Upgrade & Migrate": [
             {
                 "ids": [
-                    "update/introduction"
+                    "update/update-centreon-platform"
                 ],
                 "label": "Update",
                 "type": "subcategory"

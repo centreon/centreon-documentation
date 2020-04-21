@@ -238,7 +238,7 @@
         "Mettre à Jour, Monter de Version et Migrer": [
             {
                 "ids": [
-                    "update/introduction"
+                    "update/update-centreon-platform"
                 ],
                 "label": "Update",
                 "type": "subcategory"

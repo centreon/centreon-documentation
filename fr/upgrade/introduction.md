@@ -3,7 +3,7 @@ id: introduction
 title: Introduction à la montée de version
 ---
 
-Ce chapitre décrit le processus de mise à jour d'une plate-forme Centreon.
+Ce chapitre décrit le processus de montée de version d'une plate-forme Centreon.
 
 La procédure dépend de la méthode d'installation de votre plate-forme Centreon.
 Sélectionner **Mise à jour RPM** si vous avez installé Centreon à partir de
