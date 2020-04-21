@@ -294,7 +294,7 @@ MariaDB:
     yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
     ```
 
-4. Start the mariadb service
+4. Start the mariadb service:
 
     ```shell
     systemctl start mariadb
