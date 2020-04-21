@@ -35,10 +35,22 @@ node {
       reportName: 'Centreon documentation preview'
     ])
   }
+}
+if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
+  stage('Staging') {
+    milestone label: 'Staging'
+    node {
+      sh "./centreon-build/jobs/doc/doc-staging.sh"
+    }
+  }
 
-  if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
-    stage('Delivery') {
-      sh "./centreon-build/jobs/doc/doc-delivery.sh"
+  stage('Release') {
+    timeout(time: 1, unit: 'HOURS') {
+      input message: 'Release documentation ?', ok: 'Release'
+    }
+    milestone label: 'Release'
+    node {
+      sh "./centreon-build/jobs/doc/doc-release.sh"
     }
   }
 }
