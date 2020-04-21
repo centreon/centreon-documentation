@@ -60,7 +60,7 @@ The processing of an SNMP trap is as follows:
 
 ![image](../../assets/configuration/06_trap_poller.png)
 
-> The Centeron Gorgone process is responsible to copy the SQLite base on the remote poller.
+> The Centreon Gorgone process is responsible to copy the SQLite base on the remote poller.
 
 ### Successive actions by the centreontrapd process
 
