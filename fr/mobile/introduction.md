@@ -70,4 +70,4 @@ Si vous rencontrez des problèmes de connexion:
 - Il se peut que votre configuration Apache ait été modifiée et empêche l'applicatiaon d'accéder aux APIs de Centreon, dans ce cas,
 consultez [la section suivante](../administration/accessing-to-centreon-ui.html).
 - Assurez vous d'avoir donné à l'utilisateur les droits d'accès à l'API temps réel. Vous pouvez vérifier cela dans le menu
-**Configuration \> Utilisateurs \> Contacts / Utilisateurs**, le paramètre **Reach API Realtime** du second onglet.
+`Configuration > Utilisateurs > Contacts / Utilisateurs`, le paramètre `Reach API Realtime` du second onglet.
