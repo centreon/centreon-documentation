@@ -3,10 +3,6 @@ id: communications
 title: Communications
 ---
 
-## Architecture Gorgone
-
-TODO
-
 ## Modes de communication
 
 Même si Gorgone est installé sur les Pollers et les Remote Servers, il est
