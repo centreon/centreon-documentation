@@ -87,8 +87,8 @@ exporter la configuration.
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Poller, et sélectionner **ZMQ**
-comme **Gorgone connection protocol**.
+Depuis le menu `Configuration > Collecteurs`, éditer la configuration du Poller,
+et sélectionner **ZMQ** comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 
@@ -196,8 +196,8 @@ systemctl enable gorgoned
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Remote Server, et sélectionner **ZMQ**
-comme **Gorgone connection protocol**.
+Depuis le menu `Configuration > Collecteurs`, éditer la configuration du Remote
+Server, et sélectionner **ZMQ** comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 

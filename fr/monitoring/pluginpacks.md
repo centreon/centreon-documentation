@@ -123,8 +123,8 @@ L’installation est en 3 étapes :
 
 Si vous bénéficiez d’une souscription en ligne, vous devez vous authentifier.
 
-Pour celà, rendez-vous dans le menu **Administration \> Extension \> Subscription** puis utilisez vos identifiants
-pour vous identifier.
+Pour celà, rendez-vous dans le menu `Administration > Extension > Subscription`
+puis utilisez vos identifiants pour vous identifier.
 
 ![image](../assets/configuration/pluginpacks/imp_authentification.png)
 

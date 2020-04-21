@@ -114,9 +114,11 @@ Installation is a 3-step process:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Online platform-->
 
-If you benefit from an online subscription, you must first authenticate your Centreon platform.
-Go to the **Administration \> Extension \> Subscription** menu and log in with your Centreon 
-username to authenticate your Centreon platform.
+If you benefit from an online subscription, you must first authenticate your
+Centreon platform.
+
+Go to the `Administration > Extension > Subscription` menu and log in with your
+Centreon username to authenticate your Centreon platform.
 
 ![image](../assets/configuration/pluginpacks/imp_authentification.png)
 
