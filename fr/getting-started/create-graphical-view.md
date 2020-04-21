@@ -1,6 +1,6 @@
 ---
 id: create-graphical-view
-title: Create a graphical view
+title: Créer une vue graphique
 ---
 
 > Only available in english for now

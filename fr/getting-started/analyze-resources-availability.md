@@ -1,6 +1,6 @@
 ---
 id: analyze-resources-availability
-title: Analyser la disponibilité des resources
+title: Analyser la disponibilité des ressources
 ---
 
 Vous débutez avec Centreon MBI et souhaitez extraire vos premières

@@ -1,6 +1,6 @@
 ---
 id: model-it-services
-title: Model your IT services
+title: Modéliser un service IT
 ---
 
 L'extension Centreon BAM est utilisée pour modéliser des services IT et applications
@@ -64,7 +64,7 @@ y a quatre méthodes de calcul disponible afin de rendre compte de l'état d'une
  de resources maximum en statut Critique que vous ne voulez pas dépassez
 - **Impact**: Lorsque vous souhaitez définir finement l'impact de chaque indicateur en fonction de leurs poids (<=> sévérité)
 
-Pour plus d'information sur les méthodes de calcul, consulter [ce chapitre](ba-management.html#méthode-de-calcul)
+Pour plus d'information sur les méthodes de calcul, consulter [ce chapitre](../service-mapping/ba-management.html#méthodes-de-calcul)
 
 ## Méthode d'implémentation
 
@@ -90,7 +90,7 @@ la composition de la BA, vous pouvez les catégoriser en deux catégories: 
 
 ## Exemple
 
-Prenons un exemple assez simple: la modélisation d'un cluster de serveur frontaux. Nous voulons nous assurer que 
+Prenons un exemple assez simple: la modélisation d'un cluster de serveurs frontaux. Nous voulons nous assurer que 
 20% au moins des serveurs sont fonctionnels.
 
 Cela se fera en deux étapes (de bas en haut)
@@ -136,7 +136,7 @@ passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Pour rajouter de la pro-activité dans notre gestion et éviter que le cluster comptent 80% de frontaux non fonctionnels,
-nous pouvons également ajouter la règle suivant: à partir de 50% de serveur frontaux non disponibles, nous voulons être
+nous pouvons également ajouter la règle suivant: à partir de 50% de serveurs frontaux non disponibles, nous voulons être
 avertis
 
 ![image](assets/service-mapping/conf-ratio-with-warn.png)
