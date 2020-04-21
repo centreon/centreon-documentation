@@ -18,7 +18,6 @@ Once the model has been calculated, predictions are then generated and retrieved
 These predictions will serve as floating thresholds which will then be used by the monitoring engine to compare the
 collected value with the predicted thresholds to highlight deviations and generate alerts.
 
-
 ![image](assets/monitoring/anomaly/centreon_cloud.png)
 
 ## Prerequisites
@@ -78,7 +77,8 @@ Go to the **Configuration > Poller > Pollers** menu and edit the **Centreon cent
 ![imaage](assets/monitoring/anomaly/install_05.png)
 
 Change the reload command of Centreon Broker to:
-```Shel
+
+```Shell
 service cbd restart
 ```
 
@@ -180,16 +180,19 @@ therefore possible to view its services and the alerts detected though:
 
 To send the historic of data of an anomaly service, connect to your Centreon Central server and access to the
 **centreon** user:
+
 ```Shell
 su - centreon
 ```
 
 Select the anomaly service using the following command:
+
 ```Shell
-/usr/share/centreon/bin/anomaly_detection --list-services
+perl -e "use centreon::anomalydetection::anomalydetection; centreon::anomalydetection::anomalydetection->new()->run();" -- --list-services
 ```
 
 You will see the list of services with their ID:
+
 ```Shell
 List of available anomaly detection services:
 
@@ -201,11 +204,13 @@ List of available anomaly detection services:
 ```
 
 To send history of data for the anomaly service with ID 14 for the last 4 weeks execute the following command:
+
 ```Shell
-/usr/share/centreon/bin/anomaly_detection --send-history 14 --history-period 4w
+perl -e "use centreon::anomalydetection::anomalydetection; centreon::anomalydetection::anomalydetection->new()->run();" -- --send-history 14 --history-period 4w
 ```
 
 Wait until the end of the process:
+
 ```Shell
 Sending data from 2020-03-09T09:32:31 to 2020-03-10T00:00:00
 Sending data from 2020-03-10T00:00:00 to 2020-03-11T00:00:00

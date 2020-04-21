@@ -18,7 +18,6 @@ Une fois le modèle calculé, les prédictions sont ensuite générées et récu
 Ces prévisions serviront de seuils flottants qui seront ensuite utilisés par le moteur de surveillance pour comparer la
 valeur collectée avec les seuils prévus pour mettre en évidence les écarts et générer des alertes.
 
-
 ![image](assets/monitoring/anomaly/centreon_cloud.png)
 
 ## Prérequis
@@ -81,7 +80,8 @@ Rendez-vous dans le menu **Configuration > Poller > Pollers** et éditez le serv
 ![imaage](assets/monitoring/anomaly/install_05.png)
 
 Modifiez la commande de rechargement de Centreon Broker pour :
-```Shel
+
+```Shell
 service cbd restart
 ```
 
@@ -183,16 +183,19 @@ calculé. Il est donc possible de visualiser ses services et les alertes détect
 
 Pour envoyer l'historique des données d'un service d'anomalie, connectez-vous à votre serveur Centreon Central et accédez
 à l'utilisateur **centreon**:
+
 ```Shell
 su - centreon
 ```
 
 Sélectionnez le service d'anomalie à l'aide de la commande suivante :
+
 ```Shell
-/usr/share/centreon/bin/anomaly_detection --list-services
+perl -e "use centreon::anomalydetection::anomalydetection; centreon::anomalydetection::anomalydetection->new()->run();" -- --list-services
 ```
 
 Vous verrez la liste des services avec leur identifiant :
+
 ```Shell
 List of available anomaly detection services:
 
@@ -205,11 +208,13 @@ List of available anomaly detection services:
 
 Pour envoyer l'historique des données du service d'anomalies avec l'ID 14 pour les 4 dernières semaines, exécutez la
 commande suivante :
+
 ```Shell
-/usr/share/centreon/bin/anomaly_detection --send-history 14 --history-period 4w
+perl -e "use centreon::anomalydetection::anomalydetection; centreon::anomalydetection::anomalydetection->new()->run();" -- --send-history 14 --history-period 4w
 ```
 
 Attendez la fin du processus :
+
 ```Shell
 Sending data from 2020-03-09T09:32:31 to 2020-03-10T00:00:00
 Sending data from 2020-03-10T00:00:00 to 2020-03-11T00:00:00
