@@ -2,6 +2,14 @@
 /* eslint-disable */
 
 window.addEventListener('load', function() {
+  const elements = document.getElementsByClassName('nav-site nav-site-internal');
+  const languagesLi = document.createElement('li');
+
+  elements[0].insertBefore(languagesLi, document.getElementsByClassName('siteNavItemActive')[1]);
+
+  const currentUrl = window.location.href;
+
+  // To add a new language, add it to the languages table and to the regex below.
   const languages = [
     {
       short: 'fr',
@@ -12,14 +20,7 @@ window.addEventListener('load', function() {
       long: 'English',
     },
   ];
-
-  const elements = document.getElementsByClassName('nav-site nav-site-internal');
-  const languagesLi = document.createElement('li');
-
-  elements[0].insertBefore(languagesLi, document.getElementsByClassName('siteNavItemActive')[1]);
-
-  const currentUrl = window.location.href;
-  const matches = currentUrl.match(/.+\/\d+\.\d+\/(\w+)/);
+  const matches = currentUrl.match(/\/(en|fr)\//);
 
   let selectHtml = '<select id="select-language" class="selec-lang" onchange="window.location.href=this.value;">';
   languages.forEach((language) => {
