@@ -24,7 +24,7 @@ Business Activity (BA).
 You can use a BA as an indicator for another BA to create an impact tree and
 modelize the IT services or applications for analysis.
 
-The evolution of a BA object will determine the quality of service (QoS) that
+The evolution of a BA status will determine the quality of service (QoS) that
 reflects how well the application performs for its users. Based on this QoS
 rating, you can define the BA's operating levels and the SLA.
 
@@ -46,16 +46,15 @@ a potential impact on BA status.
 All indicators added to a BA must initially be monitored one at a time by the
 system to determine the operational status of the BA. 
 
-
 The important thing to understand here is the way the business activity status will be computed. There are
 four calculation method that can be used:
 
 - **Best status**: When you only need to be warned that ALL indicators are critical at the same times 
 - **Wors status**: When you immediately want to know that at least 1 indicator is not-ok
-- **Ratio**: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
+- **Ratio**: When you want to model **Cluster** concepts by specifying a number of percentage of critical resources that you don't want to exceed
 - **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status 
 
-For mor information, have a look to the calculation method explanations(ba-management.html#calculation-methods)
+For mor information, have a look to the [calculation method explanations](ba-management.html#calculation-methods)
 
 ## Implementation method 
 
@@ -63,24 +62,29 @@ The first step when you want to create a business activity is to have a clear vi
 you want to model. Don't hesitate to first model the Tree on a paper so that you'll just have to replicate the configuration 
 in Centreon. 
 
-Then, based on the clear overview, you now need to select which indicators to use and where they'll be added. 
-You can sort them into several categories:
+> **The way you think** about an application or service IT may be **Top-Down**: you want to visualize the state of the Application > "A"
+> that relies on Network, Backends, Frontends clusters, they themselves rely on servers & network equipment which status rely
+> on service monitored by Centreon
+
+> **The way you create** an business activity in Centreon is **Bottom-up**: you start by creating the down-level indicators that > represent server or network equipment status, then you agregated them into Network, Frontend, Backend component and you
+> finish by creating a Top level component to show the global Application "A" status.
+
+Now that you know what application you want to model and what indicators this application relies on, 
+you can sort them into two categories:
 
   - Indicators known to have a blocking impact
   - Indicators whose impact cannot be measured.
 
-In this case, only be concerned with the *Critical* indicators states that have
-a *blocking* impact. This will make it easier to list and incorporate all the
-indicators required for the IT service/application to function properly.
+> It's simpler to start by using only the blocking indicators. You'll be able to add more indicators later if you 
+> need to have BA status impacted more precisely.
 
-> We recommend working with the other intermediate or critical states only after
-> you have gained sufficient experience.
+## Example
 
 If we take a simple example: You have multiple frontend servers (10) and you want at least 20% of your servers to be available.
 
-This will be done into two steps:
+This will be done into two steps (bottom-up):
 
-- First, define what's a frontend server: create business activities that correspond to frontend servers
+- First, define what's a frontend server that is OK: create business activities that correspond to frontend servers
 - Then, define our cluster: create the business activity that will agreggate my frontend-x servers 
 
 First, we're going to create "Frontend-X" (business activity) that correspond to the frontend servers.
@@ -132,26 +136,28 @@ So at the end, we combined multiple calculation methods, multiple type of resour
 
  ![image](assets/service-mapping/final-frontend.png)
 
-Using the product on a daily basis helps to follow the daily evolution of the
-QoS over time and understand wether your business activity reflects the reality or not.
-
-Whenever an application operates in a Warning state or is unavailable but the BA
-doesn't reflect this state, new indicators probably need to be added to the BA
-definition. Also, existing indicators with low impact should be reviewed in
-light of the new information available.
+Using the product on a daily basis helps to follow the daily evolution of the BA to adjust indicators or rules that
+apply.
 
 ## Reporting consideration
+
+Now that you can proactively manage your IT services & application, thanks to the real time BA tracking.
+It's time to have a look to availability & SLA.This is possible with the reporting capabilities 
+and the **Centreon MBI extension** and the settings done in the "Reporting" section of the BA.
+
+**How to we compare availability & SLA?**
 
 The final value of the SLA is linked to the time spent in *OK*, *Warning* /
 *Critical* conditions (downtime/uptime), which are visible in the Reporting
 screens.
 
 Examples:
-  - 24/7 monitoring of indicators
-  - Over a 1-day period:
+
+  - 24/7 monitoring
+  - Over a 1-day period, the time spent in the status is as follow:
       - BA in a OK status = 23hours & 30min
       - BA in a WARNING status = 10 minutes
-      - BA in a CRITICAL status = 20 minutes (Critical)
+      - BA in a CRITICAL status = 20 minutes
 
 In this example, the following availability will be calculated:
 
