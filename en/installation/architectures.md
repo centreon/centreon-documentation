@@ -73,7 +73,7 @@ Many components are used to build a central Centreon server:
 
 * Apache web server for Centreon web interface
 * MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
-* The Centcore process is used to send monitoring configuration to the remote server and to manage it
+* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
 * Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
@@ -133,7 +133,7 @@ Many components are used to build a central Centreon server:
 
 * Apache web server for Centreon web interface
 * The central Centreon server get configuration and collected data from DBMS server
-* The Centcore process is used to send monitoring configuration to the remote server and to manage it
+* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
 * Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
@@ -189,7 +189,7 @@ Many components are used to build a Centreon server:
 
 * Apache web server for Centreon web interface
 * MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
-* The Centcore process is used to send monitoring configuration to the remote server and to manage it
+* The Centreon Gorgone process is used to send monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
 * Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD
@@ -201,7 +201,7 @@ Many components are used to build a remote server:
 
 * Apache web server for Centreon web interface
 * MariaDB databases to store monitoring and performance data
-* The Centcore process is used to operate on collected data
+* The Centreon Gorgone process is used to operate on collected data
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by monitoring engine
 * Centreon Broker SQL allows to store information into MariaDB databases and forward them to Centreon Broker RRD locally. All information are forwarded to the Centreon central server.

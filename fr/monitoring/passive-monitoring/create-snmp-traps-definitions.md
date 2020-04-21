@@ -189,7 +189,7 @@ arguments aux champs **String** ou **Special command**. Ces arguments sont list�
 | @TIME@                   | Heure de réception du trap                                                                                                                |
 | @POLLERID@               | ID du collecteur ayant reçu le trap                                                                                                       |
 | @POLLERADDRESS@          | Adresse IP du collecteur ayant reçu le trap                                                                                               |
-| @CMDFILE@                | Chemin vers le fichier de commande de CentCore (central) ou de Centreon Engine (collecteur)                                               |
+| @CMDFILE@                | Chemin vers le fichier de commande du central ou de Centreon Engine (collecteur)                                               |
 
 De plus, il existe des variables spéciales pouvant être utilisées dans la section **Routing settings**  au niveau de la
 **Routing command** si l’option **Enable routing** est sélectionnée :

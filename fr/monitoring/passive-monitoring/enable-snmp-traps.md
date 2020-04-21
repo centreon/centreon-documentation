@@ -36,7 +36,7 @@ Voici le processus de traitement d’un trap SNMP :
   dans un dossier tampon (par défaut : **/var/spool/centreontrapd/**).
 3. Le service ‘centreontrapd’ lit les informations reçues dans le dossier tampon et interprète les différents traps
   reçus en vérifiant dans la base de données Centreon les actions à entreprendre pour traiter ces évènements.
-4. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur ou au service ‘centcore’ (pour transmettre
+4. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur ou au service ‘gorgoned’ (pour transmettre
   les informations à un ordonnanceur distant) qui se charge de modifier le statut et les informations associées au
   service auquel est lié le trap SNMP.
 
@@ -61,7 +61,7 @@ Voici le processus de traitement d’un trap SNMP :
 
 ![image](../../assets/configuration/06_trap_poller.png)
 
-> Le processus Centcore à la charge, comme pour l’export de configuration de la supervision, de copier la base SQLite
+> Le processus Centreon Gorgone à la charge, comme pour l’export de configuration de la supervision, de copier la base SQLite
 > sur le collecteur distant..
 
 ### Ordre de réalisation des actions par le processus centreontrapd
