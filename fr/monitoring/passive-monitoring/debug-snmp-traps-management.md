@@ -88,8 +88,7 @@ Dans le cas d’un serveur central, le processus Centreon Gorgone doit être dé
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le
 menu **Administration > Options > Debug** et redémarrez le processus.
 
-> Vous pouvez modifier le niveau de débogage du processus via le fichier **/etc/sysconfig/gorgoned** en modifiant la
-> sévérité.
+> Vous pouvez modifier le niveau de journalisation des logs  via le menu `Administation > Paramètres > Débogage`
 
 En cas de non réception de la commande externe, vérifiez le chemin d’accès au fichier de commande du processus défini
 dans la variable "$cmdFile" du fichier de configuration **/etc/centreon/conf.pm**. Le chemin doit être 
