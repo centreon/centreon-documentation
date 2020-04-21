@@ -131,7 +131,6 @@
         ],
         "Service Mapping": [
             "service-mapping/introduction",
-            "service-mapping/getting-started",
             {
                 "ids": [
                     "service-mapping/ba-management",
@@ -157,7 +156,6 @@
         ],
         "Graphical views": [
             "graph-views/introduction",
-            "graph-views/getting-started",
             {
                 "ids": [
                     "graph-views/create-standard-view",
