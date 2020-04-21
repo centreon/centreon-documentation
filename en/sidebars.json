@@ -4,6 +4,7 @@
             "getting-started/installation-first-steps",
             {
                 "ids": [
+                    "getting-started/introduction-tutorials",
                     "getting-started/create-custom-view",
                     "getting-started/create-graphical-view",
                     "getting-started/model-it-services",
