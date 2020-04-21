@@ -72,10 +72,10 @@ La première chose à faire avant de démarrer la création d'une activité mét
 en tête / sur papier, la composition de l'application ou du service métier cible que vous allez modéliser et de s'assurer 
 que les indicateurs sont tous disponibles, c'est à dire supervisés, dans Centreon. 
 
-> **La visualisation** d'une activité métier se fait de haut en bas: vous souhaitez représenter une application "A", dont le 
+**La visualisation** d'une activité métier se fait de haut en bas: vous souhaitez représenter une application "A", dont le 
 fonctionnement repose sur des concepts Réseau, Backend & Frontaux, qui eux même reposent sur des serveurs et équipements réseaux dont le fonctionnement est déterminé par leurs *services* (au sens Centreon)
 
-> **La création** d'une activité métier se fait de bas en haut: vous partez des *services* pour donner une représentation
+**La création** d'une activité métier se fait de bas en haut: vous partez des *services* pour donner une représentation
 du statut des équipements réseau et servers pour ensuite les agréger en indicateur "Réseau", Frontaux, Backend pour enfin
 créer un indicateur de plus haut niveau représentant l'application "A"
 

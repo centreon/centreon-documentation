@@ -62,12 +62,12 @@ The first step when you want to create a business activity is to have a clear vi
 you want to model. Don't hesitate to first model the Tree on a paper so that you'll just have to replicate the configuration 
 in Centreon. 
 
-> **The way you think** about an application or service IT may be **Top-Down**: you want to visualize the state of the Application > "A"
-> that relies on Network, Backends, Frontends clusters, they themselves rely on servers & network equipment which status rely
-> on service monitored by Centreon
+**The way you think** about an application or service IT may be **Top-Down**: you want to visualize the state of the Application > "A"
+that relies on Network, Backends, Frontends clusters, they themselves rely on servers & network equipment which status rely
+on service monitored by Centreon
 
-> **The way you create** an business activity in Centreon is **Bottom-up**: you start by creating the down-level indicators that > represent server or network equipment status, then you agregated them into Network, Frontend, Backend component and you
-> finish by creating a Top level component to show the global Application "A" status.
+**The way you create** an business activity in Centreon is **Bottom-up**: you start by creating the down-level indicators that > represent server or network equipment status, then you agregated them into Network, Frontend, Backend component and you
+finish by creating a Top level component to show the global Application "A" status.
 
 Now that you know what application you want to model and what indicators this application relies on, 
 you can sort them into two categories:

@@ -45,16 +45,18 @@ The configuration is as follow:
 
 ![image](assets/service-mapping/worst.png)
 
+The following order will be applied fto find the "Worst" status : `CRITICAL > Warning > Unknown > OK > Pending`
+
 The configuration is as follow:
 
 ![image](assets/service-mapping/conf-worst.png)
 
-The following order will be applied fto find the "Worst" status : `CRITICAL > Warning > Unknown > OK > Pending`
 
 <!-- Ratio -->
 
-For ratio, you can base the calculation of the **number of CRITICAL** indicators or a **percentage of CRITICAL**
-indicators that you don't want to exceed. 
+This method helps you model "Cluster" concepts. The calculation is based on the
+**number or percentage of indicator in CRITICAL status** that you compare to 
+number/percentage thresholds that you don't want to exceed.
 
 In the following example, we defined that we want number of Critical to be less than 80%.
 
@@ -135,8 +137,7 @@ how **planned downtime** on indicators will be handled. You have three choices:
 be impacted, that's it.
 - **Inherit the downtime**: the BA is automatically sets in "planned downtime" whenever an indicators in non-ok state is in
     planned downtime AND impact the BA. The BA will still be impacted. The planned downtime inheritance follows these rules: 
-    - A BA inherits planned downtime from its indicators only when its status is
-    **not OK**.
+    - A BA inherits planned downtime from its indicators only when the BA status is **not OK**.
     - When a BA is in planned downtime due to indicators downtime inheritance: If the BA status switches to OK, planned 
       downtime is stopped.
     - When a BA is in planned downtime due to indicators downtime inheritance: If an impact comes from an indicators 
