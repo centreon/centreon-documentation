@@ -80,7 +80,7 @@ raison.
 
 Si une tâche est dans l'état *Terminé*, cliquez dessus pour analyser le
 résultat. Allez au chapitre [Analyser le résultat d'une
-tâche](#analyser-le-résultat-d'une-tâche) pour en savoir plus.
+tâche](#analyser-le-résultat-dune-tâche) pour en savoir plus.
 
 Les tâches peuvent être reprogrammées en utilisant l'action *Reprogrammer* <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />
 

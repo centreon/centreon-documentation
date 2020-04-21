@@ -96,15 +96,15 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon.
+icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-A popin will show the configuration to copy into the Poller terminal. Click on
-**Copy to clipboard**.
+A pop-in will show the configuration to copy into the **Poller terminal**.
+Click on **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-Paste directly into the terminal as the clipboard contains the following
-content, and will fill the right file:
+Paste the content of the clipboard directly into the **Poller terminal** as it
+contains the following content, and will fill the right file:
 
 ``` shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -139,7 +139,7 @@ Hit the enter key for the command to be applied.
 
 #### Start Gorgone daemon
 
-From the Poller, run the following command:
+From the Poller, run the following command to start Gorgone service:
 
 ``` shell
 systemctl start gorgoned
@@ -165,6 +165,12 @@ It should result as follow:
            └─28598 gorgone-action
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
+```
+
+Finally, enable the automatic startup of the service with the command:
+
+```shell
+systemctl enable gorgoned
 ```
 
 > If there is a Remote Server between the Central and this Poller, make sure to
@@ -198,15 +204,16 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon.
+icon on the line corresponding to your Remote Server <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-A popin will show the configuration to copy into the Remote Server terminal.
+A pop-in will show the configuration to copy into the **Remote Server
+terminal**.
 Click on **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
-Paste directly into the terminal as the clipboard contains the following
-content, and will fill the right file:
+Paste the content of the clipboard directly into the **Remote Server terminal**
+as it contains the following content, and will fill the right file:
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -278,7 +285,7 @@ Hit the enter key for the command to be applied.
 
 #### Restart Gorgone daemon
 
-From the Remote Server, run the following command:
+From the Remote Server, run the following command to restart Gorgone service:
 
 ```shell
 systemctl restart gorgoned
@@ -315,8 +322,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-**To force the Central's Gorgone daemon to change the communication type**, restart
-it with the following command:
+**To force the Central's Gorgone daemon to connect to the Remote Server**, restart
+it with the following command from the **Central server**:
 
 ```shell
 systemctl restart gorgoned

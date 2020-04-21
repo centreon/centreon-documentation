@@ -162,7 +162,7 @@ servers, but the new ZMQ communication is recommended to fully benefit from
 all the new functionalities.
 
 See [the communication
-section](../monitoring/monitoring-server/communications.html) to know more.
+section](../monitoring/monitoring-servers/communications.html) to know more.
 
 #### Engine: future ready, Broker: multi-thread compatible
 

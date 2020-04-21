@@ -170,7 +170,7 @@ serveurs de supervision utilisant SSH, mais la nouvelle méthode de communicatio
 ZMQ est recommandée pour bénéficier de toutes les nouvelles fonctionnalités.
 
 Reportez vous à la [section
-Communication](../monitoring/monitoring-server/communications.html) pour en
+Communication](../monitoring/monitoring-servers/communications.html) pour en
 savoir plus.
 
 #### Engine : prêt pour le futur, Broker : compatible multi-thread
