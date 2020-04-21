@@ -74,7 +74,7 @@ We've also added new functionalities:
   - New mapping system to link results with Centreon configuration.
 
 Give a look at the [dedicated
-section](../monitoring/discovery/host-discovery.html) to know how to launch your
+section](../monitoring/discovery/hosts-discovery.html) to know how to launch your
 first discovery job\!
 
 ## A better service mapping

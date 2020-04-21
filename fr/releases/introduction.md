@@ -84,7 +84,7 @@ Nous avons aussi ajouté de nouvelles fonctionnalités :
   - Nouveau système pour faire le lien entre résultat de découverte et
     configuration Centreon.
 
-Jetez un oeil à la [section dédiée](../monitoring/discovery/host-discovery.html)
+Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.html)
 pour savoir comment lancer votre première découverte!
 
 ## Service mapping: nouvelles possibilités
