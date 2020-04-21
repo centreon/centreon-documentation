@@ -3,11 +3,9 @@ id: model-it-services
 title: Model your IT services
 ---
 
-#TODO 
-
-Centreon Business Activity Monitoring (Centreon-BAM) is a feature for modelizing
-IT services and applications from end users point of view. It reports on the
-status of a service in real time, tracking any changes, thereby allowing you to
+Centreon Business Activity Monitoring (Centreon-BAM) is an extension for modeling
+IT services and applications, ideally, from end users point of view. It reports on the
+status of a agregated indicators in real time, tracking any changes, thereby allowing you to
 measure results against business-oriented service level agreements (SLAs) with
 internal or external users.
 
@@ -17,7 +15,7 @@ internal or external users.
 
 ## Concept
 
-Centreon BAM aggregates raw sets of values, or indicators, against which to
+Centreon BAM aggregates raw sets of resources status, called indicators, against which to
 measure business performance. *These indicators* collected by the Centreon
 monitoring system can be either a Centreon service, a logical rule between
 multiple services or any another business-centric monitoring indicator, called a
@@ -33,9 +31,11 @@ rating, you can define the BA's operating levels and the SLA.
 If a BA fails, the malfunction(s) that led to the drop in QoS can be analyzed
 and the SLA failure diagnosed.
 
-The following is an example of how Centreon BAM modelizes an application:
+Below is an example of a business activity that correspond to a generic Application global status:
 
-## Initial configuration
+![image](assets/service-mapping/guide/example.png)
+
+## Introduction
 
 Modeling a service or an application (that becomes a BA in Centreon's world) and
 its related indicators should be simple and methodical. Ideally, you should
@@ -44,37 +44,27 @@ the service/applications and then gradually add other indicators that would have
 a potential impact on BA status.
 
 All indicators added to a BA must initially be monitored one at a time by the
-system to determine the operational status of the BA. They can then be
-incorporated and **weighted** to reflect the general state of the BA with a
-*blocking*, *major*, *minor* or *null* impact on the QoS of a Business Activity.
+system to determine the operational status of the BA. 
 
-For instance, if a server ping fails, the impact is weighted as "blocking",
-whereas a partition that is 98% full will only have a *minor* impact, since the
-service still functions.
 
-This computational logic allows the QoS to reflect the actual status
-(*Availability / Warning or degraded state / Unavailability*) much more
-accurately.
+The important thing to understand here is the way the business activity status will be computed. There are
+four calculation method that can be used:
 
-Here is an example of the logic for determining the QoS of an application:
+- **Best status**: When you only need to be warned that ALL indicators are critical at the same times 
+- **Wors status**: When you immediately want to know that at least 1 indicator is not-ok
+- **Ratio**: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
+- **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status 
 
-  - If QoS = 100%, the IT application/service is available.
-  - If QoS \> 0% and QoS \< 100, the IT application/service is in a Critical or
-    at-risk state.
-  - Si QoS = 0, the IT application/service is unavailable.
+For mor information, have a look to the calculation method explanations(ba-management.html#calculation-methods)
 
-The BA thresholds are:
+## Implementation method 
 
-  - Warning threshold: 99.99%
-  - Critical threshold: 0%.
+The first step when you want to create a business activity is to have a clear view of the IT service, application, component
+you want to model. Don't hesitate to first model the Tree on a paper so that you'll just have to replicate the configuration 
+in Centreon. 
 
-Actual cases differ and QoS thresholds should be adjusted accordingly. However,
-we recommend using these thresholds when creating your first BA.
-
-## Implementation method
-
-The first step is to create a list of indicators for the BA and then sort them
-into several categories:
+Then, based on the clear overview, you now need to select which indicators to use and where they'll be added. 
+You can sort them into several categories:
 
   - Indicators known to have a blocking impact
   - Indicators whose impact cannot be measured.
@@ -86,51 +76,87 @@ indicators required for the IT service/application to function properly.
 > We recommend working with the other intermediate or critical states only after
 > you have gained sufficient experience.
 
-## Calibrating indicators and calculating the SLA
+If we take a simple example: You have multiple frontend servers (10) and you want at least 20% of your servers to be available.
+
+This will be done into two steps:
+
+- First, define what's a frontend server: create business activities that correspond to frontend servers
+- Then, define our cluster: create the business activity that will agreggate my frontend-x servers 
+
+First, we're going to create "Frontend-X" (business activity) that correspond to the frontend servers.
+Let's say that a frontend server that correctly perform may be defined by:
+
+ - a Load below a critical state
+ - and a Disk usage below a critical state
+ - and a Swap usage below a critical state
+
+So the state of a frontend-X is the Worst status between these 3 indicators: the first step is over, let's create a 
+Frontend-1 business activity:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Concept   -->
+
+![image](assets/service-mapping/frontend-1-concept.png)
+
+<!-- Configuration -->
+
+![image](assets/service-mapping/guide/frontend-1-conf.png)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+Now that we've define our 10 frontend servers, we'll attach them to a parent business activity called "Frontends Cluster"
+so that it tell us wether we've 20% of Frontend servers available or not
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Concept   -->
+
+![image](assets/service-mapping/ratio.png)
+
+<!-- Configuration -->
+
+![image](assets/service-mapping/conf-ratio.png)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+If we want to be proactive and NEVER go to 20%, we may add a Warning threshold to our Cluster business activity 
+to be warn when 50% of the frontend servers are not available: just add "50%" to the Warning threshold:
+
+![image](assets/service-mapping/conf-ratio-with-warn.png)
+
+So at the end, we combined multiple calculation methods, multiple type of resources and our business activity
+ will look like that:
+
+ ![image](assets/service-mapping/final-frontend.png)
 
 Using the product on a daily basis helps to follow the daily evolution of the
-QoS over time and understand the actual maximum threshold below which the
-application will cease to function.
+QoS over time and understand wether your business activity reflects the reality or not.
 
 Whenever an application operates in a Warning state or is unavailable but the BA
 doesn't reflect this state, new indicators probably need to be added to the BA
 definition. Also, existing indicators with low impact should be reviewed in
 light of the new information available.
 
-When it comes to adjusting the Warning and Critical thresholds of a BA, consider
-the example of a QoS curve oscillating between 80% and 100%, with an ultimately
-acceptable level of availability. Some components could cause a drop without
-really signifying a malfunction. The IT manager could then adjust the BA warning
-level downwards from 99.99% to 80%. This will unclutter the real-time BA
-monitoring screens and the *Warning* alert would then make much more sense.
-
-Nevertheless, it is possible that even without a *Critical* alert, operation is
-unsatisfactory. The QoS would indicate the state as being Critical when it falls
-under 10%, in which case the *Critical* threshold of the BA should be raised
-from 0% to 10%.
-
-*This computational method refines the availability measurement and makes it
-more relevant and its QoS value more useful.*
-
-> It is important not to associate the *Warning* and *Critical* thresholds of a
-> BA with the SLA *values*.
+## Reporting consideration
 
 The final value of the SLA is linked to the time spent in *OK*, *Warning* /
 *Critical* conditions (downtime/uptime), which are visible in the Reporting
 screens.
 
 Examples:
-
-  - Warning BA setting: 80%
-  - Critical BA setting: 10%
   - 24/7 monitoring of indicators
   - Over a 1-day period:
-      - QoS \>= Warning = 23hours & 30min (OK)
-      - QoS \<= Critical = 10 minutes (Warning)
-      - QoS \>= Critical = 20 minutes (Critical)
+      - BA in a OK status = 23hours & 30min
+      - BA in a WARNING status = 10 minutes
+      - BA in a CRITICAL status = 20 minutes (Critical)
 
 In this example, the following availability will be calculated:
 
   - % Up and optimum performance \~ 98.61% (OK+Warning)
   - % Up but degraded \~ 97.91% (OK)
   - % Not available \~ 1.38% (Critical).
+
+You may use **Centreon MBI extension** to access advanced reporting capabilities on business activities data.
