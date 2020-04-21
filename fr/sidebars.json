@@ -156,7 +156,6 @@
         ],
         "Vues Graphiques": [
             "graph-views/introduction",
-            "graph-views/getting-started",
             {
                 "ids": [
                     "graph-views/create-standard-view",
