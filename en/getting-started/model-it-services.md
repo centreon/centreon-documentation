@@ -31,9 +31,9 @@ rating, you can define the BA's operating levels and the SLA.
 If a BA fails, the malfunction(s) that led to the drop in QoS can be analyzed
 and the SLA failure diagnosed.
 
-Below is an example of a business activity that correspond to a generic Application global status:
+Below is an example of a business activity that correspond to a generic Application:
 
-![image](assets/service-mapping/guide/example.png)
+![image](../assets/service-mapping/example.png)
 
 ## Introduction
 
@@ -97,11 +97,11 @@ Frontend-1 business activity:
 
 <!-- Concept   -->
 
-![image](assets/service-mapping/frontend-1-concept.png)
+![image](../assets/service-mapping/frontend-1-concept.png)
 
 <!-- Configuration -->
 
-![image](assets/service-mapping/guide/frontend-1-conf.png)
+![image](../assets/service-mapping/frontend-1-conf.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -113,11 +113,11 @@ so that it tell us wether we've 20% of Frontend servers available or not
 
 <!-- Concept   -->
 
-![image](assets/service-mapping/ratio.png)
+![image](../assets/service-mapping/ratio.png)
 
 <!-- Configuration -->
 
-![image](assets/service-mapping/conf-ratio.png)
+![image](../assets/service-mapping/conf-ratio.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
