@@ -15,13 +15,7 @@ and use Centreon followed by tutorials to help you use the main capabilities of 
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
 * [Start to monitor your first host](#start-to-monitor-your-first-host)
 * [Deploying a configuration](#deploying-a-configuration)
-
-**Tutorials**
-
-* [Create a custom view](#create-custom-view)
-* [Create a Graphical view](#create-graphical-view)
-* [Model your IT services (Service Mapping)](#model-it-services)
-* [Analyze resources availability (Reporting)](#analyze-resources-availability)
+* [Access to tutorials to enjoy your monitoring](introduction-tutorials.html)
 
 ## Request your free trial
 
