@@ -322,8 +322,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-**To force the Central's Gorgone daemon to connect to the Remote Server**, restart
-it with the following command from the **Central server**:
+**To force the Central's Gorgone daemon to change the communication type**,
+restart it with the following command from the **Central server**:
 
 ```shell
 systemctl restart gorgoned

@@ -327,7 +327,7 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-**Pour forcer le Gorgone du Central à se connecter au Remote Server**,
+**Pour forcer le Gorgone du Central à changer le mode de communication**,
 redémarrez le avec la commande suivante depuis le **serveur Central** :
 
 ```shell
