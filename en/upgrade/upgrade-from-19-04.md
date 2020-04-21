@@ -202,7 +202,7 @@ chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 
 #### Restart monitoring processes
 
-Centreon Broker component has changed his configuration file format.
+Centreon Broker component has changed its configuration file format.
 
 It now uses JSON instead of XML.
 
