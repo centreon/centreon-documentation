@@ -162,7 +162,7 @@ web, copie des configurations pour Engine et Broker et ainsi de suite.
 
 Il sera aussi utilisé comme un nouveau moyen de réaliser toute action qui n'est
 pas de la supervision. Les premières applications sont la découverte d'hôtes,
-la récupération des configuration pour le module Anomaly Detection ou encore
+la récupération des configurations pour le module Anomaly Detection ou encore
 la collecte des statistiques de la plateforme.
 
 Gorgone vient avec un mode *héritage* pour gérer les communications avec les
