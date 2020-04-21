@@ -150,19 +150,18 @@ Description des partitions :
 
 Description des logiciels et utilisateurs liés :
 
-| Logiciel          | Service          | Utilisateur     | Commentaire           |
-|-------------------|------------------|-----------------|-----------------------|
-| Apache            | httpd24-httpd    | apache          | démarrage automatique |
-| PHP-FPM           | rh-php72-php-fpm | apache          | démarrage automatique |
-| MariaDB (MariaDB) | mysqld (mysql)   | mysql           | démarrage automatique |
-| Centreon          | centcore         | centreon        | démarrage automatique |
-| Centreon          | centreontrapd    | centreon        | démarrage automatique |
-| Centreon Broker   | cbwd             | centreon-broker | démarrage automatique |
-| Centreon Broker   | cbd              | centreon-broker | démarrage automatique |
-| Centreon Engine   | centengine       | centreon-engine | démarrage automatique |
+| Logiciel          | Service          | Utilisateur      | Commentaire     |
+|-------------------|------------------|------------------|-----------------|
+| Apache            | httpd24-httpd    | apache           | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 Description des logiciels optionnels et utilisateurs liés :
-
 
 | Logiciel        | Service         | User      | Commentaire                                          |
 |-----------------|-----------------|-----------|------------------------------------------------------|
@@ -171,20 +170,22 @@ Description des logiciels optionnels et utilisateurs liés :
 
 Description des groupes et utilisateurs liés :
 
-| Groupe          | Utilisateurs                           |
-|-----------------|----------------------------------------|
-| apache          | nagios,centreon                        |
-| centreon        | centreon-engine,centreon-broker,apache |
-| centreon-broker | centreon,nagios,centreon-engine,apache |
-| centreon-engine | centreon-broker,apache,nagios,centreon |
+| Groupe           | Utilisateurs                                            |
+|------------------|---------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                        |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
+| centreon-gorgone | centreon,apache                                         |
 
 Description des utilisateurs, umask et répertoire utilisateur :
 
-| Utilisateur     | umask | home                     |
-|-----------------|-------|--------------------------|
-| root            | 0022  | /root                    |
-| apache          | 0022  | /var/www                 |
-| centreon        | 0002  | /var/spool/centreon      |
-| centreon-broker | 0002  | /var/lib/centreon-broker |
-| centreon-engine | 0002  | /var/lib/centreon-engine |
-| mysql           | 0002  | /var/lib/mysql           |
+| Utilisateur      | umask | home                      |
+|------------------|-------|---------------------------|
+| root             | 0022  | /root                     |
+| apache           | 0022  | /var/www                  |
+| centreon         | 0002  | /var/spool/centreon       |
+| centreon-broker  | 0002  | /var/lib/centreon-broker  |
+| centreon-engine  | 0002  | /var/lib/centreon-engine  |
+| centreon-gorgone | 0002  | /var/lib/centreon-gorgone |
+| mysql            | 0002  | /var/lib/mysql            |

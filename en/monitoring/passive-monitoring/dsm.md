@@ -165,9 +165,9 @@ It is possible to overwrite default configuration of the module by creating/edit
 
 ```shell
 %centreon_dsmd_config = (
-    # which user will send action to Centcore
+    # which user will send action
     centreon_user => 'centreon',
-    # timeout to send command to Centcore
+    # timeout to send command
     submit_command_timeout => 5,
     # custom macro used to keep alarm ID
     macro_config => 'ALARM_ID',

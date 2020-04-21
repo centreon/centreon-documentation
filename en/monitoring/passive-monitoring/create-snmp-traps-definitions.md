@@ -190,7 +190,7 @@ or **Special command** fields. These arguments are listed in the table below:
 | @TIME@                   | Trap reception timestamp                                                                                                  |
 | @POLLERID@               | ID of the poller having received the trap                                                                                 |
 | @POLLERADDRESS@          | IP address of the poller having received the trap                                                                         |
-| @CMDFILE@                | Path to the command file of CentCore (central) or of centreon Engine (collector)                                          |
+| @CMDFILE@                | Path to the command file of central or of centreon Engine (collector)                                          |
 
 In addition, there are special variables that can be used in the **Routing settings** section at the level of the
 **Routing command** if the option Enable routing is selected:

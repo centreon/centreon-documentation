@@ -76,7 +76,7 @@ Le serveur central fonctionne de la manière suivante :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision ainsi que les données de performances
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et satellites ainsi que du redémarrage des moteurs de supervision
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et satellites ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données de performances à Centreon Broker RRD
@@ -139,7 +139,7 @@ Le serveur central fonctionne de la manière suivante :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Le serveur central récupère la configuration ainsi que les informations de supervision en se connectant au serveur de
   base de données
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
   collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -204,7 +204,7 @@ Le serveur central fonctionne normalement :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision
   ainsi que les données de performances
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
   collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -219,7 +219,7 @@ Le Remote Server fonctionne normalement :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker les informations de supervision ainsi que les données de
   performances
-* Le service CentCore est chargé d'opérer sur les données collectées
+* Le service Centreon Gorgone est chargé d'opérer sur les données collectées
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données
