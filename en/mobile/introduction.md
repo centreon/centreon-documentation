@@ -66,4 +66,4 @@ If you have problem to connect:
 - During the installation or upgrade of Centreon, you may have customized your Apache configuration (for HTTPS or URL rewriting purpose), in that case
 you may want to double-check that your configuration makes the API accessible [on this page](../administration/accessing-to-centreon-ui.html).
 - Make sure to give realtime API access to the user. You can check it in the menu
-**Configuration \> Users \> Contacts / Users**, parameter **Reach API Realtime** of the second tab.
+`Configuration > Users > Contacts / Users`, parameter `Reach API Realtime` of the second tab.
