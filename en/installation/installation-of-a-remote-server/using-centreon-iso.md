@@ -171,6 +171,7 @@ For instance :
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
 ```
+
 This command will enable **Remote Server** mode:
   
   - by limiting menu access,
