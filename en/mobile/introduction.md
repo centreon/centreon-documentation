@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-Centreon comes with its mobile App. to let you access resources status on mobility, wether you're on phone or tablet. 
+Centreon comes with its mobile App. to let you access resources status on mobility, wether you're on phone or tablet.
 
   ![image](../assets/mobile/mobile-app-screens.png)
 
@@ -13,7 +13,7 @@ The main capabilities of Centreon Mobile App. are :
 - Filter resources list
 - Take actions: acknowledge or set a planned downtime
 - See detail information of host or service
-- Access metrics history via charts 
+- Access metrics history via charts
 
   <video width="375" height="812" controls="true" allowfullscreen="true" poster="../assets/mobile/mobile-login.png">
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
@@ -25,17 +25,17 @@ To be able to connect your mobile App. to your Centreon platform:
 
 - Run at least iOS >= 13.x and Android >= 8 on your device
 - Have a Centreon plateform >= 20.04
-- Have a “Direct” connection between your smartphone & the Centreon plateform you want to connect to. You may ofc 
+- Have a “Direct” connection between your smartphone & the Centreon plateform you want to connect to. You may ofc
 use a VPN
 - A valid SSL certificate on your Centreon platform issued from a trusted certificate authority known by your device
 
-## How to install 
+## How to install
 
 The App. installation mechanism depends on your device:
 
 For **Android**, you can:
 
- - Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp) 
+ - Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
  - Install it from [mobile.centreon.com](https://mobile.centreon.com/) using the "Add to home screen" feature
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
@@ -47,7 +47,7 @@ For **Apple iOS**, go to [mobile.centreon.com](https://mobile.centreon.com/) usi
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
 
-## How to connect 
+## How to connect
 
 When install and launch the application for the first time, you need to fill the following parameters:
 
@@ -62,9 +62,8 @@ Your phone may suggest to store the password in the password manager
 
 If you have problem to connect:
 
--  make sure Centreon platform is accessible via your device. 
+- Make sure Centreon platform is accessible via your device.
 - During the installation or upgrade of Centreon, you may have customized your Apache configuration (for HTTPS or URL rewriting purpose), in that case
-you may want to double-check that your configuration makes the API accessible [on this page](../administration/accessing-to-centreon-ui). 
-
-
-
+you may want to double-check that your configuration makes the API accessible [on this page](../administration/accessing-to-centreon-ui.html).
+- Make sure to give realtime API access to the user. You can check it in the menu
+**Configuration \> Users \> Contacts / Users**, parameter **Reach API Realtime** of the second tab.

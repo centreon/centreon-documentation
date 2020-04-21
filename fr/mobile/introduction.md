@@ -22,7 +22,7 @@ Les fonctionnalités principales de cette application sont:
 
 ## Pre-requis
 
-Voici les pré-requis vous permettant de profiter de l'application et d'être en mesure de vous 
+Voici les pré-requis vous permettant de profiter de l'application et d'être en mesure de vous
 connecter à votre plateforme Centreon
 
 - Disposer d'iOS >= 13.x ou Android >= 8 sur votre appareil
@@ -38,12 +38,12 @@ La manière d'installer l'application dépend de votre appareil:
 Pour **Android**, deux possibilités:
 
   - Télécharger l'application à partir du [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
-  - Installer l'application via Google Chrome et en vous rendant sur 
+  - Installer l'application via Google Chrome et en vous rendant sur
   [mobile.centreon.com](https://mobile.centreon.com/)  utilsant la fonctionnalité "Ajouter à l'écran d'accueil"
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
-Pour **iOS**, rendez vous sur [mobile.centreon.com](https://mobile.centreon.com/)  avec le navigateur Safari 
+Pour **iOS**, rendez vous sur [mobile.centreon.com](https://mobile.centreon.com/)  avec le navigateur Safari
 puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
@@ -51,13 +51,13 @@ puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
 ## Se connecter à l'application
 
-Une fois l'application installée et lancée pour la première fois, vous devez remplir les champs 
+Une fois l'application installée et lancée pour la première fois, vous devez remplir les champs
 suivant afin de vous connecter à votre plateforme Centreon:
 
 - URL: L'adresse que vous utilisez pour votre connecter à votre plateforme. Ne pas oublier le "/centreon" sauf si une personnalisation
-de l'URL a été mise en place 
-- User: le login pour vous connecter à Centreon 
-- Passowrd: votre mot de passe pour vous connecter à Centreon
+de l'URL a été mise en place
+- User: le login pour vous connecter à Centreon
+- Password: votre mot de passe pour vous connecter à Centreon
 
 ![image](../assets/mobile/mobile-login.png)
 
@@ -67,9 +67,7 @@ que votre téléphone vous propose de stocker le mot de passe via son système d
 Si vous rencontrez des problèmes de connexion:
 
 - Assurez vous que votre téléphone a bien accès en direct à votre plateforme Centreon (en vous rendant directement sur l'URL par exemple)
-- Il se peut que votre configuration Apache ait été modifiée et empêche l'applicatiaon d'accéder aux APIs de Centreon, dans ce cas, 
-consultez [la section suivante](../administration/accessing-to-centreon-ui). 
-
-
-
-
+- Il se peut que votre configuration Apache ait été modifiée et empêche l'applicatiaon d'accéder aux APIs de Centreon, dans ce cas,
+consultez [la section suivante](../administration/accessing-to-centreon-ui.html).
+- Assurez vous d'avoir donné à l'utilisateur les droits d'accès à l'API temps réel. Vous pouvez vérifier cela dans le menu
+**Configuration \> Utilisateurs \> Contacts / Utilisateurs**, le paramètre **Reach API Realtime** du second onglet.
