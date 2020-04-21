@@ -3,22 +3,24 @@ id: centreon-core
 title: Centreon Core
 ---
 
-## Introduction	
+## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Core**.	
+You can find in this chapter all changelogs concerning **Centreon Core**.
 
-> It is very important when you update your system to refer to this section in	
-> order to learn about behavior changes or major changes that have been made on	
-> this version. This will let you know the impact of the installation of these	
-> versions on the features you use or the specific developments that you have	
-> built on your platform (modules, widgets, plugins).	
-If you have feature requests or want to report a bug, please go to our [Github](https://github.com/centreon/centreon/issues/new/choose)	
+> It is very important when you update your system to refer to this section in
+> order to learn about behavior changes or major changes that have been made on
+> this version. This will let you know the impact of the installation of these
+> versions on the features you use or the specific developments that you have
+> built on your platform (modules, widgets, plugins).
 
-## Centreon Web 	
+If you have feature requests or want to report a bug, please go to our
+[Github](https://github.com/centreon/centreon/issues/new/choose)
 
-### 20.04.0	
+## Centreon Web
 
-*Released April, 22  2020*	
+### 20.04.0
+
+*Released April, 22 2020*
 
 #### Features
 
@@ -67,7 +69,7 @@ If you have feature requests or want to report a bug, please go to our [Github](
 * [SQL] Add missing index on ods_view_details.index_id (PR/#8445)
 * [UI] use session cache to store top counter hosts/services results (PR/#8189)
 
-#### Bug fixes	
+#### Bug fixes
 
 * [ACL] Remove ACL notice on lvl3 calculation (PR/#8120)
 * [ACL] Return all services linked to a servicegroup (PR/#8406)
@@ -193,7 +195,7 @@ If you have feature requests or want to report a bug, please go to our [Github](
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
-## Centreon Engine 	
+## Centreon Engine
 
 ### 20.04.0	
 
@@ -204,7 +206,7 @@ If you have feature requests or want to report a bug, please go to our [Github](
 * Fix macros replacement
 * Fix perfdata truncated when retention read
 
-## Centreon Broker 	
+## Centreon Broker
 
 ### 20.04.0
 

@@ -3,7 +3,7 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
-TODO: gif
+![image](../../assets/monitoring/discovery/host-discovery.gif)
 
 > The discovery providers are provided from installation of Plugin Packs (Azure,
 > Amazon AWS, VMware, etc.). To know the complete list, please go to
