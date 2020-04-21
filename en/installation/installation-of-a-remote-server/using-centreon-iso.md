@@ -167,6 +167,7 @@ execute following command:
   - For the **\<no proxy to call Central\>** option you can put **1** to do not use
     HTTP(S) proxy to contact the Centreon Central server.
 
+
 For instance : 
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
