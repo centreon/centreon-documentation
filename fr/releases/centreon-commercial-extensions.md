@@ -61,3 +61,42 @@ Manage compatibility with Centreon 20.04
 ### 20.04.0
 
 Manage compatibility with Centreon 20.04
+
+## Centreon Auto Discovery
+
+### 20.04.0
+
+Redesign the discovery of the hosts:
+
+- New page to select provider
+- New page to define access parameters
+- Possibility to select the poller which run the discovery
+- New page to select additional  parameters
+- Add a page to define mappers and show the result preview
+
+The Mappers is a technology to map discovered items value with a configuration value:
+
+- **association**: Allows you to map the value of a property of a discovered resource with a field in the Centreon configuration (on a condition or not)
+- **macro**: Allows you to map the value of a property of a discovered resource with a custom macro (on a condition or not)
+- **template**: Allows to selected the template of of to apply (on a condition or not)
+- **monitoring**: Allows to select the poller which will monitor the discovered resource (on a condition or not)
+
+
+## Centreon Plugin Pack Manager
+
+- Improve management of errors during Plugin Packs installation process
+- The procedures for installing Plugin Packs are now hosted on the official Centreon documentation
+
+### 20.04.0
+
+## Centreon License Manager
+
+### 20.04.0
+
+Remove "Administration > Extensions > Subscription" menu to manage IT Edition subscription from "Administration >
+Extensions > Manager" menu:
+
+- Add a button to add a Centreon IT Edition subscription
+- Add a button to view a Centreon IT Edition subscription
+
+Licenses for products linked to Centreon IT and Business Editions online subscriptions are now automatically downloaded.
