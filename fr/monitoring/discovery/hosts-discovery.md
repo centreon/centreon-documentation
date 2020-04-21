@@ -3,93 +3,235 @@ id: hosts-discovery
 title: Découverte des hôtes
 ---
 
-> Les règles de découverte sont apportées lors de l’installation de Plugin Packs (MS Azure, Amazon Web Services,
-> VMware, etc.). Pour connaître la liste complète, rendez-vous au
-> [catalogue des Plugin Packs.](../../integrations/plugin-packs/init-plugin-packs).
+![image](../../assets/monitoring/discovery/host-discovery.gif)
 
-La découverte de nouvelles ressources s’effectue en deux étapes :
+> Les fournisseurs de découverte sont amnenés par l'installation de Plugin Packs
+> (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
+> le [catalogue des Plugin
+> Packs](../../integrations/plugin-packs/introduction.html).
 
-1. [Lancer une tâche de découverte](#lancer-une-tâche-de-découverte)
-2. [Analyser le résultat d’une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)
+## Ajouter une tâche de découverte
 
-## Lancer une tâche de découverte
+Pour démarrer une découverte, vous devez ajouter une tâche de découverte.
 
-Rendez-vous dans le menu **Configuration > Hosts > Discovery** et cliquez sur **Add**
+L'assistant de création de tâche de découverte est un assistant en six étapes
+qui vous permettra de choisir un fournisseur, définir des paramètres, des règles
+de traitement du résultat ainsi que les politiques de mise à jour et
+d'exécution.
 
-Sélectionnez la règle de découverte, et cliquez sur **Next** :
+Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur **+AJOUTER**.
 
-![image](../../assets/configuration/autodisco/manual_host_scan_select_rule.png)
+Premièrement, choisissez un fournisseur en cliquant dessus :
 
-Saisissez un nom pour la sauvegarde des paramètres afin de les [réutiliser](#relancer-une-tâche-de-découverte) par la
-suite :
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_1.png)
+La bar de recherche permet de chercher un fournisseur spécifique :
 
-Saisissez les paramètres d’accès à l’API distante, puis cliquez sur **Next** :
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
-![image](../../assets/configuration/autodisco/manual_host_scan_define_credential_2.png)
+La deuxième étape permet de définir les paramètres d'accès, surtout le serveur
+de supervision depuis lequel sera faite à la découverte :
 
-Une tâche de découverte a été créée, vous revenez à la liste des tâches de découverte :
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
-![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks.png)
+Puis, des paramètres additionnels peuvent être nécessaire pour définir la portée
+de la découverte :
 
-Patientez le temps de la récupération des données.
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
 
-## Analyser le résultat d’une tâche de découverte
+La quatrième étape définit comment le résultat de la découverte sera traité pour
+créer les hôtes dans la configuration :
 
-REndez-vous dans le menu **Configuration > Hosts > Discovery** , vous accédez à la liste des tâches de découverte
-exécutées :
+Dans cet étape, des *modificateurs* peuvent être ajoutés ou réarrangés à
+convenance. Allez au chapitre [Comment utiliser les
+*modificateurs*](#comment-utiliser-les-modificateurs) pour en savoir plus.
 
-![image](../../assets/configuration/autodisco/manual_host_scan_list_tasks_2.png)
+Une simulation sur un jeu de données d'exemple donne un aperçu de ce à quoi
+pourrait ressembler le résultat de la découverte :
 
-La légende est la suivante :
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
 
-![image](../../assets/configuration/autodisco/legend_task_status.png)
+Les cinquième et sixième étapes permettent seulement de définir une analyse
+manuelle comme politique de mise à jour et une planification immédiate.
 
-* Tâche non exécutée
-* Tâche échouée
-* Tâche terminée et prête à être analysée
+Il y aura d'avantage de choix dans les futurs versions pour permettre la mise à
+jour automatique et l'exécution cyclique.
 
-Cliquez sur le nom de la tâche terminée et que vous souhaitez analyser, la liste des objets découverts est affichée :
+Cliquez sur **TERMINER** à la dernière étape pour ajouter et planifier la tâche
+de découverte.
 
-![image](../../assets/configuration/autodisco/items_list.png)
+## Gérer les tâches de découverte
 
-Les actions disponibles sont :
+Aller au menu `Configuration > Hôtes > Découverte` pour accéder à la liste des
+tâches de découverte.
 
-* Filtrer sur le nom des ressources
-* Sélectionner les ressources une à une ou toutes les ressources visibles
-* Modifier le modèle de supervision proposé
-* Supprimer la sélection de toutes les ressources
-* Revenir à la liste des résultats de découverte
-* Une fois les ressources sélectionnées, il est possible de :
+![image](../../assets/monitoring/discovery/host-discovery-job-listing.png)
 
-![image](../../assets/configuration/autodisco/save.png)
+Les états d'une tâche peuvent être :
 
-* **Save** : enregistrer les ressources dans la configuration de la supervision.
-* **Save & monitor** : enregistrer les ressources dans la configuration de la supervision et démarrer la supervision
-  de ces dernières.
+  - Programmé <img src="../../assets/monitoring/discovery/host-discovery-scheduled.png" width="25" />
+  - En cours <img src="../../assets/monitoring/discovery/host-discovery-running.png" width="25" />
+  - En cours d'enregistrement <img src="../../assets/monitoring/discovery/host-discovery-saving.png" width="25" />
+  - Terminé <img src="../../assets/monitoring/discovery/host-discovery-finished.png" width="25" />
+  - Echoué <img src="../../assets/monitoring/discovery/host-discovery-failed.png" width="25" />
 
-Vous revenez ensuite à la liste des résultats de découverte.
+Si une tâche est dans un état *Echoué*, survolez l'icone pour en connaitre la
+raison.
 
-Suivant votre choix, rendez vous dans le menu **Configuration > Hosts > Hosts** or **Monitoring > Status Details >
-Services**  pour visualiser le résultat :
+Si une tâche est dans l'état *Terminé*, cliquez dessus pour analyser le
+résultat. Allez au chapitre [Analyser le résultat d'une
+tâche](#analyser-le-résultat-d'une-tâche) pour en savoir plus.
 
-![image](../../assets/configuration/autodisco/host_conf_listing.png)
+Les tâches peuvent être reprogrammées en utilisant l'action *Reprogrammer* <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />
 
-## Relancer une tâche de découverte
+Elles peuvent aussi être éditées <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" /> 
 
-Lors de la création de la première tâche de découverte, les paramètres ont été sauvegardé. Ainsi il est possible de
-sélectionner ces derniers pour créer une nouvelle tâche de découverte :
+Ou même supprimées <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
 
-![image](../../assets/configuration/autodisco/reload_task.png)
+## Analyser le résultat d'une tâche
 
-## FAQ
+Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur une tâche
+terminée to visualiser le resulat.
 
-Si aucun Plugin Packs contenant des règles de découverte n’a été installé, un message d’erreur vous invite à réaliser
-cette opération :
+![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-![image](../../assets/configuration/autodisco/manual_host_scan_error_pp.png)
+Sélectionnez les hôtes que vous voulez ajouter à la configuration et cliquez
+sur **ENREGISTRER**. Une tâche sera lancée pour enregistrer les hôtes
 
-Lors de l’échec d’exécution d’une tâche, placez votre curseur sur l’icône d’échec pour en connaître la raison :
+Allez au menu `Configuration > Hôtes` pour voir les hôtes nouvellement créés.
+Pour déployer les services liés aux modèles d'hôte associés, sélectionnez les
+hôtes puis l'action **Déployer les services** depuis la liste déroulante **Plus
+d'actions...**.
 
-![image](../../assets/configuration/autodisco/manual_host_scan_error_missing_plugin.png)
+![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+
+Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
+configuration, retournez à la liste des tâches et regardez si une erreur est
+survenue pendant la tâche d'enregistrement.
+
+## Editer une tâche de découverte
+
+Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur l'icone
+d'édition.
+
+![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
+
+Depuis le panneau sur la droite, tous les paramètres d'une tâche peuvent être
+modifiés.
+
+L'édition des *modificateurs* aura un effet direct sur les résultats de la
+tâche.
+
+Cliquez sur l'icone de sauvegarde  <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+
+## Comment utiliser les *modificateurs*
+
+Un *modificateur* est un objet vous permettant de lier la valeur d'un
+attribut d'un item découvert à la propriété d'un futur hôte.
+
+Il y a quatre types de *modificateur* :
+
+  - Association: associe la valeur d'un attribut aux propriétés communes
+    d'un hôte comme son nom, son alias ou son adresse IP,
+  - Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
+  - Template: ajoute un modèle d'hôte,
+  - Monitoring: choisit depuis quel serveur de supervision l'hôte sera
+    supervisé.
+
+Pour tous ces *modificateur*, des conditions peuvent être définies pour savoir
+si la modification sera effective ou non.
+
+Les conditions sont aussi basées sur la valeur des attributs à laquelle est
+comparée une valeur définie pas l'utilisateur. Les opérateurs de comparaison
+peuvent être : *equal*, *not equal*, *contain* et *not contain*.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
+
+La liste des attributs dépend du fournisseur et sont listés comme *Source* pour
+à la fois les *modificateurs* et les *conditions*.
+
+### AJouter un *modificateur*
+
+Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
+panneau d'édition dans la section *Modificateurs*, cliquez sur **+AJOUTER UN
+MODIFICATEUR**
+
+Sélectionnez le type de *modificateur* depuis le menu déroulant, et remplissez
+tous les champs requis.
+
+Cliquez sur **ENREGISTRER** pour ajouter un *modificateur*.
+
+### Editer un *modificateur*
+
+Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
+panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+
+Modifiez n'importe quel champs ou le type de *modificateur* lui-même.
+
+Cliquez sur **ENREGISTRER** pour enregistrer le *modificateur*.
+
+### Supprimer un *modificateur*
+
+Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
+panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone de
+suppression  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+
+Une fenêtre demandera de confirmer l'action.
+
+Cliquez sur **SUPPRIMER** pour supprimer le *modificateur*.
+
+## Types de **modificateur**
+
+### Association
+
+Le *modificateur* **Association** est utilisé pour définir les propriétés
+communes d'un hôte comme son nom, son alias ou son adresse IP. Ces trois
+propriétés sont obligatoires.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-association.png)
+
+La liste des *Source* permet de choisir entre les données d'identification
+(credentials), les paramètres additionnels (parameters) ou les attributs
+attendus dans le résultat (attributes).
+
+La liste des *Destination* permet de définir à quelle propriété la valeur sera
+associée.
+
+### Macro
+
+Le *modificateur* **Macro** est utilisé pour créer des macros *custom* à
+définir au niveau de l'hôte.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.png)
+
+La liste des *Source* permet de choisir entre les données d'identification
+(credentials), les paramètres additionnels (parameters) ou les attributs
+attendus dans le résultat (attributes).
+
+Le champs *Destination* est un champs texte libre.
+
+La case *Mot de passe* définit si la macro sera créée comme une macro "mot de
+passe" ou non.
+
+### Template
+
+Le *modificateur* **Template** est utilisé pour ajouter des modèles à l'hôte. Ce
+n'est pas un remplacement.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-template.png)
+
+La liste *Modèles d'hôte** permet de choisir parmis tous les modèles d'hôte
+définis dans la configuration.
+
+### Monitoring
+
+Le *modificateur* **Monitoring** est utilisé pour choisir depuis quel serveur de
+supervision l'hôte sera supervisé.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
+
+Le bouton radio *Sélecteur d'instance de supervision* permet de choisir entre
+le serveur de supervision définit dans la tâche ou depuis ceux disponibles sur
+la plateforme Centreon.
+
+Ce *modificateur* est obligatoire.

@@ -14,7 +14,7 @@ The Auto Discovery module uses the plugins to get a list of new resources to
 monitor: new hosts or new services. These resources can then be configured in
 Centreon using host templates or service templates.
 
-Host Discovery Rules and Service Discovery Rules instruct Centreon how to
+Host Discovery Providers and Service Discovery Rules instruct Centreon how to
 connect to an equipment and get the list of resources that could be monitored.
 These discovery rules are included in the Plugin Packs.
 
