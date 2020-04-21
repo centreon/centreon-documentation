@@ -12,8 +12,8 @@ title: Manage Business Activities
 
 Business Activities form the core of the Centreon BAM extension. As aggregated indicators they are
 monitored by the software in real time using specific calculation methods. 
-Business Activities are able to notify users depending their status, 
-revealing a problem with the IT service or application.
+Business Activities are able to notify users depending their status, revealing a problem with the 
+IT service or application.
 
 ### Calculation methods
 
@@ -22,10 +22,10 @@ is configured at business activity level.
 
 There are four calculation methods that you can use:
 
-- Best status: When you only need to be warned that ALL indicators are critical at the same times 
-- Wors status: When you immediately want to know that at least 1 indicator is not-ok
-- Ratio: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
-- Impact: When you want to precisely define the weight of each indicators and reflect that on your BA status 
+- **Best status**: When you only need to be warned that ALL indicators are critical at the same times 
+- **Wors status**: When you immediately want to know that at least 1 indicator is not-ok
+- **Ratio**: When you want to model Cluster concepts by specifying a number of percentage of critical resources that you don't want to exceed
+- **Impact**: When you want to precisely define the weight of each indicators and reflect that on your BA status 
 
 Find below examples & configuration of each calculation methods
 
@@ -35,7 +35,7 @@ Find below examples & configuration of each calculation methods
 
 ![image](assets/service-mapping/best.png)
 
-The following order will be applied to find the "Best" status: OK > Unknown > Warning > Critical > Pending
+The following order will be applied to find the "Best" status: `OK > Unknown > Warning > Critical > Pending`
 
 The configuration is as follow:
 
@@ -49,7 +49,7 @@ The configuration is as follow:
 
 ![image](assets/service-mapping/conf-worst.png)
 
-The following order will be applied fto find the "Worst" status : CRITICAL > Warning > Unknown > OK > Pending
+The following order will be applied fto find the "Worst" status : `CRITICAL > Warning > Unknown > OK > Pending`
 
 <!-- Ratio -->
 
@@ -93,8 +93,6 @@ is in an **OK**, **Warning** or **Critical** state.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
-
 ### Create a Business Activity
 
 To add a Business Activity, click on the **Add** button. The following panel
@@ -103,8 +101,8 @@ appears:
 ![image](assets/service-mapping/guide/conf_add_ba.png)
 
 In this configuration panel, after giving a unique name (mandatory), you need to configure multiple sections to 
-have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, you need at least
-to configure some indicators and an calculation methods. This can be done in the "Indicator" section.
+have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, **you need at least**
+**to configure some indicators and define the calculation methods**. This can be done in the "Indicator" section.
 
 #### Indicators
 
@@ -120,43 +118,38 @@ simple to highly complex IT services or App.
 - Meta services
 - Boolean rules: a combination of services with AND/OR/XOR rules
 
-The default calculation method applied to the indicators is the **"Best"** status. You can
-change the way the calculation is done. 
-
 **Calculation methods**
 
-You can choose between the four calculation methods. Refer to the previous section to perfectly understand each calculation method.
+You can choose between the following four calculation methods. 
+Refer to the previous section to understand each calculation method.
 
-- Best status
+- Best status 
 - Wors status
 - Ratio
 - Impact
 
-Now that you've choosen the way the business activity status will be calculated, you can manage how **planned
-maintenance** on indicators will be handled. You have three choices:
+Now that you've choosen the way the business activity status will be calculated, you can manage 
+how **planned downtime** on indicators will be handled. You have three choices:
 
 - **Ignore the downtime**: In that case, the planned downtime positionned on child indicators will be ignored, the BA will 
-be impacted
+be impacted, that's it.
 - **Inherit the downtime**: the BA is automatically sets in "planned downtime" whenever an indicators in non-ok state is in
-    planned downtime AND impact the BA. The BA will still be impacted and also set in planned downtime based on the following rules:
+    planned downtime AND impact the BA. The BA will still be impacted. The planned downtime inheritance follows these rules: 
     - A BA inherits planned downtime from its indicators only when its status is
-    not **OK**.
-  - When a BA is in planned downtime due to indicators downtime inheritance: If
-    the BA status switches to OK, planned downtime is stopped.
-  - When a BA is in planned downtime due to indicators downtime inheritance: If
-    an impact comes from an indicators that has no planned downtime, the BA
-    downtime is stopped.
-- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, it's ignore from the calculation.
+    **not OK**.
+    - When a BA is in planned downtime due to indicators downtime inheritance: If the BA status switches to OK, planned 
+      downtime is stopped.
+    - When a BA is in planned downtime due to indicators downtime inheritance: If an impact comes from an indicators 
+      that has no planned downtime, the BA downtime is stopped.
+- **Ignore the indicatore in the calculation**: when the indicator impacts the BA and is it planned downtime, 
+its status/impact is ignored from the calculation.
 
 After configuring the way the business activity status is computed, you'll be able to configure the following properties:
 
-  - Business View: what BV(s) to link the BA to. Mandatory if you want to give
-    access to this BA to non-admin users
-  - Display: All parameters concerning the way the BA will be accessible outside
-    the BA monitoring page
+  - Business View: what BV(s) to link the BA to. Mandatory if you want to give access to this BA to non-admin users
+  - Display: All parameters concerning the way the BA will be accessible outside the BA monitoring page
   - Notification: who & when users get notified
-  - Reporting: What SLA & timeperiod you want to use to calculate the BA
-    availability statistics
+  - Reporting: What SLA & timeperiod you want to use to calculate the BA availability statistics
   - Event handler: parameters to auto-remediate the BA when state becomes non-ok
 
 #### Business View
@@ -220,6 +213,8 @@ The BA is managed through the `Configuration > Business Activity > Business Acti
 You have inline actions & global action to delete, duplicate, enable/disable the
 BA and massively change thresholds.
 
+> Deleting a business activity is permannent, only passed data will be available through reports/widgets
+
 ## Indicators (KPI)
 
 > To update indicator configuration, you need to push & reload the configuration
@@ -250,8 +245,10 @@ even if the sum of its indicators impact is \> 100.
 
 ### List Indicators
 
-Indicators can be configured through the **Configuration \> Business Activity \>
-Indicators** menu or directly in the business activity configuration form:
+Indicators can be configured through two different way:
+
+- From the BA panel (common way)
+- From `Configuration > Business Activity > Indicators`
 
 ![image](assets/service-mapping/guide/conf_kpi.png)
 
@@ -273,6 +270,9 @@ once:
   - Delete indicator.
 
 ### Create an indicators (KPI)
+
+> In this page, you can only attach indicator to business activities that use the "Impact" calculation method. If you
+want to manipulate BA or indicators using other calculation method, go back to the Business Activity page.
 
 There are several ways to create an indicator:
 
@@ -305,32 +305,6 @@ To be able to manually define an impact:
 
 *To add a boolean rule: First create the boolean rule (see below), and then add
 the KPI.*
-
-**Boolean Rules**
-
-To create a boolean rule, go to : **Configuration \> Business Activity \>
-Boolean Rules**
-
-![image](assets/service-mapping/guide//kpi_booleen.png)
-
-| Column                                    | Description                                         |
-| ----------------------------------------- | --------------------------------------------------- |
-| KPI name                                  | Name for identifying KPI                            |
-| Configuration Mode                        | Configuration mode: regular or advanced             |
-| Expression                                | Logical expression, see below                       |
-| Impact is applied when expression returns | State of logical expression that triggers theimpact |
-| Comments                                  | Comments regarding the boolean KPI                  |
-| Status                                    | Enabled or Disabled                                 |
-
-Logical expression:
-
-1.  Field for editing the logical expression
-2.  Toolbox
-3.  Services that compose the logical expression
-4.  Button for evaluating the expression with real-time monitored status
-5.  Boolean state after evaluation (whether it is real-time or simulated)
-6.  Enter simulation mode, thus allowing user to simulate statuses of the
-    defined services
 
 #### Adding multiple KPIs
 
@@ -370,6 +344,32 @@ To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 | Format         | Formats of the SSV file depending on the chosen indicators type |
 | Manual Filling | Possibility to fill the field instead of loading a file         |
 
+
+### Boolean Rules
+
+To create a boolean rule, go to : `Configuration > Business Activity > Boolean Rules`
+
+![image](assets/service-mapping/guide//kpi_booleen.png)
+
+| Column                                    | Description                                         |
+| ----------------------------------------- | --------------------------------------------------- |
+| KPI name                                  | Name for identifying KPI                            |
+| Configuration Mode                        | Configuration mode: regular or advanced             |
+| Expression                                | Logical expression, see below                       |
+| Impact is applied when expression returns | State of logical expression that triggers theimpact |
+| Comments                                  | Comments regarding the boolean KPI                  |
+| Status                                    | Enabled or Disabled                                 |
+
+Logical expression:
+
+1.  Field for editing the logical expression
+2.  Toolbox
+3.  Services that compose the logical expression
+4.  Button for evaluating the expression with real-time monitored status
+5.  Boolean state after evaluation (whether it is real-time or simulated)
+6.  Enter simulation mode, thus allowing user to simulate statuses of the
+    defined services
+
 ## Business View (BV)
 
 ### Definition
@@ -389,7 +389,7 @@ information in a BV depends on its content and is displayed in real time.
 
 ### List Business Views
 
-Configure a BV in the **Configuration \> Business Activity \> Business Views**
+Configure a BV in the `Configuration > Business Activity > Business Views`
 menu.
 
 ![image](assets/service-mapping/guide/conf_bv.png)
