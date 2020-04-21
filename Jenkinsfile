@@ -40,6 +40,7 @@ if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
   stage('Staging') {
     milestone label: 'Staging'
     node {
+      sh 'setup_centreon_build.sh'
       sh "./centreon-build/jobs/doc/doc-staging.sh"
     }
   }
@@ -50,6 +51,7 @@ if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
     }
     milestone label: 'Release'
     node {
+      sh 'setup_centreon_build.sh'
       sh "./centreon-build/jobs/doc/doc-release.sh"
     }
   }
