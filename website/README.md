@@ -10,13 +10,38 @@ This website was created with [Docusaurus](https://docusaurus.io/).
 
 # Get Started in 5 Minutes
 
-1. Make sure all the dependencies for the website are installed:
+1. Copy sidebars configuration from the desired language directory:
+
+```sh
+# cp ../<language>/sidebars.json ./sidebars.json
+$ cp ../en/sidebars.json ./sidebars.json
+```
+
+2. Copy footer configuration from the desired language directory:
+
+```sh
+# cp ./core/<language>/Footer.json ./core/Footer.json
+$ cp ./core/en/Footer.json ./core/Footer.json
+```
+
+3. Copy and configured website configuration file:
+
+```sh
+$ cp ./siteConfig.js.in ./siteConfig.js
+```
+
+Then replace following macros in `siteConfig.js` file:
+* **@BASEURL@** : **/**
+* **@LANGUAGE@** : **en** (or fr)
+
+4. Make sure all the dependencies for the website are installed:
 
 ```sh
 # Install dependencies
 $ npm ci
 ```
-2. Run your dev server:
+
+5. Run your dev server:
 
 ```sh
 # Start the site
