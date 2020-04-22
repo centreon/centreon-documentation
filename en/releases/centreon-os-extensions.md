@@ -20,7 +20,7 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.04.1
 
 ## Centreon Plugin Pack Manager
-* Drop old legacy table never user since PPM version 2.1.0 (PR #100)
+* Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ## Centreon DSM
 
