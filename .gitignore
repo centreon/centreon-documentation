@@ -2,4 +2,5 @@ website/i18n
 website/node_modules/
 website/sidebars.json
 website/siteConfig.js
+website/core/Footer.js
 .idea
