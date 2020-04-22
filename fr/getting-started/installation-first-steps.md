@@ -6,7 +6,7 @@ title: Installation & premier pas
 Bonjour et bienvenu ! Nous sommes heureux que vous ayez décidé de mettre en place la
 supervision de votre IT via Centreon.
 
-Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
+Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
 * [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
@@ -21,7 +21,7 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 ## Demander votre essai gratuit
 
 Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
-Pour cela-, rendez-vous sur nos site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
+Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
 et remplissez le formulaire :
 
 ![image](../assets/getting-started/it_100_free_token_form.png)
