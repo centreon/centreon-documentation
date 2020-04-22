@@ -12,18 +12,15 @@ const labels = {
     headerTitle: `Documentation`,
     links: [{
       title: `Démarrer`,
-      link: `https://docs.centreon.com/current/en/getting-started/installation-first-steps.html`,
-      external: true
+      link: `getting-started/installation-first-steps.html`,
     },
     {
       title: `API`,
-      link: `https://docs.centreon.com/current/en/api/introduction.html`,
-      external: true
+      link: `api/introduction.html`,
     },
     {
       title: `Releases`,
-      link: `https://docs.centreon.com/current/en/releases/introduction.html`,
-      external: true
+      link: `releases/introduction.html`,
     }],
   },
   resourcesPart: {
