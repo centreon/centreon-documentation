@@ -3,7 +3,7 @@ id: installation-first-steps
 title: Installation & premier pas
 ---
 
-Bonjour et bienvenu ! Nous sommes heureux que vous ayez décidé de mettre en place la
+Bonjour et bienvenue ! Nous sommes heureux que vous ayez décidé de mettre en place la
 supervision de votre IT via Centreon.
 
 Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
@@ -52,7 +52,7 @@ La machine virtuelle a besoin de :
 
 > Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites.html).
 
-### Download
+### Téléchargement
 
 Vous pouvez installer Centreon :
 
@@ -83,7 +83,7 @@ Vous pouvez maintenant démarrer la machine virtuelle.
 
 #### Premier démarrage
 
-Une fois que votre machine virtuelle a démarré. Vous devez vous y connecter via un terminal shell et effectuer les
+Une fois votre machine virtuelle démarrée, vous devez vous y connecter via un terminal shell et effectuer les
 opérations demandées.
 
 > Il est impératif de compléter les instructions, notamment les opérations 4 et 5.
@@ -186,7 +186,7 @@ Néanmoins, pour simplifier drastiquement la configuration on s'appuyera avantag
 * Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
   nécessaires à la mesure de ces indicateurs.
 * Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
-  Pack regroupe modèles de hôte et de services pour configurer en quelques clics la supervision d'un équipement
+  Pack regroupe modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
   particulier.
 
 Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
@@ -255,7 +255,7 @@ la bande passante d'une interface réseau :
 
 ![image](../assets/getting-started/quick_start_linux_4a.png)
 
-Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
+Dans le champ **Description**, saisissez le nom du service à ajouter puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Linux-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
@@ -371,8 +371,8 @@ de la partition C :
 
 ![image](../assets/getting-started/quick_start_windows_4a.png)
 
-Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
-indicateur. Dans le champ **Template** sélectionner le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
+Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionnez l'hôte auquel lier cet
+indicateur. Dans le champ **Template** sélectionnez le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
@@ -602,7 +602,7 @@ Une liste de macros en correspondance avec le modèle va alors apparaître :
 
 ![image](../assets/getting-started/quick_start_mysql_1b.png)
 
-Renseigner la valeur des macros suivantes :
+Renseignez la valeur des macros suivantes :
 
 * **MYSQLUSERNAME** : le nom de l'utilisateur pour se connecter à la base de données.
 * **MYSQLPASSWORD** : le mot de passe associé à l'utilisateur.
