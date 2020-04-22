@@ -19,7 +19,7 @@ la communauté.
 Avant toute installation
 
 1.  Veillez à bien suivre les [pré-requis
-    d'installation](prerequisites.html/#prerequisites) et de dimensionnement
+    d'installation](prerequisites.html) et de dimensionnement
     (ressources CPU, mémoire, disques, partitionnement, etc...)
 2.  Prenez également soin de bien choisir le [type
     d'architecture](architectures.html) qu'il convient de pour vos besoins.
