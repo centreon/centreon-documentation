@@ -20,47 +20,27 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.0
 
-*Sortie le 22 avril 2020*
-
-#### Nouvelles fonctionnalités
-
-**Nouveau packaging**
-
-Le packaging et le service du serveur Centreon Map ont été simplifiés et la
-dépendance avec Tomcat a été retirée.
-
-Les logs sont maintenant dans `/var/log/centreon-map/` et le service à manipuler
-est désormais `centreon-map` (*systemctl restart centreon-map* par exemple)
-
-**Mode d'installation**
-
-Il est désormais possible d'installer Centreon Map en mode "silencieux" en plus
-du mode "interactif" actuel.
-
-**Licence sur le serveur Central**
-
-Le système de licensing a été simplifié. La license de Centreon Map se situe
-maintenant sur le serveur Central permettant des installation & mise en place de
-license facilitée.
-
-Pas d'inquiétude, la mise à jour reste compatible avec une license positionnée
-sur le serveur Map (cas pour toutes les versions \< 20.04.0)
-
-Si vous le souhaitez et pour anticiper des futures mises à jour, vous pouvez
-demander au Support une nouvelle license puis l'uploader dans `Administration >
-Extension > Manager`
+* Simplification du packaging: la dépendance à Tomcat a été retirée, les logs sont désormais dans `/var/log/centreon-map/` et le service  s'appelle `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de mise à niveau](../graph-view/upgrade).
+* Mode d'installation silencieux: il est possible de fournir des variables au script d'installation plutôt que de passer par le mode interactif
+* La licence est désormais gérée sur le serveur Central, comme pour les autres extensions
+* [API] Gestion des metaservice
+* [API] Simplification de l'authentification
+* [API] Les ressources sont désormais manipulées vis l'ID réel de la ressource et non l'ID interne
+* Il est possible de choisir l'arrondi à prendre en compte pour le label des liens
 
 ## Centreon BAM
 
 ### 20.04.0
 
-Manage compatibility with Centreon 20.04
+* Ajout de nouvelles méthodes de calcul: Worst, Best et Ratio
+* Il est désormais possible d'ignorer l'indicateur dans le calcul lorsque l'indicateur est en plage de maintenance planifiée
+* Toutes les pages de configuration & temps réelle ont été mise à jour pour gérer ces nouvelles méthodes de calcul
 
-#### Centreon MBI
+## Centreon MBI
 
 ### 20.04.0
 
-Manage compatibility with Centreon 20.04
+* Gestion de la compatibilité avec Centreon 20.04
 
 ## Centreon Auto Discovery
 
