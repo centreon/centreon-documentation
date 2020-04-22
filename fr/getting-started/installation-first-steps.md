@@ -3,8 +3,8 @@ id: installation-first-steps
 title: Installation & premier pas
 ---
 
-Bonjour et bienvenu ! Nous sommes heureux que vous ayiez décidé de mettre en place la
-supervision de votre IT via Centreon.  
+Bonjour et bienvenu ! Nous sommes heureux que vous ayez décidé de mettre en place la
+supervision de votre IT via Centreon.
 
 Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
