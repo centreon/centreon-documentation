@@ -263,6 +263,37 @@ dépôts stables.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
 
+#### Configuration
+
+Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB 10.2, vous devez donc le supprimer
+du fichier **/etc/my.cnf.d/centreon.cnf**
+
+```diff
+#
+# Custom MySQL/MariaDB server configuration for Centreon
+#
+[server]
+innodb_file_per_table=1
+
+open_files_limit = 32000
+
+key_buffer_size = 256M
+sort_buffer_size = 32M
+join_buffer_size = 4M
+thread_cache_size = 64
+read_buffer_size = 512K
+read_rnd_buffer_size = 256K
+max_allowed_packet = 8M
+
+# For 4 Go Ram
+-#innodb_additional_mem_pool_size=512M
+#innodb_buffer_pool_size=512M
+
+# For 8 Go Ram
+-#innodb_additional_mem_pool_size=1G
+#innodb_buffer_pool_size=1G
+```
+
 #### Montée de version de 10.1 à 10.2
 
 Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
