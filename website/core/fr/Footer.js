@@ -12,15 +12,15 @@ const labels = {
     headerTitle: `Documentation`,
     links: [{
       title: `Démarrer`,
-      link: `getting-started/installation-first-steps`,
+      link: `getting-started/installation-first-steps.html`,
     },
     {
       title: `API`,
-      link: `api/introduction`,
+      link: `api/introduction.html`,
     },
     {
       title: `Releases`,
-      link: `releases/introduction`,
+      link: `releases/introduction.html`,
     }],
   },
   resourcesPart: {
