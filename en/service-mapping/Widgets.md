@@ -1,6 +1,9 @@
-# Widgets
+---
+id: widgets
+title: Widgets
+---
 
-## Live Business Activity Status {\#ref\_widget\_bam-ba-listing}
+## Live Business Activity Status
 
 This widget displays the live business activity status and current level in a
 listing widget that you can add to your home page.

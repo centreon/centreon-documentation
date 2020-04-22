@@ -16,16 +16,16 @@ user-relevant views.
 
 Create logical views using the Desktop client...
 
-![image](assets/graph-views/desktop.gif)
+![image](../assets/graph-views/desktop.gif)
 
 ...and visualize them directly in your browser.
 
-![image](assets/graph-views/first_page_web.png)
+![image](../assets/graph-views/first_page_web.png)
 
 Or use the geographical view to display resources in the way your IT is spread
 over a city, country or world.
 
-![image](assets/graph-views/display_geo_view.gif)
+![image](../assets/graph-views/display_geo_view.gif)
 
 Both types of views may be displayed in the same Centreon web user interface:
 

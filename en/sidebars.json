@@ -137,8 +137,7 @@
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
-                    "service-mapping/ba-settings",
-                    "service-mapping/widget"
+                    "service-mapping/ba-settings"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
@@ -216,7 +215,6 @@
                     "administration/parameters/centreon-ui",
                     "administration/parameters/monitoring",
                     "administration/parameters/gorgone",
-                    "administration/parameters/my-account",
                     "administration/parameters/ldap",
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",

@@ -29,21 +29,28 @@ repository**
 Run the following commands to upgrade your Centreon MAP server:
 
 - Stop and disable legacy tomcat service coming from precedent version
+
 ``` shell
 # systemctl stop tomcat
 # systemctl disable tomcat
 ```
+
 - Update Centreon repo and update Centreon MAP server
+
 ``` shell
 # yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 # yum update centreon-map-server
 ```
+
 - Enable and start centreon-map service
+
 ``` shell
 # systemctl enable centreon-map
 # systemctl start centreon-map
 ```
+
 > If you want totally clean up legacy Tomcat service, you can just remove Tomcat and move old log file to new log folder:
+
 ``` shell
 # yum remove tomcat
 # cp /var/log/centreon-studio/* /var/log/centreon-map/ 
@@ -59,12 +66,12 @@ yum update centreon-map-web-client
 Complete the upgrade by going to *Administration \> Extensions \> Manager*
 (module & widget parts):
 
-![image](assets/graph-views/update-web-client.png)
+![image](../assets/graph-views/update-web-client.png)
 
 An error message concerning the license is displayed while you don't have a license on the Central server, don't worry
 Centreon Map still works, you can ask for a new license to the support Team to remove this error message.
 
-![image](assets/graph-views/license-error.png)
+![image](../assets/graph-views/license-error.png)
 
 ## Centreon MAP Desktop client
 

@@ -134,15 +134,15 @@ Les ressources précédemment sélectionnées disparaissent du widget d'ouvertur
 Pour fermer un ticket, sélectionnez le ressources à l'aide de la case à cocher et dans le menu
 **-- More actions --** sélectionnez l'action requise :
 
-![image](assets/alerts/open_ticke_close_ticket_01.png)
+![image](assets/alerts/open_ticket_close_ticket_01.png)
 
 Le ticket est fermé (pour Centreon seulement) :
 
-![image](assets/alerts/open_ticke_close_ticket_02.png)
+![image](assets/alerts/open_ticket_close_ticket_02.png)
 
 Les ressources précédemment sélectionnées disparaissent du widget des tickets ouverts :
 
-![image](assets/alerts/open_ticke_close_ticket_03.png)
+![image](assets/alerts/open_ticket_close_ticket_03.png)
 
 ## Configuration avancée
 

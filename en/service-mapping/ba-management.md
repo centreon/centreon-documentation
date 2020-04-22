@@ -33,23 +33,23 @@ Find below examples & configuration of each calculation methods
 
 <!-- Best Status -->
 
-![image](assets/service-mapping/best.png)
+![image](../assets/service-mapping/best.png)
 
 The following order will be applied to find the "Best" status: `OK > Unknown > Warning > Critical > Pending`
 
 The configuration is as follow:
 
-![image](assets/service-mapping/conf-best.png)
+![image](../assets/service-mapping/conf-best.png)
 
 <!-- Worst Status -->
 
-![image](assets/service-mapping/worst.png)
+![image](../assets/service-mapping/worst.png)
 
 The following order will be applied fto find the "Worst" status : `CRITICAL > Warning > Unknown > OK > Pending`
 
 The configuration is as follow:
 
-![image](assets/service-mapping/conf-worst.png)
+![image](../assets/service-mapping/conf-worst.png)
 
 
 <!-- Ratio -->
@@ -60,11 +60,11 @@ number/percentage thresholds that you don't want to exceed.
 
 In the following example, we defined that we want number of Critical to be less than 80%.
 
-![image](assets/service-mapping/ratio.png)
+![image](../assets/service-mapping/ratio.png)
 
 The configuration is as follow:
 
-![image](assets/service-mapping/conf-ratio.png)
+![image](../assets/service-mapping/conf-ratio.png)
 
 After choosing wether you want to define in percentage or number, the thresholds parameters 
 have to be configured:
@@ -87,7 +87,7 @@ You then use the Warning & Critical thresholds to determine at what level you wa
 - **Critical threshold**: Between 100 and 0 (\< the Warning threshold) below
     which the BA will switch to Critical status
 
-![image](assets/service-mapping/conf-impact.png)
+![image](../assets/service-mapping/conf-impact.png)
 
 The health value between 100% and 0% is often related to a service quality measurement. 
 A variation in this value is used to determine whether the modelized IT service or application 
@@ -100,7 +100,7 @@ is in an **OK**, **Warning** or **Critical** state.
 To add a Business Activity, click on the **Add** button. The following panel
 appears:
 
-![image](assets/service-mapping/guide/conf_add_ba.png)
+![image](../assets/service-mapping/guide/conf_add_ba.png)
 
 In this configuration panel, after giving a unique name (mandatory), you need to configure multiple sections to 
 have an agregated indicator. The name is the only parameter mandatory but to have a BA that works, **you need at least**
@@ -209,7 +209,7 @@ status switches.
 
 The BA is managed through the `Configuration > Business Activity > Business Activity` menu.
 
-![image](assets/service-mapping/guide/conf_ba.png)
+![image](../assets/service-mapping/guide/conf_ba.png)
 
 You have inline actions & global action to delete, duplicate, enable/disable the
 BA and massively change thresholds.
@@ -251,7 +251,7 @@ Indicators can be configured through two different way:
 - From the BA panel (common way)
 - From `Configuration > Business Activity > Indicators`
 
-![image](assets/service-mapping/guide/conf_kpi.png)
+![image](../assets/service-mapping/guide/conf_kpi.png)
 
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -277,7 +277,7 @@ want to manipulate BA or indicators using other calculation method, go back to t
 
 There are several ways to create an indicator:
 
-![image](assets/service-mapping/guide//add_kpi_types.png)
+![image](../assets/service-mapping/guide/add_kpi_types.png)
 
 #### Add an indicator
 
@@ -286,13 +286,13 @@ following form.
 
 **Regular Mode**:
 
-![image](assets/service-mapping/guide/kpi_standard.png)
+![image](../assets/service-mapping/guide/kpi_standard.png)
 
 **Advanced mode**:
 
 To be able to manually define an impact:
 
-![image](assets/service-mapping/guide/kpi_advanced.png)
+![image](../assets/service-mapping/guide/kpi_advanced.png)
 
 | Column                    | Description                                                                   |
 | ------------------------- | ----------------------------------------------------------------------------- |
@@ -322,7 +322,7 @@ you to a data entry form.
 Clicking on the **Retrieve KPI** button, a list of indicators will be displayed.
 You can filter and apply thresholds, collectively one by one:
 
-![image](assets/service-mapping/guide//kpi_multiple_retrieve.png)
+![image](../assets/service-mapping/guide/kpi_multiple_retrieve.png)
 
 | Column          | Description                                                                   |
 | --------------- | ----------------------------------------------------------------------------- |
@@ -336,7 +336,7 @@ You can filter and apply thresholds, collectively one by one:
 
 To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 
-![image](assets/service-mapping/guide/ssv.png)
+![image](../assets/service-mapping/guide/ssv.png)
 
 | Column         | Description                                                     |
 | -------------- | --------------------------------------------------------------- |
@@ -345,12 +345,11 @@ To add several KPIs loading an .ssv file, click on **Load .ssv file**:
 | Format         | Formats of the SSV file depending on the chosen indicators type |
 | Manual Filling | Possibility to fill the field instead of loading a file         |
 
-
 ### Boolean Rules
 
 To create a boolean rule, go to : `Configuration > Business Activity > Boolean Rules`
 
-![image](assets/service-mapping/guide//kpi_booleen.png)
+![image](../assets/service-mapping/guide/kpi_booleen.png)
 
 | Column                                    | Description                                         |
 | ----------------------------------------- | --------------------------------------------------- |
@@ -393,7 +392,7 @@ information in a BV depends on its content and is displayed in real time.
 Configure a BV in the `Configuration > Business Activity > Business Views`
 menu.
 
-![image](assets/service-mapping/guide/conf_bv.png)
+![image](../assets/service-mapping/guide/conf_bv.png)
 
 | Column      | Description                                                                          |
 | ----------- | ------------------------------------------------------------------------------------ |
@@ -409,7 +408,7 @@ menu.
 
 ### Create a Business View
 
-![image](assets/service-mapping/guide/conf_add_bv.png)
+![image](../assets/service-mapping/guide/conf_add_bv.png)
 
 | Column              | Description                                            |
 | ------------------- | ------------------------------------------------------ |

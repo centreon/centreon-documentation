@@ -13,10 +13,10 @@ Activity Monitoring" (Centreon BAM)
 Le module **Centreon Business Activity Monitoring** offre la possibilité
 de mesurer en temps réel l\'activité de la production informatique en
 agrégeant les états des différents points de contrôle supervisés avec
-**Centreon**. L\'utilisateur est alors mieux informé de l\'état de santé
+**Centreon**. L\'utilisateur est alors mieux informé de l\'état de santhé
 global de son SI et à même de prendre les meilleures décisions.
 
-![image](assets/service-mapping/about/overview.png)
+![image](../assets/service-mapping/about/overview.png)
 
 **Centreon BAM** utilise un moteur avancé de calcul des \"**Business
 Activities**\" (BA), à partir d\'indicateurs de performance clés
@@ -38,4 +38,4 @@ Définitions :
 -   **KPI** (\"Key Performance Indicator\") : Indicateur pondéré
     rentrant en considération dans le calcul de la BA.
 
-![image](assets/service-mapping/about/ba_detailed.png)
+![image](../assets/service-mapping/about/ba_detailed.png)

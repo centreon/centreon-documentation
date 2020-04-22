@@ -20,7 +20,7 @@ To grant Map administrator privileges on an ACL group:
 
 Go to *Preferences \> Preferences* then select *Admin* tab.
 
-![image](assets/graph-views/admin_preference_page.png)
+![image](../assets/graph-views/admin_preference_page.png)
 
 ### Give access on views to other users and manage their privileges
 
@@ -34,7 +34,7 @@ views independently.
 
 Go into *Preferences \> Preferences* and then select *Views \> ACLs*.
 
-![image](assets/graph-views/acl_views_preference_page.png)
+![image](../assets/graph-views/acl_views_preference_page.png)
 
 Select, from the list, the ACL group you want to configure. Then, for each view,
 define the specific rights to attribute.
@@ -57,7 +57,7 @@ views.
 
 They will have no status and appear as shown in the following screenshot:
 
-![image](assets/graph-views/disabled-resources.png)
+![image](../assets/graph-views/disabled-resources.png)
 
 You may change this configuration by opening the file
 /etc/centreon-studio/studio-config.properties and adding the following line:
@@ -130,7 +130,7 @@ configuration file (modify or add missing parameters), then restart Centreon Map
 You can change the start and end color of a link based on a metric. These colors
 represent a scale from 0% to 100% for the metric(s) associated with the link.
 
-![image](assets/graph-views/guide_link_color.png)
+![image](../assets/graph-views/guide_link_color.png)
 
 ## Understand how resources synchronization works
 
@@ -147,7 +147,7 @@ resources."
 This operation may take a few seconds. A pop-up will tell you when the
 synchronization is complete.
 
-![image](assets/graph-views/sync_resources.png)
+![image](../assets/graph-views/sync_resources.png)
 
 ## Highlight problems
 
@@ -158,13 +158,13 @@ You can change the size of elements according to their status as a way of
 highlighting a problem. This only works when elements are expressed in the
 *geometric style*.
 
-![image](assets/graph-views/guide_object_ratio_example.png)
+![image](../assets/graph-views/guide_object_ratio_example.png)
 
 To use this feature, edit the Status size properties in the desktop Preferences.
 Go to *Status \> Status size* to configure it globally or to *Views \> Status \>
 Status size* to configure it at the view level.
 
-![image](assets/graph-views/guide_ratio_preferences.png)
+![image](../assets/graph-views/guide_ratio_preferences.png)
 
 ## Geo view configuration
 
@@ -180,14 +180,14 @@ Street Map Tile usage policy.
 
 To change the tile provider, select one in the list and click save.
 
-![image](../assets/graph-views/geo_options.png)
+![image](../../assets/graph-views/geo_options.png)
 
 If you want to use your own Tile service provider, if for example you have an
 internal Open Street Map server, go to the *Administration \> Extension | Map
 Option* and choose the "Custom" style. Define the parameters needed and then
 save.
 
-![image](../assets/graph-views/geo_custom_provider.png)
+![image](../../assets/graph-views/geo_custom_provider.png)
 
 ### Configure data layers
 
@@ -201,7 +201,7 @@ Most of the time, the data layer configuration will consist in :
   - Setting your token
   - Adding any extra parameters in a JSON format
 
-![image](../assets/graph-views/geo_datalayers_conf_form.png)
+![image](../../assets/graph-views/geo_datalayers_conf_form.png)
 
 ## Create and link a Mapbox account
 

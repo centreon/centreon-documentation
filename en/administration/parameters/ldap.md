@@ -4,12 +4,11 @@ title: LDAP
 ---
 
 > If you want to use SSO for authentication, please read
-> *[this procedure](centreon-ui#sso)*. You can also use Keycloack SSO using
-> *[this procedure](centreon-ui#keycloak-sso)*.
+> [this procedure](centreon-ui.html#sso).
 
 This part allows to configure the connection to LDAP directories.
 
-Go to **Administration > Parameters > LDAP** and click on **Add**.
+Go to `Administration > Parameters > LDAP` and click on **Add**.
 
 ![image](../../assets/administration/parameters-ldap-add.png)
 
@@ -27,7 +26,7 @@ can chose the users that you want to import
 > If the **Auto import users** option is checked, the LDAP settings of any new
 > user who logs into the Centreon interface will automatically be imported into
 > Centreon (name, first name, e-mail address, etc.). ACL profiles will be applied
-> on access (see *[ACL](../access-control-lists)*). However, if this option
+> on access (see [ACL](../access-control-lists.html)). However, if this option
 > is not checked, only the users imported manually will be able to authenticate.
 
 - **LDAP search size limit** field can be used to limit the size of user

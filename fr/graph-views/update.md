@@ -34,7 +34,7 @@ Run the following commands to upgrade your Centreon MAP server:
 Complete the upgrade by going to *Administration \> Extensions \> Manager*
 (module & widget parts):
 
-![image](assets/graph-views/update-web-client.png)
+![image](../assets/graph-views/update-web-client.png)
 
 ## Centreon MAP Desktop client
 

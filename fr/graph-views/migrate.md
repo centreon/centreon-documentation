@@ -43,7 +43,7 @@ yum update centreon-map-web-client
 Complete the upgrade by going to *Administration \> Extensions \> Manager*
 (module & widget parts):
 
-![image](assets/graph-views/update-web-client.png)
+![image](../assets/graph-views/update-web-client.png)
 
 ## Centreon MAP Desktop client
 

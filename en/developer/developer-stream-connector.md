@@ -154,7 +154,7 @@ is a collection of keys/values. For example:
 
 In all events, you will find *category*, *element* and *type*.
 
-* Information about the *category* can be found [here in the bbdo documentation](developer-broker-bbdo#event-categories.html)
+* Information about the *category* can be found [here in the bbdo documentation](developer-broker-bbdo.html#event-categories.html)
 * The *element* is the *sub-category* (also called *type* in the bbdo documentation).
 * The *type* is a number built from the *category* and the *element* (binary concatenation).
 

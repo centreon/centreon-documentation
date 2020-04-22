@@ -10,10 +10,10 @@ have a scalable and maintainable system.
 
 Do forget to think about setting up a global strategy of the configuration in
 order to make able to have global actions configurations. For that, mechanisms
-are in place in Centreon to simplify your life such as *[hosts and services
-templates](templates.html)*.
+are in place in Centreon to simplify your life such as [hosts and services
+templates](templates.html).
 
 Once setup is finished, supervision will allow you to get informations on the
 health status of your IT systems. For having more information regarding the
-operation interface, please refer to the *[exploitation
-guide](../alerts-notifications/init-alerts-notifications)*
+operation interface, please refer to the [exploitation
+guide](../alerts-notifications/concepts.html).

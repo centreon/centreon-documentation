@@ -57,7 +57,7 @@ This part covers the configuration of the backup.
 
 The following window is displayed:
 
-![image](../assets/administation/backup.png)
+![image](../assets/administation/parameters-backup.png)
 
   - **Backup enabled** Enable/Disable backup
   - **Backup directory** Directory where backup will be stored

@@ -46,7 +46,7 @@ modification sur le profil.
 
 Pour ajouter un groupe d'accès :
 
-1. Rendez-vous dans le menu **Administration \> ACL**
+1. Rendez-vous dans le menu `Administration > ACL`
 2. Cliquez sur **Ajouter**
 
 ### Informations générales
@@ -77,7 +77,7 @@ utilisateur.
 
 Pour ajouter un filtre d'accès aux ressources :
 
-1. Rendez-vous dans le menu **Administration \> ACL**
+1. Rendez-vous dans le menu `Administration > ACL`
 2. Dans le menu de gauche, cliquez sur **Gestion des accès aux ressources**
 3. Cliquez sur **Ajouter**
 
@@ -161,7 +161,7 @@ détails \> Problems)
 
 Pour ajouter un filtre d'accès aux menus :
 
-1. Rendez-vous dans le menu **Administration \> ACL**
+1. Rendez-vous dans le menu `Administration > ACL`
 2. Dans le menu de gauche, cliquez sur **Gestion des accès aux menus**
 3. Cliquez sur **Ajouter**
 
@@ -190,7 +190,7 @@ l'ordonnanceur, ...).
 
 Pour ajouter un filtre d'accès aux actions :
 
-1. Rendez-vous dans le menu **Administration \> ACL**
+1. Rendez-vous dans le menu `Administration > ACL`
 2. Dans le menu de gauche, cliquez sur **Gestion des accès sur les actions**
 3. Cliquez sur **Ajouter**
 
@@ -278,7 +278,7 @@ sur les hôtes :
 
 Il est possible de recalculer manuellement les ACLs :
 
-1. Rendez-vous dans le menu **Administration \> ACL**
+1. Rendez-vous dans le menu `Administration > ACL`
 2. Dans le menu de gauche, cliquez sur **Recharger les ACL**
 3. Sélectionnez le ou les utilisateurs pour lesquels vous souhaitez recharger
 les ACL

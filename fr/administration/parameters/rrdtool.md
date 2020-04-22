@@ -6,7 +6,7 @@ title: RRDTool
 Cette partie permet de configurer le chemin vers le moteur de génération des
 graphiques RRDTool.
 
-Rendez-vous dans le menu **Administration \> Paramètres \> RRDTool**
+Rendez-vous dans le menu `Administration > Paramètres > RRDTool`
 
 ![image](../../assets/administration/parameters-rrdtool.png)
 

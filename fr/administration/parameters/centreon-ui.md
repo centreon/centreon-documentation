@@ -6,7 +6,7 @@ title: Centreon UI
 Cette partie traite de la configuration des options générales de l'interface web
 Centreon.
 
-Depuis le menu **Administration > Paramètres > Centreon web**.
+Depuis le menu `Administration > Paramètres > Centreon web`.
 
 ![image](../../assets/administration/parameters-centreon-ui.png)
 

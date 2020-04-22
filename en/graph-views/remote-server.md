@@ -36,7 +36,7 @@ configuration* menu and edit the remote poller configuration.
 
 In the Output tab, create a new output with the following parameters:
 
-![image](assets/graph-views/output_broker.png)
+![image](../assets/graph-views/output_broker.png)
 
 To finish the installation, generate, export the configuration and **restart**
 Centreon Broker manually.

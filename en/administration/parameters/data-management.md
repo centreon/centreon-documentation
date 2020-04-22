@@ -3,10 +3,10 @@ id: data-management
 title: Data management
 ---
 
-By accessing to **Administration \> Parameters \> Options** menu you can define
+By accessing to `Administration > Parameters > Options` menu you can define
 retention durations for the Centreon platform:
 
-![image](../administration/data_retention.png)
+![image](../assets/administration/data_retention.png)
 
 ## Performance data storage
 

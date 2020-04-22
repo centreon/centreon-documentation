@@ -53,8 +53,9 @@ Then click on the **Save** button.
 Once your contacts are ready to receive notifications, you must link them to the resources from which you want to
 receive notifications.
 
-> You can use **[template of contact](../monitoring/templates#contact-templates)** to define default parameters and
-> inherit all your contacts from this model. 
+> You can use **[template of
+> contact](../monitoring/templates.html#contact-templates)** to define default
+> parameters and inherit all your contacts from this model.
 
 ## Host
 

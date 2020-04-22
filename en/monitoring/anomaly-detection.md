@@ -136,7 +136,7 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 Click on **Save**.
 
 It is now time to [deploy the
-monitoring](./monitoring-servers/deploying-a-configuration).
+monitoring](./monitoring-servers/deploying-a-configuration.html).
 
 Then go to the `Monitoring > Status Details > Services` menu and select
 **All** value for the Service Status filter. After a few minutes, the first

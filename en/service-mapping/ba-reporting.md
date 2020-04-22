@@ -13,7 +13,7 @@ The reporting page to the "Reporting \> Dashboard" one on Centreon. Select a BA
 to display operational availability, warning and critical statistics for a given
 period:
 
-![image](assets/service-mapping/guide/reporting.png)
+![image](../assets/service-mapping/guide/reporting.png)
 
 You can export the data to a .csv file by clicking on the **Export in CSV
 format** link.
@@ -29,14 +29,14 @@ a specific point in time.
 
 First, select the BA and the time period:
 
-![image](assets/service-mapping/guide/log_param.png)
+![image](../assets/service-mapping/guide/log_param.png)
 
 The **Display details** box shows the BA status on a growth curve.
 
 This chart displays the evolution of the BA health level in a given time frame.
 Click on each spike to display the KPIs impacting the BA.
 
-![image](assets/service-mapping/guide/log_chart.png)
+![image](../assets/service-mapping/guide/log_chart.png)
 
 The table below details the KPI screen:
 

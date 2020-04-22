@@ -10,7 +10,7 @@ Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut
 
 Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
-1. Rendez-vous dans le menu **Administration \> Parameters \> Centreon UI** et
+1. Rendez-vous dans le menu `Administration > Paramètres > Centreon web` et
 modifier le champ **Centreon Web Directory**
 
 ![image](../assets/administration/custom-uri.png)

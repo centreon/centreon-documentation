@@ -27,11 +27,11 @@ yum install centreon-open-tickets
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
 **Administration \> Extensions \> Manager** menu and search **open tickets**. Click on **Install selection**:
 
-![image](assets/alerts/open_tickets_install_01.png)
+![image](../assets/alerts/open_tickets_install_01.png)
 
 Your Centreon Open Tickets Module is now installed.
 
-![image](assets/alerts/open_tickets_install_02.png)
+![image](../assets/alerts/open_tickets_install_02.png)
 
 ## Configuration
 
@@ -39,30 +39,30 @@ Your Centreon Open Tickets Module is now installed.
 
 The module offers many ready-to-use providers:
 
-* [BMC Footprints](../integrations/open-tickets/bmc-footprints)
-* [BMC Remedy](../integrations/open-tickets/bmc-remedy)
-* [EasyVista](../integrations/open-tickets/easyvista)
-* [Generic email](../integrations/open-tickets/mail)
-* [GLPI](../integrations/open-tickets/glpi)
-* [GLPI RestAPI](../integrations/open-tickets/glpi-restapi)
-* [iTop](../integrations/open-tickets/itop)
+* [BMC Footprints](../integrations/open-tickets/bmc-footprints.html)
+* [BMC Remedy](../integrations/open-tickets/bmc-remedy.html)
+* [EasyVista](../integrations/open-tickets/easyvista.html)
+* [Generic email](../integrations/open-tickets/mail.html)
+* [GLPI](../integrations/open-tickets/glpi.html)
+* [GLPI RestAPI](../integrations/open-tickets/glpi-restapi.html)
+* [iTop](../integrations/open-tickets/itop.html)
 * [IWS Isilog](../integrations/open-tickets/iws-isilog)
-* [Jira](../integrations/open-tickets/jira)
-* [OTRS RestAPI](../integrations/open-tickets/otrs-restapi)
-* [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi)
-* [Serena](../integrations/open-tickets/serena)
-* [ServiceNow](../integrations/open-tickets/servicenow)
+* [Jira](../integrations/open-tickets/jira.html)
+* [OTRS RestAPI](../integrations/open-tickets/otrs-restapi.html)
+* [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi.html)
+* [Serena](../integrations/open-tickets/serena.html)
+* [ServiceNow](../integrations/open-tickets/servicenow.html)
 
 Each provider has its own configuration, however, adding a provider in Centreon can be done in the following way:
 
 Go to the **Configuration > Notifications > Open Tickets > Rules** menu.
 Click on **Add** button:
 
-![image](assets/alerts/open_tickets_add_provider_01.png)
+![image](../assets/alerts/open_tickets_add_provider_01.png)
 
 Define **Rule name** and select **Provider**:
 
-![image](assets/alerts/open_tickets_add_provider_02.png)
+![image](../assets/alerts/open_tickets_add_provider_02.png)
 
 A new form appear. Configure the provider regarding his own configuraition.
 
@@ -77,12 +77,12 @@ from which all resources will inherit.
 Go to the **Configuration > Hosts > Templates** menu and look for the **generic-active-host-custom** template and edit
 this one. Add the macro **TICKET_ID** and click on **Save**:
 
-![image](assets/alerts/open_tickets_macro.png)
+![image](../assets/alerts/open_tickets_macro.png)
 
 Go to the **Configuration > Services > Templates** menu and look for the **generic-active-service-custom** template and
 edit this one. Add the macro **TICKET_ID** and click on **Save**:
 
-![image](assets/alerts/open_tickets_macro.png)
+![image](../assets/alerts/open_tickets_macro.png)
 
 ### Widget configuration
 
@@ -106,7 +106,7 @@ On the second widget, to display opened tickets, click on the **configuration** 
 * Select other filters
 * Check the boxes **Display Ticket ID** and **Display Ticket Time**
 
-![image](assets/alerts/open_tickets_add_widget.png)
+![image](../assets/alerts/open_tickets_add_widget.png)
 
 ## User guide
 
@@ -114,33 +114,33 @@ On the second widget, to display opened tickets, click on the **configuration** 
 
 To open a ticket, select object using checkbox and in the **-- More actions --** menu select needed action:
 
-![image](assets/alerts/open_ticket_add_01.png)
+![image](../assets/alerts/open_ticket_add_01.png)
 
 A popup appear to define a comment. Click on **Open** button to open ticket:
 
-![image](assets/alerts/open_ticket_add_02.png)
+![image](../assets/alerts/open_ticket_add_02.png)
 
 Once the ticket created the popup displays the ticket ID:
 
-![image](assets/alerts/open_ticket_add_03.png)
+![image](../assets/alerts/open_ticket_add_03.png)
 
 Select objects disappear form the widget to open tickets:
 
-![image](assets/alerts/open_ticket_add_04.png)
+![image](../assets/alerts/open_ticket_add_04.png)
 
 ### Close a ticket
 
 To close a ticket, select object using checkbox and in the **-- More actions --** menu select needed action:
 
-![image](assets/alerts/open_ticke_close_ticket_01.png)
+![image](../assets/alerts/open_ticket_close_ticket_01.png)
 
 The ticket is closed (only for Centreon):
 
-![image](assets/alerts/open_ticket_close_ticket_02.png)
+![image](../assets/alerts/open_ticket_close_ticket_02.png)
 
 Select objects disappear form the opened tickets widget:
 
-![image](assets/alerts/open_ticket_close_ticket_03.png)
+![image](../assets/alerts/open_ticket_close_ticket_03.png)
 
 ## Advanced configuration
 
@@ -152,8 +152,8 @@ modify these to adapt them to your environment.
 Before opening a ticket, an user can choose some options in a popup. An option can be a select list. In the configuration
 provider, you can configure it in ``Lists`` and ``Custom list definition``. For each entry in ``Lists``, you can define:
 
-* **Id** : alphanumeric value (must be unique) 
-* **Label** : displayed in the popup 
+* **Id** : alphanumeric value (must be unique)
+* **Label** : displayed in the popup
 * **Type** : which kind of list. There is 3 kinds of lists
 
   * Provider lists (data from the ticketing software directly)
@@ -162,7 +162,7 @@ provider, you can configure it in ``Lists`` and ``Custom list definition``. For 
 
 * **Mandatory** : checked it if the user needs to set the option
 
-![image](assets/alerts/open_ticket_advanced_list_01.png)
+![image](../assets/alerts/open_ticket_advanced_list_01.png)
 
 The module stores the user list selection in an array (can be used in smarty section like ``body`` 
 or ``mapping ticket arguments``). There are 3 fields (**LIST_ID** must be replaced):
@@ -178,10 +178,10 @@ After opening a ticket, you may need to send an email. The chaining rules system
 * Create a new rule with the name ``emailme`` and the provider ``Mail``
 * Configure the ``emailme`` in the rule of your opening system
 
-![image](assets/alerts/open_ticket_advanced_chain_01.png)
-    
+![image](../assets/alerts/open_ticket_advanced_chain_01.png)
+
 ### Commands
 
-After opening a ticket, you can also configure some commands to be executed. 
+After opening a ticket, you can also configure some commands to be executed.
 
-![image](assets/alerts/open_ticket_advanced_cmd_01.png)
+![image](../assets/alerts/open_ticket_advanced_cmd_01.png)

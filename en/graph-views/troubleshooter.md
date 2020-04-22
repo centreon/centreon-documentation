@@ -53,7 +53,7 @@ If your server is running in http mode enter
 If your server is running in HTTPS mode enter
 *https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/services*
 
-![image](assets/graph-views/server-api-soap.png)
+![image](../assets/graph-views/server-api-soap.png)
 
 ### My Centreon MAP service is running but I cannot access Centreon MAP API (/actuator/health) pages
 
@@ -127,7 +127,7 @@ Wait a few minutes for the Centreon MAP server to synchronize Centreon Web
 resources. The images from Centreon Web should then appear on your desktop
 client under the Media tab panel in the Centreon folder.
 
-![image](assets/graph-views/centreon_media_part.png)
+![image](../assets/graph-views/centreon_media_part.png)
 
 If you still cannot see the list of images check your Centreon MAP configuration
 file.
@@ -163,7 +163,7 @@ Install a 64-bit JVM.
 On the desktop client, if you want to create a new view but the button is
 disabled, you do not have the access rights.
 
-![image](assets/graph-views/view_menu.png)
+![image](../assets/graph-views/view_menu.png)
 
 A Centreon MAP administrator must authorize you to create, update or delete
 views. When you first install your Centreon MAP server, only Centreon
@@ -234,7 +234,7 @@ gray with Xs and the following pop-up message...
 
 "Error while retreiving Mapbox tiles. Please check your Mapbox configuration."
 
-![image](assets/graph-views/mapbox-configuration-error.png)
+![image](../assets/graph-views/mapbox-configuration-error.png)
 
 then you should check the following:
 
@@ -249,7 +249,7 @@ then you should check the following:
 
 Try to edit your view / container and change the Mapbox style:
 
-![image](assets/graph-views/mapbox-change-style.png)
+![image](../assets/graph-views/mapbox-change-style.png)
 
 If you cannot select any style the issue is probably caused by one of the above
 (i.e., credentials, proxy or deleted style).
@@ -306,7 +306,7 @@ Then restart your desktop client.
 For Centreon Web \>= 2.8.6, verify that your user has checked the option "Reach
 Real Time API."
 
-![image](assets/graph-views/reach-api.png)
+![image](../assets/graph-views/reach-api.png)
 
 ### I'm using Windows Remote Desktop (RDP) and I have many errors
 
@@ -320,7 +320,7 @@ application:
 Go to *Advance -\> Display* and select "Highest quality (32bit)". You can then
 access your remote computer and this error will no longer occur.
 
-![image](assets/graph-views/rdp-config.png)
+![image](../assets/graph-views/rdp-config.png)
 
 > For Linux or Mac users of the application **rdesktop**, add this argument to
 > your command line: \[-a 32\]
@@ -361,7 +361,7 @@ To execute it:
 
 The following error might appear on your web interface.
 
-![image](assets/graph-views/web_client_authentication_error.png)
+![image](../assets/graph-views/web_client_authentication_error.png)
 
 First, check if you have access to the Centreon MAP server APIs (see `this entry
 <ts_api_pages>`).
@@ -373,13 +373,13 @@ The URL set in 'MAP server address' must include the protocol (HTTP or HTTPS)
 and the port used by your Centreon MAP server (usually 8080 for a normal
 connexion or 8443 for a secure connexion).
 
-![image](assets/graph-views/web_client_configuration.png)
+![image](../assets/graph-views/web_client_configuration.png)
 
 ### My web interface displays an empty page.
 
 Your web interface is configured but it displays an empty page:
 
-![image](assets/graph-views/web_empty_list.png)
+![image](../assets/graph-views/web_empty_list.png)
 
 Either no views are created on the server or you do not have access to them.
 
