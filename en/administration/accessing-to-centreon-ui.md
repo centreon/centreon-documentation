@@ -107,7 +107,8 @@ RedirectMatch ^/$ /centreon
 ```shell
 systemctl restart httpd24-httpd
 ```
-then check its status
+
+Then check its status:
 
 ```shell
 systemctl status httpd24-httpd
