@@ -57,7 +57,7 @@ And a list of Plugin Packs with embedded Host Discovery providers:
   - [VMware virtual machines](procedures/virtualization-vmware2-vm.html)
   - [VMware ESX](procedures/virtualization-vmware2-esx.html)
   - [Amazon EC2](procedures/cloud-aws-ec2.html)
-  - [Amazon S3](procedures/cloud-aws-z3.html)
+  - [Amazon S3](procedures/cloud-aws-s3.html)
   - [Amazon RDS](procedures/cloud-aws-rds.html)
   - [Azure Virtual Machine](procedures/cloud-azure-compute-virtualmachine.html)
   - [Azure Storage Account](procedures/cloud-azure-storage-storageaccount.html)
