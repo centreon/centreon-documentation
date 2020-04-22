@@ -32,7 +32,7 @@ const labels = {
     },
     {
       title: `Blog`,
-      link: `https://blog.centreon.com`,
+      link: `https://www.centreon.com/blog/`,
       external: true,
     },
     {
