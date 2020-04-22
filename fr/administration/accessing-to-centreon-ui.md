@@ -102,3 +102,15 @@ ProxyTimeout 300
 
 RedirectMatch ^/$ /centreon
 ```
+
+5. Redémarrez Apache pour que la configuration soit prise en compte:
+
+```shell
+systemctl restart httpd24-httpd
+```
+
+Enfin vérifiez son statut:
+
+```shell
+systemctl status httpd24-httpd
+```
