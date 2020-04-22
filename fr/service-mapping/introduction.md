@@ -13,7 +13,7 @@ Activity Monitoring" (Centreon BAM)
 Le module **Centreon Business Activity Monitoring** offre la possibilité
 de mesurer en temps réel l\'activité de la production informatique en
 agrégeant les états des différents points de contrôle supervisés avec
-**Centreon**. L\'utilisateur est alors mieux informé de l\'état de santhé
+**Centreon**. L\'utilisateur est alors mieux informé de l\'état de santé
 global de son SI et à même de prendre les meilleures décisions.
 
 ![image](../assets/service-mapping/about/overview.png)
