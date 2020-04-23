@@ -45,7 +45,7 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:
+1. Install the Centreon Plugin on every poller expected to monitor Salesforce:
 
 ```bash
 yum install centreon-plugin-Applications-Salesforce-Restapi
