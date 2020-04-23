@@ -67,6 +67,17 @@ this command:
 systemctl restart cbd centengine gorgoned
 ```
 
+### Update extensions
+
+From `Administration > Extensions > Manager`, update all extensions, starting
+with the following:
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Then you can update all other commercial extensions.
+
 ## Update the Remote Servers
 
 This procedure is the same than to update a Centreon Central server.

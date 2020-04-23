@@ -203,6 +203,17 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
+#### Montée de version des extensions
+
+Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+toutes les extensions, en commençant par les suivantes :
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
 #### Démarrer le gestionnaire de tâches
 
 Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
