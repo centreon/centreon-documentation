@@ -9,7 +9,6 @@ open source and we deeply appreciate contributions from our community!
 
 - [Providing feedback](#providing-feedback)
 - [Contributing](#contributing)
-- [Local testing/building](#contributing)
 - [Copyright and license](#copyright-and-license)
 
 ## Providing feedback
@@ -42,4 +41,4 @@ let you know so that you can rebase it.
 
 ## Copyright and license
 
-Code and documentation copyright 2020 Centreon, inc
+Code and documentation copyright 2020 Centreon, inc. This project is licensed under the GPL-2.0 License.
