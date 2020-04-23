@@ -45,7 +45,7 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 ### Hôtes
 
-Déployer votre hôte et appliquer lui le modèle **App-Monitoring-Mip-Restapi-custom**. Les macros suivantes doivent être renseignées:
+Déployez votre hôte et appliquez lui le modèle **App-Monitoring-Mip-Restapi-custom**. Les macros suivantes doivent être renseignées:
 
 | Mandatory   | Name                 | Description                                              |
 | :---------- | :------------------- | :------------------------------------------------------- |
@@ -64,7 +64,7 @@ Il est recommandé d'utiliser la règle de découverte associée au Plugin-Pack 
  
 * Rendez-vous dans le menu "Configuration > Services" et cliquer sur "Scan" dans le sous-menu "Découverte"
 * Compléter le champ "Hôte" avec le nom utilisé dans la section précédente
-* Choisisser 'App-Monitoring-Mip-Scenarios' dans la liste déroulante "Règle" sur la droite
+* Choisir 'App-Monitoring-Mip-Scenarios' dans la liste déroulante "Règle" sur la droite
 * Cliquer sur 'Scan' pour lancer la découverte 
 * Une fois la liste des scénarios disponible, cocher les cases correspondant aux services à superviser
 * Sauvegarder ce formulaire pour créer les Services
