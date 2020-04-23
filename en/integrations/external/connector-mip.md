@@ -45,7 +45,8 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 ### Hosts
 
-You can now deploy Host based upon the **App-Monitoring-Mip-Restapi-custom** Host Template. These macro needs to be configured:
+You can now add a new host based on the **App-Monitoring-Mip-Restapi-custom** host template. The host macros marked hereafter as "mandatory" need to be configured:
+
 
 | Mandatory   | Name                 | Description                                              |
 | :---------- | :------------------- | :------------------------------------------------------- |
