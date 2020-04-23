@@ -40,7 +40,7 @@ To monitoring your Salesforce instance, the Centreon poller must be allowed to r
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Install the Nutanix plugin-pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
+2. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
 
 <!--Offline IMP License-->
