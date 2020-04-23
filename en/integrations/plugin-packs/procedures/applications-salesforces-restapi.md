@@ -89,7 +89,7 @@ Once the plugin is installed, you can test it logging into the CLI with the cent
 	--alias
 ```
 
-The command above monitors status of a Salesforce instance (```--mode=sfdc-instance```). An alias flag is added (```--alias```) to use instance alias instead of Salesforce geographical code. The monitored instance here is named 'sfdcinstance' (```--instance='sfdcinstance'```). 
+The above command monitors the status of a Salesforce instance (```--mode=sfdc-instance```). An alias flag is added (```--alias```) to use the instance alias instead of the Salesforce geographical code. The monitored instance here is named 'sfdcinstance' (```--instance='sfdcinstance'```). 
 
 All options and what they mean can be displayed through the help of the mode:
 
