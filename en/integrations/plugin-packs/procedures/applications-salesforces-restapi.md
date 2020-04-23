@@ -100,7 +100,7 @@ All options and what they mean can be displayed through the help of the mode:
     --help
 ```
 
-### UNKNOWN: Cannot decode JSON responsed
+### UNKNOWN: Cannot decode JSON response
 
 If you get this error, it may indicate that the received data is not formatted as expected by the Plugin. This usually may happen because of a proxy blocking the request and its answer is wrongly interpreted as the API response. 
 
