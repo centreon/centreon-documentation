@@ -5,10 +5,10 @@ title: Prérequis
 
 L'interface Centreon web est compatible avec les navigateurs web suivants :
 
-* Chrome (latest version)
-* Firefox (latest version)
-* Edge (latest version)
-* Safari (latest version)
+* Google Chrome (latest version)
+* Mozilla Firefox (latest version)
+* Microsoft Edge Chromium (latest version)
+* (Apple) Safari (latest version)
 
 Votre résolution doit être au minimum à 1280 x 768.
 
