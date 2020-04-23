@@ -42,7 +42,7 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 
 ## Métriques collectées
 
-En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants: 
+En plus des modes et des métriques détaillés ci-après, il est également possible de superviser les éléments suivants: 
   *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
   *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
   *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
