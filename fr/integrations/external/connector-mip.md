@@ -47,14 +47,14 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 Déployez votre hôte et appliquez lui le modèle **App-Monitoring-Mip-Restapi-custom**. Les macros suivantes doivent être renseignées:
 
-| Mandatory   | Name                 | Description                                              |
-| :---------- | :------------------- | :------------------------------------------------------- |
-|     x       | MIPAPIPROTO          | Protocol used to connect to MIP API. Default: https      |
-|     x       | MIPAPIPORT           | Port used to connect to MIP API. Default: 443            |
-|     x       | MIPAPIHOSTNAME       | MIP Instance FQDN                                        |
-|     x       | MIPAPIKEY            | MIP API Key                                              |
-|             | MIPAPIEXTRAOPTIONS   | Any relevant extraoptions (proxy, http-backend, etc.)    |
-|     x       | MIPAPITIMEOUT        | Timeout to use during API requests                       |
+| Mandatory   | Name                 | Description                                                                 |
+| :---------- | :------------------- | :-------------------------------------------------------------------------- |
+|     x       | MIPAPIPROTO          | Protocole utilisé pour se connecter à l'API MIP. Défaut : https             |
+|     x       | MIPAPIPORT           | Port utilisé pour se connecter à l'API MIP. Défaut : 443                    |
+|     x       | MIPAPIHOSTNAME       | FQDN de l'instance MIP                                                      |
+|     x       | MIPAPIKEY            | Clé de l'API MIP                                                            |
+|             | MIPAPIEXTRAOPTIONS   | N'importe quelle option supplémentaire utile (proxy, http-backend, etc.)    |
+|     x       | MIPAPITIMEOUT        | Timeout des appels à l'API                                                  |
 
 Il n'est pas nécessaire de mettre la case "Créer les services liés au modèle" à 'Oui' pour cet Hôte. 
 
