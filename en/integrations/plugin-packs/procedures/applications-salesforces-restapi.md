@@ -26,7 +26,7 @@ Salesforce.com, Inc. is an American cloud-based software company headquartered i
 
 ## Prerequisites
 
-To monitoring your Salesforce instance, it must be possible to connect over HTTPS from the monitoring poller to the api.status.salesforce.com endpoint.
+To monitoring your Salesforce instance, the Centreon poller must be allowed to reach the Salesforce API endpoint (api.status.salesforce.com) through HTTPS.
 
 ## Installation
 
