@@ -39,6 +39,8 @@ brings the following capabilities:
     <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
 </video>
 
+<iframe width="640" height="480" src="http://www.youtube.com/embed/-pdYK9Xg8Jw" frameborder="0" allowfullscreen></iframe>
+
 To know more about this feature, have a look to [the
 documentation](../alerts-notifications/events-view.html)
 
