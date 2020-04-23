@@ -9,7 +9,7 @@ Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis.
 
 ## Contenu du plugin-pack
 
-### Monitored objects 
+### Objets supervisés
 
 * Instances salesforce
 
@@ -24,9 +24,9 @@ Salesforce est un éditeur de logiciels, basé à San Francisco aux États-Unis.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
-Afin de superviser le statut d'un instance Salesforce, l'adresse api.status.salesforce.com doit pouvoir être accessible depuis le collecteur. 
+Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.salesforce.com doit pouvoir être accessible depuis le collecteur. 
 
 ## Installation
 
@@ -63,7 +63,7 @@ yum install centreon-pack-applications-salesforce-restapi
 
 ## Configuration
 
-Create your host and apply the 'Virt-Nutanix-SNMP-custom' host template. You must set SNMP community and version in the dedicated fields of the host form. 
+Créez votre hôte et appliquez le modèle 'App-Salesforce-Restapi-custom'. Vous devez configurer la communauté SNMP ainsi que la version dans les champs dédiés sur le formulaire de l'hôte
 
 | Obligatoire | Nom              | Description                                                                                 |
 | :---------- | :--------------- | :------------------------------------------------------------------------------------------ |
@@ -102,9 +102,11 @@ Toutes les options et leurs significations peuvent être affichées via la comma
 
 ### UNKNOWN: Cannot decode JSON response
 
-Si vous obtenez ce message, il est probable qu'un proxy bloque la requête et que la réponse reçues ne soit pas au format attendu. Il est possible de vérifier la connexion au moyen de la commande suivante: 
+Si vous obtenez ce message, il est probable qu'un proxy bloque la requête et que la réponse reçue ne soit pas au format attendu. Il est possible de vérifier la connexion au moyen de la commande suivante: 
 
-```curl https://api.status.salesforce.com/v1/instances```
+```bash
+curl https://api.status.salesforce.com/v1/instances
+```
 
 Vous pouvez également ajouter l'option ```--debug``` pour avoir d'avantage d'informations. 
 
