@@ -70,5 +70,6 @@ A discovery rule is available to get all your scenarios and quickly configure th
 
 * Click Scan to launch the discovery process
 
-* Check the boxes associated to the Scenario you want to monitor 
+* Check the boxes associated to the scenario you want to monitor 
+
 * Save and then go to the 'Configuration > Pollers' menu to export your configuration
