@@ -9,7 +9,7 @@ This view mixes host & services to have a unified interface and way to manage ev
 
 > This feature is in beta, we highly recommand you to use and send your feedbacks via [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 ## Events list
 

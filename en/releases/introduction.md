@@ -35,7 +35,7 @@ brings the following capabilities:
     not losing what you were currently looking at
   - ... *And more to come in the next weeks/months*
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 To know more about this feature, have a look to [the
 documentation](../alerts-notifications/events-view.html)

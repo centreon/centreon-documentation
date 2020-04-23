@@ -41,7 +41,7 @@ apporte les fonctionnalités suivantes:
     ressources
   - *... et bien plus à venir dans les semaines & mois qui viennent*
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette
 page](../alerts-notifications/events-view.html)

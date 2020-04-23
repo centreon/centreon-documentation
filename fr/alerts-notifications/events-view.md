@@ -10,7 +10,7 @@ de les comprendre, les prendre en compte et les traiter rapidement.
 
 Cette vue rassemble à la fois les hôtes et les services afin de proposer une interface unique et unifiée de gestion des évènements.
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 Cette vue offre les possibilités décrites dans les sections ci-dessous.
 
