@@ -239,6 +239,12 @@ exécutez la commande suivante :
   - Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
     mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
 
+Par exemple :
+
+``` shell
+/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
+```
+
 Cette commande va activer le mode **Remote Server** :
   
   - en limitant l'accès au menu,
