@@ -108,4 +108,4 @@ You can perform further investigation by adding ```--debug``` option to your com
 
 ### What's the name of my instance ? 
 
-Your instance name is the first part of Salesforce Instance URL. As an example, if you connect to your Salesforce instance using archimede.my.salesforce.com URL, the instance name to use is 'archimede'
+Your instance name is the first part of the Salesforce Instance URL. As an example, if you connect to your Salesforce instance using archimede.my.salesforce.com URL, the instance name to use is 'archimede'
