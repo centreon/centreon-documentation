@@ -61,7 +61,7 @@ Set the 'Create service linked to template" option to 'No' and save your configu
 
 ### Services
 
-A discovery rule is available to get all your scenarios and quickly configure them as Centreon services. Here a step-by-step guide: 
+A discovery rule is available to get all your scenarios and quickly configure them as Centreon services. Here is a step-by-step guide: 
 
  
 * Go to "Configuration > Services" and click "Scan" in the Discovery sub menu
