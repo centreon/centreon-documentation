@@ -70,6 +70,17 @@ la commande suivante:
 systemctl restart cbd centengine gorgoned
 ```
 
+### Mise à jour des extensions
+
+Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+toutes les extensions, en commençant par les suivantes :
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
 ## Mise à jour des Remote Servers
 
 Cette procédure est identique à la mise à jour d'un serveur Centreon Central.

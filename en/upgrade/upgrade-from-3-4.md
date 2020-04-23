@@ -215,6 +215,17 @@ page:
 
 ### Post-upgrade actions
 
+#### Upgrade extensions
+
+From `Administration > Extensions > Manager`, upgrade all extensions, starting
+with the following:
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Then you can upgrade all other commercial extensions.
+
 #### Start the tasks manager
 
 Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
