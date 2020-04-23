@@ -102,7 +102,7 @@ All options and what they mean can be displayed through the help of the mode:
 
 ### UNKNOWN: Cannot decode JSON responsed
 
-If you get this error, it may indicate that the data you received is not formatted as expected. Most of the time it's because a proxy block the request and its answer is wrongly interpreted as the API response. 
+If you get this error, it may indicate that the received data is not formatted as expected by the Plugin. This usually may happen because of a proxy blocking the request and its answer is wrongly interpreted as the API response. 
 
 You can perform further investigation by adding ```--debug``` option to your command line.
 
