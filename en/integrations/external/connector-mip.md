@@ -66,7 +66,8 @@ A discovery rule is available to get all your scenarios and quickly configure th
  
 * Go to "Configuration > Services" and click "Scan" in the Discovery sub menu
 * Fill the Host box with the hostname configured in the previous section
-* Select 'App-Monitoring-Mip-Scenarios' in the Rule drop-down list on the left
+* Select 'App-Monitoring-Mip-Scenarios' in the rule drop-down list on the left
+
 * Click Scan to launch the discovery process
 
 * Check the boxes associated to the Scenario you want to monitor 
