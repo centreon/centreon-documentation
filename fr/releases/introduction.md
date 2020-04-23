@@ -41,9 +41,7 @@ apporte les fonctionnalités suivantes:
     ressources
   - *... et bien plus à venir dans les semaines & mois qui viennent*
 
-<video width="100%" height="100%" controls="true" allowfullscreen="true" autoplay poster="../assets/alerts/events-view/listing.png">
-    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
-</video>
+<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette
 page](../alerts-notifications/events-view.html)

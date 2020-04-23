@@ -35,11 +35,7 @@ brings the following capabilities:
     not losing what you were currently looking at
   - ... *And more to come in the next weeks/months*
 
-<video width="100%" height="100%" controls="true" allowfullscreen="true" autoplay poster="../assets/alerts/events-view/listing.png">
-    <source src="../assets/alerts/events-view/events-view-demo.webm" type="video/webm">
-</video>
-
-<iframe width="640" height="480" src="http://www.youtube.com/embed/-pdYK9Xg8Jw" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="http://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
 
 To know more about this feature, have a look to [the
 documentation](../alerts-notifications/events-view.html)
