@@ -25,21 +25,37 @@ To be able to get data from MIP API, you must have a valid API key. Contact MIP 
 
 ### Centreon
 
-On each poller connecting to the MIP endpoint, install the MIP Plugin:
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the MIP plugin on each poller monitoring MIP endpoints:
 
 ```bash
 yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ```
 
-On your central server, install the Plugin-Pack through "Configuration \> Plugin-Packs \> Manager" menu:
+2. Install the Plugin-Pack RPM on your Central Server:
 
-![install\_epp](../../assets/integrations/external/mip-epp-install.png)
+<!--Offline IMP License-->
 
-> :warning: **If you are using an Offline IMP license**: Install Plugin-Pack RPM prior to the the Web UI deployment.
+1. Install the MIP plugin on each poller monitoring MIP endpoints:
+
+```bash
+yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
+```
+
+2. Install the Plugin-Pack RPM on your Central Server: 
 
 ```bash
 yum install -y centreon-pack-applications-monitoring-mip-restapi`
 ```
+
+3. Install the Plugin-Pack through "Configuration \> Plugin-Packs \> Manager" menu:
+
+![install\_epp](../../assets/integrations/external/mip-epp-install.png)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 

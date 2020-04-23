@@ -25,21 +25,39 @@ Afin de pouvoir interroger l'API, il est nécessaire d'avoir à disposition une 
 
 ### Centreon
 
-Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
 
 ```bash
 yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ```
 
-Sur le serveur Central, installer le Plugin-Pack via la page "Configuration > Plugin-Packs > Manager": 
+2. Installer le Plugin-Pack via la page "Configuration > Plugin-Packs > Manager": 
 
 ![install\_epp](../../assets/integrations/external/mip-epp-install.png)
 
-> :warning: **Si vous utilisez une licence IMP hors-ligne**: Installer le RPM du Plugin-Pack comme indiqué ci-dessous et avant l'étape précédente. 
+<!--Offline IMP License-->
+
+1. Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
+
+```bash
+yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
+```
+
+2. Installer le RPM du Plugin-Pack sur votre serveur Central: 
 
 ```bash
 yum install -y centreon-pack-applications-monitoring-mip-restapi`
 ```
+
+3. Installer le Plugin-Pack via la page "Configuration > Plugin-Packs > Manager":
+
+![install\_epp](../../assets/integrations/external/mip-epp-install.png)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
