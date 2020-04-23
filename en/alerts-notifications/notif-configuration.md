@@ -9,7 +9,7 @@ The first step is to verify that the scheduler (Centreon Engine) is programmed t
 
 Go to the **Configuration > Pollers > Engine configuration** menu and select the scheduler.
 
-![image](assets/alerts/notif_engine_conf.png)
+![image](../assets/alerts/notif_engine_conf.png)
 
 In the **Check Options**, select **Yes** for the **Notification Option** option. Then click on the **Save** button.
 
@@ -30,7 +30,7 @@ are available:
 
 Go to the **Administration > Parameters > Centreon UI** menu and select the desired option:
 
-![image](assets/alerts/notif_centreon_config.png)
+![image](../assets/alerts/notif_centreon_config.png)
 
 Then click on the **Save** button.
 
@@ -42,7 +42,7 @@ To receive notification, the parameters of the contact must be configured.
 
 Go to the **Configuration > Users > Contacts / Users** menu and select your contact:
 
-![image](assets/alerts/notif_contact_config.png)
+![image](../assets/alerts/notif_contact_config.png)
 
 1. Select the statuses of which you wish to receive notifications using **Notification Option** option.
 2. Select the **Notification Period** on which you want to receive notification.
@@ -62,7 +62,7 @@ receive notifications.
 Go to the **Configuration > Hosts > Hosts** menu and select a host. Go to the **Notification** tab and adjust the
 parameters:
 
-![image](assets/alerts/notif_host_config.png)
+![image](../assets/alerts/notif_host_config.png)
 
 * **Notification Options**: Select the statuses of which you wish to receive notifications
 * **Notification Interval**: Define the number of "time units" to wait before re-notifying a contact that this host is
@@ -86,7 +86,7 @@ parameters:
 Go to the **Configuration > Services > Services by host** menu and select a service. Go to the **Notification** tab and
 adjust the parameters:
 
-![image](assets/alerts/notif_service_config.png)
+![image](../assets/alerts/notif_service_config.png)
 
 * **Notification Options**: Select the statuses of which you wish to receive notifications
 * **Notification Interval**: Define the number of "time units" to wait before re-notifying a contact that this host is
