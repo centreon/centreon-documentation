@@ -63,7 +63,7 @@ yum install centreon-pack-applications-salesforce-restapi
 
 ## Configuration
 
-Create your host and apply the 'App-Salesforce-Restapi-custom' host template. You can configure  
+Add a new host into Centreon and apply the 'App-Salesforce-Restapi-custom' host template. The host macros marked hereafter as "mandatory" have to be configured: 
 
 | Mandatory| Name              | Description                                                                                 |
 | :---------- | :--------------- | :------------------------------------------------------------------------------------------ |
