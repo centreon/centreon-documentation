@@ -65,7 +65,7 @@ yum install centreon-pack-applications-salesforce-restapi
 
 Create your host and apply the 'App-Salesforce-Restapi-custom' host template. You can configure  
 
-| Obligatoire | Nom              | Description                                                                                 |
+| Mandatory| Name              | Description                                                                                 |
 | :---------- | :--------------- | :------------------------------------------------------------------------------------------ |
 |     x       | INSTANCENAME     | Name or region-code of the salesforce instance                                              |
 |     x       | APIURL           | Default is 'api.status.salesfoce.com'. Do not change it                                     |
