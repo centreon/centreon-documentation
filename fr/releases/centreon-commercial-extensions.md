@@ -20,7 +20,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.0
 
-* Simplification du packaging: la dépendance à Tomcat a été retirée, les logs sont désormais dans `/var/log/centreon-map/` et le service  s'appelle `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de mise à niveau](../graph-view/upgrade).
+* Simplification du packaging: la dépendance à Tomcat a été retirée, les logs sont désormais dans `/var/log/centreon-map/` et le service  s'appelle `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de mise à niveau](../graph-views/upgrade.html).
 * Mode d'installation silencieux: il est possible de fournir des variables au script d'installation plutôt que de passer par le mode interactif
 * La licence est désormais gérée sur le serveur Central, comme pour les autres extensions
 * [API] Gestion des metaservice
