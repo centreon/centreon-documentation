@@ -19,10 +19,10 @@ The main capabilities of Centreon Mobile application are :
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 
-> The mobile application has been developped using the 
+> The mobile application has been developed using the 
 > PWA - [Progressive Web App mechanism](https://en.wikipedia.org/wiki/Progressive_web_application).
 > It's composed only with html/css/js code, stored & exectued on your phone. It's a modern, flexible & 
-> light way of developping mobile application, reducing stores dependencies, facilitating quick updates. 
+> light way of developing mobile application, reducing stores dependencies, facilitating quick updates. 
 > More information at [Web.dev](https://web.dev/what-are-pwas/)
 
 ## Pre-requisites
