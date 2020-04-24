@@ -31,7 +31,7 @@ To be able to connect your mobile application to your Centreon platform:
 
 - Run at least iOS >= 13.x and Android >= 8 on your device
 - Have a Centreon platform >= 20.04
-- Have a “Direct” connection between your smartphone & the Centreon plateform you want to connect to. You may also use a VPN
+- Have a “Direct” connection between your smartphone & the Centreon platform you want to connect to. You may also use a VPN
 - A valid SSL certificate on your Centreon platform issued from a trusted certificate authority known by your device
 
 ## How to install
