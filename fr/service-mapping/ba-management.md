@@ -58,7 +58,7 @@ La méthode ratio permet de modéliser des concepts de "Cluster" et s'appuie sur
 le **nombre ou pourcentage d'indicateurs en statut CRITIQUE** et compare ces 
 nombres à des seuils (nombre/pourcentage) qu'il ne faut pas dépasser.
 
-Dans l'example suivant, on souhaite que le nombre d'indicateurs en statut Critique soit inférieur à 80%, lorsque ce seuil
+Dans l'exemple suivant, on souhaite que le nombre d'indicateurs en statut Critique soit inférieur à 80%, lorsque ce seuil
 sera dépassé, la BA passera en statut "Critique" à son tour.
 
 ![image](../assets/service-mapping/ratio.png)

@@ -39,6 +39,9 @@ use a VPN
 
 The App. installation mechanism depends on your device:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Android -->
+
 For **Android**, you can:
 
  - Download the application from the [Google Play store](https://play.google.com/store/apps/details?id=com.centreon.mobileapp)
@@ -46,19 +49,21 @@ For **Android**, you can:
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
+<!-- Apple/iOS -->
 
 For **Apple iOS**, go to [mobile.centreon.com](https://mobile.centreon.com/) using Safari and use the
 "Add to home screen" feature
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## How to connect
 
 When install and launch the application for the first time, you need to fill the following parameters:
 
-- URL: https://yourcentreon.int.com/centreon : do not forget the /centreon if this your current Centreon URL
-- User: Type your username to connect to Centreon
+- URL: URL to connect to your Centreon. Do not forget the /centreon if this your current Centreon URL
+- User: Type your username to connect to Centreon. Example: `https://yourcentreon.int.com:PORT/centreon`
 - Passowrd: Type the passowrd to connect to Centreon
 
 ![image](../assets/mobile/mobile-login.png)

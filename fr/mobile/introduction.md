@@ -37,10 +37,13 @@ connecter à votre plateforme Centreon
 - Avoir un accès direct à votre plateforme Centreon à partir de votre téléphone (même réseau ou VPN par exemple)
 - Disposer d'un certificat SSL valide sur votre plateforme Centreon provenant d'une autorité de certification reconnue par votre téléphone
 
-
 ## Installer l'application
 
 La manière d'installer l'application dépend de votre appareil:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!-- Android -->
 
 Pour **Android**, deux possibilités:
 
@@ -50,11 +53,14 @@ Pour **Android**, deux possibilités:
 
     ![image](../assets/mobile/andoid-add-to-home-screen.png)
 
+<!-- Apple/iOS -->
+
 Pour **iOS**, rendez vous sur [mobile.centreon.com](https://mobile.centreon.com/)  avec le navigateur Safari
 puis installer l'application via la fonctionnalité "Sur l'écran d'accueil"
 
 ![image](../assets/mobile/ios-add-to-home-screen.png)
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Se connecter à l'application
 
@@ -62,7 +68,7 @@ Une fois l'application installée et lancée pour la première fois, vous devez 
 suivant afin de vous connecter à votre plateforme Centreon:
 
 - URL: L'adresse que vous utilisez pour votre connecter à votre plateforme. Ne pas oublier le "/centreon" sauf si une personnalisation
-de l'URL a été mise en place
+de l'URL a été mise en place. Exemple: `https://yourcentreon.int.com:PORT/centreon`
 - User: le login pour vous connecter à Centreon
 - Password: votre mot de passe pour vous connecter à Centreon
 
