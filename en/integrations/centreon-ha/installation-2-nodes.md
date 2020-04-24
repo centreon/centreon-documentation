@@ -1,5 +1,5 @@
 ---
-id: centreon-ha-installation-2-nodes
+id: installation-2-nodes
 title: Installing a Centreon HA 2-nodes cluster
 ---
 
@@ -13,7 +13,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](https://documentation.centreon.com/docs/centreon/en/latest/installation/index.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -38,14 +38,15 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@CENTRAL_SLAVE_NAME@`: secondary central server's name
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name
-* `@MYSQL_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
-* `@MYSQL_REPL_PASSWD@`: MariaDB replication password
-* `@MYSQL_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
-* `@MYSQL_CENTREON_PASSWD@`: MariaDB Centreon password
+* `@MYSQL_REPL_USER@`:  MySQL replication login (default: `centreon-repl`)
+* `@MYSQL_REPL_PASSWD@`: MySQL replication password
+* `@MYSQL_CENTREON_USER@`: MySQL Centreon login (default: `centreon`)
+* `@MYSQL_CENTREON_PASSWD@`: MySQL Centreon password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
 * `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
+* `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
 ### Configuring  centreon-broker
 
@@ -225,9 +226,9 @@ A Master-Slave MariaDB cluster will be setup so that everything is synchronized 
 
 **Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
-### Configuration de MariaDB
+### Configuring MariaDB
 
-For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add this tuning options to MySQL configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
 ```ini
 [server]
@@ -257,7 +258,7 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
 **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
@@ -310,7 +311,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-### Creating the replication MariaDB account
+### Creating the MariaDB replication account
 
 Still in the same prompt, create the replication user (default: `centreon-repl`):
 
@@ -356,14 +357,14 @@ The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables th
 # Database access credentials #
 ###############################
 
-DBHOSTNAMEMASTER="@CENTRAL_MASTER_NAME@"
-DBHOSTNAMESLAVE="@CENTRAL_SLAVE_NAME@"
-DBREPLUSER="@MYSQL_REPL_USER@"
-DBREPLPASSWORD="@MYSQL_REPL_PASSWD@"
-DBROOTUSER="@MYSQL_CENTREON_USER@"
-DBROOTPASSWORD="@MYSQL_CENTREON_USER@"
-CENTREON_DB="centreon"
-CENTREON_STORAGE_DB="centreon_storage"
+DBHOSTNAMEMASTER='@CENTRAL_MASTER_NAME@'
+DBHOSTNAMESLAVE='@CENTRAL_SLAVE_NAME@'
+DBREPLUSER='@MYSQL_REPL_USER@'
+DBREPLPASSWORD='@MYSQL_REPL_PASSWD@'
+DBROOTUSER='@MYSQL_CENTREON_USER@'
+DBROOTPASSWORD='@MYSQL_CENTREON_USER@'
+CENTREON_DB='centreon'
+CENTREON_STORAGE_DB='centreon_storage'
 
 ###############################
 ```
@@ -463,7 +464,7 @@ This script's output is very verbose and you can't expect to understand everythi
 ```text
 Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
-Start MariaDB Slave
+Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
 3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000

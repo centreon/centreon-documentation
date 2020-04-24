@@ -1,6 +1,6 @@
 ---
-id: centreon-ha-installation-2-nodes
-title: Installation Centreon HA à 2 nœuds
+id: installation-2-nodes
+title: Installation d'un cluster à 2 nœuds
 ---
 
 ## Prérequis
@@ -13,7 +13,7 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 ### Installation de Centreon
 
-L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](https://documentation-fr.centreon.com/docs/centreon/en/latest/installation/index.html)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
+L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../../installation/introduction)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MySQL (point de montage `/var/lib/mysql` par défaut). 
 
 La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particulier la valeur sous `VFree`) :
 
@@ -38,14 +38,15 @@ Dans cette procédure nous ferons référence à des paramètres variant d'une i
 * `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire
 * `@QDEVICE_IPADDR@` : adresse IP du serveur supportant le *quorum device*
 * `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device*
-* `@MYSQL_REPL_USER@` : nom du compte MariaDB de réplication (suggéré : centreon-repl)
+* `@MYSQL_REPL_USER@` : nom du compte MySQL de réplication (suggéré : centreon-repl)
 * `@MYSQL_REPL_PASSWD@` : mot de passe de ce compte
-* `@MYSQL_CENTREON_USER@` : nom du compte MariaDB de Centreon (suggéré : centreon)
+* `@MYSQL_CENTREON_USER@` : nom du compte MySQL de Centreon (suggéré : centreon)
 * `@MYSQL_CENTREON_PASSWD@` : mot de passe de ce compte
 * `@VIP_IPADDR@` : adresse IP virtuelle du cluster
 * `@VIP_IFNAME@` : nom de l'interface qui portera la VIP
 * `@VIP_CIDR_NETMASK@` : masque de sous-réseau exprimé en nombre de bits sans le '/' (exemple : 24)
 * `@VIP_BROADCAST_IPADDR@` : adresse de broadcast
+* `@CENTREON_CLUSTER_PASSWD@` : mot de passe du compte `hacluster`
 
 ### Configuration de centreon-broker
 
@@ -91,7 +92,7 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 
 Une fois que les actions des deux précédents paragraphes ont été réalisées, il faut exporter la configuration (3 premières cases pour l'export du poller "Central") pour que celle-ci soit effective.
 
-Ces actions doivent être réalisées soit sur les deux nœuds, soit uniquement sur `@CENTRAL_SLAVE_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
+Ces actions doivent être réalisées soit sur les deux nœuds, soit uniquement sur `@CENTRAL_MASTER_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
@@ -221,18 +222,19 @@ ssh <adresse IP de l'autre nœud>
 
 Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
 
-## Mise en place de la réplication MariaDB
+## Mise en place de la réplication MySQL
 
 Afin que les deux nœuds soient interchangeables à tout moment, il faut que les deux bases de données soient répliquées en continu. Pour cela nous allons mettre en place une réplication Master-Slave.
 
 **Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
 
-### Configuration de MariaDB
+### Configuration de MySQL
 
-Pour commencer, il faut tuner la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
+Pour commencer, il faut tuner la configuration de MySQL, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
 
 ```ini
 [server]
+sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 server-id=1 # SET TO 1 FOR MASTER AND 2 FOR SLAVE
 #read_only
 log-bin=mysql-bin
@@ -259,7 +261,6 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 ```
 
 **Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
@@ -290,13 +291,13 @@ mysql_secure_installation
 
 ### Création du compte centreon
 
-Pour pouvoir administrer les utilisateurs MariaDB, il faut d'abord se connecter en tant que root (avec le mot de passe saisi au paragraphe précédent) :
+Pour pouvoir administrer les utilisateurs MySQL, il faut d'abord se connecter en tant que root (avec le mot de passe saisi au paragraphe précédent) :
 
 ```
 mysql -p
 ```
 
-Coller alors dans le prompt MariaDB les commandes ci-dessous en modifiant les adresses IP ainsi que les mots de passe.
+Coller alors dans le prompt MySQL les commandes ci-dessous en modifiant les adresses IP ainsi que les mots de passe.
 
 ```sql
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'localhost';
@@ -314,7 +315,7 @@ GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER
 
 ### Création du compte de réplication
 
-Toujours dans le prompt MariaDB (cf paragraphe précédent) créer l'utilisateur `@MYSQL_REPL_USER@`, dédié à la réplication, à l'aide des commandes suivantes :
+Toujours dans le prompt MySQL (cf paragraphe précédent) créer l'utilisateur `@MYSQL_REPL_USER@`, dédié à la réplication, à l'aide des commandes suivantes :
 
 ```sql
 GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
@@ -329,7 +330,7 @@ TO '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASS
 
 ### Mise en place des purge des logs binaires
 
-Les logs binaires de MariaDB doivent être purgées sur les deux nœuds, mais pas en même temps, c'est pourquoi cette tâche automatique est mise en place manuellement de façon différenciée sur les deux serveurs.
+Les logs binaires de MySQL doivent être purgées sur les deux nœuds, mais pas en même temps, c'est pourquoi cette tâche automatique est mise en place manuellement de façon différenciée sur les deux serveurs.
 
 * Sur le serveur principal
 
@@ -347,7 +348,7 @@ cat >/etc/cron.d/centreon-ha-mysql <<EOF
 EOF
 ```
 
-### Configuration des variables d'environnement des scripts MariaDB
+### Configuration des variables d'environnement des scripts MySQL
 
 Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'environnement qu'il faut adapter à l'installation courante en remplaçant les macros par la valeur qui convient.
 
@@ -358,14 +359,14 @@ Le fichier `/etc/centreon-ha/mysql-resources.sh` contient des variables d'enviro
 # Database access credentials #
 ###############################
 
-DBHOSTNAMEMASTER="@CENTRAL_MASTER_NAME@"
-DBHOSTNAMESLAVE="@CENTRAL_SLAVE_NAME@"
-DBREPLUSER="@MYSQL_REPL_USER@"
-DBREPLPASSWORD="@MYSQL_REPL_PASSWD@"
-DBROOTUSER="@MYSQL_CENTREON_USER@"
-DBROOTPASSWORD="@MYSQL_CENTREON_USER@"
-CENTREON_DB="centreon"
-CENTREON_STORAGE_DB="centreon_storage"
+DBHOSTNAMEMASTER='@CENTRAL_MASTER_NAME@'
+DBHOSTNAMESLAVE='@CENTRAL_SLAVE_NAME@'
+DBREPLUSER='@MYSQL_REPL_USER@'
+DBREPLPASSWORD='@MYSQL_REPL_PASSWD@'
+DBROOTUSER='@MYSQL_CENTREON_USER@'
+DBROOTPASSWORD='@MYSQL_CENTREON_USER@'
+CENTREON_DB='centreon'
+CENTREON_STORAGE_DB='centreon_storage'
 
 ###############################
 ```
@@ -413,13 +414,13 @@ read_only
 log-bin=mysql-bin
 ```
 
-Appliquer ensuite ce changement par un redémarrage de MariaDB sur les deux nœuds :
+Appliquer ensuite ce changement par un redémarrage de MySQL sur les deux nœuds :
 
 ```bash
 systemctl restart mysql
 ```
 
-### Synchroniser les bases et lancer la réplication MariaDB
+### Synchroniser les bases et lancer la réplication MySQL
 
 Pour synchroniser les bases, arrêter le service `mysql` sur le nœud secondaire pour écraser ses données avec celles du serveur principal. 
 
@@ -454,7 +455,7 @@ Ce script effectue les opérations suivantes :
 * monter un snapshot LVM sur le *volume group* qui supporte la partition /var/lib/mysql
 * démarrer mysql sur le nœud principal
 * mémoriser la position courante dans les logs binaires
-* désactiver la variable globale MariaDB `read_only` sur le nœud principal (*ie.* le nœud principal est maintenant autorisé à écrire dans sa base)
+* désactiver la variable globale MySQL `read_only` sur le nœud principal (*ie.* le nœud principal est maintenant autorisé à écrire dans sa base)
 * synchroniser tous les fichiers de données (hors base système `mysql`) en écrasant les fichiers du nœud secondaire
 * démonter le snapshot LVM
 * créer le thread de réplication qui va maintenir les données à jour sur le nœud secondaire
@@ -464,7 +465,7 @@ Ce script est très verbeux, et tout ce qui est s'affiche n'est pas forcément c
 ```text
 Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
-Start MariaDB Slave
+Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
 3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
@@ -605,7 +606,7 @@ pcs quorum device add model net \
     algorithm="ffsplit"
 ```
 
-### Création des ressources MariaDB
+### Création des ressources MySQL
 
 Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
@@ -773,7 +774,7 @@ pcs resource create snmptrapd \
 
 #### Contraintes de colocation
 
-Pour indiquer au cluster que les ressources Centreon doivent être démarrées sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
+Pour indiquer au cluster que les ressources Centreon doivent être démarrées sur le nœud portant le rôle *master* MySQL, nous créons ces deux contraintes :
 
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-master"
@@ -821,7 +822,7 @@ Active resources:
 
 #### Contrôler la synchronisation des bases
 
-L'état de la réplication MariaDB peut être vérifié à n'importe quel moment grâce à la commande `mysql-check-status.sh` :
+L'état de la réplication MySQL peut être vérifié à n'importe quel moment grâce à la commande `mysql-check-status.sh` :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh

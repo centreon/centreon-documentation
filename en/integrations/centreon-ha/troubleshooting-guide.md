@@ -1,6 +1,6 @@
 ---
-id: centreon-ha-troubleshooting
-title: Troubleshooting
+id: troubleshooting-guide
+title: Troubleshooting guide
 ---
 
 ## A failed action is displayed in `crm_mon` but the resource seems to be working fine
