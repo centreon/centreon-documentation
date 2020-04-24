@@ -17,7 +17,7 @@ extensions**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-## Centreon Plugin Pack Manager
+## Centreon Plugin Packs Manager
 
 ### 20.04.1
 
