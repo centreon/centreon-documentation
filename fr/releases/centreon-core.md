@@ -33,10 +33,10 @@ If you have feature requests or want to report a bug, please go to our
 >     quotes,
 >   - Some users can encounter problems when submitting monitoring actions from
 >     web interface without any effect for Central poller. This might be due
->     to a wrongly set `command_file` directive of the `engine` module define in
->     the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` configuration file.
->     To manage that, edit the file and change the path to match Engine command
->     file.
+>     to a wrongly set `command_file` directive of the `engine` module defined
+>     in the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` configuration
+>     file. To manage that, edit the file and change the path to match Engine
+>     command file.
 
 #### Features
 
