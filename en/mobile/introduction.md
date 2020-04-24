@@ -3,11 +3,11 @@ id: introduction
 title: Introduction
 ---
 
-Centreon comes with its mobile App. to let you access resources status on mobility, wether you're on phone or tablet.
+Centreon comes with its application to let you access resources status, whether you're on phone or tablet.
 
   ![image](../assets/mobile/mobile-app-screens.png)
 
-The main capabilities of Centreon Mobile App. are :
+The main capabilities of Centreon Mobile application are :
 
 - See your resources current status: hosts & services
 - Filter resources list
@@ -27,7 +27,7 @@ The main capabilities of Centreon Mobile App. are :
 
 ## Pre-requisites
 
-To be able to connect your mobile App. to your Centreon platform:
+To be able to connect your mobile application to your Centreon platform:
 
 - Run at least iOS >= 13.x and Android >= 8 on your device
 - Have a Centreon plateform >= 20.04
@@ -37,7 +37,7 @@ use a VPN
 
 ## How to install
 
-The App. installation mechanism depends on your device:
+The application installation mechanism depends on your device:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!-- Android -->

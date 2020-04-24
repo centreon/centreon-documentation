@@ -24,7 +24,7 @@ Les fonctionnalités principales de cette application sont:
 > [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée 
 > d'html/javascript/css . Le code est stocké et exécuté sur votre téléphone via le moteur de votre navigateur.
 > C'est une manière moderne, flexible et légère de développer une application réduisant également la dépendance 
-> aux stores et facilitant les mise à jour rapide.  Plus d'information également 
+> aux stores et facilitant les mises à jour rapide.  Plus d'information également 
 > ici: [Web.dev](https://web.dev/what-are-pwas/)
 
 ## Pre-requis
