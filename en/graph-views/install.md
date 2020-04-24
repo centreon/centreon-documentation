@@ -25,7 +25,7 @@ Centreon MAP consists of three components:
 
 The diagram below summarizes the architecture:
 
-![image](assets/graph-views/map_flux.png)
+![image](../assets/graph-views/map_architect.png)
 
 **Table of network flow**
 

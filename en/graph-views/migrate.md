@@ -2,51 +2,33 @@
 id: migrate
 title: Migrate the extension
 ---
-This chapter describes how to upgrade your Centreon MAP extension. This is done
-by upgrading the three main components:
+This section explains how to move Centreon MAP server over to another server. This task may be useful if you need to migrate your reporting server from CentOS 6 to CentOS 7.
 
-  - Centreon MAP server
-  - Centreon MAP web interface & its widget
-  - Desktop client (automatically updated).
+## Install the new Centreon MAP serve
 
-Before upgrading Centreon MAP server, we highly recommand performing a MariaDB
-dump (backup) of your `centreon_studio` database. This will allow you easily to
-roll back to the previous state if necessary.
+Please refer to the installation chapter in this documentation to install your new Centreon MAP server.
 
-Be sure to read the release notes for an explanation of features, fixes & custom
-procedures.
-
-**If you're updating to a new major or minor version (i.e:A.B.x with A or B that
-changes) you need to contact our Support service to retrieve the new
-repository**
-
-## Centreon MAP Server
-
-> If you are still running version **4.0.X**, you **must first install and run
-> the server in version 4.1.X before upgrading to the latest version**.
-
-Run the following commands to upgrade your Centreon MAP server:
+### Synchronize the data
+Stop Centreon MAP service on both Centreon MAP servers:
 
 ``` shell
-# systemctl stop centreon-map
-# yum update centreon-map-server
-# systemctl start centreon-map
+systemctl stop centreon-map
 ```
 
-## Centreon MAP Web interface
+Dump the Centreon MAP data:
 
 ``` shell
-yum update centreon-map-web-client
+mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
 ```
 
-Complete the upgrade by going to *Administration \> Extensions \> Manager*
-(module & widget parts):
+Upload centreon_studio.sql to the new Centreon MAP (in /tmp) server and import it into the database:
 
-![image](assets/graph-views/update-web-client.png)
+``` shell
+mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
+```
 
-## Centreon MAP Desktop client
+Start Centreon Map service on the new Centreon MAP servers:
 
-If the user's computer has an online connection, the desktop client is
-automatically upgraded to the latest version that corresponds to the server.
-Alternatively, the client can be downloaded through this link: *Monitoring \>
-Map | Desktop client*.
+``` shell
+systemctl start centreon-map
+```
