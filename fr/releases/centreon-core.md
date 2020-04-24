@@ -22,6 +22,22 @@ If you have feature requests or want to report a bug, please go to our
 
 *Released April, 22 2020*
 
+> Known issues:
+>
+> - When upgrading to 20.04.0 (in both cases, restart `gorgoned` service after
+>   any configuration changes):
+>   - Some users can encounter connectivity issues between Gorgone and databases
+>     on Central or Remote server due to wrong password in configuration. To
+>     manage that, edit the `/etc/centreon/config.d/10-database.yaml` file and
+>     validate that the database password is correct and surrounded by double
+>     quotes,
+>   - Some users can encounter problems when submitting monitoring actions from
+>     web interface without any effect for Central poller. This might be due
+>     to a wrongly set `command_file` directive of the `engine` module define in
+>     the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` configuration file.
+>     To manage that, edit the file and change the path to match Engine command
+>     file.
+
 #### Features
 
 * Add a new [Events view (beta)](../alerts-notifications/events-view.html)
