@@ -20,6 +20,13 @@ Les fonctionnalités principales de cette application sont:
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 
+> L'application mobile est une application de type PWA 
+> [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée 
+> d'html/javascript/css . Le code est stocké et exécuté sur votre téléphone via le moteur de votre navigateur.
+> C'est une manière moderne, flexible et légère de développer une application réduisant également la dépendance 
+> aux stores et facilitant les mise à jour rapide.  Plus d'information également 
+> ici: [Web.dev](https://web.dev/what-are-pwas/)
+
 ## Pre-requis
 
 Voici les pré-requis vous permettant de profiter de l'application et d'être en mesure de vous
