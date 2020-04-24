@@ -17,9 +17,10 @@ extensions**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
+## Centreon Plugin Pack Manager
+
 ### 20.04.1
 
-## Centreon Plugin Pack Manager
 * Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ## Centreon DSM
