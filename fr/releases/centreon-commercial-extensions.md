@@ -67,11 +67,15 @@ configuration value:
 
 ## Centreon Plugin Pack Manager
 
+### 20.04.0
+
   - Improve management of errors during Plugin Packs installation process
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
-### 20.04.0
+### 20.04.1
+
+  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ## Centreon License Manager
 
