@@ -3,7 +3,7 @@ id: cloud-aws-vpn
 title: Amazon VPN
 ---
 
-## Vue d'ensemble
+## Overview
 
 AWS Virtual Private Network (AWS VPN) lets you establish a secure and private tunnel from your network or device to the AWS Cloud. You can extend your existing on-premises network into a VPC, or connect to other AWS resources from a client. AWS VPN offers two types of private connectivity that feature the high availability and robust security necessary for your data.
 
