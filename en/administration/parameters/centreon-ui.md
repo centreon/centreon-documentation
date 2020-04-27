@@ -57,7 +57,7 @@ Define needed information:
 - **Proxy user**
 - **Proxy password**
 
-Once you defined settings, test your configuration by clicking on the **Text
+Once you defined settings, test your configuration by clicking on the **Test
 Proxy Configuration** button.
 
 ## Autologin
