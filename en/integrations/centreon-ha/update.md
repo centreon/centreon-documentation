@@ -38,7 +38,7 @@ The Centreon extensions are also to be updated *via* the WUI, from the "Administ
 
 ### Updating the Plugin Packs
 
-In order to maintain compatibility between the [Plugin Packs](../../monitoring/pluginpacks) and the installed plugins (that have just been updated by the `yum update` command on the central server), the plugin packs must be updated in the WUI too from the "Configuration > Plugin Packs" menu.
+In order to maintain compatibility between the [Plugin Packs](../../monitoring/pluginpacks.html) and the installed plugins (that have just been updated by the `yum update` command on the central server), the plugin packs must be updated in the WUI too from the "Configuration > Plugin Packs" menu.
 
 ### Updating the pollers
 
@@ -64,7 +64,7 @@ In addition, the `cbd-sql` service must be restarted **on the central master ser
 service cbd-sql restart
 ```
 
-The `cbd` service must also be restarted on [Centreon Remote Servers](../../installation/architectures#description) as well:
+The `cbd` service must also be restarted on [Centreon Remote Servers](../../installation/architectures.html#description) as well:
 
 ```bash
 service cbd restart
