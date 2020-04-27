@@ -51,7 +51,7 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--cpu-->
+<!--Cpu-->
 
 | Metric name                        | Description                                   |
 | :--------------------------------- | :-------------------------------------------- |
@@ -110,7 +110,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
-| parition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
+| partition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -161,7 +161,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Linux:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
