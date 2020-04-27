@@ -13,6 +13,10 @@ which branch to base your work on. If you get confused, just ask and we will
 help. If a reviewer realizes you have based your work on the wrong branch, we'll
 let you know so that you can rebase it.
 
+To understand how the documentation is structured, you may have a look to the
+ [Docusaurus project](https://docusaurus.io/).
+We're using the version 1.
+
 ### Pull request guidelines
 
 Help us review your PRs more quickly by following these guidelines.
