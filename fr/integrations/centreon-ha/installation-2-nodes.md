@@ -9,7 +9,7 @@ title: Installation d'un cluster à 2 nœuds
 
 Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
 
-**AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable de toute détérioration ou perte de données.
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable de toute détérioration ou perte de données.
 
 ### Installation de Centreon
 
@@ -22,7 +22,7 @@ La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particu
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-**AVERTISSEMENT :** Si ce prérequis n'est pas vérifié, il ne sera pas possible de synchroniser les bases de données de la façon indiquée dans ce document.
+> **AVERTISSEMENT :** Si ce prérequis n'est pas vérifié, il ne sera pas possible de synchroniser les bases de données de la façon indiquée dans ce document.
 
 ### *Quorum Device*
 
@@ -168,7 +168,7 @@ C'est la seconde méthode qui sera proposée plus bas.
 
 Cette procédure est à appliquer sur les deux nœuds centraux :
 
-```
+```bash
 su - centreon
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
@@ -176,13 +176,13 @@ cat ~/.ssh/id_ed25519.pub
 
 Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `~/.ssh/authorized_keys` puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
 
-```
+```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `centreon`) :
 
-```
+```bash
 ssh <adresse IP de l'autre nœud>
 ```
 
@@ -264,7 +264,7 @@ max_allowed_packet=64M
 #sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-**Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
+> **Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre, pour qu'ils puissent s'identifier correctement. Les valeurs 1 => Master et 2 => Slave ne sont pas obligatoires mais sont recommandées.
 
 **NB :** Ne pas oublier de décommenter (supprimer le '#' en début de ligne) le paramètre `innodb_buffer_pool_size` qui correspond à votre plateforme.
 
@@ -280,7 +280,7 @@ Bien s'assurer que le redémarrage s'est bien déroulé avec la commande suivant
 systemctl status mysql
 ```
 
-**Avertissement :** Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, il faut les reporter dans `server.cnf`.
+> **Avertissement :** Le fichier `centreon.cnf` ne sera plus pris en compte, si des paramètres y ont été personnalisés, il faut les reporter dans `server.cnf`.
 
 ### Sécurisation de la base de données 
 
@@ -642,7 +642,7 @@ pcs resource meta ms_mysql-master \
 
 Certaines ressources ne doivent être démarrées que sur un seul nœud, mais pour d'autres, il n'est pas gênant voire souhaitable de les démarrer sur les deux nœuds. Pour ces dernières, nous déclarerons des ressources *clones*.
 
-**Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des deux nœuds centraux.
+> **Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des deux nœuds centraux.
 
 ##### PHP7
 
