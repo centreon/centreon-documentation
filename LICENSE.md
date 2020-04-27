@@ -2,7 +2,7 @@
 
 Attribution-NonCommercial-NoDerivs 2.0 [![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-=======================================================================
+-------------------------------------------------------------------
 
 Attribution-NonCommercial-NoDerivs 2.0
 
@@ -13,7 +13,7 @@ THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS
 
 BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE LICENSOR GRANTS YOU THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH TERMS AND CONDITIONS.
 
-=======================================================================
+-------------------------------------------------------------------
 
 1. Definitions
 
