@@ -16,7 +16,7 @@ L'architecture de la plate-forme de haute disponibilité Centreon est composée 
 
 **Remarque :** On relèvera qu'il est question d'au moins 3 serveurs alors que le titre indique "2 nœuds". Il ne s'agit pas d'une coquille, il y a bien deux nœuds centraux, et la supervision **doit** reposer sur un ou plusieurs pollers, pas sur les centraux.
 
-![image](assets/integrations/centreon-ha/cluster-2-nodes.png)
+![image](../../assets/integrations/centreon-ha/cluster-2-nodes.png)
 
 ### Description des services du cluster
 
@@ -30,7 +30,7 @@ Les bases de données MariaDB et les services Centreon sont hébergés par les s
 
 Le serveur supportant le `quorum-device` (parfois noté `qdevice`) quant à lui n'héberge aucun service spécifique mis à part `pcsd`. Son rôle dans le cluster est de permettre de définir une majorité absolue et un quorum (nombre d'électeurs requis lors d'un vote), notamment lors de l'absence d'un des deux membres du cluster.
 
-![image](assets/integrations/centreon-ha/cluster_services_desc.png)
+![image](../../assets/integrations/centreon-ha/cluster_services_desc.png)
 
 ### Principaux composants Centreon
 
@@ -70,7 +70,7 @@ Les bases de données des serveurs `centreon-db-master` et `centreon-db-slave` s
 
 #### Schéma global de fonctionnement
 
-![image](assets/integrations/centreon-ha/cluster-2-nodes-architecture.png)
+![image](../../assets/integrations/centreon-ha/cluster-2-nodes-architecture.png)
 
 ### Description des ressources du cluster
 
@@ -94,7 +94,7 @@ Le groupe fonctionnel `centreon` permet de regrouper l'ensemble de ressources su
 
 **Note :** Les ressources sont démarrées les unes après les autres en suivant l'ordre de la liste.
 
-![image](assets/integrations/centreon-ha/cluster_resources_desc.png)
+![image](../../assets/integrations/centreon-ha/cluster_resources_desc.png)
 
 #### Description des types de ressources
 
