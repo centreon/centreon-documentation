@@ -22,9 +22,9 @@ This pack doesn't provide any hosts discovery rule.
 
 <!--Services-->
 
-| Rule name		                        | Description                                                   			 |
-| :------------------------------------ | :------------------------------------------------------------------------- |
-| Cloud-Aws-Vpn-Connections		        | Discover VPN Site-To-Site connections and monitor their status and traffic |
+| Rule name		                        | Description 		                               			 	|
+| :-------------------------------------------- | :---------------------------------------------------------------------------- |
+| Cloud-Aws-Vpn-Connections		        | Discover VPN Site-To-Site connections and monitor their status and traffic 	|
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -35,11 +35,11 @@ More information about collected metrics is available in the official Amazon doc
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Traffic-->
 
-| Metric name		  | Description                                                     																											 |
-| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TunnelState	      | The state of the tunnel. For static VPNs, 0 indicates DOWN and 1 indicates UP. For BGP VPNs, 1 indicates ESTABLISHED and 0 is used for all other states. Unit: Boolean  	 |
-| TunnelDataIn		  | The bytes received through the VPN tunnel. Unit: Bytes																														 |
-| TunnelDataOut		  | The bytes sent through the VPN tunnel. Unit: Bytes																												     |
+| Metric name	| Description							 |
+| :------------ | :------------------------------------------------------------- |
+| TunnelState	| The state of the tunnel. For static VPNs, 0 indicates DOWN and 1 indicates UP. For BGP VPNs, 1 indicates ESTABLISHED and 0 is used for all other states. Unit: Boolean				|
+| TunnelDataIn	| The bytes received through the VPN tunnel. Unit: Bytes	 |
+| TunnelDataOut	| The bytes sent through the VPN tunnel. Unit: Bytes		 |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -52,7 +52,7 @@ Whether using a service account or a dedicated monitoring account to monitor Clo
 
 | AWS Privilege                         | Description                                          |
 | :------------------------------------ | :--------------------------------------------------- |
-| ec2:DescribeVpnConnections		    | Describes one or more of your VPN connections	       |
+| ec2:DescribeVpnConnections		| Describes one or more of your VPN connections	       |
 | cloudwatch:listMetrics                | List all metrics from Cloudwatch AWS/VPN namespace   |
 | cloudwatch:getMetricStatistics        | Get metrics values from Cloudwatch AWS/VPN namespace |
 
@@ -135,7 +135,7 @@ Once the host created and the configuration exported on Centreon, a "Traffic-Gen
 
 | Mandatory   | Name            | Description                           |
 | :---------- | :-------------- | :-------------------------------------|
-| X           | VPNID	 		| ID of the VPN link to be monitored    |
+| X           | VPNID	 	| ID of the VPN link to be monitored    |
 
 The service can be duplicated as per each *VPNID*.
 
