@@ -97,9 +97,9 @@ Once the root cause has been identified, run the following command for the clust
 pcs resource cleanup centreontrapd
 ```
 
-## Une ressource ou un groupe de ressources ne démarre sur aucun des nœuds
+## One resource or resources group doesn't start on any node
 
-Si suite à une bascule, qu'elle soit manuelle ou à cause d'une panne ou de l'arrêt d'un serveur, la situation suivante se produit :
+If after a failover, could it be a manual one or after a server shutdown, the following situation happens:
 
 ```text
 Stack: corosync
@@ -122,7 +122,11 @@ Active resources:
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
-Aucune erreur n'est remontée, mais le groupe centreon n'apparaît plus, et aucune de ses ressources n'est donc démarrée. Ce cas de figure est généralement dû à un enchainement de deux bascules (`pcs resource move ...`) sans avoir supprimé la contrainte par la suite. Pour le vérifier :
+No error is displayed but the centreon group doesn't show up anymore and none of its resources is started. This mostly happens when there were multiples failover (`pcs resource move ....`) without deleting the constraint. To check that:
+
+```bash
+pcs constraint show
+```
 
 ```text
 Location Constraints:
@@ -136,15 +140,15 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-On constate que le groupe centreon n'est plus "autorisé" à démarrer sur aucun des nœuds.
+We notice that the centreon group isn't authorized to start on any node
 
-Pour libérer le groupe de ressources de ces contraintes, il faut lancer la commande :
+To free the resource group from its constraints, run the following command:
 
 ```bash
 pcs resource clear centreon
 ```
 
-Les ressources devraient alors immédiatement se lancer.
+Resources should be starting now.
 
 
 
