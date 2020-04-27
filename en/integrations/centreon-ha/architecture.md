@@ -16,7 +16,7 @@ The architecture of the high availability platform is composed by these 4 roles:
 
 **Note:** One will notice that at least 3 servers are needed whereas the title mentions only two nodes. There is no mistake here, there are indeed 2 central nodes, and the monitoring role **must** rely on external pollers, not on central servers.
 
-![image](assets/integrations/centreon-ha/cluster-2-nodes.png)
+![image](../../assets/integrations/centreon-ha/cluster-2-nodes.png)
 
 ### Cluster services description
 
@@ -32,7 +32,7 @@ Services are running on either the `centreon-central-master` server or on the `c
 
 The server with the `quorum-device` role does not host any particular service. It aims to obtain an absolute majority in a vote of the cluster master.
 
-![image](assets/integrations/centreon-ha/cluster_services_desc.png)
+![image](../../assets/integrations/centreon-ha/cluster_services_desc.png)
 
 ### Centreon main components
 
@@ -72,7 +72,7 @@ The databases hosted by `centreon-central-master` and `centreon-central-slave` a
 
 #### Overall schema
 
-![image](assets/integrations/centreon-ha/cluster-2-nodes-architecture.png)
+![image](../../assets/integrations/centreon-ha/cluster-2-nodes-architecture.png)
 
 ### Description of the cluster resources
 
