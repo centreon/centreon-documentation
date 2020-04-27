@@ -22,7 +22,7 @@ The output of the `vgs` command must look like (what must be payed attention on 
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-**WARNING:** If this particular prerequisite is not effective, the databases synchronization method described further won't work.
+> **WARNING:** If this particular prerequisite is not effective, the databases synchronization method described further won't work.
 
 ### Quorum Device
 
@@ -278,7 +278,7 @@ Make sure that the restart went well:
 systemctl status mysql
 ```
 
-**Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
+> **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
 
 ### Securing the database server
 
@@ -644,7 +644,7 @@ pcs resource meta ms_mysql-master \
 
 Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
 
-**Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
+> **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
 ##### PHP7 resource
 
