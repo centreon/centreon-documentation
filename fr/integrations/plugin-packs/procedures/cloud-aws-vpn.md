@@ -22,9 +22,9 @@ Pas de règle de découverte d'hôte.
 
 <!--Services-->
 
-| Nom de la règle                       | Description                                                   			  |
+| Nom de la règle                       | Description								      |
 | :------------------------------------ | :-------------------------------------------------------------------------- |
-| Cloud-Aws-Vpn-Connections		        | Découverte des liens VPN et supervision du statut et du traffic sur le lien |
+| Cloud-Aws-Vpn-Connections		| Découverte des liens VPN et supervision du statut et du traffic sur le lien |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -35,11 +35,11 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Traffic-->
 
-| Nom de la métrique  | Description                                                     																											 |
-| :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TunnelState	      | État du tunnel. Pour les VPN statiques, 0 indique DOWN et 1 indique UP. Pour les VPN BGP, 1 indique ESTABLISHED et 0 est utilisé pour tous les autres états. Unité: Booléen  |
-| TunnelDataIn		  | Octets reçus par le biais du tunnel VPN. Unité: Octets																														 |
-| TunnelDataOut		  | Octets envoyés par le biais du tunnel VPN. Unité: Octets																												     |
+| Nom de la métrique  | Description							|
+| :------------------ | :-------------------------------------------------------------- |
+| TunnelState	      | État du tunnel. Pour les VPN statiques, 0 indique DOWN et 1 indique UP. Pour les VPN BGP, 1 indique ESTABLISHED et 0 est utilisé pour tous les autres états. Unité: Booléen				|
+| TunnelDataIn	      | Octets reçus par le biais du tunnel VPN. Unité: Octets		|
+| TunnelDataOut	      | Octets envoyés par le biais du tunnel VPN. Unité: Octets	|
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -52,7 +52,7 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 
 | Privilège AWS                         | Description                                          |
 | :------------------------------------ | :--------------------------------------------------- |
-| ec2:DescribeVpnConnections		    | Describes one or more of your VPN connections	       |
+| ec2:DescribeVpnConnections		| Describes one or more of your VPN connections	       |
 | cloudwatch:listMetrics                | List all metrics from Cloudwatch AWS/VPN namespace   |
 | cloudwatch:getMetricStatistics        | Get metrics values from Cloudwatch AWS/VPN namespace |
 
@@ -134,7 +134,7 @@ Une fois l'hôte créé et la configuration de Centreon exportée, un service "T
 
 | Obligatoire | Nom             | Description                           |
 | :---------- | :-------------- | :-------------------------------------|
-| X           | VPNID	 		| ID of the VPN link to be monitored    |
+| X           | VPNID	 	| ID of the VPN link to be monitored    |
 
 Le service peut-être dupliqué et la valeur de la macro ajustée pour chaque *VPNID*.
 
