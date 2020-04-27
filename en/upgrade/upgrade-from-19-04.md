@@ -355,7 +355,7 @@ MariaDB:
 
 #### Enable MariaDB on startup
 
-Execute the following commands:
+Execute the following command:
 ```shell
 systemctl enable mariadb
 ```
