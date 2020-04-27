@@ -262,7 +262,7 @@ max_allowed_packet=64M
 #sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-**Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
+> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
 
 **Reminder:** Don't forget to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
 
