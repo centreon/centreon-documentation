@@ -9,7 +9,7 @@ title: Installing a Centreon HA 2-nodes cluster
 
 Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
 
-> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable > for any breakdown or data loss.
+> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
 
 ### Installed Centreon platform
 
