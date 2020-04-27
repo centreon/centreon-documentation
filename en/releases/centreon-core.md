@@ -239,3 +239,13 @@ If you have feature requests or want to report a bug, please go to our
 * [Performance] Add SQL multi-thread for connection
 * Fix influxdb retention (PR #399)
 * Fix TLS
+
+## Centreon Gorgone
+
+### 20.04.0
+
+* Add Gorgone in replacement of Centcore
+
+### 20.04.1
+
+* [nodes] Change resync time when you have a SQL issue
