@@ -54,8 +54,3 @@ Help us review your PRs more quickly by following these guidelines.
 
 Try not to have lines over 80 characters. Use your best judgment, and try to follow the example 
 set by the existing documentation.
-
-
-## Copyright and license
-
-Code and documentation copyright 2020 Centreon, inc. This project is licensed under the GPL-2.0 License.
