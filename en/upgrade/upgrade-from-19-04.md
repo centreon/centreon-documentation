@@ -353,6 +353,13 @@ MariaDB:
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
 
+#### Enable MariaDB on startup
+
+Execute the following command:
+```shell
+systemctl enable mariadb
+```
+
 ## Upgrade the Remote Servers
 
 This procedure is the same than to upgrade a Centreon Central server.

@@ -405,6 +405,13 @@ recommande :
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
+#### Activer MariaDB au démarrage automatique
+
+Exécutez la commande suivante :
+```shell
+systemctl enable mariadb
+```
+
 ## Montée de version des Pollers
 
 ### Mise à jour des dépôts
