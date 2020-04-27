@@ -17,7 +17,7 @@ Pour afficher l'état général du cluster exécuter la commande :
 crm_mon
 ```
 
-**Avertissement:** Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières.
+> **Avertissement:** Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières.
 
 ### Afficher l'état d'une ressource
 
@@ -57,7 +57,7 @@ Pour sauvegarder la configuration du cluster au format XML exécuter la commande
 cibadmin --query > cluster_configuration.xml
 ```
 
-**Avertissement :** les commandes qui suivent apportent des modifications à la configuration du cluster, et peuvent le rendre dysfonctionnel, elles ne doivent être utilisées qu'en connaissance de cause.
+> **Avertissement :** les commandes qui suivent apportent des modifications à la configuration du cluster, et peuvent le rendre dysfonctionnel, elles ne doivent être utilisées qu'en connaissance de cause.
 
 Pour importer une configuration au format XML exécuter la commande :
 
@@ -113,7 +113,7 @@ La commande `pcs resource move <resource_name>` positionne une contrainte `-INFI
 
 ### Supprimer l'affichage d'une erreur
 
-Les erreurs d'exécution ou de monitoring des ressources donnent lieu à l'apparition de "failed actions" dans le retour affiché par la commande `pcs status`. Il est recommandé d'en rechercher la cause en suivant ce [guide de résolution de panne](troubleshooting-guide) avant d'éliminer l'alerte, mais si l'alerte n'est plus d'actualité, il faut supprimer manuellement le message d'erreur en lançant la commande :
+Les erreurs d'exécution ou de monitoring des ressources donnent lieu à l'apparition de "failed actions" dans le retour affiché par la commande `pcs status`. Il est recommandé d'en rechercher la cause en suivant ce [guide de résolution de panne](troubleshooting-guide.html) avant d'éliminer l'alerte, mais si l'alerte n'est plus d'actualité, il faut supprimer manuellement le message d'erreur en lançant la commande :
 
 ```bash
 pcs resource cleanup <resource_name>
@@ -197,7 +197,7 @@ Position Status [OK]
 
 Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
 
-**Avertissement :** sauf si votre installation diffère du cluster à 2 serveurs dont l'installation est décrite [ici](installation-2-nodes), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
+> **Avertissement :** sauf si votre installation diffère du cluster à 2 serveurs dont l'installation est décrite [ici](installation-2-nodes), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
@@ -229,7 +229,7 @@ pcs resource clear centreon
 
 ## Supprimer un groupe de ressource Pacemaker
 
-**Avertissement :** les commandes ci-dessous empêcheront le cluster de fonctionner, elles ne doivent être utilisées qu'en connaissance de cause.
+> **Avertissement :** les commandes ci-dessous empêcheront le cluster de fonctionner, elles ne doivent être utilisées qu'en connaissance de cause.
 
 Dans le cas où il y aurait besoin de supprimer le groupe et les éléments rattachés (primitive des services, contraintes, ...), se connecter sur un nœud du cluster et exécuter les commandes suivantes :
 
@@ -251,7 +251,7 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-Pour recréer les ressources, on se référera au [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes#création-du-groupe-de-ressources-centreon)
+Pour recréer les ressources, on se référera au [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes.html#cr%C3%A9ation-du-groupe-de-ressources-centreon)
 
 ## Superviser son cluster
 
