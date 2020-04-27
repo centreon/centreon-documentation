@@ -90,21 +90,21 @@ The `centreon` functional group gathers all Centreon resources to manage them.
 
 All these resources are described in the table below.
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `ms_mysql` | multi-state resource | Handles `mysql` process and the data replication |
-| `ms_mysql-master` | location | Set MariaDB Master server rule preference |
-| `php7` | clone service | FastCGI Process Manager service (`rh-php72-php-fpm`) |
-| `cbd_rrd` | clone service | Broker RRD service (`cbd`) |
-| `centreon` | group | Centreon "primitive services" group |
-| `vip` | primitive service | VIP address for centreon |
-| `http` | primitive service | Apache service (`httpd24-httpd`) |
-| `gorgone` | primitive service | Gorgone service (`gorgoned`) |
-| `centreon_central_sync` | primitive service | Files synchronization service |
-| `cbd_central_broker` | primitive service | Central Broker service (`cbd-sql`) |
-| `centengine` | primitive service | Centreon-Engine service (`centengine`) |
-| `centreontrapd` | primitive service | SNMP Traps management service (`centreontrapd`) |
-| `snmptrapd` | primitive service | SNMP Traps listening service (`snmptrapd`) |
+| Name                    | Type                 | Description                                          |
+| ----------------------- | -------------------- | ---------------------------------------------------- |
+| `ms_mysql`              | multi-state resource | Handles `mysql` process and the data replication     |
+| `ms_mysql-master`       | location             | Set MariaDB Master server rule preference            |
+| `php7`                  | clone service        | FastCGI Process Manager service (`rh-php72-php-fpm`) |
+| `cbd_rrd`               | clone service        | Broker RRD service (`cbd`)                           |
+| `centreon`              | group                | Centreon "primitive services" group                  |
+| `vip`                   | primitive service    | VIP address for centreon                             |
+| `http`                  | primitive service    | Apache service (`httpd24-httpd`)                     |
+| `gorgone`               | primitive service    | Gorgone service (`gorgoned`)                         |
+| `centreon_central_sync` | primitive service    | Files synchronization service                        |
+| `cbd_central_broker`    | primitive service    | Central Broker service (`cbd-sql`)                   |
+| `centengine`            | primitive service    | Centreon-Engine service (`centengine`)               |
+| `centreontrapd`         | primitive service    | SNMP Traps management service (`centreontrapd`)      |
+| `snmptrapd`             | primitive service    | SNMP Traps listening service (`snmptrapd`)           |
 
 **Note:** The resources of the `centreon` group are started one after the other in the list order.
 

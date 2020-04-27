@@ -7,7 +7,7 @@ La procédure suivante est à utiliser lors de l'application d'une mise à jour 
 
 ## Suspension de la gestion des resources par le cluster
 
-Cette opération nécessite de suspendre la gestion des ressources Centreon et MySQL par le cluster pour éviter qu'une bascule se produise en pleine mise à jour.
+Cette opération nécessite de suspendre la gestion des ressources Centreon et MariaDB par le cluster pour éviter qu'une bascule se produise en pleine mise à jour.
 
 ```bash
 pcs resource unmanage centreon

@@ -100,21 +100,21 @@ Le groupe fonctionnel `centreon` permet de regrouper l'ensemble de ressources su
 
 Le tableau ci-dessous décrit l'ensemble des ressources Pacemaker :
 
-| Nom | Type | Description |
-| --- | --- | --- |
-| `ms_mysql` | multi-state resource | Pilote le démarrage du processus `mysql` et la réplication |
-| `ms_mysql-master` | location | Spécifie où se situe le nœud MariaDB maître |
-| `php7` | clone service | Service FastCGI Process Manager `rh-php72-php-fpm` |
-| `cbd_rrd` | clone service | Service Broker RRD `cbd` |
-| `centreon` | group | Groupe centreon pour les 'primitive service' |
-| `vip` | primitive service | VIP pour centreon |
-| `http` | primitive service | Service Apache `httpd24-httpd` |
-| `gorgone` | primitive service | Service Gorgone `gorgoned` |
-| `centreon_central_sync` | primitive service | Service pour la synchronisation de fichiers |
-| `cbd_central_broker` | primitive service | Service central Broker `cbd-sql` |
-| `centengine` | primitive service | Service Centreon-Engine `centengine` |
-| `centreontrapd` | primitive service | Service de gestion des traps `centreontrapd` |
-| `snmptrapd` | primitive service | Service de réception des traps SNMP `snmptrapd` |
+| Nom                     | Type                 | Description                                                |
+| ----------------------- | -------------------- | ---------------------------------------------------------- |
+| `ms_mysql`              | multi-state resource | Pilote le démarrage du processus `mysql` et la réplication |
+| `ms_mysql-master`       | location             | Spécifie où se situe le nœud MariaDB maître                |
+| `php7`                  | clone service        | Service FastCGI Process Manager `rh-php72-php-fpm`         |
+| `cbd_rrd`               | clone service        | Service Broker RRD `cbd`                                   |
+| `centreon`              | group                | Groupe centreon pour les 'primitive service'               |
+| `vip`                   | primitive service    | VIP pour centreon                                          |
+| `http`                  | primitive service    | Service Apache `httpd24-httpd`                             |
+| `gorgone`               | primitive service    | Service Gorgone `gorgoned`                                 |
+| `centreon_central_sync` | primitive service    | Service pour la synchronisation de fichiers                |
+| `cbd_central_broker`    | primitive service    | Service central Broker `cbd-sql`                           |
+| `centengine`            | primitive service    | Service Centreon-Engine `centengine`                       |
+| `centreontrapd`         | primitive service    | Service de gestion des traps `centreontrapd`               |
+| `snmptrapd`             | primitive service    | Service de réception des traps SNMP `snmptrapd`            |
 
 ### Recommandations
 

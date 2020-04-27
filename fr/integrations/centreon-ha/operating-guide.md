@@ -162,7 +162,7 @@ Désactiver le contrôle des ressources MariaDB par le cluster :
 pcs resource unmanage ms_mysql
 ```
 
-Se connecter au serveur esclave et arrêter le service MySQL :
+Se connecter au serveur esclave et arrêter le service MariaDB :
 
 ```bash
 mysqladmin -p shutdown
@@ -174,7 +174,7 @@ Se connecter au serveur maître et exécuter la commande suivante :
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Réactiver le contrôle des ressources `MySQL` par le cluster :
+Réactiver le contrôle des ressources `MariaDB` par le cluster :
 
 ```bash
 pcs resource manage ms_mysql
@@ -195,7 +195,7 @@ Position Status [OK]
 
 ### Changer le sens de la réplication MariaDB Master/Slave
 
-Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MySQL est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
+Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
 
 **Avertissement :** sauf si votre installation diffère du cluster à 2 serveurs dont l'installation est décrite [ici](installation-2-nodes), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
@@ -255,7 +255,7 @@ Pour recréer les ressources, on se référera au [guide d'installation d'un clu
 
 ## Superviser son cluster
 
-Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Linux Apache MySQL PHP) sur laquelle des composants du projet Linux-HA ont été rajouté. La supervision de la plate-forme doit donc comprend au minimum les éléments suivants supervisé depuis un **collecteur distant** pour tous les noeuds du cluster :
+Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Linux Apache MariaDB PHP) sur laquelle des composants du projet Linux-HA ont été rajouté. La supervision de la plate-forme doit donc comprend au minimum les éléments suivants supervisé depuis un **collecteur distant** pour tous les noeuds du cluster :
 
 * Indicateurs système
     * Contrôle du **LOAD Average**
@@ -348,48 +348,6 @@ La macro **EXTRAOPTION** du service **CRM** déployé par le template d'hôte **
     --resources="centengine:@NAME_CENTRAL_MASTER@"
 ```
 
-### Superviser la bascule du groupe `ms_mysql`
-
-```bash
-su - centreon-engine
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin="apps::pacemaker::local::plugin"     \
-    --mode="crm"                                  \
-    --command-options="-1 -f 2"                   \
-    --standbyignore                               \
-    --resources="vip_mysql:@NAME_DATABASE_MASTER@"
-```
-
-```text
-OK: Cluster is OK |
-```
-
-```bash
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin="apps::pacemaker::local::plugin" \
-    --mode="crm" \
-    --command-options="-1 -f 2" \
-    --standbyignore \
-    --resources="vip_mysql:@NAME_CENTRAL_SLAVE@"
-```
-
-```text
-CRITICAL: Resource 'vip_mysql' is started on node '@NAME_DATABASE_MASTER@' |
-```
-
-
-- Si la ressource `vip_mysql` n'est plus sur le serveur `@CENTRAL_MASTER_NAME@` alors il y a eu bascule et le contrôle est en status **CRITICAL**
-
-- Changer le nom de l'hôte `@CENTRAL_MASTER_NAME@` si besoin.
-
-La macro **EXTRAOPTION** du service **CRM** déployé par le template d'hôte **App-Pacemaker-SSH-custom** peut ainsi être surchargé avec les options :
-
-```bash
-    --command-options="-1 -f 2" \
-    --standbyignore             \
-    --resources="vip_mysql:@NAME_DATABASE_MASTER@"
-```
-
 ### Superviser la synchronisation des bases
 
 Le plugin **centreon-plugin-Applications-Databases-Mysql** permet le contrôle de la réplication :
@@ -401,10 +359,10 @@ perl /usr/lib/centreon/plugins/centreon_mysql.pl \
     --multiple                            \
     --host="@NAME_DATABASE_MASTER@"       \
     --username="centreon-repl"            \
-    --password="@MYSQL_REPL_PASSWD@"      \
+    --password="@MARIADB_REPL_PASSWD@"      \
     --host="@NAME_DATABASE_SLAVE@"        \
     --username="centreon-repl"            \
-    --password="@MYSQL_REPL_PASSWD@"
+    --password="@MARIADB_REPL_PASSWD@"
 ```
 
 ```text
