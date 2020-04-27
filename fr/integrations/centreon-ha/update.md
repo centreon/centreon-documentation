@@ -3,7 +3,7 @@ id: update
 title: Mise à jour d'une plateforme Centreon-HA
 ---
 
-La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon-HA installé suivant [cette documentation](centreon-ha-installation-2-nodes), dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
+La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon-HA installé suivant [cette documentation](centreon-ha-installation-2-nodes.html), dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
 
 ## Suspension de la gestion des resources par le cluster
 
@@ -38,7 +38,7 @@ Les extensions (ou modules) Centreon nécessitent également d'être mis à jour
 
 ### Mise à jour des Plugin Packs
 
-Afin de maintenir la compatibilité entre les [Plugin Packs](../../monitoring/pluginpacks) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des plugin packs depuis le menu "Configuration > Plugin Packs".
+Afin de maintenir la compatibilité entre les [Plugin Packs](../../monitoring/pluginpacks.html) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des plugin packs depuis le menu "Configuration > Plugin Packs".
 
 ### Mise à jour des pollers
 
@@ -65,7 +65,7 @@ service cbd-sql restart
 ```
 
 
-Dans le cas où des [Remote Servers](../../installation/architectures#description) seraient présents, il faut y redémarrer le service `cbd` :
+Dans le cas où des [Remote Servers](../../installation/architectures.html#description) seraient présents, il faut y redémarrer le service `cbd` :
 
 ```bash
 service cbd restart
