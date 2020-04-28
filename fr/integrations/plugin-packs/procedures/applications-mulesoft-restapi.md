@@ -5,7 +5,7 @@ title: Mulesoft Anypoint
 
 ## Vue d'ensemble
 
-MuleSoft offre la plateforme d'intégration la plus utilisée pour connecter les applications SaaS et d'entreprise dans le cloud et/ou on-prem.
+MuleSoft offre une plateforme d'intégration la plus utilisée pour connecter les applications SaaS et d'entreprise dans le cloud et/ou on-prem.
 
 Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint afin d'en récupérer le statut.
 
@@ -40,7 +40,7 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Traffic-->
 
-| Nom de la métrique  | Description                                                     	                    	  |
+| Nom de la métrique  | Description                                                     	                      |
 | :------------------ | :-------------------------------------------------------------------------------------------- |
 | id                  | Identifier of an application. Unit: integer                                                   |
 | lastReportedStatus  | The status that the Runtime Manager tries to apply to the artifact in that sever Unit: string |
