@@ -1,6 +1,6 @@
 ---
 id: cloud-aws-vpn
-title: Amazon VPN
+title: AWS VPN
 ---
 
 ## Vue d'ensemble
