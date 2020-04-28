@@ -17,7 +17,7 @@ roll back to the previous state if necessary.
 Be sure to read the release notes for an explanation of features, fixes & custom
 procedures.
 
-**If you're updating to a new major or minor version (i.e:A.B.x with A or B that
+**When you're upgrading to a new major or minor version (i.e:A.B.x with A or B that
 changes) you need to contact our Support service to retrieve the new
 repository**
 
@@ -33,9 +33,10 @@ Run the following commands to upgrade your Centreon MAP server:
 systemctl stop tomcat
 systemctl disable tomcat
 ```
-- Update Centreon repo and update Centreon MAP server
+- Update Centreon & Centreon Map repositories. Then and update Centreon MAP server
 ``` shell
 yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/xxxxxxx // ask Centreon support
 yum update centreon-map-server
 ```
 - Enable and start centreon-map service
