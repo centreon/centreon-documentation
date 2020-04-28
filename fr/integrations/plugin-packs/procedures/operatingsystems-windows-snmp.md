@@ -1,11 +1,7 @@
 ---
 id: os-windows-snmp
-title: Windows Snmp
+title: Windows SNMP
 ---
-
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.4 | `STABLE` | Jan 23 2020 |
 
 ## Vue d'ensemble
 
@@ -42,6 +38,8 @@ Tous les systèmes d'exploitation Microsoft Windows sont supportés:
 
 
 ## Métriques collectées
+
+Au delà des métriques présentées en détails ici, les contrôles suivants sont disponibles: 
 
 *  System clock synchronisation : Vérifications de la synchronisation de la date et de l'heure.
 *  Process state : Etat d'un ou plusieurs processus
@@ -95,23 +93,21 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 ## Prérequis
 
-Afin de superviser vos serveurs Windows le SNMP v2 doit être configuré.
-
-La communication doit être possible sur le port 161 depuis le collecteur de supervision vers le serveur Windows.
+Configurer le service SNMP en v2 pour superviser le système Windows.
 
 ## Configuration du serveur SNMP
 
 :note: Les instructions ci-après peuvent changer en fonction de la version de votre Windows. Des documentations sont le cas échéant disponibles sur le site officiel Microsoft.
 
-Il faut installer la fonctionnalité SNMP dans le gestionnaire de serveur de Windows :
+- Installer la fonctionnalité SNMP dans le gestionnaire de serveur de Windows :
 
 Gestionnaire de serveur => Ajouter des rôles et des fonctionnailtées => Installation basée sur un rôle ou une fonctionnalité => Service SNMP
 
-Une fois ajouté il ne vous reste plus qu'à paramétrer le service "SNMP agent" avec votre communauté et les IP des collecteurs qui doivent superviser le serveur. 
+- Paramétrer le service "SNMP agent" avec votre communauté et les IP des Collecteurs qui feront les requêtes. 
 
-Il est nécessaire de redémarrer le service SNMP après avoir configuré celui-ci.
+- Redémarrer le service SNMP après avoir configuré celui-ci.
 
-## Flux réseau
+## Flux réseaux
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur Windows supervisé.
 
@@ -153,12 +149,6 @@ yum install centreon-pack-operatingsystems-windows-snmp
 
 Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
-  :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
-
-| Obligatoire | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
-
 ## FAQ
 
 ### Comment tester en ligne de commande et quelles significations portent les options principales ?
@@ -181,7 +171,7 @@ A partir du moment ou la sonde est installée, vous pouvez tester di
     
 CRITICAL: Service problem 'firefox'```
 
-La commande vérifie l'état d'un service Windows (```--mode=service```) d'un serveur ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté windows_ro  (```--snmp-community='windows_ro'```) ainsi que le nom du service (```firefox```)
+La commande vérifie l'état d'un Service (```--mode=service```) sur une machine ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté windows_ro  (```--snmp-community='windows_ro'```). Le service supervisé est Firefox (```firefox```)
 
 Tous les modes sont affichables via la commande suivante:
 
@@ -206,14 +196,14 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 
 ### UNKNOWN: SNMP Table Request : (genError) A general failure occured
 
-Un patch a été fait pour résoudre cette erreur qui vient de l'agent SNMP de Windows (N'oubliez pas de mettre à jour votre plugins et votre pack). Ce patch ne marche pas pour toutes les versions de Windows Serveur. Il faudra alors utiliser le nsclient, par exemple, pour contourner le problème.
+Un patch a été fait pour résoudre cette erreur qui vient de l'agent SNMP de Windows (N'oubliez pas de mettre à jour votre plugins et votre pack). Ce patch ne marche pas pour toutes les versions de Windows Serveur. Il faudra alors utiliser l'agent NSClient RestAPI pour une supervision exhaustive.
 
 ### UNKNOWN: Can't construct cache..." pour Windows 2003 Server - Traffic Global :
 
-Ajoutez dans les "EXTRAOPTION" des services les options suivantes : 
+Ajoutez dans les "EXTRAOPTIONS" des services les options suivantes : 
 
 --oid-display ifDesc --oid-filter ifDesc 
 
 ### Valeur négative sur certain disque du mode storage  
 
-Il s'agit d'un comportement connu de l'agent SNMP de Windows. La valeur "Size" et "Used" se trouvent sur un entier en 32 bits. Il n'y a pas de solution mis à par utiliser un autre agent de monitoring. 
+Il s'agit d'un comportement connu de l'agent SNMP de Windows. La valeur "Size" et "Used" se trouvent sur un entier en 32 bits. Il n'y a pas de solution mis à par utiliser un autre agent de monitoring comme NSClient++. 
