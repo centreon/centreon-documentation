@@ -34,13 +34,11 @@ More information about collected metrics is available in the official Amazon doc
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Traffic-->
-
-| Metric name	| Description							 |
-| :------------ | :------------------------------------------------------------- |
-| TunnelState	| The state of the tunnel. For static VPNs, 0 indicates DOWN and 1 indicates UP. For BGP VPNs, 1 indicates ESTABLISHED and 0 is used for all other states. Unit: Boolean				|
-| TunnelDataIn	| The bytes received through the VPN tunnel. Unit: Bytes	 |
-| TunnelDataOut	| The bytes sent through the VPN tunnel. Unit: Bytes		 |
-
+| Metric name   | Description                                                                                                                                                            |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TunnelState   | The state of the tunnel. For static VPNs, 0 indicates DOWN and 1 indicates UP. For BGP VPNs, 1 indicates ESTABLISHED and 0 is used for all other states. Unit: Boolean |
+| TunnelDataIn  | The bytes received through the VPN tunnel. Unit: Bytes                                                                                                                 |
+| TunnelDataOut | The bytes sent through the VPN tunnel. Unit: Bytes                                                                                                                     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
