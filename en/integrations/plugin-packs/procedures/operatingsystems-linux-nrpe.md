@@ -138,8 +138,6 @@ La communication doit être possible sur le port 5666 depuis le colle
 
 1. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-<insert-screen> @TODO@
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
