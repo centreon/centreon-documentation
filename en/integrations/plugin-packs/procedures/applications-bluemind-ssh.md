@@ -8,9 +8,9 @@ title: BlueMind SSH
 
 BlueMind is a complete unified enterprise messaging and communications solution.
 
-## Connector Pack content
+## Plugin-Pack Assets
 
-### Monitored objects
+### Monitored Objects
 
 * Core: main bluemind engine
 * Eas: mobile connection service
@@ -21,20 +21,7 @@ BlueMind is a complete unified enterprise messaging and communications solution.
 * Webserver: web application server
 * Xmpp: instant messaging service
 
-### Discovery rules
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
-
-No hosts discovery rule available on this pack
-
-<!--Services-->
-
-No services discovery rule available on this pack
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-## Monitored metrics 
+## Monitored Metrics 
 
 You can get an overview of all gathered metrics from bluemind in the official documentation: https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
@@ -43,31 +30,29 @@ You can get an overview of all gathered metrics from bluemind in the official do
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| core.calls.received.success.count        |                                                      |
-| core.calls.received.failure.count        |                                                      |
-| core.calls.received.failure.count        |                                                      |
-| core.calls.received.failure.count        |                                                      |
-| core.heartbeat.broadcast.running.count   |                                                      |
-| core.directory.cluster.events.count      |                                                      |
-| core.request.handling.total.milliseconds |                                                      |
-| core.request.handling.mean.milliseconds  |                                                      |
+| core.calls.received.success.count        | Successful calls to the core. Unit: Count            |
+| core.calls.received.failure.count        | Failure calls to the core. Unit: Count               |                                                      
+| core.heartbeat.broadcast.running.count   | Broadcast routine running. Unit: Count               |
+| core.directory.cluster.events.count      | Directory Cluster evetns. Unit: Count                |
+| core.request.handling.total.milliseconds | Total time Core spent to handle requests. Unit: ms   |
+| core.request.handling.mean.milliseconds  | Mean time Core spent to handle requests. Unit: ms    |
 
 <!--Eas-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| eas.responses.size.total.bytes           |                                                      |
-| eas.execution.total.milliseconds         |                                                      |
-| eas.execution.mean.milliseconds          |                                                      |
+| eas.responses.size.total.bytes           | Response size. Unit: Bytes                           |
+| eas.execution.total.milliseconds         | Total execution time. Unit: ms                       |
+| eas.execution.mean.milliseconds          | Mean execution time. Unit: ms                        |
 
 <!--Hps-->
 
 | Metric name                                  | Description                                          |
 | :------------------------------------------- | :--------------------------------------------------- |
-| hps.authentication.success.count             |                                                      |
-| hps.authentication.failure.count             |                                                      |
-| hps.requests.protected.count                 |                                                      |
-| hps.requests.maintenance.count               |                                                      |
+| hps.authentication.success.count             | HPS Successful authentications. Unit: Count          |
+| hps.authentication.failure.count             | HPS Failed authentications. Unit: Count              |
+| hps.requests.protected.count                 | Number of protected page display. Unit: Count        |
+| hps.requests.maintenance.count               | Number of maintenance page display. Unit: Count      |
 | hps.upstream.requests.time.milliseconds      | By instances. e.g. /login /webmail ...               |
 | hps.upstream.requests.time.mean.milliseconds | By instances. e.g. /login /webmail ...               |
 | hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ...               |
@@ -77,50 +62,50 @@ You can get an overview of all gathered metrics from bluemind in the official do
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| ips.connections.active.count             |                                                      |
+| ips.connections.active.count             | IPS active connections. Unit: Count                  |
 
 <!--Lmtpd-->
 
-| Metric name                                        | Description                                          |
-| :------------------------------------------------- | :--------------------------------------------------- |
-| lmtpd.connections.active.count                     |                                                      |
-| lmtpd.connections.total.count                      |                                                      |
-| lmtpd.deliveries.success.count                     |                                                      |
-| lmtpd.deliveries.failure.count                     |                                                      |
-| lmtpd.emails.size.total.bytes                      |                                                      |
-| lmtpd.sessions.duration.total.milliseconds         |                                                      |
-| lmtpd.sessions.duration.mean.milliseconds          |                                                      |
-| lmtpd.traffic.transport.latency.total.milliseconds |                                                      |
-| lmtpd.traffic.transport.latency.mean.milliseconds  |                                                      |
-
+| Metric name                                        | Description                                    |
+| :------------------------------------------------- | :--------------------------------------------- |
+| lmtpd.connections.active.count                     | Active connections. Unit: Count                |
+| lmtpd.connections.total.count                      | Total connections. Unit: Count                 |
+| lmtpd.deliveries.success.count                     | Connection success. Unit: Count                |
+| lmtpd.deliveries.failure.count                     | Connection failure. Unit: Count                |
+| lmtpd.emails.size.total.bytes                      | Total email size. Unit: Bytes                  |
+| lmtpd.sessions.duration.total.milliseconds         | Sessions total duration. Unit: ms              |
+| lmtpd.sessions.duration.mean.milliseconds          | Sessions mean duration. Unit: ms               |
+| lmtpd.traffic.transport.latency.total.milliseconds | Transport total latency. Unit: ms              |
+| lmtpd.traffic.transport.latency.mean.milliseconds  | Transport mean latency. Unit: ms               |
+ 
 <!--Milter-->
 
 | Metric name                                 | Description                                          |
 | :------------------------------------------ | :--------------------------------------------------- |
-| milter.connections.total.count              |                                                      |
-| milter.traffic.class.inbound.count          |                                                      |
-| milter.traffic.class.outbound.count         |                                                      |
-| milter.traffic.size.inbound.bytes           |                                                      |
-| milter.traffic.size.outbound.bytes          |                                                      |
-| milter.sessions.duration.total.milliseconds |                                                      |
-| milter.sessions.duration.mean.milliseconds  |                                                      |
+| milter.connections.total.count              | Total connections. Unit: Count                       |
+| milter.traffic.class.inbound.count          | Inbound email. Unit. Count                           |
+| milter.traffic.class.outbound.count         | Outbound email. Unit. Count                          |
+| milter.traffic.size.inbound.bytes           | Inbound email size. Unit: Bytes                      |
+| milter.traffic.size.outbound.bytes          | Outbound email size. Unit: Bytes                     |
+| milter.sessions.duration.total.milliseconds | Sessions total duration. Unit: ms                    |
+| milter.sessions.duration.mean.milliseconds  | Sessions mean duration. Unit: ms                     |
 
 <!--Webserver-->
 
 | Metric name                                | Description                                          |
 | :----------------------------------------- | :--------------------------------------------------- |
-| webserver.requests.time.milliseconds       |                                                      |
-| webserver.requests.time.mean.milliseconds  |                                                      |
-| webserver.requests.total.count             |                                                      |
-| webserver.requests.status.200.count        |                                                      |
-| webserver.requests.status.304.count        |                                                      |
+| webserver.requests.time.milliseconds       | Request handling time. Unit: ms                      |
+| webserver.requests.time.mean.milliseconds  | Request handling mean time. Unit: ms                 |
+| webserver.requests.total.count             | Total requested page page. Unit: Count               |
+| webserver.requests.status.200.count        | Total 200/OK requests. Unit: Count                   |
+| webserver.requests.status.304.count        | Total 304/Not Modified. Unit: Count                  |
 
 <!--Xmpp-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| xmpp.packets.all.count                   |                                                      |
-| xmpp.packets.chat.count                  |                                                      |
+| xmpp.packets.all.count                   | XMPP packet number. Unit: Count                      |
+| xmpp.packets.chat.count                  | XMPP IM packet number. Unit: Count                   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -128,8 +113,9 @@ You can get an overview of all gathered metrics from bluemind in the official do
 
 ### Bluemind Configuration
 
-On Bluemind server, you need a system account who can access unix sockets of the directory ```/var/run/bm-metrics/``` (group telegraph).
-To test, execute that command with the user:
+On the Bluemind system, a monitoring account who can access to unix sockets within ```/var/run/bm-metrics/``` directory must exist and be part of telegraph group.
+
+This command must work with the previously created user:
 
 ```bash
 user$ curl --unix-socket /var/run/bm-metrics/metrics-bm-core.sock http://127.0.0.1/metrics
@@ -174,7 +160,7 @@ yum install centreon-pack-applications-bluemind-ssh
 
 ## Configuration
 
-You can choose between 3 ssh backends to connect on your Bluemind server.
+You can choose between 3 ssh backends to connect to the Bluemind server.
 
 Addinge a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with ```App-Bluemind-SSH```. Once the template chosen, you have to set values according the ssh backend. 
 
