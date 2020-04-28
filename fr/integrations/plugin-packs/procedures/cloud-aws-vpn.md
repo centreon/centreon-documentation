@@ -35,12 +35,11 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Traffic-->
 
-| Nom de la métrique  | Description							|
-| :------------------ | :-------------------------------------------------------------- |
-| TunnelState	      | État du tunnel. Pour les VPN statiques, 0 indique DOWN et 1 indique UP. Pour les VPN BGP, 1 indique ESTABLISHED et 0 est utilisé pour tous les autres états. Unité: Booléen				|
-| TunnelDataIn	      | Octets reçus par le biais du tunnel VPN. Unité: Octets		|
-| TunnelDataOut	      | Octets envoyés par le biais du tunnel VPN. Unité: Octets	|
-
+| Nom de la métrique | Description                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TunnelState        | État du tunnel. Pour les VPN statiques, 0 indique DOWN et 1 indique UP. Pour les VPN BGP, 1 indique ESTABLISHED et 0 est utilisé pour tous les autres états. Unité: Booléen |
+| TunnelDataIn       | Octets reçus par le biais du tunnel VPN. Unité: Octets                                                                                                                      |
+| TunnelDataOut      | Octets envoyés par le biais du tunnel VPN. Unité: Octets                                                                                                                    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
