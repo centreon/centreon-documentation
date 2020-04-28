@@ -5,30 +5,6 @@ Welcome to the repo for our documentation. This is the source for
 Feel free to send us pull requests and file issues. Our docs are completely	
 open source and we deeply appreciate contributions from our community!
 
-## Table of Contents
-
-- [Providing feedback](#providing-feedback)
-- [Contributing](#contributing)
-- [Copyright and license](#copyright-and-license)
-
-## Providing feedback
-
-We really want your feedback, and we've made it easy. You can edit a page or
-request changes using the "Edit" button at the top of each page.
-
-**Only file issues about the documentation in this repository.** 
-
-One wayto think about this is that you should file a bug here if your issue is that you
-don't see something that should be in the docs, or you see something incorrect
-or confusing in the docs.
-
-- If your problem is a general question about how to configure or use Centreon,
-  ask in [Slack channel](https://centreon.github.io/register-slack/) instead.
-
-- If you have an idea for a new feature or behavior change in a specific aspect
-  of Centreon, or have found a bug in part of Centreon, file that issue in
-  the project's code repository. You may use the contribution guide [here](https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md).
-
 ## Contributing
 
 We value your documentation contributions, and we want to make it as easy
