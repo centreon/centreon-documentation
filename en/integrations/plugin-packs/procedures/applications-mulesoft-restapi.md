@@ -38,10 +38,10 @@ This pack doesn't provide any hosts discovery rule.
 More information about collected metrics is available in the official Mulesoft Rest API documentation: https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/arm-rest-services/
 
 
-| Metric name		  | Description                                                                                    |
+| Metric name	      | Description                                                                                    |
 | :------------------ | :--------------------------------------------------------------------------------------------- |
 | id                  | Identifier of an application. Unit: integer                                                    |
-| lastReportedStatus  | The status that the Runtime Manager tries to apply to the artifact in that sever Unit: string |
+| lastReportedStatus  | The status that the Runtime Manager tries to apply to the artifact in that sever Unit: string  |
 
 
 ## Prerequisites
