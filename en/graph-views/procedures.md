@@ -16,18 +16,18 @@ server.
 Use SSH to access the poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
-    # yum install centreon-pack-operatingsystems-linux-snmp
-    # yum install centreon-pack-applications-monitoring-centreon-map-jmx
-    # yum install centreon-pack-applications-webservers-tomcat-jmx
+    yum install centreon-pack-operatingsystems-linux-snmp
+    yum install centreon-pack-applications-monitoring-centreon-map-jmx
+    yum install centreon-pack-applications-webservers-tomcat-jmx
 
-    # yum install centreon-plugin-Operatingsystems-Linux-Snmp
-    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
-    # yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
+    yum install centreon-plugin-Operatingsystems-Linux-Snmp
+    yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
+    yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
 
-    ## OPTIONAL - Only if you have a local MariaDB DB for your Map server
+OPTIONAL - Only if you have a local MariaDB DB for your Map server
 
-    # yum install centreon-pack-applications-databases-mysql
-    # yum install centreon-plugin-Applications-Databases-Mysql
+    yum install centreon-pack-applications-databases-mysql
+    yum install centreon-plugin-Applications-Databases-Mysql
 
 ### Configure your database
 
@@ -36,8 +36,8 @@ MAP database is called 'centreon\_studio' by default).
 
 Run the following commands:
 
-    # mysql centreon_studio
-    # GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
+    mysql centreon_studio
+    GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
 
   - Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
   - Replace \<POLLER\_IP\> by the IP address of the poller which will be
@@ -215,17 +215,17 @@ inside "/etc/centreon-studio/studio-config.properties"
 ### Activate TLS profile of Centreon MAP service
 
 1) Stop Centreon MAP service:
-
-    systemctl stop centreon-map
-
+``` shell
+systemctl stop centreon-map
+```
 2) Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
-
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-
+``` shell
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 3. Restart Centreon MAP service.
-
-    systemctl start centreon-map
-
+``` shell
+systemctl start centreon-map
+```
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 For the requirement of changing service's port, refer to :ref:`change_server_port`
 
@@ -360,8 +360,8 @@ Restore process is divided in several steps:
 Get the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
 into **/tmp** directory:
 
-    # cd /tmp
-    # tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
+    cd /tmp
+    tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
 
 ### Restoring configuration files
 
@@ -373,9 +373,9 @@ To restore configuration files, run the following command:
 
 To restore **centreon\_studio** database, run the following command:
 
-    # systemctl stop centreon-map
-    # mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
-    # systemctl start centreon-map
+    systemctl stop centreon-map
+    mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
+    systemctl start centreon-map
 
 ## Change Centreon Map server port
 
@@ -386,8 +386,7 @@ Configuration](#httpstls-configuration), use the port 8443.
 You can change this port (e.g., if you have a firewall on your network blocking
 these ports).
 
-> If the new port is below 1024, use this procedure `these
-> instructions<port_under_1024>` instead.
+> If the new port is below 1024, use this procedure below "Define port below 1024" instead.
 
 On your Centreon MAP server, stop the Centreon Map server:
 
@@ -395,14 +394,11 @@ On your Centreon MAP server, stop the Centreon Map server:
 
 Edit the studio-config.properties settings file located in /etc/centreon-studio:
 
-    vim /etc/tomcat/server.xml
+    vim /etc/centreon-studio/studio-config.properties
 
-And, in the following lines...
+Add the following line at the MAP SERVER section
 
-    <Connector port="8080"
-                protocol="HTTP/1.1"
-                connectionTimeout="20000"
-                redirectPort="8443" />
+    centreon-map.port=XXXX
 
 ...replace *XXXX* with the port you want.
 
@@ -462,8 +458,8 @@ Start the firewall:
 
 Execute the following lines on your console:
 
-    # /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-    # /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+    /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 3.  Add port forwarding.
 
@@ -486,10 +482,10 @@ the following URL in your browser:
 
 http://\<IP\_MAP\_SERVER\>/api/beta/actuator/health
 
-You should see this page:
-
-![image](../assets/graph-views/server-api-rest.png)
-
+You should see server's state:
+``` shell
+{"status":"UP"}
+```
 > Don't forget to update both your desktop client configuration and your web
 > interface configuration. For your desktop client, follow the instructions for
 > setting up a server connexion `here <qc_login>`
