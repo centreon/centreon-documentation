@@ -137,7 +137,8 @@
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
-                    "service-mapping/ba-settings"
+                    "service-mapping/ba-settings",
+                    "service-mapping/widgets"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
