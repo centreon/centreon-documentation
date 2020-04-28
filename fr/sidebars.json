@@ -313,6 +313,8 @@
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
+                    "integrations/plugin-packs/procedures/applications-salesforce-restapi",
+                    "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
@@ -362,7 +364,9 @@
                     "integrations/plugin-packs/procedures/cloud-aws-s3",
                     "integrations/plugin-packs/procedures/cloud-aws-billing",
                     "integrations/plugin-packs/procedures/cloud-aws-elb",
+                    "integrations/plugin-packs/procedures/cloud-aws-efs",
                     "integrations/plugin-packs/procedures/cloud-aws-lambda",
+                    "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
@@ -776,6 +780,13 @@
             "integrations/notifications/init-notification-integrations",
             "integrations/ticketing/init-ticketing",
             "integrations/external/init-external-integrations",
+            {
+                "ids": [
+                    "integrations/external/monitoring-dem-mip"
+                ],
+                "label": "Externes",
+                "type": "subcategory"
+            },
             {
                 "ids": [
                     "integrations/centreon-ha/centreon-ha-architectures",
