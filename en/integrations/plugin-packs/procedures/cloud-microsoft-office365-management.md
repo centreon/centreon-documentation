@@ -36,7 +36,7 @@ Le terme « Application » est utilisé comme concept, faisant référence non s
 mais également à son inscription Azure AD et à son rôle lors des « dialogues » d’authentification/autorisation au moment de l’exécution.
 (https://docs.microsoft.com/fr-fr/azure/active-directory/develop/app-objects-and-service-principals)
 
-Assurez-vous d'avoir récupérer votre Tenant ID Microsoft, vous en aurez besoin pour enregistrer votre application dans Azure AD.
+Assurez-vous d'avoir récupéré votre Tenant ID Microsoft, vous en aurez besoin pour enregistrer votre application dans Azure AD.
 
 1. Connectez-vous au portail de gestion Azure, en utilisant votre Tenant Microsoft Office 365. 
 2. Dans le panneau de navigation de gauche, choisissez Active Directory. 
