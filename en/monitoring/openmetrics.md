@@ -157,7 +157,7 @@ All the options of the different modes can be display using the help (```--help`
 
 ### Add the metrics to our monitoring
 We are going to configure the host Prometheus by using the following parameters :
-| :------------------| :-------------------------------------|
+| :----------------- | :------------------------------------ |
 | NAME               | prometheus.int.centreon.com           |
 | ALIAS              | internal prometheus                   |
 | IPADDRESS/FQDN     | prometheus.int.centreon.com           |
@@ -165,10 +165,11 @@ We are going to configure the host Prometheus by using the following parameters 
 | OPENMETRICSPORT    | 80                                    |
 | OPENMETRICSPROTO   | http                                  |
 | OPENMETRICSURLPATH | /metrics                              |
+
 ![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_configuration_host.png)
 
 We can edit the service "Scrape-Metrics" which have been created automatically by using the template "App-Monitoring-Openmetrics-Web-custom" to configure the macros as the same in CLI :
-|:----------------|:-------------------------------|
+|:--------------- |:------------------------------ |
 | FILTERMETRICS   | prometheus_http_requests_total |
 | WARNING         | 5000                           |
 | CRITICAL        | 10000                          |
@@ -177,7 +178,9 @@ We can edit the service "Scrape-Metrics" which have been created automatically b
 | SUBINSTANCE     | code                           |
 | FILTERSUBINTACE | 200                            |
 | EXTRAOPTIONS    | --verbose                      |
+
 ![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_configuration_service.png)
 
 And we rename the service by "Query-Api-Number". This service could be duplicate and modificate to collect other Openmetrics and get alerting/reporting:
-![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_monitoring.png
+
+![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_monitoring.png)

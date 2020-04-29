@@ -1,5 +1,5 @@
 ---
-id: applications-monitoring-openmetrics
+id: collect-openmetrics
 title: OpenMetrics
 ---
 
@@ -157,7 +157,7 @@ Toutes les options des différents modes sont consultables via le help (```--hel
 
 ### Ajouter cette métrique à ma supervision
 Nous allons configurer l'hôte Prometheus en définissant les paramètres suivants :
-| :------------------| :-------------------------------------|
+| :----------------- | :------------------------------------ |
 | NAME               | prometheus.int.centreon.com           |
 | ALIAS              | internal prometheus                   |
 | IPADDRESS/FQDN     | prometheus.int.centreon.com           |
@@ -169,7 +169,7 @@ Nous allons configurer l'hôte Prometheus en définissant les paramètres suivan
 ![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_configuration_host.png)
 
 Nous pouvons maintenant éditer le service "Scrape-Metrics" qui a été créé automatiquement en utilisant le template "App-Monitoring-Openmetrics-Web-custom" pour configurer les macros comme dans l'exemple en CLI :
-|:----------------|:-------------------------------|
+|:--------------- |:------------------------------ |
 | FILTERMETRICS   | prometheus_http_requests_total |
 | WARNING         | 5000                           |
 | CRITICAL        | 10000                          |
