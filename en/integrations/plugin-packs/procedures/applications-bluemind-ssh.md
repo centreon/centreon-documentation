@@ -12,18 +12,18 @@ BlueMind is a complete unified enterprise messaging and communications solution.
 
 ### Monitored Objects
 
-* Core: main bluemind engine
-* Eas: mobile connection service
-* Hps: authentication service
+* Core: Main BlueMind engine
+* Eas: Mobile connection service
+* Hps: Authentication service
 * Ips: IMAP operations tracking
-* Lmtpd: email delivery service
-* Milter: analysis and modification of emails at SMTP Level
-* Webserver: web application server
-* Xmpp: instant messaging service
+* Lmtpd: Email delivery service
+* Milter: Analysis and modification of emails at SMTP Level
+* Webserver: Web application server
+* Xmpp: Instant messaging service
 
 ## Monitored Metrics 
 
-You can get an overview of all gathered metrics from bluemind in the official documentation: https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
+You can get an overview of all the metrics gathered from BlueMind in the official documentation: https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Core-->
@@ -33,7 +33,7 @@ You can get an overview of all gathered metrics from bluemind in the official do
 | core.calls.received.success.count        | Successful calls to the core. Unit: Count            |
 | core.calls.received.failure.count        | Failure calls to the core. Unit: Count               |                                                      
 | core.heartbeat.broadcast.running.count   | Broadcast routine running. Unit: Count               |
-| core.directory.cluster.events.count      | Directory Cluster evetns. Unit: Count                |
+| core.directory.cluster.events.count      | Directory Cluster events. Unit: Count                |
 | core.request.handling.total.milliseconds | Total time Core spent to handle requests. Unit: ms   |
 | core.request.handling.mean.milliseconds  | Mean time Core spent to handle requests. Unit: ms    |
 
@@ -111,14 +111,18 @@ You can get an overview of all gathered metrics from bluemind in the official do
 
 ## Prerequisistes
 
-### Bluemind Configuration
+### BlueMind Configuration
 
-On the Bluemind system, a monitoring account who can access to unix sockets within ```/var/run/bm-metrics/``` directory must exist and be part of telegraph group.
+A monitoring account allowed to access unix sockets within ```/var/run/bm-metrics/``` directory must be created on the BlueMind system  and be part of the *telegraph* group.
 
-This command must work with the previously created user:
+You can check that the proper monitoring account permissions are set by logging on the BlueMind system using this newly created user and  executing this test command:
 
 ```bash
 user$ curl --unix-socket /var/run/bm-metrics/metrics-bm-core.sock http://127.0.0.1/metrics
+```
+The command should return some results such as below:
+
+```
 bm-core.callsByRPC,rpc=GET-/api/todolist/{containerUid}/{uid}/_itemchangelog,status=success,meterType=Counter count=1
 bm-core.callsByRPC,rpc=GET-/api/externaluser/{domainUid}/{uid}/groups,status=success,meterType=Counter count=2
 bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
@@ -131,7 +135,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every poller expected to monitor Bluemind server:
+1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
@@ -142,7 +146,7 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every poller expected to monitor Bluemind server:
+1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
@@ -160,9 +164,9 @@ yum install centreon-pack-applications-bluemind-ssh
 
 ## Configuration
 
-You can choose between 3 ssh backends to connect to the Bluemind server.
+Adding a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with *App-Bluemind-SSH*. Once the template set, you have to set values according to the chosen SSH backend. 
 
-Addinge a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with ```App-Bluemind-SSH```. Once the template chosen, you have to set values according the ssh backend. 
+3 SSH backends are available to connect to the BlueMind server: *sshcli*, *plink* and *libssh* which are detailed below.  
 
 ### sshcli backend
 
@@ -182,7 +186,7 @@ Addinge a new host into Centreon, apply the relevant host template matching your
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
 |             | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |                                                         |
-|             | SSHPASSWORD     | Can be used. If not set, ssh key authentication is used                                     |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
@@ -194,7 +198,7 @@ Addinge a new host into Centreon, apply the relevant host template matching your
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
 |             | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |                                                         |
-|             | SSHPASSWORD     | Can be used. If not set, ssh key authentication is used                                     |
+|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
@@ -202,6 +206,6 @@ With that backend, you don't have to validate the target server fingerprint manu
 
 ## FAQ
 
-### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it means ?
+### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
 
-It means you don't have validated the target server fingerprint with ```ssh``` or ```plink``` manually on your poller.
+It means you haven't manually validated the target server fingerprint with ```ssh``` or ```plink``` on the Centreon poller.
