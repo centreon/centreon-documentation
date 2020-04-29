@@ -166,7 +166,7 @@ le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le cl
 et fournit l'état du service (```--mode=service-status```) "Exchange Online" (```--filter-service-name='Exchange Online'```) ainsi que l'état des 'features' du service selectionné.
 Une alerte CRITICAL sera déclenchée si l'état du service Exchange Online n'est pas 'Normal'.
 
-Dans le cas où vous recevez un retour de type UNKNOWN, passez la sonde en mode debug en ajoutant l'option '--debug' :
+Dans le cas où vous recevez un retour de type UNKNOWN, exécutez le Plugin en mode debug en ajoutant l'option '--debug' :
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
 --plugin=cloud::microsoft::office365::management::plugin
