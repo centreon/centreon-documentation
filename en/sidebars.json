@@ -786,6 +786,13 @@
             },
             {
                 "ids": [
+                    "integrations/notifications/telegram"
+                ],
+                "label": "Notifications",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
                     "integrations/open-tickets/bmc-footprints",
                     "integrations/open-tickets/bmc-remedy",
                     "integrations/open-tickets/easyvista",
