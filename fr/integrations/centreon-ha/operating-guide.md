@@ -3,11 +3,13 @@ id: operating-guide
 title: Guide d'exploitation du cluster
 ---
 
-Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
+> Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
+
+> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](installation-2-nodes#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ## Gestion du cluster
 
-L'ensemble des commandes suivantes peuvent être exécutées depuis n'importe quel membre du cluster.
+L'ensemble des commandes suivantes peuvent être exécutées depuis n'importe quel nœud du cluster.
 
 ### Afficher l'état du cluster
 
@@ -17,7 +19,7 @@ Pour afficher l'état général du cluster exécuter la commande :
 crm_mon
 ```
 
-> **Avertissement:** Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières.
+> Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières en vous aidant du [guide de troubleshooting](troubleshooting-guide).
 
 ### Afficher l'état d'une ressource
 
@@ -51,10 +53,12 @@ crm_verify -L -V
 
 ### Sauvegarder & importer la configuration
 
+#### Export/import en format XML
+
 Pour sauvegarder la configuration du cluster au format XML exécuter la commande :
 
 ```bash
-cibadmin --query > cluster_configuration.xml
+cibadmin --query > /tmp/cluster_configuration.xml
 ```
 
 > **Avertissement :** les commandes qui suivent apportent des modifications à la configuration du cluster, et peuvent le rendre dysfonctionnel, elles ne doivent être utilisées qu'en connaissance de cause.
@@ -62,14 +66,16 @@ cibadmin --query > cluster_configuration.xml
 Pour importer une configuration au format XML exécuter la commande :
 
 ```bash
-cibadmin --replace --xml-file cluster_configuration.xml
+cibadmin --replace --xml-file /tmp/cluster_configuration.xml
 ```
 
-Pour supprimer totalement une configuration exécuter la commande :
+Pour effacer complètement la configuration du cluster exécuter la commande :
 
 ```bash
 cibadmin --force --erase
 ```
+
+#### Export/import en format binaire
 
 Export dans un fichier au format binaire
 
@@ -113,13 +119,19 @@ La commande `pcs resource move <resource_name>` positionne une contrainte `-INFI
 
 ### Supprimer l'affichage d'une erreur
 
-Les erreurs d'exécution ou de monitoring des ressources donnent lieu à l'apparition de "failed actions" dans le retour affiché par la commande `pcs status`. Il est recommandé d'en rechercher la cause en suivant ce [guide de résolution de panne](troubleshooting-guide.html) avant d'éliminer l'alerte, mais si l'alerte n'est plus d'actualité, il faut supprimer manuellement le message d'erreur en lançant la commande :
+Les erreurs d'exécution ou de monitoring des ressources donnent lieu à l'apparition de "failed actions" dans le retour affiché par la commande `pcs status`. Il est recommandé d'en rechercher la cause en suivant ce [guide de résolution de panne](troubleshooting-guide) avant d'éliminer l'alerte, mais si l'alerte n'est plus d'actualité, il faut supprimer manuellement le message d'erreur en lançant la commande :
+
+```bash
+pcs resource cleanup
+```
+
+Ou bien, pour ne supprimer que les erreurs relatives à une ressource en particulier :
 
 ```bash
 pcs resource cleanup <resource_name>
 ```
 
-### Visualiser les journaux du cluster
+### Consultation des journaux du cluster
 
 Pour visualiser les journaux d'évènements du cluster exécuter les commandes :
 
@@ -133,7 +145,7 @@ Ce fichier de log est très verbeux, dont il est préférable de savoir ce que l
 
 Pour modifier le niveau de verbosité des journaux du cluster modifier le fichier suivant : `/etc/sysconfig/pacemaker`
 
-## Gestion du groupe de ressources MariaDB
+## Gestion de la ressources MariaDB
 
 ### Vérifier l’état de la réplication MariaDB
 
@@ -154,7 +166,7 @@ Si des erreurs apparaissent, suivre la procédure ci-après pour rétablir la sy
 
 ### Rétablir manuellement la réplication MariaDB
 
-Ces procédures sont à réaliser en cas de problèmes de synchronisation n'ayant pu être résolu par les commandes `pcs resource cleanup` ou `pcs resource restart ms_mysql`. Par exemple dans le cas d'un `duplicate entry` ou d'un crash serveur à la suite duquel la réplication n'a pas pu se remettre en marche.
+> Ces procédures sont à réaliser en cas de problèmes de synchronisation n'ayant pu être résolu par les commandes `pcs resource cleanup` ou `pcs resource restart ms_mysql`. Par exemple dans le cas d'un `duplicate entry` ou d'un crash serveur à la suite duquel la réplication n'a pas pu se remettre en marche.
 
 Désactiver le contrôle des ressources MariaDB par le cluster :
 
@@ -193,11 +205,11 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### Changer le sens de la réplication MariaDB Master/Slave
+### Changer le sens de la réplication MariaDB
 
-Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
+> Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
 
-> **Avertissement :** sauf si votre installation diffère du cluster à 2 serveurs dont l'installation est décrite [ici](installation-2-nodes), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
+> **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](installation-2-nodes), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
@@ -251,173 +263,43 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-Pour recréer les ressources, on se référera au [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes.html#cr%C3%A9ation-du-groupe-de-ressources-centreon)
+Pour recréer les ressources, on se référera à cette étape du [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes#création-du-groupe-de-ressources-centreon).
 
-## Superviser son cluster
+## Superviser un cluster Centreon-HA
 
-Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Linux Apache MariaDB PHP) sur laquelle des composants du projet Linux-HA ont été rajouté. La supervision de la plate-forme doit donc comprend au minimum les éléments suivants supervisé depuis un **collecteur distant** pour tous les noeuds du cluster :
+Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Linux Apache MariaDB PHP) pilotée par les outils du projet [ClusterLabs](https://clusterlabs.org/). La supervision de la plate-forme doit donc inclure, en plus des indicateurs habituels, quelques spécificités relatives à son caractère de haute disponibilité. La supervision doit être assurée par un poller externe, non par le cluster lui-même.
 
-* Indicateurs système
-    * Contrôle du **LOAD Average**
-    * Contrôle de la consommation **CPU**
-    * Contrôle de la consommation **Mémoire**
-    * Contrôle de la consommation **SWAP**
-    * Contrôle de l'espace libre des **partitions** (un contrôle par partition/file system)
-    * Contrôle de la bande passante des **interfaces réseau**
+### Indicateurs systèmes et processus
+
+La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../plugin-packs/procedures/operatingsystems-linux-snmp)
+
+* Métriques systèmes
+    * LOAD Average
+    * Consommation CPU
+    * Consommation Mémoire
+    * Consommation SWAP
+    * Utilisation des systèmes de fichiers
+    * Trafic réseau
+    * Synchronisation NTP
 * Processus
-    * Contrôle de la **synchronisation NTP** (via le service `chronyd`) avec le serveur de temps de référence
     * Contrôle de l'état des processus `crond`, `chronyd`, `rsyslogd`
-    * Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`
-* Tests applicatifs
-    * Contrôles de l'accès à l'url `http://@VIP_IPADDR@/centreon`
+    * Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
+
+### Supervision applicative
+
+* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../plugin-packs/procedures/applications-protocol-http)
+* Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../plugin-packs/procedures/applications-databases-mysql) :
     * Contrôle de connexion au serveur MariaDB
     * Les buffers et caches MariaDB/InnoDB
     * L’usage des index
+    * Réplication MariaDB
 
-### Superviser l'état général du cluster
+### Supervision du cluster
 
-Modifier sur les deux serveurs centraux les privilèges de l'utilisateur `centreon-engine` en l'intégrant au groupe haclient :
+Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [plugin pack Pacemaker](../plugin-packs/procedures/applications-pacemaker-ssh) :
 
-```bash
-usermod -a -G haclient centreon-engine
-```
-Puis suivre les étapes suivantes :
+* Contraintes sur les ressources : uniquement sur la ressource `ms_mysql` et le groupe `centreon`
+* Failed actions
 
-* Installer le Plugin `centreon-plugin-Applications-Pacemaker-Ssh` sur le serveur Central master et slave.
-* Installer le Plugin Pack `centreon-pack-applications-pacemaker-ssh` sur le serveur Central master et slave.
-* Finaliser l'installation du Plugin Pack sur l'interface web.
-* Tester en ligne de commande la sonde Centreon Pacemaker :
+> Note : un plugin pack dédié à Centreon-HA devrait être publié prochainement pour faciliter la supervision de cet aspect.
 
-```bash
-su - centreon-engine
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin="apps::pacemaker::local::plugin"     \
-    --mode="crm"                                  \
-    --command-options="-1 -f 2"                   \
-    --standbyignore
-```
-
-```text
-OK: Cluster is OK |
-```
-
-La macro **EXTRAOPTION** du service **CRM** déployé par le template d'hôte **App-Pacemaker-SSH-custom** peut ainsi être surchargé avec les options suivantes pour contrôler l'état général du cluster :
-
-```text
-    --command-options="-1 -f 2>$1" \
-    --standbyignore
-```
-
-### Superviser la bascule du groupe `centreon`
-
-```bash
-su - centreon-engine
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin="apps::pacemaker::local::plugin"     \
-    --mode="crm"                                  \
-    --command-options="-1 -f 2"                   \
-    --standbyignore                               \
-    --resources="centengine:@NAME_CENTRAL_MASTER@"
-```
-
-```text
-OK: Cluster is OK |
-```
-
-```bash
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --plugin="apps::pacemaker::local::plugin"     \
-    --mode="crm"                                  \
-    --command-options="-1 -f 2"                   \
-    --standbyignore                               \
-    --resources="centengine:@NAME_CENTRAL_SLAVE@"
-```
-
-```text
-CRITICAL: Resource 'centengine' is started on node '@NAME_CENTRAL_MASTER@' |
-```
-
-* Si la ressource `centengine` n'est plus sur le serveur `@CENTRAL_MASTER_NAME@` alors il y a eu bascule et le contrôle est en status **CRITICAL**
-* Changer le nom de l'hôte `@CENTRAL_MASTER_NAME@` si besoin.
-
-La macro **EXTRAOPTION** du service **CRM** déployé par le template d'hôte **App-Pacemaker-SSH-custom** peut ainsi être surchargé avec les options suivantes :
-
-```bash
-    --command-options="-1 -f 2" \
-    --standbyignore             \
-    --resources="centengine:@NAME_CENTRAL_MASTER@"
-```
-
-### Superviser la synchronisation des bases
-
-Le plugin **centreon-plugin-Applications-Databases-Mysql** permet le contrôle de la réplication :
-
-```bash
-su - centreon-engine
-perl /usr/lib/centreon/plugins/centreon_mysql.pl \
-    --mode="replication-master-slave"     \
-    --multiple                            \
-    --host="@NAME_DATABASE_MASTER@"       \
-    --username="centreon-repl"            \
-    --password="@MARIADB_REPL_PASSWD@"      \
-    --host="@NAME_DATABASE_SLAVE@"        \
-    --username="centreon-repl"            \
-    --password="@MARIADB_REPL_PASSWD@"
-```
-
-```text
-OK: No problems. Replication is ok. | 'slave_latency'=0s;;;0;
-```
-
-**Note :** Changer le nom des hôtes `@CENTRAL_MASTER_NAME@` et `@CENTRAL_SLAVE_NAME@` ainsi que les informations de connexion aux bases de données si besoin.
-
-Adapter les macro du service correspondant.
-
-### Superviser les contraintes d'une resource
-
-Le mode **constraints** du plugin **centreon-plugin-Applications-Pacemaker-Ssh** permet le contrôle des contraintes d'une resouce :
-
-```bash
-su - centreon-engine
-perl /usr/lib/centreon/plugins/centreon_pacemaker_ssh.pl \
-    --mode=constraints                            \
-    --resource=ms_mysql-master
-```
-
-```text
-OK: Resource 'ms_mysql-master' constraint location is OK |
-```
-
-**Note :** Changer le nom de la resource `ms_mysql-master` si besoin.
-
-La macro **RESOURCENAME** du service **Constraints** déployé par le template d'hôte **App-Pacemaker-SSH-custom** peut ainsi être surchargé avec les options **Nom-de-la-resource**
-
-## Administration du cluster
-
-### Lister les agents de ressources OCF disponibles
-
-Pour lister les agents de ressources OCF disponibles de Pacemaker, exécuter la commande :
-
-```bash
-pcs resource agents ocf:pacemaker
-```
-
-Pour lister les agents de ressources OCF disponibles de Heartbeat, exécuter la commande :
-
-```bash
-pcs resource agents ocf:heartbeat
-```
-
-### Mettre un noeud en maintenance/standby
-
-Pour mettre en maintenance un noeud, exécuter la commande :
-
-```bash
-crm_standby -v on -N <node_name>
-```
-
-Pour réintégrer un noeud au cluster, exécuter la commande :
-
-```bash
-crm_standby -v off -N <node_name>
-```
