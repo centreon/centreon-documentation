@@ -15,7 +15,7 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 ### Objets supervisés
 * Services Office : Tous les services Office 365 : Office 365 Portal, Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
-* Features Office : Toutes les features des services Office 365 : E-Mail and calendar access, E-Mail timely delivery, etc..
+* Features Office : Toutes les fonctionnalités des services Office 365 : E-Mail and calendar access, E-Mail timely delivery, etc..
 
 ## Métriques collectées
 
