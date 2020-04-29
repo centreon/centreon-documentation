@@ -162,25 +162,19 @@ Parameters required for the report:
      the report (matching the start date in the Centreon MBI interface)
 -   The following Centreon objects:
 
-  Parameter             | Type              |  Description
-  ----------------------|-------------------|---------------------------------------
-  logo                  |  Dropdown list    | Select logo to display in header.
-  Business View         |  Dropdown list    | Select a Business View for generating the report.
-  hide event            |  Radio button     |     Hide events list in the Business activity.
-  calendar color        |  Radio button     | Color the calendar in green/orange/red based on SLA.
-  title                 |  Text field       | Specify report title.
-  time period           |  Dropdown list    |  Specify reporting time period.\*
+
+  **Parameter**      |   **Type**        |  **Description**
+  ------------------ | ----------------  | ---------------------------------
+  logo               |   Dropdown list   | Select logo to display in header.
+  Business Activity  |   Dropdown list   | Select a Business Activity for generating the report.
+  hide event         |   Radio button    | Hide events list in the business activity.
+  calendar color     |   Radio  button   | Color the calendar in green/orange/red  based on SLA.               
+  title              |   text field      | Specify report title.
+  time period        -   Dropdown        | Specify reporting time period.\*
 
 \* *If different from \"Default\", be sure that the selected time period
 is defined as a Default or Extra reporting time period in the BA
 configuration.*
-
-#### Prerequisites
-
--   Monitoring of at least one business activity to be linked to one
-    business view
--   One month minimum of data from Centreon BAM module.
-
 
 ### BV-BA-Availabilities-List
 
@@ -228,8 +222,32 @@ configuration or it will not appear in the report.*
 -   Monitoring of at least one business activity to be linked to one
     business view
 
+### BA-Event-List 
 
-### BA-Event-List BV-BA-Current-Health-VS-Past
+This report displays a list of events that occurred for a business activity.
+
+#### How to interpret the report
+
+The report displays a list of events for a business activity during a given period and the related KPIs. The time period applied is the default value set in the configuration BA menu.
+
+![image](../assets/reporting/guide/available-reports/ba-event-list.png)
+
+#### Parameters
+
+  **Parameter**      |   **Type**        |  **Description**
+  ------------------ | ----------------  | ---------------------------------
+  logo               |   Dropdown list   | Select logo to display in header.
+  Business Activity  |   Dropdown list   | Select a Business Activity for generating the report.
+  hide event         |   Radio button    | Hide events list in the business activity.
+  calendar color     |   Radio  button   | Color the calendar in green/orange/red  based on SLA.               
+  title              |   text field      | Specify report title.
+  time period        -   Dropdown        | Specify reporting time period.\*
+
+\* *If different from \"Default\", be sure that the selected time period
+is defined as a Default or Extra reporting time period in the BA
+configuration.*
+
+### BV-BA-Current-Health-VS-Past
 
 #### Description
 

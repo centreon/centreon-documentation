@@ -34,7 +34,7 @@ type "Activité métier" et "Règle booléenne". Elles permettent de
 pré-remplir les champs lors de la bascule de la configuration en mode
 "Avancé".
 
-![image](../assets/service-mapping/impacts_ba_boolean.png)
+![image](../assets/service-mapping/guide/impacts_ba_boolean.png)
 
 ### Paramètres des activités métier par défaut
 

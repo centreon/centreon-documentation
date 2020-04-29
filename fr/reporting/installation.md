@@ -72,13 +72,6 @@ L'installation du moteur de base de données doit être faite en même
 temps. Nous conseillons fortement d'installer la base MariaDB sur le
 serveur de reporting pour des questions de performances & d'isolation.
 
-Ci-dessous le schéma représentant les paquets RPM installés pour
-Centreon MBI. De nombreuses dépendances liées à ces paquets sont
-installées mais ne sont pas représentées ici.
-
-![image](../assets/reporting/installation/architecture_rpms.png)
-
-
 ## Pré-requis 
 
 ### Server Centreon central

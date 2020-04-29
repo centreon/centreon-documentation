@@ -20,7 +20,7 @@ informations essentielles concernant le status des BA en temps réel.
 
 Un utilisateur non administrateur verra uniquement les BA appartenant aux BV lié à son groupe d'accès.
 
-![image](../assets/service-mapping/mon_ba_list.png)
+![image](../assets/service-mapping/guide/mon_ba_list.png)
 
   Colonne      |   Description
   ----|----
@@ -36,7 +36,7 @@ de la souris sur le nom ou la description de la BA, une fenêtre apparaît
 et présente les différents KPI de cette BA, accompagnés de leurs statuts
 actuels.
 
-![image](../assets/service-mapping/mon_mouse_over.png)
+![image](../assets/service-mapping/guide/mon_mouse_over.png)
 
 En cliquant sur le nom ou la description d'une BA, une nouvelle page se
 charge, cette dernière est une vue détaillée de la BA.
@@ -45,7 +45,7 @@ charge, cette dernière est une vue détaillée de la BA.
 
 La vue détaillée d'une BA est divisée en 7 parties.
 
-![image](../assets/service-mapping/mon_detailed.png)
+![image](../assets/service-mapping/guide/mon_detailed.png)
 
 1.  Tableau listant les indicateurs de performance impactant actuellement la BA.
 2.  Tableau d'information sur l'état de santé de la BA et les seuils d'alertes.
@@ -57,10 +57,10 @@ La vue détaillée d'une BA est divisée en 7 parties.
 
 Le tableau des KPI affichent en temps réel les informations sur leurs état mais aussi les impacts sur la BA.
 
-![image](../assets/service-mapping/mon_kpi_list.png)
+![image](../assets/service-mapping/guide/mon_kpi_list.png)
 
 L'onglet "Tendance" affiche 4 graphique : un journalier, un
 hebdomadaire, un mensuel et un annuel affichant le niveau de la BA dans
 le temps et son statut.
 
-![image](../assets/service-mapping/mon_trend.png)
+![image](../assets/service-mapping/guide/mon_trend.png)
