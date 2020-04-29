@@ -227,6 +227,7 @@ Pour toute aide complémentaire, les options des différents modes sont consulta
 --help
 ```
 
+
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
 Si vous recevez ce message, activer le mode debug pour visualiser l'execution en détail d'un mode en particulier.
 ```bash
@@ -262,3 +263,11 @@ Need write/exec permissions on directory.
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 Si vous recevez ce message, ajouter l'option '--http-backend=curl' dans la macro 
 * NSCPRESTAPIEXTRAOPTIONS
+
+## Créer votre propre agent NSClient++
+Maintenant il vous est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser nsclient.ini.
+
+Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique:
+* https://github.com/centreon/centreon-nsclient-build
+
+Vous y trouverez la méthode de création utilisée et la liste de tous les plugins compilés par Centreon dans centreon_plugin.exe
