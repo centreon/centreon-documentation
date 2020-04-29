@@ -9,7 +9,7 @@ title: Office 365
 
 ## Vue d'ensemble
 Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
-Les informations de monitoring de la suite Officesont mises à disposition par Microsoft à travers une API de gestion Office 365.
+Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
 ## Contenu du pack de supervision
 
@@ -201,4 +201,3 @@ Toutes les options des différents modes sont consultables via le help:
 --plugin=cloud::microsoft::office365::management::plugin
 --mode=service-status --custommode='managementapi' --help
 ```
-
