@@ -5,7 +5,7 @@ title: Operating guide
 
 > Unless otherwise stated, all commands in this document must be passed as `root`.
 
-> In this document, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses and hosts names) by the [macros defined here](installation-2-nodes#defining-hosts-names-and-addresses).
+> In this document, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses and hosts names) by the [macros defined here](installation-2-nodes.html#defining-hosts-names-and-addresses).
 
 ## Cluster Management
 
@@ -19,7 +19,7 @@ To view the general state of the cluster, run this command:
 crm_mon
 ```
 
-> Check the "Failed actions" on the resources and troubleshoot them using the [troubleshooting guide](troubleshooting-guide).
+> Check the "Failed actions" on the resources and troubleshoot them using the [troubleshooting guide](troubleshooting-guide.html).
 
 ### View the status of a resource
 
@@ -145,7 +145,7 @@ pcs resource clear cli-prefer-ms_mysql-master
 
 ### Remove an error displayed in the cluster status
 
-Once the cause of the error has been identified and fixed ([troubleshooting guide](troubleshooting-guide)), you must manually delete the error message:
+Once the cause of the error has been identified and fixed ([troubleshooting guide](troubleshooting-guide.html)), you must manually delete the error message:
 
 ```bash
 pcs resource cleanup
@@ -240,7 +240,7 @@ Position Status [OK]
 
 > Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide.html#check-the-status-of-mariadb-replication).
 
-> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes) will move the `centreon` resource group as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes.html) will move the `centreon` resource group as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
 
 To make the resource move from one node to the other, run this command:
 
@@ -258,7 +258,7 @@ pcs resource clear ms_mysql-master
 
 ### Toggle the resource group `centreon`
 
-> **Warning:** As in [this chapter](operating-guide.html#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes) will switch the MariaDB master as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** As in [this chapter](operating-guide.html#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes.html) will switch the MariaDB master as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
 
 Move the resource group to the other node:
 
@@ -296,7 +296,7 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-To create the resources again, follow the installation procedure [from this point](installation-2-nodes#creating-the-centreon-resource-group)
+To create the resources again, follow the installation procedure [from this point](installation-2-nodes.html#creating-the-centreon-resource-group)
 
 ## Monitoring a Centreon-HA cluster
 
@@ -304,7 +304,7 @@ A high-availability platform is basically a LAMP platform (Linux Apache MariaDB 
 
 ### System indicators and processes
 
-The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux plugin pack](../plugin-packs/procedures/operatingsystems-linux-snmp).
+The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux plugin pack](../plugin-packs/procedures/operatingsystems-linux-snmp.html).
 
 * System metrics
     * LOAD Average
@@ -320,8 +320,8 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
 
 ### Application monitoring
 
-* Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol plugin pack](../plugin-packs/procedures/applications-protocol-http)
-* MariaDB, using the [MySQL/MariaDB Database plugin pack](../plugin-packs/procedures/applications-databases-mysql)
+* Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol plugin pack](../plugin-packs/procedures/applications-protocol-http.html)
+* MariaDB, using the [MySQL/MariaDB Database plugin pack](../plugin-packs/procedures/applications-databases-mysql.html)
     * MariaDB Server Connection Control
     * MariaDB / InnoDB buffers and caches
     * Indexes usage
@@ -329,7 +329,7 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
 
 ### Cluster monitoring
 
-The cluster-specific health checks can be monitored using the [Pacemaker plugin pack](../plugin-packs/procedures/applications-pacemaker-ssh):
+The cluster-specific health checks can be monitored using the [Pacemaker plugin pack](../plugin-packs/procedures/applications-pacemaker-ssh.html):
 
 * Resources constraints: only for `ms_mysql` and  `centreon` resources
 * Failed actions
