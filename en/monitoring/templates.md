@@ -145,6 +145,6 @@ Go into the menu: `Configuration > Users > Contact Templates` menu and click
 on **Add**
 
 > Refer to the chapter covering configuration of
-> *[\*contacts](basic-objects/contacts.html)*. In addition, the contacts
+> [contacts](basic-objects/contacts.html). In addition, the contacts
 > templates are used for automatic import of profiles via
-> *[LDAP](../administration/parameters/ldap.html)*
+> [LDAP](../administration/parameters/ldap.html)

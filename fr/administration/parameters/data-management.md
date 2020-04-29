@@ -6,7 +6,7 @@ title: Gestion des données
 En accédant au menu `Administration > Paramètres > Options`, il est possible
 de définir les durées de rétention des données de la plate-forme Centreon :
 
-![image](../assets/administration/data_retention.png)
+![image](../../assets/administration/data_retention.png)
 
 ## Stockage des données de performance
 

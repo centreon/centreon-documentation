@@ -9,7 +9,7 @@ La notification est basée sur une commande qui sera exécutée par le moteur lo
 Cette commande est attachée à chaque contact à notifier. Centreon propose des commandes par défaut que vous pouvez
 modifier.
 
-Accédez au chapitre de [configuration des commandes](../monitoring/commands#definition) pour modifier / ajouter de
+Accédez au chapitre de [configuration des commandes](../monitoring/commands.html#definition) pour modifier / ajouter de
 nouvelles commandes de notification.
 
 > Vous pouvez également trouver dans les [plugins Centreon](https://github.com/centreon/centreon-plugins/tree/master/notification)
