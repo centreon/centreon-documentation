@@ -26,6 +26,7 @@ try {
       source = readProperties file: 'source.properties'
       env.VERSION = serie
       env.RELEASE = "${source.RELEASE}"
+      archiveArtifacts artifacts: 'assets_diff_en.txt, assets_diff_fr.txt'
     }
 
     stage('Build') {
