@@ -194,7 +194,7 @@ en appelant l'option  --http-backend=curl.
 la valeur "Service check timeout" dans les options de logs du moteur centengine.
 
 
-Toutes les options des différents modes sont consultables via le help:
+Toutes les options des différents modes sont consultables via l'option ```--help```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
