@@ -7,7 +7,6 @@ L'interface Centreon web est compatible avec les navigateurs web suivants :
 
 * Google Chrome (dernière version)
 * Mozilla Firefox (dernière version)
-* Microsoft Edge Chromium (dernière version)
 * Apple Safari (dernière version)
 
 Votre résolution doit être au minimum à 1280 x 768.
