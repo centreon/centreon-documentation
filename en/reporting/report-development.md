@@ -124,8 +124,7 @@ parameters](http://10.30.2.28/documentation/_build/html/developer_ref_book/repor
 The grid component is mainly used to organize graphical components on
 the report.
 
-![10000000000003560000017FAF18FEC1_png](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.png){width="15.665cm"
-height="7.024cm"}
+![10000000000003560000017FAF18FEC1_png](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.png)
 
 Best practice: Insert each report component (e.g., chart, table, label,
 text) into a grid cell.
@@ -138,8 +137,7 @@ binding.
 
 ##### Table structure
 
-> ![10000000000002D9000000636D5BE18A_png](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.png){width="17.835cm"
-> height="2.42cm"}
+> ![10000000000002D9000000636D5BE18A_png](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.png)
 
 -   **Header:** Displays the column title or dynamic summary information
     calculated according to the listed values in the detail rows. The
@@ -163,8 +161,7 @@ rows to the table:
 -   **Group footer:** Delimits the end of each entry. Also allows the
     data group to be used for calculations.
 
-    ![10000000000005F2000001A26D1A36C8_png](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.png){width="18.401cm"
-    height="5.054cm"}
+    ![10000000000005F2000001A26D1A36C8_png](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.png)
 
 #### Charts
 
@@ -172,8 +169,7 @@ A chart can be created in three steps:
 
 ##### Selecting the graph type
 
-![10000000000004390000025A137B95A5_png](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.png){width="13.467cm"
-height="7.5cm"}
+![10000000000004390000025A137B95A5_png](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.png)
 
 ##### Binding the data
 
