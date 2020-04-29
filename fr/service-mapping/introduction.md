@@ -16,7 +16,7 @@ agrégeant les états des différents points de contrôle supervisés avec
 **Centreon**. L\'utilisateur est alors mieux informé de l\'état de santé
 global de son SI et à même de prendre les meilleures décisions.
 
-![image](../assets/service-mapping/about/overview.png)
+![image](../assets/service-mapping/first_page.gif)
 
 **Centreon BAM** utilise un moteur avancé de calcul des \"**Business
 Activities**\" (BA), à partir d\'indicateurs de performance clés
