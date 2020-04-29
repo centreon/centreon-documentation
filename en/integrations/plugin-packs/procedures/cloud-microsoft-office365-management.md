@@ -54,7 +54,7 @@ Votre application est maintenant enregistrée auprès d’Azure AD et un identif
 Il y a plusieurs propriétés importantes que vous devez spécifier qui déterminent comment votre application fonctionne 
 dans Azure AD.
 1. ID CLIENT : Cette valeur est générée automatiquement par Azure AD. 
-2. APPLICATION IS MULTI-TENANT : Cette propriété doit être configurée sur NO ou YES si vous souhaitez superviser des informations depuis un compte azure d'une autre entreprise.
+2. APPLICATION IS MULTI-TENANT : Cette propriété doit être configurée sur NO ou YES si vous souhaitez superviser des informations depuis un compte Azure d'une autre entreprise.
 3. REPLY URL : C’est l’URL vers laquelle un administrateur locataire sera redirigé après avoir donné son consentement pour permettre à votre application d’accéder à ses données en utilisant les API de gestion Office 365.
 
 #### Générer une nouvelle clé pour votre application
