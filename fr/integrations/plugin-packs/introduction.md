@@ -56,7 +56,8 @@ Vous trouverez ici une liste des Plugin Packs fréquemment utilisés :
   - [Fortinet Fortigate](procedures/network-firewalls-fortinet-fortigate-snmp.html)
   - [Dell iDRAC](procedures/hardware-servers-dell-idrac-snmp.html)
 
-And a list of Plugin Packs avec des fournisseurs de découverte d'hôte intégrés :
+Et une liste de Plugin Packs avec des fournisseurs de découverte d'hôte
+intégrés :
 
   - [Generic SNMP](procedures/applications-protocol-snmp.html)
   - [VMware virtual machines](procedures/virtualization-vmware2-vm.html)

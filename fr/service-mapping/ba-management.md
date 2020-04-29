@@ -102,7 +102,7 @@ dépendra alors des paramètres présents dans la section Indicateur.
 Pour créer une nouvelle activité métier, cliquer sur **Add**. Le
 formulaire ci-dessous apparaît
 
-![image](../assets/service-mapping/conf_add_ba.png)
+![image](../assets/service-mapping/guide/conf_add_ba.png)
 
 La création de l'activité métier se fait directement dans le panneau
 qui s'ouvre. Après avoir donner un nom (obligatoire & unique) à votre activité
@@ -157,9 +157,6 @@ différentes sections:
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
     script d'auto-correction
 
-
-![image](../assets/service-mapping/indicators_configuration.png)
-
 #### Vue métier
 
 Lier l'activité métier à une ou plusieurs "Vue métier". Cela permet
@@ -212,7 +209,7 @@ du statut de l'activité métier
 
 La gestion des activité(s) métier est réalisée via le menu `Configuration > Business Activity > Business Activity`
 
-![image](../assets/service-mapping/conf_ba.png)
+![image](../assets/service-mapping/guide/conf_ba.png)
 
 Des actions de duplication, suppression, activation/désactivation ou changement massif sont possible
 lorsque vous cochez une ou plusieurs lignes
@@ -259,7 +256,7 @@ La gestion des indicateurs peut être réalisée de deux manières:
 - Dans l'activité métier comme vu précédemment 
 - Au travers du menu `Configuration > Business Activity > Indicators` uniquement pour les BA utilisant le mode de calcul "Impact"
 
-![image](../assets/service-mapping/conf_kpi.png)
+![image](../assets/service-mapping/guide/conf_kpi.png)
 
   **Colonne**               | **Description**
   --------------------------|-----------------------------------------------------
@@ -420,7 +417,7 @@ dépendant de son contenu à l'instant ou on la sollicite.
 La configuration des vues métier est réalisée via le menu
 **Configuration > Business Activity > Business Views**
 
-![image](../assets/service-mapping/conf_bv.png)
+![image](../assets/service-mapping/guide/conf_bv.png)
 
   |   Colonne       |    Description
   |-----------------|-------------------------------------------------------------
@@ -437,7 +434,7 @@ Supprimer une vue métier:
 
 ### Création d'une vue métier
 
-![image](../assets/service-mapping/conf_add_bv.png)
+![image](../assets/service-mapping/guide/conf_add_bv.png)
 
   
   Colonne                   | Description
