@@ -61,7 +61,7 @@ dans Azure AD.
 1. Dans le Portail de gestion Azure, sélectionnez votre application et choisissez Configurer dans le menu supérieur. Faites défiler jusqu’aux clés.
 2. Sélectionnez la durée de votre clé et choisissez Enregistrer.
 3. Azure affiche le secret de l’application seulement après l’avoir sauvegardé. Sélectionnez l’icône Presse-papiers pour copier la clé du client.
-* Attention : Azure affiche uniquement la clé privé au moment où vous la générez initialement. Sauvegarder-la car vous ne pourrez pas récupérer la clé privé plus tard.
+* Attention : Azure affiche uniquement la clé privée au moment où vous la générez. Sauvegardez-la car vous ne pourrez pas récupérer la clé privée plus tard.
 
 #### Configurer un certificat X.509 pour activer les appels de service à service
 1. Obtenez un certificat X.509. Vous pouvez utiliser un certificat auto-signé ou un certificat délivré par une autorité de certification de confiance publique.
