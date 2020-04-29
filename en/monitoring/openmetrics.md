@@ -157,6 +157,8 @@ All the options of the different modes can be display using the help (```--help`
 
 ### Add the metrics to our monitoring
 We are going to configure the host Prometheus by using the following parameters :
+
+| Parameter          | Value                                 |
 | :----------------- | :------------------------------------ |
 | NAME               | prometheus.int.centreon.com           |
 | ALIAS              | internal prometheus                   |
@@ -169,7 +171,9 @@ We are going to configure the host Prometheus by using the following parameters 
 ![image](../assets/monitoring/openmetrics/openmetrics_prometheus_01_configuration_host.png)
 
 We can edit the service "Scrape-Metrics" which have been created automatically by using the template "App-Monitoring-Openmetrics-Web-custom" to configure the macros as the same in CLI :
-|:--------------- |:------------------------------ |
+
+| Parameter       | Value                          |
+| :-------------- | :----------------------------- |
 | FILTERMETRICS   | prometheus_http_requests_total |
 | WARNING         | 5000                           |
 | CRITICAL        | 10000                          |
