@@ -11,7 +11,7 @@ Maltem Insight Performance (MIP) provides solutions to measure performance of we
 
 The MIP instance exposes a JSON based RestAPI. Centreon connector uses this endpoint to fetch relevant data about Digital Experience Monitoring Scenarios 
 
-![architecture](../../assets/integrations/external/mip-connector-architecture.png)
+![image](../../assets/integrations/external/mip-connector-architecture.png)
 
 ## Compatibility
 
