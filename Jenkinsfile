@@ -15,6 +15,7 @@ if (env.BRANCH_NAME.startsWith('release-')) {
 /*
 ** Pipeline code.
 */
+def inputError = false
 try {
   node {
     stage('Source') {
@@ -26,6 +27,7 @@ try {
       source = readProperties file: 'source.properties'
       env.VERSION = serie
       env.RELEASE = "${source.RELEASE}"
+      archiveArtifacts artifacts: 'assets_diff_en.txt, assets_diff_fr.txt'
     }
 
     stage('Build') {
@@ -48,7 +50,9 @@ try {
 
     stage('Release') {
       timeout(time: 1, unit: 'HOURS') {
+        inputError = true
         input message: 'Release documentation ?', ok: 'Release'
+        inputError = false
       }
       milestone label: 'Release'
       node {
@@ -58,12 +62,16 @@ try {
     }
   }
 } catch(e) {
-  if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
-    slackSend channel: "#documentation",
-      color: "#F30031",
-      message: "*FAILURE*: `CENTREON DOCUMENTATION` <${env.BUILD_URL}|build #${env.BUILD_NUMBER}> on branch ${env.BRANCH_NAME}\n" +
-          "*COMMIT*: <https://github.com/centreon/centreon-documentation/commit/${source.COMMIT}|here> by ${source.COMMITTER}\n" +
-          "*INFO*: ${e}"
+  if (!inputError) {
+    if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
+      slackSend channel: "#documentation",
+        color: "#F30031",
+        message: "*FAILURE*: `CENTREON DOCUMENTATION` <${env.BUILD_URL}|build #${env.BUILD_NUMBER}> on branch ${env.BRANCH_NAME}\n" +
+            "*COMMIT*: <https://github.com/centreon/centreon-documentation/commit/${source.COMMIT}|here> by ${source.COMMITTER}\n" +
+            "*INFO*: ${e}"
+    }
+    currentBuild.result = 'FAILURE'
+  } else {
+    currentBuild.result = 'SUCCESS'
   }
-  currentBuild.result = 'FAILURE'
 }
