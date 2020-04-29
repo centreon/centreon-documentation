@@ -157,9 +157,6 @@ différentes sections:
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
     script d'auto-correction
 
-
-![image](../assets/service-mapping/guide/indicators_configuration.png)
-
 #### Vue métier
 
 Lier l'activité métier à une ou plusieurs "Vue métier". Cela permet

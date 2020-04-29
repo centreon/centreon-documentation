@@ -42,7 +42,7 @@ Les paramètres ci-dessous permettent de définir les valeurs par défaut
 que prendront les activité métiers. Seule la commande de notification ne
 peut être surchargée au niveau des activités métier.
 
-![image](../assets/service-mapping/default_ba_parameters.png)
+![image](../assets/service-mapping/guide/default_ba_parameters.png)
 
  Colonne | Description
 --------------|-----------------------------------------------------
