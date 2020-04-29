@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-windows-snmp
-title: Windows SNMP
+title: Windows SNMP
 ---
 
 ## Vue d'ensemble
