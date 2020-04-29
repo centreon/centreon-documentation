@@ -1,5 +1,5 @@
 ---
-id: centreon-ha-troubleshooting
+id: troubleshooting-guide
 title: Troubleshooting
 ---
 
@@ -86,7 +86,11 @@ Active resources:
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 
-Aucune erreur n'est remontée, mais le groupe centreon n'apparaît plus, et aucune de ses ressources n'est donc démarrée. Ce cas de figure est généralement dû à un enchainement de deux bascules (`pcs resource move ...`) sans avoir supprimé la contrainte par la suite. Pour le vérifier :
+Aucune erreur n'est remontée, mais le groupe centreon n'apparaît plus, et aucune de ses ressources n'est donc démarrée. Ce cas de figure est généralement dû à un enchainement de deux bascules (`pcs resource move ...`) sans avoir supprimé la contrainte par la suite. Pour le vérifier lancer:
+
+```bash
+pcs constraint show
+```
 
 ```text
 Location Constraints:

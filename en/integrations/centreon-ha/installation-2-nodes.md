@@ -1,5 +1,5 @@
 ---
-id: centreon-ha-installation-2-nodes
+id: installation-2-nodes
 title: Installing a Centreon HA 2-nodes cluster
 ---
 
@@ -9,11 +9,11 @@ title: Installing a Centreon HA 2-nodes cluster
 
 Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
 
-**WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
+> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](https://documentation.centreon.com/docs/centreon/en/latest/installation/index.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -22,7 +22,7 @@ The output of the `vgs` command must look like (what must be payed attention on 
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-**WARNING:** If this particular prerequisite is not effective, the databases synchronization method described further won't work.
+> **WARNING:** If this particular prerequisite is not effective, the databases synchronization method described further won't work.
 
 ### Quorum Device
 
@@ -38,14 +38,15 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@CENTRAL_SLAVE_NAME@`: secondary central server's name
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name
-* `@MYSQL_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
-* `@MYSQL_REPL_PASSWD@`: MariaDB replication password
-* `@MYSQL_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
-* `@MYSQL_CENTREON_PASSWD@`: MariaDB Centreon password
+* `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
+* `@MARIADB_REPL_PASSWD@`: MariaDB replication password
+* `@MARIADB_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
+* `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
 * `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
+* `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
 ### Configuring  centreon-broker
 
@@ -69,23 +70,23 @@ In the event of a cluster switch, you will expect the newly elected master centr
 
 * In the first "IPv4" output, replace "localhost" with `@CENTRAL_MASTER_IPADDR@` in the "Host to connect to" field.
 
-| Output IPv4 |  |
-| --------------- | ------------------ |
-| Name | centreon-broker-master-rrd |
-| Connection port | 5670 |
-| Host to connect to | @CENTRAL_MASTER_IPADDR@ |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
+| Output IPv4        |                            |
+| ------------------ | -------------------------- |
+| Name               | centreon-broker-master-rrd |
+| Connection port    | 5670                       |
+| Host to connect to | `@CENTRAL_MASTER_IPADDR@`  |
+| Buffering timeout  | 0                          |
+| Retry interval     | 60                         |
 
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed towards `@CENTRAL_SLAVE_IPADDR@`.
 
-| Output IPv4 |  |
-| --------------- | ------------------ |
-| Name | centreon-broker-slave-rrd |
-| Connection port | 5670 |
-| Host to connect to | @CENTRAL_SLAVE_IPADDR@ |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
+| Output IPv4        |                           |
+| ------------------ | ------------------------- |
+| Name               | centreon-broker-slave-rrd |
+| Connection port    | 5670                      |
+| Host to connect to | `@CENTRAL_SLAVE_IPADDR@`  |
+| Buffering timeout  | 0                         |
+| Retry interval     | 60                        |
 
 #### Export the configuration
 
@@ -225,7 +226,7 @@ A Master-Slave MariaDB cluster will be setup so that everything is synchronized 
 
 **Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
-### Configuration de MariaDB
+### Configuring MariaDB
 
 For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
 
@@ -257,10 +258,11 @@ max_allowed_packet=64M
 #innodb_buffer_pool_size=512M
 # Uncomment for 8 Go Ram
 #innodb_buffer_pool_size=1G
-sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+# MariaDB strict mode will be supported soon
+#sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-**Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
+> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
 
 **Reminder:** Don't forget to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
 
@@ -276,7 +278,7 @@ Make sure that the restart went well:
 systemctl status mysql
 ```
 
-**Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
+> **Warning:** Other files in `/etc/my.cnf.d/` such as `centreon.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
 
 ### Securing the database server
 
@@ -297,32 +299,32 @@ mysql -p
 Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
 
 ```sql
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'localhost';
+GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'localhost';
 
-CREATE USER '@MYSQL_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MYSQL_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
-GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
+CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
+GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
+GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
+GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
 
-CREATE USER '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
-GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MYSQL_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
+CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
+GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
+GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
+GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-### Creating the replication MariaDB account
+### Creating the MariaDB replication account
 
 Still in the same prompt, create the replication user (default: `centreon-repl`):
 
 ```sql
 GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
-TO '@MYSQL_REPL_USER@'@'localhost' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
+TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
 GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
-TO '@MYSQL_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
+TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
 GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
-TO '@MYSQL_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MYSQL_REPL_PASSWD@';
+TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
 ### Setting up the binary logs purge jobs
@@ -356,14 +358,14 @@ The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables th
 # Database access credentials #
 ###############################
 
-DBHOSTNAMEMASTER="@CENTRAL_MASTER_NAME@"
-DBHOSTNAMESLAVE="@CENTRAL_SLAVE_NAME@"
-DBREPLUSER="@MYSQL_REPL_USER@"
-DBREPLPASSWORD="@MYSQL_REPL_PASSWD@"
-DBROOTUSER="@MYSQL_CENTREON_USER@"
-DBROOTPASSWORD="@MYSQL_CENTREON_USER@"
-CENTREON_DB="centreon"
-CENTREON_STORAGE_DB="centreon_storage"
+DBHOSTNAMEMASTER='@CENTRAL_MASTER_NAME@'
+DBHOSTNAMESLAVE='@CENTRAL_SLAVE_NAME@'
+DBREPLUSER='@MARIADB_REPL_USER@'
+DBREPLPASSWORD='@MARIADB_REPL_PASSWD@'
+DBROOTUSER='@MARIADB_CENTREON_USER@'
+DBROOTPASSWORD='@MARIADB_CENTREON_USER@'
+CENTREON_DB='centreon'
+CENTREON_STORAGE_DB='centreon_storage'
 
 ###############################
 ```
@@ -463,7 +465,7 @@ This script's output is very verbose and you can't expect to understand everythi
 ```text
 Umount and Delete LVM snapshot
   Logical volume "dbbackupdatadir" successfully removed
-Start MariaDB Slave
+Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
 3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
@@ -618,13 +620,13 @@ pcs resource create "ms_mysql" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
-    replication_user="@MYSQL_REPL_USER@" \
-    replication_passwd='@MYSQL_REPL_PASSWD@' \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
     max_slave_lag="15" \
     evict_outdated_slaves="false" \
     binary="/usr/bin/mysqld_safe" \
-    test_user="@MYSQL_CENTREON_USER@" \
-    test_passwd="@MYSQL_CENTREON_PASSWD@" \
+    test_user="@MARIADB_CENTREON_USER@" \
+    test_passwd="@MARIADB_CENTREON_PASSWD@" \
     test_table='centreon.host' \
     master
 ```
@@ -642,7 +644,7 @@ pcs resource meta ms_mysql-master \
 
 Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
 
-**Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
+> **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
 ##### PHP7 resource
 

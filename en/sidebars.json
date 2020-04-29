@@ -833,9 +833,11 @@
             },
             {
                 "ids": [
-                    "integrations/centreon-ha/centreon-ha-architectures",
-                    "integrations/centreon-ha/centreon-ha-installation-2-nodes",
-                    "integrations/centreon-ha/centreon-ha-troubleshooting"
+                    "integrations/centreon-ha/architectures",
+                    "integrations/centreon-ha/installation-2-nodes",
+                    "integrations/centreon-ha/operating-guide",
+                    "integrations/centreon-ha/update",
+                    "integrations/centreon-ha/troubleshooting-guide"
                 ],
                 "label": "Centreon HA",
                 "type": "subcategory"
