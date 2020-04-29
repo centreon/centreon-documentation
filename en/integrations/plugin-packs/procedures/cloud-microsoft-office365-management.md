@@ -65,7 +65,7 @@ dans Azure AD.
 
 #### Configurer un certificat X.509 pour activer les appels de service à service
 1. Obtenez un certificat X.509. Vous pouvez utiliser un certificat auto-signé ou un certificat délivré par une autorité de certification de confiance publique.
-Votre application utilisera ce certificat pour communiquer avec Azure AD, alors assurez-vous de conserver l’accès à la clé privée ainsi.
+Votre application utilisera ce certificat pour communiquer avec Azure AD, assurez-vous ainsi de conserver l’accès à la clé privée.
 
 #### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 Enfin, vous devez spécifier les autorisations que votre application requiert: 
