@@ -39,7 +39,7 @@ to wait a few seconds before seeing the change applied to the profile.
 
 To add an access group:
 
-1. Go into the menu: **Administration > ACL**
+1. Go into the menu: `Administration > ACL`
 2. Click on **Add**
 
 ### General information
@@ -70,7 +70,7 @@ The access filters for the resources serve to limit the viewing of objects
 
 To add resources access filter:
 
-1. Go into the menu: **Administration > ACL**
+1. Go into the menu: `Administration > ACL`
 2. In the left menu, click on **Resources Access**
 3. Click on **Add**
 
@@ -149,7 +149,7 @@ Problems)
 
 To add an access filter to the menus:
 
-1. Go into the menu: **Administration > ACL**
+1. Go into the menu: `Administration > ACL`
 2. In the left menu, click on **Menus Access**
 3. Click on **Add**
 
@@ -178,7 +178,7 @@ notifications, restarting the scheduler, etc.).
 
 To add an access filter to the actions:
 
-1. Go into the menu: **Administration > ACL**
+1. Go into the menu: `Administration > ACL`
 2. In the left menu, click on **Actions Access**
 3. Click on **Add**
 
@@ -259,7 +259,7 @@ The table below describes the all the actions that can be authorized on hosts:
 
 It is possible of reload the ACLs manually:
 
-1. Go into the menu: **Administration > ACL**
+1. Go into the menu: `Administration > ACL`
 2. In the left menu, click on **Reload ACL**
 3. Select the user(s) you want to reload the ACL
 4. In the **More actions** menu, click on **Reload ACL**

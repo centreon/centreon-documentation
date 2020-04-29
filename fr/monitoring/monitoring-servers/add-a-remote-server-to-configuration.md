@@ -168,7 +168,7 @@ service Gorgone :
 systemctl restart gorgoned
 ```
 
-Assurez vous que le service est démarrer en exécutant la commande suivante :
+Assurez vous que le service est démarré en exécutant la commande suivante :
 
 ```shell
 systemctl status gorgoned

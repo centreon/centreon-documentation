@@ -3,6 +3,8 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
+![image](../../assets/monitoring/discovery/host-discovery.gif)
+
 > The discovery providers are provided from installation of Plugin Packs (Azure,
 > Amazon AWS, VMware, etc.). To know the complete list, please go to
 > the [Plugin Packs
@@ -12,7 +14,7 @@ title: Hosts Discovery
 
 To launch a discovery, you need to add a discovery job.
 
-The job addition wizard is a 6 steps wizard that will allow you to choose a
+The job addition wizard is a six steps wizard that will allow you to choose a
 provider, define parameters, define mapping rules and update/execution
 policies.
 
@@ -42,15 +44,15 @@ hosts in the configuration.
 In this step, *mappers* can be added or rearranged to match needs. See the
 [How to use the *mappers*](#how-to-use-the-mappers) chapter to know more.
 
-Realtime simulation on a set of example data gives a preview of what it could
-look like:
+Realtime simulation on a set of example data gives a preview of what the
+discovery result could look like:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
 
 The fifth and sixth steps only allow to define manual analysis as update
 policy and immediate as execution policy.
 
-There will be more choices in the futur to allow automatic update and cyclic
+There will be more choices in the future to allow automatic update and cyclic
 execution.
 
 Click on **FINISH** on the last step to add and schedule the discovery job.
@@ -60,7 +62,7 @@ Click on **FINISH** on the last step to add and schedule the discovery job.
 Go to the `Configuration > Hosts > Discovery` menu to access to the list of
 discovery jobs.
 
-TODO: add a screen of jobs listing
+![image](../../assets/monitoring/discovery/host-discovery-job-listing.png)
 
 The status of a job can be:
 
@@ -86,7 +88,7 @@ Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delet
 From the `Configuration > Hosts > Discovery` menu, click on a *Finished* job to
 visualize the result.
 
-TODO: add a screen of hosts listing
+![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 Select the hosts you want to add to the configuration and click on **SAVE**. A
 task will be launched in background to save the hosts.
@@ -95,7 +97,7 @@ Go to the `Configuration > Hosts` menu to see the newly created hosts. To
 deploy the services link to the host template, select the hosts and choose
 **Deploy Service** from the **More actions...** drop-down menu.
 
-TODO: add a screen of hosts in configuration
+![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
 If the hosts you selected are not visible in the configuration, go back to the
 job listing and see if an error occured during the saving task.
@@ -104,7 +106,7 @@ job listing and see if an error occured during the saving task.
 
 From the `Configuration > Hosts > Discovery` menu, click on the *Edit* action.
 
-TODO: add a screen of the edit panel
+![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
 On the panel on the right, every parameters of the job can be edited.
 
@@ -115,7 +117,7 @@ Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discov
 ## How to use the *mappers*
 
 A *mapper* is an object letting you map an attribute's value of a discovered
-item to a property of a futur host.
+item to a property of a future host.
 
 There is four types of *mappers*:
 

@@ -1,6 +1,6 @@
 ---
 id: analyze-resources-availability
-title: Analyser la disponibilité des resources
+title: Analyser la disponibilité des ressources
 ---
 
 Vous débutez avec Centreon MBI et souhaitez extraire vos premières
@@ -18,7 +18,7 @@ Le principe est simple :
 -   Vous récupérer votre rapport via l'interface
 
 > Centreon MBI est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
-> [contactez nous](sales@centreon.com).
+> contactez [Centreon](mailto:sales@centreon.com).
 
 ## Définition du besoin
 

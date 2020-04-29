@@ -93,7 +93,7 @@ You can now log in.
 
 To start the monitoring processes:
 
-1. From your web interface, go to **Configuration \> Pollers \> Pollers**,
+1. From your web interface, go to `Configuration > Pollers`,
 2. Select **Central**  poller from the listing and click on
 **Export configuration**,
 3. Check **Move Export Files** in addition to default selection and click on
@@ -127,7 +127,7 @@ Monitoring is now working. You can start monitoring your IT system.
 
 ## Install available extensions
 
-Go to **Administration \> Extensions \> Manager** menu and click on
+Go to `Administration > Extensions > Manager` menu and click on
 **Install all**:
 
 ![image](../assets/installation/extensions-manager.png)

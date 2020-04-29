@@ -4,10 +4,11 @@ title: Monter de version de l'extension
 ---
 
 > Lors d'une montée de version < 18.10.x vers une version >= 18.10.x, vous devez:
-> 
+>
 > - Récupérer une nouvelle license via le support Centreon
-> - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est pas le cas, utiliser la procédure de [migration de votre serveur de reporting](migrate)
-
+> - S'assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
+>   pas le cas, utiliser la procédure de [migration de votre serveur de
+>   reporting](migrate.html)
 
 La montée de version de Centreon MBI se fait en 3 étapes :
 
@@ -15,7 +16,7 @@ La montée de version de Centreon MBI se fait en 3 étapes :
 - La mise à jour de Centreon MBI server (interface)
 - La mise à jour du serveur de reporting
 
-## Monter de version du paquet 
+## Monter de version du paquet
 
 Lors d'une montée de version mineure ou majeure (ex: 19.10.x à 20.04.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. Si vous n'avez pas encore ce nouveau dépôt, le demander au support Centreon.

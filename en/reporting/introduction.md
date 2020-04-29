@@ -10,7 +10,7 @@ You also have simple reporting capabilities described below.
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
-> [Centreon](sales@centreon.com).
+> [Centreon](mailto:sales@centreon.com).
 
 Centreon Monitoring Business Intelligence (MBI) is a software tool
 designed to help business users make critical decisions and to

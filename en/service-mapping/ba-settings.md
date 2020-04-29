@@ -4,7 +4,8 @@ title: Settings
 ---
 
 The default settings are conveniently prefilled to assist you in
-creating new BAs and indicators (KPIs). It can be found in  `Monitoring > Business Activity > Default Settings`
+creating new BAs and indicators (KPIs). It can be found in `Monitoring >
+Business Activity > Default Settings`
 
 ## Impact settings
 
@@ -14,24 +15,24 @@ The following parameters correpond to the default values behind the *Weak*,
 *Minor*, *Major*, *Critical* and *Blocking* impact types when configuring
 indicators in *Regular* mode.
 
-![image](assets/service-mapping/guide/list_impacts_basic.png)
+![image](../assets/service-mapping/guide/list_impacts_basic.png)
 
 Impact types have to be defined in percentage.
 
-![image](assets/service-mapping/guide/impacts_configuration.png)
+![image](../assets/service-mapping/guide/impacts_configuration.png)
 
 ### Business Activity and Boolean rule
 
 These default parameters are used for prefilling the fields for **Business
 Activity** or **Boolean rule**-type indicators in *Advanced* mode.
 
-![image](assets/service-mapping/guide/impacts_ba_boolean.png)
+![image](../assets/service-mapping/guide/impacts_ba_boolean.png)
 
 ## Business Activity settings
 
 The default parameters below define values for BAs.
 
-![image](assets/service-mapping/guide/defaut_ba_settings.png)
+![image](../assets/service-mapping/guide/defaut_ba_settings.png)
 
 | Column                   | Description                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------- |
@@ -47,7 +48,7 @@ To be able to notify user/external solutions (Slack, OpenDuty etc..) belonging
 to the contact group you defined, you have to configure the dedicated Business
 Activity notification section in user's form:
 
-![image](assets/service-mapping/guide/bam_user_notification.png)
+![image](../assets/service-mapping/guide/bam_user_notification.png)
 
 ## User settings
 
@@ -56,7 +57,7 @@ you can configure it in `Monitoring > Business Activity > User Settings`
 
 ## Custom Overview
 
-![image](assets/service-mapping/guide/user_custom.png)
+![image](../assets/service-mapping/guide/user_custom.png)
 
 ## Default Graph Style
 

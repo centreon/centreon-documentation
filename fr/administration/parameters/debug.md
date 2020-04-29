@@ -6,7 +6,7 @@ title: Debogage
 Cette partie permet d'activer le niveau *debug* de la journalisation
 des processus Centreon.
 
-Rendez-vous dans le menu **Administration \> Paramètres \> Débogage**.
+Rendez-vous dans le menu `Administration > Paramètres > Débogage`.
 
 ![image](../../assets/administration/parameters-debug.png)
 

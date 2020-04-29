@@ -13,11 +13,11 @@ Linux est, au sens restreint, le noyau de système d'exploitation du même nom. 
 
 Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés: 
 
-    * Centos 
-    * Redhat
-    * Debian
-    * Ubuntu
-    * ...
+  * Centos 
+  * Redhat
+  * Debian
+  * Ubuntu
+  * ...
 
 ### Règles de découvertes
 
@@ -42,16 +42,16 @@ Tous les systèmes d'exploitation s'appuyant sur le noyau Linux sont supportés:
 
 ## Métriques collectées
 
-En plus des modes et des métriques détaillées ci-après, il est également possible de superviser les éléments suivants: 
-    *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
-    *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
-    *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
-    *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
+En plus des modes et des métriques détaillés ci-après, il est également possible de superviser les éléments suivants: 
+  *  CPU detailed: Répartition détaillée de l'utilisation de la puissance de calcul (User, Nice, Idle etc...)
+  *  Process state: Etat d'un ou plusieurs processus. Il est également possible de superviser la consommation de CPU et de mémoire RAM par processus
+  *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
+  *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--cpu-->
+<!--Cpu-->
 
 | Metric name                        | Description                                   |
 | :--------------------------------- | :-------------------------------------------- |
@@ -110,7 +110,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
-| parition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
+| partition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -161,7 +161,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Linux:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs Linux:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Linux-Snmp

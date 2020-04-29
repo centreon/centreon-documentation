@@ -5,7 +5,7 @@ title: RRDTool
 
 This part allows to define the path to the RRDTool binary.
 
-Go to **Administration > Parameters > RRDTool**.
+Go to `Administration > Parameters > RRDTool`.
 
 ![image](../../assets/administration/parameters-rrdtool.png)
 

@@ -7,7 +7,7 @@ La fonctionnalité de "Service Mapping" de Centreon se base sur l'extension appe
 Activity Monitoring" (Centreon BAM)
 
 > Centreon BAM est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
-> [contactez nous](sales@centreon.com).
+> contactez [Centreon](mailto:sales@centreon.com).
 
 
 Le module **Centreon Business Activity Monitoring** offre la possibilité
@@ -16,7 +16,7 @@ agrégeant les états des différents points de contrôle supervisés avec
 **Centreon**. L\'utilisateur est alors mieux informé de l\'état de santé
 global de son SI et à même de prendre les meilleures décisions.
 
-![image](assets/service-mapping/about/overview.png)
+![image](../assets/service-mapping/about/overview.png)
 
 **Centreon BAM** utilise un moteur avancé de calcul des \"**Business
 Activities**\" (BA), à partir d\'indicateurs de performance clés
@@ -38,4 +38,4 @@ Définitions :
 -   **KPI** (\"Key Performance Indicator\") : Indicateur pondéré
     rentrant en considération dans le calcul de la BA.
 
-![image](assets/service-mapping/about/ba_detailed.png)
+![image](../assets/service-mapping/about/ba_detailed.png)

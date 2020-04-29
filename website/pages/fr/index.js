@@ -15,7 +15,8 @@ const basePathImg = './img/homepage/';
 const links = {
   doc: {
     api: 'api/introduction.html',
-    tutorial: 'getting-started/installation-first-steps.html',
+    gettingstarted: 'getting-started/installation-first-steps.html',
+    tutorial: 'getting-started/introduction-tutorials.html',
     prerequisite: 'installation/prerequisites.html',
     installation: 'installation/introduction.html',
     monitoring: 'integrations/plugin-packs/introduction.html',
@@ -83,7 +84,7 @@ const Card = props => {
   return (
     <div className="cardContent">
       <Image imageSrc={props.imageSrc} />
-      <Button href={props.btnLink} target={'_blank'} label={props.btnLabel} />
+      <Button href={props.btnLink} label={props.btnLabel} />
     </div>
   )
 }
@@ -93,9 +94,9 @@ function ExcellenceBlock() {
       <h1>{stringsAndParagraphs.excellenceBlock.title}</h1>
       <p className="subTitle">{stringsAndParagraphs.excellenceBlock.subTitle}</p>
       <div className="cardBar">
-        <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={links.doc.tutorial} />
-        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={links.doc.installation} />
-        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={links.doc.apis} />
+        <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={links.doc.gettingstarted} />
+        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={links.doc.tutorial} />
+        <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={links.doc.api} />
       </div>
     </div>
   )

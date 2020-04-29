@@ -46,7 +46,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](../../assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](prerequisites.html). Then click on **Done**:
+[prerequisites chapter](../prerequisites.html). Then click on **Done**:
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -121,6 +121,15 @@ Then restart your server with the following command:
 
 ``` shell
 reboot
+```
+
+### Services startup during system bootup
+
+To make services start automatically during system bootup, run these commands
+on the central server:
+
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ## Web installation

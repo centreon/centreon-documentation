@@ -16,18 +16,18 @@ server.
 Use SSH to access the poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
-    # yum install centreon-pack-operatingsystems-linux-snmp
-    # yum install centreon-pack-applications-monitoring-centreon-map-jmx
-    # yum install centreon-pack-applications-webservers-tomcat-jmx
+    yum install centreon-pack-operatingsystems-linux-snmp
+    yum install centreon-pack-applications-monitoring-centreon-map-jmx
+    yum install centreon-pack-applications-webservers-tomcat-jmx
 
-    # yum install centreon-plugin-Operatingsystems-Linux-Snmp
-    # yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
-    # yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
+    yum install centreon-plugin-Operatingsystems-Linux-Snmp
+    yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
+    yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
 
-    ## OPTIONAL - Only if you have a local MariaDB DB for your Map server
+OPTIONAL - Only if you have a local MariaDB DB for your Map server
 
-    # yum install centreon-pack-applications-databases-mysql
-    # yum install centreon-plugin-Applications-Databases-Mysql
+    yum install centreon-pack-applications-databases-mysql
+    yum install centreon-plugin-Applications-Databases-Mysql
 
 ### Configure your database
 
@@ -36,8 +36,8 @@ MAP database is called 'centreon\_studio' by default).
 
 Run the following commands:
 
-    # mysql centreon_studio
-    # GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
+    mysql centreon_studio
+    GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
 
   - Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
   - Replace \<POLLER\_IP\> by the IP address of the poller which will be
@@ -59,7 +59,7 @@ Also add the following only if you have a local MariaDB DB on you Map server:
 
   - App-DB-MySQL-custom
 
-![image](assets/graph-views/map4-host-configuration.png)
+![image](../assets/graph-views/map4-host-configuration.png)
 
 Important:
 
@@ -90,8 +90,7 @@ Important:
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
-![image](assets/graph-views/map4-services.png)
-
+![image](../assets/graph-views/map4-services.png)
 
 > You may also just check the access to the following URL that tells that the server is Up or not 
 > 
@@ -150,9 +149,9 @@ If these files are modified, the server must be restarted with the command:
 
 ### HTTPS/TLS configuration with a recognized key
 
->    This section describes how to add a **recognized key** to the Centreon Map server.
-> If you want to create an auto-signed key and add it to your server, please refer to the following section 
-> :ref:`tls_autosigned_key`.
+> This section describes how to add a **recognized key** to the Centreon Map server.
+> If you want to create an auto-signed key and add it to your server, please
+> refer to the [following section](#httpstls-configuration-with-an-auto-signed-key)
 
 You will require:
 
@@ -168,19 +167,16 @@ Create a PKCS12 file with the following command line:
 Then, import this file into a new keystore (a Java repository of security certificates):
 
     keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore studio.jks
-   
+
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/", and set below parameters inside "/etc/centreon-studio/studio-config.properties"
 
     centreon-map.keystore=/etc/centreon-studio/studio.jks
     centreon-map.keystore-pass=xxx
 
-
 > Replace the keystore-pass value "xxx" with the password you used for 
 > the keystore and adapt the path (if it was changed) to the keystore.
 
-
 ### HTTPS/TLS configuration with an auto-signed key
-
 
 > Enabling the TLS mode with an auto-signed key will force every user to add an 
 > exception for the certificate before using the web interface. 
@@ -219,23 +215,22 @@ inside "/etc/centreon-studio/studio-config.properties"
 ### Activate TLS profile of Centreon MAP service
 
 1) Stop Centreon MAP service:
-
-    systemctl stop centreon-map
-
+``` shell
+systemctl stop centreon-map
+```
 2) Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls" after "prod" profile
-
-    RUN_ARGS="--spring.profiles.active=prod,tls"
-
+``` shell
+RUN_ARGS="--spring.profiles.active=prod,tls"
+```
 3. Restart Centreon MAP service.
-
-    systemctl start centreon-map
-
+``` shell
+systemctl start centreon-map
+```
 Centreon MAP server is now configured to respond to requests from HTTPS at port 8443.
 For the requirement of changing service's port, refer to :ref:`change_server_port`
 
 > Don't forget to modify the URL on Centreon side in 
 > **Administration** > **Extensions** > **Map** > **Options** => **Map server address** 
-
 
 ## Broker configuration
 
@@ -246,7 +241,7 @@ the Main menu \> Centreon-broker-master.
 
 The output configuration should look like this:
 
-![image](assets/graph-views/output_broker.png)
+![image](../assets/graph-views/output_broker.png)
 
 ### Setup TLS connection between broker and map server
 
@@ -259,11 +254,11 @@ You could enable TLS output and set up broker's private key and public
 certificate as described in [broker TLS
 output](https://documentation.centreon.com/docs/centreon-broker/en/latest/user/modules.html#tls)
 
-![image](assets/graph-views/output_broker_tls.png)
+![image](../assets/graph-views/output_broker_tls.png)
 
 > "Trusted CA's certificate" field is optional. If you activate broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
-> [keystore for map server](ssl_configuration.html)
+> [keystore for map server](#httpstls-configuration)
 
 > You MUST push the new broker configuration and restart the broker after
 > configuration.
@@ -305,7 +300,7 @@ Edit the file  "/etc/centreon-studio/centreon-map.conf", replace ",tls" by ",tls
 
     RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 
-> "tls_broker" profile implies "tls" profile. So Centreon MAP service serves necessarily HTTPS.    
+> "tls_broker" profile implies "tls" profile. So Centreon MAP service serves necessarily HTTPS.
 
 
 **2. Recognized CA signed broker certificate**
@@ -365,8 +360,8 @@ Restore process is divided in several steps:
 Get the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
 into **/tmp** directory:
 
-    # cd /tmp
-    # tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
+    cd /tmp
+    tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
 
 ### Restoring configuration files
 
@@ -378,20 +373,20 @@ To restore configuration files, run the following command:
 
 To restore **centreon\_studio** database, run the following command:
 
-    # systemctl stop centreon-map
-    # mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
-    # systemctl start centreon-map
+    systemctl stop centreon-map
+    mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
+    systemctl start centreon-map
 
 ## Change Centreon Map server port
 
 By default, the Centreon MAP server is listening and sending information through
-the port 8080. If you set the SSL (see `ssl_configuration`), use the port 8443.
+the port 8080. If you set the SSL (see [HTTPS/TLS
+Configuration](#httpstls-configuration), use the port 8443.
 
 You can change this port (e.g., if you have a firewall on your network blocking
 these ports).
 
-> If the new port is below 1024, use this procedure `these
-> instructions<port_under_1024>` instead.
+> If the new port is below 1024, use this procedure below "Define port below 1024" instead.
 
 On your Centreon MAP server, stop the Centreon Map server:
 
@@ -399,14 +394,11 @@ On your Centreon MAP server, stop the Centreon Map server:
 
 Edit the studio-config.properties settings file located in /etc/centreon-studio:
 
-    vim /etc/tomcat/server.xml
+    vim /etc/centreon-studio/studio-config.properties
 
-And, in the following lines...
+Add the following line at the MAP SERVER section
 
-    <Connector port="8080"
-                protocol="HTTP/1.1"
-                connectionTimeout="20000"
-                redirectPort="8443" />
+    centreon-map.port=XXXX
 
 ...replace *XXXX* with the port you want.
 
@@ -466,8 +458,8 @@ Start the firewall:
 
 Execute the following lines on your console:
 
-    # /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-    # /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+    /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 3.  Add port forwarding.
 
@@ -490,10 +482,10 @@ the following URL in your browser:
 
 http://\<IP\_MAP\_SERVER\>/api/beta/actuator/health
 
-You should see this page:
-
-![image](assets/graph-views/server-api-rest.png)
-
+You should see server's state:
+``` shell
+{"status":"UP"}
+```
 > Don't forget to update both your desktop client configuration and your web
 > interface configuration. For your desktop client, follow the instructions for
 > setting up a server connexion `here <qc_login>`

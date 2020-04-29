@@ -78,7 +78,7 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+icon on the line corresponding to your Remote Server <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
 A pop-in will show the configuration to copy into the **Remote Server
 terminal**.
@@ -157,7 +157,7 @@ Hit the *Enter* key for the command to be applied.
 > You can copy the configuration in a custom file by copying the content from
 > the popin.
 
-#### Start Gorgone daemon
+#### Restart Gorgone daemon
 
 From the Remote Server, run the following command to restart Gorgone service:
 

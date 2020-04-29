@@ -4,6 +4,7 @@
             "getting-started/installation-first-steps",
             {
                 "ids": [
+                    "getting-started/introduction-tutorials",
                     "getting-started/create-custom-view",
                     "getting-started/create-graphical-view",
                     "getting-started/model-it-services",
@@ -95,7 +96,6 @@
                     "monitoring/discovery/installation",
                     "monitoring/discovery/hosts-discovery",
                     "monitoring/discovery/services-discovery",
-                    "monitoring/discovery/create-services-discovery-rules",
                     "monitoring/discovery/administration"
                 ],
                 "label": "Découverte",
@@ -132,14 +132,13 @@
         ],
         "Service Mapping": [
             "service-mapping/introduction",
-            "service-mapping/getting-started",
             {
                 "ids": [
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
                     "service-mapping/ba-settings",
-                    "service-mapping/widget"
+                    "service-mapping/widgets"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
@@ -158,7 +157,6 @@
         ],
         "Vues Graphiques": [
             "graph-views/introduction",
-            "graph-views/getting-started",
             {
                 "ids": [
                     "graph-views/create-standard-view",
@@ -219,7 +217,6 @@
                     "administration/parameters/centreon-ui",
                     "administration/parameters/monitoring",
                     "administration/parameters/gorgone",
-                    "administration/parameters/my-account",
                     "administration/parameters/ldap",
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",
@@ -240,7 +237,7 @@
         "Mettre à Jour, Monter de Version et Migrer": [
             {
                 "ids": [
-                    "update/introduction"
+                    "update/update-centreon-platform"
                 ],
                 "label": "Update",
                 "type": "subcategory"
@@ -316,6 +313,8 @@
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
+                    "integrations/plugin-packs/procedures/applications-salesforce-restapi",
+                    "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
@@ -365,7 +364,9 @@
                     "integrations/plugin-packs/procedures/cloud-aws-s3",
                     "integrations/plugin-packs/procedures/cloud-aws-billing",
                     "integrations/plugin-packs/procedures/cloud-aws-elb",
+                    "integrations/plugin-packs/procedures/cloud-aws-efs",
                     "integrations/plugin-packs/procedures/cloud-aws-lambda",
+                    "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
@@ -781,6 +782,13 @@
             "integrations/external/init-external-integrations",
             {
                 "ids": [
+                    "integrations/external/monitoring-dem-mip"
+                ],
+                "label": "Externes",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
                     "integrations/centreon-ha/architectures",
                     "integrations/centreon-ha/installation-2-nodes",
                     "integrations/centreon-ha/operating-guide",
@@ -791,14 +799,30 @@
                 "type": "subcategory"
             }
         ],
+         "Mobile App.": [
+            "mobile/introduction"
+        ],
         "API": [
             "api/introduction",
             "api/clapi",
             "api/rest-api-v1",
             "api/graph-views-api"
         ],
-        "Développeur": [
-            "developer/init-developer"
+        "Ressources dévelopeur": [
+            "developer/init-developer",
+            "developer/developer-module",
+            "developer/developer-stream-connector",
+            "developer/developer-translate-centreon",
+            "developer/developer-widget",
+            {
+                "ids": [
+                    "developer/developer-broker-stream-connector",
+                    "developer/developer-broker-bbdo",
+                    "developer/developer-broker-mapping"
+                ],
+                "label": "Centreon Broker",
+                "type": "subcategory"
+            }
         ],
         "Releases": [
             "releases/introduction",

@@ -78,19 +78,19 @@ To check its operation, you should check the centreontrapd configuration setting
 You can check the proper functioning of binary centreontrapd by checking the configuration part of
 *[centreontrapd](enable-snmp-traps.html#centreontrapd)*.
 
-### CentCore
+### Centreon Gorgone
 
-CentCore daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.
+Gorgoned daemon must be running to forward information from Centreontrapd to the monitoring engine as an external command.
 Enable the debug mode via **Administration > Options > Debug** menu and restart process.
 
-> You can edit debug severity level in **/etc/sysconfig/centcore** file.
+> You can change logging level through `Administration > Parameters > Debug` menu.
 
 If any external command are sent to the monitoring engine please check the path to "$cmdFile"" in **/etc/centreon/conf.pm**
 configuration file. The path should be **/var/lib/centreon/centcore.cmd** for a central Centreon server.
 
 ### Centreon Engine
 
-The monitoring engine must receive external commands from Centcore process in order to change status and output of the
+The monitoring engine must receive external commands from Centreon Gorgone process in order to change status and output of the
 passive service. Please check the event log. For Centreon Engine, the path is **/var/log/centreon-engine/centengine.log**.
 You should find lines as:
 

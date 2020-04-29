@@ -16,7 +16,7 @@ complex. In addition the installer shall be supported by the community.
 Before installation
 
 1.  Be sure to follow [the prerequisites installation and
-    sizing](prerequisites.html/#prerequisites) (resources CPU, memory, disks,
+    sizing](prerequisites.html) (resources CPU, memory, disks,
     partitioning, etc ...).
 2.  Take care to choose [the type of architecture](architectures.html) that
     should be set up for your needs.

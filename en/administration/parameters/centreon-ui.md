@@ -6,7 +6,7 @@ title: Centreon UI
 This part covers the configuration of the general options of the Centreon web
 interface.
 
-Go to **Administration > Parameters > Centreon UI**.
+Go to `Administration > Parameters > Centreon UI`.
 
 ![image](../../assets/administration/parameters-centreon-ui.png)
 
@@ -57,7 +57,7 @@ Define needed information:
 - **Proxy user**
 - **Proxy password**
 
-Once you defined settings, test your configuration by clicking on the **Text
+Once you defined settings, test your configuration by clicking on the **Test
 Proxy Configuration** button.
 
 ## Autologin

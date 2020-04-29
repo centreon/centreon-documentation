@@ -5,7 +5,7 @@ title: Gorgone
 
 This allows to set parameters needed by Centreon to interact with Gorgone.
 
-Go to **Administration > Parameters > Gorgone**.
+Go to `Administration > Parameters > Gorgone`.
 
 ![image](../../assets/administration/parameters-gorgone.png)
 

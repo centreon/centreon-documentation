@@ -6,7 +6,7 @@ title: Gorgone
 Cette partie permet de définir les paramètres nécessaire à Centreon pour
 intéragir avec Gorgone.
 
-Rendez-vous dans le menu **Administration \> Paramètres \> Gorgone**.
+Rendez-vous dans le menu `Administration > Paramètres > Gorgone`.
 
 ![image](../../assets/administration/parameters-gorgone.png)
 

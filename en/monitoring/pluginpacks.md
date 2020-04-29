@@ -50,13 +50,13 @@ yum update centreon-pp-manager
 
 A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
 subscription your license will be directly downloaded to your server. Otherwise, contact the
-*[Centreon support team](https://centreon.force.com)* to get and install your license key.
+[Centreon support team](https://centreon.force.com) to get and install your license key.
 
 ### Access to Plugin Packs
 
 If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
 Manager user interface. Otherwise, a dedicated RPM repository will be provided by
-*[Centreon support team](https://centreon.force.com)*.
+[Centreon support team](https://centreon.force.com).
 
 ## Overview
 
@@ -67,7 +67,7 @@ These templates (commands, hosts and services templates) are attached to the **m
 
 * existing community plugins selected and validated by Centreon as being fully functional and optimized, or
 * plugins written by Centreon that are distributed as free software under RPM or available on
-  *[Centreon Plugins](https://github.com/centreon/centreon-plugins)* project
+  [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
 
 The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
 **the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
@@ -114,9 +114,11 @@ Installation is a 3-step process:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Online platform-->
 
-If you benefit from an online subscription, you must first authenticate your Centreon platform.
-Go to the **Administration \> Extension \> Subscription** menu and log in with your Centreon 
-username to authenticate your Centreon platform.
+If you benefit from an online subscription, you must first authenticate your
+Centreon platform.
+
+Go to the `Administration > Extension > Subscription` menu and log in with your
+Centreon username to authenticate your Centreon platform.
 
 ![image](../assets/configuration/pluginpacks/imp_authentification.png)
 
@@ -164,7 +166,7 @@ Once the Plugin Pack is installed, a green outline and an arrow icon will indica
 
 > Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
 > well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
-> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction)
+> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction.html)
 
 #### Managing dependencies
 

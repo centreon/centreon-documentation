@@ -11,7 +11,7 @@ This chapters describes features you need to manipulate to be able to generate &
 
 A job is an entity that you configure to be able to generate a report and should be configured in terms of:
 
-- A report design to use 
+- A report design to use
 - Centreon objects (hosts, services, host groups, service groups, business activities, etc.)
 - A specific period (last month, current month, yesterday etc.. )
 
@@ -213,7 +213,7 @@ The "Tuning" menu contains three parameters:
 
     The default color theme can be changed through the Centreon MBI General
     options menu. For more information, see the General options chapter
-    [General options](general_options)
+    [General options](configure.html#general-options)
 
 -   **Multiplier coefficient of the scheduled task**: Each report design
     has a weight. A scheduled task can multiply this weight according to

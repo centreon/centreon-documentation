@@ -200,6 +200,17 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
+#### Upgrade extensions
+
+From `Administration > Extensions > Manager`, upgrade all extensions, starting
+with the following:
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Then you can upgrade all other commercial extensions.
+
 #### Start the tasks manager
 
 Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
@@ -223,7 +234,7 @@ chown -R centreon-gorgone /var/lib/centreon/nagios-perf/*
 
 #### Restart monitoring processes
 
-Centreon Broker component has changed his configuration file format.
+Centreon Broker component has changed its configuration file format.
 
 It now uses JSON instead of XML.
 
@@ -243,20 +254,132 @@ command:
 
 The MariaDB components can now be upgraded.
 
-Refer to the official MariaDB documentation to perform this upgrade.
+Be aware that MariaDB strongly recommends to upgrade the server through each
+major release. Please refer to the [official MariaDB documentation](https://mariadb.com/kb/en/upgrading/) for further information.
 
-> Be aware that MariaDB strongly recommends to upgrade the server through each
-> major release.
->
-> You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
->
-> That is why Centreon provides both 10.2 and 10.3 versions on its stable
-> repositories.
->
-> Refer to the following documentations to know how to proceed:
+You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+
+That is why Centreon provides both 10.2 and 10.3 versions on its stable
+repositories.
+
+> Refer to the official MariaDB documentation to know more about this process:
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+
+#### Configuration
+
+`innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2, so you should remove it
+from file **/etc/my.cnf.d/centreon.cnf**
+
+```diff
+#
+# Custom MySQL/MariaDB server configuration for Centreon
+#
+[server]
+innodb_file_per_table=1
+
+open_files_limit = 32000
+
+key_buffer_size = 256M
+sort_buffer_size = 32M
+join_buffer_size = 4M
+thread_cache_size = 64
+read_buffer_size = 512K
+read_rnd_buffer_size = 256K
+max_allowed_packet = 8M
+
+# For 4 Go Ram
+-#innodb_additional_mem_pool_size=512M
+#innodb_buffer_pool_size=512M
+
+# For 8 Go Ram
+-#innodb_additional_mem_pool_size=1G
+#innodb_buffer_pool_size=1G
+```
+
+#### Upgrade from 10.1 to 10.2
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.1 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.2 version:
+
+    ```shell
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.2 to 10.3
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.2 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.3 version:
+
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Enable MariaDB on startup
+
+Execute the following command:
+```shell
+systemctl enable mariadb
+```
 
 ## Upgrade the Remote Servers
 

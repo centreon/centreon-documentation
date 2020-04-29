@@ -12,15 +12,15 @@ const labels = {
     headerTitle: `Documentation`,
     links: [{
       title: `Getting Started`,
-      link: `getting-started/installation-first-steps`,
+      link: `getting-started/installation-first-steps.html`,
     },
     {
       title: `API References`,
-      link: `api/introduction`,
+      link: `api/introduction.html`,
     },
     {
       title: `Releases`,
-      link: `releases/introduction`,
+      link: `releases/introduction.html`,
     }],
   },
   resourcesPart: {
@@ -32,7 +32,7 @@ const labels = {
     },
     {
       title: `Blog`,
-      link: `https://blog.centreon.com`,
+      link: `https://www.centreon.com/en/blog/`,
       external: true,
     },
     {

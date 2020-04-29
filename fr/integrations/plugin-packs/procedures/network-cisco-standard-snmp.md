@@ -13,10 +13,10 @@ Cisco développe et fabrique des équipements de télécommunications, réseaux 
 
 Vous pouvez superviser tous les équipements embarquant les MIBs standards de Cisco:
 
-    * Routeurs
-    * Points d'accès 
-    * Switchs
-    * ...                     
+* Routeurs
+* Points d'accès 
+* Switchs
+* ...                     
 
 ### Règles de découverte 
 
@@ -30,10 +30,11 @@ Vous pouvez superviser tous les équipements embarquant les MIBs standards de Ci
 
 <!--Services-->
 
-| Nom de la règle                            | Description                                                                |
-| :----------------------------------------- | :------------------------------------------------------------------------- |
+| Nom de la règle                            | Description                                                                                   |
+| :----------------------------------------- | :-------------------------------------------------------------------------------------------- |
 | Net-Cisco-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces réseau et supervision des paquets en erreur/discard sur l'interface |
-| Net-Cisco-Standard-SNMP-Traffic-Name       | Découverte des interfaces réseau et supervision du trafic sur l'interface  |
+| Net-Cisco-Standard-SNMP-Traffic-Name       | Découverte des interfaces réseau et supervision du trafic sur l'interface                     |
+
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -41,13 +42,13 @@ Vous pouvez superviser tous les équipements embarquant les MIBs standards de Ci
 
 Seules les métriques de base sont décrites dans cette section. De nombreux modes supplémentaires sont disponibles selon la catégorie de votre équipement Cisco:
 
-	* hsrp: Statut du protocole HSRP
-	* ipsectunnel: Etat des tunnels VPN ipsec
-	* ipsla: Métriques de performances des sondes SLA configurées sur l'équipement
-	* load: Load sur les coeurs de l'équipement sur le format Linux
-	* memoryflash: Utilisation de la mémoire flash 
-	* qosusage: Contrôle des configurations et consommations sur la partie QOS
-	* stack: Etat de votre stack d'équipements
+* hsrp: Statut du protocole HSRP
+* ipsectunnel: Etat des tunnels VPN ipsec
+* ipsla: Métriques de performances des sondes SLA configurées sur l'équipement
+* load: Load sur les coeurs de l'équipement sur le format Linux
+* memoryflash: Utilisation de la mémoire flash 
+* qosusage: Contrôle des configurations et consommations sur la partie QOS
+* stack: Etat de votre stack d'équipements
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -111,19 +112,22 @@ Voici un exemple:
 
   * Se connecter à l'équipement en mode configuration 
 
-```Router#configure terminal 
+```
+Router#configure terminal 
 Enter configuration commands, one per line.  End with CNTL/Z. 
 Router(config)#
 ```
 
   * Activer le SNMP en configurant une communauté en lecture seule 
 
-```Router(config)#snmp-server community public RO 
 ```
+Router(config)#snmp-server community public RO 
+```
+
 
 Dans l'exemple ci-dessus, la communauté choisie est 'public'. Cette valeur est ici utilisée à titre d'exemple et est à proscrire en utilisation normale. 
 
-### Network flow
+### Flux réseaux
 
 Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
 

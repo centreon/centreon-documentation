@@ -41,14 +41,14 @@ previous menu, no scheduled task will appear here.
 ![image](../assets/reporting/guide/AclRulesReportJob.png)
 
 > **Important**
-> 
+>
 > Non-administrator users cannot receive notification for
 > reports they are not authorized to view even if they are associated with
 > a contact group eligible for notification.
-> 
+>
 > You can assign read-only access to users on the ACL for viewing the
 > content of other Centreon menus. These include:
-> 
+>
 > - Job groups
 > - Report designs
 > - Report design groups
@@ -58,7 +58,6 @@ previous menu, no scheduled task will appear here.
 We strongly advise against giving a limited user access to the "General
 options" page, which would allow him or her to modify the
 configuration.
-
 
 ## General Options
 
@@ -87,7 +86,6 @@ The notification option parameters can be modified in the menu:
 `Reporting > Business Intelligence > General Options | Notification Options`
 
 Description:
-
 
   Row                                           |  Description
   ----------------------------------------------|-------------------------------------------------

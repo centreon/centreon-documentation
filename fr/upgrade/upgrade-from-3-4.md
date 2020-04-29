@@ -227,6 +227,17 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
+#### Montée de version des extensions
+
+Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+toutes les extensions, en commençant par les suivantes :
+
+  - License Manager,
+  - Plugin Packs Manager,
+  - Auto Discovery.
+
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
 #### Démarrer le gestionnaire de tâches
 
 Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
@@ -272,22 +283,134 @@ suivante:
 
 Les composants MariaDB peuvent maintenant être mis à jour.
 
-Reférez vous à la documentation officiel de MariaDB pour réaliser cette
-montée de version.
+Sachez que MariaDB recommande vivement de monter en version le serveur en
+passant par chacune des versions majeures. Veuillez vous référer à la [documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour plus d'informations.
 
-> Sachez que MariaDB recommande vivement de monter en version le serveur en
-> passant par chacune des versions majeures.
->
-> Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
-> 10.3.
->
-> Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
-> dépôts stables.
->
-> Consultez les documentations suivantes pour savoir comment procéder :
+Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
+10.3.
+
+Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
+dépôts stables.
+
+> Référez vous à la documentation officielle de MariaDB pour en savoir d'avantage
+> sur ce processus :
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+
+#### Configuration
+
+Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB 10.2, vous devez donc le supprimer
+du fichier **/etc/my.cnf.d/centreon.cnf**
+
+```diff
+#
+# Custom MySQL/MariaDB server configuration for Centreon
+#
+[server]
+innodb_file_per_table=1
+
+open_files_limit = 32000
+
+key_buffer_size = 256M
+sort_buffer_size = 32M
+join_buffer_size = 4M
+thread_cache_size = 64
+read_buffer_size = 512K
+read_rnd_buffer_size = 256K
+max_allowed_packet = 8M
+
+# For 4 Go Ram
+-#innodb_additional_mem_pool_size=512M
+#innodb_buffer_pool_size=512M
+
+# For 8 Go Ram
+-#innodb_additional_mem_pool_size=1G
+#innodb_buffer_pool_size=1G
+```
+
+#### Montée de version de 10.1 à 10.2
+
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Désinstallez la version actuelle 10.1 :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Installez la version 10.2 :
+
+    ```shell
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
+
+#### Montée de version de 10.2 à 10.3
+
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Désinstallez la version actuelle 10.2 :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Installez la version 10.3 :
+
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
+
+#### Activer MariaDB au démarrage automatique
+
+Exécutez la commande suivante :
+```shell
+systemctl enable mariadb
+```
 
 ## Montée de version des Pollers
 

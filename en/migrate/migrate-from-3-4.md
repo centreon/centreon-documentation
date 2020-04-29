@@ -16,24 +16,25 @@ Here are the system requirements:
 | Centreon Engine | 1.8.x   |
 
 > If your platform was installed from Centreon ISO or Centreon 3.4 repositories
-> running on CentOS or Red Hat version 7, refer to the [upgrade](../upgrade/upgrade-from-3-4.html)
-> documentation.
+> running on CentOS or Red Hat version 7, refer to the
+> [upgrade](../upgrade/upgrade-from-3-4.html) documentation.
 
 ## Migrate
 
-> If your Centreon platform includes a Centreon redundancy system, please contact
-> [Centreon support](https://centreon.force.com).
+> If your Centreon platform includes a Centreon redundancy system, please
+> contact [Centreon support](https://centreon.force.com).
 
 > If you try to migrate a platform using the **Centreon Poller Display 1.6.x**,
-> please refer to the following [migration procedure](../upgrade/poller-display-to-remote-server.html).
+> please refer to the following [migration
+> procedure](poller-display-to-remote-server.html).
 
 ### Install the new server
 
 Perform the following actions:
 
 1. You will need to install a new Centreon Central server from the
-[ISO](../installation/centreon-from-iso.html) or from
-[packages](../installation/centreon-from-packages.html), until you
+[ISO](../installation/installation-of-a-central-server/using-centreon-iso.html) or from
+[packages](../installation/installation-of-a-central-server/using-packages.html), until you
 complete the installation process by connecting to the Centreon Web
 interface.
 
@@ -179,8 +180,8 @@ Go to *http://\<IP_NEW_CENTREON\>/centreon* URL and perform the upgrade.
 
 If the IP of your Centreon server has changed, edit the configuration for all
 the Centreon Broker modules of your Pollers and change the IP to connect to
-the Centreon Central server (output IPv4). See the
-[Advanced configuration](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
+the Centreon Central server (output IPv4). See the [Advanced
+configuration](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
 chapter for more information.
 
 Then [generate](../monitoring/monitoring-servers/deploying-a-configuration.html) the

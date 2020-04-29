@@ -17,7 +17,7 @@ There are 3 kinds of extensions:
 To install an extension:
 
 1. Install the extensions from the associated documentation.
-2. Go into the **Administration > Extensions > Manager** menu.
+2. Go into the `Administration > Extensions > Manage` menu.
 
 ![image](../assets/administration/install-imp-1.png)
 

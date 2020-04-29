@@ -6,7 +6,7 @@ title: Supervision
 Cette partie traite des options générales de l'interface de supervision temps
 réel.
 
-Rendez-vous dans le menu **Administration \> Paramétres \> Supervision**
+Rendez-vous dans le menu `Administration > Paramètres > Supervision`
 
 ![image](../../assets/administration/parameters-monitoring.png)
 

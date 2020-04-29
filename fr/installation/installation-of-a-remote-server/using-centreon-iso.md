@@ -123,6 +123,15 @@ Redémarrez votre système avec la commande :
 reboot
 ```
 
+### Lancement des services au démarrage
+
+Pour activer le lancement automatique des services au démarrage, exécutez la
+commande suivante sur le serveur Central :
+
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+
 ## Installation web
 
 Terminez l'installation en réalisant les
@@ -166,6 +175,12 @@ exécutez la commande suivante :
   - Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
     mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
 
+Par exemple :
+
+``` shell
+/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
+```
+
 Cette commande va activer le mode **Remote Server** :
   
   - en limitant l'accès au menu,
@@ -195,4 +210,4 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 ## Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre
-[Ajouter un Remote Server à la configuration](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).
+[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).

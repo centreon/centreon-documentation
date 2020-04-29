@@ -3,10 +3,6 @@ id: communications
 title: Communications
 ---
 
-## Architecture Gorgone
-
-TODO
-
 ## Modes de communication
 
 Même si Gorgone est installé sur les Pollers et les Remote Servers, il est
@@ -91,8 +87,8 @@ exporter la configuration.
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Poller, et sélectionner **ZMQ**
-comme **Gorgone connection protocol**.
+Depuis le menu `Configuration > Collecteurs`, éditer la configuration du Poller,
+et sélectionner **ZMQ** comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 
@@ -103,15 +99,15 @@ Cliquer sur **Save**.
 #### Afficher la configuration de Gorgone
 
 Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration**.
+configuration** sur la ligne correspondant à votre Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-Une popin affiche la configuration à copier dans le terminal du Poller. Cliquer
-sur **Copy to clipboard**.
+Une pop-in affiche la configuration à copier dans le **terminal du Poller**.
+Cliquer sur **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-Copier directement dans le terminal car le contenu suivant est dans le
-presse-papier et créera le fichier de configuration attendu :
+Coller le contenu du presse-papier directement dans le **terminal du Poller**
+car celui-ci créera le fichier de configuration attendu :
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -146,13 +142,14 @@ Appuyer sur la touche entrée pour que la commande soit appliquée.
 
 #### Démarrer le daemon Gorgone
 
-Depuis le Poller, exécuter la commande suivante :
+Depuis le Poller, exécuter la commande suivante pour démarrer le service
+Gorgone :
 
 ```shell
 systemctl start gorgoned
 ```
 
-Assurez vous que le service est démarrer en exécutant la commande suivante :
+Assurez vous que le service est démarré en exécutant la commande suivante :
 
 ```shell
 systemctl status gorgoned
@@ -174,10 +171,16 @@ Le résultat devrait être similaire :
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
 
+Enfin, activez le démarrage automatique du service avec la commande :
+
+```shell
+systemctl enable gorgoned
+```
+
 > S'il y a un Remote Server entre le Central et ce Poller, assurez-vous
 > d'exporter la configuration du Remote Server.
 >
-> Depuis la liste des Pollers,sélectionner le Remote Server et cliquer sur
+> Depuis la liste des Pollers, sélectionner le Remote Server et cliquer sur
 > **Export configuration**.
 >
 > Sélectionner ensuite les trois premières cases puis cliquer sur **Export**.
@@ -193,8 +196,8 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Remote Server, et sélectionner **ZMQ**
-comme **Gorgone connection protocol**.
+Depuis le menu `Configuration > Collecteurs`, éditer la configuration du Remote
+Server, et sélectionner **ZMQ** comme **Gorgone connection protocol**.
 
 Définir le **port** adéquat (le port **5556** est recommandé).
 
@@ -205,15 +208,16 @@ Cliquer sur **Save**.
 #### Afficher la configuration de Gorgone
 
 Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration**.
+configuration** sur la ligne correspondant à votre Remote Server <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-Une popin affiche la configuration à copier dans le terminal du Remote Server. Cliquer
-sur **Copy to clipboard**.
+Une pop-in affiche la configuration à copier dans le **terminal du Remote
+Server**.
+Cliquer sur **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
 
-Copier directement dans le terminal car le contenu suivant est dans le
-presse-papier et créera le fichier de configuration attendu :
+Coller le contenu du presse-papier directement dans le **terminal du Remote
+Server** car celui-ci créera le fichier de configuration attendu :
 
 ```shell
 cat <<EOF > /etc/centreon-gorgone/config.d/40-gorgoned.yaml
@@ -285,13 +289,14 @@ Appuyer sur la touche entrée pour que la commande soit appliquée.
 
 #### Redémarrer le daemon Gorgone
 
-Depuis le Remote Server, exécuter la commande suivante :
+Depuis le Remote Server, exécuter la commande suivante pour redémarrer le
+service Gorgone :
 
 ```shell
 systemctl restart gorgoned
 ```
 
-Assurez vous que le service est démarrer en exécutant la commande suivante :
+Assurez vous que le service est démarré en exécutant la commande suivante :
 
 ```shell
 systemctl status gorgoned
@@ -323,7 +328,7 @@ Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **Pour forcer le Gorgone du Central à changer le mode de communication**,
-redémarrez le avec la commande suivante :
+redémarrez le avec la commande suivante depuis le **serveur Central** :
 
 ```shell
 systemctl restart gorgoned

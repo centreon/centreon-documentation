@@ -5,7 +5,7 @@ title: Debug
 
 This part allows to enable debug level logging of Centreon processes.
 
-Go to **Administration > Parameters > Debug**.
+Go to `Administration > Parameters > Debug`.
 
 ![image](../../assets/administration/parameters-debug.png)
 

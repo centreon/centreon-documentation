@@ -30,7 +30,7 @@ Se rendre dans l'onglet "Output", sélectionner une configuration de
 type **BAM - Monitoring engine (BAM)** et cliquer sur le bouton
 **Ajouter**
 
-![image](assets/service-mapping/remote-server/conf_poller_bam_monitoring.png)
+![image](../assets/service-mapping/remote-server/conf_poller_bam_monitoring.png)
 
 Le tableau ci-dessous présente les champs à saisir :
 
@@ -57,7 +57,7 @@ Le tableau ci-dessous présente les champs à saisir :
 Ajouter un nouvel output et sélectionner une configuration de type **BAM - BI engine (BAM)** et
 cliquer sur le bouton **Add**
 
-![image](assets/service-mapping/remote-server/conf_poller_bam_reporting.png)
+![image](../assets/service-mapping/remote-server/conf_poller_bam_reporting.png)
 
 Le tableau ci-dessous présente les champs à saisir :
 

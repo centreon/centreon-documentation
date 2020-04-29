@@ -5,7 +5,7 @@ title: Install the extension
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
 > purchase one and retrieve the necessary repositories, contact
-> [Centreon](sales@centreon.com).
+> [Centreon](mailto:sales@centreon.com).
 
 
 Four major steps to installing Centreon MBI:
@@ -145,7 +145,9 @@ Volume group name:
 We advise to tune your MariaDB database server on your reporting server in
 order to have better performance. You will need at least 12GB on your
 reporting server to run the configuration file provided below. Add the
-[following file](assets/reporting/centreon.cnf) on your reporting server in /etc/my.cnf.d/.
+[following file](../assets/reporting/installation/centreon.cnf) on your
+reporting server in /etc/my.cnf.d/.
+
 Make sure to have a *tmp* folder in */var/lib/mysql*.
 
 > Do not set these MariaDB optimizations on your monitoring server.
@@ -162,10 +164,7 @@ Description of users, umask and home directory:
 |------------|------------|-------------------|
 | centreonBI | 0002       |  /home/centreonBI |
 
-
-
-### Best practices for monitoring 
-
+### Best practices for monitoring
 
 #### Quality of plugins, performance and capacity data
 
@@ -410,7 +409,7 @@ commands: :
 > Then, create the views manually on the slave server by launching the
 > following command line:
 >
-> #mysql centreon < [view_creation.sql](assets/reporting/view_creation.sql)
+> #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
 
 
 Please go to the next chapter to continue the installation.
@@ -446,7 +445,7 @@ need to add the following GPG key: :
 #### MariaDB optimization
 
 Make sure you have installed the MariaDB configuration file provided in
-the pre-requisites before starting the MariaDB service [following file](assets/reporting/centreon.cnf)
+the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf)
 
     systemctl restart mysql
 
@@ -628,4 +627,3 @@ Restart the service cron::
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
 Centreon MBI installation is now complete, check [the tutorial](#TODO)
-

@@ -4,12 +4,11 @@ title: LDAP
 ---
 
 > Si vous souhaitez implémenter une authentification SSO, suivez
-> *[cette procédure](centreon-ui#sso)*. Vous pouvez également utiliser le
-> SSO Keycloak en suivant *[cette procédure](centreon-ui#sso-keycloak)*.
+> [cette procédure](centreon-ui.html#sso).
 
 Cette partie permet de configurer la connexion au(x) annuaire(s) LDAP.
 
-Rendez-vous dans le menu **Administration \> Paramétres \> LDAP** et cliquez
+Rendez-vous dans le menu `Administration > Paramètres > LDAP` et cliquez
 sur **Ajouter**.
 
 ![image](../../assets/administration/parameters-ldap-add.png)
@@ -56,8 +55,8 @@ durée minimale entre deux synchronisation avec le LDAP.
 > sera écoulé.
 >
 > Une synchronisation manuelle est possible sur les pages
-> **Administration \> Sessions** et **Configuration \> Utilisateurs \> Contacts /
-> Utilisateurs**.
+> `Administration > Sessions` et `Configuration > Utilisateurs > Contacts /
+> Utilisateurs`.
 >
 > L'intervalle est exprimé en heures. Par défaut, ce champs est initié avec la
 > plus basse valeur possible : 1 heure.

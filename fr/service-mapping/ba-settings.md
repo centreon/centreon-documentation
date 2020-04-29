@@ -21,11 +21,11 @@ impacts Faible, Mineur,Majeur,Non fonctionnel,Bloquant. Ces valeurs
 prédéfinies des impacts sont utilisées lors de la définition de
 l'impact des différents status des indicateurs en mode "basique".
 
-![image](assets/service-mapping/list_impacts_basic.png)
+![image](../assets/service-mapping/list_impacts_basic.png)
 
 Chaque impacts correspond à un impact en pourcentage.
 
-![image](assets/service-mapping/impacts_configuration.png)
+![image](../assets/service-mapping/impacts_configuration.png)
 
 ### Impacts par défaut des activités métier et règles booléennes
 
@@ -34,7 +34,7 @@ type "Activité métier" et "Règle booléenne". Elles permettent de
 pré-remplir les champs lors de la bascule de la configuration en mode
 "Avancé".
 
-![image](assets/service-mapping/impacts_ba_boolean.png)
+![image](../assets/service-mapping/impacts_ba_boolean.png)
 
 ### Paramètres des activités métier par défaut
 
@@ -42,7 +42,7 @@ Les paramètres ci-dessous permettent de définir les valeurs par défaut
 que prendront les activité métiers. Seule la commande de notification ne
 peut être surchargée au niveau des activités métier.
 
-![image](assets/service-mapping/default_ba_parameters.png)
+![image](../assets/service-mapping/default_ba_parameters.png)
 
  Colonne | Description
 --------------|-----------------------------------------------------
@@ -59,7 +59,7 @@ solutions externes (Slack, OpenDuty etc..) appartenant au(x) groupe(s)
 de contacts sélectionnés, vous devez configurer la section "Business
 activity" pour les utilisateurs concernés:
 
-![image](assets/service-mapping/bam_user_notification.png)
+![image](../assets/service-mapping/bam_user_notification.png)
 
 Paramètres utilisateur
 ======================
@@ -78,7 +78,7 @@ avec toutes les BA autorisées. L'utilisateur a cependant la possibilité
 de composer sa propre vue d'ensemble en y ajoutant les BA de son choix,
 parmi celles qui sont autorisées.
 
-![image](assets/service-mapping/user_custom.png)
+![image](../assets/service-mapping/user_custom.png)
 
 Style de graphique par défaut
 -----------------------------

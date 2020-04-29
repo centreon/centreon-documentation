@@ -8,6 +8,8 @@ relativement simple avec un serveur hébergeant tous les services, l'architectur
 découpage stratégique permettant de répartir la charge de collecte sur plusieurs serveur avec la mise en place de points
 de collecte sur plusieurs continents.
 
+## Architectures disponibles
+
 Vous trouverez ici toutes les architectures supportées :
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -76,7 +78,7 @@ Le serveur central fonctionne de la manière suivante :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision ainsi que les données de performances
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et satellites ainsi que du redémarrage des moteurs de supervision
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et satellites ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données de performances à Centreon Broker RRD
@@ -139,7 +141,7 @@ Le serveur central fonctionne de la manière suivante :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Le serveur central récupère la configuration ainsi que les informations de supervision en se connectant au serveur de
   base de données
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
   collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -204,7 +206,7 @@ Le serveur central fonctionne normalement :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision
   ainsi que les données de performances
-* Le service CentCore est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
+* Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
   collecteurs ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -219,7 +221,7 @@ Le Remote Server fonctionne normalement :
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
 * Plusieurs bases de données MariaDB sont chargées de stocker les informations de supervision ainsi que les données de
   performances
-* Le service CentCore est chargé d'opérer sur les données collectées
+* Le service Centreon Gorgone est chargé d'opérer sur les données collectées
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
 * Centreon Broker SQL est chargé d'insérer les données de supervision en base de données et de transmettre les données
@@ -241,3 +243,44 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 ![image](../assets/architectures/Architecture_distributed_remote.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+## Tableau des flux réseau
+
+#### Tableaux des flux d'intégration de la plate-forme de supervision dans le SI
+
+| Depuis         | Vers           | Protocole  | Port               | Application                                                                         |
+|----------------|----------------|------------|--------------------|-------------------------------------------------------------------------------------|
+| Central server | NTP server     | NTP        | UDP 123            | Synchronisation de l'horloge système                                                |
+| Central server | DNS server     | DNS        | UDP 53             | Résolution des nom de domaine                                                       |
+| Central server | SMTP server    | SMTP       | TCP 25             | Notification par mail                                                               |
+| Central server | LDAP(s) server | LDAP(s)    | TCP 389 (636)      | Authentification pour accéder à l'interface web Centreon                            |
+| Central server | DBMS server    | MySQL      | TCP 3306           | Accès aux bases de données Centreon                                                 |
+| Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | Si votre plate-forme nécessite un proxy web pour accéder à la solution Centreon IMP |
+| Central server | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Dépôt des paquets systèmes et applicatifs                                           |
+
+| Depuis         | Vers           | Protocole  | Port               | Application                                                                         |
+|----------------|----------------|------------|--------------------|-------------------------------------------------------------------------------------|
+| Collecteur     | NTP server     | NTP        | UDP 123            | Synchronisation de l'horloge système                                                |
+| Collecteur     | DNS server     | DNS        | UDP 53             | Résolution des nom de domaine                                                       |
+| Collecteur     | SMTP server    | SMTP       | TCP 25             | Notification par mail                                                               |
+| Collecteur     | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Dépôt des paquets systèmes et applicatifs                                           |
+
+> D'autres flux peuvent être nécessaires suivant le moyen d'authentification sélectionné (RADIUS, etc.) ou le moyen de notification mis en oeuvre.
+
+#### Tableau des flux de la supervision
+
+| Depuis             | Vers                               | Protocole  | Port            | Application                                     |
+|--------------------|------------------------------------|------------|-----------------|-------------------------------------------------|
+| Central serveur    | Collecteur                         | ZMQ        | TCP 5556        | Export des configurations Centreon              |
+| Central serveur    | Collecteur                         | SSH        | TCP 22 (legacy) | Export des configurations Centreon              |
+| Central serveur    | Remote Server                      | HTTP(S)    | TCP 80 (443)    | Export des configurations Remote Server         |
+| Collecteur         | Central serveur                    | BBDO       | TCP 5669        | Transfert des données de supervision collectées |
+| Collecteur         | Equipements réseau, serveurs, etc. | SNMP       | UDP 161         | Supervision                                     |
+| Equipements réseau | Collecteur                         | Trap SNMP  | UDP 162         | Supervision                                     |
+| Collecteur         | Servers                            | NRPE       | TCP 5666        | Supervision                                     |
+| Collecteur         | Servers                            | NSClient++ | TCP 12489       | Supervision                                     |
+| Remote Server      | Central serveur                    | HTTP(S)    | TCP 80 (443)    | Activation de la fonctionnalité Remote Server   |
+
+> Dans le cas où le serveur central Centreon fait office de collecteur, ne pas oublier d'ajouter les flux nécessaires de supervision.
+
+> D'autres flux peuvent être nécessaires dans le cas de la supervision de bases de données, d'accès à des API, d'accès à des ports applicatifs, etc.

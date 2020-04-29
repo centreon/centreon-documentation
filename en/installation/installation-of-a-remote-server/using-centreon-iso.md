@@ -48,7 +48,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](../../assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](prerequisites.html). Then click on **Done**:
+[prerequisites chapter](../prerequisites.html). Then click on **Done**:
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -125,6 +125,15 @@ Then restart your server with the following command:
 reboot
 ```
 
+### Services startup during system bootup
+
+To make services start automatically during system bootup, run these commands
+on the central server:
+
+```shell
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+
 ## Web installation
 
 Conclude installation by performing [web intallation steps](../web-and-post-installation.html#Web-installation).
@@ -166,6 +175,12 @@ execute following command:
 
   - For the **\<no proxy to call Central\>** option you can put **1** to do not use
     HTTP(S) proxy to contact the Centreon Central server.
+
+
+For instance : 
+``` shell
+/usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
+```
 
 This command will enable **Remote Server** mode:
   

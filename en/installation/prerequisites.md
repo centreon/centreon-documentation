@@ -145,16 +145,16 @@ Files system description:
 
 Description of software and linked users:
 
-| Software          | Service          | User            | Comment         |
-| ----------------- | ---------------- | --------------- | --------------- |
-| Apache            | httpd24-httpd    | apache          | automatic start |
-| PHP-FPM           | rh-php72-php-fpm | apache          | automatic start |
-| MariaDB           | mariadb          | mysql           | automatic start |
-| Centreon          | centcore         | centreon        | automatic start |
-| Centreon          | centreontrapd    | centreon        | automatic start |
-| Centreon Broker   | cbwd             | centreon-broker | automatic start |
-| Centreon Broker   | cbd              | centreon-broker | automatic start |
-| Centreon Engine   | centengine       | centreon-engine | automatic start |
+| Software          | Service          | User             | Comment         |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd24-httpd    | apache           | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 Description of optional software and linked users:
 
@@ -165,20 +165,22 @@ Description of optional software and linked users:
 
 Description of groups and linked users:
 
-| Group           | Users                                  |
-|-----------------|----------------------------------------|
-| apache          | nagios,centreon                        |
-| centreon        | centreon-engine,centreon-broker,apache |
-| centreon-broker | centreon,nagios,centreon-engine,apache |
-| centreon-engine | centreon-broker,apache,nagios,centreon |
+| Group            | Users                                                   |
+|----------------- |---------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                        |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
+| centreon-gorgone | centreon,apache                                         |
 
 Description of users, umask and home directory:
 
-| User            | umask | home                     |
-|-----------------|-------|--------------------------|
-| root            | 0022  | /root                    |
-| apache          | 0022  | /var/www                 |
-| centreon        | 0002  | /var/spool/centreon      |
-| centreon-broker | 0002  | /var/lib/centreon-broker |
-| centreon-engine | 0002  | /var/lib/centreon-engine |
-| mysql           | 0002  | /var/lib/mysql           |
+| User             | umask | home                      |
+|------------------|-------|---------------------------|
+| root             | 0022  | /root                     |
+| apache           | 0022  | /var/www                  |
+| centreon         | 0002  | /var/spool/centreon       |
+| centreon-broker  | 0002  | /var/lib/centreon-broker  |
+| centreon-engine  | 0002  | /var/lib/centreon-engine  |
+| centreon-gorgone | 0002  | /var/lib/centreon-gorgone |
+| mysql            | 0002  | /var/lib/mysql            |

@@ -17,7 +17,7 @@ when you are mouse hovering some types of objects in a view: links (status &
 metric), services, metaservices, hosts, host groups and service groups. This
 window is kept open as long as your cursor is hover the tooltip.
 
-![image](assets/graph-views/tooltips.gif)
+![image](../assets/graph-views/tooltips.gif)
 
 Depending on the type of GUI object under your mouse, different information will
 be displayed. For instance, a link (status & metric, services and metaservice)
@@ -60,11 +60,11 @@ at once. To do so:
 
 Example: linear coloration from gray to blue
 
-![image](assets/graph-views/links_color_1.png)
+![image](../assets/graph-views/links_color_1.png)
 
 Another example: range coloration
 
-![image](assets/graph-views/links_color_2.png)
+![image](../assets/graph-views/links_color_2.png)
 
 ## Use the widget
 
@@ -74,4 +74,4 @@ do so, add a new widget on the custom view and search for "MAP".
 When you add the widget, you can select a view and save position & zoom at any
 level.
 
-![image](assets/graph-views/widget.png)
+![image](../assets/graph-views/widget.png)

@@ -18,7 +18,7 @@ Centreon,
 Pour installer une extension :
 
 1. Installez l'extension depuis sa documentation associée,
-2. Rendez-vous dans le menu **Administration \> Extensions \> Manager**
+2. Rendez-vous dans le menu `Administration > Extensions > Gestionnaire`
 
 ![image](../assets/administration/install-imp-1.png)
 

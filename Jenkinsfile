@@ -30,15 +30,29 @@ node {
   stage('Build') {
     sh "./centreon-build/jobs/doc/doc-build.sh"
     publishHTML([
-      reportDir: 'build/unstable',
+      reportDir: 'preview',
       reportFiles: 'index.html',
       reportName: 'Centreon documentation preview'
     ])
   }
+}
+if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
+  stage('Staging') {
+    milestone label: 'Staging'
+    node {
+      sh 'setup_centreon_build.sh'
+      sh "./centreon-build/jobs/doc/doc-staging.sh"
+    }
+  }
 
-  if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
-    stage('Delivery') {
-      sh "./centreon-build/jobs/doc/doc-delivery.sh"
+  stage('Release') {
+    timeout(time: 1, unit: 'HOURS') {
+      input message: 'Release documentation ?', ok: 'Release'
+    }
+    milestone label: 'Release'
+    node {
+      sh 'setup_centreon_build.sh'
+      sh "./centreon-build/jobs/doc/doc-release.sh"
     }
   }
 }

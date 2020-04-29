@@ -44,8 +44,8 @@ const siteConfig = {
   ],
   // Algolia search field
     algolia: {
-      apiKey: 'my-api-key',
-      indexName: 'my-index-name',
+      apiKey: '2c8912e81dc56e382c3964f26634e056',
+      indexName: 'centreon',
       algoliaOptions: {} // Optional, if provided by Algolia
     },
   // If you have users set above, you add it here:
@@ -128,7 +128,7 @@ const siteConfig = {
   customDocsPath: '@LANGUAGE@',
 
   // Add google analytics testing tag before production tag
-  gaTrackingId: 'UA-8418698-12'
+  gaTrackingId: 'UA-8418698-13'
 };
 
 module.exports = siteConfig;

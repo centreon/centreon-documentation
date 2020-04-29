@@ -4,7 +4,7 @@ title: Install the extension
 ---
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
-> necessary repositories, contact [Centreon](sales@centreon.com).
+> necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 This chapter describes how to install Centreon MAP. The server must be installed
 on a dedicated machine to allow Centreon MAP to operate with its own database
@@ -25,7 +25,7 @@ Centreon MAP consists of three components:
 
 The diagram below summarizes the architecture:
 
-![image](assets/graph-views/map_flux.png)
+![image](../assets/graph-views/map_architect.png)
 
 **Table of network flow**
 
@@ -278,14 +278,14 @@ Go to `Centreon > Administration > Extensions` and click on the install button:
   - License Manager (*if not yet installed*)
   - Map Web Client
 
-![image](assets/graph-views/install-web-step-1.png)
+![image](../assets/graph-views/install-web-step-1.png)
 
 You can see a red stripe asking for a license.
 
 Upload the license **map.license** given by the support team. Refresh the page and
 the banner must be green with the valid license date.
 
-![image](assets/graph-views/install-web-step-2.png)
+![image](../assets/graph-views/install-web-step-2.png)
 
 Click on Back to return to the Extensions page. Now that the module is
 installed, we will configure it.
@@ -297,13 +297,13 @@ update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
 
-![image](assets/graph-views/install-web-step-3.png)
+![image](../assets/graph-views/install-web-step-3.png)
 
 ### Using the client
 
 The Centreon MAP Web interface is now available in `Monitoring > MAP`.
 
-![image](assets/graph-views/install-web-step-4.png)
+![image](../assets/graph-views/install-web-step-4.png)
 
 *If the content doesn't display, you may empty your browser cache*
 
@@ -313,7 +313,7 @@ By installing the Web interface, you automatically add the Centreon MAP Widget,
 but you need to perform one last task. Go to `Administration > Extensions`
 and click on the "Install" button on the widget. The result after installed:
 
-![image](assets/graph-views/install-web-step-widget.png)
+![image](../assets/graph-views/install-web-step-widget.png)
 
 ## Desktop Client
 
@@ -363,7 +363,7 @@ Use the installer to install the software properly and integrate it into the
 Windows environment. The installer can also be used to uninstall it from the
 Windows dedicated configuration page.
 
-![image](assets/graph-views/windows_start_menu.png)
+![image](../assets/graph-views/windows_start_menu.png)
 
 **For Debian**
 
@@ -379,7 +379,7 @@ You should now be able to run Centreon-Map4.
 
 You will also find it in the list of installed applications.
 
-![image](assets/graph-views/ubuntu_launch_menu.png)
+![image](../assets/graph-views/ubuntu_launch_menu.png)
 
 ### Updates
 

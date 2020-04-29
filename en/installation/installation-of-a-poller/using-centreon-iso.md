@@ -46,7 +46,7 @@ Select the hard disk drive and the **I will configure partitioning** option. The
 ![image](../../assets/installation/06_select_disk.png)
 
 Using the **+** button, create your own partitioning file system following the instructions in
-[prerequisites chapter](prerequisites.html). Then click on **Done**:
+[prerequisites chapter](../prerequisites.html). Then click on **Done**:
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 

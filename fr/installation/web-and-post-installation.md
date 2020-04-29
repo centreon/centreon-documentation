@@ -95,8 +95,8 @@ Vous pouvez maintenant vous connecter.
 
 Pour démarrer les processus de supervision :
 
-1. Depuis l'interface web, rendez-vous dans le menu
-**Configuration \> Collecteurs \> Collecteurs**,
+1. Depuis l'interface web, rendez-vous dans le menu `Configuration >
+Collecteurs`,
 2. Sélectionnez le collecteur **Central** dans la liste et cliquez sur
 **Exporter la configuration**,
 3. Cochez **Déplacer les fichiers générés** en plus de la sélection par défaut
@@ -130,7 +130,7 @@ La supervision est maintenant opérationnelle.
 
 ## Installer les extensions disponibles
 
-Rendez-vous au menu **Administration \> Extensions \> Manager** et cliquez sur
+Rendez-vous au menu `Administration > Extensions > Gestionnaire` et cliquez sur
 le bouton **Install all** :
 
 ![image](../assets/installation/extensions-manager.png)

@@ -3,51 +3,34 @@ id: installation
 title: Installation
 ---
 
-## Architecture
+## Installation du paquet
 
-Le module **Centreon Auto Discovery** est composé de 3 parties :
+Exécutez la commande suivante sur le serveur Central :
 
-* Une interface Web : création des règles, administration et exploitation du module ;
-* Les sondes de découvertes ;
-* Les tâches CRON qui exécutent les règles de découverte.
-
-Les sondes de découverte vérifient la présence de nouveaux éléments à superviser. Voir
-*[sondes de découvertes](create-services-discovery-rules.html#Sondes-de-découverte)* pour plus de détails.
-
-Les règles, gérées à travers l’interface Web, sont sauvegardées dans la base de données Centreon et sont exécutées
-périodiquement (toutes les nuits à 22h30) par une *[tâche planifiée cron](administration.html#Tâche-programmée)*.
-
-Les schémas suivants décrivent le fonctionnement général du module :
-
-![image](../../assets/configuration/autodisco/centreon_auto_disco_schema.png)
-
-## Installing packages
-
-Exécutez la commande suivante :
-
-```shell
+``` shell
 yum install -y centreon-auto-discovery-server
 ```
 
-## Configuration des accès à l’API Centreon
+## Installation de l'extension
 
-Editez le fichier **/etc/centreon/centreon_autodisco.pm** et modifiez les valeurs des paramères **clapi_user** et
-**clapi_password** puis sauvegarder les modifications.
+Connectez-vous à l’interface web de Centreon en utilisant un compte ayant les
+droits d’installer des modules et rendez-vous dans le menu `Administration >
+Extensions > Manager`.
 
-## Installation web
+> Assurez vous que les modules **License Manager** et **Plugin Packs Manager**
+> sont à jour avant de procéder à l'installation du module **Auto Discovery**
 
-Connectez-vous à l’interface web de Centreon en utilisant un compte ayant les droits d’installer des modules et
-rendez-vous dans le menu **Administration > Extensions > Manager**.
+Cliquez sur l’icône d’installation correspondant au module **Centreon Auto
+Discovery** :
 
-Cliquez sur l’icône d’installation correspondant au module **Centreon Auto Discovery** :
-
-![image](../../assets/configuration/autodisco/install.png)
+![image](../../assets/monitoring/discovery/install-before.png)
 
 Le module est maintenant installé :
 
-![image](../../assets/configuration/autodisco/list_modules.png)
+![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Installer les Plugin Packs
 
-Afin de bénéficier de règles de découverte prêtes à l’emploi, rendez-vous dans le menu **Configuration > Plugin Packs**
-et *[installez vos premiers packs](../pluginpacks.html#Installation-du-pack)*.
+Afin de bénéficier de règles de découverte prêtes à l’emploi, rendez-vous dans
+le menu `Configuration > Packs de plugins` et [installez vos premiers
+packs](../pluginpacks.html#installation-du-pack).

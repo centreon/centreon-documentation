@@ -3,28 +3,102 @@ id: installation-first-steps
 title: Installation & premier pas
 ---
 
-Bonjour et bienvenu ! Nous sommes heureux que vous ayiez décidé de mettre en place la
-supervision de votre IT via Centreon.  
+Bonjour et bienvenue ! Nous sommes heureux que vous ayez décidé de mettre en place la
+supervision de votre IT via Centreon.
 
-Vous trouverez dans ce chapitre les information nécessaires à un démarrage rapide sur Centreon. Il est composé de 
+Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
+* [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
 * [Installation rapide](#installation-rapide)
 * [Première connexion à l'interface](#première-connexion-à-linterface)
+* [Ajouter son jeton Centreon IT Edition](#ajouter-son-jeton-centreon-it-edition)
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
 * [Superviser votre premier hôte](#superviser-votre-premier-hôte)
 * [Deployer la configuration](#deployer-la-configuration)
+* [Tutoriels pour profiter de votre supervision](introduction-tutorials.html)
 
-Tutorials
+## Demander votre essai gratuit
 
-* [Créer une vue personnalisée](#create-custom-view)
-* [Create a Graphical View](#create-graphical-view)
-* [Model your IT services (Service Mapping)](#model-it-services)
-* [Analyze resources availability (Reporting)](#analyze-resources-availability)
+Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
+Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
+et remplissez le formulaire :
+
+![image](../assets/getting-started/it_100_free_token_form.png)
+
+Vous recevrez un email contenant votre **jeton** permettant d'essayer **Centreon IT Edition**.
+
+Il est maintenant temps de passer au chapitre suivant pour installer votre plateforme Centreon.
 
 ## Installation rapide
 
-#TODO
+Pour configurer votre première plateforme Centreon, nous vous suggérons d'utiliser une machine virtuelle prête à l'emploi.
+
+**Prérequis**
+
+Ces machines virtuelles sont disponibles au format OVA pour l'environnement VMware et OVF pour l'outil Oracle VirtualBox.
+Celles-ci sont basées sur le système d'exploitation **Linux CentOS v7** incluant une installation de Centreon permettant
+de démarrer en toute simplicité votre première supervision.
+
+La machine virtuelle a besoin de :
+
+- Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait faire l'affaire.
+- Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go de RAM. Pour profiter pleinement de
+  l'expérience, vous avez besoin d'au moins 2 Go de mémoire libre.
+- Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre sur votre disque dur. Cependant, si
+  vous souhaitez continuer à utiliser Centreon, il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec
+  le temps.
+- Un accès Internet pour bénéficier de l'offre gratuite IT-100.
+
+> Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites.html).
+
+### Téléchargement
+
+Vous pouvez installer Centreon :
+
+- [A partir de l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
+- A partir des machines virtuelles prêtes à l'emploi :
+
+Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--VMware environment-->
+\
+Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
+liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
+consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
+
+<!--Oracle Virtualbox-->
+\
+Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
+machine virtuelle.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Une fois votre machine virtuelle importée, vous devez **ajouter une carte réseau**. Modifiez les paramètres de la
+machine virtuelle et d'une carte réseau. Sélectionnez le bon réseau associé pour accéder à Internet.
+
+Vous pouvez maintenant démarrer la machine virtuelle.
+
+#### Premier démarrage
+
+Une fois votre machine virtuelle démarrée, vous devez vous y connecter via un terminal shell et effectuer les
+opérations demandées.
+
+> Il est impératif de compléter les instructions, notamment les opérations 4 et 5.
+
+Une fois ces opérations effectuées, vous pouvez supprimer ce message en supprimant le fichier /etc/profile.d/centreon.sh.
+
+#### Identifiants par défaut
+
+- Le compte d'interface Web Centreon par défaut est : **admin / centreon**.
+- Le compte d'administration du serveur (via SSH) est: **root / centreon**.
+- Le mot de passe root du SGBD n'est pas initialisé.
+
+> Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
+
+Vous pouvez maintenant continuer vers la première section de connexion.
 
 ## Première connexion à l'interface
 
@@ -70,7 +144,23 @@ Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre @TODO@(:ref:`How to translate Centreon<howtotranslate>`) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon.html) pour plus d'informations.
+
+## Ajouter son jeton Centreon IT Edition
+
+> Votre jeton d'essai **Centreon IT Edition** vous est parvenu par mail.
+
+Rendez-vous dans le menu **Administration > Extensions > Manager** et cliquez sur le bouton **Add Token** :
+
+![image](../assets/getting-started/it_100_free_token_add_1.png)
+
+Une fenêtre s'ouvre, saisissez votre jeton et cliquez sur le bouton enregistrer :
+
+![image](../assets/getting-started/it_100_free_token_add_2.png)
+
+Vous bénéficiez désormais de l'offre **Centreon IT Edition** limitée à la supervision de 100 ressources.
+
+Continuez avec les chapitres suivants pour commencer à superviser votre système d'information.
 
 ## Principe de base de la supervision
 
@@ -96,7 +186,7 @@ Néanmoins, pour simplifier drastiquement la configuration on s'appuyera avantag
 * Il s'appuie sur des **modèles de service** (**service templates**) qui définissent la configuration des commandes
   nécessaires à la mesure de ces indicateurs.
 * Centreon fournit des **Plugins Packs** téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
-  Pack regroupe modèles de hôte et de services pour configurer en quelques clics la supervision d'un équipement
+  Pack regroupe modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
   particulier.
 
 Ce guide de démarrage rapide propose d'installer les modèles de supervision fournis gratuitement avec la solution
@@ -104,13 +194,13 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
 
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
-> Avant toute chose, appliquez la procédure de configuration du proxy @TODO@(add the link ref:proxyimp)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
 > pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
 Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
@@ -127,15 +217,6 @@ Installez ensuite les Plugin Packs inclus gratuitement avec la solution, par exe
 ![image](../assets/getting-started/pp_install_basic.gif)
 
 Vous disposez maintenant des modèles de base pour configurer votre supervision !
-
-Five additional Packs are available once you register on [our web site](https://store.centreon.com), and over 300
-more if you subscribe to the [IMP offer](https://store.centreon.com). @TODO@(change this sentence!!!)
-
-Cinq Plugin Packs supplémentaires sont débloqués après vous être inscrit sur [notre site web](https://store.centreon.com)
-et plus de 300 packs sont disponibles si vous souscrivez à [l'offre IMP](https://store.centreon.com). @TODO@(change this sentence!!!)
-
-> Si vous avez déjà un compte Centreon, [vous pouvez maintenant authentifier votre plate-forme](https://documentation-fr.centreon.com/docs/plugins-packs/en/latest/installation.html>)
-> afin de recevoir ces Plugin Packs additionnels ainsi que tout autre service associé à votre compte.
 
 ## Superviser votre premier hôte
 
@@ -174,7 +255,7 @@ la bande passante d'une interface réseau :
 
 ![image](../assets/getting-started/quick_start_linux_4a.png)
 
-Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
+Dans le champ **Description**, saisissez le nom du service à ajouter puis sélectionner l'hôte auquel lier cet
 indicateur. Dans le champ **Template** sélectionner le modèle **OS-Linux-Traffic-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
@@ -210,10 +291,17 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
-Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+> Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
-```Bash
-$  /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+
+```Shell
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-storages
+```
+Voici le résultat :
+```Shel
 List storage:
 Skipping storage 'Physical memory': no type or no matching filter type
 Skipping storage 'Swap space': no type or no matching filter type
@@ -236,8 +324,12 @@ Skipping storage 'Shared memory': no type or no matching filter type
 
 Faites de même pour connaître la liste des interfaces réseau :
 
-```Bash
-$  /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+```Shell
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin \
+    --hostname=10.40.1.169 --snmp-community=public --snmp-version=2c --mode=list-interfaces
+```
+Voici le résultat : 
+```Shell
 List interfaces:
 'lo' [speed = 10, status = up, id = 1]
 'enp0s3' [speed = 1000, status = up, id = 2]
@@ -279,8 +371,8 @@ de la partition C :
 
 ![image](../assets/getting-started/quick_start_windows_4a.png)
 
-Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionner l'hôte auquel lier cet
-indicateur. Dans le champ **Template** sélectionner le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
+Dans le champ **Description**, saisissez le nom du service à ajouter, puis sélectionnez l'hôte auquel lier cet
+indicateur. Dans le champ **Template** sélectionnez le modèle **OS-Windows-Disk-Generic-Name-SNMP-custom**.
 
 Une liste de macros en correspondance avec le modèle va alors apparaître :
 
@@ -312,10 +404,17 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
-Pour connaître le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+> Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+
+```Shell
+/usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
+    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+```
+Voici le résultat : 
+```Shell
 List storage:
 'C:\ Label:  Serial Number 2cb607df' [size = 53317988352B] [id = 1]
 Skipping storage 'Virtual Memory': no type or no matching filter type
@@ -324,8 +423,12 @@ Skipping storage 'Physical Memory': no type or no matching filter type
 
 Faites de même pour connaître la liste des interfaces réseau :
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+```Shell
+/usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
+    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+```
+Voici le résultat :
+```Shell
 List interfaces:
 'loopback_0' [speed = 1073, status = up, id = 1]
 'ethernet_3' [speed = , status = notPresent, id = 10]
@@ -419,10 +522,18 @@ Il est également possible d'accèder au menu **Configuration > Services > Templ
 
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
-Pour connaître le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+> Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+Pour connaître manuellement le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
+
+```Shell
+/usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
+    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+```
+Voici le résultat : 
+```Shell
 List interfaces:
 'Gi1/0/1' [speed = 1000, status = up, id = 10101]
 'Gi1/0/2' [speed = 1000, status = up, id = 10102]
@@ -456,8 +567,13 @@ List interfaces:
 
 Ou pour récupérer la liste des spanning-tree :
 
-```Bash
-$ /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+```Shell
+/usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
+    --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
+    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+```
+Voici le résultat : 
+```Shell
 List ports with Spanning Tree Protocol:
 [port = GigabitEthernet1/0/20] [state = forwarding] [op_status = up] [admin_status = up] [index = 10120]
 [port = Port-channel1] [state = forwarding] [op_status = up] [admin_status = up] [index = 5001]
@@ -486,7 +602,7 @@ Une liste de macros en correspondance avec le modèle va alors apparaître :
 
 ![image](../assets/getting-started/quick_start_mysql_1b.png)
 
-Renseigner la valeur des macros suivantes :
+Renseignez la valeur des macros suivantes :
 
 * **MYSQLUSERNAME** : le nom de l'utilisateur pour se connecter à la base de données.
 * **MYSQLPASSWORD** : le mot de passe associé à l'utilisateur.

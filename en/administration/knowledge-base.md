@@ -127,7 +127,7 @@ Here is an example of an host template configuration tree:
   - LDAP \> Linux
 
 To setup procedures for the *RedHat* host template, just proceed as indicated in
-*[Link from monitoring front end](link-from-monitoring-front-end)*.
+[Link from monitoring front end](#link-from-monitoring-front-end).
 
 In the template tree we see that the **RedHat** template inherits from two other
 templates: **Linux** and **Generic-hosts**. In this example all hosts using the
