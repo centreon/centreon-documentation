@@ -35,8 +35,6 @@ All Adva FSP 150 models can be monitored.
 | hardware.card.count                     | Number of cards. Unit: Count                                        |
 | hardware.shelf.count                    | Number of shelfs. Unit: Count                                       |
 
-Monitoring all hardware components of the device. 
-
 <!--Interfaces-->
 
 | Metric name                               | Description                                                             |
@@ -75,7 +73,7 @@ Your centreon server must be able to reach the Adva device over UDP/161 SNMP por
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices: 
+1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected:
 
 ```bash
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
@@ -86,7 +84,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Cisco SNMP Centreon Plugin on every poller expected to monitor Cisco devices:
+1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected:
 
 ```bash
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
@@ -116,7 +114,7 @@ When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to ma
 
 ### How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
-Once the Centreo plugin installed, you can test it logging with the centreon-engine user:
+Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
