@@ -261,8 +261,7 @@ Need write/exec permissions on directory.
 * Le dossier /var/lib/centreon/centplugins n'existe pas sur votre serveur Windows, dans ce cas spécifiez un répertoire Windows existant via l'option "--statefile-dir"  dans le dernier argument afin de stocker vos fichiers de cache.
 
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
-Si vous recevez ce message, ajouter l'option '--http-backend=curl' dans la macro 
-* NSCPRESTAPIEXTRAOPTIONS
+Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro d'hôte *NSCPRESTAPIEXTRAOPTIONS*.
 
 ## Créer votre propre agent NSClient++
 Maintenant il vous est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser nsclient.ini.
