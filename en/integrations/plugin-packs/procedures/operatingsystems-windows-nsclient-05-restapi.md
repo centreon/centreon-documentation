@@ -209,7 +209,7 @@ La commande ci-dessus requête une api rest nsclient++ (```--plugin=apps::nsclie
 le protocole https (```--proto='https'```), le mot de passe créé dans les prérequis (```--legacy-password='centreon'```)
 et fournit ainsi l'état actuel l'activité du processeur (```--command=check_cpu```). 
 
-Les alertes sont appliqués sur l'utilisation en pourcentage de la métrique "5m" (total_5m).
+Les alertes sont appliquées sur l'utilisation en pourcentage de la métrique "5m" (total_5m).
 Si la métrique 'total 5m', charge processeur sur les 5 dernières minutes, dépasse les 80% ou les 90% alors l'état du service sera WARNING ou CRITIQUE.
 
 Tous les modes disponibles sont affichés via la commande suivante:
