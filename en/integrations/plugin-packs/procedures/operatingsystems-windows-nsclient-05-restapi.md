@@ -154,7 +154,7 @@ yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 
 <!--Offline IMP License-->
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources Windows NSCP Rest:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
