@@ -264,7 +264,7 @@ Need write/exec permissions on directory.
 Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro d'hôte *NSCPRESTAPIEXTRAOPTIONS*.
 
 ## Créer votre propre agent NSClient++
-Maintenant il vous est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser nsclient.ini.
+Il est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser les paramètres du fichier *nsclient.ini*.
 
 Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique:
 * https://github.com/centreon/centreon-nsclient-build
