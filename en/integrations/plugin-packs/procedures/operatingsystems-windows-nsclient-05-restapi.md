@@ -10,7 +10,7 @@ title: Windows NSClient API
 ## Vue d'ensemble
 
 NSClient++ Rest API fournit sa propre API Rest via le module Webserver et permet d'exploiter au maximum
-les données de monitoring des serveurs Windows à travers une connexion http sécurisée.
+les données de monitoring des serveurs Windows à travers une connexion HTTP sécurisée.
 
 ## Contenu du pack de supervision
 
