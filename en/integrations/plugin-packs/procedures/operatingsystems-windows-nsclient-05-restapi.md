@@ -144,7 +144,7 @@ net start nscp
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources Windows NSCP Rest:
+1. Installer le code du Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
 ```bash
 yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
