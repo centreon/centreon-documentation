@@ -116,7 +116,7 @@ When creating an host, fill the 'SNMP Community' and 'SNMP Version' fields to ma
 
 ### How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
-Once the Centreo plugin installed, you can test it logging with the centreon-engine user:
+Once the Centreon Plugin installed, you can test it directly on the Centreon poller by logging into the CLI with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
