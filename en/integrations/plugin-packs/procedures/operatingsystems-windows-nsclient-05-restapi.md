@@ -269,4 +269,4 @@ Il est possible de créer votre propre agent NSClient++ lorsque vous souhaitez a
 Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique:
 * https://github.com/centreon/centreon-nsclient-build
 
-Vous y trouverez la méthode de création utilisée et la liste de tous les plugins compilés par Centreon dans centreon_plugin.exe
+Vous y trouverez la méthode de création utilisée et la liste de tous les Plugins compilés par Centreon dans *centreon_plugins.exe*
