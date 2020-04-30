@@ -175,7 +175,7 @@ Choisissez le modèle d'hôte correspondant à la plateforme de Management Offic
 | Obligatoire | Nom | Description |
 | :--- | :--- |:--- |
 | X | NSCPRESTAPIPORT | Port de l'API Rest NSClient++ (8443 par défaut) |
-| X | NSCPRESTAPIPROTO | Protocole web utilisé pour la communication avec l'api Rest (https par défaut) |
+| X | NSCPRESTAPIPROTO | Protocole web utilisé pour la communication avec l'API Rest (HTTPS par défaut) |
 | X | NSCPRESTAPILEGACYPASSWORD | Mot de passe configuré pour l'échange de données via l'api Rest (vérifier les prérequis) |
 | X | NSCPRESTAPIEXTRAOPTIONS  | Options supplémentaires à passer si nécessaire, timeout (vide par défaut) |
 
