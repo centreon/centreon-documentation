@@ -156,5 +156,5 @@ This message generally means that you are not using the right snmp version or co
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 This error message often refers to the following issues: 
-  - the Adva Optical device doesn't support the MIB used by the plugin
+  - the Eltek eNexus device doesn't support the MIB used by the plugin
   - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device
