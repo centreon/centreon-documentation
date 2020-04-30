@@ -150,7 +150,7 @@ net start nscp
 yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
