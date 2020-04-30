@@ -117,7 +117,7 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 * Ouvrir le port TCP 8443 sur le serveur Windows (port de l'API Rest Nsclient par défaut). 
 
 #### Afin de sécuriser la communication entre le poller et l'agent
-* Modifier le paramètre "port" de l'api Rest via le fichier nsclient.ini
+* Modifier le paramètre *port* de l'API Rest du fichier *nsclient.ini*
 * Modifier le paramètre "allowed hosts" pour autoriser uniquement les pollers souhaités via le fichier nsclient.ini
 
 ### Configurer l'accès Rest https
