@@ -18,7 +18,7 @@ All Adva FSP 150 models can be monitored.
 * alarms: current alarms
 * hardware: current components status
 * interfaces: interfaces status, traffic and errors.
-* systems: cpu and memory
+* systems: CPU and memory
 
 <!--DOCUSAURUS_CODE_TABS-->
 
