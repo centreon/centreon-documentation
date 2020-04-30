@@ -130,7 +130,7 @@ Once the Centreon Plugin installed, you can test it directly on the Centreon pol
 
 The command above checks the CPU and memory (```--mode=systems```) of an Adva FSP 150 device. The device's IP address is *10.30.2.114* (```--hostname=10.30.2.114```), SNMP version 2 is used and the device's SNMP community is *public* (```--snmp-community='public'```).
 
-You can display all modes that come with the plugin with the command below: 
+You can display all modes available for the Plugin using the ```--list-mode``` parameter as in the command below: 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
