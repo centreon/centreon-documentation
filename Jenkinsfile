@@ -40,7 +40,7 @@ try {
       ])
     }
   }
-  if (true || (env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
+  if ((env.BUILD == 'RELEASE') || (env.BUILD == 'REFERENCE')) {
     stage('Staging') {
       milestone label: 'Staging'
       node {
