@@ -160,7 +160,7 @@ yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le RPM contenant les modèles de supervision
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
