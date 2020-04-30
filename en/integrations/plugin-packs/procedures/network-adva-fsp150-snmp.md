@@ -149,7 +149,7 @@ You can display options of a specific mode by using the ```--help``` flag. Here 
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-This message generally means that you are not using the right snmp version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
+This message generally means that you are not using the right SNMP version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
