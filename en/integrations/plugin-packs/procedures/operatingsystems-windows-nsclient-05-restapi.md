@@ -210,7 +210,7 @@ le protocole https (```--proto='https'```), le mot de passe créé dans les pré
 et fournit ainsi l'état actuel l'activité du processeur (```--command=check_cpu```). 
 
 Les alertes sont appliquées sur l'utilisation en pourcentage de la métrique "5m" (total_5m).
-Si la métrique 'total 5m', charge processeur sur les 5 dernières minutes, dépasse les 80% ou les 90% alors l'état du service sera WARNING ou CRITIQUE.
+Si la métrique 'total 5m' de la charge CPU (sur les 5 dernières minutes) dépasse 80% ou 90% alors l'état du service sera respectivement WARNING ou CRITIQUE.
 
 Tous les modes disponibles sont affichés via la commande suivante:
 ```bash
