@@ -121,7 +121,7 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 * Modifier le paramètre *allowed hosts* du fichier *nsclient.ini* en renseignant les adresses IP des collecteurs Centreon afin de n'autoriser que ceux-ci à interroger l'API 
 
 ### Configurer l'accès Rest https
-Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de nsclient:
+Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de Nsclient:
 depuis un shell sous le serveur Windows, executer les commande suivantes en administrateur:
 * nscp web install
 
