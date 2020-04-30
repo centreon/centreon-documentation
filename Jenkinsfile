@@ -47,6 +47,7 @@ try {
         sh 'setup_centreon_build.sh'
         unstash 'vanilla-build'
         sh "./centreon-build/jobs/doc/doc-staging.sh"
+        stash name: 'prod-build', includes: 'prod.tar.gz'
       }
     }
 
@@ -59,7 +60,7 @@ try {
       milestone label: 'Release'
       node {
         sh 'setup_centreon_build.sh'
-        unstash 'vanilla-build'
+        unstash 'prod-build'
         sh "./centreon-build/jobs/doc/doc-release.sh"
       }
     }
