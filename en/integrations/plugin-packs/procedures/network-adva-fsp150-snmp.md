@@ -18,7 +18,7 @@ All Adva FSP 150 models can be monitored.
 * alarms: current alarms
 * hardware: current components status
 * interfaces: interfaces status, traffic and errors.
-* systems: cpu and memory
+* systems: CPU and memory
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -65,7 +65,7 @@ To use this pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
-Your centreon server must be able to reach the Adva device over UDP/161 SNMP port.
+Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva device.
 
 ## Installation
 
@@ -102,7 +102,7 @@ yum install centreon-pack-network-adva-fsp150-snmp
 
 ## Configuration
 
-When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to match the device configuration. 
+When creating an host, fill the 'SNMP Community' and 'SNMP Version' fields to match the device configuration. 
 
   :warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
 
@@ -114,7 +114,7 @@ When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to ma
 
 ### How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
-Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
+Once the Centreon Plugin installed, you can test it directly on the Centreon poller by logging into the CLI with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
@@ -126,9 +126,9 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
   --verbose 
 ```
 
-The command above checks the cpu and memory of your Adva FSP 150 (```--mode=systems```). You must always define the IP address of the device (```--hostname=10.30.2.114```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='public'```) 
+The command above checks the CPU and memory (```--mode=systems```) of an Adva FSP 150 device. The device's IP address is *10.30.2.114* (```--hostname=10.30.2.114```), SNMP version 2 is used and the device's SNMP community is *public* (```--snmp-community='public'```).
 
-You can display all modes that come with the plugin with the command below: 
+You can display all modes available for the Plugin using the ```--list-mode``` parameter as in the command below: 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_adva_fsp150_snmp.pl \
@@ -147,7 +147,7 @@ You can display options of a specific mode by using the ```--help``` flag. Here 
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-This message generally means that you are not using the right snmp version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
+This message generally means that you are not using the right SNMP version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
