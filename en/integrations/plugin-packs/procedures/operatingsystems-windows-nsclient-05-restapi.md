@@ -118,7 +118,7 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 
 #### Afin de sécuriser la communication entre le poller et l'agent
 * Modifier le paramètre *port* de l'API Rest du fichier *nsclient.ini*
-* Modifier le paramètre "allowed hosts" pour autoriser uniquement les pollers souhaités via le fichier nsclient.ini
+* Modifier le paramètre *allowed hosts* du fichier *nsclient.ini* en renseignant les adresses IP des collecteurs Centreon afin de n'autoriser que ceux-ci à interroger l'API 
 
 ### Configurer l'accès Rest https
 Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de nsclient:
