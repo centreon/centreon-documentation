@@ -114,7 +114,7 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 ```bash
 /usr/lib/nagios/plugins/check_centreon_nrpe3 -H 10.10.0.1
 ```
-* Ouvrir le port 8443 sur le serveur windows (port de l'api rest nsclient par defaut). 
+* Ouvrir le port TCP 8443 sur le serveur Windows (port de l'API Rest Nsclient par défaut). 
 
 #### Afin de sécuriser la communication entre le poller et l'agent
 * Modifier le paramètre "port" de l'api Rest via le fichier nsclient.ini
