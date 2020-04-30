@@ -229,7 +229,7 @@ Pour toute aide complémentaire, les options des différents modes sont consulta
 
 
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
-Si vous recevez ce message, activer le mode debug pour visualiser l'execution en détail d'un mode en particulier.
+Si vous recevez ce message, activez le mode ```--debug``` pour visualiser l'exécution en détaillée d'un mode:
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
 --plugin=apps::nsclient::restapi::plugin \
