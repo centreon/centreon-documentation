@@ -104,7 +104,7 @@ yum install centreon-pack-network-adva-fsp150-snmp
 
 ## Configuration
 
-When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to match the device configuration. 
+When creating an host, fill the 'SNMP Community' and 'SNMP Version' fields to match the device configuration. 
 
   :warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
 
