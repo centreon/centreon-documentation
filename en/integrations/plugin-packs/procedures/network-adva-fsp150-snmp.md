@@ -67,7 +67,7 @@ To use this pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
-Your centreon server must be able to reach the Adva device over UDP/161 SNMP port.
+Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva device.
 
 ## Installation
 
