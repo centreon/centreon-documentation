@@ -61,7 +61,7 @@ A regexp filter is available to target a specific interface identifier/ifName [`
 
 ### Adva FSP 150 device configuration 
 
-To use this pack, the SNMP service must be properly configured on your device.
+To use this Plugin-Pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
@@ -73,7 +73,7 @@ Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva d
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected:
+1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 
 ```bash
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
@@ -84,7 +84,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected:
+1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:
 
 ```bash
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
