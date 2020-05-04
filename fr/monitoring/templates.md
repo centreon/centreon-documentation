@@ -149,6 +149,6 @@ Rendez-vous dans le menu `Configuration > Utilisateurs > Modèles de contact` et
 cliquez sur le bouton **Ajouter**
 
 > Se rapporter au chapitre de configuration des
-> *[contacts](basic-objects/contacts.html)*. De plus, les modèles de contacts
+> [contacts](basic-objects/contacts.html). De plus, les modèles de contacts
 > sont utilisés pour l’import automatique de profils via un annuaire
-> *[LDAP](../../administration/parameters/ldap.html)*.
+> [LDAP](../administration/parameters/ldap.html).

@@ -16,4 +16,4 @@ Une fois configurée, la supervision vous permettra de remonter des informations
 relatives à l’état de santé de votre Système d’informations. Pour connaître le
 fonctionnement de l’interface d’exploitation de ces résultats, référez vous au
 *[guide
-d’exploitation](../alerts-notifications.html/init-alerts-notifications)*.
+d’exploitation](../alerts-notifications/concepts.html)*.
