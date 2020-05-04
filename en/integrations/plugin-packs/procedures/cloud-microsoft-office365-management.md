@@ -73,7 +73,7 @@ Enfin, vous devez spécifier les autorisations que votre application requiert:
 2. Sélectionnez 'Office 365 Management APIs' puis cochez la case en bas à droite pour enregistrer votre sélection et revenir à la page de configuration principale de votre application.
 3. Les API Office Management apparaissent maintenant dans la liste des applications pour lesquelles votre application nécessite des autorisations. Sous les autorisations d’application et les autorisations déléguées, sélectionnez les autorisations dont votre application a besoin.
 
-#### Demander d’accès à Azure AD
+#### Demande d’accès à Azure AD
 Utilisez un POST HTTP vers un endpoint spécifique au tenant, où l’ID du tenant est intégré dans l’URL.
 * https://login.windows.net/{tenantid}/oauth2/token
 ```bash 
