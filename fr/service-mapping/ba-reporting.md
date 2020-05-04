@@ -15,7 +15,7 @@ La page de reporting correspond à celle de **Centreon**, il suffit de sélectio
 :   de disponibilité opérationnelle, dégradée et non fonctionnelle sur
     une période donnée.
 
-![image](../assets/service-mapping/reporting.png)
+![image](../assets/service-mapping/guide/reporting.png)
 
 Il est possible d'exporter les données vers un fichier CSV, en cliquant
 sur le lien "Exporter en format CSV".

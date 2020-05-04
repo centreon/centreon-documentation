@@ -34,7 +34,7 @@ type "Activité métier" et "Règle booléenne". Elles permettent de
 pré-remplir les champs lors de la bascule de la configuration en mode
 "Avancé".
 
-![image](../assets/service-mapping/impacts_ba_boolean.png)
+![image](../assets/service-mapping/guide/impacts_ba_boolean.png)
 
 ### Paramètres des activités métier par défaut
 
@@ -42,7 +42,7 @@ Les paramètres ci-dessous permettent de définir les valeurs par défaut
 que prendront les activité métiers. Seule la commande de notification ne
 peut être surchargée au niveau des activités métier.
 
-![image](../assets/service-mapping/default_ba_parameters.png)
+![image](../assets/service-mapping/guide/default_ba_parameters.png)
 
  Colonne | Description
 --------------|-----------------------------------------------------

@@ -229,6 +229,17 @@
             "administration/access-control-lists",
             "administration/extensions",
             "administration/database-partitioning",
+            {
+                "ids": [
+                    "administration/centreon-ha/architectures",
+                    "administration/centreon-ha/installation-2-nodes",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/update",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
+                "type": "subcategory"
+            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -266,6 +277,13 @@
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/introduction",
+            {
+                "ids": [
+                    "integrations/plugin-packs/tutorials/collect-openmetrics"
+                ],
+                "label": "Tutoriels",
+                "type": "subcategory"
+            },
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
@@ -777,11 +795,9 @@
             }
         ],
         "Intégrations": [
-            "integrations/notifications/init-notification-integrations",
-            "integrations/ticketing/init-ticketing",
-            "integrations/external/init-external-integrations",
             {
                 "ids": [
+                    "integrations/external/accedian-pvx-skylight",
                     "integrations/external/monitoring-dem-mip"
                 ],
                 "label": "Externes",
@@ -789,11 +805,42 @@
             },
             {
                 "ids": [
-                    "integrations/centreon-ha/centreon-ha-architectures",
-                    "integrations/centreon-ha/centreon-ha-installation-2-nodes",
-                    "integrations/centreon-ha/centreon-ha-troubleshooting"
+                    "integrations/notifications/telegram"
                 ],
-                "label": "Centreon HA",
+                "label": "Notifications",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/open-tickets/bmc-footprints",
+                    "integrations/open-tickets/bmc-remedy",
+                    "integrations/open-tickets/easyvista",
+                    "integrations/open-tickets/glpi",
+                    "integrations/open-tickets/glpi-restapi",
+                    "integrations/open-tickets/itop",
+                    "integrations/open-tickets/iws-isilog",
+                    "integrations/open-tickets/jira",
+                    "integrations/open-tickets/mail",
+                    "integrations/open-tickets/otrs-restapi",
+                    "integrations/open-tickets/request-tracker-restapi",
+                    "integrations/open-tickets/serena",
+                    "integrations/open-tickets/servicenow"
+                ],
+                "label": "Open Tickets",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/stream-connectors/elasticsearch-events",
+                    "integrations/stream-connectors/elasticsearch-metrics",
+                    "integrations/stream-connectors/ndo",
+                    "integrations/stream-connectors/hp-omi",
+                    "integrations/stream-connectors/servicenow",
+                    "integrations/stream-connectors/splunk-metrics",
+                    "integrations/stream-connectors/splunk-states",
+                    "integrations/stream-connectors/warp10"
+                ],
+                "label": "Stream Connectors",
                 "type": "subcategory"
             }
         ],

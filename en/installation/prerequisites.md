@@ -5,10 +5,9 @@ title: Prerequisites
 
 The Centreon web interface is compatible with the following web browsers:
 
-* Chrome (latest version)
-* Firefox (latest version)
-* Edge (latest version)
-* Safari (latest version)
+* Google Chrome (latest version)
+* Mozilla Firefox (latest version)
+* Apple Safari (latest version)
 
 Your screen resolution must be at least 1280 x 768.
 
