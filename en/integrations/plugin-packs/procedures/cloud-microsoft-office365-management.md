@@ -103,7 +103,7 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
