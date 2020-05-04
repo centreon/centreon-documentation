@@ -146,7 +146,7 @@ Voici un exemple d'une configuration pour un modèle d'hôte :
   - LDAP \> Linux
 
 Pour configurer Centreon KnowledgeBase pour le modèle d'hôte **RedHat**, vous
-pouvez suivre la démarche décrite dans *[Lien avec l'interface web de
+pouvez suivre la démarche décrite dans la section suivante: [Lien avec l'interface web de
 supervision](#lien-avec-linterface-web-de-supervision).
 
 Dans l'arbre des modèles, il apparaît que le modèle **RedHat** hérite de deux

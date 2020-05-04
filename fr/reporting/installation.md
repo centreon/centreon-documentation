@@ -447,7 +447,7 @@ Dans le cas d'une installation basée sur une image CentOS vierge, installez la 
 
 #### Optimisations MariaDB
 
-Assurez vous que [le fichier](../assets/reporting/centreon.cnf) de configuration optimisé fourni dans les
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les
 pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB
 
     systemctl restart mysql
