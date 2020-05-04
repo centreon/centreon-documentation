@@ -138,7 +138,7 @@ Choisissez le modèle d'hôte correspondant à la plateforme de Management Offic
 
 #### Comment tester et interpréter la sonde Office 365 en ligne de commande?
 
-Dès que la sonde est installée, vous pouvez la tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre poller de supervision avec l'utilisateur *centreon-engine*:
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
 --plugin=cloud::microsoft::office365::management::plugin
