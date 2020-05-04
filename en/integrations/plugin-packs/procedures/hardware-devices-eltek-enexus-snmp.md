@@ -7,7 +7,7 @@ title: Eltek eNexus SNMP
 
 Eltek is a global electric power conversion specialist that develops and markets systems for telecommunications and industrial applications.
 
-## Plugin-pack assets 
+## Plugin-Pack assets 
 
 ### Monitored equipments
 
@@ -69,7 +69,7 @@ To use this pack, the SNMP service must be properly configured on your device.
 
 ### Network flow
 
-Your centreon server must be able to reach the Eltek eNexus device over UDP/161 SNMP port.
+The Centreon Poller must be able to reach the SNMP port (UDP/161) of the Eltek eNexus device.
 
 ## Installation
 
@@ -106,7 +106,7 @@ yum install hardware-devices-eltek-enexus-snmp
 
 ## Configuration
 
-When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to match the device configuration. 
+When creating an host, fill the 'SNMP Community' and 'SNMP Version' fields to match the device configuration. 
 
   :warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
 
@@ -116,9 +116,9 @@ When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to ma
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How can I test the Plugin and what do the main parameters stand for ? 
 
-Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
+Once the Centreon plugin installed, you can test it directly on the Centreon Poller by logging into the CLI with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
@@ -130,9 +130,9 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
   --verbose 
 ```
 
-The command above checks the battery status of your Eltek eNexus (```--mode=battery```). You must always define the IP address of the device (```--hostname=10.30.2.114```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='public'```) 
+The command above checks the battery status (```--mode=battery```) of an Eltek eNexus device. The device's IP address is *10.30.2.114* (```--hostname=10.30.2.114```), SNMP version 2 is used and the device's SNMP community is *public* (```--snmp-community='public'```). 
 
-You can display all modes that come with the plugin with the command below: 
+You can display all modes available for the Plugin using the ```--list-mode``` parameter as in the command below:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
@@ -151,10 +151,10 @@ You can display options of a specific mode by using the ```--help``` flag. Here 
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-This message generally means that you are not using the right snmp version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
+This message generally means that you are not using the right SNMP version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This error message often refers to the following issues: 
-  - the Eltek eNexus device doesn't support the MIB used by the plugin
+This error message can refer to the following issues: 
+  - the Eltek eNexus device doesn't support the MIB used by the Plugin
   - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device
