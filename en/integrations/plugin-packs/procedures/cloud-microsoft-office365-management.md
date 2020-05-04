@@ -97,7 +97,7 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le plugin sur l'ensemble des collecteurs supervisant des ressources Office 365 Management:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Management:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
