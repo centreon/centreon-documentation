@@ -113,7 +113,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le RPM contenant les modèles de supervision
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-management 
