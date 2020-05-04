@@ -37,5 +37,5 @@ obligatoires**.
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.html)
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
 pour mettre en place votre première supervision.

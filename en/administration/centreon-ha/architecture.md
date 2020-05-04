@@ -3,7 +3,7 @@ id: architectures
 title: Architectures
 ---
 
-**Warning:** For Business Edition customers, please get in touch with your Centreon Sales representative or Technical Account Manager before implementing this. Extensions needs a specific license files to smoothly work on both nodes.  
+> **Warning:** For Commercial Edition customers, please get in touch with your Centreon Sales representative or Technical Account Manager before implementing this. Extensions needs a specific license files to smoothly work on both nodes.  
 
 ## 2-nodes cluster
 
