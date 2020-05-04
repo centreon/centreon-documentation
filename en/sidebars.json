@@ -228,6 +228,17 @@
             "administration/access-control-lists",
             "administration/extensions",
             "administration/database-partitioning",
+            {
+                "ids": [
+                    "administration/centreon-ha/architectures",
+                    "administration/centreon-ha/installation-2-nodes",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/update",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
+                "type": "subcategory"
+            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -829,17 +840,6 @@
                     "integrations/stream-connectors/warp10"
                 ],
                 "label": "Stream Connectors",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/centreon-ha/architectures",
-                    "integrations/centreon-ha/installation-2-nodes",
-                    "integrations/centreon-ha/operating-guide",
-                    "integrations/centreon-ha/update",
-                    "integrations/centreon-ha/troubleshooting-guide"
-                ],
-                "label": "Centreon HA",
                 "type": "subcategory"
             }
         ],
