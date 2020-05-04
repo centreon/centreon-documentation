@@ -188,7 +188,7 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 ##### Remarques 
 * Vérifier que vos tenant id / client id / client secret soient correctement configurés.
 * Si la sonde a été lancée pour la première fois avec un autre user que centreon-engine (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans /var/lib/centreon/centplugins/office365_managementapi_*.
-* Par defaut ce plugin utilise la librairie web "Lwb" pour requêter l'api de Microsoft Office 365. Pour palier à certaines erreurs web, nous précaunisons d'utiliser la librairie Curl
+* Par défaut ce Plugin utilise la librairie web "Lwb" pour requêter l'API de Microsoft Office 365. Pour palier à certaines erreurs web, nous préconisons d'utiliser la librairie Curl
 en appelant l'option  --http-backend=curl.
 * Le temps d'execution des checks peut augmenter dû aux échanges de données via le cloud. Il sera nécessaire d'augmenter
 la valeur "Service check timeout" dans les options de logs du moteur centengine.
