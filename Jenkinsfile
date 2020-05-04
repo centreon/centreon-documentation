@@ -32,6 +32,7 @@ try {
 
     stage('Build') {
       sh "./centreon-build/jobs/doc/doc-build.sh"
+      stash name: 'vanilla-build', includes: 'vanilla.tar.gz'
       publishHTML([
         reportDir: 'preview',
         reportFiles: 'index.html',
@@ -44,7 +45,9 @@ try {
       milestone label: 'Staging'
       node {
         sh 'setup_centreon_build.sh'
+        unstash 'vanilla-build'
         sh "./centreon-build/jobs/doc/doc-staging.sh"
+        stash name: 'prod-build', includes: 'prod.tar.gz'
       }
     }
 
@@ -57,6 +60,7 @@ try {
       milestone label: 'Release'
       node {
         sh 'setup_centreon_build.sh'
+        unstash 'prod-build'
         sh "./centreon-build/jobs/doc/doc-release.sh"
       }
     }
