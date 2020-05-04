@@ -116,11 +116,10 @@ l'exécution des ETL ainsi que la génération des rapports.
 | >= 40 000 and < 100 000      | 8 CPU (3GHz) minimum | 32 Go minimum |
 | > 100 000                    | > Contacter Cen      | treon         |
 
-**Espace disque** : Utilisez  [le fichier suivant](../assets/reporting/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
+**Espace disque** : Utilisez  [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
 **File system**
 
-  
   File system   |    Taille
 ------------------------------|-----------------------------------------------------
   /                           |  5GB minimum
@@ -140,10 +139,9 @@ remplaçant vg_data par le nom du volume groupe:
 *  Firewall :   Désactivé
 *  SELinux :   Désactivé
 
-
 Veillez à optimiser MariaDB sur votre serveur de reporting.Vous aurez
-besoin d'au moins 12GB de mémoire vive afin d'utiliser le 
-[fichier suivant](../assets/reporting/centreon.cnf) Veillez à créer un dossier `tmp` dans `/var/lib/mysql/`.
+besoin d'au moins 12GB de mémoire vive afin d'utiliser le
+[fichier suivant](../assets/reporting/installation/centreon.cnf) Veillez à créer un dossier `tmp` dans `/var/lib/mysql/`.
 
 > N'utilisez pas ce fichier d'optimisation sur le serveur de supervision.
 
@@ -158,7 +156,6 @@ Description des utilisateurs, umask et répertoire utilisateur :
   Utilisateur  |  umask  | home
 ---------------|---------|---------
   centreonBI   | 0002    | /home/centreonBI
-
 
 ### Bonnes pratiques de supervision
 
@@ -415,7 +412,7 @@ commandes suivantes : :
 >       replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 > puis créer les vues sur le slave en lançant la commande:
 > 
->  #mysql centreon < [view_creation.sql](assets/reporting/view_creation.sql)
+>  #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
 
 Allez au chapitre suivant pour continuer l'installation.
 
@@ -450,7 +447,7 @@ Dans le cas d'une installation basée sur une image CentOS vierge, installez la 
 
 #### Optimisations MariaDB
 
-Assurez vous que [le fichier](assets/reporting/centreon.cnf) de configuration optimisé fourni dans les
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les
 pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB
 
     systemctl restart mysql

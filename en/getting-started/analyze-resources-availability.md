@@ -21,7 +21,7 @@ Follow this simple procedure:
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
-## Define your requirement 
+## Define your requirement
 
 Here is a example based on a typical requirement for basic use of
 Centreon MBI: monitoring the availability of IT resources. In this
@@ -33,7 +33,7 @@ availability of the routers located in Europe.
 Now that the requirement has been identified, we can proceed to the next
 step.
 
-## Select the report design 
+## Select the report design
 
 Every report design meets a specific need. Ours is to analyse the
 availability of our routers in Europe. First, we will have a look at the

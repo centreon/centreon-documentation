@@ -48,11 +48,11 @@ création d'une tâche planifiée. Allez dans le menu *Reporting →
 Monitoring Business Intelligence → Configuration \| Tâches planifiées*
 et cliquez sur "Ajouter" :
 
-![image](images/1_FR_createJob.png)
+![image](../assets/getting-started/1_FR_createJob.png)
 
 Le formulaire de création d'une nouvelle tâche planifiée s'ouvre :
 
-![image](images/2_FR_createJob_FirstTab.png)
+![image](../assets/getting-started/2_FR_createJob_FirstTab.png)
 
 Dans ce premier onglet, partie *Configuration de la tâche planifiée*,
 donnez un nom à votre tâche. Ce nom correspond au nom du rapport qui
@@ -69,7 +69,7 @@ Choisissez ensuite :
 -   la langue : Français
 -   le format de sortie souhaité : PDF
 
-![image](images/createJob_ListReport.png)
+![image](../assets/getting-started/createJob_ListReport.png)
 
 Puis rattachez le rapport à un groupe. C'est une obligation liée aux
 droits et profils utilisateurs.
@@ -83,7 +83,7 @@ génération de la tâche planifiée.
 Dans la configuration ci-dessous, le rapport sera généré immédiatement,
 en français, sur les données du mois dernier :
 
-![image](images/3_FR_createJob_FirstTab_Filled.png)
+![image](../assets/getting-started/3_FR_createJob_FirstTab_Filled.png)
 
 Une fois l'onglet de configuration renseigné, nous pouvons passer à
 l'onglet "Paramètres du rapports". Cet onglet permet de choisir le
@@ -91,7 +91,7 @@ contexte sur lequel le rapport sera généré. Sur cet exemple, nous
 choisissons de lister la disponibilité des hôtes du groupe "Routers" qui
 se situent en "Europe".
 
-![image](images/4_FR_createJob_Parameter.png)
+![image](../assets/getting-started/4_FR_createJob_Parameter.png)
 
 N.B. : Pour la plupart des modèles de rapports, il est possible de
 choisir la plage horaire dans laquelle vous souhaitez générer le
@@ -109,13 +109,13 @@ seront alors visibles lors du paramétrage d'une tâche planifiée.
 En cliquant sur "Enregistrer", le rapport est planifié selon le mode
 choisi, dans notre cas, immédiatement. Sa génération va démarrer.
 
-![image](images/5_FR_generateJob.png)
+![image](../assets/getting-started/5_FR_generateJob.png)
 
 Si vous ne voyez pas la tâche planifiée dans la liste, contrôlez les
 filtres s'appliquant à la page. Sélectionnez "Tous" si vous voulez être
 sûr de voir toutes vos tâches planifiées.
 
-![image](images/6_FR_generateJob_Filter.png)
+![image](../assets/getting-started/6_FR_generateJob_Filter.png)
 
 ## Récupération du rapport généré
 
@@ -126,12 +126,12 @@ Pour visualiser votre rapport, il vous suffit de le télécharger en
 cliquant sur l'icône du format de sortie disponible, dans notre cas,
 PDF.
 
-![image](images/7_FR_reportView.png)
+![image](../assets/getting-started/7_FR_reportView.png)
 
 S'ouvre alors le rapport de disponibilité des routeurs sur le périmètre
 Europe :
 
-![image](images/8_FR_availabilityReport.png)
+![image](../assets/getting-started/8_FR_availabilityReport.png)
 
 Bravo ! Vous savez maintenant comment extraire les statistiques de la
 base de reporting.
