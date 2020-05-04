@@ -127,7 +127,7 @@ Choisissez le modèle d'hôte correspondant à la plateforme de Management Offic
 
 | Obligatoire | Nom | Description |
 | :---- | :---- | :---- |
-| X |OFFICE365CUSTOMMODE|Mode d'accès spécifique aux centreon-plugins office 365 (par défaut:'managementapi')|
+| X |OFFICE365CUSTOMMODE|Mode d'accès spécifique au Plugin Office 365 (par défaut: 'managementapi')|
 | X |OFFICE365TENANT|ID correspondant à l'espace de votre entreprise au sein d'Office 365|
 | X |OFFICE365CLIENTID|ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365|
 | X |OFFICE365CLIENTSECRET|ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365|
