@@ -21,11 +21,11 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Service-Status-->
-| Metric name | Description |
-| :-- | :-- |
-| service | Name of monitored service. Units: Text|
-| status (service)|Status of the monitored service. Units: Text|
-| status (feature)| Status of monitored feature of service. Units: Text|
+| Metric name     | Description                                        |
+| :-------------- | :------------------------------------------------- |
+| service         | Name of monitored service. Unit: Text              |
+| status (service)| Status of the monitored service. Unit: Text        |
+| status (feature)| Status of monitored feature of service. Unit: Text |
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
