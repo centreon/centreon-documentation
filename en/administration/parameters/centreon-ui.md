@@ -50,7 +50,7 @@ send anonymous information for the **Centreon Customer Experience Improvement**
 
 The proxy configuration is mandatory to use Centreon IT Edition.
 
-![image](../assets/administration/proxy_configuration.png)
+![image](../../assets/administration/proxy_configuration.png)
 
 Define needed information:
 
