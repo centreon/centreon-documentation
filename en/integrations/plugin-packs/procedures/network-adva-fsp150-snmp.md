@@ -7,7 +7,7 @@ title: Adva FSP 150 SNMP
 
 Adva Optical Networking sells network equipment for data, storage, voice and video services.
 
-## Plugin-pack assets 
+## Plugin-Pack assets 
 
 ### Monitored equipments
 
