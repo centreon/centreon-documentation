@@ -10,7 +10,7 @@ notifications.
 
 Rendez-vous dans le menu **Configuration > Pollers > Engine configuration** et sélectionnez un ordonnanceur.
 
-![image](assets/alerts/notif_engine_conf.png)
+![image](../assets/alerts/notif_engine_conf.png)
 
 Pour les options **Check Options**, sélectionnez **Yes** POUR L4OPTION **Notification Option**. puis cliquez sur
 **Save**.
@@ -31,7 +31,7 @@ notifiés sont disponibles :
 
 Rendez-vous dans le menu **Administration > Parameters > Centreon UI** et sélectionnez l'option désirée.
 
-![image](assets/alerts/notif_centreon_config.png)
+![image](../assets/alerts/notif_centreon_config.png)
 
 Puis cliquez sur le bouton **Save**.
 
@@ -43,10 +43,9 @@ Pour recevoir une notification, les paramètres du contact doivent être configu
 
 Rendez-vous dans le menu **Configuration > Users > Contacts / Users** et sélectionnez votre contact :
 
-![image](assets/alerts/notif_contact_config.png)
+![image](../assets/alerts/notif_contact_config.png)
 
-1. Sélectionnez les états dont vous souhaitez recevoir des notifications à l'aide de l'option ** Option de notification
-  **Notification Option**.
+1. Sélectionnez les états dont vous souhaitez recevoir des notifications à l'aide de l'option **Option de notification**
 2. Sélectionnez la période pendant laquelle vous souhaitez recevoir les notifications via l'option **Notification Period**.
 3. Sélectionnez ensuite la méthode pour recevoir une notification à l'aide de l'option **Notification Commands**
 
@@ -55,7 +54,7 @@ Puis cliquez sur le bouton **Save**.
 Une fois que vos contacts sont prêts à recevoir des notifications, vous devez les lier aux ressources à partir desquelles
 vous souhaitez recevoir des notifications.
 
-> Vous pouvez utiliser les **[modèles de contact](../monitoring/templates#les-modèles-de-contacts)** pour définir les
+> Vous pouvez utiliser les **[modèles de contact](../monitoring/templates.html#les-modèles-de-contacts)** pour définir les
 > paramètres par défaut et hériter de tous vos contacts de ce modèle.
 
 ## Hôtes
@@ -63,7 +62,7 @@ vous souhaitez recevoir des notifications.
 Rendez-vous dans le menu **Configuration > Hosts > Hosts** et sélectionnez un hôte. Dans l'onglet **Notification**
 définissez les paramètres :
 
-![image](assets/alerts/notif_host_config.png)
+![image](../assets/alerts/notif_host_config.png)
 
 * **Notification Options**: Sélectionnez les statuts dont vous souhaitez recevoir des notifications
 * **Notification Interval**: Définit l'intervalle en minutes avant de notifier à nouveau un contact dans le cas où le
@@ -89,7 +88,7 @@ définissez les paramètres :
 Rendez-vous dans le menu **Configuration > Services > Services by host** et sélectionnez un service. Dans l'onglet
 **Notification** définissez les paramètres :
 
-![image](assets/alerts/notif_service_config.png)
+![image](../assets/alerts/notif_service_config.png)
 
 * **Notification Options**: Sélectionnez les statuts dont vous souhaitez recevoir des notifications
 * **Notification Interval**: Définit l'intervalle en minutes avant de notifier à nouveau un contact dans le cas où le

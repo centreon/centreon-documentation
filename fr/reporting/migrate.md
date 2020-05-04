@@ -5,14 +5,14 @@ title: Migrer l'extension
 
 Cette section explique comment migrer votre serveur de reporting vers un
 nouveau serveur. Cela peut être utile dans le cas ou vous devez passer
-de CentOS 6 à CentOS 7. 
+de CentOS 6 à CentOS 7.
 
 La migration de l'interface se fait en même temps que la migration du serveur Centreon. (voir [ce chapitre](#TODO))
 
 ## Installer le nouveau serveur de reporting
 
 Installer le nouveau serveur de reporting sur le nouvel OS, installer
-les dépôts Centreon MBI et utiliser la documentation d'[installation](installation).
+les dépôts Centreon MBI et utiliser la documentation d'[installation](installation.html).
 
 ## Synchroniser les données
 
@@ -46,11 +46,10 @@ Lancer la commande suivante pour assurer la compatibilité des données:
 
             mysql mysql < repair_mysql_upgrade.sql
 
-    Download the file here [repair_mysql_upgrade.sql](../assets/reporting/adminstrate/repair_mysql_upgrade.sql)
+    Download the file here [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql)
 
 > Si vous aviez développé des rapports & bibliothèques personnalisées,
 > pensez à les copier dans les mêmes dossiers sur votre nouveau serveur de reporting.
-
 
 ## Déplacer les rapports générés
 

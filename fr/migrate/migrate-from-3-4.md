@@ -27,16 +27,17 @@ et disposant des prérequis suivants :
 
 > En cas de migration d'une plate-forme disposant du module **Centreon Poller
 > Display 1.6.x**, référez-vous à la
-> [procédure de migration](../upgrade/poller-display-to-remote-server.html).
+> [procédure de migration](poller-display-to-remote-server.html).
 
 ### Installation du nouveau serveur
 
 Réalisez les actions suivantes :
 
 1. Installez un nouveau serveur Centreon à partir de
-[l'ISO](../installation/centreon-from-iso.html) ou des
-[paquets](../installation/centreon-from-packages.html) jusqu'à terminer le
-processus d'installation en vous connectant à l'interface web.
+[l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
+ou des [paquets](../installation/installation-of-a-central-server/using-packages.html)
+jusqu'à terminer le processus d'installation en vous connectant à l'interface
+web.
 
 2. Réalisez les mises à jour logicielle et système :
 
@@ -189,11 +190,12 @@ de mise à jour.
 Si l'adresse IP de votre serveur Centreon a changé, éditez la configuration de
 l'ensemble des modules broker de vos collecteurs et modifiez l'adresse IP de
 connexion au serveur Centreon central (output IPv4). Consultez le chapitre
-[Configuration avancée](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
+[Configuration
+avancée](../monitoring/monitoring-servers/advanced-configuration.html#tcp-outputs)
 pour plus d'information.
 
-Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.html) la configuration de l'ensemble de la
-plateforme et exportez là.
+Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.html)
+la configuration de l'ensemble de la plateforme et exportez là.
 
 ### Mise à jour des modules
 
