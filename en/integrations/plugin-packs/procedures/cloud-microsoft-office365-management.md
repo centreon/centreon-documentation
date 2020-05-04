@@ -161,7 +161,7 @@ Feature 'Sign-in' Status is 'Normal service'
 Feature 'Voice mail' Status is 'Normal service'
 ```
 
-La commande ci-dessus requête une api de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
+La commande ci-dessus requête une API de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
 le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le client secret (```--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```) 
 et fournit l'état du service (```--mode=service-status```) "Exchange Online" (```--filter-service-name='Exchange Online'```) ainsi que l'état des 'features' du service selectionné.
 Une alerte CRITICAL sera déclenchée si l'état du service Exchange Online n'est pas 'Normal'.
