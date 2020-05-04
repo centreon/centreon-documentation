@@ -69,7 +69,7 @@ Votre application utilisera ce certificat pour communiquer avec Azure AD, assure
 
 #### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 Enfin, vous devez spécifier les autorisations que votre application requiert: 
-1. Dans le Portail de gestion Azure, sélectionnez votre application et choisissez Configurer dans le menu du haut. Faites défiler jusqu’aux autorisations d’autres applications, puis choisissez Ajouter une application.
+1. Dans le Portail de gestion Azure, sélectionnez votre application et choisissez *Configurer* dans le menu du haut. Faites défiler jusqu’aux autorisations d’autres applications, puis choisissez *Ajouter une application*.
 2. Sélectionnez 'Office 365 Management APIs' puis cochez la case en bas à droite pour enregistrer votre sélection et revenir à la page de configuration principale de votre application.
 3. Les API Office Management apparaissent maintenant dans la liste des applications pour lesquelles votre application nécessite des autorisations. Sous les autorisations d’application et les autorisations déléguées, sélectionnez les autorisations dont votre application a besoin.
 
