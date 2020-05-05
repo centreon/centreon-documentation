@@ -123,10 +123,10 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 ### Configurer l'accès Rest https
 Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de Nsclient:
 depuis un shell sous le serveur Windows, executer les commande suivantes en administrateur:
-* nscp web install
+```nscp web install```
 
 Configurer un mot de passe afin de sécuriser la communication.
-* nscp web password -- -set centreon
+```nscp web password -- -set centreon```
 ```bash
 Password updated successfully, please restart nsclient++ for changes to affect.
 ```
@@ -165,6 +165,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
+
+3.Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -205,9 +207,9 @@ OK: 5m: 40%, 1m: 42%, 5s: 39% |
 'total 5s'=39%;80;90;;
 ```
 
-La commande ci-dessus requête une api rest nsclient++ (```--plugin=apps::nsclient::restapi::plugin```) via le port 8443 de l'api (--port='8443')
-le protocole https (```--proto='https'```), le mot de passe créé dans les prérequis (```--legacy-password='centreon'```)
-et fournit ainsi l'état actuel l'activité du processeur (```--command=check_cpu```). 
+La commande ci-dessus requête l'API Rest Nsclient++ (```--plugin=apps::nsclient::restapi::plugin```) sur le port 8443 (--port='8443') de l'API
+en utilisant le protocole HTTPS (```--proto='https'```) ainsi que le mot de passe créé précédemment dans la partie *Prérequis* (```--legacy-password='centreon'```).
+Cette commande contrôle l'état actuel de l'activité du processeur (```--command=check_cpu```). 
 
 Les alertes sont appliquées sur l'utilisation en pourcentage de la métrique "5m" (total_5m).
 Si la métrique 'total 5m' de la charge CPU (sur les 5 dernières minutes) dépasse 80% ou 90% alors l'état du service sera respectivement WARNING ou CRITIQUE.
@@ -219,7 +221,7 @@ Tous les modes disponibles sont affichés via la commande suivante:
 --list-mode
 ```
 
-Pour toute aide complémentaire, les options des différents modes sont consultables via le help:
+Pour toute aide complémentaire, les options des différents modes sont consultables en ajoutant l'argument ```--help``` à la commande:
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
 --plugin=apps::nsclient::restapi::plugin \
@@ -258,7 +260,7 @@ UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string, 
 Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a603769c1f98ad927e7367c7aa51_a181a603769c1f98ad927e7367c7aa51'. 
 Need write/exec permissions on directory.
 ```
-* Le dossier /var/lib/centreon/centplugins n'existe pas sur votre serveur Windows, dans ce cas spécifiez un répertoire Windows existant via l'option "--statefile-dir"  dans le dernier argument afin de stocker vos fichiers de cache.
+* Le dossier */var/lib/centreon/centplugins* n'existe pas sur votre serveur Windows, dans ce cas spécifiez un répertoire Windows existant via l'option ```--statefile-dir``` afin de stocker les fichiers de cache du Plugin.
 
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro d'hôte *NSCPRESTAPIEXTRAOPTIONS*.
