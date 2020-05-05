@@ -32,7 +32,7 @@ Activity** or **Boolean rule**-type indicators in *Advanced* mode.
 
 The default parameters below define values for BAs.
 
-![image](../assets/service-mapping/guide/defaut_ba_settings.png)
+![image](../assets/service-mapping/guide/default_ba_parameters.png)
 
 | Column                   | Description                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------- |

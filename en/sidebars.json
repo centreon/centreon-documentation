@@ -137,7 +137,8 @@
                     "service-mapping/ba-management",
                     "service-mapping/ba-monitoring",
                     "service-mapping/ba-reporting",
-                    "service-mapping/ba-settings"
+                    "service-mapping/ba-settings",
+                    "service-mapping/widgets"
                 ],
                 "label": "Guide",
                 "type": "subcategory"
@@ -227,6 +228,17 @@
             "administration/access-control-lists",
             "administration/extensions",
             "administration/database-partitioning",
+            {
+                "ids": [
+                    "administration/centreon-ha/architectures",
+                    "administration/centreon-ha/installation-2-nodes",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/update",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
+                "type": "subcategory"
+            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -264,6 +276,13 @@
         ],
         "Plugin Packs": [
             "integrations/plugin-packs/introduction",
+            {
+                "ids": [
+                    "integrations/plugin-packs/tutorials/collect-openmetrics"
+                ],
+                "label": "Tutorials",
+                "type": "subcategory"
+            },
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
@@ -311,6 +330,8 @@
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
+                    "integrations/plugin-packs/procedures/applications-salesforce-restapi",
+                    "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
@@ -360,7 +381,9 @@
                     "integrations/plugin-packs/procedures/cloud-aws-s3",
                     "integrations/plugin-packs/procedures/cloud-aws-billing",
                     "integrations/plugin-packs/procedures/cloud-aws-elb",
+                    "integrations/plugin-packs/procedures/cloud-aws-efs",
                     "integrations/plugin-packs/procedures/cloud-aws-lambda",
+                    "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
@@ -773,9 +796,17 @@
         "Integrations": [
             {
                 "ids": [
-                    "integrations/external/accedian-pvx-skylight"
+                    "integrations/external/accedian-pvx-skylight",
+                    "integrations/external/monitoring-dem-mip"
                 ],
                 "label": "External",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/notifications/telegram"
+                ],
+                "label": "Notifications",
                 "type": "subcategory"
             },
             {
@@ -809,15 +840,6 @@
                     "integrations/stream-connectors/warp10"
                 ],
                 "label": "Stream Connectors",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/centreon-ha/centreon-ha-architectures",
-                    "integrations/centreon-ha/centreon-ha-installation-2-nodes",
-                    "integrations/centreon-ha/centreon-ha-troubleshooting"
-                ],
-                "label": "Centreon HA",
                 "type": "subcategory"
             }
         ],

@@ -23,7 +23,7 @@ Ces prévisions serviront de seuils flottants qui seront ensuite utilisés par l
 moteur de surveillance pour comparer la valeur collectée avec les seuils prévus
 pour mettre en évidence les écarts et générer des alertes.
 
-![image](assets/monitoring/anomaly/centreon_cloud.png)
+![image](../assets/monitoring/anomaly/centreon_cloud.png)
 
 ## Prérequis
 
@@ -35,7 +35,7 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
   - La prédiction fonctionne mieux avec des services surveillés qui présentent
     un comportement saisonnier comme indiqué ci-dessous :
 
-![image](assets/monitoring/anomaly/simple_scheme.png)
+![image](../assets/monitoring/anomaly/simple_scheme.png)
 
 ## Installation
 
@@ -52,11 +52,11 @@ yum install centreon-anomaly-detection
 Rendez-vous dans le menu `Administration > Extensions > Gestionnaire` et
 recherchez **anomaly**. Cliquez sur le bouton **Install selection** :
 
-![imaage](assets/monitoring/anomaly/install_01.png)
+![imaage](../assets/monitoring/anomaly/install_01.png)
 
 Le module est maintenant installé :
 
-![imaage](assets/monitoring/anomaly/install_02.png)
+![imaage](../assets/monitoring/anomaly/install_02.png)
 
 ### Redémarrage du processus
 
@@ -71,11 +71,11 @@ systemctl restart gorgoned
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 cliquez sur le bouton **Add Centreon Cloud Token** :
 
-![imaage](assets/monitoring/anomaly/install_03.png)
+![imaage](../assets/monitoring/anomaly/install_03.png)
 
 Saisissez votre jeton et cliquez sur **Save** :
 
-![imaage](assets/monitoring/anomaly/install_04.png)
+![imaage](../assets/monitoring/anomaly/install_04.png)
 
 > Si votre serveur Centreon Central a besoin d'une configuration proxy pour
 > accéder à Internet, cochez la case **Use proxy**.
@@ -83,7 +83,7 @@ Saisissez votre jeton et cliquez sur **Save** :
 Rendez-vous dans le menu `Configuration > Collecteurs` et éditez le
 serveur **Centreon central** :
 
-![imaage](assets/monitoring/anomaly/install_05.png)
+![imaage](../assets/monitoring/anomaly/install_05.png)
 
 Modifiez la commande de rechargement de Centreon Broker pour :
 
@@ -119,7 +119,7 @@ La configuration doit se faire en 3 étapes :
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 cliquez sur le bouton **Add Anomaly Service** :
 
-![imaage](assets/monitoring/anomaly/configure_01.png)
+![imaage](../assets/monitoring/anomaly/configure_01.png)
 
 #### Champs de configuration
 
@@ -138,7 +138,7 @@ cliquez sur le bouton **Add Anomaly Service** :
 Cliquez sur **Save**.
 
 Il est maintenant temps de [déployer la
-supervision](./monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.html).
 
 Accédez ensuite au menu `Supervision > Détails des statuts > Services` et
 sélectionnez **All** pour le filtre État du service. Après quelques minutes,
@@ -162,21 +162,21 @@ stable, vous pouvez activer la génération d'alertes.
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 éditez un service de détection d'anomalie:
 
-![imaage](assets/monitoring/anomaly/configure_02.png)
+![imaage](../assets/monitoring/anomaly/configure_02.png)
 
 Vous pouvez activer le champ **Enable change of status** et sélectionner un
 nombre de déviation à partir duquel le service se critique en utilisant le champ
 **Detect anomalies after**.
 
 Cliquez sur **Save** et [déployer la
-supervision](./monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.html).
 
 ### Activer le processus de notification
 
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 éditez un service de détection d'anomalie:
 
-![imaage](assets/monitoring/anomaly/configure_03.png)
+![imaage](../assets/monitoring/anomaly/configure_03.png)
 
   - Sélectionnez **Enabled** pour le champ **Enable notification**.
   - Sélectionnez les contacts qui seront notifiés via le champ **Implied
