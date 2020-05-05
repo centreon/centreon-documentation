@@ -16,23 +16,8 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 
 ### Objets supervisés
 
-* Counter-Active-Sessions
-* Counter-Generic
-* Cpu
-* Disk
-* EventLog
-* Files
-* Logfiles
-* Memory
-* NTP
-* Pending Reboot
-* Process
-* Services-Auto
-* Services
-* Sessions
-* Swap
-* Task
-* Uptime
+* Windows Server OS à partir de la version 2003 SP2
+* Windows (postes de travail) à partir de la version XP
 
 ## Métriques collectées
 
