@@ -3,7 +3,7 @@ id: architectures
 title: Architectures
 ---
 
-**Attention:** Pour les utilisateurs bénéficiant d'une licence Business Edition, il est nécessaire de contacter votre représentant Commercial et/ou Technique Centreon avant d'entreprendre une migration de votre installation vers la haute-disponibilité. Les Modules additionnels nécessitent une licence particulière pour fonctionner sur chacun des noeuds. 
+> **Attention:** Pour les utilisateurs ayant un contrat de support Centreon, il est nécessaire de contacter un interlocuteur Commercial et/ou Technique Centreon avant d'entreprendre une migration de votre installation vers la haute-disponibilité. Les Modules additionnels nécessitent une licence particulière pour fonctionner sur chacun des noeuds. 
 
 ## Cluster à 2 nœuds
 

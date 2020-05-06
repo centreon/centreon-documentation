@@ -148,7 +148,9 @@ langue.
 
 ## Ajouter son jeton Centreon IT Edition
 
-> Votre jeton d'essai **Centreon IT Edition** vous est parvenu par mail.
+> Votre jeton d'essai **Centreon IT Edition** vous est parvenu par mail. Avant toute chose, appliquez la procédure de 
+> [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
+> pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
 
 Rendez-vous dans le menu **Administration > Extensions > Manager** et cliquez sur le bouton **Add Token** :
 
