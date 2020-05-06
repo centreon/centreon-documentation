@@ -235,7 +235,7 @@ The diagram below summarizes the architecture:
 | Central server | SMTP server    | SMTP       | TCP 25             | Notification via email                                                               |
 | Central server | LDAP(s) server | LDAP(s)    | TCP 389 (636)      | Authentication to access the Centreon web interface                                  |
 | Central server | DBMS server    | MySQL      | TCP 3306           | Access to Centreon databases                                                         |
-| Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | If your platform needs to connect to a web proxy to access the Centreon IMP solution |
+| Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | If your platform needs to connect to a web proxy to access the Centreon IT Edition   |
 | Central server | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Repository for system and application packages                                       |
 
 | From           | To             | Protocol   | Port               | Application                                                                          |
