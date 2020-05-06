@@ -46,7 +46,7 @@ Sélectionnez le disque dur et l'option **I will configure partitioning** puis c
 ![image](../../assets/installation/06_select_disk.png)
 
 A l'aide du bouton **+** créez votre partitionnement suivant les
-[prérequis de la documentation](prerequisites.html) puis cliquez sur **Done** :
+[prérequis de la documentation](../prerequisites.html#définition-de-lespace-disque) puis cliquez sur **Done** :
 
 ![image](../../assets/installation/07_partitioning_filesystem.png)
 
@@ -123,4 +123,4 @@ reboot
 
 ## Ajouter le Poller à la configuration
 
-Rendez-vous au chapitre [Ajouter un Poller à la configuration](../monitoring/monitoring-servers/add-a-poller-to-configuration.html).
+Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.html).

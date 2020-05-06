@@ -48,7 +48,9 @@ send anonymous information for the **Centreon Customer Experience Improvement**
 
 ## Proxy configuration
 
-The proxy configuration is mandatory to use Centreon IMP offer.
+The proxy configuration is mandatory to use Centreon IT Edition.
+
+![image](../../assets/administration/proxy_configuration.png)
 
 Define needed information:
 
@@ -59,6 +61,9 @@ Define needed information:
 
 Once you defined settings, test your configuration by clicking on the **Test
 Proxy Configuration** button.
+
+To validate the configuration, click on the **Test Proxy Configuration** button. If the message **Connection Successful**
+appears, your configuration is valid, otherwise modify your parameters.
 
 ## Autologin
 

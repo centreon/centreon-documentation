@@ -38,7 +38,7 @@ To use the Centreon Stream connector functionality you need at least the Centreo
 
 ## Creating a new Lua script
 
-The complete technical documentation is available [here](developer-broker-stream-connector).
+The complete technical documentation is available [here](developer-broker-stream-connector.html).
 In this how-to, we will write two scripts:
 
 * The first one, easy, that explains the basics of Stream Connectors. Its goal is to export data to a log file.

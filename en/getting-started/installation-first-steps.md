@@ -138,6 +138,8 @@ Then click on **Save**. Your interface is now translated.
 ## Add your Centreon IT Edition token
 
 > Your **Centreon IT Edition** test token was sent to you by email.
+> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration)
+> to allow the Centreon server to access the Internet.
 
 Go to the **Administration > Extensions > Manager** menu an click on **Add Token**:
 

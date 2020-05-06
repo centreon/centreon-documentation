@@ -28,7 +28,9 @@ les utilisateurs que vous souhaitez importer
 > Si l'option **Import automatiques des utilisateurs** est cochée, alors pour
 > toute nouvelle personne qui se connecte à l'interface Centreon, ses paramètres
 > LDAP seront automatiquement importés dans Centreon (nom, prénom, adresse mail,
-> ...). Les profils ACL seront appliqués lors de l'accès (voir *[ACL](../access-control-lists)*).
+> ...). Les profils ACL seront appliqués lors de l'accès (voir
+> [ACL](../access-control-lists.html)).
+>
 > Par contre, si cette option n'est pas cochée, seuls les utilisateurs
 > importés manuellement pourront s'authentifier.
 
