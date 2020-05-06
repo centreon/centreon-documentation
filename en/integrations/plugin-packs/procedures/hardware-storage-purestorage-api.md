@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-purestorage-restapi
-title: Pure Storage
+title: Pure Storage RestAPI 
 ---
 
 ## Overview
@@ -9,7 +9,7 @@ Pure Storage develops flash-based storage for data centers using consumer-grade 
 It provides proprietary de-duplication and compression software to improve the amount of data that can be stored on each drive. 
 It also develops its own flash storage hardware.
 
-## Plugin-pack assets
+## Plugin-Pack assets
 
 ### Monitored objects
 
@@ -17,32 +17,28 @@ It also develops its own flash storage hardware.
 
 ## Monitored metrics                                                                                                   
 
-More information into Pure Storage official API documentation : https://blog.purestorage.com/introducing-the-pure1-rest-api/
+More information is available in the Pure Storage official API documentation : https://blog.purestorage.com/introducing-the-pure1-rest-api/
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Alarms-Global-->
 
-| Metric name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Category           | Name of the category.                                                                                   |
-| Status             | Status of alarm. Unit: text                                                                             |
+| Metric name        | Description                                              |
+| :----------------- | :------------------------------------------------------- |
+| Status             | Status of alarms. Threshold/Unit: String                 |
 
 <!--Hardware-Global-->
 
-| Metric name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Component          | Name of the component (entity or temperature)                                                           |
-| Status             | The status of Component. Unit: text                                                                     |
+| Metric name        | Description                                             |
+| :----------------- | :------------------------------------------------------ |
+| Status             | Status of components. Threshold/Unit: String            |
 
 <!--Volume-Usage-Global-->
 
-| Metric name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Name               | The name of volume.                                                                                     |
-| Unit               | The unit of checking volume (bytes or percent)                                                         |
-| Volume-Usage       | The usage of volume. Unit: bytes or percent                                                            |
-| Data-Reduction     | The data-reduction of volume. Unit: count                                                               |
-| Total-Reduction    | The total-reduction of volume. Unit: count                                                              |
+| Metric name        | Description                                              |
+| :----------------- | :------------------------------------------------------- |
+| Volume-Usage       | The usage of volume. Units: Bytes or %                   |
+| Data-Reduction     | The data-reduction ratio on the volume. Unit: ratio      |
+| Total-Reduction    | The total-reduction on the volume. Unit: count           |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -50,8 +46,7 @@ More information into Pure Storage official API documentation : https://blog.pur
 
 * This Monitoring Plugin requires at least a Pure Storage API version >= 1.11 (https://static.pure1.purestorage.com/api-swagger/index.html).
 
-#### Create specific user
-You have to configure the user who can connect to storage array. This user must have at least "read only" access to the storage array.
+* A service account has to be created on the device. This account must have at least a "read only" access to the storage array.
  
 ## Installation
 
@@ -59,13 +54,13 @@ You have to configure the user who can connect to storage array. This user must 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin on every poller expected to monitor Pure Storage API resources:
+1. Install the Plugin on every poller expected to monitor Pure Storage arrays:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 ```
 
-2. Install the "Pure-Storage-Restapi" Centreon Plugin Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 
 <!--Offline IMP License-->
@@ -76,32 +71,32 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 ```
 
-2. Install the Centreon Plugin Pack RPM on your central server:
+2. Install the Centreon Plugin-Pack RPM on your central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-purestorage-restapi
 ```
 
-3. Install the "Pure-Storage-Restapi" Centreon Plugin Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 
-Apply the "HW-Storage-Purestorage-Restapi-custom" template to your newly created host. Then fill the macros value fileds marked as mandatory below: 
+Apply the "HW-Storage-Purestorage-Restapi-custom" template to your newly created host. Then fill the macros value fields marked as mandatory below: 
 
-| Mandatory   | Name                    | Description                                                                                 |
-| :---------- | :---------------------- | :------------------------------------------------------------------------------------------ |
-| X           | APIURLPATH              | Pure Storage API URL Path                                                                   |
-| X           | APIURLUSERNAME          | Pure Storage API Username                                                                   |
-| X           | APIURLPASSWORD          | Pure Storage API Password                                                                   |
-|             | APIEXTRAOPTIONS         | Pure Storage API Extra options                                                              |
+| Mandatory | Name            | Description                    |
+| :-------- | :-------------- | :----------------------------- |
+| X         | APIURLPATH      | Pure Storage API URL Path      |
+| X         | APIURLUSERNAME  | Pure Storage API Username      |
+| X         | APIURLPASSWORD  | Pure Storage API Password      |
+|           | APIEXTRAOPTIONS | Pure Storage API Extra options |
 
 ## FAQ
 
-#### How can I test my plugin through the CLI and what does the main command_line parameters mean ?
+#### How can I test the Plugin and what are the main options for ?
 
-Once you've installed your monitoring plugin, you can use the centreon-engine user to test it! 
+Once the Centreon Plugin installed, you can test it directly on the Centreon poller by logging into the CLI with the *centreon-engine* user and run the command hereafter:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_purestorage_restapi.pl
@@ -121,7 +116,58 @@ Once you've installed your monitoring plugin, you can use the centreon-engine us
 	--critical-total-reduction=''
 	--verbose
 
-OK: Volume 'PROD::CENTREON' Usage Total: 6.00 TB Used: 1.13 TB (18.85%) Free: 4.87 TB (81.15%), Data Reduction : 2.917, Total Reduction : 5.193, Snapshots : 0.00 B
+OK: Volume 'PROD::CENTREON' Usage Total: 6.00 TB Used: 1.13 TB (18.85%) Free: 4.87 TB (81.15%), Data Reduction : 2.917, Total Reduction : 5.193, Snapshots : 0.00 B | 
+'used'=1243773921694B;0:5277655813324;0:5937362789990;0;6597069766656
+'data_reduction'=2.873;;;0;
+'total_reduction'=5.201;;;0;
+'snapshots'=0B;;;0;
 ```
 
-This command checks your storage array Pure Storage volume usage (```--mode=volume-usage```) using api url (```--api-path='/api/1.11'```). It provides the overall status of the volume.
+This command checks the volumes usage (```--mode=volume-usage```) of a Pure Storage array device using the 1.11 API endpoint (```--api-path='/api/1.11'```). The device's IP address is *192.168.1.1* (```--hostname=192.168.1.1```) and the credentials used to authenticate against the API endpoint are *centreon/centreon* (```--username='centreon' --password='centreon'```). The above command would return all of the device's volumes as the name filter will match any result (```--filter-name='.*'```).
+
+This command will trigger a WARNING alarm if the volume occupancy rate exceeds 80% (```--warning-usage='80'') and a CRITICAL alarm if it exceeds 90% (```--critical-usage='90''). 
+
+It is however possible to define WARNING and CRITICAL thresholds on a specific metric: 
+In this example a WARNING alarm will be triggered if the total rate of "reduction" is less than 5 (```--warning-total-reduction=':5'```) and CRITICAL if it is less than 4 (```--critical-total-reduction=':4'``).
+
+The syntax of the different options of the thresholds as well as the list of options and their use are detailed in the help of the mode by adding the parameter ```--help`` to the command:
+
+```/usr/lib/centreon/plugins/centreon_purestorage_restapi.pl --plugin=storage::purestorage::restapi::plugin --mode=volume-usage --help``.
+
+#### "UNKNOWN: Cannot decode json response"
+
+If you receive this message, activate ``--debug`` mode to view the detailed execution of a mode:
+
+```bash
+/usr/lib/centreon/plugins//centreon_purestorage_restapi.pl
+	--plugin=storage::purestorage::restapi::plugin
+	--mode=volume-usage
+	--hostname=192.168.1.1
+	--api-path='/api/1.11'
+	--username='centreon'
+	--password='centreon' 
+	--filter-name='.*'
+	--units='%'
+	--warning-usage='80'
+	--critical-usage='90'
+	--warning-data-reduction=''
+	--critical-data-reduction=''
+	--warning-total-reduction=''
+	--critical-total-reduction=''
+    --verbose --ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"
+...
+    --debug
+
+UNKNOWN: Cannot decode json response 
+======> request send
+POST https://192.168.1.1/api/1.11/auth/apitoken
+Accept: application/json
+User-Agent: centreon::plugins::backend::http::useragent
+Content-Type: application/json
+{"password":"[PASSWORD]","username":"centreon"}
+======> response done
+...
+500 Can't connect to 192.168.1.1:443
+
+* The URL is not accessible. If you are using a self-signed certificate and do not want it to be verified, put the option: (```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"```) into macro 'EXTRAOPTIONS'.
+** If the error persists, add the '--http-backend=curl' option to the *EXTRAOPTIONS* host macro.
