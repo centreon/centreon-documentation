@@ -101,7 +101,7 @@ Ensuite, remplisser les fichiers de valeur des macros marqués comme obligatoire
 
 ## FAQ
 
-#### Comment tester et interpréter le plugin Rest API en ligne de commande?
+#### Comment tester et interpréter le Plugin Rest API en ligne de commande?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur centreon-engine:
 
@@ -146,12 +146,13 @@ La syntaxe des différentes options des seuils ainsi que la liste des options et
 --help
 ```
 
-#### "UNKNOWN: Cannot decode json response"
+#### Le Plugin renvoie l'erreur suivante: "UNKNOWN: Cannot decode json response"
 
-Si vous recevez ce message, activer le mode ```--debug``` pour avoir plus d'information sur la cause de l'erreur
+Si vous recevez ce message, ajoutez le parmamètre ```--debug``` à la commande afin d'afficher plus 
+d'informations sur la cause de l'erreur.
 
-Plusieurs choses peuvent expliquer ce type de retour:
+Ce message d'erreur peut avoir plusieurs origines:
 
-* L'URL n'est pas accessible, vérifier la connectivité HTTPS entre votre Poller et votre baie PureStorage
+* L'URL n'est pas accessible, vérifiez la connectivité HTTPS entre votre collecteur Centreon et votre baie PureStorage
 
-* Le certificat utilisé sur la baie est auto-signé, ajouter l'option suivante pour en ignorer la vérification: (```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"```) dans la macro *EXTRAOPTIONS* de l'hôte.
+* Le certificat utilisé sur la baie est auto-signé, ajoutez l'option ```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"``` dans la macro *EXTRAOPTIONS* de l'hôte pour ignorer la vérification du certificat.
