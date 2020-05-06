@@ -59,7 +59,7 @@ More information is available in the Pure Storage official API documentation : h
 yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 ```
 
-2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
 
 <!--Offline IMP License-->
@@ -76,7 +76,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 yum install centreon-pack-hardware-storage-purestorage-restapi
 ```
 
-3. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -107,12 +107,12 @@ Once the Centreon Plugin installed, you can test it directly on the Centreon pol
 	--password='centreon' \
 	--filter-name='.*' \
 	--units='%' \
-	--warning-usage='' \
-	--critical-usage='' \
+	--warning-usage='80' \
+	--critical-usage='90' \
 	--warning-data-reduction='' \
 	--critical-data-reduction='' \
-	--warning-total-reduction='' \
-	--critical-total-reduction='' \
+	--warning-total-reduction=':5' \
+	--critical-total-reduction=':4' \
 	--verbose
 ```
 
@@ -128,13 +128,12 @@ OK: Volume 'PROD::CENTREON' Usage Total: 6.00 TB Used: 1.13 TB (18.85%) Free: 4.
 
 This command checks the volumes usage (```--mode=volume-usage```) of a Pure Storage array device using the 1.11 API endpoint (```--api-path='/api/1.11'```). The device's IP address is *192.168.1.1* (```--hostname=192.168.1.1```) and the credentials used to authenticate against the API endpoint are *centreon/centreon* (```--username='centreon' --password='centreon'```). The above command would return all of the device's volumes as the name filter will match any result (```--filter-name='.*'```).
 
-This command will trigger a WARNING alarm if the volume utilization exceeds 80% (```--warning-usage='80'```) and a CRITICAL alarm if it exceeds 90% (```--critical-usage='90'```). 
+This command will trigger a WARNING alarm if the volume usage exceeds 80% (```--warning-usage='80'```) and a CRITICAL alarm if it exceeds 90% (```--critical-usage='90'```). 
 
-It is however possible to define WARNING and CRITICAL thresholds on a specific metric: 
+It is besides possible to define WARNING and CRITICAL thresholds on a specific metric:
+in this example a WARNING alarm will be triggered if the total rate of "reduction" is less than 5 (```--warning-total-reduction=':5'```) and CRITICAL if it is less than 4 (```--critical-total-reduction=':4'```).
 
-In this example a WARNING alarm will be triggered if the total rate of "reduction" is less than 5 (```--warning-total-reduction=':5'```) and CRITICAL if it is less than 4 (```--critical-total-reduction=':4'```).
-
-The syntax of the different options of the thresholds as well as the list of options and their use are detailed in the help of the mode by adding the parameter ```--help``` to the command:
+The syntax of the different options of the thresholds as well as the list of options and their usage are detailed in the help of the mode by adding the parameter ```--help``` to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_purestorage_restapi.pl \
@@ -145,10 +144,10 @@ The syntax of the different options of the thresholds as well as the list of opt
 
 #### "UNKNOWN: Cannot decode json response"
 
-If you receive this message, set the ``--debug`` option flag to get more informations about the error. 
+If you receive this message, set the ```--debug``` option flag to get more information about the error. 
 
 Most common reasons for this message are: 
 
-* A Firewall drops HTTPS communication between the Poller and the Pure Storage device.
+* A Firewall drops the HTTPS flows between the Poller and the Pure Storage device.
 
-* Storage array uses a self-signed certificate. Adding the option ```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"``` in Host's APIEXTRAOPTIONS macro will avoid this error. 
+* The Pure Storage devices uses a self-signed certificate. Add the option ```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"``` in the  Host *EXTRAOPTIONS* macro to prevent this error. 
