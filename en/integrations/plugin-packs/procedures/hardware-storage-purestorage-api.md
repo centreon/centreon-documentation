@@ -150,4 +150,4 @@ Most common reasons for this message are:
 
 * A Firewall drops the HTTPS flows between the Poller and the Pure Storage device.
 
-* The Pure Storage devices uses a self-signed certificate. Add the option ```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"``` in the  Host *EXTRAOPTIONS* macro to prevent this error. 
+* The Pure Storage device uses a self-signed certificate. Add the option ```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"``` in the  Host *EXTRAOPTIONS* macro to prevent this error. 
