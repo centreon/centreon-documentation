@@ -101,9 +101,9 @@ Ensuite, remplisser les fichiers de valeur des macros marqués comme obligatoire
 
 ## FAQ
 
-#### Comment puis-je tester mon Plugin via le CLI et que signifient les principaux paramètres de command_line ?
+#### Comment tester et interpréter le plugin Rest API en ligne de commande?
 
-Une fois que vous avez installé votre Plugin de surpervision, vous pouvez utiliser l'utilisateur de centreon-engine pour le tester ! 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_purestorage_restapi.pl
@@ -115,15 +115,67 @@ Une fois que vous avez installé votre Plugin de surpervision, vous pouvez utili
 	--password='centreon' 
 	--filter-name='.*'
 	--units='%'
-	--warning-usage=''
-	--critical-usage=''
+	--warning-usage='80'
+	--critical-usage='90'
 	--warning-data-reduction=''
 	--critical-data-reduction=''
 	--warning-total-reduction=''
 	--critical-total-reduction=''
-	--verbose
+    --verbose
 
-OK: Volume 'PROD::CENTREON' Usage Total: 6.00 TB Used: 1.13 TB (18.85%) Free: 4.87 TB (81.15%), Data Reduction : 2.917, Total Reduction : 5.193, Snapshots : 0.00 B
+OK: Volume 'PROD::CENTREON' Usage Total: 6.00 TB Used: 1.13 TB (18.85%) Free: 4.87 TB (81.15%), Data Reduction : 2.917, Total Reduction : 5.193, Snapshots : 0.00 B |
+'used'=1243773921694B;0:5277655813324;0:5937362789990;0;6597069766656
+'data_reduction'=2.873;;;0;
+'total_reduction'=5.201;;;0;
+'snapshots'=0B;;;0;
 ```
+La commande ci-dessus requête l'API Rest (```--plugin=storage::purestorage::restapi::plugin```) de l'API en utilisant l'URL (```--api-path='/api/1.11'```) ainsi que le nom utilisateur (```--username='centreon'```) et le mot de passe créé précédemment dans la partie Prérequis (```--password='centreon'```). 
+Cette commande contrôle l'utilisation actuelle du volume de stockage Pure Storage (```--mode=volume-usage```).
 
-Cette commande vérifie l'utilisation du volume de stockage Pure Storage (```--mode=volume-usage``) en utilisant l'url api (```--api-path='/api/1.11'```). Elle fournit l'état global du volume.
+Cette commande déclenchera une alarme WARNING si le taux d'occupation du volume dépasse 80% (```--warning-usage='80'```) et une alarme CRITICAL s'il dépasse 90% (```--critical-usage='90'```). 
+
+Il est également possible de définir des seuils WARNING et CRITICAL sur une métrique spécifique: 
+dans cet exemple une alarme WARNING sera déclenchée si le taux total de "réduction" est inférieur à 5 (```--warning-total-reduction=':5'```) et CRITICAL s'il est inférieur à 4 (```--critical-total-reduction=':4'```).
+
+La syntaxe des différentes options des seuils ainsi que la liste des options et leur utilisation sont détaillées dans l'aide du mode en ajoutant le paramètre ```--help``` à la commande:
+
+```/usr/lib/centreon/plugins/centreon_purestorage_restapi.pl --plugin=storage::purestorage::restapi::plugin --mode=volume-usage --help```
+
+
+#### "UNKNOWN: Cannot decode json response"
+
+Si vous recevez ce message, activer le mode ```--debug``` pour visualiser l'exécution détaillée d'un mode:
+
+```bash
+/usr/lib/centreon/plugins//centreon_purestorage_restapi.pl
+	--plugin=storage::purestorage::restapi::plugin
+	--mode=volume-usage
+	--hostname=192.168.1.1
+	--api-path='/api/1.11'
+	--username='centreon'
+	--password='centreon' 
+	--filter-name='.*'
+	--units='%'
+	--warning-usage='80'
+	--critical-usage='90'
+	--warning-data-reduction=''
+	--critical-data-reduction=''
+	--warning-total-reduction=''
+	--critical-total-reduction=''
+    --verbose
+...
+    --debug
+
+UNKNOWN: Cannot decode json response 
+======> request send
+POST https://192.168.1.1/api/1.11/auth/apitoken
+Accept: application/json
+User-Agent: centreon::plugins::backend::http::useragent
+Content-Type: application/json
+{"password":"[PASSWORD]","username":"centreon"}
+======> response done
+...
+500 Can't connect to 192.168.1.1:443
+
+* L'URL n'est pas accessible. Si vous utilisez un certificat auto-signé et que vous ne vous ne voulez pas qu'il soit vérifié, metter l'option : (```--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"```) dans la macro *EXTRAOPTIONS*.
+** Si l'erreur persiste, ajoutez l'option : (```--http-backend=curl```) dans la macro d'hôte *EXTRAOPTIONS*.
