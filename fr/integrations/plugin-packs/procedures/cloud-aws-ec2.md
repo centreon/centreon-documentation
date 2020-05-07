@@ -22,24 +22,24 @@ Amazon Elastic Compute Cloud (Amazon EC2) offre une capacité de calcul évoluti
 
 | Rule name                           | Description                                 |
 | :---------------------------------- | :------------------------------------------ |
-| Cloud-Aws-Ec2-Api-HostDiscovery-Ec2 | Découverts de vos instances EC2 Instances   |
-| Cloud-Aws-Ec2-Api-HostDiscovery-Asg | Découverts de vos Groupes Auto Scaling EC2  |
+| Cloud-Aws-Ec2-Api-HostDiscovery-Ec2 | Découverte de vos instances EC2 Instances   |
+| Cloud-Aws-Ec2-Api-HostDiscovery-Asg | Découverte de vos Groupes Auto Scaling EC2  |
 
 <!--Services-->
 
-Aucune règle de découverte de Service n'est associée à ce pack. 
+Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques supervisées
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle du service EC2.
+Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle du service EC2:
 https://docs.aws.amazon.com/fr_fr/autoscaling/ec2/userguide/as-monitoring-features.html
 
 Au delà des modes et métriques détaillées ci-après, les indicateurs supplémentaires suivants sont également disponibles:
 
- * Instance-Types: Nombre d'instances pour chaque Famille d'instance AWS/EC2 et types associés.
- * Instance-Status: Statuts unitaires et globaux de vos instances EC2 en cours d'execution (ainsi que le nombre Total)
+ * Instance-Types: Nombre d'instances pour chaque famille d'instance AWS/EC2 et types associés.
+ * Instance-Status: Statuts unitaires et globaux de vos instances EC2 en cours d'exécution (ainsi que le nombre total)
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -76,7 +76,7 @@ Ce contrôle est associé aux Modèles d'Hôtes suivants: 'Cloud-Aws-Ec2-Asg' et
 | WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
-**Remarque** Cette métrique est généralement nulle lorsque collectée sur un groupe d'AutoScaling.
+> **Remarque** Cette métrique est généralement nulle lorsque collectée sur un groupe d'AutoScaling.
 
 <!--Ec2-Network-->
 
@@ -115,9 +115,9 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 
 ### Dépendances du Plugin
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli*, soit le SDK perl Paws. Le SDK est recommandé car plus performant. 
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant. 
 
-**Attention** il n'est pas possible d'utiliser perl-Paws si la connexion s'effectue au travers d'un proxy.
+> **Attention** il n'est pas possible d'utiliser *paws* si la connexion s'effectue au travers d'un proxy.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -147,7 +147,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon VPN' depuis la page "Configuration > Plugin packs > Manager"
+2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon EC2' depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -157,19 +157,19 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack 'Amazon VPN' depuis la page "Configuration > Plugin packs > Manager"
+2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack 'Amazon EC2':
 
 ```bash
 yum install centreon-pack-cloud-aws-ec2.noarch
 ```
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon VPN' depuis la page "Configuration > Plugin packs > Manager"
+3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EC2' depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Lorsque vous ajoutez un hôte à Centreon, choisissez le Modèle de votre choix. Tous les modèles liés à la supervision du 
+Lorsque vous ajoutez un hôte à Centreon, choisissez le modèle de votre choix. Tous les modèles liés à la supervision du 
 service AWS/EC2 commencent par "Cloud-Aws-EC2*".
 
 Tous les Modèles d'Hôtes partagent certaines macros à renseigner:
@@ -185,7 +185,7 @@ Tous les Modèles d'Hôtes partagent certaines macros à renseigner:
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it until you know what you are doing               |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-Selon le Modèle d'Hôte utilisé, il est nécessaire de paramétrer des macros supplémentaires.
+Selon le Modèle d'Hôte utilisé, il est nécessaire de paramétrer des macros supplémentaires:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -206,7 +206,7 @@ Selon le Modèle d'Hôte utilisé, il est nécessaire de paramétrer des macros 
 
 ## FAQ
 
-### How can I test it through the CLI and what is the meaning of the command_line parameters ?
+### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 A partir du moment ou le Plugin est installé, vous pouvez tester celui-ci directement depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 (Certaines options, comme par exemple ```--name``` doivent être ajustées en fonction du contexte):
@@ -236,19 +236,19 @@ OK: Asg 'centreon-front' Statistic 'Average' Metrics CPU Utilization: 35.81 | 'c
 ```
 
 Cette commande supervise la consommation CPU (```--mode=cpu```) sur le groupe d'Auto Scaling *centreon-front* (```--name='centreon-front' --type='asg'```). 
-Ce groupe est rattaché à la région 'eu-west-1' d'AWS (```--region='eu-west-1'```).
+Ce groupe est rattaché à la région *eu-west-1* d'AWS (```--region='eu-west-1'```).
 
 La métrique obtenue est une moyenne de valeurs (```--statistic='average'```) sur un intervalle de 10 minutes / 600 secondes  (```--timeframe='600'```) avec un point par minute / 60 secondes (```--period='60'```).
 
-Une alerte WARNING sera déclenchée lorsque la consommation CPU sera supérieure à 80M, et CRITICAL si elle est supérieur à 90%.
+Une alerte WARNING sera déclenchée lorsque la consommation CPU sera supérieure à 80M, et CRITICAL si elle est supérieure à 90%.
 
-Pour chaque mode, les options disponibles peuvent être consultée via l'option ```--help```:
+Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_ec2_api.pl --plugin=cloud::aws::ec2::plugin --mode=cpu --help
 ```
 
-### UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values
+### J'obtiens le message d'erreur suivant:  ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
 
