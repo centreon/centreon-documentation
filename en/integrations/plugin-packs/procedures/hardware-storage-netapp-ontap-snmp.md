@@ -3,10 +3,6 @@ id: hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
 ---
 
-| Current version  | Status   | Date        |
-| :--------------- | :------- | :---------- |
-| 3.0.0            | `STABLE` | May 07 2020 |
-
 ## Prerequisites
 
 ### Centreon Plugin
