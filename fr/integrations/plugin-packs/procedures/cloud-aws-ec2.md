@@ -76,7 +76,7 @@ Ce contrôle est associé aux Modèles d'Hôtes suivants: 'Cloud-Aws-Ec2-Asg' et
 | WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
-> **Remarque** Cette métrique est généralement nulle lorsque collectée sur un groupe d'AutoScaling.
+> **Remarque** Ces métriques sont généralement nulles lorsque collectées sur un groupe d'AutoScaling.
 
 <!--Ec2-Network-->
 
@@ -169,7 +169,7 @@ yum install centreon-pack-cloud-aws-ec2.noarch
 
 ## Configuration
 
-Lorsque vous ajoutez un hôte à Centreon, choisissez le modèle de votre choix. Tous les modèles liés à la supervision du 
+Lorsque vous ajoutez un Hôte à Centreon, choisissez le modèle de votre choix. Tous les modèles liés à la supervision du 
 service AWS/EC2 commencent par "Cloud-Aws-EC2*".
 
 Tous les Modèles d'Hôtes partagent certaines macros à renseigner:
