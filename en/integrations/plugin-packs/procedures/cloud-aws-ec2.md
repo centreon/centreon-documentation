@@ -38,7 +38,7 @@ You can get more details on AWS/EC2 Cloudwatch metrics in the official AWS docum
 In addition to modes and metrics described here, it is also possible to monitor the following indicators:
 
  * Instance-Types: Number of instances of each AWS Family and associated types.
- * Instance-Status: Global heath check and count of EC2 instances.
+ * Instance-Status: Global health check and count of EC2 instances.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -75,7 +75,7 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
-**Important notes** This metric is most of the time irrelevant or null when applied to an AutoscalingGroup
+> **Important notes** This metric is most of the time irrelevant or null when applied to an AutoscalingGroup
 
 <!--Ec2-Network-->
 
@@ -104,7 +104,7 @@ This check is available with 'Cloud-Aws-Ec2-Spot-Fleet-Request' Host Template
 
 ### AWS Configuration
 
-Configure an access/secret key combo these privileges:
+Configure a service account (access/secret key combo) for which the following privileges have to be granted:
 
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
@@ -114,9 +114,9 @@ Configure an access/secret key combo these privileges:
 
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources. 
+To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources. 
 
-**Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to reach AWS Cloudwatch APIs. 
+> **Warning** For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -146,24 +146,24 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every poller expected to monitor Amazon RDS ressources:
+1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-aws-ec2.noarch
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -208,7 +208,7 @@ Set additionnal macros that comes with the Host Templates:
 
 ### How can I test it through the CLI and what is the meaning of the command_line parameters ?
 
-Once the plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following 
+Once the plugin installed, log into your Centreon Poller using the *centreon-engine* user account and test by running the following 
 command (Some of the parameters such as ```name``` have to be adjusted):
 
 ```bash
@@ -236,13 +236,13 @@ OK: Asg 'centreon-front' Statistic 'Average' Metrics CPU Utilization: 35.81 | 'c
 ```
 
 The command above monitors the CPU Utilization (```--mode=cpu```) of the *centreon-front* (```--name='centreon-front'```) 
-Autoscaling Group  (```--type='asg'```). This ASG is deployed  ithin the AWS eu-west-1 region (```--region='eu-west-1'```). 
+Autoscaling Group  (```--type='asg'```). This ASG is deployed  within the AWS eu-west-1 region (```--region='eu-west-1'```). 
 The collected metrics will be parsed as average statistics (```--statistic='average'```) over a timeframe of 600 secondes (```--timeframe='600'```) 
 with a sample of 1 point per minute (```--period='60'```).
 
-This command would trigger a WARNING alert if the CPU Utilization is higher than 80% and a CRITICAL alert if higher than 90.
+This command would trigger a WARNING alert if the CPU Utilization is higher than 80% and a CRITICAL alert if higher than 90%.
 
-All the options that can be used with this plugin can be found over the ```--help``` command:
+All the options that can be used with this Plugin can be displayed by adding the  ```--help``` parameter to the command:
 
 ```
 /usr/lib/centreon/plugins/centreon_aws_ec2_api.pl --plugin=cloud::aws::ec2::plugin --mode=cpu --help
