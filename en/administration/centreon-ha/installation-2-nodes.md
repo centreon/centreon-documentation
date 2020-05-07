@@ -312,6 +312,12 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRA
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
+Take into account that if you are using a deployed OVF or OVA Virtual Machine, you must change the `'@MARIADB_CENTREON_USER@'@'localhost'` password. If so, paste the following SQL command on both nodes:
+
+```sql
+ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
+```
+
 ### Creating the MariaDB replication account
 
 Still in the same prompt, create the replication user (default: `centreon-repl`):
