@@ -33,7 +33,12 @@ No services discovery rule available on this pack
 
 ## Monitored metrics 
 
-You can get more details on AWS/EC2 Cloudwatch metrics in the official AWS documentation: https://docs.aws.amazon.com/ec2/index.html
+You can get more details on AWS/EC2 Cloudwatch metrics in the official AWS documentation: https://docs.aws.amazon.com/ec2/index.html. 
+
+In addition to modes and metrics described here, it is also possible to monitor the following indicators:
+
+ * Instance-Types: Number of instances of each AWS Family and associated types.
+ * Instance-Status: Global heath check and count of EC2 instances.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -216,14 +221,18 @@ command (Some of the parameters such as ```name``` have to be adjusted):
 	--region='eu-west-1'
 	--type='asg'
 	--name='centreon-front'
-	--proxyurl='http://my.int.proxy.com:3128' 
 	--filter-metric='Utilization'
 	--statistic='average'
 	--timeframe='600'
 	--period='60'
 	--warning-cpu-utilization='80'
 	--critical-cpu-utilization='90'
-	--verbose
+```
+
+Expected command output is shown below: 
+
+```bash 	
+OK: Asg 'centreon-front' Statistic 'Average' Metrics CPU Utilization: 35.81 | 'centreon-front~average#ec2.cpu.utilization.percentage'=35.81;80;90;;
 ```
 
 The command above monitors the CPU Utilization (```--mode=cpu```) of the *centreon-front* (```--name='centreon-front'```) 
