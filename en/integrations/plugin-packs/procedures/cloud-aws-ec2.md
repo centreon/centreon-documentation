@@ -75,7 +75,7 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
-> **Important notes** This metric is most of the time irrelevant or null when applied to an AutoscalingGroup
+> **Important notes** These metrics are most of the time irrelevant or null when applied to an AutoscalingGroup
 
 <!--Ec2-Network-->
 
@@ -169,7 +169,7 @@ yum install centreon-pack-cloud-aws-ec2.noarch
 
 ## Configuration
 
-- Log into Centreon and add a new host through "Configuration > Hosts".
+- Log into Centreon and add a new Host through "Configuration > Hosts".
 - Apply the relevant Host Template. They all begins with "Cloud-Aws-Ec2*".  
 
 All of the Host Templates share the following configuration macros:
