@@ -3,16 +3,12 @@ id: cloud-microsoft-office365-management
 title: Office 365
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr  24 2019 |
-
 ## Vue d'ensemble
 
 Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
 Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
-## Contenu du pack de supervision
+## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
@@ -22,12 +18,15 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 ## Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Service-Status-->
-| Metric name     | Description                                        |
-| :-------------- | :------------------------------------------------- |
-| service         | Name of monitored service. Unit: Text              |
-| status (service)| Status of the monitored service. Unit: Text        |
-| status (feature)| Status of monitored feature of service. Unit: Text |
+
+| Metric name      | Description                                        |
+| :--------------- | :------------------------------------------------- |
+| service          | Name of monitored service. Unit: Text              |
+| status (service) | Status of the monitored service. Unit: Text        |
+| status (feature) | Status of monitored feature of service. Unit: Text |
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -135,14 +134,12 @@ yum install centreon-pack-cloud-microsoft-office365-management
 
 Choisissez le modèle d'hôte correspondant à la plateforme de Management Office "Cloud-Microsoft-Office365-Management-Api-Custom". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
 
-| Obligatoire | Nom | Description |
-| :---- | :---- | :---- |
-| X |OFFICE365CUSTOMMODE|Mode d'accès spécifique au Plugin Office 365 (par défaut: 'managementapi')|
-| X |OFFICE365TENANT|ID correspondant à l'espace de votre entreprise au sein d'Office 365|
-| X |OFFICE365CLIENTID|ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365|
-| X |OFFICE365CLIENTSECRET|ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365|
-
-
+| Obligatoire | Nom                   | Description                                                                           |
+| :---------- | :-------------------- | :------------------------------------------------------------------------------------ |
+| X           | OFFICE365CUSTOMMODE   | Mode d'accès spécifique au Plugin Office 365 (par défaut: 'managementapi')            |
+| X           | OFFICE365TENANT       | ID correspondant à l'espace de votre entreprise au sein d'Office 365                  |
+| X           | OFFICE365CLIENTID     | ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365             |
+| X           | OFFICE365CLIENTSECRET | ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365 |
 
 ## FAQ
 
@@ -151,16 +148,20 @@ Choisissez le modèle d'hôte correspondant à la plateforme de Management Offic
 Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre poller de supervision avec l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi'
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
---verbose --filter-service-name='Exchange Online'
---filter-feature-name='' --warning-status=''
+/usr/lib/centreon/plugins//centreon_office365_management_api.pl \
+--plugin=cloud::microsoft::office365::management::plugin \
+--mode=service-status --custommode='managementapi' \
+--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
+--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
+--verbose --filter-service-name='Exchange Online' \
+--filter-feature-name='' --warning-status='' \
 --critical-status='%{status} !~ /Normal/i'
+```
 
+Le retour du plugin est le suivant: 
+
+```bash
 OK: Service 'Exchange Online' Status is 'Normal service' - All features
 status are ok |
 Checking service 'Exchange Online'
@@ -171,6 +172,7 @@ Feature 'Management and Provisioning' Status is 'Normal service'
 Feature 'Sign-in' Status is 'Normal service'
 Feature 'Voice mail' Status is 'Normal service'
 ```
+
 
 La commande ci-dessus requête une API de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
 le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le client secret (```--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```) 
@@ -198,14 +200,15 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 
 
 ##### Remarques 
+
 * Vérifiez que vos *tenant id* / *client id* / *client secret* soient correctement configurés.
-* Si la sonde a été lancée pour la première fois avec un autre user que *centreon-engine* (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans ```/var/lib/centreon/centplugins/office365_managementapi_*```.
+* Si la sonde a été lancée pour la première fois avec un autre user que *centreon-engine* (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans ```/var/lib/centreon/centplugins/office365_managementapi_*```. Il en est de même lorsque vous avez fait une modification sur les droits 
+associés aux paramètres d'authentification utilisés.
 * Par défaut ce Plugin utilise la librairie web "Lwb" pour requêter l'API de Microsoft Office 365. 
 Pour palier à certaines erreurs web, nous préconisons d'utiliser la librairie Curl
 en appelant l'option  --http-backend=curl.
 * Les données étant récupérées depuis le Cloud Azure, le temps d'exécution des contrôles peut augmenter dans le cas de latences réseau. 
 Il sera alors nécessaire d'augmenter la valeur "Service check timeout" dans les options de logs du moteur centengine.
-
 
 Toutes les options des différents modes sont consultables via l'option ```--help```:
 

@@ -3,10 +3,6 @@ id: cloud-microsoft-office365-management
 title: Office 365
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr  24 2019 |
-
 ## Overview
 
 Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
@@ -156,16 +152,16 @@ In the host configuration form, apply the "Cloud-Microsoft-Office365-Management-
 Once the Centreon plugin installed, you can test it directly on the Centreon Poller by logging into the CLI with the *centreon-engine* user:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi'
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
---verbose --filter-service-name='Exchange Online'
---filter-feature-name='' --warning-status=''
+/usr/lib/centreon/plugins//centreon_office365_management_api.pl \
+--plugin=cloud::microsoft::office365::management::plugin \
+--mode=service-status --custommode='managementapi' \
+--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
+--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
+--verbose --filter-service-name='Exchange Online' \
+--filter-feature-name='' --warning-status='' \
 --critical-status='%{status} !~ /Normal/i'
-
+```
 OK: Service 'Exchange Online' Status is 'Normal service' - All features
 status are ok |
 Checking service 'Exchange Online'
@@ -208,10 +204,12 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 
 Most common reasons for this message are:
 
-* Check that the *tenant id* / *client id* / *client secret* credentials are properly set.
+* Check that the *tenant id* / *client id* / *client secret* credentials are properly set. If any modification is made on 
+the associated privileges, delete the Plugin cache file: ```/var/lib/centreon/centplugins/office365_managementapi_*```.
 * The Plugin cannot connect to the Office 365 API: there might be a third-party device (Firewall, Proxy...) dropping the flows.
 * The "lwb" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
 Just add the following option ```--http-backend=curl``` to the command.
+
 
 ### How do I get a description of the available options ?
 
