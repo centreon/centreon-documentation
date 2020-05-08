@@ -3,23 +3,20 @@ id: cloud-microsoft-office365-management
 title: Office 365
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr  24 2019 |
+## Overview
 
-## Vue d'ensemble
+Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
+Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
+The Centreon Plugin relies on the Office 365 management API to collect and monitor the Office 365 information and metrics.
 
-Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
-Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
+## Plugin-Pack Assets
 
-## Contenu du pack de supervision
+### Monitored objects
 
-### Objets supervisés
+* Office services: Applications available on the Office 365 portal: Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
+* Office features: E-Mail and calendar access, E-Mail timely delivery, etc..
 
-* Services Office : Tous les services Office 365 : Office 365 Portal, Exchange Online, Microsoft Intune, Skype for Business, Mobile Device Management for Office 365, OneDrive for Business, SharePoint Online, Microsoft Teams, etc...
-* Features Office : Toutes les fonctionnalités des services Office 365 : E-Mail and calendar access, E-Mail timely delivery, etc..
-
-## Métriques collectées
+## Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Service-Status-->
@@ -30,76 +27,75 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 | status (feature)| Status of monitored feature of service. Unit: Text |
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prrequisites
 
-### Enregistrer une application
+More information is available in the official Microsoft documentation: https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
 
-Les API de gestion Office 365 utilisent Azure AD pour assurer l’authentification sécurisée des données dans Office 365.
-Pour accéder aux API de gestion Office 365, vous devez enregistrer votre application dans Azure AD.
-Le terme « Application » est utilisé comme concept, faisant référence non seulement au programme d’application, 
-mais également à son inscription Azure AD et à son rôle lors des « dialogues » d’authentification/autorisation au moment de l’exécution.
-(https://docs.microsoft.com/fr-fr/azure/active-directory/develop/app-objects-and-service-principals)
+### Register an application in Azure AD
 
-Assurez-vous d'avoir récupéré votre Tenant ID Microsoft, vous en aurez besoin pour enregistrer votre application dans Azure AD.
+The Office 365 Management APIs use Azure AD to provide secure authentication to Office 365 tenant data. 
+To access the Office 365 Management APIs, you need to register your app in Azure AD, and as part of the configuration, you will specify the permission levels your app needs to access the APIs.
 
-1. Connectez-vous au portail de gestion Azure, en utilisant votre Tenant Microsoft Office 365. 
-2. Dans le panneau de navigation de gauche, choisissez Active Directory. 
-Assurez-vous que l’onglet Directory est sélectionné, puis sélectionnez le nom du répertoire.
-3. Sur la page du répertoire, sélectionnez Applications. Azure AD affiche une liste des applications actuellement installées dans votre infrastructure.
-4. Choisissez Ajouter
-5. Sélectionnez Ajouter une application.
-6. Entrez le nom de votre application et indiquez le Type comme "CENTREON API WEB".
-7. Entrez les propriétés de l’application :
-* URL de connexion : L’URL où les utilisateurs peuvent se connecter et utiliser votre application. Vous pouvez modifier cela plus tard si nécessaire.
-* URI APP ID : L’URI utilisé comme identifiant logique unique pour votre application. L’URI doit être dans un domaine personnalisé vérifié pour qu’un utilisateur externe puisse accorder à votre application l’accès à ses données dans Windows Azure AD.
-Votre application est maintenant enregistrée auprès d’Azure AD et un identifiant client lui a été attribué. 
+To register your app in Azure AD, you need a subscription to Office 365 and a subscription to Azure that has been associated with your Office 365 subscription.
+After you have a Microsoft tenant with the proper subscriptions, you can register your application in Azure AD.
 
-#### Configurer les propriétés de votre application dans Azure AD
+1. Sign into the Azure management portal, using the credential of your Microsoft tenant that has the subscription to Office 365 you wish to use. 
+You can also access the Azure Management Portal via a link that appears in the left navigation pane in the Office admin portal.
+2. In the left navigation panel, choose *Active Directory*. Make sure the *Directory* tab is selected, and then select the directory name.
+3. On the directory page, select *Applications*. Azure AD displays a list of the applications currently installed in your tenancy.
+4. Choose *Add*.
+5. Select *Add an application my organization is developing*.
+6. Enter the name of your application and specify the Type as "CENTREON API WEB".
+7. Enter the appropriate App properties:
+* *SIGN-ON URL*: The URL where users can sign in and use your app. You can change this later as needed.
+* *APP ID URI*. The URI used as a unique logical identifier for your app. The URI must be in a verified custom domain for an external user to grant your app access to their data in Windows Azure AD. 
 
-Plusieurs propriétés doivent être spécifiées dans Azure AD:
+#### Configure your application properties in Azure AD
 
-1. ID CLIENT : Cette valeur est générée automatiquement par Azure AD. 
-2. APPLICATION IS MULTI-TENANT : Cette propriété doit être configurée sur NO ou YES si vous souhaitez superviser des informations depuis un compte Azure d'une autre entreprise.
-3. REPLY URL : C’est l’URL vers laquelle un administrateur locataire sera redirigé après avoir donné son consentement pour permettre à votre application d’accéder à ses données en utilisant les API de gestion Office 365.
+Now that your application is registered, there are several important properties you must specify that determine how your application functions within Azure AD 
+and how tenant admins will grant consent to allow your application to access their data by using the Office 365 Management APIs.
 
-#### Générer une nouvelle clé pour votre application
+1. *CLIENT ID*: This value is automatically generated by Azure AD. Your application will use this value when requesting consent from tenant admins and when requesting app-only tokens from Azure AD.
+2. *APPLICATION IS MULTI-TENANT*: This property must be set to YES to allow tenant admins to grant consent to your app to access their data by using the Office 365 Management APIs. 
+If this property is set to NO, your application will only be able to access your own tenant's data.
+3. *REPLY URL*: This is the URL that a tenant admin will be redirected to after granting consent to allow your application to access their data by using the Office 365 Management APIs. 
+You can configure multiple reply URLs as needed. Azure automatically sets the first one to match the sign-on URL you specified when you created the application, but you can change this value as needed.
 
-1. Dans le Portail de gestion Azure, sélectionnez votre application et choisissez Configurer dans le menu supérieur. Faites défiler jusqu’aux clés.
-2. Sélectionnez la durée de votre clé et choisissez Enregistrer.
-3. Azure affiche le secret de l’application seulement après l’avoir sauvegardé. Sélectionnez l’icône Presse-papiers pour copier la clé du client.
-* Attention : Azure affiche uniquement la clé privée au moment où vous la générez. Sauvegardez-la car vous ne pourrez pas récupérer la clé privée plus tard.
+Be sure to choose *Save* after making any changes to these properties.
 
-#### Configurer un certificat X.509 pour activer les appels de service à service
+#### Generate a new key for your application
 
-1. Obtenez un certificat X.509. Vous pouvez utiliser un certificat auto-signé ou un certificat délivré par une autorité de certification de confiance publique.
-Votre application utilisera ce certificat pour communiquer avec Azure AD, assurez-vous ainsi de conserver l’accès à la clé privée.
+1. In the Azure Management Portal, select your application and choose *Configure* in the top menu. Scroll down to *keys*.
+2. Select the duration for your key, and choose *Save*.
+3. Azure displays the app secret only after saving it. Select the Clipboard icon to copy the client secret to the Clipboard.
+> Warning : As the app secret will only be displayed once, remember to save it for later.
 
-#### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
+#### Configure an X.509 certificate to enable service-to-service calls
 
-Enfin, vous devez spécifier les autorisations que votre application requiert: 
-1. Dans le Portail de gestion Azure, sélectionnez votre application et choisissez *Configurer* dans le menu du haut. Faites défiler jusqu’aux autorisations d’autres applications, puis choisissez *Ajouter une application*.
-2. Sélectionnez 'Office 365 Management APIs' puis cochez la case en bas à droite pour enregistrer votre sélection et revenir à la page de configuration principale de votre application.
-3. Les API Office Management apparaissent maintenant dans la liste des applications pour lesquelles votre application nécessite des autorisations. Sous les autorisations d’application et les autorisations déléguées, sélectionnez les autorisations dont votre application a besoin.
+You must configure an X.509 certificate with your application to be used as client credentials when requesting app-only access tokens from Azure AD. There are two steps to the process:
 
-#### Demande d’accès à Azure AD
+* Obtain an X.509 certificate: You can use a self-signed certificate or a certificate issued by publicly trusted certificate authority.
+* Modify your application manifest to include the thumbprint and public key of your certificate.
 
-Utilisez un POST HTTP vers un endpoint spécifique au tenant, où l’ID du tenant est intégré dans l’URL.
-* https://login.windows.net/{tenantid}/oauth2/token
-```bash 
-POST https://login.windows.net/41463f53-8812-40f4-890f-865bf6e35190/oauth2/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-Host: login.windows.net
-Content-Length: 994
+#### Specify the permissions your app requires to access the Office 365 Management APIs
 
-resource=https%3A%2F%2Fmanage.office.com&amp;client_id= a6099727-6b7b-482c-b509-1df309acc563&amp;grant_type=client_credentials &amp;
-client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&amp;
-client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Ill5ZnNoSkMzclBRLWtwR281ZFVhaVk1dDNpVSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcLzQxNDYzZjUzLTg4MTItNDBmNC04OTBmLTg2NWJmNmUzNTE5MFwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyNzI0ODY0OCwiaXNzIjoiYTYwOTk3MjctNmI3Yi00ODJjLWI1MDktMWRmMzA5YWNjNTYzIiwianRpIjoiMGNlMjU0YzQtODFiMS00YTJlLTg0MzYtOWE4YzNiNDlkZmI5IiwibmJmIjoxNDI3MjQ4MDQ4LCJzdWIiOiJhNjA5OTcyNy02YjdiLTQ4MmMtYjUwOS0xZGYzMDlhY2M1NjMifQ.vfDrmCjiXgoj2JrTkwyOpr-NOeQTzlXQcGlKGNpLLe0oh4Zvjdcim5C7E0UbI3Z2yb9uKQdx9G7GeqS-gVc9kNV_XSSNP4wEQj3iYNKpf_JD2ikUVIWBkOg41BiTuknRJAYOMjiuBE2a6Wyk-vPCs_JMd7Sr-N3LiNZ-TjluuVzWHfok_HWz_wH8AzdoMF3S0HtrjNd9Ld5eI7MVMt4OTpRfh-Syofi7Ow0HN07nKT5FYeC_ThBpGiIoODnMQQtDA2tM7D3D6OlLQRgLfI8ir73PVXWL7V7Zj2RcOiooIeXx38dvuSwYreJYtdphmrDBZ2ehqtduzUZhaHL1iDvLlw
-```
+Finally, you need to specify exactly what permissions your app requires of the Office 365 Management APIs. To do so, you add access to the Office 365 Management APIs to your app, and then you specify the permission(s) you need:
+1. In the Azure Management Portal, select your application, and choose *Configure* in the top menu. 
+Scroll down to *permissions to other applications*, and choose *Add application*.
+2. Select the *Office 365 Management APIs* so that it appears in the *Selected* column, and then select the check mark in the lower right 
+to save your selection and return to the main configuration page for your application.
+3. The Office Management APIs now appear in the list of applications to which your application requires permissions. 
+Under both *Application Permissions* and *Delegated Permissions*, select the permissions your application requires. 
+Refer to the specific API reference for more details about each permission.
 
-#### Aide supplémentaire
+#### Request access tokens from Azure AD
 
-Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un ID client et un ID secret :
-* https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-with-office-365-management-apis
+After a tenant admin grants consent, your application receives an authorization code as a query string parameter 
+when Azure AD redirects the tenant admin to your designated URL.
+
+More information on how to get the token based on the authorization code is detailed here:
+https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis#request-an-access-token-using-the-authorization-code
+
 
 ## Installation
 
@@ -107,60 +103,65 @@ Suivez le guide pratique pour obtenir une explication complète sur la façon d�
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Management:
+1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
+2. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
 
 
 <!--Offline IMP License-->
-1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Office 365 Management:
+
+1. Install the Centreon Plugin package on every poller expected to monitor Office 365 ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Install the Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
+3. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Choisissez le modèle d'hôte correspondant à la plateforme de Management Office "Cloud-Microsoft-Office365-Management-Api-Custom". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
+Log into Centreon and add a new host through "Configuration > Hosts".
+In the host configuration form, apply the "Cloud-Microsoft-Office365-Management-Api-Custom" template and set the macros marked as mandatory below:
 
-| Obligatoire | Nom | Description |
-| :---- | :---- | :---- |
-| X |OFFICE365CUSTOMMODE|Mode d'accès spécifique au Plugin Office 365 (par défaut: 'managementapi')|
-| X |OFFICE365TENANT|ID correspondant à l'espace de votre entreprise au sein d'Office 365|
-| X |OFFICE365CLIENTID|ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365|
-| X |OFFICE365CLIENTSECRET|ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365|
+
+| Mandatory | Name                  | Description                                            |
+| :-------- | :-------------------- | :----------------------------------------------------- |
+| X         | OFFICE365CUSTOMMODE   | Centreon Plugin access mode (default: 'managementapi') |
+| X         | OFFICE365TENANT       | Office 365 tenant ID                                   |
+| X         | OFFICE365CLIENTID     | Office 365 client ID                                   |
+| X         | OFFICE365CLIENTSECRET | Office 365 client secret                               |
 
 
 
 ## FAQ
 
-#### Comment tester et interpréter la sonde Office 365 en ligne de commande?
+#### How to test the Plugin through the CLI and what are the main parameters for ?
 
-Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre poller de supervision avec l'utilisateur *centreon-engine*:
+Once the Centreon plugin installed, you can test it directly on the Centreon Poller by logging into the CLI with the *centreon-engine* user:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_office365_management_api.pl
---plugin=cloud::microsoft::office365::management::plugin
---mode=service-status --custommode='managementapi'
---tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'
---client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'
---client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='
---verbose --filter-service-name='Exchange Online'
---filter-feature-name='' --warning-status=''
+/usr/lib/centreon/plugins//centreon_office365_management_api.pl \
+--plugin=cloud::microsoft::office365::management::plugin \
+--mode=service-status --custommode='managementapi' \
+--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' \
+--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' \
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA=' \
+--verbose --filter-service-name='Exchange Online' \
+--filter-feature-name='' --warning-status='' \
 --critical-status='%{status} !~ /Normal/i'
-
+```
 OK: Service 'Exchange Online' Status is 'Normal service' - All features
 status are ok |
 Checking service 'Exchange Online'
@@ -172,12 +173,17 @@ Feature 'Sign-in' Status is 'Normal service'
 Feature 'Voice mail' Status is 'Normal service'
 ```
 
-La commande ci-dessus requête une API de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
-le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le client secret (```--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```) 
-et fournit l'état du service (```--mode=service-status```) "Exchange Online" (```--filter-service-name='Exchange Online'```) ainsi que l'état des 'features' du service selectionné.
-Une alerte CRITICAL sera déclenchée si l'état du service Exchange Online n'est pas 'Normal'.
+The above command requests the Office 365 Management API (```--plugin=cloud::microsoft::office365::management::plugin --custommode='managementapi'```) 
+with a set of credentials previously defined (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24' --client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d' 
+--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```).
+This command aims to check  the status of the *Exchange Online* service (```--mode=service-status --filter-service-name='Exchange Online'```).
+It will also return the list of all of the associated features as no relevant filter has been set (```--filter-feature-name=''```).
+A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *Normal* (```--critical-status='%{status}```).
 
-Dans le cas où vous recevez un retour de type UNKNOWN, exécutez le Plugin en mode debug en ajoutant l'option '--debug' :
+
+### When executing the command, I get the following error message: ```UNKNOWN: Cannot decode json response```
+
+If you receive this message, add the ```--debug``` option to the command to get more information about the error:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
@@ -196,16 +202,18 @@ string or atom, at character offset 0 (before "System.Collections.G...") at
 /usr/lib/centreon/plugins/centreon_office365_management_api.pl line xxx
 ```
 
+Most common reasons for this message are:
 
-##### Remarques 
-* Vérifiez que vos tenant id / client id / client secret soient correctement configurés.
-* Si la sonde a été lancée pour la première fois avec un autre user que centreon-engine (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans /var/lib/centreon/centplugins/office365_managementapi_*.
-* Par défaut ce Plugin utilise la librairie web "Lwb" pour requêter l'API de Microsoft Office 365. Pour palier à certaines erreurs web, nous préconisons d'utiliser la librairie Curl
-en appelant l'option  --http-backend=curl.
-* Les données étant récupérées depuis le Cloud Azure, le temps d'exécution des contrôles peut augmenter dans le cas de latences réseau. Il sera alors nécessaire d'augmenter la valeur "Service check timeout" dans les options de logs du moteur centengine.
+* Check that the *tenant id* / *client id* / *client secret* credentials are properly set. If any modification is made on 
+the associated privileges, delete the Plugin cache file: ```/var/lib/centreon/centplugins/office365_managementapi_*```.
+* The Plugin cannot connect to the Office 365 API: there might be a third-party device (Firewall, Proxy...) dropping the flows.
+* The "lwb" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
+Just add the following option ```--http-backend=curl``` to the command.
 
 
-Toutes les options des différents modes sont consultables via l'option ```--help```:
+### How do I get a description of the available options ?
+
+The whole list of options and their usage can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_management_api.pl
