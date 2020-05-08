@@ -3,10 +3,6 @@ id: hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
 ---
 
-| Current version  | Status   | Date        |
-| :--------------- | :------- | :---------- |
-| 3.0.0            | `STABLE` | May 07 2020 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -19,7 +15,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Snmp
 
 ## SNMP
 
-Connect to your NetApp server and configure SNMP.
+Connect to your NetApp and configure SNMP.
 
 ## Centreon Configuration
 
