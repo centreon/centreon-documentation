@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-netapp-ontap-oncommandapi
-title: NetApp Ontap Oncommand API
+title: NetApp Ontap OnCommand API
 ---
 
 ## Prerequisites
