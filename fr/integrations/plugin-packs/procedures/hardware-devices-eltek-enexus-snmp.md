@@ -1,36 +1,21 @@
 ---
 id: hardware-devices-eltek-enexus-snmp
-title: Eltek eNexus SNMP
+title: Eltek eNexus
 ---
 
 ## Vue d'ensemble
 
-Eltek est un spécialiste mondial de la conversion de l'énergie électrique qui développe et commercialise des systèmes pour les télécommunications et les applications industrielles.
+Eltek est un spécialiste mondial de la gestion et la transformation de l'énergie électrique. Ils développent et commercialisent des matériels utilisés dans les secteurs de l'industrie et des télécommunications.
 
 ## Contenu du pack de supervision 
 
 ### Objets supervisés
-* Télécommunications
 
-Les modèles suivants peuvent être supervisés:
 * SmartPack2 V2.x
 * SmartPack S V2.x
 * Compack V2.x
 
-### Règles de découvertes
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
-
-Pas de règle de découverte des hôtes disponible sur ce pack
-
-<!--Services-->
-
-Pas de règle de découverte des services disponible sur ce pack
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-## Métriques collectées
+### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -75,11 +60,9 @@ Pas de règle de découverte des services disponible sur ce pack
 
 Afin de superviser vos équipements Eltek le SNMP v2 doit être configuré.
 
-La communication doit être possible sur le port 161 depuis le collecteur de supervision vers vos équipements.
+### Configuration d'un équipement SNMP
 
-## Configuration d'un équipement SNMP
-
-:note: Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
+> :warning: Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
 
 Sur l'interface Web:
 
@@ -90,7 +73,7 @@ Sur l'interface Web:
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers l'équipemnt Eltek eNexus supervisé. 
+La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipemnt Eltek eNexus supervisé. 
 
 ## Installation
 
@@ -98,7 +81,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des équipements Eltek eNexus:
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipements Eltek eNexus:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
@@ -109,13 +92,13 @@ Installer le Plugin-Pack 'Eltek eNexus' depuis la page "Configuration > Plugin p
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des équipemnts Eltek eNexus:
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des équipemnts Eltek eNexus:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
 
-2. Installer le RPM contenant les modèles de supervision:
+2. Installer le RPM contenant les Modèles de supervision:
 
 ```bash
 yum install hardware-devices-eltek-enexus-snmp
@@ -127,9 +110,9 @@ yum install hardware-devices-eltek-enexus-snmp
 
 ## Configuration
 
-Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
+Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les champs "Snmp Community" et "Snmp Version". 
 
-  :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                         |
 | :---------- | :--------------- | :-------------------------------------------------- |
@@ -139,7 +122,7 @@ Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il e
 
 ### Comment tester en ligne de commande et quelles significations portent les options principales ?
 
-A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+A partir du moment ou la sonde est installée, connectez vous à votre Collecteur et executez la commande  suivante avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_eltek_enexus_snmp.pl \
@@ -151,7 +134,7 @@ A partir du moment ou la sonde est installée, vous pouvez tester di
   --verbose 
 ```
 
-La commande vérifie le status de la batterie (```--mode=battery```) d'un équpipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté public  (```--snmp-community='public'```).
+La commande vérifie le status de la batterie (```--mode=battery```) d'un équipement Eltek ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocol SNMP et avec la communauté public  (```--snmp-community='public'```).
 
 Tous les modes sont affichables via la commande suivante:
 
@@ -172,10 +155,10 @@ Les options des différents modes sont consultables via le help du mo
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipemnt Eltek sur le port 161, ou alors que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un firewall bloque le flux.
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipemnt Eltek sur le port 161, ou alors que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Ce message d'erreur fait souvent référence aux problèmes suivants : 
-  - L'équipement Adva Optical ne supporte pas le MIB utilisé par le plugin
-  - L'OID SNMP ciblé ne peut pas être récupéré en raison de l'insuffisance des privilèges sur l'équipement
+  - L'équipement Eltek ne supporte pas la MIB exploitée par le plugin
+  - Un des OIDs utilisé par le plugin n'est pas récupérable du fait de privilèges insuffisants
