@@ -5,92 +5,78 @@ title: BlueMind SSH
 
 ## Vue d'ensemble
 
-BlueMind est une entreprise qui offre une solution complète de messagerie et de communication.
+BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agendas et de travail collaboratif utilisant JavaScript 
+et HTML5. 
 
 ## Contenu du pack de supervision
 
 ### Objets supervisés
 
-* Application 
-* Messagerie
-* Communication 
+* Suite BlueMind dont: 
+    * Lmtpd: Service de mail delivré 
+    * Milter: Analyse et modification des mails au niveau SMTP
+    * Webserver: Serveur d'application web
 
-### Règles de découvertes
+### Métriques collectées
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Hosts-->
-
-Pas de règle de découverte des hôtes disponible sur ce pack
-
-<!--Services-->
-
-Pas de règle de découverte des services disponible sur ce pack
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-## Métriques collectées
-
-Vous pouvez voir un résumé de toutes les metrics recueillies par BlueMind dans la documentation officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
-
-* Lmtpd: Service de mail delivré 
-* Milter: Analyse et modification des mails au niveau SMTP
-* Webserver: Serveur d'application web
+Au delà des métriques présentés ci-après, un référentiel des métriques recueillies sont décrites dans la documentation
+officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Core-->
 
-| Metric name                              | Description                                        |
-| :--------------------------------------- | :------------------------------------------------- |
-| core.calls.received.success.count        | Number of calls successfully received by the core  |
-| core.calls.received.failure.count        | Number of calls received by the core with an error |
-| core.heartbeat.broadcast.running.count   | Number of heartbeat broadcast in running           |
-| core.directory.cluster.events.count      | Number of direcotry cluster events                 |
-| core.request.handling.total.milliseconds | Total of core request handling. Units: ms          |                                            
-| core.request.handling.mean.milliseconds  | Mean of core request handling. Units: ms           |                                          
+| Metric name                              | Description                                                     |
+| :--------------------------------------- | :-------------------------------------------------------------- |
+| core.calls.received.success.count        | Number of calls successfully received by the core. Unit: Count  |
+| core.calls.received.failure.count        | Number of calls received by the core with an error. Unit: Count |
+| core.heartbeat.broadcast.running.count   | Number of heartbeat broadcast in running. Unit: Count           |
+| core.directory.cluster.events.count      | Number of direcotry cluster events. Unit: Count                 |
+| core.request.handling.total.milliseconds | Total of core request handling. Unit: ms                        |                                            
+| core.request.handling.mean.milliseconds  | Mean of core request handling. Unit: ms                         |                                          
 
 <!--Eas-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| eas.responses.size.total.bytes           | Total eas reponses size. Units: bytes                |
-| eas.execution.total.milliseconds         | Total eas execution. Units: ms                       |
-| eas.execution.mean.milliseconds          | Mean eas execution. Units: ms                        |
+| eas.responses.size.total.bytes           | Total eas reponses size. Unit: Bytes                 |
+| eas.execution.total.milliseconds         | Total eas execution. Unit: ms                        |
+| eas.execution.mean.milliseconds          | Mean eas execution. Unit: ms                         |
 
 <!--Hps-->
 
 | Metric name                                  | Description                                          |
 | :------------------------------------------- | :--------------------------------------------------- |
-| hps.authentication.success.count             | Number of hps authentication success                 |
-| hps.authentication.failure.count             | Number of hps authentication failure                 |
-| hps.requests.protected.count                 | Number of protected requests                         |
-| hps.requests.maintenance.count               | Number of maintenance requests                       |
-| hps.upstream.requests.time.milliseconds      | By instances. e.g. /login /webmail ...               |
-| hps.upstream.requests.time.mean.milliseconds | By instances. e.g. /login /webmail ...               |
-| hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ...               |
-| hps.upstream.requests.total.count            | By instances. e.g. /login /webmail ...               |
+| hps.authentication.success.count             | Number of hps authentication success. Unit: Count    |
+| hps.authentication.failure.count             | Number of hps authentication failure. Unit: Count    |
+| hps.requests.protected.count                 | Number of protected requests. Unit: Count            |
+| hps.requests.maintenance.count               | Number of maintenance requests. Unit: Count          |
+| hps.upstream.requests.time.milliseconds      | By instances. e.g. /login /webmail ... Unit: ms      |
+| hps.upstream.requests.time.mean.milliseconds | By instances. e.g. /login /webmail ... Unit: ms      |
+| hps.upstream.requests.size.total.bytes       | By instances. e.g. /login /webmail ... Unit: ms      |
+| hps.upstream.requests.total.count            | By instances. e.g. /login /webmail ... Unit: ms      |
 
 <!--Ips-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| ips.connections.active.count             | Number of ips connections active                     |
+| ips.connections.active.count             | Number of ips connections active. Unit: Count        |
 
 <!--Webserver-->
 
-| Metric name                                | Description                                          |
-| :----------------------------------------- | :--------------------------------------------------- |
-| webserver.requests.time.milliseconds       | Time of requests webserver. Units: ms                |
-| webserver.requests.time.mean.milliseconds  | Mean time of requests webserver. Units: ms           |
-| webserver.requests.total.count             | Total number of requests webserver                   |
-| webserver.requests.status.200.count        | Number of requests status webserver whith code 200   |
-| webserver.requests.status.304.count        | Number of requests status webserver whith code 304   |
+| Metric name                                | Description                                                       |
+| :----------------------------------------- | :---------------------------------------------------------------- |
+| webserver.requests.time.milliseconds       | Time of requests webserver. Unit: ms                              |
+| webserver.requests.time.mean.milliseconds  | Mean time of requests webserver. Unit: ms                         |
+| webserver.requests.total.count             | Total number of requests webserver. Unit: Count                   |
+| webserver.requests.status.200.count        | Number of requests status webserver whith code 200. Unit: Count   |
+| webserver.requests.status.304.count        | Number of requests status webserver whith code 304. Unit: Count   |
 
 <!--Xmpp-->
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
-| xmpp.packets.all.count                   | Number of all xmpp packets                           |
-| xmpp.packets.chat.count                  | Number of chat xmpp packets                          |
+| xmpp.packets.all.count                   | Number of all xmpp packets. Unit: Count              |
+| xmpp.packets.chat.count                  | Number of chat xmpp packets. Unit: Count             |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -98,9 +84,10 @@ Vous pouvez voir un résumé de toutes les metrics recueillies par BlueMind dans
 
 ### Configuration BlueMind
 
-Sur le serveur BlueMind, vous avez besoin d'un compte système qui peut accéder aux sockets unix du repertoire ```/var/run/bm-metrics/``` (group telegraph).
+Sur le serveur BlueMind, créer un utilisateur ayant accès à la socket Unix dans le repértoire ```/var/run/bm-metrics/``` 
+(group telegraph).
 
-Pour tester, exécutez cette commande avec l'utilisateur:
+Afin de valider la création de l'utilisateur, exécutez cette commande cet utilisateur:
 
 ```bash
 user$ curl --unix-socket /var/run/bm-metrics/metrics-bm-core.sock http://127.0.0.1/metrics
@@ -116,7 +103,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs BlueMind :
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
@@ -126,13 +113,13 @@ Installer le Plugin-Pack 'BlueMind' depuis la page "Configuration > Plugin packs
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des serveurs BlueMind :
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des serveurs BlueMind :
 
 ```bash
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-2. Installer le RPM contenant les modèles de supervision:
+2. Installer le RPM contenant les Modèles de supervision:
 
 ```bash
 yum install centreon-pack-applications-bluemind-ssh
@@ -144,11 +131,14 @@ yum install centreon-pack-applications-bluemind-ssh
 
 ## Configuration
 
-Vous pouvez choisir entre 3 backends ssh pour vous connecter sur votre serveur BlueMind.
+Vous pouvez choisir entre 3 backends SSH pour vous connecter sur votre serveur BlueMind.
 
-Ajoutez un nouvel hôte dans Centreon, appliquez le modèle d'hôte correspondant à votre type d'instance/cluster. Tous les modèles d'hôtes commencent par ```App-Bluemind-SSH```. Une fois le modèle choisi, vous devez définir des valeurs en fonction du backend ssh. 
+Ajoutez un nouvel Hôte dans Centreon, appliquez le Modèle d'Hôte ```App-Bluemind-SSH```. 
+Une fois le modèle choisi, vous devez définir des valeurs en fonction du backend ssh. 
 
-### sshcli backend
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--sshcli backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
@@ -158,9 +148,10 @@ Ajoutez un nouvel hôte dans Centreon, appliquez le modèle d'hôte correspondan
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, vous devez valider manuellement le fingerprint du serveur cible (avec le SSHUSERNAME utilisé).
+> :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-### plink backend
+<!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                        |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------------- | 
@@ -170,9 +161,10 @@ Ajoutez un nouvel hôte dans Centreon, appliquez le modèle d'hôte correspondan
 |             | SSHPORT         | Par default: 22                                                                                    |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```         |
 
-:warning: Avec ce backend, vous devez valider manuellement le fingerprint du serveur cible (avec le SSHUSERNAME utilisé).
+> :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+et l'utilisateur applicatif créé sur le serveur BlueMind. (Macro SSHUSERNAME).
 
-### libssh backend
+<!--libssh backend-->
 
 | Mandatory   | Name            | Description                                                                                        |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------------- |
@@ -182,10 +174,12 @@ Ajoutez un nouvel hôte dans Centreon, appliquez le modèle d'hôte correspondan
 |             | SSHPORT         | Par default: 22                                                                                    |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```         |
 
+Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. Sympa :)
 
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. Joli ;)
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## FAQ
+
 ### Comment tester en ligne de commande et quelles significations portent les options principales ?
 
 Tous les modes sont affichables via la commande suivante:
@@ -207,5 +201,5 @@ Les options des différents modes sont consultables en ajoutant le paramètre ``
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
 
-Cela signifie que vous n'avez pas validé manuellement le fingerprint du serveur cible avec le "ssh" ou le "plink" sur votre collecteur.
-
+Cette erreur apparaît généralement avec les backends 'sshcli' ou 'plink'. Assurez-vous d'avoir réalisé une première connexion comme
+indiqué dans la partie Configuration du backend utilisé.
