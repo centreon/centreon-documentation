@@ -5,21 +5,22 @@ title: BlueMind SSH
 
 ## Vue d'ensemble
 
-BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agendas et de travail collaboratif utilisant JavaScript 
-et HTML5. 
+BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agendas et de travail collaboratif
+utilisant JavaScript et HTML5. 
 
 ## Contenu du pack de supervision
 
 ### Objets supervisés
 
 * Suite BlueMind dont: 
-    * Lmtpd: Service de mail delivré 
-    * Milter: Analyse et modification des mails au niveau SMTP
-    * Webserver: Serveur d'application web
+    * Lmtpd: Envoie/Récéption courriels
+    * Milter: Analyse et modification des courriels au niveau SMTP
+    * Webserver: Serveur d'application web / méssagerie
+    * Chat/Xmpp: Communications unifiées
 
 ### Métriques collectées
 
-Au delà des métriques présentés ci-après, un référentiel des métriques recueillies sont décrites dans la documentation
+Au delà des métriques présentés ci-après, un référentiel est disponible dans la documentation
 officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -109,7 +110,7 @@ bm-core.heartbeat.broadcast,state=core.state.stopping,meterType=Counter count=2
 yum install centreon-plugin-Applications-Bluemind-Ssh
 ```
 
-Installer le Plugin-Pack 'BlueMind' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+Installer le Plugin-Pack 'BlueMind SSH' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 <!--Offline IMP License-->
 
