@@ -94,7 +94,8 @@ The diagram below summarizes the architecture:
 
 ![image](../assets/architectures/Architecture_distributed.png)
 
-<!--Deported DBMS-->
+<!--Remote DBMS-->
+
 #### Description
 
 The distributed architecture with remote DBMS is to have three types of entities:
