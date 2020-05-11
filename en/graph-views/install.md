@@ -127,7 +127,7 @@ Resolution must be at least 1280 x 768.
   - 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
   - **Java 64 bits version 8**
   - Resolution must be at least 1280 x 768.
-  - Degian 7,8 or 9
+  - Debian 7,8 or 9
 
 > Desktop Client is not compatible with Microsoft Windows Server. * If a
 > version of Java other than 8 is installed, consider installing Java 8 and
