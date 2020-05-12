@@ -47,6 +47,12 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon MBI
 
+### 20.04.1
+
+* L'exécution immédiate d'un job avançait la date d'exécution de plusieurs jours
+* La prévisualisation des logos est à nouveau fonctionnelle
+* Corrections de traduction dans certains rapports
+
 ### 20.04.0
 
 * Gestion de la compatibilité avec Centreon 20.04
