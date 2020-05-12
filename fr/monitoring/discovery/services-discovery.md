@@ -348,13 +348,13 @@ options :
 Exécution de toutes les règles :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl
 ```
 
 Test de toutes les règles :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --dry-run
 ```
 
@@ -362,7 +362,7 @@ Exécution de la règle **OS-Linux-SNMP-Network-Interfaces-Discovery** sans
 modification de la configuration Centreon :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
@@ -371,7 +371,7 @@ Exécution des règles de découverte pour l’hôte “centreon-server” sans
 modification de la configuration Centreon :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-host="centreon-server" \
   --dry-run
 ```
@@ -380,7 +380,7 @@ Exécution de la règle “OS-Linux-SNMP-Network-Interfaces-Discovery”, pour l
 “centreon-server”, sans modification de la configuration Centreon :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --filter-host="centreon-server" \
   --dry-run
