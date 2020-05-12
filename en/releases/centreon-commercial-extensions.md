@@ -42,6 +42,12 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon MBI
 
+### 20.04.1
+
+* Logo preview has been fixed
+* Immediate rescheduling a job was setting the execution date in the future
+* fix some translations in reports
+
 ### 20.04.0
 
 * Manage compatibility with Centreon 20.04

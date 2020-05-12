@@ -142,7 +142,7 @@ désormais dans `/var/log/centreon-map`
 systemctl restart centreon-map
 ```
 
-Suivez la documentation de [mise à jour](../graph-views/upgrade) afin de
+Suivez la documentation de [mise à jour](../graph-views/upgrade.html) afin de
 correctement migrer l'extension.
 
 Enfin, il est désormais possible d'installer le serveur Centreon Map en mode

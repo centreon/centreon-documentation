@@ -419,7 +419,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     ancienne en face des tables mod_bi_metrichourlyvalue et
     mod_bi_metricdailyvalue dans le retour du plugin: :
 
-        nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s 2015-08-01 -e 2016-01-01 > /var/log/centreon-bi/rebuild_perfData.log &
+        nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &
 
     *Temps d'exécution : dépend de votre périmètre de supervision et du
     nombre de jour à reconstruire. Peut prendre de quelques minutes à

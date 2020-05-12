@@ -30,10 +30,9 @@ Vous trouverez les rapports par type de données adressées:
 - [Inventaire & configuration](#inventaire-et-configuration)
 - [Diagnostic de la base de données Centreon/Reporting](#diagnostic-de-base-de-données-centreonreporting)
 
-
 ## Activité Métier (BAM)
 
-### BV-BA-Availabilities-1 
+### BV-BA-Availabilities-1
 
 #### Description
 

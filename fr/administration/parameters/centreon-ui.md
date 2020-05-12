@@ -56,8 +56,9 @@ Improvement**
 
 ### Configuration du proxy
 
-La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon
-IMP.
+La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon IT Edition.
+
+![image](../../assets/administration/proxy_configuration.png)
 
 Renseigner les différents champs:
 
@@ -65,6 +66,9 @@ Renseigner les différents champs:
 - **Port d'accès au proxy internet**
 - **Proxy user**
 - **Proxy password**
+
+Pour valider la configuration, cliquez sur le bouton **Test Proxy Configuration**. Si le message **Connection Successful**
+apparaît, votre configuration est valide, sinon modifiez vos paramètres.
 
 ## Autologin
 

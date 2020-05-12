@@ -20,23 +20,38 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.0
 
-* Simplification du packaging: la dépendance à Tomcat a été retirée, les logs sont désormais dans `/var/log/centreon-map/` et le service  s'appelle `centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de mise à niveau](../graph-views/upgrade.html).
-* Mode d'installation silencieux: il est possible de fournir des variables au script d'installation plutôt que de passer par le mode interactif
-* La licence est désormais gérée sur le serveur Central, comme pour les autres extensions
+* Simplification du packaging: la dépendance à Tomcat a été retirée, les logs
+sont désormais dans `/var/log/centreon-map/` et le service  s'appelle
+`centreon-map` (*systemctl restart centreon-map*). Suivez la [procédure de mise
+à niveau](../graph-views/upgrade.html).
+* Mode d'installation silencieux: il est possible de fournir des variables au
+script d'installation plutôt que de passer par le mode interactif
+* La licence est désormais gérée sur le serveur Central, comme pour les autres
+extensions
 * [API] Gestion des metaservice
 * [API] Simplification de l'authentification
-* [API] Les ressources sont désormais manipulées vis l'ID réel de la ressource et non l'ID interne
-* Il est possible de choisir l'arrondi à prendre en compte pour le label des liens
+* [API] Les ressources sont désormais manipulées vis l'ID réel de la ressource
+et non l'ID interne
+* Il est possible de choisir l'arrondi à prendre en compte pour le label des
+liens
 
 ## Centreon BAM
 
 ### 20.04.0
 
 * Ajout de nouvelles méthodes de calcul: Worst, Best et Ratio
-* Il est désormais possible d'ignorer l'indicateur dans le calcul lorsque l'indicateur est en plage de maintenance planifiée
-* Toutes les pages de configuration & temps réelle ont été mise à jour pour gérer ces nouvelles méthodes de calcul
+* Il est désormais possible d'ignorer l'indicateur dans le calcul lorsque
+l'indicateur est en plage de maintenance planifiée
+* Toutes les pages de configuration & temps réelle ont été mise à jour pour
+gérer ces nouvelles méthodes de calcul
 
 ## Centreon MBI
+
+### 20.04.1
+
+* La replanification immédiate d'un job avançait la date d'exécution de plusieurs jours
+* La prévisualisation des logos est à nouveau fonctionnelle
+* Corrections de traduction dans certains rapports
 
 ### 20.04.0
 
