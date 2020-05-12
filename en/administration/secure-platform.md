@@ -143,8 +143,9 @@ RedirectMatch ^/$ /centreon
 5. Enable HttpOnly and Secure flags
 
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf/httpd.conf** file and add the following line:
-
+```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+```
 
 6. Restart the Apache to take in account the new configuration:
 
