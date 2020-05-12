@@ -921,6 +921,152 @@ To delete more than one parent, use the character '|'. Ex:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
+#### Get child
+
+**POST** 
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+  {
+    "action": "getchild",
+    "object": "host",
+    "values": "mail-uranus-frontdad"
+  }
+```
+
+**Response**
+
+``` json
+ {
+  "result": [
+    {
+      "id": "219",
+      "name": "mail-uranus-frontchild"
+    }
+  ]
+ }
+```
+
+#### Add child
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+  {
+    "action": "addchild",
+    "object": "host",
+    "values": "fw-berlin;mail-uranus-frontend"
+  }
+```
+
+**Response**
+
+``` json
+ {
+  "result": []
+ }
+```
+
+To add more than one child to a host, use the character '|'. Ex:
+
+    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+
+The add action add the child without overwriting he previous configuration.
+
+### Set child
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+
+**Body**
+
+``` json
+  {
+    "action": "setchild",
+    "object": "host",
+    "values": "fw-berlin;mail-uranus-frontend"
+  }
+```
+
+**Response**
+
+``` json
+ {
+  "result": []
+ }
+```
+
+To set more than one child to a host, use the character '|'. Ex:
+
+    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+
+The set action overwrite the previous configuration before setting the new child.
+
+### Delete child
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+  {
+    "action": "delchild",
+    "object": "host",
+    "values": "fw-berlin;mail-uranus-frontend"
+  }
+```
+
+**Response**
+
+``` json
+ {
+  "result": []
+ }
+```
+
+To delete more than one child, use the character '|'. Ex:
+
+    "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
+
 #### Get contact group
 
 **POST**
