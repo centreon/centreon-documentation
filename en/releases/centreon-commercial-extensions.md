@@ -45,7 +45,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 ### 20.04.1
 
 * Logo preview has been fixed
-* Rescheduling a job was setting the execution date in the future
+* Immediate rescheduling a job was setting the execution date in the future
 * fix some translations in reports
 
 ### 20.04.0
