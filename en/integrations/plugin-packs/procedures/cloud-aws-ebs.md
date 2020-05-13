@@ -159,7 +159,7 @@ Once the template applied, some Macros have to be configured:
 | X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
 | X           | AWSREGION       | Region where the instance is running                                                        |
 | X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
-| X           | AWSVOLUMEID		| EBS Volume ID                                                                               |
+| X           | AWSVOLUMEID     | EBS Volume ID                                                                               |
 |             | PROXYURL        | Configure proxy URL                                                                         |
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
