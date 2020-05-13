@@ -383,6 +383,7 @@
                     "integrations/plugin-packs/procedures/cloud-aws-apigateway",
                     "integrations/plugin-packs/procedures/cloud-aws-cloudfront",
                     "integrations/plugin-packs/procedures/cloud-aws-cloudwatch",
+                    "integrations/plugin-packs/procedures/cloud-aws-ebs",
                     "integrations/plugin-packs/procedures/cloud-aws-ec2",
                     "integrations/plugin-packs/procedures/cloud-aws-elasticache",
                     "integrations/plugin-packs/procedures/cloud-aws-efs",
