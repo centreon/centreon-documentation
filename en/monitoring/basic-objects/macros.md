@@ -90,7 +90,7 @@ They are complementary to standard macros. E.g.:
   notification
 * The environment macro $CONTACTEMAIL:centreon$ returns the e-mail address of the user: “centreon”
 
-The complete documentation on macros “on demand” is available at this *[address](http://nagios.sourceforge.net/docs/3_0/macrolist.html>)*.
+The complete documentation on macros “on demand” is available at this *[address](http://nagios.sourceforge.net/docs/3_0/macrolist.html)*.
 
 > The use of these macros is not recommended because the search for a value of a setting of an object from another
 object is a consumer in terms of resources.
