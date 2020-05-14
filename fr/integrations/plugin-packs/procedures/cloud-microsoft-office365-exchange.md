@@ -12,9 +12,10 @@ Exchange Online est la version hébergée de la plateforme de messagerie Exchang
 
 Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
-## Contenu du pack de supervision
+## Contenu du Plugin-Pack
 
 ### Objets supervisés
+
 * Activitée Mail
 * Utilisation des boites mail
 
@@ -42,6 +43,7 @@ Les informations de monitoring de la suite Office sont mises à disposition par 
 
 ## Prérequis
 Si vous n'avez pas encore créer votre compte sous Office 365, reportez-vous à la documentation d'Office 365 Management ou suivre le lien dans la partie 'Aide supplémentaire'
+
 ### Enregistrer une application
 Les API de gestion Office 365 utilisent Azure AD pour assurer l’authentification sécurisée des données dans Office 365.
 Pour accéder aux API de gestion Office 365, vous devez enregistrer votre application dans Azure AD.
@@ -114,7 +116,7 @@ il est aussi possible de définir un ensemble de macros de service nécessaires 
 
 #### Comment tester et interpréter la sonde Office 365 Exchange en ligne de commande ?
 
-A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
+Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis un terminal sur votre poller de supervision avec l'utilisateur *centreon-engine*
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_exchange_api.pl \
 --plugin=cloud::microsoft::office365::exchange::plugin \
@@ -140,7 +142,9 @@ Exemple:
 * CRITICALACTIVEMAILBOXES = 1000
 
 ##### Remarque : 
-* Par defaut ce plugin utilise la librairie web "Lwb" pour requêter l'api de Microsoft Office 365. Si nécessaire, veuillez utiliser la librairie Curl
+* Vérifiez que vos tenant id / client id / client secret soient correctement configurés.
+* Si la sonde a été lancée pour la première fois avec un autre utilisateur que centreon-engine (root par exemple), il est nécessaire de supprimer le fichier de cache stocké dans /var/lib/centreon/centplugins/office365_exchange*.
+* Par defaut ce Plugin utilise la librairie web "Lwb" pour requêter l'api de Microsoft Office 365. Si nécessaire, veuillez utiliser la librairie Curl
 en appelant la méthode  --http-backend=curl pour palier à certaines erreurs http.
 * Le temps d'execution des checks peut augmenter dû aux échanges de données via le cloud. Dans ce cas, il sera nécessaire d'augmenter
 la valeur "Service check timeout" dans les options de logs du moteur centengine.
