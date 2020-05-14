@@ -36,7 +36,7 @@ POST : http://{{serverURL}}:8080/centreon-studio/api/beta/authentication
 ```
 Headers {
     Content-Type = application/json
-    X-Client-Version = 19.10.0
+    X-Client-Version = 20.04.0
 }
 
 Body {
