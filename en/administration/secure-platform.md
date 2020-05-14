@@ -18,7 +18,7 @@ After installing Centreon, it is necessary to change the default passwords of th
 To do this, use the following command from **root** account:
 
 ```shell
-password <account_name>
+passwd <account_name>
 ```
 
 In addition, it is important to verify that the Apache account does not have connection rights to the terminal.
@@ -36,7 +36,7 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 ## Securing the installation of the DBMS
 
-[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to securize the DBMS
+[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
 installation. Please execute the following command and follow instruction:
 ```shell
 mysql_secure_installation
@@ -46,13 +46,11 @@ mysql_secure_installation
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than to use a self-signed certificate.
+It is better to use a certificate validated by an authority rather than a self-signed one.
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-Once your certificate obtained, perform the following procedure to activate HTTPS mode on your Apache server:
-
-To access to the UI using HTTPS, follow those steps:
+Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
 
 1. Install SSL module for Apache:
 
@@ -60,7 +58,7 @@ To access to the UI using HTTPS, follow those steps:
 yum install httpd24-mod_ssl openssl
 ```
 
-2. Install your certificats:
+2. Install your certificates:
 
 Copy your certificate and key on the server, like:
 
@@ -188,7 +186,7 @@ replaced by **/monitoring**.
 
 To update the Centreon URI, you need to follow those steps:
 
-1. Go to **Administration > Parameters > Centreon UI** and change the **Centreon Web Directory** value.
+1. Go to `Administration > Parameters > Centreon UI` and change the **Centreon Web Directory** value.
 
 ![image](../assets/administration/custom-uri.png)
 
@@ -210,8 +208,8 @@ the management of [Access Control List](./access-control-lists.html).
 
 ## Secure communications between servers
 
-It strongly recomanded to secure communications between the different servers of the Centreon platform if some servers
-are not in secure network.
+It strongly recommended to secure communications between the different servers of the Centreon platform if some servers
+are not in a secure network.
 
 > The Table of network flows is available [here](../installation/architectures.html#table-of-network-flows).
 
@@ -219,15 +217,15 @@ are not in secure network.
 
 #### Centreon Broker and the firewall
 
-In certain cases you may not be able to initialize the Centreon Broker data flow from the poller (or the Remote Server)
+In certain cases, you may not be able to initialize the Centreon Broker data flow from the poller (or the Remote Server)
 to the Central Server or the Remote Server.
-[See the following configuration to invert the flow](../monitoring/monitoring-servers/advanced-configuration.html#centreon-broker-and-the-firewall)
+[See the following configuration to invert the flow](../monitoring/monitoring-servers/advanced-configuration.html#centreon-broker-and-the-firewall).
 
 #### Centreon Broker flow authentication
 
 If you need to authenticate pollers that are sending data to the monitoring system, you can use the Centreon Broker
 authentication mechanism, which is based on X.509 certificates.
-[See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration.html#centreon-broker-flow-authentication)
+[See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration.html#centreon-broker-flow-authentication).
 
 #### Compress and encrypt the Centreon Broker communication
 
@@ -235,27 +233,27 @@ It is also possible to compress and encrypt the Centreon Broker communication.
 Go to `Configuration > Pollers > Broker configuration` menu, edit your Centreon Broker configuration
 and enable for **IPv4** inputs and outputs:
 
-- Enable TLS encryptionEnable negotiation: Auto
+- Enable TLS encryption: Auto
 - Enable negotiation: Yes
 - Compression (zlib): Auto
 
 ### Centreon Gorgone communication
 
 This the official [Centreon gorgone documentation](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore)
-to securize the gorogned communication.
+to secure the communication.
 
 ## Security event information management - SEIM
 
-Centreon's event logs are available in the following directories:
+Centreon event logs are available in the following directories:
 
-|Logs directory             | Central server | Remote Server | Poller | Centron Map server | Centreon MBI Server |
-|---------------------------|----------------|---------------|--------|--------------------|---------------------|
-| /var/log/centreon         | X              | X             |        |                    |                     |
-| /var/log/centreon-broker  | X              | X             | X      |                    |                     |
-| /var/log/centreon-engine  | X              | X             | X      |                    |                     |
-| /var/log/centreon-gorgone | X              | X             | X      |                    |                     |
-| /var/log/centreon-bi      | X              | X             |        |                    |                     |
-| /var/log/centreon-map     | X              | X             |        | X                  | X                   |
+| Logs directory            | Central server | Remote Server | Poller | Centreon Map server | Centreon MBI Server |
+|---------------------------|----------------|---------------|--------|---------------------|---------------------|
+| /var/log/centreon         | X              | X             |        |                     |                     |
+| /var/log/centreon-broker  | X              | X             | X      |                     |                     |
+| /var/log/centreon-engine  | X              | X             | X      |                     |                     |
+| /var/log/centreon-gorgone | X              | X             | X      |                     |                     |
+| /var/log/centreon-bi      | X              | X             |        |                     |                     |
+| /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > In addition, all actions to modify the Centreon configuration carried out by users are available via the
 [`Administration > Logs`](./logging-configuration-changes.html) menu.
