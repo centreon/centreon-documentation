@@ -30,13 +30,13 @@ that authenticate, then create a map and add an host on it.
 **1. Authentication**
 
 ```
-POST : http://{{serverURL}}:8080/centreon-studio/services/rest/authentication?encoded=false`
+POST : http://{{serverURL}}:8080/centreon-studio/api/beta/authentication
 ```
 
 ```
 Headers {
-    Content-Type = application/x-www-form-urlencoded
-    X-Client-Version = 19.10.0
+    Content-Type = application/json
+    X-Client-Version = 20.04.0
 }
 
 Body {
@@ -59,7 +59,7 @@ Headers {
 **2. Create a Map**
 
 ```
-POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps`
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps
 ```
 
 ```
@@ -79,13 +79,13 @@ Retrieve the ID of the view returned: {viewId}
 **3.Open the Map**
 
 ```
-GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}`
+GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}
 ```
 
 **4.Create a \"Shape\" (Rectangle) element (not yet on the map)**
 
 ```
-POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources`
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources
 ```
 
 ```
