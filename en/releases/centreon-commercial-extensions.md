@@ -42,6 +42,12 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon MBI
 
+### 20.04.1
+
+* Logo preview has been fixed
+* Immediate rescheduling a job was setting the execution date in the future
+* fix some translations in reports
+
 ### 20.04.0
 
 * Manage compatibility with Centreon 20.04
@@ -68,6 +74,21 @@ configuration value:
     not)
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
+
+### 20.04.1
+
+#### Enhancements
+
+- Client on 0 items redirects to empty job details
+- Sort host discovery listing
+
+#### Bugfixes
+
+- Overlapping text when configuring job with default proxy
+- fSome words are not translated in french
+- Use $rg API directive
+- Remove bad characters in the json result in host discovery
+- Check use remote proxy definition to run discovery in service discovery
 
 ## Centreon Plugin Packs Manager
 

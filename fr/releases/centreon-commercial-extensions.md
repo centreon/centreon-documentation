@@ -47,6 +47,12 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon MBI
 
+### 20.04.1
+
+* La replanification immédiate d'un job avançait la date d'exécution de plusieurs jours
+* La prévisualisation des logos est à nouveau fonctionnelle
+* Corrections de traduction dans certains rapports
+
 ### 20.04.0
 
 * Gestion de la compatibilité avec Centreon 20.04
@@ -73,6 +79,21 @@ configuration value:
     not)
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
+
+### 20.04.1
+
+#### Enhancements
+
+- Client on 0 items redirects to empty job details
+- Sort host discovery listing
+
+#### Bugfixes
+
+- Overlapping text when configuring job with default proxy
+- fSome words are not translated in french
+- Use $rg API directive
+- Remove bad characters in the json result in host discovery
+- Check use remote proxy definition to run discovery in service discovery
 
 ## Centreon Plugin Pack Manager
 

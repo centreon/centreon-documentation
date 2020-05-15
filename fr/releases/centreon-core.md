@@ -222,6 +222,10 @@ If you have feature requests or want to report a bug, please go to our
 * Fix macros replacement
 * Fix perfdata truncated when retention read
 
+### 20.04.1
+
+- Fix won't start if log level is set to "Log everything" (debug_level=-1)
+
 ## Centreon Broker
 
 ### 20.04.0
@@ -240,6 +244,14 @@ If you have feature requests or want to report a bug, please go to our
 * Fix influxdb retention (PR #399)
 * Fix TLS
 
+### 20.04.1
+
+- When output/perfdata of service_status are very long, we lost parts of messages
+- Segfault on database errors
+- Add a new stat() function on streamconnector
+- '\r' not parsed correctly in perfdata
+- perfdata parser too strict
+
 ## Centreon Gorgone
 
 ### 20.04.0
@@ -249,3 +261,20 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.04.1
 
 * [nodes] Change resync time when you have a SQL issue
+
+### 20.04.2
+
+- [autodiscovery] better management of utf8
+- [autodiscovery] fix returns in results process
+- [contrib] adapt to new statistics module
+- [core] avoid to get to many entries in gorgone_identity - update only last id
+- [core] better management of utf8
+- [core] unable to uncrypt RSA keys
+- [dbcleaner] purge was never done
+- [install] modifiy install for mode silent
+- [legacycmd] get good clapi admin user/password
+- [nodes] avoid error on new perl version
+- [packaging] add cron.d subdirectory
+- [proxy] avoid a text in ctime entry - sqlite can store text in int
+- [proxy] pong response for ssh client was rejected
+- [yaml] manage version even version 0.81
