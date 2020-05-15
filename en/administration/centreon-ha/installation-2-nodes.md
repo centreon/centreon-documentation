@@ -312,7 +312,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRA
 GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-Take into account that if you are using a deployed OVF or OVA Virtual Machine, you must change the `'@MARIADB_CENTREON_USER@'@'localhost'` password. If so, paste the following SQL command on both nodes:
+When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
