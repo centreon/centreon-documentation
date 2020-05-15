@@ -1,13 +1,12 @@
 ---
 id: hardware-storage-purestorage-snmp
-title: Pure Storage SNMP
+title: Pure Storage
 ---
 
 ## Vue d'ensemble
 
-Pure Storage développe du stockage flash pour les datacenters en utilisant des disques durs grand public. 
-Il fournit un logiciel propriétaire de déduplication et de compression pour améliorer la quantité de données pouvant être stockées sur chaque disque.
-Il développe également son propre matériel de stockage flash.
+Pure Storage fournit du matériel de stockage flash pour les datacenters en utilisant des disques durs grand public. 
+Il fournit un logiciel propriétaire de déduplication et de compression des données afin d'améliorer la quantité qui est stockées sur chaque disque. 
 
 ## Contenu du pack de supervision
 
@@ -28,10 +27,14 @@ Il développe également son propre matériel de stockage flash.
 
 ## Prérequis
 
-#### Configuration des équipements 
-Afin de superviser vos baies de stockage Pure Storage, le SNMP v2 doit être configuré.
-La communication doit être possible sur le port 161 depuis le collecteur de supervision vers vos équipements.
- 
+### Configuration des équipements Pure Storage
+
+Afin de superviser vos équipements Pure Storage le SNMP v2 doit être configuré.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipement Pure Storage supervisé.
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -96,33 +99,22 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--warning-write-bandwidth='400000000'
 	--critical-write-bandwidth='500000000'
 	--verbose
-
-OK: Read Bandwith : 376.84 Mb/s - Write Bandwith : 0.00 b/s - Read IOPs : 3871 - Write IOPs : 0 - Read Latency : 197 us/op - Write Latency : 0 us/op | 
-'read_bandwidth'=376843408.00b/s;;;0;
-'write_bandwidth'=0.00b/s;;;0;
-'read_iops'=3871iops;;;0;
-'write_iops'=0iops;;;0;
-'read_latency'=197us/op;;;0;
-'write_latency'=0us/op;;;0;
 ```
-La commande ci-dessus interroge via SNMP (```--plugin=storage::purestorage::snmp::plugin```) en se basant sur la communauté SNMP (```--snmp-community='public'```) et la version (```--snmp-version=2c```).
-Cette commande contrôle les statistiques actuelle de la baie de Stockage (```--mode=stats```).
-La commande renverrait également tous les compteurs de l'appareil car le filtre de noms correspondra à n'importe quel résultat (```--filter-counters='.*'```).
 
-Cette commande déclenchera une alarme WARNING si le taux d'occupation du volume dépasse 400000000b/s (```--warning-read-bandwidth='400000000'```) et une alarme CRITICAL s'il dépasse 500000000b/s (```--critical-usage='500000000'```). 
-
-Il est également possible de définir des seuils WARNING et CRITICAL sur une métrique spécifique: 
-dans cet exemple une alarme WARNING sera déclenchée si le l'écriture bandwidth dépasse les '400000000b/s' (```--warning-write-bandwidth='400000000'```) et CRITICAL s'il est supérieur à 500000000b/s (```--critical-write-bandwidth='500000000'```).
-
-Tous les modes sont affichables via la commande suivante:
+Le message de sortie est le suivant: 
 
 ```bash
-/usr/lib/centreon/plugins/centreon_purestorage_snmp.pl \
-    --plugin=storage::purestorage::snmp::plugin \
-    --list-mode
+OK: Read Bandwith : 376.84 Mb/s - Write Bandwith : 0.00 b/s - Read IOPs : 3871 - Write IOPs : 0 - Read Latency : 197 us/op - Write Latency : 0 us/op | 'read_bandwidth'=376843408.00b/s;;;0; 'write_bandwidth'=0.00b/s;;;0; 'read_iops'=3871iops;;;0; 'write_iops'=0iops;;;0; 'read_latency'=197us/op;;;0; 'write_latency'=0us/op;;;0;
 ```
 
-Les options des différents modes sont consultables en ajoutant le paramètre ```--help``` à la commande:
+La commande ci-dessus interroge la baie via SNMP (```--plugin=storage::purestorage::snmp::plugin```) en utiisant la communauté SNMP (```--snmp-community='public'```) et la version (```--snmp-version=2c```) créé précédemment dans la partie Prérequis.
+Cette commande contrôle les statistiques actuelle de la baie de Stockage (```--mode=stats```). La commande ci-dessus renvoie toutes les statistiques de l'appareil car le filtre de compteurs correspond à n'importe quel résultat (```--filter-counters='.*'```).
+
+Cette commande déclenchera une alarme WARNING si la lecture du bandwidth dépasse les 400000000b/s (```--warning-read-bandwidth='400000000'```) et une alarme CRITICAL s'il dépasse 500000000b/s (```--critical-read-bandwidth='500000000'```). 
+
+Il est également possible de définir des seuils WARNING et CRITICAL sur une métrique spécifique. Dans cet exemple une alarme WARNING sera déclenchée si l'écriture bandwidth dépasse les '400000000b/s' (```--warning-write-bandwidth='400000000'```) et CRITICAL s'il est supérieur à 500000000b/s (```--critical-write-bandwidth='500000000'```).
+
+La syntaxe des différentes options des seuils ainsi que la liste des options et leur utilisation sont détaillées dans l'aide du mode en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_purestorage_snmp.pl \
@@ -138,5 +130,5 @@ Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Ce message d'erreur fait souvent référence aux problèmes suivants : 
-  - L'équipement Pure Storage ne supporte pas le MIB utilisé par le plugin
-  - L'OID SNMP ciblé ne peut pas être récupéré en raison de l'insuffisance des privilèges sur l'équipement
+* L'équipement Pure Storage ne supporte pas le MIB utilisé par le plugin
+* L'OID SNMP ciblé ne peut pas être récupéré en raison de l'insuffisance des privilèges sur l'équipement
