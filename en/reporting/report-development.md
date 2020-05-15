@@ -113,9 +113,6 @@ design to display different statistics depending on the parameters
 (e.g., the same Centreon Availability report used for different host
 groups and different reporting periods).
 
-For more details, see the chapter [Report
-parameters](http://10.30.2.28/documentation/_build/html/developer_ref_book/report_parameters.html).
-
 ### Report layout
 
 
@@ -306,7 +303,7 @@ need to write the project path explicitly.
 ![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.png)
 
 > You will have to repeat this procedure every time:
-> 
+>
 > -   You export and import the project into another workspace.
 > -   You create a new project.
 
@@ -339,7 +336,7 @@ users to connect to the above servers.
 #### Configuring the L2_datasources library
 
 > **Warning**
-> 
+>
 > Never upload the L2_Datasource.rptlibrary file to your reporting
 > server. This will delete the configuration for connection to the MariaDB
 > server and cause Centreon MBI (for ETL & report generation) to crash.
@@ -395,7 +392,7 @@ Click on "Test Connection". A pop-up appears, displaying the message
 > driver ( .jar) from the "Manage drivers" menu.
 >
 > ![image](../assets/reporting/dev-guide/db_conn_8.png)
-> 
+>
 > ![image](../assets/reporting/dev-guide/db_conn_9.png)
 
 This operation should only be performed once for the project.
@@ -404,7 +401,7 @@ This operation should only be performed once for the project.
 **Repeat the same procedure for these datasources: centreon_storage,
 centreon_live et centreon_storage_live**.
 
- Datasource         | Profile file          | Profile to use 
+ Datasource         | Profile file          | Profile to use
 --------------------|-----------------------|----------------
 | Censtorage        | creports-profile.xml  | Censtorage
 | Centreon_Live     | cbis-profile.xml      | Centreon
@@ -548,7 +545,7 @@ components are organized, ask yourself the following questions:
         (e.g., graph, text, table)
 
 **Warning**
-> 
+>
 > Do NOT modify any of the original standard report templates or
 > libraries.
 
@@ -585,7 +582,7 @@ Each of these sets of markup tags has several possible attributes:
   id            |  Name of the parameter in the report (report parameter)   |   X   |   X    |     X
   title         |  Description field displayed next to the parameter        |   X   |   X    |     X
   data          |  Data to display in the parameter                         |   X   |   X
-  size          |  Size of the text field                                   |   X                       
+  size          |  Size of the text field                                   |   X
 
 Below are the possible values for the **data** attribute:
 
@@ -610,7 +607,7 @@ Below are the possible values for the **data** attribute:
 > restricted on the Centreon MBI interface.
 
 > **Warning**
-> 
+>
 > If you want to use our default date picker and use the date parameter
 > (cyclical or on-demand) in your report, you must use the two "known"
 > parameters, "dateStart" and "dateEnd".
