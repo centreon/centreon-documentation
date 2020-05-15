@@ -172,7 +172,7 @@ Lorsque vous ajoutez un Hôte à Centreon, choisissez le modèle *Cloud-Aws-Ebs-
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* 
-(certaines options comme ```volumeid``` ou ```proxyurl``` doivent être ajustées en fonction du contexte):
+(certaines options comme ```volume-id``` ou ```proxyurl``` doivent être ajustées en fonction du contexte):
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_ebs_api.pl \
@@ -183,7 +183,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--aws-access-key='***' \
 	--region='eu-west-1' \
 	--proxyurl='http://myproxy.mycompany.org:8080' \
-	--volumeid='vol-1234abcd' \
+	--volume-id='vol-1234abcd' \
 	--statistic='average' \
 	--timeframe='600' \
 	--period='60' \
@@ -202,7 +202,7 @@ AWS EBS Volume'vol-1234abcd'
 ```
 
 Cette commande supervise les IOs d'un volume EBS (```--mode=volumeio```) rattaché à la région *eu-west-1* d'AWS (```--region='eu-west-1'```)
-et ayant pour ID *vol-1234abcd* (```--volumeid='vol-1234abcd'```).
+et ayant pour ID *vol-1234abcd* (```--volume-id='vol-1234abcd'```).
 
 La métrique obtenue est une moyenne de valeurs (```--statistic='average'```) sur un intervalle de 10 minutes / 600 secondes  (```--timeframe='600'```) avec un point par minute / 60 secondes (```--period='60'```).
 
@@ -231,4 +231,4 @@ Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n
 
 #### ```UNKNOWN: Command error:  - An error occurred (InvalidParameterValue) [...]```
 
-Le plus souvent, cette erreur est le résultat d'une erreur dans le nom de l'élément supervisé (option ```--volumeid```).
+Le plus souvent, cette erreur est le résultat d'une erreur dans le nom de l'élément supervisé (option ```--volume-id```).

@@ -171,7 +171,7 @@ Once the template applied, some Macros have to be configured:
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
-by running the following command (Some of the parameters such as ```volumeid``` and ```proxyurl``` have to be adjusted):
+by running the following command (Some of the parameters such as ```volume-id``` and ```proxyurl``` have to be adjusted):
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_ebs_api.pl \
@@ -182,7 +182,7 @@ by running the following command (Some of the parameters such as ```volumeid``` 
 	--aws-access-key='***' \
 	--region='eu-west-1' \
 	--proxyurl='http://myproxy.mycompany.org:8080' \
-	--volumeid='vol-1234abcd' \
+	--volume-id='vol-1234abcd' \
 	--statistic='average' \
 	--timeframe='600' \
 	--period='60' \
@@ -200,7 +200,7 @@ AWS EBS Volume'vol-1234abcd'
     Statistic 'Average' Metrics Volume Read Bytes: 28.40 KB, Volume Write Bytes: 54.61 MB
 ```
 
-The command above monitors the Volume IOs  (```--mode=volumeio```) of the *vol-1234abcd* EBS volume (```--volumeid='vol-1234abcd'```). 
+The command above monitors the Volume IOs  (```--mode=volumeio```) of the *vol-1234abcd* EBS volume (```--volume-id='vol-1234abcd'```). 
 This volume is hosted within the AWS *eu-west-1* region (```--region='eu-west-1'```). 
 The collected metrics will be parsed as average statistics (```--statistic='average'```) over a timeframe of 600 secondes (```--timeframe='600'```) 
 with a sample of 1 point per minute (```--period='60'```).
@@ -228,4 +228,4 @@ This command result means that the credentials provided don't have enough privil
 
 #### ```UNKNOWN: Command error:  - An error occurred (InvalidParameterValue) [...]```
 
-Most of the time, this command result highlights typo/mispelling in the Amazon Dimension name (```--volumeid```).
+Most of the time, this command result highlights typo/mispelling in the Amazon Dimension name (```--volume-id```).
