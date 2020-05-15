@@ -6,6 +6,9 @@ title: Graphical views API (beta)
 If you want to automate standard views creation or maintenance, you may
 use the Centreon MAP extension API.
 
+> Views created using the API are not immediately visible in the desktop client, you need to
+> restart it to see them.
+
 With this API, in beta version, you can create/update/delete standard
 views. To be able to use the API, the account you use needs to have one
 of the following privileges:
