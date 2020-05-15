@@ -22,7 +22,7 @@ To access the API documentation, two possibilities:
 
 -   You have Centreon MAP, go to the following URL:
 
-     `http(s)://{map\_server\_url}/centreon-studio/api/beta/`
+     `http(s)://{map_server_url}/centreon-studio/api/beta/`
 
 -   You don\'t have Centreon MAP, you can preview the API capabilities
     here: [Online documentation](https://docs.centreon.com/api/centreon-map/)
