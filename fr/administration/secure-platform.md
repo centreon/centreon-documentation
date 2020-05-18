@@ -212,7 +212,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.html).
 ## Communications sécurisées entre les serveurs
 
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
-certains serveurs ne sont pas en réseau sécurisé.
+certains serveurs ne sont pas dans un réseau sécurisé.
 
 > Le tableau des flux réseau est disponible [ici](../installation/architectures.html#tableau-des-flux-réseau).
 
