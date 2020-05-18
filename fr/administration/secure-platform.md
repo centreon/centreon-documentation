@@ -187,6 +187,8 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Il est possible de modifier l'URI de Centreon. Par exemple, **/centreon** peut être remplacé par **/monitoring**.
 
+> Au moins un niveau de chemin est obligatoire.
+
 Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
 1. Rendez-vous dans le menu `Administration > Paramètres > Centreon web` et modifiez le champ **Centreon Web Directory**

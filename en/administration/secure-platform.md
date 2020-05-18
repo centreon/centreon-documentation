@@ -136,7 +136,8 @@ ProxyTimeout 300
 RedirectMatch ^/$ /centreon
 ```
 
-> Don't forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your certificate and key.
+> Don't forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> certificate and key.
 
 5. Enable HttpOnly and Secure flags
 
@@ -181,8 +182,9 @@ If everything is ok, you must have:
 
 ## Custom URI
 
-It is possible to update the URI of Centreon. For example, **/centreon** can be
-replaced by **/monitoring**.
+It is possible to update the URI of Centreon. For example, **/centreon** can be replaced by **/monitoring**.
+
+> At least one path level is mandatory.
 
 To update the Centreon URI, you need to follow those steps:
 
