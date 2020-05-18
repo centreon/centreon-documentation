@@ -18,7 +18,7 @@ Après l'installation de Centreon, il est nécessaire de changer les mots de pas
 Pour cela, utilisez la commande suivante à partir du compte **root** :
 
 ```shell
-password <account_name>
+passwd <account_name>
 ```
 
 De plus, il est important de vérifier que le compte Apache ne dispose pas de droits de connexion au terminal. Exécutez
