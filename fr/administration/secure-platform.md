@@ -220,7 +220,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 #### Centreon Broker et pare-feu
 
-Certaines fois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
+Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
 [Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.html#centreon-broker-and-the-firewall).
 
