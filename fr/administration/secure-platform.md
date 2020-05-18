@@ -139,8 +139,8 @@ ProxyTimeout 300
 RedirectMatch ^/$ /centreon
 ```
 
-> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** par le chemin d'accès à
-> votre clé et votre certificat.
+> N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès 
+> vers votre clé et votre certificat.
 
 5. Activez les flags HttpOnly et Secure
 
