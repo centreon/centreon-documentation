@@ -158,7 +158,7 @@ systemctl status httpd24-httpd
 ```
 
 If everything is ok, you must have:
-```shel
+```shell
 ● httpd24-httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
    Active: active (running) since mar. 2020-05-12 15:39:58 CEST; 25min ago
