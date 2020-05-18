@@ -208,7 +208,7 @@ the management of [Access Control List](./access-control-lists.html).
 
 ## Secure communications between servers
 
-It strongly recommended to secure communications between the different servers of the Centreon platform if some servers
+It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
 are not in a secure network.
 
 > The Table of network flows is available [here](../installation/architectures.html#table-of-network-flows).
