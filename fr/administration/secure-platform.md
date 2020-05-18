@@ -232,7 +232,7 @@ Centreon Broker, qui est basé sur des certificats X.509.
 
 #### Compressez et chiffrez la communication Centreon Broker
 
-Il est également possible de compresser et de chiffrer la communication Centreon Broker. Allez dans le menu
+Il est également possible de compresser et de chiffrer la communication de Centreon Broker. Allez dans le menu
 `Configuration > Pollers > Broker configuration`, modifiez votre configuration Centreon Broker et activez les entrées
 et sorties **IPv4**:
 
