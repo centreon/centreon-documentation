@@ -200,7 +200,7 @@ et modifiez le chemin **/centreon** par le nouveau.
 
 Centreon propose plusieurs méthodes pour authentifier les utilisateurs :
 
-- locale (MySQL)
+- localement (MySQL)
 - [LDAP](./parameters/ldap.html)
 - [Generic SSO](./parameters/centreon-ui.html#sso) ou [Keycloak SSO](./parameters/centreon-ui.html#sso-keycloak)
 
