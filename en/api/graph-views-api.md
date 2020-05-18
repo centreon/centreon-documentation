@@ -6,6 +6,9 @@ title: Graphical views API (beta)
 If you want to automate standard views creation or maintenance, you may
 use the Centreon MAP extension API.
 
+> Views created using the API are not immediately visible in the desktop client, you need to
+> restart it to see them.
+
 With this API, in beta version, you can create/update/delete standard
 views. To be able to use the API, the account you use needs to have one
 of the following privileges:
@@ -19,10 +22,10 @@ To access the API documentation, two possibilities:
 
 -   You have Centreon MAP, go to the following URL:
 
-     `http(s)://{map\_server\_url}/centreon-studio/api/beta/`
+     `http(s)://{map_server_url}/centreon-studio/api/beta/`
 
 -   You don\'t have Centreon MAP, you can preview the API capabilities
-    here: [Online documentation](https://api-documentation.centreon.com/centreon-map/index.html)
+    here: [Online documentation](https://docs.centreon.com/api/centreon-map/)
 
 Because the Centreon Map API is not trivial to use, here is a scenario
 that authenticate, then create a map and add an host on it.
@@ -30,13 +33,13 @@ that authenticate, then create a map and add an host on it.
 **1. Authentication**
 
 ```
-POST : http://{{serverURL}}:8080/centreon-studio/services/rest/authentication?encoded=false`
+POST : http://{{serverURL}}:8080/centreon-studio/api/beta/authentication
 ```
 
 ```
 Headers {
-    Content-Type = application/x-www-form-urlencoded
-    X-Client-Version = 19.10.0
+    Content-Type = application/json
+    X-Client-Version = 20.04.0
 }
 
 Body {
@@ -45,7 +48,7 @@ Body {
 }
 ```
 
-In the result, retrieve the {studio-session} (token), you\'ll need to
+In the result, retrieve the {studio-session} (token), you'll need to
 use it all your API calls. The headers will look like this:
 
 ```
@@ -59,7 +62,7 @@ Headers {
 **2. Create a Map**
 
 ```
-POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps`
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps
 ```
 
 ```
@@ -79,13 +82,13 @@ Retrieve the ID of the view returned: {viewId}
 **3.Open the Map**
 
 ```
-GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}`
+GET http://{{serverURL}}:8080/centreon-studio/api/beta/maps/{viewId}
 ```
 
 **4.Create a \"Shape\" (Rectangle) element (not yet on the map)**
 
 ```
-POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources`
+POST http://{{serverURL}}:8080/centreon-studio/api/beta/centreon-resources
 ```
 
 ```
