@@ -211,7 +211,7 @@
             }
         ],
         "Administration": [
-            "administration/accessing-to-centreon-ui",
+            "administration/secure-platform",
             {
                 "ids": [
                     "administration/parameters/centreon-ui",

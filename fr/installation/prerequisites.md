@@ -167,7 +167,7 @@ Description des logiciels optionnels et utilisateurs liés :
 | Centreon VMware | centreon_vmware | centreon  | non installé par défaut                              |
 | RRDtool         | rrdcached       | rrdcached | non activé et non parémétré dans Centreon par défaut |
 
-Description des groupes et utilisateurs liés :
+Description des groupes et utilisateurs liés pour les éditions Centreon Open Source et IT Edition :
 
 | Groupe           | Utilisateurs                                            |
 |------------------|---------------------------------------------------------|
@@ -176,15 +176,46 @@ Description des groupes et utilisateurs liés :
 | centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
 | centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
 | centreon-gorgone | centreon,apache                                         |
+| rrdcached        | centreon-broker,apache                                  |
 
-Description des utilisateurs, umask et répertoire utilisateur :
+Description des groupes et utilisateurs liés pour l'édition Centreon Business Edition :
 
-| Utilisateur      | umask | home                      |
-|------------------|-------|---------------------------|
-| root             | 0022  | /root                     |
-| apache           | 0022  | /var/www                  |
-| centreon         | 0002  | /var/spool/centreon       |
-| centreon-broker  | 0002  | /var/lib/centreon-broker  |
-| centreon-engine  | 0002  | /var/lib/centreon-engine  |
-| centreon-gorgone | 0002  | /var/lib/centreon-gorgone |
-| mysql            | 0002  | /var/lib/mysql            |
+| Groupe           | Utilisateurs                                                                 |
+|----------------- |------------------------------------------------------------------------------|
+| apache           | nagios,centreonBI,centreon,centreon-gorgone                                  |
+| centreon         | centreon-engine,centreon-broker,apache,rrdcached,centreonBI,centreon-gorgone |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,rrdcached,centreon-gorgone            |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone                      |
+| centreon-gorgone | centreon,apache                                                              |
+| centreonBI       | apache                                                                       |
+| centreon-map     |                                                                              |
+| mysql            | centreonBI                                                                   |
+
+Description des utilisateurs, umask et répertoire utilisateur pour les éditions Centreon Open Source et IT Edition :
+
+| Utilisateur      | umask | home                      | Shell         |
+|------------------|-------|---------------------------|---------------|
+| root             | 0022  | /root                     | /bin/bash     |
+| apache           | 0022  | /var/www                  | /sbin/nologin |
+| centreon         | 0002  | /var/spool/centreon       | /bin/bash     |
+| centreon-broker  | 0002  | /var/lib/centreon-broker  | /bin/bash     |
+| centreon-engine  | 0002  | /var/lib/centreon-engine  | /bin/bash     |
+| centreon-gorgone | 0002  | /var/lib/centreon-gorgone | /bin/bash     |
+| mysql            | 0002  | /var/lib/mysql            | /sbin/nologin |
+| rrdcached        | 0002  | /var/rrdtool/rrdcached    | /bin/bash     |
+
+Description des utilisateurs, umask et répertoire utilisateur pour l'édition Centreon Business Edition :
+
+| Utilisateur      | umask | home                      | Shell         |
+|------------------|-------|---------------------------|---------------|
+| root             | 0022  | /root                     | /bin/bash     |
+| apache           | 0022  | /var/www                  | /sbin/nologin |
+| centreon         | 0002  | /var/spool/centreon       | /bin/bash     |
+| centreonBI       | 0002  | /home/centreonBI          | /bin/bash     |
+| centreon-agent   | 0002  | /var/lib/centreon-agent   | /bin/bash     |
+| centreon-broker  | 0002  | /var/lib/centreon-broker  | /bin/bash     |
+| centreon-engine  | 0002  | /var/lib/centreon-engine  | /bin/bash     |
+| centreon-gorgone | 0002  | /var/lib/centreon-gorgone | /bin/bash     |
+| centreon-map     | 0002  | /home/centreon-map        | /bin/bash     |
+| mysql            | 0002  | /var/lib/mysql            | /sbin/nologin |
+| rrdcached        | 0002  | /var/rrdtool/rrdcached    | /bin/bash     |
