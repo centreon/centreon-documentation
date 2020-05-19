@@ -101,6 +101,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--warning-read-bandwidth='400000000' \
 	--critical-read-bandwidth='500000000' \
 	--verbose
+```
 
 Le message de sortie est le suivant: 
 
