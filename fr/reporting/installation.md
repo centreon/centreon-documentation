@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Installation
+title: Installation de Centreon MBI
 ---
 
 ## Architecture
@@ -44,7 +44,7 @@ Dans le tableau ci-dessous, sont représentés les différents flux
 présents entre le serveur de reporting dédié, le serveur Centreon et les
 bases de données, par défaut.
 
-  
+
   **Application**  |  **Source**              |     **Destination**                   | **Port** |  **Protocol**
   -----------------|--------------------------|---------------------------------------|----------|--------------
   ETL/CBIS         | Serveur de reporting     | Serveur de bases de données Centreon  | 3306     | TCP
@@ -72,7 +72,7 @@ L'installation du moteur de base de données doit être faite en même
 temps. Nous conseillons fortement d'installer la base MariaDB sur le
 serveur de reporting pour des questions de performances & d'isolation.
 
-## Pré-requis 
+## Pré-requis
 
 ### Server Centreon central
 
@@ -81,7 +81,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le
 fichier `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la
-commande `timedatectl status`) 
+commande `timedatectl status`)
 - Evitez l'utilisation des variables
 ci dessous dans le fichier de configuration MariaDB `/etc/my.cnf`: Elles
 arrêtent l'exécution des requêtes longues et ceci pourrait arrêter
@@ -108,7 +108,7 @@ l'exécution des ETL ainsi que la génération des rapports.
 
 **Matériel**
 
- Nombre de services supervisés | CPU minimum  | Mémoire Vive      
+ Nombre de services supervisés | CPU minimum  | Mémoire Vive
 -------------------------------|----------------------|---------------
 | < 4 000                      | 2 CPU ( 3Ghz )       | 12Go minimum  |
 | < 20 000                     | 4 CPU (3GHz) minimum | 16 Go minimum |
@@ -376,7 +376,7 @@ MBI, menu *Rapports > Monitoring Business Intelligence > Options Générales* :
   -----------------|-------------------------|---------------------------------
   Options de  l'ordonnanceur |    Hôte de CBIS    |      Adresse IP du serveur de reporting
   Options de l'ETL Une base de données MariaDB dédiée au reporting a été  mise en place. |  Oui
-  Widgets de reporting*   |     Reporting MariaDB database |  Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting)                                  
+  Widgets de reporting*   |     Reporting MariaDB database |  Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting)
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
@@ -411,14 +411,14 @@ commandes suivantes : :
 >
 >       replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 > puis créer les vues sur le slave en lançant la commande:
-> 
+>
 >  #mysql centreon < [view_creation.sql](../assets/reporting/installation/view_creation.sql)
 
 Allez au chapitre suivant pour continuer l'installation.
 
 ## Installer le serveur de reporting
 
-### Installer les paquets 
+### Installer les paquets
 
 Ce chapitre aborde l'installation du serveur de reporting.
 
@@ -434,7 +434,7 @@ veillez à les connaître avant de commencer :
     rapports générés sur l'interface)
 
 Pour lancer l'installation du serveur de reporting, installer le dépôt correspondant (fourni par le support)
-puis lancer la commande suivante: 
+puis lancer la commande suivante:
 
     yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 

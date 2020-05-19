@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Centreon BAM
 ---
 
 The service mapping capabilities in Centreon relies on the **Centreon Business

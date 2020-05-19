@@ -1,11 +1,11 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction à Centreon MBI
 ---
 
 ## Reporting complet: Centreon MBI
 
-La fonctionnalité de "Reporting" de Centreon se base sur l'extension appellée 
+La fonctionnalité de "Reporting" de Centreon se base sur l'extension appellée
 "Centreon Monitoring Business Intelligence" (Centreon MBI)
 
 Une fonctionnalité de reporting est également disponible dans la version open source de Centreon. Plus d'information ci-dessous
@@ -16,7 +16,7 @@ Une fonctionnalité de reporting est également disponible dans la version open 
 Centreon Monitoring Business Intelligence est une solution d'aide à la
 décision et facilite la gestion de votre infrastructure IT. Centreon MBI
 vous apporte une visibilité complète sur vos infrastructures et vos
-activités avec un reporting aux normes ITIL  sur les évènements, les 
+activités avec un reporting aux normes ITIL  sur les évènements, les
 compteurs de performances ainsi que les données de capacité provenant de Centreon.
 
 Vous pouvez suivre la santé de votre SI grâce à de nombreux modèles de
@@ -54,8 +54,8 @@ Principales fonctionnalités:
 
 ## Reporting simple
 
-Les rapports de disponibilités des objets accessibles via l'interface web Centreon 
-permettent de visualiser de manière intuitive le taux de disponibilité d'un hôte, 
+Les rapports de disponibilités des objets accessibles via l'interface web Centreon
+permettent de visualiser de manière intuitive le taux de disponibilité d'un hôte,
 d'un groupe d'hôtes ou d'un groupe de services sur une période de temps donnée.
 
 Pour visualiser le rapport de disponibilité d'un 'hôte :
@@ -68,7 +68,7 @@ Pour visualiser le rapport de disponibilité d'un 'hôte :
 
 * La liste **Période de génération** permet de choisir la période de temps sur laquelle on souhaite visualiser le taux de disponibilité. Il est possible de sélectionner une période prédéfinie via la liste déroulante ou de sélectionner manuellement sa période en définissant les champs **Du** et **Au**
 * Le tableau **Etat de l'hôte** permet de visualiser le taux et la durée de disponibilité associé par état de l'objet
-* Le tableau **Statuts des éléments du rapport** permettent de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts  
+* Le tableau **Statuts des éléments du rapport** permettent de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
 * La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au court du temps
 
 ![image](../assets/reporting/os-reporting/os-host-timeline.png)

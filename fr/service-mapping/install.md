@@ -1,6 +1,6 @@
 ---
 id: install
-title: Installer l'extension
+title: Installer l'extension Centreon BAM
 ---
 
 > Centreon BAM est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
@@ -54,6 +54,6 @@ Cliquer sur "Back", le module est maintenant installé :
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
 > puis créer les vues sur le slave en lançant la commande:
-> 
+>
 > ````
-> myqsl> centreon < view_creation.sql 
+> myqsl> centreon < view_creation.sql

@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Centreon MBI
 ---
 
 ## Complete reporting with Centreon MBI
@@ -18,7 +18,7 @@ facilitate management of an IT environment. Centreon MBI analyzes data
 from monitored events, performance counters and capacity accessed from
 the Centreon Enterprise Monitoring Solution (EMS), providing you with
 full visibility of your infrastructures and application activities
-through *ITIL compliant* reporting. 
+through *ITIL compliant* reporting.
 
 
 Generate insightful statistics using our 30+ reports designs\...
@@ -52,7 +52,7 @@ Main features:
 
 ## Simple reporting
 
-The availability reports of monitoring objects from Centreon Web interface allows 
+The availability reports of monitoring objects from Centreon Web interface allows
 to display the availability rate about hosts, hostgroup or servicegroup on a selected period.
 
 To access to availability reports:
