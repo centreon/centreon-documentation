@@ -510,6 +510,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
                     "integrations/plugin-packs/procedures/network-cisco-ironport-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-meraki-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-meraki-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-prime-restapi",
                     "integrations/plugin-packs/procedures/network-switchs-cisco-smallbusiness-standard-snmp",
