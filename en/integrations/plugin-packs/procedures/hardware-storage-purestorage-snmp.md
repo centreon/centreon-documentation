@@ -34,11 +34,11 @@ proprietary de-duplication and compression software to improve the amount of dat
 
 ### Configuration Pure Storage Equipment  
 
-In order to monitor your Pure Storage equipments the SNMP v2 must be configured.
+The SNMP agent must be configured on the Pure Storage devices.
 
 ### Network flow
 
-Your centreon server must be able to reach the PureStorage storage array over UDP/161 SNMP port.
+Your Centreon poller must be able to reach the PureStorage storage array on the UDP/161 SNMP port.
 
 ## Installation
 
@@ -52,7 +52,7 @@ Your centreon server must be able to reach the PureStorage storage array over UD
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the "Pure-Storage-SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 
 <!--Offline IMP License-->
@@ -63,22 +63,22 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the Centreon Plugin Pack RPM on your central server:
+2. Install the Centreon Plugin-Pack RPM on your central server:
 
 ```bash
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Install the "PureStorage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host Configuration
 
 Apply the "HW-Storage-Purestorage-SNMP-custom" template to your newly created host.
-In the host creation form on the Centreon web interface, it is necessary to fill in the values for the "Snmp Community" and "Snmp Version" fields.
+In the host creation form on the Centreon Web interface, it is necessary to set the proper values in the "SNMP Community" and "SNMP Version" fields.
 
-:warning: If you are using SNMP version 3, select the appropriate SNMP version and configure the SNMP v3 parameters via the SNMPEXTRAOPTIONS macro.
+:warning: If you are using SNMP version 3, select the relevant SNMP version and configure the SNMP v3 parameters in the SNMPEXTRAOPTIONS Macro field.
 
 | Mandatory | Name             | Description                        |
 | :-------- | :--------------- | :--------------------------------- |
@@ -88,20 +88,18 @@ In the host creation form on the Centreon web interface, it is necessary to fill
 
 #### How do I test in the command line and what do the main options mean?
 
-When the plugin is installed, you can test it directly in command line from your Centreon collector with the Centreon-engine user:
+Once the Plugin installed, you can test it directly from your Centreon poller CLI using the *centreon-engine* user:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_purestorage_snmp.pl
-	--plugin=storage::purestorage::snmp::plugin
-	--hostname=localhost
-	--snmp-version='2c'
-	--snmp-community='public' 
-	--mode=stats
-	--filter-counters='.*'
-	--warning-read-bandwidth='400000000'
-	--critical-read-bandwidth='500000000'
-	--warning-write-bandwidth='400000000'
-	--critical-write-bandwidth='500000000'
+/usr/lib/centreon/plugins//centreon_purestorage_snmp.pl \
+	--plugin=storage::purestorage::snmp::plugin \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='public' \
+	--mode=stats \
+	--filter-counters='.*' \
+	--warning-read-bandwidth='400000000' \
+	--critical-read-bandwidth='500000000' \
 	--verbose
 ```
 
@@ -111,13 +109,12 @@ If everything's fine, it should output something similar to:
 OK: Read Bandwith : 376.84 Mb/s - Write Bandwith : 0.00 b/s - Read IOPs : 3871 - Write IOPs : 0 - Read Latency : 197 us/op - Write Latency : 0 us/op | 'read_bandwidth'=376843408.00b/s;;;0; 'write_bandwidth'=0.00b/s;;;0; 'read_iops'=3871iops;;;0; 'write_iops'=0iops;;;0; 'read_latency'=197us/op;;;0; 'write_latency'=0us/op;;;0;
 ```
 
-The above command requests the array via SNMP (```--plugin=storage::purestorage::snmp::plugin```) using the SNMP community (```--snmp-community='public```) and the version (```--snmp-version=2c```) previously created in the Prerequisites section.
-This command checks the current statistics of the storage array (```--mode=stats``).
-The command would also return all the counters in the equipment because the name filter will match any result (```--filter-counters='.*'```).
+The above command requests a PureStorage array using the SNMP protocol (```--plugin=storage::purestorage::snmp::plugin```) using the *public* SNMP community (```--snmp-community='public```).
+This command checks the current statistics of the storage array (```--mode=stats```).
 
-This command will trigger a WARNING alarm if the bandwidth reading increases to 400000000b/s (```--warning-read-bandwidth='400000000'```) and a CRITICAL alarm if it increases to 500000000b/s (```--critical-read-bandwidth='500000000'```). 
+This command will trigger a WARNING alarm if the *read* bandwidth increases to more than 400000000b/s (```--warning-read-bandwidth='400000000'```) and a CRITICAL alarm if more than 500000000b/s (```--critical-read-bandwidth='500000000'```). 
 
-It is also possible to define WARNING and CRITICAL thresholds on a specific metric. In this example a WARNING alarm will be triggered if the bandwidth write increases to '400000000b/s' (```--warning-write-bandwidth='400000000'```) and a CRITICAL alarm will be triggered if it increases to 500000000b/s (```--critical-write-bandwidth='500000000'``).
+Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
 
 The syntax of the different options of the thresholds as well as the list of options and their usage are detailed in the help of the mode by adding the parameter ```--help``` to the command:
 
@@ -130,7 +127,7 @@ The syntax of the different options of the thresholds as well as the list of opt
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-If you get this message, it means that you are unable to reach the Pure Storage device over UDP/161 SNMP port, or that the configured SNMP community is not correct. It is also possible that a firewall is blocking the flow.
+If you get this message, it means that you are unable to reach the Pure Storage device on the UDP/161 SNMP port, or that the configured SNMP community is not correct. It is also possible that a firewall is blocking the flow.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
