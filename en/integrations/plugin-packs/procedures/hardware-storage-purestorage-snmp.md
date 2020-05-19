@@ -8,7 +8,7 @@ title: Pure Storage SNMP
 Pure Storage develops flash-based storage for data centers using consumer-grade solid state drives. It provides 
 proprietary de-duplication and compression software to improve the amount of data that can be stored on each drive.
 	
-## Plugin-pack assets
+## Plugin-Pack assets
 
 ### Monitored objects
 
@@ -19,9 +19,14 @@ proprietary de-duplication and compression software to improve the amount of dat
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Stats-->
 
-| Metric Name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Counter            | Counter names. Can be: bandwidth, iops or latency.                                                      |
+| Metric Name              | Description                                                     |
+| :----------------------- | :-------------------------------------------------------------- |
+| pureArrayReadBandwidth   | Read Bandwidth Volume on the storage array. Unit: Bits/second   |
+| pureArrayWriteBandwidth  | Write Bandwidth Volume on the storage array. Unit: Bits/second  |
+| pureArrayReadIOPS        | Read Operations on the storage array. Unit: iops                |
+| pureArrayWriteIOPS       | Write Operations on the storage array. Unit: iops               |
+| pureArrayReadLatency     | Storage array Read Latency (us/op). Unit: us/operations         |
+| pureArrayWriteLatency    | Storage array Write Latency (us/op). Unit: us/operations        |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -33,8 +38,8 @@ In order to monitor your Pure Storage equipments the SNMP v2 must be configured.
 
 ### Network flow
 
-Communication must be possible on UDP port 161 from the Centreon Collector to the supervised Pure Storage equipment.
- 
+Your centreon server must be able to reach the PureStorage storage array over UDP/161 SNMP port.
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -47,7 +52,7 @@ Communication must be possible on UDP port 161 from the Centreon Collector to th
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the "Pure-Storage-SNMP" Centreon Plugin Pack from the "Configuration > Plugin packs > Manager" page
+2. Install the "Pure-Storage-SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 
 <!--Offline IMP License-->
@@ -64,7 +69,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Install the "Pure-Storage-SNMP" Centreon Plugin Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the "PureStorage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -125,7 +130,7 @@ The syntax of the different options of the thresholds as well as the list of opt
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-If you get this message, it means that you are unable to contact the Pure Storage device on UDP port 161, or that the configured SNMP community is not correct. It is also possible that a firewall is blocking the flow.
+If you get this message, it means that you are unable to reach the Pure Storage device over UDP/161 SNMP port, or that the configured SNMP community is not correct. It is also possible that a firewall is blocking the flow.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
