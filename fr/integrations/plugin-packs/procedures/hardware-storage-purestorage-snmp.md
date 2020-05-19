@@ -8,7 +8,7 @@ title: Pure Storage SNMP
 Pure Storage fournit du matériel de stockage flash pour les datacenters en utilisant des disques durs grand public. 
 Il fournit un logiciel propriétaire de déduplication et de compression des données afin d'améliorer la quantité qui est stockées sur chaque disque. 
 
-## Contenu du pack de supervision
+## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
@@ -19,9 +19,14 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Stats-->
 
-| Nom de métrique    | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Counter            | Nom des compteurs. Peut être : bandwidth, iops ou latency                                               |
+| Metric Name              | Description                                                     |
+| :----------------------- | :-------------------------------------------------------------- |
+| pureArrayReadBandwidth   | Read Bandwidth Volume on the storage array. Unit: Bits/second   |
+| pureArrayWriteBandwidth  | Write Bandwidth Volume on the storage array. Unit: Bits/second  |
+| pureArrayReadIOPS        | Read Operations on the storage array. Unit: iops                |
+| pureArrayWriteIOPS       | Write Operations on the storage array. Unit: iops               |
+| pureArrayReadLatency     | Storage array Read Latency (us/op). Unit: us/operations         |
+| pureArrayWriteLatency    | Storage array Write Latency (us/op). Unit: us/operations        |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -31,7 +36,7 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 Afin de superviser vos équipements Pure Storage le SNMP v2 doit être configuré.
 
-### Flux réseau
+### Flux Réseaux
 
 La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipement Pure Storage supervisé.
 
@@ -41,18 +46,18 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
+1. Installer le code du Plugin sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager":
 
 
 <!--Offline IMP License-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
+1. Installer le code du Plugin sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
@@ -64,7 +69,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le Plugin-Pack 'PureStorage SNMP' depuis la page "Configuration > Plugin packs > Manager":
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -84,7 +89,7 @@ Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il e
 
 #### Comment tester en ligne de commande et quelles significations portent les options principales ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur centreon-engine:
+Une fois le Plugin installé, connectez vous à votre Collecteur Centreon et tester votre commande via l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_purestorage_snmp.pl
