@@ -88,7 +88,7 @@ Dans le formulaire de création de l'Hôte sur l'interface Web de Centreon, il e
 
 ## FAQ
 
-### Comment tester le Plugin en ligne de commande et que signifient les options principales ?
+#### Comment tester le Plugin en ligne de commande et que signifient les options principales ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
