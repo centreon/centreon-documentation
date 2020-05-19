@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Centreon MAP
 ---
 
 The graphical view capabilities in Centreon relies on the **Centreon MAP** extension.
