@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-purestorage-snmp
-title: Pure Storage
+title: Pure Storage SNMP
 ---
 
 ## Vue d'ensemble
@@ -71,14 +71,14 @@ yum install centreon-pack-hardware-storage-purestorage-snmp
 ## Configuration
 
 Appliquer le modèle "HW-Storage-Purestorage-SNMP-custom" à votre hôte nouvellement créé. 
-Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
-Ensuite, remplisser les fichiers de valeur des macros marqués comme obligatoires ci-dessous: 
 
-| Mandatory   | Name                    | Description                                                                                 |
-| :---------- | :---------------------- | :------------------------------------------------------------------------------------------ |
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP de Pure Storage                                                          |
+Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs pour les champs "Snmp Community" et "Snmp Version". 
 
 :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idoine et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS
+
+| Mandatory | Name             | Description                        |
+| :-------- | :--------------- | :--------------------------------- |
+|           | SNMPEXTRAOPTIONS | Extra options SNMP de Pure Storage |
 
 ## FAQ
 
@@ -108,7 +108,7 @@ OK: Read Bandwith : 376.84 Mb/s - Write Bandwith : 0.00 b/s - Read IOPs : 3871 -
 ```
 
 La commande ci-dessus interroge la baie via SNMP (```--plugin=storage::purestorage::snmp::plugin```) en utiisant la communauté SNMP (```--snmp-community='public'```) et la version (```--snmp-version=2c```) créé précédemment dans la partie Prérequis.
-Cette commande contrôle les statistiques actuelle de la baie de Stockage (```--mode=stats```). La commande ci-dessus renvoie toutes les statistiques de l'appareil car le filtre de compteurs correspond à n'importe quel résultat (```--filter-counters='.*'```).
+Cette commande contrôle les statistiques d'utilisation de la baie de Stockage (```--mode=stats```). La commande ci-dessus renvoie toutes les statistiques de l'appareil car le filtre de compteurs correspond à n'importe quel résultat (```--filter-counters='.*'```).
 
 Cette commande déclenchera une alarme WARNING si la lecture du bandwidth dépasse les 400000000b/s (```--warning-read-bandwidth='400000000'```) et une alarme CRITICAL s'il dépasse 500000000b/s (```--critical-read-bandwidth='500000000'```). 
 
