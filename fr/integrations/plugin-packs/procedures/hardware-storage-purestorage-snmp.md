@@ -46,7 +46,7 @@ La communication doit être possible sur le port UDP 161 depuis le Collecteur Ce
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du Plugin sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources de Pure Storage:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
@@ -57,19 +57,19 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le code du Plugin sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources de Pure Storage:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Installer le RPM contenant les modèles de supervision :
+2. Installer le RPM du Plugin-Pack :
 
 ```bash
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Installer le Plugin-Pack 'PureStorage SNMP' depuis la page "Configuration > Plugin packs > Manager":
+3. Installer le Plugin-Pack 'PureStorage SNMP' depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
