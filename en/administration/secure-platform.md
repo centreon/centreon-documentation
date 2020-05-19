@@ -15,7 +15,8 @@ After installing Centreon, it is necessary to change the default passwords of th
 - centreon-broker
 - centreon-gorgoned
 
-To do this, use the following command from **root** account:
+To do this, use the following command with a privileged account (eg. sudo) or with root (not recommended — you should
+have a dedicated user):
 
 ```shell
 passwd <account_name>
@@ -60,7 +61,7 @@ yum install httpd24-mod_ssl openssl
 
 2. Install your certificates:
 
-Copy your certificate and key on the server, like:
+Copy your certificate and key on the server according your configuration; by default, it's:
 
 - /etc/pki/tls/certs/ca.crt
 - /etc/pki/tls/private/ca.key
@@ -95,6 +96,9 @@ ProxyTimeout 300
 </VirtualHost>
 
 <VirtualHost *:443>
+#####################
+# SSL configuration #
+#####################
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key

@@ -15,7 +15,8 @@ Après l'installation de Centreon, il est nécessaire de changer les mots de pas
 - centreon-broker
 - centreon-gorgoned
 
-Pour cela, utilisez la commande suivante à partir du compte **root** :
+Pour cela, utilisez la commande suivante avec un compte privilégié (par exemple sudo) ou avec root (non recommandé - vous devez
+avoir un utilisateur dédié) :
 
 ```shell
 passwd <account_name>
@@ -63,7 +64,7 @@ yum install httpd24-mod_ssl openssl
 
 2. Installez vos certificats
 
-Copiez votre certificat et votre clé sur le serveur, par exemple :
+Copiez votre certificat et votre clé sur le serveur en fonction de votre configuration; par défaut:
 
 - /etc/pki/tls/certs/ca.crt
 - /etc/pki/tls/private/ca.key
@@ -98,6 +99,9 @@ ProxyTimeout 300
 </VirtualHost>
 
 <VirtualHost *:443>
+#####################
+# SSL configuration #
+#####################
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
