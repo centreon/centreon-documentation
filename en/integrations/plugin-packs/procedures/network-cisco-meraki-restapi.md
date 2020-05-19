@@ -1,6 +1,6 @@
 ---
 id: network-cisco-meraki-restapi
-title: Meraki RestAPI
+title: Cisco Meraki Rest API
 ---
 
 ## Overview
