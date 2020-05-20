@@ -66,7 +66,7 @@ Centreon MBI general options are used to configure:
 -  Scheduling options for jobs that generate reports
 -  Communication between Centreon & the reporting server
 -  Notification parameters for Centreon MBI administrators
--  Data to agregate & retention (ETL) 
+-  Data to agregate & retention (ETL)
 
 ### Notification options
 
@@ -82,7 +82,7 @@ actual reports sent to specific users. The notification option sends an
 e-mail to Centreon MBI administrators containing only the logs of the
 job that generated the report.
 
-The notification option parameters can be modified in the menu: 
+The notification option parameters can be modified in the menu:
 `Reporting > Business Intelligence > General Options | Notification Options`
 
 Description:
@@ -99,7 +99,7 @@ Description:
   SMTP password                                 | Password for SMTP user (*Set this parameter only if you need to update the password*)
   E-mail default title                          | Default subject line for notification e-mail, if no other is specified
   Default E-mail body                           | Default body of notification e-mail, if no other is specified
-  Default E-mail footer                         | Default footer of notification e-mail, if no other is specified               
+  Default E-mail footer                         | Default footer of notification e-mail, if no other is specified
   Centreon main server web protocol             | The protocol used by Centreon web interface (http / https)
   Centreon web URL extension                    |  The Centreon server URL extension (e.g.: /centreon)
   Centreon main server                          | Centreon server address
@@ -129,7 +129,7 @@ Parameters description:
   --------------------------|--------------------------------------------------------
   CBIS host                 | IP address of server hosting the reporting engine
   CBIS port                 | TCP listening port for CBIS engine
-  CBIS connection timeout   | Time limit (in seconds) for connection to the reporting engine          
+  CBIS connection timeout   | Time limit (in seconds) for connection to the reporting engine
 
 Any modification of these parameters requires restarting the CBIS daemon
 
@@ -177,17 +177,17 @@ The ETL integrated in Centreon is used to
 
 It configured at installation and will probably not need any modification later.
 
-Before proceding, you should have read [the best practice parts](#TODO)` to ensure 
+Before proceding, you should have read [the best practice parts](installation.html#best-practices-for-monitoring)` to ensure
 that the objects (e.g., groups, categories) are configured according to Centreon MBI requirements.
 
-In the Centreon menu `Reporting > Business Intelligence > General Options > ETL options`, 
+In the Centreon menu `Reporting > Business Intelligence > General Options > ETL options`,
 specify the following options:
 
-| **Options**                                                                               |   **Values**                           
+| **Options**                                                                               |   **Values**
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server 
-  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
+  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server
+  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)
   Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
   Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
   Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
@@ -197,7 +197,7 @@ specify the following options:
   Service categories	                                                                    | Select only service categories for which you want to aggregate data.
 |**Availability statistic calculation**                                                     |                                         |
  Live services for availability statistics calculation                                      |   Select required time periods.
-| **Performance and capacity statistic calculation**	                                    |                                         | 
+| **Performance and capacity statistic calculation**	                                    |                                         |
  Granularity required for performance data statistics                                       | Select level of granularity required to run the desired performance reports (1).
  Live services for performance data statistics calculation		                            | Select required time periods.
 | **Capacity statistic aggregated by month**                                                |                                         |
@@ -220,7 +220,7 @@ statistics calculation per hour:
 -   Hostgroup-traffic-by-Interface-And-Bandwith-Ranges.
 
 **(2)** Centile statistics: To use the "Monthly Network Percentile" report you must activate
-centile calculation. Here is an example: 
+centile calculation. Here is an example:
 
 ![image](../assets/reporting/guide/centileParameters.png)
 
@@ -229,7 +229,7 @@ will appear in the list of service categories available for centile
 statistics.
 
 You can create as many centile-time period combinations as you like, **but
-we strongly recommand** not having more than 2 or 3 combination* on a small number of metrics 
+we strongly recommand** not having more than 2 or 3 combination* on a small number of metrics
 contained in the category.
 
 
@@ -240,7 +240,7 @@ in the database "centreon_storage". The storage space used by these
 tables increases every day. It is possible to control the size of these
 tables by setting data retention rules.
 
-Under *Reporting > Monitoring Business Intelligence > General options > Data retention*, 
+Under *Reporting > Monitoring Business Intelligence > General options > Data retention*,
 data retention can be managed by:
 
 -   Type of data (availability, performance).
@@ -273,7 +273,7 @@ Then restart the service cron:
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
 
--   Hourly aggregated values are used to analyze a metric over a short period, they take a 
+-   Hourly aggregated values are used to analyze a metric over a short period, they take a
     lot of space on the disk. You may not need to keep these statistics more that two or three months.
 -   Beyond five or six months, you may only need to view the trend for
     availability or performance statistics. You could then keep the

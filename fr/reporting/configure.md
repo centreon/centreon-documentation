@@ -50,11 +50,11 @@ cet onglet.
 > Un utilisateur non administrateur ne peut recevoir des notifications sur
 > des rapports qu'il n'est pas autorisé à voir, même s'il fait parti du
 > groupe de contacts relatif à la notification.
-> 
+>
 > Il est possible de donner accès aux autres menus de Centreon MBI à des
 > utilisateurs soumis à des ACLs, ces utilisateurs pourront alors
 > uniquement visualiser le contenu. Les pages concernées sont :
-> 
+>
 > -   Groupe de tâches planifiées
 > -   Modèle de rapports
 > -   Groupe de modèle de rapports
@@ -66,7 +66,7 @@ cet onglet.
 > déconseillé.
 
 
-## Options générales 
+## Options générales
 
 Les options générales de Centreon MBI sont utilisées pour paramétrer:
 
@@ -112,7 +112,7 @@ Description des champs du formulaire:
   Use credential                                | Utilisation d'une authentification (oui / non)
   Use SSL                                       | Utilisation d'une authentification SSL (oui / non)
   SMTP user                                     | Compte utilisateur SMTP
-  SMTP password                                 | laisser vide pour ne pas modifier le mot de pass     
+  SMTP password                                 | laisser vide pour ne pas modifier le mot de pass
   E-mail default title                          |   Sujet du e-mail de notification par défaut
   Default E-mail body                           | Corps du e-mail de notification par défaut
   Default E-mail footer                         | pied de page du e-mail de notification par défaut
@@ -191,7 +191,7 @@ Centreon MBI intègre un ETL qui permet de :
 -   Contrôler la rétention des données sur le serveur de reporting
 
 Avant de passer aux étapes suivantes, il est nécessaire de lire le
-chapitre `centreon_best_practices`{.interpreted-text role="ref"} afin de
+chapitre [des bonnes pratiques](installation.html#bonnes-pratiques-de-supervision) afin de
 vous assurer que la configuration des objets dans Centreon (groupes,
 categories...) est conforme aux attentes de Centreon MBI.
 
