@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Install the extension
+title: Install Centreon MBI extension
 ---
 
 > Centreon MBI is a Centreon **extension** that requires a valid license key. To
@@ -97,7 +97,7 @@ isolation considerations.
 
   User              |         Group
   ------------------|-------------------------------
-  centreonBI (new)  | apache, centreon, centreonBI 
+  centreonBI (new)  | apache, centreon, centreonBI
   apache (existing) | centreonBI
 
 **Description of users, umask and home directory**
@@ -113,23 +113,23 @@ isolation considerations.
 
 Monitored services       |    CPU                 |         RAM
 -------------------------|------------------------|------------------
-  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum     
-  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum     
- >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum     
- > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum     
- > 100 000               | > Contact Centr        | eon              
+  < 4 000                | 2 CPU ( 3Ghz ) minimum | 12GB minimum
+  < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum
+ >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum
+ > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum
+ > 100 000               | > Contact Centr        | eon
 
 **Storage space**: Use the following [storage estimation file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
 **File system**
-  
- File system                  |   Size 
+
+ File system                  |   Size
 ------------------------------|----------------------------------------------------------------------------------
- /                            | 5GB minimum 
+ /                            | 5GB minimum
  /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)
- MariaDB temp folder          | We recommand keeping it in /var 
+ MariaDB temp folder          | We recommand keeping it in /var
  Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data**
-                   
+
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
 
@@ -180,9 +180,9 @@ reports, you should monitor at least some basic performance indicators
   -   Memory usage warning threshold
   -   Memory usage critical threshold
   -   Total allocated memory in Bytes.
- 
+
 The plugin for monitoring this indicator must return the following output:
- 
+
     status information | metric_name=valueunit;warning_threshold;critical_threshold;min_value;max_value
 
 -   Storage usage -- Two possible kinds of service:
@@ -229,8 +229,8 @@ requirements.
 Parameter types can be:
 
 -   A main object on which the report will be generated, such as:
-    -   A host  
-    -   A host group: functional group defined in Centreon to classify 
+    -   A host
+    -   A host group: functional group defined in Centreon to classify
   hosts by customer, application, business unit, country, etc.
     -   Several host groups.
 
@@ -239,7 +239,7 @@ Parameter types can be:
 -   Filters that take into account only specific types of hardware,
     services and metrics from selected host groups:
 
- -   Host categories: Classifies hosts into technical groups for determining the type or technical function 
+ -   Host categories: Classifies hosts into technical groups for determining the type or technical function
  of a host (e.g., Linux servers, Windows servers, Cisco routers, printers).
  -   Service categories: Defines the type of service (e.g., CPU, physical memory, storage).
  -   Metrics: Indicates performance data collected by the services
@@ -429,7 +429,7 @@ installation process:
     BI user on the central monitoring server (to publish reports on the
     interface).
 
-To start installing the reporting server, install the corresponding repository 
+To start installing the reporting server, install the corresponding repository
 (sent by Centreon Service Desk) and execute the following command:
 
     yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
@@ -468,7 +468,7 @@ and in the [client] section, add the following variable:
 
     socket=$PATH_TO_SOCKET$
 
-### Start configuring 
+### Start configuring
 
 First check that the reporting MariaDB is running. Then launch the
 following command, answering the questions:
@@ -497,15 +497,15 @@ Before following the next steps, you should have read
 [the best practice parts](#TODO) to ensure that the Centreon objects (e.g., groups and
 categories) are configured according to Centreon MBI requirements.
 
-In the *Reporting > Business Intelligence > General Options > ETL options* menu 
+In the *Reporting > Business Intelligence > General Options > ETL options* menu
 of the Centreon server, specify the following options:
 
 
-| **Options**                                                                               |   **Values**                           
+| **Options**                                                                               |   **Values**
 |-------------------------------------------------------------------------------------------|----------------------------------------
 | **General options**                                                                       |                                        |
-  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server 
-  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)	
+  Reporting engine uses a dedicated dedicated MariaDB server                                | Yes. You **must** use a reporting server
+  Compatibility mode to use report templates from version of Centreon MBI prior to 1.5.0    | No (deprecated)
   Temporary file storage directory on reporting server                                      | 	Folder where dumps will be stored on the reporting server
   Type of statistics to build	                                                            | <ul><li>Select “Availability only” if you only use availability reports.</li><li>Select “Performance and capacity only” if you only want to use capacity and performance reports.</li><li>Select “All” to calculate the statistics for both types of reports.</li></ul> |
   Use large memory tweaks (store MariaDB temporary tables in memory)	                      | Activated only if your MariaDB configuration and allocated physical memory on the server permit.
@@ -515,7 +515,7 @@ of the Centreon server, specify the following options:
   Service categories	                                                                    | Select only service categories for which you want to aggregate data.
 |**Availability statistic calculation**                                                     |                                         |
  Live services for availability statistics calculation                                      |   Select required time periods.
-| **Performance and capacity statistic calculation**	                                    |                                         | 
+| **Performance and capacity statistic calculation**	                                    |                                         |
  Granularity required for performance data statistics                                       | Select level of granularity required to run the desired performance reports (1).
  Live services for performance data statistics calculation		                            | Select required time periods.
 | **Capacity statistic aggregated by month**                                                |                                         |
@@ -544,7 +544,7 @@ in the database "centreon_storage". The storage space used by these
 tables increases every day. It is possible to control the size of these
 tables by setting data retention rules.
 
-Under *Reporting > Monitoring Business Intelligence > General options > Data retention*, 
+Under *Reporting > Monitoring Business Intelligence > General options > Data retention*,
 data retention can be managed by:
 
 -   Type of data (availability, performance).
@@ -577,7 +577,7 @@ Then restart the service cron:
 **BEST PRACTICE**: Select different retention periods according to the
 granularity of the statistical data:
 
--   Hourly aggregated values are used to analyze a metric over a short period, they take a 
+-   Hourly aggregated values are used to analyze a metric over a short period, they take a
     lot of space on the disk. You may not need to keep these statistics more that two or three months.
 -   Beyond five or six months, you may only need to view the trend for
     availability or performance statistics. You could then keep the

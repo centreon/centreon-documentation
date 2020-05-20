@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install the extension
+title: Install Centreon MAP extension
 ---
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the

@@ -1,6 +1,6 @@
 ---
 id: install
-title: Install the extension
+title: Install Centreon BAM extension
 ---
 
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To

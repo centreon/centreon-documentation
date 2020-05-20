@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Introduction
+title: Introduction to Centreon MAP
 ---
 
 > This documentation is only available in **english** for now

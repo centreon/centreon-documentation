@@ -336,20 +336,20 @@ You can run manually discovery using following options:
 Run all rules:
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl
 ```
 
 Test all rules:
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --dry-run
 ```
 
 Test specific rule:
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --dry-run
 ```
@@ -357,7 +357,7 @@ Test specific rule:
 Test all rules linked to hosttemplates used by specific host:
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-host="centreon-server" \
   --dry-run
 ```
@@ -365,7 +365,7 @@ Test all rules linked to hosttemplates used by specific host:
 Test specific rule on predifined host:
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco \
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
   --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
   --filter-host="centreon-server" \
   --dry-run

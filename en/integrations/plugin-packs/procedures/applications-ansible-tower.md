@@ -21,8 +21,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 
 To interact with the Ansible Tower instance, the plugin uses the Tower CLI.
 
-Install it using the official documentation :
-<https://docs.ansible.com/ansible-tower/latest/html/towerapi/tower_cli.html#installation>.
+Install it using the official documentation from [here](https://docs.ansible.com/ansible-tower/latest/html/towercli/usage.html#installation). 
 
 ## Centreon Configuration
 
