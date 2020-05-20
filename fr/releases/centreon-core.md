@@ -231,6 +231,7 @@ If you have feature requests or want to report a bug, please go to our
 - [EventView] Manage timezone in details panel
 - [EventView] Wrong latency with forced check
 - [Install] Harden Gorgone config generation at upgrade
+- [KB] Each execution of cron synchronization generate temporary CURLCOOKIE
 - [Monitoring] Correctly compute downtime duration
 
 #### Security
