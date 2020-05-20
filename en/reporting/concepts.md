@@ -157,9 +157,8 @@ The ETL operates in **two modes**:
     chapters.
 
 
-> We advise you to monitor the reporting database using the procedure
-> available in the [Monitoring and procedure](#TODO) chapter. If the ETL does
-> not function for several days or the raw data is not up to date, you
+> We advise you to monitor the reporting database using the dedicated plugin pack. If the ETL does
+> not work for several days or the raw data is not up to date, you
 > must perform a rebuild for the missing days. The ETL **does not
 > automatically** reimport and calculate the missing days. Do not hesitate
 > to contact the Centreon support team for assistance.
@@ -327,9 +326,9 @@ Before running the commands in the procedure below, check that:
 
 > For the following commands, we advise you to use "screen" or "nohup" to
 > prevent disconnection due to timeout. And you have to manually replace the following elements:
-> 
+>
 >   - $date_start$ should be replaced according to the data you want to retrieve (based on retention or starting point of missing data)
->   - $date_end$ most of the time corresponds to the "today" date 
+>   - $date_end$ most of the time corresponds to the "today" date
 
 ### Import the missing data
 
@@ -414,7 +413,7 @@ Before running the commands in the procedure below, check that:
 
     -   Manually execute the daily script:
 
-            /usr/share/centreon-bi/bin/centreonBIETL -d 
+            /usr/share/centreon-bi/bin/centreonBIETL -d
 
 -   Case 3 : **In other cases**: Follow the procedure of partial rebuild for the missing days.
 
@@ -432,7 +431,7 @@ server by running the following command:
 
 This will import all Centreon BAM reporting tables.
 
-If statistics are not up to date, first execute the following command to rebuild statistics & 
+If statistics are not up to date, first execute the following command to rebuild statistics &
 then import them using the previous command
 
     /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all

@@ -3,7 +3,7 @@ id: widgets
 title: Widgets
 ---
 
-Centreon MBI widgets are used in Centreon [custom views](#TODO). This means you can now use dashboards to create real-time AND
+Centreon MBI widgets are used in Centreon [custom views](../getting-started/create-custom-view.html). This means you can now use dashboards to create real-time AND
 reporting statistics (e.g., for availability, applications,
 performance).
 
