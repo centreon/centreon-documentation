@@ -56,7 +56,7 @@ Once you have your certificate, perform the following procedure to activate HTTP
 1. Install SSL module for Apache:
 
 ```shell
-yum install httpd24-mod_ssl install httpd24-mod_security openssl
+yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
 
 2. Install your certificates:
