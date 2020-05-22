@@ -59,7 +59,7 @@ Une fois votre certificat obtenu, effectuez la procédure suivante pour activer 
 1. Installez le module SSL pour Apache
 
 ```shell
-yum install httpd24-mod_ssl openssl
+yum install httpd24-mod_ssl install httpd24-mod_security openssl
 ```
 
 2. Installez vos certificats
@@ -75,7 +75,7 @@ Copiez votre certificat et votre clé sur le serveur en fonction de votre config
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
-4. Éditez  la configuration Apache pour Centreon
+4. Éditez la configuration Apache pour Centreon
 
 Éditez  le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** tel que :
 
@@ -146,17 +146,25 @@ RedirectMatch ^/$ /centreon
 > N'oubliez pas de changer les directives **SSLCertificateFile** et **SSLCertificateKeyFile** avec les chemins d'accès 
 > vers votre clé et votre certificat.
 
-5. Activez les flags HttpOnly et Secure
+5. Activez les flags HttpOnly et Secure et cachez la signature du serveur
 
-Éditez  le fichier **/opt/rh/httpd24/root/etc/httpd/conf/httpd.conf** et ajouter la ligne suivante :
+Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf/httpd.conf** et ajouter la ligne suivante :
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+ServerSignature Off
+ServerTokens Prod
 ```
 
-6. Redémarrez le serveur web Apache pour prendre en compte la configuration
+Éditez le fichier **/etc/opt/rh/rh-php72/php.ini** et désactivez le paramètre `expose_php` :
+
+```phpconf
+expose_php = Off
+```
+
+6. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
 ```shell
-systemctl restart httpd24-httpd
+systemctl restart rh-php72-php-fpm httpd24-httpd
 ```
 
 Puis vérifiez le statut :

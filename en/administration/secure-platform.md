@@ -56,7 +56,7 @@ Once you have your certificate, perform the following procedure to activate HTTP
 1. Install SSL module for Apache:
 
 ```shell
-yum install httpd24-mod_ssl openssl
+yum install httpd24-mod_ssl install httpd24-mod_security openssl
 ```
 
 2. Install your certificates:
@@ -143,17 +143,25 @@ RedirectMatch ^/$ /centreon
 > Don't forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
 > certificate and key.
 
-5. Enable HttpOnly and Secure flags
+5. Enable HttpOnly / Secure flags and hide Apache server signature
 
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf/httpd.conf** file and add the following line:
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+ServerSignature Off
+ServerTokens Prod
 ```
 
-6. Restart the Apache to take in account the new configuration:
+Edit the **/etc/opt/rh/rh-php72/php.ini** file and turn off the `expose_php` parameter:
+
+```phpconf
+expose_php = Off
+```
+
+6. Restart the Apache and PHP process to take in account the new configuration:
 
 ```shell
-systemctl restart httpd24-httpd
+systemctl restart rh-php72-php-fpm httpd24-httpd
 ```
 
 Then check its status:
