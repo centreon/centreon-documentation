@@ -118,7 +118,7 @@ systemctl start httpd24-httpd
 If you had a custom apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/accessing-to-centreon-ui.html#https-access)
+> [this procedure](../administration/secure-platform.html#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
