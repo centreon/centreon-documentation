@@ -181,6 +181,26 @@ Then, restart apache service :
 systemctl restart httpd24-httpd
 ```
 
+### Synchronize the plugins
+
+> Centreon Web 20.04 resource $USER1$ actually points to /usr/lib64/nagios/plugins.
+
+To mitigate this issue run the following commands:
+
+```shell
+mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
+rmdir /usr/lib64/nagios/plugins/
+ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
+```
+
+You now have a symbolic link as:
+
+```shell
+$ ls -alt /usr/lib64/nagios/
+lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
+-rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
+```
+
 ### Finalizing the upgrade
 
 Before starting the web upgrade process, reload the Apache server with the
