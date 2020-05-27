@@ -90,7 +90,7 @@ configuration value:
 #### Bugfixes
 
 - Overlapping text when configuring job with default proxy
-- fSome words are not translated in french
+- Some words are not translated in french
 - Use $rg API directive
 - Remove bad characters in the json result in host discovery
 - Check use remote proxy definition to run discovery in service discovery
@@ -119,3 +119,7 @@ subscription from `Administration > Extensions > Manager` menu:
 
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
+
+### 20.04.1
+
+- Manage unlink platform from previous IMP trial to access to IT-100 free etition.

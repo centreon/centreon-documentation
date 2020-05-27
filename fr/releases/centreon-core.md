@@ -211,6 +211,33 @@ If you have feature requests or want to report a bug, please go to our
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
+### 20.04.2
+
+> Due to a generation problem, 20.04.1 and 20.04.2 versions are both included in 20.04.2 version.
+
+#### Enhancements
+
+- [APIv2] Translate all text messages returned from API v2
+- [Doc] Explain in FAQ chapter how to use HTTPS and correct Apache configuration
+- [EventView] Help : Add tips to help users using regexp
+- [UI] : Add "Asia/Yangon" timezone
+
+#### Bug fixes
+
+- [Backend] host-graph-v2 do not display all graph > graph endpoint issue ?
+- [EventView] Header gets fully selected when searching
+- [EventView] Icon for Downtime button is missing in Events View
+- [EventView] Manage timezone in Graphs
+- [EventView] Manage timezone in details panel
+- [EventView] Wrong latency with forced check
+- [Install] Harden Gorgone config generation at upgrade
+- [KB] Each execution of cron synchronization generate temporary CURLCOOKIE
+- [Monitoring] Correctly compute downtime duration
+
+#### Security
+
+- Fix SQL Injection in makeXMLForAck.php
+
 ## Centreon Engine
 
 ### 20.04.0	
@@ -251,6 +278,30 @@ If you have feature requests or want to report a bug, please go to our
 - Add a new stat() function on streamconnector
 - '\r' not parsed correctly in perfdata
 - perfdata parser too strict
+
+### 20.04.2
+
+#### Enhancements
+
+- [streamconnector] Implement severity in the lua cache.
+
+#### Bug fixes
+
+- [core] Connections broken due to CRC errors
+- [streamconnector] Several little bugs
+
+### 20.04.3
+
+#### Bug fixes
+
+- [core] Crash with many data in conflict_manager
+- [core] Contention in events engine
+
+### 20.04.4
+
+#### Bug fixes
+
+- [core] Service Check not updated
 
 ## Centreon Gorgone
 
