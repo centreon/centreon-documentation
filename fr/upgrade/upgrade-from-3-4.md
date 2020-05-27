@@ -189,6 +189,26 @@ Redémarrez ensuite le service Apache :
 systemctl restart httpd24-httpd
 ```
 
+### Synchronisation des plugins
+
+> La macro de ressource $USER1$ de Centreon 20.04 pointe à présent sur /usr/lib64/nagios/plugins.
+
+Afin de résoudre cette situation, lancez les commandes suivantes:
+
+```shell
+mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
+rmdir /usr/lib64/nagios/plugins/
+ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
+```
+
+De cette façon un lien symbolique est créé :
+
+```shell
+$ ls -alt /usr/lib64/nagios/
+lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
+-rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
+```
+
 ### Finalisation de la mise à jour
 
 Avant de démarrer la montée de version via l'interface web, rechargez le
