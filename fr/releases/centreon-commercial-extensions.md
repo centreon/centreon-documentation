@@ -122,4 +122,4 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.1
 
-- Manage unlink platform from previous IMP trial to access to IT-100 free detition.
+- Manage unlink platform from previous IMP trial to access to IT-100 free etition.
