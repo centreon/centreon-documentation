@@ -145,14 +145,14 @@ RedirectMatch ^/$ /centreon
 
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf/httpd.conf** file and add the following line:
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
 ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/opt/rh/rh-php72/php.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
 expose_php = Off
