@@ -557,6 +557,12 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
+Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4
+
+```bash
+COROSYNC_QNETD_OPTIONS="-4"
+```
+
 #### Authenticating to the cluster's members
 
 For the sake of simplicity, the `hacluster` user will be assigned the same password on both central nodes **and `@QDEVICE_NAME@`**.
