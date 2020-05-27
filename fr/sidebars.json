@@ -727,6 +727,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-overland-neo-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-panzura-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-purestorage-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-qnap-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-qsan-nas-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-quantum-dxi-ssh",

@@ -14,7 +14,9 @@ Il fournit un logiciel propriétaire de déduplication et de compression des don
 
 * Baie de stockage
 
-## Métriques collectées                                                                                             
+## Métriques collectées                                                                                           
+
+Les métriques collectées sont les suivantes 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
