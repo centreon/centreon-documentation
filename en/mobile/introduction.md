@@ -19,10 +19,10 @@ The main capabilities of Centreon Mobile application are :
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 
-> The mobile application has been developed using the 
+> The mobile application has been developed using the
 > PWA - [Progressive Web App mechanism](https://en.wikipedia.org/wiki/Progressive_web_application).
-> It's composed only with html/css/js code, stored & exectued on your phone. It's a modern, flexible & 
-> light way of developing mobile application, reducing stores dependencies, facilitating quick updates. 
+> It's composed only with html/css/js code, stored & exectued on your phone. It's a modern, flexible &
+> light way of developing mobile application, reducing stores dependencies, facilitating quick updates.
 > More information at [Web.dev](https://web.dev/what-are-pwas/)
 
 ## Pre-requisites
@@ -74,6 +74,6 @@ If you have problem to connect:
 
 - Make sure Centreon platform is accessible from your device
 - During the installation or upgrade of Centreon, you may have customized your Apache configuration (for HTTPS or URL rewriting purpose), in that case
-you may want to double-check that your configuration makes the API accessible [on this page](../administration/accessing-to-centreon-ui.html)
+you may want to double-check that your configuration makes the API accessible [on this page](../upgrade/upgrade-from-19-10.html#configure-apache-api-access)
 - Make sure to give realtime API access to the user. You can check it in the menu
 `Configuration > Users > Contacts / Users`, parameter **Reach API Realtime** of the second tab
