@@ -290,6 +290,19 @@ If you have feature requests or want to report a bug, please go to our
 - [core] Connections broken due to CRC errors
 - [streamconnector] Several little bugs
 
+### 20.04.3
+
+#### Bug fixes
+
+- [core] Crash with many data in conflict_manager
+- [core] Contention in events engine
+
+### 20.04.4
+
+#### Bug fixes
+
+- [core] Service Check not updated
+
 ## Centreon Gorgone
 
 ### 20.04.0
