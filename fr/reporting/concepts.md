@@ -274,11 +274,11 @@ Option | Onglet Data Retention Options
 
 ![image](../assets/reporting/guide/etl_dataRetention.png)
 
-### Importer la dernière configuration de Centreon
+#### Importer la dernière configuration de Centreon
 
     #/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
 
-### Calculer les dimensions de reporting
+#### Calculer les dimensions de reporting
 
 Cette commande supprime toutes les anciennes relations tracées dans le
 serveur de reporting pour n'appliquer que les dernières en date. Si vous
@@ -287,11 +287,11 @@ souhaitez garder les anciennes relations, remplacer **"-r"** par
 
     #/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
 
-### Agrégation des événements et de la disponibilité
+#### Agrégation des événements et de la disponibilité
 
     #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
 
-### Agrégation des données de performance (stockage, traffic etc.. )
+#### Agrégation des données de performance (stockage, traffic etc.. )
 
     #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
 
@@ -309,11 +309,11 @@ données n'est pas à jour : :
 
     #/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 
-    [Table mod_bam_reporting, last entry: 2015-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2015-07-01 00:00:00] [Table hoststateevents, last entry: 2015-07-01 00:00:00] 
-    [Table servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2015-07-01 00:00:00] 
-    [Table mod_bi_servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2015-07-01 00:00:00] 
-    [Table mod_bi_serviceavailability, last entry: 2015-07-01 00:00:00] [Table data_bin, last entry: 2015-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2015-08-01 00:00:00] 
-    [Table mod_bi_metrichourlyvalue, last entry: 2015-08-01 23:00:00]   
+    [Table mod_bam_reporting, last entry: 2015-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2015-07-01 00:00:00] [Table hoststateevents, last entry: 2015-07-01 00:00:00]
+    [Table servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2015-07-01 00:00:00]
+    [Table mod_bi_servicestateevents, last entry: 2015-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2015-07-01 00:00:00]
+    [Table mod_bi_serviceavailability, last entry: 2015-07-01 00:00:00] [Table data_bin, last entry: 2015-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2015-08-01 00:00:00]
+    [Table mod_bi_metrichourlyvalue, last entry: 2015-08-01 23:00:00]
 
 -   Si vous ne voyez que les tables **mod_bi_*** cela signifie que le
     problème se situe uniquement sur les données agrégées et pas les
@@ -353,11 +353,11 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
 
 > Pour l'ensemble des commandes listées ci-dessous, utiliser "screen" ou
 > "nohup" car les temps d'exécution peuvent être très longs.
-> 
->   - $date_start$: doit être remplacé par la date de début en accord avec le retour des scripts de diagnostic ou de la rétention 
+>
+>   - $date_start$: doit être remplacé par la date de début en accord avec le retour des scripts de diagnostic ou de la rétention
 >   - $date_end$: à remplacer la plupart du temps par la date du jour
 
-### Importer les données manquantes
+#### Importer les données manquantes
 
 -   Importer les données, sans les données de performance (table
     data_bin), depuis une date ancienne correspondant à la rétention
@@ -378,7 +378,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     *Temps d'exécution : (rapide) quelques minutes dépendant du nombre
     de jour à importer*
 
-### Mettre à jour les dimensions de reporting
+#### Mettre à jour les dimensions de reporting
 
 -   Mettre à jour les dimensions. L'option "-d" est utilisée pour
     conserver l'historique des changements de configuration, ne pas
@@ -389,7 +389,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
 
     *Temps d'exécution : (rapide) quelques secondes à quelques minutes*
 
-### Reconstruire les évènements manquants et les données de disponibilité
+#### Reconstruire les évènements manquants et les données de disponibilité
 
 -   Reconstruire les évènements depuis une date ancienne correspondant à
     la rétention configurée dans Centreon MBI > Generation Option >
@@ -413,7 +413,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     nombre de jour à reconstruire. Peut prendre de quelques minutes à
     plusieurs heures*
 
-### Importer et reconstruire les données de performance manquantes
+#### Importer et reconstruire les données de performance manquantes
 
 -   Construire les statistiques manquantes. Prenez la date la plus
     ancienne en face des tables mod_bi_metrichourlyvalue et
@@ -428,7 +428,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     l'heure, cela peut générer un important volume de données et une
     reconstruction très longue.*
 
-### Que faire après l'exécution des scripts ?
+#### Que faire après l'exécution des scripts ?
 
 -   Cas 1 : **La reconstruction s'est terminée le même jour**
 
@@ -459,8 +459,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
         La reconstruction a pris 4 jours : du 01/01 au 04/01 , il faut alors reprendre la procédure depuis le début en utilisant date_start = 01-01 et date_end = 04/01.
     La procédure est terminée et la sortie de la sonde de supervision BI devrait être “ETL execution OK, database is up-to-date”.
 
-Centreon BAM
-------------
+### Centreon BAM
 
 Si vous avez récemment mis à jour Centreon BAM en version 3.0 ou que
 vous venez de reconstruire les statistiques de BAM, vous devez
@@ -473,7 +472,7 @@ Cela aura pour effet de n'importer que les tables de reporting du
 module BAM.
 
 Si les données de reporting ne semble pas à jour, les statistiques de BAM peuvent être globalement
-recalculées en exécutant la commande suivante: 
+recalculées en exécutant la commande suivante:
 
     /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
 

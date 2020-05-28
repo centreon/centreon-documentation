@@ -306,7 +306,7 @@ in the following example: :
 First resolve any incidents on the Centreon side before executing the
 procedure below.
 
-### Prerequisites
+#### Prerequisites
 
 Before running the commands in the procedure below, check that:
 
@@ -327,11 +327,11 @@ Before running the commands in the procedure below, check that:
 
 > For the following commands, we advise you to use "screen" or "nohup" to
 > prevent disconnection due to timeout. And you have to manually replace the following elements:
-> 
+>
 >   - $date_start$ should be replaced according to the data you want to retrieve (based on retention or starting point of missing data)
->   - $date_end$ most of the time corresponds to the "today" date 
+>   - $date_end$ most of the time corresponds to the "today" date
 
-### Import the missing data
+#### Import the missing data
 
 -   Import the data, without the performance data (data_bin table),
     from a specific date according to the Availability retention period
@@ -350,7 +350,7 @@ Before running the commands in the procedure below, check that:
 
     *Execution time: fast (minutes), depending on the number of days imported.*
 
-### Update reporting dimensions
+#### Update reporting dimensions
 
 -   Update the dimensions. Using the **"-d"** option keeps the history
     of changes made in the configuration. Avoid using the "-r" option
@@ -360,7 +360,7 @@ Before running the commands in the procedure below, check that:
 
     *Execution time: fast (seconds or minutes)*
 
-### Rebuild missing events and availability data
+#### Rebuild missing events and availability data
 
 -   Rebuild events from a specific date according to the retention
     period defined in Centreon MBI > Generation Option > Data
@@ -383,7 +383,7 @@ Before running the commands in the procedure below, check that:
     *Execution time: From a few minutes to several hours, depending on
     the number of days of rebuild*.
 
-### Rebuild the missing performance data
+#### Rebuild the missing performance data
 
 -   Rebuild the missing performance statistics. Check the earliest date
     next to the mod_bi_metrichourlyvalue and mod_bi_metricdailyvalue
@@ -396,7 +396,7 @@ Before running the commands in the procedure below, check that:
     greater than the hourly retention setting, the amount of data
     generated may be voluminous and the rebuild time long.*
 
-### What to do after executing the scripts
+#### What to do after executing the scripts
 
 -   Case 1 : **The rebuild is performed on the same day**
 
@@ -414,7 +414,7 @@ Before running the commands in the procedure below, check that:
 
     -   Manually execute the daily script:
 
-            /usr/share/centreon-bi/bin/centreonBIETL -d 
+            /usr/share/centreon-bi/bin/centreonBIETL -d
 
 -   Case 3 : **In other cases**: Follow the procedure of partial rebuild for the missing days.
 
@@ -432,7 +432,7 @@ server by running the following command:
 
 This will import all Centreon BAM reporting tables.
 
-If statistics are not up to date, first execute the following command to rebuild statistics & 
+If statistics are not up to date, first execute the following command to rebuild statistics &
 then import them using the previous command
 
     /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
