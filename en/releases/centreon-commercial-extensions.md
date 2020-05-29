@@ -29,7 +29,7 @@ only interactive mode.
 commercial extension. No worry, the compatibility with the previous licensing mecanism (license on the map server) is maintained.
 * [API] Add metaservice endpoint
 * [API] Simplify authentication
-* [API] Use the reeal resource ID instead of internal resource ID 
+* [API] Use the reeal resource ID instead of internal resource ID
 * It's now possible to manage how value are rounded on links
 
 ## Centreon BAM
@@ -37,7 +37,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 ### 20.04.0
 
 * New calculation methods available: Worst, Best & Ratio
-* New planned downtime inheritance management: you can now ignore the indicator in the calculation 
+* New planned downtime inheritance management: you can now ignore the indicator in the calculation
 * Update all real time & configuration page to manage new calculation methods
 
 ## Centreon MBI
@@ -53,6 +53,21 @@ commercial extension. No worry, the compatibility with the previous licensing me
 * Manage compatibility with Centreon 20.04
 
 ## Centreon Auto Discovery
+
+### 20.04.1
+
+#### Enhancements
+
+- Client on 0 items redirects to empty job details
+- Sort host discovery listing
+
+#### Bugfixes
+
+- Overlapping text when configuring job with default proxy
+- Some words are not translated in french
+- Use $rg API directive
+- Remove bad characters in the json result in host discovery
+- Check use remote proxy definition to run discovery in service discovery
 
 ### 20.04.0
 
@@ -75,22 +90,13 @@ configuration value:
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
 
-### 20.04.1
 
-#### Enhancements
-
-- Client on 0 items redirects to empty job details
-- Sort host discovery listing
-
-#### Bugfixes
-
-- Overlapping text when configuring job with default proxy
-- Some words are not translated in french
-- Use $rg API directive
-- Remove bad characters in the json result in host discovery
-- Check use remote proxy definition to run discovery in service discovery
 
 ## Centreon Plugin Packs Manager
+
+### 20.04.1
+
+  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ### 20.04.0
 
@@ -98,11 +104,11 @@ configuration value:
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
+## Centreon License Manager
+
 ### 20.04.1
 
-  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
-
-## Centreon License Manager
+- Manage unlink platform from previous IMP trial to access to IT-100 free edition.
 
 ### 20.04.0
 
@@ -115,6 +121,4 @@ subscription from `Administration > Extensions > Manager` menu:
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
 
-### 20.04.1
 
-- Manage unlink platform from previous IMP trial to access to IT-100 free edition.
