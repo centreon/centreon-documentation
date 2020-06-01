@@ -67,20 +67,32 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery
 
+### 20.04.2
+
+#### Enhancements
+
+- Better handle forms testing in Host Discovery wizard
+- Enhance error render for jobs
+
+#### Bugfixes
+
+- Unable to run Service Discovery since 20.04.1
+- Some words are not translated in french
+- Use $rg API directive to search in providers listing
+- Remove bad characters in the JSON result in Host Discovery
+- Mapper Monitoring - "From job" setting does not take job monitoring server
+
 ### 20.04.1
 
 #### Enhancements
 
-- Client on 0 items redirects to empty job details
-- Sort host discovery listing
+- Job with 0 discovered items redirects to empty job details
 
 #### Bugfixes
 
 - Overlapping text when configuring job with default proxy
-- Some words are not translated in french
-- Use $rg API directive
-- Remove bad characters in the json result in host discovery
-- Check use remote proxy definition to run discovery in service discovery
+- Use direct connection to Poller when having Remote Server is ignored by
+  Service Discovery
 
 ### 20.04.0
 
