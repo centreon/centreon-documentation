@@ -37,7 +37,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 ### 20.04.1
 
 * The default calculation method is now "Worst" when you create a business activity
-* Business activities configuration: You're now able to only save warning threshold
+* Business activities configuration: You're now able to save only warning thresholds
 * Reporting: manage timeperiods different from 24x7 in charts & tables
 * Improve "null" threshold displays
 * Widget: manage worst/best/ratio status calculation methods
@@ -128,5 +128,4 @@ subscription from `Administration > Extensions > Manager` menu:
 
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
-
 
