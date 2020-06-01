@@ -37,6 +37,14 @@ liens
 
 ## Centreon BAM
 
+### 20.04.1
+
+* La méthode de calcul par défaut est maintenant "Worst" lorsque vous créez une activité métier
+* Configuration d'une activité métier: il est désormais possible de ne configurer qu'un seuil Warning
+* Reporting: les plages horaires autres que 24x7 sont désormais correctement gérées dans les graphiques et tableaux
+* Amélioration de l'affichage des seuils "null" dans les différentes pages
+* Widget: gestion des méthodes de calcul worst/best/ratio
+
 ### 20.04.0
 
 * Ajout de nouvelles méthodes de calcul: Worst, Best et Ratio
