@@ -1,7 +1,6 @@
 ---
 id: network-ruckus-smartzone-snmp
-title: Ruckus Smartzone SNMP
----
+title: Ruckus Smartzone
 
 ## Vue d'ensemble
 
@@ -12,7 +11,6 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 ### Elements supervisés
 
 * Point d'accès
-
 * Contrôleur
 
 ### Règles de découverte
@@ -100,11 +98,11 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 
 ### Configuration de l'équipement
 
-Pour utiliser ce plugin-packs, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Ruckus: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A.html
+Pour utiliser ce Plugin-Pack, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Ruckus: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A.html
 
 ### Flux réseaux
 
-Les collecteurs Centreon doivent pouvoir comuniquer via le port UDP/161 SNMP avec l'équipement.
+Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
 
 ## Installation
 
@@ -134,7 +132,7 @@ yum install centreon-plugin-Network-Ruckus-Smartzone-Snmp
 yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 ```
 
-3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -187,7 +185,7 @@ Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient pas à contacter l'équipement Ruckus sur le port 161 (firewall ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas correcte.
+Si vous obtenez ce message, cela signifie le Collecteur Centreon ne parvient pas à contacter l'équipement Ruckus sur le port 161 (firewall ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas correcte.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
