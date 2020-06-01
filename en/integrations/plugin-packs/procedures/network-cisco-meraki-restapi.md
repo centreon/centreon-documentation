@@ -101,7 +101,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
-centreon-pack-network-cisco-meraki-restapi.noarch
+yum install centreon-pack-network-cisco-meraki-restapi.noarch
 ```
 
 3. On the Centreon Web interface, install the *Cisco Meraki Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
