@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone
+---
 
 ## Vue d'ensemble
 
@@ -161,7 +162,7 @@ Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'
 	--hostname=ruckus.int.centreon.com \
 	--snmp-version='2c' \
 	--snmp-community='ruckus_smartzone' \
-  --verbose 
+        --verbose 
 ```
 
 Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse/FQDN ruckus.int.centreon.com (```--hostname=ruckus.int.centreon.com```) en version 2 du protocole SNMP et avec la communauté ruckus_smartzone (```--snmp-version='2c' --snmp-community='ruckus-smartzone'```) 
