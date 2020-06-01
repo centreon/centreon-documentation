@@ -38,7 +38,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 * The default calculation method is now "Worst" when you create a business activity
 * Business activities configuration: You're now able to only save warning threshold
-* Reporting: not 24x7 timeperiod management in charts & tables
+* Reporting: manage timeperiods different from 24x7 in charts & tables
 * Improve "null" threshold displays
 * Widget: manage worst/best/ratio status calculation methods
 
