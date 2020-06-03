@@ -1,5 +1,4 @@
-
---
+---
 id: applications-monitoring-iplabel-datametrie-restapi
 title: IP-Label datametrie API
 ---
