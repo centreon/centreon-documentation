@@ -5,7 +5,7 @@ title: Ruckus Zonedirector
 
 ## Overview
 
-RUCKUS Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (WLAN) system developed specifically for small-to-medium enterprises (SMEs).
+Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (WLAN) system developed specifically for small-to-medium enterprises (SMEs).
 
 ## Plugin-Pack assets
 
@@ -20,7 +20,7 @@ RUCKUS Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 
 | Rule name                            | Description                                         |
 | :----------------------------------- | :-------------------------------------------------- |
-| Net-Ruckus-Zonedirector-SNMP-Ap-Name |  Discover access point attached to your controller  |
+| Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller   |
 
 
 ### Monitored metrics 
@@ -64,11 +64,11 @@ RUCKUS Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 
 ### Ruckus device configuration
 
-To use this pack, the SNMP service must be properly configured on your Ruckus device. Ruckus provides an official documentation to achieve this: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A.html
+To use this Plugin, the SNMP service must be properly configured on your Ruckus device. Ruckus provides an official documentation to achieve this: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A.html
 
 ### Network flow
 
-Your centreon server must be able to reach the Ruckus device over UDP/161 SNMP port.
+Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP port.
 
 ## Setup 
 
@@ -76,7 +76,7 @@ Your centreon server must be able to reach the Ruckus device over UDP/161 SNMP p
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Ruckus Zonedirector ressources:
+1. Install the Centreon Plugin package on every Poller expected to monitor Ruckus Zonedirector ressources:
 
 ```bash
 yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
@@ -118,7 +118,7 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 
 ### How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
-Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
+Once the Centreon Plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
@@ -130,9 +130,9 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
         --verbose 
 ```
 
-The command above checks the system utilization of your Ruckus box (```--mode=system```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```) 
+The command above checks the system utilization on your Ruckus box (```--mode=system```). You must always define the IP address/FQDN of the device (```--hostname=ruckus.int.centreon.com```) as well as the SNMP versions and community (```--snmp-version='2c' --snmp-community='ruckus_zonedirector'```) 
 
-You can display all modes that come with the plugin with the command below: 
+You can display all modes that come with the Plugin with the command below: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_ruckus_zonedirector_snmp.pl \
