@@ -128,7 +128,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 Cette commande supervise le status et l'utilisation d'un website *www* (```--filter-name=^www$```) hébergé sur le serveur IIS *www.int.centreon.com* (```--hostname='www.int.centroen.com'```).
 Elle utilise un utilisateur API (```--api-username='John.doe'```), un mot de passe (```--api-password='6fbadZEJbsLG'```) et un token API (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) généré depuis la IIS Administration API.
-Elle utilise le backend *curl* (```--http-backend='curl'```) et le certificat SSL n'est pas vérifié (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
+Le backend *curl* (```--http-backend='curl'```) est utilisé par la commande et le certificat SSL du serveur cible n'est pas vérifié (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
+
 
 Cette command déclenchera une alerte CRITIQUE si :
   * le status du website est différent de *starting* ou *started*.
