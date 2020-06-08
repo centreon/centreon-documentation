@@ -89,7 +89,8 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the template "App-Webserver-IIS-Restapi-custom" and configure all the macros :
+* Apply the template "App-Webserver-IIS-Restapi-custom" and configure all the Macros :
+
 
 | Mandatory   | Nom                | Description                                                                |
 | :---------- | :----------------- | :------------------------------------------------------------------------- |
