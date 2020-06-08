@@ -129,7 +129,8 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 
 The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centroen.com'```).
 It uses an API username (```--api-username='John.doe'```), API password (```--api-password='6fbadZEJbsLG'```) and API token (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) generated from the IIS Administration API.
-And it uses *curl* (```--http-backend='curl'```) and it's not verifying the ssl certificate (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
+The *curl* backend is used (```--http-backend='curl'```) and the SSL certificate validity is not checked (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
+
 
 This command would trigger a CRITICAL alert if:
   * the status of the website is different of *starting* or *started*.
