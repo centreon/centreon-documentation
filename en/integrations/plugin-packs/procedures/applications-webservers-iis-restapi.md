@@ -153,7 +153,8 @@ The available thresholds as well as all of the options that can be used with thi
 	--mode websites \
         --help
 ```
-You can display all modes that come with the plugin with the command below: 
+You can display all modes that come with the Plugin with the command below: 
+
 
 ```bash
 /usr/lib/centreon/plugins//centreon_iis_restapi.pl \
