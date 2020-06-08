@@ -46,13 +46,13 @@ Un compte en lecture seule (login/mot de passe) sur ```https://api.ip-label.net`
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources IP-Label datametrie:
+1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources IP-Label datametrie:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 ```
 
-2. Installer le pack depuis la page "Configuration > Plugin packs > Manager"
+2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
 
 <!--Offline IMP License-->
@@ -63,19 +63,19 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 ```
 
-2. Installer le RPM contenant les modèles de supervision :
+2. Installer le RPM contenant les Modèles de supervision :
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-datametrie-restapi
 ```
 
-3. Installer le pack depuis la page Centreon Plugin-Pack "Configuration > Plugin packs > Manager"
+3. Installer le Plugin-Pack depuis la page Centreon Plugin-Pack "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Ajouter un nouvel hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip-label.net```) dans Centreon, appliquer le modèle de l'hôte *App-Monitoring-Iplabel-Datametrie-Restapi-custom*. Une fois le modèle mis en place, vous devez définir des macros d'hôte. 
+Ajouter un nouvel Hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip-label.net```) dans Centreon, appliquer le modèle de l'Hôte *App-Monitoring-Iplabel-Datametrie-Restapi-custom*. Une fois le Modèle mis en place, vous devez définir des macros d'Hôte. 
 
 | Mandatory   | Name                             | Description                                                                                                              |
 | :---------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,8 @@ Ajouter un nouvel hôte virtuel (ping n'est pas autorisé sur l'hôte: ```api.ip
 
 ### Comment tester le Plugin et quelles sont les principales options pour ce faire ?
 
-Une fois le plugin installé, connectez-vous à votre CLI Centreon Poller en utilisant le compte utilisateur *centreon-engine* 
-et testez le plugin en exécutant la commande suivante (
-Certains des paramètres tels que *api-token*, *filter-device-name* ou *proxyurl* doivent être ajustés) :
+Une fois le Plugin installé, connectez-vous à votre CLI Centreon Poller en utilisant le compte utilisateur *centreon-engine* 
+et testez en exécutant la commande suivante (Certains des paramètres tels que *api-token*, *filter-device-name* ou *proxyurl* doivent être ajustés):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_iplabel_datametrie_restapi.pl \
