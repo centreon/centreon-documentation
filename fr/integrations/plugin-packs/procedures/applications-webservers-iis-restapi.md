@@ -166,7 +166,8 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 #### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
 Ce message d'erreur indique qu'une librairie perl est maquante pour utiliser le backend *curl*.
-Pour corriger ce problème, installer la librairie perl Net::Curl::Easy: à l'aide de la commande suivante :
+Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
+
 
 ```bash
 yum install perl-Net-Curl
