@@ -110,7 +110,8 @@ Par défaut ```IISAPIEXTRAOPTIONS``` contient les options : ```--http-backend=cu
 
 ## FAQ
 
-### Comment puis-je tester le plugin et que signifient les options des commandes ?
+### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur centreon-engine :
 
