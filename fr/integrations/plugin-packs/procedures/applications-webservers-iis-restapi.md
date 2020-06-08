@@ -51,7 +51,8 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 
 ### Configuration IIS
 
-Pour utiliser ce Plugin-Pack, vous devez activer la Microsoft IIS Administration API. Microsoft founit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
+Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administration. Microsoft founit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
+
 
 ## Installation
 
