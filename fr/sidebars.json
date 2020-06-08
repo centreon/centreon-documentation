@@ -587,6 +587,7 @@
                     "integrations/plugin-packs/procedures/network-riverbed-steelhead-snmp",
                     "integrations/plugin-packs/procedures/network-ruckus-snmp",
                     "integrations/plugin-packs/procedures/network-ruckus-scg-snmp",
+                    "integrations/plugin-packs/procedures/network-ruckus-smartzone-snmp",
                     "integrations/plugin-packs/procedures/network-ruggedcom",
                     "integrations/plugin-packs/procedures/network-silverpeak-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-sonicwall-snmp",
