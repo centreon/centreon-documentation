@@ -103,7 +103,10 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 
 Par défaut ```IISAPIEXTRAOPTIONS``` contient les options : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` pour utiliser ```curl``` et pour ne pas vérifier le certificat SSL.
 
-**Utilisez le module discovery pour ajouter le monitoring de vos application pools et vos websites, Allez dans *Configuration > Services > Manuelle* pour exécuter un scan**
+**Il est recommandé d'utiliser le module de découverte automatique des éléments pour déployer la supervision des
+*application pools/websites*. Pour ce faire, allez dans
+*Configuration > Services > Découverte Automatisée > Manuelle* puis lancez une découverte**
+
 
 ## FAQ
 
