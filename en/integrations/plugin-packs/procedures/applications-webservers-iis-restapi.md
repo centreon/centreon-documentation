@@ -51,7 +51,8 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 
 ### IIS configuration
 
-To use this pack, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
+To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
+
 
 ## Setup 
 
