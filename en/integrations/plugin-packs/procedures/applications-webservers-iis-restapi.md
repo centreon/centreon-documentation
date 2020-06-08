@@ -100,7 +100,8 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 | X           | IISTOKENAPI        | Token to access to the API.                                                |
 |             | IISAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use ```curl``` and to not verify the SSL certificate.
+By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use the *curl* backend and to ignore the validity's check of the SSL certificate.
+
 
 **Use the discovery module to add the monitoring of your application pools and websites, Go to *Configuration > Services > Scan* to perform a scan**
 
