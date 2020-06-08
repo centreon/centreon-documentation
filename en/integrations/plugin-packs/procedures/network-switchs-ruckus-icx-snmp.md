@@ -19,29 +19,31 @@ It's work seamlessly with RUCKUS Wi-Fi access points, RUCKUS SmartZone network c
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Cpu-->
 
-| Metric Name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Usage              | CPU usage on 5s, 1m, 5m   						                                                       |
+| Metric Name                              | Description                                                                                             |
+| :----------------------------------------| :------------------------------------------------------------------------------------------------------ |
+| cpu.utilization.5s.percentage            | CPU usage on 5s. Unit pourcentage (%)                                                                   |
+| cpu.utilization.1m.percentage            | CPU usage on 1m. Unit pourcentage (%)                                                                   |
+| cpu.utilization.5m.percentage            | CPU usage on 5m. Unit pourcentage (%)                                                                   |
 
 <!--Memory-->
 
-| Metric Name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Usage              | Memory usage. Can be usage, usage-free, usage-pourcentage. Unit percentage (%)						   |
+| Metric Name                              | Description                                                                                             |
+| :----------------------------------------| :------------------------------------------------------------------------------------------------------ |
+| memory.usage.bytes                       | Memory usage in bytes. Unit bytes (b)				                                                     |
+| memory.free.bytes                        | Memory free. Unit bytes (b)		                                                                     |
+| memory.usage.percentage                  | memory usage in percentage. Unit percentage (%)						                                 |
 
-<!--Hardware-->
+<!--Interfaces-->
 
-| Metric name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Component          | Name of the component. (board, fan, psu or temperature)                                                 |
-| Status             | The status of Component. Unit: text                                                                     |
-
-<!--Traffic-->
-
-| Metric name        | Description                                                                                             |
-| :----------------- | :------------------------------------------------------------------------------------------------------ |
-| Interface          | Name of the interface.								                                                   |
-| Status             | The status of interface. Unit: bytes                                                                    |
+| Metric name                              | Description                                                                                            |
+| :--------------------------------------- | :------------------------------------------------------------------------------------------------------|
+| status                                   | Status of the interface                                                                                |
+| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface. Unit: bits/second                                        |
+| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface. Unit: bits/second                                        |
+| interface.packets.in.error.percentage    | Incoming errored packets going through the interface. Units: %                                         |
+| interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. Units: %                                       |
+| interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Units: %                                         |
+| interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Units: %                                       |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -91,7 +93,7 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 
 ## Host Configuration
 
-Apply the "Net-Switch-Ruckus-Icx-SNMP-custom" template to your newly created host.
+Apply the "Net-Switch-Ruckus-Icx-SNMP-custom" template to your newly created Host.
 In the host creation form on the Centreon web interface, it is necessary to fill in the values for the "Snmp Community" and "Snmp Version" fields.
 Then fill the macros value fileds marked as mandatory below:
 
@@ -105,7 +107,7 @@ Then fill the macros value fileds marked as mandatory below:
 
 #### How do I test in the command line and what do the main options mean?
 
-When the plugin is installed, you can test it directly in command line from your Centreon collector with the Centreon-engine user:
+When the Plugin is installed, you can test it directly in command line from your Centreon collector with the Centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ruckus_icx_snmp.pl
