@@ -10,7 +10,7 @@ title: Office365 Exchange
 ## Vue d'ensemble
 Exchange Online est la version hébergée de la plateforme de messagerie Exchange Server de Microsoft. (https://docs.microsoft.com/fr-fr/Exchange/exchange-online)
 
-Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
+Les informations de supervision de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
 ## Contenu du Plugin-Pack
 
@@ -158,4 +158,3 @@ Toutes les options des différents modes sont consultables via le help:
 --custommode='graphapi'\
 --help
 ```
-
