@@ -16,7 +16,7 @@ Les informations de supervision de la suite Office sont mises à disposition par
 
 ### Objets supervisés
 
-* Activitée Mail
+* Activité Mail
 * Utilisation des boites mail
 
 ## Métriques collectées
