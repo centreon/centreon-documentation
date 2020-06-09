@@ -17,8 +17,11 @@ To make things more flexible, procedures can be associated with templates.
 ## Prerequisites
 
 **Centreon Knowledge Base** requires **MediaWiki** to be installed (version =
-1.31) on your system. Mediawiki is provided with RPM packages on Centreon
-repository.
+1.31) on your system.
+
+You can [download MediaWiki
+here](http://www.mediawiki.org/wiki/MediaWiki) and access to the [documentation
+here](http://www.mediawiki.org/wiki/User_hub
 
 ## Configure the access to the wiki
 
