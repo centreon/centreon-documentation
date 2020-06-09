@@ -21,6 +21,7 @@ IP-Label is a specialist in measurement of the quality of the user’s experienc
 
 | Metric name                              | Description                                          |
 | :--------------------------------------- | :--------------------------------------------------- |
+| alarms.black.count                       | Current black alarms. Unit: Count                    |
 | alarms.orange.count                      | Current orange alarms. Unit: Count                   |
 | alarms.red.count                         | Current red alarms. Unit: Count                      |
 
