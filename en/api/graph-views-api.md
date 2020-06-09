@@ -43,8 +43,8 @@ Headers {
 }
 
 Body {
-    user = admin
-    password = centreon
+    "login" : "admin"
+    "password" : "denied"
 }
 ```
 
