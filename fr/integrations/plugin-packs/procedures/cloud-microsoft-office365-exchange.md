@@ -115,7 +115,7 @@ il est aussi possible de définir un ensemble de macros de service nécessaires 
 
 ## FAQ
 
-#### Comment tester et interpréter la sonde Office 365 Exchange en ligne de commande ?
+#### Comment tester le Plugin Office 365 Exchange en ligne de commande et que signifient les options principales ?
 
 Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis un terminal sur votre poller de supervision avec l'utilisateur *centreon-engine*
 ```bash
