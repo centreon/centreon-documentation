@@ -42,7 +42,8 @@ Les informations de supervision de la suite Office sont mises à disposition par
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
-Si vous n'avez pas encore créer votre compte sous Office 365, reportez-vous à la documentation d'Office 365 Management ou suivre le lien dans la partie 'Aide supplémentaire'
+
+Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la documentation d'Office 365 Management ou suivez le lien dans la partie 'Aide supplémentaire'
 
 ### Enregistrer une application
 Les API de gestion Office 365 utilisent Azure AD pour assurer l’authentification sécurisée des données dans Office 365.
