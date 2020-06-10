@@ -33,9 +33,9 @@ If you have feature requests or want to report a bug, please go to our
 - [API] Fix RTDOWNTIME issues [#8254](https://github.com/centreon/centreon/pull/8275):
      - it returns all RTDOWNTIMEs satisfying the given filters, instead of only the first one (a host or service can have several downtimes in place)
      - it allows to set a RTDOWNTIME on host only (without associated services) (currently the 8th parameter of the RTDOWNTIME -a add command is not correctly proceeded).
-- [Authentication] Authentication now correctly siwtch from LDAP to local when appropriated
+- [Authentication] Authentication now correctly switches from LDAP to local when appropriated
 - [PluginPacks] No more error when installing a plugin pack due to media
-- [Events view] You're not automatically redirected to the event view when it's not your default page
+- [Events view] You're not automatically redirected to the events view when it's not your default page
 - [Events view] Translation is now correctly handled
 - [Events view] ACL are now handled on aknwoledgement actions
 - [Events view] Graphs: you can now hide/show curves
