@@ -18,6 +18,36 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.3
+
+#### Enhancements
+
+- [CLAPI] Add possibility to get childs of a host using CLAPI
+
+#### Bug fixes
+
+- [Configuration] Wrongly linked service template in service group
+- [Configuration] Add Gorgone configuration export for Central
+- [Front] Centreon is now correctly rendered in Apple Safari
+- [CLAPI] Import CLAPI doesn't fail anymore when your import file contains thousands of lines
+- [API] Fix RTDOWNTIME issues [#8254](https://github.com/centreon/centreon/pull/8275):
+     - it returns all RTDOWNTIMEs satisfying the given filters, instead of only the first one (a host or service can have several downtimes in place)
+     - it allows to set a RTDOWNTIME on host only (without associated services) (currently the 8th parameter of the RTDOWNTIME -a add command is not correctly proceeded).
+- [Authentication] Authentication now correctly siwtch from LDAP to local when appropriated
+- [PluginPacks] No more error when installing a plugin pack due to media
+- [Events view] You're not automatically redirected to the event view when it's not your default page
+- [Events view] Translation is now correctly handled
+- [Events view] ACL are now handled on aknwoledgement actions
+- [Events view] Graphs: you can now hide/show curves
+- [Events view] Graph: roboto correctly set everywhere
+- [Events view] Correctly hide password in the commands you see in the detail panel
+
+#### Security
+
+- [Web] RCE using command line path's argument (CVE-2020-12688
+- [Web] DoS issue in include/eventLogs/xml/data.php
+-
+
 ### 20.04.2
 
 > Due to a generation problem, 20.04.1 and 20.04.2 versions are both included in 20.04.2 version.
