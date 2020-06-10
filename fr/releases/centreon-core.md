@@ -46,7 +46,6 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Web] RCE using command line path's argument (CVE-2020-12688
 - [Web] DoS issue in include/eventLogs/xml/data.php
--
 
 ### 20.04.2
 
