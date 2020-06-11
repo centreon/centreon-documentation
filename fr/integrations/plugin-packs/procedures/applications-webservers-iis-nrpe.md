@@ -1,6 +1,6 @@
 ---
 id: applications-webservers-iis-nrpe
-title: (!) Microsoft IIS Server NRPE
+title: Microsoft IIS Server NRPE (Deprecated)
 ---
 
 | Current version | Status | Date |
@@ -9,7 +9,7 @@ title: (!) Microsoft IIS Server NRPE
 
 ## Deprecated
 
-This plugin pack has been deprecated for the `Microsoft IIS Server API`. Check [this procedure](applications-webservers-iis-restapi.html)
+This Plugin-Pack has been deprecated and replaced by `Microsoft IIS Server Restapi`. Check [this procedure](applications-webservers-iis-restapi.html)
 
 ## Prerequisites
 
