@@ -1,11 +1,11 @@
 ---
 id: applications-webservers-iis-nsclient-05-restapi
-title: IIS Server API 
+title: Microsoft IIS Server NSClient API (deprecated)
 ---
 
 | Current version | Status | Date |
 | :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Mar 27 2018 |
+| 3.0.16 | `DEPRECATED` | Mar 27 2018 |
 
 ## Prerequisites
 

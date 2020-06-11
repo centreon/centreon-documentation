@@ -1,11 +1,11 @@
 ---
 id: applications-webservers-iis-nrpe
-title: Microsoft IIS Server
+title: Microsoft IIS Server NRPE (deprecated)
 ---
 
 | Current version | Status | Date |
 | :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Mar 27 2018 |
+| 3.2.1 | `DEPRECATED` | Mar 27 2018 |
 
 ## Prerequisites
 
