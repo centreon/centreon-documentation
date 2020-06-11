@@ -66,7 +66,7 @@ To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. M
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'IIS Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
@@ -82,14 +82,14 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the 'IIS Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the template "App-Webserver-IIS-Restapi-custom" and configure all the Macros :
+* Apply the template *App-Webserver-IIS-Restapi-custom* and configure all the Macros :
 
 
 | Mandatory   | Nom                | Description                                                                |
@@ -115,8 +115,8 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin apps::iis::restapi::plugin \
-	--mode websites \
+	--plugin=apps::iis::restapi::plugin \
+	--mode=websites \
 	--hostname='www.int.centreon.com' \
 	--port='55539' \
 	--proto='https' \
@@ -155,7 +155,7 @@ The available thresholds as well as all of the options that can be used with thi
 	--mode websites \
         --help
 ```
-You can display all modes that come with the Plugin with the command below: 
+You can display all of the modes that come with the Plugin with the command below: 
 
 
 ```bash
@@ -170,7 +170,7 @@ You can display all modes that come with the Plugin with the command below:
 
 This error message means that a Perl library required to use the *curl* backend is missing.
 
-In order to fix this issue, install the Net::Curl::Easy Perl library using the following command:
+In order to fix this issue, install the Net\:\:Curl\:\:Easy Perl library using the following command:
 
 
 ```bash
