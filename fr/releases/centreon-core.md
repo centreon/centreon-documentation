@@ -267,7 +267,6 @@ If you have feature requests or want to report a bug, please go to our
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
-
 ## Centreon Engine
 
 ### 20.04.1
@@ -284,6 +283,12 @@ If you have feature requests or want to report a bug, please go to our
 * Fix perfdata truncated when retention read
 
 ## Centreon Broker
+
+### 20.04.5
+
+#### Bug fixes
+
+- Non ASCII characters badly encoded in database
 
 ### 20.04.4
 
