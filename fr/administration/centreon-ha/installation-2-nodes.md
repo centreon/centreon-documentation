@@ -513,6 +513,16 @@ our %centreon_central_sync_config = (
 1;
 ```
 
+### Suppression des crons
+
+Les tâches planifiées de type __cron__ sont executées directement par le processus gorgone dans les architecture hautement disponible. Cela permet de garantir la non-concurrence de leur execution sur les noeuds centraux. Il est donc nécessaire de les supprimer manuellement:
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Arrêt et désactivation des services
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.

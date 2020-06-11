@@ -32,6 +32,16 @@ En parallèle, sur le central "esclave", il faut déplacer le répertoire "insta
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
 ```
 
+### Suppression des crons
+
+Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les sur les deux noeuds centraux afin d'éviter les executions concurrentes.
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Mise à jour des extensions
 
 Les extensions (ou modules) Centreon nécessitent également d'être mis à jour *via* l'interface, depuis le menu "Administration > Extensions > Gestionnaire" en utilisant le bouton "Update all".

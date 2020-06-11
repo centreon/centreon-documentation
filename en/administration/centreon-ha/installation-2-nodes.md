@@ -512,6 +512,16 @@ our %centreon_central_sync_config = (
 1;
 ```
 
+### Removing legacy Centreon cron jobs
+
+In high-availability setup, gorgone daemon manages all cron-based scheduled tasks. To avoid cron on both nodes, remove all Centreon related cron in /etc/cron.d/ directory:
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Stopping and disabling the services
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
