@@ -176,7 +176,7 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 
 Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
 
-Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
+Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
 
 
 ```bash
@@ -185,6 +185,7 @@ yum install perl-Net-Curl
 
 #### ```UNKNOWN: curl perform error : Couldn't connect to server```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant UNKNOWN: curl perform error : Couldn't connect to server |.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: curl perform error : Couldn't connect to server |```.
 Cela signifie que Centreon n'a pas réussi à se connecter à l'API du serveur IIS.
-La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'API du serveur IIS en utilisant l'option --proxyurl='http://proxy.mycompany:8080'.
+La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'API du serveur IIS en utilisant 
+l'option ```--proxyurl='http://proxy.mycompany:8080'```.
