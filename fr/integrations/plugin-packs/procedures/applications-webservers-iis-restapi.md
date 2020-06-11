@@ -66,7 +66,7 @@ Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administrat
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. Dans l'interface Centreon, installer le Plugin-Pack IIS Restapi depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -82,7 +82,7 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ```
 
-3. Dans l'interface Centreon, installer le Plugin-Pack IIS Restapi depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface Centreon, installer le Plugin-Pack *Microsoft IIS Server Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
