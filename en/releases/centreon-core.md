@@ -285,6 +285,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Broker
 
+### 20.04.5
+
+#### Bug fixes
+
+- Non ASCII characters badly encoded in database
+
 ### 20.04.4
 
 #### Bug fixes
