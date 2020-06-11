@@ -1,11 +1,15 @@
 ---
 id: applications-webservers-iis-nsclient-05-restapi
-title: Microsoft IIS Server NSClient API (deprecated)
+title: (!) Microsoft IIS Server NSClient API
 ---
 
 | Current version | Status | Date |
 | :-: | :-: | :-: |
 | 3.0.16 | `DEPRECATED` | Mar 27 2018 |
+
+## Deprecated
+
+This plugin pack has been deprecated for the `Microsoft IIS Server API`. Check [this procedure](applications-webservers-iis-restapi.html)
 
 ## Prerequisites
 
