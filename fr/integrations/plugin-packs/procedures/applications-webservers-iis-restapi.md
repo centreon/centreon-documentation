@@ -153,14 +153,14 @@ Website 'www' traffic in: 5.41 Kb/s, traffic out: 59.74 Kb/s, current connection
 Des seuils peuvent être positionnés à l'aide des options --warning-* et --critical-* sur les métriques.
 
 
-Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option --help à la commande:
+Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option --help à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
 	--plugin apps::iis::restapi::plugin \
 	--mode websites \
         --help
-``
+```
 
 Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivante :`
 
