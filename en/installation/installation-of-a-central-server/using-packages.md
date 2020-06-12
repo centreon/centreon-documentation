@@ -172,7 +172,7 @@ DROP USER '<USER>'@'<IP>';
 > thread_cache_size = 64
 > read_buffer_size = 512K
 > read_rnd_buffer_size = 256K
-> max_allowed_packet = 8M
+> max_allowed_packet = 128M
 > 
 > # For 4 Go Ram
 > #innodb_additional_mem_pool_size=512M
