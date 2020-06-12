@@ -155,6 +155,35 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 >
+> The full recommended configuration :
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> #
+> # Custom MySQL/MariaDB server configuration for Centreon
+> #
+> [server]
+> innodb_file_per_table=1
+> 
+> open_files_limit = 32000
+> 
+> key_buffer_size = 256M
+> sort_buffer_size = 32M
+> join_buffer_size = 4M
+> thread_cache_size = 64
+> read_buffer_size = 512K
+> read_rnd_buffer_size = 256K
+> max_allowed_packet = 8M
+> 
+> # For 4 Go Ram
+> #innodb_additional_mem_pool_size=512M
+> #innodb_buffer_pool_size=512M
+> 
+> # For 8 Go Ram
+> #innodb_additional_mem_pool_size=1G
+> #innodb_buffer_pool_size=1G
+> 
+> ```
+>
 > Remember to restart MariaDB after a change to configuration.
 
 ## Configuration
