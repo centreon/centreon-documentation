@@ -103,7 +103,7 @@ centreon-pack-applications-activemq-jmx.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the *App-Activemq-JMX-custom* template to the Host and configure all of the Macros marked as mandatory :
 
-| Mandatory   | Nom                 | Description                                                                |
+| Mandatory   | Name                | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
 | X           | JOLOKIAURL          | Jolokia URL (eg: http://myactivemq.centreon.com:8161/api/jolokia)          |
 | X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
