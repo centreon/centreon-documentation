@@ -1,5 +1,5 @@
 ---
-id: network-switch-ruckus-icx-snmp
+id: network-ruckus-icx-snmp
 title: Ruckus ICX
 ---
 
