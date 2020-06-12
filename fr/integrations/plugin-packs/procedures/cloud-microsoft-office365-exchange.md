@@ -80,7 +80,7 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 ```
 
-2. Depuis l'interface Web de Centreon, installer le Plugin-Pack 'Office365 Exchange' depuis la page "Configuration > Plugin packs > Manager" 
+2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager" 
 
 
 <!--Offline IMP License-->
@@ -97,30 +97,32 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 yum install centreon-pack-cloud-microsoft-office365-exchange
 ```
 
+3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager"
+
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Lors de la création de votre Hôte dans Centreon, choisissez le modèle "Cloud-Microsoft-Office365-Exchange-Api-custom" 
+Lors de la création de votre Hôte dans Centreon, choisissez le modèle *Cloud-Microsoft-Office365-Exchange-Api-custom* 
 correspondant à la plateforme de Management Office. Une fois celui-ci appliqué, certaines Macros liées à l'Hôte 
 doivent être renseignées:
 
-| Obligatoire | Nom                   | Description                                                                           |
-| :---------- | :-------------------- | :------------------------------------------------------------------------------------ |
-| X           | OFFICE365CUSTOMMODE   | Mode d'accès spécifique aux centreon-plugins office 365 (par défaut:'graphapi')       |
-| X           | OFFICE365TENANT       | ID correspondant à l'espace de votre entreprise au sein d'Office 365                  |
-| X           | OFFICE365CLIENTID     | ID correspondant à l'utilisateur de votre entreprise au sein d'Office 365             |
-| X           | OFFICE365CLIENTSECRET | ID correspondant au mot de passe utilisateur de votre entreprise au sein d'Office 365 |
+| Mandatory | Name                  | Description                                                                |
+| :-------- | :-------------------- | :------------------------------------------------------------------------- |
+| X         | OFFICE365CUSTOMMODE   | Access mode for the Plugin (default: 'graphapi')                           |
+| X         | OFFICE365TENANT       | Tenant-id of your Office 365 organization                                  |
+| X         | OFFICE365CLIENTID     | Client-id of your registered application                                   |
+| X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
+|           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de Macros de Service selon la configuration souhaitée:
 
-| Obligatoire | Nom           | Description                                                                   |
-| :---------- | :------------ | :---------------------------------------------------------------------------- |
-|             | FILTERMAILBOX | Filtre pour cibler une boite mail en particulier                              |
-|             | FILTERCOUNTER | Filtre pour afficher une metrique en particulier (par défaut:'active\|total') |
-
+| Mandatory | Name          | Description                                        |
+| :-------- | :------------ | :------------------------------------------------- |
+|           | FILTERMAILBOX | Filter specific mailboxes                          |
+|           | FILTERCOUNTER | Filter specific counters (default:'active\|total') |
 
 
 ## FAQ
@@ -164,8 +166,6 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 --help
 ```
 
-
-
 ### Le Plugin renvoie l'erreur suivante ```UNKNOWN 500: Can't connect...```
 
 Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy d'entreprise, le protocole de connexion n'est pas supporté 
@@ -173,5 +173,3 @@ par la libraire *lwp* utlisée par défaut par le Plugin Centreon.
 
 Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` 
 à la commande.
-
-
