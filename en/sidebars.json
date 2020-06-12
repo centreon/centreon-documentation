@@ -287,6 +287,7 @@
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-activemq-jmx",
                     "integrations/plugin-packs/procedures/applications-ansible-cli",
                     "integrations/plugin-packs/procedures/applications-ansible-tower",
                     "integrations/plugin-packs/procedures/applications-antivirus-clamav-ssh",
@@ -587,6 +588,7 @@
                     "integrations/plugin-packs/procedures/network-riverbed-interceptor-snmp",
                     "integrations/plugin-packs/procedures/network-riverbed-steelhead-snmp",
                     "integrations/plugin-packs/procedures/network-ruckus-snmp",
+                    "integrations/plugin-packs/procedures/network-ruckus-icx-snmp",
                     "integrations/plugin-packs/procedures/network-ruckus-scg-snmp",
                     "integrations/plugin-packs/procedures/network-ruggedcom",
                     "integrations/plugin-packs/procedures/network-silverpeak-snmp",
@@ -724,6 +726,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-oncommandapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-netapp-santricity-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netgear-readynas-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-nimble-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp",
