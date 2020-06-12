@@ -24,20 +24,23 @@ Les métriques collectées sont détaillées ci-après:
 
 <!--Email-activity-->
 
-| Metric name         | Description                                                         |
-| :------------------ | :------------------------------------------------------------------ |
-| active-mailboxes    | Boites mails actives/boites mails totales. Units: Counter & Percent |
-| total-send-count    | Nombre d'e-mails totals envoyés. Unit: Counter                      |
-| total-receive-count | Nombre d'e-mails totals envoyés. Unit: Counter                      |
-| total-read-count    | Nombre d'e-mails totals envoyés. Unit: Counter                      |											
+| Metric name           | Description                                            |
+| :-------------------- | :----------------------------------------------------- |
+| active\_mailboxes     | Number of active mailboxes. Unit: Count                |
+| total\_send\_count    | Number of total sent mails. Unit: Count                |
+| total\_receive\_count | Number of total received mails. Unit: Count            |
+| total\_read\_count    | Number of total read mails. Unit: Count                |
+| sent\_count           | Number of total sent mails by mailbox. Unit: Count     |
+| receive\_count        | Number of total received mails by mailbox. Unit: Count |
+| read\_count           | Number of total read mails by mailbox. Unit: Count     |
 
 <!--Mailbox-usage-->
 
-| Metric name          | Description                                                                        |
-| :------------------- | :--------------------------------------------------------------------------------- |
-| active-mailboxes     | Boites mails actives/boites mails totales. Units: Counter & Percent                |
-| total-usage-active   | Nombre total d'espace alloué (boites mails actives) dans Exchange. Unit: Bytes     |
-| total-usage-inactive | Nombre total d'espace non-alloué (boites mails actives) dans Exchange. Unit: Bytes |
+| Metric name            | Description                                                     |
+| :--------------------- | :-------------------------------------------------------------- |
+| active\_mailboxes      | Number of active mailboxes. Unit: Count                         |
+| total\_usage\_active   | Total usage space (active mailboxes) in Exchange. Unit: Bytes   |
+| total\_usage\_inactive | Total usage space (inavtive mailboxes) in Exchange. Unit: Bytes |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
