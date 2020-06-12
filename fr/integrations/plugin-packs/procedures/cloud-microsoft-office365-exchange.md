@@ -40,7 +40,7 @@ Les métriques collectées sont détaillées ci-après:
 | :--------------------- | :-------------------------------------------------------------- |
 | active\_mailboxes      | Number of active mailboxes. Unit: Count                         |
 | total\_usage\_active   | Total usage space (active mailboxes) in Exchange. Unit: Bytes   |
-| total\_usage\_inactive | Total usage space (inavtive mailboxes) in Exchange. Unit: Bytes |
+| total\_usage\_inactive | Total usage space (inactive mailboxes) in Exchange. Unit: Bytes |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
