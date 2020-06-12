@@ -560,6 +560,11 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
+Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
+
+`COROSYNC_QNETD_OPTIONS="-4"`
+
+
 #### Authentification auprès des membres du cluster
 
 Par mesure de simplicité, nous allons définir le même mot de passe pour le compte `hacluster` sur les deux nœuds **et sur `@QDEVICE_NAME@`** :
