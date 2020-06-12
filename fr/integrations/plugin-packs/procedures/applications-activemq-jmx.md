@@ -103,7 +103,7 @@ centreon-pack-applications-activemq-jmx.noarch
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "App-Activemq-JMX-custom" et configurez toutes les macros nécessaires:
 
-| Mandatory   | Nom                 | Description                                                                |
+| Mandatory   | Name                | Description                                                                |
 | :---------- | :------------------ | :------------------------------------------------------------------------- |
 | X           | JOLOKIAURL          | Jolokia URL (ex: http://myactivemq.int.centreon.com:8161/api/jolokia)      |
 | X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
