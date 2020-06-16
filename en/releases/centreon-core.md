@@ -270,6 +270,10 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.04.2
+
+- Services not set to enabled 0 when linked host deleted or disabled
+
 ### 20.04.1
 
 - Fix won't start if log level is set to "Log everything" (debug_level=-1)
