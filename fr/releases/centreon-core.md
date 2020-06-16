@@ -340,27 +340,36 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Gorgone
 
+### 20.04.3
+
+- [autodiscovery] Escape correctly results to be inserted in database
+- [config] Add error message for unreadable files
+- [core] Better handle cURL calls
+- [legacycmd] Continue to manage commands even if we cannot get CLAPI user (Remote Server)
+- [legacycmd] Harden cache_dir directive test
+- [proxy] Fix several SSH server connection issues (FD leak, pong reset)
+
 ### 20.04.2
 
-- [autodiscovery] better management of utf8
-- [autodiscovery] fix returns in results process
-- [contrib] adapt to new statistics module
-- [core] avoid to get to many entries in gorgone_identity - update only last id
-- [core] better management of utf8
-- [core] unable to uncrypt RSA keys
-- [dbcleaner] purge was never done
-- [install] modifiy install for mode silent
-- [legacycmd] get good clapi admin user/password
-- [nodes] avoid error on new perl version
-- [packaging] add cron.d subdirectory
-- [proxy] avoid a text in ctime entry - sqlite can store text in int
-- [proxy] pong response for ssh client was rejected
-- [yaml] manage version even version 0.81
+- [autodiscovery] Better management of utf8
+- [autodiscovery] Fix returns in results process
+- [contrib] Adapt to new statistics module
+- [core] Avoid to get to many entries in gorgone_identity - update only last id
+- [core] Better management of utf8
+- [core] Unable to uncrypt RSA keys
+- [dbcleaner] Purge was never done
+- [install] Modifiy install for mode silent
+- [legacycmd] Get good clapi admin user/password
+- [nodes] Avoid error on new perl version
+- [packaging] Add cron.d subdirectory
+- [proxy] Avoid a text in ctime entry - sqlite can store text in int
+- [proxy] Pong response for ssh client was rejected
+- [yaml] Manage version even version 0.81
 
 ### 20.04.1
 
-* [nodes] Change resync time when you have a SQL issue
+- [nodes] Change resync time when you have a SQL issue
 
 ### 20.04.0
 
-* Add Gorgone in replacement of Centcore
+- Add Gorgone in replacement of Centcore
