@@ -179,4 +179,4 @@ Centreon opens is High Availability solution to everyone by sharing its
 source code and installation procedures.
 
 Give it a try by following the [dedicated
-documentation](../integrations/centreon-ha/centreon-ha-architectures.html).
+documentation](../administration/centreon-ha/architectures.html).
