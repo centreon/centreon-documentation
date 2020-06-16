@@ -126,7 +126,7 @@ Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
 n'y a pas touché.
 
 > Si vous utilisez le https, vous pouvez suivre
-> [cette procédure](../administration/accessing-to-centreon-ui.html)
+> [cette procédure](../administration/secure-platform.html#sécurisez-le-serveur-web-apache)
 
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -187,6 +187,26 @@ Redémarrez ensuite le service Apache :
 
 ```shell
 systemctl restart httpd24-httpd
+```
+
+### Synchronisation des plugins
+
+> La macro de ressource $USER1$ de Centreon 20.04 pointe à présent sur /usr/lib64/nagios/plugins.
+
+Afin de résoudre cette situation, lancez les commandes suivantes:
+
+```shell
+mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
+rmdir /usr/lib64/nagios/plugins/
+ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
+```
+
+De cette façon un lien symbolique est créé :
+
+```shell
+$ ls -alt /usr/lib64/nagios/
+lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
+-rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 ```
 
 ### Finalisation de la mise à jour

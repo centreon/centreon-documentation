@@ -1,5 +1,4 @@
-
---
+---
 id: applications-bluemind-ssh
 title: BlueMind SSH
 ---

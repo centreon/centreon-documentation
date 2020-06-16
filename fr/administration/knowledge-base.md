@@ -21,8 +21,7 @@ de connaissance avec Centreon Web.
 ## Pré-requis
 
 **Knowledge Base** requiert que **MediaWiki** (version = 1.31) soit
-installé sur un serveur. Un paquet RPM de Mediawiki est disponible sur les
-dépôts Centreon.
+installé sur un serveur.
 
 Alternativement vous pouvez [télécharger MediaWiki
 ici](http://www.mediawiki.org/wiki/MediaWiki) et accéder à la [documentation

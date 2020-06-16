@@ -81,7 +81,7 @@ isolation considerations.
 
 **Software**
 
--   Centreon 20.10
+-   Centreon 20.04
 -   Check that the parameter `date.timezone` is correctly configured in
     `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
     command `timedatectl status`)

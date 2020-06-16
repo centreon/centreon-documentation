@@ -301,17 +301,13 @@ mysql -p
 Coller alors dans le prompt MariaDB les commandes ci-dessous en modifiant les adresses IP ainsi que les mots de passe.
 
 ```sql
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'localhost';
-
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
 
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
 Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA/OVF, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
@@ -325,13 +321,13 @@ ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREO
 Toujours dans le prompt MariaDB (cf paragraphe précédent) créer l'utilisateur `@MARIADB_REPL_USER@`, dédié à la réplication, à l'aide des commandes suivantes :
 
 ```sql
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
@@ -370,8 +366,8 @@ DBHOSTNAMEMASTER='@CENTRAL_MASTER_NAME@'
 DBHOSTNAMESLAVE='@CENTRAL_SLAVE_NAME@'
 DBREPLUSER='@MARIADB_REPL_USER@'
 DBREPLPASSWORD='@MARIADB_REPL_PASSWD@'
-DBROOTUSER='@MARIADB_CENTREON_USER@'
-DBROOTPASSWORD='@MARIADB_CENTREON_USER@'
+DBROOTUSER='@MARIADB_REPL_USER@'
+DBROOTPASSWORD='@MARIADB_REPL_PASSWD@'
 CENTREON_DB='centreon'
 CENTREON_STORAGE_DB='centreon_storage'
 
@@ -519,6 +515,16 @@ our %centreon_central_sync_config = (
 1;
 ```
 
+### Suppression des crons
+
+Les tâches planifiées de type __cron__ sont executées directement par le processus gorgone dans les architecture hautement disponible. Cela permet de garantir la non-concurrence de leur execution sur les noeuds centraux. Il est donc nécessaire de les supprimer manuellement:
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Arrêt et désactivation des services
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
@@ -541,7 +547,6 @@ chkconfig mysql off
 Pour commencer, démarrer le service pcsd sur les deux nœuds centraux :
 
 ```bash
-systemctl enable pacemaker pcsd corosync
 systemctl start pcsd
 ```
 
@@ -554,6 +559,11 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
+Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
+
+`COROSYNC_QNETD_OPTIONS="-4"`
+
 
 #### Authentification auprès des membres du cluster
 
@@ -590,6 +600,7 @@ pcs cluster setup \
 Démarrer ensuite `pacemaker` sur les deux nœuds :
 
 ```bash
+systemctl enable pacemaker pcsd corosync
 systemctl start pacemaker
 ```
 
@@ -629,8 +640,8 @@ pcs resource create "ms_mysql" \
     max_slave_lag="15" \
     evict_outdated_slaves="false" \
     binary="/usr/bin/mysqld_safe" \
-    test_user="@MARIADB_CENTREON_USER@" \
-    test_passwd="@MARIADB_CENTREON_PASSWD@" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
     master
 ```

@@ -18,6 +18,62 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.3
+
+#### Enhancements
+
+- [CLAPI] Add possibility to get childs of a host using CLAPI
+
+#### Bug fixes
+
+- [Configuration] Wrongly linked service template in service group
+- [Configuration] Add Gorgone configuration export for Central
+- [Front] Centreon is now correctly rendered in Apple Safari
+- [CLAPI] Import CLAPI doesn't fail anymore when your import file contains thousands of lines
+- [API] Fix RTDOWNTIME issues [#8254](https://github.com/centreon/centreon/pull/8275):
+     - it returns all RTDOWNTIMEs satisfying the given filters, instead of only the first one (a host or service can have several downtimes in place)
+     - it allows to set a RTDOWNTIME on host only (without associated services) (currently the 8th parameter of the RTDOWNTIME -a add command is not correctly proceeded).
+- [Authentication] Authentication now correctly switches from LDAP to local when appropriated
+- [PluginPacks] No more error when installing a plugin pack due to media
+- [Events view] You're not automatically redirected to the events view when it's not your default page
+- [Events view] Translation is now correctly handled
+- [Events view] ACL are now handled on aknwoledgement actions
+- [Events view] Graphs: you can now hide/show curves
+- [Events view] Graph: roboto correctly set everywhere
+- [Events view] Correctly hide password in the commands you see in the detail panel
+
+#### Security
+
+- [Web] RCE using command line path's argument (CVE-2020-12688)
+- [Web] DoS issue in include/eventLogs/xml/data.php
+
+### 20.04.2
+
+> Due to a generation problem, 20.04.1 and 20.04.2 versions are both included in 20.04.2 version.
+
+#### Enhancements
+
+- [APIv2] Translate all text messages returned from API v2
+- [Doc] Explain in FAQ chapter how to use HTTPS and correct Apache configuration
+- [EventView] Help : Add tips to help users using regexp
+- [UI] : Add "Asia/Yangon" timezone
+
+#### Bug fixes
+
+- [Backend] host-graph-v2 do not display all graph > graph endpoint issue ?
+- [EventView] Header gets fully selected when searching
+- [EventView] Icon for Downtime button is missing in Events View
+- [EventView] Manage timezone in Graphs
+- [EventView] Manage timezone in details panel
+- [EventView] Wrong latency with forced check
+- [Install] Harden Gorgone config generation at upgrade
+- [KB] Each execution of cron synchronization generate temporary CURLCOOKIE
+- [Monitoring] Correctly compute downtime duration
+
+#### Security
+
+- Fix SQL Injection in makeXMLForAck.php
+
 ### 20.04.0
 
 *Released April, 22 2020*
@@ -211,9 +267,14 @@ If you have feature requests or want to report a bug, please go to our
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
+
 ## Centreon Engine
 
-### 20.04.0	
+### 20.04.1
+
+- Fix won't start if log level is set to "Log everything" (debug_level=-1)
+
+### 20.04.0
 
 * Add Anomaly Detection support
 * [gRPC] Add gRPC interface
@@ -222,11 +283,45 @@ If you have feature requests or want to report a bug, please go to our
 * Fix macros replacement
 * Fix perfdata truncated when retention read
 
+## Centreon Broker
+
+### 20.04.5
+
+#### Bug fixes
+
+- Non ASCII characters badly encoded in database
+
+### 20.04.4
+
+#### Bug fixes
+
+- [core] Service Check not updated
+
+### 20.04.3
+
+#### Bug fixes
+
+- [core] Crash with many data in conflict_manager
+- [core] Contention in events engine
+
+### 20.04.2
+
+#### Enhancements
+
+- [streamconnector] Implement severity in the lua cache.
+
+#### Bug fixes
+
+- [core] Connections broken due to CRC errors
+- [streamconnector] Several little bugs
+
 ### 20.04.1
 
-- Fix won't start if log level is set to "Log everything" (debug_level=-1)
-
-## Centreon Broker
+- When output/perfdata of service_status are very long, we lost parts of messages
+- Segfault on database errors
+- Add a new stat() function on streamconnector
+- '\r' not parsed correctly in perfdata
+- perfdata parser too strict
 
 ### 20.04.0
 
@@ -244,23 +339,7 @@ If you have feature requests or want to report a bug, please go to our
 * Fix influxdb retention (PR #399)
 * Fix TLS
 
-### 20.04.1
-
-- When output/perfdata of service_status are very long, we lost parts of messages
-- Segfault on database errors
-- Add a new stat() function on streamconnector
-- '\r' not parsed correctly in perfdata
-- perfdata parser too strict
-
 ## Centreon Gorgone
-
-### 20.04.0
-
-* Add Gorgone in replacement of Centcore
-
-### 20.04.1
-
-* [nodes] Change resync time when you have a SQL issue
 
 ### 20.04.2
 
@@ -278,3 +357,11 @@ If you have feature requests or want to report a bug, please go to our
 - [proxy] avoid a text in ctime entry - sqlite can store text in int
 - [proxy] pong response for ssh client was rejected
 - [yaml] manage version even version 0.81
+
+### 20.04.1
+
+* [nodes] Change resync time when you have a SQL issue
+
+### 20.04.0
+
+* Add Gorgone in replacement of Centcore

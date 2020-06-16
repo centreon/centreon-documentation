@@ -118,7 +118,7 @@ systemctl start httpd24-httpd
 If you had a custom apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/accessing-to-centreon-ui.html#https-access)
+> [this procedure](../administration/secure-platform.html#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -179,6 +179,26 @@ Then, restart apache service :
 
 ```shell
 systemctl restart httpd24-httpd
+```
+
+### Synchronize the plugins
+
+> Centreon Web 20.04 resource $USER1$ actually points to /usr/lib64/nagios/plugins.
+
+To mitigate this issue run the following commands:
+
+```shell
+mv /usr/lib64/nagios/plugins/* /usr/lib/nagios/plugins/
+rmdir /usr/lib64/nagios/plugins/
+ln -s -t /usr/lib64/nagios/ /usr/lib/nagios/plugins/
+```
+
+You now have a symbolic link as:
+
+```shell
+$ ls -alt /usr/lib64/nagios/
+lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugins/
+-rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 ```
 
 ### Finalizing the upgrade

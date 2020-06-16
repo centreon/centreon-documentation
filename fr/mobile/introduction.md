@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées 
+Une application mobile est disponible et vous permet de visualiser le statut des resources supervisées
 par Centreon, sur une tablette ou un téléphone.
 
   ![image](../assets/mobile/mobile-app-screens.png)
@@ -20,11 +20,11 @@ Les fonctionnalités principales de cette application sont:
     <source src="../assets/mobile/mobile-demo.mp4" type="video/mp4">
   </video>
 
-> L'application mobile est une application de type PWA 
-> [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée 
+> L'application mobile est une application de type PWA
+> [(Progressive Web App)](https://en.wikipedia.org/wiki/Progressive_web_application). Elle est composée
 > d'html/javascript/css . Le code est stocké et exécuté sur votre téléphone via le moteur de votre navigateur.
-> C'est une manière moderne, flexible et légère de développer une application réduisant également la dépendance 
-> aux stores et facilitant les mises à jour rapide.  Plus d'information également 
+> C'est une manière moderne, flexible et légère de développer une application réduisant également la dépendance
+> aux stores et facilitant les mises à jour rapide.  Plus d'information également
 > ici: [Web.dev](https://web.dev/what-are-pwas/)
 
 ## Pre-requis
@@ -81,6 +81,6 @@ Si vous rencontrez des problèmes de connexion:
 
 - Assurez vous que votre téléphone a bien accès en direct à votre plateforme Centreon (en vous rendant directement sur l'URL par exemple)
 - Il se peut que votre configuration Apache ait été modifiée et empêche l'applicatiaon d'accéder aux APIs de Centreon, dans ce cas,
-consultez [la section suivante](../administration/accessing-to-centreon-ui.html).
+consultez [la section suivante](../upgrade/upgrade-from-19-10.html#configure-apache-api-access).
 - Assurez vous d'avoir donné à l'utilisateur les droits d'accès à l'API temps réel. Vous pouvez vérifier cela dans le menu
 `Configuration > Utilisateurs > Contacts / Utilisateurs`, le paramètre **Reach API Realtime** du second onglet.

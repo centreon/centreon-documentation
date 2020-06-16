@@ -29,15 +29,23 @@ only interactive mode.
 commercial extension. No worry, the compatibility with the previous licensing mecanism (license on the map server) is maintained.
 * [API] Add metaservice endpoint
 * [API] Simplify authentication
-* [API] Use the reeal resource ID instead of internal resource ID 
+* [API] Use the reeal resource ID instead of internal resource ID
 * It's now possible to manage how value are rounded on links
 
 ## Centreon BAM
 
+### 20.04.1
+
+* The default calculation method is now "Worst" when you create a business activity
+* Business activities configuration: You're now able to save only warning thresholds
+* Reporting: manage timeperiods different from 24x7 in charts & tables
+* Improve "null" threshold displays
+* Widget: manage worst/best/ratio status calculation methods
+
 ### 20.04.0
 
 * New calculation methods available: Worst, Best & Ratio
-* New planned downtime inheritance management: you can now ignore the indicator in the calculation 
+* New planned downtime inheritance management: you can now ignore the indicator in the calculation
 * Update all real time & configuration page to manage new calculation methods
 
 ## Centreon MBI
@@ -53,6 +61,33 @@ commercial extension. No worry, the compatibility with the previous licensing me
 * Manage compatibility with Centreon 20.04
 
 ## Centreon Auto Discovery
+
+### 20.04.2
+
+#### Enhancements
+
+- Better handle forms testing in Host Discovery wizard
+- Enhance error render for jobs
+
+#### Bugfixes
+
+- Unable to run Service Discovery since 20.04.1
+- Some words are not translated in french
+- Use $rg API directive to search in providers listing
+- Remove bad characters in the JSON result in Host Discovery
+- Mapper Monitoring - "From job" setting does not take job monitoring server
+
+### 20.04.1
+
+#### Enhancements
+
+- Job with 0 discovered items redirects to empty job details
+
+#### Bugfixes
+
+- Overlapping text when configuring job with default proxy
+- Use direct connection to Poller when having Remote Server is ignored by
+  Service Discovery
 
 ### 20.04.0
 
@@ -75,22 +110,11 @@ configuration value:
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
 
+## Centreon Plugin Packs Manager
+
 ### 20.04.1
 
-#### Enhancements
-
-- Client on 0 items redirects to empty job details
-- Sort host discovery listing
-
-#### Bugfixes
-
-- Overlapping text when configuring job with default proxy
-- fSome words are not translated in french
-- Use $rg API directive
-- Remove bad characters in the json result in host discovery
-- Check use remote proxy definition to run discovery in service discovery
-
-## Centreon Plugin Packs Manager
+  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ### 20.04.0
 
@@ -98,11 +122,11 @@ configuration value:
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
+## Centreon License Manager
+
 ### 20.04.1
 
-  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
-
-## Centreon License Manager
+- Manage unlink platform from previous IMP trial to access to IT-100 free edition.
 
 ### 20.04.0
 

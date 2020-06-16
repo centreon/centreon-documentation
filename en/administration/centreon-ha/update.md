@@ -32,6 +32,16 @@ On the slave central node, just move the "install" dir to avoid getting the "upd
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
 ```
 
+### Removing cron jobs
+
+The RPM upgrade puts cron job back in place. Remove them to avoid concurrent executions: 
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Updating Centreon extensions
 
 The Centreon extensions are also to be updated *via* the WUI, from the "Administration > Extensions > Manager" menu by clicking the "Update all" button.

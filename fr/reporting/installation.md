@@ -78,7 +78,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 **Logiciels**
 
-- Centreon Web 20.10
+- Centreon Web 20.04
 - Vérifiez que `date.timezone` est correctement configurée dans le
 fichier `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la
 commande `timedatectl status`)

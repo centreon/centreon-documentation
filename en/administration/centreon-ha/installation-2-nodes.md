@@ -299,17 +299,13 @@ mysql -p
 Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon`). Of course, you will replace the macros first:
 
 ```sql
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'localhost';
-
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@';
 
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
-GRANT RELOAD, SHUTDOWN, SUPER ON *.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
 When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
@@ -323,13 +319,13 @@ ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREO
 Still in the same prompt, create the replication user (default: `centreon-repl`):
 
 ```sql
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'localhost' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 
-GRANT PROCESS, RELOAD, SUPER, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
+GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
 TO '@MARIADB_REPL_USER@'@'@CENTRAL_MASTER_IPADDR@' IDENTIFIED BY '@MARIADB_REPL_PASSWD@';
 ```
 
@@ -368,8 +364,8 @@ DBHOSTNAMEMASTER='@CENTRAL_MASTER_NAME@'
 DBHOSTNAMESLAVE='@CENTRAL_SLAVE_NAME@'
 DBREPLUSER='@MARIADB_REPL_USER@'
 DBREPLPASSWORD='@MARIADB_REPL_PASSWD@'
-DBROOTUSER='@MARIADB_CENTREON_USER@'
-DBROOTPASSWORD='@MARIADB_CENTREON_USER@'
+DBROOTUSER='@MARIADB_REPL_USER@'
+DBROOTPASSWORD='@MARIADB_REPL_PASSWD@'
 CENTREON_DB='centreon'
 CENTREON_STORAGE_DB='centreon_storage'
 
@@ -518,6 +514,16 @@ our %centreon_central_sync_config = (
 1;
 ```
 
+### Removing legacy Centreon cron jobs
+
+In high-availability setup, gorgone daemon manages all cron-based scheduled tasks. To avoid cron on both nodes, remove all Centreon related cron in /etc/cron.d/ directory:
+
+```bash
+rm /etc/cron.d/centreon
+rm /etc/cron.d/centstorage
+rm /etc/cron.d/centreon-auto-disco
+```
+
 ### Stopping and disabling the services
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
@@ -540,7 +546,6 @@ chkconfig mysql off
 First we enable all the services and start `pcsd` on both central nodes:
 
 ```bash
-systemctl enable pacemaker pcsd corosync
 systemctl start pcsd
 ```
 
@@ -555,6 +560,12 @@ systemctl start pcsd.service
 systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
+```
+
+Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4
+
+```bash
+COROSYNC_QNETD_OPTIONS="-4"
 ```
 
 #### Authenticating to the cluster's members
@@ -592,6 +603,7 @@ pcs cluster setup \
 Then start the `pacemaker` service **on both central nodes**:
 
 ```bash
+systemctl enable pacemaker pcsd corosync
 systemctl start pacemaker
 ```
 
@@ -631,8 +643,8 @@ pcs resource create "ms_mysql" \
     max_slave_lag="15" \
     evict_outdated_slaves="false" \
     binary="/usr/bin/mysqld_safe" \
-    test_user="@MARIADB_CENTREON_USER@" \
-    test_passwd="@MARIADB_CENTREON_PASSWD@" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
     master
 ```

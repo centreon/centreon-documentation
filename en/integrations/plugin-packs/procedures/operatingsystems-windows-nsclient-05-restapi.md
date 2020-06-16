@@ -7,19 +7,19 @@ title: Windows NSClient API
 | :-: | :-: | :-: |
 | 3.1.13 | `STABLE` | Jan  18 2019 |
 
-## Vue d'ensemble
+## Overview
 
-NSClient++ Rest API fournit sa propre API Rest via le module Webserver et permet d'exploiter au maximum
-les données de monitoring des serveurs Windows à travers une connexion HTTP sécurisée.
+NSClient++ provides is own REST API using the webserver module.
+This REST API give the possibility to exploit monitoring data from windows servers through HTTPS connections.
 
-## Contenu du Plugin-Pack
+## Plugin-Pack assets
 
-### Objets supervisés
+### Monitored objects
 
-* Windows Server OS à partir de la version 2003 SP2
-* Windows (postes de travail) à partir de la version XP
+* Windows Server OS from 2003 SP2 version
+* Windows Workstation from XP version
 
-## Métriques collectées
+### Monitored metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--query/Counter-Active-Sessions-->
@@ -94,31 +94,31 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prerequisites
 
-* Le port TCP 8443 doit être ouvert sur le serveur Windows (port de l'API Rest Nsclient par défaut). 
+* TCP 8443 port must be open on the windows server (Default port for the REST API of NSClient++).
 
-Afin de sécuriser la communication entre le poller et l'agent:
+To securize the communication flow between the poller and the agent:
 
-* Modifier le paramètre *port* de l'API Rest du fichier *nsclient.ini*
-* Modifier le paramètre *allowed hosts* du fichier *nsclient.ini* en renseignant les adresses IP des collecteurs Centreon afin de n'autoriser que ceux-ci à interroger l'API 
+* Change the *port* parameter of the REST API into *nsclient.ini* file.
+* Change the *allowed_hosts* parameter by setting the IP addresses of the Centreon pollers (to allow the connection only from these IPs).
 
-### Configurer l'accès Rest HTTPS
+### Configure the access 
 
-Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de Nsclient:
+To connect to the REST API of NSClient++, you need to enable the web service of NSClient++:
 
-* Depuis un shell sous le serveur Windows, executer les commande suivantes en administrateur:
+* From the windows server shell, execute the following command as administrator:
 
 ```nscp web install```
 
-* Configurer un mot de passe afin de sécuriser la communication.
+* Configure a new password for a better authentification:
 
-```nscp web password -- -set centreon```
 ```bash
+nscp web password -- -set centreon
 Password updated successfully, please restart nsclient++ for changes to affect.
 ```
 
-* Enfin, redémarrer l'agent NSCP
+* Now, you can restart the daemon:
 
 ```bash
 net stop nscp
@@ -132,62 +132,63 @@ net start nscp
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
-
+2. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
+
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central:
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3.Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
+3. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Créez un nouvel hôte dans Centreon et appliquez-lui le modèle d'hôte "OS-Windows-NSClient-05-Restapi-custom". Une fois le modèle appliqué, configurez les macros marquées comme obligatoires ci-dessous:
+* Create a new host in Centreon, apply the template "OS-Windows-NSClient-05-Restapi-custom".
+* Configure all the mandatory macros :
 
-| Obligatoire | Nom                       | Description                                                                                    |
-| :---------- | :------------------------ | :--------------------------------------------------------------------------------------------- |
-| X           | NSCPRESTAPIPORT           | Port de l'API Rest NSClient++ (8443 par défaut)                                                |
-| X           | NSCPRESTAPIPROTO          | Protocole web utilisé pour la communication avec l'API Rest (HTTPS par défaut)                 |
-| X           | NSCPRESTAPILEGACYPASSWORD | Mot de passe configuré pour l'échange de données via l'api Rest (voir le chapitre "Prérequis") |
-|             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à passer si nécessaire, par exemple "--timeout=30"                     |
+| Mandatory | Name                      | Description                                                                |
+| :-------- | :------------------------ | :------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | Port of the REST API NSclient++ (default: 8443)                            |
+| X         | NSCPRESTAPIPROTO          | Protocol used (default: https)                                             |
+| X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
 
 ## FAQ
 
-#### Comment tester et interpréter le plugin NSClient Rest API en ligne de commande?
+### How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
---plugin=apps::nsclient::restapi::plugin \
---mode=query --hostname='192.168.1.24' \
---port='8443' \
---proto='https' \
---legacy-password='centreon' \
---command=check_cpu \
---arg="warning=time = '5m' and load > 80" \
---arg="critical=time = '5m' and load > 90" \
---arg=show-all
+  --plugin=apps::nsclient::restapi::plugin \
+  --mode=query --hostname='192.168.1.24' \
+  --port='8443' \
+  --proto='https' \
+  --legacy-password='centreon' \
+  --command=check_cpu \
+  --arg="warning=time = '5m' and load > 80" \
+  --arg="critical=time = '5m' and load > 90" \
+  --arg=show-all
 
 OK: 5m: 40%, 1m: 42%, 5s: 39% | 
 'total 5m'=40%;80;90;; 
@@ -195,54 +196,55 @@ OK: 5m: 40%, 1m: 42%, 5s: 39% |
 'total 5s'=39%;80;90;;
 ```
 
-La commande ci-dessus requête l'API Rest Nsclient++ (```--plugin=apps::nsclient::restapi::plugin```) sur le port 8443 (--port='8443') de l'API
-en utilisant le protocole HTTPS (```--proto='https'```) ainsi que le mot de passe créé précédemment dans la partie *Prérequis* (```--legacy-password='centreon'```).
-Cette commande contrôle l'état actuel de l'activité du processeur (```--command=check_cpu```). 
+The command above request the REST API NSclient++ (```--plugin=apps::nsclient::restapi::plugin```) on the port 8443 (```--port='8443'```).
+It uses HTTPS protocol (```--proto='https'```) and the password created in the *prerequisites* section (```--legacy-password='centreon'```).
+This command checks the cpu usage of the server (```--command=check_cpu```).
 
-Les alertes sont appliquées sur l'utilisation en pourcentage de la métrique "5m" (total_5m).
-Si la métrique 'total 5m' de la charge CPU (sur les 5 dernières minutes) dépasse 80% ou 90% alors l'état du service sera respectivement WARNING ou CRITIQUE.
+This command will trigger alerts :
+  * a WARNING alert if the metric "total 5m" (```warning=time = 5m```) is superior to 80% (```load > 80%```)
+  * a CRITICAL alert if the metric "total 5m" (```warning=time = 5m```) is superior to 90% (```load > 90%```)
 
-Tous les modes disponibles peuvent être affichés en utilisant la commande suivante:
-
-```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
---plugin=apps::nsclient::restapi::plugin \
---list-mode
-```
-
-Pour toute aide complémentaire, les options des différents modes sont consultables en ajoutant l'argument ```--help``` à la commande:
+You can display all of the modes that come with the Plugin with the command below: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
---plugin=apps::nsclient::restapi::plugin \
---mode=query
---help
+  --plugin=apps::nsclient::restapi::plugin \
+  --list-mode
 ```
 
+The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+  --plugin=apps::nsclient::restapi::plugin \
+  --mode=query \
+  --help
+```
+
+### Why do I get the following error: 
 
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
 
-Si vous recevez ce message, activez le mode ```--debug``` pour visualiser l'exécution détaillée d'un mode:
+If you receive this message, enable debug messages by adding ```--debug```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
---plugin=apps::nsclient::restapi::plugin \
---mode=query \
---hostname='192.168.1.24' \
---port='8443' \
---proto='https' \
---legacy-password='monitoring' \
---http-backend=curl  \
---curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
---timeout=30 \
---command=check_centreon_plugins \
---arg='os::windows::local::plugin' \
---arg='sessions' \
---arg='--filter-sessionname="" \
---config="scripts/centreon/conf/qwinsta.xml" \
---language="fr" \
-...
---debug
+  --plugin=apps::nsclient::restapi::plugin \
+  --mode=query \
+  --hostname='192.168.1.24' \
+  --port='8443' \
+  --proto='https' \
+  --legacy-password='centreon' \
+  --http-backend=curl  \
+  --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+  --timeout=30 \
+  --command=check_centreon_plugins \
+  --arg='os::windows::local::plugin' \
+  --arg='sessions' \
+  --arg='--filter-sessionname="" \
+  --config="scripts/centreon/conf/qwinsta.xml" \
+  --language="fr" \
+  --debug
 
 UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string, at character offset 724 (before "\x{fffd}u0090RIPH\x{fffd}...") at /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl line 133.
 == Info: About to connect() to 192.168.1.24 port 8443 (#0)
@@ -253,19 +255,17 @@ Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a6037
 Need write/exec permissions on directory.
 ```
 
-* Le dossier */var/lib/centreon/centplugins* n'existe pas sur votre serveur Windows, dans ce cas spécifiez un répertoire Windows existant via l'option ```--statefile-dir``` afin de stocker les fichiers de cache du Plugin.
-
+* The folder */var/lib/centreon/centplugins* doesn't exist on your Windows Sserver, change the cache directory by using the options ```--statefile-dir```
 
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 
-Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro d'hôte *NSCPRESTAPIEXTRAOPTIONS*.
+To fix this issue, add the option ```--http-backend=curl``` to the host macro *NSCPRESTAPIEXTRAOPTIONS*.
 
+## Create your own NSClient++ agent
 
-## Créer votre propre agent NSClient++
+It's possible to create your own NSClient++ agent to add new commands and/or pre-configure the parameters of *nsclient.ini* file.
 
-Il est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser les paramètres du fichier *nsclient.ini*.
-
-Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique:
+Please, follow the official documentation from Github to build your own agent :
 * https://github.com/centreon/centreon-nsclient-build
 
-Vous y trouverez la méthode de création utilisée et la liste de tous les Plugins compilés par Centreon dans *centreon_plugins.exe*
+You can find a "How-To" and the list of all the compilated plugins by Centreon for the *centreon_plugins.exe*

@@ -37,6 +37,14 @@ liens
 
 ## Centreon BAM
 
+### 20.04.1
+
+* La méthode de calcul par défaut est maintenant "Worst" lorsque vous créez une activité métier
+* Configuration d'une activité métier: il est désormais possible de ne configurer qu'un seuil Warning
+* Reporting: les plages horaires autres que 24x7 sont désormais correctement gérées dans les graphiques et tableaux
+* Amélioration de l'affichage des seuils "null" dans les différentes pages
+* Widget: gestion des méthodes de calcul worst/best/ratio
+
 ### 20.04.0
 
 * Ajout de nouvelles méthodes de calcul: Worst, Best et Ratio
@@ -59,6 +67,33 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery
 
+### 20.04.2
+
+#### Enhancements
+
+- Better handle forms testing in Host Discovery wizard
+- Enhance error render for jobs
+
+#### Bugfixes
+
+- Unable to run Service Discovery since 20.04.1
+- Some words are not translated in french
+- Use $rg API directive to search in providers listing
+- Remove bad characters in the JSON result in Host Discovery
+- Mapper Monitoring - "From job" setting does not take job monitoring server
+
+### 20.04.1
+
+#### Enhancements
+
+- Job with 0 discovered items redirects to empty job details
+
+#### Bugfixes
+
+- Overlapping text when configuring job with default proxy
+- Use direct connection to Poller when having Remote Server is ignored by
+  Service Discovery
+
 ### 20.04.0
 
 Redesign hosts discovery with a new wizard to add discovery job:
@@ -80,22 +115,11 @@ configuration value:
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
 
+## Centreon Plugin Pack Manager
+
 ### 20.04.1
 
-#### Enhancements
-
-- Client on 0 items redirects to empty job details
-- Sort host discovery listing
-
-#### Bugfixes
-
-- Overlapping text when configuring job with default proxy
-- fSome words are not translated in french
-- Use $rg API directive
-- Remove bad characters in the json result in host discovery
-- Check use remote proxy definition to run discovery in service discovery
-
-## Centreon Plugin Pack Manager
+  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
 
 ### 20.04.0
 
@@ -103,11 +127,11 @@ configuration value:
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
+## Centreon License Manager
+
 ### 20.04.1
 
-  - Drop legacy table not used since PPM version 2.1.0 (PR #100)
-
-## Centreon License Manager
+- Manage unlink platform from previous IMP trial to access to IT-100 free etition.
 
 ### 20.04.0
 
@@ -119,3 +143,5 @@ subscription from `Administration > Extensions > Manager` menu:
 
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
+
+
