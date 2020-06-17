@@ -285,7 +285,7 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 Le service de détection d'anomalies est actuellement en phase de beta test fermée. Le but de cette phase de test bêta
 fermée est de tester nos algorithmes de calcul des prédictions (seuils flottants). Au cours de cette phase, Centreon
-améliorera la fonctionnalité de détection d'anomalies en fonction des retours d'expérience. Aucun SLA ne sera disponible
+améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible 
 pendant cette phase.
 
 ### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?
