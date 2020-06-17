@@ -272,3 +272,61 @@ Sending data from 2020-04-03T00:00:00 to 2020-04-04T00:00:00
 Sending data from 2020-04-04T00:00:00 to 2020-04-05T00:00:00
 Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 ```
+## FAQ
+
+### What services are offered and their associated SLA?
+
+The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
+purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
+During this phase, Centreon will improve the anomaly detection feature based on users feedback. No SLA will be available
+during this phase.
+
+### What are the selection criteria for the beta test program? for what duration and volume?
+
+A participation form is available to Centreon customers. Based on the answers to the form, Centreon will select the
+candidates to participate in the closed beta test phase.
+
+### What is the defined process for the beta test program?
+
+Once the candidates have been selected, Centreon will contact them to indicate the procedure to follow. Regular meetings
+will be scheduled to assess the effectiveness of the feature on the customers' platform. Remote handling sessions may be
+necessary.
+An update of the functionality may also be requested to validate the changes made following the feedback.
+
+### How long is the beta test program?
+
+The closed beta test period will last for about 4 months. This should validate the predictions generated from the calculation of
+the models, as well as the generation of alerts in the event console and the triggering of the notification process.
+
+#### When will the feature be available? And for what Centreon Edition?
+
+The Anomaly Detection functionality will be available for Centreon Business Edition in the 20.10 version.
+
+### How long is the data stored?
+
+The data is kept for the entire validity of the license. It will allow to recalculate models if necessary. An
+additional period of 3 months will be added at the end of the validity of the license before its deletion.
+
+### What data is hosted by the service?
+
+The data hosted by the anomaly detection service only concerns data linked to the services created by the user. It
+includes the date and time of the control, the identifier of the monitored resource, the identifier of the associated
+indicator, the name of the performance data on which the computations will be performed as well as the value of the
+performance data.
+
+### What is the data used for?
+
+The data is used to compute behavior models. From these models will be generated predictions used as floating
+thresholds by the Centreon platform.
+
+### Who has access to the data hosted by the service?
+
+The data is associated with the access token of the anomaly detection offer. They are hosted on the Centreon Cloud
+Platform and partitioned by users. Only the user with the token has access to the data.
+
+### How can I request the deletion of data?
+
+The deletion of data may be requested at any time. However, the history of the data is used to create a model to
+calculate the floating thresholds. Therefore participation in the program or subscription to the subsequent offer
+will be impossible.
+A request must be made via the Centreon professional support interface.
