@@ -290,7 +290,7 @@ pendant cette phase.
 
 ### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?
 
-Un formulaire de participation ne sera disponible que pour les clients Centreon. À partir des réponses, Centreon
+Un formulaire de participation est disponible pour les clients Centreon. À partir des réponses, Centreon
 sélectionnera les candidats pour participer à la phase de test bêta fermée.
 
 ### Quel est le processus défini pour le programme de test bêta ?
