@@ -278,3 +278,64 @@ Sending data from 2020-04-03T00:00:00 to 2020-04-04T00:00:00
 Sending data from 2020-04-04T00:00:00 to 2020-04-05T00:00:00
 Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 ```
+
+## FAQ
+
+### Quels services sont offerts et quel est le SLA associé?
+
+Le service de détection d'anomalies est actuellement en phase de beta test fermée. Le but de cette phase de test bêta
+fermée est de tester nos algorithmes de calcul des prédictions (seuils flottants). Au cours de cette phase, Centreon
+améliorera la fonctionnalité de détection d'anomalies en fonction des retours d'expérience. Aucun SLA ne sera disponible
+pendant cette phase.
+
+### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?
+
+Un formulaire de participation ne sera disponible que pour les clients Centreon. À partir des réponses, Centreon
+sélectionnera les candidats pour participer à la phase de test bêta fermée.
+
+### Quel est le processus défini pour le programme de test bêta ?
+
+Une fois les candidats sélectionnés, Centreon les contactera pour leur indiquer la procédure à suivre. Des réunions
+régulières seront programmées pour évaluer l'efficacité de la fonctionnalité sur la plateforme des clients. Des
+sessions de prise en main à distance peuvent être nécessaires. Une mise à jour de la fonctionnalité peut également
+être demandée pour valider les modifications apportées suite au retour d'expérience.
+
+### Quelle est la durée du programme de test bêta ?
+
+La période de test bêta fermé est d'environ 4 mois. Cela devrait permettre de valider les prévisions générées à partir
+du calcul des modèles, ainsi que la génération d'alertes dans la console d'événements et le déclenchement du processus
+de notification.
+
+#### Quand la fonctionnalité sera-t-elle disponible? Et pour quelle édition Centreon ?
+
+La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 20.10.
+
+### Combien de temps les données sont-elles hébergées ?
+
+Les données sont conservées pendant toute la validité de la licence. Elles permettront de recalculer les modèles si
+nécessaire. Un délai supplémentaire de 3 mois sera ajouté à la fin de la validité de la licence avant la suppression
+de ces dernières.
+
+### Quelles données sont hébergées par le service ?
+
+Les données hébergées par le service de détection d'anomalies ne concernent que les données liées aux services créés
+par l'utilisateur. Elles comprennent la date et l'heure du contrôle, l'identifiant de la ressource surveillée,
+l'identifiant de l'indicateur associé, le nom des données de performance sur lesquelles les calculs seront effectués
+ainsi que la valeur des données de performance.
+
+### Quel est l'usage des données ?
+
+Les données sont utilisées pour calculer des modèles de comportement. A partir de ces modèles seront générées des
+prédictions utilisées comme seuils flottants par la plateforme Centreon.
+
+### Qui a accès aux données hébergées par le service ?
+
+Les données sont associées au jeton d'accès de l'offre de détection d'anomalies. Elles sont hébergés sur la plateforme
+Centreon Cloud et partitionnées par utilisateurs. Seul l'utilisateur avec le jeton a accès aux données.
+
+### Comment puis-je demander la suppression des données ?
+
+La suppression des données peut être demandée à tout moment. Cependant, l'historique des données est utilisé pour
+créer un modèle afin de calculer les seuils flottants. Par conséquent, la participation au programme ou l'abonnement à
+l'offre sera impossible.
+Une demande par mail doit être faite via l'interface de support professionnel Centreon.
