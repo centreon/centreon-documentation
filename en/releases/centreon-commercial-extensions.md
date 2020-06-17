@@ -34,6 +34,19 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon BAM
 
+### 20.04.2
+
+* "0" thresholds values are now correctly displayed in the configuration & real time pages
+* Breacrumb now leads you to the correct main configuration page
+* SQL errors while saving Centreon BAM preferences have been removed
+* Fix pagination problems on indicators' page
+* Fix the tooltip displaying boolean status & rules
+* You can now correctly link business activities to a remote server when indicators are monitored by the remote server
+* Fix the help button content on the critical threshold in BA configuration
+* Improve wording on planned downtimne inheritance
+* Improve license management
+* Fix some french translation
+
 ### 20.04.1
 
 * The default calculation method is now "Worst" when you create a business activity
