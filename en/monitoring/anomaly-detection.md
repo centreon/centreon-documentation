@@ -278,7 +278,7 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
 purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
-During this phase, Centreon will improve the anomaly detection functionality based on feedback. No SLA will be available
+During this phase, Centreon will improve the anomaly detection feature based on users feedback. No SLA will be available
 during this phase.
 
 ### What are the selection criteria for the beta test program? for what duration and volume?
