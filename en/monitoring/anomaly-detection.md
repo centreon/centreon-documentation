@@ -295,7 +295,7 @@ An update of the functionality may also be requested to validate the changes mad
 
 ### How long is the beta test program?
 
-The closed beta test period is around 4 months. This should validate the predictions generated from the calculation of
+The closed beta test period will last for about 4 months. This should validate the predictions generated from the calculation of
 the models, as well as the generation of alerts in the event console and the triggering of the notification process.
 
 #### When will the feature be available? And for what Centreon Edition?
