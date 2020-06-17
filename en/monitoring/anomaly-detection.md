@@ -283,7 +283,7 @@ during this phase.
 
 ### What are the selection criteria for the beta test program? for what duration and volume?
 
-A participation form will be available only for Centreon customers. From the responses, Centreon will select the
+A participation form is available to Centreon customers. Based on the answers to the form, Centreon will select the
 candidates to participate in the closed beta test phase.
 
 ### What is the defined process for the beta test program?
