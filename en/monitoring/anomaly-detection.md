@@ -309,7 +309,7 @@ additional period of 3 months will be added at the end of the validity of the li
 
 ### What data is hosted by the service?
 
-The data hosted by the anomaly detection service only concerns data linked to the services created by the user. They
+The data hosted by the anomaly detection service only concerns data linked to the services created by the user. It
 include the date and time of the control, the identifier of the monitored resource, the identifier of the associated
 indicator, the name of the performance data on which the computations will be performed as well as the value of the
 performance data.
