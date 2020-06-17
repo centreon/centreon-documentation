@@ -304,7 +304,7 @@ The Anomaly Detection functionality will be available for Centreon Business Edit
 
 ### How long is the data stored?
 
-The data is kept for the entire validity of the license. They will allow to recalculate models if necessary. An
+The data is kept for the entire validity of the license. It will allow to recalculate models if necessary. An
 additional period of 3 months will be added at the end of the validity of the license before deletion of the latter.
 
 ### What data is hosted by the service?
