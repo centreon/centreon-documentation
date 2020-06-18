@@ -30,6 +30,10 @@ If you have feature requests or want to report a bug, please go to our
 
 * [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
 
+### 20.04.0
+
+* [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha) 
+
 ## Centreon DSM
 
 ### 20.04.0
