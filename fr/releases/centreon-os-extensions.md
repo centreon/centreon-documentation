@@ -19,8 +19,11 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 20.04.01
+### 20.04.1
 
+* [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
+
+### 20.04.2
 * [Cron] gorgoned manages all scheduled tasks
 * [Sync] centreon_central_sync bugfixes (realtime sync)
 * [Documentation] Revoke SUPER right from Centreon user. Add SELECT right to Replication user
