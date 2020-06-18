@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 
 * [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
 
-### 20.04.2
+### 20.04.1-1
 
 * [Cron] gorgoned manages all scheduled tasks
 * [Sync] centreon_central_sync bugfixes (realtime sync)
