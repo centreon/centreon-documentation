@@ -72,10 +72,13 @@ gérer ces nouvelles méthodes de calcul
 > Known issues:
 >
 > - You might encounter route definition issue when accessing to Host Discovery
->   jobs listing. This is due to Symfony cache not beeing refreshed at update.
->   To refresh it, execute the following command on the Central server:
+>   jobs listing. This is due to Symfony cache not beeing refreshed with the
+>   right routes at update.
+>
+>   To solve this, execute the following commands on the Central server:
 >
 >   ```shell
+>   cp /usr/share/centreon/www/modules/centreon-autodiscovery-server/routes/CentreonAutoDiscovery.yaml.wait /usr/share/centreon/www/modules/centreon-autodiscovery-server/routes/CentreonAutoDiscovery.yaml
 >   sudo -u apache /usr/share/centreon/bin/console cache:clear
 >   ```
 
