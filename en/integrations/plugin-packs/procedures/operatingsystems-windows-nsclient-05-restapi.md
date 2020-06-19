@@ -91,7 +91,6 @@ This REST API give the possibility to exploit monitoring data from windows serve
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -125,7 +124,6 @@ net stop nscp
 net start nscp
 ```
 
-
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -135,7 +133,7 @@ net start nscp
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
 
 ```bash
-yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 2. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -169,8 +167,6 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 | X         | NSCPRESTAPIPROTO          | Protocol used (default: https)                                             |
 | X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
-
-
 
 ## FAQ
 
@@ -265,7 +261,8 @@ To fix this issue, add the option ```--http-backend=curl``` to the host macro *N
 
 It's possible to create your own NSClient++ agent to add new commands and/or pre-configure the parameters of *nsclient.ini* file.
 
-Please, follow the official documentation from Github to build your own agent :
+Please, follow the official documentation from Github to build your own agent:
+
 * https://github.com/centreon/centreon-nsclient-build
 
 You can find a "How-To" and the list of all the compilated plugins by Centreon for the *centreon_plugins.exe*

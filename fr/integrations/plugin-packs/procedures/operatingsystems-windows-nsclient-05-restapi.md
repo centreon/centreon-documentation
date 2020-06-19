@@ -91,7 +91,6 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 | sessions-active               | Number of active users session. Unit: Count               |
 | sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -125,7 +124,6 @@ net stop nscp
 net start nscp
 ```
 
-
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -135,11 +133,10 @@ net start nscp
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
 ```bash
-yum install yum install centreon-plugin-Operatingsystems-Windows-Restapi
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
-
 
 <!--Offline IMP License-->
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
@@ -154,13 +151,14 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3.Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
+3. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Créez un nouvel hôte dans Centreon et appliquez-lui le modèle d'hôte "OS-Windows-NSClient-05-Restapi-custom". Une fois le modèle appliqué, configurez les macros marquées comme obligatoires ci-dessous:
+* Créez un nouvel hôte dans Centreon et appliquez-lui le modèle d'hôte "OS-Windows-NSClient-05-Restapi-custom".
+* Configurez les macros marquées comme obligatoires ci-dessous :
 
 | Obligatoire | Nom                       | Description                                                                                    |
 | :---------- | :------------------------ | :--------------------------------------------------------------------------------------------- |
@@ -168,7 +166,6 @@ Créez un nouvel hôte dans Centreon et appliquez-lui le modèle d'hôte "OS-Win
 | X           | NSCPRESTAPIPROTO          | Protocole web utilisé pour la communication avec l'API Rest (HTTPS par défaut)                 |
 | X           | NSCPRESTAPILEGACYPASSWORD | Mot de passe configuré pour l'échange de données via l'api Rest (voir le chapitre "Prérequis") |
 |             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à passer si nécessaire, par exemple "--timeout=30"                     |
-
 
 
 ## FAQ
@@ -255,7 +252,6 @@ Need write/exec permissions on directory.
 
 * Le dossier */var/lib/centreon/centplugins* n'existe pas sur votre serveur Windows, dans ce cas spécifiez un répertoire Windows existant via l'option ```--statefile-dir``` afin de stocker les fichiers de cache du Plugin.
 
-
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 
 Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro d'hôte *NSCPRESTAPIEXTRAOPTIONS*.
@@ -264,7 +260,8 @@ Si vous recevez ce message, ajoutez l'option '--http-backend=curl' dans la macro
 
 Il est possible de créer votre propre agent NSClient++ lorsque vous souhaitez ajouter de nouvelles commandes et/ou personnaliser les paramètres du fichier *nsclient.ini*.
 
-Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique:
+Suivez la documentation officielle accessible publiquement via Github afin de fournir à votre entreprise un Centreon NSClient++ spécifique :
+
 * https://github.com/centreon/centreon-nsclient-build
 
 Vous y trouverez la méthode de création utilisée et la liste de tous les Plugins compilés par Centreon dans *centreon_plugins.exe*
