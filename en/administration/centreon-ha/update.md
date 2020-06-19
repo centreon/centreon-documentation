@@ -30,6 +30,7 @@ On the slave central node, just move the "install" dir to avoid getting the "upd
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
+sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 ### Removing cron jobs
