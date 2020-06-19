@@ -69,6 +69,16 @@ gérer ces nouvelles méthodes de calcul
 
 ### 20.04.2
 
+> Known issues:
+>
+> - You might encounter route definition issue when accessing to Host Discovery
+>   jobs listing. This is due to Symfony cache not beeing refreshed at update.
+>   To refresh it, execute the following command on the Central server:
+>
+>   ```shell
+>   sudo -u apache /usr/share/centreon/bin/console cache:clear
+>   ```
+
 #### Enhancements
 
 - Better handle forms testing in Host Discovery wizard
