@@ -22,7 +22,7 @@ This Plugin-Pack relies on 3 components that are listed below:
 * CentOS 7 / RHEL7 Linux servers (to which this procedure applies)
 * Other GNU/Linux distributions, provided that the plugin and the daemon are installed and configured manually)
 
-### Monitored metrics
+### Collected metrics
 
 Here are the metrics monitored in the "Link by default" services.
 
