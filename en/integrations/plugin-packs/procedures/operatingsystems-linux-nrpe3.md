@@ -106,6 +106,45 @@ The default TCP port for NRPE is 5666.
 | ------ | -------------- | -------- | ---- |
 | Poller | Monitored host | TCP      | 5666 |
 
+### Installation of Centreon-packaged NRPE3 daemon and Linux local plugin
+
+The monitored hosts will need two components to be monitored:
+
+* the `centreon_linux_local.pl` plugin
+* the NRPE3 daemon
+
+To install them, run the commands below:
+
+```bash
+yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` and `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
+
+#### NRPE daemon configuration
+
+The value of the `allowed_hosts` parameter in `/etc/nrpe/centreon-nrpe3.cfg` must be changed to include the pollers IP addresses:
+
+```ini
+[...]
+# ALLOWED HOST ADDRESSES
+# This is an optional comma-delimited list of IP address or hostnames
+# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
+# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
+# supported.
+allowed_hosts=127.0.0.1,::1
+[...]
+```
+
+And the service must be restarted:
+
+```bash
+systemctl restart centreon-nrpe3.service
+```
+
+## Installation
+
 ### Plugin pack
 
 The plugin pack installation only impacts the central server and the procedure depends on the type of license.
@@ -130,49 +169,10 @@ yum install centreon-pack-operatingsystems-linux-nrpe3
 
 ### Centreon NRPE3 Plugin
 
-First, install this plugin on each poller:
+Install this plugin on each poller:
 
 ```bash
 yum install centreon-nrpe3-plugin
-```
-
-### Centreon-packaged NRPE3 daemon and Linux local plugin
-
-Now the monitored hosts will need two components to be monitored:
-
-* the `centreon_linux_local.pl` plugin
-* the NRPE3 daemon
-
-#### Installation
-
-Follow the instructions below:
-
-```bash
-yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
-yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` and `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) **but this installation mode won't allow the packages to be updated with `yum update`**.
-
-#### NRPE configuration
-
-Then change the value of the `allowed_hosts` parameter in `/etc/nrpe/centreon-nrpe3.cfg`:
-
-```ini
-[...]
-# ALLOWED HOST ADDRESSES
-# This is an optional comma-delimited list of IP address or hostnames
-# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
-# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
-# supported.
-allowed_hosts=127.0.0.1,::1
-[...]
-```
-
-And restart the service:
-
-```bash
-systemctl restart centreon-nrpe3.service
 ```
 
 ## Centreon Configuration
