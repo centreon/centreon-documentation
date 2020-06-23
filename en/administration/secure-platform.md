@@ -221,7 +221,18 @@ To use http2, you need to follow those steps:
 yum install httpd24-nghttp2
 ```
 
-3. Update method used by apache multi-processus module in **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
+3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+
+```apacheconf
+...
+<VirtualHost *:443>
+    Protocols h2 h2c http/1.1
+    ...
+</VirtualHost>
+...
+```
+
+4. Update method used by apache multi-processus module in **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
 
 ```diff
 -LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
@@ -231,7 +242,7 @@ yum install httpd24-nghttp2
 +LoadModule mpm_event_module modules/mod_mpm_event.so
 ```
 
-1. Restart the Apache process to take in account the new configuration:
+5. Restart the Apache process to take in account the new configuration:
 
 ```shell
 systemctl restart httpd24-httpd
