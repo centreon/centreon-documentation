@@ -183,12 +183,12 @@ Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by 
 
 Once the template has been applied, the following macros can be customized:
 
-| Name             | Mandatory | Description                                                                                 |
-| :--------------- | :-------: | ------------------------------------------------------------------------------------------- |
-| NRPECLIENT       |     X     | Name of the plugin to use to dialog with the NRPE3 daemon (default: `check_centreon_nrpe3`) |
-| NRPEPORT         |     X     | TCP port the NRPE3 daemon is listening to (default: 5666)                                   |
-| NRPETIMEOUT      |     X     | Command timeout (default: 5s)                                                               |
-| NRPEEXTRAOPTIONS |           | Any extra option (default: `-u` to return an `UNKNOWN` state in case of a connection issue) |
+| Mandatory | Name             | Description                                                                                 |
+| :-------: | :--------------- | ------------------------------------------------------------------------------------------- |
+|     X     | NRPECLIENT       | Name of the plugin to use to dialog with the NRPE3 daemon (default: `check_centreon_nrpe3`) |
+|     X     | NRPEPORT         | TCP port the NRPE3 daemon is listening to (default: 5666)                                   |
+|     X     | NRPETIMEOUT      | Command timeout (default: 5s)                                                               |
+|           | NRPEEXTRAOPTIONS | Any extra option (default: `-u` to return an `UNKNOWN` state in case of a connection issue) |
 
 ## FAQ - troubleshooting
 
