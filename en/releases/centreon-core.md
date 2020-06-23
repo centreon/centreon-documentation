@@ -267,29 +267,62 @@ If you have feature requests or want to report a bug, please go to our
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
-
 ## Centreon Engine
 
+### 20.04.3
+
+#### Bug fixes
+
+- Add a control each time a check is done to verify its output is in UTF-8
+format. If it is not the case, it is converted. Supported input encodings are
+ISO-8859-15, CP-1252 and UTF-8.
+
 ### 20.04.2
+
+#### Bug fixes
 
 - Services not set to enabled 0 when linked host deleted or disabled
 
 ### 20.04.1
 
+#### Bug fixes
+
 - Fix won't start if log level is set to "Log everything" (debug_level=-1)
 
 ### 20.04.0
 
-* Add Anomaly Detection support
-* [gRPC] Add gRPC interface
-* [gRPC] Add statistics
-* [Config] Add POLLERID & POLLERNAME macro
-* Fix macros replacement
-* Fix perfdata truncated when retention read
+#### Bug fixes
+
+- Fix macros replacement
+- Fix perfdata truncated when retention read
+
+#### Enhancements
+
+- Add Anomaly Detection support
+- [gRPC] Add gRPC interface
+- [gRPC] Add statistics
+- [Config] Add POLLERID & POLLERNAME macro
 
 ## Centreon Broker
 
 ### 20.04.5
+
+> Known issues:
+>
+> - When updating to 20.04.5, some badly encoded characters might block SQL
+>   Broker events processing on the Central server. We strongly recommand to
+>   update all the Engines to 20.04.3 version while updating to this Broker
+>   version.
+>
+>   If you experience this behaviour, we recommand to downgrade Broker on the
+>   Central server using this command:
+>
+>   ```shell
+>   yum downgrade centreon-broker-20.04.4 centreon-broker-cbd-20.04.4 centreon-broker-storage-20.04.4 centreon-broker-cbmod-20.04.4 centreon-broker-core-20.04.4
+>   ```
+>
+>   When the events queue is fully processed, you can update both Broker and
+>   Engines.
 
 #### Bug fixes
 
@@ -329,19 +362,19 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-* Change configuration file format to JSON
-* Remove QT library
-* [gRPC] Add gRPC interface
-* [gRPC] Add statistics
-* [gRPC] Add dynamic conf update
-* [logs] Add a core logger
-* [logs] Add logs for bbdo
-* [logs] Add logs for tcp
-* [logs] Add logs for tls
-* [Performance] Move to a totaly asynchronous read
-* [Performance] Add SQL multi-thread for connection
-* Fix influxdb retention (PR #399)
-* Fix TLS
+- Change configuration file format to JSON
+- Remove QT library
+- [gRPC] Add gRPC interface
+- [gRPC] Add statistics
+- [gRPC] Add dynamic conf update
+- [logs] Add a core logger
+- [logs] Add logs for bbdo
+- [logs] Add logs for tcp
+- [logs] Add logs for tls
+- [Performance] Move to a totaly asynchronous read
+- [Performance] Add SQL multi-thread for connection
+- Fix influxdb retention (PR #399)
+- Fix TLS
 
 ## Centreon Gorgone
 
@@ -364,8 +397,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.1
 
-* [nodes] Change resync time when you have a SQL issue
+- [nodes] Change resync time when you have a SQL issue
 
 ### 20.04.0
 
-* Add Gorgone in replacement of Centcore
+- Add Gorgone in replacement of Centcore
