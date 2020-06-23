@@ -174,6 +174,21 @@ Install this plugin on each poller:
 ```bash
 yum install centreon-nrpe3-plugin
 ```
+### Prerequisites and installation validation
+
+If everything is fine, this command:
+
+```bash
+/usr/lib64/nagios/plugins/check_centreon_nrpe3 -H monitored_host_ip -p 5666
+```
+
+should produce this output:
+
+```text
+NRPE v3.2.1
+```
+
+Otherwise please refer to the [troubleshooting](#troubleshooting) section.
 
 ## Centreon Configuration
 
@@ -190,23 +205,40 @@ Once the template has been applied, the following macros can be customized:
 |     X     | NRPETIMEOUT      | Command timeout (default: 5s)                                                               |
 |           | NRPEEXTRAOPTIONS | Any extra option (default: `-u` to return an `UNKNOWN` state in case of a connection issue) |
 
-## FAQ - troubleshooting
+## FAQ
 
-If everything is fine, this command:
+### How does it work?
+
+Here is a command that is actually used to monitor the Cpu usage:
 
 ```bash
-/usr/lib64/nagios/plugins/check_centreon_nrpe3 -H monitored_host_ip -p 5666
+/usr/lib64/nagios/plugins/check_centreon_nrpe3 \
+    -H host_ip_address \
+    -p 5666 -t 5 -u \
+    -c check_centreon_plugins \
+    -a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
 ```
-
-should produce this output:
+It should return this:
 
 ```text
-NRPE v3.2.1
+OK: CPU(s) average usage is: 1.16% | 'cpu0'=1.64%;;;0;100 'cpu1'=0.98%;;;0;100 'cpu2'=1.09%;;;0;100 'cpu3'=0.94%;;;0;100 'total_cpu_avg'=1.16%;;;0;100
+```
+What happened:
+
+* The `check_centreon_nrpe3` executable asked the daemon to run the "check_centreon_plugins" command with "os::linux::local::plugin" "cpu"  and "  --statefile-dir=/var/log/nrpe/centplugins" as arguments
+* The NRPE daemon puts together the command (that is defined in the NRPE configuration file) with its arguments, forming this local command line:
+
+```bash
+/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=os::linux::local::plugin --mode=cpu --statefile-dir=/var/log/nrpe/centplugins
 ```
 
-But it can occur that everything is not fine... Let's detail the most common errors.
+* The NRPE daemon runs this command and sends its results (return code and standard output) back to the `check_centreon_nrpe3` executable, that was waiting for the answer.
 
-### "Connection refused"
+### Troubleshooting
+
+Let's detail the most common errors.
+
+#### "Connection refused"
 
 If the output of the command is:
 
@@ -224,7 +256,7 @@ Then restart the service.
 systemctl restart centreon-nrpe3.service
 ```
 
-### "Socket timeout"
+#### "Socket timeout"
 
 If the output of the command is:
 
@@ -244,7 +276,7 @@ systemctl status centreon-nrpe3.service
 * there is no local firewall blocking the NRPE port (`iptables -L`)
 * there is no firewall device filtering this port on the network
 
-### "Command not defined"
+#### "Command not defined"
 
 If the output of the command is:
 
