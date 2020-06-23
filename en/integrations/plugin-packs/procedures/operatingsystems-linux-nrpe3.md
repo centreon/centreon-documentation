@@ -98,7 +98,7 @@ partitions or filtered with regexp)
 
 This chapter describes the installation prerequisites required by the plugin to run.
 
-### Network prerequisites
+### Network flows
 
 The default TCP port for NRPE is 5666.
 
