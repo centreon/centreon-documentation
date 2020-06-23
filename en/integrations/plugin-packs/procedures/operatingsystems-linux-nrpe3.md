@@ -24,7 +24,32 @@ This Plugin-Pack relies on 3 components that are listed below:
 
 ### Collected metrics
 
-Here are the metrics monitored in the "Link by default" services.
+Only standard metrics are described in this section. Be aware that a lot of other checks and metrics are available from the `centreon_linux_local.pl` Plugin. Here is a non-exhaustive list:
+
+* Cmd-Generic : Check command returns
+* Connections-Generic : Check tcp/udp connections
+* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle,
+Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
+* Disk-Generic-Name : Check storage usage (single partition)
+* Disk-Global : Check storage usage (all partitions or filtered with regexp)
+* Disk-IO-Generic-Name : Check some disk io counters (single partition)
+* Disk-IO-Global : Check some disk io counters (all partitions or filtered with
+regexp)
+* File-Date-Generic : Check time (modified, creation,...) of files/directories
+* File-Size-Generic : Check size of files/directories
+* Inodes-Generic-Name : Check Inodes space usage (single partition)
+* Inodes-Global : Check Inodes space usage (all partitions or filtered with
+regexp)
+* Is-File-Generic : Check the presence of a file
+* Is-Not-File-Generic : Check the absence of a file
+* Packet-Errors-Generic-Name : Check packet errors and discards on an interface
+* Packet-Errors-Global : Check packet errors and discards on interfaces (all
+partitions or filtered with regexp)
+* Process-Generic : Check linux processes
+* Traffic-Generic-Name : Check Traffic (single partition)
+* Traffic-Global : Check Traffic (all partitions or filtered with regexp)
+
+
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Cpu-->
