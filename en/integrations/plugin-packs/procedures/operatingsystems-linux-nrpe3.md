@@ -7,7 +7,7 @@ title: Linux NRPE3
 
 NRPE (Nagios Remote Plugin Executor) is a protocol that was designed to remotely run monitoring commands.
 
-This plugin pack relies on 3 components that are listed below:
+This Plugin-Pack relies on 3 components that are listed below:
 
 | Component                 | Type              | Location       | Role                                                               |
 | ------------------------- | ----------------- | -------------- | ------------------------------------------------------------------ |
