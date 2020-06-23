@@ -19,40 +19,8 @@ This Plugin-Pack relies on 3 components that are listed below:
 
 ### Monitored objects
 
-#### Monitored hosts
-
 * CentOS 7 / RHEL7 Linux servers (to which this procedure applies)
 * Other GNU/Linux distributions, provided that the plugin and the daemon are installed and configured manually)
-
-#### Monitored services
-
-Here is the complete list of service templates aliases provided by this plugin pack. "Linked by default" indicates whether the template is linked to the "out-of-the-box" host template.
-
-| Alias                      | Linked by default |
-| :------------------------- | :---------------: |
-| Cmd-Generic                |                   |
-| Connections-Generic        |                   |
-| Cpu-Detailed               |                   |
-| Cpu                        |         X         |
-| Disk-Generic-Name          |                   |
-| Disk-Global                |                   |
-| Disk-IO-Generic-Name       |                   |
-| Disk-IO-Global             |                   |
-| File-Date-Generic          |                   |
-| File-Size-Generic          |                   |
-| Inodes-Generic-Name        |                   |
-| Inodes-Global              |                   |
-| Is-File-Generic            |                   |
-| Is-Not-File-Generic        |                   |
-| Load                       |         X         |
-| Memory                     |         X         |
-| Packet-Errors-Generic-Name |                   |
-| Packet-Errors-Global       |                   |
-| Process-Generic            |                   |
-| Swap                       |         X         |
-| Traffic-Generic-Name       |                   |
-| Traffic-Global             |                   |
-| Uptime                     |         X         |
 
 ### Monitored metrics
 
