@@ -54,43 +54,43 @@ partitions or filtered with regexp)
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Cpu-->
 
-| Metric          | UOM | Description               |
-| :-------------- | :-: | :------------------------ |
-| `cpu0`          |  %  | Average core 0 CPU usage  |
-| `cpu1`          |  %  | Average core 1 CPU usage  |
-| ...             |  %  | ...                       |
-| `total_cpu_avg` |  %  | Average overall CPU usage |
+| Metric                              | Description               | UOM |
+| :---------------------------------- | :------------------------ | :-: |
+| `0#core.cpu.utilization.percentage` | Average core 0 CPU usage  |  %  |
+| `1#core.cpu.utilization.percentage` | Average core 1 CPU usage  |  %  |
+| ...                                 | ...                       |  %  |
+| `cpu.utilization.percentage`        | Average overall CPU usage |  %  |
 
 <!--Load-->
 
-| Metric   | UOM | Description                            |
-| :------- | :-: | :------------------------------------- |
-| `load1`  |     | System load average on last 1 minute   |
-| `load5`  |     | System load average on last 5 minutes  |
-| `load15` |     | System load average on last 15 minutes |
+| Metric   | Description                            | UOM |
+| :------- | :------------------------------------- | :-: |
+| `load1`  | System load average on last 1 minute   |     |
+| `load5`  | System load average on last 5 minutes  |     |
+| `load15` | System load average on last 15 minutes |     |
 
 <!--Memory-->
 
-| Metric   | UOM | Description                           |
-| :------- | :-: | :------------------------------------ |
-| `buffer` |  B  | Amount of memory allocated to buffers |
-| `cached` |  B  | Amount of memory allocated to cache   |
-| `slab`   |  B  | Amount of memory allocated to Slab    |
-| `used`   |  B  | Total amount of used memory           |
+| Metric   | Description                           | UOM |
+| :------- | :------------------------------------ | :-: |
+| `buffer` | Amount of memory allocated to buffers |  B  |
+| `cached` | Amount of memory allocated to cache   |  B  |
+| `slab`   | Amount of memory allocated to Slab    |  B  |
+| `used`   | Total amount of used memory           |  B  |
 
 <!--Swap-->
 
-| Metric      | UOM | Description      |
-| :---------- | :-: | :--------------- |
-| `free`      |  B  | Free Swap space  |
-| `used`      |  B  | Used Swap space  |
-| `used_prct` |  %  | Swap space usage |
+| Metric                  | Description      | UOM |
+| :---------------------- | :--------------- | :-: |
+| `swap.free.bytes`       | Free Swap space  |  B  |
+| `swap.usage.bytes`      | Used Swap space  |  B  |
+| `swap.usage.percentage` | Swap space usage |  %  |
 
 <!--Uptime-->
+| Metric   | Description                    | UOM |
+| :------- | :----------------------------- | :-: |
+| `uptime` | Elapsed time since last reboot |  s  |
 
-| Metric   | UOM | Description                    |
-| :------- | :-: | :----------------------------- |
-| `uptime` |  s  | Elapsed time since last reboot |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
