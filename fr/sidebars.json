@@ -315,7 +315,7 @@
                     "integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp",
                     "integrations/plugin-packs/procedures/applications-keepalived-snmp",
                     "integrations/plugin-packs/procedures/applications-lync-2013-mssql",
-		            "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
                     "integrations/plugin-packs/procedures/applications-antivirus-mcafee-webgateway-snmp",
                     "integrations/plugin-packs/procedures/applications-mscs-nrpe",
