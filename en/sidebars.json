@@ -346,6 +346,7 @@
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
                     "integrations/plugin-packs/procedures/applications-databases-sap-hana",
                     "integrations/plugin-packs/procedures/applications-monitoring-scom-restapi",
+                    "integrations/plugin-packs/procedures/applications-gorgone-restapi",
                     "integrations/plugin-packs/procedures/applications-selenium",
                     "integrations/plugin-packs/procedures/applications-sendmail-snmp",
                     "integrations/plugin-packs/procedures/applications-skype-2015-mssql",
