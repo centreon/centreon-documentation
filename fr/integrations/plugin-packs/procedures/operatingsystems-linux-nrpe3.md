@@ -3,10 +3,6 @@ id: operatingsystems-linux-nrpe3
 title: Linux NRPE3
 ---
 
-| Version actuelle | Statut | Date |
-| :-: | :-: | :-: |
-| 3.1.6 | `STABLE` | 6 juin 2020 |
-
 ## Vue d'ensemble
 
 NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés. 
@@ -28,80 +24,79 @@ Ce pack de plugin repose sur 3 composants, qui sont détaillés dans le tableau 
 * Serveur Linux CentOS 7 / RHEL7 (documenté dans la présente procédure)
 * Serveur Linux d'autres distributions, à condition d'y installer manuellement le plugin et le *daemon* NRPE3 (2e et 3e lignes du tableau ci-dessus).
 
-#### Services supervisés
-
-Voici la liste complète des alias de modèles de services fournies par ce plugin pack. La colonne "Lié par défaut" indique si le modèle de service est lié au modèle d'hôte, et donc si les services correspondants seront créés d'office lors de l'application du modèle d'hôte.
-
-| Alias                      | Lié par défaut |
-| :------------------------- | :------------: |
-| Cmd-Generic                |                |
-| Connections-Generic        |                |
-| Cpu-Detailed               |                |
-| Cpu                        |       X        |
-| Disk-Generic-Name          |                |
-| Disk-Global                |                |
-| Disk-IO-Generic-Name       |                |
-| Disk-IO-Global             |                |
-| File-Date-Generic          |                |
-| File-Size-Generic          |                |
-| Inodes-Generic-Name        |                |
-| Inodes-Global              |                |
-| Is-File-Generic            |                |
-| Is-Not-File-Generic        |                |
-| Load                       |       X        |
-| Memory                     |       X        |
-| Packet-Errors-Generic-Name |                |
-| Packet-Errors-Global       |                |
-| Process-Generic            |                |
-| Swap                       |       X        |
-| Traffic-Generic-Name       |                |
-| Traffic-Global             |                |
-| Uptime                     |       X        |
-
 ### Métriques collectées
+
+Seules les métriques sont détaillées dans cette section, mais sachez qu'un grand nombre de tests et de métriques peuvent être fournies par le Plugin `centreon_linux_local.pl`. En voici une liste non exhaustive :
+
+* Cmd-Generic :  Vérifier le retour d'une commande
+* Connections-Generic : Vérifier les connections TCP/UDP
+* Cpu-Detailed : Vérifier l'utilisation moyenne des CPU (User, Nice, System,
+Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
+* Disk-Generic-Name : Vérifier l'utilisation des disques (une seule partition)
+* Disk-Global : Vérifier l'utilisation des disques (toutes les partitions ou
+filtrage par expression régulière)
+* Disk-IO-Generic-Name : Vérifier les IO disques (une seule partition)
+* Disk-IO-Global : Vérifier les IO disques (toutes les partitions ou filtrage
+par expression régulière)
+* File-Date-Generic : Vérifier la date (modification, création) d'un fichier ou
+d'un répertoire
+* File-Size-Generic : Vérifier la taille d'un fichier ou d'un répertoire
+* Inodes-Generic-Name : Vérifier l'utilisation des inodes (une seule partition)
+* Inodes-Global : Vérifier l'utilisation des inodes (toutes les partitions ou 
+filtrage par expression régulière)
+* Is-File-Generic : Vérifier la présence d'un fichier
+* Is-Not-File-Generic : Vérifier l'absence d'un fichier
+* Packet-Errors-Generic-Name : Vérifier le nomdre de paquets réseau en erreur
+(une seule interface)
+* Packet-Errors-Global : Vérifier le nomdre de paquets réseau en erreur (toutes
+les partitions ou filtrage par expression régulière)
+* Process-Generic : Vérifier qu'un processus est en cours d'exécution
+* Traffic-Generic-Name : Vérifier la consommation de bande passante sur une interface
+* Traffic-Global : Vérifier la consommation de bande passante (toutes les 
+partitions ou filtrage par expression régulière)
 
 Voici les métriques collectées pour les services liés au modèle dhôte par défaut :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Cpu-->
 
-| Métrique        | Unité | Description                 |
-| :-------------- | :---: | :-------------------------- |
-| `cpu0`          |   %   | Utilisation moyen du cœur 0 |
-| `cpu1`          |   %   | Utilisation moyen du cœur 1 |
-| ...             |   %   | ...                         |
-| `total_cpu_avg` |   %   | Utilisation moyen global    |
+| Métrique                            | Description                   | Unité |
+| :---------------------------------- | :---------------------------- | :---: |
+| `0#core.cpu.utilization.percentage` | Utilisation moyenne du cœur 0 |   %   |
+| `1#core.cpu.utilization.percentage` | Utilisation moyenne du cœur 1 |   %   |
+| ...                                 | ...                           |   %   |
+| `cpu.utilization.percentage`        | Utilisation moyenne globale   |   %   |
 
 <!--Load-->
 
-| Métrique | Unité | Description                           |
-| :------- | :---: | :------------------------------------ |
-| `load1`  |       | Charge système moyenne sur 1 minute   |
-| `load5`  |       | Charge système moyenne sur 5 minutes  |
-| `load15` |       | Charge système moyenne sur 15 minutes |
+| Métrique | Description                           | Unité |
+| :------- | :------------------------------------ | :---: |
+| `load1`  | Charge système moyenne sur 1 minute   |       |
+| `load5`  | Charge système moyenne sur 5 minutes  |       |
+| `load15` | Charge système moyenne sur 15 minutes |       |
 
 <!--Memory-->
 
-| Métrique | Unité | Description                 |
-| :------- | :---: | :-------------------------- |
-| `buffer` |   B   | Mémoire allouée aux buffers |
-| `cached` |   B   | Mémoire allouée en cache    |
-| `slab`   |   B   | Allocation Slab             |
-| `used`   |   B   | Mémoire consommée totale    |
+| Métrique | Description                 | Unité |
+| :------- | :-------------------------- | :---: |
+| `buffer` | Mémoire allouée aux buffers |   B   |
+| `cached` | Mémoire allouée en cache    |   B   |
+| `slab`   | Allocation Slab             |   B   |
+| `used`   | Mémoire consommée totale    |   B   |
 
 <!--Swap-->
 
-| Métrique    | Unité | Description                       |
-| :---------- | :---: | :-------------------------------- |
-| `free`      |   B   | Espace d'échange non utilisé      |
-| `used`      |   B   | Espace d'échange utilisé          |
-| `used_prct` |   %   | Utilisation de l'espace d'échange |
+| Métrique                | Description                       | Unité |
+| :---------------------- | :-------------------------------- | :---: |
+| `swap.free.bytes`       | Espace d'échange non utilisé      |   B   |
+| `swap.usage.bytes`      | Espace d'échange utilisé          |   B   |
+| `swap.usage.percentage` | Utilisation de l'espace d'échange |   %   |
 
 <!--Uptime-->
 
-| Métrique | Unité | Description                                |
-| :------- | :---: | :----------------------------------------- |
-| `uptime` |   s   | Temps écoulé depuis le dernier redémarrage |
+| Métrique | Description                                | Unité |
+| :------- | :----------------------------------------- | :---: |
+| `uptime` | Temps écoulé depuis le dernier redémarrage |   s   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -109,7 +104,7 @@ Voici les métriques collectées pour les services liés au modèle dhôte par d
 
 Les prérequis ci-dessous sont indispendables pour que le plugin pack puisse fonctionner correctement.
 
-### Aspects réseau
+### Flux réseau
 
 Le port TCP par défaut pour le protocole NRPE est le port 5666.
 
@@ -117,9 +112,48 @@ Le port TCP par défaut pour le protocole NRPE est le port 5666.
 | ------ | -------------- | --------- | ---- |
 | Poller | Hôte supervisé | TCP       | 5666 |
 
-### Plugin pack
+### Installation de l'agent NRPE packagé par Centreon et sonde Linux locale
 
-L'installation du plugin pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
+Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
+
+* la sonde `centreon_linux_local.pl`
+* L'agent (*daemon*) NRPE3
+
+Installer les paquets suivants :
+
+```bash
+yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible instller directement les paquets `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` et `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+
+### Configuration de NRPE
+
+Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` 
+
+```ini
+[...]
+# ALLOWED HOST ADDRESSES
+# This is an optional comma-delimited list of IP address or hostnames
+# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
+# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
+# supported.
+allowed_hosts=127.0.0.1,::1
+[...]
+```
+
+Et redémarrer le service :
+
+```bash
+systemctl restart centreon-nrpe3.service
+```
+
+## Installation
+
+### Plugin-Pack
+
+L'installation du Plugin-Pack en lui-même ne concerne que le serveur central et la procédure dépend du type de licence.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -147,82 +181,79 @@ Pour commencer, installer le plugin NRPE3, qui permettra au poller de communique
 yum install centreon-nrpe3-plugin
 ```
 
-### Agent NRPE3 packagé par Centreon et sonde Linux locale
+### Validation de l'ensemble des prérequis
 
-Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
+Si tout a été correctement installé et configuré, la commande :
 
-* la sonde `centreon_linux_local.pl`
-* L'agent (*daemon*) NRPE3
-
-#### Installation
-
-Procéder aux installations suivantes :
-
-```bash
-yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
-yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible instller directement les paquets `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` et `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
-
-#### Configuration de NRPE
-
-Pour que le(s) poller(s) puisse(nt) superviser les hôtes, il est nécessaire d'adapter le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` 
-
-```ini
-[...]
-# ALLOWED HOST ADDRESSES
-# This is an optional comma-delimited list of IP address or hostnames
-# that are allowed to talk to the NRPE daemon. Network addresses with a bit mask
-# (i.e. 192.168.1.0/24) are also supported. Hostname wildcards are not currently
-# supported.
-allowed_hosts=127.0.0.1,::1
-[...]
-```
-
-Et redémarrer le service :
-
-```bash
-systemctl restart centreon-nrpe3.service
-```
-
-## Configuration de l'hôte dans Centreon
-
-Créez un nouvel hôte dans Centreon et appliquez-lui le modèle d'hôte "OS-Linux-NRPE3-custom". 
-
-Une fois le modèle appliqué, il est possible de modifier les macros suivantes :
-
-| Nom              | Obligatoire | Description                                                                                                                        |
-| :--------------- | :---------: | ---------------------------------------------------------------------------------------------------------------------------------- |
-| NRPECLIENT       |      X      | Nom de la sonde employée pour dialoguer avec l'agent NRPE3 (par défaut `check_centreon_nrpe3`)                                     |
-| NRPEPORT         |      X      | Port sur lequel écoute l'agent NRPE3 (par défaut 5666)                                                                             |
-| NRPETIMEOUT      |      X      | Temps maximum autorisé pour exécuter la commande (par défaut 5s)                                                                   |
-| NRPEEXTRAOPTIONS |             | Options supplémentaires (par défaut `-u` pour que la sonde NRPE retourne un état `UNKNOWN` en cas d'erreur de connexion à l'agent) |
-
-## FAQ - troubleshooting
-
-Si tout se passe bien, en lançant la commande suivante :
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe3 -H monitored_host_ip -p 5666
 ```
 
-On obtient cette réponse :
+devrait aboutir au résultat suivant :
 
 ```text
 NRPE v3.2.1
 ```
 
-Mais il est possible que cela ne fonctionne pas. Voici les cas d'erreurs les plus fréquents, en fonction du message.
+Dans le cas contraire, se référer à la section [troubleshooting](#troubleshooting).
 
-### "Connection refused"
+## Configuration de l'hôte dans Centreon
+
+Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-NRPE3-custom". 
+
+Une fois le modèle appliqué, il est possible de modifier les macros suivantes :
+
+| Nom              | Description                                                                                                                        | Obligatoire |
+| :--------------- | ---------------------------------------------------------------------------------------------------------------------------------- | :---------: |
+| NRPECLIENT       | Nom de la sonde employée pour dialoguer avec l'agent NRPE3 (par défaut `check_centreon_nrpe3`)                                     |      X      |
+| NRPEPORT         | Port sur lequel écoute l'agent NRPE3 (par défaut 5666)                                                                             |      X      |
+| NRPETIMEOUT      | Temps maximum autorisé pour exécuter la commande (par défaut 5s)                                                                   |      X      |
+| NRPEEXTRAOPTIONS | Options supplémentaires (par défaut `-u` pour que la sonde NRPE retourne un état `UNKNOWN` en cas d'erreur de connexion à l'agent) |             |
+
+## FAQ
+
+### Comment ça marche ?
+
+Voici une commande qui permet de surveiller la consommation CPU d'un serveur Linux dont l'adresse IP est `x.x.x.x` :
+
+```bash
+/usr/lib64/nagios/plugins/check_centreon_nrpe3 \
+    -H x.x.x.x \
+    -p 5666 -t 5 -u \
+    -c check_centreon_plugins \
+    -a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
+```
+
+Cette commande devrait afficher un retour de la forme :
+
+```text
+OK: CPU(s) average usage is: 1.16% | 'cpu0'=1.64%;;;0;100 'cpu1'=0.98%;;;0;100 'cpu2'=1.09%;;;0;100 'cpu3'=0.94%;;;0;100 'total_cpu_avg'=1.16%;;;0;100
+```
+
+Que s'est-il passé ?
+
+* Le Plugin `check_centreon_nrpe3` a demandé à l'agent NRPE d'exécuter sa commande "check_centreon_plugins" associée aux arguments "os::linux::local::plugin", "cpu"  et "  --statefile-dir=/var/log/nrpe/centplugins".
+* L'agent NRPE met bout-à-bout la commande telle que définie dans ses fichiers de configuration et les arguments envoyés pour former la ligne de commande suivante :
+
+```bash
+/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=os::linux::local::plugin --mode=cpu --statefile-dir=/var/log/nrpe/centplugins
+```
+
+* Cette commande est alors exécutée par l'utilisateur `centreon-engine` puis l'agent renvoie les résultats (code retour et message affiché) au Plugin `check_centreon_nrpe3` qui attend ce retour.
+
+### Troubleshooting
+
+Les erreurs les plus courantes sont détaillées ci-dessous.
+
+#### `connect to address x.x.x.x port 5666: Connection refused`
 
 Si le message retourné est le suivant :
 
 ```text
-connect to address monitored_host_ip port 5666: Connection refused
+connect to address x.x.x.x port 5666: Connection refused
 ```
 
-C'est probablement que l'adresse IP d'où est venue la requête (*ie.* le poller) n'est pas autorisée. 
+C'est probablement que l'adresse IP x.x.x.x d'où est venue la requête (*ie.* le poller) n'est pas autorisée à interroger l'agent NRPE. 
 
 Il faut alors vérifier le paramètre `allowed_hosts` dans le fichier `/etc/nrpe/centreon-nrpe3.cfg` ([*cf* plus haut](#configuration-de-nrpe).
 
@@ -232,7 +263,7 @@ Puis redémarrer le service.
 systemctl restart centreon-nrpe3.service
 ```
 
-### "Socket timeout"
+#### `CHECK_NRPE STATE CRITICAL: Socket timeout after 10 seconds`
 
 Si le message retourné est le suivant :
 
@@ -240,7 +271,7 @@ Si le message retourné est le suivant :
 CHECK_NRPE STATE CRITICAL: Socket timeout after 10 seconds.
 ```
 
-Alors vérifiez les points suivants :
+Vérifier alors les points suivants :
 
 * le service `centreon-nrpe3` est bien démarré
 
@@ -252,7 +283,7 @@ systemctl status centreon-nrpe3.service
 * aucun pare-feu local ne bloque le port NRPE (`iptables -L`)
 * aucun équipement de type firewall ne filtre ce port sur le réseau
 
-### "Command not defined"
+#### `NRPE: Command 'my_command' not defined`
 
 Si le message retourné est le suivant :
 
