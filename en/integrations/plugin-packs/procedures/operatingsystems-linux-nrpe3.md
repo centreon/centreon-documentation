@@ -238,7 +238,7 @@ What happened:
 
 Let's detail the most common errors.
 
-#### "Connection refused"
+#### `connect to address x.x.x.x port 5666: Connection refused`
 
 If the output of the command is:
 
@@ -256,7 +256,7 @@ Then restart the service.
 systemctl restart centreon-nrpe3.service
 ```
 
-#### "Socket timeout"
+#### `CHECK_NRPE STATE CRITICAL: Socket timeout after 10 seconds`
 
 If the output of the command is:
 
@@ -276,7 +276,7 @@ systemctl status centreon-nrpe3.service
 * there is no local firewall blocking the NRPE port (`iptables -L`)
 * there is no firewall device filtering this port on the network
 
-#### "Command not defined"
+#### `NRPE: Command 'my_command' not defined`
 
 If the output of the command is:
 
