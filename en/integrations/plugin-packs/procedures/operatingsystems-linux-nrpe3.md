@@ -44,12 +44,12 @@ regexp)
 * Is-Not-File-Generic : Check the absence of a file
 * Packet-Errors-Generic-Name : Check packet errors and discards on an interface
 * Packet-Errors-Global : Check packet errors and discards on interfaces (all
-partitions or filtered with regexp)
+interfaces or filtered with regexp)
 * Process-Generic : Check linux processes
-* Traffic-Generic-Name : Check Traffic (single partition)
-* Traffic-Global : Check Traffic (all partitions or filtered with regexp)
+* Traffic-Generic-Name : Check Traffic (single interface)
+* Traffic-Global : Check Traffic (all interfaces or filtered with regexp)
 
-
+Here are the metrics that are collected by default:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Cpu-->
@@ -145,9 +145,9 @@ systemctl restart centreon-nrpe3.service
 
 ## Installation
 
-### Plugin pack
+### Plugin-Pack
 
-The plugin pack installation only impacts the central server and the procedure depends on the type of license.
+The Plugin-Pack installation concerns only the central server and the procedure depends on the type of license.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -209,20 +209,22 @@ Once the template has been applied, the following macros can be customized:
 
 ### How does it work?
 
-Here is a command that is actually used to monitor the Cpu usage:
+Here is a command monitors the Cpu usage of the Linux Server having the IP address `x.x.x.x`:
 
 ```bash
 /usr/lib64/nagios/plugins/check_centreon_nrpe3 \
-    -H host_ip_address \
+    -H x.x.x.x \
     -p 5666 -t 5 -u \
     -c check_centreon_plugins \
     -a 'os::linux::local::plugin' 'cpu'  '  --statefile-dir=/var/log/nrpe/centplugins'
 ```
+
 It should return this:
 
 ```text
 OK: CPU(s) average usage is: 1.16% | 'cpu0'=1.64%;;;0;100 'cpu1'=0.98%;;;0;100 'cpu2'=1.09%;;;0;100 'cpu3'=0.94%;;;0;100 'total_cpu_avg'=1.16%;;;0;100
 ```
+
 What happened:
 
 * The `check_centreon_nrpe3` executable asked the daemon to run the "check_centreon_plugins" command with "os::linux::local::plugin" "cpu"  and "  --statefile-dir=/var/log/nrpe/centplugins" as arguments
@@ -243,7 +245,7 @@ Let's detail the most common errors.
 If the output of the command is:
 
 ```text
-connect to address monitored_host_ip port 5666: Connection refused
+connect to address x.x.x.x port 5666: Connection refused
 ```
 
 It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon. 
