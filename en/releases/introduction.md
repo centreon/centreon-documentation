@@ -17,7 +17,7 @@ To access detailed release note by component, use the following sections:
 Centreon Web comes with a brand new events view management experience. This new
 view is released as a beta feature becauwe we want to make this new view the
 most efficient monitoring view dedicated to operators and system/network
-administrator. To get to that point, we'll quicly iterate based on what we
+administrator. To get to that point, we'll quickly iterate based on what we
 already know and your feedbacks.
 
 This new view is accessible directly from `Home > Events view (beta)"` and
@@ -31,7 +31,7 @@ brings the following capabilities:
   - Multi-criteria search based on multi-selects
   - Inline & massive quick actions: acknowledgement, set a planned downtime,
     re-check a resource
-  - Detail information just above the listing to quickyl access information and
+  - Detail information on the side of the listing, to quickly access information and
     not losing what you were currently looking at
   - ... *And more to come in the next weeks/months*
 
@@ -81,7 +81,7 @@ first discovery job\!
 
 #### New calculation methods
 
-We've improve our service mapping capability (Centreon BAM extension) by adding
+We've improved our service mapping capability (Centreon BAM extension) by adding
 new status calculation methods.
 
 IT Service or App. modeling was hard to understand mainly because the only
@@ -122,7 +122,7 @@ upload & activate it on the Centreon central server.
 
 Don't worry if you come from a \< 20.04 version, your license is still valid.
 You'll only have a warning message in the license manager telling you that a
-license is required but it has no impact on Centreno Map. You can ask a new one
+license is required but it has no impact on Centreon Map. You can ask a new one
 to our support.
 
 #### Packaging simplified
@@ -167,7 +167,7 @@ section](../monitoring/monitoring-servers/communications.html) to know more.
 In this version, Engine introduces the last stage of the new Anomaly Detection
 feature. Its performances have been globally improved.
 
-Broker on his side has been partially rewritten to get ride of QT and bring a
+Broker on its side has been partially rewritten to get ride of QT and bring a
 new way to communicate with the SQL backend through multi-threaded connections.
 
 Both now provide a new gRPC API that will tremendously improve the way we can
@@ -175,7 +175,7 @@ communicate with them in future versions.
 
 ## High Availability for everyone
 
-Centreon opens is High Availability solution to everyone by sharing its
+Centreon opens its High Availability solution to everyone by sharing its
 source code and installation procedures.
 
 Give it a try by following the [dedicated
