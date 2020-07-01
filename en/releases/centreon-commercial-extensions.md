@@ -62,6 +62,12 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon Auto Discovery
 
+### 20.04.3
+
+#### Enhancements
+
+- Save of job not possible if no modification
+
 ### 20.04.2
 
 > Known issues:
