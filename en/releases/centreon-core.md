@@ -378,7 +378,17 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Gorgone
 
+### 20.04.4
+
+#### Bug fixes
+
+- [proxy] Identity problem when having Remote Server
+- [proxy] Proxy unloaded because of slow database server stop/start sequence
+- [core] Several fixes on HTTP backend
+
 ### 20.04.3
+
+#### Bug fixes
 
 - [autodiscovery] Escape correctly results to be inserted in database
 - [config] Add error message for unreadable files
@@ -388,6 +398,8 @@ ISO-8859-15, CP-1252 and UTF-8.
 - [proxy] Fix several SSH server connection issues (FD leak, pong reset)
 
 ### 20.04.2
+
+#### Bug fixes
 
 - [autodiscovery] Better management of utf8
 - [autodiscovery] Fix returns in results process
@@ -405,6 +417,8 @@ ISO-8859-15, CP-1252 and UTF-8.
 - [yaml] Manage version even version 0.81
 
 ### 20.04.1
+
+#### Bug fixes
 
 - [nodes] Change resync time when you have a SQL issue
 
