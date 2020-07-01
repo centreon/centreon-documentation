@@ -112,7 +112,7 @@ Description des champs du formulaire:
   Use credential                                | Utilisation d'une authentification (oui / non)
   Use SSL                                       | Utilisation d'une authentification SSL (oui / non)
   SMTP user                                     | Compte utilisateur SMTP
-  SMTP password                                 | laisser vide pour ne pas modifier le mot de pass
+  SMTP password                                 | laisser vide pour ne pas modifier le mot de passe
   E-mail default title                          |   Sujet du e-mail de notification par défaut
   Default E-mail body                           | Corps du e-mail de notification par défaut
   Default E-mail footer                         | pied de page du e-mail de notification par défaut
