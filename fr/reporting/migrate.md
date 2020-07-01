@@ -7,7 +7,7 @@ Cette section explique comment migrer votre serveur de reporting vers un
 nouveau serveur. Cela peut être utile dans le cas ou vous devez passer
 de CentOS 6 à CentOS 7.
 
-La migration de l'interface se fait en même temps que la migration du serveur Centreon. (voir [ce chapitre](#TODO))
+La migration de l'interface se fait en même temps que la migration du serveur Centreon. (voir [ce chapitre](../migrate/introduction.html))
 
 ## Installer le nouveau serveur de reporting
 

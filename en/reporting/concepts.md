@@ -157,9 +157,8 @@ The ETL operates in **two modes**:
     chapters.
 
 
-> We advise you to monitor the reporting database using the procedure
-> available in the [Monitoring and procedure](#TODO) chapter. If the ETL does
-> not function for several days or the raw data is not up to date, you
+> We advise you to monitor the reporting database using the dedicated plugin pack. If the ETL does
+> not work for several days or the raw data is not up to date, you
 > must perform a rebuild for the missing days. The ETL **does not
 > automatically** reimport and calculate the missing days. Do not hesitate
 > to contact the Centreon support team for assistance.

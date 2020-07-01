@@ -3,7 +3,7 @@ id: widgets
 title: Les widgets
 ---
 
-Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](#TODO) de Centreon. Il vous êtes de ce fait possible de créer des
+Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.html) de Centreon. Il vous êtes de ce fait possible de créer des
 dashboard combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 

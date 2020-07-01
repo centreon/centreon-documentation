@@ -638,4 +638,4 @@ Redémarrez le service cron sur le serveur de reporting : :
 > *eventReportBuilder* est terminé sur le serveur de monitoring (vérifiez
 > les heures dans le cron `/etc/cron.d/centreon`).
 
-La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](#TODO)
+La configuration de votre installation de Centreon MBI est terminée, consultez le [tutorial](../getting-started/analyze-resources-availability.html)

@@ -3,7 +3,7 @@ id: manage-reports
 title: Générer des rapports
 ---
 
-Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer les rapports. 
+Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer les rapports.
 
 ![image](../assets/reporting/first_page.png)
 
@@ -12,8 +12,9 @@ Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer
 
 Une tâche planifiée est une entité qui permet de générer un rapport et sa configuration prend en compte :
 
- - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](#TODO)
- - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](#TODO)])
+ - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](reports.html))
+ - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation.html#bonnes-pratiques-de-supervision))
+
  - Une période de reporting (mois en cours, mois dernier, veille etc..)
 
 ### Liste des tâches planifiées
@@ -90,7 +91,7 @@ plusieurs éléments de la liste.
 
 Le tableau suivant décrit les différentes actions possibles:
 
-  
+
   Action      | Description
   ------------|-------------------------------------------------------------
   Trash       | Envoie les tâches selectionnées vers la corbeille.
@@ -101,14 +102,14 @@ Le tableau suivant décrit les différentes actions possibles:
 ### Ajouter / modifier
 
 Pour générer un rapport, il faut créer une tâche planifiée en cliquant sur "Ajouter". La configuration d'une
-tâche planifiée se fait en deux principales étapes: 
+tâche planifiée se fait en deux principales étapes:
 
 - Sélection du modèle de rapport à utiliser (voir tous les modèles disponible)
-- Selectionner le périmètre sur lequel générer le rapport 
+- Selectionner le périmètre sur lequel générer le rapport
 
-et deux étapes optionnelles: 
+et deux étapes optionnelles:
 
-- Publication du rapport 
+- Publication du rapport
 - Tuning (Réglages avancés)
 
 Le formulaire suivant est utilisé pour la création d'une nouvelle tâche
@@ -240,7 +241,7 @@ Ci-dessous les palettes associées aux couleurs:
 
 Le theme de couleur par défaut peut être modifié dans le menu d'options
 générales de Centreon MBI. Pour plus d'informations, visitez le
-chapitre [Options générales](#TODO)
+chapitre [Options générales](configure.html#options-g%C3%A9n%C3%A9rales)
 
 -   Coefficient de la tâche planifiée: chaque modèle de rapport a un
     poids. Une tâche planifiée multiplie ce poids par le coefficient
@@ -269,7 +270,7 @@ Description du tableau:
   --------------------|----------------------------------------------------
   Name                | Nom du rapport
   Period              | La période sur laquelle le rapport a été généré
-  Date de génération  | date de génération du rapport | 
+  Date de génération  | date de génération du rapport |
   Download            | lien pour le téléchargement du rapport
 
 #### Filtre de recherche
@@ -292,7 +293,7 @@ plus utiles.
 ![image](../assets/reporting/guide/moreActions.png)
 
 
-## Groupes de jobs 
+## Groupes de jobs
 
 ### Liste des groupes de tâches planifiées
 
@@ -405,7 +406,7 @@ Report design groups  | Groupe de modèles de rapports lié au modèle de rappor
   Activate              | Activer un modèle de rapport afin de pouvoir l'utiliser dans les tâches planifiées
   Deactivate            | Désactiver un modèle de rapport. Son utilisation ne sera plus possible dans les tâches planifiées
 
-## Groupe de modèle de rapport 
+## Groupe de modèle de rapport
 
 ### Liste des groupes de modèle
 
@@ -437,13 +438,13 @@ Description des champs du formulaire:
 **Légende:** Les actions possibles sur les groupes de modèles de
 rapports
 
-  
+
   Action        | Description
   --------------|---------------------
   Delete        | Supprimer le groupe
 
 
-## Logo 
+## Logo
 
 Vous pouvez stocker des images dans la configuration du module Centreon
 MBI pour une réutilisation dans les rapports.
