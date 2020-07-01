@@ -269,6 +269,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.04.4
+
+#### Bug fixes
+
+- Segfault when using on-demand macros
+
 ### 20.04.3
 
 #### Bug fixes
