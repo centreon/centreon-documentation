@@ -12,8 +12,9 @@ Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer
 
 Une tâche planifiée est une entité qui permet de générer un rapport et sa configuration prend en compte :
 
- - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](reports.html)
- - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation.html#best-practices-for-monitoring)])
+ - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](reports.html))
+ - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation.html#bonnes-pratiques-de-supervision))
+
  - Une période de reporting (mois en cours, mois dernier, veille etc..)
 
 ### Liste des tâches planifiées
@@ -240,7 +241,7 @@ Ci-dessous les palettes associées aux couleurs:
 
 Le theme de couleur par défaut peut être modifié dans le menu d'options
 générales de Centreon MBI. Pour plus d'informations, visitez le
-chapitre [Options générales](configure.html#options-générales)
+chapitre [Options générales](configure.html#options-g%C3%A9n%C3%A9rales)
 
 -   Coefficient de la tâche planifiée: chaque modèle de rapport a un
     poids. Une tâche planifiée multiplie ce poids par le coefficient
