@@ -327,6 +327,7 @@
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-netdata-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-nginx-serverstatus",
                     "integrations/plugin-packs/procedures/applications-video-openheadend-snmp",
                     "integrations/plugin-packs/procedures/applications-openldap-ldap",
