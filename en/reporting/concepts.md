@@ -466,11 +466,6 @@ be advised that this may increase calculation time. Start with a small
 number of parameter combinations to determine the impact on calculation
 time.
 
-
-> To generate the centile traffic report on historical data, run the
-> following commands. To generate future centile reports (calculated from
-> now on), proceed to the next chapter.
-
 On the **reporting** server, run the following command to import the
 configuration data:
 

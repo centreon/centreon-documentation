@@ -513,14 +513,6 @@ Commencez par configurer les centiles sur un petit perimètre puis
 problématiques. (peut prendre de quelques secondes à plusieurs dizaine
 de minutes).
 
-
-> Si vous souhaitez générer le rapport de trafic contenant des
-> statistiques de centile sur les données du passé, exécutez les étapes
-> suivantes. Si vous souhaitez uniquement être en mesure de générer des
-> rapports sur le centile dans le future, à partir d'aujourd'hui (car
-> les données seront calculées à partir d'aujourd'hui), rendez vous au
-> chapitre suivant.
-
 Sur le serveur de **reporting**, executez la commande suivante pour
 importer les données de configuration:
 
