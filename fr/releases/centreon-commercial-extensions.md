@@ -18,6 +18,10 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.1
+
+* Mise à jour de SpringBoot en version 2.3.0 (Tomcat 9.0.35) ([CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484))
+
 ### 20.04.0
 
 * Simplification du packaging: la dépendance à Tomcat a été retirée, les logs
