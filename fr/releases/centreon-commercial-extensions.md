@@ -39,7 +39,7 @@ liens
 
 ### 20.04.2
 
-* Les seuils ayant pour valeur "0" sont désormais correctement afficher dans les différentes pages de configuration et de supervision
+* Les seuils ayant pour valeur "0" sont désormais correctement affichés dans les différentes pages de configuration et de supervision
 * Le fil d'ariane de la configuration amène désormais à la bonne page
 * Des erreurs SQL n'apparaîssent plus lorsqu'un utilisateur sauvegarde les préférences générales de Centreon BAM
 * Correction de la pagination de la page des indicateurs
@@ -155,5 +155,4 @@ subscription from `Administration > Extensions > Manager` menu:
 
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
-
 
