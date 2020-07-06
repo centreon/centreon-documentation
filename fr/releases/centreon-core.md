@@ -18,6 +18,34 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.4
+
+#### Bug fixes
+
+- [Reporting] Host availability is wrong due to Broker changes
+- [Reporting] Planned downtime are wrongly managed when cancelled
+- [Eventlog] Host logs are not displayed when using filter
+- [Configuration] Sanitize geocord value in the form
+- [Configuration] Wrong command line avoid notification for meta-services
+- [PPM] Missing icons on hosts created using Plugin Packs
+- [Events view] Manage ACL on planned downtime actions (frontend)
+- [Events view] Graph: Manage "micro" units (like second) and make them readable
+- [Events view] When a curve is always at 0, the tooltip & data are not displayed
+- [Web] No top counter for hosts and services
+- [Trap] Fix saved value in the form
+- [Backup] Unable to mount EXT4 partitions
+
+#### Security
+
+- [Eventlog] SQL injection in "include/eventLogs/xml/data.php"
+- [Configuration] SQL injection in "Configuration > Servicegroups"
+- [EventLog] SQL injection in EventLog
+- [Monitoring] SQL injection in graphTemplates.php
+- [Monitoring] SQL injection in Graph (export CSV)
+- [Monitoring] SQL injection in Graph (export XML)
+- [Configuration] Missing access control mechanism in Gorgone configuration generation
+- [API] CORS issue on "/monitoring/resources"
+
 ### 20.04.3
 
 #### Enhancements
@@ -41,6 +69,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Events view] Graphs: you can now hide/show curves
 - [Events view] Graph: roboto correctly set everywhere
 - [Events view] Correctly hide password in the commands you see in the detail panel
+- [Events view] Access the full acknowledgement/downtime comment in the detail panel
 
 #### Security
 
