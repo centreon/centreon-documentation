@@ -41,6 +41,18 @@ liens
 
 ## Centreon BAM
 
+### 20.04.2
+
+* Les seuils ayant pour valeur "0" sont désormais correctement affichés dans les différentes pages de configuration et de supervision
+* Le fil d'ariane de la configuration amène désormais à la bonne page
+* Des erreurs SQL n'apparaîssent plus lorsqu'un utilisateur sauvegarde les préférences générales de Centreon BAM
+* Correction de la pagination de la page des indicateurs
+* Correction du tooltip affichant la règle booléenne et son statut dans l'arbre d'impact
+* Correction diverses sur le français
+* Correction du bouton d'aide sur le seuil critique lors de la configuration d'une activité métier
+* Amélioration des noms de paramètre d'héritage de plage de maintenance planifiée
+* Amélioration de la gestion de la license
+
 ### 20.04.1
 
 * La méthode de calcul par défaut est maintenant "Worst" lorsque vous créez une activité métier
@@ -166,5 +178,4 @@ subscription from `Administration > Extensions > Manager` menu:
 
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
-
 
