@@ -334,6 +334,13 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Broker
 
+### 20.04.6
+
+#### Bug fixes
+
+- Crash with segfault possible during a database server restart
+- BAM module could never recover after a database server restart
+
 ### 20.04.5
 
 > Known issues:
