@@ -16,7 +16,7 @@ commerciales** de Centreon.
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
 commerciales, veuillez contacter le support.
 
-## Centreon MAP
+## Centreon MAP release notes
 
 ### 20.04.1
 
@@ -39,7 +39,7 @@ et non l'ID interne
 * Il est possible de choisir l'arrondi à prendre en compte pour le label des
 liens
 
-## Centreon BAM
+## Centreon BAM release notes
 
 ### 20.04.2
 
@@ -69,7 +69,7 @@ l'indicateur est en plage de maintenance planifiée
 * Toutes les pages de configuration & temps réelle ont été mise à jour pour
 gérer ces nouvelles méthodes de calcul
 
-## Centreon MBI
+## Centreon MBI release notes
 
 ### 20.04.1
 
@@ -81,7 +81,7 @@ gérer ces nouvelles méthodes de calcul
 
 * Gestion de la compatibilité avec Centreon 20.04
 
-## Centreon Auto Discovery
+## Centreon Auto Discovery release notes
 
 ### 20.04.3
 
@@ -150,7 +150,7 @@ configuration value:
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
 
-## Centreon Plugin Pack Manager
+## Centreon Plugin Pack Manager release notes
 
 ### 20.04.1
 
@@ -162,7 +162,7 @@ configuration value:
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
-## Centreon License Manager
+## Centreon License Manager release notes
 
 ### 20.04.1
 

@@ -17,7 +17,7 @@ extensions**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-## Centreon High-Availability
+## Centreon High-Availability release notes
 
 ### 20.04.1-1
 * [Cron] gorgoned manages all scheduled tasks
@@ -31,9 +31,9 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-* [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha) 
+* [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha)
 
-## Centreon DSM
+## Centreon DSM release notes
 
 ### 20.04.0
 
@@ -41,7 +41,7 @@ If you have feature requests or want to report a bug, please go to our
 * Manage hosts disabled: host change instance or instance is not running (commit a99b068)
 * Applied patch for mariadb 10.2.x (commit a567991)
 
-## Centreon Open Ticket
+## Centreon Open Ticket release notes
 
 ### 20.04.0
 

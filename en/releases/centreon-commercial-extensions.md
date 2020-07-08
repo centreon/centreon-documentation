@@ -16,7 +16,7 @@ Extension**.
 
 If you have feature requests or want to report a bug, please contact support.
 
-## Centreon MAP
+## Centreon MAP release notes
 
 ### 20.04.1
 
@@ -36,7 +36,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 * [API] Use the reeal resource ID instead of internal resource ID
 * It's now possible to manage how value are rounded on links
 
-## Centreon BAM
+## Centreon BAM release notes
 
 ### 20.04.2
 
@@ -65,7 +65,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 * New planned downtime inheritance management: you can now ignore the indicator in the calculation
 * Update all real time & configuration page to manage new calculation methods
 
-## Centreon MBI
+## Centreon MBI release notes
 
 ### 20.04.1
 
@@ -77,7 +77,7 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 * Manage compatibility with Centreon 20.04
 
-## Centreon Auto Discovery
+## Centreon Auto Discovery release notes
 
 ### 20.04.3
 
@@ -146,7 +146,7 @@ configuration value:
   - **monitoring**: allows to select the monitoring server which will monitor
     the discovered resource (on a condition or not)
 
-## Centreon Plugin Packs Manager
+## Centreon Plugin Packs Manager release notes
 
 ### 20.04.1
 
@@ -158,7 +158,7 @@ configuration value:
   - The procedures for installing Plugin Packs are now hosted on the official
     Centreon documentation
 
-## Centreon License Manager
+## Centreon License Manager release notes
 
 ### 20.04.1
 

@@ -16,7 +16,7 @@ You can find in this chapter all changelogs concerning **Centreon Core**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-## Centreon Web
+## Centreon Web release notes
 
 ### 20.04.4
 
@@ -296,7 +296,7 @@ If you have feature requests or want to report a bug, please go to our
 * Update composer dependencies (PR/#8515)
 * Upgrade handlebars dependencies (PR/#8224)
 
-## Centreon Engine
+## Centreon Engine release notes
 
 ### 20.04.4
 
@@ -338,7 +338,7 @@ ISO-8859-15, CP-1252 and UTF-8.
 - [gRPC] Add statistics
 - [Config] Add POLLERID & POLLERNAME macro
 
-## Centreon Broker
+## Centreon Broker release notes
 
 ### 20.04.6
 
@@ -418,7 +418,7 @@ ISO-8859-15, CP-1252 and UTF-8.
 - Fix influxdb retention (PR #399)
 - Fix TLS
 
-## Centreon Gorgone
+## Centreon Gorgone release notes
 
 ### 20.04.3
 
