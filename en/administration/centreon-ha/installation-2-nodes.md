@@ -524,6 +524,26 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
+### Modification des droits
+
+Modifications have to be made on permissions of ```/var/log/centreon-engine``` and ```/tmp/centreon-autodisco``` directories.
+In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal. 
+
+- Files synchronization
+
+```bash
+chmod 775 /var/log/centreon-engine/
+chmod 775 /var/log/centreon-engine/archives/
+chmod 664 /var/log/centreon-engine/*
+chmod 664 /var/log/centreon-engine/archives/*
+```
+
+- Services discovery
+
+```bash
+chmod 775 /tmp/centreon-autodisco/
+```
+
 ### Stopping and disabling the services
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:

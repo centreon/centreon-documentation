@@ -525,6 +525,28 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
+### Modification des droits
+
+Les répertoires /var/log/centreon-engine et /tmp/centreon-autodisco sont partagés entre plusieurs processus. Il est nécessaire 
+de modifier les droits des répertoires et fichiers pour garantir le bon fonctionnement de la réplication de fichiers et de la 
+découverte automatique des services:
+
+- Réplication des fichiers 
+
+```bash
+chmod 775 /var/log/centreon-engine/
+chmod 775 /var/log/centreon-engine/archives/
+chmod 664 /var/log/centreon-engine/*
+chmod 664 /var/log/centreon-engine/archives/*
+```
+
+- Découverte des services 
+
+```bash
+chmod 775 /tmp/centreon-autodisco/
+```
+
+
 ### Arrêt et désactivation des services
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.

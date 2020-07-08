@@ -17,6 +17,22 @@ extensions**.
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
+## Centreon High-Availability
+
+### 20.04.1-1
+* [Cron] gorgoned manages all scheduled tasks
+* [Sync] centreon_central_sync bugfixes (realtime sync)
+* [Documentation] Revoke SUPER right from Centreon user. Add SELECT right to Replication user
+* [Documentation] Add specific mod associated to /var/log/centreon-engine/ and /tmp/centreon-autodisco/ shared directories
+
+### 20.04.1
+
+* [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
+
+### 20.04.0
+
+* [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha) 
+
 ## Centreon DSM
 
 ### 20.04.0
