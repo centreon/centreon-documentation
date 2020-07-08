@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 20.04.1-1
+### 20.04.1
 
 #### Bug fixes
 
