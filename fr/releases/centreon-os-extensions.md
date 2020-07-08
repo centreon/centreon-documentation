@@ -19,15 +19,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 20.04.1-1
-* [Cron] gorgoned manages all scheduled tasks
-* [Sync] centreon_central_sync bugfixes (realtime sync)
-* [Documentation] Revoke SUPER right from Centreon user. Add SELECT right to Replication user
-* [Documentation] Add specific mod associated to /var/log/centreon-engine/ and /tmp/centreon-autodisco/ shared directories
-
 ### 20.04.1
 
+#### Bug fixes
+
+* [Cron] gorgoned manages all scheduled tasks
+* [Sync] centreon_central_sync bugfixes (realtime sync)
 * [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
+* [Documentation] Revoke SUPER right from Centreon user. Add SELECT right to Replication user
+* [Documentation] Add specific chmod associated to /var/log/centreon-engine/ and /tmp/centreon-autodisco/ shared directories
+* [Documentation] Missing cache regeneration in update procedure
 
 ### 20.04.0
 
