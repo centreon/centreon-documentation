@@ -410,7 +410,7 @@ Wait for Centreon MAP service to start completely (~30 sec to 1 minutes). Test t
 up and accessible on the new port you defined by entering the following URL in
 your web browser:
 
-    http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/api/beta/actuator/health
+    http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/centreon-studio/api/beta/actuator/health
 
 ## Define port below 1024
 
@@ -480,7 +480,7 @@ Save this configuration so it will be applied each time you reboot your server:
 Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
-http://\<IP\_MAP\_SERVER\>/api/beta/actuator/health
+http://\<IP\_MAP\_SERVER\>/centreon-studio/api/beta/actuator/health
 
 You should see server's state:
 ``` shell
