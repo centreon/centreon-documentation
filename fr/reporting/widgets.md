@@ -218,7 +218,7 @@ changement de statut.
 
 ## Capacité et performance
 
-> Les services utilisés dans les widgets suivant doivent être associés à au moins une catégorie
+> Les services utilisés dans les widgets suivants doivent être associés à au moins une catégorie
 > de services, depuis au moins une journée.
 
 ### Typical metric performance on a 24h day
