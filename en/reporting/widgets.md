@@ -202,6 +202,9 @@ help in decision-making.
 
 ## Capacity & Performance
 
+> Services that you want to use in the following widgets need to be categorized at least in one
+> service category, for at least one day.
+
 ### Typical metric performance day
 
 #### Description
