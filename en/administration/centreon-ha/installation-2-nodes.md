@@ -524,9 +524,10 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
-### Modification des droits
+### Permission modifications
 
-Modifications have to be made on permissions of ```/var/log/centreon-engine``` and ```/tmp/centreon-autodisco``` directories.
+Modifications have to be made on permissions of `/var/log/centreon-engine` and `/tmp/centreon-autodisco` directories.
+
 In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal. 
 
 - Files synchronization
