@@ -3,13 +3,15 @@ id: hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
 ---
 
-## Overview
+## Vue d'ensemble
 
-ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetApp's proprietary operating system used in storage disk arrays such as NetApp FAS and AFF, ONTAP Select and Cloud Volumes ONTAP
+ONTAP ou Data ONTAP ou Clustered Data ONTAP (cDOT) ou Data ONTAP 7-Mode est un système d'exploitation proriétaire NetApp utilisé sur le stockage de données.
 
-## Plugin-Pack assets
+## Contenu du Plugin-Pack
 
-### Monitored objects
+### Éléments supervisés
+
+Le Plugin-Pack permet de superviser les ressources:
 
 * Cluster
 * Hardware
@@ -17,15 +19,9 @@ ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetAp
 * Snapmirrors
 * Volumes
 
-### Discovery rules
+### Métriques collectées
 
-<!--Services-->
-
-| Rule name                                   | Description                                 |
-| :------------------------------------------ | :------------------------------------------ |
-| HW-Storage-Netapp-Ontap-Restapi-Volume-Name |  Discover volumes attached to your storage  |
-
-### Monitored metrics 
+Les métriques collectées sont les suivantes:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -76,49 +72,47 @@ ONTAP or Data ONTAP or Clustered Data ONTAP (cDOT) or Data ONTAP 7-Mode is NetAp
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
-### NetApp ONTAP configuration
+### Configuration
 
-A read-only account (login/password) is required.
+Un compte en lecture est requis (user/password).
 
-## Setup 
+## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources NetApp Ontap:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor NetApp ONTAP ressources:
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources NetApp Ontap:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 ```
 
-3. On the Centreon Web interface, install the 'NetApp Ontap Rest API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the template *HW-Storage-NetApp-Ontap-Restapi-custom* and configure all the Macros:
-
+* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
+* Appliquez le modèle d'Hôte "HW-Storage-NetApp-Ontap-Restapi-custom" et configurer les macros nécessaires :
 
 | Mandatory   | Nom                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
@@ -130,9 +124,10 @@ yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur
+Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_ontap_restapi.pl \	
@@ -146,6 +141,5 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 	--verbose
 ```
 
-The command above checks the status of the volumes (```--mode=volumes```) of the NetApp storage *netapp.centreon.com* (```--hostname=netapp.centreon.com```)
-using the API username *admin* and the related password (```--api-username='admin' --api-password='xxxx'```).
-The API connection uses the *HTTPS* protocol (```--proto=https```) on the port *443* (```--port=443```).
+Cette commande vérifie le statut des volumes NetApp (```--mode=volumes```) du stockage *netapp.centreon.com* (```--hostname=netapp.centreon.com```).
+L'authentification à l'API s'effectue avec un utilisateur *admin* (```--api-username=admin```) et un mot de passe *xxxx* associé (```--api-password='xxxx'```).
