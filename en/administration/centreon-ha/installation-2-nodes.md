@@ -33,11 +33,11 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
 
 * `@CENTRAL_MASTER_IPADDR@`: primary central server's IP address
-* `@CENTRAL_MASTER_NAME@`: primary central server's name
+* `@CENTRAL_MASTER_NAME@`: primary central server's name (must be identical to `hostname -s`)
 * `@CENTRAL_SLAVE_IPADDR@`: secondary central server's IP address
-* `@CENTRAL_SLAVE_NAME@`: secondary central server's name
+* `@CENTRAL_SLAVE_NAME@`: secondary central server's name (must be identical to `hostname -s`)
 * `@QDEVICE_IPADDR@`: quorum device's IP address
-* `@QDEVICE_NAME@`: quorum device's name
+* `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
 * `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
 * `@MARIADB_REPL_PASSWD@`: MariaDB replication password
 * `@MARIADB_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
@@ -141,7 +141,7 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster.
+Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
 
 ```bash
 yum install epel-release
@@ -164,10 +164,15 @@ The second method will be documented below.
 
 #### `centreon` account
 
-Run these  commands on both nodes:
+Switch to `centreon`'s bash environment on both nodes:
 
 ```
 su - centreon
+```
+
+Then run these commands on both nodes:
+
+```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -181,7 +186,7 @@ chmod 600 ~/.ssh/authorized_keys
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
 ```
-ssh <peer node ip address>
+ssh <peer node hostname>
 ```
 
 Then exit the `centreon` session typing `exit` or `Ctrl-D`.
@@ -197,11 +202,12 @@ chown mysql: /home/mysql
 usermod -d /home/mysql mysql
 usermod -s /bin/bash mysql
 systemctl start mysql
+su - mysql
 ```
 
+Once in `mysql`'s `bash` envinronment, run these commands on both nodes:
 
 ```bash
-su - mysql
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -215,7 +221,7 @@ chmod 600 ~/.ssh/authorized_keys
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `mysql` user):
 
 ```bash
-ssh <peer node ip address>
+ssh <peer node hostname>
 ```
 
 Then exit the `mysql` session typing `exit` or `Ctrl-D`.
@@ -524,9 +530,10 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
-### Modification des droits
+### Permission modifications
 
-Modifications have to be made on permissions of ```/var/log/centreon-engine``` and ```/tmp/centreon-autodisco``` directories.
+Modifications have to be made on permissions of `/var/log/centreon-engine` and `/tmp/centreon-autodisco` directories.
+
 In a clustered-setup, it's a requirement to get a file sync and discovery scheduled task fully functionnal. 
 
 - Files synchronization

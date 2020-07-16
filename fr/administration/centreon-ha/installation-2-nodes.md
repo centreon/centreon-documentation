@@ -33,11 +33,11 @@ Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de sp
 Dans cette procédure nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des macros suivantes :
 
 * `@CENTRAL_MASTER_IPADDR@` : adresse IP du serveur principal
-* `@CENTRAL_MASTER_NAME@` : nom du serveur principal
+* `@CENTRAL_MASTER_NAME@` : nom du serveur principal (doit être identique au résultat de `hostname -s`)
 * `@CENTRAL_SLAVE_IPADDR@` : adresse IP du serveur secondaire
-* `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire
+* `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire (doit être identique au résultat de `hostname -s`)
 * `@QDEVICE_IPADDR@` : adresse IP du serveur supportant le *quorum device*
-* `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device*
+* `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device* (doit être identique au résultat de `hostname -s`)
 * `@MARIADB_REPL_USER@` : nom du compte MariaDB de réplication (suggéré : centreon-repl)
 * `@MARIADB_REPL_PASSWD@` : mot de passe de ce compte
 * `@MARIADB_CENTREON_USER@` : nom du compte MariaDB de Centreon (suggéré : centreon)
@@ -143,7 +143,7 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon.
+Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
 
 ```bash
 yum install epel-release
@@ -166,10 +166,15 @@ C'est la seconde méthode qui sera proposée plus bas.
 
 #### Compte `centreon`
 
-Cette procédure est à appliquer sur les deux nœuds centraux :
+Cette procédure est à appliquer sur les deux nœuds centraux. Pour commencer passer dans l'environnement `bash` de `centreon` :
 
 ```bash
 su - centreon
+```
+
+Puis lancer ces commandes sur les deux nœuds centraux :
+
+```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -183,7 +188,7 @@ chmod 600 ~/.ssh/authorized_keys
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `centreon`) :
 
 ```bash
-ssh <adresse IP de l'autre nœud>
+ssh <nom de l'autre nœud>
 ```
 
 Puis sortir de la session de `centreon` avec `exit` ou `Ctrl-D`.
@@ -199,11 +204,12 @@ chown mysql: /home/mysql
 usermod -d /home/mysql mysql
 usermod -s /bin/bash mysql
 systemctl start mysql
+su - mysql
 ```
 
+Une fois dans l'environnement `bash` de `mysql`, lancer ces commandes sur les deux nœuds centraux :
 
 ```bash
-su - mysql
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -217,7 +223,7 @@ chmod 600 ~/.ssh/authorized_keys
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `mysql`) :
 
 ```bash
-ssh <adresse IP de l'autre nœud>
+ssh <nom de l'autre nœud>
 ```
 
 Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
