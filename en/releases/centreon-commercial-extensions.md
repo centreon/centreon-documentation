@@ -18,6 +18,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP release notes
 
+### 20.04.2
+
+* You can now define how to round values displayed on metric links in standard views
+* Update Geoview to be compatible with the latest Mapbox version. See [their documentation](https://docs.mapbox.com/help/troubleshooting/migrate-legacy-static-tiles-api/) to understand
+* Upgrade leaflet version to [1.6.0](https://leafletjs.com/2019/11/17/leaflet-1.6.0.html)
+* You've now directly access to `Monitoring > Map` or Map widgets without being forced to refresh multiple times your browser after upgrading to 20.04.0 or >=
+* Fix a bug affecting the business activities tooltip on a view when the BA is calculated using the new calculation methods
+
 ### 20.04.1
 
 * Update to SpringBoot 2.3.0 (Tomcat 9.0.35) ([CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484))
