@@ -143,7 +143,7 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon.
+Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
 
 ```bash
 yum install epel-release
