@@ -477,8 +477,10 @@ Umount and Delete LVM snapshot
 Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
-3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
+[nombre variable de lignes]
 ```
+
+Ce qu'il est important de vérifier est que les lignes `Start MySQL Slave` et `Start Replication` ne soient suivies d'aucune erreur.
 
 Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoyer un résultat sans erreur :
 
