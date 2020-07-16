@@ -33,11 +33,11 @@ Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de sp
 Dans cette procédure nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des macros suivantes :
 
 * `@CENTRAL_MASTER_IPADDR@` : adresse IP du serveur principal
-* `@CENTRAL_MASTER_NAME@` : nom du serveur principal
+* `@CENTRAL_MASTER_NAME@` : nom du serveur principal (doit être identique au résultat de `hostname -s`)
 * `@CENTRAL_SLAVE_IPADDR@` : adresse IP du serveur secondaire
-* `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire
+* `@CENTRAL_SLAVE_NAME@` : nom du serveur secondaire (doit être identique au résultat de `hostname -s`)
 * `@QDEVICE_IPADDR@` : adresse IP du serveur supportant le *quorum device*
-* `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device*
+* `@QDEVICE_NAME@` : nom du serveur supportant le *quorum device* (doit être identique au résultat de `hostname -s`)
 * `@MARIADB_REPL_USER@` : nom du compte MariaDB de réplication (suggéré : centreon-repl)
 * `@MARIADB_REPL_PASSWD@` : mot de passe de ce compte
 * `@MARIADB_CENTREON_USER@` : nom du compte MariaDB de Centreon (suggéré : centreon)

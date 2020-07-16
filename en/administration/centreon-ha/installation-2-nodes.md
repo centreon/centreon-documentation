@@ -33,11 +33,11 @@ In order to keep the cluster safe from split-brain issues, a third server is man
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
 
 * `@CENTRAL_MASTER_IPADDR@`: primary central server's IP address
-* `@CENTRAL_MASTER_NAME@`: primary central server's name
+* `@CENTRAL_MASTER_NAME@`: primary central server's name (must be identical to `hostname -s`)
 * `@CENTRAL_SLAVE_IPADDR@`: secondary central server's IP address
-* `@CENTRAL_SLAVE_NAME@`: secondary central server's name
+* `@CENTRAL_SLAVE_NAME@`: secondary central server's name (must be identical to `hostname -s`)
 * `@QDEVICE_IPADDR@`: quorum device's IP address
-* `@QDEVICE_NAME@`: quorum device's name
+* `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
 * `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
 * `@MARIADB_REPL_PASSWD@`: MariaDB replication password
 * `@MARIADB_CENTREON_USER@`: MariaDB Centreon login (default: `centreon`)
