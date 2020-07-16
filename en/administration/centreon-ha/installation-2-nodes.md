@@ -164,10 +164,15 @@ The second method will be documented below.
 
 #### `centreon` account
 
-Run these  commands on both nodes:
+Switch to `centreon`'s bash environment on both nodes:
 
 ```
 su - centreon
+```
+
+Then run these commands on both nodes:
+
+```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -197,11 +202,12 @@ chown mysql: /home/mysql
 usermod -d /home/mysql mysql
 usermod -s /bin/bash mysql
 systemctl start mysql
+su - mysql
 ```
 
+Once in `mysql`'s `bash` envinronment, run these commands on both nodes:
 
 ```bash
-su - mysql
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```

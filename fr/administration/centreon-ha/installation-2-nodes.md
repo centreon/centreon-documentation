@@ -166,10 +166,15 @@ C'est la seconde méthode qui sera proposée plus bas.
 
 #### Compte `centreon`
 
-Cette procédure est à appliquer sur les deux nœuds centraux :
+Cette procédure est à appliquer sur les deux nœuds centraux. Pour commencer passer dans l'environnement `bash` de `centreon` :
 
 ```bash
 su - centreon
+```
+
+Puis lancer ces commandes sur les deux nœuds centraux :
+
+```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
@@ -199,11 +204,12 @@ chown mysql: /home/mysql
 usermod -d /home/mysql mysql
 usermod -s /bin/bash mysql
 systemctl start mysql
+su - mysql
 ```
 
+Une fois dans l'environnement `bash` de `mysql`, lancer ces commandes sur les deux nœuds centraux :
 
 ```bash
-su - mysql
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
