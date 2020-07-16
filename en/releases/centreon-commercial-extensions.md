@@ -38,6 +38,12 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon BAM release notes
 
+### 20.04.3
+
+* Add HTTP2 compatibility
+* Fix a problem affecting the "Display top BA" parameter in the widget
+* Add help when selecting how planned downtimes should be handled by the business activities
+
 ### 20.04.2
 
 * "0" thresholds values are now correctly displayed in the configuration & real time pages
