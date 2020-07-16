@@ -181,7 +181,7 @@ chmod 600 ~/.ssh/authorized_keys
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon` user):
 
 ```
-ssh <peer node ip address>
+ssh <peer node hostname>
 ```
 
 Then exit the `centreon` session typing `exit` or `Ctrl-D`.
@@ -215,7 +215,7 @@ chmod 600 ~/.ssh/authorized_keys
 The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `mysql` user):
 
 ```bash
-ssh <peer node ip address>
+ssh <peer node hostname>
 ```
 
 Then exit the `mysql` session typing `exit` or `Ctrl-D`.

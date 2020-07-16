@@ -183,7 +183,7 @@ chmod 600 ~/.ssh/authorized_keys
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `centreon`) :
 
 ```bash
-ssh <adresse IP de l'autre nœud>
+ssh <nom de l'autre nœud>
 ```
 
 Puis sortir de la session de `centreon` avec `exit` ou `Ctrl-D`.
@@ -217,7 +217,7 @@ chmod 600 ~/.ssh/authorized_keys
 L'échange de clefs doit ensuite être validé par une première connexion qui permettra d'accepter la signature du serveur SSH (toujours en tant que `mysql`) :
 
 ```bash
-ssh <adresse IP de l'autre nœud>
+ssh <nom de l'autre nœud>
 ```
 
 Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
