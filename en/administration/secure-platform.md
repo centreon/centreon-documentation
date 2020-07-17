@@ -207,6 +207,47 @@ To update the Centreon URI, you need to follow those steps:
 2. Edit Apache configuration file for Centreon Web (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**) and
 change **/centreon** path with your new path
 
+## Enabling http2
+
+It is possible to enable http2 protocol to improve Centreon network performance.
+
+To use http2, you need to follow those steps:
+
+1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+
+2. Install nghttp2 module:
+
+```shell
+yum install httpd24-nghttp2
+```
+
+3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+
+```apacheconf
+...
+<VirtualHost *:443>
+    Protocols h2 h2c http/1.1
+    ...
+</VirtualHost>
+...
+```
+
+4. Update method used by apache multi-processus module in **/opt/rh/httpd24/root/etc/httpd/conf.modules.d/00-mpm.conf**:
+
+```diff
+-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
++#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+-#LoadModule mpm_event_module modules/mod_mpm_event.so
++LoadModule mpm_event_module modules/mod_mpm_event.so
+```
+
+5. Restart the Apache process to take in account the new configuration:
+
+```shell
+systemctl restart httpd24-httpd
+```
+
 ## User authentication
 
 Centreon offers several methods to authenticate users:
