@@ -23,8 +23,8 @@ Warning: The following procedure is an example. Cannot be applied on all
 context. The procedure is for centos 6 and hp agent 9.5.
 
 The agent allows to get hardware information in SNMP. First, you need to
-download 'hp-health' and 'hp-snmp-agents' package (can be found in [HP Support
-Website](http://h20565.www2.hp.com/portal/site/hpsc/public))
+download ['hp-health'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_c34b79933bcf4a6e89dc89df27) and ['hp-snmp-agents'](https://support.hpe.com/hpsc/swd/public/detail?swItemId=MTX_fe93eb05acc0417e95e177c0e7) packages (can be found in [HP Support
+Website](https://support.hpe.com/hpsc/swd/public/))
 
     # rpm -i hp-health-9.50-1628.32.rhel6.x86_64.rpm hp-snmp-agents-9.50-2564.40.rhel6.x86_64.rpm
 
