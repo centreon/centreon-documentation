@@ -3,52 +3,104 @@ id: hardware-storage-nimble-snmp
 title: Nimble Storage
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.7 | `STABLE` | Feb  6 2017 |
+## Overview
+
+HPE Nimble Storage is a predictive flash storage technology developed by Nimble Storage that was based in San Jose, California
+founded in early 2008. Nimble Storage produced hardware and software products for data storage, specifically data storage arrays
+that use the iSCSI and Fibre Channel protocols and includes data backup and data protection features. Nimble is a subsidiary of
+Hewlett Packard Enterprise.
+
+## Plugin-Pack assets
+
+### Monitored Objects
+
+* Nimble Flash Arrays
+
+### Available services
+
+The current version of the Nimble SNMP Plugin-Pack can monitor the following services:
+
+* Global-Stats
+* Volumes
+
+### Collected metrics
+
+The following metrics are collected by the Centreon Nimble SNMP Plugin:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Volume-Usage-->
+
+| Metric name                    | Description                          | Unit  |
+| :----------------------------- | :----------------------------------- | :---- |
+| volume.space.usage.bytes       | Per volume space usage (in Bytes)    | Bytes |
+
+<!--Global-Stats-->
+
+| Metric name                           | Description                          | Unit    |
+| :------------------------------------ | :----------------------------------- | :------ |
+| system.io.read.usage.bytespersecond   | Sytem read I/O                       | Bytes/s |
+| system.io.write.usage.bytespersecond  | Sytem write I/O                      | Bytes/s |
+| system.io.read.usage.iops             | Sytem read IOPS count                | Iops    |
+| system.io.write.usage.iops            | Sytem write IOPS count               | Iops    |
+| system.io.read.time.seconds           | Sytem read time                      | Seconds |
+| system.io.write.time.seconds          | Sytem write time                     | Seconds |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-### Centreon Plugin
+### Nimble SNMP Configuration
 
-Install this plugin on each needed poller:
+Enable SNMP on the Nimble device following the official HPE documentation:
+https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administration_Guide_NOS_50x.whz/qzz1501525219979.html
 
-``` shell
+## Installation
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
+
+```bash
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-Be sure to have with you the following information:
+2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-  - Read-Only SNMP community
-  - IP Address of the equipment
+<!--Offline IMP License-->
 
-### Configure SNMP on your server
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
 
-Follow constructor procedure for your equipment.
+```bash
+yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
+```
 
-### SNMP Permissions
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-Read-Only access.
+```bash
+yum install centreon-pack-hardware-storage-nimble-snmp
+```
 
-### Troubleshooting
+3. On the centreon Web interface, install the *Nimble SNMP* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-Read [Troubleshooting
-SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp)
 
-## Centreon Configuration
+## Configuration
 
-### Create a host using the appropriate template
+* Log into Centreon and add new host through "Configuration > Hosts".
+* Fill *SNMP community* and *SNMP version* fields 
+* Apply the template *HW-Storage-Nimble-SNMP* to the Host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+> If you're using the version 3 of the SNMP protocol, select the related SNMP version in the Host configuration form and
+> set the SNMP v3 specific settings in the *SNMPEXTRAOPTIONS* Macro:
 
-| Field                                | Value                         |
-| :----------------------------------- | :---------------------------- |
-| Host name                            | *Name of the host*            |
-| Alias                                | *Host description*            |
-| IP                                   | *Host IP Address*             |
-| Monitored from                       | *Monitoring Poller to use*    |
-| Host Multiple Templates              | HW-Storage-Nimble-SNMP-custom |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-Click on the *Save* button.
+## FAQ
 
+### How can I test my configuration and what do the main parameters stand for ?
+
+@TODO

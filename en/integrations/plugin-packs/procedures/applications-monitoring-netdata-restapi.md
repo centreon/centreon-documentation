@@ -150,7 +150,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
-centreon-pack-applications-monitoring-netdata-restapi.noarch
+yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 ```
 
 3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -176,7 +176,7 @@ centreon-pack-applications-monitoring-netdata-restapi.noarch
 Once the Centreon plugin installed, you can test it directly from the Centreon Poller CLI by logging with the *centreon-engine* user:
 
 ```bash
-/usr/local/src/centreon-plugins/centreon_monitoring_netdata_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
 	--plugin=apps::monitoring::netdata::restapi::plugin \
 	--hostname=10.0.0.1 \
 	--mode=cpu \
@@ -206,7 +206,7 @@ The available thresholds as well as all of the options that can be used with thi
 can be displayed by adding the ```--help``` parameter to the command:
 
 ```
-/usr/local/src/centreon-plugins/centreon_monitoring_netdata_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
 	--plugin=apps::monitoring::netdata::restapi::plugin \
 	--hostname=10.0.0.1 \
 	--mode=cpu \
