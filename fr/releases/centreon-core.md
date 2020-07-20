@@ -18,6 +18,20 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.04.6
+
+> Newly shared views do not break widget preferences.
+> But, if you have already broken widget preferences for users who add a shared view, you'll need to :
+> * Login centreon web with the user who share the custom view
+> * Switch to the custom view with broken preferences for other users
+> * Click on "Share view", and then click on "Share"
+>
+> This will restore preferences for other users
+
+#### Bug fixes
+
+- [Custom views] Fix widget preferences on shared views
+
 ### 20.04.4
 
 #### Bug fixes
