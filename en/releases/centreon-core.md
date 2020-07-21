@@ -340,6 +340,13 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Broker release notes
 
+### 20.04.7
+
+#### Enhancements
+
+- Contention in conflict manager when restarting Engine with lot of
+  configuration: this version settles bases for future improvements
+
 ### 20.04.6
 
 #### Bug fixes
