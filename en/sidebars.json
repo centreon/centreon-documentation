@@ -731,6 +731,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-kaminario-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-oncommandapi",
+                    "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-santricity-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netgear-readynas-snmp",
