@@ -18,6 +18,42 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.04.5
+
+#### Bug fixes
+
+- [Reporting] Reporting is broken when a host is renamed
+- [Monitoring] Service limit when sending an external command
+- [Monitoring] Fix API v1 host filters
+- [Events view] Services attached to host are not all acknowledged in some cases
+- [Events view] Inconsistent french display
+- [CLAPI] APPLYCFG rises errors for hosts with disabled host templates
+- [Configuration] Notifications are sent to wrong contacts when using services
+  by host groups
+- [LDAP] Legacy errors in logs
+- [CEIP] centreon-send-stats.php script failed when one script fails
+- [Host Discovery] Better handle not submitted values for proxy
+- [Host Discovery] Cannot find local monitoring server when having 10+ Pollers
+- [Anomaly Detection] Wrong generated Broker configuration for LUA
+
+#### Security
+
+- [Cron] Privilege Escalation from backup crontab
+- [Custom views] SQL injection in loadServiceFromHost
+- [Custom views] Missing access control mechanism in widget action
+- [Custom views] Missing access control mechanism in widget preferences
+- [Monitoring] XSS in setHistory.php and commonJS.php
+- [Monitoring] Missing access control mechanism in hostSendCommand/
+  serviceSendCommand
+- [Configuration] Post Restart Command must be runned by Gorgone
+- [Configuration] SQL injection in Knowledge Base pages
+- [Configuration] SQL injection in centreonTraps.class.php
+- [Administration] SQL injection in "Administration > Parameters > Data"
+
+#### Enhancements
+
+- [Web] Add HTTP2 compatibility (see https://docs.centreon.com/current/en/administration/secure-platform.html#enabling-http2)
+
 ### 20.04.4
 
 #### Bug fixes
