@@ -136,14 +136,14 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_ontap_restapi.pl \	
-	--plugin=storage::netapp::ontap::restapi::plugin \
-	--hostname=netapp.centreon.com \
+    --plugin=storage::netapp::ontap::restapi::plugin \
+    --hostname=netapp.centreon.com \
     --port=443 \
     --proto=https \
     --api-username='admin' \
     --api-password='xxxx' \
     --mode=volumes \
-	--verbose
+    --verbose
 ```
 
 The command above checks the status of the volumes (```--mode=volumes```) of the NetApp storage *netapp.centreon.com* (```--hostname=netapp.centreon.com```)
