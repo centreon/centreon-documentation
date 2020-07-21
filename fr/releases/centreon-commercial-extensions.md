@@ -83,11 +83,31 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery release notes
 
+### 20.04.4
+
+#### Bugfixes
+
+- [Host Discovery] Impossible to list all monitoring servers in job
+  creation/edition
+- [Host Discovery] Cannot find local monitoring server when having 10+ Pollers
+  (needs Centreon Web 20.04.5)
+- [Host Discovery] Broken display when reaching job result page
+- [Host Discovery] Wizard "Next" actions broken when using "Enter" key
+- [Host Discovery] Failed to insert data in temporary table due to null/undef
+  values
+- [Host Discovery] Fix some wordings and cases
+- [Service Discovery] Error when duplicating a rule
+
+#### Enhancements
+
+- [Host Discovery] Make filters more efficient in jobs listing
+- [Host Discovery] Invert default sorting on "Creation Date" column
+
 ### 20.04.3
 
 #### Enhancements
 
-- Save of job not possible if no modification
+- [Host Discovery] Save of job not possible if no modification
 
 ### 20.04.2
 
@@ -106,28 +126,29 @@ gérer ces nouvelles méthodes de calcul
 
 #### Enhancements
 
-- Better handle forms testing in Host Discovery wizard
-- Enhance error render for jobs
+- [Host Discovery] Better handle forms testing in Host Discovery wizard
+- [Host Discovery] Enhance error render for jobs
 
 #### Bugfixes
 
-- Unable to run Service Discovery since 20.04.1
-- Some words are not translated in french
-- Use $rg API directive to search in providers listing
-- Remove bad characters in the JSON result in Host Discovery
-- Mapper Monitoring - "From job" setting does not take job monitoring server
+- [Service Discovery] Unable to run Service Discovery since 20.04.1
+- [Host Discovery] Some words are not translated in french
+- [Host Discovery] Use $rg API directive to search in providers listing
+- [Host Discovery] Remove bad characters in the JSON result in Host Discovery
+- [Host Discovery] Mapper Monitoring - "From job" setting does not take job
+  monitoring server
 
 ### 20.04.1
 
 #### Enhancements
 
-- Job with 0 discovered items redirects to empty job details
+- [Host Discovery] Job with 0 discovered items redirects to empty job details
 
 #### Bugfixes
 
-- Overlapping text when configuring job with default proxy
-- Use direct connection to Poller when having Remote Server is ignored by
-  Service Discovery
+- [Host Discovery] Overlapping text when configuring job with default proxy
+- [Service Discovery] Use direct connection to Poller when having Remote Server
+  is ignored
 
 ### 20.04.0
 
