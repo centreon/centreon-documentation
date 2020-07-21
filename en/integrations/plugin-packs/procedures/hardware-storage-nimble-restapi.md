@@ -120,4 +120,30 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 ### How can I test my configuration and what do the main parameters stand for ?
 
-@TODO
+@TODO@
+
+### Why do I get the following error message: 
+
+#### ```UNKNOWN: 500 Can't connect to myserver.mycompany.com:19999```
+
+This error message means that the Centreon Plugin couldn't successfully connect to the Netdata agent API.
+Check that no third party device (such as a firewall) is blocking the request.
+A proxy connection may also be necessary to connect to the API. 
+This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+
+When using a proxy to connect to the Netdata agent API, this error message means that the Centreon Plugin library does not support
+the proxy connection protocol.
+
+In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+
+#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
+
+This error message means that a Perl library required to use the *curl* backend is missing.
+
+In order to fix this issue, install the 'Net\:\:Curl\:\:Easy' Perl library using the following command:
+
+```bash
+yum install perl-Net-Curl
+```

@@ -148,7 +148,7 @@ yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
 2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
 
 ```bash
-centreon-pack-applications-monitoring-netdata-restapi.noarch
+yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 ```
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
@@ -174,7 +174,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/local/src/centreon-plugins/centreon_monitoring_netdata_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
 	--plugin=apps::monitoring::netdata::restapi::plugin \
 	--hostname=10.0.0.1 \
 	--mode=cpu \
@@ -203,7 +203,7 @@ et une alarme de type CRITICAL pour une utilisation moyenne supérieure à 80% (
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```
-/usr/local/src/centreon-plugins/centreon_monitoring_netdata_restapi.pl \
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
 	--plugin=apps::monitoring::netdata::restapi::plugin \
 	--hostname=10.0.0.1 \
 	--mode=cpu \

@@ -103,4 +103,16 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 ### How can I test my configuration and what do the main parameters stand for ?
 
-@TODO
+@TODO@
+
+### Why do I get the following error message: 
+
+#### UNKNOWN: SNMP GET Request : Timeout
+
+This message generally means that you are not using the right SNMP version or community. It could also indicate that a third-party device like a firewall is blocking the SNMP UDP/161 request.
+
+#### UNKNOWN: SNMP GET Request : Cant get a single value.
+
+This error message often refers to the following issues: 
+  - the Nimble device doesn't support the MIB used by the plugin
+  - the targeted SNMP OID cannot be fetched because of insufficient privileges on the device
