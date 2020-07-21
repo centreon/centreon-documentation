@@ -131,14 +131,14 @@ Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_ontap_restapi.pl \	
-	--plugin=storage::netapp::ontap::restapi::plugin \
-	--hostname=netapp.centreon.com \
+    --plugin=storage::netapp::ontap::restapi::plugin \
+    --hostname=netapp.centreon.com \
     --port=443 \
     --proto=https \
     --api-username='admin' \
     --api-password='xxxx' \
     --mode=volumes \
-	--verbose
+    --verbose
 ```
 
 Cette commande vérifie le statut des volumes NetApp (```--mode=volumes```) du stockage *netapp.centreon.com* (```--hostname=netapp.centreon.com```).
