@@ -35,10 +35,10 @@ To configure the access to your infrastructure, edit the
 ``` perl
 %centreon_vmware_config = (
     vsphere_server => {
-        'default' => {
-            'url' => 'https://<ip_hostname>/sdk',
-            'username' => '<username>',
-            'password' => '<password>'
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
         }
     }
 );
@@ -58,15 +58,15 @@ structure:
 ``` perl
 %centreon_vmware_config = (
     vsphere_server => {
-        'default' => {
-            'url' => 'https://<ip_hostname>/sdk',
-            'username' => '<username>',
-            'password' => '<password>'
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
         },
-        'other' => {
-            'url' => 'https://<ip_hostname>/sdk',
-            'username' => '<username>',
-            'password' => '<password>'
+        'my_other_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
         },
     },
     port => 5700
@@ -75,7 +75,7 @@ structure:
 1;
 ```
 
-Each entry is called a container.
+Each entry is called a container. You need at least a "default" entry.
 
 > You can also define the "port" attribute to change listening port.
 
@@ -102,7 +102,7 @@ the following table:
 | Alias                   | *Host description*            |
 | IP                      | *Host IP Address*             |
 | Monitored from          | *Monitoring Poller to use*    |
-| Host Multiple Templates | Virt-VMWare2-VM               |
+| Host Multiple Templates | Virt-VMWare2-VM-custom        |
 
 Click the *Save* button.
 
