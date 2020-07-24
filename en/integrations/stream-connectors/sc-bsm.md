@@ -9,8 +9,7 @@ BSM Stream Connector sends events related data from **Centreon** to **Micro Focu
 
 ## How it Works
 
-* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
-* State changes can occur in case of an anomaly detection or metrics falling out of range.
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which uses the functions defined in the Stream Connector to send state changes to BSM.
 
 ## Requirements
 
@@ -77,7 +76,7 @@ systemctl restart cbd
 
 Now your central server has loaded the BSM Stream Connector and has started to send data!
 
-To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-bsm.log`, both located in `/var/log/centreon-broker`.
+> To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-bsm.log`, both located in `/var/log/centreon-broker`.
 
 #### Advanced configuration
 
