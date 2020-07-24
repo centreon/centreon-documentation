@@ -126,7 +126,7 @@ Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-bro
 | `max_buffer_size`   | Number | 1 (valeur par défaut)                            | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               |
 | `max_buffer_age`    | Number | 5 (valeur par défaut)                            | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint |
 
-**Remarks**
+**Remarques**
 
 * La valeur par défaut de 2 pour le paramètre `log_level` est adaptée à la mise en place et au *troubleshooting* initial éventuel, cela peut cependant générer un volume important de logs. Il est donc recommandé, une fois la mise en place validée, de l'abaisser à 1.
 * La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à PagerDuty. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà. 
