@@ -100,10 +100,6 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 ## FAQ
 
-### Comment puis-je tester le Plugin et que signifient les options standards ?
-
-@TODO@
-
 ### J'obtiens le message d'erreur suivant:
 
 #### UNKNOWN: SNMP GET Request : Timeout
