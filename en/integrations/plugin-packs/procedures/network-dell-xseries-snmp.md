@@ -27,15 +27,15 @@ for small and medium businesses.
 
 <!--Interfaces-->
 
-| Metric name                              | Description                                                | Unit   |
-| :--------------------------------------- | :----------------------------------------------------------| :----- |
-| status                                   | Status of the interface                                    | String |
-| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.     			| Bits/s |
-| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.    			| Bits/s |
-| interface.packets.in.error.percentage    | Incoming errored packets going through the interface. 		|   %	 | 
-| interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface.	|   %	 |
-| interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. 		|   %	 |
-| interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. 	|   %	 | 
+| Metric name                              | Description                                             | Unit   |
+|:-----------------------------------------|:--------------------------------------------------------|:-------|
+| status                                   | Status of the interface                                 | String |
+| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | Bits/s |
+| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | Bits/s |
+| interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %      |
+| interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %      |
+| interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %      |
+| interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %      |
 
 <!--Uptime-->
 
