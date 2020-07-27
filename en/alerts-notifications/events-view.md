@@ -130,12 +130,9 @@ This is possible using the **icon** next to Filter. You'll be able to:
 As soon as a filter is saved, it's re-usable in the Filter dropdown list, categorized under "My Filter".
 
  <video controls="true" allowfullscreen="true">
-    <source src="../assets/alerts/events-view/demo-filter-management.webm" type="video/webm">
     <source src="../assets/alerts/events-view/demo-filter-management.mp4" type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
   </video>
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Mf3oZck7LDg?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ![image](../assets/alerts/events-view/manage-filters.gif)
 
