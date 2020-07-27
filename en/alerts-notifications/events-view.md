@@ -119,17 +119,25 @@ the following additionnal criteria:
 You may create some "complex" filters that set you in a specific context, using multiple criterias and even complex
 regular expressions. In that case, you may want to save this filter and re-use it later.
 
-This is possible using the setting icons next to Filter. You'll be able to:
 
-* Save a new filter
-* Save the current filter so that it updates it using your current criterias
+
+This is possible using the **icon** next to Filter. You'll be able to:
+
+* Save your current search as a new filter
+* Save the current filter so that it's updated using your current applied criterias
 * Edit filters so that you can rename, re-order or delete them
 
-  <video controls="true" allowfullscreen="true">
-    <source src="../assets/alerts/demo-filter-management.webm" type="video/webm">
-    <source src="../assets/alerts/demo-filter-management.mp4" type="video/mp4">
+As soon as a filter is saved, it's re-usable in the Filter dropdown list, categorized under "My Filter".
+
+ <video controls="true" allowfullscreen="true">
+    <source src="../assets/alerts/events-view/demo-filter-management.webm" type="video/webm">
+    <source src="../assets/alerts/events-view/demo-filter-management.mp4" type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
   </video>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Mf3oZck7LDg?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+![image](../assets/alerts/events-view/manage-filters.gif)
 
 ## Detail panel
 
