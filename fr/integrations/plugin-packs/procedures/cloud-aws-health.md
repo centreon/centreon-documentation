@@ -137,7 +137,6 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 (certaines options comme ```--proxyurl``` doivent être ajustées en fonction du contexte):
 
 ```bash
-
 /usr/lib/centreon/plugins/centreon_aws_health_api.pl \
 	--plugin=cloud::aws::health::plugin \
 	--mode=events \
