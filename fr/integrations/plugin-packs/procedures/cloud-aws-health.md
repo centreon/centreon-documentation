@@ -142,7 +142,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--mode=events \
 	--custommode='awscli' \
 	--aws-secret-key='****' \
-	--aws-access-key='****' 
+	--aws-access-key='****' \
 	--proxyurl='http://myproxy.mycompany.org:8080' \
 	--filter-service='' \
 	--filter-region='' \
