@@ -129,7 +129,7 @@ This is possible using the **icon** next to Filter. You'll be able to:
 
 As soon as a filter is saved, it's re-usable in the Filter dropdown list, categorized under "My Filter".
 
-![image](../assets/alerts/events-view/manage-filters.png)
+![image](../assets/alerts/events-view/manage-filters.gif)
 
 ## Detail panel
 
