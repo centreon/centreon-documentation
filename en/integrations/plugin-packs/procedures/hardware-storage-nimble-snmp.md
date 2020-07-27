@@ -101,10 +101,6 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 ## FAQ
 
-### How can I test my configuration and what do the main parameters stand for ?
-
-@TODO@
-
 ### Why do I get the following error message: 
 
 #### UNKNOWN: SNMP GET Request : Timeout
