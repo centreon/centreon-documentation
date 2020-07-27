@@ -130,7 +130,7 @@ Cela est possible en utilisant l'icône "roue dentée" à côté de "Filtre". Gr
 
 Une fois qu'un filtre est créé, il apparaitra dans la liste des filtres sous la section "Mes filtres"
 
- <video controls="true" width="640" height="480" allowfullscreen="true">
+ <video controls="true" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" width="640" height="480">
     <source src="../assets/alerts/events-view/demo-filter-management.mp4" type="video/mp4">
     <img src="../assets/alerts/events-view/manage-filters.gif">s.
 </video>
