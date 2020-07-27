@@ -99,6 +99,8 @@ crm_simulate -L -s
 
 Then check the scores displayed.
 
+## Resource management
+
 ### Switch a resource from one node to another
 
 To move a resource from the node where it is currently running to the other, run this command:
@@ -107,40 +109,12 @@ To move a resource from the node where it is currently running to the other, run
 pcs resource move <resource_name>
 ```
 
+> Warning: the `pcs resource move` adds a constraint that will prevent the resource from moving back to the node where it used to be running.
+
 Once the resource is done moving, run this command:
 
 ```bash
-pcs resource move <resource_name> <node1>
-```
-
-> Warning: the `pcs resource move` adds a constraint that will prevent the resource from moving back to the node where it used to be running.
-
-Example:
-
-```bash
-pcs resource move ms_mysql-master
-pcs status
-```
-
-```text
-...
-Master/Slave Set: ms_mysql-master [ms_mysql]
-Masters: [ @CENTRAL_SLAVE_NAME@ ]
-Slaves: [ @CENTRAL_MASTER_NAME@ ]
-```
-
-```bash
-pcs config show
-```
-
-```text
-...
-Resource: ms_mysql-master
-Enabled on: @CENTRAL_SLAVE_NAME@ (score:INFINITY) (role: Started) (id:cli-prefer-ms_mysql-master)
-```
-
-```bash
-pcs resource clear cli-prefer-ms_mysql-master
+pcs resource clear <resource_name>
 ```
 
 ### Remove an error displayed in the cluster status
@@ -240,15 +214,17 @@ Position Status [OK]
 
 > Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide.html#check-the-status-of-mariadb-replication).
 
-> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes.html) will move the `centreon` resource group as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes.html) will move the `centreon` resource group as well, because it **must** run on the node having the `ms_mysql-master` meta attribute.
 
 To make the resource move from one node to the other, run this command:
 
 ```bash
-crm resource migrate
+pcs resource move ms_mysql-master
 ```
 
-This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. It is then necessary, once the operation has finished, to clear the constraint:
+This command sets a "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
+
+Wait until all the resources have switched to the other node and then clear the constraint:
 
 ```bash
 pcs resource clear ms_mysql-master

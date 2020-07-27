@@ -109,13 +109,13 @@ Pour basculer/déplacer une ressource exécuter la commande :
 pcs resource move <resource_name>
 ```
 
+> Attention : La commande `pcs resource move <resource_name>` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear <resource_name>` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
+
 Une fois la bascule terminée, exécuter la commande :
 
 ```bash
 pcs resource clear <resource_name>
 ```
-
-La commande `pcs resource move <resource_name>` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear <resource_name>` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
 
 ### Supprimer l'affichage d'une erreur
 
