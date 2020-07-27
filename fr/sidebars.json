@@ -847,6 +847,7 @@
                     "integrations/stream-connectors/elasticsearch-metrics",
                     "integrations/stream-connectors/ndo",
                     "integrations/stream-connectors/hp-omi",
+                    "integrations/stream-connectors/pagerduty",
                     "integrations/stream-connectors/servicenow",
                     "integrations/stream-connectors/splunk-metrics",
                     "integrations/stream-connectors/splunk-states",
