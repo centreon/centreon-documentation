@@ -84,7 +84,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TMS devic
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Connect to the Web UI and install the *Timelinkmicro-Tms6001-Snmp* Plugin-Pack 
+2. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
 
