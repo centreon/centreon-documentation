@@ -27,23 +27,23 @@ avec référence GNSS et IRIGB
 
 <!--Antenna-->
 
-| Metric name             | Description                 | Unit   |
-| :---------------------  | :-------------------------- | :----- |
-| status     			  | Antenna status              | String |
+| Metric name | Description    | Unit   |
+|:------------|:---------------|:-------|
+| status      | Antenna status | String |
 
 
 <!--Frequency-->
 
-| Metric name                              | Description                       | Unit  | 
-| :--------------------------------------- | :-------------------------------- |------ |
-| generation.frequency.quality.count       | Quality of frequency generation:  | Count |
+| Metric name                              | Description                       | Unit   | 
+| :--------------------------------------- | :-------------------------------- |:------ |
+| generation.frequency.quality.count       | Quality of frequency generation:  | Count  |
 
 
 <!--Gnss-->
 
-| Metric name                   | Description                                    | Unit   |
-| :---------------------------- | :----------------------------------------------| :----- |
-| status              			| A textual description of physical entity.      | String |
+| Metric name | Description                               | Unit   |
+|:------------|:------------------------------------------|:-------|
+| status      | A textual description of physical entity. | String |
 
 <!--Satellites-->
 
