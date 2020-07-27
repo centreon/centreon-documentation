@@ -116,7 +116,7 @@ A regexp filter is available on the name of the VM - vmName [```--filter-name='^
 
 ## Prerequisites
 
-To monitor your Nutanix system, SNMP v2 or v3 must be enabled and configured: https://portal.nutanix.com/page/documents/details/?targetId=Web-Console-Guide-Prism-v511:wc-system-snmp-wc-t.html
+To monitor your Nutanix system, SNMP v2 or v3 must be enabled and configured: https://portal.nutanix.com/page/documents/details?targetId=Web-Console-Guide-Prism-v5_17:wc-system-snmp-wc-t.html
 
 The network flows should be allowed from the Centreon poller to the Nutanix appliance over UDP port 161 (SNMP)
 
