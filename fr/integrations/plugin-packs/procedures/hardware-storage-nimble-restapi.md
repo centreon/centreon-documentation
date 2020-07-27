@@ -43,12 +43,12 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 
 <!--Hardware-->
 
-| Component name                         | Description (per array )        | Unit           |
-| :------------------------------------- | :------------------------------ | :------------- |
-| Disk                                   | Disk & RAID state               | String         |
-| Fan                                    | Fan state & speed               | String/rpm     |
-| Power Supply                           | Power Supply state              | String         |
-| Temperature                            | Temperature state               | String/celsius |
+| Component name | Description (per array ) | Unit   |
+|:---------------|:-------------------------|:-------|
+| Disk           | Disk & RAID state        | String |
+| Fan            | Fan state & speed        | rpm    |
+| Power Supply   | Power Supply state       | String |
+| Temperature    | Temperature state        | °C     |
 
 <!--Volumes-->
 
