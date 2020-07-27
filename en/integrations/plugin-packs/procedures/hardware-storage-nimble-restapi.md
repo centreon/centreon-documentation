@@ -120,10 +120,6 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 ## FAQ
 
-### How can I test my configuration and what do the main parameters stand for ?
-
-@TODO@
-
 ### Why do I get the following error message: 
 
 #### ```UNKNOWN: 500 Can't connect to myserver.mycompany.com:19999```
