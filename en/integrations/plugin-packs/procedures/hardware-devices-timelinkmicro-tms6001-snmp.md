@@ -26,9 +26,9 @@ design specific equipment or system on user's requirements.
 
 <!--Antenna-->
 
-| Metric name             | Description                 | Unit   |
-| :---------------------  | :-------------------------- | :----- |
-| status     			  | Antenna status              | String |
+| Metric name | Description    | Unit   |
+|:------------|:---------------|:-------|
+| status      | Antenna status | String |
 
 
 <!--Frequency-->
@@ -40,9 +40,9 @@ design specific equipment or system on user's requirements.
 
 <!--Gnss-->
 
-| Metric name                   | Description                                    | Unit   |
-| :---------------------------- | :----------------------------------------------| :----- |
-| status              			| A textual description of physical entity.      | String |
+| Metric name | Description                               | Unit   |
+|:------------|:------------------------------------------|:-------|
+| status      | A textual description of physical entity. | String |
 
 <!--Satellites-->
 
