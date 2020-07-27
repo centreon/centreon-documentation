@@ -130,7 +130,7 @@ Cela est possible en utilisant l'icône "roue dentée" à côté de "Filtre". Gr
 
 Une fois qu'un filtre est créé, il apparaitra dans la liste des filtres sous la section "Mes filtres"
 
-![image](../assets/alerts/events-view/manage-filters.png)
+![image](../assets/alerts/events-view/manage-filters.gif)
 
 ## Panneau de détail
 
