@@ -153,6 +153,7 @@ yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netdata RestAPI* depuis la page "Configuration > Plugin Packs > Manager"
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
