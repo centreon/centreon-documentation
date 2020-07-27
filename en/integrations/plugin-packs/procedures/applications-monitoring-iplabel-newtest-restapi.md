@@ -8,7 +8,7 @@ title: IP-Label Newtest Rest API
 IP-Label is a specialist in measurement of the quality of the user’s experience. 
 
 At representative points within your company, each Newtest Robot regularly simulates 
-business transactions, providing instant insight into the availability, response times, 
+business transactions, providing instant insight into the availability, response times 
 and performance of your critical application services.
 
 ## Plugin-Pack Assets
@@ -40,7 +40,8 @@ The ```--filter-robot-name``` and ```--filter-scenario-name``` options allow to 
 
 A read-only account (login/password) to the Newtest RestAPI is required. 
 
-The Plugin queries the '/rest/api/results' URL path
+The default URL path queried by the Plugin is '/rest/api/results'. This path can be changed in the related Host Macro
+if necessary.
 
 ## Setup 
 
@@ -48,30 +49,31 @@ The Plugin queries the '/rest/api/results' URL path
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instance:
+1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+2. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the
+Configuration > Plugin packs > Manager" page
 
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instance:
+1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM:
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ```
 
-3. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
+3. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -79,7 +81,7 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 
 * Add a new Host into Centreon
 * Apply the *App-Monitoring-Iplabel-Newtest-Restapi-custom* Host Template
-* Fill the mandatory macros liste below:  
+* Fill the Macros listed as mandatory below:  
 
 | Mandatory   | Name                             | Description                                                                                                              |
 | :---------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -95,7 +97,7 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ### How to test the Plugin and what are the main options for ?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
-and test the Plugin by running the following command 
+and test the Plugin by running the following command: 
 
 ```bash
 /usr/lib/centreon/plugins//centreon_monitoring_iplabel_newtest_restapi.pl \
@@ -117,15 +119,15 @@ scenario 'Sharepoint' green status: 100.00 %, red status: 0.00 %, orange status:
 The above command checks a specific Newtest Robot at Helsinski (```--filter-robot-name='^HELSINKI$'```) and focus on the Sharepoint scenario (```--filter-scenario-name='^Sharepoint$'```).
 
 It uses an API account (```--api-username='ro_user' --api-password='strong_psswd'```) and the HTTPS protocol to connect to the IP-Label Newtest API
-(```--proto='https'```)
+(```--proto='https'```).
 
 The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```
 /usr/lib/centreon/plugins//centreon_monitoring_iplabel_newtest_restapi.pl \
-	--plugin=apps::monitoring::iplabel::newtest::restapi::plugin \
-	--mode=scenarios \
-    --help 
+        --plugin=apps::monitoring::iplabel::newtest::restapi::plugin \
+        --mode=scenarios \
+        --help 
 ```
 
 ### Why do I get the following error: 

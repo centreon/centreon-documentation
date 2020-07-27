@@ -63,11 +63,14 @@ avec référence GNSS et IRIGB
 
 ### Configuration de l'équipement
 
-Il faut activer le SNMP sur l'équipement Tms6001
+L'agent SNMP de l'équipement Tms6001 doit être configuré et activé pour permettre la récupération des informations
+de supervision par le Plugin.
+
 
 ### Flux réseaux
 
-Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
+Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipement Tms6001 sur le port UDP/161 SNMP.
+
 
 ## Installation
 
@@ -81,7 +84,8 @@ Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP av
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Installer le Plugin-Pack 'Timelinkmicro-Tms6001-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
+
 
 
 <!--Offline IMP License-->
@@ -92,19 +96,22 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
-2. Installer le RPM pour avoir à disposition le Plugin-Pack dans l'interface Web de Centreon:
+2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central::
+
 
 ```bash
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
-3. Installer le Plugin-Pack 'Timelinkmicro-Tms6001-Snmp' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
+
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 
-Lorsque vous ajoutez un hôte, complétez les champs 'Communauté Snmp' et 'Version Snmp' pour refléter la configuration de l'équipement cible. 
+Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Version SNMP' selon la configuration de l'équipement cible. 
+
 
   :warning: Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
@@ -116,7 +123,8 @@ Lorsque vous ajoutez un hôte, complétez les champs 'Communauté Snmp' et 'Vers
 
 ### Comment tester mes configurations et le Plugin en ligne de commande ? 
 
-Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'utilisateur centreon-engine: 
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
@@ -128,9 +136,11 @@ Une fois le Plugin installé, vous pouvez le tester en ligne de commande avec l'
   	--verbose 
 ```
 
-Cette commande contrôle le nombre d'alarmes (```--mode=alarms```) d'un équipement ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) en version 2 du protocole SNMP et avec la communauté timelink_ro (```--snmp-version='2c' --snmp-community='timelink_ro'```) 
+Cette commande contrôle le nombre d'alarmes (```--mode=alarms```) d'un équipement ayant pour adresse IP *10.30.2.114* (```--hostname=10.30.2.114```) en version 2 du protocole SNMP et avec la communauté *timelink_ro* (```--snmp-version='2c' --snmp-community='timelink_ro'```) 
 
-Tous les modes disponibles peuvent être affichés via l'option --list-mode:
+
+Tous les modes disponibles peuvent être affichés via l'option ```--list-mode```:
+
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
@@ -138,7 +148,8 @@ Tous les modes disponibles peuvent être affichés via l'option --list-mode:
     --list-mode
 ```
 
-Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles. 
+Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles:
+
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \

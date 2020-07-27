@@ -5,7 +5,8 @@ title: Nimble Storage Rest API
 
 ## Vue d'ensemble
 
-HPE Nimble Storage est une technologue de solutions de stockage de données sur des baies Flash dont le siège
+HPE Nimble Storage est une technologie de solutions de stockage de données sur des baies Flash dont le siège
+
 est basé à San José en Californie. C'est une entité de Hewlett Packard Enterprise. 
 
 Nimble Storage produit des solutions matérielles et logicielles pour le stockage de données en utilisant les protocoles
@@ -68,9 +69,11 @@ Le Plugin-Pack Nimble SNMP offre les Services suivants:
 
 ### Configuration de la Nimble Rest API
 
-L'équipement Nimble doit être joignable sur les protocoles HTTP ou HTTPS. 
+L'équipement Nimble doit être joignable sur les ports HTTP TCP/80 ou HTTPS TCP/443. 
 
-Pour valider sa configuration et son fonctionnement, reportez vous à leur documentation officielle: 
+
+Pour valider sa configuration et son fonctionnement, reportez vous à la documentation officielle: 
+
 https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Reference_NOS_51x.whz/jun1455055569904.html
 
 ## Installation
@@ -79,29 +82,34 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le paquet Centreon Plugin sur chaque Collecteur supervisant un équipement Nimble:
+1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
+
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. Dans l'interface Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+
 
 <!--Offline IMP License-->
 
-1. Installer le paquet Centreon Plugin sur chaque Collecteur supervisant un équipement Nimble:
+1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
+
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 ```
 
-2. Installer le paquet RPM du Centreon Plugin-Pack RPM sur le serveur Central:
+2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. Dans l'interface Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble Rest API*
+
 
 ## Configuration
 

@@ -53,7 +53,8 @@ The SNMP v2 agent has to be configured on the Dell Xseries device.
 
 ### Network flow
 
-The Centreon Poller should be able to reach Dell Xseries device over UDP/161 SNMP port
+The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xseries device.
+
  
 ## Installation
 
@@ -107,17 +108,18 @@ yum install centreon-pack-network-switch-dell-xseries-snmp
 Once the Plugin is installed, you can test it directly from the command line interface of the Centreon Poller with the *centreon-engine* user:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl
-	--plugin=network::dell::xseries::snmp::plugin
-	--hostname=localhost
-	--snmp-version='2c'
-	--snmp-community='public' 
-	--mode=cpu
-	-warning-average-1s='80' 
-	--critical-average-1s='90'
-	--warning-average-1m='80' 
-	--critical-average-1m='90'
+/usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
+	--plugin=network::dell::xseries::snmp::plugin \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='public' \
+	--mode=cpu \
+	--warning-average-1s='80' \
+	--critical-average-1s='90' \
+	--warning-average-1m='80' \ 
+	--critical-average-1m='90' \
 	--verbose
+
 ```
 
 The expected result should output something similar to:
@@ -131,7 +133,8 @@ The above command checks a Dell Xseries switch using the SNMP protocol (```--plu
 with the *public* community (```--snmp-community='public'```) and the *2c* SNMP version (```--snmp-version='2c'```).
 This command checks the current CPU average of the switch (```--mode='cpu'```).
 
-This command will trigger a WARNING alarm if the average on 1s increases over 80% (```--warning-average-1s='80'```)
+This command will trigger a WARNING alarm if the average usage on a 1s period increases over 80% (```--warning-average-1s='80'```)
+
 and a CRITICAL alarm over 90% (```--critical-average-1s=90```).
 
 Alert thresholds can be defined for all metrics collected using the 

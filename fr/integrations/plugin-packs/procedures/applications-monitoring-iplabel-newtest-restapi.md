@@ -36,10 +36,11 @@ Les options  ```--filter-robot-name``` et  ```--filter-scenario-name``` permette
 
 ### Configuration d'IP-Label Newtest 
 
-Un compte en lecture seule (login/password) sur la RestAPI Newtest est nécessaire. Rapprochez de votre support IP-Label
+Un compte en lecture seule (login/password) sur la RestAPI Newtest est nécessaire. Rapprochez-vous de votre support IP-Label
 si nécessaire. 
 
-Le Plugin utilise le chemin '/rest/api/results'. 
+Par défaut, le Plugin requête l'URL '/rest/api/results' de l'API. Cette valeur peut être modifiée si besoin
+lors de l'ajout de l'Hôte dans Centreon.  
 
 ## Setup 
 
@@ -47,30 +48,30 @@ Le Plugin utilise le chemin '/rest/api/results'.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin Centreon Plugin sur chaque poller supervisant des robots Newtest:
+1. Installer le Plugin *IP-Label Newtest* sur chaque collecteur Centreon devant superviser des robots Newtest:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Installer les Modèles de supervision de supervision au travers du menu "Configuration > Plugin packs > Gestionnaire"
+2. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
 
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin Centreon Plugin sur chaque poller supervisant des robots Newtest:
+1. Installer le Plugin *IP-Label Newtest* sur chaque collecteur Centreon devant superviser des robots Newtest:
 
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
-2. Installer le paquet RPM du Plugin Pack contenant les Modèles de supervision:
+2. Installer le paquet RPM du Plugin Pack contenant les Modèles de supervision sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ```
 
-2. Installer les Modèles de supervision de supervision au travers du menu "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -78,7 +79,7 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 
 * Ajouter un nouvel hôte dans Centreon
 * Appliquer le Modèle d'Hôte *App-Monitoring-Iplabel-Newtest-Restapi-custom* 
-* Configurer les macros marquées comme obligatoire ci-après:   
+* Configurer les Macros marquées comme obligatoires ci-après:   
 
 | Mandatory   | Name                             | Description                                                                                                              |
 | :---------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -93,17 +94,23 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 
 ### Comment tester le plugin et comment afficher de l'aide ?
 
-Une fois le Plugin installé, connecter vous à votre Collecteur Centreon et tester une commande via l'utilisateur Centreon-Engine:
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_iplabel_newtest_restapi.pl \
---plugin=apps::monitoring::iplabel::newtest::restapi::plugin --mode=scenarios \
---hostname='the.newtest.fqdn' --api-username='ro_user' --api-password='strong_psswd' \
---port='443' --proto='https' --http-backend=curl --filter-robot-name='^HELSINKI$' \
---filter-scenario-name='^Sharepoint$'
+    --plugin=apps::monitoring::iplabel::newtest::restapi::plugin \
+    --mode=scenarios \
+    --hostname='the.newtest.fqdn' \
+    --api-username='ro_user' \
+    --api-password='strong_psswd' \
+    --port='443' \
+    --proto='https' \
+    --http-backend=curl \
+    --filter-robot-name='^HELSINKI$' \
+    --filter-scenario-name='^Sharepoint$'
 ```
 
-Le résultat attendu est similaire à: 
+La commande doit retourner un résultat de la forme suivante: 
 
 ```
 OK: Robot 'HELSINKI' scenario 'Sharepoint' green status: 100.00 %, red status: 0.00 %, orange status: 0.00 %, grey status: 0.00 %, execution time: 45000 ms
@@ -117,7 +124,7 @@ La commande contrôle un Robot dont le nom est HELSINSKI (```--filter-robot-name
 Il utilise l'utilisateur et le password configuré côté Newtest (```--api-username='ro_user' --api-password='strong_psswd'```) via des requêtes 
 HTTPS sur l'API IP-Label Newtest (```--proto='https'```)
 
-Les seuils d'alerte paramètrables et plus globalement l'ensemble des options de la sonde sont consultable via le flag ```--help``` du Plugin. 
+Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```
 /usr/lib/centreon/plugins//centreon_monitoring_iplabel_newtest_restapi.pl \

@@ -60,29 +60,29 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le paquet Centreon Plugin sur chaque Collecteur supervisant un équipement Nimble:
+1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. Dans l'interface Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
 
 <!--Offline IMP License-->
 
-1. Installer le paquet Centreon Plugin sur chaque Collecteur supervisant un équipement Nimble:
+1. Installer le Plugin sur chaque Collecteur Centreon devant superviser des équipements Nimble:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. Installer le paquet RPM du Centreon Plugin-Pack RPM sur le serveur Central:
+2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
-3. Dans l'interface Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page "Configuration > Plugin Packs > Gestionnaire" et installer le Plugin-Pack *Nimble SNMP*
 
 
 ## Configuration
@@ -91,8 +91,8 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 * Compléter les champs *Communauté SNMP* et *Version SNMP* avec les valeurs configurées sur le Nimble
 * Appliquer le Modèle d'Hôte *HW-Storage-Nimble-SNMP*
 
-> Si vous utiliser la version 3 du protocol SNMP, utiliser la Macro *SNMPEXTRAOPTIONS* afin de renseignez les paramètres
-> d'authentification et chiffrement adéquat
+> Si vous utilisez la version 3 du protocol SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
+> d'authentification et de chiffrement adéquats
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
@@ -108,7 +108,7 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 #### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter le serveur Linux sur le port 161, 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Nimble sur le port UDP/161, 
 ou alors que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un firewall bloque le flux.
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value.

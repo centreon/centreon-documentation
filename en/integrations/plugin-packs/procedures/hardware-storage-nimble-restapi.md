@@ -84,7 +84,8 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+
 
 <!--Offline IMP License-->
 
@@ -100,7 +101,8 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the *Nimble SNMP* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+
 
 ## Configuration
 
@@ -126,14 +128,16 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 #### ```UNKNOWN: 500 Can't connect to myserver.mycompany.com:19999```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Netdata agent API.
+This error message means that the Centreon Plugin couldn't successfully connect to the Nimble device API.
+
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. 
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
-When using a proxy to connect to the Netdata agent API, this error message means that the Centreon Plugin library does not support
+When using a proxy to connect to the Nimble API, this error message means that the Centreon Plugin library does not support
+
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
