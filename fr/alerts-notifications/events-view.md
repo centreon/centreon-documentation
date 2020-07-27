@@ -119,7 +119,7 @@ les filtres afin d'accéder à plus de critères:
 ### Sauvergarder un filtre
 
 Lorsque vous souhaitez ne lister qu'un sous ensemble des équipements de la supervision, vous êtes amenés à
-utiliser de nombreux critères et expression régulière. Dans ce cas, il sera intéressant de sauvegarder
+utiliser de nombreux critères et expressions régulières. Dans ce cas, il est intéressant de sauvegarder
 le filtre afin de pouvoir facilement le réutiliser plus tard.
 
 Cela est possible en utilisant l'icône "roue dentée" à côté de "Filtre". Grâce à ce menu, vous serez en mesure de:
