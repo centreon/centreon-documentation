@@ -129,12 +129,10 @@ This is possible using the **icon** next to Filter. You'll be able to:
 
 As soon as a filter is saved, it's re-usable in the Filter dropdown list, categorized under "My Filter".
 
- <video controls="true" allowfullscreen="true">
+ <video controls="true" width="640" height="480" allowfullscreen="true">
     <source src="../assets/alerts/events-view/demo-filter-management.mp4" type="video/mp4">
-    Sorry, your browser doesn't support embedded videos.
-  </video>
-
-![image](../assets/alerts/events-view/manage-filters.gif)
+    <img src="../assets/alerts/events-view/manage-filters.gif">s.
+</video>
 
 ## Detail panel
 
