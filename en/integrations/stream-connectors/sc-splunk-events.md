@@ -1,13 +1,14 @@
 ---
-id: splunk-metrics
-title: Splunk Metrics
+id: splunk-events
+title: Splunk Events
 ---
 
 ## Splunk + Centreon Integration Benefits
 
 ## How it works
 
-* Every time a service is checked, the event passes through Centreon Broker, which loads the Stream Connector to send the metrics.
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
+* State changes can occur in case of an anomaly detection or metrics falling out of range.
 
 ## Requirements
 
@@ -26,7 +27,7 @@ If you need help with this integration, depending on how you are using Centreon,
 ### In Splunk
 
 You'll need to create a specific HTTP Event Collector for Centreon by following the [official documentation of Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
-You can also use a existing HTTP Event Collector and create a specific **Metrics Index** for the Centreon Stream Splunk Connector.
+You can also use a existing HTTP Event Collector and create a specific **Events Index** for the Centreon Stream Splunk Connector.
 
 ### In Centreon
 
@@ -52,11 +53,11 @@ luarocks install luatz
 These packages are necessary for the script to run. Now let's download the script:
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/splunk-metrics-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/splunk/splunk-metrics-http.lua
-chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-http.lua
+wget -O /usr/share/centreon-broker/lua/splunk-events-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/splunk/splunk-events-http.lua
+chmod 644 /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
 
-The Splunk Metrics StreamConnnector is now installed on your Centreon central server!
+The Splunk Events StreamConnnector is now installed on your Centreon central server!
 
 #### Broker configuration
 
@@ -64,7 +65,7 @@ The Splunk Metrics StreamConnnector is now installed on your Centreon central se
 2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
 3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
 4. Add a new **Generic - Stream connector** output.
-5. Name it as you want (eg. **Splunk Metrics**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/splunk-metrics-http.lua`.
+5. Name it as you want (eg. **Splunk Events**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/splunk-events-http.lua`.
 6. Add at least the following parameters:
 | Name              | Type   | Value                                                                                          |
 | ----------------- | ------ | ---------------------------------------------------------------------------------------------- |
@@ -81,9 +82,9 @@ The Splunk Metrics StreamConnnector is now installed on your Centreon central se
 systemctl restart cbd
 ```
 
-Now your central server has loaded the Splunk Metrics Stream Connector and has started to send data!
+Now your central server has loaded the Splunk Events Stream Connector and has started to send data!
 
-> To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-splunk-metrics.log`, both located in `/var/log/centreon-broker`.
+> To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-splunk-events.log`, both located in `/var/log/centreon-broker`.
 
 #### Advanced configuration
 
@@ -126,5 +127,5 @@ The Stream Connector is not loaded anymore!
 9. Optionally, you can even delete the script file:
 
 ```bash
-rm -f /usr/share/centreon-broker/lua/splunk-metrics-http.lua
+rm -f /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
