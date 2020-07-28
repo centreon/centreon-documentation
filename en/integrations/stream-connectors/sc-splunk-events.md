@@ -10,6 +10,8 @@ title: Splunk Events
 * Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
 * State changes can occur in case of an anomaly detection or metrics falling out of range.
 
+![architecture](../../assets/integrations/external/splunk+centreon.png)
+
 ## Requirements
 
 * Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 

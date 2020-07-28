@@ -9,6 +9,8 @@ title: Splunk Metrics
 
 * Every time a service is checked, the event passes through Centreon Broker, which loads the Stream Connector to send the metrics.
 
+![architecture](../../assets/integrations/external/splunk+centreon.png)
+
 ## Requirements
 
 * Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 
