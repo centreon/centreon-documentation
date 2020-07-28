@@ -177,6 +177,13 @@ subscriptions are now automatically downloaded.
 
 ## Centreon Anomaly Detection
 
+### 20.04.2
+
+#### Bugfixes
+
+- [configuration] Can't change "Enable change of status" when editing form
+- [configuration] Remove mandatory fields which are not mandatory
+
 ### 20.04.1
 
 #### Enhancements
