@@ -86,11 +86,11 @@ commercial extension. No worry, the compatibility with the previous licensing me
 - [Host Discovery] Impossible to list all monitoring servers in job
   creation/edition
 - [Host Discovery] Cannot find local monitoring server when having 10+ Pollers
-  (needs Centreon Web 20.04.5)
 - [Host Discovery] Broken display when reaching job result page
 - [Host Discovery] Wizard "Next" actions broken when using "Enter" key
 - [Host Discovery] Failed to insert data in temporary table due to null/undef
   values
+- [Host Discovery] Impossible to save job when provider doesn't need credentials
 - [Host Discovery] Fix some wordings and cases
 - [Service Discovery] Error when duplicating a rule
 
