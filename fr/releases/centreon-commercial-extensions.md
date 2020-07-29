@@ -41,6 +41,12 @@ liens
 
 ## Centreon BAM release notes
 
+### 20.04.3
+
+* Gestion de la compatibility avec HTTP2
+* Correction d'un bug affectant le paramètre "Display only Top level BA" du widget de listing des activités métier
+* Ajout d'une bulle d'aide lors du choix de la gestion des plages de maintenance planifiées au niveau des activités métier
+
 ### 20.04.2
 
 * Les seuils ayant pour valeur "0" sont désormais correctement affichés dans les différentes pages de configuration et de supervision
