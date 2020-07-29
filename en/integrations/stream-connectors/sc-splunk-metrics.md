@@ -11,6 +11,27 @@ title: Splunk Metrics
 
 ![architecture](../../assets/integrations/external/splunk+centreon.png)
 
+### Data format
+
+Here an example of the format POST by the Stream Connector for a metric event:
+
+```json
+{
+    "fields": {
+        "ctime": 1595496809,
+        "hostname": "HQ-Switch-Lan-Build_B",
+        "metric_name:traffic_out": 68058785.44,
+        "service_description": "Traffic-interco_sw_buildB_1stfloor_1"
+    },
+    "host": "Centreon",
+    "index": "archimede-metrics",
+    "source": "http:archimede-metrics",
+    "sourcetype": "_json",
+    "time": 1595496809
+}
+
+```
+
 ## Requirements
 
 * Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 

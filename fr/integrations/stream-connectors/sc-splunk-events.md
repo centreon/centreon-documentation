@@ -10,6 +10,36 @@ title: Splunk Events
 * À chaque fois qu'un service ou hôte est vérifé, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les changements d'états.
 * Un changement d'état peut se produire en cas de changement de statut ou d'une métrique qui dépasse vos seuils.
 
+![architecture](../../assets/integrations/external/splunk+centreon.png)
+
+### Filtres
+
+Plusieurs filtres ont été installé au niveau du Stream Connector Splunk Event :
+* Seulement les changements de status des services (BA inclus) et des hôtes sont traités
+* Seulement les états HARD sont traités
+* Si l'hôte ou le service est downtime, il n'est pas traité
+* Les PENDING sont aussi ignorés 
+
+### Data format
+
+Here an example of the format POST by the Stream Connector for a service event:
+
+```json
+{
+    "event": {
+        "event_type": "service",
+        "hostname": "HQ-FW-Inet",
+        "output": "CRITICAL: Domain 'headquarter_inet' Intrusions detected : 120Domain 'headquarter_inet' Intrusions detected : 120, Intrusions blocked : 0, Critical severity intrusions detected : 519, High severity intrusions detected : 456, Medium severity intrusions detected : 394, Low severity intrusions detected : 254, Informational severity intrusions detected : 0, Signature intrusions detected : 8282, Anomaly intrusions detected : 1\\n",
+        "service_description": "Ips-Stats-Global",
+        "state": 2
+    },
+    "host": "Centreon",
+    "index": "archimede-events",
+    "source": "http:archimede-events",
+    "sourcetype": "_json"
+}
+```
+
 ## Prérequis
 
 * L'intégration avec Splunk nécessite de disposer d'un accès ayant le rôle Admin pour pouvoir donner des permissions à un compte. Si vous n'en disposez pas, veuillez vous adresser à une personne ayant un tel rôle dans votre organisation pour configurer l'intégration de Splunk avec Centreon.

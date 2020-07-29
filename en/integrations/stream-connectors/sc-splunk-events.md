@@ -12,6 +12,34 @@ title: Splunk Events
 
 ![architecture](../../assets/integrations/external/splunk+centreon.png)
 
+### Filters
+
+Several filters have been set in the Splunk Event Stream Connector:
+* Only the change of status about services (BA Included) and hosts are processed
+* Only the HARD state type are processed
+* If the host or the service is in downtime, it's not processed
+* We don't process the PENDING states
+
+### Data format
+
+Here an example of the format POST by the Stream Connector for a service event:
+
+```json
+{
+    "event": {
+        "event_type": "service",
+        "hostname": "HQ-FW-Inet",
+        "output": "CRITICAL: Domain 'headquarter_inet' Intrusions detected : 120Domain 'headquarter_inet' Intrusions detected : 120, Intrusions blocked : 0, Critical severity intrusions detected : 519, High severity intrusions detected : 456, Medium severity intrusions detected : 394, Low severity intrusions detected : 254, Informational severity intrusions detected : 0, Signature intrusions detected : 8282, Anomaly intrusions detected : 1\\n",
+        "service_description": "Ips-Stats-Global",
+        "state": 2
+    },
+    "host": "Centreon",
+    "index": "archimede-events",
+    "source": "http:archimede-events",
+    "sourcetype": "_json"
+}
+```
+
 ## Requirements
 
 * Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 

@@ -7,6 +7,30 @@ title: Splunk Metrics
 
 ## Comment ça marche
 
+* À chaque fois qu'un service ou hôte est vérifé, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les métriques.
+
+![architecture](../../assets/integrations/external/splunk+centreon.png)
+
+### Format de données
+
+Voici un exemple du format POST du Stream Connector pour un événement "metric":
+
+```json
+{
+    "fields": {
+        "ctime": 1595496809,
+        "hostname": "HQ-Switch-Lan-Build_B",
+        "metric_name:traffic_out": 68058785.44,
+        "service_description": "Traffic-interco_sw_buildB_1stfloor_1"
+    },
+    "host": "Centreon",
+    "index": "archimede-metrics",
+    "source": "http:archimede-metrics",
+    "sourcetype": "_json",
+    "time": 1595496809
+}
+
+```
 
 ## Prérequis
 
