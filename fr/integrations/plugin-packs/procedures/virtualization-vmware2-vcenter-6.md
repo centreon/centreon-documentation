@@ -9,8 +9,6 @@ title: VMware vCenter v6
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
-
 ### Centreon Plugin
 
 Install this plugin on each needed poller:
@@ -19,7 +17,9 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-### Installation of the VMware daemon
+### Centreon VMware daemon
+
+#### Installation
 
 Install this daemon on each needed poller:
 
@@ -27,81 +27,73 @@ Install this daemon on each needed poller:
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
 
-### Configuration of the VMware daemon
+#### Configuration
 
-The daemon "centreon-vmware" has a configuration file
-"/etc/centreon/centreon\_vmware.pm" of the following structure:
+To configure the access to your infrastructure, edit the
+"/etc/centreon/centreon\_vmware.pm" configuration file:
 
-``` 
-%centreon_vmware_config =   
+``` perl
+%centreon_vmware_config = (
     vsphere_server => {
-                    'default' => {'url' => 'https://vcenter/sdk',
-                                 'username' => 'XXXXXXX',
-                                 'password' => 'XXXXXX'}
-                    }, 
-    port => 5700
-};  
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        }
+    }
+);
+
+1;
 ```
 
-Then start daemon with command:
+Make sure to replace variables with needed information:
 
-    # service centreon_vmware start
+- _ip\_hostname_: IP address or hostname of the vCenter or ESX (if standalone),
+- _username_: username with at least "read only" access to the vCenter or ESX,
+- _password_: password of the username.
 
 You can configure multiple vCenter / vSphere / ESX connections using this
 structure:
 
-    %centreon_vmware_config = (
-        vsphere_server => {
-                        'default' => {'url' => 'https://vcenter/sdk',
-                                     'username' => 'XXXXXXX',
-                                     'password' => 'XXXXXX'},
-                        'other' => {'url' => 'https://other_vcenter/sdk',
-                                     'username' => 'XXXXXXX',
-                                     'password' => 'XXXXXX'},
-                        },
-        port => 5700
-    );
-    1;
+``` perl
+%centreon_vmware_config = (
+    vsphere_server => {
+        default => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        },
+        'my_other_vcenter' => {
+            url => 'https://<ip_hostname>/sdk',
+            username => '<username>',
+            password => '<password>'
+        },
+    },
+    port => 5700
+);
 
-Notice: use "CENTREONVMWARECONTAINER" host macro definition to select your
-configuration.
+1;
+```
 
-  - The "vsphere\_server" attribute allows you to configure access to different
-    VirtualCenter. It is necessary to have at least the entry 'default'. So, if
-    you have only one vcenter, you can configure it with the name "default".
-  - The "url" attribute allows you to configure the URL of the vcenter.
-  - The "username" attribute allows you to configure the user who can connect to
-    the vcenter. This user must have at least "read only" access to the vcenter.
-  - The "password" attribute allows you to configure the password of the user.
-  - The "port" attribute allows you to configure the listening port of
-    "centreon-vmware" connector.
+Each entry is called a container. You need at least a "default" entry.
 
-### System configuration
+> You can also define the "port" attribute to change listening port.
 
-The daemon "centreon\_vmware" is a system service that must be started by
-default. After installation and configuration, you will have to perform the
-following procedure.
+Then start the daemon and make sure it is configured to start at server boot:
 
-#### With SysV (Enterprise Linux 6 compatible distributions)
+``` shell
+systemctl start centreon_vmware
+systemctl enable centreon_vmware
+```
 
-    chkconfig centreon_vmware on
-    service centreon_vmware start
-
-#### With SystemD (Enterprise Linux 7 compatible distributions)
-
-    systemctl enable centreon_vmware
-    systemctl start centreon_vmware
-
-#### Checking the daemon configuration
-
-Please make sure that the daemon configuration works fine, by looking for errors
-in /var/log/centreon/centreon\_vmware.log.
+Make sure that the daemon configuration works fine by looking for errors in
+"/var/log/centreon/centreon\_vmware.log".
 
 ## Centreon configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+Go to `Configuration > Hosts` and click *Add*. Then, fill the form as shown by
 the following table:
 
 | Field                   | value                         |
@@ -110,7 +102,7 @@ the following table:
 | Alias                   | *Host description*            |
 | IP                      | *Host IP Address*             |
 | Monitored from          | *Monitoring Poller to use*    |
-| Host Multiple Templates | Virt-VMWare2-VCenter-6-custom |
+| Host Multiple Templates | Virt-VMWare2-vCenter-6-custom |
 
 Click the *Save* button.
 
@@ -118,10 +110,8 @@ Click the *Save* button.
 
 The following macros must be configured on host:
 
-| Macro                   | Description                    | Default value | Example   |
-| :---------------------- | :----------------------------- | :------------ | :-------- |
-| CENTREONVMWAREPORT      | Port of Centreon-Vmware daemon | 5700          | 570       |
-| CENTREONVMWARECONTAINER | Container to use               | default       | default   |
-| CENTREONVMWAREHOST      | Host of Centreon-Vmware daemon | localhost     | localhost |
-| ESXNAME                 | Name of the ESX to monitor     |               | srvi-esx  |
-
+| Macro                   | Description                    | Default value | Example     |
+| :---------------------- | :----------------------------- | :------------ | :---------- |
+| CENTREONVMWAREHOST      | Host of centreon_vmware daemon | localhost     | 10.1.2.3    |
+| CENTREONVMWAREPORT      | Port of centreon_vmware daemon | 5700          | 5701        |
+| CENTREONVMWARECONTAINER | Defined container to use       | default       | srv-vcenter |

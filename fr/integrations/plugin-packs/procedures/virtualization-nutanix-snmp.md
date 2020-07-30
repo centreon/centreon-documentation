@@ -116,7 +116,7 @@ Il est possible de filtrer les résultats sur un hyperviseur donné (*vmName*) e
 
 ## Prérequis
 
-Afin de superviser votre cluster Nutanix, le SNMP v2 ou v3 doit être configuré comme indiqué sur la documentation officielle du constructeur: https://portal.nutanix.com/page/documents/details/?targetId=Web-Console-Guide-Prism-v511:wc-system-snmp-wc-t.html
+Afin de superviser votre cluster Nutanix, le SNMP v2 ou v3 doit être configuré comme indiqué sur la documentation officielle du constructeur: https://portal.nutanix.com/page/documents/details?targetId=Web-Console-Guide-Prism-v5_17:wc-system-snmp-wc-t.html
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le cluster Nutanix.
 

@@ -1,5 +1,5 @@
 ---
-id: applications-salesforces-restapi
+id: applications-salesforce-restapi
 title: Salesforce
 ---
 

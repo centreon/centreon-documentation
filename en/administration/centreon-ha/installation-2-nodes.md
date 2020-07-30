@@ -476,8 +476,10 @@ Umount and Delete LVM snapshot
 Start MySQL Slave
 Start Replication
 Id	User	Host	db	Command	Time	State	Info	Progress
-3	centreon	@CENTRAL_MASTER_NAME@:33084	NULL	Query	0	init	show processlist	0.000
+[variable number of lines]
 ```
+
+The important thing to check is that `Start MySQL Slave` and `Start Replication` are present and that no errors follow it.
 
 In addition, the output of this command must display only `OK` results:
 
