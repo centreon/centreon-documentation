@@ -57,7 +57,7 @@ Open your favorite ssh client and configure your API to allow connections from t
 * Modify the line starting with ExecStart as shown below: 
 
 ```bash 
-Execstart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
 ```
 
 * Save the changes
