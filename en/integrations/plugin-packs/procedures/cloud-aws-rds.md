@@ -36,36 +36,43 @@ You can get an overview of all gathered metrics from AWS/RDS in the official doc
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Connections-->
 
-| Metric name         | Description                                          |
-| :------------------ | :--------------------------------------------------- |
-| DatabaseConnections | Number of connections to the dtatabase. Unit: Count  |
+| Metric name         | Description                             | Unit:  |
+| :------------------ | :-------------------------------------- |:------ |
+| DatabaseConnections | Number of connections to the database.  | Count  |
 
 <!--Cpu-->
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CPUCreditBalance | Balance of allocated CPU credit to this type of instance. Unit: Credits (vCPU-minutes) |
-| CPUCreditUsage   | Number of CPU credit consumed. Unit: Credits (vCPU-minutes)                            |
-| CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
+| Metric name      | Description                                                | Unit                    |                   
+| :--------------- | :--------------------------------------------------------- |:----------------------- |
+| CPUCreditBalance | Balance of allocated CPU credit to this type of instance.  | Credits (vCPU-minutes)  |
+| CPUCreditUsage   | Number of CPU credit consumed.                             | Credits (vCPU-minutes)  |
+| CPUUtilization   | The percentage of CPU utilization.                         | Percentage              |
 
 <!--Disk-IO-->
 
-| Metric name     | Description                                                                                  |
-| :-------------- | :------------------------------------------------------------------------------------------- |
-| ReadIOPS        | The average number of disk read I/O operations per second. Unit: Count/Second                |
-| WriteIOPS       | The average number of disk write I/O operations per second. Unit: Count/Second               |
-| ReadThroughput  | The average number of bytes read from disk per second. Unit: Bytes/Second                    |
-| WriteThroughput | The average number of bytes write to disk per second. Unit: Bytes/Second                     |
-| ReadLatency     | The average amount of time taken per disk I/O read operation. Unit: Seconds                  |
-| WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
-| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
+| Metric name     | Description                                                                     | Unit         |
+| :-------------- | :------------------------------------------------------------------------------ |:------------ |
+| ReadIOPS        | The average number of disk read I/O operations per second.                      | Count/Second |
+| WriteIOPS       | The average number of disk write I/O operations per second.                     | Count/Second |
+| ReadThroughput  | The average number of bytes read from disk per second.                          | Bytes/Second |
+| WriteThroughput | The average number of bytes write to disk per second.                           | Bytes/Second |
+| ReadLatency     | The average amount of time taken per disk I/O read operation.                   | Seconds      |
+| WriteLatency    | The average amount of time taken per disk I/O write operation.                  | Seconds      |
+| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. | Count        |
 
 <!--Network-->
 
-| Metric name               | Description                                                                                                                                              |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second  |
-| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second  |
+| Metric name               | Description                                                                                                                          | Unit          |
+| :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------- |:------------- |
+| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+
+<!--Storage-->
+
+| Metric name      | Description                                   | Unit          |
+| :--------------- | :---------------------------------------------|:------------- |
+| FreeStorageSpace | The amount of available storage space.        | Bytes/Second  |
+| FreeableMemory   | The amount of available random access memory. | Bytes/Second  |
 
 <!--Queries-->
 

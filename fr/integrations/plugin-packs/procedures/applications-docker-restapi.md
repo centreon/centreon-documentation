@@ -56,7 +56,7 @@ Ouvrez votre terminal ssh préféré :
 * Trouver la ligne qui commence par Execstart et modifier les options suivantes : 
 
 ```bash 
-Execstart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
 ```
 
 * Enregistrer les modifications

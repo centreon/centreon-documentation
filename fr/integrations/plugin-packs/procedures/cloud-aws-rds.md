@@ -5,9 +5,9 @@ title: Amazon RDS
 
 ## Vue d'ensemble
 
-Amazon Relational Database Service (Amazon RDS) est un service web qui facilite la configuration, l'exploitation et la mise à l'échelle d'une base de données relationnelle dans le Cloud AWS. Il fournit des capacités redimensionnables, à faible coût, pour les bases de données relationnelles classiques et gère les tâches courantes d'administration de base de données.
+Amazon Relational Database Service (Amazon RDS) est un service web qui facilite la configuration, l'exploitation et la mise à l'échelle d'une base de données relationnelle dans le Cloud AWS. Il fournit des capacités redimensionnables, à faible coût, pour les bases de données relationnelles classiques, et gère les tâches courantes d'administration de base de données.
 
-## Contenu du Plugin-Pack
+## Contenu du pack de supervision
 
 ### Objets supervisés
 
@@ -25,48 +25,54 @@ Amazon Relational Database Service (Amazon RDS) est un service web qui facilite 
 
 <!--Services-->
 
-Pas de règle de découverte de services.
+No services discovery rule available on this pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle du service RDS: https://docs.aws.amazon.com/rds/index.html
+Vous pouvez vous renseigner en détails sur les métriques présentées ci après sur la documentation officiel du service RDS: https://docs.aws.amazon.com/rds/index.html
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Connections-->
 
-| Metric name         | Description                                          |
-| :------------------ | :--------------------------------------------------- |
-| DatabaseConnections | Number of connections to the dtatabase. Unit: Count  |
-
+| Metric name         | Description                             | Unit:  |
+| :------------------ | :-------------------------------------- |:------ |
+| DatabaseConnections | Number of connections to the database.  | Count  |
 
 <!--Cpu-->
 
-| Metric name      | Description                                                                            |
-| :--------------- | :------------------------------------------------------------------------------------- |
-| CPUCreditBalance | Balance of CU credit allocated to this type of instance. Unit: Credits (vCPU-minutes)  |
-| CPUCreditUsage   | Number of CPU credit consumed. Unit: Credits (vCPU-minutes)                            |
-| CPUUtilization   | The percentage of CPU utilization. Unit: Percent                                       |
+| Metric name      | Description                                                | Unit                    |                   
+| :--------------- | :--------------------------------------------------------- |:----------------------- |
+| CPUCreditBalance | Balance of allocated CPU credit to this type of instance.  | Credits (vCPU-minutes)  |
+| CPUCreditUsage   | Number of CPU credit consumed.                             | Credits (vCPU-minutes)  |
+| CPUUtilization   | The percentage of CPU utilization.                         | Percentage              |
 
 <!--Disk-IO-->
 
-| Metric name     | Description                                                                                  |
-| :-------------- | :------------------------------------------------------------------------------------------- |
-| ReadIOPS        | The average number of disk read I/O operations per second. Unit: Count/Second                |
-| WriteIOPS       | The average number of disk write I/O operations per second. Unit: Count/Second               |
-| ReadThroughput  | The average number of bytes read from disk per second. Unit: Bytes/Second                    |
-| WriteThroughput | The average number of bytes write to disk per second. Unit: Bytes/Second                     |
-| ReadLatency     | The average amount of time taken per disk I/O read operation. Unit: Seconds                  |
-| WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
-| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
+| Metric name     | Description                                                                     | Unit         |
+| :-------------- | :------------------------------------------------------------------------------ |:------------ |
+| ReadIOPS        | The average number of disk read I/O operations per second.                      | Count/Second |
+| WriteIOPS       | The average number of disk write I/O operations per second.                     | Count/Second |
+| ReadThroughput  | The average number of bytes read from disk per second.                          | Bytes/Second |
+| WriteThroughput | The average number of bytes write to disk per second.                           | Bytes/Second |
+| ReadLatency     | The average amount of time taken per disk I/O read operation.                   | Seconds      |
+| WriteLatency    | The average amount of time taken per disk I/O write operation.                  | Seconds      |
+| DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. | Count        |
 
 <!--Network-->
 
-| Metric name               | Description                                                                                                                                              |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second |
-| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. Unit: Bytes/Second |
+| Metric name               | Description                                                                                                                          | Unit          |
+| :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------- |:------------- |
+| NetworkReceiveThroughput  | The incoming traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+| NetworkTransmitThroughput | The outgoing traffic on the DB instance, including both customer db traffic and AWS/RDS traffic used for monitoring and replication. | Bytes/Second  |
+
+<!--Storage-->
+
+| Metric name      | Description                                   | Unit          |
+| :--------------- | :---------------------------------------------|:------------- |
+| FreeStorageSpace | The amount of available storage space.        | Bytes/Second  |
+| FreeableMemory   | The amount of available random access memory. | Bytes/Second  |
 
 <!--Queries-->
 
@@ -99,9 +105,9 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prerequisistes
 
-### Configuration AWS
+### AWS Configuration
 
 Voici la liste des droits nécessaires au travers des access/secret key utilisées pour pouvoir utiliser le monitoring AWS/RDS: 
 
@@ -111,9 +117,9 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/RDS namespace on Cloudwatch               |
 
 
-### Dépendances du Plugin
+### Plugin dependencies
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli*, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser *perl-Paws* si vous passez pas un proxy.
+Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy !
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -137,36 +143,36 @@ yum install awscli
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources RDS:
+1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
+2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources RDS:
+1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources RDS:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
+2. Installer le RPM contenant les modèles de supervision
 
 ```bash
 yum install centreon-pack-cloud-aws-rds.noarch
 ```
 
-3. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
+3. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-En fonction du type d'instance et de la base de données supervisée, choisissez le modèle d'hôte correspondant parmi ceux commençant par "Cloud-Aws-Rds-". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
+En fonction du type d'instance et de la base de données supervisée, choisissez le modèle d'hôte correspondant dans ceux commençant par "Cloud-Aws-Rds-". Une fois le modèle d'hôte appliqué, il est possible de définir l'ensemble des macros nécessaires au fonctionnement des contrôles:
 
 | Obligatoire | Nom             | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
@@ -183,9 +189,9 @@ En fonction du type d'instance et de la base de données supervisée, choisissez
 
 ## FAQ
 
-### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
+### Comment tester en ligne de commande et quelles significations portent les options principales ?
 
-A partir du moment ou le Plugin est installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+A partir du moment ou la sonde est installée, vous pouvez tester directement depuis votre poller de supervision avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_aws_rds_api.pl \
@@ -211,19 +217,17 @@ Cluster 'dev-cluster' average DatabaseConnections: 3
 
 ```
 
-La commande ci-dessus interroge le nombre de connexions (```--mode=connections``` sur un cluster de base de données (```--type='cluster'```) dont le nom est *dev-cluster* (```--name='dev-cluster'```). Ce cluster est herbergé sur la zone/région *eu-west-1* d'AWS (```--region='eu-west-1'```). La valeur de la métrique sera une moyenne (```--statistic='average'```) sur une période de 10 minutes / 600 secondes (```--timeframe='600'```) et échantillonée à un point par minute / 60 secondes (```--period='60'```).
+La commande ci-dessus interroge le nombre de connections (```--mode=connections``` sur un cluster de base de données (```--type='cluster'```) dont le nom est dev-cluster (```--name='dev-cluster'```). Ce cluster est herbergé sur la zone/région eu-west-1 d'AWS (```--region='eu-west-1'```). La valeur de la métrique sera une moyenne (```--statistic='average'```) sur une période de 600 secondes / 10 min (```--timeframe='600'```) et échantilloné à un point par minute (```--period='60'```).
 
 Une alerte WARNING sera déclenchée si la valeur dépasse 25, et CRITICAL si elle dépasse 50 (```--warning-databaseconnections-average='25' --critical-databaseconnections-average='50'```).
 
-Toutes les options des différents modes sont consultables via le paramètre  ```--help``` du Plugin:
+Toutes les options des différents modes sont consultables via le help:
 
 ```/usr/lib/centreon/plugins//centreon_aws_rds_api.pl --plugin=cloud::aws::rds::plugin --mode=<modename> --help```
 
 
 ### UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
 
-Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
-
-Vous pouvez ajouter ```--zeroed``` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNWON.
+Vous pouvez ajouter ' --zeroed' à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNWON.
