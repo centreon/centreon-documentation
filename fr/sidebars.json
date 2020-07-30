@@ -851,7 +851,7 @@
                     "integrations/stream-connectors/pagerduty",
                     "integrations/stream-connectors/servicenow",
                     "integrations/stream-connectors/splunk-metrics",
-                    "integrations/stream-connectors/splunk-states",
+                    "integrations/stream-connectors/splunk-events",
                     "integrations/stream-connectors/warp10"
                 ],
                 "label": "Stream Connectors",

@@ -1,35 +1,43 @@
 ---
-id: splunk-metrics
-title: Splunk Metrics
+id: splunk-events
+title: Splunk Events
 ---
 
 ## Ce qu'apporte l'intégration de Splunk + Centreon 
 
 ## Comment ça marche
 
-* À chaque fois qu'un service ou hôte est vérifé, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les métriques.
+* À chaque fois qu'un service ou hôte est vérifé, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les changements d'états.
+* Un changement d'état peut se produire en cas de changement de statut ou d'une métrique qui dépasse vos seuils.
 
 ![architecture](../../assets/integrations/external/splunk+centreon.png)
 
-### Format de données
+### Filtres
 
-Voici un exemple du format POST du Stream Connector pour un événement "metric":
+Plusieurs filtres ont été installé au niveau du Stream Connector Splunk Event :
+* Seulement les changements de status des services (BA inclus) et des hôtes sont traités
+* Seulement les états HARD sont traités
+* Si l'hôte ou le service est downtime, il n'est pas traité
+* Les PENDING sont aussi ignorés 
+
+### Data format
+
+Here an example of the format POST by the Stream Connector for a service event:
 
 ```json
 {
-    "fields": {
-        "ctime": 1595496809,
-        "hostname": "HQ-Switch-Lan-Build_B",
-        "metric_name:traffic_out": 68058785.44,
-        "service_description": "Traffic-interco_sw_buildB_1stfloor_1"
+    "event": {
+        "event_type": "service",
+        "hostname": "HQ-FW-Inet",
+        "output": "CRITICAL: Domain 'headquarter_inet' Intrusions detected : 120Domain 'headquarter_inet' Intrusions detected : 120, Intrusions blocked : 0, Critical severity intrusions detected : 519, High severity intrusions detected : 456, Medium severity intrusions detected : 394, Low severity intrusions detected : 254, Informational severity intrusions detected : 0, Signature intrusions detected : 8282, Anomaly intrusions detected : 1\\n",
+        "service_description": "Ips-Stats-Global",
+        "state": 2
     },
     "host": "Centreon",
-    "index": "archimede-metrics",
-    "source": "http:archimede-metrics",
-    "sourcetype": "_json",
-    "time": 1595496809
+    "index": "archimede-events",
+    "source": "http:archimede-events",
+    "sourcetype": "_json"
 }
-
 ```
 
 ## Prérequis
@@ -49,7 +57,7 @@ si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant vot
 ### Dans Splunk
 
 Il sera nécessaire de créer un HTTP Event Collector specifique à Centreon en suivant la [documentation officielle de Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
-Vous pouvez utilisez un HTTP Event Collector déjà existant et créer un **Metrics Index** spécifique au Stream Connector Splunk de Centreon.
+Vous pouvez utilisez un HTTP Event Collector déjà existant et créer un **Events Index** spécifique au Stream Connector Splunk de Centreon.
 
 ### Dans Centreon
 
@@ -75,11 +83,11 @@ luarocks install luatz
 Ces paquets sont nécessaires au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/splunk-metrics-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/splunk/splunk-metrics-http.lua
-chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-http.lua
+wget -O /usr/share/centreon-broker/lua/splunk-events-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/splunk/splunk-events-http.lua
+chmod 644 /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
 
-Le Stream Connector Splunk Metrics est maintenant installé sur votre serveur Centreon central !
+Le Stream Connector Splunk Events est maintenant installé sur votre serveur Centreon central !
 
 #### Configuration de *Centreon Broker*
 
@@ -87,7 +95,7 @@ Le Stream Connector Splunk Metrics est maintenant installé sur votre serveur Ce
 2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
 3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
 4. Sélectionner **Generic - Stream connector** et cliquer sur **Ajouter** pour créer une nouvelle sortie.
-5. Choisir son nom (**Name**) par exemple **Splunk Metrics** et saisir l'emplacement (**Path**) où le script a été installé : `/usr/share/centreon-broker/lua/splunk-metrics-http.lua`.
+5. Choisir son nom (**Name**) par exemple **Splunk Events** et saisir l'emplacement (**Path**) où le script a été installé : `/usr/share/centreon-broker/lua/splunk-events-http.lua`.
 6. Renseigner au minimum ces 3 champs:
 
 | Name              | Type   | Value                                                                                                        |
@@ -106,7 +114,7 @@ systemctl restart cbd
 ```
 Votre serveur central a maintenant chargé le Stream Connector et commence à envoyer des données vers Splunk !
 
-> Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-broker-master.log` et `stream-connector-splunk-metrics.log`, tous deux situés à l'emplacement `/var/log/centreon-broker` du serveur central.
+> Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-broker-master.log` et `stream-connector-splunk-events.log`, tous deux situés à l'emplacement `/var/log/centreon-broker` du serveur central.
 
 #### Configuration avancée
 
@@ -149,5 +157,5 @@ Le Stream Connector n'est plus chargé par `centreon-broker`.
 9. Ce n'est pas nécessaire, mais vous pouvez également supprimer le script pour désinstaller complètement le Stream Connector :
 
 ```bash
-rm -f /usr/share/centreon-broker/lua/splunk-metrics-http.lua
+rm -f /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
