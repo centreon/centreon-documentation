@@ -127,11 +127,7 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 ## FAQ
 
-### Comment puis-je tester le Plugin et que signifient les options standards ?
-
-@TODO@
-
-### Que signifie ces messages d'erreur
+### Que signifient les messages d'erreur suivants:
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
