@@ -9,7 +9,12 @@ CloudWatch Logs vous permet de centraliser les journaux de tous vos systèmes ai
 applications et les services AWSque vous utilisez au sein d’un seul service hautement évolutif. 
 Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour identifier des 
 codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou 
-les archiver en toute sécurité à des fins d’analyse ultérieure
+les archiver en toute sécurité à des fins d’analyse ultérieure.
+
+> **Attention** Ce Plugin est susceptible de générer un volume importants de données lors des requêtes API.
+> Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` and ```--stream-name```) afin
+> de limiter les résultats retournés par l'API.
+
 
 ## Contenu du Plugin-Pack
 
@@ -17,16 +22,15 @@ les archiver en toute sécurité à des fins d’analyse ultérieure
 
 * Groupes de Logs et Stream associés 
 
-## Métriques supervisées
+### Données collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Get-Logs-->
 
-| Metric name           | Description               																								   |
-|:----------------------|:---------------------------------------------------------------------------------------------------------------------------- |
-| Logs				    | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream_name}, %{since} variables     |
+| Metric name | Description                                                                                                               |
+|:------------|:--------------------------------------------------------------------------------------------------------------------------|
+| Logs        | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream\_name}, %{since} variables |
 
-You can filter the scope of the query using ```--group-name``` and ```--stream-name``` options.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -68,6 +72,7 @@ yum install awscli
 > * si la connexion s'effectue au travers d'un proxy.
 > * utilisation de la fonctionnalité de *Découverte d'Hôte* dans Centreon.
 
+
 ## Installation 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -80,7 +85,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -90,19 +95,19 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *AWS Health*:
+2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon CloudWatch Logs*:
 
 ```bash
 yum install centreon-pack-cloud-aws-cloudwatchlogs
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon CloudWatch Logs* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Ajoutez un Hôte à Centreon et appliquez-lui le Modèle d'Hôte *Amazon CloudWatch Logs*.
+* Ajoutez un Hôte à Centreon et appliquez-lui le Modèle d'Hôte *Cloud-Aws-CloudWatchLogs*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) doivent être renseignées:
 
 | Mandatory   | Nom             | Description                                                                                 |
@@ -128,13 +133,19 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl \
  --plugin=cloud::aws::cloudwatchlogs::plugin \
- --mode=get-logs --custommode='awscli' \
- --aws-secret-key='****' --aws-access-key='****' \
- --proxyurl='' --region='eu-west-1' \
+ --mode=get-logs \
+ --custommode='awscli' \
+ --aws-secret-key='****' \
+ --aws-access-key='****' \
+ --proxyurl='' \
+ --region='eu-west-1' \
  --group-name='/aws/lambda/MyLambda_LogGroup' \
- --stream-name='' --start-time-since='3000' \
- --unknown-status='' --warning-status='' \
- --critical-status='%{message} =~ /region/i' --verbose
+ --stream-name='' \
+ --start-time-since='3000' \
+ --unknown-status='' \
+ --warning-status='' \
+ --critical-status='%{message} =~ /region/i' \
+ --verbose
 ```
 
 La commande retourne le message de sortie ci-dessous:
@@ -146,11 +157,12 @@ critical: log [created: 5m 11s] [stream: 2020/07/21/[$LATEST]57eb66feaf4aa7bc46g
 critical: log [created: 10m 11s] [stream: 2020/07/21/[$LATEST]57eb66eac4cea0e91ce2b99] [message: [INFO]    2020-07-21T14:30:31.767Z    8a62ac5e-d6dd-44Da-b23e-bce42fef3  Set REGION: eu-west-1 -- ]
 ```
 
-Cette commande supervise les logs (```--mode=events```) grâce à une paire d'identifiants *aws-secret-key* et *aws-access-key* (```--aws-secret-key='****' --aws-access-key='****'```). Ces logs concerne un Groupe de Logs définit directement au travers d'Amazon CloudWatch Logs (```--group-name='/aws/lambda/MyLambda_LogGroup'```).
+Cette commande supervise les *logs* (```--mode=get-logs```) Amazon CloudWatch grâce à une paire d'identifiants *aws-secret-key* et *aws-access-key* (```--aws-secret-key='****' --aws-access-key='****'```). 
+Les logs retournés ici sont uniquement ceux inclus dans le groupe *MyLambda_LogGroup* (```--group-name='/aws/lambda/MyLambda_LogGroup'```) tel que défini dans la console AWS.
 
-Une alerte CRITICAL sera déclenchée si des logs contenant la chaîne 'region' sont présents dans le contenu de la ligne de log (```'%{message} =~ /region/i'```).
+Une alerte CRITICAL sera déclenchée si des *logs* contenant la chaîne 'region' sont présents dans le contenu de la ligne de log (```'%{message} =~ /region/i'```).
 
-La liste de tous les filtres et seuil disponibles peut être affichée en ajoutant le paramètre ```--help``` à la commande:
+La liste de tous les filtres et seuils disponibles peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl --plugin=cloud::aws::cloudwatchlogs::plugin --mode=get-logs --help
@@ -162,11 +174,11 @@ La liste de tous les filtres et seuil disponibles peut être affichée en ajouta
 
 Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
 
-#### ```UNKNOWN: 500 Can't connect to health.us-east-1.amazonaws.com:443 |```
+#### ```UNKNOWN: 500 Can't connect to monitoring.us-east-1.amazonaws.com:443 |```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant: ```UNKNOWN: 500 Can't connect to health.us-east-1.amazonaws.com:443 |```.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant: ```UNKNOWN: 500 Can't connect to monitoring.us-east-1.amazonaws.com:443 |```.
 
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS Health.
+Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS CloudWatch.
 
 Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le collecteur Centreon,
 il est nécessaire de le préciser dans la commande en utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
