@@ -10,8 +10,8 @@ and AWS services that you use, in a single, highly scalable service. You can the
 search them for specific error codes or patterns, filter them based on specific fields, 
 or archive them securely for future analysis
 
-  :warning This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
-  with ```--group-name``` and ```--stream-name``` options. 
+> **Warning** This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
+> with ```--group-name``` and ```--stream-name``` options. 
 
 ## Plugin-Pack assets
 
@@ -19,14 +19,15 @@ or archive them securely for future analysis
 
 * Log entries related to groups and underlying streams
 
-## Monitored metrics 
+### Collected data 
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Get-Logs-->
 
-| Metric name           | Description               																								   |
-|:----------------------|:---------------------------------------------------------------------------------------------------------------------------- |
-| Logs				    | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream_name}, %{since} variables     |
+| Metric name | Description                                                                                                               |
+|:------------|:--------------------------------------------------------------------------------------------------------------------------|
+| Logs        | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream\_name}, %{since} variables |
 
 You can filter the scope of the query using ```--group-name``` and ```--stream-name``` options.
 
@@ -69,7 +70,6 @@ yum install awscli
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
 
 
-
 ## Setup 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -106,7 +106,7 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs.noarch
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts". 
-* Select the *Amazon CloudWatch Logs* template to apply to the Host.
+* Select the *Cloud-Aws-CloudWatchLogs* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured:
 
 | Mandatory   | Nom             | Description                                                                                 |
@@ -131,13 +131,19 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl \
  --plugin=cloud::aws::cloudwatchlogs::plugin \
- --mode=get-logs --custommode='awscli' \
- --aws-secret-key='****' --aws-access-key='****' \
- --proxyurl='' --region='eu-west-1' \
+ --mode=get-logs \
+ --custommode='awscli' \
+ --aws-secret-key='****' \
+ --aws-access-key='****' \
+ --proxyurl='' \
+ --region='eu-west-1' \
  --group-name='/aws/lambda/MyLambda_LogGroup' \
- --stream-name='' --start-time-since='3000' \
- --unknown-status='' --warning-status='' \
- --critical-status='%{message} =~ /region/i' --verbose
+ --stream-name='' \
+ --start-time-since='3000' \
+ --unknown-status='' \
+ --warning-status='' \
+ --critical-status='%{message} =~ /region/i' \
+ --verbose
 ```
 
 Expected command output is shown below: 
@@ -155,6 +161,8 @@ To avoid performance issues, the LogGroup filter is mandatory (```--group-name='
 
 This command would trigger a CRITICAL alert if the message contains the word 'region' without being case sensitive (```--critical-status='%{message} =~ /region/i'```). 
 
+All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help``` 
+parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatchlogs_api.pl --plugin=cloud::aws::cloudwatchlogs::plugin --mode=get-logs --help
@@ -167,9 +175,9 @@ This command would trigger a CRITICAL alert if the message contains the word 're
 This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
 
 
-#### ```UNKNOWN: 500 Can't connect to health.us-east-1.amazonaws.com:443 |```
+#### ```UNKNOWN: 500 Can't connect to monitoring.us-east-1.amazonaws.com:443 |```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the AWS Health API.
+This error message means that the Centreon Plugin couldn't successfully connect to the AWS CloudWatch API.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. 
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
