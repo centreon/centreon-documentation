@@ -1,0 +1,268 @@
+	---
+	id: applications-linux-ssh
+	title: Linux SSH
+	---
+
+	## Overview
+
+	Linux is a family of open source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds. Linux is typically packaged in a Linux distribution. 
+
+	## Plugin-Pack Assets
+
+	### Monitored Objects
+
+	This Plugin-Pack provides assets to monitor all types of Linux based systems with a SSH server enabled:
+
+	* Centos 
+	* Redhat
+	* Debian
+	* Ubuntu
+	* ...
+
+	## Collected Metrics
+
+	In addition to modes and metrics described here, it is also possible to monitor the following indicators: 
+
+	CPU detailed usage: Advanced monitoring of the CPU (User, Nice, Idle, ...)
+	Disk I/O: Disk I/O includes read or write or input/output operations (defined in KB/s) involving a physical disk
+	Memory: Memory usage on the device
+	Ntp: Synchronized time on the device
+	Packets errors: Incoming/Outcoming traffic packets errors going through the interface
+	Quota: Quotas of setting a space limit for a user or group of users.
+	Traffic: Incoming/Outcoming traffic going through the interface
+	Service systemd: Status of service on the device
+
+	<!--DOCUSAURUS_CODE_TABS-->
+
+	## Monitored Metrics 
+
+	<!--DOCUSAURUS_CODE_TABS-->
+
+	<!--Cpu-->
+
+	| Metric name                        | Description                                   |
+	| :--------------------------------- | :-------------------------------------------- |
+	| cpu.utilization.percentage         | CPU utilization. Unit : %                     |
+	| core.cpu.utilization.percentage    | Per Core CPU utilization. Unit : %            |
+
+	<!--Swap-->
+
+	| Metric name                 | Description                                       |
+	| :-------------------------- | :------------------------------------------------ |
+	| swap.usage.bytes            | Used swap. Unit: Bytes                            |
+	| swap.free.bytes             | Free swap. Unit: Bytes                            |
+	| swap.usage.percentage       | Percentage of used swap. Unit: %                  |
+
+	<!--Load-->
+
+	| Metric name                 | Description                                        |
+	| :-------------------------- | :------------------------------------------------- |
+	| load1                       | System load 1 minute-sample                        |
+	| load5                       | System load 5 minutes-sample                       |
+	| load15                      | System load 15 minutes-sample                      |
+
+	<!--Uptime-->
+
+	| Metric name                 | Description                                        |
+	| :-------------------------- | :------------------------------------------------- |
+	| uptime                      | Duration of last start                             |
+
+	<!--Paging-->
+
+	| Metric name                            | Description                                         |
+	| :------------------------------------- | :-------------------------------------------------- |
+	| system.pgpin.usage.bytespersecond      | Incoming Paging usage on the device. Unit : B/s     |
+	| system.pgpgout.usage.bytespersecond    | Outgoing Paginh usage on the device. Unit : B/s     |
+	| system.pswpin.usage.bytespersecond     | Incoming Swapping usage on the device. Unit : B/s   |
+	| system.pswpout.usage.bytespersecond    | Outgoing Swapping usage on the device. Unit : B/s   |
+	| system.pgfault.usage.bytespersecond    | Paging fault usage on the device. Unit : B/s        |
+	| system.pgmajfault.usage.bytespersecond | Paging update fault usage on the device. Unit : B/s |
+
+	<!--Connection-->
+
+	| Metric name                 | Description                                        |
+	| :-------------------------- | :------------------------------------------------- |
+	| con_closed                  | Number of connection closed                        |
+	| con_closeWait               | Number of connection on wait close                 |
+	| con_closing                 | Number of connection closing                       | 
+	| con_established             | Number of connection etablished					   |
+	| con_finWait1                | Number of connection finWait1                      |
+	| con_finWait2                | Number of connection finWait1                      | 
+	| con_lastAck                 | Number of connection on last Ack                   |
+	| con_listen                  | Number of connection on listen                     |
+	| con_synReceived             | Number of connection synchronized Received         |
+	| con_synSent                 | Number of connection synchronized syn Sent         |
+	| con_timeWait                | Number of connection on time wait                  | 
+	| total                       | Total of connection                                |
+
+	<!--Inodes-->
+
+	| Metric name                 | Description                                        |
+	| :-------------------------- | :------------------------------------------------- |
+	| used                        |  Usage of inodes per partitions                   |
+
+	<!--Process-->
+
+	| Metric name                 | Description                                        |
+	| :-------------------------- | :------------------------------------------------- |
+	| total                       |  Number of current processes. Units: Count         |
+
+	## Prerequisistes
+
+	### Linux Configuration
+
+	By default, the ssh is configured. We show you for Centos 7 what  steps to install ssh. (The commands can be different whit other OS Linux)
+
+	Install packet ssh
+	```
+	sudo yum –y install openssh-server openssh-clients
+	```
+
+	Modify and customize if desired
+	```
+	vim /etc/ssh/sshd_config
+	```
+
+	Enable and start service sshd 
+	```
+	systemctl enable sshd
+	systemctl start sshd 
+	```
+
+	To finish, check if your service is well started  
+	```
+	systemctl status sshd
+	```
+
+	Result expected 
+
+	```
+	● sshd.service - OpenSSH server daemon
+	Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+	Active: active (running) since lun. 2020-07-27 10:49:49 CEST; 4 days ago
+		Docs: man:sshd(8)
+			man:sshd_config(5)
+	Main PID: 998 (sshd)
+	CGroup: /system.slice/sshd.service
+			└─998 /usr/sbin/sshd -D
+	```
+
+	## Installation
+
+	<!--DOCUSAURUS_CODE_TABS-->
+
+	<!--Online IMP Licence & IT-100 Editions-->
+
+	1. Install the Linux SSH Centreon Plugin on every poller expected to monitor the devices: 
+
+	```bash
+	yum install centreon-plugin-Operatingsystems-Linux-Ssh
+	```
+
+	2. Install the 'OS-Linux-SSH' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+
+	<!--Offline IMP License-->
+
+	1. Install the Linux SSH Centreon Plugin on every poller expected to monitor the devices:
+
+	```bash
+	yum install centreon-plugin-Operatingsystems-Linux-Ssh
+	```
+
+	2. Install the Centreon Plugin-Pack RPM: 
+
+	```bash
+	yum install centreon-pack-operatingsystems-linux-ssh
+	```
+
+	3. Install the 'OS-Linux-SSH' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+
+	<!--END_DOCUSAURUS_CODE_TABS-->
+
+	## Configuration
+
+	Adding a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with *OS-Linux-SSH*. Once the template set, you have to set values according to the chosen SSH backend. 
+
+	3 SSH backends are available to connect to the Linux SSH server: *sshcli*, *plink* and *libssh* which are detailed below.  
+
+	### sshcli backend
+
+	| Mandatory   | Name            | Description                                                                                 |
+	| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+	| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
+	|             | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |                                                        
+	|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
+	|             | SSHPORT         | By default: 22                                                                              |
+	|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+	**Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+
+	### plink backend
+
+	| Mandatory   | Name            | Description                                                                                 |
+	| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+	| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
+	|             | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |                                                        
+	|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+	|             | SSHPORT         | By default: 22                                                                              |
+	|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+	**Warning** With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+
+	### libssh backend
+
+	| Mandatory   | Name            | Description                                                                                 |
+	| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
+	| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
+	|             | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |                                                         |
+	|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
+	|             | SSHPORT         | By default: 22                                                                              |
+	|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+
+	With that backend, you don't have to validate the target server fingerprint manually. Nice ;)
+
+	## FAQ
+
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
+
+Once you've installed the plugin, you can test it logging with centreon-engine user:
+
+```bash
+/usr/lib/centreon/plugins//centreon_linux_ssh.pl
+	--plugin=os::linux::local::plugin
+	--mode=cpu
+	--hostname='10.30.2.114'
+	--ssh-backend='libssh'
+	--ssh-username='root'
+	--ssh-password='centreon'
+	--ssh-port='22' 
+	--warning-core=''
+	--critical-core=''
+	--warning-average=''
+	--critical-average=''
+	--verbose
+	--use-new-perfdata
+```
+
+This check monitors CPU utilization (```--mode=cpu```) of a Linux server. The server's IP address is 10.30.2.114 (```--hostname=10.30.2.114```). Backen ssh used is libssh (```--ssh-backend='libssh'```) and the name and password for user ssh is root (```--ssh-username='root''```) and centreon (```--ssh-password='centreon```).
+
+All available modes with the plugin can be displayed with: 
+
+```bash
+/usr/lib/centreon/plugins//centreon_linux_ssh.pl \
+    --plugin=os::linux::local::plugin \
+    --list-mode
+```
+
+The available options for a mode can be displayed using the ```--help``` parameter: 
+
+```bash
+/usr/lib/centreon/plugins//centreon_linux_ssh.pl \
+    --plugin=os::linux::local::plugin \
+    --mode=cpu \
+    --help
+```
+
+	### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
+
+	It means you haven't manually validated the target server fingerprint with ```ssh``` or ```plink``` on the Centreon poller.
