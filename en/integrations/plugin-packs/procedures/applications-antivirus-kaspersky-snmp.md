@@ -20,25 +20,7 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Some-name-->
-
 <!--Deployment-->
-
-| Metric name            | Description                                |
-| :----------------------| :------------------------------------------| 
-| progress               | Number of remote installation in progress  |     
-| failed                 | Number of failed remote installation       |          
-| expiring               | Hosts with expiring licence                |        
-| expired                | Hosts with expired licence                 |
-
-<!--Events-->
-
-| Metric name            | Description             |
-| :----------------------| :-----------------------| 
-| events                 | Number of events        |     
-
-
-<!--Logical-Network-->
 
 | Metric name            | Description                                 |
 | :----------------------| :-------------------------------------------| 
@@ -47,14 +29,29 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 | expiring               | Number of hosts with expiring licence       |        
 | expired                | Number of hosts with expired licence        |
 
-<!--Protection TODO-->
+<!--Events-->
+
+| Metric name            | Description             |
+| :----------------------| :-----------------------| 
+| events                 | Number of events        |     
+
+<!--Logical-Network-->
+
+| Metric name               | Description                                            |
+| :-------------------------| :------------------------------------------------------| 
+| new_hosts                 | Number of new hosts                                    |     
+| groups                    | TODO                                                   |          
+| not_connected_long_time   | Number of hosts that have not connected in a long time |        
+| not_controlled            | Number of uncontrolled hosts                           |
+
+<!--Protection-->
 
 | Metric name            | Description                                           |
 | :----------------------| :-----------------------------------------------------| 
 | no_antivirus           | Number of hosts without running antivirus             |     
 | no_real_time           | Number of hosts without running real time protection  |          
-| not_acceptable_level   |                                                       |        
-| not_curred_objects     | Number of hosts with not cured objects                |
+| not_acceptable_level   | Number of hosts with unacceptable protection level    |
+| not_curred_objects     | Number of hosts with not curred objects               |
 | too_many_threat        | Number of hosts with too many threats                 |
 
 <!--Updates-->
@@ -135,10 +132,10 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-* Log into Centreon and add a new host through "Configuration > Hosts".
-* Fill the SNMP Community and Version fields
-* Apply the template *App-Antivirus-Kaspersky-SNMP-custom*
-* If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
+1. Log into Centreon and add a new host through "Configuration > Hosts".
+2. Fill the SNMP Community and Version fields
+3. Apply the template *App-Antivirus-Kaspersky-SNMP-custom*
+4. If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
 your own SNMPv3 credentials combo 
 
 ## FAQ
