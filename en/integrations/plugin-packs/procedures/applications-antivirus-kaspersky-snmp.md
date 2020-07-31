@@ -3,52 +3,164 @@ id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Apr  9 2018 |
+## Overview
+
+Kasperky is a cybersecurity and anti-virus provider founded in 1997 by Eugene 
+Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
+
+## Plugin-Pack assests
+
+### Monitored objects
+
+* Kaspersky Security Center
+
+### Collected Metrics
+
+The following metrics are collected by the Centreon Kaspersky Plugin:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Some-name-->
+
+| Metric name            | Description                             | Unit    |
+| :----------------------| :---------------------------------------| :-------|
+| Deployment             | Antivirus software deployment status    |         |
+| Event                  | Events status                           |         |
+| Logical-Network        | Logical network status                  |         |
+| Protection             | Protection status                       |         |
+| Updates                | Events updates status                   |         |
+| Full-Scan              | Full-scan status                        |         |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-### Centreon Plugin
+To monitor a Kaspersky Security Center through SNMP, the SNMP service must be
+installed and configured on the device. Most of Linux distributions rely on net-snmp.
 
-Install this plugin on each needed poller:
+###net-snmp server 
 
-``` shell
+Find below a minimalist snmpd.conf / net-snmp config file (replace my-snmp-community by the relevant value).
+
+```
+com2sec notConfigUser  default       my-snmp-community
+group   notConfigGroup v1           notConfigUser
+group   notConfigGroup v2c           notConfigUser
+view centreon included .1.3.6.1
+view    systemview    included   .1.3.6.1.2.1.1
+view    systemview    included   .1.3.6.1.2.1.25.1.1
+access notConfigGroup "" any noauth exact centreon none none
+access  notConfigGroup ""      any       noauth    exact  systemview none none
+includeAllDisks 10%
+```
+
+The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot.
+
+###Network flow
+
+The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
+
+## Installation
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
+
+```bash
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-Be sure to have with you the following information:
+2. On the centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-  - Read-Only SNMP community
-  - IP Address of the equipment
+<!--Offline IMP License-->
 
-### Configure SNMP on your server
+1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
 
-Follow constructor procedure for your equipment.
+```bash
+yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+```
 
-### SNMP Permissions
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-Read-Only access.
+```bash
+yum install centreon-pack-applications-antivirus-kaspersky-snmp
+```
 
-### Troubleshooting
+3. On the centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-Read [Troubleshooting
-SNMP](https://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide.html#snmp).
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-## Centreon Configuration
+## Configuration
 
 ### Create a host using the appropriate template
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* Log into Centreon and add a new host through "Configuration > Hosts".
+* Fill the SNMP Community and Version fields
+* Apply the template *App-Antivirus-Kaspersky-SNMP-custom*
+* If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
+your own SNMPv3 credentials combo 
 
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | App-Kaspersky-SNMP-custom  |
+## FAQ
 
-Click on the *Save* button.
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
+Once you've installed the plugin, you can test it logging with *centreon-engine* user:
+ 
+```bash
+/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
+  --plugin=apps::antivirus::kaspersky::snmp::plugin \
+  --mode=deployment --hostname=10.30.2.15 \
+  --snmp-version='2c' \
+  --snmp-community='netsec/hqavscckaspersky' \
+  --snmp-port=1616 \
+  --warning-status='%{status} =~ /Warning/i' \
+  --critical-status='%{status} =~ /Critical/i' \
+  --warning-progress='100:' \
+  --critical-progress='95:' \
+  --warning-failed='0' \
+  --critical-failed='' \
+  --warning-expiring='0' \
+  --critical-expiring='' \
+  --warning-expired='0' \
+  --critical-expired='' 
+```
+
+Expected command output is shown below:
+
+```
+WARNING: 7 failed remote installation(s) - 96 host(s) with expiring licence - 7 host(s) with expired licence | 'progress'=4743;;;0;4844 'failed'=7;0:0;;0; 'expiring'=96;0:0;;0; 'expired'=7;0:0;;0;
+```
+
+All available modes with the plugin can be displayed with:
+
+```bash
+/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
+  --plugin=apps::antivirus::kaspersky::snmp::plugin \
+  --list-mode
+```
+
+The available options for a mode can be displayed using the ```--help``` parameter:
+
+```bash
+/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
+  --plugin=apps::antivirus::kaspersky::snmp::plugin \
+  --mode=deployment \
+  --help
+```
+
+### UNKNOWN: SNMP GET Request : Timeout
+
+If you get this message, you're probably facing one of theses issues:
+
+* Your SNMP server isn't started or misconfigured
+* An external device is blocking your request (firewall, ...)
+
+### UNKNOWN: SNMP GET Request : Cant get a single value.
+
+This message generally means that SNMP privileges are not wide enough for the mode/plugin to work properly.
+
+If it only happens on the Inodes mode, make sure the following directive is set in the SNMP server configuration file:
+
+includeAllDisks 10%
