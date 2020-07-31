@@ -22,14 +22,53 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 
 <!--Some-name-->
 
-| Metric name            | Description                             | Unit    |
-| :----------------------| :---------------------------------------| :-------|
-| Deployment             | Antivirus software deployment status    |         |
-| Event                  | Events status                           |         |
-| Logical-Network        | Logical network status                  |         |
-| Protection             | Protection status                       |         |
-| Updates                | Events updates status                   |         |
-| Full-Scan              | Full-scan status                        |         |
+<!--Deployment-->
+
+| Metric name            | Description                                |
+| :----------------------| :------------------------------------------| 
+| progress               | Number of remote installation in progress  |     
+| failed                 | Number of failed remote installation       |          
+| expiring               | Hosts with expiring licence                |        
+| expired                | Hosts with expired licence                 |
+
+<!--Events-->
+
+| Metric name            | Description             |
+| :----------------------| :-----------------------| 
+| events                 | Number of events        |     
+
+
+<!--Logical-Network-->
+
+| Metric name            | Description                                 |
+| :----------------------| :-------------------------------------------| 
+| progress               | Number of remote installations in progress  |     
+| failed                 | Number of failed remote installations       |          
+| expiring               | Number of hosts with expiring licence       |        
+| expired                | Number of hosts with expired licence        |
+
+<!--Protection TODO-->
+
+| Metric name            | Description                                           |
+| :----------------------| :-----------------------------------------------------| 
+| no_antivirus           | Number of hosts without running antivirus             |     
+| no_real_time           | Number of hosts without running real time protection  |          
+| not_acceptable_level   |                                                       |        
+| not_curred_objects     | Number of hosts with not cured objects                |
+| too_many_threat        | Number of hosts with too many threats                 |
+
+<!--Updates-->
+
+| Metric name            | Description                             | Unit   |
+| :----------------------| :---------------------------------------|:------ | 
+| last_server_update     | Date of the last server update          | s      |    
+| not_updated            | Number of failed remote installation    | string |        
+
+<!--Full-Scan-->
+
+| Metric name            | Description                                |
+| :----------------------| :------------------------------------------| 
+| not_scanned            | Number of hosts not recently scanned       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -38,7 +77,7 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 To monitor a Kaspersky Security Center through SNMP, the SNMP service must be
 installed and configured on the device. Most of Linux distributions rely on net-snmp.
 
-###net-snmp server 
+### net-snmp server 
 
 Find below a minimalist snmpd.conf / net-snmp config file (replace my-snmp-community by the relevant value).
 
@@ -56,7 +95,7 @@ includeAllDisks 10%
 
 The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot.
 
-###Network flow
+### Network flow
 
 The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
