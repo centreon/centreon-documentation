@@ -40,7 +40,7 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 | Metric name               | Description                                            |
 | :-------------------------| :------------------------------------------------------| 
 | new_hosts                 | Number of new hosts                                    |     
-| groups                    | TODO                                                   |          
+| groups                    | Number of groups on the server                          |          
 | not_connected_long_time   | Number of hosts that have not connected in a long time |        
 | not_controlled            | Number of uncontrolled hosts                           |
 
@@ -132,11 +132,8 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-1. Log into Centreon and add a new host through "Configuration > Hosts".
-2. Fill the SNMP Community and Version fields
-3. Apply the template *App-Antivirus-Kaspersky-SNMP-custom*
-4. If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
-your own SNMPv3 credentials combo 
+Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community* and *SNMP Version* fields and apply the template *App-Antivirus-Kaspersky-SNMP-custom*. If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
+your own SNMPv3 credentials combo.
 
 ## FAQ
 
@@ -149,24 +146,13 @@ Once you've installed the plugin, you can test it logging with *centreon-engine*
   --plugin=apps::antivirus::kaspersky::snmp::plugin \
   --mode=deployment --hostname=10.30.2.15 \
   --snmp-version='2c' \
-  --snmp-community='netsec/hqavscckaspersky' \
-  --snmp-port=1616 \
-  --warning-status='%{status} =~ /Warning/i' \
-  --critical-status='%{status} =~ /Critical/i' \
-  --warning-progress='100:' \
-  --critical-progress='95:' \
-  --warning-failed='0' \
-  --critical-failed='' \
-  --warning-expiring='0' \
-  --critical-expiring='' \
-  --warning-expired='0' \
-  --critical-expired='' 
+  --snmp-community='netsec/hqavscckaspersky'
 ```
 
 Expected command output is shown below:
 
 ```
-WARNING: 7 failed remote installation(s) - 96 host(s) with expiring licence - 7 host(s) with expired licence | 'progress'=4743;;;0;4844 'failed'=7;0:0;;0; 'expiring'=96;0:0;;0; 'expired'=7;0:0;;0;
+OK: status : skipped (no value(s)) - Deployment progress: 4743/4844 (97.91%) - 4 failed remote installation(s) - 137 host(s) with expiring licence - 4 host(s) with expired licence | 'progress'=4743;;;0;4844 'failed'=4;;;0; 'expiring'=137;;;0; 'expired'=4;;;0;
 ```
 
 All available modes with the plugin can be displayed with:
