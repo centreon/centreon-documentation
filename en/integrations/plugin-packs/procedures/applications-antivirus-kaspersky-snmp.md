@@ -132,7 +132,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community* and *SNMP Version* fields and apply the template *App-Antivirus-Kaspersky-SNMP-custom*. If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS macro to configure 
+Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community* and *SNMP Version* fields and apply the template *App-Antivirus-Kaspersky-SNMP-custom*. If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* macro to configure 
 your own SNMPv3 credentials combo.
 
 ## FAQ
