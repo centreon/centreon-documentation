@@ -71,6 +71,11 @@ Edit the newly created Remote Server configuration, and select **ZMQ** as
 **Gorgone connection protocol**. Define the suitable **port** (port **5556**
 is recommended).
 
+> Note that a SSH port is still required (SSH Legacy port) for the Service
+> Discovery extension.
+>
+> This extension will soon use Gorgone communication protocol.
+
 ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
 Click on **Save**.

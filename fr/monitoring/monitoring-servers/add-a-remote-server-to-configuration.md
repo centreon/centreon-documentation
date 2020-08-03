@@ -73,6 +73,11 @@ Editer la configuration du Remote Server fraichement créé, et sélectionner **
 comme **Protocole de connexion utilisé par Gorgone**. Définir le **port**
 adéquat (le port **5556** est recommandé).
 
+> Il est à noter qu'un port SSH est toujours necessaire (SSH Legacy port) pour
+> l'extension de découverte de service (Service Discovery).
+>
+> Cette extension utilisera bientôt le protocole de communication de Gorgone.
+
 ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
 Cliquer sur **Sauvegarder**.

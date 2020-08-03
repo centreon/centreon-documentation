@@ -71,6 +71,11 @@ icon on the line corresponding to your Poller <img src="../../assets/monitoring/
 A pop-in will show the configuration to copy into the **Poller terminal**.
 Click on **Copy to clipboard**.
 
+> Note that a SSH port is still required (SSH Legacy port) for the Service
+> Discovery extension.
+>
+> This extension will soon use Gorgone communication protocol.
+
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
 Paste the content of the clipboard directly into the **Poller terminal** as it
