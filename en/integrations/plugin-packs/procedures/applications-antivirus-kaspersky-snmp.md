@@ -109,7 +109,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. On the centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Kaspersky* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -117,7 +117,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community*
+Go to *Configuration* > *Host* > and click *Add*. Then fill the *SNMP Community*
 and *SNMP Version* fields and apply the template 
 *App-Antivirus-Kaspersky-SNMP-custom*.
 

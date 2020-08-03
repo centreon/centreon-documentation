@@ -104,7 +104,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon **Central** :
+2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Centreon **Central** :
 
 ```bash
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
@@ -118,7 +118,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-Lorsque vous ajoutez un hôte, complétez les champs 'Communauté Snmp' et 
+Lorsque vous ajoutez un Hôte, complétez les champs 'Communauté Snmp' et 
 'Version Snmp' pour refléter la configuration de l'équipement cible.
 
 :warning: Si vous utilisez SNMP en version 3, vous devez configurer les
