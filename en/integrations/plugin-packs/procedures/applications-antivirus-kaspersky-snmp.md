@@ -5,7 +5,7 @@ title: Kaspersky
 
 ## Overview
 
-Kasperky is a cybersecurity and anti-virus provider founded in 1997 by Eugene 
+Kasperky is a cybersecurity and anti-virus provider founded in 1997 by Eugene
 Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
 
 ## Plugin-Pack assests
@@ -40,7 +40,7 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 | Metric name               | Description                                            |
 | :-------------------------| :------------------------------------------------------| 
 | new_hosts                 | Number of new hosts                                    |     
-| groups                    | Number of groups on the server                          |          
+| groups                    | Number of groups on the server                         |          
 | not_connected_long_time   | Number of hosts that have not connected in a long time |        
 | not_controlled            | Number of uncontrolled hosts                           |
 
@@ -71,26 +71,11 @@ The following metrics are collected by the Centreon Kaspersky Plugin:
 
 ## Prerequisites
 
-To monitor a Kaspersky Security Center through SNMP, the SNMP service must be
-installed and configured on the device. Most of Linux distributions rely on net-snmp.
+### Kasperky Security Center configuration
 
-### net-snmp server 
-
-Find below a minimalist snmpd.conf / net-snmp config file (replace my-snmp-community by the relevant value).
-
-```
-com2sec notConfigUser  default       my-snmp-community
-group   notConfigGroup v1           notConfigUser
-group   notConfigGroup v2c           notConfigUser
-view centreon included .1.3.6.1
-view    systemview    included   .1.3.6.1.2.1.1
-view    systemview    included   .1.3.6.1.2.1.25.1.1
-access notConfigGroup "" any noauth exact centreon none none
-access  notConfigGroup ""      any       noauth    exact  systemview none none
-includeAllDisks 10%
-```
-
-The SNMP server must be restarted each time the configuration is modified. Also make sure that the SNMP server is configured to automatically start on boot.
+To use this pack, the SNMP service must be properly configured on your 
+Kaspersky Security center server. Kaspersky provides an official documentation
+to achieve this: https://support.kaspersky.com/12603#block3
 
 ### Network flow
 
@@ -132,8 +117,16 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 ### Create a host using the appropriate template
 
-Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community* and *SNMP Version* fields and apply the template *App-Antivirus-Kaspersky-SNMP-custom*. If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* macro to configure 
-your own SNMPv3 credentials combo.
+Go to *Configiration* > *Host* > and click *Add*. Then fill the *SNMP Community*
+and *SNMP Version* fields and apply the template 
+*App-Antivirus-Kaspersky-SNMP-custom*.
+
+If you are using SNMP Version 3, use the
+*SNMPEXTRAOPTIONS* macro to configure your own SNMPv3 credentials combo.
+
+| Mandatory   | Name             | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -181,8 +174,5 @@ If you get this message, you're probably facing one of theses issues:
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This message generally means that SNMP privileges are not wide enough for the mode/plugin to work properly.
-
-If it only happens on the Inodes mode, make sure the following directive is set in the SNMP server configuration file:
-
-includeAllDisks 10%
+This message generally means that SNMP privileges are not wide enough for the
+mode/plugin to work properly.
