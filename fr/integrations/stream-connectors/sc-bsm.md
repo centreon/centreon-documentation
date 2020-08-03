@@ -40,7 +40,9 @@ echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
 Maintenant que le serveur peut accéder à Internet, lancer les commandes :
 
 ```bash
-yum install -y lua-curl
+yum install -y lua-curl epel-release
+yum install -y luarocks
+luarocks install luaxml
 ```
 
 Ce paquet est nécessaire au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :

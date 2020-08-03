@@ -40,7 +40,9 @@ echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
 Now that your Centreon central server is able to reach the Internet, you can run:
 
 ```bash
-yum install -y lua-curl
+yum install -y lua-curl epel-release
+yum install -y luarocks
+luarocks install luaxml
 ```
 
 This package is necessary for the script to run. Now let's download the script:
