@@ -24,11 +24,13 @@ passwd <account_name>
 
 De plus, il est important de vérifier que le compte Apache ne dispose pas de droits de connexion au terminal. Exécutez
 la commande suivante :
+
 ```shell
 cat /etc/passwd | grep apache
 ```
 
 Vous devez avoir **/sbin/nologin** tel que :
+
 ```shell
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
@@ -39,6 +41,7 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
 l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les instructions :
+
 ```shell
 mysql_secure_installation
 ```
@@ -54,7 +57,6 @@ Si vous ne disposez pas d'un certificat validé par une autorité, vous pouvez e
 que [Let's Encrypt](https://letsencrypt.org/).
 
 Une fois votre certificat obtenu, effectuez la procédure suivante pour activer le mode HTTPS sur votre serveur Apache :
-
 
 1. Installez le module SSL pour Apache
 
@@ -104,7 +106,7 @@ ProxyTimeout 300
 #####################
     SSLEngine on
     SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
-    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256 SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256:SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
@@ -151,6 +153,7 @@ RedirectMatch ^/$ /centreon
 5. Activez les flags HttpOnly et Secure et cachez la signature du serveur
 
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
+
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
 ServerSignature Off
@@ -176,6 +179,7 @@ systemctl status httpd24-httpd
 ```
 
 Si tout est correct, vous devriez avoir quelque chose comme :
+
 ```shell
 ● httpd24-httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
@@ -211,7 +215,6 @@ Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
 2. Éditez  le fichier de configuration Apache pour Centreon (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**)
 et modifiez le chemin **/centreon** par le nouveau.
-
 
 ## Activation du http2
 
