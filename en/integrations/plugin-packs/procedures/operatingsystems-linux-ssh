@@ -204,7 +204,7 @@ or by setting your unique user and password directly in the host macros.
 
 <!--SSH keys exchange-->
 
-Add and generate a password on the **Target sever**:
+Add and generate a password for your user on the **Target sever**:
 
 ```bash
 adduser ro_ssh_centreon
