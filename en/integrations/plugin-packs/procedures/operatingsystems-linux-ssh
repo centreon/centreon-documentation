@@ -351,7 +351,7 @@ Thresholds can be set on all of the device metrics using the syntax ```--warning
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
-```/usr/lib/centreon/plugins//centreon_cisco_ssms_restapi.pl --plugin=apps::cisco::ssms::restapi::plugin --mode=licences --help```
+``` /usr/lib/centreon/plugins//centreon_linux_ssh.pl --plugin=os::linux::local::plugin --mode=cpu --help```
 
 
 ### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
