@@ -626,6 +626,7 @@
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe3",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-linux-ssh",
                     "integrations/plugin-packs/procedures/operatingsystems-mac-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-solaris-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-windows-nrpe",
