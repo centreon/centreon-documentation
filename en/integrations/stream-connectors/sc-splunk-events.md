@@ -121,9 +121,9 @@ Now your central server has loaded the Splunk Events Stream Connector and has st
 **Parameters table**
 
 | Name                | Type   | Value example                                    | Explanation                                                                                  |
-| ------------------- | ------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+|---------------------|--------|--------------------------------------------------|----------------------------------------------------------------------------------------------|
 | `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Proxy string needed to reach the Internet in HTTP/HTTPS                                      |
-| `splunk_sourcetype` | String | `_json` (default value)                          | A default field that identifies the data structure of an event.                                                                   |
+| `splunk_sourcetype` | String | `_json` (default value)                          | A default field that identifies the data structure of an event.                              |
 | `splunk_host`       | String | `Centreon` (default value)                       | A default field that contains the hostname/IP Address of the device that generated an event. |
 | `log_level`         | Number | 2 (default value)                                | Verbosity level for logs 0: errors only 1: +warnings, 2: +verbose, 3: +debug                 |
 | `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Log file full path and name                                                                  |
