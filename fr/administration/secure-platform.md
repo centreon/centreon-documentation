@@ -85,14 +85,15 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
-<LocationMatch ^/centreon/(.*\.php(/.*)?)$>
+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
-ProxyTimeout 300
 
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
+
+ProxyTimeout 300
 
 <VirtualHost *:80>
     RewriteEngine On
