@@ -7,7 +7,7 @@ title: Splunk Metrics
 
 ## Comment ça marche
 
-* À chaque fois qu'un service ou hôte est vérifé, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les métriques.
+* À chaque fois qu'un service ou hôte est vérifié, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les métriques.
 
 ![architecture](../../assets/integrations/external/splunk+centreon.png)
 
@@ -39,7 +39,7 @@ Voici un exemple du format POST du Stream Connector pour un événement "metric"
 
 ## Support
 
-si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
+Si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
 
 * **Clients de Centreon titulaires d'un contrat de support** : vous pouvez vous adresser directement à [l'équipe du Support de Centreon](mailto:support@centreon.com).
 * **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites): nous vous invitons à rejoindre notre [communauté sur Slack](https://centreon.github.io) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
@@ -112,13 +112,13 @@ Votre serveur central a maintenant chargé le Stream Connector et commence à en
 
 **Tableau des paramètres**
 
-| Name                | Type   | Value example                                    | Explanation                                                                                  |
-| ------------------- | ------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                      |
+| Name                | Type   | Value example                                    | Explanation                                                                                                            |
+|---------------------|--------|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                                  |
 | `splunk_sourcetype` | String | `_json` (default value)                          | Un champ par défaut qui identifie la structure de données d'un événement.                                              |
-| `splunk_host`       | String | `Centreon` (default value)                       | Un champ par défaut qui contient le nom d'hôte / l'adresse IP du périphérique qui a généré un événement. |
-| `log_level`         | Number | 2 (default value)                                | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                 |
-| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Chemin complet du fichier de log                                                                  |
+| `splunk_host`       | String | `Centreon` (default value)                       | Un champ par défaut qui contient le nom d'hôte / l'adresse IP du périphérique qui a généré un événement.               |
+| `log_level`         | Number | 2 (default value)                                | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                                 |
+| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Chemin complet du fichier de log                                                                                       |
 | `max_buffer_size`   | Number | 1 (default value)                                | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               |
 | `max_buffer_age`    | Number | 5 (default value)                                | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint |
 
