@@ -3,8 +3,6 @@ id: servicenow-mid-server
 title: ServiceNow MID Server
 ---
 
-## ServiceNow MID Server + Centreon Integration Benefits
-
 ## How it works
 
 * Every time a service or a host's state is checked, the event passes through Centreon Broker, which uses the functions defined in the Stream Connector to send state changes to ServiceNow MID Server.
