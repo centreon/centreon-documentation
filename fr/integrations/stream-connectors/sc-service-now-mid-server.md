@@ -3,8 +3,6 @@ id: servicenow-mid-server
 title: ServiceNow MID Server
 ---
 
-## Ce qu'apporte l'intégration de ServiceNow MID Server + Centreon 
-
 ## Comment ça marche
 
 * À chaque fois qu'un service ou hôte est vérifié, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les changements d'états.
