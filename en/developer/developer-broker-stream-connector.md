@@ -158,6 +158,10 @@ methods, *broker* is just a table containing them. We can find here:
    and an error description string.
 4. ``url_encode(text)`` that converts the string *text* into an url encoded
    string.
+5. ``stat(filename)`` that calls the system ``stat`` function on the file. On
+   success we get a table containing various informations about the file (see
+   example below). Otherwise, this table is ``nil`` and a second return value
+   is given containing an error message.
 
 ```LUA
   local obj = {
@@ -261,6 +265,27 @@ should return something like this:
   La%20le%C3%A7on%20du%20ch%C3%A2teau%20de%20l%27araign%C3%A9e
 ```
 
+```LUA
+  local s, err = broker.stat("filename")
+  for i,v in pairs(perf['pl']) do
+    print(i .. " => " .. tostring(v))
+  end
+```
+
+should return something like this:
+```
+  uid=>1000
+  gif=>1000
+  size=>279
+  ctime=>1587641144
+  mtime=>1587641144
+  atime=>1587641144
+```
+
+If an error occurs, ``s`` is ``nil`` whereas ``err`` contains a string
+containing an error message.
+
+
 ### The *broker_cache* object
 
 This object provides several methods to access the cache. Among data, we can
@@ -304,6 +329,22 @@ The available methods are:
     groups containing the service corresponding to the pair *host_id* /
     *service_id*. The return value is an array of objects, each one containing
     two fields, *group_id* and *group_name*.
+13. ``get_notes(host_id[,service_id])`` that gets the notes configured in the
+    host or service. The *service_id* is optional, if given we want notes from
+    a service, otherwise we want notes from a host. If the object is not found
+    in cache, *nil* is returned.
+14. ``get_notes_url(host_id[, service_id])`` that gets the notes url configured
+    in the host or service. The *service_id* is optional, if given we want
+    *notes url* from a service, otherwise we want it from a host. If the object
+    is not found in cache, *nil* is returned.
+15. ``get_action_url(host_id)`` that gets the action url configured in the host
+    or service. The *service_id* is optional, if given we want *action url* from
+    a service, otherwise we want it from a host. If the object is not found in
+    cache, *nil* is returned.
+16. ``get_severity(host_id[,service_id])`` that gets the severity of a host or
+    a service. If you only provide the *host_id*, we suppose you want to get
+    a host severity. If a host or a service does not have any severity, the
+    function returns a *nil* value.
 
 ## The init() function
 
