@@ -28,6 +28,11 @@ Example with a host:
 
 ![image](../assets/graph-views/host_geocoord.png)
 
+## How access control limitation (ACL) are handled
+
+As soon as you give access to `Monitoring > Map` or to a custom view containing a Map widdget, GeoViews are
+accessible to every Centreon user. A user will only see resources he is authorized to see, based on his ACL profile.
+
 ## How resources are displayed
 
 When a resource (host, hostgroup or a business activity) is positionned on a
