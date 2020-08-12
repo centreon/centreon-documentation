@@ -5,7 +5,8 @@ title: Create a geo view
 
 ## Create a GeoView
 
-You can create geographic views using the web interface, to do so:
+A user that is a Centreon admin, or a Centreon Map admin or has right to create view can create geographic views
+using the web interface, to do so:
 
 1.  Go to *Monitoring \> Map* and click on the "+" on the Geographic section.
 2.  You're asked to give a name to the view and then to define resources to
