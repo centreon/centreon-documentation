@@ -65,21 +65,6 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | issued_to          | Licence owner                            |         |
 | issue_date         | Licence issue date                       |         |
 
-<!--List-indices-->
-
-| Metric name        | Description                             | Unit    |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Indice name                             |         |
-| status             | Indice status                           |         |
-
-<!--List-nodes-->
-
-| Metric name        | Description                             | Unit    |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Node name                               |         |
-| host               | Node host                               |         |
-| ip                 | Node ip                                 |   ip    |
-
 <!--Node-statistics-->
 
 | Metric name       | Description                                           | Unit    |
@@ -93,6 +78,25 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | total_in_bytes    | Total size of all file stores                         |    B    |
 | docs_count        | Number of documents inside the indice                 |         |
 | size_in_bytes     | Total size of all shards assigned to the node         |    B    |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--List-indices-->
+
+| Metric name        | Description                             | Unit    |
+| :----------------- | :-------------------------------------- | :------ |
+| name               | Indice name                             |         |
+| status             | Indice status                           |         |
+
+<!--List-nodes-->
+
+| Metric name        | Description                             | Unit    |
+| :----------------- | :-------------------------------------- | :------ |
+| name               | Node name                               |         |
+| host               | Node host                               |         |
+| ip                 | Node ip                                 |         |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
