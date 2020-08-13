@@ -141,12 +141,12 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 The following macros must be configured on host:
 
-|Mandatory| Macro                | Description                         | Default value | Example  |
-| :-------|--------------------- | :---------------------------------- | :------------ | :------- |
-|    X   | ELASTICSEARCHPORT     | The Elasticsearch instance port     |     9200      | 1234     |
-|    X   | ELASTICSEARCHPROTO    | The Elasticsearch instance protocol |  http | https |          |
-|        | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
-|        | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
+|Mandatory| Macro                 | Description                         | Default value | Example  |
+| :-------| :---------------- --- | :---------------------------------- | :------------ | :------- |
+|    X    | ELASTICSEARCHPORT     | The Elasticsearch instance port     |     9200      | 1234     |
+|    X    | ELASTICSEARCHPROTO    | The Elasticsearch instance protocol |  http | https |          |
+|         | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
+|         | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
 
 ## FAQ
 
