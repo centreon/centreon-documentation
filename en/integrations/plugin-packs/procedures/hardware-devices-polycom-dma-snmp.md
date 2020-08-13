@@ -17,7 +17,8 @@ or Microsoft Azure cloud.
 
 ### Monitored objects
 
-* DMA Devices (hardware & software)                 
+* DMA Devices (hardware & software)       
+* Attached Clusters, Servers & Devices registration status          
 
 ## Collected metrics
 
@@ -34,49 +35,49 @@ increase the total count of alerts.
 
 <!--Conference-Manager-->
 
-| Metric name                           | Description                                    | Unit   |
-|:------------------------------------- |:-----------------------------------------------|:-------|
-| manager.conferences.active.count      | Number of active conference on the DMA         | Count  |
-| cluster.conferences.active.count      | Number of active conference on a cluster       | Count  |
-| cluster.participants.active.count     | Number of active participants on a cluster     | Count  |
-| cluster.local.database.users.count    | Number of local users in a cluster database    | Count  |
-| cluster.custom.conference.rooms.count | Number of custom user rooms in a cluster       | Count  |
-| cluster.video.port.usage.count        | Number of video ports used by a cluster        | Count  |
-| cluster.video.port.free.count         | Number of free video ports on a cluster        | Count  |
-| cluster.video.port.percentage         | Percentage of video port used by a cluster     | Count  |
-| cluster.voice.port.usage.count        | Number of voice ports used by a cluster        | Count  |
-| cluster.voice.port.free.count         | Number of free voice ports on a cluster        | Count  |
-| cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | Count  |
+| Metric name                               | Description                                    | Unit   |
+|:----------------------------------------- |:-----------------------------------------------|:-------|
+| dma.conferences.active.count              | Number of active conference on the DMA         | Count  |
+| dma.cluster.conferences.active.count      | Number of active conference on a cluster       | Count  |
+| dma.cluster.participants.active.count     | Number of active participants on a cluster     | Count  |
+| dma.cluster.local.database.users.count    | Number of local users in a cluster database    | Count  |
+| dma.cluster.custom.conference.rooms.count | Number of custom user rooms in a cluster       | Count  |
+| dma.cluster.video.port.usage.count        | Number of video ports used by a cluster        | Count  |
+| dma.cluster.video.port.free.count         | Number of free video ports on a cluster        | Count  |
+| dma.cluster.video.port.percentage         | Percentage of video port used by a cluster     | Count  |
+| dma.cluster.voice.port.usage.count        | Number of voice ports used by a cluster        | Count  |
+| dma.cluster.voice.port.free.count         | Number of free voice ports on a cluster        | Count  |
+| dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | Count  |
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
 <!--Device-Registrations-->
 
-| Metric name                                   | Description                                            | Unit  | 
-| :-------------------------------------------- | :----------------------------------------------------- |------ |
-| manager.registrations.count                   | Number of devices registered on the DMA                | Count |
-| cluster.endpoint.registrations.active.count   | Number of endpoint active registrations on a cluster   | Count |
-| cluster.endpoint.registrations.active.count   | Number of endpoint inactive registrations on a cluster | Count |
+| Metric name                                       | Description                                            | Unit  | 
+| :------------------------------------------------ | :----------------------------------------------------- |------ |
+| dma.registrations.count                           | Number of devices registered on the DMA                | Count |
+| dma.cluster.endpoint.registrations.active.count   | Number of endpoint active registrations on a cluster   | Count |
+| dma.cluster.endpoint.registrations.active.count   | Number of endpoint inactive registrations on a cluster | Count |
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
 <!--Servers-usage-->
 
-| Metric name                       | Description                               | Unit  |
-|:--------------------------------- |:------------------------------------------|:----- |
-| server.cpu.utilization.percentage | CPU Utilization of a server               |   %   |
-| server.memory.usage.bytes         | Memory usage of a server                  |   B   |
-| server.memory.free.bytes          | Free memory on a server                   |   B   |
-| server.memory.usage.percentage    | Memory percentage use on a server         |   %   |
-| server.swap.usage.percentage      | Swap usage of a server                    |   B   | 
-| server.swap.free.bytes            | Free swap on a server                     |   B   |
-| server.swap.usage.percentage      | Swap percentage use on a server           |   %   |
-| server.disk.usage.bytes           | Disk space usage of a server              |   B   |
-| server.disk.free.bytes            | Free disk space on a server               |   B   |
-| server.disk.usage.percentage      | Disk percentage space usage on a server   |   %   |
-| server.logs.usage.bytes           | Logs space usage of a server              |   B   |
-| server.logs.free.bytes            | Free logs space on a server               |   B   |
-| server.logs.usage.percentage      | Logs percentage space usage on a server   |   %   |
+| Metric name                           | Description                               | Unit  |
+|:------------------------------------- |:------------------------------------------|:----- |
+| dma.server.cpu.utilization.percentage | CPU Utilization of a server               |   %   |
+| dma.server.memory.usage.bytes         | Memory usage of a server                  |   B   |
+| dma.server.memory.free.bytes          | Free memory on a server                   |   B   |
+| dma.server.memory.usage.percentage    | Memory percentage use on a server         |   %   |
+| dma.server.swap.usage.percentage      | Swap usage of a server                    |   B   | 
+| dma.server.swap.free.bytes            | Free swap on a server                     |   B   |
+| dma.server.swap.usage.percentage      | Swap percentage use on a server           |   %   |
+| dma.server.disk.usage.bytes           | Disk space usage of a server              |   B   |
+| dma.server.disk.free.bytes            | Free disk space on a server               |   B   |
+| dma.server.disk.usage.percentage      | Disk percentage space usage on a server   |   %   |
+| dma.server.logs.usage.bytes           | Logs space usage of a server              |   B   |
+| dma.server.logs.free.bytes            | Free logs space on a server               |   B   |
+| dma.server.logs.usage.percentage      | Logs percentage space usage on a server   |   %   |
 
 ## Prerequisites
 

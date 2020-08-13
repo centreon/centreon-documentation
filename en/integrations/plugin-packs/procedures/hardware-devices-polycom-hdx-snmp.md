@@ -139,7 +139,6 @@ through "Configuration > Plugin packs > Manager" page.
 * Add a new Host and apply the *HW-Device-Polycom-Hdx-SNMP-Custom* Host Template
 * Fill SNMP Version and Community fields according to the device's configuration
 
-
   :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
 
 | Obligatoire | Nom              | Description                                    |
@@ -148,17 +147,15 @@ through "Configuration > Plugin packs > Manager" page.
 
 ## FAQ
 
-### How to test the Plugin and what are the main options for ?
+### How to test the Plugin and what are the main options for?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
 and test the Plugin by running the following command:
 
-
 ```bash
 TODO
 ```
-
-
+TODO
 ```bash
 TODO
 ```
@@ -174,3 +171,9 @@ TODO
 If you get this message, you're probably facing one of theses issues: 
 * Your SNMP server isn't started or misconfigured 
 * An external device is blocking your request (firewall, ...)
+
+### What does '(skipped: no values)' message mean?
+
+When using ViewStation-Statistics service, you will get this message when there is 
+no audio and/or video call in progress on the HDX Room system. This is the expected 
+behaviour. As soon as a call starts, metrics will get populated.
