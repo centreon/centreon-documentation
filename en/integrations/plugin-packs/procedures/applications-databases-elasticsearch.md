@@ -1,5 +1,5 @@
 ---
-id: centreon-pack-applications-databases-elasticsearch
+id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
 
@@ -12,11 +12,17 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 ### Monitored equipments
 
 * Databases
+* Nodes
+* Shards
+* Clusters
+* Indices
+* Documents
+* Licences
 
 ### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--cluster-statistics-->
+<!--Cluster-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :---    |
@@ -35,21 +41,21 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | active_shards_percent    | Percentage of active shards              |    %    |
 | tasks_pending            | Number of pending tasks                  |         |
 | docs_count               | Number of docs                           |         |
-| size_in_bytes            | Size of all shards assigned              |  bytes  |
+| size_in_bytes            | Size of all shards assigned              |    B    |
 
-<!--indice-statistics-->
+<!--Indice-statistics-->
 
 | Metric name              | Description                              | Unit    |
 | :----------------------- | :--------------------------------------- | :------ |
-| display                  | Name of the Elasticsearch cluster        |         |
-| status                   | Status of the Elasticsearch cluster      |         |
+| display                  | Name of the Elasticsearch Indice         |         |
+| status                   | Status of the Elasticsearch Indice       |         |
 | shards_active            | Number of active shards                  |         |
 | shards_unassigned        | Number of unassigned shards              |         |
 | docs_count               | Number of docs                           |         |
-| size_in_bytes_primaries  | Size of all primary shards               |  bytes  |
-| size_in_bytes_total      | Total size of all shards assigned        |  bytes  |
+| size_in_bytes_primaries  | Size of all primary shards               |    B    |
+| size_in_bytes_total      | Total size of all shards assigned        |    B    |
 
-<!--license-->
+<!--License-->
 
 | Metric name        | Description                              | Unit    |
 | :----------------- | :--------------------------------------- | :------ |
@@ -58,14 +64,14 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | issued_to          | Licence owner                            |         |
 | issue_date         | Licence issue date                       |  date   |
 
-<!--list-indices-->
+<!--List-indices-->
 
 | Metric name        | Description                             | Unit    |
 | :----------------- | :-------------------------------------- | :------ |
 | name               | Indice name                             |         |
 | status             | Indice status                           |         |
 
-<!--list-nodes-->
+<!--List-nodes-->
 
 | Metric name        | Description                             | Unit    |
 | :----------------- | :-------------------------------------- | :------ |
@@ -73,19 +79,19 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | host               | Node host                               |         |
 | ip                 | Node ip                                 |   ip    |
 
-<!--node-statistics-->
+<!--Node-statistics-->
 
 | Metric name       | Description                                           | Unit    |
 | :---------------- | :---------------------------------------------------- | :-----  |
 | display           | Name of the Elasticsearch node                        |         |
 | indices_count     | Number of indices in the node                         |         |
 | heap_used_percent | Percentage of memory currently in use by the heap     |    %    |
-| heap_used_in_bytes| Amount of memory available for use by the heap        |  bytes  |
-| heap_max_in_bytes | Maximum amount of memory available for use by the heap|  bytes  |
-| available_in_bytes| Total number of bytes available                       |  bytes  |
-| total_in_bytes    | Total size of all file stores                         |  bytes  |
+| heap_used_in_bytes| Amount of memory available for use by the heap        |    B    |
+| heap_max_in_bytes | Maximum amount of memory available for use by the heap|    B    |
+| available_in_bytes| Total number of bytes available                       |    B    |
+| total_in_bytes    | Total size of all file stores                         |    B    |
 | docs_count        | Number of documents inside the indice                 |         |
-| size_in_bytes     | Total size of all shards assigned to the node         |  bytes  |
+| size_in_bytes     | Total size of all shards assigned to the node         |    B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -127,7 +133,8 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 ## Configuration
 
-Still in the Web Centreon interface, go to *Configuration \> Hosts* and click *Add*. Then fill the form as shown by the following table:
+* Still in the Web Centreon interface, go to *Configuration \> Hosts* and click *Add*. 
+* Fill the form as shown by the following table:
 
 | Field                   | Value                        |
 | :---------------------- | :--------------------------- |
@@ -135,24 +142,25 @@ Still in the Web Centreon interface, go to *Configuration \> Hosts* and click *A
 | Alias                   | *Host description*           |
 | IP                      | *Host IP Address*            |
 | Monitored from          | *Monitoring Poller to use*   |
-In the field *Templates* click on *+ Add a new entry* and then select *App-DB-Elascticsearch-custom*
 
-Click on the *Save* button.
+* In the field *Templates* click on *+ Add a new entry* 
+* Then select *App-DB-Elascticsearch-custom*
+* Click on the *Save* button.
 
 ### Host Macro Configuration
 
 The following macros must be configured on host:
 
-| Macro                 | Description                         | Default value | Example  |
+| Mandatory| Macro                 | Description                         | Default value | Example  |
 | :-------------------- | :---------------------------------- | :------------ | :------- |
-| ELASTICSEARCHPORT     | The Elasticsearch instance port     | 9200          | 1234     |
-| ELASTICSEARCHPROTO    | The Elasticsearch instance protocol | http          | https    |
-| ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
-| ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
+|    X   | ELASTICSEARCHPORT     | The Elasticsearch instance port     | 9200          | 1234     |
+|    X   | ELASTICSEARCHPROTO    | The Elasticsearch instance protocol | http          | https    |
+|       | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
+|       | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
 
 ## FAQ
 
-### Comment tester en ligne de commande et que signifient les options principales ?
+### How to check in the CLI that the configuration is OK and what are the main options for ?
 
 One the Plugin is installed, you can test it directly in the command line from your Centreon poller
 with the user *centreon-engine*:
@@ -166,6 +174,8 @@ su - centreon-engine\
 --plugin=database::elasticsearch::restapi::plugin \
 --mode=node-statistics \
 --filter-name='Node 1'
+--username='Elasticsearch_username'
+--password='Elasticsearch_password'
 
 ```
 
@@ -175,12 +185,7 @@ Output:
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, Data: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.data.size.bytes'=1386278479651B;;;0;
 ```
 
-The above command reqquest some statistic of the Elasticsearch node
-(```--mode=node-statistics```). 
-The important informations are the IP/FQDN address 
-(```--hostname=x.x.x.x```) 
-and the filter-name 
-(```--filter-name='Node 1''```) 
+The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *x.x.x.x* (```--hostname=x.x.x.x```). We will use the port 92000 (```--port=9200```) and the http protocol (```proto=http''```). The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its paswword is *Elasticsearch_password*(```--password='Elasticsearch_password'```)
 
 All the available modes can be listed with the command line:
 
@@ -197,3 +202,14 @@ And the different mode's options can be displayed with the ```--help``` paramete
     --help
 ```
 
+### Why do I get the following error:
+
+#### UNKNOWN: 500 Can't connect
+
+This error message means that the Centreon Plugin couldn't successfully connect to the host API. Check that no third party device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API. This can be done by using the --proxyurl option in the command.
+
+#### UNKNOWN: 501 Protocol scheme 'connect' is not supported
+
+When using a proxy to connect to the host, this error message means that the Centreon Plugin library does not support the proxy connection protocol.
+
+In order to prevent this issue, use the curl HTTP backend by adding the following option to the command: *--http-backend='curl'*.
