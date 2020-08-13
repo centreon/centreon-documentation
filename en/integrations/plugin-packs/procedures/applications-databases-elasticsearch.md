@@ -22,6 +22,7 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 ### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--Cluster-statistics-->
 
 | Metric name              | Description                              | Unit    |
@@ -40,7 +41,7 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | shards_relocating        | Number of relocating shards              |         |
 | active_shards_percent    | Percentage of active shards              |    %    |
 | tasks_pending            | Number of pending tasks                  |         |
-| docs_count               | Number of docs                           |         |
+| docs_count               | Number of documents                      |         |
 | size_in_bytes            | Size of all shards assigned              |    B    |
 
 <!--Indice-statistics-->
@@ -51,7 +52,7 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | status                   | Status of the Elasticsearch Indice       |         |
 | shards_active            | Number of active shards                  |         |
 | shards_unassigned        | Number of unassigned shards              |         |
-| docs_count               | Number of docs                           |         |
+| docs_count               | Number of documents                      |         |
 | size_in_bytes_primaries  | Size of all primary shards               |    B    |
 | size_in_bytes_total      | Total size of all shards assigned        |    B    |
 
@@ -62,7 +63,7 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | type               | Licence type                             |         |
 | status             | Licence status                           |         |
 | issued_to          | Licence owner                            |         |
-| issue_date         | Licence issue date                       |  date   |
+| issue_date         | Licence issue date                       |         |
 
 <!--List-indices-->
 
@@ -130,22 +131,6 @@ yum install centreon-pack-applications-databases-elasticsearch
 3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, instal the Plugin-Pack 'Elasticsearch'
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-## Configuration
-
-* Still in the Web Centreon interface, go to *Configuration \> Hosts* and click *Add*. 
-* Fill the form as shown by the following table:
-
-| Field                   | Value                        |
-| :---------------------- | :--------------------------- |
-| Name                    | *Name of the host*           |
-| Alias                   | *Host description*           |
-| IP                      | *Host IP Address*            |
-| Monitored from          | *Monitoring Poller to use*   |
-
-* In the field *Templates* click on *+ Add a new entry* 
-* Then select *App-DB-Elascticsearch-custom*
-* Click on the *Save* button.
 
 ### Host Macro Configuration
 
