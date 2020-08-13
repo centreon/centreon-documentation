@@ -133,7 +133,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 yum install centreon-pack-applications-databases-elasticsearch
 ```
 
-3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, instal the Plugin-Pack 'Elasticsearch'
+3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, install the Plugin-Pack 'Elasticsearch'
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -141,12 +141,12 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 The following macros must be configured on host:
 
-| Mandatory| Macro                 | Description                         | Default value | Example  |
-| :-------------------- | :---------------------------------- | :------------ | :------- |
-|    X   | ELASTICSEARCHPORT     | The Elasticsearch instance port     | 9200          | 1234     |
-|    X   | ELASTICSEARCHPROTO    | The Elasticsearch instance protocol | http          | https    |
-|       | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
-|       | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
+|Mandatory| Macro                | Description                         | Default value | Example  |
+| :-------|--------------------- | :---------------------------------- | :------------ | :------- |
+|    X   | ELASTICSEARCHPORT     | The Elasticsearch instance port     |     9200      | 1234     |
+|    X   | ELASTICSEARCHPROTO    | The Elasticsearch instance protocol |  http | https |          |
+|        | ELASTICSEARCHUSERNAME | The Elasticsearch instance username |               | centreon |
+|        | ELASTICSEARCHPASSWORD | The Elasticsearch instance password |               | centreon |
 
 ## FAQ
 
