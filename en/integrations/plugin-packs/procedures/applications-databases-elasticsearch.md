@@ -103,6 +103,7 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 ## Prerequisites 
 
 In order to monitor an Elasticsearch cluster, it must be prepared acccording to Elasticsearch's official documentation: https://www.elastic.co/guide/en/elasticsearch/reference/7.8/monitor-elasticsearch-cluster.html
+In order to be able to communicate with the Centreon poller, the Elasticsearch node's API should use the http protocol and the port 9200.
 
 ## Installation
 
@@ -110,7 +111,7 @@ In order to monitor an Elasticsearch cluster, it must be prepared acccording to 
 
 <!--Online Licence Business & IT Editions-->
 
-1. Install the Plugin on all Centreon pollers supervising Elasticsearch ressources:
+1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Elasticsearch
@@ -120,7 +121,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 
 <!--Offline Licenses-->
 
-1. Install the Plugin on all Centreon pollers supervising Elasticsearch ressources:
+1. Install the Plugin on all Centreon pollers monitoring Elasticsearch ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Databases-Elasticsearch
