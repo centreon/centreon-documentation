@@ -163,8 +163,8 @@ su - centreon-engine\
 --proto=http \
 --plugin=database::elasticsearch::restapi::plugin \
 --mode=node-statistics \
---filter-name='Node 1'
---username='Elasticsearch_username'
+--filter-name='Node 1'  \
+--username='Elasticsearch_username' \
 --password='Elasticsearch_password'
 
 ```
