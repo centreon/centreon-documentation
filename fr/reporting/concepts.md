@@ -88,6 +88,195 @@ indicateurs :
 
 ![image](../assets/reporting/guide/mtbf_mtbsi_mtrs_explanation.png)
 
+### Bonnes pratiques de supervision
+
+#### Qualité des plugins & données
+
+Pour être en mesure d'avoir des rapports sur les données de performance
+en utilisant les rapports par défaut de Centreon MBI, vous devez au
+moins superviser quelques indicateurs de performance de base
+(métriques) :
+
+- CPU : doit retourner un pourcentage d'une ou plusieurs métriques
+    (cpu_total, cpu_sys, cpu_1...) et 100 comme valeur maximum.
+- Memory : doit retourner au moins une métrique comportant ces
+    informations :
+    - L'utilisation mémoire : Cette valeur doit être en octets
+    - Le seuil d'alerte d'utilisation mémoire
+    - Le seuil critique d'utilisation mémoire
+    - La mémoire totale allouée en octet 
+
+    Le plugin utilisé pour superviser cet indicateur doit renvoyer la sortie suivante:
+
+        *any status information* | **$metric_name=$value$unit;$warning_threshold;critical_threshold;$min_value;$max_value**
+
+- Utilisation d'espace disque: Deux types de service possibles :
+    - Superviser une partition par service (les métriques sont souvent
+        nommées « used » et « size »
+    - Superviser plusieurs partitions par service et chaque métrique
+        correspond au nom d'une partition.
+
+    Dans les deux cas, les données de performance renvoyées par les
+    plugins doivent correspondre à ce format :
+
+        *any status information* | **$metric_name=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value**
+
+-   Données de trafic : les rapports standards utilisent une metrique
+    pour le trafic entrant et une metrique pour le trafic sortant. Pour
+    être compatible, vos plugins doivent renvoyer également deux
+    métriques (peu importe leurs noms). Il est également important que
+    pour chaque métrique, la valeur maximum atteignable soit présente.
+    Le format du plugin est donc le même que conseillé ci-dessus :
+
+        any status information | $inboundTrafic=$value$unit;$warning_threshold;$critical_threshold;$min_value;$max_value $outBoundTrafic=...
+
+#### Unité par défaut
+
+Il est important de s'assurer que les unités des données renvoyées par
+les plugins soient communes à tous les services pour un même type de
+données. Nous conseillons donc fortement de vérifier que les plugins
+renvoient les données dans les unités suivantes :
+
+-   Temps: secondes
+-   Trafic: bits/sec
+-   Stockage: Octets
+-   Mémoire/Swap: Octets
+
+### Bonnes pratiques de configuration
+
+Chaque modèle de rapport dans Centreon MBI prend en compte plusieurs
+paramètres qui permettent de générer des rapports adaptés à vos besoins.
+
+Plusieurs types de paramètres sont disponibles pour chaque modèle :
+
+-   Un objet principal sur lequel le rapport est généré. Cela peut
+    être :
+    -   Un hôte
+    -   Un groupe d'hôtes : groupe fonctionnel défini dans Centreon
+        afin de classer les hôtes par client, application, domaine
+        d'activité stratégique, pays, ...
+    -   Plusieurs groupes d'hôtes
+-   Une période temporelle (ou « plage horaire » ) sur laquelle les
+    statistiques seront calculées.
+-   Des filtres pour prendre en compte seulement des types spécifiques
+    d'équipements, des services ou des métriques dans les groupes
+    d'hôtes sélectionnés :
+    -   Catégories d'hôtes : Permet de classer les hôtes dans des
+        groupes techniques afin de déterminer le type ou la fonction
+        d'un hôte ; Par exemple : serveurs Linux, serveurs Windows,
+        routeurs cisco, imprimantes, ...
+    -   Catégories de services : Permet de définir le type d'un service
+        : CPU, mémoire, stockage, ...
+    -   Métriques : Données de performances collectées par les services
+        (indicateurs de supervision). Un service de supervision peut
+        collecter plusieurs métriques. Cependant les noms des métriques
+        et les unités ne sont pas normalisés (par exemple : un service
+        de type CPU peut collecter seulement une métrique nommée
+        'cpu_average' définie en pourcentage et un autre service de
+        type CPU peut collecter une métrique par cœur de processeur
+        configuré dans l'équipement), il est donc nécessaire, à la
+        génération du rapport, de sélectionner les métriques à prendre à
+        compte pour le calcul des statistiques.
+
+### Groupes d'hôtes et catégories
+
+Les définitions des groupes d'hôtes et des catégories listées
+ci-dessous sont données à partir des bonnes pratiques établies par
+Centreon.
+
+Cependant, les groupes et les catégories que vous allez créer doivent
+correspondre à vos besoins.
+
+Exemple :
+
+Si vous avez besoin de mettre en évidence le nombre d'alertes générées
+par domaines d'activité de votre SI avec une répartition par type
+d'équipement, il sera nécessaire de définir des groupes et et des
+catégories d'hôtes de la manière suivante :
+
+-   Groupe d'hôtes : **Databases**, Applications, Security, Network,
+    Mail ...
+-   Catégorie d'hôtes : DB2-Servers, MySQL-Servers, Oracle-Servers,
+    SQL-Servers ...
+
+Voici un exemple de statistiques que vous pourriez obtenir en utilisant
+ces groupes et catégories :
+
+![image](../assets/reporting/installation/pie_charts.png)
+
+Le groupe d'hôte est le premier axe d'analyse. La catégorie d'hôte
+permet d'analyser les statistiques en sous-domaines.
+
+De la même manière, nous pouvons analyser les statistiques en se basant
+sur les dimensions suivantes :
+
+-   Par pays (groupe d'hôte) avec une répartition des données par type
+    d'équipement réseau (catégorie d'hôtes)
+-   Par pays (groupe d'hôte) avec une répartition des données par
+    client (catégorie d'hôte)
+-   Par client (groupe d'hôte) avec une répartition des données par
+    pays (catégorie d'hôte)
+-   Par client (groupe d'hôte) avec une répartition des données par
+    serveur d'application (catégorie d'hôte)
+-   ...
+
+Il n'existe pas de règles standards pour définir des groupes d'hôtes
+ou des catégories. Cela doit être adapté à vos besoins.
+
+**Comment créer ces catégories et groupes?**
+
+-   La relation entre les hôtes et les groupes d'hôtes est faite à
+    partir du menu *Configuration > Hosts > Host groups* sur
+    l'interface de Centreon. Il est également possible d'utiliser
+    l'onglet *Relation* présent dans le formulaire
+    d'ajout/modification d'un hôte.
+-   La relation entre un hôte et une catégorie d'hôte est faite à
+    partir du menu *Configuration > Hosts > Categories* sur
+    l'interface de Centreon. Il est également possible d'utiliser
+    l'onglet *Relation* présent dans le formulaire
+    d'ajout/modification d'un hôte.
+
+### Catégories de Service
+
+Les catégories de services permettent d'organiser les services
+(indicateurs de supervision) en sous-domaines. L'usage le plus commun
+des catégories de services est de définir des catégories basées sur des
+types de services : CPU, mémoire, stockage, processus Oracle, DNS,
+processus Websphere, ...
+
+Ce genre de configuration permet, par exemple, de :
+
+-   Comparer le nombre d'alertes générées pour chaque type de services
+-   Sélectionner la catégorie de service qui indique l'utilisation
+    d'espace disque quand vous souhaitez générer un rapport de
+    capacité.
+
+**Comme les groupes d'hôtes et les catégories d'hôtes, les catégories
+de service doivent être définies selon vos besoins.**
+
+Par exemple : Si vous avez besoin d'analyser l'espace disque alloué et
+utilisé par un SGDB ou par un type d'application, vous devez créer
+plusieurs catégories de services. A la place d'utiliser une seule
+catégorie nommée « Stockage » ou « Disque » nous aurons :
+
+-   « Operating system » : contenant les espaces de stockage de type
+    système
+-   « Oracle » : contenant les espaces de stockage des serveurs Oracle
+-   « SQL Server » : les espaces de stockage des serveur SQL
+
+Voici un exemple de statistiques que vous pourriez obtenir en utilisant
+ces catégories de services :
+
+![image](../assets/reporting/installation/storage_example.png)
+
+La relation entre les services et leurs catégories peut être faite à
+partir de menu *Configuration > Services > Categories* sur
+l'interface de Centreon. Il est également possible d'utiliser
+l'onglet *Relation* présent dans le formulaire d'ajout/modification
+d'un service.
+
+> Il est fortement conseillé de gérer les catégories de service en
+> utilisant uniquement les modèles de services.
 
 ## ETL
 
