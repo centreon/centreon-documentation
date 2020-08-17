@@ -8,7 +8,7 @@ title: Polycom HDX SNMP
 The Polycom HDX Room system is an endpoint device that provides voice and video connectivity
 across collaboration networks. 
 
-This Plugin-Pack check basic system health indicators and video/audio related protocols 
+This Plugin-Pack checks basic system health indicators and video/audio related protocols 
 performances during a call. 
 
 ## Plugin-Pack assets
@@ -17,13 +17,13 @@ performances during a call.
 
 * HDX Room systems                 
 
-## Collected metrics
+### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Cpu-Detailed-->
 
-| Metric name                           | Description                 | Units |
+| Metric name                           | Description                 | Unit  |
 | :------------------------------------ | :-------------------------- | :---- |
 | cpu.user.utilization.percentage       | CPU User utilization        |   %   |
 | cpu.nice.utilization.percentage       | CPU Nice utilization        |   %   |
@@ -39,7 +39,7 @@ performances during a call.
 
 <!--Memory-->
 
-| Metric name             | Description                               | Units |
+| Metric name             | Description                               | Unit  |
 | :---------------------  | :---------------------------------------- | :---- |
 | memory.usage.bytes      | Memory usage on the device.               |   B   |
 | memory.free.bytes       | Free memory on the device.                |   B   |
@@ -50,8 +50,8 @@ performances during a call.
 
 <!--Traffic-->
 
-| Metric name                         | Description                                   | Units   |
-| :---------------------------------- | :-------------------------------------------- |---------|
+| Metric name                         | Description                                   | Unit    |
+| :---------------------------------- | :-------------------------------------------- | :------ |
 | status                              | Status of the interface                       |         |
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. | B/s & % |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. | B/s & % |
@@ -68,17 +68,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 <!--Uptime-->
 
-| Metric name           | Description        | Units   |
-| :-------------------- | :----------------- |---------|
-| system.uptime.seconds | System uptime      |    s    |
+| Metric name           | Description        | Unit  |
+| :-------------------- | :----------------- | :---- |
+| system.uptime.seconds | System uptime      |   s   |
 
 <!--ViewStation-Statistics-->
 
-| Metric name                             | Description                                                                                  | Units |
-| :-------------------------------------- | :------------------------------------------------------------------------------------------- | :---- |
-| viewstation.h323.packet.loss.percentage | The current combined (audio/video) average percentage packet loss when in an H.323 call      |   %   |
-| viewstation.h323.jitter.milliseconds    | The current combined (audio/video) cumulative average jitter (in ms) when in an H.323 call.  |   ms  |
-| viewstation.h323.latency.count          | The current average latency based on round trip delay when in an H.323 call.                 |       |
+| Metric name                             | Description                                                                                  | Unit |
+| :-------------------------------------- | :------------------------------------------------------------------------------------------- | :--- |
+| viewstation.h323.packet.loss.percentage | The current combined (audio/video) average percentage packet loss when in an H.323 call      |  %   |
+| viewstation.h323.jitter.milliseconds    | The current combined (audio/video) cumulative average jitter (in ms) when in an H.323 call.  |  ms  |
+| viewstation.h323.latency.count          | The current average latency based on round trip delay when in an H.323 call.                 |      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -89,7 +89,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 On the Polycom device, enable and configure the SNMP agent: 
     - Connect to the HDX Admin Web UI
     - Go to 'System > Manage > Credentials' 
-    - Create a new SNMP credentials specifying community and version
+    - Create new SNMP credentials specifying community and version
 
 ### Network flows
 
@@ -153,27 +153,47 @@ Once the plugin installed, log into your Centreon Poller CLI using the *centreon
 and test the Plugin by running the following command:
 
 ```bash
-TODO
-```
-TODO
-```bash
-TODO
+/usr/lib/centreon/plugins/centreon_polycom_hdx_snmp.pl \
+    --plugin=hardware::devices::polycom::hdx::snmp::plugin  \
+	--mode=viewstation-stats \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='mysnmpcommunity' \
+	--warning-h323-packet-loss='5' \
+	--critical-h323-packet-loss=10' \
 ```
 
-Use the ```--help``` flag to display a dedicated manual for a given mode:
+Expected command output is shown below: 
 
 ```bash
-TODO
+OK: View Station Phone Number: '0123456789' Stats: H323 Packet Loss 1.00 %, H323 (audio/video) Jitter 30.00 ms, H323 (audio/video) Latency 4.00 |
+'h323-packet-loss'=1.00%;;;0;100 'h323-jitter'=30.00ms;;;0;100 'vs_latency'=4.00;;;0;100
+```
+
+
+The command above monitors the sessions statistics of a Polycom HDX ViewStation device (```--plugin=hardware::devices::polycom::hdx::snmp::plugin --mode=viewstation-stats```) identified
+by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
+
+This command would trigger a WARNING alarm if the packet loss rate of the active calls raises over 5% (```--warning-h323-packet-loss='5'```)
+and a CRITICAL alarm over 10% (```--critical-h323-packet-loss=10'```).
+
+
+All the options as well as all the available thresholds can be displayed by adding the  ```--help```
+parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_polycom_hdx_snmp.pl --plugin=hardware::devices::polycom::hdx::snmp::plugin --mode=viewstation-stats --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this message, you're probably facing one of theses issues: 
-* Your SNMP server isn't started or misconfigured 
-* An external device is blocking your request (firewall, ...)
+* The SNMP agent of the device isn't started or is misconfigured 
+* An external device is blocking the request (firewall, ...)
 
 ### What does '(skipped: no values)' message mean?
 
 When using ViewStation-Statistics service, you will get this message when there is 
 no audio and/or video call in progress on the HDX Room system. This is the expected 
-behaviour. As soon as a call starts, metrics will get populated.
+behavior. As soon as a call starts, metrics will get populated.
