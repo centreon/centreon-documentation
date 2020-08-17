@@ -45,10 +45,10 @@ increase the total count of alerts.
 | dma.cluster.custom.conference.rooms.count | Number of custom user rooms in a cluster       | Count  |
 | dma.cluster.video.port.usage.count        | Number of video ports used by a cluster        | Count  |
 | dma.cluster.video.port.free.count         | Number of free video ports on a cluster        | Count  |
-| dma.cluster.video.port.percentage         | Percentage of video port used by a cluster     | Count  |
+| dma.cluster.video.port.percentage         | Percentage of video port used by a cluster     | %      |
 | dma.cluster.voice.port.usage.count        | Number of voice ports used by a cluster        | Count  |
 | dma.cluster.voice.port.free.count         | Number of free voice ports on a cluster        | Count  |
-| dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | Count  |
+| dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | %      |
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
@@ -90,6 +90,8 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 | dma.server.logs.usage.bytes           | Logs space usage of a server              |   B   |
 | dma.server.logs.free.bytes            | Free logs space on a server               |   B   |
 | dma.server.logs.usage.percentage      | Logs percentage space usage on a server   |   %   |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -150,9 +152,9 @@ through "Configuration > Plugin packs > Manager" page.
 
   :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Obligatoire | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -187,10 +189,10 @@ Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses perc
 
 The command above monitors the clusters attached to a DMA device (```--plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters```) identified
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
 
 This command would trigger a WARNING alarm if the current amount of active calls reaches 80% of the total calls 
-authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90% (```--critical-cluster-license-usage-prct='90'```).
+authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90%.
 
 A CRITICAL alarm would also be triggered in the following situations:
 * if the cluster reports a *Out of Service* status (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)

@@ -37,24 +37,15 @@ performances during a call.
 | cpu.guest.utilization.percentage      | CPU Guest utilization       |   %   |
 | cpu.guestnice.utilization.percentage  | CPU Guest Nice utilization  |   %   |
 
-<!--Memory-->
+<!--Interfaces-->
 
-| Metric name             | Description                               | Unit  |
-| :---------------------  | :---------------------------------------- | :---- |
-| memory.usage.bytes      | Memory usage on the device.               |   B   |
-| memory.free.bytes       | Free memory on the device.                |   B   |
-| memory.usage.percentage | Percentage of Memory usage on the device. |   %   |
-| memory.buffer.bytes     | Buffered Memory allocation.               |   B   |
-| memory.cached.bytes     | Cached Memory allocation.                 |   B   |
-| memory.shared.bytes     | Shared Memory allocation.                 |   B   |
+| Metric name                         | Description                                   | Unit |
+| :---------------------------------- | :-------------------------------------------- | :--- |
+| status                              | Status of the interface                       |      |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. | b/s  |
+| interface.traffic.in.percentage     | Incoming traffic going through the interface. | b/s  |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. | b/s  |
 
-<!--Traffic-->
-
-| Metric name                         | Description                                   | Unit    |
-| :---------------------------------- | :-------------------------------------------- | :------ |
-| status                              | Status of the interface                       |         |
-| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. | B/s & % |
-| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. | B/s & % |
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
@@ -65,6 +56,17 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | load1                       | System load 1 minute-sample                        |
 | load5                       | System load 5 minutes-sample                       |
 | load15                      | System load 15 minutes-sample                      |
+
+<!--Memory-->
+
+| Metric name             | Description                               | Unit  |
+| :---------------------  | :---------------------------------------- | :---- |
+| memory.usage.bytes      | Memory usage on the device.               |   B   |
+| memory.free.bytes       | Free memory on the device.                |   B   |
+| memory.usage.percentage | Percentage of Memory usage on the device. |   %   |
+| memory.buffer.bytes     | Buffered Memory allocation.               |   B   |
+| memory.cached.bytes     | Cached Memory allocation.                 |   B   |
+| memory.shared.bytes     | Shared Memory allocation.                 |   B   |
 
 <!--Uptime-->
 
@@ -141,9 +143,9 @@ through "Configuration > Plugin packs > Manager" page.
 
   :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
 
-| Obligatoire | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
@@ -160,7 +162,7 @@ and test the Plugin by running the following command:
 	--snmp-version='2c' \
 	--snmp-community='mysnmpcommunity' \
 	--warning-h323-packet-loss='5' \
-	--critical-h323-packet-loss='10' \
+	--critical-h323-packet-loss=10' \
 ```
 
 Expected command output is shown below: 
@@ -173,10 +175,10 @@ OK: View Station Phone Number: '0123456789' Stats: H323 Packet Loss 1.00 %, H323
 
 The command above monitors the sessions statistics of a Polycom HDX ViewStation device (```--plugin=hardware::devices::polycom::hdx::snmp::plugin --mode=viewstation-stats```) identified
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
 
 This command would trigger a WARNING alarm if the packet loss rate of the active calls raises over 5% (```--warning-h323-packet-loss='5'```)
-and a CRITICAL alarm over 10% (```--critical-h323-packet-loss='10'```).
+and a CRITICAL alarm over 10% (```--critical-h323-packet-loss=10'```).
 
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -192,7 +194,7 @@ If you get this message, you're probably facing one of theses issues:
 * The SNMP agent of the device isn't started or is misconfigured 
 * An external device is blocking the request (firewall, ...)
 
-### What does the '(skipped: no values)' message mean?
+### What does '(skipped: no values)' message mean?
 
 When using ViewStation-Statistics service, you will get this message when there is 
 no audio and/or video call in progress on the HDX Room system. This is the expected 
