@@ -88,6 +88,8 @@ indicateurs :
 
 ![image](../assets/reporting/guide/mtbf_mtbsi_mtrs_explanation.png)
 
+## Bonnes pratiques
+
 ### Bonnes pratiques de supervision
 
 #### Qualité des plugins & données

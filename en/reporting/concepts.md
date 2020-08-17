@@ -84,6 +84,8 @@ The diagram below shows the scope of these indicators:
 
 ![image](../assets/reporting/guide/mtbf_mtbsi_mtrs_explanation.png)
 
+## Best practices
+
 ### Best practices for monitoring
 
 #### Quality of plugins, performance and capacity data
