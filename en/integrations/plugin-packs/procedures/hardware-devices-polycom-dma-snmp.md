@@ -17,10 +17,11 @@ or Microsoft Azure cloud.
 
 ### Monitored objects
 
-* DMA Devices (hardware & software)       
-* Attached Clusters, Servers & Devices registration status          
+* DMA Devices (hardware & software)
+* DMA Clusters
+* Attached Clusters, Servers & Device registrations status
 
-## Collected metrics
+### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -30,7 +31,7 @@ or Microsoft Azure cloud.
 | :---------------------- | :----------------- | :---- |
 | dma.alerts.total.count  | Number of alerts.  | Count |
 
-Specify throug `--warning-status` and `--critical-status` options which severities
+Specify through the `--warning-status` and `--critical-status` options which severities
 increase the total count of alerts.
 
 <!--Conference-Manager-->
@@ -48,6 +49,17 @@ increase the total count of alerts.
 | dma.cluster.voice.port.usage.count        | Number of voice ports used by a cluster        | Count  |
 | dma.cluster.voice.port.free.count         | Number of free voice ports on a cluster        | Count  |
 | dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | Count  |
+
+You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
+
+<!--Clusters-Usage-->
+
+| Metric name                           | Description                                              | Unit  |
+|:--------------------------------------|:---------------------------------------------------------|:------|
+| dma.clusters.total.count              | Total number of DMA clusters                             | Count |
+| dma.cluster.activecalls.count         | Current active calls per cluster                         | Count |
+| dma.cluster.licenses.free.count       | Current free licenses sessions per cluster               | Count |
+| dma.cluster.licenses.usage.percentage | Current percentage of licenses sessions used per cluster | %     |
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
@@ -83,7 +95,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 
 ### Device Configuration
 
-Configure SNMP on your RealPresence DMA device according to Polycom official documentation: 
+Configure the proper SNMP settings on your RealPresence DMA device according to Polycom official documentation: 
 https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Configure_SNMP_Settings.htm
 
 ### Network flows
@@ -136,7 +148,7 @@ through "Configuration > Plugin packs > Manager" page.
 * Fill SNMP Version and Community fields according to the device's configuration
 
 
-  :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
+  :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -151,26 +163,53 @@ and test the Plugin by running the following command:
 
 
 ```bash
-TODO
+/usr/lib/centreon/plugins/centreon_polycom_dma_snmp.pl \
+    --plugin=hardware::devices::polycom::dma::snmp::plugin \
+    --mode=clusters \
+    --hostname=10.0.0.1 \
+    --snmp-version='2c'
+    --snmp-community='mysnmpcommunity' \
+    --critical-cluster-status='%{cluster_status} =~ /outOfService/i' \
+    --critical-license-status='%{license_status} =~ /notinstalled/i' \
+    --warning-cluster-license-usage-prct='80' \
+    --critical-cluster-license-usage-prct='90' \
+    --verbose
 ```
 
+Expected command output is shown below: 
+
 ```bash
-TODO
+OK: Total clusters : 1 - Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses percentage usage : 9.75% |
+'dma.clusters.total.count'=1;;;0; 'my_dma_cluster_1#dma.cluster.activecalls.count'=78;;;;800 
+'my_dma_cluster_1#dma.cluster.licenses.free.count'=722;;;0; 'my_dma_cluster_1#dma.cluster.licenses.usage.percentage'=9.75%;0:80;0:90;0;
+Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses percentage usage : 9.75%
 ```
 
-Use the ```--help``` flag to display a dedicated manual for a given mode:
+The command above monitors the clusters attached to a DMA device (```--plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters```) identified
+by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
+
+This command would trigger a WARNING alarm if the current amount of active calls reaches 80% of the total calls 
+authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90%.
+
+A CRITICAL alarm would also be triggered in the following situations:
+* if the cluster reports a *Out of Service* status (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
+* if the DMA device reports an *invalid* license for the cluster (```--critical-license-status='%{license_status} =~ /notinstalled/i'```)
+
+All the options as well as all the available thresholds can be displayed by adding the  ```--help```
+parameter to the command:
 
 ```bash
-TODO
+/usr/lib/centreon/plugins/centreon_polycom_dma_snmp.pl --plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters --help
 ```
 
 ### How to monitor system metrics on the Ploycom RealPresence DMA ?
 
 Polycom RealPresence DMA are Linux-Based, use the *OS-Linux-SNMP-Custom* Host 
-Template to monitor the operating system layer.
+Template in addition with the DMA Template to monitor the operating system layer.
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this message, you're probably facing one of theses issues: 
-* Your SNMP server isn't started or misconfigured 
-* An external device is blocking your request (firewall, ...)
+* The SNMP agent of the device isn't started or is misconfigured 
+* An external device is blocking the request (firewall, ...)
