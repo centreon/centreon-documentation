@@ -187,10 +187,10 @@ Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses perc
 
 The command above monitors the clusters attached to a DMA device (```--plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters```) identified
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
 This command would trigger a WARNING alarm if the current amount of active calls reaches 80% of the total calls 
-authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90%.
+authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90% (```--critical-cluster-license-usage-prct='90'```).
 
 A CRITICAL alarm would also be triggered in the following situations:
 * if the cluster reports a *Out of Service* status (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
