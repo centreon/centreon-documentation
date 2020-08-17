@@ -160,7 +160,7 @@ and test the Plugin by running the following command:
 	--snmp-version='2c' \
 	--snmp-community='mysnmpcommunity' \
 	--warning-h323-packet-loss='5' \
-	--critical-h323-packet-loss=10' \
+	--critical-h323-packet-loss='10' \
 ```
 
 Expected command output is shown below: 
@@ -173,10 +173,10 @@ OK: View Station Phone Number: '0123456789' Stats: H323 Packet Loss 1.00 %, H323
 
 The command above monitors the sessions statistics of a Polycom HDX ViewStation device (```--plugin=hardware::devices::polycom::hdx::snmp::plugin --mode=viewstation-stats```) identified
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='test/polycomdma'```).
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
 This command would trigger a WARNING alarm if the packet loss rate of the active calls raises over 5% (```--warning-h323-packet-loss='5'```)
-and a CRITICAL alarm over 10% (```--critical-h323-packet-loss=10'```).
+and a CRITICAL alarm over 10% (```--critical-h323-packet-loss='10'```).
 
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
@@ -192,7 +192,7 @@ If you get this message, you're probably facing one of theses issues:
 * The SNMP agent of the device isn't started or is misconfigured 
 * An external device is blocking the request (firewall, ...)
 
-### What does '(skipped: no values)' message mean?
+### What does the '(skipped: no values)' message mean?
 
 When using ViewStation-Statistics service, you will get this message when there is 
 no audio and/or video call in progress on the HDX Room system. This is the expected 
