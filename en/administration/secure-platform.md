@@ -24,11 +24,13 @@ passwd <account_name>
 
 In addition, it is important to verify that the Apache account does not have connection rights to the terminal.
 Execute the following command:
+
 ```shell
 cat /etc/passwd | grep apache
 ```
 
 You must have **/sbin/nologin** like:
+
 ```shell
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
@@ -39,6 +41,7 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
 installation. Please execute the following command and follow instruction:
+
 ```shell
 mysql_secure_installation
 ```
@@ -80,14 +83,15 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 
-<LocationMatch ^/centreon/(.*\.php(/.*)?)$>
+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
-ProxyTimeout 300
 
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
+
+ProxyTimeout 300
 
 <VirtualHost *:80>
     RewriteEngine On
@@ -101,7 +105,7 @@ ProxyTimeout 300
 #####################
     SSLEngine on
     SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
-    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256 SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256:SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
@@ -148,6 +152,7 @@ RedirectMatch ^/$ /centreon
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
 ServerSignature Off
@@ -173,6 +178,7 @@ systemctl status httpd24-httpd
 ```
 
 If everything is ok, you must have:
+
 ```shell
 ● httpd24-httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd24-httpd.service; enabled; vendor preset: disabled)
