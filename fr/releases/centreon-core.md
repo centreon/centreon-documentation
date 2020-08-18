@@ -334,12 +334,6 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
-### 20.04.6
-
-#### Bug fixes
-
-- problem_id macro was buggy
-
 ### 20.04.5
 
 #### Bug fixes
