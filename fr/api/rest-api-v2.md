@@ -10,7 +10,7 @@ Centreon Web Rest API v2 a pour objectif de remplacer la première version.
 Pour commencer à l'utiliser, référez-vous à la [page
 dédiée](https://docs.centreon.com/api/centreon-web/).
 
-## Créer une collection Postman depuis la défénition OpenAPI
+## Créer une collection Postman depuis la définition OpenAPI
 
 Afin de manipuler l'API plus efficacement ou seulement pour comprendre comment
 elle fonctionne, il n'y a rien de plus pratique qu'une collection Postman.
