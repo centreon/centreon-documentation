@@ -188,7 +188,7 @@ systemctl start httpd24-httpd
 ```
 
 Conclude installation by performing
-[web intallation steps](../web-and-post-installation.html#web-installation).
+[web installation steps](../web-and-post-installation.html#web-installation).
 
 > In the step **Initialization of the monitoring**, only the actions from 6 to 8
 > must be done.
