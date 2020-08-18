@@ -5,8 +5,8 @@ title: Command Line API (v1)
 
 ## Overview
 
-Centreon CLAPI aims to offer (almost) all the features that are available on the user interface in terms of
-configuration.
+Centreon CLAPI aims to offer (almost) all the features that are available on the
+user interface in terms of configuration.
 
 ### Features
 

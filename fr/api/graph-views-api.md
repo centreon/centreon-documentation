@@ -3,6 +3,8 @@ id: graph-views-api
 title: Graphical views API (beta)
 ---
 
+> Cette documentation n'est disponible qu'en anglais.
+
 If you want to automate standard views creation or maintenance, you may
 use the Centreon MAP extension API.
 
