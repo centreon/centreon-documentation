@@ -136,7 +136,7 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 
 ## Web installation
 
-Conclude installation by performing [web intallation steps](../web-and-post-installation.html#Web-installation).
+Conclude installation by performing [web installation steps](../web-and-post-installation.html#Web-installation).
 
 > In the step **Initialization of the monitoring**, only the actions from 6 to 8
 > must be done.

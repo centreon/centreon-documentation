@@ -830,4 +830,4 @@ After this step you should connect to Centreon to finalize the installation proc
 ## Web installation
 
 Conclude installation by performing
-[web intallation steps](../web-and-post-installation.html#web-installation).
+[web installation steps](../web-and-post-installation.html#web-installation).

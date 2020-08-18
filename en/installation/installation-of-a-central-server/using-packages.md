@@ -198,4 +198,4 @@ systemctl start httpd24-httpd
 ```
 
 Conclude installation by performing
-[web intallation steps](../web-and-post-installation.html#web-installation).
+[web installation steps](../web-and-post-installation.html#web-installation).
