@@ -157,7 +157,7 @@ SSH key-based authentication must be set so that files and commands can be sent 
 
 There are two ways of exchanging such keys:
 
-* By using `sh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advice you to revoke this password afterwards with these commands: `passwd -d centreon` and `passwd -d mysql`.
+* By using `ssh-copy-id` command: needs to be able to log in to remote host using a password. It is however unsafe for such system accounts to have a password authentication available. If you choose this method, we advice you to revoke this password afterwards with these commands: `passwd -d centreon` and `passwd -d mysql`.
 * By manually copying the public key in `~/.ssh/authorized_keys`. This method is safer.
 
 The second method will be documented below.
