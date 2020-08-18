@@ -376,6 +376,13 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Broker release notes
 
+### 20.04.8
+
+#### Bug fixes
+
+- The UTF-8 chek/encoding is moved from engine to cbmod. This is easier to update for Centreon users.
+  Also, the check algorithm is fixed. Some strings could be considered as UTF-8 strings whereas they were not.
+
 ### 20.04.7
 
 #### Enhancements
