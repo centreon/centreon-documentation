@@ -334,6 +334,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.04.5
+
+#### Bug fixes
+
+- Unicode check was buggy
+
 ### 20.04.4
 
 #### Bug fixes
