@@ -13,7 +13,8 @@ page](https://docs.centreon.com/api/centreon-web/).
 ## Create a Postman collection from the OpenAPI definition
 
 In order to manipulate the API more efficiently or just understand how it works,
-there is nothing more handy than a Postman collection.
+there is nothing more handy than a [Postman](https://learning.postman.com/docs/getting-started/introduction/)
+collection.
 
 ### Import the OpenAPI definition
 
@@ -56,6 +57,19 @@ Click on **Add** and set the variables as below with your platform information:
 
 Then click on **Add**, and select it in the environments list.
 
+> The API version is not set in the environment variables. It's more of a
+> collection variable. It can be changed directly in the collection by editing
+> it.
+>
+> ![image](../assets/api/postman-collection-edit.png)
+>
+> In the **Variables** tab, change the *version* value to one of "beta",
+> "latest" or "v2".
+>
+> ![image](../assets/api/postman-collection-variables.png)
+>
+> Other variables will be overload by environment variables.
+
 ### Edit the Login request
 
 To make the *Login* request use the previously defined credentials, and retrieve
@@ -72,8 +86,17 @@ variables `{{username}}` and `{{password}}` as below:
 In the **Tests** tab, add the following code:
 
 ```javascript
-var data = JSON.parse(responseBody);
-pm.environment.set("token", data.security.token);
+pm.test("Status code is 200", function () { pm.response.to.have.status(200); });
+
+const responseJson = pm.response.json();
+
+pm.test("The response has all properties", () => {
+  pm.expect(responseJson).to.be.an("object");
+  pm.expect(responseJson.contact.alias).to.eql(pm.environment.get("username"));
+  pm.expect(responseJson.security.token).to.be.a('string');
+});
+
+pm.environment.set("token", responseJson.security.token);
 ```
 
 ![image](../assets/api/postman-login-test.png)

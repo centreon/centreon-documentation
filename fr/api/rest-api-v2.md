@@ -13,7 +13,8 @@ dédiée](https://docs.centreon.com/api/centreon-web/).
 ## Créer une collection Postman depuis la définition OpenAPI
 
 Afin de manipuler l'API plus efficacement ou seulement pour comprendre comment
-elle fonctionne, il n'y a rien de plus pratique qu'une collection Postman.
+elle fonctionne, il n'y a rien de plus pratique qu'une collection
+[Postman](https://learning.postman.com/docs/getting-started/introduction/).
 
 ### Importer la définition OpenAPI
 
@@ -61,6 +62,19 @@ de la plateforme :
 Cliquer ensuite sur **Add**, et sélectionner l'environnement dans la liste des
 environnements.
 
+> La version de l'API n'est pas défini dans les variables d'environnement. Il
+> s'agit d'avantage d'une variable de la collection. Elle peut être changée
+> directement dans la collection en l'éditant.
+>
+> ![image](../assets/api/postman-collection-edit.png)
+>
+> Dans l'onglet **Variables**, changer la valeur de *version* par une valeur
+> parmi "beta", "latest" or "v2".
+>
+> ![image](../assets/api/postman-collection-variables.png)
+>
+> Les autres variables seront surchargées par les variables d'environnement.
+
 ### Editer la requête de d'authentification
 
 Pour faire en sorte que la requête d'authentification utilise les identifiants
@@ -78,8 +92,17 @@ par les variables d'environnement `{{username}}` et `{{password}}` comme suit :
 Dans l'onglet **Tests**, ajouter le code suivante :
 
 ```javascript
-var data = JSON.parse(responseBody);
-pm.environment.set("token", data.security.token);
+pm.test("Status code is 200", function () { pm.response.to.have.status(200); });
+
+const responseJson = pm.response.json();
+
+pm.test("The response has all properties", () => {
+  pm.expect(responseJson).to.be.an("object");
+  pm.expect(responseJson.contact.alias).to.eql(pm.environment.get("username"));
+  pm.expect(responseJson.security.token).to.be.a('string');
+});
+
+pm.environment.set("token", responseJson.security.token);
 ```
 
 ![image](../assets/api/postman-login-test.png)
