@@ -3,11 +3,14 @@ id: introduction
 title: Introduction
 ---
 
-Centreon comes with several APIs to manipulate or retrieve Configuration & Real time data.
+Centreon met à disposition plusieurs API pour manipuler ou récupérer la
+configuration ou des données temps réel.
 
-Regarding the type of scripts or automation you want to perform on Centreon, you may use the following 
-documentation:
+En fonction du type de script ou de vos besoins d'*automation*, vous pouvez
+choisir parmis les documentations suivantes :
 
-- [Command Line API (CLAPI)](clapi.html) to manage configuration data
-- [Rest API (v1)](rest-api-v1.html) to manage configuration data or [Rest API (v2)](https://docs.centreon.com/api/centreon-web/) to manage configuration and real time data
-- [Rest API (beta)](graph-views-api.html) to manage specific Graphical Views data *(Centreon Map extension)*
+- [API en ligne de commande (CLAPI)](clapi.html) pour gérer la configuration
+- [Rest API (v1)](rest-api-v1.html) pour gérer la configuration ou [Rest API
+  (v2)](rest-api-v2.html) pour gérer la configuration et les données temps réel
+- [Graphical Views API (beta)](graph-views-api.html) pour gérer certaines
+  données de Graphical Views *(extension Centreon Map)*

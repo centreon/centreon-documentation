@@ -3,15 +3,12 @@ id: rest-api-v1
 title: Rest API (v1)
 ---
 
-## Introduction
+## Overview
 
-Welcome to the Centreon Rest API documentation. This documentation is for
-developers familiar with HTTP requests and JSON. It explains various API
-operations, related request and response structure, and error codes. If you are
-not familiar with the JSON API, we recommend you to use the Centreon command
-line API documentation.
-
-This documentation is available in english only.
+This documentation is for developers familiar with HTTP requests and JSON. It
+explains various API operations, related requests and responses structure, and
+error codes. If you are not familiar with the JSON API, we recommend you to use
+the Centreon command line API documentation.
 
 ## Permissions
 

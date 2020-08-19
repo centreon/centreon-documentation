@@ -874,6 +874,7 @@
             "api/introduction",
             "api/clapi",
             "api/rest-api-v1",
+            "api/rest-api-v2",
             "api/graph-views-api"
         ],
         "Ressources dévelopeur": [
