@@ -3,23 +3,21 @@ id: hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
 ---
 
-## Vue d'ensemble
+## Overview
 
-Polycom RealPresence Resource Manager (RPRM) offre une gestion centralisée de tous vos périphériques pris en charge, des téléphones mobiles 
-aux téléphones de bureau et de conférence, tout au long de vos systèmes de salle de visioconférence et de téléprésence. 
-Lors d'un déploiement dans le cadre de la solution RealPresence Clariti, les entreprises bénéficient d'applications pour assurer
-la liaison, la redondance, la traversée de pare-feu, la signalisation d'appels et la vidéo mobile.
+The RealPresence Resource Manager system is a management solution that provides unified management of the Polycom® RealPresence® Clariti™ and video and audio endpoints. 
+Unified management features include license management, monitoring, conference scheduling, and provisioning of Polycom video infrastructure products 
+and as well as both Polycom and third-party endpoints within your environment.
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
-Polycom RPRM.
+The Centreon Plugin Pack relies on the SNMP protocol to query and collect status and metrics of the Polycom RPRM solution.
 
-## Contenu du Plugin-Pack
+## Plugin-Pack assets
 
-### Objets supervisés
+### Monitored objects
 
-* Appliances Polycom RPRM
+* RPRM Devices and associated resources (sites, sitelinks...)
 
-### Métriques collectées
+### Collected metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -54,7 +52,7 @@ Polycom RPRM.
 |:---------------------------|:----------------------------------------------|:------|
 | rprm.sitelinks.total.count | Total number of SiteLinks managed by the RPRM | Count |
 
-* Par *SiteLink*
+* Per *SiteLink*
 
 | Metric name                                  | Description                                         | Unit  |
 |:---------------------------------------------|:----------------------------------------------------|-------|
@@ -75,7 +73,7 @@ Polycom RPRM.
 |:-----------------------|:------------------------------------------|-------|
 | rprm.sites.total.count | Total number of Sites managed by the RPRM | Count |
 
-* Par *Site*
+* Per *Site*
 
 | Metric name                              | Description                                     | Unit  |
 |:-----------------------------------------|:------------------------------------------------|-------|
@@ -97,12 +95,16 @@ Polycom RPRM.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prerequisites
 
-### Configuration SNMP de l'équipement
+### Device Configuration
 
-La documentation officielle Polycom (en anglais, lien ci-dessous) détaille les étapes pour activer et configurer le service SNMP:
+Configure the proper SNMP settings on your Polycom RPRM device according to the Polycom official documentation: 
 https://documents.polycom.com/bundle/rprm-ops-10-5/page/rprm_ops/SNMP_Operations/SNMP_Operations.htm
+
+### Network flows
+
+The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom RPRM device.
 
 ## Installation
 
@@ -110,51 +112,58 @@ https://documents.polycom.com/bundle/rprm-ops-10-5/page/rprm_ops/SNMP_Operations
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom RPRM:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
+Polycom RPRM devices:
+
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom RPRM SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
+through "Configuration > Plugin packs > Manager" page.
+
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom RPRM:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
+Polycom RPRM devices:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom RPRM SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
+through "Configuration > Plugin packs > Manager" page.
 
-## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *HW-Device-Polycom-Rprm-SNMP-Custom*
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+## Host configuration 
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+* Add a new Host and apply the *HW-Device-Polycom-Rprm-SNMP-Custom* Host Template
+* Fill the SNMP Version and Community fields according to the device's configuration
+
+
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
+
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## FAQ
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+### How to test the Plugin and what are the main options for ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
+and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_polycom_rprm_snmp.pl \
@@ -170,7 +179,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+Expected command output is shown below: 
 
 ```bash
 OK: Total sites : 1 - Site 'My_Poly_Site_1' current active calls : 27, current bandwidth usage : 12.50 %, Total allowed bandwidth: 25.00 Mb/s, 
@@ -182,37 +191,27 @@ Site 'My_Poly_Site_1' current active calls : 27, current bandwidth usage : 12.50
 Average call bit rate : 1.11, Average packetloss : 1.03 %, Average jitter time : 0.77 ms, Average delay time : 1.10 ms
 ```
 
-Dans cet exemple, le Plugin récupère les informations concernant les *Sites* d'un équipement Polycom RPRM (```--plugin=hardware::devices::polycom::rprm::snmp::plugin --mode=sites```)
-identifé par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```) 
-correspondants sont renseignés afin de pouvoir joindre l'équipement.
+The command above monitors the sites managed by a RPRM device (```--plugin=hardware::devices::polycom::rprm::snmp::plugin --mode=sites```) identified
+by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
-Une alarme WARNING sera ainsi déclenchée si l'utilisation de la bande passante du *site* est supérieure à 80% (```--warning-site-bandwidth-used-prct='80'```);
-l'alarme sera de type CRITICAL au delà de 90% d'utilisation (```--critical-site-bandwidth-used-prct='90'```).
-De la même manière, des alarmes seront déclenchés lors du dépassement des seuils fixés pour le taux de *packetloss* observé
-(```--warning-site-packetloss-prct='5' --critical-site-packetloss-prct='10'```).
+This command would trigger a WARNING alarm if the bandwidth used raises over 80% of the site bandwidth capacity 
+(```--warning-site-bandwidth-used-prct='80'```) and a CRITICAL alarm over 90% (```--critical-site-bandwidth-used-prct='90'```).
+WARNING/CRITICAL alarms would aslo be triggered if the packet-loss percentage rate raises over 5%/10%  (```--warning-site-packetloss-prct='5' --critical-site-packetloss-prct='10'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
-en ajoutant le paramètre ```--help``` à la commande:
+For each Plugin mode, all the options as well as all the available thresholds can be displayed by adding the ```--help```
+parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_polycom_rprm_snmp.pl --plugin=hardware::devices::polycom::rprm::snmp::plugin --mode=sites --help
 ```
 
-### Comment puis-je superviser les resources système tels que CPU, disques...?
+### How to monitor system metrics on the Ploycom RPRM ?
 
-Les équipements Polycom RPRM sont basés sur des systèmes Linux. Il est ainsi possible de superviser les resources de la couche OS
-en appliquant le Modèle d'Hôte *OS-Linux-Snmp-Custom* en complément du Modèle *HW-Device-Polycom-Rprm-SNMP-Custom* décrit précédemment.
+Polycom RPRM devices are Linux-Based, use the *OS-Linux-SNMP-Custom* Host Template in addition with the RPRM Template to monitor the operating system layer.
 
+### UNKNOWN: SNMP GET Request : Timeout
 
-### J'obtiens le message d'erreur suivant:
-
-#### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Polycom RPRM sur le port UDP/161, 
-ou que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
-
-#### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Les causes de cette erreur peuvent être les suivantes: 
-  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.
+If you get this message, you're probably facing one of theses issues: 
+* The SNMP agent of the device isn't started or is misconfigured 
+* An external device is blocking the request (firewall, ...)
