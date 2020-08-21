@@ -770,6 +770,7 @@
                     "integrations/plugin-packs/procedures/hardware-telephony-avaya-aes-snmp",
                     "integrations/plugin-packs/procedures/hardware-telephony-avaya-mediagateway-snmp",
                     "integrations/plugin-packs/procedures/network-polycom-rmx-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-polycom-rprm-snmp",
                     "integrations/plugin-packs/procedures/network-sonus-sbc-snmp",
                     "integrations/plugin-packs/procedures/applications-voip-xivo"
                 ],
