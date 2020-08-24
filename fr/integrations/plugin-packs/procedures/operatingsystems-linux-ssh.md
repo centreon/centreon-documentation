@@ -34,7 +34,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name                        | Description                                    |
 | :--------------------------------- | :--------------------------------------------- |
-| cpu.utilization.percentage         | CPU utilization. Unit : percentage (%)         |
+| cpu.utilization.percentage         | CPU utilization. Unit: %         |
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit : percentage (%) |
 
 
