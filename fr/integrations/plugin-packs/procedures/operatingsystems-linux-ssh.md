@@ -80,7 +80,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name                 | Description                                       |
 | :-------------------------- | :------------------------------------------------ |
-| system.files.open.count     | Counter files open. Unit: counter                 |
+| system.files.open.count     | Number of files opened on the system                 |
 
 
 <!--Swap-->
