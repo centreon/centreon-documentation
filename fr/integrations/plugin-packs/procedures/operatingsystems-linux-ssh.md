@@ -33,47 +33,47 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Cpu Detailled-->
 
-| Metric name           | Description                                        |
-| :-------------------- | :------------------------------------------------- |
-| cpu                   | Average usage for each CPUs. Unit : percentage (%) |
-| total_cpu             | Average total CPUs. Unit : percentage (%)          |
+| Metric name           | Description                             |
+| :-------------------- | :-------------------------------------- |
+| cpu                   | Average usage for each CPUs. Unit : %   |
+| total_cpu             | Average total CPUs. Unit : %            |
 
 
 <!--Memory-->
 
 | Metric name           | Description                                   |
 | :-------------------- | :-------------------------------------------- |
-| used                  | Memory used. Unit : bytes (b)                 |
-| slab                  | Slab allocation memory used. Unit : bytes (b) |
-| buffer                | Memory buffured. Unit : byte (b)              |
-| cached                | Memory cached. Unit : bytes (b)               |
+| used                  | Memory used. Unit : B                         |
+| slab                  | Slab allocation memory used. Unit : B         |
+| buffer                | Memory buffured. Unit : B                     |
+| cached                | Memory cached. Unit : B                       |
 
 
 <!--Filesdate-->
 
-| Metric name           | Description                                                           |
-| :-------------------- | :-------------------------------------------------------------------- |
+| Metric name           | Description                                                 |
+| :-------------------- | :---------------------------------------------------------- |
 | name                  | Time (modified, creation,...) of files/directories. Unit: s |
 
 
 <!--Filessize-->
 
-| Metric name           | Description                                       |
-| :-------------------- | :------------------------------------------------ |
-| name                  | Size of one file/directorie. Unit : bytes (b)     |
-| total                 | Total Size of files/directories. Unit : bytes (b) |
+| Metric name           | Description                               |
+| :-------------------- | :---------------------------------------- |
+| name                  | Size of one file/directorie. Unit : B     |
+| total                 | Total Size of files/directories. Unit : B |
 
 
 <!--Diskio-->
 
-| Metric name                            | Description                                                             |
-| :------------------------------------- | :---------------------------------------------------------------------- |
-| device.io.read.usage.bytespersecond    | Read IO usage in bytes per second. Unit : bytes per seconde (b/s)       |
-| device.io.write.usage.bytespersecond   | Write IO usage in bytes per second. Unit : bytes per seconde (b/s)      |
-| device.io.read.time.milliseconds       | Read time in milliseconds. Unit : milliseconds (ms)                     |
-| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : milliseconds (ms)                    |
-| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : milliseconds (ms)                    |
-| device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : percentage (ms) |
+| Metric name                            | Description                                                  |
+| :------------------------------------- | :----------------------------------------------------------- |
+| device.io.read.usage.bytespersecond    | Read IO usage in bytes per second. Unit : B/s                |
+| device.io.write.usage.bytespersecond   | Write IO usage in bytes per second. Unit : B/s               |
+| device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
+| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
+| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
+| device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : ms   |
 
 
 <!--Openfiles-->
@@ -85,39 +85,39 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Swap-->
 
-| Metric name                 | Description                                    |
-| :-------------------------- | :--------------------------------------------- |
-| swap.usage.bytes            | Swap usage. Unit: bytes (b)                    |
-| swap.free.bytes             | Swap free. Unit: bytes (b)                     |
-| swap.usage.percentage       | Swap usage in percentage. Unit: percentage (%) |
+| Metric name                 | Description                       |
+| :-------------------------- | :-------------------------------- |
+| swap.usage.bytes            | Swap usage. Unit: B               |
+| swap.free.bytes             | Swap free. Unit: B                |
+| swap.usage.percentage       | Swap usage in percentage. Unit: % |
 
 
 <!--Load-->
 
-| Metric name                 | Description                                        |
-| :-------------------------- | :------------------------------------------------- |
-| load1                       | Load average on 1 minute. Unit : percentage (%)    |
-| load5                       | Load average on 5 minutes. Unit : percentage (%)   |
-| load15                      | Load average on 15 minutes. Unit : percentage (%)  |
+| Metric name                 | Description                           |
+| :-------------------------- | :------------------------------------ |
+| load1                       | Load average on 1 minute. Unit : %    |
+| load5                       | Load average on 5 minutes. Unit : %   |
+| load15                      | Load average on 15 minutes. Unit : %  |
 
 
 <!--Uptime-->
 
-| Metric name                 | Description                                                           |
-| :-------------------------- | :-------------------------------------------------------------------- |
-| uptime                      | Duration of system has been working and available. Unit : second (s)  |
+| Metric name                 | Description                                                 |
+| :-------------------------- | :---------------------------------------------------------- |
+| uptime                      | Duration of system has been working and available. Unit : s |
 
 
 <!--Paging-->
 
-| Metric name                            | Description                                                                       |
-| :------------------------------------- | :-------------------------------------------------------------------------------- |
-| system.pgpgin.usage.bytespersecond     | Usage of the number of pgpgin in bytes per second. Unit : byte per second (b/s)   |
-| system.pgpgout.usage.bytespersecond    | Usage of the number of pgpgout in bytes per second. Unit : byte per second (b/s)  |
-| system.pswpin.usage.bytespersecond     | Usage of the number of pswpin in bytes per second. Unit : byte per second (b/s)   |
-| system.pswpout.usage.bytespersecond    | Usage of the number of pages in bytes per second. Unit : byte per second (b/s)    |
-| system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : byte per second (b/s)                   |
-| system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : byte per second (b/s)                |
+| Metric name                            | Description                                                      |
+| :------------------------------------- | :--------------------------------------------------------------- |
+| system.pgpgin.usage.bytespersecond     | Usage of the number of pgpgin in bytes per second. Unit : B/s    |
+| system.pgpgout.usage.bytespersecond    | Usage of the number of pgpgout in bytes per second. Unit : B/s   |
+| system.pswpin.usage.bytespersecond     | Usage of the number of pswpin in bytes per second. Unit : B/s    |
+| system.pswpout.usage.bytespersecond    | Usage of the number of pages in bytes per second. Unit : B/s     |
+| system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : B/s                    |
+| system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : B/s                 |
 
 
 <!--Connections-->
@@ -129,7 +129,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | con_closed                  | Number of connection closed                        |
 | con_closeWait               | Number of connection on wait close                 |
 | con_closing                 | Number of connection closing                       | 
-| con_established             | Number of connection etablished					   |
+| con_established             | Number of connection etablished			   |
 | con_finWait1                | Number of connection finWait1                      |
 | con_finWait2                | Number of connection finWait1                      | 
 | con_lastAck                 | Number of connection on last Ack                   |
@@ -141,47 +141,48 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Inodes-->
 
-| Metric name                 | Description                                             |
-| :-------------------------- | :------------------------------------------------------ |
-| used                        | Inodes space usage on partitions. Unit : percentage(%)  |
+| Metric name                 | Description                                 |
+| :-------------------------- | :------------------------------------------ |
+| used                        | Inodes space usage on partitions. Unit : %  |
 
 <!--Process-->
 
-| Metric name                 | Description                                        |
-| :-------------------------- | :------------------------------------------------- |
-| nbproc                      |  Number of current processes. Units: Count         |
+| Metric name                 | Description                                 |
+| :-------------------------- | :------------------------------------------ |
+| nbproc                      |  Number of current processes. Units: Count  |
 
 
 <!--Ntp-->
 
-| Metric name           | Description                                       |
-| :-------------------- | :------------------------------------------------ |
-| offset                | Offset of ntpd service. Unit : milliseconds (ms)  |
+| Metric name           | Description                        |
+| :-------------------- | :--------------------------------- |
+| offset                | Offset of ntpd service. Unit : ms  |
 
 
 <!--Quota-->
 
-| Metric name           | Description                                 |
-| :-------------------- | :------------------------------------------ |
-| data_used             | Quota usage on partitions. Unit : bytes (b) |
+| Metric name           | Description                         |
+| :-------------------- | :---------------------------------- |
+| data_used             | Quota usage on partitions. Unit : B |
 
 
 <!--Storage-->
 
-| Metric name           | Description                      |
-| :-------------------- | :------------------------------- |
-| used                  | Storage usages. Unit : bytes (b) |
+| Metric name           | Description              |
+| :-------------------- | :----------------------- |
+| used                  | Storage usages. Unit : B |
 
 
 <!--Traffic-->
 
-| Metric name           | Description                                   |
-| :-------------------- | :-------------------------------------------- |
-| traffic               | Storage usages. Unit : bytes per second (b/s) |
+| Metric name                         | Description                                                      |
+| :---------------------------------- | :--------------------------------------------------------------- |
+| status                              | Status of the interface                                          |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Prérequis
 
