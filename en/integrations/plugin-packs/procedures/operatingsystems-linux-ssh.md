@@ -330,7 +330,7 @@ CPU '0' usage : 11.91 %
 
 The command above gets the average of a Linux SSH CPU (```--mode=CPU```).
 
-This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'``)
+This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
 
 Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
