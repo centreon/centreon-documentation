@@ -79,26 +79,16 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 | docs_count        | Number of documents inside the indice                 |         |
 | size_in_bytes     | Total size of all shards assigned to the node         |    B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+<!--Rules-->
 
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--List-indices-->
-
-| Metric name        | Description                             | Unit    |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Indice name                             |         |
-| status             | Indice status                           |         |
-
-<!--List-nodes-->
-
-| Metric name        | Description                             | Unit    |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Node name                               |         |
-| host               | Node host                               |         |
-| ip                 | Node ip                                 |         |
+| Rule name                              | Description                                   |
+| :------------------------------------- | :-------------------------------------------- |
+| App-DB-Elasticsearch-Indice-Statistics | Discover the indices on your Elasticsearch DB |
+| App-DB-Elasticsearch-Node-Statistics   | Discover the nodes on your Elasticsearch DB   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+Use the discovery module to add the monitoring of your Elasticsearch databases, Go to *Configuration > Services > Scan* to perform a scan.
 
 ## Prerequisites 
 
@@ -139,7 +129,7 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 ### Host Macro Configuration
 
-The following macros must be configured on host:
+Apply the "The name of your template" template to your newly created host. Then fill the macros value fileds marked as mandatory below:
 
 |Mandatory| Macro                 | Description                         | Default value | Example  |
 | :-------| :---------------- --- | :---------------------------------- | :------------ | :------- |
@@ -158,7 +148,7 @@ with the user *centreon-engine*:
 ```bash
 su - centreon-engine\
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \ 
---hostname=x.x.x.x \
+--hostname=168.253.16.125 \
 --port=9200 \
 --proto=http \
 --plugin=database::elasticsearch::restapi::plugin \
@@ -175,7 +165,7 @@ Output:
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, Data: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.data.size.bytes'=1386278479651B;;;0;
 ```
 
-The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *x.x.x.x* (```--hostname=x.x.x.x```). We will use the port 92000 (```--port=9200```) and the http protocol (```proto=http''```). The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its paswword is *Elasticsearch_password*(```--password='Elasticsearch_password'```)
+The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 92000 (```--port=9200```) and the http protocol (```proto=http''```). The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its paswword is *Elasticsearch_password*(```--password='Elasticsearch_password'```)
 
 All the available modes can be listed with the command line:
 
