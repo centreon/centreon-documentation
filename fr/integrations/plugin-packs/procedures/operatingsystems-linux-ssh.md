@@ -6,7 +6,6 @@ title: Linux SSH
 ## Vue d'ensemble
 
 Linux est une famille de systèmes d'exploitation à source ouverte de type Unix basée sur le noyau Linux, un noyau de système d'exploitation publié pour la première fois le 17 septembre 1991 par Linus Torvalds. 
-De nombreuses distributions Linux utilisent le mot "Linux" dans leur nom, mais la Free Software Foundation utilise le nom GNU/Linux pour souligner l'importance des logiciels GNU, ce qui suscite une certaine controverse.
 
 ## Contenu du pack de supervision
 
