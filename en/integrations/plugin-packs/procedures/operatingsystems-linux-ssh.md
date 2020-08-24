@@ -16,7 +16,7 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 * Debian
 * Ubuntu
 * Fedora
-* Suse
+* ...
 
 ### Discovery Rules
 
