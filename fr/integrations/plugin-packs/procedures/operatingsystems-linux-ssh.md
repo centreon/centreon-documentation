@@ -1,5 +1,5 @@
 ---
-id: applications-Linux-Ssh
+id: operatingsystems-linux-ssh
 title: Linux SSH
 ---
 
