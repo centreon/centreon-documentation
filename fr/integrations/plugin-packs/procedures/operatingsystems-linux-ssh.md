@@ -19,13 +19,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 * Fedora
 * Suse
 
-### Règles de découvertes
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
