@@ -70,7 +70,7 @@ Les métriques suivantes sont collectées par le plugin Centreon Kaspersky Plugi
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
 ### Configuration de l'équipement
 
@@ -98,7 +98,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 2. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 <!--Offline IMP License-->
 
-1. Install the Centreon Kaspersky Plugin package on every Centreon poller expected to monitor a Kaspersky Security Center:
+1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
@@ -115,8 +115,6 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
-
-### Create a host using the appropriate template
 
 Lorsque vous ajoutez un Hôte, complétez les champs 'Communauté Snmp' et 
 'Version Snmp' pour refléter la configuration de l'équipement cible.
