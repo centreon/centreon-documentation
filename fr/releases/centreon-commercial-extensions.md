@@ -206,3 +206,30 @@ subscription from `Administration > Extensions > Manager` menu:
 Licenses for products linked to Centreon IT and Business Editions online
 subscriptions are now automatically downloaded.
 
+## Centreon Anomaly Detection
+
+### 20.04.2
+
+#### Bugfixes
+
+- [configuration] Can't change "Enable change of status" when editing form
+- [configuration] Remove mandatory fields which are not mandatory
+
+### 20.04.1
+
+#### Enhancements
+
+- [configuration] Manage ACL
+- [lua] Automatically reloads filter files if changed
+
+#### Bugfixes
+
+- [core] Remove version in uri to connect to saas
+- [history] Select correct metric to forward
+- [history] Avoid useless newline character
+- [lua] Typo fixed
+- [lua] New error case on service_id checked
+
+### 20.04.0
+
+First version allowing to monitor the detection of anomalies using floating thresholds.
