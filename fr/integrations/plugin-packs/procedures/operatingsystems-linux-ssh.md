@@ -306,7 +306,7 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. Sympa :)
+Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
 
 
 ## FAQ
