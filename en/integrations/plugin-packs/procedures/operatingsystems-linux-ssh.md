@@ -24,10 +24,10 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 <!--Cpu-->
 
-| Metric name                        | Description                                    |
-| :--------------------------------- | :--------------------------------------------- |
-| cpu.utilization.percentage         | CPU utilization. Unit : percentage (%)         |
-| core.cpu.utilization.percentage    | CPU utilization by core. Unit : percentage (%) |
+| Metric name                        | Description                       |
+| :--------------------------------- | :-------------------------------- |
+| cpu.utilization.percentage         | CPU utilization. Unit : %         |
+| core.cpu.utilization.percentage    | CPU utilization by core. Unit : % |
 
 
 <!--Cpu Detailled-->
