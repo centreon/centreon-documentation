@@ -259,7 +259,7 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 ## Configuration
 
-Adding a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with *Os-Linux-SSH-custom*. 
+.Add a new Host and apply the Os-Linux-SSH-custom Host Template. 
 Once the template set, you have to set values according to the chosen SSH backend.
 3 SSH backends are available to connect to the Linux server: *sshcli*, *plink* and *libssh* which are detailed below.  
 
