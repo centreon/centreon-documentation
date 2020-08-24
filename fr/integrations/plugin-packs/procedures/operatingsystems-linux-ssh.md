@@ -53,7 +53,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name           | Description                                                           |
 | :-------------------- | :-------------------------------------------------------------------- |
-| name                  | Time (modified, creation,...) of files/directories. Unit : second (s) |
+| name                  | Time (modified, creation,...) of files/directories. Unit: s |
 
 
 <!--Filessize-->
