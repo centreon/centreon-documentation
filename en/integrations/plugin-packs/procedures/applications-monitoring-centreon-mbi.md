@@ -86,7 +86,7 @@ The default TCP port for NRPE is 5666.
 The monitored Centreon MBI reporting server will need two components to be 
 monitored:
 
-* the centreon_linux_local.pl plugin
+* the `centreon_linux_local.pl` plugin
 * the NRPE3 daemon
 
 To install them, run the commands below:
@@ -96,8 +96,8 @@ yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centre
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
-The value of the allowed_hosts parameter in /etc/nrpe/centreon-nrpe3.cfg must be
-changed to include the pollers IP addresses:
+The value of the `allowed_hosts` parameter in `/etc/nrpe/centreon-nrpe3.cfg` 
+must be changed to include the pollers IP addresses:
 
 ```ini
 [...]
@@ -160,8 +160,8 @@ Install the SNMP service on the Centreon MBI reporting server.
 yum install net-snmp
 ```
 
-Open */etc/snmp/snmpd.conf* and replace ```my-snmp-community``` by the relevant 
-value. Comment all the lines begin by ```view``` and add the following line:
+Open */etc/snmp/snmpd.conf* and replace `my-snmp-community` by the relevant 
+value. Comment all the lines begin by `view` and add the following line:
 
 ```
 view systemview included .1
@@ -184,13 +184,13 @@ Also make sure that the SNMP server is configured to automatically start on boot
 systemctl restart snmpd && systemctl enable snmpd
 ```
 
-To check your SNMP installation, try to execute this command:
+If everything is fine, this command:
 
 ```shell
 snmpwalk -v 1 -c my-snmp-community IPSERVER .1.3.6.1.2.1.1.1
 ```
 
-You should get a response looking like the following:
+should produce this output:
 
 ```shell
 SNMPv2-MIB::sysDescr.0 = STRING: Linux <SERVER> 2.6.18-128.1.10.el5 #1 SMP Thu May 7 10:39:21 EDT 2009 i686
@@ -220,7 +220,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Plugin-Pack RPMs on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-monitoring-centreon-mbi
@@ -236,7 +236,7 @@ yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications
 
 Go to *Configuration* > *Host* > and click *Add*. Then fill the *SNMP Community*
 and *SNMP Version* fields and apply the template 
-*App-Monitoring-Centreon-MBI-custom*.
+`App-Monitoring-Centreon-MBI-custom`.
 
 If you are using SNMP Version 3, use the
 *SNMPEXTRAOPTIONS* macro to configure your own SNMPv3 credentials combo.
@@ -251,8 +251,8 @@ If you are using SNMP Version 3, use the
 
 #### Notice
 
-We advice you to also link your reporting server to *App-DB-MySQL* template.
-Refer to its monitoring procedure for the configuration.
+We advice you to also link your reporting server to `App-DB-MySQL-custom` 
+template. Refer to its monitoring procedure for the configuration.
 
 ## FAQ
 
@@ -314,7 +314,7 @@ For a command to be recognized, it has to be defined using the right syntax:
 
 And restart the daemon:
 
-```ash
+```bash
 systemctl restart centreon-nrpe3.service
 ```
 
