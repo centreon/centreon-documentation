@@ -27,8 +27,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name                        | Description                                    |
 | :--------------------------------- | :--------------------------------------------- |
-| cpu.utilization.percentage         | CPU utilization. Unit: %         |
-| core.cpu.utilization.percentage    | CPU utilization by core. Unit: % |
+| cpu.utilization.percentage         | CPU utilization. Unit: %                       |
+| core.cpu.utilization.percentage    | CPU utilization by core. Unit: %               |
 
 
 <!--Cpu Detailled-->
@@ -80,7 +80,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name                 | Description                                       |
 | :-------------------------- | :------------------------------------------------ |
-| system.files.open.count     | Number of files opened on the system                 |
+| system.files.open.count     | Number of files opened on the system              |
 
 
 <!--Swap-->
@@ -149,7 +149,7 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 | Metric name                 | Description                                 |
 | :-------------------------- | :------------------------------------------ |
-| nbproc                      |  Number of current processes. Units: Count  |
+| nbproc                      |  Number of current processes.               |
 
 
 <!--Ntp-->
@@ -218,12 +218,7 @@ ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 
 <!--Autentification Utilisateur/Mot de passe-->
 
-Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez : 
- 1. Définir le nom du compte SSH
- 2. Définir le port SSH (par défaut : 22)
- 3. Définir le mot de passe du compte
- 4. Ensuite, enregistrez la configuration
-![image](https://user-images.githubusercontent.com/44295022/89532540-39ccc500-d7f2-11ea-82cb-ad974adaccd2.png)
+Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez remplir les macros décritent dans la partie **Configuration** ci-dessous.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -301,7 +296,7 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |                                                       |
+|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
