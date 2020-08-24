@@ -1,9 +1,9 @@
 ---
-id: applications-donnéebases-elasticsearch
+id: applications-databases-elasticsearch
 title: Elasticsearch
 ---
 
-## Overview
+## Vue d'ensemble
 
 Elasticsearch est un moteur de recherche et d'analyse distribué et en open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées. Elasticsearch a été conçu à partir d'Apache Lucene et a été lancé en 2010 par Elasticsearch N. V. (maintenant appelé Elastic). 
 
@@ -22,6 +22,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 ### Métriques Collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--cluster-statistics-->
 
 | Métrique                 | Description                                | Unité   |
@@ -47,8 +48,8 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 | Métrique           | Description                                            |  Unité   |
 | :----------------------- | :----------------------------------------------- | :------ |
-| display                  | Nom du cluster Elasticsearch                     |         |
-| status                   | Status du cluster Elasticsearch                  |         |
+| display                  | Nom de l'Indice Elasticsearch                     |         |
+| status                   | Status de l'Indice Elasticsearch                     |         |
 | Shards_active            | Nombre de partitions actives                     |         |
 | Shards_unassigned        | Nombre de partitions non-assignées               |         |
 | docs_count               | Nombre de documents                              |         |
@@ -79,28 +80,16 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | docs_count        | Nombre de documents dans l'indice                         |         |
 | size_in_bytes     | Taille totale de toutes les partitions assignées au noeud |    B    |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+<!--Rules-->
 
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--List-indices-->
-
-| Métrique           | Description                             | Unité    |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Nom de l'indice                         |         |
-| status             | Status de l'indice                      |         |
-
-<!--List-nodes-->
-
-| Métrique           | Description                             | Unité   |
-| :----------------- | :-------------------------------------- | :------ |
-| name               | Nom du noeud                            |         |
-| host               | Hôte du doeud                           |         |
-| ip                 | Ip du noeud                             |         |
+| Non de la rêgle                        | Description                                       |
+| :------------------------------------- | :------------------------------------------------ |
+| App-DB-Elasticsearch-Indice-Statistics | Découverte des indices sur votre BD Elasticsearch |
+| App-DB-Elasticsearch-Node-Statistics   | Découverte des noeuds sur votre BD Elasticsearch  |  
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Utilisez le module de découverte pour pouvoir superviser vos bases de donnée Elasticsearch, Allez dans  Configuration > Services > Découverte pour lancer l'analyse.
 
 ## Prerequis 
 
@@ -153,8 +142,6 @@ Dans le champs *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sél
 
 Cliquer sur le bouton *Sauvegarder*.
 
-### Configuration des macros de l'hôte
-
 Les macros suivantes doivent être configurées sur l'hôte:
 
 | Macro                 | Description                         | Valeur par défaut | Exemple  |
@@ -173,7 +160,7 @@ Une fois que le Plugin est installé, vous pouvez le tester directement en ligne
 ```bash
 su - centreon-engine \
 /usr/lib/centreon/plugins/centreon_elasticsearch.pl \ 
---hostname=x.x.x.x \
+--hostname=168.253.16.125 \
 --port=9200 \
 --proto=http \
 --plugin=database::elasticsearch::restapi::plugin \
@@ -189,7 +176,7 @@ Sortie:
 ```bash
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, donnée: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.donnée.size.bytes'=1386278479651B;;;0;
 ```
-La commande demande des statistiques au noeud Elasticsearch nommé 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) qui possède l'adresse IP/FQDN *x.x.x.x* (```--hostname=x.x.x.x```). Nous utiliserons le port 92000 (```--port=9200```) et le protocole http (```proto=http''```). Le nom d'utilisateur de la base de donnée est *Elasticsearch_username* (```--username='Elasticsearch_username'```) et son mot de passe *Elasticsearch_password*(```--password='Elasticsearch_password'```)
+La commande demande des statistiques au noeud Elasticsearch nommé 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) qui possède l'adresse IP/FQDN *168.253.16.125* (```--hostname=168.253.16.125```). Nous utiliserons le port 92000 (```--port=9200```) et le protocole http (```proto=http''```). Le nom d'utilisateur de la base de donnée est *Elasticsearch_username* (```--username='Elasticsearch_username'```) et son mot de passe *Elasticsearch_password*(```--password='Elasticsearch_password'```)
 
 Tous les modes disponibles peuvent être listés par la ligne de commande suivante:
 
