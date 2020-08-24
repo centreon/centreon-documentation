@@ -18,13 +18,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 * Fedora
 * ...
 
-### Discovery Rules
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ### Collected Metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
