@@ -297,7 +297,7 @@ Once the template set, you have to set values according to the chosen SSH backen
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
 
-With that backend, you don't have to validate the target server fingerprint manually. Nice ;)
+With that backend, you don't have to validate the target server fingerprint manually.
 
 
 ## FAQ
