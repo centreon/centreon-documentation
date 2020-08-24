@@ -264,7 +264,7 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 ## Configuration
 
-En ajoutant un nouvel hôte dans Centreon, appliquer le modèle d'hôte correspondant à votre type d'instance/cluster. Tous les modèles d'hôtes commencent par *Os-Linux-SSH-custom*. 
+Créer un nouvel hôte dans Centreon et lui appliquer le modèle d'hôte "OS-Linux-SSH-custom".
 Une fois le modèle défini, vous devez définir des valeurs en fonction du backend SSH choisi.
 3 backends SSH sont disponibles pour se connecter au serveur Linux : *sshcli*, *plink* et *libssh* qui sont détaillés ci-dessous.  
 
