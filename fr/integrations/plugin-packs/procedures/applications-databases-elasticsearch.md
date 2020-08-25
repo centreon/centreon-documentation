@@ -9,9 +9,9 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 ## Contenu du Plugin-Pack
 
-### Equipments supervisés
+### Objets supervisés
 
-* Bases de donnée
+* Bases de donnéess
 * Noeuds
 * Partitions 
 * Clusters
