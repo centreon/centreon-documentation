@@ -67,18 +67,18 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 | Metric name                            | Description                                                  |
 | :------------------------------------- | :----------------------------------------------------------- |
-| device.io.read.usage.bytespersecond    | Read IO usage in bytes per second. Unit : B/s                |
-| device.io.write.usage.bytespersecond   | Write IO usage in bytes per second. Unit : B/s               |
+| device.io.read.usage.bytespersecond    | Read IO usage in Bytes per second. Unit : B/s                |
+| device.io.write.usage.bytespersecond   | Write IO usage in Bytes per second. Unit : B/s               |
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
-| device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : ms   |
+| device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : ms   |
 
 
 <!--Openfiles-->
 
-| Metric name                 | Description                                       |
-| :-------------------------- | :------------------------------------------------ |
+| Metric name                 | Description                          |
+| :-------------------------- | :----------------------------------- |
 | system.files.open.count     | Number of files opened on the system |
 
 
@@ -146,9 +146,9 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 <!--Process-->
 
-| Metric name                 | Description                                 |
-| :-------------------------- | :------------------------------------------ |
-| nbproc                      |  Number of current processes. Units: Count  |
+| Metric name                 | Description                        |
+| :-------------------------- | :--------------------------------- |
+| nbproc                      |  Number of current processes.      |
 
 
 <!--Ntp-->
