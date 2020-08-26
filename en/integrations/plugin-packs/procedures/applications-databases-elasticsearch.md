@@ -7,9 +7,9 @@ title: Elasticsearch
 
 Elasticsearch is a distributed, open source search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).
 
-## Plugin-Pack content
+## Plugin-Pack assests
 
-### Monitored equipments
+### Monitored objects
 
 * Databases
 * Nodes
@@ -18,6 +18,19 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 * Indices
 * Documents
 * Licences
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Discovery rules-->
+
+| Rule name                              | Description                                   |
+| :------------------------------------- | :-------------------------------------------- |
+| App-DB-Elasticsearch-Indice-Statistics | Discover the indices on your Elasticsearch DB |
+| App-DB-Elasticsearch-Node-Statistics   | Discover the nodes on your Elasticsearch DB   |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Use the discovery module to add the monitoring of your Elasticsearch databases, Go to *Configuration > Services > Scan* to perform a scan.
 
 ### Collected metrics
 
@@ -67,28 +80,19 @@ Elasticsearch is a distributed, open source search and analytics engine for all 
 
 <!--Node-statistics-->
 
-| Metric name       | Description                                           | Unit    |
-| :---------------- | :---------------------------------------------------- | :-----  |
-| display           | Name of the Elasticsearch node                        |         |
-| indices_count     | Number of indices in the node                         |         |
-| heap_used_percent | Percentage of memory currently in use by the heap     |    %    |
-| heap_used_in_bytes| Amount of memory available for use by the heap        |    B    |
-| heap_max_in_bytes | Maximum amount of memory available for use by the heap|    B    |
-| available_in_bytes| Total number of bytes available                       |    B    |
-| total_in_bytes    | Total size of all file stores                         |    B    |
-| docs_count        | Number of documents inside the indice                 |         |
-| size_in_bytes     | Total size of all shards assigned to the node         |    B    |
-
-<!--Rules-->
-
-| Rule name                              | Description                                   |
-| :------------------------------------- | :-------------------------------------------- |
-| App-DB-Elasticsearch-Indice-Statistics | Discover the indices on your Elasticsearch DB |
-| App-DB-Elasticsearch-Node-Statistics   | Discover the nodes on your Elasticsearch DB   |
+| Metric name        | Description                                           | Unit    |
+| :----------------- | :---------------------------------------------------- | :-----  |
+| display            | Name of the Elasticsearch node                        |         |
+| indices_count      | Number of indices in the node                         |         |
+| heap_used_percent  | Percentage of memory currently in use by the heap     |    %    |
+| heap_used_in_bytes | Amount of memory available for use by the heap        |    B    |
+| heap_max_in_bytes  | Maximum amount of memory available for use by the heap|    B    |
+| available_in_bytes | Total number of bytes available                       |    B    |
+| total_in_bytes     | Total size of all file stores                         |    B    |
+| docs_count         | Number of documents inside the indice                 |         |
+| size_in_bytes      | Total size of all shards assigned to the node         |    B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Use the discovery module to add the monitoring of your Elasticsearch databases, Go to *Configuration > Services > Scan* to perform a scan.
 
 ## Prerequisites 
 
@@ -129,7 +133,7 @@ yum install centreon-pack-applications-databases-elasticsearch
 
 ### Host Macro Configuration
 
-Apply the "The name of your template" template to your newly created host. Then fill the macros value fileds marked as mandatory below:
+Apply the "App-DB-Elasticsearch-custom" template to your newly created host. Then fill the macros value fileds marked as mandatory below:
 
 |Mandatory| Macro                 | Description                         | Default value | Example  |
 | :-------| :---------------- --- | :---------------------------------- | :------------ | :------- |
