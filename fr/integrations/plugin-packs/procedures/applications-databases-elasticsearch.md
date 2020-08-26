@@ -130,14 +130,7 @@ yum install centreon-pack-applications-donnéebases-elasticsearch
 
 ## Configuration
 
-Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires comme le montre la table ci-dessous :
-
-| Champs                         | Valeur                       |
-| :----------------------------- | :--------------------------- |
-| Nom                            | *Nom de l'hôte*              |
-| Alias                          | *Description de l'hôte*      |
-| IP                             | *Adresse IP de l'hôte*       |
-| Surveillé depuis le collecteur | *Collecteur à utiliser*      |
+Toujours dans l'interface Web Centreon, aller à la page  *Configuration \> Hôstes* et cliquer sur *Ajouter*. Remplir alors les champs du formulaires. 
 Dans le champs *Modèles* cliquer sur *+ Ajouter une nouvelle entrée* puis sélectionner *App-DB-Elascticsearch-custom*
 
 Cliquer sur le bouton *Sauvegarder*.
