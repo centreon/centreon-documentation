@@ -3,25 +3,24 @@ id: hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
 ---
 
-## Overview
+## Vue d'ensemble
 
-The Polycom RealPresence Distributed Media Application (DMA) is a unique network-based 
-virtualization application that provides conference manager and call server functionality 
-for managing and distributing calls across collaboration networks. 
+Le Distributed Media Application (DMA) est une application logicielle réseau qui gère et distribue les appels sur les réseaux
+de collaboration. Grâce à des algorithmes intelligents, DMA achemine les appels de façon dynamique sur l'ensemble du réseau
+sécurisé en fonction de la priorité, du niveau de service, de la disponibilité des ressources et des pannes réseau, avec un
+équilibrage de charge hautement efficace et une virtualisation des ressources de pont. 
 
-The RealPresence DMA system is available in an Appliance Edition and a Virtual Edition 
-(packaged as software only) that can be deployed on VMware, Hyper-V, KVM, Amazon AWS 
-or Microsoft Azure cloud.
+Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter et récupérer informations et métriques relatives aux équipements
+Polycom DMA.
 
-## Plugin-Pack assets
+## Contenu du Plugin-Pack
 
-### Monitored objects
+### Objets supervisés
 
-* DMA Devices (hardware & software)
-* DMA Clusters
-* Attached Clusters, Servers & Device registrations status
+* Appliances Polycom DMA
+* Clusters Polycom DMA
 
-### Collected metrics
+### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -31,8 +30,6 @@ or Microsoft Azure cloud.
 | :---------------------- | :----------------- | :---- |
 | dma.alerts.total.count  | Number of alerts.  | Count |
 
-Specify through the `--warning-status` and `--critical-status` options which severities
-increase the total count of alerts.
 
 <!--Conference-Manager-->
 
@@ -50,7 +47,8 @@ increase the total count of alerts.
 | dma.cluster.voice.port.free.count         | Number of free voice ports on a cluster        | Count  |
 | dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | %      |
 
-You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
+Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
+
 
 <!--Clusters-Usage-->
 
@@ -61,7 +59,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 | dma.cluster.licenses.free.count       | Current free licenses sessions per cluster               | Count |
 | dma.cluster.licenses.usage.percentage | Current percentage of licenses sessions used per cluster | %     |
 
-You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
+Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
 <!--Device-Registrations-->
 
@@ -71,7 +69,7 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 | dma.cluster.endpoint.registrations.active.count     | Number of endpoint active registrations on a cluster   | Count |
 | dma.cluster.endpoint.registrations.inactive.count   | Number of endpoint inactive registrations on a cluster | Count |
 
-You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
+Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
 <!--Servers-usage-->
 
@@ -93,16 +91,12 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prerequisites
+## Prérequis
 
-### Device Configuration
+### Configuration SNMP de l'équipement
 
-Configure the proper SNMP settings on your RealPresence DMA device according to Polycom official documentation: 
+La documentation officielle Polycom (en anglais, lien ci-dessous) détaille les étapes pour activer et configurer le service SNMP:
 https://documents.polycom.com/bundle/dma-ops-9-0/page/dma-ops-help/snmp/TOC_Configure_SNMP_Settings.htm
-
-### Network flows
-
-The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom RealPresence DMA device.
 
 ## Installation
 
@@ -110,59 +104,51 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
-Polycom RealPresence DMA devices:
-
+1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom DMA:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
-
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom DMA SNMP* 
+depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor
-Polycom RealPresence DMA devices:
+1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements Polycom DMA:
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
-
+2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
-3. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
-through "Configuration > Plugin packs > Manager" page.
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Polycom DMA SNMP* 
+depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
+## Configuration
 
-<!--END_DOCUSAURUS_CODE_TABS-->
+* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
+* Complétez les champs *Communauté SNMP* et *Version SNMP*
+* Appliquez le Modèle d'Hôte *HW-Device-Polycom-Dma-SNMP-Custom*
 
-## Host configuration 
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
+> d'authentification et de chiffrement adéquats
 
-* Add a new Host and apply the *HW-Device-Polycom-Dma-SNMP-Custom* Host Template
-* Fill SNMP Version and Community fields according to the device's configuration
-
-
-  :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
-
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
 ## FAQ
 
-### How to test the Plugin and what are the main options for ?
+### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
-and test the Plugin by running the following command:
-
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
+depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_polycom_dma_snmp.pl \
@@ -178,7 +164,7 @@ and test the Plugin by running the following command:
     --verbose
 ```
 
-Expected command output is shown below: 
+La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
 OK: Total clusters : 1 - Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses percentage usage : 9.75% |
@@ -187,31 +173,38 @@ OK: Total clusters : 1 - Cluster 'my_dma_cluster_1' Active calls : 78, Free lice
 Cluster 'my_dma_cluster_1' Active calls : 78, Free licenses : 722, Licenses percentage usage : 9.75%
 ```
 
-The command above monitors the clusters attached to a DMA device (```--plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters```) identified
-by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
+Dans cet exemple, le Plugin récupère les informations concernant l'état du *Cluster* d'un noeud Polycom DMA (```--plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters```)
+identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```) 
+correspondants sont renseignés afin de pouvoir joindre l'équipement.
 
-This command would trigger a WARNING alarm if the current amount of active calls reaches 80% of the total calls 
-authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90% (```--critical-cluster-license-usage-prct='90'```).
+Une alarme WARNING sera ainsi déclenchée si le nombre d'appels en cours au travers de la plateforme dépasse 80% du nombre total d'appels
+autorisé par la licence (```--warning-cluster-license-usage-prct='80'```) et une alarme CRITICAL au delà de 90% (```--critical-cluster-license-usage-prct='90'```).
 
-A CRITICAL alarm would also be triggered in the following situations:
-* if the cluster reports a *Out of Service* status (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
-* if the DMA device reports an *invalid* license for the cluster (```--critical-license-status='%{license_status} =~ /notinstalled/i'```)
+Cette commande déclenchera également une alarme CRITICAL dans les cas suivants:
+* Si le noeud du *Cluster* remonte un état *Out of Service* (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
+* Si la licence présente sur le noeud du *Cluster* est invalide (```--critical-license-status='%{license_status} =~ /notinstalled/i'```)
 
-All the options as well as all the available thresholds can be displayed by adding the  ```--help```
-parameter to the command:
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
+en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_polycom_dma_snmp.pl --plugin=hardware::devices::polycom::dma::snmp::plugin --mode=clusters --help
 ```
 
-### How to monitor system metrics on the Ploycom RealPresence DMA ?
+### Comment puis-je superviser les resources système tels que CPU, disques...?
 
-Polycom RealPresence DMA are Linux-Based, use the *OS-Linux-SNMP-Custom* Host 
-Template in addition with the DMA Template to monitor the operating system layer.
+Les équipements Polycom DMA sont basés sur des systèmes Linux. Il est ainsi possible de superviser les resources de la couche OS
+en appliquant le Modèle d'Hôte *OS-Linux-Snmp-Custom* en complément du Modèle *HW-Device-Polycom-Dma-SNMP-Custom* décrit précédemment.
 
-### UNKNOWN: SNMP GET Request : Timeout
+### J'obtiens le message d'erreur suivant:
 
-If you get this message, you're probably facing one of theses issues: 
-* The SNMP agent of the device isn't started or is misconfigured 
-* An external device is blocking the request (firewall, ...)
+#### UNKNOWN: SNMP GET Request : Timeout
+
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Polycom DMA sur le port UDP/161, 
+ou que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
+
+#### UNKNOWN: SNMP GET Request : Cant get a single value.
+
+Les causes de cette erreur peuvent être les suivantes: 
+  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
+  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.
