@@ -61,7 +61,7 @@ Polycom RPRM.
 | sitelink-status                              | Current SiteLink status                             |       |
 | rprm.sitelink.calls.active.count             | Number of active calls on the SiteLink              | Count |
 | rprm.sitelink.bandwidth.used.percentage      | Percentage rate of used bandwidth                   | %     |
-| rprm.sitelink.bandwidth.total.bytespersecond | Total bandwidth allocated to the SiteLink           | %     |
+| rprm.sitelink.bandwidth.total.bytespersecond | Total bandwidth allocated to the SiteLink           | B/s   |
 | rprm.sitelink.callbitrate.average.ratio      | Average Call Bit Rate of calls made on the SiteLink |       |
 | rprm.sitelink.packetloss.average.percentage  | Average packet-loss percentage rate on the SiteLink | %     |
 | rprm.sitelink.jitter.average.milliseconds    | Average jitter time on the SiteLink                 | ms    |
@@ -81,7 +81,7 @@ Polycom RPRM.
 |:-----------------------------------------|:------------------------------------------------|-------|
 | rprm.site.calls.active.count             | Number of active calls on the Site              | Count |
 | rprm.site.bandwidth.used.percentage      | Percentage rate of used bandwidth               | %     |
-| rprm.site.bandwidth.total.bytespersecond | Total bandwidth allocated to the Site           | %     |
+| rprm.site.bandwidth.total.bytespersecond | Total bandwidth allocated to the Site           | B/s   |
 | rprm.site.callbitrate.average.ratio      | Average Call Bit Rate of calls made on the Site |       |
 | rprm.site.packetloss.average.percentage  | Average packet-loss percentage rate on the Site | %     |
 | rprm.site.jitter.average.milliseconds    | Average jitter time on the Site                 | ms    |
@@ -188,7 +188,7 @@ correspondants sont renseignés afin de pouvoir joindre l'équipement.
 
 Une alarme WARNING sera ainsi déclenchée si l'utilisation de la bande passante du *site* est supérieure à 80% (```--warning-site-bandwidth-used-prct='80'```);
 l'alarme sera de type CRITICAL au delà de 90% d'utilisation (```--critical-site-bandwidth-used-prct='90'```).
-De la même manière, des alarmes seront déclenchés lors du dépassement des seuils fixés pour le taux de *packetloss* observé
+De la même manière, des alarmes seront déclenchées lors du dépassement des seuils fixés pour le taux de *packetloss* observé
 (```--warning-site-packetloss-prct='5' --critical-site-packetloss-prct='10'```).
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
