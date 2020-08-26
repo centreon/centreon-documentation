@@ -65,11 +65,11 @@ You can use the `--filter-cluster` option to narrow check scope to a specific cl
 
 <!--Device-Registrations-->
 
-| Metric name                                       | Description                                            | Unit  | 
-| :------------------------------------------------ | :----------------------------------------------------- |------ |
-| dma.registrations.count                           | Number of devices registered on the DMA                | Count |
-| dma.cluster.endpoint.registrations.active.count   | Number of endpoint active registrations on a cluster   | Count |
-| dma.cluster.endpoint.registrations.active.count   | Number of endpoint inactive registrations on a cluster | Count |
+| Metric name                                         | Description                                            | Unit  | 
+| :-------------------------------------------------- | :----------------------------------------------------- |------ |
+| dma.registrations.count                             | Number of devices registered on the DMA                | Count |
+| dma.cluster.endpoint.registrations.active.count     | Number of endpoint active registrations on a cluster   | Count |
+| dma.cluster.endpoint.registrations.inactive.count   | Number of endpoint inactive registrations on a cluster | Count |
 
 You can use the `--filter-cluster` option to narrow check scope to a specific cluster.
 
