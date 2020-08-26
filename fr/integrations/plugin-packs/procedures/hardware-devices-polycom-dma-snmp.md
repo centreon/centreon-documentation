@@ -63,11 +63,11 @@ Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôl
 
 <!--Device-Registrations-->
 
-| Metric name                                       | Description                                            | Unit  | 
-| :------------------------------------------------ | :----------------------------------------------------- |------ |
-| dma.registrations.count                           | Number of devices registered on the DMA                | Count |
-| dma.cluster.endpoint.registrations.active.count   | Number of endpoint active registrations on a cluster   | Count |
-| dma.cluster.endpoint.registrations.active.count   | Number of endpoint inactive registrations on a cluster | Count |
+| Metric name                                         | Description                                            | Unit  | 
+| :-------------------------------------------------- | :----------------------------------------------------- |------ |
+| dma.registrations.count                             | Number of devices registered on the DMA                | Count |
+| dma.cluster.endpoint.registrations.active.count     | Number of endpoint active registrations on a cluster   | Count |
+| dma.cluster.endpoint.registrations.inactive.count   | Number of endpoint inactive registrations on a cluster | Count |
 
 Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
 
