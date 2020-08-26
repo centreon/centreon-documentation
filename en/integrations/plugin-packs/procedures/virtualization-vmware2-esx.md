@@ -133,12 +133,14 @@ yum install centreon-pack-virtualization-vmware2-esx
 
 Install this daemon on each needed poller:
 
-```yum install centreon-plugin-Virtualization-VMWare-daemon```
+```bash
+yum install centreon-plugin-Virtualization-VMWare-daemon
+```
 
 To configure the access to your infrastructure, edit the
 "/etc/centreon/centreon\_vmware.pm" configuration file:
 
-``` perl
+```bash
 %centreon_vmware_config = (
     vsphere_server => {
         default => {
@@ -161,7 +163,7 @@ Make sure to replace variables with needed information:
 You can configure multiple vCenter / vSphere / ESX connections using this
 structure:
 
-``` perl
+```bash
 %centreon_vmware_config = (
     vsphere_server => {
         default => {
@@ -251,9 +253,13 @@ Some counters like 'mem.state.latest' and 'net.received.average' need a configur
 ### Uninitialized value in memory-host mode
 
 You can following error in log : 
-````Use of uninitialized value within %mapping_state in sprintf at /root/centreon-vmware-master/centreon/vmware/cmdmemhost.pm line 156```
+```bash
+Use of uninitialized value within %mapping_state in sprintf at /root/centreon-vmware-master/centreon/vmware/cmdmemhost.pm line 156
+```
 
 ### time-host - threshold not working
 
 You need to set an interval like this. Example : 
-```--warning-time=-15:15 --critical-time=-30:30``` 
+```bash
+--warning-time=-15:15 --critical-time=-30:30
+``` 
