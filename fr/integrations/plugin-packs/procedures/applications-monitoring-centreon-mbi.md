@@ -113,7 +113,8 @@ the following table:
 | Alias                   | *The host description*                          |
 | IP                      | *Host IP Address*                               |
 | Monitored from          | *Monitoring Poller to use*                      |
-| Host Multiple Templates | App-Monitoring-Centreon-MBI-custom              |
+| Host Multiple Templates | App-Monitoring-Centreon-MBI-custom 
+						  
 
 Click on the *Save* button.
 
