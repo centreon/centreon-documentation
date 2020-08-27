@@ -3,31 +3,70 @@ id: virtualization-vmware2-vcenter-5
 title: VMware vCenter v5
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.2 | `STABLE` | Apr 18 2019 |
+## Overview
 
-## Prerequisites
+VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
 
-### Centreon Plugin
+## Plugin-Pack Assets
 
-Install this plugin on each needed poller:
+### Monitored Objects
 
-``` shell
+VMware ESX server in VCenter5 with VMware Perl SDK.
+
+## Collected Metrics
+
+In addition to modes and metrics described here, it is also possible to monitor the following indicators.
+
+* Limit : Limit of cpu, memory and disk
+
+This pack uses "VMware vCenter" pack to extend monitored indicators (virtualization-vmware2-vcenter-generic).
+
+## Monitored Metrics 
+
+<!--Snapshot-->
+
+| Metric name                          | Description                             |
+| :----------------------------------- | :-------------------------------------- |
+| vm.snapshots.warning.current.count   | Snapshots current warning. Unit : count |
+| vm.snapshots.critical.current.count  | Snapshots current warning. Unit : count |
+
+## Installation
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Vmware2 Connector Centreon Plugin on every poller expected to monitor the devices: 
+
+```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-### Centreon VMware daemon
+2. Install the 'Vmware vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
 
-#### Installation
+<!--Offline IMP License-->
+
+1. Install the Vmware ESX Centreon Plugin on every poller expected to monitor the devices:
+
+```bash
+yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
+```
+
+2. Install the Centreon Plugin-Pack RPM: 
+
+```bash
+yum install centreon-pack-virtualization-vmware2-vcenter-5.noarch
+```
+
+3. Install the 'Vmware  vCenter v5' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page 
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Configuration
 
 Install this daemon on each needed poller:
 
-``` shell
-yum install centreon-plugin-Virtualization-VMWare-daemon
-```
-
-#### Configuration
+```yum install centreon-plugin-Virtualization-VMWare-daemon```
 
 To configure the access to your infrastructure, edit the
 "/etc/centreon/centreon\_vmware.pm" configuration file:
@@ -81,7 +120,7 @@ Each entry is called a container. You need at least a "default" entry.
 
 Then start the daemon and make sure it is configured to start at server boot:
 
-``` shell
+``` bash
 systemctl start centreon_vmware
 systemctl enable centreon_vmware
 ```
@@ -89,29 +128,63 @@ systemctl enable centreon_vmware
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
 
-## Centreon configuration
+## Configuration
 
-### Create a host using the appropriate template
+Adding a new host into Centreon, apply the relevant host template matching your instance/cluster type. All of the host templates begin with *Virt-VMWare2-VCenter-5-*. Once the template set, you have to set values.
 
-Go to `Configuration > Hosts` and click *Add*. Then, fill the form as shown by
-the following table:
+| Mandatory   | Name                       | Description                                            |
+| :---------- | :------------------------- | :----------------------------------------------------- |
+| X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |
+| X           | CENTREONVMWAREHOST         | The Centreon server that launches the connection       |
+| X           | CENTREONVMWAREPORT         | By default: 5700                                       |
+|             | ESXNAME                    | Esx name to use                                        |
+|             | CENTREONVMWAREEXTRAOPTIONS | Customize it with your own if needed                   |
 
-| Field                   | value                         |
-| :---------------------- | :---------------------------- |
-| Host name               | *Name of the host*            |
-| Alias                   | *Host description*            |
-| IP                      | *Host IP Address*             |
-| Monitored from          | *Monitoring Poller to use*    |
-| Host Multiple Templates | Virt-VMWare2-vCenter-5-custom |
+## FAQ
 
-Click the *Save* button.
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
-### Host macro configuration
+Once you've installed the plugin, you can test it logging with centreon-engine user:
 
-The following macros must be configured on host:
+```bash
+/usr/lib/centreon/plugins//centreon_vmware_connector_client.pl
+	--plugin=apps::vmware::connector::plugin
+	--mode=cpu-host
+	--custommode=connector
+	--connector-hostname='localhost'
+	--connector-port='5700'
+	--container='default' 
+	--esx-hostname=''
+	--unknown-status='%{status} !~ /^connected$/i'
+	--warning-status=''
+	--critical-status=''
+	--warning-total-cpu=''
+	--critical-total-cpu=''
+	--warning-total-cpu-mhz=''
+	--critical-total-cpu-mhz=''
+	--warning-cpu=''
+	--critical-cpu='' 
+```
 
-| Macro                   | Description                    | Default value | Example     |
-| :---------------------- | :----------------------------- | :------------ | :---------- |
-| CENTREONVMWAREHOST      | Host of centreon_vmware daemon | localhost     | 10.1.2.3    |
-| CENTREONVMWAREPORT      | Port of centreon_vmware daemon | 5700          | 5701        |
-| CENTREONVMWARECONTAINER | Defined container to use       | default       | srv-vcenter |
+This check monitors CPU utilization (```--mode=cpu-host```) of a ESX. The hostname to use connector vmware and is config file is localhost (```--mode=localhost```) The port is 5700 (```connector-port=5700```)
+
+All available modes with the plugin can be displayed with: 
+
+```bash
+/usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
+    --plugin=apps::vmware::connector::plugin \
+    --list-mode
+```
+
+The available options for a mode can be displayed using the ```--help``` parameter: 
+
+```bash
+/usr/lib/centreon/plugins/./centreon_vmware_connector_client.pl \
+    --plugin=apps::vmware::connector::plugin \
+    --mode=cpu-host  \
+    --help
+```
+
+### Error Cannot find 'HostSuystem' object
+
+Check user can read ESX information
