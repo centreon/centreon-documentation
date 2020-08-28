@@ -61,8 +61,8 @@ et des métriques relatives aux équipements Versa Networks
 | Metric name                               | Description                                            | Unit |
 |:----------------------------------------- |:------------------------------------------------------ |:---- |
 | status                                    | Status of the interface                                |      |
-| interface.traffic.in.bitspersecond        | Incoming traffic going through the interface           | B/s  |
-| interface.traffic.out.bitspersecond       | Outgoing traffic going through the interface           | B/s  |
+| interface.traffic.in.bitspersecond        | Incoming traffic going through the interface           | b/s  |
+| interface.traffic.out.bitspersecond       | Outgoing traffic going through the interface           | b/s  |
 | interface.packets.in.errors.percentage    | Incoming errored packets going through the interface   | %    |
 | interface.packets.out.errors.percentage   | Outgoing errored packets going through the interface   | %    |
 | interface.packets.in.discards.percentage  | Incoming discarded packets going through the interface | %    |
@@ -76,7 +76,7 @@ et des métriques relatives aux équipements Versa Networks
 | ipsec.traffic.in.bytespersecond  | Incoming traffic going through the IPsec tunnel    | B/s   |
 | ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
 | ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
-| ipsec.traffic.out.bytespersecond | Outcoming taffic going through the IPsec tunnel    | Count |
+| ipsec.traffic.out.bytespersecond | Outcoming taffic going through the IPsec tunnel    | B/s   |
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
@@ -188,7 +188,6 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl \
   --plugin=network::versa::snmp::plugin \
   --mode=devices \
-
   --hostname=10.0.0.1 \
   --snmp-version='2c' \
   --snmp-community='mysnmpcommunity' \
