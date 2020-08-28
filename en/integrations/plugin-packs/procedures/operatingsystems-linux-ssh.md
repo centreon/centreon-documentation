@@ -178,8 +178,8 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | Metric name                         | Description                                                      |
 | :---------------------------------- | :--------------------------------------------------------------- |
 | status                              | Status of the interface                                          |
-| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
-| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s     |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s    |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
