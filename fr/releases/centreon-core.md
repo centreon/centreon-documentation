@@ -18,6 +18,64 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.04.6
+
+> Newly shared views do not break widget preferences.
+> But, if you have already broken widget preferences for users who add a shared view, you'll need to :
+> * Login centreon web with the user who share the custom view
+> * Switch to the custom view with broken preferences for other users
+> * Click on "Share view", and then click on "Share"
+>
+> This will restore preferences for other users
+
+#### Enhancements
+
+* [Event View] Be able to create & save filters
+* [Event View] Be able to filter on status output
+* [Event View] Be able to re order manage saved filters
+* [Event View] Be able to re-order filter name
+* [Event View] Be able to rename and delete saved filters
+* [Event View] Be able to use custom filters
+* [Event View] Host details - Display info in the timeline
+* [Event View] Service details - Display info in the timeline
+
+#### Bug fixes
+
+* [ACL] Incorrect inheritance of categories/severities for services
+* [API] Acknowledgement : inconsistency between doc & payload
+* [CLAPI] Add getparams
+* [CLAPI] Carriage return and line feed breaks comments
+* [Configuration] Dependencies not deleted when last parent deleted
+* [Configuration] Improve message to use Remote Server as proxy
+* [Configuration] Issue with anomaly detection json output and proxy
+* [Configuration] Unable to import MIB
+* [Dashboard] Time is shown in epoch format on the dashboard timeline
+* [Event View]  Fail in pagination
+* [Event View] Graph: "invalide date" displayed when switching the period + French wrong translation
+* [Event View] Refresh the panel when the user clicks on the refresh button in details pages
+* [Event View] When you empty the ack windows, it starts an infinite load
+* [Eventlog] Acknowledged alerts status show "OK" but it's wrong
+* [Graphs][legacy pages] 1000/1024 graph template ignored
+* [Internal/API/Chart] Centreon db configuration name hard coded
+* [Monitoring] Status output not correctly displayed with chinese characters
+* [Remote-Server] incorrect url to contact Centreon Central Server
+* [UI] Incoherent paging information display
+* [Widgets] Can't change position of widgets
+* [Widgets] Parameters are deleted when importing/deleting/importing a custom view
+
+#### Security fixes
+
+* [API] Information Disclosure in centreon_wiki internal API
+* [API] ]Cross-site Scripting (XSS) Reflected in centreon_wiki internal API
+* [Administration] Horizontal privilege escalation / session takeover
+* [Configuration] Cross Site Scripting in widget rename
+* [Configuration] RCE in SNMP trap import
+* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Host categories"
+* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Service Groups"
+* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Service categories"
+* [Knowledge-Base] ]Password in plain text in "Configuration > Knowledge base" menu
+* [Platform Status] Fix vulnerability for file loading
+
 ### 20.04.5
 
 #### Bug fixes
