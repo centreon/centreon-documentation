@@ -284,7 +284,7 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 ## Configuration
 
-.Add a new Host and apply the Os-Linux-SSH-custom Host Template. 
+Add a new Host and apply the Os-Linux-SSH-custom Host Template. 
 Once the template set, you have to set values according to the chosen SSH backend.
 3 SSH backends are available to connect to the Linux server: *sshcli*, *plink* and *libssh* which are detailed below.  
 
