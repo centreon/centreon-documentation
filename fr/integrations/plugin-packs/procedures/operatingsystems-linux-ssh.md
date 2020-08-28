@@ -101,14 +101,14 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
-| device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : ms   |
+| device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : %    |
 
 
 <!--Openfiles-->
 
-| Metric name                 | Description                                       |
-| :-------------------------- | :------------------------------------------------ |
-| system.files.open.count     | Number of files opened on the system              |
+| Metric name                 | Description                           |
+| :-------------------------- | :------------------------------------ |
+| system.files.open.count     | Number of files opened on the system  |
 
 
 <!--Swap-->
@@ -122,11 +122,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Load-->
 
-| Metric name                 | Description                           |
-| :-------------------------- | :------------------------------------ |
-| load1                       | Load average on 1 minute. Unit : %    |
-| load5                       | Load average on 5 minutes. Unit : %   |
-| load15                      | Load average on 15 minutes. Unit : %  |
+| Metric name                 | Description                  |
+| :-------------------------- | :--------------------------- |
+| load1                       | Load average on 1 minute.    |
+| load5                       | Load average on 5 minutes.   |
+| load15                      | Load average on 15 minutes.  |
 
 
 <!--Uptime-->
@@ -175,9 +175,9 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Process-->
 
-| Metric name                 | Description                                 |
-| :-------------------------- | :------------------------------------------ |
-| nbproc                      |  Number of current processes.               |
+| Metric name                 | Description                    |
+| :-------------------------- | :----------------------------- |
+| nbproc                      |  Number of current processes.  |
 
 
 <!--Ntp-->
@@ -203,11 +203,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Traffic-->
 
-| Metric name                         | Description                                                      |
-| :---------------------------------- | :--------------------------------------------------------------- |
-| status                              | Status of the interface                                          |
-| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s    |
-| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s     |
+| Metric name                         | Description                                                |
+| :---------------------------------- | :--------------------------------------------------------- |
+| status                              | Status of the interface                                    |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s   |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s   |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
