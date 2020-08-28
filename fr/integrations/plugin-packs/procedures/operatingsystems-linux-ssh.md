@@ -32,7 +32,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | cpu.utilization.percentage         | CPU utilization. Unit: %                       |
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit: %               |
 
-
 <!--Cpu Detailled-->
 
 * Per CPU :
@@ -50,7 +49,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | cpu_guest       | Average guest for CPUs. Unit : %      |
 | cpu_guestnice   | Average guest nice for CPUs. Unit : % |
 
-
 * Total :
  
 | Metric name              | Description                             |
@@ -66,7 +64,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | total_cpu_user_avg 	   | Total average user CPUs. Unit : %       |
 | total_cpu_wait_avg       | Total average wait CPUs. Unit : %       |
 
-
 <!--Memory-->
 
 | Metric name           | Description                                   |
@@ -76,13 +73,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | buffer                | Memory buffured. Unit : B                     |
 | cached                | Memory cached. Unit : B                       |
 
-
 <!--Filesdate-->
 
 | Metric name           | Description                                                 |
 | :-------------------- | :---------------------------------------------------------- |
 | name                  | Time (modified, creation,...) of files/directories. Unit: s |
-
 
 <!--Filessize-->
 
@@ -90,7 +85,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | :-------------------- | :---------------------------------------- |
 | name                  | Size of one file/directorie. Unit : B     |
 | total                 | Total Size of files/directories. Unit : B |
-
 
 <!--Diskio-->
 
@@ -103,13 +97,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : %    |
 
-
 <!--Openfiles-->
 
 | Metric name                 | Description                           |
 | :-------------------------- | :------------------------------------ |
 | system.files.open.count     | Number of files opened on the system  |
-
 
 <!--Swap-->
 
@@ -119,7 +111,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | swap.free.bytes             | Swap free. Unit: B                |
 | swap.usage.percentage       | Swap usage in percentage. Unit: % |
 
-
 <!--Load-->
 
 | Metric name                 | Description                  |
@@ -128,13 +119,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | load5                       | Load average on 5 minutes.   |
 | load15                      | Load average on 15 minutes.  |
 
-
 <!--Uptime-->
 
 | Metric name                 | Description                                                 |
 | :-------------------------- | :---------------------------------------------------------- |
 | uptime                      | Duration of system has been working and available. Unit : s |
-
 
 <!--Paging-->
 
@@ -146,7 +135,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | system.pswpout.usage.bytespersecond    | Usage of the number of pages in bytes per second. Unit : B/s     |
 | system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : B/s                    |
 | system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : B/s                 |
-
 
 <!--Connections-->
 
@@ -179,13 +167,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | :-------------------------- | :----------------------------- |
 | nbproc                      |  Number of current processes.  |
 
-
 <!--Ntp-->
 
 | Metric name           | Description                        |
 | :-------------------- | :--------------------------------- |
 | offset                | Offset of ntpd service. Unit : ms  |
-
 
 <!--Quota-->
 
@@ -193,13 +179,11 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | :-------------------- | :---------------------------------- |
 | data_used             | Quota usage on partitions. Unit : B |
 
-
 <!--Storage-->
 
 | Metric name           | Description              |
 | :-------------------- | :----------------------- |
 | used                  | Storage usages. Unit : B |
-
 
 <!--Traffic-->
 
@@ -208,7 +192,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | status                              | Status of the interface                                    |
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s   |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s   |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -336,7 +319,7 @@ Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serve
 
 ### Comment vérifier en ligne de commande que la configuration est correcte et quelles sont les principales options ?
 
-Une fois le Plugin installé, connectez-vous à votre poller en utilisant le compte utilisateur *centreon-engine* et testez en lançant la commande suivante (les paramètres tels que ```"ssh-username"``` ou ```"ssh-password"``` doivent être ajustés) :
+Une fois le Plugin installé, connectez-vous à votre poller en utilisant le compte utilisateur *centreon-engine* et testez en lançant la commande suivante :
 
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
@@ -365,8 +348,10 @@ La commande ci-dessus donne la moyenne d'un CPU SSH Linux (```--mode=CPU```).
 Cette commande déclenchera une alarme WARNING si la moyenne du CPU augmente à plus de 60% (```--warning-average='60'``)
 et une alarme CRITICAL si plus de 75% (``--critical-average='75'```).
 
-Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "-warning-*metric* --critical-*metric*```".
+En choississant le backend *libssh* ou *plink*, les paramètres ```--ssh-username``` et ```--ssh-password``` sont doivent être ajusté
+afin que afin que l'utilisateur *centreon-engine* puissse se connecter au serveur et remonter l'information des sondes.
 
+Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "-warning-*metric* --critical-*metric*```".
 
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
 
