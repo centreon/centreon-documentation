@@ -352,13 +352,12 @@ OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 CPU '0' usage : 11.91 %
 ```
 
-The command above gets the average of a Linux SSH CPU (```--mode=CPU```).
+The check command gives the average CPU of a device using SSH (```--mode=CPU``) with address 10.30.2.114 (```--hostname=10.30.2.114``)
+having as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon``) 
+and as password _centreon-password_ (```--ssh-password='centreon-password'``). 
 
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
-
-When selecting the *libssh* or *plink* backend, the parameters ```--ssh-username``` and ```--ssh-password``` must be adjusted.
-so that the user *centreon-engine* can connect to the server and report the plugin information.
 
 Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
 
