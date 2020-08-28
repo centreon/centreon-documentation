@@ -8,9 +8,7 @@ title: Versa SNMP
 Versa Networks provides secure cloud IP architecture. 
 In particular, SD-WAN that aims to phase out conventional WAN infrastructures.
 
-
 The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipements.
-
 
 ## Plugin-Pack assets
 
@@ -80,7 +78,6 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
-
 <!--Qos-Policy-->
 
 * by QoS policy
@@ -136,14 +133,12 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Versa Net
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Versa Networks devices:
 
-
 ```bash
 yum install centreon-plugin-Network-Versa-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
-
 
 <!--Offline IMP License-->
 
@@ -156,7 +151,6 @@ yum install centreon-plugin-Network-Versa-Snmp
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-
 ```bash
 yum install centreon-pack-network-versa-snmp
 ```
@@ -164,14 +158,12 @@ yum install centreon-pack-network-versa-snmp
 3. On the Centreon Web interface, install the *Versa SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
 * Add a new Host and apply the *Net-Versa-SNMP-Custom* Host Template
 * Fill the SNMP Version and Community fields according to the device's configuration
-
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
 
@@ -221,7 +213,6 @@ parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin=network::versa::snmp::plugin --mode=devices --help
-
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout

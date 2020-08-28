@@ -80,7 +80,6 @@ et des métriques relatives aux équipements Versa Networks
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
 
-
 <!--Qos-Policy-->
 
 * Par QoS policy
@@ -95,7 +94,6 @@ et des métriques relatives aux équipements Versa Networks
 | qos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy           | B/s   |
 
 * Par application Qos Policy
-
 
 | Metric name                                    | Description                                           | Unit  |
 |:---------------------------------------------- |:----------------------------------------------------- |:----- |
@@ -135,7 +133,6 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
 Versa Networks :
-
 
 ```bash
 yum install centreon-plugin-Network-Versa-Snmp
@@ -214,13 +211,11 @@ correspondants sont renseignés afin de pouvoir joindre l'équipement.
 Une alarme WARNING sera ainsi déclenchée si le pourcentage d'utilisation des sessions actives est supérieur à 80% (```--warning-sessions-active-prct='80'```);
 l'alarme sera de type CRITICAL au delà de 90% de cette même utilisation (```--critical-sessions-active-prct='90'```).
 
-
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin=network::versa::snmp::plugin --mode=devices --help
-
 ```
 
 ### J'obtiens le message d'erreur suivant:
