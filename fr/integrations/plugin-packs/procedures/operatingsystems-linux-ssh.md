@@ -314,7 +314,7 @@ Une fois le Plugin installé, connectez-vous à votre poller en utilisant le com
 
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
-    --plugin=os::linux::local::plugin \
+      --plugin=os::linux::local::plugin \
 	--mode=cpu \
 	--hostname='myipaddress' \
 	--ssh-backend='libssh' \
