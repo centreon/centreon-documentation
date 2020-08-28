@@ -94,7 +94,8 @@ et des métriques relatives aux équipements Versa Networks
 | qos.policy.packets.forwarded.count          | Number of packets forwarded by Qos Policy | Count |
 | qos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy           | B/s   |
 
-* par Application Qos Policy
+* Par application Qos Policy
+
 
 | Metric name                                    | Description                                           | Unit  |
 |:---------------------------------------------- |:----------------------------------------------------- |:----- |
@@ -185,8 +186,9 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl \
-  --plugin network::versa::snmp::plugin \
-  --mode devices \
+  --plugin=network::versa::snmp::plugin \
+  --mode=devices \
+
   --hostname=10.0.0.1 \
   --snmp-version='2c' \
   --snmp-community='mysnmpcommunity' \
@@ -205,18 +207,21 @@ OK: Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (100000
 Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000)
 ```
 
-Dans cet exemple, le Plugin récupère l'utilisation d'un équipement Versa Networks (```--plugin network::versa::snmp::plugin --mode devices```)
+Dans cet exemple, le Plugin récupère l'utilisation d'un équipement Versa Networks (```--plugin=network::versa::snmp::plugin --mode=devices```)
+
 identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```) 
 correspondants sont renseignés afin de pouvoir joindre l'équipement.
 
 Une alarme WARNING sera ainsi déclenchée si le pourcentage d'utilisation des sessions actives est supérieur à 80% (```--warning-sessions-active-prct='80'```);
-L'alarme sera de type CRITICAL au delà de 90% de cette même utilisation (```--critical-sessions-active-prct='90'```).
+l'alarme sera de type CRITICAL au delà de 90% de cette même utilisation (```--critical-sessions-active-prct='90'```).
+
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin network::versa::snmp::plugin --mode devices --help
+/usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin=network::versa::snmp::plugin --mode=devices --help
+
 ```
 
 ### J'obtiens le message d'erreur suivant:

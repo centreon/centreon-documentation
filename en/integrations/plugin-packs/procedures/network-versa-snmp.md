@@ -6,9 +6,11 @@ title: Versa SNMP
 ## Overview
 
 Versa Networks provides secure cloud IP architecture. 
-In particular, SD-WAN that aims to phase out conventional WAN infrastructures
+In particular, SD-WAN that aims to phase out conventional WAN infrastructures.
 
-The Centreon Plugin Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipements.
+
+The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipements.
+
 
 ## Plugin-Pack assets
 
@@ -185,8 +187,9 @@ and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_versa_snmp.pl \
-  --plugin network::versa::snmp::plugin \
-  --mode devices \
+  --plugin=network::versa::snmp::plugin \
+  --mode=devices \
+
   --hostname=10.0.0.1 \
   --snmp-version='2c' \
   --snmp-community='mysnmpcommunity' \
@@ -205,7 +208,8 @@ OK: Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (100000
 Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000)
 ```
 
-The command above monitors a Versa Networks device usage (```--plugin network::versa::snmp::plugin --mode devices```) identified
+The command above monitors a Versa Networks device usage (```--plugin=network::versa::snmp::plugin --mode=devices```) identified
+
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
@@ -216,7 +220,8 @@ For each Plugin mode, all the options as well as all the available thresholds ca
 parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin network::versa::snmp::plugin --mode devices --help
+/usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin=network::versa::snmp::plugin --mode=devices --help
+
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
