@@ -21,18 +21,26 @@ Microsoft Endpoint Configuration Manager, formely knwown as System Center Config
 
 <!--database-replication-status-->
 
-| Metric name              | Description                              | Unit    |
-| :----------------------- | :--------------------------------------- | :------ |
-| display                  | Name of the replication database         |         |
-| status                   | Status of the replication database       |         |
+| Metric name              | Description                      | Unit    |
+| :----------------------- | :------------------------------- | :------ |
+| Display                  | Code of the site                 |         |
+| SiteStatus               | Status of the site               |         |
+| SiteType                 | Type of the site                 |         |
+| SiteToSiteGlobalState    | Status of the replication        |         |
+| SiteToSiteGlobalSyncTime | Duration of the last replication |         |
 
 
 <!--site-status-->
 
-| Metric name              | Description              | Unit    |
-| :----------------------- | :----------------------- | :------ |
-| display                  | Name of the site         |         |
-| status                   | Status of the site       |         |
+| Metric name                 | Description                  | Unit    |
+| :-------------------------- | :--------------------------- | :------ |
+| Display                     | Code of the site             |         |
+| SiteName                    | Name of the site             |         |
+| Type                        | Type of the site             |         |
+| Mode                        | Mode of the site             |         |
+| Status                      | Status of the site           |         |
+| SecondarySiteCMUpdateStatus | Status of the secondary site |         |
+
 
 
 
@@ -42,9 +50,9 @@ Microsoft Endpoint Configuration Manager, formely knwown as System Center Config
 
 There is two ways to monitor SCCM, through the NRPE protocol or through the Nsclient Rest Api.
 
-For NRPE, you can follow the procedure as described here https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-nrpe.html#nsclient
+For NRPE, you can follow the procedure as described [here](operatingsystems-windows-nsclient-05-nrpe.html#nsclient)
 
-And for the Nsclient Rest Api, you can follow the procedure as seen there https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-restapi.html#prerequisites
+And for the Nsclient Rest Api, you can follow the procedure as seen [there](operatingsystems-windows-nsclient-05-restapi.html#prerequisites)
 
 https://docs.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html
 
@@ -106,6 +114,8 @@ the following table:
 
 Click on the *Save* button.
 
+Use the discovery module to add the monitoring of your application pools and websites, Go to Configuration > Services > Scan to perform a scan.
+
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
@@ -113,6 +123,7 @@ Click on the *Save* button.
 One the Plugin is installed, you can test it directly in the command line from your Centreon poller
 with the user *centreon-engine*:
 
+#### With NRPE
 ```bash
 su - centreon-engine\
 /usr/lib/nagios/plugins/check_centreon_nrpe \ 
@@ -122,37 +133,49 @@ su - centreon-engine\
 	-c check_centreon_plugins \
 	-a 'apps::sccm::local::plugin' 'site-status' 
 
-
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin  \
-	--mode=query  \
-	--hostname=168.253.16.125  \
-	--port='5666'  \
-	--proto='http'  \
-    --username='yourusername' \
-	--password='yourpassword' \
-	--command=check_centreon_plugins  \
-	--arg='apps::sccm::local::plugin'  \
-	--arg='database-replication-status'  
-
 ```
 
 Output: 
 
 ```bash
-OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, Data: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.data.size.bytes'=1386278479651B;;;0;
+OK: blabla
 ```
 
-The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 92000 (```--port=9200```) and the http protocol (```proto=http''```). The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its paswword is *Elasticsearch_password*(```--password='Elasticsearch_password'```)
-
+The command request statistic to the SCCM client site (```-a 'apps::sccm::local::plugin' 'site-status' ```) with the IP/FQDN address *168.253.16.125* (```-H 168.253.16.125```). We will use the port 5666 (```--p 566'```) and the timeout will be by default 10 seconds (```-t```. 
 
 The different options can be displayed with the ```--help``` parameter:  
 
 ```bash
 /usr/lib/nagios/plugins/check_centreon_nrpe -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' --help
 ```
+
+#### With Rest Api
 ```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='database-replication-status' --help
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
+	--plugin=apps::nsclient::restapi::plugin  \
+	--mode=query  \
+	--hostname=168.253.16.125  \
+	--port='5666'  \
+	--proto='http'  \
+    --legacy-password='centreon' \
+	--command=check_centreon_plugins  \
+	--arg='apps::sccm::local::plugin'  \
+	--arg='database-replication-status'  
+
+```
+Output: 
+
+```bash
+OK: blabla
+
+```
+
+The command request statistic to the SCCM client site (```database-replication-status```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 5666 (```--port='5666'```) and the http protocol (```proto=http''```). The legacypaswword is *Elasticscentreonearch_password*(```--legacy-password='centreon'```)
+
+
+The different options can be displayed with the ```--help``` parameter:  
+```bash
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='database-replication-status' --help'
 ```
 
 ### Why do I get the following error:
