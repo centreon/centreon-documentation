@@ -73,7 +73,7 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
-| device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : ms   |
+| device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %   |
 
 
 <!--Openfiles-->
