@@ -10,6 +10,7 @@ Linux is a family of open source Unix-like operating systems based on the Linux 
 ## Plugin-Pack Assets
 
 ### Monitored Objects
+
 This Plugin-Pack provides assets to monitor all types of Linux based systems with a SSH server enabled:
 * Centos 
 * Redhat
