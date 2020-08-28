@@ -8,8 +8,10 @@ title: Linux SSH
 Linux est une famille de systèmes d'exploitation à source ouverte de type Unix basée sur le noyau Linux, un noyau de système d'exploitation publié pour la première fois le 17 septembre 1991 par Linus Torvalds. 
 
 ## Contenu du Plugin-Pack
-Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un daemon SSH installé :
+
 ### Objets supervisés
+
+Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un daemon SSH installé :
 
 * Serveur
 * Centos 
