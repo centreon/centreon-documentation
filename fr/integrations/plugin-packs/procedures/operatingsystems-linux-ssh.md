@@ -35,10 +35,36 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 <!--Cpu Detailled-->
 
-| Metric name           | Description                             |
-| :-------------------- | :-------------------------------------- |
-| cpu                   | Average usage for each CPUs. Unit : %   |
-| total_cpu             | Average total CPUs. Unit : %            |
+* Per CPU :
+
+| Metric name     | Description                           |
+| :---------------| :------------------------------------ |
+| cpu_user        | Average user for CPUs. Unit : %       |
+| cpu_nice	  | Average nice for CPUs. Unit : %       |
+| cpu_system	  | Average system for CPUs. Unit : %     |
+| cpu_idle	  | Average idle for CPUs. Unit : %       |
+| cpu_wait	  | Average wait for CPUs. Unit : %       |
+| cpu_interrupt	  | Average interrupt for CPUs. Unit : %  |
+| cpu_softirq	  | Average softirq for CPUs. Unit : %    |
+| cpu_steal       | Average steal for CPUs. Unit : %      |
+| cpu_guest       | Average guest for CPUs. Unit : %      |
+| cpu_guestnice   | Average guest nice for CPUs. Unit : % |
+
+
+* Total :
+ 
+| Metric name              | Description                             |
+| :----------------------- | :-------------------------------------- |
+| total_cpu_guest_avg      | Total average guest CPUs. Unit : %      |
+| total_cpu_guestnice_avg  | Total average guest nice CPUs. Unit : % |
+| total_cpu_idle_avg	   | Total average idle CPUs. Unit : %       |
+| total_cpu_interrupt_avg  | Total average interrupt CPUs. Unit : %  |
+| total_cpu_nice_avg       | Total average nice CPUs. Unit : %       |
+| total_cpu_softirq_avg	   | Total average softirq CPUs. Unit : %    |
+| total_cpu_steal_avg      | Total average steal CPUs. Unit : %      |
+| total_cpu_system_avg     | Total average system CPUs. Unit : %     |
+| total_cpu_user_avg 	   | Total average user CPUs. Unit : %       |
+| total_cpu_wait_avg       | Total average wait CPUs. Unit : %       |
 
 
 <!--Memory-->
