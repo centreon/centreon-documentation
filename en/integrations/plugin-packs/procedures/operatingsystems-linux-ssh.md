@@ -41,12 +41,12 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 <!--Memory-->
 
-| Metric name           | Description                                   |
-| :-------------------- | :-------------------------------------------- |
-| used                  | Memory used. Unit : B                         |
-| slab                  | Slab allocation memory used. Unit : B         |
-| buffer                | Memory buffured. Unit : B                     |
-| cached                | Memory cached. Unit : B                       |
+| Metric name           | Description                             |
+| :-------------------- | :-------------------------------------- |
+| used                  | Memory used. Unit : B                   |
+| slab                  | Slab allocation memory used. Unit : B   |
+| buffer                | Memory buffured. Unit : B               |
+| cached                | Memory cached. Unit : B                 |
 
 
 <!--Filesdate-->
@@ -73,7 +73,7 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
-| device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %   |
+| device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %     |
 
 
 <!--Openfiles-->
@@ -175,11 +175,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 <!--Traffic-->
 
-| Metric name                         | Description                                                      |
-| :---------------------------------- | :--------------------------------------------------------------- |
-| status                              | Status of the interface                                          |
-| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s     |
-| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s    |
+| Metric name                         | Description                                                 |
+| :---------------------------------- | :---------------------------------------------------------- |
+| status                              | Status of the interface                                     |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s    |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s    |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -300,12 +300,11 @@ Once the template set, you have to set values according to the chosen SSH backen
 
 With that backend, you don't have to validate the target server fingerprint manually.
 
-
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command (Parameters such as ```ssh-username``` or ```ssh-password```have to be adjusted):
+Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command :
 
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
@@ -334,8 +333,10 @@ The command above gets the average of a Linux SSH CPU (```--mode=CPU```).
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
 
-Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
+When selecting the *libssh* or *plink* backend, the parameters ``--ssh-username`` and ``--ssh-password`` must be adjusted.
+so that the user *centreon-engine* can connect to the server and report the plugin information.
 
+Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
