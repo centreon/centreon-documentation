@@ -180,8 +180,8 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | Metric name                         | Description                                                      |
 | :---------------------------------- | :--------------------------------------------------------------- |
 | status                              | Status of the interface                                          |
-| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s & %     |
-| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s & %     |
+| interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: B/s    |
+| interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: B/s     |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
