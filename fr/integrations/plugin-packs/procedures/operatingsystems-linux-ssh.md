@@ -325,10 +325,10 @@ Une fois le Plugin installé, connectez-vous à votre poller en utilisant le com
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
       --plugin=os::linux::local::plugin \
 	--mode=cpu \
-	--hostname='myipaddress' \
+	--hostname='10.30.2.114' \
 	--ssh-backend='libssh' \
-	--ssh-username='myuser' \
-	--ssh-password='mypassword' \
+	--ssh-username='centreon' \
+	--ssh-password='centreon-password' \
 	--ssh-port='22' \
 	--warning-core='60' \
 	--critical-core='70' \
@@ -343,13 +343,12 @@ OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 CPU '0' usage : 11.91 %
 ```
 
-La commande ci-dessus donne la moyenne d'un CPU SSH Linux (```--mode=CPU```).
+La commande ci-dessus donne la moyenne d'un CPU d'un équipement en utilisant SSH (```--mode=CPU```) ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) 
+en ayant comme backend  (```--ssh-backend='libssh'```) avec les centreon comme username _centreon_ (```--ssh-username=centreon```) 
+et comme mot de passe _centreon-password_ (```--ssh-password='centreon-password'```). 
 
 Cette commande déclenchera une alarme WARNING si la moyenne du CPU augmente à plus de 60% (```--warning-average='60'``)
 et une alarme CRITICAL si plus de 75% (``--critical-average='75'```).
-
-En choississant le backend *libssh* ou *plink*, les paramètres ```--ssh-username``` et ```--ssh-password``` sont doivent être ajusté
-afin que afin que l'utilisateur *centreon-engine* puissse se connecter au serveur et remonter l'information des sondes.
 
 Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "-warning-*metric* --critical-*metric*```".
 
