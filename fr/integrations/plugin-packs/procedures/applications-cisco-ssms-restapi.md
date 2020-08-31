@@ -115,7 +115,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--verbose
 ```
 
-La commande ci-dessus contrôle le statut  des licences Cisco SSMS (```--mode=licences```) nommée *mylicence* (```--filter-licences-name='mylicence'```).
+La commande ci-dessus contrôle le statut des licences Cisco SSMS (```--mode=licences```) nommées *mylicence* (```--filter-licences-name='mylicence'```).
 Cette licence appartient au compte *1234abc-56de-78fg-90hi-1234abcdefg* (```--account='1234abc-56de-78fg-90hi-1234abcdefg'```). 
 
 Cette commande déclenchera une alarme CRITICAL s'il contient le mot *in compliance*  (```--critical-license-status='%{status} !~ /in compliance/i'```).
