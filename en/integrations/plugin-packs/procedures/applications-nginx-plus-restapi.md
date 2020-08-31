@@ -116,7 +116,7 @@ by running the following command (Parameters such as ```api-username``` or ```ap
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
 	--plugin=apps::nginx::nginxplus::restapi::plugin \
 	--mode=connections \
-	--hostname='10.30.2.114'
+	--hostname='mynginxplus.com'
 	--port='443' \
 	--proto='https' \
 	--api-username='myapiuser' \
@@ -150,9 +150,9 @@ All the options that can be used with this plugin can be found over the ```--hel
 ```
 ### Why do I get the following error: 
 
-#### ```UNKNOWN: 500 Can't connect to api.meraki.com:443```
+#### ```UNKNOWN: 500 Can't connect to mynginxplus.com:443```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Cisco Meraki API.
+This error message means that the Centreon Plugin couldn't successfully connect to the Nginx Plus API.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
 
