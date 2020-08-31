@@ -116,7 +116,6 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 	--filter-license-name='mylicence'
 	--critical-license-status='%{status} !~ /in compliance/i' \
 	--verbose
-	
 ```
 
 The command above gets the status of a Cisco SSMS licenses (```--mode=licenses```) named *mylicense* (```--filter-licence-name='mylicence'```). 
