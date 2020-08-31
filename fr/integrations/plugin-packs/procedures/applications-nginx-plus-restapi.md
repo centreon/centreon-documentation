@@ -47,18 +47,18 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 
 <!--Ssl-->
 
-| Metric name                      | Description                     |
-| :------------------------------- | :------------------------------ |
-| ssl.handshakes.succeeded.count   | Number of handshakes succeeded  |
-| ssl.handshakes.failed.count      | Number of handshakes failed     |
-| ssl.sessions.reuses.count        | Number of sessions reuses       |
+| Metric name                      | Description                         |
+| :------------------------------- | :---------------------------------- |
+| ssl.handshakes.succeeded.count   | Number of SSL Handshakes succeeded  |
+| ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
+| ssl.sessions.reuses.count        | Number of SSL Sessions reuses       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-
 Un compte de service est requis pour interroger l'API Nginx Plus. Celui-ci doit avoir suffisamment de privilèges en lecture dans l'environnement.
+Plus d'informations sont disponible sur la documentation officielle de Nginx : https://docs.nginx.com/nginx/admin-guide/monitoring/live-activity-monitoring/#getting-statistics-with-the-api
 
 ## Installation
 
@@ -98,13 +98,14 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Nginx Plus
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Nginx-Plus-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-| Mandatory | Name        | Description                                      |
-| :-------- | :---------- | :----------------------------------------------- |
-| X         | APIPORT     | Port used (Default: 443)                         |
-| X         | APIPROTO    | Specify https if needed (Default: 'https')       |
-| X         | APIUSERNAME | Nginx basic username                             |
-| X         | APIPASSWORD | Nginx basic password.                            |
-| X         | APIPATH     | Specify api path (Default: '/api/6')             |
+| Mandatory | Name            | Description                                                                |
+| :-------- | :-------------- | :------------------------------------------------------------------------- |
+| X         | APIPORT         | Port used (Default: 443)                                                   |
+| X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
+| X         | APIUSERNAME     | Nginx basic username                                                       |
+| X         | APIPASSWORD     | Nginx basic password.                                                      |
+| X         | APIPATH         | Specify api path (Default: '/api/6')                                       |
+|    	    | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
 ## FAQ
@@ -116,37 +117,59 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 ```bash
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
     --plugin=apps::nginx::nginxplus::restapi::plugin \
-	--mode=connections \
-	--port='443' \
-	--proto='https' \
-	--api-username='myapiuser' \
-	--api-password='myapipassword' \
-	--api-path='/api/6' \
-	--filter-counters='mycountersfilter' \
-	--warning-active='60' \
-	--critical-active='80'
-	--warning-idle='8' \
-	--critical-idle='10' \
-    --warning-accepted='50' 
-	--critical-accepted='65' \
-	--warning-dropped='3' \
+    --hostname=mynginxplus.com \ 
+    --mode=connections \
+    --port='443' \
+    --proto='https' \
+    --api-username='myapiuser' \
+    --api-password='myapipassword' \
+    --api-path='/api/6' \
+    --filter-counters='mycountersfilter' \
+    --warning-active='60' \
+    --critical-active='80' \
+    --warning-idle='8' \
+    --critical-idle='10' \
+    --warning-accepted='50' \
+    --critical-accepted='65' \
+    --warning-dropped='3' \
     --critical-dropped='5' \
-	--verbose
-	
+    --verbose	
 
 OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
 ```
 
-La commande ci-dessus contrôle les connexions de Nginx Plus (```--mode=connections```).
+La commande ci-dessus contrôle les connexions de Nginx Plus (```--mode=connections```) ayant de base le nom d'utilisateur Nginx  _myapiuser_ (```--api-username='myapiuser'```), 
+comme mot de passe _myapipassword_ (```--api-password='myapipassword'```) et le chemin d'accès à l'URL de l'API par défaut _/api/6_ (```--api-path='/api/6'```).
+
 Cette commande déclenchera une alarme WARNING si les connexions activent dépasse 60 (```--warning-active='60'```) 
 et une alarme CRITICAL s'il dépasse 80 (```--critical-active='80'```).
-
+Des seuils peuvent être positionnés à l'aide des options ```--warning-*``` et ```--critical-*``` sur les métriques.
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
-```/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin --mode=connections --help```
+```bash
+/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin 
+--mode=connections --help
+```
 
+### J'obtiens le message d'erreur suivant: 
+
+#### ```UNKNOWN: 500 Can't connect to mynginxplus.com:443 |```
+
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to mynginxplus.com:443 |```.
+
+Cela signifie que Centreon n'a pas réussi à se connecter à l'API Nginx Plus (*mynginxplus.com*).
+
+La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *mynginxplus.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+
+Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+
+Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *LWP* utlisée par défaut par le Plugin Centreon.
+
+Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
 
 ### Comment puis-je supprimer les perfdatas *count* dans le cas où je ne souhaite vérifier qu'une seule application ?
 
