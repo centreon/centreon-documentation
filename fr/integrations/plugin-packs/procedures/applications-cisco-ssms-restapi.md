@@ -39,7 +39,6 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 | licenses.free.count        | Counter of licenses free. Unit : Bytes (B)         |
 | licenses.usage.percentage  | Percentage of licenses usage. Unit : percentage(%) |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
