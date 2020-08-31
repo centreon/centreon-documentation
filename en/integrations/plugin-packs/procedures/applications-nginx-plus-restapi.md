@@ -90,7 +90,6 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Nginx Plus* Plugin-Pack
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
