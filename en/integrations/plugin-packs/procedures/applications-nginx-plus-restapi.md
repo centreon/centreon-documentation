@@ -52,7 +52,6 @@ More information about collected metrics is available in the official Nginx Plus
 | ssl.handshakes.failed.count      | Number of handshakes failed     |
 | ssl.sessions.reuses.count        | Number of sessions reuses       |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
