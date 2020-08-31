@@ -112,7 +112,7 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Nginx-P
 
 ### Comment tester un contrôle en ligne de commandes et que signifient les options principales ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commandes depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
