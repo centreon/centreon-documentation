@@ -7,7 +7,7 @@ title: Cisco SSMS
 
 Cisco Smart Software Manager On-Prem (anciennement connu sous le nom de Cisco Smart Software Manager satellite) est un composant de Cisco Smart Licensing
 qui fonctionne en conjonction avec Cisco Smart Software Manager (SSM). 
-Il offre une visibilité et des rapports en temps quasi réel sur les licences Cisco que vous achetez et consommez,
+Il offre une visibilité et des rapports sur les licences Cisco que vous achetez et consommez,
 tout en donnant aux organisations sensibles à la sécurité un moyen d'accéder à un sous-ensemble de fonctionnalités de Cisco SSM
 sans utiliser de connexion Internet directe pour gérer leur base d'installation.
 
