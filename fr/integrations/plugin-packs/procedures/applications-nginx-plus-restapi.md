@@ -53,7 +53,6 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | ssl.handshakes.failed.count      | Number of handshakes failed     |
 | ssl.sessions.reuses.count        | Number of sessions reuses       |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
