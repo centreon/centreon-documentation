@@ -10,7 +10,7 @@ that works in conjunction with Cisco Smart Software Manager (SSM).
 It offers near real-time visibility and reporting of the Cisco licensesyou purchase and consume while giving security-sensitive organizations,
 a way to access a subset of Cisco SSM functionality without using a direct Internet connection to manage their install base.
 
-## Plugin Pack Assets
+## Plugin-Pack Assets
 
 ### Monitored Objects
 
