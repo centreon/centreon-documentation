@@ -331,6 +331,7 @@
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-netdata-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-nginx-serverstatus",
+                    "integrations/plugin-packs/procedures/applications-nginx-plus-restapi",
                     "integrations/plugin-packs/procedures/applications-video-openheadend-snmp",
                     "integrations/plugin-packs/procedures/applications-openldap-ldap",
                     "integrations/plugin-packs/procedures/applications-monitoring-openmetrics",
