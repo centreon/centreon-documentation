@@ -36,18 +36,18 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 
 * Per CPU :
 
-| Metric name     | Description                           |
-| :---------------| :------------------------------------ |
-| cpu_user        | Average user for CPUs. Unit : %       |
-| cpu_nice	  | Average nice for CPUs. Unit : %       |
-| cpu_system	  | Average system for CPUs. Unit : %     |
-| cpu_idle	  | Average idle for CPUs. Unit : %       |
-| cpu_wait	  | Average wait for CPUs. Unit : %       |
-| cpu_interrupt	  | Average interrupt for CPUs. Unit : %  |
-| cpu_softirq	  | Average softirq for CPUs. Unit : %    |
-| cpu_steal       | Average steal for CPUs. Unit : %      |
-| cpu_guest       | Average guest for CPUs. Unit : %      |
-| cpu_guestnice   | Average guest nice for CPUs. Unit : % |
+| Metric name     | Description                          |
+| :---------------| :----------------------------------- |
+| cpu_user        | Average user for CPU. Unit : %       |
+| cpu_nice	  | Average nice for CPU. Unit : %       |
+| cpu_system	  | Average system for CPU. Unit : %     |
+| cpu_idle	  | Average idle for CPU. Unit : %       |
+| cpu_wait	  | Average wait for CPU. Unit : %       |
+| cpu_interrupt	  | Average interrupt for CPU. Unit : %  |
+| cpu_softirq	  | Average softirq for CPU. Unit : %    |
+| cpu_steal       | Average steal for CPU. Unit : %      |
+| cpu_guest       | Average guest for CPU. Unit : %      |
+| cpu_guestnice   | Average guest nice for CPU. Unit : % |
 
 * Total :
  
@@ -145,12 +145,12 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | con_closed                  | Number of connection closed                        |
 | con_closeWait               | Number of connection on wait close                 |
 | con_closing                 | Number of connection closing                       | 
-| con_established             | Number of connection etablished			   |
-| con_finWait1                | Number of connection finWait1                      |
-| con_finWait2                | Number of connection finWait1                      | 
+| con_established             | Number of connection etablished                    |
+| con_finWait1                | Number of connection fin Wait1                     |
+| con_finWait2                | Number of connection fin Wait2                     | 
 | con_lastAck                 | Number of connection on last Ack                   |
 | con_listen                  | Number of connection on listen                     |
-| con_synReceived             | Number of connection synchronized Received         |
+| con_synReceived             | Number of connection synchronized syn Received     |
 | con_synSent                 | Number of connection synchronized syn Sent         |
 | con_timeWait                | Number of connection on time wait                  | 
 | total                       | Total of connection                                |
@@ -324,38 +324,38 @@ Une fois le Plugin installé, connectez-vous à votre poller en utilisant le com
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
       --plugin=os::linux::local::plugin \
-	--mode=cpu \
-	--hostname='10.30.2.114' \
-	--ssh-backend='libssh' \
-	--ssh-username='centreon' \
-	--ssh-password='centreon-password' \
-	--ssh-port='22' \
-	--warning-core='60' \
-	--critical-core='70' \
-	--warning-average='60' \
-	--critical-average='75' \
-	--verbose \
-	--use-new-perfdata
-	
+      --mode=cpu \
+      --hostname='10.30.2.114' \
+      --ssh-backend='libssh' \
+      --ssh-username='centreon' \
+      --ssh-password='centreon-password' \
+      --ssh-port='22' \
+      --warning-core='60' \
+      --critical-core='70' \
+      --warning-average='60' \
+      --critical-average='75' \
+      --verbose \
+      --use-new-perfdata	
 	
 OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 'cpu.utilization.percentage'=11.91%;;;0;100 '0#core.cpu.utilization.percentage'=11.91%;;;0;100 
 CPU '0' usage : 11.91 %
 ```
 
-La commande ci-dessus donne la moyenne d'un CPU d'un équipement en utilisant SSH (```--mode=CPU```) ayant pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) 
-en ayant comme backend  (```--ssh-backend='libssh'```) avec les centreon comme username _centreon_ (```--ssh-username=centreon```) 
-et comme mot de passe _centreon-password_ (```--ssh-password='centreon-password'```). 
+La commande ci-dessus donne la moyenne d'un CPU d'un équipement en utilisant SSH (```--mode=CPU```).
+Il y a pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) comme Backend SSH  (```--ssh-backend='libssh'```) 
+avec les centreon comme username _centreon_ (```--ssh-username=centreon```) et comme mot de passe _centreon-password_ (```--ssh-password='centreon-password'```). 
 
-Cette commande déclenchera une alarme WARNING si la moyenne du CPU augmente à plus de 60% (```--warning-average='60'``)
-et une alarme CRITICAL si plus de 75% (``--critical-average='75'```).
-
-Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "-warning-*metric* --critical-*metric*```".
+Cette commande déclenchera une alarme WARNING si la moyenne du CPU augmente à plus de 60% (```--warning-average='60'```)
+et une alarme CRITICAL si plus de 75% (```--critical-average='75'```).
+Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
 
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
 
-``` /usr/lib/centreon/plugins//centreon_linux_ssh.pl --plugin=os::linux::local::plugin --mode=cpu --help```
-
+```bash
+/usr/lib/centreon/plugins//centreon_linux_ssh.pl --plugin=os::linux::local::plugin
+--mode=cpu --help
+```
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
 
