@@ -130,7 +130,7 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 #### ```UNKNOWN: 500 Can't connect to api.ssms.com:443```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Cisco Meraki API.
+This error message means that the Centreon Plugin couldn't successfully connect to the Cisco SSMS API.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
 
