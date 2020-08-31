@@ -126,13 +126,13 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### J'obtiens le message d'erreur suivant: 
 
-#### ```UNKNOWN: 500 Can't connect to api.meraki.com:443 |```
+#### ```UNKNOWN: 500 Can't connect to api.ssms.com:443 |```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to api.meraki.com:443 |```.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to api.ssms.com:443 |```.
 
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API Cisco Meraki (*api.meraki.com*).
+Cela signifie que Centreon n'a pas réussi à se connecter à l'API Cisco SSMS (*api.ssms.com*).
 
-La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *api.meraki.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
+La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *api.ssms.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
