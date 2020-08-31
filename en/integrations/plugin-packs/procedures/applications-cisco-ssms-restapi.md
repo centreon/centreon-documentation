@@ -30,7 +30,6 @@ a way to access a subset of Cisco SSM functionality without using a direct Inter
 | account.alerts.minor.count | Counter of alerts minor. |
 | account.alerts.major.count | Counter of alerts major. |
 
-
 <!--Licenses-->
 
 | Metric Name                | Description                                        |
