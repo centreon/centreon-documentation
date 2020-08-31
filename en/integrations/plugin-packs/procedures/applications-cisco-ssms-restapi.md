@@ -90,7 +90,7 @@ The Plugin-Pack is designed to monitor resources based on one host per account.
 Adding a host into Centreon, link it to the template named *App-Cisco-Ssms-Restapi-custom*. 
 Once the template applied, some Macros have to be configured:
 
-| Mandatory   | Nom                    | Description                                                                |
+| Mandatory   | Name                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
 | X           | APIPORT                | Port used. Default is 443                                                  |
 | X           | APIPROTO               | Protocol used. Default is https                                            |
