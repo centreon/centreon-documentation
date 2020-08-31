@@ -43,7 +43,6 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 
 ## Prérequis
 
-### Privilèges API
 
 Un compte de service est requis pour interroger l'API Cisco SSMS. Celui-ci doit avoir suffisamment de privilèges en lecture du compte ciblées.
 
