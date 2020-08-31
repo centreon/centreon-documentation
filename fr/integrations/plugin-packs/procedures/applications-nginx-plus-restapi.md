@@ -57,7 +57,6 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 
 ## Prérequis
 
-### Privilèges API
 
 Un compte de service est requis pour interroger l'API Nginx Plus. Celui-ci doit avoir suffisamment de privilèges en lecture dans l'environnement.
 
