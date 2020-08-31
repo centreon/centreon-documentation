@@ -122,7 +122,7 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 The command above gets the status of a Cisco SSMS licenses (```--mode=licenses```) named *mylicense* (```--filter-licence-name='mylicence'```). 
 This license belongs to account *1234abc-56de-78fg-90hi-1234abcdefg* (```--account='1234abc-56de-78fg-90hi-1234abcdefg'```). 
 
-This command will trigger a CRITICAL alarm if it contains the word *in compliance* (```--critical-license-status='%{status} !~ /in compliance/i'``) 
+This command will trigger a CRITICAL alarm if the status of the license is different from *in compliance* (```--critical-license-status='%{status} !~ /in compliance/i'```) 
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
