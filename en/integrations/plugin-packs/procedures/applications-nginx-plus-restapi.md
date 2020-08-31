@@ -103,7 +103,7 @@ Once the template applied, some Macros have to be configured:
 | X         | APIUSERNAME     | Nginx basic username                                                       |
 | X         | APIPASSWORD     | Nginx basic password.                                                      |
 | X         | APIPATH         | Specify api path (Default: '/api/6')                                       |
-|    	    | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+|           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
