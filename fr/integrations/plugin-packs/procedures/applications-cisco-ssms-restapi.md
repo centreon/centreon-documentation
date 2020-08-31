@@ -123,7 +123,6 @@ Cette commande déclenchera une alarme CRITICAL s'il contient le mot *in complia
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
-```/usr/lib/centreon/plugins/centreon_cisco_ssms_restapi.pl --plugin=apps::cisco::ssms::restapi::plugin --mode=licences --help```
 
 
 ### Comment puis-je supprimer les perfdatas *count* dans le cas où je ne souhaite vérifier qu'une seule application ?
