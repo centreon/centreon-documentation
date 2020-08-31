@@ -30,22 +30,21 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | cpu.utilization.percentage         | CPU utilization. Unit : %         |
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit : % |
 
-
 <!--Cpu Detailled-->
 * Per CPU :
 
 | Metric name     | Description                           |
 | :---------------| :------------------------------------ |
-| cpu_user        | Average user for CPUs. Unit : %       |
-| cpu_nice		  | Average nice for CPUs. Unit : %       |
-| cpu_system	  | Average system for CPUs. Unit : %     |
-| cpu_idle		  | Average idle for CPUs. Unit : %       |
-| cpu_wait		  | Average wait for CPUs. Unit : %       |
-| cpu_interrupt	  | Average interrupt for CPUs. Unit : %  |
-| cpu_softirq	  | Average softirq for CPUs. Unit : %    |
-| cpu_steal       | Average steal for CPUs. Unit : %      |
-| cpu_guest       | Average guest for CPUs. Unit : %      |
-| cpu_guestnice   | Average guest nice for CPUs. Unit : % |
+| cpu_user        | Average user for CPU. Unit : %        |
+| cpu_nice        | Average nice for CPU. Unit : %        |
+| cpu_system      | Average system for CPU. Unit : %      |
+| cpu_idle        | Average idle for CPU. Unit : %        |
+| cpu_wait        | Average wait for CPU. Unit : %        |
+| cpu_interrupt   | Average interrupt for CPU. Unit : %   |
+| cpu_softirq     | Average softirq for CPU. Unit : %     |
+| cpu_steal       | Average steal for CPU. Unit : %       |
+| cpu_guest       | Average guest for CPU. Unit : %       |
+| cpu_guestnice   | Average guest nice for CPU. Unit : %  |
 
 * Total :
  
@@ -53,15 +52,14 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | :----------------------- | :-------------------------------------- |
 | total_cpu_guest_avg      | Total average guest CPUs. Unit : %      |
 | total_cpu_guestnice_avg  | Total average guest nice CPUs. Unit : % |
-| total_cpu_idle_avg	   | Total average idle CPUs. Unit : %       |
+| total_cpu_idle_avg       | Total average idle CPUs. Unit : %       |
 | total_cpu_interrupt_avg  | Total average interrupt CPUs. Unit : %  |
 | total_cpu_nice_avg       | Total average nice CPUs. Unit : %       |
-| total_cpu_softirq_avg	   | Total average softirq CPUs. Unit : %    |
+| total_cpu_softirq_avg    | Total average softirq CPUs. Unit : %    |
 | total_cpu_steal_avg      | Total average steal CPUs. Unit : %      |
 | total_cpu_system_avg     | Total average system CPUs. Unit : %     |
-| total_cpu_user_avg 	   | Total average user CPUs. Unit : %       |
+| total_cpu_user_avg       | Total average user CPUs. Unit : %       |
 | total_cpu_wait_avg       | Total average wait CPUs. Unit : %       |
-
 
 <!--Memory-->
 
@@ -72,13 +70,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | buffer                | Memory buffured. Unit : B               |
 | cached                | Memory cached. Unit : B                 |
 
-
 <!--Filesdate-->
 
 | Metric name           | Description                                                 |
 | :-------------------- | :---------------------------------------------------------- |
 | name                  | Time (modified, creation,...) of files/directories. Unit: s |
-
 
 <!--Filessize-->
 
@@ -86,7 +82,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | :-------------------- | :---------------------------------------- |
 | name                  | Size of one file/directorie. Unit : B     |
 | total                 | Total Size of files/directories. Unit : B |
-
 
 <!--Diskio-->
 
@@ -99,13 +94,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %     |
 
-
 <!--Openfiles-->
 
 | Metric name                 | Description                          |
 | :-------------------------- | :----------------------------------- |
 | system.files.open.count     | Number of files opened on the system |
-
 
 <!--Swap-->
 
@@ -124,13 +117,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | load5                       | Load average on 5 minutes. |
 | load15                      | Load average on 15 minutes.|
 
-
 <!--Uptime-->
 
 | Metric name                 | Description                                                 |
 | :-------------------------- | :---------------------------------------------------------- |
 | uptime                      | Duration of system has been working and available. Unit : s |
-
 
 <!--Paging-->
 
@@ -143,7 +134,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | system.pgfault.usage.bytespersecond    | Usage pgfault in bytes per second. Unit : B/s                    |
 | system.pgmajfault.usage.bytespersecond | Usage pgmajfault in bytes per second. Unit : B/s                 |
 
-
 <!--Connections-->
 
 | Metric name                 | Description                                        |
@@ -153,7 +143,7 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | con_closed                  | Number of connection closed                        |
 | con_closeWait               | Number of connection on wait close                 |
 | con_closing                 | Number of connection closing                       | 
-| con_established             | Number of connection etablished			   |
+| con_established             | Number of connection etablished                    |
 | con_finWait1                | Number of connection finWait1                      |
 | con_finWait2                | Number of connection finWait1                      | 
 | con_lastAck                 | Number of connection on last Ack                   |
@@ -175,13 +165,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | :-------------------------- | :--------------------------------- |
 | nbproc                      |  Number of current processes.      |
 
-
 <!--Ntp-->
 
 | Metric name           | Description                        |
 | :-------------------- | :--------------------------------- |
 | offset                | Offset of ntpd service. Unit : ms  |
-
 
 <!--Quota-->
 
@@ -189,13 +177,11 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | :-------------------- | :---------------------------------- |
 | data_used             | Quota usage on partitions. Unit : B |
 
-
 <!--Storage-->
 
 | Metric name           | Description              |
 | :-------------------- | :----------------------- |
 | used                  | Storage usages. Unit : B |
-
 
 <!--Traffic-->
 
@@ -204,7 +190,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | status                              | Status of the interface                                     |
 | interface.traffic.in.bitspersecond  | Incoming traffic going through the interface. Units: b/s    |
 | interface.traffic.out.bitspersecond | Outgoing traffic going through the interface. Units: b/s    |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -261,7 +246,6 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller monitoring Linux SSH resources:
@@ -280,7 +264,6 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 
@@ -333,38 +316,38 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
     --plugin=os::linux::local::plugin \
-	--mode=cpu \
-	--hostname='myipaddress' \
-	--ssh-backend='libssh' \
-	--ssh-username='myuser' \
-	--ssh-password='mypassword' \
-	--ssh-port='22' \
-	--warning-core='60' \
-	--critical-core='70' \
-	--warning-average='60' \
-	--critical-average='75' \
-	--verbose \
-	--use-new-perfdata
-	
-	
+    --mode=cpu \
+    --hostname='10.30.2.114' \
+    --ssh-backend='libssh' \
+    --ssh-username='myuser' \
+    --ssh-password='mypassword' \
+    --ssh-port='22' \
+    --warning-core='60' \
+    --critical-core='70' \
+    --warning-average='60' \
+    --critical-average='75' \
+    --verbose \
+    --use-new-perfdata
+		
 OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 'cpu.utilization.percentage'=11.91%;;;0;100 '0#core.cpu.utilization.percentage'=11.91%;;;0;100 
 CPU '0' usage : 11.91 %
 ```
 
-The check command gives the average CPU of a device using SSH (```--mode=CPU``) with address 10.30.2.114 (```--hostname=10.30.2.114``)
-having as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon``) 
-and as password _centreon-password_ (```--ssh-password='centreon-password'``). 
+The check command gives the average CPU of a device using SSH (```--mode=CPU```) 
+It have IP address 10.30.2.114 (```--hostname=10.30.2.114```) as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon```) 
+and as password _centreon-password_ (```--ssh-password='centreon-password'```). 
 
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
-
 Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
-``` /usr/lib/centreon/plugins//centreon_linux_ssh.pl --plugin=os::linux::local::plugin --mode=cpu --help```
-
+```bash
+/usr/lib/centreon/plugins//centreon_linux_ssh.pl --plugin=os::linux::local::plugin 
+--mode=cpu --help
+```
 
 ### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
 
