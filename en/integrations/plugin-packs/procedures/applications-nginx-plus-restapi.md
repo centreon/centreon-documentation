@@ -46,11 +46,11 @@ More information about collected metrics is available in the official Nginx Plus
 
 <!--Ssl-->
 
-| Metric name                      | Description                     |
-| :------------------------------- | :------------------------------ |
-| ssl.handshakes.succeeded.count   | Number of handshakes succeeded  |
-| ssl.handshakes.failed.count      | Number of handshakes failed     |
-| ssl.sessions.reuses.count        | Number of sessions reuses       |
+| Metric name                      | Description                         |
+| :------------------------------- | :---------------------------------- |
+| ssl.handshakes.succeeded.count   | Number of SSL Handshakes succeeded  |
+| ssl.handshakes.failed.count      | Number of SSL Handshakes failed     |
+| ssl.sessions.reuses.count        | Number of SSL sessions reuses       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
