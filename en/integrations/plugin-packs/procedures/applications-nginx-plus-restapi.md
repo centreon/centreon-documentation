@@ -33,7 +33,6 @@ More information about collected metrics is available in the official Nginx Plus
 | connections.accepted.count  | Number of accepted connections |
 | connections.dropped.count   | Number of dropped connections  |
 
-
 <!--Http-Zone-->
 
 | Metric name                                             | Description                                              |
