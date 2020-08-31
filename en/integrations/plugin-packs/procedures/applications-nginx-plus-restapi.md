@@ -107,7 +107,7 @@ Once the template applied, some Macros have to be configured:
 
 ## FAQ
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### How to test the Plugin and what are the main options for ?
 
 Once the Plugin installed, log into your poller using the *centreon-engine* user account and test 
 by running the following command (Parameters such as ```api-username``` or ```api-path``` have to be adjusted):
