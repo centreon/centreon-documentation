@@ -48,7 +48,7 @@ a way to access a subset of Cisco SSM functionality without using a direct Inter
 A service account is required to query the Cisco SSMS API. It must have sufficient read privileges in the account targeted.
 
 
-## Installation
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
