@@ -60,7 +60,7 @@ More information about collected metrics is available in the official Nginx Plus
 
 A service account is required to request the Nginx Plus API. It needs to have sufficient reading privileges in the environment.
 
-## Installation
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
