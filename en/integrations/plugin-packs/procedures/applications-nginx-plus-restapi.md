@@ -125,7 +125,6 @@ by running the following command (Parameters such as ```api-username``` or ```ap
 	--api-username='myapiuser' \
 	--api-password='myapipassword' \
 	--api-path='/api/6' \
-	--filter-counters='mycountersfilter' \
 	--warning-active='60' \
 	--critical-active='80'
 	--warning-idle='8' \
