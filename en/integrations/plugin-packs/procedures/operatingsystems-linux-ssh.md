@@ -335,7 +335,7 @@ CPU '0' usage : 11.91 %
 ```
 
 The check command gives the average CPU of a device using SSH (```--mode=CPU```) 
-It have IP address 10.30.2.114 (```--hostname=10.30.2.114```) as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon```) 
+It has IP address 10.30.2.114 (```--hostname=10.30.2.114```) as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon```) 
 and as password _centreon-password_ (```--ssh-password='centreon-password'```). 
 
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
