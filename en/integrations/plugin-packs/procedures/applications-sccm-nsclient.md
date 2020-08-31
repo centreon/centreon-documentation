@@ -50,11 +50,8 @@ Microsoft Endpoint Configuration Manager, formely knwown as System Center Config
 
 There is two ways to monitor SCCM, through the NRPE protocol or through the Nsclient Rest Api.
 
-For NRPE, you can follow the procedure as described [here](operatingsystems-windows-nsclient-05-nrpe.html#nsclient)
+For NRPE, you can follow the procedure as described [here](operatingsystems-windows-nsclient-05-nrpe.html#nsclient), and for the Nsclient Rest Api, you can follow the procedure as seen [there](operatingsystems-windows-nsclient-05-restapi.html#prerequisites).
 
-And for the Nsclient Rest Api, you can follow the procedure as seen [there](operatingsystems-windows-nsclient-05-restapi.html#prerequisites)
-
-https://docs.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html
 
 ## Installation
 
@@ -141,7 +138,7 @@ Output:
 OK: blabla
 ```
 
-The command request statistic to the SCCM client site (```-a 'apps::sccm::local::plugin' 'site-status' ```) with the IP/FQDN address *168.253.16.125* (```-H 168.253.16.125```). We will use the port 5666 (```--p 566'```) and the timeout will be by default 10 seconds (```-t```. 
+The command request statistic to the SCCM client host (```-a 'apps::sccm::local::plugin' 'site-status' ```) with the IP/FQDN address *168.253.16.125* (```-H 168.253.16.125```). We will use the port 5666 (```--p 566'```) and the timeout will be by default 10 seconds (```-t```. 
 
 The different options can be displayed with the ```--help``` parameter:  
 
@@ -170,7 +167,7 @@ OK: blabla
 
 ```
 
-The command request statistic to the SCCM client site (```database-replication-status```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 5666 (```--port='5666'```) and the http protocol (```proto=http''```). The legacypaswword is *Elasticscentreonearch_password*(```--legacy-password='centreon'```)
+The command request statistic to the SCCM client host (```database-replication-status```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 5666 (```--port='5666'```) and the http protocol (```proto=http''```). The legacypaswword is *centreon*(```--legacy-password='centreon'```)
 
 
 The different options can be displayed with the ```--help``` parameter:  
