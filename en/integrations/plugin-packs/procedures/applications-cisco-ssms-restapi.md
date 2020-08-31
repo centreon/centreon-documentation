@@ -41,7 +41,6 @@ a way to access a subset of Cisco SSM functionality without using a direct Inter
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Prerequisites
 
 
