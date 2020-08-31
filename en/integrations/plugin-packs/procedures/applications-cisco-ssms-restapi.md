@@ -76,7 +76,6 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco SSMS* Plugin-Pack
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
