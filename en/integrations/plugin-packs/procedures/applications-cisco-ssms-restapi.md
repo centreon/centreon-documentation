@@ -39,7 +39,6 @@ a way to access a subset of Cisco SSM functionality without using a direct Inter
 | licenses.free.count        | Counter of licenses free. Unit : Bytes (B)         |
 | licenses.usage.percentage  | Percentage of licenses usage. Unit : percentage(%) |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 
