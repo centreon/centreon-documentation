@@ -9,7 +9,7 @@ NGINX Plus is a software load balancer, web server, and content cache built on t
 
 The Centreon Plugin and Plugin-Packs rely on the Nginx Plus Rest API to collect the status of the Nginx resources.
 
-## Plugin Pack Assets
+## Plugin-Pack Assets
 
 ### Monitored Objects
 
