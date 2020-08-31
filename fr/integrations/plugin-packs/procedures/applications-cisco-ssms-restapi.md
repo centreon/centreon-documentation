@@ -79,7 +79,6 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 
 ## Configuration
 
-### Host
 
 Ce Plugin-Pack est concçu de manière à avoir dans Centreon un hôte par compte
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Ssms-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
