@@ -60,7 +60,6 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Cisco SSMS* Plugin-Pack
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller monitoring Cisco SSMS resources:
