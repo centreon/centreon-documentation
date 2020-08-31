@@ -43,9 +43,8 @@ a way to access a subset of Cisco SSM functionality without using a direct Inter
 
 ## Prerequisites
 
-
 A service account is required to query the Cisco SSMS API. It must have sufficient read privileges in the account targeted.
-
+More information is available in the official Cisco SSMS API : https://www.cisco.com/c/dam/en_us/buy/smart-accounts/smart-software-manager-satellite-enhanced-edition-6-2-0-user-guide.pdf
 
 ## Setup
 
@@ -81,7 +80,6 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Configuration
 
 The Plugin-Pack is designed to monitor resources based on one host per account.
@@ -101,7 +99,8 @@ Once the template applied, some Macros have to be configured:
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command (Parameters such as ```account``` or ```client-id```have to be adjusted):
+Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command 
+(Parameters such as ```account``` or ```client-id```have to be adjusted):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_ssms_restapi.pl \
