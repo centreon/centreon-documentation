@@ -20,14 +20,6 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 * Licences
 * Alertes
 
-### Règles de découvertes
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
