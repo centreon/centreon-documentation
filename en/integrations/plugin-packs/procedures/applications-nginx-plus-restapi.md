@@ -57,7 +57,6 @@ More information about collected metrics is available in the official Nginx Plus
 
 ## Prerequisites
 
-### API Privileges
 
 A service account is required to request the Nginx Plus API. It needs to have sufficient reading privileges in the environment.
 
