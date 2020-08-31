@@ -5,7 +5,7 @@ title: Nginx Plus Restapi
 
 ## Vue d'ensemble
 
-NGINX Plus est un logiciel de Load Balancer, un serveur web et un cache de contenu construit sur le NGINX open source.
+NGINX Plus est un logiciel de Load Balancer, de serveur web et de cache de contenu construit sur le NGINX open source.
 
 Le Plugin Centreon associé permet d'interroger l'API Rest de Nginx Plus afin de récupérer le statut de diverses ressources Nginx.
 
