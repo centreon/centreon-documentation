@@ -342,7 +342,7 @@ OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 CPU '0' usage : 11.91 %
 ```
 
-La commande ci-dessus donne la moyenne d'un CPU d'un équipement en utilisant SSH (```--mode=CPU```).
+La commande ci-dessus supervise la moyenne d'un CPU d'un équipement en utilisant SSH (```--mode=CPU```).
 Il y a pour adresse 10.30.2.114 (```--hostname=10.30.2.114```) comme Backend SSH  (```--ssh-backend='libssh'```) 
 avec les centreon comme username _centreon_ (```--ssh-username=centreon```) et comme mot de passe _centreon-password_ (```--ssh-password='centreon-password'```). 
 
