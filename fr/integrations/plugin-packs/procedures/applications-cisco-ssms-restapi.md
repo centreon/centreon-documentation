@@ -85,7 +85,7 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-S
 
 | Mandatory   | Name                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
-| X           | APIPORT                | Port used. Default is 443                                                  |
+| X           | APIPORT                | Port used. Default is 8443                                                  |
 | X           | APIPROTO               | Protocol used. Default is https                                            |
 | X           | CLIENTID               | Client ID to access to the API.                                            |
 | X           | CLIENTSECRET           | Client Secret to access to the API.                                        |
