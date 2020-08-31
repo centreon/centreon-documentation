@@ -100,7 +100,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_ssms_restapi.pl \
-    --plugin=apps::cisco::ssms::restapi::plugin \
+      --plugin=apps::cisco::ssms::restapi::plugin \
 	--mode=licenses \
 	--hostname='myipaddress' \
 	--client-id='myapiclientid' \
