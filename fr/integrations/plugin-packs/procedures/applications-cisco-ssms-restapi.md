@@ -83,7 +83,7 @@ yum install centreon-pack-applications-cisco-ssms-restapi.noarch
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par compte.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Cisco-Ssms-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
-| Mandatory   | Nom                    | Description                                                                |
+| Mandatory   | Name                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
 | X           | APIPORT                | Port used. Default is 443                                                  |
 | X           | APIPROTO               | Protocol used. Default is https                                            |
