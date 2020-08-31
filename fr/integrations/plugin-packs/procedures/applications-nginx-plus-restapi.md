@@ -34,7 +34,6 @@ l'API Rest Nginx Plus: https://docs.nginx.com/nginx/admin-guide/load-balancer/dy
 | connections.accepted.count  | Number of accepted connections |
 | connections.dropped.count   | Number of dropped connections  |
 
-
 <!--Http-Zone-->
 
 | Metric name                                             | Description                                              |
