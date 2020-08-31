@@ -56,8 +56,8 @@ More information about collected metrics is available in the official Nginx Plus
 
 ## Prerequisites
 
-
 A service account is required to request the Nginx Plus API. It needs to have sufficient reading privileges in the environment.
+More infomation is avaible in official Nginx documentation : https://docs.nginx.com/nginx/admin-guide/monitoring/live-activity-monitoring/#getting-statistics-with-the-api
 
 ## Setup
 
@@ -96,14 +96,14 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 This Plugin-Pack is designed to have in Centreon one host per Nginx Plus environment.
 Adding a host into Centreon, link it to the template named *App-Nginx-Plus-Restapi-custom*.
 Once the template applied, some Macros have to be configured:
-| Mandatory | Name        | Description                                      |
-| :-------- | :---------- | :----------------------------------------------- |
-| X         | APIPORT     | Port used (Default: 443)                         |
-| X         | APIPROTO    | Specify https if needed (Default: 'https')       |
-| X         | APIUSERNAME | Nginx basic username                             |
-| X         | APIPASSWORD | Nginx basic password.                            |
-| X         | APIPATH     | Specify api path (Default: '/api/6')             |
-
+| Mandatory | Name            | Description                                                                |
+| :-------- | :-------------- | :------------------------------------------------------------------------- |
+| X         | APIPORT         | Port used (Default: 443)                                                   |
+| X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
+| X         | APIUSERNAME     | Nginx basic username                                                       |
+| X         | APIPASSWORD     | Nginx basic password.                                                      |
+| X         | APIPATH         | Specify api path (Default: '/api/6')                                       |
+|    	    | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
 
@@ -114,7 +114,7 @@ by running the following command (Parameters such as ```api-username``` or ```ap
 
 ```bash
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
-    --plugin=apps::nginx::nginxplus::restapi::plugin \
+	--plugin=apps::nginx::nginxplus::restapi::plugin \
 	--mode=connections \
 	--port='443' \
 	--proto='https' \
@@ -125,12 +125,11 @@ by running the following command (Parameters such as ```api-username``` or ```ap
 	--critical-active='80'
 	--warning-idle='8' \
 	--critical-idle='10' \
-    --warning-accepted='50' 
+	--warning-accepted='50' 
 	--critical-accepted='65' \
 	--warning-dropped='3' \
-    --critical-dropped='5' \
+	--critical-dropped='5' \
 	--verbose
-	
 
 OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
@@ -143,8 +142,24 @@ and a CRITICAL alarm if it increases to 80 (```--critical-active='80'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
-```/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin --mode=connections --help```
+```bash
+/usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl --plugin=apps::nginx::nginxplus::restapi::plugin 
+--mode=connections --help
+```
+### Why do I get the following error: 
 
+#### ```UNKNOWN: 500 Can't connect to api.meraki.com:443```
+
+This error message means that the Centreon Plugin couldn't successfully connect to the Cisco Meraki API.
+Check that no third party device (such as a firewall) is blocking the request.
+A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+
+When using a proxy to connect to the Meraki API, this error message means that the Centreon Plugin library does not support
+the proxy connection protocol.
+
+In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
 
 ### How do I remove the *count* perfdatas if I want to filter on just one application ?
 
