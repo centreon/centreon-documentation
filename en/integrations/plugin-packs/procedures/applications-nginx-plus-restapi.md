@@ -158,7 +158,7 @@ A proxy connection may also be necessary to connect to the API. This can be done
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
-When using a proxy to connect to the Meraki API, this error message means that the Centreon Plugin library does not support
+When using a proxy to connect to the Nginx Plus API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
