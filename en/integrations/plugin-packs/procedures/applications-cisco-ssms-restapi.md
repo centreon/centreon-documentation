@@ -103,15 +103,15 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_ssms_restapi.pl \
     --plugin=apps::cisco::ssms::restapi::plugin \
-	--mode=licenses \
-	--hostname='myipaddress' \
-	--client-id='myapiclientid' \
-	--client-secret='myapiclientsecret' \
-	--account='1234abc-56de-78fg-90hi-1234abcdefg' \
-	--filter-counters='status' \
-	--filter-license-name='mylicence'
-	--critical-license-status='%{status} !~ /in compliance/i' \
-	--verbose
+    --mode=licenses \
+    --hostname='api.ssms.com' \
+    --client-id='myapiclientid' \
+    --client-secret='myapiclientsecret' \
+    --account='1234abc-56de-78fg-90hi-1234abcdefg' \
+    --filter-counters='status' \
+    --filter-license-name='mylicence'
+    --critical-license-status='%{status} !~ /in compliance/i' \
+    --verbose
 ```
 
 The command above gets the status of a Cisco SSMS licenses (```--mode=licenses```) named *mylicense* (```--filter-licence-name='mylicence'```). 
@@ -128,7 +128,7 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ### Why do I get the following error: 
 
-#### ```UNKNOWN: 500 Can't connect to api.meraki.com:443```
+#### ```UNKNOWN: 500 Can't connect to api.ssms.com:443```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Cisco Meraki API.
 Check that no third party device (such as a firewall) is blocking the request.
@@ -136,7 +136,7 @@ A proxy connection may also be necessary to connect to the API. This can be done
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
-When using a proxy to connect to the Meraki API, this error message means that the Centreon Plugin library does not support
+When using a proxy to connect to the Cisco SSMS API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
