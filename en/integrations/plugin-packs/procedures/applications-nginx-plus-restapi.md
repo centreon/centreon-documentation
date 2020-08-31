@@ -93,8 +93,6 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 ## Configuration
 
-### Host
-
 This Plugin-Pack is designed to have in Centreon one host per Nginx Plus environment.
 Adding a host into Centreon, link it to the template named *App-Nginx-Plus-Restapi-custom*.
 Once the template applied, some Macros have to be configured:
