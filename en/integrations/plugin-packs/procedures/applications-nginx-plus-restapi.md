@@ -116,7 +116,7 @@ by running the following command (Parameters such as ```api-username``` or ```ap
 /usr/lib/centreon/plugins/centreon_nginx_plus_restapi.pl \
 	--plugin=apps::nginx::nginxplus::restapi::plugin \
 	--mode=connections \
-	--hostname='mynginxplus.com'
+	--hostname='mynginxplus.com' \
 	--port='443' \
 	--proto='https' \
 	--api-username='myapiuser' \
@@ -136,8 +136,10 @@ OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
 ```
 
-The above command check the Nginx Plus connections (```--mode=connections```) having the Nginx basic username _myapiuser_ (```--api-username='myapiuser'```), 
-as a password _myapipassword_ (```--api-password='myapipassword'```) and API URL path by default _/api/6_ (```--api-path='/api/6'```).
+The above command checks the Nginx PLus connections (```--mode=connections```).
+It uses an api-username (```--api-username='myapiuser'```), an api-password (```--api-password='myapipassword'```)
+and it connects to the host *mynginxplus.com* (```--hostname='mynginxplus.com'```) on the port 443 (```--port='/443'```)
+on the url */api/6* (```--api-path='/api/6'```) using https (```--proto='https'```).
 This command will trigger a WARNING alarm if the active connections increase to 60 (```--warning-active='60'```)
 and a CRITICAL alarm if it increases to 80 (```--critical-active='80'```).
 
