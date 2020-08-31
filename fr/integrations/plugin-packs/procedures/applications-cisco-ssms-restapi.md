@@ -31,7 +31,6 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 | account.alerts.minor.count | Counter of alerts minor. |
 | account.alerts.major.count | Counter of alerts major. |
 
-
 <!--Licenses-->
 
 | Metric Name                | Description                                        |
