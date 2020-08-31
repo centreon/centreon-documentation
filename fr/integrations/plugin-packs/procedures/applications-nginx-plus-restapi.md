@@ -139,8 +139,9 @@ OK: Active : 5, Idle : 0, Accepted : 5, Dropped : 0|
 'connections.active.count'=5;;60;80; 'connections.idle.count'=1;;8;10; 'connections.accepted.count'=5;;50;65; 'connections.dropped.count'=0;;3;5;
 ```
 
-La commande ci-dessus contrôle les connexions de Nginx Plus (```--mode=connections```) ayant de base le nom d'utilisateur Nginx  _myapiuser_ (```--api-username='myapiuser'```), 
-comme mot de passe _myapipassword_ (```--api-password='myapipassword'```) et le chemin d'accès à l'URL de l'API par défaut _/api/6_ (```--api-path='/api/6'```).
+La commande ci-dessus contrôle les connexions de Nginx Plus (```--mode=connections```)
+Il utilisde base le nom d'utilisateur Nginx  _myapiuser_ (```--api-username='myapiuser'```), comme mot de passe _myapipassword_ (```--api-password='myapipassword'```) 
+et le chemin d'accès à l'URL de l'API par défaut _/api/6_ (```--api-path='/api/6'```).
 
 Cette commande déclenchera une alarme WARNING si les connexions activent dépasse 60 (```--warning-active='60'```) 
 et une alarme CRITICAL s'il dépasse 80 (```--critical-active='80'```).
