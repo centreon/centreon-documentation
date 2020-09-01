@@ -337,6 +337,7 @@
                     "integrations/plugin-packs/procedures/applications-openweathermap-restapi",
                     "integrations/plugin-packs/procedures/applications-pacemaker-ssh",
                     "integrations/plugin-packs/procedures/applications-peoplesoft-jmx",
+                    "integrations/plugin-packs/procedures/applications-pfsense-fauxapi",
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
