@@ -99,7 +99,9 @@ Use the discovery module to add the monitoring of your Elasticsearch databases, 
 ## Prerequisites 
 
 In order to monitor an Elasticsearch cluster, it must be prepared acccording to Elasticsearch's official documentation: https://www.elastic.co/guide/en/elasticsearch/reference/7.8/monitor-elasticsearch-cluster.html
+
 In order to be able to communicate with the Elasticsearch node's API, the Centreon Poller should access to the port 9200 with the http protocol on the Elasticsearch node.
+
 
 ## Installation
 
