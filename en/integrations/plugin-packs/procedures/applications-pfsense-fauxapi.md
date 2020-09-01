@@ -35,6 +35,7 @@ More information about collected metrics is available in the official Pfsense Fa
 
 | Metric name                                 | Description                                                                       |
 | :------------------------------------------ | :-------------------------------------------------------------------------------- |
+| status                                      | Gateways status                                                                   |
 | gateway.packets.delay.milliseconds          | Delay packets going through the interface in milliseconds. Unit : ms              |
 | gateway.packets.loss.percentage             | Lost packets going through the interface in percentage. Unit : %                  |
 | gateway.packets.stddev.milliseconds         | Standard deviation packets going through the interface in milliseconds. Unit : ms |
@@ -46,7 +47,7 @@ More information about collected metrics is available in the official Pfsense Fa
 | rules.total.count           | Total number of rules                                               |
 | rule.traffic.bitspersecond  | Traffic going through the interface in bits per seconds. Unit : b/s |
 
-<!--Servers-->
+<!--System-->
 
 | Metric name                                | Description                                   |
 | :----------------------------------------- | :-------------------------------------------- |
