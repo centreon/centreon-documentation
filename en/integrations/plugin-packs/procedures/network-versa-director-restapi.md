@@ -197,11 +197,11 @@ checking device 'CENFRGW101' [type: hub]
     health monitor 'service status' up: 1, down: 0, disabled: 0
 ```
 
-The command above monitors a Versa Networks device CENFRGW101 (```--filter-device-name='^CENFRGW101$'```)
+The command above monitors a Versa Networks device **CENFRGW101** (```--filter-device-name='^CENFRGW101$'```)
 trough the Versa Director API (```--plugin=network::versa::director::restapi::plugin --mode=devices```).
 It connects to the Versa Director host **10.0.0.1** (```--hostname=10.0.01```) using the user **jdoe**
 and its password (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
-The device can be under several organizations, so its use a wildcard (```--organization='.*'```).
+The device can be under several organizations, so we use a wildcard (```--organization='.*'```).
 
 This command will trigger a CRITICAL alarm (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) if :
 
