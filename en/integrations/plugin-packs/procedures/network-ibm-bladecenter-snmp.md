@@ -46,12 +46,12 @@ the following indicators:
 
 <!--Traffic-->
 
-| Metric name                              | Description                                                               | Unit           |
-| :--------------------------------------- | :------------------------------------------------------------------------ | :--------------|
-| status                                   | Interface status                                                          |                |
-| interface.traffic.\*.bitspersecond       | \*in/out. Incoming/outgoing traffic going through the interface           | Units: B/s & % |
-| interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface    | Units: Count & % |
-| interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface  | Units: Count & % |
+| Metric name                              | Description                                                               | Unit        |
+| :--------------------------------------- | :------------------------------------------------------------------------ | :---------- |
+| status                                   | Interface status                                                          |             |
+| interface.traffic.\*.bitspersecond       | \*in/out. Incoming/outgoing traffic going through the interface           | Bytes/s & % |
+| interface.packets.\*.errors.percentage   | \*in/out. Incoming/outgoing errored packets going through an interface    | Count & %   |
+| interface.packets.\*.discards.percentage | \*in/out. Incoming/outgoing discarded packets going through an interface  | Count & %   |
 
 A regexp filter is available to target a specific interface identifier/ifName [```--interface='^my-interface-name$' --name```] 
 
@@ -60,7 +60,7 @@ A regexp filter is available to target a specific interface identifier/ifName [`
 | Metric name                   | Description                      | Unit     |               
 | :---------------------------- | :------------------------------- | :--------|
 | hardware.temperature.celsius  | Temperature of the system        | Celsius  |
-| faultled                      | Status of the fault LED (On/off) |          |
+| faultled                      | Status of the fault LED (On/Off) |          |
 
 You can use ```--no-component``` if you want to alert when a component is 
 absent/removed. You can also overload the default status using the 
