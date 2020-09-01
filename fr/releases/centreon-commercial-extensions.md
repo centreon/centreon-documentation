@@ -25,6 +25,7 @@ commerciales, veuillez contacter le support.
 * Mise à jour des intéractions avec Mapbox suite à la mise à jour de leurs API et leurs styles [voir la documentation](https://docs.mapbox.com/help/troubleshooting/migrate-legacy-static-tiles-api/)
 * Correction d'un problème affectant la première arrivée sur les widgets Centreon Map ou la page `Supervision > Map` après la mise à jour en 20.04.0 (ou >=). Il fallait rafraîchir plusieurs fois la page pour que cela fonctionne, ce n'est plus le cas.
 * Correction d'un problème affectant les tooltips des activités métier qui utilisent les nouvelles méthodes de calcul
+* (widget) Fix a bug affecting the save mechanism
 
 ### 20.04.1
 

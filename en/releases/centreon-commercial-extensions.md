@@ -25,6 +25,7 @@ If you have feature requests or want to report a bug, please contact support.
 * Upgrade leaflet version to [1.6.0](https://leafletjs.com/2019/11/17/leaflet-1.6.0.html)
 * You've now directly access to `Monitoring > Map` or Map widgets without being forced to refresh multiple times your browser after upgrading to 20.04.0 or >=
 * Fix a bug affecting the business activities tooltip on a view when the BA is calculated using the new calculation methods
+* (widget) Fix a bug affecting the save mechanism
 
 ### 20.04.1
 
