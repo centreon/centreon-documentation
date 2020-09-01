@@ -107,7 +107,7 @@ et des métriques relatives aux équipements Versa Networks
 
 | Metric name                             | Description                                     | Unit  |
 |:--------------------------------------- |:----------------------------------------------- |:----- |
-| sdwan.policy.hit.count                  | Number of hits by SDWAN policy                  | Count |
+| sdwan.policy.hit.count                  | Number of hists by SDWAN policy                 | Count |
 | sdwan.policy.packets.in.count           | Number of incoming packets by SDWAN policy      | Count |
 | sdwan.policy.traffic.in.bytespersecond  | Incoming traffic going through by SDWAN policy  | B/s   |
 | sdwan.policy.packets.out.count          | Number of outgoing packets by SDWAN policy      | Count |
