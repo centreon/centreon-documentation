@@ -1,129 +1,82 @@
 ---
-id: network-versa-snmp
-title: Versa SNMP
+id: network-versa-director-restapi
+title: Versa Director Restapi
 ---
 
 ## Vue d'ensemble
 
-Versa Networks est un fournisseur d'architectures Cloud sécurisées.
-Versa Networks propose notamment des solutions SD-WAN (Software-Defined Wide Area Network).
+Versa Director est la plateforme de management, supervision et d'orchestration
+pour délivrer les services de sécurité et de réseau VNF de la suite Versa Networks.
 
-Le Plugin-Pack Centreon utilise le protocole SNMP pour se connecter, récupérer des informations
-et des métriques relatives aux équipements Versa Networks
+Le Plugin-Pack Centreon utilise l'API de Versa Director pour se connecter et
+récupérer des informations et des métriques relatives aux équipements Versa.
+
+Vous trouverez plus d'information à propos de l'API Versa Director sur la documentation officielle :
+https://apidocs.versa-networks.com/
 
 ## Contenu du Plugin-Pack
 
-### Objets supervisés
+### Elements supervisés
 
-* CPE
-* Branch
-* Gateway
+* Versa Networks devices
 
-### Règles de découverte
+### Règles de découvertes
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Services-->
+<!--Hosts-->
 
-| Nom de la règle                   | Description                                                                                  |
-|:--------------------------------- |:-------------------------------------------------------------------------------------------- |
-| Net-Versa-SNMP-Ipsec-Name         | Découvre les tunnels IPsec et supervise le trafic et les paquets                             |
-| Net-Versa-SNMP-Sdwan-Name         | Découvre les règles SD-WAN et supervise le trafic                                            |
-| Net-Versa-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
-| Net-Versa-SNMP-Packet-Errors-Name | Découvre les interfaces réseaux et supervise les paquets en erreurs                          |
+| Nom de la règle                                  | Description                                                   |
+|:------------------------------------------------ |:------------------------------------------------------------- |
+| Net-Versa-Director-Restapi-HostDiscovery-devices | Découvrez vos équipements Versa managés par un Versa Director |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Métriques collectées
+### Métriques Collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Bgp-Peers-->
-
-| Metric name              | Description         | Unit |
-|:------------------------ |:------------------- |:---- |
-| status                   | Status of the peers |      |
-| peer.update.last.seconds | Last update by peer | s    |
-
 <!--Devices-->
 
-| Metric name                       | Description                                 | Unit  |
-|:--------------------------------- | :------------------------------------------ |:----- |
-| device.cpu.utilization.percentage | Device CPU utilization                      | %     |
-| device.memory.usage.percentage    | Device Memory usage                         | %     |
-| device.sessions.active.count      | Number of actives sessions on the device    | Count |
-| device.sessions.active.percentage | Percentage of active sessions on the device | %     |
-| device.sessions.failed.count      | Number of failed sessions on the device     | Count |
-| device.sessions.failed.percentage | Percentage of failed sessions on the device | %     |
+* Global
 
-<!--Interfaces-->
+| Metric name                                        | Description                                | Unit  |
+|:-------------------------------------------------- |:------------------------------------------ |:----- |
+| status                                             | Status of the device                       |       |
+| memory.usage.bytes                                 | Memory usage on the device                 | B     |
+| memory.free.bytes                                  | Free memory on the device                  | B     |
+| memory.usage.percentage                            | Percentage of memory usage on the device   | %     |
+| disk.usage.bytes                                   | Disk usage on the device                   | B     |
+| disk.free.bytes                                    | Free disk space on the device              | B     |
+| disk.usage.percentage                              | Percentage of disk usage on the device     | %     |
+| alarms.critical.count                              | Number of critical alarms on the device    | Count |
+| alarms.major.count                                 | Number of major alarms on the device       | Count |
+| alarms.minor.count                                 | Number of minor alarms on the device       | Count |
+| alarms.warning.count                               | Number of warning alarms on the device     | Count |
+| alarms.inderminate.count                           | Number of inderminate alarm on the device  | Count |
+| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link | Count |
+| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action    | Count |
 
-| Metric name                               | Description                                            | Unit |
-|:----------------------------------------- |:------------------------------------------------------ |:---- |
-| status                                    | Status of the interface                                |      |
-| interface.traffic.in.bitspersecond        | Incoming traffic going through the interface           | b/s  |
-| interface.traffic.out.bitspersecond       | Outgoing traffic going through the interface           | b/s  |
-| interface.packets.in.errors.percentage    | Incoming errored packets going through the interface   | %    |
-| interface.packets.out.errors.percentage   | Outgoing errored packets going through the interface   | %    |
-| interface.packets.in.discards.percentage  | Incoming discarded packets going through the interface | %    |
-| interface.packets.out.discards.percentage | Outgoing discarded packets going through the interface | %    |
+* by health monitor
 
-<!--Ipsec-->
-
-| Metric name                      | Description                                        | Unit  |
-|:-------------------------------- |:-------------------------------------------------- |:----- |
-| ipsec.packets.in.count           | Number of incoming packets trough the IPsec tunnel | Count |
-| ipsec.traffic.in.bytespersecond  | Incoming traffic going through the IPsec tunnel    | B/s   |
-| ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
-| ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
-| ipsec.traffic.out.bytespersecond | Outcoming taffic going through the IPsec tunnel    | B/s   |
-| ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
-| ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |
-
-<!--Qos-Policy-->
-
-* Par QoS policy
-
-| Metric name                                 | Description                               | Unit  |
-|:------------------------------------------- |:----------------------------------------- |:----  |
-| qos.policy.hit.count                        | Number of hits by QoS policy              | Count |
-| qos.policy.sessions.deny.count              | Number of sessions denied by QoS Policy   | Count |
-| qos.policy.packets.dropped.count            | Number of packets dropped by Qos Policy   | Count |
-| qos.policy.traffic.dropped.bytespersecond   | Traffic dropped by Qos Policy             | B/s   |
-| qos.policy.packets.forwarded.count          | Number of packets forwarded by Qos Policy | Count |
-| qos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy           | B/s   |
-
-* Par application Qos Policy
-
-| Metric name                                    | Description                                           | Unit  |
-|:---------------------------------------------- |:----------------------------------------------------- |:----- |
-| appqos.policy.hit.count                        | Number of hits by Application Qos Policy              | Count |
-| appqos.policy.packets.dropped.count            | Number of packets dropped by Application Qos Policy   | Count |
-| appqos.policy.traffic.dropped.bytespersecond   | Traffic dropped by Application Qos Policy             | B/s   |
-| appqos.policy.packets.forwarded.count          | Number of packets forwarded by Application Qos Policy | Count |
-| appqos.policy.traffic.forwarded.bytespersecond | Traffic forwarded by QoS Policy                       | B/s   |
-
-<!--Sdwan-->
-
-| Metric name                             | Description                                     | Unit  |
-|:--------------------------------------- |:----------------------------------------------- |:----- |
-| sdwan.policy.hit.count                  | Number of hists by SDWAN policy                 | Count |
-| sdwan.policy.packets.in.count           | Number of incoming packets by SDWAN policy      | Count |
-| sdwan.policy.traffic.in.bytespersecond  | Incoming traffic going through by SDWAN policy  | B/s   |
-| sdwan.policy.packets.out.count          | Number of outgoing packets by SDWAN policy      | Count |
-| sdwan.policy.traffic.out.bytespersecond | Outcoming traffic going through by SDWAN Policy | B/s   |
+| Metric name           | Description                        | Unit  |
+|:--------------------- |:---------------------------------- |:----- |
+| health.up.count       | Number of health monitors up       | Count |
+| health.disabled.count | Number of health monitors disabled | Count |
+| health.down.count     | Number of health monitors down     | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-### Configuration SNMP de l'équipement
+### API
 
-La documentation officielle Versa Networks détaille les étapes pour activer et configurer le service SNMP.
+l'API doit être activée et démarrée sur le Versa Director.
+Référencez-vous à la documentation officielle de Versa Networks pour l'activation de l'API.
 
-### Flux réseau
+### Flux réseaux
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers l'équipement Versa Networks supervisé.
+La communication doit être possible sur le port TCP 9182 (en HTTPS) depuis le collecteur Centreon vers le Versa Director.
 
 ## Installation
 
@@ -131,102 +84,158 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
-Versa Networks :
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
+des équipements Versa via l'API du Versa Director :
 
 ```bash
-yum install centreon-plugin-Network-Versa-Snmp
+yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Installer le Plugin-Pack 'Versa Director Restapi' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur chaque collecteur Centreon devant superviser des équipements
-Versa Networks :
+1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
+des équipements Versa via l'API du Versa Director :
 
 ```bash
-yum install centreon-plugin-Network-Versa-Snmp
+yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision:
 
 ```bash
-yum install centreon-pack-network-versa-snmp
+yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Versa SNMP*
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+3. Installer le Plugin-Pack 'Versa Director Restapi' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Configuration 
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *Net-Versa-SNMP-Custom*
+* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
+* Appliquez le modèle *Net-Versa-Director-Device-Restapi-custom* et configurez tous les macros nécessaires :
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+| Mandatory | Name                    | Description                                                                |
+| :-------- | :---------------------- | :------------------------------------------------------------------------- |
+| X         | DIRECTORAPIPORT         | Port used. Default: 9182                                                   |
+| X         | DIRECTORAPIPROTO        | Protocol used. Default: https                                              |
+| X         | DIRECTORAPIORGANIZATION | Linked organizations of the device. Default: .*                            |
+| X         | DIRECTORAPIHOSTNAME     | Hostname of the Versa Director.                                            |
+| X         | DIRECTORAPIUSERNAME     | Username to access to the API.                                             |
+| X         | DIRECTORAPIPASSWORD     | Password to access to the API.                                             |
+| X         | DIRECTORAPIDEVICENAME   | Name of the Versa device.                                                  |
+|           | DIRECTORAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+|           | PROXYURL                | Proxy URL. (eg. http://myproxy.int:3128)                                   |
 
-| Mandatory | Name             | Description                                    |
-| :-------- | :--------------- | :--------------------------------------------- |
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+> Utiliez le module de découverte pour ajouter à votre supervision vos équipements Versa.
+> Allez dans le menu "Configuration > Host > Discovery" et utilisez le provider *Versa Networks devices (Director RestAPI)*
 
 ## FAQ
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
+A partir du moment ou le Plugin est installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_versa_snmp.pl \
-  --plugin=network::versa::snmp::plugin \
+/usr/lib/centreon/plugins//centreon_versa_director_restapi.pl \
+  --plugin=network::versa::director::restapi::plugin \
   --mode=devices \
   --hostname=10.0.0.1 \
-  --snmp-version='2c' \
-  --snmp-community='mysnmpcommunity' \
-  --warning-sessions-active-prct='80' \
-  --critical-sessions-active-prct='90' \
+  --port='9182' \
+  --proto='https' \
+  --api-username='jdoe' \
+  --api-password='6fbadZEJbsLG' \
+  --organization='.*' \
+  --filter-device-name='^CENFRGW101$' \
+  --warning-status='' \
+  --critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"' \
   --verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+La commande retourne le message de sortie ci-dessous:
 
 ```bash
-OK: Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000) |
-'0#device.cpu.utilization.percentage'=8.00%;;;0;100 '0#device.memory.usage.percentage'=10.00%;;;0;100 
-'0#device.sessions.active.count'=0;;;0;1000000 '0#device.sessions.active.percentage'=0.00%;0:80;0:90;0;100
-'0#device.sessions.failed.count'=0;;;0;1000000 '0#device.sessions.active.percentage'=0.00%;;;0;100
-Device '0' cpu load: 8.00 %, memory used: 10.00%, sessions active: 0 (1000000), sessions failed: 0 (1000000)
+OK: Device 'CENFRGW101' status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable] -
+memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%) - disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%) -
+alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0 -
+policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0 -
+all health monitors are ok | 'devices.total.count'=1;;;0; 'CENFRGW101#memory.usage.bytes'=12337293557B;;;0;33736968110.08
+'CENFRGW101#memory.free.bytes'=21399674552B;;;0;33736968110.08 'CENFRGW101#memory.usage.percentage'=36.57;;;0;100
+'CENFRGW101#disk.usage.bytes'=18B;;;0;250 'CENFRGW101#disk.free.bytes'=232B;;;0;250
+'CENFRGW101#disk.usage.percentage'=7.20;;;0;100 'CENFRGW101#alarms.critical.count'=0;;;0;
+'CENFRGW101#alarms.major.count'=0;;;0; 'CENFRGW101#alarms.minor.count'=0;;;0; 'CENFRGW101#alarms.warning.count'=0;;;0;
+'CENFRGW101#alarms.indeterminate.count'=0;;;0; 'CENFRGW101~bgp adjacencies#health.up.count'=3;;;0;3
+'CENFRGW101~bgp adjacencies#health.down.count'=0;;;0;3 'CENFRGW101~bgp adjacencies#health.disabled.count'=0;;;0;3
+'CENFRGW101~config sync status#health.up.count'=1;;;0;1 'CENFRGW101~config sync status#health.down.count'=0;;;0;1
+'CENFRGW101~config sync status#health.disabled.count'=0;;;0;1 'CENFRGW101~ike status#health.up.count'=2;;;0;2
+'CENFRGW101~ike status#health.down.count'=0;;;0;2 'CENFRGW101~ike status#health.disabled.count'=0;;;0;2
+'CENFRGW101~interfaces#health.up.count'=3;;;0;3 'CENFRGW101~interfaces#health.down.count'=0;;;0;3
+'CENFRGW101~interfaces#health.disabled.count'=0;;;0;3 'CENFRGW101~paths#health.up.count'=24;;;0;24
+'CENFRGW101~paths#health.down.count'=0;;;0;24 'CENFRGW101~paths#health.disabled.count'=0;;;0;24
+'CENFRGW101~physical ports#health.up.count'=0;;;0;0 'CENFRGW101~physical ports#health.down.count'=0;;;0;0
+'CENFRGW101~physical ports#health.disabled.count'=0;;;0;0 'CENFRGW101~reachability status#health.up.count'=1;;;0;1
+'CENFRGW101~reachability status#health.down.count'=0;;;0;1 'CENFRGW101~reachability status#health.disabled.count'=0;;;0;1
+'CENFRGW101~service status#health.up.count'=1;;;0;1 'CENFRGW101~service status#health.down.count'=0;;;0;1
+'CENFRGW101~service status#health.disabled.count'=0;;;0;1
+checking device 'CENFRGW101' [type: hub]
+    status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable]
+    memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%)
+    disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%)
+    alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0
+    policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0
+    health monitor 'bgp adjacencies' up: 3, down: 0, disabled: 0
+    health monitor 'config sync status' up: 1, down: 0, disabled: 0
+    health monitor 'ike status' up: 2, down: 0, disabled: 0
+    health monitor 'interfaces' up: 3, down: 0, disabled: 0
+    health monitor 'paths' up: 24, down: 0, disabled: 0
+    health monitor 'physical ports' up: 0, down: 0, disabled: 0
+    health monitor 'reachability status' up: 1, down: 0, disabled: 0
+    health monitor 'service status' up: 1, down: 0, disabled: 0
 ```
 
-Dans cet exemple, le Plugin récupère l'utilisation d'un équipement Versa Networks (```--plugin=network::versa::snmp::plugin --mode=devices```)
+Cette commande supervise un équipement Versa Networks **CENFRGW101** (```--filter-device-name='^CENFRGW101$'```)
+à l'aide l'API Versa Director (```--plugin=network::versa::director::restapi::plugin --mode=devices```).
+Le plugin requête l'API du Versa Director **10.0.0.1** (```--hostname=10.0.0.1```) avec l'utilisateur
+**jdoe** et son mot de passe (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
+Un équipement Versa peut être lié à plusieurs organisations, nous utilisons une widlcard (```--organization='.*'```).
 
-identifié par l'adresse IP *10.0.0.1* (```--hostname=10.0.0.1```). Les paramètres de communauté et de version SNMP (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```) 
-correspondants sont renseignés afin de pouvoir joindre l'équipement.
+Cette commande retournera une alerte CRITICAL (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) si :
 
-Une alarme WARNING sera ainsi déclenchée si le pourcentage d'utilisation des sessions actives est supérieur à 80% (```--warning-sessions-active-prct='80'```);
-l'alarme sera de type CRITICAL au delà de 90% de cette même utilisation (```--critical-sessions-active-prct='90'```).
+* Le 'ping status' de l'équipement est différent de **reachable**
+* Le 'service_status' de l'équipement est différent de **good**
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
-en ajoutant le paramètre ```--help``` à la commande :
+Des seuils peuvent être positionnés à l'aide des options ```--warning-*``` et ```--critical-*``` sur les métriques.
+
+Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_versa_snmp.pl --plugin=network::versa::snmp::plugin --mode=devices --help
+/usr/lib/centreon/plugins/centreon_versa_snmp.pl \
+  --plugin=network::versa::director::restapi::plugin \
+  --mode=devices \
+  --help
 ```
 
-### J'obtiens le message d'erreur suivant:
+### J'obtiens le message d'erreur suivant: 
 
-#### UNKNOWN: SNMP GET Request : Timeout
+#### ```UNKNOWN: 500 Can't connect to myversadirector:9182 |```
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Versa Networks sur le port UDP/161, 
-ou que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to myversadirector:9182 |```.
+Cela signifie que Centreon n'a pas réussi à se connecter à l'API du Versa Director.
+La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'API du Versa Director en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
-#### UNKNOWN: SNMP GET Request : Cant get a single value.
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
-Les causes de cette erreur peuvent être les suivantes: 
-  * cet équipement ne supporte ou n'embarque pas la MIB utilisée par ce mode
-  * les autorisations données à l'utilisateur en SNMP sont trop restreintes.
+Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *LWP* utlisée par défaut par le Plugin Centreon.
+Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
+
+#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
+
+Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend curl.
+Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
+
+```bash
+yum install perl-Net-Curl
+```

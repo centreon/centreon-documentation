@@ -11,7 +11,8 @@ needed to deliver Versa’s VNF-based network and security services.
 The Centreon Plugin-Pack relies on the Versa Director API to query and
 collect status and metrics of the Versa equipements managed by the Director.
 
-More information about the Versa Director API : https://apidocs.versa-networks.com/
+You can find more information about the Versa Director API on the official documentation:
+https://apidocs.versa-networks.com/
 
 ## Plugin-Pack assets
 
@@ -116,7 +117,7 @@ through "Configuration > Plugin packs > Manager" page.
 ## Host configuration 
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Apply the template *Net-Versa-Director-Device-Restapi-custom* and configure all the Macros :
+* Apply the template *Net-Versa-Director-Device-Restapi-custom* and configure all the mandatory Macros:
 
 | Mandatory | Name                    | Description                                                                |
 | :-------- | :---------------------- | :------------------------------------------------------------------------- |
@@ -131,7 +132,7 @@ through "Configuration > Plugin packs > Manager" page.
 |           | PROXYURL                | Proxy URL. (eg. http://myproxy.int:3128)                                   |
 
 > Use the discovery module to add the monitoring of your Versa devices.
-> Go to Configuration > Host > Discovery
+> Go to Configuration > Host > Discovery and use the provider *Versa Networks devices (Director RestAPI)*
 
 ## FAQ
 
@@ -203,10 +204,10 @@ It connects to the Versa Director host **10.0.0.1** (```--hostname=10.0.01```) u
 and its password (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
 The device can be under several organizations, so we use a wildcard (```--organization='.*'```).
 
-This command will trigger a CRITICAL alarm (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) if :
+This command will trigger a CRITICAL alarm (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) if:
 
-* the ping status of the device is not **reachable**
-* the service_status is not **good**
+* the 'ping status' of the device is not **reachable**
+* the 'service_status' of the device is not **good**
 
 Some thresholds can also be set on metrics with options ```--warning-*``` and ```--critical-*```.
 
@@ -232,13 +233,11 @@ A proxy connection may also be necessary to connect to the API. This can be done
 
 When using a proxy to connect to the Versa Director API, this error message means that the Centreon Plugin library does not support
 the proxy connection protocol.
-
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
 
 #### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
 This error message means that a Perl library required to use the *curl* backend is missing.
-
 In order to fix this issue, install the Net\:\:Curl\:\:Easy Perl library using the following command:
 
 ```bash
