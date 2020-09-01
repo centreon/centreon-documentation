@@ -299,6 +299,7 @@
                     "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ise-restapi",
+                    "integrations/plugin-packs/procedures/applications-cisco-ssms-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
