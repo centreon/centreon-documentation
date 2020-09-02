@@ -83,7 +83,6 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi.noarch
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller monitoring Pfsense Fauxapi resources:
@@ -99,7 +98,6 @@ yum install centreon-pack-applications-pfsense-fauxapi.noarch
 ```
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Pfsense Fauxapi* Plugin-Pack
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -155,12 +153,13 @@ This command would trigger a CRITICAL alert if the returned status of the gatewa
 
 This command will also trigger a WARNING alarm if the packets loss increase to 5% (```--warning-packets-loss='5'```)
 and a CRITICAL alarm if it increases to 10% (```--critical-packets-loss='10'```).
+
 Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```.
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_pfsense_fauxapi.pl --plugin=apps::pfsense::fauxapi::plugin 
+/usr/lib/centreon/plugins//centreon_pfsense_fauxapi.pl --plugin=apps::pfsense::fauxapi::plugin \
 --mode=gateways --help
 ```
 
@@ -170,7 +169,7 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Pfsense Fauxapi.
 Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
+A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl='http://proxy.mycompany:8080'``` option in the command.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
