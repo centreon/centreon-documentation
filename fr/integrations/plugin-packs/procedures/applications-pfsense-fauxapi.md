@@ -14,13 +14,10 @@ une configuration "très cassée".
 
 ### Objets supervisés
 
-* Applications
-* Firewall
-* Router
 * Gateways
-* Règles
-* Système
-* Fichiers de sauvegarde
+* Rules
+* System
+* Backup Files
 
 ### Métriques collectées
 
@@ -48,9 +45,9 @@ du Fauxapi Pfsense : https://github.com/ndejong/pfsense_fauxapi
 <!--Rules-->
 
 | Metric name                 | Description                                           | Unit  |
-| :-------------------------- | :-------------------------------- --------------------| :---- |
+| :-------------------------- | :-----------------------------------------------------| :---- |
 | rules.total.count           | Total number of rules                                 | count |
-| rule.traffic.bitspersecond  | Traffic going through the Pfsense in bits per seconds.| b/s   |
+| rule.traffic.bitspersecond  | Traffic by rules in bits per seconds.                 | b/s   |
 
 <!--System-->
 
@@ -66,9 +63,12 @@ du Fauxapi Pfsense : https://github.com/ndejong/pfsense_fauxapi
 
 Un compte de service est requis pour interroger le Fauxapi Pfsense. Celui-ci doit avoir suffisamment de privilèges en lecture dans l'environnement.
 Au niveau des droits API, votre fichier de configuration doit contenir au minimum :
-```xml
-permit = config_backup_list, gateway_status, rule_get, system_stats
-```
+
+* config_backup_list
+* gateway_status
+* rule_get
+* system_stats
+
 Plus d'informations sont disponible sur la documentation officielle de Pfsense Fauxpi documentation : https://github.com/ndejong/pfsense_fauxapi/blob/master/README.md
 
 ## Installation
@@ -128,28 +128,24 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 /usr/lib/centreon/plugins/centreon_pfsense_fauxapi.pl \
     --plugin=apps::pfsense::fauxapi::plugin \
     --mode=gateways \
-    --hostname='api.pfsensefauxpi.com' \
+    --hostname='10.0.0.1' \
     --port='443' \
     --proto='https' \
     --api-key='myapikey' \
     --api-secret='myapisecret' \
-    --filter-name='mygateway' \
+    --filter-name='WAN_DHCP' \
     --critical-status='%{status} !~ /none/i' \
-    --warning-packets-delay=120 \
-    --critical-packets-delay=300 \
     --warning-packets-loss=5 \ 
     --critical-packets-loss=10 \
-    --warning-packets-stddev=360 \
-    --critical-packets-stddev=480 \
     --verbose
     
 OK: Gateway 'WAN_DHCP' packets status: none, delay: 1.00 ms, loss: 9.00 %, stddev: 7.00 ms | 'WAN_DHCP#gateway.packets.delay.milliseconds'=1.00ms;;120;300; 'WAN_DHCP#gateway.packets.loss.percentage'=9.00%;;;5;10 'WAN_DHCP#gateway.packets.stddev.milliseconds'=7.00ms;;360;480;
 Gateway 'WAN_DHCP' packets status: none, delay: 1.00 ms, loss: 9.00 %, stddev: 7.00 ms
 ```
 
-La commande ci-dessus contrôle le statut de la gateway Pfsense Fauxapi (```--mode=gateways```) nommée *WAN_DHCP* (```--filter-name='WAN_DHCP'```). 
-Il utilise l'api-key (```--api-key='myapikey'```), l'api-secret (```--api-secret='myapisecret'```)
-et il se connecte à l'hôte _api.pfsensefauxpi.com_ (```--hostname='api.pfsensefauxpi.com'```) 
+La commande ci-dessus contrôle le statut d'une gateway d'un Pfsense via la Fauxapi (```--mode=gateways```)  nommée *WAN_DHCP* (```--filter-name='WAN_DHCP'```). 
+Le Plugin utilise l'api-key (```--api-key='myapikey'```), l'api-secret (```--api-secret='myapisecret'```)
+et il se connecte à l'hôte _10.0.0.1_ (```--hostname='10.0.0.1'```) 
 sur le port _443_ (```--port='443'```) utilisant le protocol _https_ (```--proto='https'```).
 
 Cette commande déclenchera une alarme CRITICAL si le statut retourné de la gateway est différent de *none* (```--critical-status='%{status} !~ /none/i'```).
@@ -168,11 +164,11 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### J'obtiens le message d'erreur suivant: 
 
-#### ```UNKNOWN: 500 Can't connect to api.pfsensefauxpi.com:443 |```
+#### ```UNKNOWN: 500 Can't connect to mypfsense.com:443 |```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to api.pfsensefauxpi.com:443 |```.
-Cela signifie que Centreon n'a pas réussi à se connecter à Pfsense Fauxapi (*api.pfsensefauxpi.com*).
-La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *api.pfsensefauxpi.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to mypfsense.com:443 |```.
+Cela signifie que Centreon n'a pas réussi à se connecter à Pfsense Fauxapi (*mypfsense.com*).
+La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *mypfsense.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
 
