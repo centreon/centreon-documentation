@@ -65,7 +65,7 @@ du Fauxapi Pfsense : https://github.com/ndejong/pfsense_fauxapi
 ## Prérequis
 
 Un compte de service est requis pour interroger le Fauxapi Pfsense. Celui-ci doit avoir suffisamment de privilèges en lecture dans l'environnement.
-Au niveau des droits API, votre fichier de configuration doit contiennir au minimum :
+Au niveau des droits API, votre fichier de configuration doit contenir au minimum :
 ```xml
 permit = config_backup_list, gateway_status, rule_get, system_stats
 ```
