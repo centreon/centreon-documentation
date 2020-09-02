@@ -16,7 +16,10 @@ even if the API user manages to deploy a “very broken” configuration.
 * Applications
 * Firewall
 * Router
-* FauxAPI
+* Gateways
+* Rules
+* System
+* Backup-files
 
 ### Collected Metrics
 
@@ -26,40 +29,44 @@ More information about collected metrics is available in the official Pfsense Fa
 
 <!--Backup-files-->
 
-| Metric name                                | Description                                  |
-| :----------------------------------------- | :------------------------------------------- |
-| backups.total.count                        | Total number of backups		                |
-| backups.time.last.seconds                  | Last backup time in milliseconds. Unit : ms  |
+| Metric name                                | Description                 | Unit  |
+| :----------------------------------------- | :---------------------------| :---- | 
+| backups.total.count                        | Total number of backups     | count |
+| backups.time.last.seconds                  | Last backup time in seconds.| s     |
 
 <!--Gateways-->
 
-| Metric name                                 | Description                                                                       |
-| :------------------------------------------ | :-------------------------------------------------------------------------------- |
-| status                                      | Gateways status                                                                   |
-| gateway.packets.delay.milliseconds          | Delay packets going through the interface in milliseconds. Unit : ms              |
-| gateway.packets.loss.percentage             | Lost packets going through the interface in percentage. Unit : %                  |
-| gateway.packets.stddev.milliseconds         | Standard deviation packets going through the interface in milliseconds. Unit : ms |
+| Metric name                                 | Description                                                          | Unit |
+| :------------------------------------------ | :------------------------------------------------------------------- | :--- |
+| status                                      | Gateways status                                                      |      |
+| gateway.packets.delay.milliseconds          | Delay packets going through the Pfsense in milliseconds.             | ms   |
+| gateway.packets.loss.percentage             | Lost packets going through the Pfsense in percentage.                | %    |
+| gateway.packets.stddev.milliseconds         | Standard deviation packets going through the Pfsense in milliseconds.| ms   |
 
 <!--Rules-->
 
-| Metric name                 | Description                                                         |
-| :-------------------------- | :------------------------------------------------------------------ |
-| rules.total.count           | Total number of rules                                               |
-| rule.traffic.bitspersecond  | Traffic going through the interface in bits per seconds. Unit : b/s |
+| Metric name                 | Description                                           | Unit  |
+| :-------------------------- | :-------------------------------- --------------------| :---- |
+| rules.total.count           | Total number of rules                                 | count |
+| rule.traffic.bitspersecond  | Traffic going through the Pfsense in bits per seconds.| b/s   |
 
 <!--System-->
 
-| Metric name                                | Description                                   |
-| :----------------------------------------- | :-------------------------------------------- |
-| system.connections.tcp.usage.count         | Number of usage TCP connection                |
-| system.connections.tcp.usage.percentage    | Usage TCP connection in percentage. Unit : %  |
-| system.temperature.celsius                 | System temperature in celsius. Unit : C       |
+| Metric name                                | Description                         | Unit  |
+| :----------------------------------------- | :-----------------------------------| :---- |
+| system.connections.tcp.usage.count         | Number of TCP connections           | count |
+| system.connections.tcp.usage.percentage    | Usage TCP connections in percentage.| %     |
+| system.temperature.celsius                 | System temperature in celsius.      | C     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
 A service account is required to request the Pfsense Fauxapi. It needs to have sufficient reading privileges in the environment.
+In terms of API rights, your configuration file must contain at least :
+```xml
+permit = config_backup_list, gateway_status, rule_get, system_stats
+```
 More infomation is avaible in official Pfsense Fauxpi documentation : https://github.com/ndejong/pfsense_fauxapi/blob/master/README.md
 
 ## Setup
@@ -119,28 +126,27 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 ```bash
 /usr/lib/centreon/plugins/centreon_pfsense_fauxapi.pl \
     --plugin=apps::pfsense::fauxapi::plugin \
-	--mode=gateways \
-	--hostname='api.pfsensefauxpi.com' \
-	--port='443' \
-	--proto='https' \
-	--api-key='myapikey' \
-	--api-secret='myapisecret' \
-	--filter-name='mygateway' \
-	--critical-status='%{status} !~ /none/i' \
-	--warning-packets-delay=120 \
-	--critical-packets-delay=300 \
-	--warning-packets-loss=5 \ 
-	--critical-packets-loss=10 \
-	--warning-packets-stddev=360 \
-	--critical-packets-stddev=480 \
-	--verbose
+    --mode=gateways \
+    --hostname='api.pfsensefauxpi.com' \
+    --port='443' \
+    --proto='https' \
+    --api-key='myapikey' \
+    --api-secret='myapisecret' \
+    --filter-name='WAN_DHCP' \
+    --critical-status='%{status} !~ /none/i' \
+    --warning-packets-delay=120 \
+    --critical-packets-delay=300 \
+    --warning-packets-loss=5 \ 
+    --critical-packets-loss=10 \
+    --warning-packets-stddev=360 \
+    --critical-packets-stddev=480 \
+    --verbose
 
-OK: Gateways 'mygateway', Status: ok_mygateway |
-'gateway.packets.delay.milliseconds'=1;;120;300; 'gateway.packets.loss.percentage'=1;;5;10; 'gateway.packets.stddev.milliseconds'=0;;360;480;
-Gateways 'mygateway', Status: ok_mygateway
+OK: Gateway 'WAN_DHCP' packets status: none, delay: 1.00 ms, loss: 9.00 %, stddev: 7.00 ms | 'WAN_DHCP#gateway.packets.delay.milliseconds'=1.00ms;;120;300; 'WAN_DHCP#gateway.packets.loss.percentage'=9.00%;;;5;10 'WAN_DHCP#gateway.packets.stddev.milliseconds'=7.00ms;;360;480;
+Gateway 'WAN_DHCP' packets status: none, delay: 1.00 ms, loss: 9.00 %, stddev: 7.00 ms
 ```
 
-The command above gets the status of a gateway Pfsense Fauxapi (```--mode=gateways```) named *mygateway* (```--filter-name='mygateway'```). 
+The command above gets the status of a gateway Pfsense Fauxapi (```--mode=gateways```) named *WAN_DHCP* (```--filter-name='WAN_DHCP'```). 
 It uses api-key (```--api-key='myapikey'```), an api-secret (```--api-secret='myapisecret'```)
 and it connects to the host _api.pfsensefauxpi.com_ (```--hostname='api.pfsensefauxpi.com'```) 
 on the port 443 (```--port='443'```) using https (```--proto='https'```).
