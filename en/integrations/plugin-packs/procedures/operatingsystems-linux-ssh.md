@@ -315,7 +315,7 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 ```bash
  /usr/lib/centreon/plugins//centreon_linux_ssh.pl \
     --plugin=os::linux::local::plugin \
-    --mode=cpu \
+    --mode='cpu' \
     --hostname='10.30.2.114' \
     --ssh-backend='libssh' \
     --ssh-username='myuser' \
@@ -333,9 +333,10 @@ OK: CPU(s) average usage is 11.91 % - CPU '0' usage : 11.91 % |
 CPU '0' usage : 11.91 %
 ```
 
-The check command gives the average CPU of a device using SSH (```--mode=CPU```) 
-It has IP address 10.30.2.114 (```--hostname=10.30.2.114```) as backend (```--ssh-backend='libssh'```) with the centeron as username _centreon_ (```--ssh-username=centreon```) 
-and as password _centreon-password_ (```--ssh-password='centreon-password'```). 
+The check command gives the average CPU of a device using SSH (```--mode=CPU```).
+It uses a SSH username _centreon_ (```--ssh-username=centreon```), a SSH password _centreon-password_ (```--ssh-password='centreon-password'```),
+uses a SSH backend _libssh_ (```--ssh-backend='libssh'```) and it connects to the host _10.30.2.114_ (```--hostname=10.30.2.114```) 
+on the SSH default port _22_ (```---ssh-port=22```).
 
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
