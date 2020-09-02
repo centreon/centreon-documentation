@@ -17,7 +17,10 @@ une configuration "très cassée".
 * Applications
 * Firewall
 * Router
-* FauxAPI
+* Gateways
+* Règles
+* Système
+* Fichiers de sauvegarde
 
 ### Métriques collectées
 
@@ -28,40 +31,44 @@ du Fauxapi Pfsense : https://github.com/ndejong/pfsense_fauxapi
 
 <!--Backup-files-->
 
-| Metric name                                | Description                                  |
-| :----------------------------------------- | :------------------------------------------- |
-| backups.total.count                        | Total number of backups                      |
-| backups.time.last.seconds                  | Last backup time in seconds. Unit : s  |
+| Metric name                                | Description                 | Unit  |
+| :----------------------------------------- | :---------------------------| :---- | 
+| backups.total.count                        | Total number of backups     | count |
+| backups.time.last.seconds                  | Last backup time in seconds.| s     |
 
 <!--Gateways-->
 
-| Metric name                                 | Description                                                                       |
-| :------------------------------------------ | :-------------------------------------------------------------------------------- |
-| status                                      | Gateways status                                                                   |
-| gateway.packets.delay.milliseconds          | Delay packets going through the interface in milliseconds. Unit : ms              |
-| gateway.packets.loss.percentage             | Lost packets going through the interface in percentage. Unit : %                  |
-| gateway.packets.stddev.milliseconds         | Standard deviation packets going through the interface in milliseconds. Unit : ms |
+| Metric name                                 | Description                                                          | Unit |
+| :------------------------------------------ | :------------------------------------------------------------------- | :--- |
+| status                                      | Gateways status                                                      |      |
+| gateway.packets.delay.milliseconds          | Delay packets going through the Pfsense in milliseconds.             | ms   |
+| gateway.packets.loss.percentage             | Lost packets going through the Pfsense in percentage.                | %    |
+| gateway.packets.stddev.milliseconds         | Standard deviation packets going through the Pfsense in milliseconds.| ms   |
 
 <!--Rules-->
 
-| Metric name                 | Description                                                         |
-| :-------------------------- | :------------------------------------------------------------------ |
-| rules.total.count           | Total number of rules                                               |
-| rule.traffic.bitspersecond  | Traffic going through the interface in bits per seconds. Unit : b/s |
+| Metric name                 | Description                                           | Unit  |
+| :-------------------------- | :-------------------------------- --------------------| :---- |
+| rules.total.count           | Total number of rules                                 | count |
+| rule.traffic.bitspersecond  | Traffic going through the Pfsense in bits per seconds.| b/s   |
 
 <!--System-->
 
-| Metric name                                | Description                                   |
-| :----------------------------------------- | :-------------------------------------------- |
-| system.connections.tcp.usage.count         | Number of TCP connections                |
-| system.connections.tcp.usage.percentage    | Usage TCP connections in percentage. Unit : %  |
-| system.temperature.celsius                 | System temperature in celsius. Unit : C       |
+| Metric name                                | Description                         | Unit  |
+| :----------------------------------------- | :-----------------------------------| :---- |
+| system.connections.tcp.usage.count         | Number of TCP connections           | count |
+| system.connections.tcp.usage.percentage    | Usage TCP connections in percentage.| %     |
+| system.temperature.celsius                 | System temperature in celsius.      | C     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
 Un compte de service est requis pour interroger le Fauxapi Pfsense. Celui-ci doit avoir suffisamment de privilèges en lecture dans l'environnement.
+Au niveau des droits API, votre fichier de configuration doit contiennir au minimum :
+```xml
+permit = config_backup_list, gateway_status, rule_get, system_stats
+```
 Plus d'informations sont disponible sur la documentation officielle de Pfsense Fauxpi documentation : https://github.com/ndejong/pfsense_fauxapi/blob/master/README.md
 
 ## Installation
