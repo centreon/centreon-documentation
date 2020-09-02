@@ -32,6 +32,7 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | core.cpu.utilization.percentage    | CPU utilization by core. Unit : % |
 
 <!--Cpu Detailled-->
+
 * Per CPU :
 
 | Metric name     | Description                           |
@@ -108,7 +109,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | swap.usage.bytes            | Swap usage. Unit: B               |
 | swap.free.bytes             | Swap free. Unit: B                |
 | swap.usage.percentage       | Swap usage in percentage. Unit: % |
-
 
 <!--Load-->
 
@@ -194,7 +194,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Prerequisites
 
 ### SSH configuration
@@ -262,7 +261,6 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 ```
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Linux SSH* Plugin-Pack
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
