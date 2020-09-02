@@ -22,7 +22,7 @@ une configuration "très cassée".
 ### Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
-du Fauxapi Pfsense documentation: https://github.com/ndejong/pfsense_fauxapi
+du Fauxapi Pfsense : https://github.com/ndejong/pfsense_fauxapi
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -31,7 +31,7 @@ du Fauxapi Pfsense documentation: https://github.com/ndejong/pfsense_fauxapi
 | Metric name                                | Description                                  |
 | :----------------------------------------- | :------------------------------------------- |
 | backups.total.count                        | Total number of backups                      |
-| backups.time.last.seconds                  | Last backup time in milliseconds. Unit : ms  |
+| backups.time.last.seconds                  | Last backup time in seconds. Unit : s  |
 
 <!--Gateways-->
 
@@ -53,8 +53,8 @@ du Fauxapi Pfsense documentation: https://github.com/ndejong/pfsense_fauxapi
 
 | Metric name                                | Description                                   |
 | :----------------------------------------- | :-------------------------------------------- |
-| system.connections.tcp.usage.count         | Number of usage TCP connection                |
-| system.connections.tcp.usage.percentage    | Usage TCP connection in percentage. Unit : %  |
+| system.connections.tcp.usage.count         | Number of TCP connections                |
+| system.connections.tcp.usage.percentage    | Usage TCP connections in percentage. Unit : %  |
 | system.temperature.celsius                 | System temperature in celsius. Unit : C       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -150,12 +150,13 @@ Cette commande déclenchera une alarme CRITICAL si le statut retourné de la gat
 
 Cette commande déclenchera une alarme WARNING si les paquets perdus dépasse les 5% (```--warning-packets-loss='5'```) 
 et une alerte CRITICAL s'il dépasse 10% (```--critical-packets-loss='10'```).
+
 Des seuils peuvent être positionnés à l'aide des options ```--warning-*``` et ```--critical-*``` sur les métriques.
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_pfsense_fauxapi.pl --plugin=apps::pfsense::fauxapi::plugin 
+/usr/lib/centreon/plugins//centreon_pfsense_fauxapi.pl --plugin=apps::pfsense::fauxapi::plugin \
 --mode=gateways --help
 ```
 
