@@ -115,7 +115,7 @@ Make sure that the daemon configuration works fine by looking for errors in
 
 The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the Vcenter.
 
-The Pollers that request the Centreon VMWare Connector host need to access in TCP/57000 to the Centreon VMWare Connector host.
+The Pollers that request the Centreon VMWare Connector host need to access in TCP/5700 to the Centreon VMWare Connector host.
 
 ## Installation
 
