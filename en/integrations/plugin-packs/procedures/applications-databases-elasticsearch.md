@@ -175,7 +175,7 @@ OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 43
 The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```).
 We will use the port 9200 (```--port=9200```) and the http protocol (```proto=http''```).
 The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its pasword is *Elasticsearch_password*(```--password='Elasticsearch_password'```). 
-A warning thresold has been set (```--warning-disk-free='80%''```) if the free disk space reach 20% and a critical one (```--critical-disk-free='95%'```) if it's at 5%.
+A warning thresold has been set (```--warning-disk-free='20%''```) if the free disk space reach 20% and a critical one (```--critical-disk-free='5%'```) if it's at 5%.
 
 Some thresholds can also be set on metrics with options "--warning-*" and "--critical-*".
 Threshold warning can be: 'jvm-heap-usage', 'disk-free', 'documents-total' or 'data-size'.

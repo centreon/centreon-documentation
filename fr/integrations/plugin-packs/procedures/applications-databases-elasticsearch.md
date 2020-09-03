@@ -161,8 +161,8 @@ su - centreon-engine \
 --filter-name='Node 1' \
 --username='Elasticsearch_username' \
 --password='Elasticsearch_password'\
---warning-disk-free='80%' \
---critical-disk-free='95%'
+--warning-disk-free='20%' \
+--critical-disk-free='5%'
 
 ```
 
@@ -172,7 +172,7 @@ Sortie:
 OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 4362761044, donnée: 1.26TB | 'i-Vertix Node 1#node.jvm.heap.usage.percentage'=26%;;;0;100 'i-Vertix Node 1#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360 'i-Vertix Node 1#node.disk.free.bytes'=1710072680448B;;;0;3113589145600 'i-Vertix Node 1#node.documents.total.count'=4362761044;;;0; 'i-Vertix Node 1#node.donnée.size.bytes'=1386278479651B;;;0;
 ```
 La commande demande des statistiques au noeud Elasticsearch nommé 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) qui possède l'adresse IP/FQDN *168.253.16.125* (```--hostname=168.253.16.125```). Nous utiliserons le port 92000 (```--port=9200```) et le protocole http (```proto=http''```). Le nom d'utilisateur de la base de donnée est *Elasticsearch_username* (```--username='Elasticsearch_username'```) et son mot de passe *Elasticsearch_password*(```--password='Elasticsearch_password'```).
-Un seuil d'alerte a été sélectionné (```--warning-disk-free='80%''```) si l'espace disque libre atteint 20% et un critique (```--critical-disk-free='95%'```) s'il arrive à 5%.
+Un seuil d'alerte a été sélectionné (```--warning-disk-free='20%''```) si l'espace disque libre atteint 20% et un critique (```--critical-disk-free='5%'```) s'il arrive à 5%.
 
 On peut assigner des seuils  aux métriques avec les options "--warning-*" et "--critical-*".
 Les seuils d'alertes peuvent être: 'jvm-heap-usage', 'disk-free', 'documents-total ou 'data-size'.
