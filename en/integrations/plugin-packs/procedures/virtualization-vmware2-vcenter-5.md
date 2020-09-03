@@ -184,7 +184,7 @@ CRITICAL: Snapshots for VM older than 432000 seconds: [TLS-LIN-001] | 'num_warni
 ```
 
 This command above checks the virtual machine snapshots (```--plugin=apps::vmware::connector::plugin --mode=snapshot-vm```).
-It connect to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700'```).
+It connects to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700'```).
 Then the command requests the container **vcenter01** (```--container='vcenter01'```).
 
 It will trigger a WARNING alarm if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```)
