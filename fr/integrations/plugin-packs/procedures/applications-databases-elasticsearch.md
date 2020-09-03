@@ -171,6 +171,10 @@ OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 43
 ```
 La commande demande des statistiques au noeud Elasticsearch nommé 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) qui possède l'adresse IP/FQDN *168.253.16.125* (```--hostname=168.253.16.125```). Nous utiliserons le port 92000 (```--port=9200```) et le protocole http (```proto=http''```). Le nom d'utilisateur de la base de donnée est *Elasticsearch_username* (```--username='Elasticsearch_username'```) et son mot de passe *Elasticsearch_password*(```--password='Elasticsearch_password'```)
 
+On peut assigner certains seuils  aux métriques avec les options "--warning-*" et "--critical-*".
+Les seuils d'alertes peuvent être: 'jvm-heap-usage', 'disk-free', 'documents-total ou 'data-size'.
+Les seuils critiques peuvent être: 'jvm-heap-usage', 'disk-free', 'documents-total' ou 'data-size'.
+
 Tous les modes disponibles peuvent être listés par la ligne de commande suivante:
 
 ```bash

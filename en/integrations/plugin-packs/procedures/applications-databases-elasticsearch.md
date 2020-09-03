@@ -161,7 +161,7 @@ with the user *centreon-engine*:
     --plugin=database::elasticsearch::restapi::plugin \
     --mode=node-statistics \
     --filter-name='Node 1'  \
-    --username='Elasticsearch_username'  
+    --username='Elasticsearch_username' \
 ```
 
 Output: 
@@ -173,6 +173,10 @@ OK: Node 'i-Vertix Node 1' JVM Heap: 26%, Free Disk Space: 1.56TB, Documents: 43
 The command request statistic to the Elasticsearch node named 'Node 1' (```--mode=node-statistics --filter-name='Node 1```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```).
 We will use the port 9200 (```--port=9200```) and the http protocol (```proto=http''```).
 The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its pasword is *Elasticsearch_password*(```--password='Elasticsearch_password'```)
+
+Some thresholds can also be set on metrics with options "--warning-*" and "--critical-*".
+Threshold warning can be: 'jvm-heap-usage', 'disk-free', 'documents-total' or 'data-size'.
+Threshold critical can be: 'jvm-heap-usage', 'disk-free', 'documents-total' or 'data-size'.
 
 All the available modes can be listed with the command line:
 
