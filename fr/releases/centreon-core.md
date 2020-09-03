@@ -334,6 +334,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.04.6
+
+#### Bug fixes
+
+- Macros HOSTPROBLEMID, LASTHOSTPROBLEMID, SERVICEPROBLEMID and
+LASTSERVICEPROBLEMID were buggy
+
 ### 20.04.5
 
 #### Bug fixes
