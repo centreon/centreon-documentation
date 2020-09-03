@@ -7,6 +7,8 @@ title: VMware vCenter v6
 
 VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
 
+The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the VCenter SDK.
+
 ## Plugin-Pack Assets
 
 ### Monitored Objects
@@ -38,6 +40,8 @@ This pack uses "VMware vCenter" pack to extend monitored indicators (virtualizat
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
+
+### Centreon VMWare Connector
 
 For the VMWare monitoring, Centreon use daemon to connect and request the Vcenter.
 
@@ -106,6 +110,12 @@ systemctl enable centreon_vmware
 
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
+
+### Network flows
+
+The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the Vcenter.
+
+The Pollers that request the Centreon VMWare Connector host need to access in TCP/57000 to the Centreon VMWare Connector host.
 
 ## Installation
 
@@ -184,7 +194,7 @@ CRITICAL: Snapshots for VM older than 432000 seconds: [TLS-LIN-001] | 'num_warni
 ```
 
 This command above checks the virtual machine snapshots (```--plugin=apps::vmware::connector::plugin --mode=snapshot-vm```).
-It connect to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700').
+It connects to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700'```).
 Then the command requests the container **vcenter01** (```--container='vcenter01'```).
 
 It will trigger a WARNING alarm if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```)
