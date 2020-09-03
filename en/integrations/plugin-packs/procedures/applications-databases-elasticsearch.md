@@ -176,6 +176,7 @@ The command request statistic to the Elasticsearch node named 'Node 1' (```--mod
 We will use the port 9200 (```--port=9200```) and the http protocol (```proto=http''```).
 The username of the datebase is *Elasticsearch_username* (```--username='Elasticsearch_username'```) and its pasword is *Elasticsearch_password*(```--password='Elasticsearch_password'```). 
 This command will trigger a WARNING alert if there is less than 20% of free space on the disk (```--warning-disk-free='20%''```) and a CRITICAL alert if less than 5% (```--critical-disk-free='5%'```).
+Some thresholds can also be set on metrics with options "--warning-*" and "--critical-*".
 
 All the available modes can be listed with the command line:
 
