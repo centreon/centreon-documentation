@@ -21,8 +21,10 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.04.6
 
 > Newly shared views do not break widget preferences.
-> But, if you have already broken widget preferences for users who add a shared view, you'll need to :
-> * Login centreon web with the user who share the custom view
+> But, if you have already broken widget preferences for users who add a shared
+> view, you'll need to:
+>
+> * Login centreon web with the user who shares the custom view
 > * Switch to the custom view with broken preferences for other users
 > * Click on "Share view", and then click on "Share"
 >
@@ -66,14 +68,14 @@ If you have feature requests or want to report a bug, please go to our
 #### Security fixes
 
 * [API] Information Disclosure in centreon_wiki internal API
-* [API] ]Cross-site Scripting (XSS) Reflected in centreon_wiki internal API
+* [API] Cross-site Scripting (XSS) Reflected in centreon_wiki internal API
 * [Administration] Horizontal privilege escalation / session takeover
 * [Configuration] Cross Site Scripting in widget rename
 * [Configuration] RCE in SNMP trap import
-* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Host categories"
-* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Service Groups"
-* [Configuration] Vulnérabilités d’injections SQL in "Configuration > Service categories"
-* [Knowledge-Base] ]Password in plain text in "Configuration > Knowledge base" menu
+* [Configuration] SQL Injection in "Configuration > Host categories"
+* [Configuration] SQL Injection in "Configuration > Service Groups"
+* [Configuration] SQL Injection in "Configuration > Service categories"
+* [Knowledge-Base] Password in plain text in "Configuration > Knowledge base" menu
 * [Platform Status] Fix vulnerability for file loading
 
 ### 20.04.5
