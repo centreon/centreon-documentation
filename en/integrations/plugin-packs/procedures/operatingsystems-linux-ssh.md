@@ -340,6 +340,7 @@ on the SSH default port _22_ (```---ssh-port=22```).
 
 This command will trigger a WARNING alarm if the CPU Average increases to more than 60% (```--warning-average='60'```)
 and a CRITICAL alarm if more than 75% (```--critical-average='75'```).
+
 Thresholds can be set on all of the device metrics using the syntax ```--warning-*metric* --critical-*metric*```.
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
