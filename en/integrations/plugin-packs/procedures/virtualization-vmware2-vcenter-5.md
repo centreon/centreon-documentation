@@ -7,6 +7,8 @@ title: VMware vCenter v5
 
 VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
 
+The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the VCenter SDK.
+
 ## Plugin-Pack Assets
 
 ### Monitored Objects
@@ -38,6 +40,8 @@ This pack uses "VMware vCenter" pack to extend monitored indicators (virtualizat
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
+
+### Centreon VMWare Connector
 
 For the VMWare monitoring, Centreon use daemon to connect and request the Vcenter.
 
@@ -106,6 +110,12 @@ systemctl enable centreon_vmware
 
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
+
+### Network flows
+
+The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the Vcenter.
+
+The Pollers that request the Centreon VMWare Connector host need to access in TCP/5700 to the Centreon VMWare Connector host.
 
 ## Installation
 
