@@ -80,7 +80,7 @@ NB: The Xmx value depends on the amount of memory indicated in the above table.
 
 and restart the service:
 
-  systemctl restart centreon-map
+    systemctl restart centreon-map
 
 The space used by Centreon MAP server is directly determined by the number of
 elements you add into your views. An element is any graphical object in Centreon
