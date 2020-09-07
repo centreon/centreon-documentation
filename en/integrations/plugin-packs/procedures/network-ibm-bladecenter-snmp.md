@@ -75,7 +75,7 @@ To use this pack, the SNMP service must be properly configured on your
 IBM BladeCenter server. Lenovo provides an official documentation
 to achieve this: 
 * Throught BladeCenter Web Interface: https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp.html
-* Throught BladeCenter Command-Line Interface https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp.html
+* Throught BladeCenter Command-Line Interface : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp.html
 
 ### Network flow
 

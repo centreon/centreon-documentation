@@ -5,23 +5,23 @@ title: IBM Bladecenter Switch
 
 ## Vue d'ensemble
 
-IBM develops, manufactures and sells hardware, middleware, software and other
-services and products. Created in 2002, IBM BladeCenter was IBM's blade server
-architecture. 
+IBM développe, fabrique et vend du matériel, des logiciels, des middlewares et
+autres services et produits informatiques. Créée en 2002, IBM BladeCenter est
+l'architecture de serveurs lames d'IBM.
 
 ## Contenu du Plugin-Pack
 
 ### Eléments supervisés
 
-* IBM Bladecenter switch
+* Switch IBM Bladecenter
 
 ### Métriques collectées 
 
-In addition to modes and metrics described here, it is also possible to monitor 
-the following indicators:
+En plus des modes et des métriques détaillés ci-après, il est également possible
+de superviser les éléments suivants :
 
-* Ntp: Check time offset of server with ntp server
-* Uptime: Elapsed time since the last reboot
+* Ntp : Vérifier le décalage de temps du serveur avec le serveur NTP
+* Uptime: Durée depuis le dernier redémarrage
 
 <!--Cpu-->
 
@@ -71,16 +71,16 @@ absent/removed. You can also overload the default status using the
 
 ## Prérequis
 
-To use this pack, the SNMP service must be properly configured on your 
-IBM BladeCenter server. Lenovo provides an official documentation
-to achieve this: 
-* Throught BladeCenter Web Interface: https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp.html
-* Throught BladeCenter Command-Line Interface https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp.html
+Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur l'IBM 
+BladeCenter. Une description complète est disponible sur le site officiel de Cisco:
+
+* Avec l'interface Web de BladeCenter : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp.html
+* Avec l'interface en ligne de commande : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp.html
 
 ### Flux réseaux
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP
+avec le switch IBM BladeCenter.
 
 ## Installation
 
