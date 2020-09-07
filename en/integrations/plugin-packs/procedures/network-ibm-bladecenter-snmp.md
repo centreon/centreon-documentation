@@ -13,7 +13,7 @@ architecture.
 
 ### Monitored objects
 
-* IBM Bladecenter switch
+* IBM Bladecenter switch module
 
 ### Collected Metrics
 
@@ -79,8 +79,8 @@ to achieve this:
 
 ### Network flow
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+The target IBM BladeCenter server must be reachable from the Centreon
+Poller on the UDP/161 SNMP port.
 
 ## Installation
 
@@ -88,7 +88,7 @@ port.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch:
+1. Install the Plugin package on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
 ```bash
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
@@ -98,7 +98,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Plugin on every Centreon poller expected to monitor an IBM BladeCenter switch:
+1. Install the Plugin on every Centreon poller expected to monitor an IBM BladeCenter switch module:
 
 ```bash
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
@@ -137,16 +137,17 @@ user:
 ```bash
 /usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
   --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=disk --hostname=10.30.2.138 \
+  --mode=interfaces --hostname=10.30.2.138 \
   --snmp-community='public' \
-  --snmp-version='2c'
+  --snmp-version='2c' \
+  --add-status \
+  --add-traffic
 ```
 
 Expected command output is shown below:
 
 ```
-OK: All storages are ok | 'storage.partitions.count'=15;;;0; 'Swap space#storage.space.usage.bytes'=46661632B;;;0;536866816 'Virtual memory#storage.space.usage.bytes'=1853689856B;;;0;2464456704 '/#storage.space.usage.bytes'=2498961408B;;;0;4156227584 '/dev/shm#storage.space.usage.bytes'=0B;;;0;963792896 '/run#storage.space.usage.bytes'=101556224B;;;0;963792896 '/sys/fs/cgroup#storage.space.usage.bytes'=0B;;;0;963792896 '/boot#storage.space.usage.bytes'=198213632B;;;0;511647744 '/var/lib/centreon-broker#storage.space.usage.bytes'=6324224B;;;0;2046640128 '/var/lib/mysql#storage.space.usage.bytes'=744546304B;;;0;4093313024 '/var/cache/centreon/backup#storage.space.usage.bytes'=2625536B;;;0;1023303680 'Memory buffers#storage.space.usage.bytes'=343834624B;;;0;1927589888 '/var/lib/centreon#storage.space.usage.bytes'=323940352B;;;0;2046640128 '/var/log#storage.space.usage.bytes'=123432960B;;;0;2046640128 'Cached memory#storage.space.usage.bytes'=840286208B;;;0;840286208 'Shared memory#storage.space.usage.bytes'=101048320B;;;0;101048320
-
+OK: All interfaces are ok | 'traffic_in_lo'=19795.35b/s;;;0;10000000 'traffic_out_lo'=19795.35b/s;;;0;10000000 'traffic_in_ens192'=26001.62b/s;;;0;10000000000 'traffic_out_ens192'=24438.38b/s;;;0;10000000000
 ```
 
 All available modes with the plugin can be displayed with:
@@ -162,7 +163,7 @@ The available options for a mode can be displayed using the ```--help``` paramet
 ```bash
 /usr/lib/centreon/plugins/centreon_net_bladecenter_snmp.pl \
   --plugin=network::ibm::bladecenter::snmp::plugin \
-  --mode=disk \
+  --mode=interfaces \
   --help
 ```
 
