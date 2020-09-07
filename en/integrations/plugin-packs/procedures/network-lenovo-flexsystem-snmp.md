@@ -1,17 +1,18 @@
 ---
 id: network-lenovo-flexsystem-snmp
-title: Lenovo Flex System SNMP
+title: Lenovo Flex System Switch 
 ---
 
 ## Overview
 
-Flex System is Lenovo's blade server architecture.
+Lenovo develops, manufactures and sells hardware, middleware, software and other
+services and products. Flex System is Lenovo's blade server architecture.
 
 ## Plugin-Pack assests
 
 ### Monitored objects
 
-* Flex System Enterprise Chassis
+* Flex System Enterprise Chassis switch 
 
 ### Collected Metrics
 
@@ -71,8 +72,9 @@ absent/removed. You can also overload the default status using the
 
 To use this pack, the SNMP service must be properly configured on your 
 Flex System Enterprise Chassis. Lenovo provides an official documentation
-to achieve this: https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
-
+to achieve this: 
+* Throught CMM: https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
+* Throught : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp.html
 ### Network flow
 
 The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
