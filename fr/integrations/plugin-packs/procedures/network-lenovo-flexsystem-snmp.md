@@ -3,24 +3,24 @@ id: network-lenovo-flexsystem-snmp
 title: Lenovo Flex System Switch 
 ---
 
-## Overview
+## Vue d'ensemble
 
-Lenovo develops, manufactures and sells computer hardware and software. Flex
-System is Lenovo's blade server architecture.
+Lenovo développe, fabrique et vend du matériel et logiciels informatiques.
+Lenovo Flex System est l'architecture de serveurs lames de Lenovo.
 
-## Plugin-Pack assests
+## Contenu du Plugin-Pack
 
-### Monitored objects
+### Objets supervisés 
 
 * Lenovo Flex System network switch
 
-### Collected Metrics
+### Métriques collectées
 
-In addition to modes and metrics described here, it is also possible to monitor 
-the following indicators:
+En plus des modes et des métriques détaillés ci-après, il est également possible
+de superviser les éléments suivants :
 
-* Ntp: Check time offset of server with ntp server
-* Uptime: Elapsed time since the last reboot
+* Ntp : Vérifier le décalage de temps du serveur avec le serveur NTP
+* Uptime : Durée depuis le dernier redémarrage
 
 <!--Cpu-->
 
@@ -70,16 +70,17 @@ absent/removed. You can also overload the default status using the
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your 
-Flex System Enterprise Chassis. Lenovo provides an official documentation
-to achieve this: 
-* Throught the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
-* Throught the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp.html
+Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur le
+chassis Lenovo Flex System Enterprise. Une description complète est disponible sur le
+site officiel de Lenovo :
 
-### Network flow
+* Avec la console Web de CMM : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
+* Avec l'interface en ligne de commande de CMM : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp.html
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+### Flux réseaux
+
+Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP
+avec le chassis Lenovo Flex System Enterprise.
 
 ## Installation
 
@@ -87,40 +88,40 @@ port.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin package on every Centreon poller expected to monitor a Lenovo Flex System network switch:
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant un switch Lenovo Flex System :
 
 ```bash
 yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 ```
 
-2. On the centreon Web interface, install the *Lenovo Flex System Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
 <!--Offline IMP License-->
 
-1. Install the Plugin package on every Centreon poller expected to monitor a Lenovo Flex System network switch:
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant un switch Lenovo Flex System :
 
 ```bash
 yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central :
 
 ```bash
 yum install centreon-pack-network-lenovo-flexsystem-snmp
 ```
 
-3. On the centreon Web interface, install the *Lenovo Flex System Switch* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. Installer le Plugin-Pack *Lenovo Flex System Switch* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Go to *Configuration* > *Host* > and click *Add*. Then fill the *SNMP Community*
-and *SNMP Version* fields and apply the template 
+Aller dans Configuration > Host > et cliquer sur Ajouter. Puis complétez les
+champs SNMP Community et SNMP Version et appliquer le modèle d'hôte
 *Net-Lenovo-Flexsystem-SNMP-custom*.
 
-If you are using SNMP Version 3, use the
-*SNMPEXTRAOPTIONS* macro to configure your own SNMPv3 credentials combo.
+:warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP 3 et
+configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
@@ -130,8 +131,9 @@ If you are using SNMP Version 3, use the
 
 ### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
-Once you've installed the plugin, you can test it logging with *centreon-engine*
-user:
+Une fois le Plugin est installé, vous pouvez tester celui-ci directement en
+ligne de commande depuis votre collecteur Centreon avec l'utilisateur
+*centreon-engine* :
  
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
@@ -143,13 +145,14 @@ user:
   --add-traffic
 ```
 
-Expected command output is shown below:
+Résultat attendu :
 
 ```
 OK: All interfaces are ok | 'traffic_in_lo'=11723.33b/s;;;0;10000000 'traffic_out_lo'=11723.33b/s;;;0;10000000 'traffic_in_ens192'=14097.70b/s;;;0;10000000000 'traffic_out_ens192'=21796.60b/s;;;0;10000000000
 ```
 
-All available modes with the plugin can be displayed with:
+ous les modes disponibles dans le Plugin peuvent être listés via la commande
+suivante :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
@@ -157,7 +160,8 @@ All available modes with the plugin can be displayed with:
   --list-mode
 ```
 
-The available options for a mode can be displayed using the ```--help``` parameter:
+Les options des différents modes sont consultables via le paramètre ```--help```
+du mode :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_net_lenovo_flexsystem_snmp.pl \
@@ -168,12 +172,10 @@ The available options for a mode can be displayed using the ```--help``` paramet
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-If you get this message, you're probably facing one of theses issues:
-
-* Your SNMP server isn't started or misconfigured
-* An external device is blocking your request (firewall, ...)
+Si vous obtenez ce message, cela signifie que le collecteur Centreon ne parvient
+pas à contacter votre cluster Nutanix sur le port UDP 161 ou bien que la communauté SNMP configurée n'est pas correcte.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-This message generally means that SNMP privileges are not wide enough for the
-mode/plugin to work properly.
+Si vous rencontrez cette erreur, il est probable que les autorisations données à
+l'agent SNMP soient trop restreintes.
