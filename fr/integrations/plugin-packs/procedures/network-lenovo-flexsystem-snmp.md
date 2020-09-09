@@ -71,8 +71,8 @@ absent/removed. You can also overload the default status using the
 ## Prerequisites
 
 Pour utiliser ce plugin-pack, vous devez configurer le service SNMP sur le
-chassis Lenovo Flex System Enterprise. Une description complète est disponible sur le
-site officiel de Lenovo :
+serveur de lames Lenovo Flex System . Une description complète est disponible 
+sur le site officiel de Lenovo :
 
 * Avec la console Web de CMM : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
 * Avec l'interface en ligne de commande de CMM : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp.html
@@ -80,7 +80,7 @@ site officiel de Lenovo :
 ### Flux réseaux
 
 Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP
-avec le chassis Lenovo Flex System Enterprise.
+avec le serveur de lames Lenovo Flex System.
 
 ## Installation
 

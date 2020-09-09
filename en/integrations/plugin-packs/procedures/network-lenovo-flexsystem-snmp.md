@@ -71,15 +71,15 @@ absent/removed. You can also overload the default status using the
 ## Prerequisites
 
 To use this pack, the SNMP service must be properly configured on your 
-Flex System Enterprise Chassis. Lenovo provides an official documentation
+Flex System blade server. Lenovo provides an official documentation
 to achieve this: 
 * Throught the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent.html
 * Throught the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp.html
 
 ### Network flow
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+The Lenovo Flex System blade server must be reachable from the Centreon Poller
+on the UDP/161 SNMP port.
 
 ## Installation
 
