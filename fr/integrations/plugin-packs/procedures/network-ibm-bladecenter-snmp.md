@@ -21,7 +21,7 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
 de superviser les éléments suivants :
 
 * Ntp : Vérifier le décalage de temps du serveur avec le serveur NTP
-* Uptime: Durée depuis le dernier redémarrage
+* Uptime : Durée depuis le dernier redémarrage
 
 <!--Cpu-->
 
@@ -88,7 +88,7 @@ avec l'IBM BladeCenter.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant un module switch IBM BladeCenter :
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
 
 ```bash
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
@@ -98,13 +98,13 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant un module switch IBM BladeCenter :
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant le module switch IBM BladeCenter :
 
 ```bash
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon **Central** :
+2. Installer le RPM du Plugin-Pack contenant les modèles de supervision sur le serveur Centreon Central :
 
 ```bash
 yum install centreon-pack-network-ibm-bladecenter-snmp
