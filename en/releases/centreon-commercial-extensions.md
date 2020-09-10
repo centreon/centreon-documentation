@@ -27,6 +27,7 @@ If you have feature requests or want to report a bug, please contact support.
 * Fix a bug affecting the business activities tooltip on a view when the BA is calculated using the new calculation methods
 * (widget) Fix a bug affecting the save mechanism
 * Metric color overloading of a graph in the thick client is now supported in the web
+* When using status metrics for services whose host is in a status other than OK, links are now the same color as the desktop client
 
 ### 20.04.1
 
