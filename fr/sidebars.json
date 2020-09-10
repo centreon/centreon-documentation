@@ -742,6 +742,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3500-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-kaminario-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-lenovo-iomega-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-oncommandapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-snmp",
