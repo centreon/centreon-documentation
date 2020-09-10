@@ -27,6 +27,7 @@ commerciales, veuillez contacter le support.
 * Correction d'un problème affectant les tooltips des activités métier qui utilisent les nouvelles méthodes de calcul
 * (widget) Correction d'un bug affectant la sauvegarde
 * La surcharge de couleur de métrique d'un graphe  dans le client lourd est maintenant pris en charge dans le web.
+* Lors de métriques de status de services dont l'hôte est dans un statut différent de OK, les liens sont maintenant de la même couleur que le client lourd
 
 ### 20.04.1
 
