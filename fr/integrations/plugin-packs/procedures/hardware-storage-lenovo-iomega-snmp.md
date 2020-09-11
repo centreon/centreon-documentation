@@ -11,10 +11,11 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 
 ### Objets supervisés
 
-* Lenovo Iomega (ix2)
+* CPU
 * Hardware
-* Stockage
-* NAS
+* Interfaces
+* Memory
+* Storage
 
 ## Métriques collectées 
 
@@ -78,6 +79,8 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 ### Configuration Lenovo Iomega 
 
 Afin de contrôler vos équipements Lenovo Iomega, le SNMP v2 doit être configuré.
+Pour plus d'information, vous pouvez vous référer à la documentation utilisateur officiel :
+http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
 
 ### Flux de réseaux
 
@@ -142,8 +145,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --hostname=10.30.2.114
     --snmp-version='2c'
     --snmp-community='iomega_ro'
-	--warning-average='60'
-	--critical-average='75'
+    --warning-average='60'
+    --critical-average='75'
     --verbose
 	
 OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % 
@@ -177,7 +180,3 @@ Il est également possible qu'un firewall bloque le flux.
 Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
  * L'équipement Lenovo Iomega ne prend pas en charge la MIB utilisée par le Plugin.
  * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
- 
-Si cela se produit sur le mode Inodes, il est probable que le service SNMP du serveur Linux ne soit pas correctement configuré, il vous faut ajouter la directive 
-ci-dessous dans le fichier de configuration SNMP puis redémarrer le service: 
-```includeAllDisks 10%```
