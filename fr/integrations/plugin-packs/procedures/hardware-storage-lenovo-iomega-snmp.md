@@ -5,7 +5,7 @@ title: Lenovo Iomega
 
 ## Vue d'ensemble
 
-La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité, stockage et partage de contenu avancés dans un produit simple d'emploi et idéal pour les petits réseaux. 
+La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité, stockage et partage de contenus avancés dans un produit simple d'emploi et idéal pour les petits réseaux. 
 	
 ## Contenu du Pack de supervision
 
@@ -32,8 +32,8 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- |:---- |
 | status                                   | Status of the interface                                 |      |
-| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | B/s  |
-| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | B/s  |
+| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
+| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
 | interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %    |
 | interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %    |
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
@@ -50,8 +50,8 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | temperature.status            | Status of the temperature |      |
 | voltage.status                | Status of the voltage     |      |
 | hardware.fan.speed.rpm        | Speed of fan              | rpm  |
-| hardware.temperature.celsius  | Hardware temperature      | C    |
-| hardware.voltage.millivolt    | Hardware voltage          | mV   |
+| hardware.temperature.celsius  | temperature of the different sensors      | C    |
+| hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
 <!--Memory-->
 
@@ -68,8 +68,8 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | Metric name                            | Description                     | Unit  |
 | :------------------------------------- | :------------------------------ |:----- |
 | storage.partitions.count               | Number of disk partition.       | count |
-| storage.space.usage.bytes              | Used space on a disk partition. | b     |
-| storage.access                         | Access disk partition.          | b     |
+| storage.space.usage.bytes              | Used space on a disk partition. | B     |
+| storage.access                         | Access disk partition.          |       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -153,8 +153,9 @@ OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 %
 Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *iomega_ro* (```--snmp-community='iomega_ro'```).
 
-Cette commande déclenchera une alarme WARNING si la moyenne du CPU augmente à plus de 60% (```--warning-average='60'```)
+Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU est à plus de 60% (```--warning-average='60'```)
 et une alarme CRITICAL si plus de 75% (```--critical-average='75'```).
+
 Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
  
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
