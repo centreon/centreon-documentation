@@ -89,6 +89,25 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery release notes
 
+### 20.04.5
+
+#### Bugfixes
+
+- [Host Discovery] Fields are not mandatory when editing credentials
+- [Host Discovery] Monitoring mapper does not use infinity scroll to list all
+  monitoring servers
+- [Host Discovery] Job edition retrieves default proxy when none was set
+- [Host Discovery] Error when editing a job and monitoring server doens't exist
+  anymore
+- [Host Discovery] Incoherent paging information in listings
+- [Host Discovery] Next button not available at wizard's step 2 when changing
+  provider
+- [Host Discovery] Disable next button when mappers are not yet loaded in wizard
+
+#### Enhancements
+
+- [Host Discovery] Do bulk insert in temporary table when listing job's result
+
 ### 20.04.4
 
 #### Bugfixes
