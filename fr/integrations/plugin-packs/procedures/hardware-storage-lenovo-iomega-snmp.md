@@ -43,14 +43,14 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 <!--Hardware-->
 
 * Per intances :
-| Metric name                   | Description               | Unit |
-|:----------------------------- |:------------------------- |:---- |
-| disk.status                   | Status of the disk        |      |
-| raid.status                   | Status of the raid        |      |
-| fan.status                    | Status of the fan         |      |
-| temperature.status            | Status of the temperature |      |
-| voltage.status                | Status of the voltage     |      |
-| hardware.fan.speed.rpm        | Speed of fan              | rpm  |
+| Metric name                   | Description                               | Unit |
+|:----------------------------- |:----------------------------------------- |:---- |
+| disk.status                   | Status of the disk                        |      |
+| raid.status                   | Status of the raid                        |      |
+| fan.status                    | Status of the fan                         |      |
+| temperature.status            | Status of the temperature                 |      |
+| voltage.status                | Status of the voltage                     |      |
+| hardware.fan.speed.rpm        | Speed of fan                              | rpm  |
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
