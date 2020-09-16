@@ -483,6 +483,12 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Gorgone release notes
 
+### 20.04.5
+
+#### Bug fixes
+
+- [sshclient] SSH connection hangs indefinitely and never timeout
+
 ### 20.04.4
 
 #### Bug fixes
