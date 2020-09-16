@@ -10,7 +10,7 @@ title: Splunk Events
 * À chaque fois qu'un service ou hôte est vérifié, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les changements d'états.
 * Un changement d'état peut se produire en cas de changement de statut ou d'une métrique qui dépasse vos seuils.
 
-![architecture](../../assets/integrations/external/splunk+centreon.png)
+![architecture](../../assets/integrations/external/splunk_centreon.png)
 
 ### Filtres
 

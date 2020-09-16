@@ -9,7 +9,7 @@ title: Splunk Metrics
 
 * Every time a service is checked, the event passes through Centreon Broker, which loads the Stream Connector to send the metrics.
 
-![architecture](../../assets/integrations/external/splunk+centreon.png)
+![architecture](../../assets/integrations/external/splunk_centreon.png)
 
 ### Data format
 
