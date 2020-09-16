@@ -9,7 +9,7 @@ title: Splunk Metrics
 
 * À chaque fois qu'un service ou hôte est vérifié, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les métriques.
 
-![architecture](../../assets/integrations/external/splunk+centreon.png)
+![architecture](../../assets/integrations/external/splunk_centreon.png)
 
 ### Format de données
 
