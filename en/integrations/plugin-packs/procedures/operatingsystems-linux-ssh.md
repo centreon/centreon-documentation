@@ -1,5 +1,5 @@
 ---
-id: operatingsystems-linux-snmp
+id: operatingsystems-linux-ssh
 title: Linux SSH
 ---
 
