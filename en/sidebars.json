@@ -379,6 +379,7 @@
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-central",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-database",
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-ha",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi",
