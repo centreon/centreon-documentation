@@ -18,6 +18,17 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP release notes
 
+### 20.04.2
+
+* Il est désormais possible de configurer le nombre de chiffres à afficher après la virgule sur les liens de métriques dans les vues standards
+* Mise à jour de Leaflet en version [1.6.0](https://leafletjs.com/2019/11/17/leaflet-1.6.0.html)
+* Mise à jour des intéractions avec Mapbox suite à la mise à jour de leurs API et leurs styles [voir la documentation](https://docs.mapbox.com/help/troubleshooting/migrate-legacy-static-tiles-api/)
+* Correction d'un problème affectant la première arrivée sur les widgets Centreon Map ou la page `Supervision > Map` après la mise à jour en 20.04.0 (ou >=). Il fallait rafraîchir plusieurs fois la page pour que cela fonctionne, ce n'est plus le cas.
+* Correction d'un problème affectant les tooltips des activités métier qui utilisent les nouvelles méthodes de calcul
+* (widget) Correction d'un bug affectant la sauvegarde
+* La surcharge de couleur de métrique d'un graphe  dans le client lourd est maintenant pris en charge dans le web.
+* Lors de métriques de status de services dont l'hôte est dans un statut différent de OK, les liens sont maintenant de la même couleur que le client lourd
+
 ### 20.04.1
 
 * Mise à jour de SpringBoot en version 2.3.0 (Tomcat 9.0.35) ([CVE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9484))
