@@ -88,6 +88,11 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon MBI release notes
 
+### 20.04.2
+
+* Gestion de la compatibilité avec le mode HTTP2
+* [rapport] Amélioration du rapport "Poller-Performance" en supprimant la section "Current load average" car inutile et non performante
+
 ### 20.04.1
 
 * La replanification immédiate d'un job avançait la date d'exécution de plusieurs jours

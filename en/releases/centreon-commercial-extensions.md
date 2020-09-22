@@ -84,6 +84,11 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon MBI release notes
 
+### 20.04.2
+
+* Add HTTP2 compatibility
+* [reports] Improve the Poller-Performance report performance by removing a useless "Current Load" section for each poller
+
 ### 20.04.1
 
 * Logo preview has been fixed
