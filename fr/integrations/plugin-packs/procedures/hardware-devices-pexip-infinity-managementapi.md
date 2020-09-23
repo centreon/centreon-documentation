@@ -93,8 +93,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 | :-------- | :-------------- | :------------------------------------------------------------------------- |
 | X         | APIPORT         | Port used (Default: 443)                                                   |
 | X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | APIKUSERNAME    | Pexip Infinity ManagementAPI key                                           |
-| X         | APIPASSWORD     | Pexip Infinity ManagementAPI secret        	                               |
+| X         | APIKUSERNAME    | Pexip Infinity ManagementAPI username                                      |
+| X         | APIPASSWORD     | Pexip Infinity ManagementAPI password     	                               |
 |           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
