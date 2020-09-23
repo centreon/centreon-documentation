@@ -105,7 +105,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 (Les paramètres tels que ```api-username``` ou ```api-password``` doivront être ajustés):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pfsense_fauxapi.pl \
+/usr/lib/centreon/plugins/centreon_pexip_infinity_managementapi.pl \
     --plugin=hardware::devices::pexip::infinity::managementapi::plugin \
     --mode=alarms \
     --hostname='mypexipinfnitapi.com' \
