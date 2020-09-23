@@ -14,7 +14,7 @@ title: MongoDB
 Install this plugin on each needed poller:
 
 ``` shell
-yum install centreon-plugin-Applications-Databases-Mongodb
+yum install centreon-plugin-Applications-Databases-Mongodb perl-URI-Encode
 ```
 
 ## Centreon Configuration
