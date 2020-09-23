@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-pexip-infinity-managementapi
-title: Pexip Infinity Managementapi
+title: Pexip Infinity ManagementAPI
 ---
 
 ## Vue d'ensemble
@@ -21,14 +21,14 @@ Pexip Infinity comprend une API de gestion qui permet à des tiers de contrôler
 ### Métriques collectées
 
 Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
-de Pexip Infinity Managementapi : https://docs.pexip.com/api_manage/management_intro.htm
+de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_intro.htm
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Alarms-->
 
 | Metric name                                | Description                         | Unit  |
-| :----------------------------------------- | :-----------------------------------| :---- | 
+| :----------------------------------------- | :-----------------------------------| :---- |
 | status                                     | Alarms status                       |       |
 | alerts.problems.current.count              | Number of  current alerts problems  | count |
 
@@ -37,7 +37,7 @@ de Pexip Infinity Managementapi : https://docs.pexip.com/api_manage/management_i
 | Metric name                                 | Description                                                                            | Unit  |
 | :------------------------------------------ | :------------------------------------------------------------------------------------- | :---- |
 | conferences.total.count                     | Total number of conferences                                                            | count |
-| participants.total.count                    | Total number of participants                                                           | count |
+| participants.total.count                    | Total number of participants			                                               | count |
 | participants.callquality.$state.count       | Number of states participants callquality ('good', 'ok', 'bad', 'terrible', 'unknown') | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -49,7 +49,7 @@ Si vous n'utilisez pas de base de données LDAP pour l'authentification, l'accè
 Le nom d'utilisateur par défaut de ce compte est *admin*.
 Si vous utilisez une base de données LDAP, il est recommandé de créer un compte spécifiquement à l'usage de l'API.
 
-Plus d'informations sont disponible sur la documentation officielle de Pexip Infinity Managementapi : https://docs.pexip.com/admin/integrate_api.htm
+Plus d'informations sont disponible sur la documentation officielle de Pexip Infinity ManagementAPI : https://docs.pexip.com/admin/integrate_api.htm
 
 ## Installation
 
@@ -57,17 +57,17 @@ Plus d'informations sont disponible sur la documentation officielle de Pexip Inf
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity Managementapi :
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity Managementapi* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity Managementapi :
+1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
@@ -79,13 +79,13 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity Managementapi* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Pexip Infinity ManagementAPI* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Pexip Infinity Managementapi
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Pexip Infinity ManagementAPI
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Pexip-Infinity-Managementapi-custom*.
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
@@ -93,8 +93,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 | :-------- | :-------------- | :------------------------------------------------------------------------- |
 | X         | APIPORT         | Port used (Default: 443)                                                   |
 | X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | APIKUSERNAME    | Pexip Infinity Managementapi key                                           |
-| X         | APIPASSWORD     | Pexip Infinity Managementapi secret        	                               |
+| X         | APIKUSERNAME    | Pexip Infinity ManagementAPI key                                           |
+| X         | APIPASSWORD     | Pexip Infinity ManagementAPI secret        	                               |
 |           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## FAQ
@@ -138,7 +138,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 #### ```UNKNOWN: 500 Can't connect to mypexipinfnitapi.com:443 |```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to mypexipinfnitapi.com:443 |```.
-Cela signifie que Centreon n'a pas réussi à se connecter à Pexip Infinity Managementapi (*mypexipinfnitapi.com*).
+Cela signifie que Centreon n'a pas réussi à se connecter à Pexip Infinity ManagementAPI (*mypexipinfnitapi.com*).
 La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *mypexipinfnitapi.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
