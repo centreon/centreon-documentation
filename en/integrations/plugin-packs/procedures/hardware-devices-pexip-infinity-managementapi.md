@@ -35,14 +35,14 @@ More information about collected metrics is available in the official Pexip Infi
 | Metric name                                 | Description                                                                            | Unit  |
 | :------------------------------------------ | :------------------------------------------------------------------------------------- | :---- |
 | conferences.total.count                     | Total number of conferences                                                            | count |
-| participants.total.count                    | Total number of participants			                                                     | count |
+| participants.total.count                    | Total number of participants			                                               | count |
 | participants.callquality.$state.count       | Number of states participants callquality ('good', 'ok', 'bad', 'terrible', 'unknown') | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-Accesses to the ManagementAPI are authenticated via HTTPS.
+Accesses to the ManagementAPI are performed via HTTPS.
 For authentication, if you do not use an LDAP database, access is via the login credentials of the Web administrator user. 
 The default user name of this account is *admin*.
 If you are using an LDAP database, it is recommended to create an account specifically for the use of the API.
@@ -123,13 +123,14 @@ and it connects to the host _mypexipinfnitapi.com_ (```--hostname='mypexipinfnit
 on the port 443 (```--port='443'```) using https (```--proto='https'```).
 
 This command would trigger a WARNING alert if the returned status of the alarms level is equal to */warning|minor/i* (```--warning-status='%{level} =~ /warning|minor/i'```)
-and a CRITICAL alert if the returned status equal to */critical|major|error/i* (```--critical-status='%{level} =~ /critical|major|error/i'```).
+and a CRITICAL alert if the returned status is equal to */critical|major|error/i* (```--critical-status='%{level} =~ /critical|major|error/i'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_pexip_infinity_managementapi.pl --plugin=hardware::devices::pexip::infinity::managementapi::plugin \
---mode=alarms --help
+     --mode=alarms \
+     --help
 ```
 
 ### Why do I get the following error: 
@@ -147,7 +148,12 @@ the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
 
-### How do I remove the *count* perfdatas if I want to filter on just one application ?
+#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
-The Plugin adds the count of objects by default. This can be useless if the objects are filtered with the ```--filter-name``` parameter.
-Therefore, these useless perfdatas can be omitted by adding a perfdata filter : ```--filter-perfdata='^$'```.
+This error message means that a Perl library required to use the *curl* backend is missing.
+
+In order to fix this issue, install the Net\:\:Curl\:\:Easy Perl library using the following command:
+
+```bash
+yum install perl-Net-Curl
+```
