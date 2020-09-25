@@ -44,7 +44,7 @@ de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_i
 
 ## Prérequis
 
-Tous les accès à l'API de gestion sont authentifiés via HTTPS.
+Tous les accès à l'API de gestion sont effectués via HTTPS.
 Si vous n'utilisez pas de base de données LDAP pour l'authentification, l'accès se fait via les informations d'identification de l'utilisateur administrateur Web. 
 Le nom d'utilisateur par défaut de ce compte est *admin*.
 Si vous utilisez une base de données LDAP, il est recommandé de créer un compte spécifiquement à l'usage de l'API.
@@ -130,7 +130,8 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ```bash
 /usr/lib/centreon/plugins//centreon_pexip_infinity_managementapi.pl --plugin=hardware::devices::pexip::infinity::managementapi::plugin \
---mode=alarms --help
+    --mode=alarms \
+    --help
 ```
 
 ### J'obtiens le message d'erreur suivant: 
@@ -147,8 +148,12 @@ Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501
 Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *LWP* utlisée par défaut par le Plugin Centreon.
 Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
 
-### Comment puis-je supprimer les perfdatas *count* dans le cas où je ne souhaite vérifier qu'une seule application ?
+#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
-Le Plugin permet de filtrer sur un ou plusieurs éléments mais permet également de récupérer l'ensemble des éléments si aucun filtre n'est spécifié.
-De ce fait, des perfdatas "globales" sur les statistiques des objets sont ajoutées par défaut. Il est possible de supprimer ces données de performance 
-en appliquant le filtre suivant: ```--filter-perfdata='^$'```.
+Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
+
+Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
+
+```bash
+yum install perl-Net-Curl
+```
