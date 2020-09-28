@@ -17,8 +17,8 @@ through the Office365 API Management.
 
 ### Monitored objects
 
-* Mail activity
-* Mailbox usage
+* Users email activity
+* Mailboxes usage
 
 ### Monitored metrics
 
@@ -28,23 +28,23 @@ See link for details about metrics : https://docs.microsoft.com/en-us/office365/
 
 <!--Email-activity-->
 
-| Metric name           | Description                                            |
-| :-------------------- | :----------------------------------------------------- |
-| active\_mailboxes     | Number of active mailboxes. Unit: Count                |
-| total\_send\_count    | Number of total sent mails. Unit: Count                |
-| total\_receive\_count | Number of total received mails. Unit: Count            |
-| total\_read\_count    | Number of total read mails. Unit: Count                |
-| sent\_count           | Number of total sent mails by mailbox. Unit: Count     |
-| receive\_count        | Number of total received mails by mailbox. Unit: Count |
-| read\_count           | Number of total read mails by mailbox. Unit: Count     |
+| Metric name                                  | Description                            |
+| :------------------------------------------- | :------------------------------------- |
+| active\_users                                | Number of active users                 |
+| exchange.users.emails.sent.total.count       | Number of total sent mails             |
+| exchange.users.emails.received.total.count   | Number of total received mails         |
+| exchange.users.emails.read.total.count       | Number of total read mails             |
+| exchange.users.emails.sent.count             | Number of total sent mails by user     |
+| exchange.users.emails.received.count         | Number of total received mails user    |
+| exchange.users.emails.read.count             | Number of total read mails by mailbox  |
 
 <!--Mailbox-usage-->
 
-| Metric name            | Description                                                     |
-| :--------------------- | :-------------------------------------------------------------- |
-| active\_mailboxes      | Number of active mailboxes. Unit: Count                         |
-| total\_usage\_active   | Total usage space (active mailboxes) in Exchange. Unit: Bytes   |
-| total\_usage\_inactive | Total usage space (inactive mailboxes) in Exchange. Unit: Bytes |
+| Metric name                                   | Description                                         | Unit    |
+| :-------------------------------------------- | :-------------------------------------------------- |-------- |
+| active\_mailboxes                             | Number of active mailboxes                          | Count   |
+| exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes) in Exchange    | Bytes   |
+| exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes) in Exchange  | Bytes   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
