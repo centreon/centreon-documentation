@@ -117,7 +117,7 @@ Monitored services       |    CPU                 |         RAM
   < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum
  >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum
  > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum
- > 100 000               | > Contact Centr        | eon
+ > 100 000               | > Contact Centreon     | 
 
 **Storage space**: Use the following [storage estimation file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
@@ -453,3 +453,78 @@ Restart the service cron::
 > file \* /etc/cron.d/centreon\* on the monitoring server).
 
 Centreon MBI installation is now complete, check [the tutorial](../getting-started/analyze-resources-availability.html)
+
+#### Register the server
+
+To register your Centreon MBI server to the Centreon Central server, execute the following command:
+
+``` shell
+/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Poller -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
+```
+
+Example:
+
+``` shell
+/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t mbi -h 192.168.0.1 -n centreon-mbi-server
+```
+
+> Replace **<IP_CENTREON_CENTRAL>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
+> want to link your server to it..
+
+> The **<API_ACCOUNT>** must have access to configuration API. you can use default **admin** account.
+
+> If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
+> HTTPS://<IP_CENTREON_CENTRAL>:PORT
+
+Then follow instructions by
+1. Entering your password:
+
+``` shell
+192.168.0.1: please enter your password
+```
+
+2. Define if you use a proxy to connect to Centreon central or the Remote Server:
+
+``` shell
+Are you using a proxy ? (y/n)n
+```
+
+If you use a proxy, please define credentials:
+
+``` shell
+Are you using a proxy ? (y/n)y
+
+proxy host: myproxy.example.com
+
+proxy port: 3128
+
+proxy username (press enter if no username/password are required): myuser
+
+please enter the proxy password:
+```
+
+3. Then validate the information:
+
+``` shell
+Summary of the informations that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
+
+Pending Registration Server:
+name: centreon-mbi-server
+type: mbi
+address: 192.168.0.2
+parent server address: 192.168.0.1
+
+Do you want to register this server with those informations ? (y/n)y
+```
+
+You will receive the validation of the Centreon central or the Remote Server server:
+
+``` shell
+message: The 'centreon-mbi-server' Platform: 'centreon-mbi-server@192.168.0.2.2' linked to '192.168.0.1' has been added
+```

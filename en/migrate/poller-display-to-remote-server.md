@@ -48,7 +48,7 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
 5. Enable the Remote Server option
 
     To transform the server into a Remote Server, connect to the server and
-    execute following command:
+    execute the following command:
 
     ``` shell
     /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
