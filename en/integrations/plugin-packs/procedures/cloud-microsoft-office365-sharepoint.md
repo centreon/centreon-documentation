@@ -61,20 +61,23 @@ section.
 
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management or follow the link in the 'More information'
-section to create an Office365 account and get help about the management features.
+Refer to the official documentation of Office365 Management or follow the link 
+in the 'More information' section to create an Office365 account and get help 
+about the management features.
 
 ### Register an application
 
 The Office365 Management API use Azure AD to authenticate against Office365.
-To access the Office365 Management API, you need to register your application in Azure AD.
-*Application* is here used by Microsoft as a conceptual term, referring not only to the application software,
-but also to the Azure AD registration and role in authentication/authorization "conversations" at runtime.
+To access the Office365 Management API, you need to register your application in
+Azure AD. *Application* is here used by Microsoft as a conceptual term,
+referring not only to the application software, but also to the Azure AD
+registration and role in authentication/authorization "conversations" at runtime.
 (https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 
 ### Office365 Management API authorization
 
-To collect data from Sharepoint Online, you need to specify the following authorization:
+To collect data from Sharepoint Online, you need to specify the following
+authorization:
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
@@ -134,20 +137,26 @@ yum install centreon-pack-cloud-microsoft-office365-sharepoint
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-Once the host created, you can configure some Macros on the services to filter information:
+The metric perfdateY will record the date the metric was collected. You can
+filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
+*OFFICE365EXTRAOPTIONS* macro.
 
+Once the host created, you can configure some Macros on the services to filter
+information:
 
 | Mandatory | Name          | Description                                        |
 | :-------- | :------------ | :------------------------------------------------- |
-|           | FILTERMAILBOX | Filter specific mailboxes                          |
+|           | FILTERURL     | Filter specific sites by URLs                      |
+|           | FILTERID      | Filter specific sites by ID                        |
+|           | FILTERUSERS   | Filter by specific users                           |
 |           | FILTERCOUNTER | Filter specific counters (default:'active\|total') |
 
 ## FAQ
 
 ### How can I test the Plugin in the CLI and what do the main parameters stand for ?
 
-Once the Centreon Plugin installed, you can test it directly in the CLI of the Centreon poller 
-by logging with the *centreon-engine* user:
+Once the Centreon Plugin installed, you can test it directly in the CLI of the
+Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_sharepoint_api.pl \
@@ -157,23 +166,19 @@ by logging with the *centreon-engine* user:
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 
-OK: Active mailboxes on 2019-03-10 : 141/1532 (9.20%) - Total (active mailboxes)
-Send Count: 9478, Receive Count: 62197, Read Count: 24401 |
-'active_mailboxes'=141mailboxes;;;0;1532
-'total_send_count'=9478;;;0;
-'total_receive_count'=62197;;;0;
-'total_read_count'=24401;;;0;
+OK: Active sites on 2020-09-27 : 3/1031 (0.29%) - Total Usage (active sites)
+893.84 MB, Usage (inactive sites): 149.03 GB, File Count (active sites): 154,
+File Count (inactive sites): 26643, Active File Count (active sites): 5 |
+'active_sites'=3sites;;;0;1031
+'total_usage_active'=937260440B;;;0;
+'total_usage_inactive'=160024822615B;;;0;
+'total_file_count_active'=154;;;0;
+'total_file_count_inactive'=26643;;;0;
+'total_active_file_count'=5;;;0;
 ```
 
-The commande above requests the Office365 Management API  (```--plugin=cloud::microsoft::office365::Sharepoint::plugin```)
-using the provided credentials (```--tenant='abcd1234-5678-90ab-cd12-34567890abcd' --client-id='9876dcba-5432-10dc-ba98-76543210dcba' --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='```)
-and checks the mail activity (```--mode=email-activity```).
-
-The WARNING and CRITICAL thresholds can be defined on all the collected metrics,
-for example:
-```--warning-active-mailboxes='1400' --critical-active-mailboxes='1500'```
-
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+The available thresholds as well as all of the options that can be used with
+this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_sharepoint_api.pl \
