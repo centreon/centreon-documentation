@@ -460,7 +460,7 @@ To register your Centreon MBI server to the Centreon Central server, execute the
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Poller -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
+-t mbi -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:
