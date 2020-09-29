@@ -4,8 +4,8 @@ title: Office365 OneDrive
 ---
 
 ## Overview
-Microsoft’s Office365 suite includes Onedrive Online, which is a hosted messaging application 
-that provides organizations access to the full-featured version of Onedrive Server.
+Microsoft’s Office365 suite includes Onedrive, which is a file hosting service
+and syncronisation service.
 
 The monitoring information of Microsoft's Office365 is available
 through the Office365 API Management.
@@ -17,8 +17,7 @@ through the Office365 API Management.
 
 ### Monitored objects
 
-* Users email activity
-* Mailboxes usage
+* Onedrive site usage
 
 ### Monitored metrics
 
@@ -28,16 +27,14 @@ See link for details about metrics : https://docs.microsoft.com/en-us/microsoft-
 
 <!--Site-Usage-->
 
-| Metric name                                  | Description                            |
-| :------------------------------------------- | :------------------------------------- |
-| active\_sites                                | Number of active sites                 |
-| onedrive.sites.active.usage.total.bytes       | Number of total sent mails             |
-| onedrive.sites.inactive.usage.total.bytes   | Number of total received mails         |
-| onedrive.sites.active.files.total.count       | Number of total read mails             |
-| onedrive.sites.inactive.files.total.count           | Number of total sent mails by user     |
-| onedrive.sites.files.active.total.count        | Number of total received mails user    |
-| onedrive.sites.files.count            | Number of total read mails by mailbox  |
-| onedrive.sites.files.active.count
+| Metric name                                  | Description                              | Unit  |
+| :------------------------------------------- | :--------------------------------------- | :-----|
+| active\_sites                                | Number of active sites                   | Count |
+| onedrive.sites.active.usage.total.bytes      | Total usage space (active sites)         | Bytes |
+| onedrive.sites.inactive.usage.total.bytes    | Total usage space (inactive sites)       | Bytes |
+| onedrive.sites.active.files.total.count      | Total number of files (active sites)     | Count |
+| onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
+| onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
