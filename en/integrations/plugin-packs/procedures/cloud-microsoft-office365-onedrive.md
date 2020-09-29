@@ -132,7 +132,7 @@ information:
 | :-------- | :------------ | :------------------------------------------------------ |
 |           | FILTERURL     | Filter specific URLs                                    |
 |           | FILTEROWNER   | Filter specific owners                                  |
-|           | FILTERCOUNTER | Filter specific counters (default:'active-sites|total') |
+|           | FILTERCOUNTER | Filter specific counters (default:'active-sites\|total') |
 
 ## FAQ
 
