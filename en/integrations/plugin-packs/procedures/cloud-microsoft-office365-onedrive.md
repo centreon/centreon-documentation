@@ -128,10 +128,10 @@ filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 Once the host created, you can configure some Macros on the services to filter
 information:
 
-| Mandatory | Name          | Description                                             |
-| :-------- | :------------ | :------------------------------------------------------ |
-|           | FILTERURL     | Filter specific URLs                                    |
-|           | FILTEROWNER   | Filter specific owners                                  |
+| Mandatory | Name          | Description                                              |
+| :-------- | :------------ | :------------------------------------------------------- |
+|           | FILTERURL     | Filter specific sites by URLs                            |
+|           | FILTEROWNER   | Filter file by specific owners                           |
 |           | FILTERCOUNTER | Filter specific counters (default:'active-sites\|total') |
 
 ## FAQ
