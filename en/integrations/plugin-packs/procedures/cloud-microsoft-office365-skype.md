@@ -32,10 +32,10 @@ See link for details about metrics :
 
 <!--Devices-Usage-->
 
-| Metric name                  | Description                                                 | Unit   |
-| :--------------------------- | :---------------------------------------------------------- | :----- |
-| active\_devices              | Number of active devices                                    | Count  |
-| skype.devices.windows.count  | Number of windows/ipad/iphone/android/windowsphone devices  | Count  |
+| Metric name            | Description                                                  | Unit   |
+| :--------------------- | :----------------------------------------------------------- | :----- |
+| active\_devices        | Number of active devices                                     | Count  |
+| skype.devices.*.count  | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
 <!--User-Activity-->
 
