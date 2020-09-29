@@ -3,6 +3,8 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
+> To be updated
+
 ![image](../../assets/monitoring/discovery/host-discovery.gif)
 
 > The discovery providers are provided from installation of Plugin Packs (Azure,
@@ -20,6 +22,8 @@ policies.
 
 Go to `Configuration > Hosts > Discovery` and click on **+ADD**.
 
+### Choose a provider
+
 First, choose a provider by clicking on it:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
@@ -27,6 +31,11 @@ First, choose a provider by clicking on it:
 The search bar allows to search for a specific provider:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+
+A job name can be defined to identify it. The provider name will be used by
+default.
+
+### Define access and discovery parameters
 
 The second step allows to define access parameters, especially the monitoring
 server from which the discovery will be made:
@@ -37,6 +46,8 @@ Then, some additional parameters might be needed to define the scope of the
 discovery:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
+
+### Set mappers
 
 The fourth step defines how the discovery result will be processed to create
 hosts in the configuration.
@@ -49,13 +60,68 @@ discovery result could look like:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
 
-The fifth and sixth steps only allow to define manual analysis as update
-policy and immediate as execution policy.
+### Define analysis and update policies
 
-There will be more choices in the future to allow automatic update and cyclic
-execution.
+The fifth step allows to choose between two analysis methods and define
+configuration update policies.
 
-Click on **FINISH** on the last step to add and schedule the discovery job.
+#### Manual analysis
+
+Manual analysis will need user to choose what to add to the configuration
+through the result page after the job successfully finish.
+
+#### Automatic analysis
+
+Automatic analysis will process the result automatically and will use the
+choosen policies between the following:
+
+  - Add hosts to configuration when they are discovered for the first time
+  - Disable hosts already added to configuration if the mapping rule excludes
+    them
+  - Enable hosts already added to configuration if they are discovered but
+    disabled
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+
+> At least one of these policies must be selected.
+
+### Plan execution
+
+The last step allows to choose between two execution methods.
+
+#### Execute immediately
+
+The immediate execution will launch the discovery right after the job creation.
+
+#### Schedule execution
+
+The scheduled execution allows to choose between several types of scheduling:
+
+  - Every year at defined days of defined months and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+
+  - Every month at defined days of the month and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+
+  - Every week at defined days of the week and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+
+  - Every day at defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+
+  - Every x hours (at defined minutes)
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+
+  - Every x minutes
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+
+Click on **FINISH** to add and execute or schedule the discovery job.
 
 ## Manage discovery jobs
 
@@ -77,11 +143,15 @@ If a job is on a *Failed* status, hover on to the icon to know the reason.
 If a job is on a *Finished* status, click on it to analyse the result. See
 [Analyse a discovery job result](#analyse-a-discovery-job-result) to know more.
 
-Jobs can be rescheduled using the *Reschedule* action <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />
+Jobs can be re-executed using the *Force execution* action <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="40" />
 
-They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" /> 
+They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="40" /> 
 
-Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="40" />
+
+If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="40" />
+
+And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="40" />
 
 ## Analyse a discovery job result
 
@@ -90,8 +160,13 @@ visualize the result.
 
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-Select the hosts you want to add to the configuration and click on **SAVE**. A
-task will be launched in background to save the hosts.
+The mappers linked to this job can be edited and applied directly on the result
+by clicking the edit action <img src="../../assets/monitoring/discovery/host-discovery-hosts-edit-mappers" width="40" />
+
+Select the hosts you want to add to the configuration and click on the save
+action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save" width="40" />
+
+A task will be launched in background to save the hosts.
 
 Go to the `Configuration > Hosts` menu to see the newly created hosts. To
 deploy the services link to the host template, select the hosts and choose
@@ -119,13 +194,15 @@ Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discov
 A *mapper* is an object letting you map an attribute's value of a discovered
 item to a property of a future host.
 
-There is four types of *mappers*:
+There is six types of *mappers*:
 
   - Association: map an attribute's value to a common host property like name,
     alias or IP,
   - Macro: map an attribute's value to a host custom macro,
   - Template: add a host template,
-  - Monitoring: choose from which monitoring server will be monitored the host.
+  - Monitoring: choose from which monitoring server will be monitored the host,
+  - Exclusion: exclude a subset of hosts based on their attributs,
+  - Inclusion: include a subset of hosts that may be excluded.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
 mapping will actually occur.
@@ -219,3 +296,21 @@ monitoring server defined in the job or from the ones available on the
 Centreon platform.
 
 This *mapper* is mandatory.
+
+### Exclusion
+
+The **Exclusion** *mapper* is used to exclude a subset of hosts from the result
+listing.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
+
+The mapper uses hosts attributs as conditions to exclude them.
+
+### Inclusion
+
+The **Inclusion** *mapper* is used to include a subset of hosts to the result
+listing.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
+
+The mapper uses hosts attributs as conditions to include them.

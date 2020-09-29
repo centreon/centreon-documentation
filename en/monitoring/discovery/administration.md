@@ -20,7 +20,7 @@ To update the module, run the following command:
 yum update -y centreon-auto-discovery-server
 ```
 
-Connect to the Centreon’s web interface using an account allowed to administer
+Connect to the Centreon's web interface using an account allowed to administer
 products and go to the `Administration > Extensions > Manager` menu.
 
 > Make sure that **License Manager** and **Plugin Packs Manager** modules are
@@ -56,17 +56,18 @@ The module is now uninstalled:
 > Uninstalling the module will also remove all the associated data. Data won't
 > be restorable unless a database backup has been made.
 
-## Hosts discovery
-
-### Gorgone module configuration
+## Gorgone module configuration
 
 The **Auto Discovery** module brings a specific configuration for the Gorgone
 service on the Central server. The default configuration is
 `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml`.
 
-A maximum duration for discovery jobs is set globally. If its necessary to
+A maximum duration for hosts discovery jobs is set globally. If its necessary to
 change it (large subnet SNMP discovery for example), edit the configuration and
 add the *global_timeout* directive.
+
+If mail notifications are enabled in service discovery rules, mail parameters
+can be defined to choose the sender, subject or mail command.
 
 Example of configuration:
 
@@ -76,8 +77,13 @@ gorgone:
     - name: autodiscovery
       package: "gorgone::modules::centreon::autodiscovery::hooks"
       enable: true
+      # Host Discovery
       check_interval: 15
       global_timeout: 300
+      # Service Discovery
+      mail_subject: Centreon Auto Discovery
+      mail_from: centreon-autodisco
+      mail_command: /bin/mail
 ```
 
 > Be sure to restart Gorgone service after any configuration modification:
@@ -88,8 +94,8 @@ gorgone:
 
 ### Distributed architecture
 
-The hosts discovery relies on Gorgone to perform discoveries on both Central
-and Remote Server or Pollers.
+The hosts and services discoveries both rely on Gorgone to perform discoveries
+on both Central and Remote Server or Pollers.
 
 > It is necessary to have a ZMQ communication between the Central server and a
 > Remote Server to perform a discovery on a Poller attached to this Remote
@@ -98,133 +104,46 @@ and Remote Server or Pollers.
 > Look at the section presenting the differente [communication
 > types](../monitoring-servers/communications.html) to know more.
 
-## Services discovery
-
-The **Auto Discovery** module for services discovery contains 3 parts:
-
-  - The web UI: rules creation, administration and exploitation of the module,
-  - Discovery plugins,
-  - Scheduled job (cron) which executes discovery rules.
-
-The discovery plugins look for new elements to monitor, see *[Discovery
-plugins](services-discovery.html#discovery-plugins)* for more
-detail.
-
-The rules, managed through the web UI, are saved into **Centreon**'s database
-and are executed periodically (every night at 10:30 PM) by the *cron* jon. See
-[Scheduled job](#scheduled-job) pour more detail.
-
-The following figure describes the general functioning of this module:
-
-![image](../../assets/monitoring/discovery/services-discovery-schema.png)
-
-### Scheduled job
+### Service Discovery scheduled job
 
 All the active discovery rules are periodically executed through a scheduled job
-managed by the *cron* daemon. The execution's description is available into the
-**/etc/cron.d/centreon-auto-disco** file:
+managed by Gorgone's cron module. The **Auto Discovery** module brings a cron
+definition in the following file:
+`/etc/centreon-gorgone/config.d/cron.d/41-service-discovery.yaml`.
 
-``` shell
-#####################################
-# Centreon Auto Discovery
-#
-
-30 22 * * * centreon /usr/share/centreon/www/modules/centreon-autodiscovery-server//cron/centreon_autodisco.pl --config='/etc/centreon/conf.pm' --config-extra='/etc/centreon/centreon_autodisco.pm' --severity=error >> /var/log/centreon/centreon_service_discovery.log 2>&1
+```yaml
+- id: service_discovery
+  timespec: "30 22 * * *"
+  action: LAUNCHSERVICEDISCOVERY
 ```
 
 The default configuration runs the discovery every day at 10:30 PM.
 
-Information and errors relative to the execution will be saved into the
-**/var/log/centreon/centreon\_service_\_discovery.log** file.
+> If you had change the legacy *crond* configuration file to adapt the schedule
+> you must apply changes to the new configuration file.
 
-### Configuring the discovery engine
+### API accesses
 
-Here is an example of a complete possible configuration of the
-**/etc/centreon/centreon\_autodisco.pm** file:
+When installing Gorgone, a default configuration to access the Centreon APIs is
+located at `/etc/centreon-gorgone/config.d/31-centreon-api.yaml`.
 
-``` perl
-%centreon_autodisco_config = (
-    internal_com_type => 'ipc',
-    internal_com_path => '/tmp/centreonautodisco/routing.ipc',
-    # Execute rules in parallel (0) or sequential (1)
-    sequential => 1,
-    timeout_wait => 60,
-    # Use to connect to a Centreon poller
-    ssh_password => '',
-    ssh_extra_options => {
-        user => 'centreon',
-        stricthostkeycheck => 0,
-        sshdir => '/var/www/.ssh/',
-        knownhosts => '/dev/null',
-        timeout => 60,
-    },
-    ssh_exec_options => {
-        timeout => 60,
-        timeout_no_data => 120,
-        parallel => 8, #Max.: 8
-    },
-    # Centreon CLAPI parameters
-    clapi_cmd => '/usr/bin/centreon',
-    clapi_user => 'admin',
-    clapi_password => 'centreon',
-    clapi_reload => 'POLLERRELOAD',
-    # Parameters to send email report if enable in rule
-    mail_subject => 'Centreon Auto Discovery',
-    mail_from => 'centreon-autodisco',
-    mail_command => '/bin/mail',
-);
+It defines accesses to both Centreon CLAPI and RestAPI to allow discovery to
+communicate with Centreon.
 
-1;
+Example of configuration:
+
+```yaml
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://127.0.0.1/centreon/api/beta/"
+      username: admin
+      password: centreon
+    - name: clapi
+      username: admin
+      password: centreon
 ```
 
-> The *clapi_user* and *clapi_password* directives might be changed to adapt to
+> The *username* and *password* directives might be changed to adapt to
 > an *admin* user crendentials needed for services creation and configuration
-> reloading.
-
-### Distributed architecture
-
-The service discovery still uses the SSH communication between Central server
-and Remote Server or Poller when the discovery concerns a host monitored from
-those Remote Server or Poller.
-
-We must be sure that SSH keys are created for **centreon** user.
-
-#### Create and exchange SSH keys
-
-If you do not have any private SSH keys on the **Central server** for the
-**centreon** user, create one with the following commands:
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Hit enter when it prompts for a file to save the key to use the default
-> location, or, create one in a specified directory. **Leave the passphrase
-> blank**. You will receive a key fingerprint and a randomart image.
-
-Generate a password for the **centreon** user on the distant server:
-
-``` shell
-passwd centreon
-```
-
-Then, copy this key on to the distant server with the following commands:
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
-```
-
-#### Copy SSH keys for Apache user
-
-For the discovery to be made from web interface, it is necessary to authorize
-Apache process to access to **centreon** user's SSH keys. To do so execute the
-following commands:
-
-``` shell
-mkdir /var/www/.ssh/
-cp /var/spool/centreon/.ssh/* /var/www/.ssh/
-chown -R apache. /var/www/.ssh
-chmod 600  /var/www/.ssh/id_rsa
-```
+> reloading, or a user with API accesses for host discovery.
