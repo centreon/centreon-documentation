@@ -67,7 +67,7 @@ Pour supprimer l’acquittement d’un incident sur un objet :
 
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or **services**) menu
 2. Sélectionnez les objets auxquels vous souhaitez supprimer l’acquittement
-3. DAsn le menu **More actions**, cliquez sur **Hosts: Disacknowledge** ou sur **Services: Disacknowledge**
+3. Dans le menu **More actions**, cliquez sur **Hosts: Disacknowledge** ou sur **Services: Disacknowledge**
 
 ## Ajouter un temps d'arrêt
 
