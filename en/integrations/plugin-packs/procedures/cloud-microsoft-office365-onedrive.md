@@ -37,7 +37,7 @@ See link for details about metrics : https://docs.microsoft.com/en-us/microsoft-
 | onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
 Once the host created, you can configure some macros on the services to filter
-information by site or by user. More info in the [Configuration](#Configuration)
+information by site or by user. More information in the [Configuration](#Configuration)
 section.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -121,7 +121,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
-The metric *perfdate*Y will record the date the metric was collected. You can 
+The metric *perfdate* will record the date the metric was collected. You can 
 filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 *OFFICE365EXTRAOPTIONS* macro.
 
