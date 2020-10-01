@@ -143,15 +143,13 @@ If a job is on a *Failed* status, hover on to the icon to know the reason.
 If a job is on a *Finished* status, click on it to analyse the result. See
 [Analyse a discovery job result](#analyse-a-discovery-job-result) to know more.
 
-Jobs can be re-executed using the *Force execution* action <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="40" />
+Several actions can be done on jobs:
 
-They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="40" /> 
-
-Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="40" />
-
-If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="40" />
-
-And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="40" />
+  - Jobs can be re-executed using the *Force execution* action <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="24" />
+  - They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" /> 
+  - Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
+  - If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
+  - And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
 
 ## Analyse a discovery job result
 
@@ -166,11 +164,10 @@ by clicking the edit action <img src="../../assets/monitoring/discovery/host-dis
 Select the hosts you want to add to the configuration and click on the save
 action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save" width="40" />
 
-A task will be launched in background to save the hosts.
+A task will be launched in background to save the hosts and deploy the services
+linked to host templates.
 
-Go to the `Configuration > Hosts` menu to see the newly created hosts. To
-deploy the services link to the host template, select the hosts and choose
-**Deploy Service** from the **More actions...** drop-down menu.
+Go to the `Configuration > Hosts` menu to see the newly created hosts.
 
 ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
