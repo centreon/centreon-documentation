@@ -1,12 +1,13 @@
 ---
 id: applications-drbd-ssh
-title: DRBD
+title: DRBD SSH
 ---
 
 ## Vue d'ensemble
 
 DRBD (Distributed Replicated Block Device en anglais, ou périphérique en mode bloc répliqué et distribué en français) est une architecture de stockage distribuée pour GNU/Linux, 
-permettant la réplication de périphériques de bloc (disques, partitions, volumes logiques etc.) entre des serveurs. DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau, 
+permettant la réplication de périphériques de bloc (disques, partitions, volumes logiques etc.) entre des serveurs.
+DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau, 
 d'outils d'administration en espace utilisateur ainsi que de scripts shell.
 
 ## Contenu du Plugin-Pack
@@ -58,7 +59,7 @@ Plus d'informations sont disponible sur la documentation officielle de DRBD : ht
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -74,7 +75,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 yum install ccentreon-pack-applications-drbd-ssh.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *DRBD SSH* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -135,11 +136,11 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --plugin=apps::drbd::local::plugin.pm \
     --mode=resources \
     --hostname=10.30.2.81 \
-	--ssh-username=centreon \
-	--ssh-password=centreon-password \
-	--ssh-backend=libssh \
-	--legacy-proc \
-	--verbose
+    --ssh-username=centreon \
+    --ssh-password=centreon-password \
+    --ssh-backend=libssh \
+    --legacy-proc \
+    --verbose
 	
 OK: total resources: 9 - All drbd resources are ok 
 | 'resources.total.count'=9;;;0; '0#disk.data.read.bytespersecond'=0B/s;;;0; '0#disk.data.written.bytespersecond'=0B/s;;;0; '0~0#peer.traffic.in.bitspersecond'=0b/s;;;0; 
@@ -158,13 +159,13 @@ La commande ci-dessus contrôle les resources l'application DRBD (```--mode=reso
 Il y a pour adresse 10.30.2.81 (```--hostname=10.30.2.81```) comme Backend SSH  (```--ssh-backend='libssh'```) 
 avec les centreon comme username _centreon_ (```--ssh-username=centreon```) et comme mot de passe _centreon-password_ (```--ssh-password='centreon-password'```). 
 
-L'option _legacy-proc_ (```--legacy-proc```) permet de pouvoir utiliser l'ancien fichier proc (```/proc/drbd```). Ce qui permet d'utiliser une version les versions antérieurs à la version 9.
+L'option _legacy-proc_ (```--legacy-proc```) permet de pouvoir utiliser l'ancien fichier proc (```/proc/drbd```). Ce qui permet d'utiliser une version les versions antérieures à la version 9 de DRBD.
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_drbd_ssh.pl --plugin=apps::drbd::local::plugin.pm \
---mode=resources --help
+  --mode=resources --help
 ```
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
