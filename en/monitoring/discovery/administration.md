@@ -13,6 +13,8 @@ title: Administration
 > This is due to the new hardened way credentials are stored in this version.
 >
 > Discovered hosts through those tasks will remain.
+>
+> Upgrading to 20.10 will keep all data stored since 20.04.
 
 To update the module, run the following command:
 

@@ -15,6 +15,9 @@ title: Administration
 > d'identification dans cette version.
 >
 > Les hôtes découverts au travers des tâches ne sont pas touchés.
+>
+> La montée de version vers 20.10 conserve toutes les données présentent depuis
+> la version 20.04.
 
 Pour mettre à jour le module, exécutez la commande suivante :
 
@@ -59,18 +62,20 @@ Le module est maintenant désinstallé :
 > données ne pourront être restaurées sauf si une sauvegarde de la base de
 > données a été faite.
 
-## Découverte d'hôtes
-
-### Configuration du module Gorgone
+## Configuration du module Gorgone
 
 Le module **Auto Discovery** amène une configuration spécifique pour le service
 Gorgone du serveur Central. La configuration par défaut est
 `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml`.
 
-Une durée maximale pour les tâches de découverte est configurée de manière
-globale au module. S'il est nécessaire de la modifier (par exemple pour une
-découverte SNMP sur un large sous-réseau), il faut éditer le fichier
+Une durée maximale pour les tâches de découverte d'hôtes est configurée de
+manière globale au module. S'il est nécessaire de la modifier (par exemple pour
+une découverte SNMP sur un large sous-réseau), il faut éditer le fichier
 de configuration et ajouter le directive *global_timeout*.
+
+Si les notifications par mail ont été activées dans des règles de dévouverte de
+services, les paramètres relatifs au système d'envoie peuvent être défini pour
+choisir l'expéditeur, le sujet ou la commande mail.
 
 Exemple de configuration :
 
@@ -80,8 +85,13 @@ gorgone:
     - name: autodiscovery
       package: "gorgone::modules::centreon::autodiscovery::hooks"
       enable: true
+      # Host Discovery
       check_interval: 15
       global_timeout: 300
+      # Service Discovery
+      mail_subject: Centreon Auto Discovery
+      mail_from: centreon-autodisco
+      mail_command: /bin/mail
 ```
 
 > Assurez vous de redémarrer le service Gorgone après chaque modification :
@@ -92,8 +102,9 @@ gorgone:
 
 ### Architecture distribuée
 
-La découverte d'hôtes se base sur Gorgone pour effectuer les découvertes à la
-fois sur le serveur Central et sur les Remote Servers ou Pollers.
+La découverte d'hôtes et de services se basent sur Gorgone pour effectuer les
+découvertes à la fois sur le serveur Central et sur les Remote Servers ou
+Pollers.
 
 > Il est nécessaire d'avoir une communication en ZMQ entre le serveur Central
 > et un Remote Server pour effectuer une découverte sur un Poller rattaché à ce
@@ -103,142 +114,46 @@ fois sur le serveur Central et sur les Remote Servers ou Pollers.
 > [communication](../monitoring-servers/communications.html) pour en savoir
 > plus.
 
-## Découverte de services
+### Tâche planifiée de découverte de services
 
-Le module **Auto Discovery** pour la découverte de service est composé
-de 3 parties :
+Toutes les règles de découverte actives sont exécutées périodiquement à travers
+d'une tâche ordonnancée par le module cron de Gorgone. Le module **Auto
+Discovery** amène une définition pour cette tâche dans le fichier suivant :
+`/etc/centreon-gorgone/config.d/cron.d/41-service-discovery.yaml`.
 
-  - Une interface Web : création des règles, administration et exploitation du
-    module,
-  - Les sondes de découvertes,
-  - Une tâche planifiée qui exécute les règles de découverte.
-
-Les sondes de découverte vérifient la présence de nouveaux éléments à
-superviser. Voir [sondes de
-découvertes](services-discovery.html#sondes-de-découverte) pour
-plus de détails.
-
-Les règles, gérées à travers l’interface Web, sont sauvegardées dans la base de
-données Centreon et sont exécutées périodiquement (toutes les nuits à 22h30) par
-une [tâche planifiée cron](#tâche-programmée).
-
-Les schémas suivants décrivent le fonctionnement général du module :
-
-![image](../../assets/monitoring/discovery/services-discovery-schema.png)
-
-### Tâche programmée
-
-Toutes les règles de découverte sont exécutées périodiquement à travers d'une
-tâche ordonnancée par le démon cron. La description des exécutions est
-disponible dans le fichier **/etc/cron.d/centreon-auto-disco** :
-
-``` shell
-#####################################
-# Centreon Auto Discovery
-#
-
-30 22 * * * centreon /usr/share/centreon/www/modules/centreon-autodiscovery-server//cron/centreon_autodisco.pl --config='/etc/centreon/conf.pm' --config-extra='/etc/centreon/centreon_autodisco.pm' --severity=error >> /var/log/centreon/centreon_service_discovery.log 2>&1
+```yaml
+- id: service_discovery
+  timespec: "30 22 * * *"
+  action: LAUNCHSERVICEDISCOVERY
 ```
 
 La configuration par défaut exécute les règles de découvertes tous les jours à
 22h30.
 
-Les informations et les erreurs relatives à l’exécution des règles de découverte
-sont sauvegardées dans le fichier
-**/var/log/centreon/centreon\_service\_discovery.log**.
+### Accès aux API
 
-### Configuration du moteur de découverte
+A l'installation de Gorgone, une configuration par défaut pour accéder aux API
+de Centreon se trouve ici `/etc/centreon-gorgone/config.d/31-centreon-api.yaml`.
 
-Voici un exemple complet de la configuration possible du fichier
-**/etc/centreon/centreon\_autodisco.pm** :
+Elle défini les accès pour Centreon CLAPI et l'API Rest pour permettre à la
+découverte de communiquer avec Centreon.
 
-``` perl
-%centreon_autodisco_config = (
-    internal_com_type => 'ipc',
-    internal_com_path => '/tmp/centreonautodisco/routing.ipc',
-    # Execute rules in parallel (0) or sequential (1)
-    sequential => 1,
-    timeout_wait => 60,
-    # Use to connect to a Centreon poller
-    ssh_password => '',
-    ssh_extra_options => {
-        user => 'centreon',
-        stricthostkeycheck => 0,
-        sshdir => '/var/www/.ssh/',
-        knownhosts => '/dev/null',
-        timeout => 60,
-    },
-    ssh_exec_options => {
-        timeout => 60,
-        timeout_no_data => 120,
-        parallel => 8, #Max.: 8
-    },
-    # Centreon CLAPI parameters
-    clapi_cmd => '/usr/bin/centreon',
-    clapi_user => 'admin',
-    clapi_password => 'centreon',
-    clapi_reload => 'POLLERRELOAD',
-    # Parameters to send email report if enable in rule
-    mail_subject => 'Centreon Auto Discovery',
-    mail_from => 'centreon-autodisco',
-    mail_command => '/bin/mail',
-);
+Exemple de configuration :
 
-1;
+```yaml
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://127.0.0.1/centreon/api/beta/"
+      username: admin
+      password: centreon
+    - name: clapi
+      username: admin
+      password: centreon
 ```
 
-> Les directives *clapi_user* et *clapi_password* sont susceptibles d'être
+> Les directives *username* et *password* sont susceptibles d'être
 > modifiées pour s'adapter aux informations d'identifications d'un utilisteur
 > *admin* nécessaire pour la création des services et le rechargement de la
-> configuration.
-
-### Architecture distribuée
-
-La découverte de service utilise toujours la communication SSH entre le serveur
-Central et les Remote Server ou Poller lorsque la découverte concerne un hôte
-supervisé par ces Remote Server ou Poller.
-
-Il faut donc s'assurer que les clés SSH soient créées pour l'utilisateur
-**centreon**.
-
-#### Créer et échanger les clées SSH
-
-Si vous n’avez pas de clé SSH privée sur le **serveur Central** pour
-l’utilisateur **centreon**, vous pouvez la créer avec la commande suivante :
-
-``` shell
-su - centreon
-ssh-keygen -t rsa
-```
-
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un
-> fichier pour enregistrer la clé. **Laissez le mot de passe vide**. Vous
-> recevrez une empreinte digitale de clé et une image randomart.
-
-S'il n'en a pas, générez un mot de passe sur le serveur distant pour
-l'utilisateur **centreon** :
-
-``` shell
-passwd centreon
-```
-
-Pour finir, vous devez copier cette clé sur le serveur distant avec les
-commandes suivantes :
-
-``` shell
-su - centreon
-ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
-```
-
-#### Copier les clées SSH pour l'utilisateur Apache
-
-Pour que la découverte puisse se faire depuis l'interface web, il est nécessaire
-d’autoriser le processus Apache à accéder aux clés SSH de l’utilisateur
-**centreon**. Pour cela exécutez les commandes suivantes :
-
-``` shell
-mkdir /var/www/.ssh/
-cp /var/spool/centreon/.ssh/* /var/www/.ssh/
-chown -R apache. /var/www/.ssh
-chmod 600  /var/www/.ssh/id_rsa
-```
+> configuration, ou d'un utilisateur avec des droits d'accès à l'API pour la
+> découverte d'hôtes.

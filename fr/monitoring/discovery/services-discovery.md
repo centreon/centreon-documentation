@@ -6,8 +6,10 @@ title: Découverte des services
 ## Lancer une découverte manuellement
 
 Une fois les règles de découverte programmées, il est possible de les exécuter
-au travers de l’interface web Centreon. Pour cela, se connecter et accéder au
-menu `Configuration > Services > Manuelle`.
+au travers de l’interface web Centreon.
+
+Pour cela, se connecter et accéder au menu `Configuration > Services >
+Manuelle`.
 
 Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et
 l’interface vous proposera de compléter automatiquement ce dernier :
@@ -332,56 +334,68 @@ Ici 4 attributs sont disponibles : `name`, `total`, `status` et `interfaceid`.
 Il est possible de tester le fonctionnement du module manuellement grâce aux
 options :
 
-  - `--filter-rule=<rule_name>` : Permet d’exécuter une règle précise ;
-  - `--filter-host=<host_name>` Permet d’exécuter toutes les règles de
-    découverte dont les modèles d’hôte de celui-ci sont liés ;
-  - `--filter-poller=<poller_name>` : Permet d’exécuter les règles de découverte
-    pour les ressources appartenant au collecteur ;
-  - \`\`--dry-run\` : Exécute la découverte sans créer de nouveaux objets en
-    base. Permet de tester le fonctionnement d’une règle de découverte.
-
-> YLes option `--filter-*=<value>` peut être combinées. L’option `--dry-run`est
-> indépendante des autres options.
+| Directive       | Type    | Description                                                                                             |
+|-----------------|---------|---------------------------------------------------------------------------------------------------------|
+| filter\_rules   | tableau | Permet d’exéxuter la ou les règles                                                                      |
+| filter\_hosts   | tableau | Permet d’exécuter toutes les règles de découverte liées aux modèles d’hôte de ou des hôtes sélectionnés |
+| filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant à ou aux Collecteurs         |
+| dry\_run        | booléen | Exécute la découverte sans changement dans la confugration (utiliser à des fin de test)                 |
 
 ### Exemples
 
 Exécution de toutes les règles :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl
+curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{}'
 ```
 
 Test de toutes les règles :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --dry-run
+curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "dry_run": 1
+}'
 ```
 
-Exécution de la règle **OS-Linux-SNMP-Network-Interfaces-Discovery** sans
-modification de la configuration Centreon :
+Test d'une règle en particuliers :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
-  --dry-run
+curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "filters_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
+    "dry_run": 1
+}'
 ```
 
-Exécution des règles de découverte pour l’hôte “centreon-server” sans
-modification de la configuration Centreon :
+Test de toutes les règles liées aux modèles d'hôte utilisés par l'hôte défini :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-host="centreon-server" \
-  --dry-run
+curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "filters_hosts": ["centreon-server"],
+    "dry_run": 1
+}'
 ```
 
-Exécution de la règle “OS-Linux-SNMP-Network-Interfaces-Discovery”, pour l’hôte
-“centreon-server”, sans modification de la configuration Centreon :
+Test d'une règle en particuliers pour l'hôte défini :
 
 ``` shell
-/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
-  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
-  --filter-host="centreon-server" \
-  --dry-run
+curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "filters_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
+    "filters_hosts": ["centreon-server"],
+    "dry_run": 1
+}'
 ```

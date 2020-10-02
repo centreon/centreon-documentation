@@ -3,15 +3,6 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
-> To be updated
-
-![image](../../assets/monitoring/discovery/host-discovery.gif)
-
-> The discovery providers are provided from installation of Plugin Packs (Azure,
-> Amazon AWS, VMware, etc.). To know the complete list, please go to
-> the [Plugin Packs
-> catalog](../../integrations/plugin-packs/introduction.html).
-
 ## Add a discovery job
 
 To launch a discovery, you need to add a discovery job.
@@ -32,6 +23,11 @@ The search bar allows to search for a specific provider:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
+> The discovery providers are provided from installation of Plugin Packs (Azure,
+> Amazon AWS, VMware, etc.). To know the complete list, please go to
+> the [Plugin Packs
+> catalog](../../integrations/plugin-packs/introduction.html).
+
 A job name can be defined to identify it. The provider name will be used by
 default.
 
@@ -41,6 +37,9 @@ The second step allows to define access parameters, especially the monitoring
 server from which the discovery will be made:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
+
+Some providers ask for other parameters such as a proxy if the discovery is made
+on an online service and/or credentials.
 
 Then, some additional parameters might be needed to define the scope of the
 discovery:
@@ -164,7 +163,7 @@ by clicking the edit action <img src="../../assets/monitoring/discovery/host-dis
 Select the hosts you want to add to the configuration and click on the save
 action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
-A task will be launched in background to save the hosts and deploy the services
+A task will be launched in background to save the hosts and create the services
 linked to host templates.
 
 Go to the `Configuration > Hosts` menu to see the newly created hosts.
@@ -198,7 +197,7 @@ There is six types of *mappers*:
   - Macro: map an attribute's value to a host custom macro,
   - Template: add a host template,
   - Monitoring: choose from which monitoring server will be monitored the host,
-  - Exclusion: exclude a subset of hosts based on their attributs,
+  - Exclusion: exclude a subset of hosts based on their attributes,
   - Inclusion: include a subset of hosts that may be excluded.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
@@ -301,7 +300,7 @@ listing.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
 
-The mapper uses hosts attributs as conditions to exclude them.
+The mapper uses hosts attributes as conditions to exclude them.
 
 ### Inclusion
 
@@ -310,4 +309,4 @@ listing.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
-The mapper uses hosts attributs as conditions to include them.
+The mapper uses hosts attributes as conditions to include them.
