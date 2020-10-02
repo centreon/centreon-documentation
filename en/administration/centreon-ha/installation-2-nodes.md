@@ -679,7 +679,7 @@ pcs resource create "ms_mysql" \
 ```
 
 ```bash
-pcs resource meta ms_mysql-master \
+pcs resource master ms_msql \
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
