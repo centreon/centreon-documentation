@@ -275,7 +275,7 @@ error code: 401
 error message: Invalid credentials
 ```
 
-> You credetials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **<API_ACCOUNT>**.
 
 ``` shell
 error code: 500
