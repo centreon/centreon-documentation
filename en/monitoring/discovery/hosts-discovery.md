@@ -159,10 +159,10 @@ visualize the result.
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 The mappers linked to this job can be edited and applied directly on the result
-by clicking the edit action <img src="../../assets/monitoring/discovery/host-discovery-edit" width="24" />
+by clicking the edit action <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
 Select the hosts you want to add to the configuration and click on the save
-action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save" width="24" />
+action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
 A task will be launched in background to save the hosts and deploy the services
 linked to host templates.
@@ -226,7 +226,7 @@ Click on **SAVE** to add the *mapper*.
 ### Edit a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
 Change any fields wanted or even the type of *mapper*.
 
@@ -235,7 +235,7 @@ Click on **SAVE** to save the *mapper*.
 ### Delete a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
 
 A popin window will ask you to confirm the action.
 
