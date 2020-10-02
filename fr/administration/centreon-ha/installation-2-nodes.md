@@ -553,6 +553,8 @@ chmod 664 /var/log/centreon-engine/archives/*
 - Découverte des services 
 
 ```bash
+mkdir /tmp/centreon-autodisco/
+chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
 
