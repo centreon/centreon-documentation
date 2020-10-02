@@ -542,6 +542,8 @@ In a clustered-setup, it's a requirement to get a file sync and discovery schedu
 
 ```bash
 chmod 775 /var/log/centreon-engine/
+mkdir /var/log/centreon-engine/archives
+chown centreon-engine: /var/log/centreon-engine/archives
 chmod 775 /var/log/centreon-engine/archives/
 chmod 664 /var/log/centreon-engine/*
 chmod 664 /var/log/centreon-engine/archives/*
