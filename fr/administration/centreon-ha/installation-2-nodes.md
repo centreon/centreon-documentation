@@ -662,6 +662,8 @@ pcs quorum device add model net \
 
 Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
+hoho
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -680,14 +682,33 @@ pcs resource create "ms_mysql" \
     master
 ```
 
+> **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
+
 ```bash
-pcs resource master ms_msql \
+pcs resource meta ms_mysql-master \
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
 ```
+
+<!--RHEL-->
+
+```bash
+pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Création des ressources clones
 
