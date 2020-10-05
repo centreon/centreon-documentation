@@ -4,6 +4,7 @@ title: Office365 OneDrive
 ---
 
 ## Overview
+
 Microsoft’s Office365 suite includes Onedrive, which is a file hosting and
 syncronisation service.
 
@@ -36,11 +37,11 @@ See link for details about metrics : https://docs.microsoft.com/en-us/microsoft-
 | onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
 | onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Once the host created, you can configure some macros on the services to filter
 information by site or by user. More information in the [Configuration](#Configuration)
 section.
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
