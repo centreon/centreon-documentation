@@ -5,16 +5,15 @@ title: DRBD SSH
 
 ## Vue d'ensemble
 
-DRBD (Distributed Replicated Block Device en anglais, ou périphérique en mode bloc répliqué et distribué en français) est une architecture de stockage distribuée pour GNU/Linux, 
-permettant la réplication de périphériques de bloc (disques, partitions, volumes logiques etc.) entre des serveurs.
-DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau, 
-d'outils d'administration en espace utilisateur ainsi que de scripts shell.
+DRBD est une architecture de stockage distribuée pour GNU/Linux, permettant la réplication de périphériques de bloc
+(disques, partitions, volumes logiques etc.) entre des serveurs.
+DRBD est un logiciel libre, mais un support existe. DRBD est composé d'un module noyau et d'outils d'administration. 
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-* Resources
+* Disques utilisant DRBD, incluant les *roles, devices et peers.
 
 ### Métriques collectées
 
@@ -41,11 +40,13 @@ de DRDB : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 
 ## Prérequis
 
-Un certain nombre de distributions fournissent DRBD, y compris des paquets binaires pré-construits. 
-Le support de ces compilations, s'il y en a, est fourni par le fournisseur de la distribution associée. 
-Leur cycle de publication peut être en retard par rapport aux versions sources de DRBD.
+Un certain nombre de distributions fournissent DRBD via le gestionnaire de paquets des différentes distributions. 
 
-Plus d'informations sont disponible sur la documentation officielle de DRBD : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/#ch-install-packages
+Plus d'informations pour son déploiement sont disponible sur la documentation officielle de DRBD:
+https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/#ch-install-packages
+
+Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur executant DRBD. L'utilisateur distant
+doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`. 
 
 ## Installation
 
@@ -53,7 +54,7 @@ Plus d'informations sont disponible sur la documentation officielle de DRBD : ht
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources DRDB :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRDB :
 
 ```bash
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
@@ -63,7 +64,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources DRBD :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources DRBD :
 
 ```bash
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
@@ -81,9 +82,9 @@ yum install ccentreon-pack-applications-drbd-ssh.noarch
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement DRBD
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Drbd-SSH-custom*.
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un Hôte par environnement DRBD
+Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *App-Drbd-SSH-custom*.
+Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -92,33 +93,33 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |          
+| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |          
 |             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
+et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--plink backend-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
 | X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |
+| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 :warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
+et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--libssh backend (par défaut)-->
 
 | Mandatory   | Name            | Description                                                                                     |
 | :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
 | X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre collecteur |
+|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
 |             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
@@ -129,7 +130,7 @@ Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serve
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine*
 
 ```bash
 /usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
@@ -164,8 +165,9 @@ L'option _legacy-proc_ (```--legacy-proc```) permet de pouvoir utiliser l'ancien
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_drbd_ssh.pl --plugin=apps::drbd::local::plugin.pm \
-  --mode=resources --help
+/usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
+--plugin=apps::drbd::local::plugin.pm \
+--mode=resources --help
 ```
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
