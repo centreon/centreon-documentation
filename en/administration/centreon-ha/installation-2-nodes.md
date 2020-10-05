@@ -542,6 +542,8 @@ In a clustered-setup, it's a requirement to get a file sync and discovery schedu
 
 ```bash
 chmod 775 /var/log/centreon-engine/
+mkdir /var/log/centreon-engine/archives
+chown centreon-engine: /var/log/centreon-engine/archives
 chmod 775 /var/log/centreon-engine/archives/
 chmod 664 /var/log/centreon-engine/*
 chmod 664 /var/log/centreon-engine/archives/*
@@ -550,6 +552,8 @@ chmod 664 /var/log/centreon-engine/archives/*
 - Services discovery
 
 ```bash
+mkdir /tmp/centreon-autodisco/
+chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
 
@@ -678,6 +682,12 @@ pcs resource create "ms_mysql" \
     master
 ```
 
+> **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS7-->
+
 ```bash
 pcs resource meta ms_mysql-master \
     master-node-max="1" \
@@ -686,6 +696,19 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
+
+<!--RHEL-->
+
+```bash
+pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Creating the clone resources
 
