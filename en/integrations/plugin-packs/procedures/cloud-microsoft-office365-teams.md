@@ -33,16 +33,16 @@ See link for details about metrics :
 
 <!--Devices-Usage-->
 
-| Metric name                  | Description                               | Unit   |
-| :--------------------------- | :---------------------------------------- | :----- |
-| active\_devices              | Number of active devices                  | Count  |
-| teams.devices.*.count  | Number of *windows/mac/web/iOS/android devices  | Count  |
+| Metric name                  | Description                                    | Unit   |
+| :--------------------------- | :--------------------------------------------- | :----- |
+| teams.devices.active.count   | Number of active devices                       | Count  |
+| teams.devices.\*.count       | Number of windows/mac/web/iOS/android devices  | Count  |
 
 <!--User-Activity-->
 
 | Metric name                               | Description                            | Unit   |
 | :---------------------------------------- | :------------------------------------- | :----- |
-| active\_users                             | Total number of active users           | Count  |
+| teams.users.active.count                  | Total number of active users           | Count  |
 | teams.users.messages.team.total.count     | Total number of Team chat messages     | Count  | 
 | teams.users.messages.private.total.count  | Total number of Private chat messages  | Count  |
 | teams.users.call.total.count              | Total number of calls                  | Count  |
