@@ -4,8 +4,9 @@ title: Office365 Exchange
 ---
 
 ## Vue d'ensemble
-Exchange Online est la version hébergée de la plateforme de messagerie Exchange
-Server de Microsoft. 
+
+La suite Microsoft Office 365 comprend Exchange Online, la version hébergée de
+la plateforme de messagerie Exchange Server de Microsoft. 
 
 Les informations de supervision de la suite Office sont mises à disposition par
 Microsoft au travers d'une API de gestion Office 365.
@@ -99,7 +100,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager" 
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Exchange :
@@ -115,7 +115,6 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 ```
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Exchange* depuis la page "Configuration > Plugin packs > Manager"
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -133,6 +132,9 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
+La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
+l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de Macros de Service selon la configuration souhaitée:
 
@@ -188,10 +190,6 @@ suivante :
   --plugin=cloud::microsoft::office365::exchange::plugin \
   --list-mode
 ```
-
-### Le Plugin renvoie l'erreur suivante ```UNKNOWN 500: Can't connect...```
-
-
 
 #### ```UNKNOWN: 500 Can't connect to ...:443```
 
