@@ -40,22 +40,22 @@ https://apidocs.versa-networks.com/
 
 * Global
 
-| Metric name                                        | Description                                | Unit  |
-|:-------------------------------------------------- |:------------------------------------------ |:----- |
-| status                                             | Status of the device                       |       |
-| memory.usage.bytes                                 | Memory usage on the device                 | B     |
-| memory.free.bytes                                  | Free memory on the device                  | B     |
-| memory.usage.percentage                            | Percentage of memory usage on the device   | %     |
-| disk.usage.bytes                                   | Disk usage on the device                   | B     |
-| disk.free.bytes                                    | Free disk space on the device              | B     |
-| disk.usage.percentage                              | Percentage of disk usage on the device     | %     |
-| alarms.critical.count                              | Number of critical alarms on the device    | Count |
-| alarms.major.count                                 | Number of major alarms on the device       | Count |
-| alarms.minor.count                                 | Number of minor alarms on the device       | Count |
-| alarms.warning.count                               | Number of warning alarms on the device     | Count |
-| alarms.inderminate.count                           | Number of inderminate alarm on the device  | Count |
-| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link | Count |
-| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action    | Count |
+| Metric name                                        | Description                                  | Unit  |
+|:-------------------------------------------------- |:-------------------------------------------- |:----- |
+| status                                             | Status of the device                         |       |
+| memory.usage.bytes                                 | Memory usage on the device                   | B     |
+| memory.free.bytes                                  | Free memory on the device                    | B     |
+| memory.usage.percentage                            | Percentage of memory usage on the device     | %     |
+| disk.usage.bytes                                   | Disk usage on the device                     | B     |
+| disk.free.bytes                                    | Free disk space on the device                | B     |
+| disk.usage.percentage                              | Percentage of disk usage on the device       | %     |
+| alarms.critical.count                              | Number of critical alarms on the device      | Count |
+| alarms.major.count                                 | Number of major alarms on the device         | Count |
+| alarms.minor.count                                 | Number of minor alarms on the device         | Count |
+| alarms.warning.count                               | Number of warning alarms on the device       | Count |
+| alarms.indeterminate.count                         | Number of indeterminate alarms on the device | Count |
+| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link   | Count |
+| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action      | Count |
 
 * Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
 
@@ -91,7 +91,8 @@ des équipements Versa via l'API du Versa Director :
 yum install centreon-plugin-Network-Versa-Director-Restapi
 ```
 
-2. Installer le Plugin-Pack 'Versa Director Restapi' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+2. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+
 
 <!--Offline IMP License-->
 
@@ -108,7 +109,8 @@ yum install centreon-plugin-Network-Versa-Director-Restapi
 yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. Installer le Plugin-Pack 'Versa Director Restapi' depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+3. Installer le Plugin-Pack *Versa Director Restapi* depuis la page "Configuration > Plugin packs > Manager" sur l'interface Web de Centreon.
+
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -136,7 +138,8 @@ yum install centreon-pack-network-versa-director-restapi
 
 ### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
 
-A partir du moment ou le Plugin est installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+
 
 ```bash
 /usr/lib/centreon/plugins//centreon_versa_director_restapi.pl \
@@ -199,7 +202,8 @@ Cette commande supervise un équipement Versa Networks **CENFRGW101** (```--filt
 à l'aide l'API Versa Director (```--plugin=network::versa::director::restapi::plugin --mode=devices```).
 Le plugin requête l'API du Versa Director **10.0.0.1** (```--hostname=10.0.0.1```) avec l'utilisateur
 **jdoe** et son mot de passe (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
-Un équipement Versa peut être lié à plusieurs organisations, nous utilisons une widlcard (```--organization='.*'```).
+Un équipement Versa peut être lié à plusieurs organisations, nous utilisons une *wildcard* (```--organization='.*'```).
+
 
 Cette commande retournera une alerte CRITICAL (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) si :
 

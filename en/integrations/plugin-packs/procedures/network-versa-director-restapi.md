@@ -9,7 +9,8 @@ Versa Director provides the management, monitoring and orchestration capabilitie
 needed to deliver Versa’s VNF-based network and security services.
 
 The Centreon Plugin-Pack relies on the Versa Director API to query and
-collect status and metrics of the Versa equipements managed by the Director.
+collect status and metrics of the Versa equipments managed by the Director.
+
 
 You can find more information about the Versa Director API on the official documentation:
 https://apidocs.versa-networks.com/
@@ -40,22 +41,23 @@ https://apidocs.versa-networks.com/
 
 * Global
 
-| Metric name                                        | Description                                | Unit  |
-|:-------------------------------------------------- |:------------------------------------------ |:----- |
-| status                                             | Status of the device                       |       |
-| memory.usage.bytes                                 | Memory usage on the device                 | B     |
-| memory.free.bytes                                  | Free memory on the device                  | B     |
-| memory.usage.percentage                            | Percentage of memory usage on the device   | %     |
-| disk.usage.bytes                                   | Disk usage on the device                   | B     |
-| disk.free.bytes                                    | Free disk space on the device              | B     |
-| disk.usage.percentage                              | Percentage of disk usage on the device     | %     |
-| alarms.critical.count                              | Number of critical alarms on the device    | Count |
-| alarms.major.count                                 | Number of major alarms on the device       | Count |
-| alarms.minor.count                                 | Number of minor alarms on the device       | Count |
-| alarms.warning.count                               | Number of warning alarms on the device     | Count |
-| alarms.inderminate.count                           | Number of inderminate alarm on the device  | Count |
-| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link | Count |
-| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action    | Count |
+| Metric name                                        | Description                                  | Unit  |
+|:-------------------------------------------------- |:-------------------------------------------- |:----- |
+| status                                             | Status of the device                         |       |
+| memory.usage.bytes                                 | Memory usage on the device                   | B     |
+| memory.free.bytes                                  | Free memory on the device                    | B     |
+| memory.usage.percentage                            | Percentage of memory usage on the device     | %     |
+| disk.usage.bytes                                   | Disk usage on the device                     | B     |
+| disk.free.bytes                                    | Free disk space on the device                | B     |
+| disk.usage.percentage                              | Percentage of disk usage on the device       | %     |
+| alarms.critical.count                              | Number of critical alarms on the device      | Count |
+| alarms.major.count                                 | Number of major alarms on the device         | Count |
+| alarms.minor.count                                 | Number of minor alarms on the device         | Count |
+| alarms.warning.count                               | Number of warning alarms on the device       | Count |
+| alarms.indeterminate.count                         | Number of indeterminate alarms on the device | Count |
+| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link   | Count |
+| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action      | Count |
+
 
 * Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
 

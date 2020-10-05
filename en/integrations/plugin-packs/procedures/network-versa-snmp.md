@@ -8,7 +8,8 @@ title: Versa SNMP
 Versa Networks provides secure cloud IP architecture. 
 In particular, SD-WAN that aims to phase out conventional WAN infrastructures.
 
-The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipements.
+The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status and metrics of the Versa equipments.
+
 
 ## Plugin-Pack assets
 
@@ -118,7 +119,8 @@ The Centreon Plugin-Pack relies on the SNMP protocol to query and collect status
 ### Device Configuration
 
 The SNMP agent must be configured and running on the Versa Networks device.
-Please refer to the manufacturer documentation to achieve this
+Please refer to the manufacturer documentation to achieve this.
+
 
 ### Network flows
 
