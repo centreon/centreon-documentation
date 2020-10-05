@@ -4,6 +4,7 @@ title: Office365 SharePoint
 ---
 
 ## Overview
+
 Microsoft’s Office365 suite includes Sharepoint, which is a document management
 and storage system.
 
@@ -53,11 +54,11 @@ See link for details about metrics :
 | sharepoint.users.files.shared.externally.total.count  | Total number of files share externally         | Count  |
 | sharepoint.users.pages.visited.total.count            | Total number of visited pages (active sites)   | Count  |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Once the host created, you can configure some macros on the services to filter 
 information by site or by user. More info in the [Configuration](#Configuration)
 section.
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
