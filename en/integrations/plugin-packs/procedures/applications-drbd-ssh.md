@@ -159,11 +159,11 @@ OK: total resources: 9 - All drbd resources are ok
 The command above gets the status of resources DRBD SSH (```--mode=resources```). 
 It uses a SSH username _centreon_ (```--ssh-username=centreon```), a SSH password _centreon-password_ (```--ssh-password='centreon-password'```),
 uses a SSH backend _libssh_ (```--ssh-backend='libssh'```) and it connects to the host _10.30.2.81_ (```--hostname=10.30.2.81```) 
-on the SSH default port _22_ (```---ssh-port=22```).
+on the SSH default port _22_ (```--ssh-port=22```).
 
-The _legacy-proc_ (```--legacy-proc``) option allows you to use the old proc file (```/proc/drbd``). This makes it possible to use a version prior to version 9.
+The _legacy-proc_ (```--legacy-proc```) option allows you to use the old proc file (```/proc/drbd```). This makes it possible to use a version prior to version 9.
 
-All the options that can be used with this plugin can be found over the ```--help``` command:
+All the options that can be used with this plugin can be found over the ```--help``` options:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
