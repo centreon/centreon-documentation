@@ -57,13 +57,13 @@ https://apidocs.versa-networks.com/
 | policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link | Count |
 | policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action    | Count |
 
-* by health monitor
+* Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
 
-| Metric name           | Description                        | Unit  |
-|:--------------------- |:---------------------------------- |:----- |
-| health.up.count       | Number of health monitors up       | Count |
-| health.disabled.count | Number of health monitors disabled | Count |
-| health.down.count     | Number of health monitors down     | Count |
+| Metric name                          | Description                        | Unit  |
+|:------------------------------------ |:---------------------------------- |:----- |
+| <monitor-name>.health.up.count       | Number of health monitors up       | Count |
+| <monitor-name>.health.disabled.count | Number of health monitors disabled | Count |
+| <monitor-name>.health.down.count     | Number of health monitors down     | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
