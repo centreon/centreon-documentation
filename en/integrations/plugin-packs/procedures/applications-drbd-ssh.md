@@ -6,18 +6,19 @@ title: DRBD SSH
 ## Overview
 
 DRBD (Distributed Replicated Block Device) is a distributed storage architecture for GNU/Linux, 
-allowing the replication of block devices (disks, partitions, logical volumes etc.) between servers. DRBD is free software, but support exists. DRBD consists of a kernel module, 
-administration tools in user space as well as shell scripts.
+allowing the replication of block devices (disks, partitions, logical volumes etc.) between servers.
+DRBD is free software, but support exists. DRBD consists of a kernel module, administration tools in
+user space as well as shell scripts.
 
 ## Plugin-Pack Assets
 
 ### Monitored Objects
 
-* Resources
+* DRBD replication including roles, peers, devices
 
 ### Collected Metrics
 
-More information about collected metrics is available in the official DRBD SSH documentation : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
+More information about collected metrics is available in the official DRBD documentation : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -39,11 +40,13 @@ More information about collected metrics is available in the official DRBD SSH d
 
 ## Prerequisites
 
-A number of distributions provide DRBD SSH, including pre-built binary packages. 
+A number of distributions provide DRBD, including pre-built binary packages. 
 Support for these builds, if any, is being provided by the associated distribution vendor. 
-Their release cycle may lag behind DRBD SSH source releases.
+Their release cycle may lag behind DRBD source releases.
 
-More information is available on the official documentation of DRBD SSH : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/#ch-install-packages
+More information is available on the official documentation of DRBD : https://www.linbit.com/drbd-user-guide/drbd-guide-9_0-en/#ch-install-packages
+
+The centreon-engine user performs a SSH connection to a remote system user. This user must have enough privileges to run `/usr/bin/drbdsetup` command.
 
 ## Setup
 
@@ -51,7 +54,7 @@ More information is available on the official documentation of DRBD SSH : https:
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin on every poller monitoring DRBD SSH resources:
+1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
 ```bash
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
@@ -61,7 +64,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin on every poller monitoring DRBD SSH resources:
+1. Install the Centreon Plugin on every Poller monitoring DRBD resources:
 
 ```bash
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
@@ -79,9 +82,9 @@ yum install ccentreon-pack-applications-drbd-ssh.noarch
 
 ## Configuration
 
-Adding a host into Centreon, link it to the template named *App-Drbd-SSH-custom*. 
-Once the template set, you have to set values according to the chosen SSH backend.
-3 SSH backends are available to connect to the Linux server: *sshcli*, *plink* and *libssh* which are detailed below.  
+Adding a Host into Centreon, link it to the Template named *App-Drbd-SSH-custom*. 
+Once the Template set, you have to set values according to the chosen SSH backend.
+3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.  
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -90,7 +93,7 @@ Once the template set, you have to set values according to the chosen SSH backen
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
 |             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
@@ -102,7 +105,7 @@ Once the template set, you have to set values according to the chosen SSH backen
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
 |             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
@@ -114,7 +117,7 @@ Once the template set, you have to set values according to the chosen SSH backen
 | Mandatory   | Name            | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your poller                |
+| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
 |             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
 |             | SSHPORT         | By default: 22                                                                              |
 |             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
@@ -127,7 +130,7 @@ With that backend, you don't have to validate the target server fingerprint manu
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command :
+Once the Plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following command :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
@@ -163,10 +166,11 @@ The _legacy-proc_ (```--legacy-proc``) option allows you to use the old proc fil
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_drbd_ssh.pl --plugin=apps::drbd::local::plugin.pm \
-  --mode=resources --help
+/usr/lib/centreon/plugins/centreon_drbd_ssh.pl \
+--plugin=apps::drbd::local::plugin.pm \
+--mode=resources --help
 ```
 
 ### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
 
-It means you haven't manually validated the target server fingerprint with ```ssh``` or ```plink``` on the Centreon poller.
+It means you haven't manually validated the target server fingerprint with ```ssh``` or ```plink``` on the Centreon Poller.
