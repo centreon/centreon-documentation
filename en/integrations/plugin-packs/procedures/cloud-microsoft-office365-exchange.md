@@ -53,8 +53,9 @@ section.
 
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management to create an
-Office365 account and get help about the management features.
+Refer to the official documentation of Office365 Management or follow the link 
+in the 'More information' section to create an Office365 account and get help 
+about the management features.
 
 ### Register an application
 
