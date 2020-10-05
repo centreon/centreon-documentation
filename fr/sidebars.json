@@ -621,7 +621,9 @@
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
-                    "integrations/plugin-packs/procedures/network-zyxel-snmp"
+                    "integrations/plugin-packs/procedures/network-zyxel-snmp",
+                    "integrations/plugin-packs/procedures/network-versa-snmp",
+                    "integrations/plugin-packs/procedures/network-versa-director-restapi"
                 ],
                 "label": "Network",
                 "type": "subcategory"
