@@ -33,7 +33,7 @@ See link for details about metrics :
 
 | Metric name                                  | Description                            |
 | :------------------------------------------- | :------------------------------------- |
-| active\_users                                | Number of active users                 |
+| exchange.users.active.count                  | Number of active users                 |
 | exchange.users.emails.sent.total.count       | Number of total sent mails             |
 | exchange.users.emails.received.total.count   | Number of total received mails         |
 | exchange.users.emails.read.total.count       | Number of total read mails             |
@@ -42,7 +42,7 @@ See link for details about metrics :
 
 | Metric name                                   | Description                             | Unit    |
 | :-------------------------------------------- | :-------------------------------------- |-------- |
-| active\_mailboxes                             | Number of active mailboxes              | Count   |
+| exchange.mailboxes.active.count               | Number of active mailboxes              | Count   |
 | exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes)    | Bytes   |
 | exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes)  | Bytes   |
 
