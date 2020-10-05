@@ -4,6 +4,7 @@ title: Office365 Exchange
 ---
 
 ## Overview
+
 Microsoft’s Office365 suite includes Exchange Online, which is a hosted messaging application 
 that provides organizations access to the full-featured version of Exchange Server.
 
@@ -129,9 +130,12 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
+The metric perfdateY will record the date the metric was collected. You can
+filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
+*OFFICE365EXTRAOPTIONS* macro.
+
 Once the host created, you can configure some Macros on the services to filter
 information:
-
 
 | Mandatory | Name          | Description                                        |
 | :-------- | :------------ | :------------------------------------------------- |
