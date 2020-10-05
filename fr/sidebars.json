@@ -556,6 +556,7 @@
                     "integrations/plugin-packs/procedures/network-efficientip-snmp",
                     "integrations/plugin-packs/procedures/network-evertz-fc7800-snmp",
                     "integrations/plugin-packs/procedures/network-extreme-snmp",
+                    "integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-f5-bigip-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
