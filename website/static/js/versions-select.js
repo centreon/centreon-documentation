@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 window.addEventListener('load', () => {
-  const versions = ['20.04'];
+  const versions = ['20.10', '20.04'];
   const olderUrl = 'https://docs.centreon.com/older/index.html';
 
   // Add the version selector before the search bar
@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
     }
     const regexp = new RegExp('/' + version + '/', 'g');
     const selected = currentUrl.match(regexp) ? 'selected' : '';
-    selectHtml += '<option value="' + versionHref + '" ' + selected + '>' + version + ((version === '20.04') ? ' (current)':'') + '</option>';
+    selectHtml += '<option value="' + versionHref + '" ' + selected + '>' + version + ((version === '20.10') ? ' (current)':'') + '</option>';
   });
 
   selectHtml += '<option value="' + olderUrl + '">Older</option>';
