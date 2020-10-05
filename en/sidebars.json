@@ -486,6 +486,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-ibm-imm-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-groupseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-trio-restapi",
                     "integrations/plugin-packs/procedures/hardware-device-safenet-keysecure-snmp",
