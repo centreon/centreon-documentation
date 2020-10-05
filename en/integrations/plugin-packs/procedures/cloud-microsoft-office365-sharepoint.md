@@ -34,7 +34,7 @@ See link for details about metrics :
 
 | Metric name                                    | Description                              | Unit   |
 | :--------------------------------------------- | :--------------------------------------- | :----- |
-| active\_sites                                  | Number of active sites                   | Count  |
+| sharepoint.sites.active.count                  | Number of active sites                   | Count  |
 | sharepoint.sites.active.usage.total.bytes      | Total usage space (active sites)         | Bytes  | 
 | sharepoint.sites.inactive.usage.total.bytes    | Total usage space (inactive sites)       | Bytes  |
 | sharepoint.sites.active.files.total.count      | Total number of files (active sites)     | Count  |
@@ -47,7 +47,7 @@ See link for details about metrics :
 
 | Metric name                                           | Description                                    | Unit   |
 | :---------------------------------------------------- | :--------------------------------------------- | :----- |
-| active\_users                                         | Total number of active users                   | Count  |
+| sharepoint.users.active.count                         | Total number of active users                   | Count  |
 | sharepoint.users.files.viewed.total.count             | Total number of viewed or edited files         | Count  | 
 | sharepoint.users.files.synced.total.count             | Total number of files synced                   | Count  |
 | sharepoint.users.files.shared.internally.total.count  | Total number of files share internally         | Count  |
