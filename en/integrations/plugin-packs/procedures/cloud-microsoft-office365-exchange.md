@@ -10,8 +10,7 @@ that provides organizations access to the full-featured version of Exchange Serv
 The monitoring information of Microsoft's Office365 is available
 through the Office365 API Management.
 
-> The data provided by the Office365 Management API are not real-time.
-> They're based on a 7 days reporting period
+> The data provided by the Office365 Management API are not real-time. They're based on a 7 days reporting period
 
 ## Plugin-Pack assets
 
@@ -22,7 +21,9 @@ through the Office365 API Management.
 
 ### Monitored metrics
 
-See link for details about metrics : https://docs.microsoft.com/en-us/office365/admin/activity-reports/email-activity?view=o365-worldwide
+See link for details about metrics : 
+* https://docs.microsoft.com/en-us/office365/admin/activity-reports/email-activity?view=o365-worldwide
+* https://docs.microsoft.com/en-us/microsoft-365/admin/activity-reports/mailbox-usage?view=o365-worldwide
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -34,36 +35,39 @@ See link for details about metrics : https://docs.microsoft.com/en-us/office365/
 | exchange.users.emails.sent.total.count       | Number of total sent mails             |
 | exchange.users.emails.received.total.count   | Number of total received mails         |
 | exchange.users.emails.read.total.count       | Number of total read mails             |
-| exchange.users.emails.sent.count             | Number of total sent mails by user     |
-| exchange.users.emails.received.count         | Number of total received mails user    |
-| exchange.users.emails.read.count             | Number of total read mails by mailbox  |
 
 <!--Mailbox-usage-->
 
-| Metric name                                   | Description                                         | Unit    |
-| :-------------------------------------------- | :-------------------------------------------------- |-------- |
-| active\_mailboxes                             | Number of active mailboxes                          | Count   |
-| exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes) in Exchange    | Bytes   |
-| exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes) in Exchange  | Bytes   |
+| Metric name                                   | Description                             | Unit    |
+| :-------------------------------------------- | :-------------------------------------- |-------- |
+| active\_mailboxes                             | Number of active mailboxes              | Count   |
+| exchange.mailboxes.active.usage.total.bytes   | Total usage space (active mailboxes)    | Bytes   |
+| exchange.mailboxes.inactive.usage.total.bytes | Total usage space (inactive mailboxes)  | Bytes   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Once the host created, you can configure some macros on the services to filter
+information by user or by mailbox. More information in the [Configuration](#Configuration)
+section.
+
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management or follow the link in the 'More information'
-section to create an Office365 account and get help about the management features.
+Refer to the official documentation of Office365 Management to create an
+Office365 account and get help about the management features.
 
 ### Register an application
 
 The Office365 Management API use Azure AD to authenticate against Office365.
-To access the Office365 Management API, you need to register your application in Azure AD.
-*Application* is here used by Microsoft as a conceptual term, referring not only to the application software,
-but also to the Azure AD registration and role in authentication/authorization "conversations" at runtime.
+To access the Office365 Management API, you need to register your application 
+in Azure AD. *Application* is here used by Microsoft as a conceptual term,
+referring not only to the application software, but also to the Azure AD
+registration and role in authentication/authorization "conversations" at runtime.
 (https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 
 ### Office365 Management API authorization
 
-To collect data from Exchange Online, you need to specify the following authorization:
+To collect data from Exchange Online, you need to specify the following
+authorization:
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
@@ -123,11 +127,13 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-Once the host created, you can configure some Macros on the services to filter information:
+Once the host created, you can configure some Macros on the services to filter
+information:
 
 
 | Mandatory | Name          | Description                                        |
 | :-------- | :------------ | :------------------------------------------------- |
+|           | FILTERUSER    | Filter specific users                              |
 |           | FILTERMAILBOX | Filter specific mailboxes                          |
 |           | FILTERCOUNTER | Filter specific counters (default:'active\|total') |
 
@@ -135,8 +141,8 @@ Once the host created, you can configure some Macros on the services to filter i
 
 ### How can I test the Plugin in the CLI and what do the main parameters stand for ?
 
-Once the Centreon Plugin installed, you can test it directly in the CLI of the Centreon poller 
-by logging with the *centreon-engine* user:
+Once the Centreon Plugin installed, you can test it directly in the CLI of the
+Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_exchange_api.pl \
@@ -154,15 +160,9 @@ Send Count: 9478, Receive Count: 62197, Read Count: 24401 |
 'total_read_count'=24401;;;0;
 ```
 
-The commande above requests the Office365 Management API  (```--plugin=cloud::microsoft::office365::exchange::plugin```)
-using the provided credentials (```--tenant='abcd1234-5678-90ab-cd12-34567890abcd' --client-id='9876dcba-5432-10dc-ba98-76543210dcba' --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='```)
-and checks the mail activity (```--mode=email-activity```).
-
-The WARNING and CRITICAL thresholds can be defined on all the collected metrics,
-for example:
-```--warning-active-mailboxes='1400' --critical-active-mailboxes='1500'```
-
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+The available thresholds as well as all of the options that can be used with
+this Plugin can be displayed by adding the ```--help``` parameter to the 
+command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_exchange_api.pl \
@@ -172,7 +172,8 @@ The available thresholds as well as all of the options that can be used with thi
   --help
 ```
 
-You can display all of the modes that come with the Plugin with the command below:
+You can display all of the modes that come with the Plugin with the command
+below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_exchange_api.pl \
@@ -184,13 +185,17 @@ You can display all of the modes that come with the Plugin with the command belo
 
 #### ```UNKNOWN: 500 Can't connect to ...:443```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Office365 Management API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl``` option in the command.
+This error message means that the Centreon Plugin couldn't successfully connect
+to the Office365 Management API. Check that no third party device
+(such as a firewall) is blocking the request. A proxy connection may also be 
+necessary to connect to the API. This can be done by using the ```--proxyurl```
+option in the command.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
-When using a proxy to connect to the Office365 Management API, this error message means that the Centreon Plugin library does not support
-the proxy connection protocol.
+When using a proxy to connect to the Office365 Management API, this error
+message means that the Centreon Plugin library does not support the proxy
+connection protocol.
 
-In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+In order to prevent this issue, use the *curl* HTTP backend by adding the
+following option to the command: ```--http-backend='curl'```.
