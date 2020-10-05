@@ -157,7 +157,11 @@ Centreon poller by logging with the *centreon-engine* user:
   --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+```
 
+Expected output:
+
+```bash
 OK: Active mailboxes on 2019-03-10 : 141/1532 (9.20%) - Total (active mailboxes)
 Send Count: 9478, Receive Count: 62197, Read Count: 24401 |
 'active_mailboxes'=141mailboxes;;;0;1532
