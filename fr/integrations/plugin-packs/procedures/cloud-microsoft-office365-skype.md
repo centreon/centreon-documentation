@@ -16,7 +16,7 @@ Microsoft au travers d'une API de gestion Office 365.
 * Utilisation des appareils
 * Activité des utilisateurs
 
-### Monitored metrics
+### Métriques collectées
 
 Plus d'informations sur les métriques collectées sur la documentation officielle
 de Microsoft : 
