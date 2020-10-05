@@ -32,16 +32,16 @@ See link for details about metrics :
 
 <!--Devices-Usage-->
 
-| Metric name            | Description                                                  | Unit   |
-| :--------------------- | :----------------------------------------------------------- | :----- |
-| active\_devices        | Number of active devices                                     | Count  |
-| skype.devices.*.count  | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
+| Metric name                 | Description                                                  | Unit   |
+| :-------------------------- | :----------------------------------------------------------- | :----- |
+| skype.active.devices.count  | Number of active devices                                     | Count  |
+| skype.devices.\*.count      | Number of windows/ipad/iphone/android/windows phone devices  | Count  |
 
 <!--User-Activity-->
 
 | Metric name                                       | Description                           | Unit   |
 | :------------------------------------------------ | :------------------------------------ | :----- |
-| active\_users                                     | Total number of active users          | Count  |
+| skype.users.active.count                          | Total number of active users          | Count  |
 | skype.users.sessions.p2p.total.count              | Number of Peer-to-Peer sessions       | Count  | 
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
