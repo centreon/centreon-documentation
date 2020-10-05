@@ -46,11 +46,11 @@ See link for details about metrics :
 | skype.users.conferences.organized.total.count     | Number of organized conferences       | Count  |
 | skype.users.conferences.participated.total.count  | Number of participed conferences      | Count  |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Once the host created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
 section.
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
