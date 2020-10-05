@@ -5,7 +5,7 @@ title: Office365 OneDrive
 
 ## Vue d'ensemble
 
-La suite Office 365 comprend Onedrive, un service d'hébergement et de
+La suite Microsoft Office 365 comprend Onedrive, un service d'hébergement et de
 synchronisation de fichiers.
 
 Les informations de supervision de la suite Office sont mises à disposition par
@@ -126,12 +126,13 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
-The metric *perfdate* will record the date the metric was collected. You can 
-filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
-*OFFICE365EXTRAOPTIONS* macro.
+La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
+l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
-Once the host created, you can configure some Macros on the services to filter
-information:
+Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
+macros de service selon la configuration souhaitée :
+
 
 | Mandatory | Name          | Description                                              |
 | :-------- | :------------ | :------------------------------------------------------- |
@@ -145,9 +146,6 @@ information:
 
 Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de
 commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
-
-Once the Centreon Plugin installed, you can test it directly in the CLI of the
-Centreon poller by logging with the *centreon-engine* user:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_office365_onedrive_api.pl \
