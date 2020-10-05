@@ -158,7 +158,10 @@ Centreon poller by logging with the *centreon-engine* user:
   --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+```
+Expected output:
 
+```bash
 OK: Active devices on 2020-09-26 : 45/598 (7.53%) - Users count by device type 
 : Windows: 35, Mac: 2, Web: 0, iOS: 4, Android Phone: 4, Windows Phone: 0
 'active_devices'=45devices;;;0;598
