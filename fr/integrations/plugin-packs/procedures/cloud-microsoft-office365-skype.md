@@ -130,12 +130,13 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 
-The metric *perfdate* will record the date the metric was collected. You can 
-filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
-*OFFICE365EXTRAOPTIONS* macro.
 
-Once the host created, you can configure some Macros on the services to filter
-information:
+La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
+Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
+l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
+
+Une fois l'hôte créé, il est également possible de paramétrer un ensemble de m
+macros de service selon la configuration souhaitée :
 
 | Mandatory | Name          | Description                |
 | :-------- | :------------ | :------------------------- |
