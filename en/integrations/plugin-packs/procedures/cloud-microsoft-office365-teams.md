@@ -4,8 +4,9 @@ title: Office365 Teams
 ---
 
 ## Overview
+
 Microsoft’s Office365 suite includes Teams, which is a business application that
-provides workspaces, videa and text chat, file storage and application 
+provides workspaces, video and text chat, file storage and application 
 integration.
 
 The monitoring information of Microsoft's Office365 is available
@@ -47,11 +48,11 @@ See link for details about metrics :
 | teams.users.call.total.count              | Total number of calls                  | Count  |
 | teams.users.meeting.total.count           | Total number of meetings               | Count  |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Once the host created, you can configure some macros on the service to filter 
 information by user. More info in the [Configuration](#Configuration)
 section.
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
