@@ -31,7 +31,7 @@ https://docs.microsoft.com/fr-fr/microsoft-365/admin/activity-reports/onedrive-f
 
 | Metric name                                  | Description                              | Unit  |
 | :------------------------------------------- | :--------------------------------------- | :-----|
-| active\_sites                                | Number of active sites                   | Count |
+| onedrive.sites.active.count                  | Number of active sites                   | Count |
 | onedrive.sites.active.usage.total.bytes      | Total usage space (active sites)         | Bytes |
 | onedrive.sites.inactive.usage.total.bytes    | Total usage space (inactive sites)       | Bytes |
 | onedrive.sites.active.files.total.count      | Total number of files (active sites)     | Count |
