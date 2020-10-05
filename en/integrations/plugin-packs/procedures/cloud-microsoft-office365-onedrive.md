@@ -149,7 +149,10 @@ Centreon poller by logging with the *centreon-engine* user:
   --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+```
 
+
+```bash
 OK: Active sites on 2020-09-27 : 3/1031 (0.29%) - Total Usage (active sites)
 893.84 MB, Usage (inactive sites): 149.03 GB, File Count (active sites): 154,
 File Count (inactive sites): 26643, Active File Count (active sites): 5 |
