@@ -662,8 +662,6 @@ pcs quorum device add model net \
 
 Cette commande ne doit être lancée que sur un des deux nœuds centraux :
 
-hoho
-
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
