@@ -84,6 +84,14 @@ choosen policies between the following:
 
 > At least one of these policies must be selected.
 
+> Note: not discovered hosts (or no more discovered hosts) will not result to
+> disabled hosts in the Centreon configuration. Only discovered and excluded
+> hosts can be disabled in the configuration (see [exclusion](#exclusion)
+> mapper).
+
+Read the [example](#dynamically-update-your-configuration) below to better
+understand the scope of these policies.
+
 ### Plan execution
 
 The last step allows to choose between two execution methods.
@@ -197,7 +205,8 @@ There is six types of *mappers*:
   - Macro: map an attribute's value to a host custom macro,
   - Template: add a host template,
   - Monitoring: choose from which monitoring server will be monitored the host,
-  - Exclusion: exclude a subset of hosts based on their attributes,
+  - Exclusion: exclude a subset of hosts based on their attributes (see the
+    [example](#dynamically-update-your-configuration) below),
   - Inclusion: include a subset of hosts that may be excluded.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
@@ -310,3 +319,70 @@ listing.
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
 The mapper uses hosts attributes as conditions to include them.
+
+## Examples
+
+### Dynamically update your configuration
+
+*Situation*
+
+Having a VMware vCenter with virtual machines dynamically added, started and
+stopped.
+
+*Objective*
+
+Update the Centreon configuration accordingly to the states of the virtual
+machines.
+
+*Create the right job*
+
+From the Host Discovery main page, add a job starting by selecting the VMware VM
+provider.
+
+Define the monitoring instance from which you want to do the discovery. For this
+particular provider, it has to work with the discovery parameters on which you
+define the information related to the Centreon VMware Connector access
+(hostname/ip and port).
+
+In most cases, you will install the Connector on the monitoring instance, so the
+access will be *localhost* and default port *5700*.
+
+Let's now define the mappers and the update policies to match our needs:
+
+  - First need:
+    - Add new (or not yet added) virtual machines, (1)
+    - Exclude virtual machines that are not started. (2)
+
+  - Second need:
+    - Disable the virtual machines that are stopped, (3)
+    - Re-enable the virtual machines that are started (after being stopped). (4)
+
+This will first result as an *Exclusion* mapper with the following
+configuration:
+
+![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
+
+This way, all powered off virtual machines will not be part of the processed
+result. Those will not be added (2).
+
+In addition to this mapper, choose the automatic analysis with all the update
+policies as below:
+
+![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.png)
+
+With the first policy, the virtual machines part of the processed result will be
+added (1).
+
+With the second one, virtual machines that were added at some point (because
+in a powered on state) will be disabled in the Centreon configuration if they
+happen to be powered off (2).
+
+The last one will enable the virtual machines that are once again in a powered
+on state (3).
+
+Of course, the last two policies work well if the job is scheduled to run more
+than one time.
+
+> Note: if a virtual machine happens to be deleted, it will not be deleted (or
+> even disabled) from the Centreon configuration. Only discovered and excluded
+> hosts can be disabled in the configuration (if the policy is chosen).
