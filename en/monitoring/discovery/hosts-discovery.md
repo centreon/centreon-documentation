@@ -349,11 +349,11 @@ access will be *localhost* and default port *5700*.
 
 Let's now define the mappers and the update policies to match our needs:
 
-  - First need:
+  - First needs:
     - Add new (or not yet added) virtual machines, (1)
     - Exclude virtual machines that are not started. (2)
 
-  - Second need:
+  - Second needs:
     - Disable the virtual machines that are stopped, (3)
     - Re-enable the virtual machines that are started (after being stopped). (4)
 
@@ -375,10 +375,10 @@ added (1).
 
 With the second one, virtual machines that were added at some point (because
 in a powered on state) will be disabled in the Centreon configuration if they
-happen to be powered off (2).
+happen to be powered off (3).
 
 The last one will enable the virtual machines that are once again in a powered
-on state (3).
+on state (4).
 
 Of course, the last two policies work well if the job is scheduled to run more
 than one time.
