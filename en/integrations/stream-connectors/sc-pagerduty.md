@@ -1,6 +1,6 @@
 ---
 id: pagerduty
-title: PagerDuty
+title: PagerDuty Service integration
 ---
 
 ## PagerDuty + Centreon Integration Benefits
@@ -15,6 +15,9 @@ title: PagerDuty
 * Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
 * State changes can occur in case of an anomaly detection or metrics falling out of range.
 * Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
+* You can choose from where the Stream-connector is sending data. Pick the implementation which best meets your needs:
+
+![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
 
 ## Requirements
 
@@ -32,26 +35,13 @@ If you need help with this integration, depending on how you are using Centreon,
 
 ### In PagerDuty
 
-There are two ways to integrate with PagerDuty: via Global Event Routing or on a PagerDuty Service.
-
-If you are adding this integration to an existing PagerDuty service, please skip to the Integrating with a PagerDuty Service section of this guide.
-
-#### Integrating With Global Event Routing
-
-Integrating with Global Event Routing enables you to route events to specific services based on the payload of the event from your tool. If you would like to learn more, please visit [this article on Global Event Routing](https://community.pagerduty.com/forum/t/service-configuration-guide/1660).
-
-1. From the Configuration menu, select Event Rules.
-2. On the Event Rules screen, click on the arrow next to Incoming Event Source to display the Integration key information. Copy your Integration Key. This is the same integration key you will use for any other tool you want to integrate with using event rules. When you have finished setting up the integration in your tool, you will return to this interface to specify how to route events from your tool to services in PagerDuty.
-
-![](https://pdpartner.s3.amazonaws.com/ig-template-incoming-event-source-key.png)
-
 #### Integrating With a PagerDuty Service
 
 1. From the **Configuration** menu, select **Services**.
 2. There are two ways to add an integration to a service:
    * **If you are adding your integration to an existing service**: Click the **name** of the service you want to add the integration to. Then, select the **Integrations** tab and click the **New Integration** button.
    * **If you are creating a new service for your integration**: Please read this documentation in section [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) and follow the steps outlined in the [Create a New Service](https://support.pagerduty.com/docs/services-and-integrations#section-create-a-new-service) section, selecting **Centreon** as the **Integration Type** in step 4. Continue with the "[In Centreon](#in-centreon)" section once you have finished these steps.
-3. Enter an **Integration Name** in the format `monitoring-tool-service-name` (e.g. `Centreon-Shopping-Cart`) and select **Centreon** from the Integration Type menu.
+3. Enter an **Integration Name** in the format `monitoring-tool-service-name` (e.g. `Centreon`) and select **Centreon** from the Integration Type menu.
 4. Click the **Add Integration** button to save your new integration. You will be redirected to the Integrations tab for your service.
 5. An **Integration Key** will be generated on this screen. Keep this key saved in a safe place, as it will be used when you configure the integration with Centreon in the next section.
 
