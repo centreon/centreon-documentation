@@ -22,6 +22,14 @@ Se rendre dans le menu **Monitoring \> Performances \> Templates**
 * Le champ **Upper limit** définit la limite maximale de l'axe des ordonnées
 * La liste **Base** définit la base de calcul pour les données lors de la mise à l'échelle des ordonnées du graphique.
   Utiliser 1024 pour des mesures comme l'octet (1 Ko = 1024 octets) et 1000 pour des mesures comme le volt (1 kV = 1000 Volts)
+  > Peu importe la valeur sélectionnée, la base 1024 sera utilisée pour les unités de métrique suivantes :
+  > * B
+  > * bytes
+  > * bytespersecond
+  > * B/s
+  > * B/sec
+  > * o
+  > * octets
 * La case **Scale Graph Values** activer l'échelle automatique du graphique et contourner les options précédentes
 * Le champ **Default Centreon Graph Template** permet d'afficher tous les graphiques sans modèle prédéfini en utilisant ces valeurs
 
