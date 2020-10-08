@@ -59,8 +59,15 @@ Their release cycle may lag behind VerneMQ source releases.
 
 More information is available on the official documentation of VerneMQ : https://docs.vernemq.com/getting-started
 
-The centreon-engine user performs a RestAPI connection to API system. 
-You must have generated one VerneMQ API Token and config ```vernemq.conf``` with the right parameters.
+The VerneMQ HTTP API is enabled by default and installs an HTTP handler on `http://localhost:8888/api/v1`.
+The centreon-engine user performs a RestAPI connection to this system. 
+You must have generated one Token on VerneMQ server with the following command :
+
+```bash
+$ vmq-admin api-key create
+```
+
+More information on VerneMQ HTTP API on : https://docs.vernemq.com/administration/http-administration#managing-api-keys
 
 ## Setup
 
