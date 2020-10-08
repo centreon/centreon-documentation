@@ -21,6 +21,7 @@ commerciales, veuillez contacter le support.
 ### 20.04.3
 
 * Filtre sur le nom complet des cartes et geoviews sur la page d'accueil
+* Correction de l'accès aux images Centreon à partir du serveur Map
 
 ### 20.04.2
 

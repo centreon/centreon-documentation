@@ -21,6 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 ### 20.04.3
 
 * Filter on the full name of the maps and geoviews on the homepage
+* Fix on media access from centreon map server
 
 ### 20.04.2
 
