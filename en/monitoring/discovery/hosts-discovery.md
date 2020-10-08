@@ -85,9 +85,9 @@ choosen policies between the following:
 > At least one of these policies must be selected.
 
 > Note: not discovered hosts (or no more discovered hosts) will not result to
-> disabled hosts in the Centreon configuration. Only discovered and excluded
-> hosts can be disabled in the configuration (see [exclusion](#exclusion)
-> mapper).
+> disabled hosts in the Centreon configuration. Only discovered and at the same
+> time excluded hosts can be disabled in the configuration (see
+> [exclusion](#exclusion) mapper).
 
 Read the [example](#dynamically-update-your-configuration) below to better
 understand the scope of these policies.
@@ -384,5 +384,6 @@ Of course, the last two policies work well if the job is scheduled to run more
 than one time.
 
 > Note: if a virtual machine happens to be deleted, it will not be deleted (or
-> even disabled) from the Centreon configuration. Only discovered and excluded
-> hosts can be disabled in the configuration (if the policy is chosen).
+> even disabled) from the Centreon configuration. Only discovered and at the
+> same time excluded hosts can be disabled in the configuration (if the policy
+> is chosen).

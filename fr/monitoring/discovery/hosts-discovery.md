@@ -88,6 +88,11 @@ politiques choisies parmis les suivantes :
 
 > Au moins une de ces politiques doit être sélectionnée.
 
+> Note: le fait que des hôtes soient non découverts (ou plus découverts) ne
+> désactivera pas les hôtes dans la configuration Centreon. Seuls les hôtes
+> découverts et dans le même temps excluts seront désactivés (voir
+> modificateur [exclusion](#exclusion)).
+
 ### Définir l'exécution
 
 La dernière étape permet de choisir parmis deux méthodes d'exécution.
@@ -330,3 +335,74 @@ sous-ensemble des hôtes de la liste des résultats.
 
 Le modificateur utilise les attributs des hôtes comme condition pour les
 inclure.
+
+## Exemples
+
+### Mettre à jour votre configuration dynamiquement
+
+*Situation*
+
+Avoir un vCenter VMware avec des machines virtuelles ajoutées, démarrées et
+arrêtées dynamiquement.
+
+*Objectif*
+
+Mettre à jour la configuration Centreon en accord avec l'état des machines
+virtuelles.
+
+*Créer la bonne tâche de découverte*
+
+Depuis la page principale de la découverte d'hôtes, ajoutez une tâche en
+commençant pas choisir le fournisseur VMware VM.
+
+Définissez le serveur de supervision depuis lequel vous voulez faire la
+découverte. Pour ce fournisseur en particuliers, ce paramètre doit être en
+accord avec les paramètres de découverte où vous définissez les informations
+relatives aux accès au Connecteur Centreon VMware (nom d'hôte/ip et port).
+
+Dans la plupart des cas, vous allez installer le Connecteur sur le serveur de
+supervision, les paramètres d'accès seront donc *localhost* et le port par
+défaut *5700*.
+
+Définissons maintenant les modificateurs et les politiques de mise à jour pour
+répondre à nos besoins :
+
+  - Premiers besoins :
+    - Ajouter les nouvelles machines virtuelles (ou non encore ajoutées), (1)
+    - Exclure les machines virtuelles non démarrées. (2)
+
+  - Deuxièmes besoins :
+    - Désactiver les machines virtuelles qui sont arrêtées, (3)
+    - Ré-activer les machines virtuelles qui sont démarrées (après avoir été
+      arrêtées). (4)
+
+Cela va se traduire par un modificateur *Exclusion* avec la configuration
+suivante :
+
+![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
+
+Ainsi, toutes les machines virtuelles qui sont arrêtées ne feront pas partie du
+résultat qui sera analysé. Elles ne seront pas ajoutées. (2)
+
+En plus de ce modificateur, choisissez l'analyse automatique avec toutes les
+politiques de mise à jour comme ci-dessous :
+
+![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.png)
+
+Avec la première politique, les machines virtuelles qui font partie du résultat
+seront ajoutées (1).
+
+Avec la deuxième, les machines virtuelles qui ont été ajoutées à un moment (car
+dans un état démarré) seront désactivées dans la configuration Centreon si elles
+se retrouvent dans un état arrêté (3).
+
+La dernière activera les machines virtuelles qui sont de nouveau dans un état
+démarré (4).
+
+Biensur, les deux dernières politiques fonctionnent mieux si la tâche de
+découverte est planifiée pour être exécutée plus d'une fois.
+
+> Note: si une machine virtuelle est amenée à être supprimée, elle ne sera pas
+> supprimée (ni même désactivée) de la configuration Centreon. Seul les hôtes
+> découverts et dans le même temps excluts sont désactivés dans la configuration
+> (si la politique est choisie).
