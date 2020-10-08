@@ -167,7 +167,15 @@ ServerTokens Prod
 expose_php = Off
 ```
 
-6. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
+6. Cacher le répertoire par défaut /icons
+
+Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** et commentez la ligne suivante :
+
+```apacheconf
+#Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+```
+
+7. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
 ```shell
 systemctl restart rh-php72-php-fpm httpd24-httpd
