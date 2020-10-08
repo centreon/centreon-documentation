@@ -101,6 +101,7 @@
                 "label": "Découverte",
                 "type": "subcategory"
             },
+            "monitoring/event-handler",
             "monitoring/web-import-export"
         ],
         "Alertes et Notifications": [

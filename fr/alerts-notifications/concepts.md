@@ -63,21 +63,18 @@ le processus de notification.
 
 Exemple :
 
-Un service a les paramètres de vérifications suivants :
+![image](../assets/configuration/soft_hard_states.png)
 
- * Nombre de contrôles avant validation de l'état : 3
- * Intervalle normal de contrôle : 5 minutes
- * Intervalle non-régulier de contrôle : 1 minute
- 
-Imaginons le scénario suivant :
-
- * Instant t + 0 : Le service est vérifié, il a le statut OK.
- * Instant t + 5 : La seconde vérification montre que le service a le statut CRITICAL. Le service passe en état SOFT (essai 1/3).
- * Instant t + 6 : La troisième vérification à lieu, le service a toujours le statut CRITICAL en état SOFT (essai 2/3).
- * Instant t + 7 : La quatrième vérification montre que le service a toujours le statut CRITICAL (essai 3/3). Le nombre
-   d'essais a été atteint, le statut est configuré (état HARD). Le processus de notification est enclenché.
- * Instant t + 8 : Le service retrouve le statut OK. Il passe directement en état HARD. Le processus de notification est enclenché.
- * Instant t + 13 : Le service a le statut WARNING. Il passe en état SOFT (essai 1/3).
- * Instant t + 14 : Le service a toujours le statut WARNING (essai 2/3).
- * Instant t + 15 : Le service a le statut CRITICAL. Il reste en état SOFT car il a changé de statut.
- 
+| Temps | Nombre de vérifications | Statut   | Etat | Changement d'état | Commentaire                                                                                                                                                                                                                                                                    |
+|-------|-------------------------|----------|------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| t+0   | 1/3                     | OK       | HARD | No                | État initial du service                                                                                                                                                                                                                                                        |
+| t+5   | 1/3                     | CRITICAL | SOFT | Yes               | Première détection d'un état non-OK. Le gestionnaire d'événements s'exécute (event handlers).                                                                                                                                                                                  |
+| t+6   | 2/3                     | WARNING  | SOFT | Yes               | Le service continue à être dans un statut non-OK. Le gestionnaire d'événements s'exécute.                                                                                                                                                                                      |
+| t+7   | 3/3                     | CRITICAL | HARD | Yes               | Le nombre maximal de tentatives de vérification a été atteint, le service passe donc à l'état HARD. Le gestionnaire d'événements s'exécute et une notification de problème est envoyée. Le contrôle # est remis à 1 immédiatement après que cela se produit.                   |
+| t+12  | 3/3                     | WARNING  | HARD | Yes               | Le service passe à un état HARD WARNING. Le gestionnaire d'événements s'exécute et une notification de problème est envoyée.                                                                                                                                                   |
+| t+17  | 3/3                     | WARNING  | HARD | No                | Le service se stabilise dans un état de problème HARD. En fonction de l'intervalle de notification pour le service, une autre notification peut être envoyée.                                                                                                                  |
+| t+22  | 1/3                     | OK       | HARD | Yes               | Le service revient à un statut OK HARD. Le gestionnaire d'événements s'exécute et une notification de récupération est envoyée.                                                                                                                                                |
+| t+27  | 1/3                     | OK       | HARD | No                | Le service est toujours OK.                                                                                                                                                                                                                                                    |
+| t+28  | 1/3                     | UNKNOWN  | SOFT | Yes               | Le service passe à un état SOFT non-OK. Le gestionnaire d'événements s'exécute.                                                                                                                                                                                                |
+| t+29  | 2/3                     | OK       | SOFT | Yes               | Le service revient à un état OK SOFT. Le gestionnaire d'événements s'exécutent, mais les notifications ne sont pas envoyées, car ce n'était pas un problème "réel". Le type d'état est défini sur HARD et le contrôle # est remis à 1 immédiatement après que cela se produit. |
+| t+30  | 1/3                     | OK       | HARD | No                | Le service se stabilise dans un état OK HARD.                                                                                                                                                                                                                                  |
