@@ -5,16 +5,14 @@ title: VerneMQ Restapi
 
 ## Vue d'ensemble
 
+VerneMQ est un gestionnaire MQTT évolutif et open source qui connecte l'IdO, le M2M, le mobile et les applications web.
 Le Plugin-Pack VerneMQ, supervise les clusters, listeners, Plugins et sessions en utilisant l'API Rest.
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-* Clusters
-* Listeners
-* Plugins
-* Sessions
+* VerneMQ incluant les Clusters, les Listeners, les Plugins, les sessions.
 
 ### Métriques collectées
 
@@ -55,6 +53,15 @@ de VerneMQ : https://docs.vernemq.com/monitoring/introduction
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
+
+Un certain nombre de distributions fournissent VerneMQ, y compris des paquets binaires pré-construits.
+Le support de ces compilations, s'il y en a, est fourni par le fournisseur de la distribution associée.
+Leur cycle de publication peut être en retard par rapport aux versions sources de VerneMQ.
+
+De plus amples informations sont disponibles sur la documentation officielle du VerneMQ : https://docs.vernemq.com/getting-started
+
+L'utilisateur de centreon-engine effectue une connexion au système API. 
+Vous devez avoir généré un Token VerneMQ et avoir configuré le fichier ``vernemq.conf`` avec les bons paramètres.
 
 ## Installation
 
@@ -115,7 +122,6 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--port='8888' \
 	--proto='http' \
 	--api-key='12342939495003' \
-	--filter-name='my_plugins' \
 	--warning-total='15' \
 	--critical-total='20' \
 	--verbose
@@ -125,7 +131,7 @@ OK: Sessions current online: 14, current total: 14
 ```
 
 La commande ci-dessus contrôle les sessions de VerneMQ via la Restapi (```--mode=sessions```).
-Le Plugin utilise l'_api-key_ qui correspond au Token VerneMQ(```--api-key='12342939495003'```)
+Le Plugin utilise l'_api-key_ qui correspond au Token VerneMQ (```--api-key='12342939495003'```)
 et il se connecte à l'hôte _myvernemq.com_ (```--hostname='myvernemq.com'```) 
 sur le port _8888_ (```--port='8888'```) utilisant le protocol _http_ (```--proto='http'```).
 
@@ -141,7 +147,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 #### ```UNKNOWN: 500 Can't connect to myvernemq.com:443 |```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to myvernemq.com:443 |```.
-Cela signifie que Centreon n'a pas réussi à se connecter à VerneMQ Restapi (*myvernemq.com*).
+Cela signifie que Centreon n'a pas réussi à se connecter à l'API VerneMQ (*myvernemq.com*).
 La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *myvernemq.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
 #### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
