@@ -6,7 +6,7 @@ title: VerneMQ Restapi
 ## Vue d'ensemble
 
 VerneMQ est un gestionnaire MQTT évolutif et open source qui connecte l'IdO, le M2M, le mobile et les applications web.
-Le Plugin-Pack VerneMQ, supervise les clusters, listeners, Plugins et sessions en utilisant l'API Rest.
+Le Plugin-Pack VerneMQ, supervise les Clusters, Listeners, Plugins et sessions en utilisant l'API Rest.
 
 ## Contenu du Plugin-Pack
 
