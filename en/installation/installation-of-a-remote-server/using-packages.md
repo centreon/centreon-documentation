@@ -96,7 +96,7 @@ systemctl restart mariadb
 Run the following command on the Centreon Remote Server:
 
 ```shell
-yum install -y centreon-base-config-centreon-engine
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
 Then run the following commands on the dedicated server:
