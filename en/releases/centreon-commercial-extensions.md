@@ -18,6 +18,10 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP release notes
 
+### 20.04.3
+
+* Filter on the full name of the maps and geoviews on the homepage
+
 ### 20.04.2
 
 * You can now define how to round values displayed on metric links in standard views

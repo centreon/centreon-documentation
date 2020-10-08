@@ -18,6 +18,10 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP release notes
 
+### 20.04.3
+
+* Filtre sur le nom complet des cartes et geoviews sur la page d'accueil
+
 ### 20.04.2
 
 * Il est désormais possible de configurer le nombre de chiffres à afficher après la virgule sur les liens de métriques dans les vues standards
