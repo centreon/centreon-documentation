@@ -71,11 +71,18 @@ A service has the following check settings:
 
 Let us imagine the following scenario:
 
-* Instant t + 0: The service is checked, it has the OK status.
-* Instant t + 5: The second check shows that the service has the CRITICAL status. The service goes into the SOFT state (attempt 1/3).
-* Instant t + 6: The third check is performed, the service still has the CRITICAL status in SOFT (attempt 2/3).
-* Instant t + 7: The fourth check shows that the service still has the CRITICAL status (attempt 3/3). The number of tests has been completed; the state is configured (HARD). The notification process is triggered.
-* Instant t + 8: The service recovers OK status. It goes directly into the HARD state. The notification process is triggered.
-* Instant t + 13: The service has the WARNING status. It goes into the SOFT state (attempt 1/3).
-* Instant t + 14: The service still has the WARNING status (attempt 2/3).
-* Instant t + 15: The service has the CRITICAL status. It remains in the SOFT state because it has changed status.
+![image](../assets/configuration/soft_hard_states.png)
+
+| Time | Check attempt | Status   | State | State change | Note                                                                                                                                                                                                          |
+|------|---------------|----------|-------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| t+0  | 1/3           | OK       | HARD  | No           | Initial state of the service                                                                                                                                                                                  |
+| t+5  | 1/3           | CRITICAL | SOFT  | Yes          | First detection of a non-OK state. Event handlers execute.                                                                                                                                                    |
+| t+6  | 2/3           | WARNING  | SOFT  | Yes          | Service continues to be in a non-OK state. Event handlers execute.                                                                                                                                            |
+| t+7  | 3/3           | CRITICAL | HARD  | Yes          | Max check attempts has been reached, so service goes into a HARD state. Event handlers execute and a problem notification is sent out. Check # is reset to 1 immediately after this happens.                  |
+| t+12 | 3/3           | WARNING  | HARD  | Yes          | Service changes to a HARD WARNING state. Event handlers execute and a problem notification is sent out.                                                                                                       |
+| t+17 | 3/3           | WARNING  | HARD  | No           | Service stabilizes in a HARD problem state. Depending on what the notification interval for the service is, another notification might be sent out.                                                           |
+| t+22 | 1/3           | OK       | HARD  | Yes          | Service experiences a HARD recovery. Event handlers execute and a recovery notification is sent out.                                                                                                          |
+| t+27 | 1/3           | OK       | HARD  | No           | Service is still OK.                                                                                                                                                                                          |
+| t+32 | 1/3           | UNKNOWN  | SOFT  | Yes          | Service is detected as changing to a SOFT non-OK state. Event handlers execute.                                                                                                                               |
+| t+33 | 2/3           | OK       | SOFT  | Yes          | Service experiences a SOFT recovery. Event handlers execute, but notification are not sent, as this wasn't a "real" problem. State type is set HARD and check # is reset to 1 immediately after this happens. |
+| t+34 | 1/3           | OK       | HARD  | No           | Service stabilizes in an OK state.                                                                                                                                                                            |
