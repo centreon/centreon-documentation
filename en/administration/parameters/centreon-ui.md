@@ -59,11 +59,10 @@ Define needed information:
 - **Proxy user**
 - **Proxy password**
 
-Once you defined settings, test your configuration by clicking on the **Test
-Proxy Configuration** button.
+Once you defined settings, test your configuration by clicking on the **Test Internet Connection** button.
 
-To validate the configuration, click on the **Test Proxy Configuration** button. If the message **Connection Successful**
-appears, your configuration is valid, otherwise modify your parameters.
+To validate the configuration, click on the **Test Internet Connection** button. If the message
+**Connection Successful** appears, your configuration is valid, otherwise modify your parameters.
 
 ## Autologin
 

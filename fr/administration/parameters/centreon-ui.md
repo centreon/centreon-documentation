@@ -67,8 +67,8 @@ Renseigner les différents champs:
 - **Proxy user**
 - **Proxy password**
 
-Pour valider la configuration, cliquez sur le bouton **Test Proxy Configuration**. Si le message **Connection Successful**
-apparaît, votre configuration est valide, sinon modifiez vos paramètres.
+Pour valider la configuration, cliquez sur le bouton **Test Internet Connection**. Si le message
+**Connection Successful** apparaît, votre configuration est valide, sinon modifiez vos paramètres.
 
 ## Autologin
 
