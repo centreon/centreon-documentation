@@ -60,8 +60,15 @@ Leur cycle de publication peut être en retard par rapport aux versions sources 
 
 De plus amples informations sont disponibles sur la documentation officielle du VerneMQ : https://docs.vernemq.com/getting-started
 
-L'utilisateur de centreon-engine effectue une connexion au système API. 
-Vous devez avoir généré un Token VerneMQ et avoir configuré le fichier ``vernemq.conf`` avec les bons paramètres.
+L'API HTTP de VerneMQ est activée par défaut et installe un gestionnaire HTTP sur `http://localhost:8888/api/v1`.
+L'utilisateur de centreon-engine effectue une connexion à ce système.
+Sur le serveur VerneMQ, vous devez avoir généré un Token avec la commande suivante :
+
+```bash
+$ vmq-admin api-key create
+```
+
+Plus d'informations sur l'API HTTP de VerneMQ sur : https://docs.vernemq.com/administration/http-administration#managing-api-keys
 
 ## Installation
 
