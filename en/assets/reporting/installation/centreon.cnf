@@ -16,8 +16,7 @@ join_buffer_size = 256M
 bulk_insert_buffer_size = 1G
 myisam_sort_buffer_size=1G
 
-table_cache = 2048 
-#MySQL 5.7 and > table_open_cache = 2048
+table_open_cache = 2048
 thread_cache_size = 64
 
 #Time out and linked problems
