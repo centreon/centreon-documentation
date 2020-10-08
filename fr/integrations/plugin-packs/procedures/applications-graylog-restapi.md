@@ -36,7 +36,7 @@ Graylog is a log management software.
 
 ## Prerequis
 
-https://docs.graylog.org/en/<version>/pages/configuration/rest_api.html
+Un compte sur le serveur Graylog est nécessaire pour accèder à l'API Rest.
 
 ## Installation
 

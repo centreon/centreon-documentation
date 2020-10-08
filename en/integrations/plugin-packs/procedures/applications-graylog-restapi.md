@@ -36,8 +36,7 @@ Graylog is a log management software.
 
 ## Prerequisites
 
-A Graylog is necessary 
-For security reason, you can use Access Tokens and Session Tokens More informations on 'https://docs.graylog.org/en/<graylog version>/pages/configuration/rest_api.html and in the [Configuration](#Configuration)section.
+An account on the Graylog Server is needed to access the Graylog Rest API.
 
 ## Installation
 
