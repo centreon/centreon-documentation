@@ -165,7 +165,15 @@ Edit the **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** file and turn off the `e
 expose_php = Off
 ```
 
-6. Restart the Apache and PHP process to take in account the new configuration:
+6. Hide the default /icons directory
+
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
+```
+
+7. Restart the Apache and PHP process to take in account the new configuration:
 
 ```shell
 systemctl restart rh-php72-php-fpm httpd24-httpd

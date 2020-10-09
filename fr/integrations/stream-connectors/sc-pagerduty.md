@@ -1,76 +1,66 @@
 ---
 id: pagerduty
-title: PagerDuty
+title: PagerDuty Service integration
 ---
 
-## Ce qu'apporte l'intégration de PagerDuty + Centreon 
+## PagerDuty + Centreon Integration Benefits
 
-* Notification du personnel en astreinte quand une alerte est détectée par Centreon.
-* Résolution automatique des incidents dans PagerDuty lorsque leur statut redevient normal.
-* Génère des incidents de haute et basse priorité en fonction du statut de l'alerte dans Centreon.
-* Transmet à PagerDuty les métriques associées à l'alerte pour une meilleure compréhension de la situation.
+* Notify on-call system or application administrators when an alert is detected by Centreon.
+* Incidents will automatically resolve in PagerDuty when Centreon detects that the check point is back to normal.
+* Create high and low urgency incidents based on the state of the alert.
+* Send metrics when available to give more insight about the alert.
 
-## Comment ça marche
+## How it Works
 
-* Chaque fois qu'un service ou un hôte est vérifié par le moteur de supervision, le résultat passe par *Centreon Broker*, qui charge le script du Stream Connector pour transmettre les changements d'état.
-* Ces changements d'états peuvent être dûs à la détection d'une situation anormale comme la perte d'un hôte, ou bien une métrique qui dépasse les seuils prévus.
-* Une fois que l'indicateur revient à la normale, un événement de type résolution est envoyé à PagerDuty pour terminer l'incident.
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
+* State changes can occur in case of an anomaly detection or metrics falling out of range.
+* Once the check point is back to normal, a resolve event will be sent to the PagerDuty service to resolve the alert.
+* You can choose from where the Stream-connector is sending data. Pick the implementation which best meets your needs:
 
-## Prérequis
+![architecture](../../assets/integrations/external/sc-pagerduty-centreon.png)
 
-* L'intégration avec PagerDuty nécessite de disposer d'un accès ayant le rôle Admin pour pouvoir donner des permissions à un compte. Si vous n'en disposez pas, veuillez vous adresser à une personne ayant un tel rôle dans votre organisation pour configurer l'intégration de PagerDuty avec Centreon.
-* Il est également nécessaire d'avoir un **compte Centreon avec des privilèges d'administrateur** ou bien les accès aux menus **Exporter la configuration** et **Configuration de Centreon Broker**, de même qu'un **accès `root` en ligne de commande**.
+## Requirements
+
+* PagerDuty integrations require an **Admin base role** for account authorization. If you do not have this role, please reach out to an Admin or Account Owner within your organization to configure the integration.
+* It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
 
-Si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
+If you need help with this integration, depending on how you are using Centreon, you can:
 
-* **Clients de Centreon titulaires d'un contrat de support** : vous pouvez vous adresser directement à [l'équipe du Support de Centreon](mailto:support@centreon.com).
-* **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites): nous vous invitons à rejoindre notre [communauté sur Slack](https://centreon.github.io) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
+* **Commercial Edition customers**: please contact the [Centreon Support team](mailto:support@centreon.com).
+* **Open Source Edition users** or **Centreon IT-100 users** (free versions): please reach our [Community Slack](https://centreon.github.io) where our users and staff will try to help you.
 
-## Procédure d'intégration
+## Integration Walkthrough
 
-### Dans PagerDuty
+### In PagerDuty
 
-Il y a deux façons de s'intégrer avec PagerDuty, via *Global Event Routing* ou via un service PagerDuty.
+#### Integrating With a PagerDuty Service
 
-Si vous ajoutez cette intégration à un service PagerDuty existant, vous pouvez passer directement à [cette section](#int%C3%A9gration-%C3%A0-un-service-pagerduty)
-
-#### Intégration via *Global Event Routing*
-
-L'intégration via *Global Event Routing* permet de router les alertes vers des services spécifiques en fonction du contenu de l'événement. Pour en savoir plus, vous pouvez consulter [cet article](https://community.pagerduty.com/forum/t/service-configuration-guide/1660).
-
-1. Dans le menu de configuration, sélectionner **Event Rules**.
-2. Une fois dans la page des des *Event Rules*, **cliquer sur la flèche** à côté de *Incoming Event Source* pour afficher les informations relatives à la clé d'intégration. **Copier cette clé**. Elle servira également pour tous les autres outils que vous intégrerez via les *Event rules*. Une fois la configuration dans Centreon terminée, vous reviendrez à cette interface pour choisir comment vous souhaitez router les événements de Centreon vers vos services dans PagerDuty.
-
-![](https://pdpartner.s3.amazonaws.com/ig-template-incoming-event-source-key.png)
-
-#### Intégration à un service PagerDuty
-
-1. Dans le menu **Configuration**, sélectionner **Services**.
-2. Il y a deux façons d'ajouter une intégration à un service :
-   * **Si vous ajoutez une intégration à un service existant** : Cliquer sur le **nom** du service auquel vous voulez ajouter une intégration, sélectionner l'onglet **Intégrations** et cliquer sur le bouton **New Integration**.
-   * **Si vous créez un nouveau service pour cette intégration** : Veuillez lire la documentation dans la section [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) et suivre les étapes suggérées dans la partie de la documentation qui concerne la [création d'un nouveau service](https://support.pagerduty.com/docs/services-and-integrations#section-create-a-new-service) en sélectionnant **Centreon** dans **Integration Type** à l'étape 4. Poursuivre en passant à la section "[Dans Centreon](#dans-centreon)" quand vous aurez passé ces étapes.
-3. Saisir un **Integration Name** en choisissant un nom de la forme `monitoring-tool-service-name` (par exemple `Centreon-Shopping-Cart`) et sélectionner **Centreon** dans le menu **Integration Type**.
-4. Cliquer sur le bouton **Add Integration** pour sauvegarder la nouvelle intégration. Vous serez alors redirigé vers l'onglet d'intégration de votre service.
-5. Une clé d'intégration (**Integration Key**) sera générée dans cette page. Conserver cette clé en lieu sûr, elle sera utilisée pour configurer Centreon dans la section suivante.
+1. From the **Configuration** menu, select **Services**.
+2. There are two ways to add an integration to a service:
+   * **If you are adding your integration to an existing service**: Click the **name** of the service you want to add the integration to. Then, select the **Integrations** tab and click the **New Integration** button.
+   * **If you are creating a new service for your integration**: Please read this documentation in section [Configuring Services and Integrations](https://support.pagerduty.com/docs/services-and-integrations#section-configuring-services-and-integrations) and follow the steps outlined in the [Create a New Service](https://support.pagerduty.com/docs/services-and-integrations#section-create-a-new-service) section, selecting **Centreon** as the **Integration Type** in step 4. Continue with the "[In Centreon](#in-centreon)" section once you have finished these steps.
+3. Enter an **Integration Name** in the format `monitoring-tool-service-name` (e.g. `Centreon`) and select **Centreon** from the Integration Type menu.
+4. Click the **Add Integration** button to save your new integration. You will be redirected to the Integrations tab for your service.
+5. An **Integration Key** will be generated on this screen. Keep this key saved in a safe place, as it will be used when you configure the integration with Centreon in the next section.
 
 ![](https://pdpartner.s3.amazonaws.com/ig-template-copy-integration-key.png)
 
-### Dans Centreon
+### In Centreon
 
 #### Installation 
 
-Se connecter en tant que `root` au serveur central Centreon avec votre client SSH favori.
+Login as `root` on the Centreon central server using your favorite SSH client.
 
-Dans le cas où votre serveur doit passer par un proxy pour accéder à Internet, il faudra exporter la variable d'environnement `https_proxy` et configurer `yum` pour être en mesure d'installer toutes les dépendances.
+In case your Centreon central server must use a proxy server to reach the Internet, you will have to export the `https_proxy` environment variable and configure `yum` to be able to install everything.
 
 ```bash
 export https_proxy=http://my.proxy.server:3128
 echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
 ```
 
-Maintenant que le serveur peut accéder à Internet, lancer les commandes :
+Now that your Centreon central server is able to reach the Internet, you can run:
 
 ```bash
 yum install -y lua-curl epel-release
@@ -78,79 +68,79 @@ yum install -y luarocks
 luarocks install luatz
 ```
 
-Ces paquets sont nécessaires au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
+These packages are necessary for the script to run. Now let's download the script:
 
 ```bash
 wget -O /usr/share/centreon-broker/lua/pagerduty.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/pagerduty/pagerduty.lua
 chmod 644 /usr/share/centreon-broker/lua/pagerduty.lua
 ```
 
-Le Stream Connector PagerDuty est maintenant installé sur votre serveur Centreon central !
+The PagerDuty StreamConnnector is now installed on your Centreon central server!
 
-#### Configuration de *Centreon Broker*
+#### Broker configuration
 
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Sélectionner **Generic - Stream connector** et cliquer sur **Ajouter** pour créer une nouvelle sortie.
-5. Choisir son nom (**Name**) par exemple **PagerDuty** et saisir l'emplacement (**Path**) où le script a été installé : `/usr/share/centreon-broker/lua/pagerduty.lua`.
-6. Le paramètre `pdy_routing_key` est à personnaliser dans tous les cas :
+1. Login to the Centreon WUI using an administrator account.
+2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
+3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
+4. Add a new **Generic - Stream connector** output.
+5. Name it as you want (eg. **PagerDuty**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/pagerduty.lua`.
+6. Add at least one string parameter containing your PagerDuty routing key/token (the parameter name *must be* `pdy_routing_key`):
 
-| Name              | Type   | Value                           |
-| ----------------- | ------ | ------------------------------- |
-| `pdy_routing_key` | String | `<coller la clé d'intégration>` |
+| Name              | Type   | Value                   |
+| ----------------- | ------ | ----------------------- |
+| `pdy_routing_key` | String | `<paste your key here>` |
 
-7. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-8. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-9. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-10. Redémarrer le service `cbd` :
+7. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
+8. Select the **Central** poller and click on **Export configuration**.
+9. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
+10. Restart the `cbd` service:
 
 ```bash
 systemctl restart cbd
 ```
 
-Votre serveur central a maintenant chargé le Stream Connector et commence à envoyer des données vers PagerDuty.
+Now your central server has loaded the PagerDuty Stream Connector and has started to send data!
 
-Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-broker-master.log` et `stream-connector-pagerduty.log`, tous deux situés à l'emplacement `/var/log/centreon-broker` du serveur central.
+To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-pagerduty.log`, both located in `/var/log/centreon-broker`.
 
-#### Configuration avancée
+#### Advanced configuration
 
-**Tableau des paramètres**
+**Parameters table**
 
-| Name                | Type   | Value (exemple)                                  | Explication                                                                                                            |
-| ------------------- | ------ | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                                  |
-| `pdy_centreon_url`  | String | `http://your.centreon.server`                    | URL du serveur Centreon                                                                                                |
-| `log_level`         | Number | 2 (valeur par défaut)                            | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                                 |
-| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Chemin complet du fichier de log                                                                                       |
-| `max_buffer_size`   | Number | 1 (valeur par défaut)                            | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               |
-| `max_buffer_age`    | Number | 5 (valeur par défaut)                            | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint |
+| Name                | Type   | Value example                                    | Explanation                                                                                  |
+| ------------------- | ------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Proxy string needed to reach the Internet in HTTP/HTTPS                                      |
+| `pdy_centreon_url`  | String | `http://your.centreon.server`                    | URL of your Centreon server                                                                  |
+| `log_level`         | Number | 2 (default value)                                | Verbosity level for logs 0: errors only 1: +warnings, 2: +verbose, 3: +debug                 |
+| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Log file full path and name                                                                  |
+| `max_buffer_size`   | Number | 1 (default value)                                | Number of events to enqueue in buffer before sending                                         |
+| `max_buffer_age`    | Number | 5 (default value)                                | Maximum number of seconds before sending an event when `max_buffer_size` hasn't been reached |
 
-**Remarques**
+**Remarks**
 
-* La valeur par défaut de 2 pour le paramètre `log_level` est adaptée à la mise en place et au *troubleshooting* initial éventuel, cela peut cependant générer un volume important de logs. Il est donc recommandé, une fois la mise en place validée, de l'abaisser à 1.
-* La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à PagerDuty. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà. 
+* The default value of 2 for `log_level` is fine for initial troubleshooting, but can generate a huge amount of logs if you monitor a lot of hosts. In order to get less log messages, you should tune this parameter.
+* The default value of 1 for `max_buffer_size` works fine and ensures the best response times. You might want to tune it (*ie.* increase it) if you have an important amount of data to send to PagerDuty.
 
 ---------------
 
-## Désinstallation
+## How to Uninstall
 
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Supprimer la sortie **Generic - Stream connector** en cliquant sur la croix rouge entourée d'un cercle à la fin de la ligne.
-5. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-6. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-7. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-8. Redémarrer le service `cbd` :
+1. Login to the Centreon WUI using an administrator account.
+2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
+3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
+4. Delete the **Generic - Stream connector** output by clicking on the red circled cross at the end of the line.
+5. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
+6. Select the **Central** poller and click on **Export configuration**.
+7. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
+8. Restart the `cbd` service:
 
 ```bash
 systemctl restart cbd
 ```
 
-Le Stream Connector n'est plus chargé par `centreon-broker`.
+The Stream Connector is not loaded anymore!
 
-9. Ce n'est pas nécessaire, mais vous pouvez également supprimer le script pour désinstaller complètement le Stream Connector :
+9. Optionally, you can even delete the script file:
 
 ```bash
 rm -f /usr/share/centreon-broker/lua/pagerduty.lua

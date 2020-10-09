@@ -4,6 +4,7 @@ title: Office365 OneDrive
 ---
 
 ## Overview
+
 Microsoft’s Office365 suite includes Onedrive, which is a file hosting and
 syncronisation service.
 
@@ -36,11 +37,11 @@ See link for details about metrics : https://docs.microsoft.com/en-us/microsoft-
 | onedrive.sites.inactive.files.total.count    | Total number of files (inactive sites )  | Count |
 | onedrive.sites.files.active.total.count      | Total number of active files             | Count |
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Once the host created, you can configure some macros on the services to filter
 information by site or by user. More information in the [Configuration](#Configuration)
 section.
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
@@ -148,7 +149,10 @@ Centreon poller by logging with the *centreon-engine* user:
   --tenant='abcd1234-5678-90ab-cd12-34567890abcd' \
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
+```
 
+
+```bash
 OK: Active sites on 2020-09-27 : 3/1031 (0.29%) - Total Usage (active sites)
 893.84 MB, Usage (inactive sites): 149.03 GB, File Count (active sites): 154,
 File Count (inactive sites): 26643, Active File Count (active sites): 5 |

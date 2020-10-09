@@ -101,6 +101,7 @@
                 "label": "Découverte",
                 "type": "subcategory"
             },
+            "monitoring/event-handler",
             "monitoring/web-import-export"
         ],
         "Alertes et Notifications": [
@@ -233,6 +234,7 @@
                 "ids": [
                     "administration/centreon-ha/architectures",
                     "administration/centreon-ha/installation-2-nodes",
+                    "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/update",
                     "administration/centreon-ha/troubleshooting-guide"
@@ -301,6 +303,7 @@
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ise-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ssms-restapi",
+                    "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
@@ -556,6 +559,7 @@
                     "integrations/plugin-packs/procedures/network-efficientip-snmp",
                     "integrations/plugin-packs/procedures/network-evertz-fc7800-snmp",
                     "integrations/plugin-packs/procedures/network-extreme-snmp",
+                    "integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-f5-bigip-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
@@ -619,7 +623,9 @@
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
-                    "integrations/plugin-packs/procedures/network-zyxel-snmp"
+                    "integrations/plugin-packs/procedures/network-zyxel-snmp",
+                    "integrations/plugin-packs/procedures/network-versa-snmp",
+                    "integrations/plugin-packs/procedures/network-versa-director-restapi"
                 ],
                 "label": "Network",
                 "type": "subcategory"

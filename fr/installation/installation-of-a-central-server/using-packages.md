@@ -105,7 +105,7 @@ systemctl restart mariadb
 Exécutez la commande suivante sur le serveur Centreon Central :
 
 ```shell
-yum install -y centreon-base-config-centreon-engine
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
 Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
