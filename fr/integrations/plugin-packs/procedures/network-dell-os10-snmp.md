@@ -6,7 +6,7 @@ title: Dell OS10 SNMP
 ## Vue d'ensemble
 
 Dell OS10 est la nouveau système d'exploitation des équipements réseau Dell. Il combine le meilleur de Linux, de l’informatique ouverte et de la mise en réseau pour faire avancer la désagrégation de mise en réseau ouverte.
-Ce Plugin-Pack, supervise tout les points physique et système.
+Ce Plugin-Pack, supervise tous les points physique et système.
 
 ## Contenu du Plugin-Pack
 
@@ -33,6 +33,8 @@ Ce Plugin-Pack, supervise tout les points physique et système.
 | storage.space.free.bytes        | Free Space storage               | B     |
 | storage.space.usage.percentage  | Usage Space in percentage        | %     |
 | storage.inodes.usage.percentage | Inode usage in percentage        | %     |
+
+Il est possible de filtrer les résultats sur le chemin de disque donné en utilisant une REGEXP sur le paramètre ```--disk-path```: [```--disk-patch='^my-disk-path$'```]
 
 <!--Inodes-->
 
@@ -64,7 +66,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | os10FanOperStatus             | Status of the fan                         |      |
 | os10FanTrayOperStatus         | Status of the fantray                     |      |
 | os10PowerSupplyOperStatus     | Status of the power supply                |      |
-| resource.oper_status          | Status of the resources					|      |
+| resource.oper_status          | Status of the resources		    |      |
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 
 <!--Load-->
@@ -93,8 +95,6 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | swap.usage.bytes            | Swap usage    | B    |
 | swap.free.bytes             | Swap free     | B    |
 | swap.usage.percentage       | Swap usage    | %    |
-
-Il est possible de filtrer les résultats sur le chemin de disque donné en utilisant une REGEXP sur le paramètre ```--disk-path```: [```--disk-patch='^my-disk-path$'```]
 
 <!--Uptime-->
 
