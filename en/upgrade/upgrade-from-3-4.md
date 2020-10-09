@@ -4,14 +4,14 @@ title: Upgrade from Centreon 3.4
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
-(Centreon Web 2.8) to version 20.04.
+(Centreon Web 2.8) to version 20.10.
 
-> Upon completing the upgrade procedure, Centreon EMS users will have to request a
-> new license from [Centreon support](https://centreon.force.com).
+> Upon completing the upgrade procedure, Centreon EMS users will have to request
+> a new license from [Centreon support](https://centreon.force.com).
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
-> 
+>
 > If this is not the case, refer to the
 > [migration procedure](../migrate/migrate-from-3-4.html).
 
@@ -30,8 +30,8 @@ servers:
 To install Centreon you will need to set up the official software collections
 repository supported by Redhat.
 
-> *Software collections* are required in order to install PHP 7 and the associated
-> libraries (Centreon requirement).
+> *Software collections* are required in order to install PHP 7 and the
+> associated libraries (Centreon requirement).
 
 Run the following command: :
 
@@ -44,12 +44,12 @@ yum install -y centos-release-scl
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution
 
-> Centreon 20.04 uses **MariaDB 10.3**.
+> Since 20.04, Centreon uses **MariaDB 10.3**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
@@ -73,7 +73,7 @@ yum update centreon\*
 
 #### Update the PHP version
 
-Centreon 20.04 uses a new version of PHP.
+Since 20.04, Centreon uses a new version of PHP.
 
 The PHP timezone should be set. Run the command:
 
@@ -93,7 +93,7 @@ systemctl start rh-php72-php-fpm
 
 #### Update the Apache web server
 
-Centreon 20.04 uses a new version of Apache web server.
+Since 20.04, Centreon uses a new version of Apache web server.
 
 > If you made manual configuration, please report it into
 > **/opt/rh/httpd24/root/etc/httpd/conf.d/**.
@@ -183,7 +183,8 @@ systemctl restart httpd24-httpd
 
 ### Synchronize the plugins
 
-> Centreon Web 20.04 resource $USER1$ actually points to /usr/lib64/nagios/plugins.
+> Centreon Web 20.10 resource $USER1$ actually points to
+> /usr/lib64/nagios/plugins.
 
 To mitigate this issue run the following commands:
 
@@ -248,7 +249,7 @@ Then you can upgrade all other commercial extensions.
 
 #### Start the tasks manager
 
-Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
+Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
 
 To act this change, run the following commands:
 
@@ -412,6 +413,7 @@ MariaDB:
 #### Enable MariaDB on startup
 
 Execute the following command:
+
 ```shell
 systemctl enable mariadb
 ```
@@ -423,8 +425,15 @@ systemctl enable mariadb
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+
+> If you are using a CentOS environment, you must install the *Software
+> Collections* repositories with the following command:
+>
+> ```shell
+> yum install -y centos-release-scl-rh
+> ```
 
 ### Upgrade the Centreon solution
 
@@ -457,8 +466,8 @@ and choose *Restart* method for Engine process.
 ## Migrate Centreon Poller Display to Remote Server
 
 If the platform has Pollers with Poller Display module installed, refer to the
-[Migrate a platform with Poller Display module](../migrate/poller-display-to-remote-server.html)
-procedure.
+[Migrate a platform with Poller Display
+module](../migrate/poller-display-to-remote-server.html) procedure.
 
 ## Communications
 
