@@ -27,8 +27,8 @@ cliquez sur **Suivant** :
 > L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au
 > collecteur depuis le serveur Centreon Central.
 >
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au
-> collecteur serveur Centreon Central vers le collecteur.
+> L'adresse IP du serveur Centreon Central est l'adresse IP ou le FQNS pour accéder au
+> serveur Centreon Central depuis le collecteur.
 
 Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur
 **Appliquer** :
