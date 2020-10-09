@@ -106,6 +106,10 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 ## Prérequis
 
+Afin de contrôler vos équipements Dell OS10, le SNMP v2 doit être configuré.
+Pour plus d'information, vous pouvez vous référer à la documentation utilisateur officiel :
+https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterprise-user-guide-10_4_2-pub/configure-snmp?guid=guid-cf75b1b6-5c24-4237-af0c-b9ed1f491b75&lang=en-us
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
