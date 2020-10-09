@@ -116,7 +116,7 @@ les filtres afin d'accéder à plus de critères:
 
 ![image](assets/alerts/events-view/advanced-search.png)
 
-### Sauvergarder un filtre
+### Sauvegarder un filtre
 
 Lorsque vous souhaitez ne lister qu'un sous ensemble des équipements de la supervision, vous êtes amenés à
 utiliser de nombreux critères et expressions régulières. Dans ce cas, il est intéressant de sauvegarder
