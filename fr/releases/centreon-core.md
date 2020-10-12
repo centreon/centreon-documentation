@@ -334,6 +334,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.04.7
+
+#### Bug fixes
+
+- Recovery notification with multiple users and different notification filters
+
 ### 20.04.6
 
 #### Bug fixes
