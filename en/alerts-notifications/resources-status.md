@@ -18,11 +18,11 @@ events.
 The event list is a condensed & efficient view of all alerts or resource status
 monitored by Centreon.
 
-![image](../assets/alerts/events-view/listing.png)
+![image](../assets/alerts/resources-status/resources-status-listing.png)
 
 It's possible to sort by the column of your choice.
 
-![image](../assets/alerts/events-view/orderby.gif)
+![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
 ## Take actions on events
 
@@ -36,7 +36,10 @@ your team that the problem is handled, you can do that in two ways:
 -   By selecting multiple lines and clicking on the "Acknowledgement"
     button, above the table
 
-![image](../assets/alerts/events-view/acknowledgement.gif)
+You can also disacknowledge previously acknowledged events by choosing the
+"Disacknowledge" action in the "More actions" menu.
+
+![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
 > Only "non-ok" resources can be ackwnoledged
 
@@ -53,7 +56,7 @@ planned downtime in Centreon in two ways:
 -   By selecting multiple lines and clicking on the "Downtime" button,
     above the table
 
-![image](../assets/alerts/events-view/downtime.gif)
+![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
 When a resource is in planned downtime, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
@@ -69,7 +72,7 @@ in two ways:
 -   By selecting multiple lines and clicking on the "Check" button,
     above the table
 
-![image](../assets/alerts/events-view/check.gif)
+![image](../assets/alerts/resources-status/resources-status-check.gif)
 
 ## Filter
 
@@ -90,7 +93,7 @@ The following rules apply:
     or Down
 -   All: All resources
 
-![image](../assets/alerts/events-view/predefined-filters.gif)
+![image](../assets/alerts/resources-status/resources-status-filters-default.gif)
 
 ### Search bar
 
@@ -105,7 +108,7 @@ By default, the search bar with look for your expression to match with
 -   Address or FQDN
 -   Service description
 
-![image](../assets/alerts/events-view/simple-search.png)
+![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
 It's possible to force search on a defined fields by using the following
 labels:
@@ -115,7 +118,7 @@ labels:
 -   h.address: only search in host address field
 -   s.description: only search in service description field
 
-![image](../assets/alerts/events-view/label-search.png)
+![image](../assets/alerts/resources-status/resources-status-search-label.png)
 
 ### By advanced criteria
 
@@ -129,7 +132,7 @@ to expand the filter bar to access the following additionnal criteria:
 -   Host groups
 -   Service groups
 
-![image](../assets/alerts/events-view/advanced-search.png)
+![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
 ### Save your filter
 
@@ -147,7 +150,7 @@ This is possible using the **icon** next to Filter. You'll be able to:
 As soon as a filter is saved, it's re-usable in the Filter dropdown list,
 categorized under "My Filter".
 
-![image](../assets/alerts/events-view/manage-filters.gif)
+![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
 
 ## Detail panel
 
@@ -158,19 +161,29 @@ Regarding the type of resource, the detail panel displays different information.
 
 ### Host panel
 
-The host panel contains only information about the host status.
+The host panel contains several informative tabs:
 
-![image](../assets/alerts/events-view/host-panel.gif)
+-   Detailed information about its current status,
+-   A listing of its attached services and their current status,
+-   The timeline of events that occured for this host,
+-   Shortcuts to the configuration, logs and report.
 
-If an acknowledgement or downtime is set on the host, it will be display in the
-panel and the header will be accordingly colored.
+![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
+
+If an acknowledgement or downtime is set on the host, it will be displayed in
+the panel and the header will be accordingly colored.
 
 ### Service panel
 
-The service panel contains detail information about the status and a "Graph"
-tab. The graph tab displays a chart letting you quickly see metrics evolution.
+The service panel contains several informative tabs:
 
-![image](../assets/alerts/events-view/service-panel.gif)
+-   Detailed information about its current status,
+-   The timeline of events that occured for this service,
+-   A graph with one curve per metric collected by this service,
+-   Shortcuts to the configurations, logs and reports for this service and its
+    related host.
 
-If an acknowledgement or downtime is set on the service, it will be display in
+![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
+
+If an acknowledgement or downtime is set on the service, it will be displayed in
 the panel and the header will be accordingly colored.
