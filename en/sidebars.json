@@ -107,8 +107,8 @@
         "Alerts & Notifications": [
             "alerts-notifications/introduction",
             "alerts-notifications/concepts",
-            "alerts-notifications/events-view",
-            "alerts-notifications/event-console",
+            "alerts-notifications/resources-status",
+            "alerts-notifications/event-consoles",
             "alerts-notifications/manage-alerts",
             {
                 "ids": [

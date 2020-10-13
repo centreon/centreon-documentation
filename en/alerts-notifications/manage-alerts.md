@@ -1,6 +1,6 @@
 ---
 id: manage-alerts
-title: Manage Alerts
+title: Manage alerts
 ---
 
 This chapter presents the different methods to manage alerts.
@@ -46,7 +46,7 @@ From of the detail page of an object, click on the icon |enabled| associated wit
 
 The following window appears:
 
-![image](assets/alerts/acknowledged.png)
+![image](../assets/alerts/acknowledged.png)
 
 * If the **Sticky** box is checked, the acknowledgment will be maintained in case of a change of Not-OK status (E.g.:
   DOWN to UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment disappears and the notification process is
@@ -61,7 +61,6 @@ The following window appears:
   acknowledged (option visible only if we acknowledge a host).
 * If the **Force active checks** box is checked, a command will be sent to the scheduler to recheck the resource as
   soon as possible.
-
 
 To delete the acknowledgment of an incident on an object:
 
@@ -114,7 +113,7 @@ There are three different possibilities to define a downtime:
 
 The following window appears:
 
-![image](assets/alerts/downtime.png)
+![image](../assets/alerts/downtime.png)
 
 * The **Host Name** field defines the host concerned by the downtime
 * The **Service** field defines the service concerned by the downtime
@@ -139,7 +138,7 @@ concerned to avoid receiving notifications from 20h00 to midnight.
 > The Downtime periods are taken into account in the calculation of the availability ratio of the resource in the **[Dashboard](../reporting/introduction.html#simple-reporting)**.
 
 #### Practice
- 
+
 There are two types of Downtime periods:
 
 * The **fixed** downtime period: This means that the downtime period takes place during exactly the time period defined.
@@ -212,7 +211,7 @@ There are two solutions to add a comment:
 
 The following window appears:
 
-![image](assets/alerts/comment.png)
+![image](../assets/alerts/comment.png)
 
 * The **Host Name** field defines the host concerned by the comment.
 * If you have chosen to add a comment to a service, the **Service** field can be used to select the service concerned
@@ -239,8 +238,8 @@ It is possible to temporarily enable or disable check on a host or a service.
 
 To:
 
-* Enable the check, click on ![image](assets/configuration/common/enabled.png)
-* Disable the check, click on ![image](assets/configuration/common/disabled.png)
+* Enable the check, click on ![image](../assets/configuration/common/enabled.png)
+* Disable the check, click on ![image](../assets/configuration/common/disabled.png)
 
 <!--From real time monitoring-->
 
@@ -266,7 +265,7 @@ result for this service**
 
 The following window appears:
 
-![image](assets/alerts/submitresult.png)
+![image](../assets/alerts/submitresult.png)
 
 * The **Host Name** and **Service** fields define the host and the service the result will be submitted
 * The **Check result** field defines the status of the service
@@ -294,8 +293,8 @@ There are two ways of managing the notifications:
 
 To:
 
-* Enable the notification, click on ![image](assets/configuration/common/enabled.png)
-* Disable the notification, click on ![image](assets/configuration/common/disabled.png)
+* Enable the notification, click on ![image](../assets/configuration/common/enabled.png)
+* Disable the notification, click on ![image](../assets/configuration/common/disabled.png)
 
 <!--From real time monitoring-->
 
