@@ -892,7 +892,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 ```
 
 > Si votre serveur Central utilise SSL/TLS, et si le certificat est auto-signé
-> ou signé par une autorité non reconnu, vous devez l'ajouter à la base
+> ou signé par une autorité non reconnue, vous devez l'ajouter à la base
 > des certificats de confiance :
 >
 > - Installer le paquet *ca-certificates* :
