@@ -42,7 +42,7 @@ To acknowledge an incident, there are two solutions:
 
 <!--From real time monitoring-->
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Sservices`)
+1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
     menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on

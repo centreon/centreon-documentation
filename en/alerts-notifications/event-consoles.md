@@ -3,14 +3,14 @@ id: event-consoles
 title: Event consoles
 ---
 
-> This chapter presents the different interfaces allowing to visualize the
-> status of resources.
->
-> Some of this interfaces are now **deprecated** and replaced by the
+> Some of this interfaces are **deprecated** and replaced by the
 > [Resources Status](resources-status.html) page.
 >
 > This new page aims to regroup all the experiences you can find in these
 > interfaces.
+
+This chapter presents the different interfaces allowing to visualize the
+status of resources.
 
 ### Generic actions
 
@@ -26,6 +26,9 @@ functions of these icons:
 | ![image](../assets/alerts/resume.png)  | Serves to restart automatic data refreshment.            |
 
 ## Hosts (deprecated)
+
+> This interface is **deprecated** and replaced by the `Resources Status` page
+> and the [events list](resources-status.html#events-list).
 
 To view the status of hosts, go into the `Monitoring > Status Details > Hosts`
 menu
@@ -99,7 +102,10 @@ Hostgroups Summary` menu
 -   **Poller**: Can be used to filter the hosts by poller. Only the
     hosts of the poller selected will be displayed.
 
-## Host details
+## Host details (deprecated)
+
+> This interface is **deprecated** and replaced by the `Resources Status` page
+> and the [host panel](resources-status.html#host-panel).
 
 When you click on the name of a host, you access to the details page of
 the resource.
@@ -167,6 +173,9 @@ The **Notifications** container allows to display the contacts and contactgroups
 linked to the host which will receive notifications.
 
 ## Services (deprecated)
+
+> This interface is **deprecated** and replaced by the `Resources Status` page
+> and the [events list](resources-status.html#events-list).
 
 To view the status of service, go into the `Monitoring > Status Details >
 Services` menu.
@@ -260,6 +269,9 @@ for **Display** filter:
 ![image](../assets/alerts/04servicelistbyservicegroup.png)
 
 ## Service Details (deprecated)
+
+> This interface is **deprecated** and replaced by the `Resources Status` page
+> and the [service panel](resources-status.html#service-panel).
 
 When you click on a service, the following screen appears:
 
