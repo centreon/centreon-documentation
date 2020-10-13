@@ -9,7 +9,8 @@ title: Event consoles
 > Some of this interfaces are now **deprecated** and replaced by the
 > [Resources Status](resources-status.html) page.
 >
-> This page aims to regroup all the experiences you can find in these pages.
+> This new page aims to regroup all the experiences you can find in these
+> interfaces.
 
 ### Generic actions
 
@@ -170,7 +171,7 @@ linked to the host which will receive notifications.
 To view the status of service, go into the `Monitoring > Status Details >
 Services` menu.
 
-![image](assets/alerts/04servicelist.png)
+![image](../assets/alerts/04servicelist.png)
 
 ### Columns description
 
@@ -178,11 +179,11 @@ Services` menu.
 -   **Host**: Displays the name of host.
 -   **Services**: Displays the name of service.
     -   The following icon indicates that the notifications for this
-        service are disabled: ![image](assets/alerts/nonotifications.png)
+        service are disabled: ![image](../assets/alerts/nonotifications.png)
     -   The following icon can be used to view the performance graph for
-        this service: ![image](assets/alerts/graphperformances.png)
+        this service: ![image](../assets/alerts/graphperformances.png)
     -   The following icon allows to access to a predefined url
-        configured: ![image](assets/alerts/url_link.png)
+        configured: ![image](../assets/alerts/url_link.png)
 -   **Duration**: Displays the duration of the actual status.
 -   **Hard State Duration**: Displays the duration of the validated
     non-ok status.
