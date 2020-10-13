@@ -1,5 +1,5 @@
 ---
-id: upgrade-from-20.04
+id: upgrade-from-20-04
 title: Montée de version depuis Centreon 20.04
 ---
 
