@@ -9,10 +9,6 @@ statuses, analyze & quickly handle them.
 This view mixes hosts & services to have a unified interface and way to manage
 events.
 
-> To be updated
-
-<iframe width="640" height="480" src="https://www.youtube.com/embed/FVjuIbBDuYU" frameborder="0" allowfullscreen></iframe>
-
 ## Events list
 
 The event list is a condensed & efficient view of all alerts or resource status
@@ -132,7 +128,7 @@ to expand the filter bar to access the following additionnal criteria:
 -   Host groups
 -   Service groups
 
-![image](../assets/alerts/resources-status/resources-status-search-simple.png)
+![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
 
 ### Save your filter
 
@@ -165,7 +161,7 @@ The host panel contains several informative tabs:
 
 -   Detailed information about its current status,
 -   A listing of its attached services and their current status,
--   The timeline of events that occured for this host,
+-   The timeline of events that occurred for this host,
 -   Shortcuts to the configuration, logs and report.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
