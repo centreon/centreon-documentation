@@ -60,7 +60,7 @@ Leur cycle de publication peut être en retard par rapport aux versions sources 
 
 De plus amples informations sont disponibles sur la documentation officielle du VerneMQ : https://docs.vernemq.com/getting-started
 
-L'API HTTP de VerneMQ est activée par défaut et installe un gestionnaire HTTP sur `http://localhost:8888/api/v1`.
+L'API HTTP de VerneMQ est activée par défaut et installe un gestionnaire HTTP sur `http://myvernemq.com:8888/api/v1`.
 L'utilisateur de centreon-engine effectue une connexion à ce système.
 Sur le serveur VerneMQ, vous devez avoir généré un Token avec la commande suivante :
 
@@ -76,7 +76,7 @@ Plus d'informations sur l'API HTTP de VerneMQ sur : https://docs.vernemq.com/adm
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources VerneMQ :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 
 ```bash
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
@@ -86,7 +86,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources VerneMQ :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources VerneMQ :
 
 ```bash
 yum install centreon-plugin-Applications-Vernemq-Restapi.noarch
@@ -125,7 +125,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 /usr/lib/centreon/plugins/centreon_vernemq_restapi.pl \
 	--plugin=apps::mq::vernemq::restapi::plugin \
 	--mode='sessions' \
-	--hostname='myvernemq' \
+	--hostname='myvernemq.com' \
 	--port='8888' \
 	--proto='http' \
 	--api-key='12342939495003' \
@@ -145,15 +145,17 @@ sur le port _8888_ (```--port='8888'```) utilisant le protocol _http_ (```--prot
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vernemq_restapi.pl --plugin=apps::mq::vernemq::restapi::plugin \
-	--mode='plugins' --help
+/usr/lib/centreon/plugins/centreon_vernemq_restapi.pl 
+	--plugin=apps::mq::vernemq::restapi::plugin \
+	--mode='plugins' \
+	--help
 ```
 
 ### J'obtiens le message d'erreur suivant: 
 
-#### ```UNKNOWN: 500 Can't connect to myvernemq.com:443 |```
+#### ```UNKNOWN: 500 Can't connect to myvernemq.com:8888 |```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to myvernemq.com:443 |```.
+Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to myvernemq.com:8888 |```.
 Cela signifie que Centreon n'a pas réussi à se connecter à l'API VerneMQ (*myvernemq.com*).
 La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *myvernemq.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
 
@@ -162,8 +164,3 @@ La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL
 Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *curl* utlisée par défaut par le Plugin Centreon.
 Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
-
-### Comment puis-je supprimer les perfdatas *count* dans le cas où je ne souhaite vérifier qu'une seule application ?
-
-Le Plugin permet de filtrer sur un ou plusieurs éléments mais permet également de récupérer l'ensemble des éléments si aucun filtre n'est spécifié.
-De ce fait, des perfdatas "globales" sur les statistiques des objets sont ajoutées par défaut. Il est possible de supprimer ces données de performance en appliquant le filtre suivant: ```--filter-perfdata='^$'```.
