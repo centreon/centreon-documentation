@@ -89,7 +89,7 @@ Signification des filtres:
     Critical ou Unknown ou Down
 -   All: toutes les ressources
 
-![image](../assets/alerts/resources-status/resources-status-filters-default.gif)
+![image](../assets/alerts/resources-status/resources-status-filters-default.png)
 
 ### Barre de recherche
 
