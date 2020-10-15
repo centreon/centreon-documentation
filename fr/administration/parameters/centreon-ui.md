@@ -117,6 +117,7 @@ avec le flux de code d'autorisation (uthorization code) de type d'autorisation (
 - Le champ **Token Endpoint** définit le point de terminaison du jeton, par exemple `/token` (obligatoire).
 - Le champ **Introspection Token Endpoint** définit le point de terminaison du jeton d'introspection, par exemple `/introspect` (obligatoire).
 - Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
+- Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
 - La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
   `htt://192.168.0.1/centreon/index.php`.

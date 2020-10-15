@@ -110,6 +110,7 @@ the grant type authorization code flow.
 - **Token Endpoint** field defines the token endpoint, for example `/token`(mandatory).
 - **Introspection Token Endpoint** field defines the introspection token endpoint, for example `/introspect` (mandatory).
 - **User Information Endpoint** field defines the user information endpoint, for example `/userinfo`.
+- **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
 - **Redirect Url** field defines the redirect URL after login to access to your Centreon server, for example
   `htt://192.168.0.1/centreon/index.php`.
