@@ -120,7 +120,7 @@ are compatible with the Authorization Code Flow.
 
 ![image](../../assets/administration/openid-connect-configuration.png)
 
-> Depending on the identity provider, it is necessary to enter several scopes, this is indicated in the provider's
+> Depending on the identity provider, it is necessary to enter several scopes. This is indicated in the provider's
 > configuration documentation.
 
 > For authentication to be functional, the response to the introspection token call must return a `preferred_username`
