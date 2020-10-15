@@ -369,6 +369,7 @@
                     "integrations/plugin-packs/procedures/applications-varnish-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
                     "integrations/plugin-packs/procedures/applications-vtom-restapi",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
