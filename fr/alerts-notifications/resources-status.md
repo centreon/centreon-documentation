@@ -46,7 +46,7 @@ problems" et de stopper les notifications partant de la ressource.
 
 Il est possible de planifier une plage de maintenance :
 
--   En définissant directrement une plage de maintenance via le bouton
+-   En définissant directement une plage de maintenance via le bouton
     qui s'affiche au survol de la ligne
 -   En sélectionne une ou plusieurs lignes et en cliquant sur le bouton
     "Downtime"
