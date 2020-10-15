@@ -96,8 +96,8 @@ the username.
 
 Centreon is compatible with OAuth 2.0 / OpenId Connect authentication.
 
-It is possible to use Identity Provider (IdP) such as Keycloak, LemonLDAP::NG or other IdP which are compatible with
-the grant type authorization code flow.
+Usage of Identity Providers (IdP) is available, such as Keycloak, LemonLDAP::NG or other IdP which are compatible with
+are compatible with the Authorization Code Flow.
 
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
 - **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
@@ -113,7 +113,7 @@ the grant type authorization code flow.
 - **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
 - **Redirect Url** field defines the redirect URL after login to access to your Centreon server, for example
-  `htt://192.168.0.1/centreon/index.php`.
+  `http://192.168.0.1/centreon/index.php`.
 - **Client ID** field defines the Client ID.
 - **Client Secret** field defines the Client secret.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only used for test.

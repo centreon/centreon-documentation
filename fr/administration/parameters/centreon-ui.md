@@ -104,7 +104,7 @@ indique l'expression rationnelle (pattern) de recherche pour l'utilisateur.
 Centreon est compatible avec l'authentification OAuth 2.0 / OpenId Connect.
 
 Il est possible d'utiliser un fournisseur d'identité (IdP) tel que Keycloak, LemonLDAP::NG ou tout autre IdP compatible
-avec le flux de code d'autorisation (uthorization code) de type d'autorisation (grant type).
+avec le flux d'autorisation via un code (Authorization Code Grant).
 
 - La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
 - Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
@@ -120,7 +120,7 @@ avec le flux de code d'autorisation (uthorization code) de type d'autorisation (
 - Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
 - La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
-  `htt://192.168.0.1/centreon/index.php`.
+  `http://192.168.0.1/centreon/index.php`.
 - **Client ID** défini l'ID client.
 - **Client Secret** défini le secret client.
 - **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test
