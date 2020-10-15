@@ -89,7 +89,7 @@ The following rules apply:
     or Down
 -   All: All resources
 
-![image](../assets/alerts/resources-status/resources-status-filters-default.gif)
+![image](../assets/alerts/resources-status/resources-status-filters-default.png)
 
 ### Search bar
 
