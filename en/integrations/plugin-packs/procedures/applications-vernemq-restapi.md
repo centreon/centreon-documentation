@@ -59,8 +59,8 @@ Their release cycle may lag behind VerneMQ source releases.
 
 More information is available on the official documentation of VerneMQ : https://docs.vernemq.com/getting-started
 
-The VerneMQ HTTP API is enabled by default and installs an HTTP handler on `http://localhost:8888/api/v1`.
-The centreon-engine user performs a RestAPI connection to this system. 
+The VerneMQ HTTP API is enabled by default and installs an HTTP handler on `http://myvernemq.com:8888/api/v1`.
+The centreon-engine user performs a RestAPI request to this system. 
 You must have generated one Token on VerneMQ server with the following command :
 
 ```bash
@@ -125,7 +125,7 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 /usr/lib/centreon/plugins/centreon_vernemq_restapi.pl \
 	--plugin=apps::mq::vernemq::restapi::plugin \
 	--mode='sessions' \
-	--hostname='myvernemq' \
+	--hostname='myvernemq.com' \
 	--port='8888' \
 	--proto='http' \
 	--api-key='12342939495003' \
@@ -143,13 +143,15 @@ and it connects to the Host _myvernemq.com_ (```--Hostname='myvernemq.com'```)
 on the port 8888 (```--port='8888'```) using http (```--proto='http'```).
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vernemq_restapi.pl --plugin=apps::mq::vernemq::restapi::plugin \
-	--mode='sessions' --help
+/usr/lib/centreon/plugins/centreon_vernemq_restapi.pl \
+	--plugin=apps::mq::vernemq::restapi::plugin \
+	--mode='sessions' \
+	--help
 ```
 
 ### Why do I get the following error: 
 
-#### ```UNKNOWN: 500 Can't connect to myvernemq.com:443```
+#### ```UNKNOWN: 500 Can't connect to myvernemq.com:8888```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the VerneMQ RestAPI.
 Check that no third party device (such as a firewall) is blocking the request.
@@ -161,8 +163,3 @@ When using a proxy to connect to the VerneMQ RestAPI, this error message means t
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
-
-### How do I remove the *count* perfdatas if I want to filter on just one application ?
-
-The Plugin adds the count of objects by default. This can be useless if the objects are filtered with the ```--filter-name``` parameter.
-Therefore, these useless perfdatas can be omitted by adding a perfdata filter : ```--filter-perfdata='^$'```.
