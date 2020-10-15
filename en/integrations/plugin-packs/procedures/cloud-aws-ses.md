@@ -5,7 +5,7 @@ title: Amazon SES
 
 ## Overview
 
-AAmazon Simple Email Service (SES) is a cost-effective, flexible, and scalable
+Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable
 email service that enables developers to send mail from within any application.
 
 There is no charge for the Amazon SES metrics reported in CloudWatch. They're 
@@ -20,18 +20,6 @@ related metrics and status.
 
 * SES sending activity
 
-### Discovery Rules
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Services-->
-
-| Rule name                | Description                                                                                  |
-| :----------------------- | :------------------------------------------------------------------------------------------- |
-| Cloud-Aws-Ses-Identities | Discover Amazon SES email addresses and domains and monitor their status and related metrics |
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ### Collected metrics 
 
 More information about collected metrics is available in the official Amazon 
@@ -44,7 +32,7 @@ https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.h
 
 | Metric name                 | Description                                                                                  
 |:--------------------------- | :----------------------------------------|
-| ses.emails.calls.count      | Number of sent emails                    |
+| ses.emails.sent.count       | Number of sent emails                    |
 | ses.emails.delivered.count  | Number of successfully delivered emails  |
 | ses.emails.rejected.rate    | Rate of rejected emails                  |
 | ses.emails.spam.rate        | Rate of emails marked as spam            |
@@ -57,11 +45,9 @@ https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.h
 
 Configure a service account (*access/secret keys* combo) for which the following privileges have to be granted:
 
-| AWS Privilege                  | Description                                                     |
-|:-------------------------------|:--------------------------------------------------------------- |
-| ses:ListIdentities             | Returns a list of your emails identities in the current region  |
-| cloudwatch:listMetrics         | List all metrics from Cloudwatch AWS/VPN namespace              |
-| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace            |
+| AWS Privilege                  | Description                                             |
+|:-------------------------------|:------------------------------------------------------- |
+| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace    |
 
 ### Plugin dependencies
 
@@ -85,10 +71,7 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
-> **Warning** For now, it is not possible to use *paws* in the following situations:
-> * if you are using a proxy to reach AWS Cloudwatch APIs. 
-> * to automatically add Hosts in Centreon using the *Host Discovery* feature
+> **Warning** For now, it is not possible to use *paws* in the following situations if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 ## Setup 
 
@@ -116,7 +99,7 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
-yum install centreon-pack-cloud-aws-ses.noarch
+yum install centreon-pack-cloud-aws-ses
 ```
 
 3. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -142,15 +125,6 @@ yum install centreon-pack-cloud-aws-ses.noarch
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
 
-### Services
-
-Once the Host template applied, a *Ses-Queues* service will be created. This
-service is generic, meaning that it won't work "as is". The *QUEUENAME* Service 
-Macro is mandatory for the resources to be monitored properly and has to be set.
-You can then duplicate the service as much as the different queues to be
-monitored (the Services names can also be adjusted accordingly with the queues
-names).
-
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
@@ -168,30 +142,30 @@ command (Some of the parameters such as ```--proxyurl``` have to be adjusted):
     --aws-access-key='**********' \
     --region='eu-west-1' \
     --proxyurl='http://myproxy.mycompany.org:8080'
-    --statistic=average \
     --timeframe='600' \
     --period='60' \
-    --identity='my_ses_identity_1' \
+    --critical-emails-spam=1:
     --verbose
 ```
 
 Expected command output is shown below: 
 
 ```bash
- 
+ OK: 'SES' Statistic 'Average' Metrics rate of rejected sent emails: 0.00, number of emails successfully delivered: 30.00, rate of sent emails marked as spam: 0.00, number of sent emails: 30.00 | 'SES~average#ses.emails.rejected.rate'=0;;;; 'SES~average#ses.emails.delivered.count'=30;;;; 'SES~average#ses.emails.spam.rate'=0;;;; 'SES~average#ses.emails.sent.count'=30;;;;
 ```
 
-The command above monitors the SES queue named *my_ses_queue_1* (```--mode=queues --queue-name='my_ses_queue_1'```) of an AWS account
-identified by the usage of API credentials (```--aws-secret-key='****' --aws-access-key='****'```).
-The calculated metrics are an average of values (```--statistic='average'```) on a 600 secondes / 10 min period (```--timeframe='600'```) with one sample per 60s / 1 minute (```--period='60'```).
-In the example above, only the *sent* and *received* messages statistics will be returned (```--filter-metric='NumberOfMessagesSent|NumberOfMessagesReceived'```).
+The command above monitors the SES sending activity 
+(```--mode=emails```) of an AWS account identified by the usage of API 
+credentials (```--aws-secret-key='****' --aws-access-key='****'```).
+The calculated metrics are an average of values on a 600 secondes / 10 min 
+period (```--timeframe='600'```) with one sample per 60s / 1 minute 
+(```--period='60'```).
 
+This command would trigger a 'CRITICAL' alert if at least one sent email is
+marked as 'spam' (```--critical-emails-spam=1: ```) during the sample period.
 
-This command would trigger a CRITICAL alert if no messages (*less than 1*) have been sent or received (```--critical-messages-sent=0: ```)
-during the sample period.
-
-All the metrics that can be filtered on as well as all the available thresholds parameters can be displayed by adding the  ```--help```
-parameter to the command:
+All the available thresholds parameters can be displayed by adding the  
+```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_ses_api.pl \
