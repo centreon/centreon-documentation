@@ -99,25 +99,42 @@ indique l'expression rationnelle (pattern) de recherche pour l'utilisateur.
 > sécurisé pour le SSO. Les accès direct des utilisateurs à Centreon Web doivent
 > être désactivés.
 
-## SSO Keycloak
+## OpenId Connect
 
-Pour utiliser le login par Keycloak, vous avez besoin d'un *[serveur
-Keycloak](https://www.keycloak.org/docs/latest/getting_started/index.html)*.
+Centreon est compatible avec l'authentification OAuth 2.0 / OpenId Connect.
 
-- La case **Enable Keycloak authentication** active l'authentification Keycloak.
-- Le champ **Keycloak mode** indique si l'authentification doit avoir lieu
-uniquement par Keycloak ou bien en utilisant l'authentification locale également
-(Mixte). Le mode mixte nécessite l'adresse des clients de confiance.
-- Le champ **Adresses des clients de confiance SSO Keycloak** indique quelles sont les
-adresses IP/DNS des clients de confiance pour le SSO (correspond à l'adresse
-du reverse proxy). Chaque client de confiance est séparé par une virgule.
-- Le champ **Adresses des clients de bloqués Keycloak** indique quelles sont les
-adresses IP/DNS des clients qui seront refusés.
-- Le champ **URL du serveur Keycloak** indique l'URL du serveur Keycloack (avec /auth).
-- Le champ **Adresse de redirection vers Centreon depuis Keycloak** indique l'URL
-de redirection Keycloack (serveur Centreon).
-- Le champ **Royaume client Keycloak** indique le nom du royaume Keycloak.
-- Le champ **Identifiant client Keycloak** indique l'identifiant du client Keycloak.
-- Le champ **Secret client Keycloak** indique le secret du client Keycloak.
+Il est possible d'utiliser un fournisseur d'identité (IdP) tel que Keycloak, LemonLDAP::NG ou tout autre IdP compatible
+avec le flux d'autorisation via un code (Authorization Code Grant).
 
-Pour plus d'informations, se référer à la documentation Keycloak standard.
+- La case **Enable OpenId Connect authentication** permet d'activer ou de désactiver l'authentification OpenId Connect.
+- Le champ **Authentication mode** indique si l'authentification doit avoir lieu uniquement par OpenId Connect ou en
+  utilisant également l'authentification locale (mixte).
+- Le champ **Trusted client addresses** indique quelles sont les adresses IP/DNS des clients de confiance (correspond à
+  l'adresse du reverse proxy). Chaque client de confiance est séparé par une virgule.
+- Le champ **Blacklist client addresses** indique quelles sont les adresses IP/DNS des clients qui seront refusés.
+- Le champ **Base Url** définit l'URL de base de l'IdP pour les points de terminaison OpenId Connect (obligatoire).
+- Le champ **Authorization Endpoint** définit le point de terminaison d'autorisation, par exemple `/authorize` (obligatoire).
+- Le champ **Token Endpoint** définit le point de terminaison du jeton, par exemple `/token` (obligatoire).
+- Le champ **Introspection Token Endpoint** définit le point de terminaison du jeton d'introspection, par exemple `/introspect` (obligatoire).
+- Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
+- Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
+- Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
+- La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
+  `http://192.168.0.1/centreon/index.php`.
+- **Client ID** défini l'ID client.
+- **Client Secret** défini le secret client.
+- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test
+
+![image](../../assets/administration/openid-connect-configuration.png)
+
+> Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs étendues (scope), ceci est indiqué dans la
+> documentation de configuration du fournisseur.
+
+> Pour que l'authentification soit fonctionnelle, la réponse à l'appel de jeton d'introspection doit renvoyer une
+> variable `preferred_username` contenant le login de l'utilisateur qui sera comparé aux utilisateurs définis dans Centreon.
+> Si ce n'est pas le cas, vous devrez configurer votre fournisseur pour envoyer des revendications supplémentaires
+> (extra claims) à une portée supplémentaire (scope). Dans ce cas, il sera nécessaire de configurer le point de terminaison
+> des informations utilisateur et d'ajouter la portée supplémentaire à la définition de la portée.
+
+> Si vous souhaitez importer automatiquement l'utilisateur après la connexion, vous pouvez configurer un serveur LDAP
+> et activer l'importation automatique.
