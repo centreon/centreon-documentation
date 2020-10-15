@@ -124,8 +124,8 @@ are compatible with the Authorization Code Flow.
 > configuration documentation.
 
 > For authentication to be functional, the response to the introspection token call must return a `preferred_username`
-> variable containing the user's login login which will be compared with the users defined in Centreon. If it's not the
-> case, you will have to configure your provider to send extra claims to an additional scope. In this case, it will be
+> variable containing the user's login which will be compared with the users defined in Centreon. If it's not the case,
+> you will have to configure your provider to send extra claims to an additional scope. In this case, it will be
 > necessary to configure the user information endpoint and add the additional scope to the scope definition.
 
 > If you want to automatically import user after connection, you can configure an LDAP server and enable auto import.
