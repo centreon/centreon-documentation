@@ -37,7 +37,7 @@ de Cisco Callmanager : https://www.cisco.com/c/en/us/support/docs/unified-commun
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco Callmanager :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
@@ -47,7 +47,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Cisco Callmanager :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Cisco Callmanager :
 
 ```bash
 yum install centreon-plugin-Network-Cisco-Callmanager-Sxml.noarch
@@ -79,7 +79,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_cucm_sxml.pl \
@@ -112,8 +112,10 @@ Par defaut le méthode du backend est _curl_ (```--http-backend=curl```).
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_cisco_cucm_sxml.pl --plugin=network::cisco::callmanager::sxml::plugin \
---mode=alerts --help
+/usr/lib/centreon/plugins//centreon_cisco_cucm_sxml.pl \
+	--plugin=network::cisco::callmanager::sxml::plugin \
+	--mode=alerts \
+	--help
 ```
 
 ### J'obtiens le message d'erreur suivant: 
