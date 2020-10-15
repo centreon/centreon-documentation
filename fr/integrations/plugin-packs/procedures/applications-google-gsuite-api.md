@@ -116,12 +116,12 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --plugin='apps::google::gsuite::plugin' \
     --mode=applications \
     --hostname='www.google.com' \
-	--proto='https' \
-	--port='443' \
+    --proto='https' \
+    --port='443' \
     --language='en' \
     --filter-app='mail|drive|meet' \
     --warning-status='%{status} eq "DEGRADED"' \
-	--critical-status='%{status} eq "UNAVALAIBLE"' \
+    --critical-status='%{status} eq "UNAVALAIBLE"' \
     --verbose
 ```
 
