@@ -5,7 +5,7 @@ title: Cisco Callmanager SXML
 
 ## Overview
 
-Using SXML, this Cisco Call Manager Plugin-Pack monitors alerts from the Cisco Unified Communications component.
+Using SXML, this Cisco Call Manager Plugin-Pack monitors alerts from the Cisco Unified Communications components.
 
 ## Plugin-Pack Assets
 
@@ -108,11 +108,13 @@ The command above gets the alerts of a Cisco Callmanager using SXML (```--mode=a
 It uses api-username (```--api-username='centreoncum'```), an api-password (```--api-password='myapipassword'```)
 and it connects to the Host _mycucm.com_ (```--Hostname='mycucm.com'```) 
 on the port 443 (```--port='443'```) using https (```--proto='https'```).
-By default, the backend method is _curl_ (```--http-backend=curl``).
+By default, the backend method is _curl_ (```--http-backend=curl```).
 
 ```bash
-/usr/lib/centreon/plugins//centreon_cisco_cucm_sxml.pl --plugin=network::cisco::callmanager::sxml::plugin \
---mode=alerts --help
+/usr/lib/centreon/plugins//centreon_cisco_cucm_sxml.pl 
+	--plugin=network::cisco::callmanager::sxml::plugin \
+	--mode=alerts \
+	--help
 ```
 
 ### Why do I get the following error: 
