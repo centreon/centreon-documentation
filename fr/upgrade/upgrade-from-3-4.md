@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 20.04.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 20.10.
 
 > A la fin de cette procédure, les utilisateurs de Centreon EMS devront demander
 > de nouvelles licenses au [Support Centreon](https://centreon.force.com).
@@ -49,12 +49,12 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon
 
-> Centreon 20.04 utilise **MariaDB 10.3**.
+> Depuis 20.04, Centreon utilise **MariaDB 10.3**.
 >
 > Le processus suivant met seulement à jour les composants Centreon pour le
 > moment.
@@ -79,7 +79,7 @@ yum update centreon\*
 
 #### Mise à jour de la version de PHP
 
-Centreon 20.04 utilise un nouveau paquet PHP.
+Depuis 20.04, Centreon utilise un nouveau paquet PHP.
 
 Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande
 suivante :
@@ -100,7 +100,7 @@ systemctl start rh-php72-php-fpm
 
 #### Mise à jour du serveur Web Apache
 
-Centreon 20.04 utilise un nouveau paquet pour le serveur Web Apache.
+Depuis 20.04, Centreon utilise un nouveau paquet pour le serveur Web Apache.
 
 > Si vous avez modifié la configuration, reportez celle-ci dans le répertoire
 > **/opt/rh/httpd24/root/etc/httpd/conf.d/**.
@@ -191,7 +191,8 @@ systemctl restart httpd24-httpd
 
 ### Synchronisation des plugins
 
-> La macro de ressource $USER1$ de Centreon 20.04 pointe à présent sur /usr/lib64/nagios/plugins.
+> La macro de ressource $USER1$ de Centreon 20.10 pointe à présent sur
+> /usr/lib64/nagios/plugins.
 
 Afin de résoudre cette situation, lancez les commandes suivantes:
 
@@ -260,8 +261,8 @@ Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 #### Démarrer le gestionnaire de tâches
 
-Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
-*Gorgone*.
+Depuis 20.04, Centreon a changé son gestionnaire de tâches en passant de
+*Centcore* à *Gorgone*.
 
 Pour acter ce changement, réalisez les actions suivantes :
 
@@ -304,10 +305,11 @@ suivante:
 Les composants MariaDB peuvent maintenant être mis à jour.
 
 Sachez que MariaDB recommande vivement de monter en version le serveur en
-passant par chacune des versions majeures. Veuillez vous référer à la [documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour plus d'informations.
+passant par chacune des versions majeures. Veuillez vous référer à la
+[documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour
+plus d'informations.
 
-Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
-10.3.
+Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers 10.3.
 
 Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
 dépôts stables.
@@ -320,8 +322,8 @@ dépôts stables.
 
 #### Configuration
 
-Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB 10.2, vous devez donc le supprimer
-du fichier **/etc/my.cnf.d/centreon.cnf**
+Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB
+10.2, vous devez donc le supprimer du fichier **/etc/my.cnf.d/centreon.cnf**
 
 ```diff
 #
@@ -428,6 +430,7 @@ recommande :
 #### Activer MariaDB au démarrage automatique
 
 Exécutez la commande suivante :
+
 ```shell
 systemctl enable mariadb
 ```
@@ -439,8 +442,15 @@ systemctl enable mariadb
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+
+> Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
+> *Software Collections* avec la commande suivante :
+>
+> ```shell
+> yum install -y centos-release-scl-rh
+> ```
 
 ### Montée de version de la solution Centreon
 
@@ -464,13 +474,14 @@ Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html), et en choisissant la méthode
-*Redémarrer* pour le processus Engine
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration.html),
+et en choisissant la méthode *Redémarrer* pour le processus Engine
 
 ## Migrer Centreon Poller Display vers Remote Server
 
-Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à la procédure
-[Migration d'une plate-forme avec Poller Display](../migrate/poller-display-to-remote-server.html).
+Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à
+la procédure [Migration d'une plate-forme avec Poller
+Display](../migrate/poller-display-to-remote-server.html).
 
 ## Communications
 

@@ -4,7 +4,7 @@ title: Upgrade from Centreon 19.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 19.04
-to version 20.04.
+to version 20.10.
 
 ## Perform a backup
 
@@ -21,12 +21,19 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+
+> If you are using a CentOS environment, you must install the *Software
+> Collections* repositories with the following command:
+>
+> ```shell
+> yum install -y centos-release-scl-rh
+> ```
 
 ### Upgrade the Centreon solution
 
-> Centreon 20.04 uses **MariaDB 10.3**.
+> Since 20.04, Centreon uses **MariaDB 10.3**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
@@ -50,7 +57,7 @@ yum update centreon\*
 
 #### Update the PHP version
 
-Centreon 20.04 uses a new version of PHP.
+Since 20.04, Centreon uses a new version of PHP.
 
 The PHP timezone should be set. Run the command:
 
@@ -76,10 +83,11 @@ systemctl restart httpd24-httpd
 
 #### Configure Apache API access
 
-If you had a custom apache configuration, upgrade process through RPM did not update it.
+If you had a custom apache configuration, upgrade process through RPM did not
+update it.
 
-> If you use https, you can follow
-> [this procedure](../administration/secure-platform.html#securing-the-apache-web-server)
+> If you use https, you can follow [this
+> procedure](../administration/secure-platform.html#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -192,7 +200,7 @@ Then you can upgrade all other commercial extensions.
 
 #### Start the tasks manager
 
-Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
+Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
 
 To act this change, run the following commands:
 
@@ -234,7 +242,8 @@ command:
 The MariaDB components can now be upgraded.
 
 Be aware that MariaDB strongly recommends to upgrade the server through each
-major release. Please refer to the [official MariaDB documentation](https://mariadb.com/kb/en/upgrading/) for further information.
+major release. Please refer to the [official MariaDB
+documentation](https://mariadb.com/kb/en/upgrading/) for further information.
 
 You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
 
@@ -356,6 +365,7 @@ MariaDB:
 #### Enable MariaDB on startup
 
 Execute the following command:
+
 ```shell
 systemctl enable mariadb
 ```
@@ -371,8 +381,15 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+
+> If you are using a CentOS environment, you must install the *Software
+> Collections* repositories with the following command:
+>
+> ```shell
+> yum install -y centos-release-scl-rh
+> ```
 
 ### Upgrade the Centreon solution
 
