@@ -131,8 +131,3 @@ When using a proxy to connect to the Cisco Callmanager SXML, this error message 
 the proxy connection protocol.
 
 In order to prevent this issue, use the *lwp* HTTP backend by adding the following option to the command: ```--http-backend='lwp'```.
-
-### How do I remove the *count* perfdatas if I want to filter on just one application ?
-
-The Plugin adds the count of objects by default. This can be useless if the objects are filtered with the ```--filter-name``` parameter.
-Therefore, these useless perfdatas can be omitted by adding a perfdata filter : ```--filter-perfdata='^$'```.
