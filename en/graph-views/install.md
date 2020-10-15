@@ -262,11 +262,15 @@ Enable the service to start up automatically on server boot:
 
     systemctl enable centreon-map
 
+```shell
+yum install -y centos-release-scl
+```
+
 To register your Centreon Map server to the Centreon Central server or a Remote server, execute the following command:
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t map -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
+-t map -h <IP_CENTREON_CENTRAL> -n <SERVER_NAME>
 ```
 
 Example:

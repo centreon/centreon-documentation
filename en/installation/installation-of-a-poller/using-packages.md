@@ -85,11 +85,17 @@ systemctl start centreontrapd snmptrapd
 
 ## Register the server
 
+Install the Software Collections repository using this command:
+
+```shell
+yum install -y centos-release-scl
+```
+
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Poller -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
+-t Poller -h <IP_CENTREON_CENTRAL> -n <POLLER_NAME>
 ```
 
 Example:
