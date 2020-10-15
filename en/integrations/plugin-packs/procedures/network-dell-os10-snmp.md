@@ -3,11 +3,6 @@ id: network-dell-os10-snmp
 title: Dell OS10 SNMP
 ---
 
-## Overview
-
-Dell OS10 is the new operating system for Dell network equipment. It combines the best of Linux, open computing and networking to advance open networking disaggregation.
-This Plugin-Pack monitors all physical and system points using SNMP.
-
 ## Plugin-Pack Assets
 
 ### Monitored Objects
@@ -55,18 +50,19 @@ It is possible to filter the results on the given disk path by using a REGEXP on
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
 
-It is possible to filter on the name of an interface using a REGEXP of the form [```--interface='^ens160$' --name``].
+It is possible to filter on the name of an interface using a REGEXP of the form [```--interface='^ens160$' --name```].
 
 <!--Hardware-->
 
-* Par intances :
+* Per intances :
+
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- | :--- |
 | os10CardStatus                | Status of the card                        |      |
 | os10FanOperStatus             | Status of the fan                         |      |
 | os10FanTrayOperStatus         | Status of the fantray                     |      |
 | os10PowerSupplyOperStatus     | Status of the power supply                |      |
-| resource.oper_status          | Status of the resources					|      |
+| resource.oper_status          | Status of the resources                   |      |
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 
 <!--Load-->
@@ -100,7 +96,7 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 
 | Metric name                 | Description                                        | Unit |
 | :-------------------------- | :------------------------------------------------- | :--- |
-| uptime                      | Duration of system has been working and available. | s    |
+| system.uptime               | Duration of system has been working and available. | s    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -161,15 +157,15 @@ Once the Plugin installed, log into your Centreon Poller CLI using the *centreon
 and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl
-    --plugin=network::dell::os10::snmp::plugin
-    --mode=cpu
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='dell_os10_ro'
-    --warning-average='60'
-    --critical-average='75'
-    --verbos
+/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl \
+    --plugin=network::dell::os10::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='dell_os10_ro' \
+    --warning-average='60' \
+    --critical-average='75' \
+    --verbose
 ```
 
 Expected command output is shown below: 
@@ -191,8 +187,10 @@ For each Plugin mode, all the options as well as all the available thresholds ca
 parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl --plugin=network::dell::os10::snmp::plugin \
-    --mode=cpu --help
+/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl 
+    --plugin=network::dell::os10::snmp::plugin \
+    --mode=cpu \
+    --help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
