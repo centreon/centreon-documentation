@@ -3,11 +3,6 @@ id: network-dell-os10-snmp
 title: Dell OS10 SNMP
 ---
 
-## Vue d'ensemble
-
-Dell OS10 est la nouveau système d'exploitation des équipements réseau Dell. Il combine le meilleur de Linux, de l’informatique ouverte et de la mise en réseau pour faire avancer la désagrégation de mise en réseau ouverte.
-Ce Plugin-Pack, supervise tous les points physique et système.
-
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
@@ -66,8 +61,8 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | os10FanOperStatus             | Status of the fan                         |      |
 | os10FanTrayOperStatus         | Status of the fantray                     |      |
 | os10PowerSupplyOperStatus     | Status of the power supply                |      |
-| resource.oper_status          | Status of the resources		    |      |
-| hardware.temperature.celsius  | temperature of the different sensors      | C    |
+| resource.oper_status          | Status of the resources                   |      |
+| hardware.temperature.celsius  | Temperature of the different sensors      | C    |
 
 <!--Load-->
 
@@ -100,7 +95,7 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 
 | Metric name                 | Description                                        | Unit |
 | :-------------------------- | :------------------------------------------------- | :--- |
-| uptime                      | Duration of system has been working and available. | s    |
+| system.uptime               | Duration of system has been working and available. | s    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -116,7 +111,7 @@ https://www.dell.com/support/manuals/fr/fr/frbsdt1/networking-z9100/os10-enterpr
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Dell OS10 :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
 ```bash
 yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
@@ -126,7 +121,7 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Dell OS10 :
+1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des ressources Dell OS10 :
 
 ```bash
 yum install centreon-plugin-Network-Dell-Os10-Snmp.noarch
@@ -147,7 +142,6 @@ yum install centreon-pack-network-dell-os10-snmp.noarch
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Dell OS10.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle Net-Dell-Os10-SNMP-custom. 
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 :warning: Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
 et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
@@ -160,17 +154,17 @@ et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
 
 #### Comment faire le test en ligne de commande et que signifient les principales options ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur _centreon-engine_ :
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur _centreon-engine_ :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl
-    --plugin=network::dell::os10::snmp::plugin
-    --mode=cpu
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='dell_os10_ro'
-    --warning-average='60'
-    --critical-average='75'
+/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl \
+    --plugin=network::dell::os10::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='dell_os10_ro' \
+    --warning-average='60' \
+    --critical-average='75' \
     --verbose
 	
 OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % 
@@ -188,13 +182,16 @@ Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utili
 Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl --plugin=network::dell::os10::snmp::plugin \
-	--mode=cpu --help
+/usr/lib/centreon/plugins/centreon_dell_os10_snmp.pl 
+	--plugin=network::dell::os10::snmp::plugin \
+	--mode=cpu \
+	--help
 ```
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter le serveur Linux sur le port 161, ou alors que la communauté SNMP configurée n'est pas correcte. 
+Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Dell OS10 sur le port 161, 
+ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
