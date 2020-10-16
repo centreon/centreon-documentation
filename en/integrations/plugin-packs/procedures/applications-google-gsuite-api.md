@@ -120,7 +120,7 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
     --hostname='www.google.com' \
     --proto='https' \
     --port='443' \
-	--proxyurl='http://myproxy.mycompany.org:8080' \
+    --proxyurl='http://myproxy.mycompany.org:8080' \
     --language='en' \
     --filter-app='mail|drive|meet' \
     --warning-status='%{status} eq "DEGRADED"' \
@@ -148,7 +148,10 @@ All the filters that can be used as well as all the available thresholds paramet
 parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_google_gsuite_api.pl --plugin='apps::google::gsuite::plugin' --mode=applications --help
+/usr/lib/centreon/plugins/centreon_google_gsuite_api.pl \
+--plugin='apps::google::gsuite::plugin' \
+--mode=applications \
+--help
 ```
 
 ### Why do I get the following message: ```UNKNOWN: 500 Can't connect to www.google.com.443 |```
