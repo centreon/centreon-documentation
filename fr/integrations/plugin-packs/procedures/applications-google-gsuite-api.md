@@ -119,7 +119,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --hostname='www.google.com' \
     --proto='https' \
     --port='443' \
-	--proxyurl='http://myproxy.mycompany.org:8080' \
+    --proxyurl='http://myproxy.mycompany.org:8080' \
     --language='en' \
     --filter-app='gmail|drive|meet' \
     --warning-status='%{status} eq "DEGRADED"' \
@@ -148,7 +148,10 @@ Pour chaque mode, la liste de toutes les métriques, seuils associés et options
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_google_gsuite_api.pl --plugin='apps::google::gsuite::plugin' --mode=applications --help
+/usr/lib/centreon/plugins/centreon_google_gsuite_api.pl \
+--plugin='apps::google::gsuite::plugin' \
+--mode=applications \
+--help
 ```
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to www.google.com.443 |```
