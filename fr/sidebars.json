@@ -234,6 +234,7 @@
                 "ids": [
                     "administration/centreon-ha/architectures",
                     "administration/centreon-ha/installation-2-nodes",
+                    "administration/centreon-ha/installation-4-nodes",
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/update",
