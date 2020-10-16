@@ -191,7 +191,15 @@ proxy username (press enter if no username/password are required): myuser
 please enter the proxy password:
 ```
 
-3. Then validate the information:
+3. Select the IP adress:
+
+```shell
+Found IP on CURRENT NODE:
+   [1]: 192.168.0.2
+Which IP do you want to use as CURRENT NODE IP ?1
+```
+
+4. Then validate the information:
 
 ``` shell
 Summary of the informations that will be send:
@@ -205,7 +213,6 @@ Pending Registration Server:
 name: remote-1
 type: remote
 address: 192.168.0.2
-parent server address: 192.168.0.1
 
 Do you want to register this server with those informations ? (y/n)y
 ```
@@ -213,7 +220,7 @@ Do you want to register this server with those informations ? (y/n)y
 You will receive the validation of the Centreon central server:
 
 ``` shell
-message: The 'remote-1' Platform: 'remote-1@192.168.0.2.2' linked to '192.168.0.1' has been added
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
 ```
 
 ### Main errors messages
