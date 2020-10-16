@@ -494,7 +494,9 @@ ISO-8859-15, CP-1252 and UTF-8.
 #### Bug fixes
 
 - [zmqclient] Fix no PONG response in some cases
+- [zmqclient] ZMQ_LINGER option was not correctly set by modules
 - [legacycmd] Get only activated Engine configuration
+- [action] Bad message parsing might lead to uncatched errors
 
 #### Enhancements
 
