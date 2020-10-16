@@ -121,7 +121,7 @@ definition in the following file:
 
 The default configuration runs the discovery every day at 10:30 PM.
 
-> If you had change the legacy *crond* configuration file to adapt the schedule
+> If you had changed the legacy *crond* configuration file to adapt the schedule
 > you must apply changes to the new configuration file.
 
 ### API accesses
