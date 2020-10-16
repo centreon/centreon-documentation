@@ -154,7 +154,7 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
+Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur l'ensemble des noeuds :
 
 ```bash
 yum install epel-release
@@ -519,8 +519,8 @@ Si tout s'est bien passé, alors la commande `mysql-check-status.sh` doit renvoy
 Résultat attendu :
 
 ```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Connection Status '@DATABASE_MASTER_NAME@' [OK]
+Connection Status '@DATABASE_SLAVE_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -701,7 +701,9 @@ pcs quorum device add model net \
 
 ### Création des ressources MariaDB
 
-Cette commande est lancée depuis un seul noeud, le Cluster va automatiquement répliquer la configuration sur les autres :
+Les commandes de cette section doivent être lancées depuis un seul noeud, le Cluster va automatiquement répliquer la configuration sur les autres.
+
+#### Process MariaDB Primaire/secondaire 
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -719,7 +721,6 @@ pcs resource create "ms_mysql" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon.host' \
     master \ 
-    --group mariadb
 ```
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
@@ -749,6 +750,22 @@ pcs resource master ms_mysql \
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+##### Adresse VIP Serveurs bases de données 
+
+```bash
+pcs resource create vip_mysql \
+    ocf:heartbeat:IPaddr2 \
+    ip="@VIP_SQL_IPADDR@" \
+    nic="@VIP_SQL_IFNAME@" \
+    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
+    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
+    flush_routes="true" \
+    meta target-role="stopped" \
+    op start interval="0s" timeout="20s" \
+    stop interval="0s" timeout="20s" \
+    monitor interval="10s" timeout="20s" \
+```
 
 ### Création des ressources clones
 
@@ -797,22 +814,6 @@ pcs resource create vip \
     stop interval="0s" timeout="20s" \
     monitor interval="10s" timeout="20s" \
     --group centreon
-```
-
-##### Adresse VIP Serveurs bases de données 
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s" \
 ```
 
 ##### Service httpd
@@ -916,10 +917,10 @@ pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 Executer les commandes suivantes pour indiquer au Cluster sur quel noeuds les ressources doivent être executées:
 
 ```bash
-pcs constraint location centreon avoids @DATABASE_MASTER@=INFINITY DATABASE_SLAVE=INFINITY
-pcs constraint location ms_mysql-master avoids CENTRAL_MASTER=INFINITY CENTRAL_SLAVE=INFINITY
-pcs constraint location cbd_rrd-clone avoids DATABASE_MASTER=INFINITY DATABASE_SLAVE=INFINITY
-pcs constraint location php7-clone avoids DATABASE_MASTER=INFINITY DATABASE_SLAVE=INFINITY
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
 ### Lancement du Cluster et contrôle de l'état des ressources
@@ -945,10 +946,6 @@ des ressources, vous devriez obtenir une sortie similaire à celle-ci:
 
 ```bash
 [...]
-
-2 nodes configured
-14 resources configured
-
 4 nodes configured
 21 resources configured
 
