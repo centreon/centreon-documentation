@@ -238,6 +238,7 @@
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/update",
+                    "administration/centreon-ha/upgrade-from-centreon-failover",
                     "administration/centreon-ha/troubleshooting-guide"
                 ],
                 "label": "Centreon HA",
