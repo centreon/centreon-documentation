@@ -42,6 +42,9 @@ You can also disacknowledge previously acknowledged events by choosing the
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
 
+The acknowledgement can also be deleted to put the event back to the unhandled
+events and resume the notifications.
+
 ### Set a planned downtime
 
 When a maintenance is planned on one or multiple resources, you can set this
@@ -69,6 +72,14 @@ in two ways:
     above the table
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
+
+### Submit a status
+
+In some cases, especially with so-called "passive" services, it can be useful
+to submit a result, i.e. a status, an output and metrics, in order to
+reset the event.
+
+![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
 ## Filter
 

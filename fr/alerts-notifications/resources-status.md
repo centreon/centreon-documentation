@@ -42,6 +42,9 @@ prendre en compte immédiatement et ce, de deux manières:
 L'acquitement a pour effet de masquer l'alerte de la vue "Unhandled
 problems" et de stopper les notifications partant de la ressource.
 
+L'acquittement peut aussi être supprimé pour reverser l'évènement dans la liste
+des évènements non pris en compte ainsi que pour relancer les notifications.
+
 ### Planifier une plage de maintenance
 
 Il est possible de planifier une plage de maintenance :
@@ -69,6 +72,14 @@ l'interface. Cela est possible de deux manières différentes
     bouton "Check"
 
 ![image](../assets/alerts/resources-status/resources-status-check.gif)
+
+### Soumettre un statut
+
+Dans certains cas, notamment avec les services dit "passif", il peut
+être utile de soumettre un résultat, c'est à dire un statut, un message
+de sortie et des métriques, afin de remettre à zéro l'évènement.
+
+![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
 ## Filtrer les évènements
 
