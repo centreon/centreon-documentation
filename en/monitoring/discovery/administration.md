@@ -139,13 +139,18 @@ gorgone:
   tpapi:
     - name: centreonv2
       base_url: "http://127.0.0.1/centreon/api/beta/"
-      username: admin
-      password: centreon
+      username: api
+      password: bpltc4aY
     - name: clapi
-      username: admin
-      password: centreon
+      username: cli
+      password: PYNM5kcc
 ```
 
-> The *username* and *password* directives might be changed to adapt to
-> an *admin* user crendentials needed for services creation and configuration
-> reloading, or a user with API accesses for host discovery.
+Access to RestAPI, represented by *centreonv2*, requires credentials of a
+user with *Reach API Configuration* access. It is used for Host Discovery.
+
+Access to CLAPI requires credentials of an *Admin* user. It is used for
+Service Discovery.
+
+> One user can be used for both accesses. Furthermore, users don't need
+> access to the Centreon UI.

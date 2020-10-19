@@ -145,15 +145,19 @@ gorgone:
   tpapi:
     - name: centreonv2
       base_url: "http://127.0.0.1/centreon/api/beta/"
-      username: admin
-      password: centreon
+      username: api
+      password: bpltc4aY
     - name: clapi
-      username: admin
-      password: centreon
+      username: cli
+      password: PYNM5kcc
 ```
 
-> Les directives *username* et *password* sont susceptibles d'être
-> modifiées pour s'adapter aux informations d'identifications d'un utilisteur
-> *admin* nécessaire pour la création des services et le rechargement de la
-> configuration, ou d'un utilisateur avec des droits d'accès à l'API pour la
-> découverte d'hôtes.
+L'accès à l'API Rest, représenté par *centreonv2*, nécessite les identifiants
+d'un utilisateur ayant *Accès à l'API de configuration*. Il est utilisé
+pour la découverte d'hôte.
+
+L'accès à CLAPI nécessite les identifiants d'un utilisateur *Administrateur*.
+Il est utilisé pour la découverte de service.
+
+> Un seul utilisateur peut être utilisé pour les deux accès. De plus, les
+> utilisateurs n'ont pas besoin d'avoir accès à l'interface web.
