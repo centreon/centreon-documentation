@@ -244,7 +244,7 @@ error code: 400
 error message: Can't connect to the api
 ```
 
-> The access url is not complete. Use the **--root** option to define the API URL Path. For example: **--root /monitoring**.
+> The access url is not complete. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
 ## Extend local DBMS rights
 
