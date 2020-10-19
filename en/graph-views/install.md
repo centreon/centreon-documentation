@@ -262,6 +262,8 @@ Enable the service to start up automatically on server boot:
 
     systemctl enable centreon-map
 
+Install the Software Collections repository using this command:
+
 ```shell
 yum install -y centos-release-scl
 ```
@@ -280,14 +282,15 @@ Example:
 ```
 
 > Replace **<IP_CENTREON_CENTRAL>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
-> want to link your server to it..
+> want to link your server to it.
 
-> The **<API_ACCOUNT>** must have access to configuration API. you can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > HTTPS://<IP_CENTREON_CENTRAL>:PORT
 
 Then follow instructions by
+
 1. Entering your password:
 
 ``` shell
