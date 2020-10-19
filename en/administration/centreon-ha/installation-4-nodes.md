@@ -7,11 +7,12 @@ title: Installing a Centreon HA 2-nodes cluster
 
 ### Understanding
 
-Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
+Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, 
+and of Pacemaker clustering tools in order to have a proper understanding of what is being done.
 
 ### Installed Centreon platform
 
-A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
+A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
 The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
 
@@ -591,7 +592,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Stopping and disabling the services
 
-**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_MASTER_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
+**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
@@ -643,7 +644,7 @@ For the sake of simplicity, the `hacluster` user will be assigned the same passw
 passwd hacluster
 ```
 
-Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
+Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 ```bash
 pcs cluster auth \
@@ -659,7 +660,7 @@ pcs cluster auth \
 
 #### Creating the cluster
 
-The following command creates the cluster. It must be run **only on one of the central nodes**. 
+The following command creates the cluster. It must be run **only on one of the nodes**. 
 
 ```bash
 pcs cluster setup \
@@ -671,7 +672,7 @@ pcs cluster setup \
     "@DATABASE_SLAVE_NAME@"
 ```
 
-Then start the `pacemaker` service **on both central nodes**:
+Then start the `pacemaker` service **on both central and databases nodes**:
 
 ```bash
 systemctl enable pacemaker pcsd corosync
@@ -908,8 +909,8 @@ When using the 4 nodes architecture, you must define some specific Constraints t
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
 ```bash
-pcs constraint colocation add "centreon" with master "ms_mysql-master"
-pcs constraint colocation add master "ms_mysql-master" with "centreon"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
+pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 ```
 
 Create the Constraint that prevent Centreon Processes to run on Database nodes and 

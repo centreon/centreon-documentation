@@ -51,9 +51,9 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 Centreon >= 20.04 comes with a compatibility with MariaDB 10.3.
 
-Start with the upgrade of both database nodes following [official MariaDB upgrade procedure](../upgrade/upgrade-from-19-10.html#upgrade-mariadb-server). 
+Upgrade of both database nodes following [official MariaDB upgrade procedure](../upgrade/upgrade-from-19-10.html#upgrade-mariadb-server). 
 
-Stop the processes once both nodes are running 10.3 MariaDB version. 
+Once both nodes are running the 10.3 MariaDB version, stop mysql/mariadb processes. 
 
 ## Upgrade Centreon Packages 
 
@@ -69,7 +69,7 @@ If you upgrade from the 19.04:
     * [Update your packages](../upgrade/upgrade-from-19-04.html#upgrade-the-centreon-solution)
     * [Take required additionnal actions](../upgrade/upgrade-from-19-04.html#additional-actions)
 
-Stop the apache process after these operations and check again that non of the 
+Stop the apache process after these operations and check again that none of the 
 processes managed by the cluster are running.
 
 ## Create the new cluster
@@ -86,7 +86,7 @@ If any problem shows up at this step, make sure that the following prerequisites
 
 ### Finalizing the upgrade
 
-First, finish the Central upgrade process by taking Web Wizard steps:
+First, complete Web wizard steps to finish the Central upgrade process:
     * If you upgrade from the 19.10, follow this [chapter](../upgrade/upgrade-from-19-10.html#finalizing-the-upgrade).
     * If you upgrade from the 19.04, follow this [chapter](../upgrade/upgrade-from-19-04.html#finalizing-the-upgrade).
 

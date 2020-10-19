@@ -593,7 +593,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Arrêt et désactivation des services
 
-**Informations :** Ces opérations sont à réalisées sur l'ensemble des noeuds `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_MASTER_NAME@`. Centreon est installé par dépendances du paquet centreon-ha sur les noeuds de bases de données, cela n'a pas d'incidences 
+**Informations :** Ces opérations sont à réalisées sur l'ensemble des noeuds `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. Centreon est installé par dépendances du paquet centreon-ha sur les noeuds de bases de données, cela n'a pas d'incidences 
 sur le fonctionnement.  
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
@@ -672,14 +672,14 @@ pcs cluster setup \
     "@DATABASE_SLAVE_NAME@"
 ```
 
-Démarrer ensuite `pacemaker` sur les deux nœuds :
+Démarrer ensuite `pacemaker` sur l'esemble des nœuds :
 
 ```bash
 systemctl enable pacemaker pcsd corosync
 systemctl start pacemaker
 ```
 
-Puis définir les propriétés par défaut sur un des deux nœuds:
+Puis définir les propriétés par défaut sur un des nœuds:
 
 ```bash
 pcs property set symmetric-cluster="true"
