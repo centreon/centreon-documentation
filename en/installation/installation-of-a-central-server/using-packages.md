@@ -154,7 +154,7 @@ DROP USER '<USER>'@'<IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
->  
+
 > In addition to the directives above, it's strongly recommended to tune the 
 > database configuration with the following parameters: 
 >
