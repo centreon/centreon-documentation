@@ -26,11 +26,21 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MBI release notes
 
+- Gérer la compatibilité avec Centreon 20.10
+
 ### 20.10.0
 
 ## Centreon Auto Discovery release notes
 
 ### 20.10.0
+
+> Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.html#configuration-du-module-Gorgone)
+> pour vous assurer que la configuration correspond aux prérequis minimaux.
+
+> Si une découverte est effectuée sur un Remote Server ou un Poller,
+> assurez-vous que le serveur utilise les derniers composants 20.10.
+
+#### Host Discovery
 
 L'assistant de découverte d'hôte permet désormais de planifier vos découvertes
 de plusieurs manières : annuelle, mensuelle, quotidienne et même
@@ -55,17 +65,26 @@ qui doivent être désactivés ou activés.
 Jetez un oeil à cet exemple pour bien comprendre leurs impacts:
 [Mettre à jour votre configuration dynamiquement](../monitoring/discovery/hosts-discovery.html#mettre-a-jour-votre-configuration-dynamiquement)
 
-> Si une découverte est effectuée sur un Remote Server ou un Poller,
-> assurez-vous que le serveur utilise les derniers composants 20.10.
+#### Service Discovery
+
+La découverte de service utilise maintenant Gorgone pour exécuter les plugins
+de découverte, et par conséquent le système de communication de Gorgone et
+non plus des connexions SSH autonomes.
 
 ## Centreon Plugin Packs Manager release notes
 
 ### 20.10.0
 
+- Gérer la compatibilité avec Centreon 20.10
+
 ## Centreon License Manager release notes
 
 ### 20.10.0
 
+- Gérer la compatibilité avec Centreon 20.10
+
 ## Centreon Anomaly Detection
 
 ### 20.10.0
+
+- Gérer la compatibilité avec Centreon 20.10

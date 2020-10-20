@@ -26,11 +26,21 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI release notes
 
+- Manage compatibility with Centreon 20.10
+
 ### 20.10.0
 
 ## Centreon Auto Discovery release notes
 
 ### 20.10.0
+
+> Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
+> to make sure the configuration matches minimal prerequisites.
+
+> If a discovery is performed on a Remote Server or a Poller, make sure
+> the server is using the latest 20.10 components.
+
+#### Host Discovery
 
 Host Discovery wizard now allows to schedule your discoveries using several
 fashion: yearly, monthly, daily, hourly and even every x minutes.
@@ -51,17 +61,26 @@ disabled or enabled.
 Take a look at this example to fully understand their impacts:
 [Dynamically update your configuration](../monitoring/discovery/hosts-discovery.html#dynamically-update-your-configuration)
 
-> If a discovery is performed on a Remote Server or a Poller, make sure
-> the server is using the latest 20.10 components.
+#### Service Discovery
+
+Service Discovery is now using Gorgone to execute the discovery plugins,
+and therefore it uses Gorgone's communication system and not anymore
+standalone SSH connections.
 
 ## Centreon Plugin Packs Manager release notes
 
 ### 20.10.0
 
+- Manage compatibility with Centreon 20.10
+
 ## Centreon License Manager release notes
 
 ### 20.10.0
 
+- Manage compatibility with Centreon 20.10
+
 ## Centreon Anomaly Detection
 
 ### 20.10.0
+
+- Manage compatibility with Centreon 20.10
