@@ -90,7 +90,7 @@ Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécu
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Poller -h <IP_CENTREON_CENTRAL> -n <POLLER_NAME>
+-t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Exemple:
