@@ -21,16 +21,16 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
 
 ## Centreon DSM release notes
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
 
 ## Centreon Open Ticket release notes
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
