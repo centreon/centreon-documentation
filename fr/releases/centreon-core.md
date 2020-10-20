@@ -5,16 +5,16 @@ title: Centreon Core
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Core**.
+Vous trouverez dans ce chapitre tout ce qui concerne les **Centreon Core**.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de
+> mise à jour et de lire attentivement les notes de mise à jour afin d'être au
+> courant de changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose)
+Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
+commerciales, vous pouvez vous rendre sur notre
+[Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web release notes
 
@@ -25,6 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.10.0
 
 > Comportements connus:
+>
 >   - Si Engine sur un Poller ou un Remote Server n'est pas mis à jour en
 >     20.10, les fichiers de configuration copiés depuis un Central à jour
 >     par Gorgone utilisant une communication ZMQ ne pourront pas être
@@ -47,11 +48,14 @@ If you have feature requests or want to report a bug, please go to our
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
+- Gérer la compatibilité avec Centreon 20.10
+
 ## Centreon Broker release notes
 
 ### 20.10.0
 
 > Comportements connus:
+>
 >   - Si Broker sur un Poller ou un Remote Server n'est pas mis à jour en
 >     20.10 (ou utilisant une version antérieur à 20.04.9), la
 >     communication entre ces Pollers ou Remote Servers et un Central
@@ -71,6 +75,8 @@ If you have feature requests or want to report a bug, please go to our
 >
 >     Si le mode de connexion inversé (*one peer retention*) est utilisé,
 >     la mise à jour de Broker est obligatoire.
+
+- Gérer la compatibilité avec Centreon 20.10
 
 ## Centreon Gorgone release notes
 

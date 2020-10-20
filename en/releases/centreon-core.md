@@ -25,6 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.10.0
 
 > Known behaviours:
+>
 >   - If Engine on a Poller or Remote Server is not upgraded to 20.10,
 >     configuration files copied from an upgraded Central by Gorgone using ZMQ
 >     communication will not be readable by Engine process, resulting to this
@@ -52,6 +53,7 @@ If you have feature requests or want to report a bug, please go to our
 ### 20.10.0
 
 > Known behaviours:
+>
 >   - If Broker on a Poller or Remote Server is not upgraded to 20.10
 >     (or with a version prior to 20.04.9), the communication between those
 >     Poller or Remote Server and an upgraded Central may not work.
