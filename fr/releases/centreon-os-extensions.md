@@ -21,6 +21,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
+- Manage compatibility with Centreon 20.10
+
+## Centreon DSM release notes
+
+### 20.10.0
+
+- Manage compatibility with Centreon 20.10
+
 ## Centreon Open Ticket release notes
 
 ### 20.10.0
+
+- Manage compatibility with Centreon 20.10
