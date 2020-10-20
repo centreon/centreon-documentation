@@ -54,13 +54,13 @@ possibilités :
 - Les nouveaux mappeurs *exclusion* et *inclusion* vous aideront à décider quels hôtes doivent être ajoutés dans la
   configuration, et ceux qui doivent être désactivés ou activés.
 
-![image](./assets/monitoring/discovery/host_disco_intro.png)
+![image](../assets/monitoring/discovery/host_disco_intro.png)
 
 Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.html)
 pour savoir comment lancer votre première découverte!
 
 Pour tout savoir sur les modifications, consultez
-[la note de publication](./releases/centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
+[la note de publication](centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
 
 ## Un coeur Open Source encore plus robuste
 
