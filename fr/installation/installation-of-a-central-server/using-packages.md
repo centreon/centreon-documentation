@@ -160,6 +160,7 @@ DROP USER '<USER>'@'<IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+
 > En sus des directives précédentes, il est fortement recommandé d'appliquer la 
 > configuration des bases de données avec les paramètres suivants:
 >
