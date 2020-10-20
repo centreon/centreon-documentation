@@ -272,7 +272,7 @@ To register your Centreon Map server to the Centreon Central server or a Remote 
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t map -h <IP_CENTREON_CENTRAL> -n <SERVER_NAME>
+-t map -h <IP_TARGET_NODE> -n <SERVER_NAME>
 ```
 
 Example:
