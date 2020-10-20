@@ -199,7 +199,7 @@ To transform the server into a Remote Server and register it to the Centreon Cen
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Remote -h <IP_CENTREON_CENTRAL> -n <REMOTE_SERVER_NAME>
+-t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:
@@ -209,12 +209,12 @@ Example:
 -t Remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_CENTREON_CENTRAL>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
 
 > The **<API_ACCOUNT>** must have access to configuration API. you can use default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_CENTREON_CENTRAL>:PORT
+> HTTPS://<IP_TARGET_NODE>:PORT
 
 Then follow instructions by
 1. Entering your password:

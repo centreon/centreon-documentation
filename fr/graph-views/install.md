@@ -281,13 +281,13 @@ Example:
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t map -h 192.168.0.1 -n centreon-map-server
 ```
 
-> Replace **<IP_CENTREON_CENTRAL>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
+> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
 > want to link your server to it.
 
 > The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_CENTREON_CENTRAL>:PORT
+> HTTPS://<IP_TARGET_NODE>:PORT
 
 Then follow instructions by
 1. Entering your password:

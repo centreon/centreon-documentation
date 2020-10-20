@@ -99,13 +99,13 @@ Exemple:
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
 
-> Remplacer **<IP_CENTREON_CENTRAL>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
+> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
 > collecteur.
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_CENTREON_CENTRAL>:PORT
+> HTTPS://<IP_TARGET_NODE>:PORT
 
 Suivre ensuite les instructions
 
