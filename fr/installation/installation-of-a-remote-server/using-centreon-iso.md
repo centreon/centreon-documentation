@@ -247,8 +247,20 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 Failed connect to 10.30.3.11:444; Connection refused
 ```
 
-> L'URL d'accès n'est pas complète. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
+> Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
+
+``` shell
+2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
+```
+
+> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
 > Par exemple : **--root monitoring**.
+
+``` shell
+2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
+```
+
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
 
 ## Ajouter le Remote Server à la configuration
 
