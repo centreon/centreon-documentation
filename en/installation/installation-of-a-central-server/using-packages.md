@@ -154,6 +154,28 @@ DROP USER '<USER>'@'<IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+>  
+> In addition to the directives above, it's strongly recommended to tune the 
+> database configuration with the following parameters: 
+>
+> ```shell
+> [server]
+> key_buffer_size = 256M
+> sort_buffer_size = 32M
+> join_buffer_size = 4M
+> thread_cache_size = 64
+> read_buffer_size = 512K
+> read_rnd_buffer_size = 256K
+> max_allowed_packet = 128M
+> ```
+> 
+> Optionnaly, tune the memory and buffer utilization of the InnoDB engine powered 
+> tables. The example below applies to a database server with 8Gb RAM
+>  
+> ```shell
+> innodb_additional_mem_pool_size=1G
+> innodb_buffer_pool_size=1G
+> ```
 >
 > Remember to restart MariaDB after a change to configuration.
 

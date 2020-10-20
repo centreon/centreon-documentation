@@ -160,6 +160,28 @@ DROP USER '<USER>'@'<IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
+> En sus des directives précédentes, il est fortement recommandé d'appliquer la 
+> configuration des bases de données avec les paramètres suivants:
+>
+> ```shell
+> [server]
+> key_buffer_size = 256M
+> sort_buffer_size = 32M
+> join_buffer_size = 4M
+> thread_cache_size = 64
+> read_buffer_size = 512K
+> read_rnd_buffer_size = 256K
+> max_allowed_packet = 128M
+> ```
+> 
+> Il est également possible d'améliorer les performances des tables utilisant 
+> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs 
+> ci-dessous sont applicables à une VM ayant au moins 8Go de RAM.
+>  
+> ```shell
+> innodb_additional_mem_pool_size=1G
+> innodb_buffer_pool_size=1G
+> ```
 >
 > Pensez à redémarrer le service mariadb après chaque changement de
 > configuration.
