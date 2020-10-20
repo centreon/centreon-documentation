@@ -293,6 +293,27 @@ utiliser la commande **LOAD DATA INFILE** :
 GRANT FILE on *.* to 'centreon'@'localhost';
 ```
 
+### Principaux messages d'erreur
+
+``` shell
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+```
+
+> Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
+
+``` shell
+2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+```
+
+> L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+
+``` shell
+Failed connect to 10.30.3.11:444; Connection refused
+```
+
+> L'URL d'accès n'est pas complète. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
+> Par exemple : **--root monitoring**.
+
 ## Ajouter le Remote Server à la configuration
 
 Rendez-vous au chapitre

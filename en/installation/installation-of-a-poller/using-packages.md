@@ -174,27 +174,22 @@ You will receive the validation of the Centreon central or the Remote Server ser
 ### Main errors messages
 
 ``` shell
-error code: 401
-error message: Invalid credentials
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Your credentials are incorrect for the **<API_ACCOUNT>**.
 
 ``` shell
-error code: 500
-error message: Access Denied.
+2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-error code: 400
-error message: Can't connect to the api
+Failed connect to 10.30.3.11:444; Connection refused
 ```
 
 > The access url is not complete. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
-message: The 'poller-1' Platform: 'poller-1@192.168.0.2.2' linked to '192.168.0.1' has been added
-```
 
 ## Add the Poller to configuration
 

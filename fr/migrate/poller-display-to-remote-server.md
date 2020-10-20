@@ -129,6 +129,27 @@ installez le module **centreon-license-manager**.
     2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
     ```
 
+    ### Principaux messages d'erreur
+
+    ``` shell
+    2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+    ```
+
+    > Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
+
+    ``` shell
+    2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+    ```
+
+    > L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+
+    ``` shell
+    Failed connect to 10.30.3.11:444; Connection refused
+    ```
+
+    > L'URL d'accès n'est pas complète. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
+    > Par exemple : **--root monitoring**.
+
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:
 
