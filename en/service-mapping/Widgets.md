@@ -14,17 +14,17 @@ listing widget that you can add to your home page.
 
 **Description**
 
-  - Select a Business View for filtering.
-  - Number of Business Activities to display.
-  - Status filter: Select BA status for filtering.
-  - Downtime filter: Retain only the BA with or without downtime.
-  - Acknowledged filter: Retain only acknowledged non-acknowledged BA.
-  - Order By: Criteria for sorting the BAs.
-  - Display description.
-  - Display status duration.
-  - Display only top level BA: Only display BA without a parent. For a non-admin
-    users this is calculated based on the ACL.
-  - Refresh Interval (in seconds).
+-   Select a Business View for filtering.
+-   Number of Business Activities to display.
+-   Status filter: Select BA status for filtering.
+-   Downtime filter: Retain only the BA with or without downtime.
+-   Acknowledged filter: Retain only acknowledged non-acknowledged BA.
+-   Order By: Criteria for sorting the BAs.
+-   Display description.
+-   Display status duration.
+-   Display only top level BA: Only display BA without a parent. For a
+    non-admin users this is calculated based on the ACL.
+-   Refresh Interval (in seconds).
 
 **Example**
 

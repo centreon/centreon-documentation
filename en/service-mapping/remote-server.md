@@ -6,8 +6,8 @@ title: Install on a Remote Server
 The procedure for installing the Centreon BAM module on a Centreon Remote Server
 is the same as on a Central server and needs additionnal action.
 
-  Step 1: Install the extension using the standard install procedure
-  Step 2: Follow the extra steps described below.
+1.  Install the extension using the standard install procedure
+2.  Follow the extra steps described below.
 
 ## Step 2: Configure Centreon Broker
 
@@ -19,8 +19,8 @@ export your business activities to the Centreon Remote Server from the central
 server.
 
 To do so, you need to modify the Centreon Broker Master configuration of the
-Centeon Remote poller. Go to the **Configuration \> Pollers \> Broker
-configuration** menu and edit the remote poller configuration.
+Centeon Remote poller. Go to the `Configuration > Pollers > Broker
+configuration` menu and edit the remote poller configuration.
 
 ### Monitoring output
 
@@ -31,8 +31,8 @@ In the Output tab, select **BAM - Monitoring engine (BAM)** and click on
 
 Please consult the following table for the appropriate field values:
 
-| **Fields**                      | **Values**                                                             |
-| ------------------------------- | ---------------------------------------------------------------------- |
+| Fields                          | Values                                                                 |
+|---------------------------------|------------------------------------------------------------------------|
 | Name                            | remote-server-bam-monitoring                                           |
 | Filter category                 | *None*                                                                 |
 | Storage DB Name                 | centreon\_storage                                                      |
@@ -57,8 +57,8 @@ Select the **BAM - BI engine (BAM)** configuration type and click on **Add**:
 
 Please consult the following table for the appropriate field values:
 
-| **Fields**                      | **Values**                                                             |
-| ------------------------------- | ---------------------------------------------------------------------- |
+| Fields                          | Values                                                                 |
+|---------------------------------|------------------------------------------------------------------------|
 | Name                            | remote-server-bam-reporting                                            |
 | Filter category                 | BAM                                                                    |
 | Replication enabled             | No                                                                     |
