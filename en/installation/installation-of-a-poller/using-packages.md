@@ -192,7 +192,7 @@ error code: 400
 error message: Can't connect to the api
 ```
 
-> The access url is not complete. Use the **--root** option to define the API URL Path. For example: **--root /monitoring**.
+> The access url is not complete. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 message: The 'poller-1' Platform: 'poller-1@192.168.0.2.2' linked to '192.168.0.1' has been added
 ```
 
