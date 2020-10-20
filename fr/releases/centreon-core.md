@@ -5,7 +5,7 @@ title: Centreon Core
 
 ## Introduction
 
-Vous trouverez dans ce chapitre tout ce qui concerne les **Centreon Core**.
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Core**.
 
 > Il est important de mettre à jour en utilisant la documentation adéquate de
 > mise à jour et de lire attentivement les notes de mise à jour afin d'être au
