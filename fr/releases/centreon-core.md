@@ -20,6 +20,21 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
+### Enhancements
+
+- [API/Core/Configuration] Log actions when adding/enabling/disabling hosts
+- [API] Possibility to Register servers (Remote Server, Poller, Centeron Map)
+- [Configuration/Wizard] Add possibility to select registered poller
+- [Authentication] Replace Keycloak to generic OAuth2 / OpenId Connect
+- [Event Logs] Display anomaly detection as regular service
+- [Monitoring/Resources Status] Add shortcuts for hosts and services details
+- [Monitoring/Resources Status] Add timeline for hosts and services details
+- [Monitoring/Resources Status] Be alble to filter on status output
+- [Monitoring/Resources Status] Add possibility to save/manage filters
+- [Monitoring/Resources Status] Add possibility to submit result for resources
+- [Monitoring/Resources Status] Redirect all realtime links to Resources Status page
+- [Remote Server] Replace HTTP flow by gorgone between Central and Remote Servers
+
 ## Centreon Engine release notes
 
 ### 20.10.0
