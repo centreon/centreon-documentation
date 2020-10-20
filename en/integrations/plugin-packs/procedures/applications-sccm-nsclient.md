@@ -5,15 +5,20 @@ title: Microsoft SCCM
 
 ## Overview
 
-Microsoft Endpoint Configuration Manager, formely knwown as System Center Configuration Manager or SCCM, is a systems management software product developed by Microsoft for managing large groups of computers running Windows NT, Windows Embedded, macOS (OS X), Linux or UNIX, as well as Windows Phone, Symbian, iOS and Android mobile operating systems. Configuration Manager provides remote control, patch management, software distribution, operating system deployment, network access protection and hardware and software inventory.
+Microsoft Endpoint Configuration Manager, formely knwown as System Center Configuration Manager or SCCM, is a systems management 
+software product developed by Microsoft for managing large groups of computers running Windows NT, Windows Embedded, macOS (OS X), 
+Linux or UNIX, as well as Windows Phone, Symbian, iOS and Android mobile operating systems. Configuration Manager provides remote control, 
+patch management, software distribution, operating system deployment, network access protection and hardware and software inventory.
 
-## Plugin-Pack content
+The Centreon Plugin-Pack allows to gather information and status about the SCCM service using the centreon-nsclient agent. Both connection methods
+NRPE and RestAPI are supported.
 
-### Monitored equipments
+## Plugin-Pack assets
+
+### Monitored objects
 
 * Database replication
 * Sites 
-
 
 ### Collected metrics
 
@@ -21,168 +26,184 @@ Microsoft Endpoint Configuration Manager, formely knwown as System Center Config
 
 <!--database-replication-status-->
 
-| Metric name              | Description                      | Unit    |
-| :----------------------- | :------------------------------- | :------ |
-| Display                  | Code of the site                 |         |
-| SiteStatus               | Status of the site               |         |
-| SiteType                 | Type of the site                 |         |
-| SiteToSiteGlobalState    | Status of the replication        |         |
-| SiteToSiteGlobalSyncTime | Duration of the last replication |         |
+| Metric name              | Description                    |
+| :----------------------- | :----------------------------- |
+| link-status              | Status of the replication link |
+| site-status              | Status of the site replication |
 
 
 <!--site-status-->
 
-| Metric name                 | Description                  | Unit    |
-| :-------------------------- | :--------------------------- | :------ |
-| Display                     | Code of the site             |         |
-| SiteName                    | Name of the site             |         |
-| Type                        | Type of the site             |         |
-| Mode                        | Mode of the site             |         |
-| Status                      | Status of the site           |         |
-| SecondarySiteCMUpdateStatus | Status of the secondary site |         |
-
-
-
+| Metric name                 | Description                    |
+| :-------------------------- | :----------------------------- |
+| status                      | Operational status of the site |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites 
 
-There is two ways to monitor SCCM, through the NRPE protocol or through the Nsclient Rest Api.
+The Windows SCCM Plugin is hosted by the *centreon-nsclient* agent which must be installed, configured and running on the Windows server 
+hosting the SCCM feature.
+The Centreon Poller can connect to the agent using either the NRPE method or the RestAPI method.
+More information on how to achieve the installation and the configuration of the agent can be found in the associated procedure:
 
-For NRPE, you can follow the procedure as described [here](operatingsystems-windows-nsclient-05-nrpe.html#nsclient), and for the Nsclient Rest Api, you can follow the procedure as seen [there](operatingsystems-windows-nsclient-05-restapi.html#prerequisites).
-
+* [NRPE](https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-nrpe.html)
+* [RestAPI](https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-restapi.html)
 
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Online Licence Business & IT Editions-->
+<!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin on all Centreon pollers monitoring SCCM ressources:
+1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
+Poller expected to monitor SCCM through *centreon-nsclient*:
 
-For the NRPE protocol
+* NRPE
+
 ```bash
 yum install centreon-nrpe-plugin
 ```
-and for the Restapi
+
+* RestAPI
+
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Instal the Plugin-Pack 'Microsoft SCCM' in the *Configuration  >  Plugin Packs*  page of the Web Centreon interface
+2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
-<!--Offline Licenses-->
+<!--Offline IMP License-->
 
-1. Install the Plugin on all Centreon pollers monitoring SCCM ressources:
+1. Depending on the monitoring method chosen (NRPE or RestAPI), install the relevant Centreon Plugin package on every Centreon
+Poller expected to monitor SCCM through *centreon-nsclient*:
 
-For the NRPE protocol
+* NRPE
+
 ```bash
 yum install centreon-nrpe-plugin
 ```
-and for the Restapi
+
+* RestAPI
+
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Install the Plugin-Pack RPM on the Centreon server **Central**:
+2. On the Centreon Central Server, install the Centreon Plugin-Pack RPM:
 
 ```bash
 yum install centreon-pack-applications-sccm-nsclient
 ```
 
-3. In the *Configuration  \>  Plugin Packs*  page of the Web Centreon interface, install the Plugin-Pack 'Microsoft SCCM'
+3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Host Macro Configuration
 
+## Host configuration 
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* On the Centreon Web Interface, go to "Configuration > Hosts" and add a new Host
+* Set the Host IP address and select the relevant Host template according to the monitoring method chosen:
+    * *App-Sccm-NRPE-custom* for NRPE
+    * *App-Sccm-NSClient-05-Restapi-custom* for RestAPI
+* Depending on the Host template, fill the Macro fields as follows:
 
-| Field                   | Value                                       |
-| :---------------------- | :------------------------------------------ |
-| Host name               | *Name of the host*                          |
-| Alias                   | *Host description*                          |
-| IP                      | *Host IP Address*                           |
-| Monitored from          | *Monitoring Poller to use*                  |
-| Host Multiple Templates | Apps-Sccm-NRPE/App-Sccm-NSClient-05-Restapi |
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--App-Sccm-NRPE-custom-->
+
+| Mandatory | Name             | Description                                                                         |
+|:----------|:-----------------|:------------------------------------------------------------------------------------|
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')                          |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                                    |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
+|           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |
+
+<!--App-Sccm-NSClient-05-Restapi-custom-->
+
+| Mandatory | Name                      | Description                                           |
+|:----------|:--------------------------|:------------------------------------------------------|
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')             |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Click on the *Save* button.
-
-Use the discovery module to add the monitoring of your application pools and websites, Go to Configuration > Services > Scan to perform a scan.
 
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-One the Plugin is installed, you can test it directly in the command line from your Centreon poller
-with the user *centreon-engine*:
+Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
+by running the following command:
 
-#### With NRPE
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--NRPE-->
+
 ```bash
-su - centreon-engine\
-/usr/lib/nagios/plugins/check_centreon_nrpe \ 
--H 168.253.16.125  \
-	-p 5666\
-	-t  \
-	-c check_centreon_plugins \
-	-a 'apps::sccm::local::plugin' 'site-status' 
-
+/usr/lib64/nagios/plugins/check_centreon_nrpe \
+    -H 10.0.0.1 \
+    -p 5666 \
+    -t 30 \
+    -u -m 8192 \
+    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%{status} eq FAILED"'
 ```
 
-Output: 
+This command should return an output message like:
 
 ```bash
-OK: blabla
+OK: Site 'MySite' status is 'ACTIVE' [Type: PRIMARY] [Mode: 'Unknown'] |
 ```
 
-The command request statistic to the SCCM client host (```-a 'apps::sccm::local::plugin' 'site-status' ```) with the IP/FQDN address *168.253.16.125* (```-H 168.253.16.125```). We will use the port 5666 (```--p 566'```) and the timeout will be by default 10 seconds (```-t```. 
+The command above connects to a *centreon-nsclient* agent using the NRPE protocol (```/usr/lib64/nagios/plugins/check_centreon_nrpe```) along with
+the related connections settings defined in the Host Macros (```-p 5666 -t 30 -u -m 8192```).
+The *centreon-nsclient* agent is requested to locally execute the *site-status* mode of the *SCCM* Plugin
+(```-c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status'```).
+This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--critical-status="%{status} eq FAILED"```).
 
-The different options can be displayed with the ```--help``` parameter:  
+All the available thresholds and options of the mode can be displayed by adding the  ```--help``` 
+parameter to the command:
 
 ```bash
-/usr/lib/nagios/plugins/check_centreon_nrpe -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' --help
+/usr/lib64/nagios/plugins/check_centreon_nrpe -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--help'
 ```
 
-#### With Rest Api
+<!--RestAPI-->
+
+
 ```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin  \
-	--mode=query  \
-	--hostname=168.253.16.125  \
-	--port='5666'  \
-	--proto='http'  \
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
+    --plugin=apps::nsclient::restapi::plugin  \
+    --mode=query  \
+    --hostname=10.0.0.1  \
+    --port='8443'  \
+    --proto='https'  \
     --legacy-password='centreon' \
-	--command=check_centreon_plugins  \
-	--arg='apps::sccm::local::plugin'  \
-	--arg='database-replication-status'  
+    --command=check_centreon_plugins  \
+    --arg='apps::sccm::local::plugin'  \
+    --arg='site-status' \
+    --arg='--critical-status="%{status} eq FAILED"'
 
 ```
-Output: 
+This command should return an output message like:
 
 ```bash
-OK: blabla
-
+OK: Site 'MySite' status is 'ACTIVE' [Type: PRIMARY] [Mode: 'Unknown'] |
 ```
 
-The command request statistic to the SCCM client host (```database-replication-status```) with the IP/FQDN address *168.253.16.125* (```--hostname=168.253.16.125```). We will use the port 5666 (```--port='5666'```) and the http protocol (```proto=http''```). The legacypaswword is *centreon*(```--legacy-password='centreon'```)
+The command above connects to a *centreon-nsclient* agent using the RestAPI method (```--plugin=apps::nsclient::restapi::plugin --mode=query```) 
+along with the related connections settings defined in the Host Macros (```--port='8443' --proto='https' --legacy-password='centreon'```).
+The *centreon-nsclient* agent is requested to locally execute the *site-status* mode of the *SCCM* Plugin
+(```--command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status'```).
+This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--arg='--critical-status="%{status} eq FAILED"'```).
 
 
-The different options can be displayed with the ```--help``` parameter:  
+All the available thresholds and options of the mode can be displayed by adding the  ```--help``` 
+parameter to the command:
+
 ```bash
-/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='database-replication-status' --help'
+/usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status' --arg='--help'
 ```
-
-### Why do I get the following error:
-
-#### UNKNOWN: 500 Can't connect
-
-This error message means that the Centreon Plugin couldn't successfully connect to the host API. Check that no third party device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API. This can be done by using the --proxyurl option in the command.
-
-#### UNKNOWN: 501 Protocol scheme 'connect' is not supported
-
-When using a proxy to connect to the host, this error message means that the Centreon Plugin library does not support the proxy connection protocol.
-
-In order to prevent this issue, use the curl HTTP backend by adding the following option to the command: *--http-backend='curl'*.
