@@ -84,6 +84,8 @@ If any problem shows up at this step, make sure that the following prerequisites
     * [SSH key exchange](../installation-2-nodes.html#ssh-keys-exchange), Centreon-HA is more secured as it does not requires root privileges
     * [Database credentials and privileges](../installation-2-nodes.html#creating-the-centreon-mariadb-account), same as above, root SQL account is not needed anymore  
 
+Once the centreon and mysql SSH keys have been exchanged, you might want to remove the root SSH public keys from /root/.ssh/authorized_keys.
+
 ### Finalizing the upgrade
 
 First, complete Web wizard steps to finish the Central upgrade process:
