@@ -23,7 +23,7 @@ commerciales, vous pouvez vous rendre sur notre
 ### Enhancements
 
 - [API/Core/Configuration] Log actions when adding/enabling/disabling hosts
-- [API] Possibility to Register servers (Remote Server, Poller, Centeron Map)
+- [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
 - [Authentication] Replace Keycloak to generic OAuth2 / OpenId Connect
 - [Event Logs] Display anomaly detection as regular service
@@ -96,3 +96,15 @@ commerciales, vous pouvez vous rendre sur notre
 ## Centreon Gorgone release notes
 
 ### 20.10.0
+
+### Bugfixes
+
+- Contient tous les correctifs jusqu'à la version 20.04.6
+
+### Enhancements
+
+- [module] Add new core/pipeline module
+- [module] Add new centreon/judge module
+- [core] Add listener system
+- [autodiscovery] Refacto centreon/autodiscovery module to use listener system
+- [autodiscovery] Add service discovery in centreon/autodiscovery module

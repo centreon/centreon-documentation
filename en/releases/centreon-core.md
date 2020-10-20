@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 ### Enhancements
 
 - [API/Core/Configuration] Log actions when adding/enabling/disabling hosts
-- [API] Possibility to Register servers (Remote Server, Poller, Centeron Map)
+- [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
 - [Authentication] Replace Keycloak to generic OAuth2 / OpenId Connect
 - [Event Logs] Display anomaly detection as regular service
@@ -63,6 +63,8 @@ If you have feature requests or want to report a bug, please go to our
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
+- Manage compatibility with Centreon 20.10
+
 ## Centreon Broker release notes
 
 ### 20.10.0
@@ -87,6 +89,20 @@ If you have feature requests or want to report a bug, please go to our
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
 
+- Manage compatibility with Centreon 20.10
+
 ## Centreon Gorgone release notes
 
 ### 20.10.0
+
+### Bugfixes
+
+- Contains all fixes up to version 20.04.6
+
+### Enhancements
+
+- [module] Add new core/pipeline module
+- [module] Add new centreon/judge module
+- [core] Add listener system
+- [autodiscovery] Refacto centreon/autodiscovery module to use listener system
+- [autodiscovery] Add service discovery in centreon/autodiscovery module
