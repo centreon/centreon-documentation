@@ -5,32 +5,32 @@ title: Open Source Extensions
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Open Source
-extensions**.
+Vous trouverez dans ce chapitre tout ce qui concerne les **extensions
+Open Source** de Centreon.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de
+> mise à jour et de lire attentivement les notes de mise à jour afin d'être au
+> courant de changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose)
+Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
+commerciales, vous pouvez vous rendre sur notre
+[Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon High-Availability release notes
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Gérer la compatibilité avec Centreon 20.10
 
 ## Centreon DSM release notes
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Gérer la compatibilité avec Centreon 20.10
 
 ## Centreon Open Ticket release notes
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Gérer la compatibilité avec Centreon 20.10
