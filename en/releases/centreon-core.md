@@ -63,7 +63,9 @@ If you have feature requests or want to report a bug, please go to our
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
-- Manage compatibility with Centreon 20.10
+### Bugfixes
+
+- Contains all fixes up to version 20.04.7
 
 ## Centreon Broker release notes
 
@@ -89,7 +91,9 @@ If you have feature requests or want to report a bug, please go to our
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
 
-- Manage compatibility with Centreon 20.10
+### Bugfixes
+
+- Contains all fixes up to version 20.04.9
 
 ## Centreon Gorgone release notes
 

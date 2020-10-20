@@ -63,7 +63,9 @@ commerciales, vous pouvez vous rendre sur notre
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
-- Gérer la compatibilité avec Centreon 20.10
+### Bugfixes
+
+- Contient tous les correctifs jusqu'à la version 20.04.7
 
 ## Centreon Broker release notes
 
@@ -91,7 +93,9 @@ commerciales, vous pouvez vous rendre sur notre
 >     Si le mode de connexion inversé (*one peer retention*) est utilisé,
 >     la mise à jour de Broker est obligatoire.
 
-- Gérer la compatibilité avec Centreon 20.10
+### Bugfixes
+
+- Contient tous les correctifs jusqu'à la version 20.04.9
 
 ## Centreon Gorgone release notes
 
