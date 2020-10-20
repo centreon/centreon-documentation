@@ -135,7 +135,7 @@ To register it to the Centreon Central server or a Remote server, execute the fo
 
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Poller -h <IP_CENTREON_CENTRAL> -n <POLLER_NAME>
+-t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Example:
