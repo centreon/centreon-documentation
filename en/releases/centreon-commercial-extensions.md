@@ -24,11 +24,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.0
 
+- [Configuration] Update style of pages *Business Activities* and
+  *Business Views*
+
 ## Centreon MBI release notes
 
-- Manage compatibility with Centreon 20.10
-
 ### 20.10.0
+
+- Compatibility with Centreon 20.10
 
 ## Centreon Auto Discovery release notes
 
@@ -71,16 +74,16 @@ standalone SSH connections.
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Compatibility with Centreon 20.10
 
 ## Centreon License Manager release notes
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Compatibility with Centreon 20.10
 
 ## Centreon Anomaly Detection
 
 ### 20.10.0
 
-- Manage compatibility with Centreon 20.10
+- Compatibility with Centreon 20.10

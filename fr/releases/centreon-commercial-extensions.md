@@ -24,11 +24,14 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.0
 
+- [Configuration] Mise à jour du style des pages *Activités métiers*
+  et *Vues métiers*
+
 ## Centreon MBI release notes
 
-- Gérer la compatibilité avec Centreon 20.10
-
 ### 20.10.0
+
+- Compatibilité avec Centreon 20.10
 
 ## Centreon Auto Discovery release notes
 
@@ -75,16 +78,16 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
 
 ## Centreon License Manager release notes
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
 
 ## Centreon Anomaly Detection
 
 ### 20.10.0
 
-- Gérer la compatibilité avec Centreon 20.10
+- Compatibilité avec Centreon 20.10
