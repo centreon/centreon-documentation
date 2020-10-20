@@ -272,7 +272,7 @@ Centreon propose plusieurs méthodes pour authentifier les utilisateurs :
 
 - localement (MySQL)
 - [LDAP](./parameters/ldap.html)
-- [Generic SSO](./parameters/centreon-ui.html#sso) ou [Keycloak SSO](./parameters/centreon-ui.html#sso-keycloak)
+- [Generic SSO](./parameters/centreon-ui.html#sso) ou [OpenId Connect](./parameters/centreon-ui.html#openid-connect)
 
 ## Créer des profils d'utilisateurs
 

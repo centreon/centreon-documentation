@@ -257,6 +257,7 @@
             {
                 "ids": [
                     "upgrade/introduction",
+                    "upgrade/upgrade-from-20-04",
                     "upgrade/upgrade-from-19-10",
                     "upgrade/upgrade-from-19-04",
                     "upgrade/upgrade-from-18-10",
@@ -368,6 +369,7 @@
                     "integrations/plugin-packs/procedures/applications-varnish-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
                     "integrations/plugin-packs/procedures/applications-vtom-restapi",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
@@ -527,6 +529,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-apic-restapi",
                     "integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-callmanager-sxml",
                     "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
                     "integrations/plugin-packs/procedures/network-cisco-ironport-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-meraki-restapi",
@@ -549,6 +552,7 @@
                     "integrations/plugin-packs/procedures/network-dell-6200",
                     "integrations/plugin-packs/procedures/network-dell-6200-snmp",
                     "integrations/plugin-packs/procedures/network-dell-n4000",
+                    "integrations/plugin-packs/procedures/network-dell-os10-snmp",
                     "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
                     "integrations/plugin-packs/procedures/network-switch-dell-xseries-snmp",
                     "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",

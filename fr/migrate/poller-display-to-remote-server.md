@@ -19,7 +19,7 @@ désinstallez le module **centreon-poller-display-central**
 Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.html)
 si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
 [procédure de migration](../migrate/migrate-from-3-4.html) d'un serveur Centreon
-Central vers 20.04.
+Central vers 20.10.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
 > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers. Demandez
@@ -83,7 +83,7 @@ installez le module **centreon-license-manager**.
         mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
 
     Cette commande va activer le mode **Remote Server** :
-    
+
     - en limitant l'accès au menu,
     - en limitant les actions possibles,
     - en authorisant le Central à s'y connecter,

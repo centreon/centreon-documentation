@@ -1,10 +1,10 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 20.04
+title: Mise à jour d'une plateforme Centreon 20.10
 ---
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-20.04.
+20.10.
 
 ## Sauvegarde
 

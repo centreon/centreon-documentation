@@ -489,6 +489,21 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Gorgone release notes
 
+### 20.04.6
+
+#### Bug fixes
+
+- [zmqclient] Fix no PONG response in some cases
+- [zmqclient] ZMQ_LINGER option was not correctly set by modules
+- [legacycmd] Get only activated Engine configuration
+- [action] Bad message parsing might lead to uncatched errors
+
+#### Enhancements
+
+- [sshclient] Allow to use 'SshDir', 'Identity' and 'KnownHosts' libssh options
+  for SSH session
+- Update dependencies to perl-Libssh-Session >= 0.8 and libssh => 0.9.4
+
 ### 20.04.5
 
 #### Bug fixes
