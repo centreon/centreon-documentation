@@ -67,6 +67,10 @@ Give a look at the [dedicated section](../administration/parameters/centreon-ui.
 
 Centreon 20.10 is now compatible with Security-Enhanced Linux (SELinux), the most popular Linux kernel security module.
 
+### Up-to-date Linux Operating System for up-to-date security patches (coming soon)
+Centreon 20.10 runs on the latest version of the CentOS or RedHat Enterprise Linux (RHEL) operating system: CentOS v8
+or RHEL v8.
+
 ### Vulnerability Fix Engagement Plan
 
 As usual, Centreon implements an engagement plan to fix reported security vulnerabilities in a timely manner, based on
