@@ -3,13 +3,6 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
-![image](../../assets/monitoring/discovery/host-discovery.gif)
-
-> The discovery providers are provided from installation of Plugin Packs (Azure,
-> Amazon AWS, VMware, etc.). To know the complete list, please go to
-> the [Plugin Packs
-> catalog](../../integrations/plugin-packs/introduction.html).
-
 ## Add a discovery job
 
 To launch a discovery, you need to add a discovery job.
@@ -20,6 +13,8 @@ policies.
 
 Go to `Configuration > Hosts > Discovery` and click on **+ADD**.
 
+### Choose a provider
+
 First, choose a provider by clicking on it:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
@@ -28,15 +23,30 @@ The search bar allows to search for a specific provider:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
+> The discovery providers are provided from installation of Plugin Packs (Azure,
+> Amazon AWS, VMware, etc.). To know the complete list, please go to
+> the [Plugin Packs
+> catalog](../../integrations/plugin-packs/introduction.html).
+
+A job name can be defined to identify it. The provider name will be used by
+default.
+
+### Define access and discovery parameters
+
 The second step allows to define access parameters, especially the monitoring
 server from which the discovery will be made:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
+Some providers ask for other parameters such as a proxy if the discovery is made
+on an online service and/or credentials.
+
 Then, some additional parameters might be needed to define the scope of the
 discovery:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
+
+### Set mappers
 
 The fourth step defines how the discovery result will be processed to create
 hosts in the configuration.
@@ -49,13 +59,76 @@ discovery result could look like:
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
 
-The fifth and sixth steps only allow to define manual analysis as update
-policy and immediate as execution policy.
+### Define analysis and update policies
 
-There will be more choices in the future to allow automatic update and cyclic
-execution.
+The fifth step allows to choose between two analysis methods and define
+configuration update policies.
 
-Click on **FINISH** on the last step to add and schedule the discovery job.
+#### Manual analysis
+
+Manual analysis will need user to choose what to add to the configuration
+through the result page after the job successfully finish.
+
+#### Automatic analysis
+
+Automatic analysis will process the result automatically and will use the
+choosen policies between the following:
+
+  - Add hosts to configuration when they are discovered for the first time
+  - Disable hosts already added to configuration if the mapping rule excludes
+    them
+  - Enable hosts already added to configuration if they are discovered but
+    disabled
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+
+> At least one of these policies must be selected.
+
+> Note: not discovered hosts (or no more discovered hosts) will not result to
+> disabled hosts in the Centreon configuration. Only discovered and at the same
+> time excluded hosts can be disabled in the configuration (see
+> [exclusion](#exclusion) mapper).
+
+Read the [example](#dynamically-update-your-configuration) below to better
+understand the scope of these policies.
+
+### Plan execution
+
+The last step allows to choose between two execution methods.
+
+#### Execute immediately
+
+The immediate execution will launch the discovery right after the job creation.
+
+#### Schedule execution
+
+The scheduled execution allows to choose between several types of scheduling:
+
+  - Every year at defined days of defined months and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+
+  - Every month at defined days of the month and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+
+  - Every week at defined days of the week and defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+
+  - Every day at defined time
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+
+  - Every x hours (at defined minutes)
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+
+  - Every x minutes
+
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+
+Click on **FINISH** to add and execute or schedule the discovery job.
 
 ## Manage discovery jobs
 
@@ -77,11 +150,13 @@ If a job is on a *Failed* status, hover on to the icon to know the reason.
 If a job is on a *Finished* status, click on it to analyse the result. See
 [Analyse a discovery job result](#analyse-a-discovery-job-result) to know more.
 
-Jobs can be rescheduled using the *Reschedule* action <img src="../../assets/monitoring/discovery/host-discovery-reschedule.png" width="25" />
+Several actions can be done on jobs:
 
-They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" /> 
-
-Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+  - Jobs can be re-executed using the *Force execution* action <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="24" />
+  - They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" /> 
+  - Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
+  - If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
+  - And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
 
 ## Analyse a discovery job result
 
@@ -90,12 +165,16 @@ visualize the result.
 
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-Select the hosts you want to add to the configuration and click on **SAVE**. A
-task will be launched in background to save the hosts.
+The mappers linked to this job can be edited and applied directly on the result
+by clicking the edit action <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
-Go to the `Configuration > Hosts` menu to see the newly created hosts. To
-deploy the services link to the host template, select the hosts and choose
-**Deploy Service** from the **More actions...** drop-down menu.
+Select the hosts you want to add to the configuration and click on the save
+action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
+
+A task will be launched in background to save the hosts and create the services
+linked to host templates.
+
+Go to the `Configuration > Hosts` menu to see the newly created hosts.
 
 ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -119,13 +198,16 @@ Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discov
 A *mapper* is an object letting you map an attribute's value of a discovered
 item to a property of a future host.
 
-There is four types of *mappers*:
+There is six types of *mappers*:
 
   - Association: map an attribute's value to a common host property like name,
     alias or IP,
   - Macro: map an attribute's value to a host custom macro,
   - Template: add a host template,
-  - Monitoring: choose from which monitoring server will be monitored the host.
+  - Monitoring: choose from which monitoring server will be monitored the host,
+  - Exclusion: exclude a subset of hosts based on their attributes (see the
+    [example](#dynamically-update-your-configuration) below),
+  - Inclusion: include a subset of hosts that may be excluded.
 
 For all those *mappers*, conditions can be applied to choose whether or not the
 mapping will actually occur.
@@ -152,7 +234,7 @@ Click on **SAVE** to add the *mapper*.
 ### Edit a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
 Change any fields wanted or even the type of *mapper*.
 
@@ -161,7 +243,7 @@ Click on **SAVE** to save the *mapper*.
 ### Delete a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
 
 A popin window will ask you to confirm the action.
 
@@ -219,3 +301,89 @@ monitoring server defined in the job or from the ones available on the
 Centreon platform.
 
 This *mapper* is mandatory.
+
+### Exclusion
+
+The **Exclusion** *mapper* is used to exclude a subset of hosts from the result
+listing.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
+
+The mapper uses hosts attributes as conditions to exclude them.
+
+### Inclusion
+
+The **Inclusion** *mapper* is used to include a subset of hosts to the result
+listing.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
+
+The mapper uses hosts attributes as conditions to include them.
+
+## Examples
+
+### Dynamically update your configuration
+
+*Situation*
+
+Having a VMware vCenter with virtual machines dynamically added, started and
+stopped.
+
+*Objective*
+
+Update the Centreon configuration accordingly to the states of the virtual
+machines.
+
+*Create the right job*
+
+From the Host Discovery main page, add a job starting by selecting the VMware VM
+provider.
+
+Define the monitoring instance from which you want to do the discovery. For this
+particular provider, it has to work with the discovery parameters on which you
+define the information related to the Centreon VMware Connector access
+(hostname/ip and port).
+
+In most cases, you will install the Connector on the monitoring instance, so the
+access will be *localhost* and default port *5700*.
+
+Let's now define the mappers and the update policies to match our needs:
+
+  - First needs:
+    - Add new (or not yet added) virtual machines, (1)
+    - Exclude virtual machines that are not started. (2)
+
+  - Second needs:
+    - Disable the virtual machines that are stopped, (3)
+    - Re-enable the virtual machines that are started (after being stopped). (4)
+
+This will first result as an *Exclusion* mapper with the following
+configuration:
+
+![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
+
+This way, all powered off virtual machines will not be part of the processed
+result. Those will not be added (2).
+
+In addition to this mapper, choose the automatic analysis with all the update
+policies as below:
+
+![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.png)
+
+With the first policy, the virtual machines part of the processed result will be
+added (1).
+
+With the second one, virtual machines that were added at some point (because
+in a powered on state) will be disabled in the Centreon configuration if they
+happen to be powered off (3).
+
+The last one will enable the virtual machines that are once again in a powered
+on state (4).
+
+Of course, the last two policies work well if the job is scheduled to run more
+than one time.
+
+> Note: if a virtual machine happens to be deleted, it will not be deleted (or
+> even disabled) from the Centreon configuration. Only discovered and at the
+> same time excluded hosts can be disabled in the configuration (if the policy
+> is chosen).
