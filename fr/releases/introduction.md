@@ -59,8 +59,8 @@ possibilités :
 Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.html)
 pour savoir comment lancer votre première découverte!
 
-Pour tout savoir sur les modifications, consultez [la note de publication]
-(./centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
+Pour tout savoir sur les modifications, consultez
+[la note de publication](./centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
 
 ## Un coeur Open Source encore plus robuste
 
