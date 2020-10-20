@@ -179,7 +179,6 @@ DROP USER '<USER>'@'<IP>';
 > ci-dessous sont applicables à une VM ayant au moins 8Go de RAM.
 >  
 > ```shell
-> innodb_additional_mem_pool_size=1G
 > innodb_buffer_pool_size=1G
 > ```
 >

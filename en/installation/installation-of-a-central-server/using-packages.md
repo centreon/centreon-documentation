@@ -173,7 +173,6 @@ DROP USER '<USER>'@'<IP>';
 > tables. The example below applies to a database server with 8Gb RAM
 >  
 > ```shell
-> innodb_additional_mem_pool_size=1G
 > innodb_buffer_pool_size=1G
 > ```
 >
