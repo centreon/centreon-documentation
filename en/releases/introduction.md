@@ -45,13 +45,13 @@ The Hosts Discovery feature coming from the Auto Discovery extension has been im
 - The new *exclusion* and *inclusion* mappers will help you decide which hosts are meant to be added in the
   configuration, and the ones that should be disabled or enabled.
 
-![image](../assets/monitoring/discovery/host_disco_intro.png)
+![image](./assets/monitoring/discovery/host_disco_intro.png)
 
 Give a look at the [dedicated section](../monitoring/discovery/hosts-discovery.html) to know how to launch your first
 discovery job\!
 
-To know everything about changes, have a look to [the release note]
-(./centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
+To know everything about changes, have a look to
+[the release note](./releases/centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
 
 ## A stronger Open Source core framework
 

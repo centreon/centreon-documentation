@@ -60,7 +60,7 @@ Jetez un oeil à la [section dédiée](../monitoring/discovery/hosts-discovery.h
 pour savoir comment lancer votre première découverte!
 
 Pour tout savoir sur les modifications, consultez
-[la note de publication](./centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
+[la note de publication](./releases/centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
 
 ## Un coeur Open Source encore plus robuste
 
