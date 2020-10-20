@@ -99,6 +99,9 @@ Si ce n'est pas le cas, il est recommandé de vérifier les éléments suivants:
     * [Echnages de clés SSH pour le Cluster](../installation-2-nodes.html#échanges-de-clefs-ssh)
     * [Droits et privilèges des utilisateurs de bases de données](../installation-2-nodes.html#création-du-compte-centreon)
 
+Une fois que les clés SSH des utilisateurs centreon et mysql ont bien été échangées, il est recommander 
+de supprimer la clef publique de root de /root/.ssh/authorized_keys.
+
 ### Finaliser la montée de version
 
 Vous pouvez désormais finaliser la mise à jour de Centreon via le wizard Web: 
