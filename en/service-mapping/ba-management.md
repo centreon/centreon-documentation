@@ -396,9 +396,8 @@ To create a boolean rule, go to:
 ![image](../assets/service-mapping/guide/kpi_booleen.png)
 
 | Column                                    | Description                                          |
-| ----------------------------------------- | ---------------------------------------------------- |
-| KPI name                                  | Name for identifying KPI                             |
-| Configuration Mode                        | Configuration mode: regular or advanced              |
+|-------------------------------------------|------------------------------------------------------|
+| Boolean name                              | Name of the boolean KPI                              |
 | Expression                                | Logical expression (see below)                       |
 | Impact is applied when expression returns | State of logical expression that triggers the impact |
 | Comments                                  | Comments regarding the boolean KPI                   |

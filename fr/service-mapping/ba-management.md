@@ -386,12 +386,12 @@ formulaire de saisie.
 
 ![image](../assets/service-mapping/guide/ssv.png)
 
-| Colonne        | Description                                                                    |
-|----------------|--------------------------------------------------------------------------------|
-| .ssv File      | Ouvrir l'explorateur de fichiers                                               |
-| KPI Type       | Type de KPI à charger                                                          |
-| Format         | Aide sur le format du fichier SSV à utiliser en fonction du type de KPI choisi |
-| Manual filling | Possibilité de compléter ce champ plutôt que de charger un fichier             |
+| Colonne            | Description                                                                    |
+|--------------------|--------------------------------------------------------------------------------|
+| Fichier .ssv       | Ouvrir l'explorateur de fichiers                                               |
+| Tyoe de KPI        | Type de KPI à charger                                                          |
+| Format             | Aide sur le format du fichier SSV à utiliser en fonction du type de KPI choisi |
+| Remplissage manuel | Possibilité de compléter ce champ plutôt que de charger un fichier             |
 
 ### Indicateur booléen
 
@@ -402,14 +402,13 @@ d'en faire des règles "booléenne".
 
 ![image](../assets/service-mapping/guide/kpi_booleen.png)
 
-| Colonne                                   | Description                                                                          |
-|-------------------------------------------|--------------------------------------------------------------------------------------|
-| KPI name                                  | Nom du KPI booléen                                                                   |
-| Configuration Mode                        | Mode de configuration : simple ou avancé                                             |
-| Expression                                | Expression booléenne (voir après)                                                    |
-| Impact is applied when expression returns | Dans quel cas l'impact doit être appliqué: quand l'expression renvoie Vrai ou Faux ? |
-| Comments                                  | Commentaires concernant le KPI                                                       |
-| Status                                    | Activé ou désactivé                                                                  |
+| Colonne                                            | Description                                                                          |
+|----------------------------------------------------|--------------------------------------------------------------------------------------|
+| Nom de la règle booléenne                          | Nom du KPI booléen                                                                   |
+| Expression booléenne                               | Expression booléenne (voir après)                                                    |
+| L'impact est appliqué lorque l'expression retourne | Dans quel cas l'impact doit être appliqué: quand l'expression renvoie Vrai ou Faux ? |
+| Commentaires                                       | Commentaires concernant le KPI                                                       |
+| Statut                                             | Activé ou désactivé                                                                  |
 
 Expression booléenne :
 
