@@ -3,11 +3,16 @@ id: event-console
 title: Consoles d'évènements
 ---
 
-> Certaines de ces interfaces sont **obsolètes** et remplacées par la page
-> [Resources Status](resources-status.html)
+> Certaines de ces interfaces sont **dépréciées** et remplacées par la page
+> [Status des ressources](resources-status.html)
 >
 > Cette nouvelle page a pour but de regrouper les expériences que vous
 > pouvez retrouver dans ces interfaces.
+>
+> Pour les nouvelles installations, les pages dépréciées sont automatiquement
+> masquées. Il est possible de les afficher en sélectionnant l'option
+> *Afficher les pages dépréciées* dans les préférences propres à chaque
+> utilisateur depuis le menu `Administration > Paramètres > Mon compte`.
 
 Ce chapitre présente les différentes interfaces permettant de visualiser
 l'état des ressources.
@@ -26,10 +31,11 @@ les différentes fonctions de ces icônes :
 | ![image](../assets/alerts/pause.png)   | Permet de mettre en pause le rafraîchissement automatique des données |
 | ![image](../assets/alerts/resume.png)  | Permet de reprendre le rafraîchissement automatique des données       |
 
-## Hôtes (obsolète)
+## Hôtes (dépréciée)
 
-> Cette interface est **oblsolète** et remplacée par la page `Resources Status`
-> et la [liste des évènements](resources-status.html#lister-les-evenements).
+> Cette interface est **dépréciée** et remplacée par la page
+> `Statut des ressources` et la [liste des
+> évènements](resources-status.html#lister-les-evenements).
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
 `Monitoring > Status Details > Hosts`.
@@ -107,10 +113,11 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 -   **Poller** : Peut être utilisé pour filtrer les hôtes par poller.
     Seuls les hôtes du scrutateur sélectionné seront affichés.
 
-## Détails d'un hôte (obsolète)
+## Détails d'un hôte (dépréciée)
 
-> Cette interface est **oblsolète** et remplacée par la page `Resources Status`
-> et la [panneau d'hôte](resources-status.html#panneau-dhote).
+> Cette interface est **dépréciée** et remplacée par la page
+> `Statut des ressources` et la [panneau
+> d'hôte](resources-status.html#panneau-dhote).
 
 Lorsque vous cliquez sur le nom d'un hôte, vous accédez à la page de
 détails de la ressource.
@@ -179,10 +186,11 @@ et catégories d'hôtes.
 Le conteneur **Notifications** permet d'afficher les contacts et groupes de
 contacts liés à l'hôte qui recevront notifications.
 
-## Services (obsolète)
+## Services (dépréciée)
 
-> Cette interface est **oblsolète** et remplacée par la page `Resources Status`
-> et la [liste des évènements](resources-status.html#lister-les-evenements).
+> Cette interface est **dépréciée** et remplacée par la page
+> `Statut des ressources` et la [liste des
+> évènements](resources-status.html#lister-les-evenements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
 `Monitoring > Status Details > Services`.
@@ -283,10 +291,11 @@ choisissez l'option **Summary** pour le filtre **Display** :
 
 ![image](../assets/alerts/04servicelistbyservicegroup.png)
 
-## Service Details (obsolète)
+## Service Details (dépréciée)
 
-> Cette interface est **oblsolète** et remplacée par la page `Resources Status`
-> et la [panneau de service](resources-status.html#panneau-de-service).
+> Cette interface est **dépréciée** et remplacée par la page
+> `Statut des ressources` et la [panneau de
+> service](resources-status.html#panneau-de-service).
 
 Lorsque vous cliquez sur un service, l'écran suivant apparaît:
 

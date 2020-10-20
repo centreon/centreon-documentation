@@ -8,6 +8,11 @@ title: Events consoles
 >
 > This new page aims to regroup all the experiences you can find in these
 > interfaces.
+>
+> For new installations, deprecated pages are automatically hidden. It is
+> possible to display them by selecting the option *Show deprecated pages*
+> in the preferences specific to each user from the menu
+> `Administration > Parameters > My Account`.
 
 This chapter presents the different interfaces allowing to visualize the
 status of resources.

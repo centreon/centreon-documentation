@@ -3,8 +3,8 @@ id: resources-status
 title: Resources Status
 ---
 
-The `Resources Status` page is your main view to track resources events &
-statuses, analyze & quickly handle them.
+The `Monitoring > Resources Status` page is your main view to track
+resources events & statuses, analyze & quickly handle them.
 
 This view mixes hosts & services to have a unified interface and way to manage
 events.

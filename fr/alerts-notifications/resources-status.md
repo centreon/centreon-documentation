@@ -3,9 +3,9 @@ id: resources-status
 title: Statut des ressources
 ---
 
-La vue `Statut des ressources` est votre vue principale pour connaître
-les évènements en cours et être en mesure de les comprendre, les prendre
-en compte et les traiter rapidement.
+La vue `Supervision > Statut des ressources` est votre vue principale
+pour connaître les évènements en cours et être en mesure de les comprendre,
+les prendre en compte et les traiter rapidement.
 
 Cette vue rassemble à la fois les hôtes et les services afin de proposer
 une interface unique et unifiée de gestion des évènements.
