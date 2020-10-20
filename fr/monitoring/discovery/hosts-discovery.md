@@ -103,7 +103,7 @@ L'exécution immédiate lancera la découverte juste après la création de la t
 
 #### Planifier l'exécution
 
-L'exécution planifiée permet de choisir parmis plusieurs types de planification
+L'exécution planifiée permet de choisir parmi plusieurs types de planification
 :
 
   - Chaque année à des jours définis de mois définis et à une heure définie
