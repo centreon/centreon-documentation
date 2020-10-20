@@ -31,7 +31,6 @@ NRPE and RestAPI are supported.
 | link-status              | Status of the replication link |
 | site-status              | Status of the site replication |
 
-
 <!--site-status-->
 
 | Metric name                 | Description                    |
@@ -47,8 +46,8 @@ hosting the SCCM feature.
 The Centreon Poller can connect to the agent using either the NRPE method or the RestAPI method.
 More information on how to achieve the installation and the configuration of the agent can be found in the associated procedure:
 
-* [NRPE](https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-nrpe.html)
-* [RestAPI](https://docs.centreon.com/current/en/integrations/plugin-packs/procedures/operatingsystems-windows-nsclient-05-restapi.html)
+* [NRPE](../operatingsystems-windows-nsclient-05-nrpe.html)
+* [RestAPI](../operatingsystems-windows-nsclient-05-restapi.html)
 
 ## Installation
 
@@ -99,7 +98,6 @@ yum install centreon-pack-applications-sccm-nsclient
 3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Host configuration 
 
@@ -173,7 +171,6 @@ parameter to the command:
 
 <!--RestAPI-->
 
-
 ```bash
 /usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
     --plugin=apps::nsclient::restapi::plugin  \
@@ -207,3 +204,5 @@ parameter to the command:
 ```bash
 /usr/lib/centreon/plugins//centreon_nsclient_restapi.pl --plugin=apps::nsclient::restapi::plugin --mode=query --command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status' --arg='--help'
 ```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
