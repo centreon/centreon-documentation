@@ -34,7 +34,7 @@ automatiquement. Les nouvelles ressources découvertes automatiquement peuvent
 éventuellement être configurées automatiquement dans Centreon.
 
 Le même mécanisme de découverte peut s’appliquer à des ressources qui ne
-seraient plus disponibles. Elees peuvent être répertoriées et éventuellement
+seraient plus disponibles. Elles peuvent être répertoriées et éventuellement
 désactivées dans la configuration.
 
 Les contacts peuvent être associés à une règle de découverte pour être avertis
