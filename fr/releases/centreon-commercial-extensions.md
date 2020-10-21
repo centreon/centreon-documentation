@@ -36,7 +36,7 @@ L'assistant de découverte d'hôte permet désormais de planifier vos découvert
 de plusieurs manières : annuelle, mensuelle, quotidienne et même
 toutes les x heures ou minutes.
 
-Les tâches de découverte planifiées peuvent être suspendus et reprise à
+Les tâches de découverte planifiées peuvent être suspendues et reprises à
 tout moment.
 
 Le résultat de la découverte peut également être traité automatiquement pour
