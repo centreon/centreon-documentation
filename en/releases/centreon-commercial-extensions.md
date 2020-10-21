@@ -25,7 +25,7 @@ If you have feature requests or want to report a bug, please contact support.
 #### Faster server for complex maps
 
 Centreon Map now has a new generation server in parallel with the current server.
-generation. It is still in an experimental phase and is therefore not
+It is still in an experimental phase and is therefore not
 installed by default.
 
 This one has been designed to be more efficient, lighter and optimized
