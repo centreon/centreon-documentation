@@ -57,7 +57,7 @@ plus sur ce nouveau serveur, référez vous à la
 > assurez-vous que le serveur utilise les derniers composants 20.10.
 
 > Sur un Remote Server, le module Autodiscovery peut être désinstallé depuis
-> le menu `Administration > Extensions > Gestionnaire` afin que de ne
+> le menu `Administration > Extensions > Gestionnaire` afin de ne
 > pas générer d'erreurs inutiles dans les logs de Gorgone.
 
 #### Host Discovery
