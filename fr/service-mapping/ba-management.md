@@ -153,7 +153,7 @@ métier:
 -   **Ignore the downtime**: Dans ce cas, les plages de maintenance
     positionnées sur les indicateurs seront ignorées, la BA sera
     impactée
--   **Inherit the downtime**: Dans ce cas la BA hérite automatiquement
+-   **Inherit the downtime**: Dans ce cas, la BA hérite automatiquement
     de la plage de maintenance dès lorsqu'un indicateurs l'impactant est
     en plage de maintenance. L'héritage suit ces règles:
     -   Une activité métier hérite des plages de maintenance planifiées
