@@ -72,7 +72,7 @@ open standard for access delegation, along with the OpenID Connect (OIDC)
 authentication layer, promoted by the OpenID Foundation. All popular Identity
 Providers implementing Multi-Factor Authentication support this architecture. 
 
-Give a look at the
+Take a look at the
 [dedicated section](../administration/parameters/centreon-ui.html#openid-connect).
 
 ### SELinux compatibility for strict security policy enforcement
