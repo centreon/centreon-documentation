@@ -82,7 +82,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     tous les composants en adéquation avec la version du Central.
 >
 >     Cependant, le temps de la mise à jour, la communication peut être
->     maintenu en s'assurant que les configurations des Brokers respectent
+>     maintenue en s'assurant que les configurations des Brokers respectent
 >     les conditions suivantes :
 >
 >       - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
