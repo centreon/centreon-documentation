@@ -19,7 +19,7 @@ La page principale de monitoring est une console présentant les
 informations essentielles concernant le status des BA en temps réel.
 
 Un utilisateur non administrateur verra uniquement les BA appartenant
-aux BV lié à son groupe d'accès.
+aux BV liées à son groupe d'accès.
 
 ![image](../assets/service-mapping/guide/mon_ba_list.png)
 
