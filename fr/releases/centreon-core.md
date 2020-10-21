@@ -44,7 +44,7 @@ commerciales, vous pouvez vous rendre sur notre
 >   - Si Engine sur un Poller ou un Remote Server n'est pas mis à jour en
 >     20.10, les fichiers de configuration copiés depuis un Central à jour
 >     par Gorgone utilisant une communication ZMQ ne pourront pas être
->     lu par le processus Engine, avec l'erreur suivante dans les logs:
+>     lus par le processus Engine, avec l'erreur suivante dans les logs:
 >
 >     ```text
 >     Error: Parsing of global configuration failed: Can't open file '/etc/centreon-engine/centengine.cfg'
