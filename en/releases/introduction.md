@@ -60,7 +60,7 @@ improved to add new capacities:
 Take a look at the [dedicated section](../monitoring/discovery/hosts-discovery.html)
 to know how to launch your first discovery job\!
 
-To know everything about changes, have a look to
+To know everything about these changes, have a look at
 [the release note](centreon-commercial-extensions.html#centreon-auto-discovery-release-notes)
 
 ## A stronger Open Source core framework
