@@ -77,7 +77,7 @@ If you have feature requests or want to report a bug, please go to our
 >     (or with a version prior to 20.04.9), the communication between those
 >     Poller or Remote Server and an upgraded Central may not work.
 >
->     As always, we **strongly recommand** to upgrade all components to match
+>     As always, we **strongly recommend** to upgrade all components to match
 >     Central serie.
 >
 >     However, during an upgrade process, communication can be maintained
