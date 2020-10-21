@@ -18,7 +18,7 @@ les sections suivantes:
 Grâce aux commentaires sur la précédente version 20.04, nous avons ajouté les
 fonctionnalités manquantes avant de faire de cette vue la vue par défaut.
 
-Cette nouvelle vue est accessible via le menu `Monitoring > Resources Status` et
+Cette nouvelle vue est accessible via le menu `Supervision> Statut des ressources` et
 apporte les fonctionnalités suivantes:
 
 - Une page unifiée regroupant les hôtes et les services
