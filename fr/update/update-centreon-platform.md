@@ -90,6 +90,12 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des Pollers
 
+Installez le référentiel de collections de logiciels à l'aide de cette commande :
+
+```shell
+yum install -y centos-release-scl
+```
+
 Videz le cache de yum :
 
 ```shell
