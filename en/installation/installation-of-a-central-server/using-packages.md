@@ -71,7 +71,7 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
 
 ## Installation

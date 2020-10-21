@@ -206,7 +206,7 @@ store Centreon Map data, wether it's on localhost or somewhere else.
 If you installed your Centreon Map server from a "fresh CentOS installation" you
 need to install the Centreon-Release package : :
 
-    yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+    yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 
 *If the URL doesn't work, you can manualy find this package in the folder*
 

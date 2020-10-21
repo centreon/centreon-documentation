@@ -264,7 +264,7 @@ If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key: :
 
     cd /etc/pki/rpm-gpg/
-    wget http://yum.centreon.com/standard/20.04/el7/stable/RPM-GPG-KEY-CES
+    wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 
 ### Reporting server configuration
 
