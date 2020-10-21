@@ -57,7 +57,7 @@ improved to add new capacities:
 
 ![image](../assets/monitoring/discovery/host_disco_intro.png)
 
-Give a look at the [dedicated section](../monitoring/discovery/hosts-discovery.html)
+Take a look at the [dedicated section](../monitoring/discovery/hosts-discovery.html)
 to know how to launch your first discovery job\!
 
 To know everything about changes, have a look to
