@@ -50,7 +50,7 @@ If you have feature requests or want to report a bug, please go to our
 >     Error: Parsing of global configuration failed: Can't open file '/etc/centreon-engine/centengine.cfg'
 >     ```
 >
->     This is due to more strict rights on those files.
+>     This is due to stricter rights on those files.
 >
 >     As always, we **strongly recommend** to upgrade all components to
 >     match the Central server's version.
