@@ -56,7 +56,7 @@ If you have feature requests or want to report a bug, please go to our
 >     match the Central server's version.
 >
 >     However, during an upgrade process, it is possible to manually
->     add the user *centreon-engine* to *centreon-gorgone* group with
+>     add the user *centreon-engine* to the *centreon-gorgone* group with
 >     the following command:
 >
 >     ```shell
