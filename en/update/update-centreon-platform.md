@@ -87,6 +87,12 @@ This procedure is the same than to update a Centreon Central server.
 
 ## Update the Pollers
 
+Install the Software Collections repository using this command:
+
+```shell
+yum install -y centos-release-scl
+```
+
 Clean yum cache:
 
 ```shell
