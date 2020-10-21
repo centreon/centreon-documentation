@@ -97,4 +97,4 @@ Comme à son habitude, Centreon s’engage sur un plan de correction des
 vulnérabilités détectées par des tiers. Les échéances d’engagement dépendent de
 la sévérité de la vulnérabilité, mesurée selon son score CVSS (Common
 Vulnerability Scoring System). Centreon 20.10 incorpore la correction de toutes
-les vulnérabilités détectées sur les versions ogicielles précédentes.
+les vulnérabilités détectées sur les versions logicielles précédentes.
