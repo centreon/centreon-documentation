@@ -29,7 +29,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Event Logs] Display anomaly detection as regular service
 - [Monitoring/Resources Status] Add shortcuts for hosts and services details
 - [Monitoring/Resources Status] Add timeline for hosts and services details
-- [Monitoring/Resources Status] Be alble to filter on status output
+- [Monitoring/Resources Status] Be able to filter on status output
 - [Monitoring/Resources Status] Add possibility to save/manage filters
 - [Monitoring/Resources Status] Add possibility to submit result for resources
 - [Monitoring/Resources Status] Redirect all realtime links to Resources Status page
