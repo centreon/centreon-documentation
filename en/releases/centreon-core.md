@@ -81,7 +81,7 @@ If you have feature requests or want to report a bug, please go to our
 >     Central serie.
 >
 >     However, during an upgrade process, communication can be maintained
->     by making sure Brokers' configurations match the following conditions:
+>     by making sure Broker's configurations match the following conditions:
 >
 >       - *TLS encryption* and *compression* are either set to
 >         *Auto* or *No* on Central input,
