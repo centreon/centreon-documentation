@@ -18,7 +18,7 @@ listing widget that you can add to your home page.
 -   Number of Business Activities to display.
 -   Status filter: Select BA status for filtering.
 -   Downtime filter: Retain only the BA with or without downtime.
--   Acknowledged filter: Retain only acknowledged non-acknowledged BA.
+-   Acknowledged filter: Retain only acknowledged or non-acknowledged BA.
 -   Order By: Criteria for sorting the BAs.
 -   Display description.
 -   Display status duration.
