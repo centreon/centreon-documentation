@@ -478,9 +478,6 @@ online update system. When it connects to a Centreon MAP server it automatically
 downloads and installs the latest version compatible with the server.
 Auto-update requires your computer to have internet access.
 
-Centreon MAP NG *(experimental)*
---------------------------------
-
 ## Centreon MAP NG
 
 The server is in **experimental phase** and is subject to evolution.
