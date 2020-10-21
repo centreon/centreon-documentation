@@ -20,6 +20,15 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.0
 
+- Compatibilité avec Centreon 20.10
+
+Centreon Map dispose maintenant en parrallèle du serveur actuel, d'un serveur
+nouvelle génération. Il est encore en phase expérimentale et n'est donc pas
+installé par défaut.
+Celui-ci a été pensé pour être plus performant, plus léger et optimisé pour le
+chargement et le calcul de données temps réél.
+Pour en savoir plus sur ce nouveau serveur, référez vous à la [note de version 20.10](../graph-views/release-notes.html)
+
 ## Centreon BAM release notes
 
 ### 20.10.0
