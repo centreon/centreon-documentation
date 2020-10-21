@@ -18,7 +18,7 @@ forme de widget, l'état actuel de vos activités métier.
     laisser vide, toutes les BAs seront prise (en fonction des ACLs)
 -   How many Business Activity to display ? : nombre d'activité métier à
     afficher
--   Status filter : permet de filtrer sur le status des activité métier
+-   Status filter : permet de filtrer sur le status des activités métiers
 -   Downtime filter : permet filtrer pour ne garder que les activité
     métier sur lesquelles un temps d'arrêt planifiée est en cours ou ne
     pas les afficher
