@@ -9,8 +9,8 @@ title: Install Centreon BAM extension
 
 ## Prerequisites
 
-The required version of Centreon software for compatibility with Centreon MAP is
-**Centreon 20.04**
+The required version of Centreon software for compatibility with Centreon BAM
+is **Centreon 20.10**.
 
 ## Installation
 
@@ -19,24 +19,34 @@ The required version of Centreon software for compatibility with Centreon MAP is
 Add the Centreon BAM repository provided by Centreon on the Central server and
 install the package using the following command:
 
-    yum install centreon-bam-server
+``` shell
+yum install centreon-bam-server
+```
 
 ### Upload the license
 
-A license file *bam.license* is provided by Centreon. Go to `Administration >
-Extensions > Manager` and upload the license using the interface.
+A license file *bam.license* is provided by Centreon. Go to
+`Administration > Extensions > Manager` and upload the license
+using the interface.
 
 ### Install the interface
 
-Log on to the Centreon web interface using an account with privileges sufficient
-to install extension. Then go to the `Administration > Extension > Manager`
+Log on to the Centreon web interface using an account with privileges
+sufficient to install extension. Then go to the
+`Administration > Extension > Manager`
 
-> If you are using MariaDB replication for your monitoring databases, installing
-> Centreon BAM generates a view. You need to exclude it from replication by
-> adding the following line on the my.cnf file of the slave server:
+> If you are using MariaDB replication for your monitoring databases,
+> installing Centreon BAM generates a view. You need to exclude it from
+> replication by adding the following line on the my.cnf file of the
+> slave server:
 >
->     replicate-ignore-table=centreon.mod_bam_view_kpi
-> Create the view manually on the slave server by executing the following
-> command line:
+> ``` text
+> replicate-ignore-table=centreon.mod_bam_view_kpi
+> ```
 >
->     mysql centreon < view_creation.sql
+> Create the view manually on the slave server by executing the
+> following command line:
+>
+> ``` shell
+> mysql centreon < view_creation.sql
+> ```

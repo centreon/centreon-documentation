@@ -3,13 +3,13 @@ id: ba-settings
 title: Settings
 ---
 
+## Default Settings
+
 The default settings are conveniently prefilled to assist you in
-creating new BAs and indicators (KPIs). It can be found in `Monitoring >
-Business Activity > Default Settings`
+creating new BAs and indicators (KPIs). It can be found in
+`Monitoring > Business Activity > Default Settings`
 
-## Impact settings
-
-### Services & Meta services
+### Impact settings
 
 The following parameters correpond to the default values behind the *Weak*,
 *Minor*, *Major*, *Critical* and *Blocking* impact types when configuring
@@ -21,14 +21,14 @@ Impact types have to be defined in percentage.
 
 ![image](../assets/service-mapping/guide/impacts_configuration.png)
 
-### Business Activity and Boolean rule
+### Business Activity and Boolean rule impacts settings
 
 These default parameters are used for prefilling the fields for **Business
 Activity** or **Boolean rule**-type indicators in *Advanced* mode.
 
 ![image](../assets/service-mapping/guide/impacts_ba_boolean.png)
 
-## Business Activity settings
+### Business Activity settings
 
 The default parameters below define values for BAs.
 
@@ -53,20 +53,13 @@ Activity notification section in user's form:
 ## User settings
 
 The **User Settings** are personalised options that belong to each user profile,
-you can configure it in `Monitoring > Business Activity > User Settings`
+you can configure it in `Monitoring > Business Activity > User Settings`.
 
-## Custom Overview
+### Custom Overview
+
+By default, the Centreon BAM module displays the monitoring console with
+all authorized BAs. However, the user has the possibility to compose his
+own overview by adding the BAs of his choice, among those which are
+authorized.
 
 ![image](../assets/service-mapping/guide/user_custom.png)
-
-## Default Graph Style
-
-*Deprecated feature - will be removed in future version*.
-
-## Graph colors
-
-*Deprecated feature - will be removed in future version*.
-
-## Miscellaneous
-
-*Deprecated feature - will be removed in future version*.
