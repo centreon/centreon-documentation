@@ -43,6 +43,10 @@ If you have feature requests or want to report a bug, please contact support.
 > If a discovery is performed on a Remote Server or a Poller, make sure
 > the server is using the latest 20.10 components.
 
+> On a Remote Server, the Autodiscovery module can be uninstalled through
+> the `Administration > Extensions > Manager` menu so it will not raise
+> useless errors in Gorgone's log.
+
 #### Host Discovery
 
 Host Discovery wizard now allows to schedule your discoveries using several

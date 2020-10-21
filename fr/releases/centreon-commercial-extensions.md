@@ -43,6 +43,10 @@ commerciales, veuillez contacter le support.
 > Si une découverte est effectuée sur un Remote Server ou un Poller,
 > assurez-vous que le serveur utilise les derniers composants 20.10.
 
+> Sur un Remote Server, le module Autodiscovery peut être désinstallé depuis
+> le menu `Administration > Extensions > Gestionnaire` afin que de ne
+> pas générer d'erreurs inutiles dans les logs de Gorgone.
+
 #### Host Discovery
 
 L'assistant de découverte d'hôte permet désormais de planifier vos découvertes
