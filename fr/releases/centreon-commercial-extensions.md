@@ -24,7 +24,7 @@ commerciales, veuillez contacter le support.
 
 #### Serveur plus rapide pour les cartes complexes
 
-Centreon Map dispose maintenant en parrallèle du serveur actuel, d'un
+Centreon Map dispose maintenant en parallèle du serveur actuel, d'un
 serveur nouvelle génération. Il est encore en phase expérimentale et
 n'est donc pas installé par défaut.
 
