@@ -9,7 +9,7 @@ Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Core**.
 
 > Il est important de mettre à jour en utilisant la documentation adéquate de
 > mise à jour et de lire attentivement les notes de mise à jour afin d'être au
-> courant de changements qui pourraient impacter votre usage ou votre plateforme
+> courant des changements qui pourraient impacter votre usage ou votre plateforme
 > ou des développements spécifiques que vous auriez fait.
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
