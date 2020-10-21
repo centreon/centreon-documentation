@@ -389,7 +389,7 @@ formulaire de saisie.
 | Colonne            | Description                                                                    |
 |--------------------|--------------------------------------------------------------------------------|
 | Fichier .ssv       | Ouvrir l'explorateur de fichiers                                               |
-| Tyoe de KPI        | Type de KPI à charger                                                          |
+| Type de KPI        | Type de KPI à charger                                                          |
 | Format             | Aide sur le format du fichier SSV à utiliser en fonction du type de KPI choisi |
 | Remplissage manuel | Possibilité de compléter ce champ plutôt que de charger un fichier             |
 
