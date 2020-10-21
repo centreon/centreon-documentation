@@ -20,17 +20,47 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.0
 
+- Compatibility with Centreon 20.10
+
+#### Faster server for complex maps
+
+Centreon Map now has in parallel with the current server, a server new
+generation. It is still in an experimental phase and is therefore not
+installed by default.
+
+This one has been designed to be more efficient, lighter and optimized
+for the loading and calculation of real time data. To learn more about
+this new server, please refer to the
+[release note 20.10](../graph-views/release-notes.html)
+
 ## Centreon BAM release notes
 
 ### 20.10.0
+
+- [Configuration] Update style of pages *Business Activities* and
+  *Business Views*
 
 ## Centreon MBI release notes
 
 ### 20.10.0
 
+- Compatibility with Centreon 20.10
+
 ## Centreon Auto Discovery release notes
 
 ### 20.10.0
+
+> Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
+> to make sure the configuration matches minimal prerequisites.
+
+> If a discovery is performed on a Remote Server or a Poller, make sure
+> the server is using the latest 20.10 components.
+
+> On a Remote Server, the Autodiscovery module can be uninstalled through
+> the `Administration > Extensions > Manager` menu so it will not raise
+> useless errors in Gorgone's log.
+
+#### Host Discovery
 
 Host Discovery wizard now allows to schedule your discoveries using several
 fashion: yearly, monthly, daily, hourly and even every x minutes.
@@ -51,17 +81,26 @@ disabled or enabled.
 Take a look at this example to fully understand their impacts:
 [Dynamically update your configuration](../monitoring/discovery/hosts-discovery.html#dynamically-update-your-configuration)
 
-> If a discovery is performed on a Remote Server or a Poller, make sure
-> the server is using the latest 20.10 components.
+#### Service Discovery
+
+Service Discovery is now using Gorgone to execute the discovery plugins,
+and therefore it uses Gorgone's communication system and not anymore
+standalone SSH connections.
 
 ## Centreon Plugin Packs Manager release notes
 
 ### 20.10.0
 
+- Compatibility with Centreon 20.10
+
 ## Centreon License Manager release notes
 
 ### 20.10.0
 
+- Compatibility with Centreon 20.10
+
 ## Centreon Anomaly Detection
 
 ### 20.10.0
+
+- Compatibility with Centreon 20.10
