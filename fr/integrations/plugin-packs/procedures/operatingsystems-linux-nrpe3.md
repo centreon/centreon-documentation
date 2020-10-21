@@ -122,11 +122,11 @@ Les hôtes supervisés ont besoin de deux composants pour que cela fonctionne :
 Installer les paquets suivants :
 
 ```bash
-yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible instller directement les paquets `http://yum-1.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20200602-094050.el7.centos.noarch.rpm` et `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible instller directement les paquets `http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` et `http://yum-1.centreon.com/standard/20.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
 ### Configuration de NRPE
 
