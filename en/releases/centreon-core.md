@@ -78,7 +78,7 @@ If you have feature requests or want to report a bug, please go to our
 >     Poller or Remote Server and an upgraded Central may not work.
 >
 >     As always, we **strongly recommend** to upgrade all components to match
->     Central serie.
+>     the Central server's version.
 >
 >     However, during an upgrade process, communication can be maintained
 >     by making sure Broker's configurations match the following conditions:
