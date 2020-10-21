@@ -52,7 +52,7 @@ If you have feature requests or want to report a bug, please go to our
 >
 >     This is due to more strict rights on those files.
 >
->     As always, we **strongly recommand** to upgrade all components to
+>     As always, we **strongly recommend** to upgrade all components to
 >     match Central serie.
 >
 >     However, during an upgrade process, it is possible to manually
