@@ -9,7 +9,7 @@ relancer le moteur du poller **Central**.
 
 Une fois la configuration rechargée et les **services liés aux KPIs
 contrôlés au moins 1 fois**, les BA sont à jour et peuvent être
-visualisées à la page `Monitoring > Business Activity > Monitoring`
+visualisées à la page `Supervision > Activités métiers > Supervision`
 
 ## Interprétation des données temps réel
 

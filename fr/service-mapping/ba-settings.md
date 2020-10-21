@@ -13,7 +13,7 @@ Les **Paramètres par défaut** ont pour but de pré-remplir certains des champs
 de saisie lors de l'ajout de nouvelles BA et de nouveaux indicateurs.
 
 Ils sont configurable depuis le menu
-`Supervision > Activité Métier > Paramètres par défaut`.
+`Configuration > Activités métiers > Paramètres par défaut`.
 
 ### Paramètres d'impact
 
@@ -65,7 +65,7 @@ activity" pour les utilisateurs concernés :
 
 Les **Paramètres utilisateur** sont des options personnalisées qui sont
 propres à chaque profil d'utilisateur, et peuvent être configurées dans
-le menu `Supervision > Activité Métier > Paramètres utilisateur`.
+le menu `Configuration > Activités métiers > Paramètres utilisateurq`.
 
 ### Vue d'ensemble personnalisée
 

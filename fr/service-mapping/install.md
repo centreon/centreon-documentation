@@ -26,14 +26,14 @@ yum install centreon-bam-server
 ### Charger la licence
 
 Le fichier de licence "bam.license" est fourni par Centreon, pour
-l'installer, rendez vous dans `Administration > Extensions > Manager` puis
+l'installer, rendez vous dans `Administration > Extensions > Gestionnaire` puis
 télécharger la via l'interface.
 
 ### Installation sur l'interface
 
 Se connecter sur l'interface web de Centreon en utilisant un compte
 ayant les droits d'installer des modules et se rendre dans le menu
-`Administration > Extensions > Manager`.
+`Administration > Extensions > Gestionnaire`.
 
 Cliquer sur l'icône d'installation correspondante au module **Centreon
 BAM** située dans la colonne Actions:

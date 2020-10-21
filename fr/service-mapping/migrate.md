@@ -23,7 +23,7 @@ yum update centreon-bam-server
 ## Mise à jour de l'interface
 
 Se connecter à l'interface web de Centreon et se rendre dans le menu
-`Administration > Manager > Extension`.
+`Administration > Extensions > Gestionnaire`.
 
 Un bouton orange de mise à jour est visible et signale qu'une mise à
 jour est disponible, cliquez dessus pour mettre à jour le module, faire

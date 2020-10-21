@@ -113,7 +113,7 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ### Création d'une activité métier
 
-Pour créer une nouvelle activité métier, cliquer sur **Add**. Le
+Pour créer une nouvelle activité métier, cliquer sur **+AJOUTER**. Le
 formulaire ci-dessous apparaît :
 
 ![image](../assets/service-mapping/guide/business-activity-add.png)
@@ -235,7 +235,7 @@ du statut de l'activité métier
 ### Liste
 
 La gestion des activité(s) métier est réalisée via le menu
-`Configuration > Business Activity > Business Activity`.
+`Configuration > Activités métiers > Activités métiers`.
 
 ![image](../assets/service-mapping/guide/business-activity-listing.png)
 
@@ -283,7 +283,7 @@ même si la somme de ses impacts en cours est supérieur à 100.
 La gestion des indicateurs peut être réalisée de deux manières:
 
 -   Dans l'activité métier comme vu précédemment
--   Au travers du menu `Configuration > Business Activity > Indicators`
+-   Au travers du menu `Configuration > Activités métiers > Indicateurs (KPI)`
     uniquement pour les BA utilisant le mode de calcul "Impact"
 
 ![image](../assets/service-mapping/guide/conf_kpi.png)
@@ -321,7 +321,7 @@ Il existe plusieurs façons d'ajouter des indicateurs:
 > indicateurs attachés à des activité métier utilisant le mode de calcul
 > "Impact".
 
-Pour ajouter un indicateur, cliquer sur le lien **Add a KPI** qui dirige
+Pour ajouter un indicateur, cliquer sur le lien **Ajouter un KPI** qui dirige
 vers un formulaire de saisie.
 
 > L'ajout d'indicateur via ce formulaire n'est valable que pour les
@@ -352,8 +352,8 @@ dans le menu dédié (cf explication ci-après)*
 
 #### Ajouter plusieurs KPI
 
-Pour ajouter plusieurs KPI à la fois, cliquer sur le lien **Ajoute
-plusieurs KPIs** qui dirige vers un formulaire de saisie.
+Pour ajouter plusieurs KPI à la fois, cliquer sur le lien **Ajouter
+plusieurs KPI** qui dirige vers un formulaire de saisie.
 
 Sélection l'objet à partir duquel vous souhaitez récupérer les services.
 
@@ -395,7 +395,7 @@ formulaire de saisie.
 
 ### Indicateur booléen
 
-Dans le menu `Configuration > Business Activity > Règles booléennes`.
+Dans le menu `Configuration > Activités métiers > Règles booléennes`.
 
 Il est possible de créer des règles logique entre les services afin
 d'en faire des règles "booléenne".
@@ -449,7 +449,7 @@ dépendant de son contenu à l'instant ou on la sollicite.
 ### Liste des vues métier
 
 La configuration des vues métier est réalisée via le menu
-`Configuration > Business Activity > Business Views`.
+`Configuration > Activités métiers > Vues métiers`.
 
 ![image](../assets/service-mapping/guide/business-view-listing.png)
 
