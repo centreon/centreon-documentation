@@ -20,6 +20,8 @@ window.addEventListener('load', () => {
     let versionHref = currentUrl;
     if (matches && matches[1]) {
       versionHref = currentUrl.replace('/' + matches[1] + '/', '/' + version + '/');
+    } else {
+      versionHref = currentUrl.replace('/current/', '/' + version + '/');
     }
     const regexp = new RegExp('/' + version + '/', 'g');
     const selected = currentUrl.match(regexp) ? 'selected' : '';
