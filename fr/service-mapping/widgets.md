@@ -23,7 +23,7 @@ forme de widget, l'état actuel de vos activités métier.
     métiers sur lesquelles un temps d'arrêt planifié est en cours ou ne
     pas les afficher
 -   Acknowledged filter : permet de filtrer pour ne garder que les
-    activités métier sur lesquelles une personne intervient
+    activités métiers sur lesquelles une personne intervient
     (acquittement en cours) ou ne pas les afficher
 -   Order By : définissez dans quel ordre les activité métier doivent
     être classées
