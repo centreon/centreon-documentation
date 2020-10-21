@@ -123,6 +123,12 @@ Then restart your server with the following command:
 reboot
 ```
 
+After the machine has been rebooted, enable the services to allow centengine to be running on startup.
+
+``` shell
+systemctl enable centreon centengine
+```
+
 ## Register the server
 
 Install the Software Collections repository using this command:

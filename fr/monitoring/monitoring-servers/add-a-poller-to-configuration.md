@@ -195,10 +195,6 @@ la commande suivante depuis le **serveur Central** :
 ```shell
 systemctl restart gorgoned
 ```
-Activer le service centengine pour le rendre actif au démarrage.
-```shell
-systemctl enable centreon centengine
-```
 
 ## Exporter la configuration
 

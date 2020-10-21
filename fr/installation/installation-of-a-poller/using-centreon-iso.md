@@ -120,6 +120,11 @@ Redémarrez votre système avec la commande:
 ``` shell
 reboot
 ```
+Activer le service centengine pour le rendre actif au démarrage.
+
+```shell
+systemctl enable centreon centengine
+```
 
 ## Enregistrer le serveur
 

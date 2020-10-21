@@ -194,10 +194,6 @@ the following command from the **Central server**:
 ``` shell
 systemctl restart gorgoned
 ```
-Enable the services to allow centengine to be running on startup.
-``` shell
-systemctl enable centreon centengine
-```
 
 ## Export the configuration
 
