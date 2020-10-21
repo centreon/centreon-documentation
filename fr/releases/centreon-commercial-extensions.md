@@ -20,20 +20,32 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.0
 
-- Compatibilité avec Centreon 20.10
-- Le système de licence est entièrement géré sur le serveur central Centreon, il n'y en a plus du côté du serveur Map.
+#### Enhancements
+
+-   La licence est maintenant entièrement géré sur le serveur Centreon
+    Central.
 
 #### Serveur plus rapide pour les cartes complexes
 
-Cette version est axée sur la création d'un nouveau serveur MAP Centreon (nom de code **"NG "** pour "nouvelle génération"), qui a été conçu pour être plus puissant, plus rapide et plus léger.
+Cette version pose les bases de l'évolution de l'expérience
+dans la création et la visualisation de cartes.
 
-Pour permettre l'évolution de ce serveur, il est en **phase expérimentale** pour les clients souhaitant l'activer, car il n'est pas installé par défaut.
+La première étape étant la naissance d'un nouveau serveur Centreon MAP
+(nom de code **"NG"** pour "Nouvelle Génération"), qui a été conçu pour
+être plus puissant, plus rapide et plus léger.
 
-Côté Web, tout est adapté, un nouveau champ de saisie est apparu dans les paramètres du module pour entrer la nouvelle IP du serveur Map NG, et un bouton de choix permet de passer de l'un à l'autre.
+Le serveur est en **phase expérimentale** et est sujet à évolution.
 
-  - Administration \> Extensions \> Gestionnaire
+Il n'est utilisé pour le moment que pour la visualisation des cartes. La
+création et l'édition de cartes utilisent toujours le serveur que nous
+connaissons.
 
- > **Attention** : tout l'environnement NG est en lecture seule. Pour permettre d'incrémenter progressivement les évolutions en fonction des commentaires des utilisateurs.
+Du côté de l'interface Centreon, tout a été fait pour pouvoir utiliser
+ces deux serveurs. Il est ainsi possible de basculer la consultation
+des cartes d'un serveur à l'autre facilement.
+
+Pour l'utiliser, il est nécessaire de l'installer et l'activer.
+Référez-vous à la [documentation dédiée](../graph-views/install.html#centreon-map-ng)
 
 ## Centreon BAM release notes
 

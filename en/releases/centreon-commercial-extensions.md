@@ -20,20 +20,30 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.0
 
-- Compatibility with Centreon 20.10
-- The license system is entirely managed on the central server Centreon, there is no more this on the Map Server side.
+#### Enhancements
+
+-   The license is now entirely managed on the Centreon Central server.
 
 #### Faster server for complex maps
 
-This release is focused on the creation of a new Centreon MAP server (code name **"NG"** for new generation).This one was thought to be more powerful, faster & lighter.
+This version lays the foundations for the evolution of the experience
+in creating and visualizing maps.
 
-To allow the evolution of this server, it is in **experimental phase** for customers wishing to activate it because it is not installed by default.
+The first step being the birth of a new Centreon MAP server (code name
+**"NG"** for "New Generation"), which has been designed to be more
+powerful, faster and lighter.
 
-On the Web side, everything is adapted, a new input field has appeared in the module parameters to enter the new IP of the Map NG server, and a choice button allows to switch from one to the other.
+The server is in **experimental phase** and is subject to evolution.
 
-  - Administration \> Extensions \> Manager
+It is currently only used for visualizing maps. Maps creation and edition
+still use the server as we know it.
 
- > **Attention**: the entire NG environment is read-only. To allow you to progressively > increment the evolutions according to user feedback.
+As for the Centreon interface, everything has been done to be able to
+use these two servers. It is then possible to switch the consultation of
+maps from one server to the other easily.
+
+To use it, it is necessary to install and activate it. Refer to the
+[dedicated documentation](../graph-views/install.html#centreon-map-ng)
 
 ## Centreon BAM release notes
 

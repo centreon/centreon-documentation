@@ -478,64 +478,68 @@ online update system. When it connects to a Centreon MAP server it automatically
 downloads and installs the latest version compatible with the server.
 Auto-update requires your computer to have internet access.
 
-Centreon MAP NG *(experimental)*
---------------------------------
+## Centreon MAP NG
 
-### Server NG
+The server is in **experimental phase** and is subject to evolution.
 
-> The default port exposed on HTTP is `8081`.
->
-> **It is only available for reading data, no actions are possible on
-> it.**
->
-> At each synchronization, all resource data is deleted and imported
-> again.
+It is currently only used for visualizing maps. Maps creation and edition
+still use the server as we know it.
 
-The MAP NG server is available on the same RPM as the usual server.
-Only, the packet and service name changes, with the suffix “-ng”.
+### Server
 
-So the configuration is exactly the same as the usual server, but the
-folder is now `/etc/centreon-map/`.
+The Centreon MAP NG Server is available on the same repository as
+the usual server.
 
-The differences to be known are shown below.
+To begin, install the server using the following command:
 
-Then install Centreon Map server NG using the following command:
+``` shell
+yum install centreon-map-server-ng
+```
 
-    yum install centreon-map-server-ng
+And proceed to the configuration with the following command:
 
-installation mode:
+``` shell
+/etc/centreon-map/configure.sh
+```
 
-    /etc/centreon-map/configure.sh
+The configuration is exactly the same as the usual server, but is stored
+in the **/etc/centreon-map/** folder.
 
-If configuration is correct, the centreon-map service can be started
-from the Centreon Map server:
+> The default listening port is **8081**.
 
-    systemctl restart centreon-map-ng
+If the configuration is correct, the server can be started:
 
-Enable the service to start up automatically on server boot:
+``` shell
+systemctl restart centreon-map-ng
+```
 
-    systemctl enable centreon-map-ng
+Enable the service to be started automatically at server startup:
 
-### Web NG
+``` shell
+systemctl enable centreon-map-ng
+```
 
-The Web side is available on the same RPM & the same package. The
-management is in the MAP options.
+### Client
 
--   An input field for the ip address of the NG server is present, it is
-    necessary to fill it in the same way as the previous one.
--   The “yes/no” part to allow the choice of view display with the new
-    server
+The client does not require any other installation than the actual
+Centreon MAP Web Client.
 
-![image][]
+However, new options are available in the
+`Administration > Extensions > Options` page:
 
-On the Centreon Map home page, new actions at the top allow to launch
-synchronizations : - Resources from the production server to the NG
+-   An input field for the IP address and port of the NG server,
+-   A "yes/no" toggle to choose whether the new server should be
+    used to display maps.
+
+![image](../assets/graph-views/ng/configuration-ng-server-map.png)
+
+In the `Monitoring > Map` page, new actions allow to launch
+synchronizations: - Resources from the production server to the NG
 server - Standard maps - Geoviews - ACLs - Images
 
-When you click on the resource synchronization button, a new screen
-opens to allow you to follow the progress of the migration.
+Synchronization progression can then be followed from this same page.
 
-![image][1]
+![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
 
-  [image]: ../assets/graph-views/ng/configuration-ng-server-map.png
-  [1]: ../assets/graph-views/ng/sync-ng-steps-ui.png
+> At each synchronizations, all resources are deleted and imported
+> again.
