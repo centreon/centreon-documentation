@@ -478,21 +478,24 @@ online update system. When it connects to a Centreon MAP server it automatically
 downloads and installs the latest version compatible with the server.
 Auto-update requires your computer to have internet access.
 
-## Centreon MAP NG *(experimental)*
+Centreon MAP NG *(experimental)*
+--------------------------------
 
 ### Server NG
 
 > The default port exposed on HTTP is `8081`.
 >
-> **It is only available for reading data, no actions are possible on it.**
+> **It is only available for reading data, no actions are possible on
+> it.**
 >
-> At each synchronization, all resource data is deleted and imported again.
-
+> At each synchronization, all resource data is deleted and imported
+> again.
 
 The MAP NG server is available on the same RPM as the usual server.
-Only, the packet and service name changes, with the suffix "-ng".
+Only, the packet and service name changes, with the suffix “-ng”.
 
-So the configuration is exactly the same as the usual server, but the folder is now `/etc/centreon-map/`.
+So the configuration is exactly the same as the usual server, but the
+folder is now `/etc/centreon-map/`.
 
 The differences to be known are shown below.
 
@@ -504,7 +507,8 @@ installation mode:
 
     /etc/centreon-map/configure.sh
 
-If configuration is correct, the centreon-map service can be started from the Centreon Map server:
+If configuration is correct, the centreon-map service can be started
+from the Centreon Map server:
 
     systemctl restart centreon-map-ng
 
@@ -514,21 +518,24 @@ Enable the service to start up automatically on server boot:
 
 ### Web NG
 
-The Web side is available on the same RPM & the same package.
-The management is in the MAP options.
+The Web side is available on the same RPM & the same package. The
+management is in the MAP options.
 
-  - An input field for the ip address of the NG server is present, it is necessary to fill it in the same way as the previous one.
-  - The "yes/no" part to allow the choice of view display with the new server
+-   An input field for the ip address of the NG server is present, it is
+    necessary to fill it in the same way as the previous one.
+-   The “yes/no” part to allow the choice of view display with the new
+    server
 
-![image](../assets/graph-views/ng/configuration-ng-server-map.png)
+![image][]
 
-On the Centreon Map home page, new actions at the top allow to launch synchronizations :
- - Resources from the production server to the NG server
-   - Standard maps
-   - Geoviews
-   - ACLs
- - Images
+On the Centreon Map home page, new actions at the top allow to launch
+synchronizations : - Resources from the production server to the NG
+server - Standard maps - Geoviews - ACLs - Images
 
-When you click on the resource synchronization button, a new screen opens to allow you to follow the progress of the migration.
+When you click on the resource synchronization button, a new screen
+opens to allow you to follow the progress of the migration.
 
-![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
+![image][1]
+
+  [image]: ../assets/graph-views/ng/configuration-ng-server-map.png
+  [1]: ../assets/graph-views/ng/sync-ng-steps-ui.png
