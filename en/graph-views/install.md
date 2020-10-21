@@ -48,7 +48,7 @@ The diagram below summarizes the architecture:
 ### Centreon
 
 The required version of Centreon software for compatibility with Centreon MAP is
-**Centreon 20.04**
+**Centreon 20.10**
 
 **Centreon must be installed using the RPM packages.**
 
@@ -409,7 +409,7 @@ The desktop client is currently available only for **64-bit** Windows, Mac and
 Linux platforms (Debian and Ubuntu).
 
 You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=20.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=20.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.

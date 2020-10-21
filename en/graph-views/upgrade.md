@@ -47,7 +47,7 @@ systemctl start centreon-map
 > If you want totally clean up legacy Tomcat service, you can just remove Tomcat and move old log file to new log folder:
 ``` shell
 yum remove tomcat
-cp /var/log/centreon-studio/* /var/log/centreon-map/ 
+cp /var/log/centreon-studio/* /var/log/centreon-map/
 rm -rf /var/log/centreon-studio
 ```
 
