@@ -47,7 +47,7 @@ Le tableau ci-dessous présente les champs à saisir :
 | DB password                     | *À récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
 | DB port                         | 3306                                                          |
 | DB type                         | MySQL                                                         |
-| DB user                         | *A récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
+| DB user                         | *À récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
 | Maximum queries per transaction | 0                                                             |
 | Transaction commit timeout      | 5                                                             |
 | Retry interval                  | 5                                                             |
