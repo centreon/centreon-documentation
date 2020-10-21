@@ -25,7 +25,7 @@ forme de widget, l'état actuel de vos activités métier.
 -   Acknowledged filter : permet de filtrer pour ne garder que les
     activités métiers sur lesquelles une personne intervient
     (acquittement en cours) ou ne pas les afficher
--   Order By : définissez dans quel ordre les activité métier doivent
+-   Order By : définissez dans quel ordre les activités métiers doivent
     être classées
 -   Display description : afficher ou non la description
 -   Display status duration : afficher ou non la durée passée dans le
