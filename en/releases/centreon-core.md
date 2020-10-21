@@ -74,7 +74,7 @@ If you have feature requests or want to report a bug, please go to our
 > Known behaviours:
 >
 >   - If Broker on a Poller or Remote Server is not upgraded to 20.10
->     (or with a version prior to 20.04.9), the communication between those
+>     (or with a version prior to 20.04.9), the communication between said
 >     Poller or Remote Server and an upgraded Central may not work.
 >
 >     As always, we **strongly recommend** to upgrade all components to match
