@@ -86,7 +86,7 @@ Centreon 20.10 est maintenant compatible avec le module Security-Enhanced Linux
 (SELinux), qui permet de définir une politique de contrôle d'accès obligatoire
 aux éléments systèmes.
 
-### Système d’exploitation Linux avec les derniers patches de sécurité (bientôt disponible)
+### Système d’exploitation Linux avec les derniers correctifs de sécurité (bientôt disponible)
 
 Centreon 20.10 s’appuie désormais sur les dernières versions de CentOS ou de
 RedHat Enterprise Linux (RHEL), soit CentOS v8 ou RHEL v8.
