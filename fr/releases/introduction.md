@@ -37,7 +37,7 @@ apporte les fonctionnalités suivantes:
 ![image](../assets/monitoring/resources_status_1.png)
 
 Pour en savoir plus sur cette fonctionnalité, [rendez vous sur cette
-page](../alerts-notifications/events-view.html)
+page](../alerts-notifications/resources-status.html)
 
 ## Industrialisation de l’exploitation : automatisation des mises à jour de configuration
 
