@@ -3,7 +3,7 @@ id: introduction
 title: Centreon Platform 20.10.0
 ---
 
-You'll find in this chapter the global **Centreon Plateform 20.10** release
+You'll find in this chapter the global **Centreon Platform 20.10** release
 note.
 
 To access detailed release note by component, use the following sections:
