@@ -117,7 +117,7 @@ Monitored services       |    CPU                 |         RAM
   < 20 000               | 4 CPU (3GHz) minimum   | 16GB minimum
  >= 20 000 and < 40 000  | 4 CPU (3GHz) minimum   | 24GB minimum
  > 40 000 and < 100 000  | 8 CPU (3GHz) minimum   | 32GB minimum
- > 100 000               | > Contact Centr        | eon
+ > 100 000               | > Contact Centreon     | 
 
 **Storage space**: Use the following [storage estimation file](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 

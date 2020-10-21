@@ -114,7 +114,7 @@ l'exécution des ETL ainsi que la génération des rapports.
 | < 20 000                     | 4 CPU (3GHz) minimum | 16 Go minimum |
 | >= 20 000 and < 40 000       | 4 CPU (3GHz) minimum | 24 Go minimum |
 | >= 40 000 and < 100 000      | 8 CPU (3GHz) minimum | 32 Go minimum |
-| > 100 000                    | > Contacter Cen      | treon         |
+| > 100 000                    | > Contacter Centreon |               |
 
 **Espace disque** : Utilisez  [le fichier suivant](../assets/reporting/installation/Centreon-MBI-QuickGuide-Storage-Sizing_EN.xlsx)
 
