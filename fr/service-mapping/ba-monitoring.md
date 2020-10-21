@@ -61,7 +61,7 @@ La vue détaillée d'une BA est divisée en 7 parties.
 7.  Lien vers la page de reporting de la BA
 
 Le tableau des KPI affichent en temps réel les informations sur leurs
-état mais aussi les impacts sur la BA.
+états mais aussi les impacts sur la BA.
 
 ![image](../assets/service-mapping/guide/mon_kpi_list.png)
 
