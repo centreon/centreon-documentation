@@ -35,7 +35,7 @@ brings the following capabilities:
 
 ![image](../assets/monitoring/resources_status_1.png)
 
-To know more about this feature, have a look to
+To know more about this feature, have a look at
 [the documentation](../alerts-notifications/resources-status.html)
 
 ## Embedded IT Automation: towards a fully automatic asset discovery
