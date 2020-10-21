@@ -65,7 +65,7 @@ activity" pour les utilisateurs concernés :
 
 Les **Paramètres utilisateur** sont des options personnalisées qui sont
 propres à chaque profil d'utilisateur, et peuvent être configurées dans
-le menu `Configuration > Activités métiers > Paramètres utilisateurq`.
+le menu `Configuration > Activités métiers > Paramètres utilisateurs`.
 
 ### Vue d'ensemble personnalisée
 
