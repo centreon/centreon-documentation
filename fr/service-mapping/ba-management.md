@@ -474,5 +474,5 @@ Supprimer une vue métier:
 |---------------------------|---------------------------------------------------------------------------------------------|
 | Nom                       | Nom de la vue métier                                                                        |
 | Description               | Description de la vue métier                                                                |
-| Activité(s) métier        | La ou les activité(s) métier associées à la BV concernée(s)                                 |
+| Activité(s) métier        | La ou les activité(s) métier associée(s) à la BV concernée                                  |
 | Groupes d'accès autorisés | Le ou les groupes d'accès pouvant consulter la vue métier et les activités métier contenues |
