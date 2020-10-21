@@ -44,7 +44,7 @@ Le tableau ci-dessous présente les champs à saisir :
 | Command file path               | /var/lib/centreon-engine/rw/centengine.cmd                    |
 | DB host                         | localhost                                                     |
 | DB name                         | centreon                                                      |
-| DB password                     | *A récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
+| DB password                     | *À récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
 | DB port                         | 3306                                                          |
 | DB type                         | MySQL                                                         |
 | DB user                         | *A récupérer dans /etc/centreon/conf.pm sur le Remote Server* |
