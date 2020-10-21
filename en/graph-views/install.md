@@ -364,14 +364,14 @@ Go to `Centreon > Administration > Extensions` and click on the install button:
   - License Manager (*if not yet installed*)
   - Map Web Client
 
-![image](assets/graph-views/install-web-step-1.png)
+![image](../assets/graph-views/install-web-step-1.png)
 
 You can see a red stripe asking for a license.
 
 Upload the license **map.license** given by the support team. Refresh the page and
 the banner must be green with the valid license date.
 
-![image](assets/graph-views/install-web-step-2.png)
+![image](../assets/graph-views/install-web-step-2.png)
 
 Click on Back to return to the Extensions page. Now that the module is
 installed, we will configure it.
@@ -383,19 +383,19 @@ update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
 
-![image](assets/graph-views/install-web-step-3.png)
+![image](../assets/graph-views/install-web-step-3.png)
 
 ### Using the client
 
 The Centreon MAP Web interface is now available in `Monitoring > MAP`.
 
-![image](assets/graph-views/install-web-step-4.png)
+![image](../assets/graph-views/install-web-step-4.png)
 
 *If the content doesn't display, you may empty your browser cache*
 
 You can see to which IP the client is connected.
 
-![image](assets/graph-views/ng/connected-server-container.png)
+![image](../assets/graph-views/ng/connected-server-container.png)
 
 ### Centreon MAP Widget
 
@@ -403,7 +403,7 @@ By installing the Web interface, you automatically add the Centreon MAP Widget,
 but you need to perform one last task. Go to `Administration > Extensions`
 and click on the "Install" button on the widget. The result after installed:
 
-![image](assets/graph-views/install-web-step-widget.png)
+![image](../assets/graph-views/install-web-step-widget.png)
 
 ## Desktop Client
 
@@ -453,7 +453,7 @@ Use the installer to install the software properly and integrate it into the
 Windows environment. The installer can also be used to uninstall it from the
 Windows dedicated configuration page.
 
-![image](assets/graph-views/windows_start_menu.png)
+![image](../assets/graph-views/windows_start_menu.png)
 
 **For Debian**
 
@@ -469,7 +469,7 @@ You should now be able to run Centreon-Map4.
 
 You will also find it in the list of installed applications.
 
-![image](assets/graph-views/ubuntu_launch_menu.png)
+![image](../assets/graph-views/ubuntu_launch_menu.png)
 
 ### Updates
 
@@ -520,7 +520,7 @@ The management is in the MAP options.
   - An input field for the ip address of the NG server is present, it is necessary to fill it in the same way as the previous one.
   - The "yes/no" part to allow the choice of view display with the new server
 
-![image](assets/graph-views/ng/configuration-ng-server-map.png)
+![image](../assets/graph-views/ng/configuration-ng-server-map.png)
 
 On the Centreon Map home page, new actions at the top allow to launch synchronizations :
  - Resources from the production server to the NG server
@@ -531,4 +531,4 @@ On the Centreon Map home page, new actions at the top allow to launch synchroniz
 
 When you click on the resource synchronization button, a new screen opens to allow you to follow the progress of the migration.
 
-![image](assets/graph-views/ng/sync-ng-steps-ui.png)
+![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
