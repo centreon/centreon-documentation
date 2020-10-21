@@ -53,7 +53,7 @@ If you have feature requests or want to report a bug, please go to our
 >     This is due to more strict rights on those files.
 >
 >     As always, we **strongly recommend** to upgrade all components to
->     match Central serie.
+>     match the Central server's version.
 >
 >     However, during an upgrade process, it is possible to manually
 >     add the user *centreon-engine* to *centreon-gorgone* group with
