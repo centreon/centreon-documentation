@@ -201,6 +201,9 @@ systemctl start httpd24-httpd
 Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation.html#installation-web).
 
+> Pendant l'installation web, il n'est pas nécessaire d'installer le module
+> Autodiscovery.
+
 > A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
 > doivent être faites.
 
