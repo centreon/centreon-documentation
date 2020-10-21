@@ -145,7 +145,7 @@ Vous pouvez choisir parmi les 4 méthodes suivantes:
 -   Ratio
 -   Impact
 
-Une fois les indicateurs et la méthode de calcul sélectionnée, vous
+Une fois les indicateurs et la méthode de calcul sélectionnés, vous
 pouvez en option, définir la manière dont les **plages de maintenance
 planifiées** sur les indicateurs vont se repercuter sur l'activité
 métier:
