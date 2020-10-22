@@ -20,9 +20,25 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
+> Comportements connus:
+>
+> -   Si un Central est configuré pour communiquer avec un Remote Server
+>     à l'aide de SSH , le rechargement de la configuration déclenchera
+>     l'erreur suivante dans le log de Gorgone:
+>
+>     ```text
+>     ERROR - [sshclient] Unsupported action 'ADDIMPORTTASKWITHPARENT'
+>     ```
+>
+>     Cela est dû au fait que le processus d'exportation/importation
+>     de données entre ces deux serveurs n'appelle pas l'API du Remote
+>     Server (le flux HTTP n'est alors plus nécessaire).
+>
+>     L'appel se fait maintenant via Gorgone, comme pour la copie des
+>     fichiers, et nécessite que la communication utilise ZMQ.
+
 ### Enhancements
 
-- [API/Core/Configuration] Log actions when adding/enabling/disabling hosts
 - [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
 - [Authentication] Replace Keycloak to generic OAuth2 / OpenId Connect
