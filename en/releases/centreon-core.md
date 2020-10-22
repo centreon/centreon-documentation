@@ -20,9 +20,25 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
+> Known behaviours:
+>
+>   - If a Central is configured to communicate with a Remote Server using
+>     SSH, reloading the configuration will raise the following error in
+>     Gorgone's log:
+>
+>     ```text
+>     ERROR - [sshclient] Unsupported action 'ADDIMPORTTASKWITHPARENT'
+>     ```
+>
+>     This is due to the fact that the data export/import process between
+>     those two servers does not call the Remote Server API (the HTTP
+>     flow is then not needed anymore).
+>
+>     The call is now made through Gorgone, as for the files copy action,
+>     and requires the communication to use ZMQ.
+
 ### Enhancements
 
-- [API/Core/Configuration] Log actions when adding/enabling/disabling hosts
 - [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
 - [Authentication] Replace Keycloak to generic OAuth2 / OpenId Connect
@@ -33,7 +49,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Monitoring/Resources Status] Add possibility to save/manage filters
 - [Monitoring/Resources Status] Add possibility to submit result for resources
 - [Monitoring/Resources Status] Redirect all realtime links to Resources Status page
-- [Remote Server] Replace HTTP flow by gorgone between Central and Remote Servers
+- [Remote Server] Replace HTTP flow by Gorgone between Central and Remote Servers
 
 ## Centreon Engine release notes
 
