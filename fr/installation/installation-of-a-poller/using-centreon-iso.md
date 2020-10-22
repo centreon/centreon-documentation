@@ -121,6 +121,12 @@ Redémarrez votre système avec la commande:
 reboot
 ```
 
+Activer le service centengine pour le rendre actif au démarrage.
+
+```shell
+systemctl enable centreon centengine
+```
+
 ## Enregistrer le serveur
 
 Installez le référentiel de collections de logiciels à l'aide de cette commande :
