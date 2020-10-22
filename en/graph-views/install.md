@@ -48,7 +48,7 @@ The diagram below summarizes the architecture:
 ### Centreon
 
 The required version of Centreon software for compatibility with Centreon MAP is
-**Centreon 20.04**
+**Centreon 20.10**
 
 **Centreon must be installed using the RPM packages.**
 
@@ -364,14 +364,14 @@ Go to `Centreon > Administration > Extensions` and click on the install button:
   - License Manager (*if not yet installed*)
   - Map Web Client
 
-![image](assets/graph-views/install-web-step-1.png)
+![image](../assets/graph-views/install-web-step-1.png)
 
 You can see a red stripe asking for a license.
 
 Upload the license **map.license** given by the support team. Refresh the page and
 the banner must be green with the valid license date.
 
-![image](assets/graph-views/install-web-step-2.png)
+![image](../assets/graph-views/install-web-step-2.png)
 
 Click on Back to return to the Extensions page. Now that the module is
 installed, we will configure it.
@@ -383,15 +383,19 @@ update the Centreon MAP server address field:
 
 > Use the real IP address/hostname of your Centreon MAP server.
 
-![image](assets/graph-views/install-web-step-3.png)
+![image](../assets/graph-views/install-web-step-3.png)
 
 ### Using the client
 
 The Centreon MAP Web interface is now available in `Monitoring > MAP`.
 
-![image](assets/graph-views/install-web-step-4.png)
+![image](../assets/graph-views/install-web-step-4.png)
 
 *If the content doesn't display, you may empty your browser cache*
+
+You can see to which IP the client is connected.
+
+![image](../assets/graph-views/ng/connected-server-container.png)
 
 ### Centreon MAP Widget
 
@@ -399,7 +403,7 @@ By installing the Web interface, you automatically add the Centreon MAP Widget,
 but you need to perform one last task. Go to `Administration > Extensions`
 and click on the "Install" button on the widget. The result after installed:
 
-![image](assets/graph-views/install-web-step-widget.png)
+![image](../assets/graph-views/install-web-step-widget.png)
 
 ## Desktop Client
 
@@ -409,7 +413,7 @@ The desktop client is currently available only for **64-bit** Windows, Mac and
 Linux platforms (Debian and Ubuntu).
 
 You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=20.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=20.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.
@@ -449,7 +453,7 @@ Use the installer to install the software properly and integrate it into the
 Windows environment. The installer can also be used to uninstall it from the
 Windows dedicated configuration page.
 
-![image](assets/graph-views/windows_start_menu.png)
+![image](../assets/graph-views/windows_start_menu.png)
 
 **For Debian**
 
@@ -465,7 +469,7 @@ You should now be able to run Centreon-Map4.
 
 You will also find it in the list of installed applications.
 
-![image](assets/graph-views/ubuntu_launch_menu.png)
+![image](../assets/graph-views/ubuntu_launch_menu.png)
 
 ### Updates
 
@@ -473,3 +477,69 @@ Once installed, the Desktop Client is automatically kept up to date through an
 online update system. When it connects to a Centreon MAP server it automatically
 downloads and installs the latest version compatible with the server.
 Auto-update requires your computer to have internet access.
+
+## Centreon MAP NG
+
+The server is in **experimental phase** and is subject to evolution.
+
+It is currently only used for visualizing maps. Maps creation and edition
+still use the server as we know it.
+
+### Server
+
+The Centreon MAP NG Server is available on the same repository as
+the usual server.
+
+To begin, install the server using the following command:
+
+``` shell
+yum install centreon-map-server-ng
+```
+
+And proceed to the configuration with the following command:
+
+``` shell
+/etc/centreon-map/configure.sh
+```
+
+The configuration is exactly the same as the usual server, but is stored
+in the **/etc/centreon-map/** folder.
+
+> The default listening port is **8081**.
+
+If the configuration is correct, the server can be started:
+
+``` shell
+systemctl restart centreon-map-ng
+```
+
+Enable the service to be started automatically at server startup:
+
+``` shell
+systemctl enable centreon-map-ng
+```
+
+### Client
+
+The client does not require any other installation than the actual
+Centreon MAP Web Client.
+
+However, new options are available in the
+`Administration > Extensions > Options` page:
+
+-   An input field for the IP address and port of the NG server,
+-   A "yes/no" toggle to choose whether the new server should be
+    used to display maps.
+
+![image](../assets/graph-views/ng/configuration-ng-server-map.png)
+
+In the `Monitoring > Map` page, new actions allow to launch
+synchronizations: - Resources from the production server to the NG
+server - Standard maps - Geoviews - ACLs - Images
+
+Synchronization progression can then be followed from this same page.
+
+![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
+
+> At each synchronizations, all resources are deleted and imported
+> again.

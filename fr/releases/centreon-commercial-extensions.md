@@ -20,18 +20,32 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.0
 
-- Compatibilité avec Centreon 20.10
+#### Enhancements
+
+-   La licence est maintenant entièrement géré sur le serveur Centreon
+    Central.
 
 #### Serveur plus rapide pour les cartes complexes
 
-Centreon Map dispose maintenant en parallèle du serveur actuel, d'un
-serveur nouvelle génération. Il est encore en phase expérimentale et
-n'est donc pas installé par défaut.
+Cette version pose les bases de l'évolution de l'expérience
+dans la création et la visualisation de cartes.
 
-Celui-ci a été pensé pour être plus performant, plus léger et optimisé
-pour le chargement et le calcul de données temps réél. Pour en savoir
-plus sur ce nouveau serveur, référez vous à la
-[note de version 20.10](../graph-views/release-notes.html)
+La première étape étant la naissance d'un nouveau serveur Centreon MAP
+(nom de code **"NG"** pour "Nouvelle Génération"), qui a été conçu pour
+être plus puissant, plus rapide et plus léger.
+
+Le serveur est en **phase expérimentale** et est sujet à évolution.
+
+Il n'est utilisé pour le moment que pour la visualisation des cartes. La
+création et l'édition de cartes utilisent toujours le serveur que nous
+connaissons.
+
+Du côté de l'interface Centreon, tout a été fait pour pouvoir utiliser
+ces deux serveurs. Il est ainsi possible de basculer la consultation
+des cartes d'un serveur à l'autre facilement.
+
+Pour l'utiliser, il est nécessaire de l'installer et l'activer.
+Référez-vous à la [documentation dédiée](../graph-views/install.html#centreon-map-ng)
 
 ## Centreon BAM release notes
 

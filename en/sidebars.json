@@ -181,8 +181,7 @@
                 ],
                 "label": "Administrate",
                 "type": "subcategory"
-            },
-            "graph-views/release-notes"
+            }
         ],
         "Reporting": [
             "reporting/introduction",
@@ -391,7 +390,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi",
-                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"    
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"
                 ],
                 "label": "Centreon",
                 "type": "subcategory"
