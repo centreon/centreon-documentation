@@ -112,6 +112,10 @@ La découverte de service utilise maintenant Gorgone pour exécuter les plugins
 de découverte, et par conséquent le système de communication de Gorgone et
 non plus des connexions SSH autonomes.
 
+#### Bugfixes
+
+- Contient tous les correctifs jusqu'à la version 20.04.6
+
 ## Centreon Plugin Packs Manager release notes
 
 ### 20.10.0

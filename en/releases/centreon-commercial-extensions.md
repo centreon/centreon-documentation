@@ -105,6 +105,10 @@ Service Discovery is now using Gorgone to execute the discovery plugins,
 and therefore it uses Gorgone's communication system and not anymore
 standalone SSH connections.
 
+#### Bugfixes
+
+- Contains all fixes up to version 20.04.6
+
 ## Centreon Plugin Packs Manager release notes
 
 ### 20.10.0
