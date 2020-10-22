@@ -62,6 +62,13 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon Auto Discovery release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+- Les scripts de mise à jour en doubles dans la version précédente
+  entraînent une erreur SQL dans le log
+
 ### 20.10.0
 
 > Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.html#configuration-du-module-Gorgone)

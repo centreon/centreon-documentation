@@ -60,6 +60,12 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon Auto Discovery release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+- Double upgrade scripts in previous build lead to sql error in log
+
 ### 20.10.0
 
 > Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
