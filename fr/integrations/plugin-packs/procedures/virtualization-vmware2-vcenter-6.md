@@ -7,9 +7,9 @@ title: VMware vCenter v6
 
 VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
 
-Le Plugin-Pack Centreon s'appuie sur le Centreon VMWare Connecteur pour requêter le SDK du vCenter.
+Le Plugin-Pack Centreon s'appuie sur le SDK Centreon VMWare Connecteur pour requêter l'API du vCenter.
 
-Avec le connecteur, Centreon peut superviser les VM, les datastores, les ESXs, etc.
+Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
 ## Contenu du Plugin-Pack
 
@@ -26,18 +26,18 @@ Ce pack s'appuie sur le pack "VMware vCenter" pour obtenir plus d'indicateurs (v
 
 <!--Vm-Snapshot-Global-->
 
-| Metric name  | Description                                               | Unit  |
-| :----------- | :-------------------------------------------------------- | :---- |
-| num_warning  | Number of snapshots older than 3 days (default treshold)  | Count |
-| num_critical | Number of snapshots older than 5 days (default threshold) | Count |
+| Metric name                         | Description                                               | Unit  |
+| :---------------------------------- | :-------------------------------------------------------- | :---- |
+| vm.snapshots.warning.current.count  | Number of snapshots older than 3 days (default treshold)  | Count |
+| vm.snapshots.critical.current.count | Number of snapshots older than 5 days (default threshold) | Count |
 
 <!--Vm-Tools-Global-->
 
-| Metric name   | Description                                                   | Unit  |
-| :------------ | :------------------------------------------------------------ | :---- |
-| not_updated   | Number of VMs with VM-Tools not updated (default threshold)   | Count |
-| not_running   | Number of VMs with VM-Tools not running (default threshold)   | Count |
-| not_installed | Number of VMs with VM-Tools not installed (default threshold) | Count |
+| Metric name                         | Description                                                   | Unit  |
+| :---------------------------------- | :------------------------------------------------------------ | :---- |
+| vm.tools.notupdated.current.count   | Number of VMs with VM-Tools not updated (default threshold)   | Count |
+| vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
+| vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -123,7 +123,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare :
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare :
 
 ```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
