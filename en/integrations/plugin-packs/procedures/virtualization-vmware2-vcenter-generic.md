@@ -38,13 +38,13 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 <!--Datacenter-Alarms-Global-->
 
-| Metric name          | Description                              | Unit  |
-| :------------------- | :--------------------------------------- | :---- |
-| Status               | Status of the Datacenter                 |       |
-| total_alarm_warning  | Number of Total warning alarms           | Count |
-| total_alarm_critical | Number of Total critical alarms          | Count |
-| alarm_warning        | Number of warning alarms per Datacenter  | Count |
-| alarm_critical       | Number of critical alarms per Datacenter | Count |
+| Metric name                                        | Description                              | Unit  |
+| :------------------------------------------------- | :--------------------------------------- | :---- |
+| Status                                             | Status of the Datacenter                 |       |
+| datacenter.alarms.warning.current.count            | Number of Total warning alarms           | Count |
+| datacenter.alarms.critical.current.count           | Number of Total critical alarms          | Count |
+| dcname#datacenter.alarms.warning.current.count     | Number of warning alarms per Datacenter  | Count |
+| dcname#datacenter.alarms.critical.current.count    | Number of critical alarms per Datacenter | Count |
 
 <!--Cluster-Status-Global-->
 
@@ -54,46 +54,46 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 <!--Datastore-Io-Global-->
 
-| Metric name      | Description              | Unit |
-| :--------------- | :----------------------- | :--- |
-| total_read_rate  | Global read rate         | B/s  |
-| total_write_rate | Global write rate        | B/s  |
-| read_rate        | Read rate per Datastore  | B/s  |
-| write_rate       | Write rate per Datastore | B/s  |
+| Metric name                                        | Description              | Unit |
+| :------------------------------------------------- | :----------------------- | :--- |
+| datastore.read.usage.bytespersecond                | Global read rate         | B/s  |
+| datastore.write.usage.bytespersecond               | Global write rate        | B/s  |
+| datastorename#datastore.read.usage.bytespersecond  | Read rate per Datastore  | B/s  |
+| datastorename#datastore.write.usage.bytespersecond | Write rate per Datastore | B/s  |
 
 <!--Datastore-Iops-Global-->
 
-| Metric name | Description                        | Unit |
-| :---------- | :--------i------------------------ | :--- |
-| riops       | Global read IOPS on the Datastore  | iops |
-| wiops       | Global write IOPS on the Datastore | iops |
-| vm_riops    | Read IOPS per VM on the Datastore  | iops |
-| vm_wiops    | Write IOPS per VM on the Datastore | iops |
+| Metric name                   | Description                        | Unit |
+| :---------------------------- | :--------------------------------- | :--- |
+| datastore.read.usage.iops     | Global read IOPS on the Datastore  | iops |
+| datastore.write.usage.iops    | Global write IOPS on the Datastore | iops |
+| datastore.vm.read.usage.iops  | Read IOPS per VM on the Datastore  | iops |
+| datastore.vm.write.usage.iops | Write IOPS per VM on the Datastore | iops |
 
 <!--Datastore-Usage-Global-->
 
-| Metric name | Description                            | Unit |
-| :---------- | :------------------------------------- | :--- |
-| used        | Usage of the Datastore                 | B    |
-| free        | Free space left on the Datastore       | B    |
-| used_prct   | Usage of the Datastore in percentage   | %    |
-| provisioned | Provisioned Space allocated to the VMs | B    |
+| Metric name                       | Description                            | Unit |
+| :-------------------------------- | :------------------------------------- | :--- |
+| datastore.space.usage.bytes       | Usage of the Datastore                 | B    |
+| datastore.space.free.bytes        | Free space left on the Datastore       | B    |
+| datastore.space.usage.percentage  | Usage of the Datastore in percentage   | %    |
+| datastore.space.provisioned.bytes | Provisioned Space allocated to the VMs | B    |
 
 <!--Datastore-Vm-Count-Global-->
 
-| Metric name | Description                                         | Unit  |
-| :---------- | :-------------------------------------------------- | :---- |
-| poweredon   | Number of VMs poweredon (Global and per Datastore)  | Count |
-| poweredoff  | Number of VMs powereroff (Global and per Datastore) | Count |
-| suspended   | Number of VMs suspended (Global and per Datastore)  | Count |
+| Metric name                            | Description                          | Unit  |
+| :------------------------------------- | :----------------------------------- | :---- |
+| datastore.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
+| datastore.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
+| datastore.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
 <!--Vm-Tools-Global-->
 
-| Metric name   | Description                                                   | Unit  |
-| :------------ | :------------------------------------------------------------ | :---- |
-| not_updated   | Number of VMs with VM-Tools not updated (default threshold)   | Count |
-| not_running   | Number of VMs with VM-Tools not running (default threshold)   | Count |
-| not_installed | Number of VMs with VM-Tools not installed (default threshold) | Count |
+| Metric name                         | Description                                                   | Unit  |
+| :---------------------------------- | :------------------------------------------------------------ | :---- |
+| vm.tools.notupdated.current.count   | Number of VMs with VM-Tools not updated (default threshold)   | Count |
+| vm.tools.notrunning.current.count   | Number of VMs with VM-Tools not running (default threshold)   | Count |
+| vm.tools.notinstalled.current.count | Number of VMs with VM-Tools not installed (default threshold) | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
