@@ -1,6 +1,6 @@
 ---
-id: installation-2-nodes
-title: Installing a Centreon HA 2-nodes cluster
+id: installation-4-nodes
+title: Installing a Centreon HA 4-nodes cluster
 ---
 
 ## Prerequisites
