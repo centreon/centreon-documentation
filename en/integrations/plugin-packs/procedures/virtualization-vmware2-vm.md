@@ -57,17 +57,18 @@ In addition to modes and metrics described here, it is also possible to monitor 
 
 <!--Vm-Snapshot-->
 
-| Metric name  | Description                                                   | Unit  |
-| :----------- | :------------------------------------------------------------ | :---- |
-| num_warning  | Number of VM's snapshot older than 3 days (default threshold) | Count |
-| num_critical | Number of VM's snapshot older than 5 days (default threshold) | Count |
+| Metric name                         | Description                                                   | Unit  |
+| :---------------------------------- | :------------------------------------------------------------ | :---- |
+| vm.snapshots.warning.current.count  | Number of VM's snapshot older than 3 days (default threshold) | Count |
+| vm.snapshots.critical.current.count | Number of VM's snapshot older than 5 days (default threshold) | Count |
 
 <!--Vm-Limit-->
 
-| Metric name   | Description            | Unit  |
-| :------------ | :--------------------- | :---- |
-| cpu_alerts    | Alerts on CPU limit    | Count |
-| memory_alerts | Alerts on Memory limit | Count |
+| Metric name                  | Description            | Unit  |
+| :--------------------------- | :--------------------- | :---- |
+| vm.limit.cpu.alerts.count    | Alerts on CPU limit    | Count |
+| vm.limit.memory.alerts.count | Alerts on Memory limit | Count |
+| vm.limit.disk.alerts.count   | Alerts on Disk limit   | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
