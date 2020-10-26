@@ -7,7 +7,7 @@ title: VMware ESX
 
 VMWare is an software compagny based in USA. VMWare provides cloud computing and virtualization software and services.
 
-The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the vCenter SDK.
+The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to request the vCenter API.
 
 ## Plugin-Pack Assets
 	
@@ -38,28 +38,28 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 <!--Esx-Cpu-->
 
-| Metric name   | Description                      | Unit |
-| :------------ | :------------------------------- | :--- |
-| cpu_total     | Total CPU usage in percentage    | %    |
-| cpu_total_MHz | Total CPU usage in MHz           | MHz  |
-| cpu_[0-9]     | CPU usage per core in percentage | %    |
+| Metric name                                   | Description                      | Unit |
+| :-------------------------------------------- | :------------------------------- | :--- |
+| host.cpu.utilization.percentage               | Total CPU usage in percentage    | %    |
+| host.cpu.utilization.mhz                      | Total CPU usage in MHz           | MHz  |
+| core#host.core.cpu.utilization.percentage     | CPU usage per core in percentage | %    |
 
 <!--Esx-Health-->
 
-| Metric name     | Description                        | Unit  |
-| :-------------- | :--------------------------------- | :---- |
-| total_problems  | Total number of problem on the ESX | Count |
-| problems        | Number of health checks in green   | Count |
-| problems_yellow | Number of health checks in yellow  | Count |
-| problems_red    | Number of health checks in red     | Count |
+| Metric name                         | Description                         | Unit  |
+| :---------------------------------- | :---------------------------------- | :---- |
+| host.health.problems.current.count  | Total number of problem on the ESXs | Count |
+| host.health.problems.current.count  | Number of health checks in green    | Count |
+| host.health.yellow.current.count    | Number of health checks in yellow   | Count |
+| host.health.red.current.count       | Number of health checks in red      | Count |
 
 <!--Esx-Memory-->
 
-| Metric name | Description                                  | Unit  |
-| :---------- | :------------------------------------------- | :---- |
-| used        | Memory used                                  | Bytes |
-| overhead    | Memory overhead needed by the VMs on the ESX | Bytes |
-| state       | Memory state                                 |       |
+| Metric name                   | Description                                  | Unit  |
+| :---------------------------- | :------------------------------------------- | :---- |
+| host.memory.usage.bytes       | Memory used                                  | Bytes |
+| host.memory.overhead.bytes    | Memory overhead needed by the VMs on the ESX | Bytes |
+| host.memory.state.count       | Memory state                                 |       |
 
 <!--Esx-Status-->
 
@@ -69,18 +69,18 @@ The Centreon Plugin and Plugin-Packs rely on the Centreon VMWare Connector to re
 
 <!--Esx-Swap-->
 
-| Metric name | Description         | Unit |
-| :---------- | :------------------ | :--- |
-| swap_in     | Swap in rate Usage  | B/s  |
-| swap_out    | Swap out rate Usage | B/s  |
+| Metric name                           | Description         | Unit |
+| :------------------------------------ | :------------------ | :--- |
+| host.swap.in.usage.bytespersecond     | Swap in rate Usage  | B/s  |
+| host.swap.out.usage.bytespersecond    | Swap out rate Usage | B/s  |
 
 <!--Esx-Vm-Count-->
 
-| Metric name | Description                          | Unit  |
-| :---------- | :----------------------------------- | :---- |
-| poweredon   | Number of powered on VMs on the ESX  | Count |
-| poweredoff  | Number of powered off VMs on the ESX | Count |
-| suspended   | Number of suspended VMs on the ESX   | Count |
+| Metric name                       | Description                          | Unit  |
+| :-------------------------------- | :----------------------------------- | :---- |
+| host.vm.poweredon.current.count   | Number of powered on VMs on the ESX  | Count |
+| host.vm.poweredoff.current.count  | Number of powered off VMs on the ESX | Count |
+| host.vm.suspended.current.count   | Number of suspended VMs on the ESX   | Count |
 
 ## Prerequisites
 
@@ -166,7 +166,7 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 	
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Vmware2 Connector Centreon Plugin on every poller expected to monitor the devices: 
+1. Install the Vmware2 Connector Centreon Plugin on every Poller expected to monitor the devices: 
 	
 ```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
