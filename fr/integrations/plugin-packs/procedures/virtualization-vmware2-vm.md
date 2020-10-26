@@ -6,13 +6,13 @@ title: VMware VM
 
 VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
 
-Le Plugin-Pack Centreon s'appuie sur le Centreon VMWare Connecteur pour requêter le SDK du vCenter.
+Le Plugin-Pack Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié. 
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-* Virtual Machine
+* Virtual Machines
 
 ### Règles de découvertes
 
@@ -57,17 +57,18 @@ En plus des modes et des métriques détaillées ci-après, il est également po
 
 <!--Vm-Snapshot-->
 
-| Metric name  | Description                                                   | Unit  |
-| :----------- | :------------------------------------------------------------ | :---- |
-| num_warning  | Number of VM's snapshot older than 3 days (default threshold) | Count |
-| num_critical | Number of VM's snapshot older than 5 days (default threshold) | Count |
+| Metric name                         | Description                                                   | Unit  |
+| :---------------------------------- | :------------------------------------------------------------ | :---- |
+| vm.snapshots.warning.current.count  | Number of VM's snapshot older than 3 days (default threshold) | Count |
+| vm.snapshots.critical.current.count | Number of VM's snapshot older than 5 days (default threshold) | Count |
 
 <!--Vm-Limit-->
 
-| Metric name   | Description            | Unit  |
-| :------------ | :--------------------- | :---- |
-| cpu_alerts    | Alerts on CPU limit    | Count |
-| memory_alerts | Alerts on Memory limit | Count |
+| Metric name                  | Description            | Unit  |
+| :--------------------------- | :--------------------- | :---- |
+| vm.limit.cpu.alerts.count    | Alerts on CPU limit    | Count |
+| vm.limit.memory.alerts.count | Alerts on Memory limit | Count |
+| vm.limit.disk.alerts.count   | Alerts on Disk limit   | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -153,7 +154,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant l'infrastructure VMWare:
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant l'infrastructure VMWare:
 
 ```bash
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
