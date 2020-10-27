@@ -109,9 +109,16 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 Connectez-vous via un terminal et exécutez la commande :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+dnf update
+```
+<!--CentOS v7-->
 ``` shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez toutes les clés GPG proposées.
 
@@ -129,6 +136,21 @@ systemctl enable centreon centengine
 
 ## Enregistrer le serveur
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+```
+
+Exemple:
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+```
+<!--CentOS v7-->
 Installez le référentiel de collections de logiciels à l'aide de cette commande :
 
 ```shell
@@ -147,6 +169,7 @@ Exemple:
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
 > collecteur.
