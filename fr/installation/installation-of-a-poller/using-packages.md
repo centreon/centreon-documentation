@@ -37,6 +37,9 @@ systemctl disable firewalld
 
 ### Installer les dépôts
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+<!--CentOS v7-->
 #### Dépôt Redhat Software Collections
 
 Pour installer Centreon, vous devrez configurer le référentiel officiel des collections
@@ -47,6 +50,7 @@ Installez le référentiel de collections de logiciels à l'aide de cette comman
 ```shell
 yum install -y centos-release-scl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Dépôt Centreon
 
@@ -56,17 +60,29 @@ préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante à partir d’un utilisateur possédant les droits
 suffisants :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+```
+<!--CentOS v7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
 Pour installer le moteur de supervision, exécutez la commande :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+dnf install -y centreon-poller-centreon-engine
+<!--CentOS v7-->
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivant :
@@ -88,6 +104,19 @@ systemctl start centreontrapd snmptrapd
 
 Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+```
+
+Exemple:
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+```
+<!--CentOS v7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -98,6 +127,7 @@ Exemple:
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
 > collecteur.
