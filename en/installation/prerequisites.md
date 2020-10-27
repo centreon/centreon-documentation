@@ -144,6 +144,19 @@ Files system description:
 
 Description of software and linked users:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+| Software          | Service          | User             | Comment         |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--CentOS 7-->
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
@@ -154,6 +167,7 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description of optional software and linked users:
 

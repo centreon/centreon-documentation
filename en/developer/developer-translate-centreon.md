@@ -77,10 +77,19 @@ Change rights on directory:
 sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`
 ```
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 Restart Apache:
 ```Shell
-sudo service httpd24-httpd restart
+systemctl restart httpd
 ```
+<!--CentOS 7-->
+Restart Apache:
+```Shell
+systemctl restart httpd24-httpd
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Connect to your Centreon web interface, edit your profile and select new language:
 
 ![image](../assets/getting-started/change_language_2.png)

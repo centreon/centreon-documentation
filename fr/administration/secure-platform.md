@@ -60,9 +60,16 @@ Une fois votre certificat obtenu, effectuez la procédure suivante pour activer 
 
 1. Installez le module SSL pour Apache
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+```shell
+dnf install mod_ssl mod_security openssl
+```
+<!--CentOS 7-->
 ```shell
 yum install httpd24-mod_ssl httpd24-mod_security openssl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 2. Installez vos certificats
 
@@ -73,16 +80,28 @@ Copiez votre certificat et votre clé sur le serveur en fonction de votre config
 
 3. Sauvegardez la configuration actuelle du serveur Apache pour Centreon
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+```shell
+cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
+```
+<!--CentOS 7-->
 ```shell
 cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 4. Éditez la configuration Apache pour Centreon
 
 > Centreon propose un fichier de configuration d'exemple HTTPS disponible dans le répertoire:
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+Éditez  le fichier **/etc/httpd/conf.d/10-centreon.conf** tel que :
+<!--CentOS 7-->
 Éditez  le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** tel que :
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ```apacheconf
 Alias /centreon/api /usr/share/centreon
@@ -156,6 +175,22 @@ RedirectMatch ^/$ /centreon
 
 5. Activez les flags HttpOnly et Secure et cachez la signature du serveur
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
+
+```apacheconf
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+ServerSignature Off
+ServerTokens Prod
+```
+
+Éditez le fichier **/etc/php.d/50-centreon.ini*** et désactivez le paramètre `expose_php` :
+
+```phpconf
+expose_php = Off
+```
+<!--CentOS 7-->
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** et ajouter la ligne suivante :
 
 ```apacheconf
@@ -171,14 +206,24 @@ TraceEnable Off
 ```phpconf
 expose_php = Off
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 6. Cacher le répertoire par défaut /icons
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+Éditez le fichier **/etc/httpd/conf.d/autoindex.conf** et commentez la ligne suivante :
+
+```apacheconf
+#Alias /icons/ "/usr/share/httpd/icons/"
+```
+<!--CentOS 7-->
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** et commentez la ligne suivante :
 
 ```apacheconf
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 7. Désactiver les boundary mod_security pour autoriser l'upload de license
 
@@ -191,6 +236,40 @@ expose_php = Off
 
 8. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+```shell
+systemctl restart php-fpm httpd
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status httpd
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme :
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+```
+<!--CentOS 7-->
 ```shell
 systemctl restart rh-php72-php-fpm httpd24-httpd
 ```
@@ -223,6 +302,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
            ├─31903 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## URI personnalisée
 
@@ -236,7 +316,18 @@ Pour mettre à jour l'URI Centreon, vous devez suivre les étapes suivantes:
 
 ![image](../assets/administration/custom-uri.png)
 
-2. Éditez  le fichier de configuration Apache pour Centreon (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**)
+2. Éditez le fichier de configuration Apache pour Centreon
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+```shel 
+vim /etc/httpd/conf.d/10-centreon.conf
+```
+<!--CentOS 7-->
+```shel 
+vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+```
+
 et modifiez le chemin **/centreon** par le nouveau.
 
 ## Activation du http2
@@ -245,6 +336,43 @@ Il est possible d'activer le protocole http2 pour améliorer les performances r�
 
 Pour utiliser http2, vous devez suivre les étapes suivantes:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
+
+2. Installer le module nghttp2:
+
+```shell
+dnf install nghttp2
+```
+
+3. Enable http2 protocol in **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**:
+
+```apacheconf
+...
+<VirtualHost *:443>
+    Protocols h2 h2c http/1.1
+    ...
+</VirtualHost>
+...
+```
+
+4. Modifier la méthode utilisée par apache pour le module multi-processus dans **/etc/httpd/conf.modules.d/00-mpm.conf** :
+
+```diff
+-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
++#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+-#LoadModule mpm_event_module modules/mod_mpm_event.so
++LoadModule mpm_event_module modules/mod_mpm_event.so
+```
+
+5. Redémarrer le processus Apache pour prendre en compte la nouvelle configuration:
+
+```shell
+systemctl restart httpd
+```
+<!--CentOS 7-->
 1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
 
 2. Installer le module nghttp2:
@@ -279,6 +407,7 @@ yum install httpd24-nghttp2
 ```shell
 systemctl restart httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Authentification des utilisateurs
 

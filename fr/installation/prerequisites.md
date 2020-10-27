@@ -149,6 +149,19 @@ Description des partitions :
 
 Description des logiciels et utilisateurs liés :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+| Logiciel          | Service          | Utilisateur      | Commentaire     |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--CentOS 7-->
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 |-------------------|------------------|------------------|-----------------|
 | Apache            | httpd24-httpd    | apache           | automatic start |
@@ -159,6 +172,7 @@ Description des logiciels et utilisateurs liés :
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description des logiciels optionnels et utilisateurs liés :
 
