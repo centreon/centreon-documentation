@@ -62,6 +62,13 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon Auto Discovery release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+- Les scripts de mise à jour en doubles dans la version précédente
+  entraînent une erreur SQL dans le log
+
 ### 20.10.0
 
 > Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.html#configuration-du-module-Gorgone)
@@ -104,6 +111,10 @@ Jetez un oeil à cet exemple pour bien comprendre leurs impacts:
 La découverte de service utilise maintenant Gorgone pour exécuter les plugins
 de découverte, et par conséquent le système de communication de Gorgone et
 non plus des connexions SSH autonomes.
+
+#### Bugfixes
+
+- Contient tous les correctifs jusqu'à la version 20.04.6
 
 ## Centreon Plugin Packs Manager release notes
 

@@ -60,6 +60,12 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon Auto Discovery release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+- Double upgrade scripts in previous build lead to sql error in log
+
 ### 20.10.0
 
 > Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
@@ -98,6 +104,10 @@ Take a look at this example to fully understand their impacts:
 Service Discovery is now using Gorgone to execute the discovery plugins,
 and therefore it uses Gorgone's communication system and not anymore
 standalone SSH connections.
+
+#### Bugfixes
+
+- Contains all fixes up to version 20.04.6
 
 ## Centreon Plugin Packs Manager release notes
 
