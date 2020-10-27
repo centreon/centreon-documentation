@@ -395,6 +395,89 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Broker release notes
 
+### 20.04.9
+
+> Comportements connus:
+>
+>   - Si Broker sur un Poller ou un Remote Server n'est pas mis à jour
+>     en 20.04.9, la communication entre ces Pollers ou Remote Servers
+>     et un Central à jour peut ne pas fonctionner.
+>
+>     Comme toujours, nous **recommandons fortement** de mettre à jour
+>     tous les composants en adéquation avec la version du Central.
+>
+>     Cependant, le temps de la mise à jour, la communication peut être
+>     maintenue en s'assurant que les configurations des Brokers respectent
+>     les conditions suivantes :
+>
+>       - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
+>         ou *No* sur l'entrée du Central,
+>       - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
+>         ou *No* sur la sortie du Poller ou Remote Server.
+>
+>     Si le mode de connexion inversé (*one peer retention*) est utilisé,
+>     la mise à jour de Broker est obligatoire.
+
+#### Bug fixes
+
+*One peer retention*
+
+A known regression in the 20.04 Broker release was that the one peer
+retention did not work correctly. It is fixed with this version.
+
+*Columns contents too large*
+
+In case of strings too large to be inserted in database, strings are
+now truncated as if the database was configured in non strict mode.
+
+*Negotiations*
+
+Compression and TLS could fail between Engine and Broker, because of
+issues in the negotiation between them. This is now fixed. If you
+mix previous 20.04.x cbmod/cbd with this new one, you may continue to
+have issues on this subject. We recommend you to do the upgrade of cbmod/cbd
+on all of your pollers.
+
+*Database deadlock*
+
+When the database connectors are configured with several connections,
+a host downtime could make a deadlock on the database. This is fixed now.
+
+*Map server connection*
+
+When the Map server is restarted, there is no more duplicated connections
+from centreon-broker.
+
+*BAM reporting*
+
+BAM availability reporting could miss BAs during its availabilities
+computations. This is fixed.
+
+*TCP acceptors*
+
+Sometimes TCP acceptor could badly close sockets. This could lead to
+difficulties to reopen connections.
+
+*INITIAL HOST STATE*
+
+If you use BAM, there was an issue on the reporting that could fail
+because of a missing initial host state. This is fixed now.
+
+#### Enhancements
+
+*TCP connector*
+
+The TCP connector should also be largely improved. It is multithreaded
+now and this should improve its performances. A new field in the Broker
+configuration file allows to set how many threads run in the pool.
+
+*TCP connections*
+
+TCP connections are managed by a thread pool. When not configured, this
+thread pool contains at least 2 threads and can increase up to half the
+number of server CPUs. Otherwise, it is possible to configure it in the
+TCP endpoint with the 'pool_size' label.
+
 ### 20.04.8
 
 #### Bug fixes
