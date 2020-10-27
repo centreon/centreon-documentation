@@ -6,9 +6,16 @@ title: Using packages
 After installating your server, consider updating your operating system via the
 command:
 
-```shell
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+dnf update
+```
+<!--CentOS v7-->
+``` shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Accept all GPG keys and consider rebooting your server if a kernel update is
 > proposed.
@@ -45,6 +52,20 @@ systemctl disable firewalld
 
 ### Install the repositories
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
+<!--CentOS v7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -57,6 +78,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
 
@@ -65,9 +87,16 @@ centreon-release package, which will provide the repository file.
 
 Install the Centreon repository using this command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+```
+<!--CentOS v7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
@@ -80,8 +109,14 @@ a remote database on a dedicated server.
 
 <!--With a local database-->
 
-Run the commands:
+Run the commands for CentOS v8:
+```shell
+dnf install -y centreon centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
 
+Run the commands for CentOS v7:
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
@@ -95,11 +130,29 @@ systemctl restart mariadb
 
 Run the following command on the Centreon Remote Server:
 
+Run the following command on the Central server,
+for CentOS v8:
+
+```shell
+dnf install -y centreon-base-config-centreon-engine centreon-widget\*
+```
+
+for CentOS v7:
+
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-Then run the following commands on the dedicated server:
+Then run the following commands on the dedicated server,
+for CentOS v8:
+
+```shell
+dnf install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+for CentOS v7:
 
 ```shell
 yum install -y centreon-database
@@ -115,6 +168,11 @@ CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
 GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
+
+> Replace **\<IP\>** with the Centreon Central IP address that will connect to
+> the database server.
+>
+> Replace **\<USER\>** and **\<PASSWORD\>** by user's credentials.
 
 Once the installation is complete you can delete this user using:
 
@@ -151,6 +209,23 @@ DROP USER '<USER>'@'<IP>';
 
 ### Set the PHP time zone
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+You are required to set the PHP time zone. Run the command:
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
+
+After saving the file, please do not forget to restart the PHP-FPM service:
+
+```shell
+systemctl restart php-fpm
+```
+<!--CentOS v7-->
 You are required to set the PHP time zone. Run the command:
 
 ```shell
@@ -165,15 +240,23 @@ After saving the file, please do not forget to restart the PHP-FPM service:
 ```shell
 systemctl restart rh-php72-php-fpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Services startup during system bootup
 
 To make services start automatically during system bootup, run these commands
 on the central server:
 
+!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
@@ -183,9 +266,16 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Before starting the web installation process, start the Apache server with the
 following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl start httpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl start httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Conclude installation by performing
 [web installation steps](../web-and-post-installation.html#web-installation).
@@ -199,6 +289,20 @@ Conclude installation by performing
 
 To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+```
+
+Example:
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u admin \
+-t Remote -h 192.168.0.1 -n remote-1
+```
+<!--CentOS v7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
@@ -210,6 +314,7 @@ Example:
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin \
 -t Remote -h 192.168.0.1 -n remote-1
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
 
