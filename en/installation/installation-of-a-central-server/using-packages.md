@@ -6,14 +6,22 @@ title: Using packages
 Centreon provides RPM packages for its products through the Centreon Open
 Sources version available free of charge in our repository.
 
-These packages have been successfully tested in CentOS 7.x environments.
+These packages have been successfully tested in CentOS 7.x and v8.x
+environments.
 
 After installating your server, consider updating your operating system via the
 command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf update
+```
+<!--CentOS v7-->
 ```shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Accept all GPG keys and consider rebooting your server if a kernel update is
 > proposed.
@@ -35,7 +43,11 @@ sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 After system startup, perform a quick check of the SELinux status:
 
 ```shell
-$ getenforce
+getenforce
+```
+
+You should have this result:
+```shell
 Disabled
 ```
 
@@ -50,6 +62,20 @@ systemctl disable firewalld
 
 ### Install the repositories
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
+<!--CentOS v7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -62,6 +88,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
 
@@ -70,9 +97,16 @@ centreon-release package, which will provide the repository file.
 
 Install the Centreon repository using this command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+```
+<!--CentOS v7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
@@ -85,8 +119,14 @@ a remote database on a dedicated server.
 
 <!--With a local database-->
 
-Run the commands:
+Run the commands for CentOS v8:
+```shell
+dnf install -y centreon centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
 
+Run the commands for CentOS v7:
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
@@ -98,13 +138,29 @@ systemctl restart mariadb
 > If installing database on a dedicated server, this server should also have
 > the prerequired repositories.
 
-Run the following command on the Central server:
+Run the following command on the Central server,
+for CentOS v8:
+
+```shell
+dnf install -y centreon-base-config-centreon-engine centreon-widget\*
+```
+
+for CentOS v7:
 
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-Then run the following commands on the dedicated server:
+Then run the following commands on the dedicated server,
+for CentOS v8:
+
+```shell
+dnf install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+for CentOS v7:
 
 ```shell
 yum install -y centreon-database
@@ -182,6 +238,23 @@ DROP USER '<USER>'@'<IP>';
 
 ### Set the PHP time zone
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+You are required to set the PHP time zone. Run the command:
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
+
+After saving the file, please do not forget to restart the PHP-FPM service:
+
+```shell
+systemctl restart php-fpm
+```
+<!--CentOS v7-->
 You are required to set the PHP time zone. Run the command:
 
 ```shell
@@ -196,15 +269,23 @@ After saving the file, please do not forget to restart the PHP-FPM service:
 ```shell
 systemctl restart rh-php72-php-fpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Services startup during system bootup
 
 To make services start automatically during system bootup, run these commands
 on the central server:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
@@ -214,9 +295,16 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Before starting the web installation process, start the Apache server with the
 following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl start httpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl start httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Conclude installation by performing
 [web installation steps](../web-and-post-installation.html#web-installation).

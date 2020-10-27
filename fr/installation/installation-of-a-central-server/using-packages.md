@@ -12,9 +12,16 @@ en version 7.x.
 Après avoir installer votre serveur, considérez la mise à jour votre système
 d'exploitation via la commande :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf update
+```
+<!--CentOS v7-->
 ```shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
@@ -53,6 +60,20 @@ systemctl disable firewalld
 
 ### Installer le dépôts
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+#### Dépôt *PowerTools* de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt *PowerTools* de Red
+Hat doit être activé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
+<!--CentOS v7-->
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
@@ -66,6 +87,7 @@ Exécutez la commande suivante :
 ```shell
 yum install -y centos-release-scl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Dépôt Centreon
 
@@ -74,9 +96,16 @@ préalable installer le fichier lié au dépôt.
 
 Exécutez la commande suivante :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+```
+<!--CentOS v7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
@@ -89,8 +118,14 @@ serveur, ou déportée sur un serveur dédié.
 
 <!--Avec base de données locale-->
 
-Exécutez les commandes suivante :
+Exécutez les commandes suivantes pour CentOS v8 :
+```shell
+dnf install -y centreon centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
 
+Pour CentOS v7 :
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
@@ -102,13 +137,26 @@ systemctl restart mariadb
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
 
-Exécutez la commande suivante sur le serveur Centreon Central :
+Exécutez la commande suivante sur le serveur Centreon Central, pour CentOS v8 :
 
+```shell
+dnf install -y centreon-base-config-centreon-engine centreon-widget\*
+```
+
+Pour CentOS v7 :
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données, pour CentOS v8 :
+
+```shell
+dnf install -y centreon-database
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Pour CentOS v7 :
 
 ```shell
 yum install -y centreon-database
@@ -190,6 +238,23 @@ DROP USER '<USER>'@'<IP>';
 
 ### Fuseau horaire PHP
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
+
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
+```
+
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
+Après avoir réalisé la modification, redémarrez le service PHP-FPM :
+
+```shell
+systemctl restart php-fpm
+```
+<!--CentOS v7-->
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 ```shell
@@ -204,15 +269,23 @@ Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 ```shell
 systemctl restart rh-php72-php-fpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lancement des services au démarrage
 
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
@@ -222,9 +295,16 @@ systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl start httpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl start httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation.html#installation-web).
