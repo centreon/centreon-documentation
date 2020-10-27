@@ -111,9 +111,16 @@ When the installation is complete, click on **Reboot**:
 
 Connect to your server using a terminal, and execute the command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+dnf update
+```
+<!--CentOS v7-->
 ``` shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Accept all GPG keys if needed.
 
@@ -128,9 +135,16 @@ reboot
 To make services start automatically during system bootup, run these commands
 on the central server:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Web installation
 
