@@ -111,9 +111,16 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 Connectez-vous via un terminal et exécutez la commande :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+dnf update
+```
+<!--CentOS v7-->
 ``` shell
 yum update
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez toutes les clés GPG proposées.
 
@@ -128,9 +135,16 @@ reboot
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+```shell
+systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+```
+<!--CentOS v7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation web
 
@@ -147,6 +161,20 @@ Terminez l'installation en réalisant les
 
 Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS v8-->
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+```
+
+Example:
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u admin \
+-t Remote -h 192.168.0.1 -n remote-1
+```
+<!--CentOS v7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -157,6 +185,7 @@ Exemple:
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
 
