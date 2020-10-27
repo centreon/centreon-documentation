@@ -32,7 +32,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
-* [Event View] Be able to create & save filters
+* [Event View] Be able to create and save filters
 * [Event View] Be able to filter on status output
 * [Event View] Be able to re order manage saved filters
 * [Event View] Be able to re-order filter name
@@ -52,10 +52,11 @@ If you have feature requests or want to report a bug, please go to our
 * [Configuration] Issue with anomaly detection json output and proxy
 * [Configuration] Unable to import MIB
 * [Dashboard] Time is shown in epoch format on the dashboard timeline
-* [Event View]  Fail in pagination
+* [Event View] Fail in pagination
 * [Event View] Graph: "invalide date" displayed when switching the period + French wrong translation
 * [Event View] Refresh the panel when the user clicks on the refresh button in details pages
 * [Event View] When you empty the ack windows, it starts an infinite load
+* [Event View] Information on screen not updated after checks
 * [Eventlog] Acknowledged alerts status show "OK" but it's wrong
 * [Graphs][legacy pages] 1000/1024 graph template ignored
 * [Internal/API/Chart] Centreon db configuration name hard coded
