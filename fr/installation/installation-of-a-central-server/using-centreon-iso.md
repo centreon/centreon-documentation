@@ -110,11 +110,11 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 Connectez-vous via un terminal et exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 yum update
 ```
@@ -134,11 +134,11 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```

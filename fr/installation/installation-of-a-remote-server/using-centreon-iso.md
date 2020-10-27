@@ -112,11 +112,11 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 Connectez-vous via un terminal et exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 yum update
 ```
@@ -136,11 +136,11 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -162,7 +162,7 @@ Terminez l'installation en réalisant les
 Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
@@ -174,7 +174,7 @@ Example:
 php /usr/share/centreon/bin/registerServerTopology.php -u admin \
 -t Remote -h 192.168.0.1 -n remote-1
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>

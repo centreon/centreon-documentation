@@ -110,11 +110,11 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 Connectez-vous via un terminal et exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 yum update
 ```
@@ -137,7 +137,7 @@ systemctl enable centreon centengine
 ## Enregistrer le serveur
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
 
 ``` shell
@@ -150,7 +150,7 @@ Exemple:
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 Installez le référentiel de collections de logiciels à l'aide de cette commande :
 
 ```shell

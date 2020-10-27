@@ -112,11 +112,11 @@ When the installation is complete, click on **Reboot**:
 Connect to your server using a terminal, and execute the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 yum update
 ```
@@ -140,7 +140,7 @@ systemctl enable centreon centengine
 ## Register the server
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 ``` shell
@@ -153,7 +153,7 @@ Example:
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 Install the Software Collections repository using this command:
 
 ```shell

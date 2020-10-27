@@ -7,11 +7,11 @@ Après avoir installer votre serveur, considérez la mise à jour votre système
 d'exploitation via la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 yum update
 ```
@@ -71,7 +71,7 @@ yum install -y centos-release-scl
 #### Dépôt Centreon
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 #### Dépôt *PowerTools* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *PowerTools* de Red
@@ -83,7 +83,7 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled PowerTools
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
@@ -209,7 +209,7 @@ DROP USER '<USER>'@'<IP>';
 ### Fuseau horaire PHP
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 ```shell
@@ -224,7 +224,7 @@ Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 ```shell
@@ -247,11 +247,11 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -266,11 +266,11 @@ Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl start httpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl start httpd24-httpd
 ```
@@ -291,7 +291,7 @@ Terminez l'installation en réalisant les
 Pour l'enregistrer sur le serveur Centreon Central exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
@@ -303,7 +303,7 @@ Example:
 php /usr/share/centreon/bin/registerServerTopology.php -u admin \
 -t Remote -h 192.168.0.1 -n remote-1
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>

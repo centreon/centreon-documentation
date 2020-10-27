@@ -13,11 +13,11 @@ After installating your server, consider updating your operating system via the
 command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 dnf update
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 yum update
 ```
@@ -63,7 +63,7 @@ systemctl disable firewalld
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 #### Redhat PowerTools repository
 
 To install Centreon you will need to enable the official PowerTools repository
@@ -75,7 +75,7 @@ Enable the PowerTools repository using these commands:
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled PowerTools
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -98,11 +98,11 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
@@ -239,7 +239,7 @@ DROP USER '<USER>'@'<IP>';
 ### Set the PHP time zone
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 You are required to set the PHP time zone. Run the command:
 
 ```shell
@@ -254,7 +254,7 @@ After saving the file, please do not forget to restart the PHP-FPM service:
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 You are required to set the PHP time zone. Run the command:
 
 ```shell
@@ -277,11 +277,11 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -296,11 +296,11 @@ Before starting the web installation process, start the Apache server with the
 following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 systemctl start httpd
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 systemctl start httpd24-httpd
 ```

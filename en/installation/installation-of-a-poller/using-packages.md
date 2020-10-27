@@ -36,8 +36,8 @@ systemctl disable firewalld
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
-<!--CentOS v7-->
+<!--CentOS 8-->
+<!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -60,11 +60,11 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
@@ -75,9 +75,9 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 To install the monitoring engine, run the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 dnf install -y centreon-poller-centreon-engine
-<!--CentOS v7-->
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
@@ -104,7 +104,7 @@ systemctl start centreontrapd snmptrapd
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS v8-->
+<!--CentOS 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -115,7 +115,7 @@ Example:
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
-<!--CentOS v7-->
+<!--CentOS 7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
