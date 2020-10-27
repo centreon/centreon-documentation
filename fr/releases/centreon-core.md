@@ -435,7 +435,7 @@ now truncated as if the database was configured in non strict mode.
 Compression and TLS could fail between Engine and Broker, because of
 issues in the negotiation between them. This is now fixed. If you
 mix previous 20.04.x cbmod/cbd with this new one, you may continue to
-have issue on this subject. We recommend you to do the upgrade of cbmod/cbd
+have issues on this subject. We recommend you to do the upgrade of cbmod/cbd
 on all of your pollers.
 
 *Database deadlock*
