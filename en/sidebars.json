@@ -411,6 +411,7 @@
                     "integrations/plugin-packs/procedures/cloud-aws-health",
                     "integrations/plugin-packs/procedures/cloud-aws-lambda",
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
+		    "integrations/plugin-packs/procedures/cloud-aws-ses",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
