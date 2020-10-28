@@ -82,7 +82,7 @@ yum install awscli
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
 
 ```bash
-yum install centreon-plugin-cloud-aws-ses-api
+yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
 2. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -93,7 +93,7 @@ yum install centreon-plugin-cloud-aws-ses-api
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
 
 ```bash
-yum install centreon-plugin-cloud-aws-ses-api
+yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:

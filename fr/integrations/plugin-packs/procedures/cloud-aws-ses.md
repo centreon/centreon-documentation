@@ -85,7 +85,7 @@ connexion s'effectue au travers d'un proxy.
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
 ```bash
-yum install centreon-plugin-cloud-aws-ses-api
+yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
@@ -95,7 +95,7 @@ yum install centreon-plugin-cloud-aws-ses-api
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
 ```bash
-yum install centreon-plugin-cloud-aws-ses-api
+yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
 2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SQS*:
