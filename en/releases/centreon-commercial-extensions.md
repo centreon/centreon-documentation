@@ -89,6 +89,13 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon MBI release notes
 
+### 20.04.3
+
+* Problem with accented characters fixed
+* Diagnostic fail at TOP 10 tables due to MySQL strict mode
+* Bad character management when importing data
+* [Report] Improve BA name readability on bv-ba-availabilities-1
+
 ### 20.04.2
 
 * Add HTTP2 compatibility
