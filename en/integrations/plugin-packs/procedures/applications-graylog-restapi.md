@@ -47,7 +47,7 @@ An account on the Graylog Server is needed to access the Graylog Rest API.
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
 ```bash
-yum install centreon-plugin-Graylog-Restapi
+yum install centreon-plugin-graylog-restapi
 ```
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack *Graylog* from the "Configuration > Plugin Packs > Manager" page
@@ -57,7 +57,7 @@ yum install centreon-plugin-Graylog-Restapi
 1. Install the Centreon Plugin package on every poller expected to monitor a Graylog server:
 
 ```bash
-yum install centreon-plugin-Graylog-Restapi
+yum install centreon-plugin-graylog-restapi
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
@@ -83,14 +83,6 @@ yum install centreon-pack-graylog-restapi
 |           | PORT         | API port (default: '9000)                                                                |
 |           | EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag or any header) |
 
-For security reason, you can use *access tokens* or *session tokens*. 
-Replace the *USERNAME* field with the token and the *PASSWORD* field with: 
-* "token" (acess token) 
-* "session" (session token) 
-
-More informations on 
-'https://docs.graylog.org/en/<graylog version>/pages/configuration/rest_api.html
-
 Once the host created, you can configure some Macros on the services to filter
 information:
 
@@ -114,7 +106,6 @@ Centreon poller by logging with the *centreon-engine* user:
   --hostname=10.0.0.1 \
   --username='username' \
   --password='password' \
-  --credentials
   --query='centreon'
 ```
 

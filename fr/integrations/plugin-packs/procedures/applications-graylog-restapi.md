@@ -47,7 +47,7 @@ Un compte sur le serveur Graylog est nécessaire pour accèder à l'API Rest.
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
 ```bash
-yum install centreon-plugin-Graylog-Restapi
+yum install centreon-plugin-graylog-restapi
 ```
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
@@ -57,7 +57,7 @@ yum install centreon-plugin-Graylog-Restapi
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
 ```bash
-yum install centreon-plugin-Graylog-Restapi
+yum install centreon-plugin-graylog-restapi
 ```
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Graylog* :
@@ -84,15 +84,6 @@ certaines macros liées à l'Hôte doivent être renseignées :
 |           | PORT         | API port (default: '9000)                                                                |
 |           | EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag or any header) |
 
-Pour des raisons de sécurité, l'utilisation des *access token* et *session 
-tokens* est possible. Replacer le champs *USERNAME* par le token et le champs
-*PASSWORD* par : 
-* "token" (pour un acess token) 
-* "session" (pour un session token) 
-
-More informations on 
-'https://docs.graylog.org/en/<graylog version>/pages/configuration/rest_api.html
-
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
 macros de service selon la configuration souhaitée :
 
@@ -116,7 +107,6 @@ commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
   --hostname=10.0.0.1 \
   --username='username' \
   --password='password' \
-  --credentials
   --query='centreon'
 ```
 
