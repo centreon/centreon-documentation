@@ -47,7 +47,7 @@ Un compte sur le serveur Graylog est nécessaire pour accèder à l'API Rest.
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
 ```bash
-yum install centreon-plugin-graylog-restapi
+yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Graylog* depuis la page "Configuration > Packs de plugins > Manager" 
@@ -57,7 +57,7 @@ yum install centreon-plugin-graylog-restapi
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant un serveur Graylog :
 
 ```bash
-yum install centreon-plugin-graylog-restapi
+yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Graylog* :
