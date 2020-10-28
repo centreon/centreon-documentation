@@ -96,7 +96,7 @@ gérer ces nouvelles méthodes de calcul
 ### 20.04.3
 
 * Correction des problèmes liés aux caractères accentués
-* Correction de l'erreur au lancement du script de diagnostique dûe au mode strict MYSQL
+* Correction de l'erreur au lancement du script de diagnostic dûe au mode strict MYSQL
 * Gestion des caractères accentués lors de l'importation des données
 * [rapport] Amélioration de la lisibilité des noms des activités métiers sur bv-ba-availabilities-1
 
