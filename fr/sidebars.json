@@ -293,6 +293,7 @@
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-activemq-jmx",
+                    "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
                     "integrations/plugin-packs/procedures/applications-ansible-cli",
                     "integrations/plugin-packs/procedures/applications-ansible-tower",
                     "integrations/plugin-packs/procedures/applications-antivirus-clamav-ssh",
