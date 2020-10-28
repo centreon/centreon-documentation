@@ -270,6 +270,7 @@
             {
                 "ids": [
                     "migrate/introduction",
+                    "migrate/migrate-from-20-x",
                     "migrate/migrate-from-3-4",
                     "migrate/nagios-to-centreon",
                     "migrate/poller-display-to-remote-server"
