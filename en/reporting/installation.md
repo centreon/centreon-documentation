@@ -281,7 +281,9 @@ To start installing the reporting server, install the corresponding repository
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 <!--CentOS 7-->
+```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 If you installed your reporting server using a fresh CentOS image you

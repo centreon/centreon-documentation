@@ -278,7 +278,9 @@ puis lancer la commande suivante:
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 <!--CentOS 7-->
+```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Dans le cas d'une installation basée sur une image CentOS vierge, installez la clé GPG :
