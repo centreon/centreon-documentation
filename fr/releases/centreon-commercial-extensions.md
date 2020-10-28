@@ -248,6 +248,18 @@ subscriptions are now automatically downloaded.
 
 ## Centreon Anomaly Detection
 
+### 20.04.3
+
+#### Enhancements
+
+- [ceip] Add statistics for anomaly
+
+#### Bugfixes
+
+- [configuration] Centreon db configuration name hard coded
+- [configuration] No notification_period generated
+- [lua] Avoid using forbidden label
+
 ### 20.04.2
 
 #### Bugfixes
