@@ -5,14 +5,13 @@ title: Amazon SES
 
 ## Vue d'ensemble
 
-Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable
-email service that enables developers to send mail from within any application.
+Amazon Simple Email Service (SES) est un service de messagerie électronique
+rentable, flexible et évolutif qui permet aux développeurs d'envoyer des
+messages à partir de n'importe quelle application.
 
-There is no charge for the Amazon SES metrics reported in CloudWatch. They're 
-provided as part of the Amazon SES service.
+Les métriques Amazon SES rapportées dans CloudWatch ne sont pas facturées. Elles sont fournies dans le cadre du service Amazon SES.
 
-The Amazon SES Centreon Plugin uses the Amazon Cloudwatch APIs to collect the
-related metrics and status.
+Le Plugin Centreon Amazon SES s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Amazon SES.
 
 ## Contenu du Plugin-Pack
 
@@ -86,7 +85,7 @@ connexion s'effectue au travers d'un proxy.
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Ses-Api
+yum install centreon-plugin-cloud-aws-ses-api
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
@@ -96,7 +95,7 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Ses-Api
+yum install centreon-plugin-cloud-aws-ses-api
 ```
 
 2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SQS*:
