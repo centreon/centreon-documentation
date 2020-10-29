@@ -1,11 +1,17 @@
 ---
 id: applications-graylog-restapi
-title: Graylog
+title: Graylog Rest API
 ---
 
 ## Overview
 
-Graylog is a log management software.
+Graylog is a leading centralized log management solution built to open standards
+for capturing, storing, and enabling real-time analysis of terabytes of machine
+data.
+
+The Centreon Plugin-Pack *Applications-Graylog-Restapi* aims to collect the 
+number of system notifications per serverity and the number of query matches for
+specific queries by requesting the dedicated built-in RestAPI.
 
 ## Plugin-Pack assets
 
@@ -36,7 +42,12 @@ Graylog is a log management software.
 
 ## Prerequisites
 
-An account on the Graylog Server is needed to access the Graylog Rest API.
+An account with the "Reader" role is sufficient to access system
+notifications but an admin account is needed to perform the Lucene queries 
+on the Graylog server.
+
+More information on the official Graylog site:
+https://docs.graylog.org/en/latest/pages/configuration/rest_api.html.
 
 ## Installation
 
@@ -83,14 +94,13 @@ yum install centreon-pack-graylog-restapi
 |           | PORT         | API port (default: '9000)                                                                |
 |           | EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag or any header) |
 
-Once the host created, you can configure some Macros on the services to filter
+Once the Host created, you can configure some Macros on the Services to filter
 information:
 
 | Mandatory | Name           | Description                      |
 | :-------- | :------------- | :------------------------------- |
 |           | FILTERNODE     | Filter by notification severity  |
 |           | FILTERSEVERITY | Filter by node                   |
-|           | FILTERCOUNTERS | Filter specific counters         |
 
 ## FAQ
 
@@ -138,4 +148,7 @@ below:
 
 ### Why do I get the following error:
 
-#### 
+#### ```UNKNOWN: 403 Forbidden``` ?
+
+The account provided does not have sufficient permissions to perfom the required
+actions throught the API.

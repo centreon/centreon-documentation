@@ -1,11 +1,16 @@
 ---
 id: applications-graylog-restapi
-title: Graylog
+title: Graylog Rest API
 ---
 
 ## Vue d'ensemble
 
-Graylog is a log management software.
+Graylog est une solution de gestion de log permettant stocker ces derniers et de
+les analyser en temps réél. 
+
+Le Plugin-Pack Centreon *Applications-Graylog-Restapi* permet (par
+l'interrogation de l'API Rest) de récupérer le nombre de notifications système
+par sévérité ainsi que le nombre de résultats obtenu suite à une requête Lucène.
 
 ## Contenu du Plugin-Pack
 
@@ -36,7 +41,12 @@ Graylog is a log management software.
 
 ## Prerequis
 
-Un compte sur le serveur Graylog est nécessaire pour accèder à l'API Rest.
+Un compte avec le rôle "Reader" est suffisant pour obtenir les métriques sur les
+notifications systèmes. Cependant, un compte avec le rôle "admin" est nécessaire
+pour effectuer les requêtes Lucène sur le serveur Graylog.
+
+Plus d'informations sur le site officiel de Graylog : 
+https://docs.graylog.org/en/latest/pages/configuration/rest_api.html.
 
 ## Installation
 
@@ -74,7 +84,7 @@ yum install centreon-pack-graylog-restapi
 
 Lors de la création de votre Hôte dans Centreon, choisissez le modèle
 *App-Graylog-Restapi-custom*. Une fois celui-ci appliqué, 
-certaines macros liées à l'Hôte doivent être renseignées :
+certaines Macros liées à l'Hôte doivent être renseignées :
 
 | Mandatory | Name         | Description                                                                              |
 | :-------- | :----------- | :--------------------------------------------------------------------------------------- |
@@ -84,14 +94,13 @@ certaines macros liées à l'Hôte doivent être renseignées :
 |           | PORT         | API port (default: '9000)                                                                |
 |           | EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag or any header) |
 
-Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
-macros de service selon la configuration souhaitée :
+Une fois l'Hôte créé, il est également possible de paramétrer un ensemble de
+Macros de Service selon la configuration souhaitée :
 
 | Mandatory | Name           | Description                      |
 | :-------- | :------------- | :------------------------------- |
 |           | FILTERNODE     | Filter by notification severity  |
 |           | FILTERSEVERITY | Filter by node                   |
-|           | FILTERCOUNTERS | Filter specific counters         |
 
 ## FAQ
 
@@ -136,6 +145,7 @@ suivante :
   --list-mode
 ```
 
-### Le Plugin renvoie les erreurs suivantes :
+#### ```UNKNOWN: 403 Forbidden``` ?
 
-#### 
+Le compte utilisé par le Plugin Centreon ne dispose pas des droits nécessaire
+pour effectuer la requêtes via l'API.

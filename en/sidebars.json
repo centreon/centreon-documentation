@@ -327,7 +327,7 @@
                     "integrations/plugin-packs/procedures/applications-wsus-nsclient",
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe",
                     "integrations/plugin-packs/procedures/applications-biztalk",
-		    "integrations/plugin-packs/procedures/applications-graylog-restapi",
+                    "integrations/plugin-packs/procedures/applications-graylog-restapi",
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
                     "integrations/plugin-packs/procedures/applications-mail-bluemind",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
