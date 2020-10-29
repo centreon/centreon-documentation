@@ -11,7 +11,7 @@ certitude d’avoir accès aux nouvelles sources ouvertes en amont capacités.
 ## Les numéros de version sont AA.MM
 
 Les versions de Centreon sont nommées par l'année et le mois de livraison. Par
-exemple, Centreon 18.10 a été livrée en Octobre 2018. Tous les modules et
+exemple, Centreon 20.10 a été livrée en Octobre 2020. Tous les modules et
 composants de la collection de logiciels Centreon possède le même numéro de
 version.
 
@@ -39,12 +39,12 @@ Le cycle de vie d'une version est divisé en 3 phases :
 La première phase commence le cycle de vie de la version.
 
 La deuxième phase d'une version commence lorsque la prochaine version majeure
-est disponible. Par exemple, la publication de Centreon 19.04 lance la deuxième
-phase de Centreon 18.10.
+est disponible. Par exemple, la publication de Centreon 20.10 lance la deuxième
+phase de Centreon 20.04.
 
 La troisième phase d'une version commence lorsque la deuxième version majeure
-suivante est disponible. Par exemple, la sortie de Centreon 19.10 lance la
-troisième phase de Centreon 18.10 et la deuxième phase de Centreon 19.04.
+suivante est disponible. Par exemple, la sortie de Centreon 20.10 lance la
+troisième phase de Centreon 19.10 et la deuxième phase de Centreon 20.04.
 
 Le schéma présente le cycle de vie Centreon :
 
