@@ -74,7 +74,7 @@ yum install awscli
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > **Attention** il n'est pas possible pour le moment d'utiliser perl Paws si la
-connexion s'effectue au travers d'un proxy.
+> connexion s'effectue au travers d'un proxy.
 
 ## Setup 
 
@@ -82,29 +82,29 @@ connexion s'effectue au travers d'un proxy.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SQS:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Amazon SES:
 
 ```bash
 yum install centreon-plugin-Cloud-Aws-Ses-Api
 ```
 
-2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SQS*:
+2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Amazon SES*:
 
 ```bash
 yum install centreon-pack-cloud-aws-ses.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SES* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -143,10 +143,10 @@ ajustées en fonction du contexte):
     --aws-secret-key='*******************' \
     --aws-access-key='**********' \
     --region='eu-west-1' \
-    --proxyurl='http://myproxy.mycompany.org:8080'
+    --proxyurl='http://myproxy.mycompany.org:8080' \
     --timeframe='600' \
     --period='60' \
-    --critical-emails-spam=1:
+    --critical-emails-spam=1: \
     --verbose
 ```
 
