@@ -54,6 +54,19 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon BAM release notes
 
+### 20.04.4
+
+#### Bugfixes
+
+* Filters were not kept when refreshing monitoring page
+* BA couldn't be linked to a Remote Server
+* Fix pagination when changing number of lines per page or using search
+* Some parameters where not saved in BA form
+
+#### Security fixes
+
+* Update Moment.js library to fix vulnerability to ReDOS attack
+
 ### 20.04.3
 
 * Add HTTP2 compatibility
