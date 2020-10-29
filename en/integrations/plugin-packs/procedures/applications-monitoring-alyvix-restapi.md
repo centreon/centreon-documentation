@@ -82,7 +82,7 @@ yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Resta
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google GSuite* applications:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
 ```bash
 yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
@@ -102,7 +102,7 @@ yum install centreon-pack-applications-monitoring-alyvix-restapi
 
 * Log into Centreon and add a new Host through "Configuration > Hosts". 
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Alyvix Server settings
-* Select the *App-Monitoring-Alyvix-Restapi-custom.
+* Select the *App-Monitoring-Alyvix-Restapi-custom*.
 
 If needed, configure the following Host Macros:
 
