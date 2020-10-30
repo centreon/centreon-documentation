@@ -57,9 +57,26 @@ liens
 
 ## Centreon BAM release notes
 
+### 20.04.4
+
+#### Bugfixes
+
+* Les filtres n'étaient pas conservés lorsque la page de supervision était
+  rafraîchie
+* Les activités métiers ne pouvaient pas être liées à un Remote Server
+* Correction de la pagination quand le nombre de ligne par page était
+  modifié ou lors de l'utilisation de la recherche
+* Certains paramètres n'étaient pas sauvegardés dans le formulaire des
+  activités métiers
+
+#### Security fixes
+
+* Mise à jour de la librairie Moment.js pour corriger une vulnérabilité
+  aux attaques ReDOS
+
 ### 20.04.3
 
-* Gestion de la compatibility avec HTTP2
+* Gestion de la compatibilité avec HTTP2
 * Correction d'un bug affectant le paramètre "Display only Top level BA" du widget de listing des activités métier
 * Ajout d'une bulle d'aide lors du choix de la gestion des plages de maintenance planifiées au niveau des activités métier
 
