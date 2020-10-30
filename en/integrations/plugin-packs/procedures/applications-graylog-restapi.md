@@ -1,6 +1,6 @@
 ---
 id: applications-graylog-restapi
-title: Graylog Rest API
+title: Graylog
 ---
 
 ## Overview
@@ -9,8 +9,8 @@ Graylog is a leading centralized log management solution built to open standards
 for capturing, storing, and enabling real-time analysis of terabytes of machine
 data.
 
-The Centreon Plugin-Pack *Applications-Graylog-Restapi* aims to collect the 
-number of system notifications per serverity and the number of query matches for
+The Centreon Plugin-Pack *Graylog* aims to collect the 
+number of system notifications per severity and the number of query matches for
 specific queries by requesting the dedicated built-in RestAPI.
 
 ## Plugin-Pack assets
@@ -42,9 +42,9 @@ specific queries by requesting the dedicated built-in RestAPI.
 
 ## Prerequisites
 
-An account with the "Reader" role is sufficient to access system
-notifications but an admin account is needed to perform the Lucene queries 
-on the Graylog server.
+A service account has to be created on the Graylog server:
+the "Reader" role is sufficient to access system notifications
+but an admin account is needed to perform the Lucene queries on the Graylog server.
 
 More information on the official Graylog site:
 https://docs.graylog.org/en/latest/pages/configuration/rest_api.html.
@@ -151,4 +151,21 @@ below:
 #### ```UNKNOWN: 403 Forbidden``` ?
 
 The account provided does not have sufficient permissions to perfom the required
-actions throught the API.
+actions through the API.
+
+#### ```UNKNOWN: 500 Can't connect to ...:443```
+
+This error message means that the Centreon Plugin couldn't successfully connect
+to the Graylog RestAPI. Check that no third party device
+(such as a firewall) is blocking the request. A proxy connection may also be 
+necessary to connect to the API. This can be done by using the ```--proxyurl```
+option in the command.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+
+When using a proxy to connect to the Graylog RestAPI, this error
+message means that the Centreon Plugin library does not support the proxy
+connection protocol.
+
+In order to prevent this issue, use the *curl* HTTP backend by adding the
+following option to the command: ```--http-backend='curl'```.
