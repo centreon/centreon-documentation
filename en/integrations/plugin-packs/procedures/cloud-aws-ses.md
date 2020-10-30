@@ -11,7 +11,7 @@ email service that enables developers to send mail from within any application.
 There is no charge for the Amazon SES metrics reported in CloudWatch. They're 
 provided as part of the Amazon SES service.
 
-The Amazon SES Centreon Plugin uses the Amazon Cloudwatch APIs to collect the
+The *Amazon SES* Centreon Plugin-Pack uses the Amazon Cloudwatch APIs to collect the
 related metrics and status.
 
 ## Plugin-Pack assets
