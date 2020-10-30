@@ -11,7 +11,7 @@ messages à partir de n'importe quelle application.
 
 Les métriques Amazon SES rapportées dans CloudWatch ne sont pas facturées. Elles sont fournies dans le cadre du service Amazon SES.
 
-Le Plugin Centreon Amazon SES s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Amazon SES.
+Le Plugin-Pack Centreon *Amazon SES* s'appuie sur les APIs Amazon Cloudwatch pour la collecte des données et métriques relatives au service Amazon SES.
 
 ## Contenu du Plugin-Pack
 
@@ -54,7 +54,7 @@ des privilèges suivants :
 ### Dépendances du Plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible
-d'utiliser soit le binaire *awscli*, soit le SDK perl Paws. Le SDK est
+d'utiliser soit le binaire *awscli*, soit le SDK perl *Paws*. Le SDK est
 recommandé car plus performant. 
 
 <!--DOCUSAURUS_CODE_TABS-->
