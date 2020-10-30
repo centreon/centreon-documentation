@@ -1,6 +1,6 @@
 ---
 id: applications-graylog-restapi
-title: Graylog Rest API
+title: Graylog
 ---
 
 ## Vue d'ensemble
@@ -8,9 +8,9 @@ title: Graylog Rest API
 Graylog est une solution de gestion de log permettant stocker ces derniers et de
 les analyser en temps réél. 
 
-Le Plugin-Pack Centreon *Applications-Graylog-Restapi* permet (par
-l'interrogation de l'API Rest) de récupérer le nombre de notifications système
-par sévérité ainsi que le nombre de résultats obtenu suite à une requête Lucène.
+Le Plugin-Pack Centreon *Graylog* permet (par l'interrogation de l'API Rest)
+de récupérer le nombre de notifications système par sévérité ainsi que le nombre
+de résultats obtenu suite à une requête Lucène.
 
 ## Contenu du Plugin-Pack
 
@@ -41,7 +41,8 @@ par sévérité ainsi que le nombre de résultats obtenu suite à une requête L
 
 ## Prerequis
 
-Un compte avec le rôle "Reader" est suffisant pour obtenir les métriques sur les
+Un compte de service est requis pour interroger l'API Rest Graylog:
+le rôle "Reader" est suffisant pour obtenir les métriques sur les
 notifications systèmes. Cependant, un compte avec le rôle "admin" est nécessaire
 pour effectuer les requêtes Lucène sur le serveur Graylog.
 
@@ -104,7 +105,7 @@ Macros de Service selon la configuration souhaitée :
 
 ## FAQ
 
-### Comment tester le Plugin Office 365 Onedrive en ligne de commande et que signifient les options principales ?
+### Comment tester le Plugin en ligne de commande et que signifient les options principales ?
 
 Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de
 commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
@@ -144,8 +145,26 @@ suivante :
   --plugin=apps::graylog::restapi::plugin \
   --list-mode
 ```
+### J'obtiens le message d'erreur suivant:
 
-#### ```UNKNOWN: 403 Forbidden``` ?
+#### ```UNKNOWN: 403 Forbidden```
 
-Le compte utilisé par le Plugin Centreon ne dispose pas des droits nécessaire
-pour effectuer la requêtes via l'API.
+Le compte utilisé par le Plugin Centreon ne dispose pas des droits nécessaires
+pour effectuer la requête via l'API.
+
+#### ```UNKNOWN: 500 Can't connect to ...:443```
+
+Cette erreur signifie que le Plugin Centreon n'a pas pu se connecter à l'API Rest
+Graylog. Vérifiez que la requête n'a pas bloquée par un outil externe
+(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans 
+les macros *EXTRAOPTIONS* des services correspondants ou directement dans la 
+commande avec l'option ```--proxyurl```.
+
+#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+
+Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy
+d'entreprise, le protocole de connexion n'est pas supporté par la libraire *lwp*
+utlisée par défaut par le Plugin Centreon.
+
+Cette erreur peut être résolue en utilisant le backend HTTP *curl*.
+Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
