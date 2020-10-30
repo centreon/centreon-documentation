@@ -62,7 +62,7 @@ liens
 #### Bugfixes
 
 * Les filtres n'étaient pas conservés lorsque la page de supervision était
-  rafraîchit
+  rafraîchie
 * Les activités métiers ne pouvaient pas être liées à un Remote Server
 * Correction de la pagination quand le nombre de ligne par page était
   modifié ou lors de l'utilisation de la recherche
