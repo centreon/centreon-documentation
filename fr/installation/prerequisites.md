@@ -169,14 +169,14 @@ Description des logiciels optionnels et utilisateurs liés :
 
 Description des groupes et utilisateurs liés pour les éditions Centreon Open Source et IT Edition :
 
-| Groupe           | Utilisateurs                                            |
-|------------------|---------------------------------------------------------|
-| apache           | nagios,centreon,centreon-gorgone                        |
-| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
-| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
-| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
-| centreon-gorgone | centreon,apache                                         |
-| rrdcached        | centreon-broker,apache                                  |
+| Groupe           | Utilisateurs                                                     |
+|------------------|------------------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                                 |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone          |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone          |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone          |
+| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker |
+| rrdcached        | centreon-broker,apache                                           |
 
 Description des groupes et utilisateurs liés pour l'édition Centreon Business Edition :
 
@@ -186,7 +186,7 @@ Description des groupes et utilisateurs liés pour l'édition Centreon Business 
 | centreon         | centreon-engine,centreon-broker,apache,rrdcached,centreonBI,centreon-gorgone |
 | centreon-broker  | centreon,nagios,centreon-engine,apache,rrdcached,centreon-gorgone            |
 | centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone                      |
-| centreon-gorgone | centreon,apache                                                              |
+| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker             |
 | centreonBI       | apache                                                                       |
 | centreon-map     |                                                                              |
 | mysql            | centreonBI                                                                   |
