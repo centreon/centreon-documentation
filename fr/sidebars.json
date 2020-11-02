@@ -107,7 +107,7 @@
         "Alertes et Notifications": [
             "alerts-notifications/introduction",
             "alerts-notifications/concepts",
-            "alerts-notifications/resources-status",
+            "alerts-notifications/events-view",
             "alerts-notifications/event-console",
             "alerts-notifications/manage-alerts",
             {
@@ -181,7 +181,8 @@
                 ],
                 "label": "Administrer",
                 "type": "subcategory"
-            }
+            },
+            "graph-views/release-notes"
         ],
         "Reporting": [
             "reporting/introduction",
@@ -310,7 +311,6 @@
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
-                    "integrations/plugin-packs/procedures/applications-google-gsuite-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
@@ -391,7 +391,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi",
-                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"    
                 ],
                 "label": "Centreon",
                 "type": "subcategory"
@@ -493,6 +493,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-ibm-bladecenter-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-ibm-imm-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-groupseries-snmp",
@@ -805,6 +806,7 @@
                     "integrations/plugin-packs/procedures/hardware-pdu-apc-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-apc-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-clever-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-cyberpower-snmp",
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
@@ -889,7 +891,7 @@
                 "type": "subcategory"
             }
         ],
-        "Mobile App.": [
+         "Mobile App.": [
             "mobile/introduction"
         ],
         "API": [
