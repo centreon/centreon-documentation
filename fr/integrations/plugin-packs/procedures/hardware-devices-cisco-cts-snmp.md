@@ -92,7 +92,7 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 2. Installer le RPM Centreon Plugin-Pack sur votre serveur Centreon Central:
 
 ```bash
-yum install centreon-plugin-hardware-devices-cisco-cts-Snmp
+yum install centreon-pack-hardware-devices-cisco-cts-snmp
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco CTS* depuis la page "Configuration > Plugin packs > Manager"
