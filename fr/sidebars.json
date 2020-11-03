@@ -107,7 +107,7 @@
         "Alertes et Notifications": [
             "alerts-notifications/introduction",
             "alerts-notifications/concepts",
-            "alerts-notifications/events-view",
+            "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
             "alerts-notifications/manage-alerts",
             {
@@ -181,8 +181,7 @@
                 ],
                 "label": "Administrer",
                 "type": "subcategory"
-            },
-            "graph-views/release-notes"
+            }
         ],
         "Reporting": [
             "reporting/introduction",
@@ -311,6 +310,7 @@
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
+                    "integrations/plugin-packs/procedures/applications-google-gsuite-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
@@ -391,7 +391,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi",
-                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"    
+                    "integrations/plugin-packs/procedures/applications-monitoring-centreon-poller"
                 ],
                 "label": "Centreon",
                 "type": "subcategory"
@@ -891,7 +891,7 @@
                 "type": "subcategory"
             }
         ],
-         "Mobile App.": [
+        "Mobile App.": [
             "mobile/introduction"
         ],
         "API": [
