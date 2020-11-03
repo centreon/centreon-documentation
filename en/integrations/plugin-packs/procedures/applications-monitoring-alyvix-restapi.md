@@ -15,7 +15,7 @@ The Centreon Plugin-Pack *Alyvix Server* aims to collect the execution status an
 by requesting the dedicated built-in RestAPI.
 
 > The *Alyvix Server* Plugin-Pack **can not** be used with the Open-Source free version of Alyvix, as the Rest API feature is only
-> available in the commercial version.
+> available in the commercial version. Get in touch with your Centreon Sales representative to get a quote!
 
 ## Plugin-Pack assets
 
