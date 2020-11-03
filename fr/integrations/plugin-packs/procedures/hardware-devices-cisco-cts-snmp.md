@@ -23,17 +23,17 @@ Communications unifiées proposées par Cisco.
 
 | Metric name                                    | Description                                     | Unit |
 |:---------------------------------------------- |:----------------------------------------------- |:---- |
-| calls.total.unknown                            | Calls count having unknown status               |      |
-| calls.total.other                              | Calls count having other status                 |      |
-| calls.total.internal.error                     | Calls count encountering internal error         |      |
-| calls.total.local.disconnected                 | Calls count being locally disconnected          |      |
-| calls.total.remote.disconnected                | Calls count being remotely disconnected         |      |
-| calls.total.network.congestion                 | Calls count facing network congestion           |      |
-| calls.total.media.negotiation.failure          | Calls count having media negotiation failure    |      |
-| calls.total.security.config.mismatched         | Calls count encountering security issues        |      |
-| calls.total.incompatible.remote.endpoint       | Calls count facing incompatible remote device   |      |
-| calls.total.service.unavailable                | Calls count having unknown status               |      |
-| calls.total.remote.terminated.error            | Calls count ending because of remote error      |      |
+| calls.total.unknown.count                      | Calls count having unknown status               |      |
+| calls.total.other.count                        | Calls count having other status                 |      |
+| calls.total.internal.error.count               | Calls count encountering internal error         |      |
+| calls.total.local.disconnected.count           | Calls count being locally disconnected          |      |
+| calls.total.remote.disconnected.count          | Calls count being remotely disconnected         |      |
+| calls.total.network.congestion.count           | Calls count facing network congestion           |      |
+| calls.total.media.negotiation.failure.count    | Calls count having media negotiation failure    |      |
+| calls.total.security.config.mismatched.count   | Calls count encountering security issues        |      |
+| calls.total.incompatible.remote.endpoint.count | Calls count facing incompatible remote device   |      |
+| calls.total.service.unavailable.count          | Calls count having unknown status               |      |
+| calls.total.remote.terminated.error.count      | Calls count ending because of remote error      |      |
 
 En plus des métriques globales ci-dessus, des métriques propres à chaque *mediatype* (audio, video, content) sont disponibles:
 

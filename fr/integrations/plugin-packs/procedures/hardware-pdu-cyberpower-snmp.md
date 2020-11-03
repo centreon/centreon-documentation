@@ -11,8 +11,7 @@ Le Plugin-Pack CyberPower PDU
 
 ### Objets supervisés
 
-* Les statuts des *Périphériques*
-* L'historique des *Appels* et leurs métriques de performances
+* Composants physiques et logiques du PDU (Bank, Phases, Outlets).
 
 ## Métriques collectées
 
