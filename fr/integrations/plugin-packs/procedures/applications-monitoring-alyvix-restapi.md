@@ -14,7 +14,8 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 (*transaction*) du scénario élaboré.
 
 > Le Plugin-Pack *Alyvix Server* n'est **pas** compatible avec la version Open-Source d'Alyvix, la fonctionnalité API Rest
-> étant exclusive à la version commerciale de la solution.
+> étant exclusive à la version commerciale de la solution. N'hésitez pas à contacter votre représentant Commercial afin de
+> pouvoir discuter des conditions d'accès. 
 
 ## Contenu du Plugin-Pack
 
