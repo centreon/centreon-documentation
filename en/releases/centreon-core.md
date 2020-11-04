@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 >     The call is now made through Gorgone, as for the files copy action,
 >     and requires the communication to use ZMQ.
 
-### Enhancements
+#### Enhancements
 
 - [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
@@ -79,7 +79,7 @@ If you have feature requests or want to report a bug, please go to our
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
-### Bugfixes
+#### Bugfixes
 
 - Contains all fixes up to version 20.04.7
 
@@ -107,7 +107,7 @@ If you have feature requests or want to report a bug, please go to our
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
 
-### Bugfixes
+#### Bugfixes
 
 - Contains all fixes up to version 20.04.9
 
@@ -115,11 +115,11 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
-### Bugfixes
+#### Bugfixes
 
 - Contains all fixes up to version 20.04.6
 
-### Enhancements
+#### Enhancements
 
 - [module] Add new core/pipeline module
 - [module] Add new centreon/judge module

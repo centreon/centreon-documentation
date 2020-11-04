@@ -37,7 +37,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     L'appel se fait maintenant via Gorgone, comme pour la copie des
 >     fichiers, et nécessite que la communication utilise ZMQ.
 
-### Enhancements
+#### Enhancements
 
 - [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
@@ -79,7 +79,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
-### Bugfixes
+#### Bugfixes
 
 - Contient tous les correctifs jusqu'à la version 20.04.7
 
@@ -109,7 +109,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     Si le mode de connexion inversé (*one peer retention*) est utilisé,
 >     la mise à jour de Broker est obligatoire.
 
-### Bugfixes
+#### Bugfixes
 
 - Contient tous les correctifs jusqu'à la version 20.04.9
 
@@ -117,11 +117,11 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-### Bugfixes
+#### Bugfixes
 
 - Contient tous les correctifs jusqu'à la version 20.04.6
 
-### Enhancements
+#### Enhancements
 
 - [module] Add new core/pipeline module
 - [module] Add new centreon/judge module
