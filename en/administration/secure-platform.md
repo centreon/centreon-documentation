@@ -173,7 +173,17 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
 
-7. Restart the Apache and PHP process to take in account the new configuration:
+7. Disable mod_security boundary
+
+Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
+
+```apacheconf
+#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
+#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
+
+```
+
+8. Restart the Apache and PHP process to take in account the new configuration:
 
 ```shell
 systemctl restart rh-php72-php-fpm httpd24-httpd
