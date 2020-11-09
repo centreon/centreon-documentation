@@ -175,7 +175,16 @@ expose_php = Off
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
 
-7. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
+7. Désactiver les boundary mod_security
+
+Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** et commentez la ligne suivante :
+
+```apacheconf
+#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
+#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
+```
+
+8. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
 ```shell
 systemctl restart rh-php72-php-fpm httpd24-httpd
