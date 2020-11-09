@@ -173,7 +173,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
 
-7. Disable mod_security boundary
+7. Disable mod_security boundary to enable license upload
 
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
 
