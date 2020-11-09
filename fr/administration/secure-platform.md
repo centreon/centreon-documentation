@@ -175,7 +175,7 @@ expose_php = Off
 #Alias /icons/ "/opt/rh/httpd24/root/usr/share/httpd/icons/"
 ```
 
-7. Désactiver les boundary mod_security
+7. Désactiver les boundary mod_security pour autoriser l'upload de license
 
 Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** et commentez la ligne suivante :
 
