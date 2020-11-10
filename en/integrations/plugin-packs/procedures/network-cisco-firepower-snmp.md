@@ -7,7 +7,7 @@ title: Cisco Firepower SNMP
 
 ### Monitored Objects
 
-Cisco Firepower including CPU, Faults, Hardware, Interfaces, Memory.
+The plugin-pack Cisco Firepower including monitoring of CPU, Faults, Hardware, Interfaces and Memory.
 
 ### Collected Metrics
 
@@ -32,7 +32,6 @@ Cisco Firepower including CPU, Faults, Hardware, Interfaces, Memory.
 | faults.warning.count   | Number of warning faults                          |      |
 | faults.major.count     | Number of major faults                            |      |
 | faults.critical.count  | Number of critical faults                         |      |
-
 
 <!--Interfaces-->
 
@@ -79,6 +78,8 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 ## Prerequisites
 
 To control your Cisco Firepower, the SNMP must be configured.
+
+E.g: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian.html
 
 ## Setup
 

@@ -7,7 +7,7 @@ title: Cisco Firepower SNMP
 
 ### Objets supervisés
 
-Cisco Firepower inclue le CPU, Hardware, Inodes, Interfaces, Memoire et Stack.
+Le plugin-pack Cisco Firepower inclue la supervision CPU, Faults, Hardware, Interfaces et Memory.
 
 ### Métriques collectées
 
@@ -32,7 +32,6 @@ Cisco Firepower inclue le CPU, Hardware, Inodes, Interfaces, Memoire et Stack.
 | faults.warning.count   | Number of warning faults                          |      |
 | faults.major.count     | Number of major faults                            |      |
 | faults.critical.count  | Number of critical faults                         |      |
-
 
 <!--Interfaces-->
 
@@ -78,7 +77,7 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 
 ## Prérequis
 
-Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré.
+Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré (cf: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian.html)
 
 ## Installation
 
