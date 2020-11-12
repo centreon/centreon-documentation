@@ -54,6 +54,16 @@ commercial extension. No worry, the compatibility with the previous licensing me
 
 ## Centreon BAM release notes
 
+### 20.04.5
+
+#### Bugfixes
+
+* Selecting "Not Available" or "Not Available and Degraded" filters in BAM Widget preferences returned no results
+* Linking a Business Activity to a Remote Server failed with a 500 error code
+* Linking a Business Activity to a Remote Server caused a duplicate to be displayed within Central
+* BAM forced english version for status labels "Unreachable" and "Unknown" within "Resources Status" page for all other localizations
+* Adding Indicators to Business Activites using SSV import failed 
+
 ### 20.04.4
 
 #### Bugfixes
