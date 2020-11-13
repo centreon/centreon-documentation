@@ -77,6 +77,9 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 
 4. Edit Centreon Apache configuration
 
+> Centreon offers an example configuration file to enable HTTPS available in the following directory:
+> **/usr/share/centreon/examples/centreon.apache.https.conf**
+
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following:
 
 ```apacheconf
@@ -154,6 +157,7 @@ RedirectMatch ^/$ /centreon
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
+Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
 ServerSignature Off
 ServerTokens Prod
