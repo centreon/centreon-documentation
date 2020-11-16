@@ -24,7 +24,7 @@ commerciales, veuillez contacter le support.
 * Partager les métriques de statistiques d'usage entre le serveur MAP et le Central en HTTPS échouait
 * Créer des liens en utilisant l'API REST peut maintenant recourir aux propriétés 'bendpoints', 'displayValue' et 'displayPercent'
 * Ajouter des ressources Centreon lors de la création d'un Widget Output par l'API REST est maintenant possible
-* Installer MAP Studio lors d'une fress install échouait à configurer le back-up automatique
+* Installer MAP Studio lors d'une nouvelle installation échouait à cause de la configuration du back-up automatique
 
 ### 20.04.3
 
