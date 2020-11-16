@@ -57,6 +57,17 @@ liens
 
 ## Centreon BAM release notes
 
+### 20.04.5
+
+#### Bugfixes
+
+* Sélectionner les filtres "Indisponible" ou "Indisponible et dégradé" dans les préférences d'un widget BAM ne renvoyait aucun résultat
+* Lier une Business Activity à un Remote Server échouait avec un code erreur 500
+* Lier une Business Activity à un Remote Server causait l'affichage d'un doublon sur le Central
+* Installer BAM forçait la traduction anglaise des labels "Unreachable" and "Unknown" dans la page "Resources Status"
+* Ajouter des Indicateurs à des Business Activities en utilisant l'import SSV échouait
+
+
 ### 20.04.4
 
 #### Bugfixes
