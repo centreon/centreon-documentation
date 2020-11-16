@@ -345,6 +345,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-openmetrics",
                     "integrations/plugin-packs/procedures/applications-openvpn-omi",
                     "integrations/plugin-packs/procedures/applications-openweathermap-restapi",
+                    "integrations/plugin-packs/procedures/applications-oracle-ovm-api",
                     "integrations/plugin-packs/procedures/applications-pacemaker-ssh",
                     "integrations/plugin-packs/procedures/applications-peoplesoft-jmx",
                     "integrations/plugin-packs/procedures/applications-pfsense-fauxapi",
