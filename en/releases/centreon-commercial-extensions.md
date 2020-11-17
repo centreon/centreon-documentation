@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please contact support.
 * Sharing usage statistics metrics between MAP server and Central through HTTPS failed
 * Creating Links through REST API can now make use of 'bendpoints', 'displayValue' and 'displayPercent' properties
 * Adding Centreon resources when creating an Output widget through REST API is now possible
-* Install a fresh MAP Studio resulted in failed automated back-up
+* Installing a fresh MAP Studio resulted in automated back-up failure
 
 ### 20.04.3
 
