@@ -34,7 +34,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [API] Service groups search not working
 - [Administration] 'options' table for centreon database is sometimes empty
-- [Administration] Scprit centreon-backup errors
+- [Administration] Script centreon-backup errors
 - [CLAPI] Export clapi duplicates contacts
 - [Configuration] Check for illegal characters when creating hosts
 - [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output not working properly for Centreon Broker form
