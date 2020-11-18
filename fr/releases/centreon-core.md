@@ -53,6 +53,38 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+-   Build on Centos8 fixed.
+-   The splitter class is now thread safe and does not need external
+    locks anymore. It is also far less strict and allows some reading
+    and some writing at the same time.
+
+#### Enhancements
+
+-   TCP streams are really faster, especially when Broker has retention
+    files and there are a lot of traffic.
+
+-   Those streams have several improvements:
+
+    -   Events exchanges are really faster, especially when Broker has
+        retention files.
+    -   Several queries have been changed to insert data in bulk, it is
+        the case for custom variables and metrics.
+    -   There are cases where those streams could crash that have been
+        also fixed.
+
+-   The thread pool has now its own statistics. For now, we have two
+    informations that are the number of threads it contains and its
+    latency in milliseconds that is the duration we have to wait to see
+    a task executed. We post a task to the thread pool at time T1, it is
+    executed by the thread pool at time T2, the latency is T2 - T1.
+
+-   It is now possible to set the cbd pool size directly on the command
+    line with the –pool\_size X argument or -s X.
+
 ### 20.10.0
 
 > Comportements connus:
