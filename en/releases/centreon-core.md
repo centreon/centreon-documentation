@@ -43,12 +43,13 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Too much rows in extended_service_informations tables
 - [Custom Views] Select2 popin error on custom view sharing
 - [Event View] Bad date in x-axis (Invalid date) for graph
+- [Event View] Cannot search with regex using "+" character
+- [Event View] Internal Server Error when using wildcard in search field
 - [Event View] Missing severity icon/number in Events view when severity is defined for a service
+- [Event View] Severity on host is not visible
+- [Event View] Tries column is not filled when service state is SOFT
 - [Event View] When you click on "My Filter" in the list, you get a white page
 - [Event logs] Inoperative filters when exporting
-- [Event view] Cannot search with regex using "+" character
-- [Event view] Severity on host is not visible
-- [Event view] Tries column is not filled when service state is SOFT
 - [Install] Do not modify the APP_SECRET key on update
 - [Install] Infinite loading page after login - New installation on CentOS 7 using unattended.sh
 - [Monitoring/Legacy pages] Severity on host is not visible
