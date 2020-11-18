@@ -733,7 +733,7 @@ Object name: **CENTBROKERCFG**
 In order to list available Centreon Broker CFG, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a show 
+centreon -u admin -p centreon -o CENTBROKERCFG -a show
 config id;config name;instance
 1;Central CFG;Central
 2;Sattelite CFG;Sattelite
@@ -753,7 +753,7 @@ Columns are the following:
 In order to add a Centreon Broker CFG, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a add -v "broker cfg for poller test;Poller test" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a add -v "broker cfg for poller test;Poller test"
 ```
 
 Required fields are:
@@ -769,7 +769,7 @@ If you want to remove a Centreon Broker CFG, use the **DEL** action. The Name is
 to delete:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a del -v "broker cfg for poller test" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a del -v "broker cfg for poller test"
 ```
 
 #### Setparam
@@ -778,7 +778,7 @@ If you want to change a specific parameter of a Centreon Broker configuration, u
 configuration name is used for identifying the configuration to update:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name"
 ```
 
 Arguments are composed of the following columns:
@@ -799,6 +799,7 @@ Parameters that you may change are:
 | event\_queue\_max\_size | Event queue max size (when number is reached, temporary output will be used). |
 | cache\_directory        | Path for cache files                                                          |
 | daemon                  | Link this configuration to cbd service (0 or 1)                               |
+| pool\_size              | Number of threads used (by default, use the number of CPUs)                   |
 
 #### Listinput, Listoutput and Listlogger
 
