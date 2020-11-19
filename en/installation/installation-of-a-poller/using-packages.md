@@ -85,6 +85,8 @@ systemctl start centreontrapd snmptrapd
 
 ## Register the server
 
+### Manually
+
 Install the Software Collections repository using this command:
 
 ```shell
@@ -171,6 +173,107 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
 ```
 
+### Using template file
+
+A template file sample is available at the path:
+
+``` shell
+/usr/share/centreon/bin/registerServerTopologyTemplate
+```
+
+Copy it and then fill in the values of your needs in this file:
+
+``` shell
+# Mandatory #
+API_USERNAME=admin
+API_PASSWORD=centreon
+CURRENT_NODE_TYPE=Poller
+TARGET_NODE_ADDRESS=192.168.0.1
+CURRENT_NODE_NAME=poller-1
+PROXY_USAGE=true
+
+# Optional #
+ROOT_CENTREON_FOLDER=
+CURRENT_NODE_ADDRESS=192.168.0.2
+INSECURE=false
+PROXY_HOST=myproxy.example.com
+PROXY_PORT=3128
+PROXY_USERNAME=myuser
+PROXY_PASSWORD=mypassword
+
+```
+
+To register the poller to the Centreon Central server or a Remote server using the template file, execute the following command:
+
+``` shell
+/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php --template <your_template_file_path>
+```
+
+Example:
+
+1. Run the command
+
+``` shell
+/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php --template /usr/share/centreon/bin/registerServerTopologyTemplate_custom
+```
+
+2. Validate the information
+
+``` shell
+Summary of the information that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 10.30.2.191
+
+Pending Registration Server:
+name: Poller1
+type: poller
+address: 10.30.2.196
+
+Do you want to register this server with those information? (y/n) 
+```
+
+You will receive the validation of the Centreon central or the Remote Server server:
+
+``` shell
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
+```
+
+This example is equivalent to running the command without template with these answers:
+
+``` shell
+/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+192.168.0.1: please enter your password
+Are you using a proxy? (y/n) n
+
+proxy host: myproxy.example.com
+
+proxy port: 3128
+
+proxy username (press enter if no username/password are required): myuser
+
+please enter the proxy password:
+
+Found IP on CURRENT NODE:
+   [1]: 192.168.0.2
+Which IP do you want to use as CURRENT NODE IP ?1
+
+Summary of the informations that will be send:
+
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
+
+Pending Registration Server:
+name: poller-1
+type: poller
+address: 192.168.0.2
+
+Do you want to register this server with those informations ? (y/n)y
+```
 ### Main errors messages
 
 ``` shell
