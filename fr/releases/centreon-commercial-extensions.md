@@ -18,7 +18,7 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP release notes
 
-### 20.04.4
+### 20.10.1
 
 * Sauvegarder une Geo View sur un Widget Custom View MAP était impossible dû à l'absence du bouton "Sauvegarder"
 * Partager les métriques de statistiques d'usage entre le serveur MAP et le Central en HTTPS échouait
