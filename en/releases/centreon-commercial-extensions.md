@@ -18,6 +18,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP release notes
 
+### 20.10.1
+
+* Saving Geo Views on a Custom View Map widget was impossible due to missing "Save" button
+* Sharing usage statistics metrics between MAP server and Central through HTTPS failed
+* Creating Links through REST API can now make use of 'bendpoints', 'displayValue' and 'displayPercent' properties
+* Adding Centreon resources when creating an Output widget through REST API is now possible
+* Installing a fresh MAP Studio resulted in automated back-up failure
+
 ### 20.10.0
 
 #### Enhancements
