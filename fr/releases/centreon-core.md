@@ -18,6 +18,52 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.04.7
+
+#### Enhancements
+
+- [Event View] Add filters in timeline for hosts details page
+- [Event View] Add filters in timeline for services details page
+- [Event View] Add shortcuts for hosts details page
+- [Event View] Add shortcuts for services details page
+- [Event View] Display info in timeline for hosts details page
+- [Remote Server] Add the possibility to configure mail for users
+- [Remote Server] Hide the "Configure host / service" buttons from monitoring legacy pages
+
+#### Bug fixes
+
+- [API] Service groups search not working
+- [Administration] 'options' table for centreon database is sometimes empty
+- [Administration] Script centreon-backup errors
+- [CLAPI] Export clapi duplicates contacts
+- [Configuration] Check for illegal characters when creating hosts
+- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output not working properly for Centreon Broker form
+- [Core/Partitioning] Partitioning starts at epoch
+- [Core] Perl lib db query bad looping parameters
+- [Core] Too much rows in extended_service_informations tables
+- [Custom Views] Select2 popin error on custom view sharing
+- [Event View] Bad date in x-axis (Invalid date) for graph
+- [Event View] Cannot search with regex using "+" character
+- [Event View] Internal Server Error when using wildcard in search field
+- [Event View] Missing severity icon/number in Events view when severity is defined for a service
+- [Event View] Severity on host is not visible
+- [Event View] Tries column is not filled when service state is SOFT
+- [Event View] When you click on "My Filter" in the list, you get a white page
+- [Event logs] Inoperative filters when exporting
+- [Install] Do not modify the APP_SECRET key on update
+- [Install] Infinite loading page after login - New installation on CentOS 7 using unattended.sh
+- [Monitoring/Legacy pages] Severity on host is not visible
+- [Reporting] Dashboard won't build when having service by hostgroup
+
+#### Security fixes
+
+- [Administration] Password in plain text in "Administration > Logs"
+- [Core] Update moment.js library
+- [Install] Directory Listing
+- [Media] Broken authentication of uploaded files
+- [Monitoring] Blind SQL Injection in "Monitoring > Downtimes > Downtimes"
+- [custom Views] List of user accounts in custom view
+
 ### 20.04.6
 
 > Newly shared views do not break widget preferences.
