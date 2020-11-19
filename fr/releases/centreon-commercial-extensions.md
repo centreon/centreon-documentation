@@ -153,6 +153,20 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery release notes
 
+### 20.04.6
+
+#### Bugfixes
+
+- [Service Discovery] Cannot recreate deleted rules when reinstalling Pack
+- [Host Discovery] Possible to add host with missing properties
+- [Host Discovery] Check for illegal characters when creating hosts
+- [Host Discovery] Incoherent paging when using search
+- [Host Discovery] Proxy password input field value is visible
+
+#### Enhancements
+
+- [Host Discovery] Create services when adding hosts
+
 ### 20.04.5
 
 #### Bugfixes
