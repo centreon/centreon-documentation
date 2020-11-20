@@ -678,6 +678,14 @@ TCP endpoint with the 'pool_size' label.
 
 ## Centreon Gorgone release notes
 
+### 20.04.7
+
+#### Enhancements
+
+- The configurations in config.d directory are not erased anymore at update
+- [zmqclient] ID is not necessary anymore in end targets configuration
+  (ie Pollers)
+
 ### 20.04.6
 
 #### Bug fixes
