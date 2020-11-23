@@ -7,7 +7,7 @@ title: Oracle VM Manager API
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of File-servers, manager, Server-pools, Servers and Vm.
+The plugin-pack includes monitoring of File-servers, Manager, Server-pools, Servers and Vm.
 
 ### Collected Metrics
 
@@ -135,6 +135,10 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
     --warning-memory-usage-prct='90' \
     --critical-memory-usage-prct='95' \
     --verbose
+```
+
+Output example:
+```
 OK: Server pool 'TESTPOOL01' servers running: 2, stopped: 0 - virtual machines running: 3, stopped: 0 - memory usage total: 255.32 GB used: 217.87 GB (85.33%) free: 37.45 GB (14.67%) | 'TESTPOOL01#serverpool.servers.running.count'=2;;;0;2 'TESTPOOL01#serverpool.servers.stopped.count'=0;;;0;2 'TESTPOOL01#serverpool.vm.running.count'=3;;;0;3 'TESTPOOL01#serverpool.vm.stopped.count'=0;;;0;3 'TESTPOOL01#serverpool.memory.usage.bytes'=233939402752B;;;0;274148098048 'TESTPOOL01#serverpool.memory.free.bytes'=40208695296B;;;0;274148098048 'TESTPOOL01#serverpool.memory.usage.percentage'=85.33%;90;95;0;100
 checking server pool 'TESTPOOL01'
 servers running: 2, stopped: 0
