@@ -537,6 +537,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-sxml",
                     "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
+                    "integrations/plugin-packs/procedures/network-cisco-firepower-fmc-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-firepower-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-ironport-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-meraki-restapi",
