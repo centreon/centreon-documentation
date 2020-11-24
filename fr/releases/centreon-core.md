@@ -18,6 +18,35 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web release notes
 
+### 20.10.1
+
+#### Enhancements
+
+- [API] Improve registration script
+- [Performance] Disable UI notification mechanism if not needed by user
+#### Bug fixes
+
+- [API] Rework POST generated API request for PlatformTopology
+- [API] Service groups search not working
+- [Administration] "show deprecated pages" option does not work anymore
+- [Administration] 'options' table for centreon database is sometimes empty
+- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output not working properly for Centreon Broker form
+- [Core] Perl lib db query bad looping parameters
+- [Core] Too much rows in extended_service_informations tables
+- [Event View] Cannot search with regex using "+" character
+- [Event logs] Inoperative filters when exporting
+- [Graphs] Performance graph legend does not update dynamically
+- [Reporting] Dashboard won't build when having service by hostgroup
+- [Resources Status] Cannot search multiple times in hostgroup filter
+- [Resources Status] Infinite scroll + refresh button duplicates events in timeline
+- [Resources Status] Services listing blinking in details panel
+- [Resources Status] Timeline tab content blinks while browsing resources
+
+#### Security fixes
+
+- [Apache] Lack of click diversion protection (Clickjacking)
+- [Core] Update moment.js library
+
 ### 20.10.0
 
 > Comportements connus:
