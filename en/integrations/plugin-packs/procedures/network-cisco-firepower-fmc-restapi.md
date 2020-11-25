@@ -7,7 +7,7 @@ title: Cisco Firepower Management Console Rest API
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of Devices.
+The Plugin-Pack includes health monitoring of devices managed by Firepower Management Console
 
 ### Collected Metrics
 
@@ -69,7 +69,7 @@ yum install centreon-pack-network-cisco-firepower-fmc-restapi
 
 * Add a new Host and apply the *Net-Cisco-Firepower-Fmc-Restapi-custom* Host Template
 
-> Once the template applied, some Macros have to be configured:
+> Once the Template applied, some Macros have to be configured:
 
 | Mandatory | Name               | Description                                                                |
 | :-------- | :----------------- | :------------------------------------------------------------------------- |
@@ -101,6 +101,7 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 ```
 
 Output example:
+
 ```
 OK: Domain 'Global' devices are ok | 'devices.total.count'=2;;;0; 'devices.status.green.count'=0;;;0;2 'devices.status.black.count'=0;;;0;2 'devices.status.blue.count'=0;;;0;2 'devices.status.red.count'=0;;0;0;2 'devices.status.yellow.count'=0;;;0;2
 checking domain 'Global'
