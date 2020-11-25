@@ -7,7 +7,7 @@ title: Cisco DNA Center Rest API
 
 ### Objets supervisés
 
-Le plugin-pack inclue la supervision Network-devices et Sites.
+Le Plugin-Pack inclut la supervision de l'état de santé des équipements Réseaux et des Sites.
 
 ### Métriques collectées
 
@@ -40,7 +40,8 @@ Le plugin-pack inclue la supervision Network-devices et Sites.
 
 ## Prérequis
 
-Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configuré (cf: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview```)
+Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configurée comme indiquée dans la documentation officielle:
+- ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview```
 
 ## Installation
 
