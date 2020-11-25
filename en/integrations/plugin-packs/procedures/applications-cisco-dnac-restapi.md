@@ -7,7 +7,7 @@ title: Cisco DNA Center Rest API
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of Network-devices and Sites.
+The plugin-pack includes monitoring of Network devices and Sites.
 
 ### Collected Metrics
 
