@@ -7,7 +7,7 @@ title: Cisco Firepower Management Console Rest API
 
 ### Objets supervisés
 
-Le plugin-pack inclue la supervision des Devices.
+Le Plugin-Pack inclut la supervision des équipements rattachés à la console de management Firepower. 
 
 ### Métriques collectées
 
@@ -29,7 +29,8 @@ Le plugin-pack inclue la supervision des Devices.
 
 ## Prérequis
 
-Afin de contrôler l'application Cisco Firepower Management Center, l'API Rest doit être configuré (cf: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html)
+Afin de contrôler l'application Cisco Firepower Management Center, l'API Rest doit être configuré comme indiqué dans lea documentation officielle: 
+- https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Installation
 
@@ -66,8 +67,8 @@ yum install centreon-pack-network-cisco-firepower-fmc-restapi
 ## Configuration
 
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Cisco Firepower Management Center.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Firepower-Fmc-Restapi-custom*. 
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le Modèle *Net-Cisco-Firepower-Fmc-Restapi-custom*. 
+Une fois celui-ci configuré, certaines Macros doivent être renseignées:
 
 | Mandatory | Name               | Description                                                                |
 | :-------- | :----------------- | :-------------------------------------------------------------------- ---- |
