@@ -305,6 +305,12 @@ subscriptions are now automatically downloaded.
 
 ## Centreon Anomaly Detection
 
+### 20.04.4
+
+#### Bugfixes
+
+- [ACL] Issue with service anomaly is part of ALL acl and specific ACL
+
 ### 20.04.3
 
 #### Enhancements
