@@ -6,6 +6,30 @@ title: Upgrade from Centreon 20.04
 This chapter describes how to upgrade your Centreon platform from version 20.04
 to version 20.10.
 
+Known behaviours:
+>
+>   - If Engine on a Poller or Remote Server is not upgraded to 20.10,
+>     configuration files copied from an upgraded Central by Gorgone using ZMQ
+>     communication will not be readable by Engine process, resulting to this
+>     error in Engine log:
+>
+>     ```text
+>     Error: Parsing of global configuration failed: Can't open file '/etc/centreon-engine/centengine.cfg'
+>     ```
+>
+>     This is due to stricter rights on those files.
+>
+>     As always, we **strongly recommend** to upgrade all components to
+>     match the Central server's version.
+>
+>     However, during an upgrade process, it is possible to manually
+>     add the user *centreon-engine* to the *centreon-gorgone* group with
+>     the following command:
+>
+>     ```shell
+>     usermod -a -G centreon-gorgone centreon-engine
+>     ```
+
 ## Perform a backup
 
 Be sure that you have fully backed up your environment for the following

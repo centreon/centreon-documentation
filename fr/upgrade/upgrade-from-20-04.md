@@ -6,6 +6,30 @@ title: Montée de version depuis Centreon 20.04
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.04 vers la version 20.10.
 
+> Comportements connus:
+>
+>   - Si Engine sur un Poller ou un Remote Server n'est pas mis à jour en
+>     20.10, les fichiers de configuration copiés depuis un Central à jour
+>     par Gorgone utilisant une communication ZMQ ne pourront pas être
+>     lus par le processus Engine, avec l'erreur suivante dans les logs:
+>
+>     ```text
+>     Error: Parsing of global configuration failed: Can't open file '/etc/centreon-engine/centengine.cfg'
+>     ```
+>
+>     Cela est dû à des droits plus stricts sur ces fichiers.
+>
+>     Comme toujours, nous **recommandons fortement** de mettre à jour
+>     tous les composants en adéquation avec la version du Central.
+>
+>     Cependant, le temps de la mise à jour, il est possible d'ajouter
+>     manuellement l'utilisateur *centreon-engine* au groupe
+>     *centreon-gorgone* avec la commande suivante :
+>
+>     ```shell
+>     usermod -a -G centreon-gorgone centreon-engine
+>     ```
+
 ## Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
