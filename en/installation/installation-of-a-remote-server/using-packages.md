@@ -247,7 +247,7 @@ systemctl restart rh-php72-php-fpm
 To make services start automatically during system bootup, run these commands
 on the central server:
 
-!--DOCUSAURUS_CODE_TABS-->
+<!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
