@@ -39,6 +39,17 @@ systemctl disable firewalld
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
+#### Dépôt *PowerTools* de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt *PowerTools* de Red
+Hat doit être activé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
 <!--CentOS 7-->
 #### Dépôt Redhat Software Collections
 
@@ -77,7 +88,9 @@ Pour installer le moteur de supervision, exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
+```shell
 dnf install -y centreon-poller-centreon-engine
+```
 <!--CentOS 7-->
 ```shell
 yum install -y centreon-poller-centreon-engine

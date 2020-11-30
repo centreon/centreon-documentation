@@ -37,6 +37,17 @@ systemctl disable firewalld
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled PowerTools
+```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
@@ -76,7 +87,9 @@ To install the monitoring engine, run the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
+```shell
 dnf install -y centreon-poller-centreon-engine
+```
 <!--CentOS 7-->
 ```shell
 yum install -y centreon-poller-centreon-engine
