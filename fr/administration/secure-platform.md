@@ -163,6 +163,7 @@ Header set X-Frame-Options: "sameorigin"
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
 ServerSignature Off
 ServerTokens Prod
+TraceEnable Off
 ```
 
 Éditez le fichier **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
