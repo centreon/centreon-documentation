@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bug fixes
 
-- [centreon\_central\_sync] An error in the script prevented the files to be synchronized correctly
+- [Sync] An error in the script prevented the files to be synchronized correctly
 
 ### 20.10.0
 
