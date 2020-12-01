@@ -27,7 +27,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Bug fixes
 
-- [centreon\_central\_sync] Une erreur dans le script empêchait de synchroniser les fichiers correctement
+- [Sync] Une erreur dans le script empêchait de synchroniser les fichiers correctement
 
 ### 20.10.0
 
