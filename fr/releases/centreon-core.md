@@ -27,7 +27,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Configuration] Add a special variable for trap OID
 - [Configuration] Add pool size parameter in configuration for Centreon Broker
 - [Resources Status] Add alias & fqdn in host detail panels
-- [Resources Status] Add url links
+- [Resources Status] Add URL link button from host and service extended information configuration
 
 #### Bug fixes
 
