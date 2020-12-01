@@ -14,22 +14,22 @@ Gorgone daemon is a lightweight, distributed, modular tasks handler (https://git
 * Events
 * Nodes
 
-### Monitored metrics 
+### Monitored metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Events-->
 
-| Metric name             | Description                                                                                    |
-| :---------------------- | :--------------------------------------------------------------------------------------------- |
-| path.events.total.count | By instances. e.g. ```internal``` ```external```. Number of events on a path                   |
-| event.total.count       | By instances. e.g. ```internal~pong```, ```internal~command```, ... Number of a specific event |
+| Metric name             | Description                                                                            |
+| :---------------------- | :------------------------------------------------------------------------------------- |
+| path.events.total.count | By instances. e.g. `internal` `external`. Number of events on a path                   |
+| event.total.count       | By instances. e.g. `internal~pong`, `internal~command`, ... Number of a specific event |
 
 <!--Nodes-->
 
-| Metric name                         | Description                                                                 |
-| :---------------------------------- | :---------------------------------------------------------------------------|
-| node.ping.received.lasttime.seconds | By instances (```node_id```'). Time since last ping response. Unit: seconds |
+| Metric name                         | Description                                                             |
+| :---------------------------------- | :-----------------------------------------------------------------------|
+| node.ping.received.lasttime.seconds | By instances (`node_id`'). Time since last ping response. Unit: seconds |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -37,7 +37,7 @@ Gorgone daemon is a lightweight, distributed, modular tasks handler (https://git
 
 ### Gorgone configuration
 
-To use this Plugin-Pack, you must enable Gorgone module ```httpserver```:
+To use this Plugin-Pack, you must enable Gorgone module `httpserver`:
 
 ```yaml
 modules:
@@ -56,7 +56,7 @@ modules:
 
 ```
 
-## Setup 
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -104,22 +104,22 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 
 ## FAQ
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+### How do I test my configuration through the CLI and what do the main parameters stand for ?
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \	
-	--plugin=apps::gorgone::restapi::plugin \
-	--mode=events \
-	--hostname='127.0.0.1' \
-	--port='8085' \
-	--proto='http' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \
+    --plugin=apps::gorgone::restapi::plugin \
+    --mode=events \
+    --hostname='127.0.0.1' \
+    --port='8085' \
+    --proto='http' \
+    --verbose
 ```
 
 The command above checks Gorgone events.
-If you have configured the basic authentification in Gorgone configuration. You could use an API username (```--api-username='John.doe'```) and API password (```--api-password='6fbadZEJbsLG'```).
+If you have configured the basic authentification in Gorgone configuration. You could use an API username (`--api-username='John.doe'`) and API password (`--api-password='6fbadZEJbsLG'`).
 
 Expected command output is shown below:
 
@@ -133,17 +133,17 @@ checking path 'internal'
 ...
 ```
 
-Some thresholds can also be set on metrics with options ```--warning-*``` and ```--critical-*```.
+Some thresholds can also be set on metrics with options `--warning-*` and `--critical-*`.
 
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \	
-	--plugin=apps::gorgone::restapi::plugin \
-	--mode=events \
-        --help
+/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \
+    --plugin=apps::gorgone::restapi::plugin \
+    --mode=events \
+    --help
 ```
-You can display all of the modes that come with the Plugin with the command below: 
+You can display all of the modes that come with the Plugin with the command below:
 
 
 ```bash
@@ -151,3 +151,4 @@ You can display all of the modes that come with the Plugin with the command belo
     --plugin=apps::gorgone::restapi::plugin \
     --list-mode
 ```
+
