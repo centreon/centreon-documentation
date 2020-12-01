@@ -42,7 +42,7 @@ commerciales, vous pouvez vous rendre sur notre
 #### Security fixes
 
 - [Apache] Support for the HTTP TRACE
-- [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centeron example file
+- [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
 - [Authentication] Reach Centreon Front-end parameter ineffective
 - [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Connectors & commands form
 - [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Contact Groups form
