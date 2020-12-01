@@ -19,6 +19,26 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability release notes
 
+### 20.04.3
+
+#### Enhancements
+
+- [rpm] All the configuration files (except for logrotate.d and sudoers.d) are now preserved by the update process
+
+#### Bug fixes
+
+- [Sync] An error in the script prevented the files to be synchronized correctly
+
+### 20.04.2
+
+#### Enhancements
+
+* [Sync] Protect paths with quotes to manage directories with spaces
+
+#### Bug fixes
+
+* [Sync] Removing `-a` option to rsync
+
 ### 20.04.1
 
 #### Bug fixes
