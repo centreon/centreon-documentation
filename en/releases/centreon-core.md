@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Add a special variable for trap OID
 - [Configuration] Add pool size parameter in configuration for Centreon Broker
 - [Resources Status] Add alias & fqdn in host detail panels
-- [Resources Status] Add notes and ation url links
+- [Resources Status] Add url links
 
 #### Bug fixes
 
