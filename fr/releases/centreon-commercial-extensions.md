@@ -276,6 +276,19 @@ configuration value:
 
 ## Centreon Plugin Pack Manager release notes
 
+### 20.04.3
+
+#### Bug fixes
+
+- After adding a license or a token the user must access to associated functionalities
+- Disable 'Add' button when input is empty
+
+### 20.04.2
+
+#### Bug fixes
+
+- The centreon_map user needs to be admin to have the license working on Central server
+
 ### 20.04.1
 
   - Drop legacy table not used since PPM version 2.1.0 (PR #100)
