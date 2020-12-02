@@ -119,6 +119,12 @@ standalone SSH connections.
 
 ## Centreon Plugin Packs Manager release notes
 
+### 20.10.0
+
+- Compatibility with Centreon 20.10
+
+## Centreon License Manager release notes
+
 ### 20.10.1
 
 #### Bug fixes
@@ -126,12 +132,6 @@ standalone SSH connections.
 - After adding a license or a token the user must access to associated functionalities
 - Rights issues with the gnupg library with multiple users (only with Docker)
 - Disable 'Add' button when input is empty
-
-### 20.10.0
-
-- Compatibility with Centreon 20.10
-
-## Centreon License Manager release notes
 
 ### 20.10.0
 
