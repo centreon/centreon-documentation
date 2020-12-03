@@ -68,6 +68,19 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon Auto Discovery release notes
 
+### 20.10.2
+
+#### Bugfixes
+
+- Long values in *host.ip* field cause "Error when sorting and
+  filtering host modification results" issue
+- Save script now runs on CentOS 8
+
+#### Enhancements
+
+- Add a confirmation dialog when deleting a job
+- Change wording "Additional parameters" to "Discovery parameters"
+
 ### 20.10.1
 
 #### Bugfixes
