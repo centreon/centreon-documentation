@@ -157,6 +157,8 @@ gérer ces nouvelles méthodes de calcul
 
 #### Bugfixes
 
+- [Host Discovery] Long values in *host.ip* field cause "Error when sorting
+  and filtering host modification results" issue
 - [Service Discovery] Service discovery email sending not working properly
   when having services with space in their name
 
