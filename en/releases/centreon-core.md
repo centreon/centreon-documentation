@@ -502,6 +502,37 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 ## Centreon Broker release notes
 
+### 20.04.11
+
+> Known behaviours:
+>
+>   - If TLS encryption is configured to use custom key/certificate couple
+>     for any IPv4/6 input/output endpoints, both targets must be updated
+>     to ensure communication.
+>
+>     If you use Centreon MAP, make sure to update MAP server to version >=
+>     20.04.5.
+
+#### Bugfixes
+
+*TLS*
+
+Credentials were no more loaded by the TLS connector. This is fixed with this
+new version.
+
+*Custom variables*
+
+They were updated several times in the database. It is fixed now.
+
+*Build*
+
+GnuTLS requirement now matches compilation version.
+
+*BAM*
+
+Reporting events were not stored into database because of truncated
+Business Activities names causing *duplicate entry* errors.
+
 ### 20.04.10
 
 #### Bugfixes
@@ -532,12 +563,12 @@ files and there are a lot of traffic.
 
 Those streams have several improvements:
 
-    -   Events exchanges are really faster, especially when Broker has
-        retention files.
-    -   Several queries have been changed to insert data in bulk, it is
-        the case for custom variables and metrics.
-    -   There are cases where those streams could crash that have been
-        also fixed.
+-   Events exchanges are really faster, especially when Broker has
+    retention files.
+-   Several queries have been changed to insert data in bulk, it is
+    the case for custom variables and metrics.
+-   There are cases where those streams could crash that have been
+    also fixed.
 
 *Statistics*
 
@@ -566,10 +597,10 @@ with the –pool\_size X argument or -s X.
 >     However, during an upgrade process, communication can be maintained
 >     by making sure Broker's configurations match the following conditions:
 >
->       - *TLS encryption* and *compression* are either set to
->         *Auto* or *No* on Central input,
->       - *TLS encryption* and *compression* are either set to
->         *Auto* or *No* on Poller or Remote Server output.
+>     - *TLS encryption* and *compression* are either set to
+>       *Auto* or *No* on Central input,
+>     - *TLS encryption* and *compression* are either set to
+>       *Auto* or *No* on Poller or Remote Server output.
 >
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
