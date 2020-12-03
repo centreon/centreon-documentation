@@ -13,7 +13,7 @@ de l'installation et de la mise à jour de l'environnement. Profitez également
 des optimisations installées en standard par le système.
 
 L'installation de Centreon peut être effectuée à partir des sources (tar.gz)
-mais le travail est plus complexe. De plus l'installeur ne sera supporté quepar
+mais le travail est plus complexe. De plus l'installeur ne sera supporté que par
 la communauté.
 
 Avant toute installation
@@ -22,7 +22,7 @@ Avant toute installation
     d'installation](prerequisites.html) et de dimensionnement
     (ressources CPU, mémoire, disques, partitionnement, etc...)
 2.  Prenez également soin de bien choisir le [type
-    d'architecture](architectures.html) qu'il convient de pour vos besoins.
+    d'architecture](architectures.html) qu'il convient d'utiliser pour vos besoins.
 3.  [Téléchargez Centreon](https://download.centreon.com/)
 4.  Enfin, vous pourrez procéder à l'installation de la plate-forme.
 
