@@ -192,6 +192,28 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone release notes
 
+### 20.10.1
+
+#### Bug fixes
+
+- [proxy] gorgone-proxy processes stucked when stopping gorgoned
+- [core] Rare case of database handler wrongly instantiated due to race
+  condition issue
+- [core] Hardened management of message encoding/decoding
+- [autodiscovery] Handle Centreon API modules version endpoint empty
+  response
+- [autodiscovery] Uncatched error when reaching Host Discovery global timeout
+- [autodiscovery] Discovered services state flapped between enabled and
+  disabled
+- [autodiscovery] Service discovery email sending not working properly
+  when having services with space in their name
+
+#### Enhancements
+
+- [proxy] Force TCP reconnection after 3 ping timeout
+- [zmqclient] ID is not necessary anymore in end targets configuration
+  (ie Pollers)
+
 ### 20.10.0
 
 #### Bugfixes
