@@ -30,5 +30,5 @@ Pour tester rapidement Centreon à partir d'un serveur CentOS en version 7.x,
 vous pouvez exécuter la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/20.10.x/unattended.sh | sh
 ```

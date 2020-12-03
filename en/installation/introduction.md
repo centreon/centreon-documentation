@@ -26,5 +26,5 @@ Before installation
 To quickly test Centreon from a CentOS or Red Hat 7.x, you can run the following command as **root**:
 
 ```Bash
-curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/20.10.x/unattended.sh | sh
 ```
