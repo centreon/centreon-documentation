@@ -85,12 +85,6 @@ systemctl start centreontrapd snmptrapd
 
 ## Register the server
 
-Install the Software Collections repository using this command:
-
-```shell
-yum install -y centos-release-scl
-```
-
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 ``` shell
