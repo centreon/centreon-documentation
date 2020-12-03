@@ -74,16 +74,17 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Bugfixes
 
-- Des valeurs longues dans le champs *host.ip* provoque l'erreur "Error
-  when sorting and filtering host modification results"
-- Le script de sauvegarde fonctionne maintenant sous CentOS 8
+- [Host Discovery] Des valeurs longues dans le champs *host.ip* provoque
+  l'erreur "Error when sorting and filtering host modification results"
+- [Host Discovery] Le script de sauvegarde fonctionne maintenant sous
+  CentOS 8
 
 #### Enhancements
 
-- Ajout d'une boite de dialogue de confirmation lors de la suppression
-  d'une tâche
-- Changement de la formulation "Paramètres additionnels" en "Paramètres de
-  découverte" dans les écrans
+- [Host Discovery] Ajout d'une boite de dialogue de confirmation lors de
+  la suppression d'une tâche
+- [Host Discovery] Changement de la formulation "Paramètres additionnels"
+  en "Paramètres de découverte" dans les écrans
 
 ### 20.10.1
 

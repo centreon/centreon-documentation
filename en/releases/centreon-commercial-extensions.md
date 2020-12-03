@@ -72,14 +72,15 @@ To use it, it is necessary to install and activate it. Refer to the
 
 #### Bugfixes
 
-- Long values in *host.ip* field cause "Error when sorting and
-  filtering host modification results" issue
-- Save script now runs on CentOS 8
+- [Host Discovery] Long values in *host.ip* field cause "Error when sorting
+  and filtering host modification results" issue
+- [Host Discovery] Save script now runs on CentOS 8
 
 #### Enhancements
 
-- Add a confirmation dialog when deleting a job
-- Change wording "Additional parameters" to "Discovery parameters"
+- [Host Discovery] Add a confirmation dialog when deleting a job
+- [Host Discovery] Change wording "Additional parameters" to "Discovery
+  parameters"
 
 ### 20.10.1
 
