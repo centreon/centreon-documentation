@@ -17,9 +17,9 @@ Le plugin-pack inclue la supervision Query.
 
 | Metric name                                  | Description                | Unit |
 | :------------------------------------------- | :------------------------- | :--- |
-| *dsname*#datasource.value.minimum.count      | Minimun value of timeframe |      |
-| *dsname*#datasource.value.average.count      | Average value of timeframe |      |
-| *dsname*#datasource.value.maximum.count      | Maximul value of timeframe |      |
+| *dsname*#datasource.value.minimum.count      | Minimun value on timeframe |      |
+| *dsname*#datasource.value.average.count      | Average value on timeframe |      |
+| *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
