@@ -74,7 +74,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Bugfixes
 
-- [Host Discovery] Des valeurs longues dans le champs *host.ip* provoque
+- [Host Discovery] Des valeurs longues dans le champs *host.ip* provoquent
   l'erreur "Error when sorting and filtering host modification results"
 - [Host Discovery] Le script de sauvegarde fonctionne maintenant sous
   CentOS 8
