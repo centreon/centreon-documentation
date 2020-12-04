@@ -463,6 +463,7 @@
                     "integrations/plugin-packs/procedures/applications-databases-mysql",
                     "integrations/plugin-packs/procedures/applications-databases-oracle",
                     "integrations/plugin-packs/procedures/applications-databases-postgresql",
+                    "integrations/plugin-packs/procedures/applications-databases-rrdtool",
                     "integrations/plugin-packs/procedures/applications-databases-sybase",
                     "integrations/plugin-packs/procedures/applications-databases-warp10-sensision"
                 ],
