@@ -124,7 +124,7 @@ through "Configuration > Plugin packs > Manager" page.
 ## Host configuration
 
 * Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
-* Apply the *HW-Device-Polycom-Hdx-SNMP-Custom* Host Template
+* Apply the *Net-Fortinet-Fortiauthenticator-SNMP-custom* Host Template
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
