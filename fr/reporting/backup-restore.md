@@ -281,7 +281,7 @@ Modifier les droits sur le répértoire */var/lib/mysql* ::
 
 Démarrer le service MariaDB::
 
-    systemctl start mysql
+    systemctl start mariadb
 
 #### Redémarrer le moteur CBIS
 

@@ -78,7 +78,7 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell

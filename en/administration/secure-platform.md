@@ -319,11 +319,11 @@ To update the Centreon URI, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-```shel 
+```shell
 vim /etc/httpd/conf.d/10-centreon.conf
 ```
 <!--CentOS 7-->
-```shel 
+```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
 

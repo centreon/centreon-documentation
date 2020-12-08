@@ -213,7 +213,7 @@ need to install the Centreon-Release package:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
 ```shell
-dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
+dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
 ```
 
 *If the URL doesn't work, you can manualy find this package in the folder*
@@ -250,7 +250,7 @@ innodb_log_file_size = 200M
 Then, restart MariaDB:
 
 ```shell
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Execute the Centreon MAP server configuration script. Two modes are available:

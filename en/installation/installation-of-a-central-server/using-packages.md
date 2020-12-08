@@ -130,7 +130,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--CentOS 7-->
-Run the commands for CentOS 7:
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload

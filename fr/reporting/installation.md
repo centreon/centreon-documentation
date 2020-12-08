@@ -185,7 +185,6 @@ Lancez la commande suivante :
 dnf install centreon-bi-server
 ```
 <!--CentOS 7-->
-Run the following command:
 ```shell
 yum install centreon-bi-server
 ```
@@ -298,7 +297,7 @@ optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, p
 le service MariaDB :
 
 ```shell
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
@@ -308,7 +307,7 @@ option dans `/etc/my.cnf` NE fonctionnera PAS.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
@@ -317,7 +316,7 @@ nouveau MariaDB:
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
+systemctl start mariadb
 ```
 
 Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le

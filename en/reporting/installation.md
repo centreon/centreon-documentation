@@ -181,13 +181,14 @@ central server.
 Contact the CENTREON service desk to access and install the Centreon MBI
 repository on the Centreon central server.
 
+Run the following command:
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
 ```shell
 dnf install centreon-bi-server
 ```
 <!--CentOS 7-->
-Run the following command:
 ```shell
 yum install centreon-bi-server
 ```
@@ -302,7 +303,7 @@ Make sure you have installed the MariaDB configuration file provided in
 the pre-requisites before starting the MariaDB service [following file](../assets/reporting/installation/centreon.cnf)
 
 ```shell
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 For installation, it is necessary to modify **LimitNOFILE** limitation.
@@ -312,7 +313,7 @@ Setting this option in /etc/my.cnf will NOT work.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Then start the service MariaDB. If this service cannot start, remove the
@@ -320,7 +321,7 @@ ib_log files before restarting MariaDB (be sure MariaDB is stopped):
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl restart mysql
+systemctl start mariadb
 ```
 
 If you are using a custom MariaDB socket file, modify the `/etc/my.cnf` file

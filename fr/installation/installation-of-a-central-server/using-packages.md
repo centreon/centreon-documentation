@@ -74,7 +74,7 @@ dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
 
-> Pour CentOS 8.2 utilisre la commande :
+> Pour CentOS 8.2 utilisez la commande :
 > ```shell
 > dnf config-manager --set-enabled PowerTools
 > ```
