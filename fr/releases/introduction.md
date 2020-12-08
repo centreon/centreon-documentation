@@ -89,7 +89,7 @@ aux éléments systèmes.
 ### Système d’exploitation Linux avec les derniers correctifs de sécurité (bientôt disponible)
 
 Centreon 20.10 s’appuie désormais sur les dernières versions de CentOS ou de
-RedHat Enterprise Linux (RHEL), soit CentOS v8 ou RHEL v8.
+RedHat Enterprise Linux (RHEL), soit CentOS 8 ou RHEL v8.
 
 ### Plan d’engagement de correction des vulnérabilités
 

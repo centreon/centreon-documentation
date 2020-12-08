@@ -124,14 +124,14 @@ a remote database on a dedicated server.
 
 <!--With a local database-->
 
-Run the commands for CentOS v8:
+Run the commands for CentOS 8:
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-Run the commands for CentOS v7:
+Run the commands for CentOS 7:
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
@@ -144,20 +144,20 @@ systemctl restart mariadb
 > the prerequired repositories.
 
 Run the following command on the Central server,
-for CentOS v8:
+for CentOS 8:
 
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-for CentOS v7:
+for CentOS 7:
 
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
 Then run the following commands on the dedicated server,
-for CentOS v8:
+for CentOS 8:
 
 ```shell
 dnf install -y centreon-database
@@ -165,7 +165,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-for CentOS v7:
+for CentOS 7:
 
 ```shell
 yum install -y centreon-database

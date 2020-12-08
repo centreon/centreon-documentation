@@ -15,7 +15,7 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon offers an ISO file including CentOS v7 and all the required packages.
+Centreon offers an ISO file including CentOS 7 and all the required packages.
 
 If you prefer to use **Red Hat OS** you must install **version v7** and use the RPMs available from our repositories.
 

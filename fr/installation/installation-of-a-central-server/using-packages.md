@@ -123,14 +123,14 @@ serveur, ou déportée sur un serveur dédié.
 
 <!--Avec base de données locale-->
 
-Exécutez les commandes suivantes pour CentOS v8 :
+Exécutez les commandes suivantes pour CentOS 8 :
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-Pour CentOS v7 :
+Pour CentOS 7 :
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
@@ -142,18 +142,18 @@ systemctl restart mariadb
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
 
-Exécutez la commande suivante sur le serveur Centreon Central, pour CentOS v8 :
+Exécutez la commande suivante sur le serveur Centreon Central, pour CentOS 8 :
 
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-Pour CentOS v7 :
+Pour CentOS 7 :
 ```shell
 yum install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données, pour CentOS v8 :
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données, pour CentOS 8 :
 
 ```shell
 dnf install -y centreon-database
@@ -161,7 +161,7 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-Pour CentOS v7 :
+Pour CentOS 7 :
 
 ```shell
 yum install -y centreon-database
