@@ -110,60 +110,55 @@ This section describes how to install a Centreon Remote Server.
 It's possible to install this server with a local database on the server, or
 a remote database on a dedicated server.
 
+### With a local database
+
 <!--DOCUSAURUS_CODE_TABS-->
-
-<!--With a local database-->
-
-Run the commands for CentOS 8:
+<!--CentOS 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-Run the commands for CentOS 7:
+<!--CentOS 7-->
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-<!--With a remote database-->
+### With a remote database
 
 > If installing database on a dedicated server, this server should also have
 > the prerequired repositories.
 
-Run the following command on the Centreon Remote Server:
-
-Run the following command on the Central server,
-for CentOS 8:
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+Run the following command on the Central server:
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
 
-for CentOS 7:
-
-```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
-```
-
-Then run the following commands on the dedicated server,
-for CentOS 8:
-
+Then run the following commands on the dedicated server:
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--CentOS 7-->
 
-for CentOS 7:
+Run the following command on the Central server:
+```shell
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
+```
 
+Then run the following commands on the dedicated server:
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then create a distant user with **root** privileges needed for Centreon
 installation:

@@ -111,55 +111,55 @@ Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
 Il est possible d'installer ce serveur avec une base de données locale au
 serveur, ou déportée sur un serveur dédié.
 
+### Avec base de données locale
+
 <!--DOCUSAURUS_CODE_TABS-->
-
-<!--Avec base de données locale-->
-
-Exécutez les commandes suivantes pour CentOS 8 :
+<!--CentOS 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
-
-Pour CentOS 7 :
+<!--CentOS 7-->
 ```shell
 yum install -y centreon centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-<!--Avec base de données déportée-->
+### Avec base de données déportée
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
 
-Exécutez la commande suivante sur le serveur Centreon Central, pour CentOS 8 :
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
+Exécutez la commande suivante sur le serveur Centreon Central :
 
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-
-Pour CentOS 7 :
-```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
-```
-
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données, pour CentOS 8 :
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--CentOS 7-->
+Exécutez la commande suivante sur le serveur Centreon Central :
+```shell
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
+```
 
-Pour CentOS 7 :
-
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
