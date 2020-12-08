@@ -48,8 +48,13 @@ Exécutez les commandes suivantes :
 
 ```shell
 dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled PowerTools
+dnf config-manager --set-enabled powertools
 ```
+
+> Pour CentOS 8.2 utilisre la commande :
+> ```shell
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--CentOS 7-->
 #### Dépôt Redhat Software Collections
 

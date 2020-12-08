@@ -46,8 +46,13 @@ Enable the PowerTools repository using these commands:
 
 ```shell
 dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled PowerTools
+dnf config-manager --set-enabled powertools
 ```
+
+> For CentOS 8.2 use
+> ```shell
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
