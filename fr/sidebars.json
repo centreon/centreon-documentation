@@ -177,6 +177,7 @@
                     "graph-views/configure",
                     "graph-views/remote-server",
                     "graph-views/procedures",
+                    "graph-views/procedures-secure",
                     "graph-views/known-issues"
                 ],
                 "label": "Administrer",
