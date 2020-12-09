@@ -153,6 +153,19 @@ gérer ces nouvelles méthodes de calcul
 
 ## Centreon Auto Discovery release notes
 
+### 20.04.7
+
+#### Bugfixes
+
+- [Host Discovery] Long values in *host.ip* field cause "Error when sorting
+  and filtering host modification results" issue
+- [Service Discovery] Service discovery email sending not working properly
+  when having services with space in their name
+
+#### Enhancements
+
+- [Host Discovery] Add a confirmation dialog when deleting a job
+
 ### 20.04.6
 
 #### Bugfixes
