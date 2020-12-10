@@ -119,11 +119,11 @@ If you have feature requests or want to report a bug, please go to our
 > Known behaviours:
 >
 >   - If TLS encryption is configured to use private key/certificate couple
->     for IPv4/6 input/output endpoints, both ends must be updated
+>     for IPv4/6 input/output endpoints, **both ends must be updated**
 >     to ensure communication.
 >
->     If you use Centreon MAP, make sure to update MAP server to version >=
->     20.10.2.
+>   - If you use Centreon MAP with TLS encryption, make sure to **update MAP
+>     server** to version >= 20.10.2.
 
 #### Bugfixes
 

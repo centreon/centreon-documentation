@@ -120,11 +120,11 @@ commerciales, vous pouvez vous rendre sur notre
 >
 >   - Si le chiffrement TLS est configuré pour utiliser une paire
 >     clé/certificat personnelle pour les entrées/sorties IPv4/6,
->     les deux extrémités doivent être mises à jour pour assurer la
->     communication.
+>     **les deux extrémités doivent être mises à jour** pour assurer
+>     la communication.
 >
->     Si vous utilisez Centreon MAP, assurez vous de mettre à jour le
->     serveur MAP à la version >= 20.10.2.
+>   - Si vous utilisez Centreon MAP avec un chiffrement TLS, assurez
+>     vous de **mettre à jour le serveur MAP** à la version >= 20.10.2.
 
 #### Bugfixes
 
