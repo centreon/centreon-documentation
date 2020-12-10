@@ -142,27 +142,27 @@ systemctl restart mariadb
 > If installing database on a dedicated server, this server should also have
 > the prerequired repositories.
 
+Run the following command on the Central server:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-Run the following command on the Central server:
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
+<!--CentOS 7-->
+```shell
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then run the following commands on the dedicated server:
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--CentOS 7-->
-
-Run the following command on the Central server:
-```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
-```
-
-Then run the following commands on the dedicated server:
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
@@ -238,34 +238,30 @@ DROP USER '<USER>'@'<IP>';
 
 ### Set the PHP time zone
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
 You are required to set the PHP time zone. Run the command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
+<!--CentOS 7-->
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Change **Europe/Paris** to your time zone. You can find the supported list of
 > time zone [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, please do not forget to restart the PHP-FPM service:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 systemctl restart php-fpm
 ```
 <!--CentOS 7-->
-You are required to set the PHP time zone. Run the command:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
-```
-
-> Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zone [here](http://php.net/manual/en/timezones.php).
-
-After saving the file, please do not forget to restart the PHP-FPM service:
-
 ```shell
 systemctl restart rh-php72-php-fpm
 ```

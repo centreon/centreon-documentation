@@ -141,27 +141,27 @@ systemctl restart mariadb
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
 > dernier doit aussi avoir les dépôts prérequis.
 
+Exécutez la commande suivante sur le serveur Centreon Central :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-Exécutez la commande suivante sur le serveur Centreon Central :
-
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
+<!--CentOS 7-->
+```shell
+yum install -y centreon-base-config-centreon-engine centreon-widget\*
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
+Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--CentOS 7-->
-Exécutez la commande suivante sur le serveur Centreon Central :
-```shell
-yum install -y centreon-base-config-centreon-engine centreon-widget\*
-```
-
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 ```shell
 yum install -y centreon-database
 systemctl daemon-reload
@@ -243,34 +243,30 @@ DROP USER '<USER>'@'<IP>';
 
 ### Fuseau horaire PHP
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
+<!--CentOS 7-->
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 8-->
 ```shell
 systemctl restart php-fpm
 ```
 <!--CentOS 7-->
-La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
-```
-
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
-> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
-Après avoir réalisé la modification, redémarrez le service PHP-FPM :
-
 ```shell
 systemctl restart rh-php72-php-fpm
 ```
