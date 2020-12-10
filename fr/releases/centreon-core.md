@@ -130,7 +130,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 *TLS*
 
-Credentials were no more loaded by the TLS connector. This is fixed with this
+Credentials were not more loaded by the TLS connector anymore. This is fixed with this
 new version.
 
 *Custom variables*
