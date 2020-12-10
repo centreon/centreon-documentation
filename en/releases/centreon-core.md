@@ -129,7 +129,7 @@ If you have feature requests or want to report a bug, please go to our
 
 *TLS*
 
-Credentials were no more loaded by the TLS connector. This is fixed with this
+Credentials were not loaded by the TLS connector anymore. This is fixed with this
 new version.
 
 *Custom variables*
