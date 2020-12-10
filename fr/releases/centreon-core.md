@@ -124,7 +124,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     communication.
 >
 >     Si vous utilisez Centreon MAP, assurez vous de mettre à jour le
->     serveur MAP à la version >= 20.04.5.
+>     serveur MAP à la version >= 20.10.2.
 
 #### Bugfixes
 
