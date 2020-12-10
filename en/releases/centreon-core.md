@@ -175,7 +175,7 @@ files and there are a lot of traffic.
 
 Those streams have several improvements:
 
--   Events exchanges are really faster, especially when Broker has
+-   Events exchanges are much faster, especially when Broker has
     retention files.
 -   Several queries have been changed to insert data in bulk, it is
     the case for custom variables and metrics.
