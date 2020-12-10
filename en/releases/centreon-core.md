@@ -123,7 +123,7 @@ If you have feature requests or want to report a bug, please go to our
 >     to ensure communication.
 >
 >     If you use Centreon MAP, make sure to update MAP server to version >=
->     20.04.5.
+>     20.10.2.
 
 #### Bugfixes
 
