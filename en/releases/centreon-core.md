@@ -507,11 +507,11 @@ ISO-8859-15, CP-1252 and UTF-8.
 > Known behaviours:
 >
 >   - If TLS encryption is configured to use private key/certificate couple
->     for IPv4/6 input/output endpoints, both ends must be updated
+>     for IPv4/6 input/output endpoints, **both ends must be updated**
 >     to ensure communication.
 >
->     If you use Centreon MAP, make sure to update MAP server to version >=
->     20.04.5.
+>   - If you use Centreon MAP with TLS encryption, make sure to **update MAP
+>     server** to version >= 20.04.5.
 
 #### Bugfixes
 
