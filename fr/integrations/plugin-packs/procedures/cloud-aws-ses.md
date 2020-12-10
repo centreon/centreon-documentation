@@ -48,7 +48,7 @@ des privilèges suivants :
 
 | AWS Privilege                  | Description                                             |
 |:-------------------------------|:------------------------------------------------------- |
-| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace    |
+| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/SES namespace    |
 
 
 ### Dépendances du Plugin
