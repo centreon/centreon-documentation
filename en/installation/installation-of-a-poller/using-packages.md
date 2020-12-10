@@ -157,61 +157,61 @@ Example:
 Then follow instructions by
 1. Entering your password:
 
-``` shell
-192.168.0.1: please enter your password
-```
+    ``` shell
+    192.168.0.1: please enter your password
+    ```
 
 2. Define if you use a proxy to connect to Centreon central or the Remote Server:
 
-``` shell
-Are you using a proxy ? (y/n)n
-```
+    ``` shell
+    Are you using a proxy ? (y/n)n
+    ```
 
-If you use a proxy, please define credentials:
+    If you use a proxy, please define credentials:
 
-``` shell
-Are you using a proxy ? (y/n)y
+    ``` shell
+    Are you using a proxy ? (y/n)y
 
-proxy host: myproxy.example.com
+    proxy host: myproxy.example.com
 
-proxy port: 3128
+    proxy port: 3128
 
-proxy username (press enter if no username/password are required): myuser
+    proxy username (press enter if no username/password are required): myuser
 
-please enter the proxy password:
-```
+    please enter the proxy password:
+    ```
 
 3. Select the IP adress:
 
-```shell
-Found IP on CURRENT NODE:
-   [1]: 192.168.0.2
-Which IP do you want to use as CURRENT NODE IP ?1
-```
+    ```shell
+    Found IP on CURRENT NODE:
+    [1]: 192.168.0.2
+    Which IP do you want to use as CURRENT NODE IP ?1
+    ```
 
 4. Then validate the information:
 
-``` shell
-Summary of the informations that will be send:
+    ``` shell
+    Summary of the informations that will be send:
 
-Api Connection:
-username: admin
-password: ******
-target server: 192.168.0.1
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
 
-Pending Registration Server:
-name: poller-1
-type: poller
-address: 192.168.0.2
+    Pending Registration Server:
+    name: poller-1
+    type: poller
+    address: 192.168.0.2
 
-Do you want to register this server with those informations ? (y/n)y
-```
+    Do you want to register this server with those informations ? (y/n)y
+    ```
 
-You will receive the validation of the Centreon central or the Remote Server server:
+    You will receive the validation of the Centreon central or the Remote Server server:
 
-``` shell
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
-```
+    ``` shell
+    2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
+    ```
 
 ### Main errors messages
 
