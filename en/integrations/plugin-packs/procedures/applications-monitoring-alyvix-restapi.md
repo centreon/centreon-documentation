@@ -43,10 +43,11 @@ by requesting the dedicated built-in RestAPI.
 
 * Global (for each *testcase*)
 
-| Metric name                        | Description                                    | Unit |
-|:-----------------------------------|:-----------------------------------------------|:-----|
-| *testcase_alias*#testcase-state    | Status of the case job execution               |      |
-| *testcase_alias*#testcase-duration | Total time of the case job execution           | ms   |
+| Metric name                         | Description                                    | Unit |
+|:------------------------------------|:-----------------------------------------------|:-----|
+| *testcase_alias*#testcase-state     | Status of the case job execution               |      |
+| *testcase_alias*#testcase-duration  | Total time of the case job execution           | ms   |
+| *testcase_alias*#testcase-freshness | Last execution time of the case job            | s    |
 
 * Per *testcase* (for each *transaction*)
 
@@ -75,7 +76,7 @@ https://www.alyvix.com/learn/\.
 
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. On the Centreon Web interface, install the *Alyvix Server* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -85,7 +86,7 @@ yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Resta
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:

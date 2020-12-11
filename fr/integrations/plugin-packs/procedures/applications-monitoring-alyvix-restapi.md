@@ -43,10 +43,11 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 
 * Global (pour chaque *testcase*)
 
-| Metric name                        | Description                                    | Unit |
-|:-----------------------------------|:-----------------------------------------------|:-----|
-| *testcase_alias*#testcase-state    | Status of the case job execution               |      |
-| *testcase_alias*#testcase-duration | Total time of the case job execution           | ms   |
+| Metric name                         | Description                                    | Unit |
+|:------------------------------------|:-----------------------------------------------|:-----|
+| *testcase_alias*#testcase-state     | Status of the case job execution               |      |
+| *testcase_alias*#testcase-duration  | Total time of the case job execution           | ms   |
+| *testcase_alias*#testcase-freshness | Last execution time of the case job            | s    |
 
 * Par *testcase* (pour chaque *transaction*)
 
@@ -75,7 +76,7 @@ officielle: https://www.alyvix.com/learn/\.
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
@@ -86,7 +87,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
