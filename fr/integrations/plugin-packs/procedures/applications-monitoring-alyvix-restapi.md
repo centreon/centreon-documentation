@@ -139,6 +139,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --critical-transaction-state='%{state} eq "FAILED"' \
     --warning-testcase-duration='40000' \
     --critical-testcase-duration='60000' \
+    --critical-testcase-freshness='600' \
     --verbose
 ```
 
@@ -152,10 +153,10 @@ OK: All test cases are ok | 'case_app1#testcase.duration.milliseconds'=3883ms;;;
 'case_app2~6_close_app1#transaction.duration.milliseconds'=104ms;;;0; 'case_app2~7_close_app2#transaction.duration.milliseconds'=0ms;;;0;
 'case_app2~8_check_picture#transaction.duration.milliseconds'=0ms;;;0;
 checking test case 'case_app1'
-    duration: 3883 ms, state: OK
+    duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
     transaction '1_openapp1' state: OK, duration: 77 ms
 checking test case 'case_app2'
-    duration: 30658 ms, state: OK
+    duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
     transaction '1_open_app1' state: OK, duration: 3 ms
     transaction '2_open_app2' state: OK, duration: 4 ms
     transaction '3_delay' state: OK, duration: 76 ms
