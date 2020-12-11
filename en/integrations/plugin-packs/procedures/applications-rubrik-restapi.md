@@ -167,7 +167,6 @@ can be displayed by adding the  ```--help``` parameter to the command:
 
 ### Why do I get the following message: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
 
-
 This error message means that the Centreon Plugin couldn't successfully connect to the Rubriik App RestAPI.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. 
@@ -176,9 +175,7 @@ This can be done by using this option in the command: ```--proxyurl='http://prox
 If a self-signed certificate is used, you must add the following options to ignore its validity:
 ```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
 
-
 ### Why do I get the following message: ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-
 
 When using a proxy to connect to the Alyvix Server RestAPI, this error
 message means that the Centreon Plugin library does not support the proxy
