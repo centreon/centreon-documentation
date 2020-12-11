@@ -14,7 +14,7 @@ title: Cloud Foundry
 Install this plugin on each needed poller:
 
 ``` shell
-yum install centreon-plugin-Cloud-Cloudfoundry-Api
+yum install centreon-plugin-Cloud-Cloudfoundry-Restapi
 ```
 
 ## Centreon Configuration
