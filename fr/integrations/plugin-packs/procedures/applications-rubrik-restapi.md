@@ -116,7 +116,6 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur Rubrik RestAPI
 * Appliquez le Modèle d'Hôte *App-Rubrik-Restapi-custom*
 
-
 Les Macros d'Hôte ci-après doivent être renseignées le cas échéant:
 
 | Mandatory | Name                       | Description                                                                        |
@@ -185,7 +184,6 @@ commande avec l'option ```--proxyurl```.
 Si un certificat auto-signé est utilisé, il est nécessaire d'ajouter les options suivantes permettant d'ignorer 
 sa validité:
 ```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
-
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
