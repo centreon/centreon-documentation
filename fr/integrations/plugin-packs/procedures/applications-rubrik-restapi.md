@@ -66,10 +66,12 @@ disques, les tâches, etc.
 
 ## Prérequis
 
-L'API Rubrik REST fournit une interface RESTful pour travailler avec les clusters Rubrik et les appliances virtuelles Rubrik Edge. 
+L'API Rubrik REST fournit une interface RESTful pour travailler avec les clusters Rubrik et les *appliances* virtuelles Rubrik Edge. 
+
 L'API peut être utilisée pour interroger, configurer et contrôler presque toutes les opérations du logiciel Rubrik.
 
-Si vous avez accès à un cluster Rubrik, vous pouvez également utiliser l'aire de jeu Rubrik API à l'adresse suivante
+Si vous avez accès à un cluster Rubrik, vous pouvez également utiliser l'aire de jeu Rubrik API à l'adresse suivante:
+
 https://{{node_ip}}/docs/{{{v1|v2|internal}}/playground
 
 _Note : les paramètres internes de l'API peuvent changer entre les versions du MDP2_
@@ -112,7 +114,8 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur Rubrik RestAPI
-* Appliquez le Modèle d'Hôte *App-Rubrik-Restapi*
+* Appliquez le Modèle d'Hôte *App-Rubrik-Restapi-custom*
+
 
 Les Macros d'Hôte ci-après doivent être renseignées le cas échéant:
 
@@ -137,8 +140,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --proto='https' \
     --port='443' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
-    --api-password='****'
-	--api-username='centreon'
+    --api-password='****' \
+    --api-username='centreon' \
     --verbose
 ```
 
@@ -179,8 +182,10 @@ Vérifiez que la requête n'est pas bloquée par un outil externe
 la Macro *EXTRAOPTIONS* de l'Hôte ou directement dans la
 commande avec l'option ```--proxyurl```.
 
-Si un certificat auto-signé est utilisé, il est nécessaire d'ajouter l'option permettant d'ignorer 
-sa validité.
+Si un certificat auto-signé est utilisé, il est nécessaire d'ajouter les options suivantes permettant d'ignorer 
+sa validité:
+```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
+
 
 ### J'obtiens le message d'erreur suivant: ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 

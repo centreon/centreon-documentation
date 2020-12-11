@@ -107,9 +107,9 @@ on the "Configuration > Plugin Packs > Manager" page
 
 * Log into Centreon and add a new Host through "Configuration > Hosts". 
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Rubrik App settings 
-* Select the *App-Rubrik-Restapi-custom*
+* Select and apply the *App-Rubrik-Restapi-custom* Host Template
+* Set the the Host Macros marked as *mandatory* hereafter:
 
-Les Macros d'Hôte ci-après doivent être renseignées le cas échéant:
 
 | Mandatory | Name                       | Description                                                                        |
 |:----------|:-------------------------- |:-----------------------------------------------------------------------------------|
@@ -132,8 +132,8 @@ by running the following command (some of the parameters such as ```--proxyurl``
     --proto='https' \
     --port='443' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
-    --api-password='****'
-	--api-username='centreon'
+    --api-password='****' \
+    --api-username='centreon' \
     --verbose
 ```
 
@@ -152,7 +152,8 @@ node 'RVMHM194S00XXXX' [ip address: 172.10.69.97] status: ok
 ```
 
 The Plugin mode collects the status of the nodes (```--plugin=apps::backup::rubrik::restapi::plugin --mode=nodes```)
-linked to a cluster reachable over 10.0.0.1 IP Address and port 443 (```--hostname='10.0.0.1' --port='443'```).
+linked to a cluster reachable at its IP Address *10.0.0.1* on port *443* (```--hostname='10.0.0.1' --port='443'```).
+
 
 All the filters that can be used as well as all the available thresholds parameters 
 can be displayed by adding the  ```--help``` parameter to the command:
@@ -164,16 +165,20 @@ can be displayed by adding the  ```--help``` parameter to the command:
     --help
 ```
 
-### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
+### Why do I get the following message: ```UNKNOWN: 500 Can't connect to 10.0.0.1:80 |```
+
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Rubriik App RestAPI.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the API. 
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
 
-If a self-signed certificate is used, you must add an option to ignore its validity.
+If a self-signed certificate is used, you must add the following options to ignore its validity:
+```--http-backend='curl' --ssl-opt='SSL_verify_mode => SSL_VERIFY_NONE'```
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+
+### Why do I get the following message: ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+
 
 When using a proxy to connect to the Alyvix Server RestAPI, this error
 message means that the Centreon Plugin library does not support the proxy
