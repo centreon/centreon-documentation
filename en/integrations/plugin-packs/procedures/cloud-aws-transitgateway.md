@@ -163,9 +163,9 @@ command (Some of the parameters such as ```--proxyurl``` have to be adjusted):
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --timeframe='600' \
     --period='60' \
-	--filter-gateway='tgw-01234567890abcd' \
+    --filter-gateway='tgw-01234567890abcd' \
     --warning-packets-drop-blackhole='500' \
-	--critical-packets-drop-blackhole='1000' \
+    --critical-packets-drop-blackhole='1000' \
     --verbose
 ```
 
