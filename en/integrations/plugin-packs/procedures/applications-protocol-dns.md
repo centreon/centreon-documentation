@@ -18,15 +18,25 @@ The Centreon Plugin-Pack * DNS Service * checks if a resolution for a domain nam
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-| Metric name                 | Description                    |
-| :-------------------------- | :----------------------------- |
-| status                      | Status of the DNS Server       |
+<!--DNS-Request-->
+
+| Metric name                 | Description                                | Unit |
+| :-------------------------- | :----------------------------------------- | :--- |
+| time                        | Elapsed time to complete DNS request       |  s   |
+
+This mode allow to check that the server executing the probe correctly resolve its own address.
+
+<!--DNS-Request-->
+
+| Metric name                 | Description                                | Unit |
+| :-------------------------- | :----------------------------------------- | :--- |
+| time                        | Elapsed time to complete DNS request       |  s   |
+
+This mode is meant to be used on a server with the DNS role. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Prerequisites
-
 
 ## Installation
 
@@ -68,8 +78,8 @@ yum install centreon-pack-applications-protocol-dns
 
 Once the Host created, you can configure the Services following macro on the Services:
 
-| Mandatory | Name           | Description                      |
-| :-------- | :------------- | :------------------------------- |
+| Mandatory | Name           | Description                                      |
+| :-------- | :------------- | :----------------------------------------------- |
 |           | SEARCH         | The domain name for which you want a resolution  |
 
 ## FAQ
@@ -77,7 +87,6 @@ Once the Host created, you can configure the Services following macro on the Ser
 
 Once the Centreon Plugin installed, you can test it directly in the CLI of the
 Centreon poller by logging with the *centreon-engine* user:
-
 
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_dns.pl \
