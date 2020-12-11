@@ -47,7 +47,7 @@ Configure a service account (*access/secret keys* combo) for which the following
 
 | AWS Privilege                  | Description                                             |
 |:-------------------------------|:------------------------------------------------------- |
-| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace    |
+| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/SES namespace    |
 
 ### Plugin dependencies
 
