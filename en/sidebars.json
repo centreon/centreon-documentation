@@ -356,6 +356,7 @@
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
                     "integrations/plugin-packs/procedures/applications-redis-cli",
                     "integrations/plugin-packs/procedures/applications-redis-restapi",
+                    "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
                     "integrations/plugin-packs/procedures/applications-databases-sap-hana",
