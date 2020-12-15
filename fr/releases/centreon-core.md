@@ -88,7 +88,9 @@ commerciales, vous pouvez vous rendre sur notre
 
 *Stalking option*
 
-The stalking option works again, it has been fixed.
+The stalking option works again, it has been fixed. Make sure you are not
+enabling volatile option at the same time to really get an output
+stalking.
 
 *Macros filters*
 

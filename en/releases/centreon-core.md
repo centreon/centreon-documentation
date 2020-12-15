@@ -88,7 +88,9 @@ If you have feature requests or want to report a bug, please go to our
 
 *Stalking option*
 
-The stalking option works again, it has been fixed.
+The stalking option works again, it has been fixed. Make sure you are not
+enabling volatile option at the same time to really get an output
+stalking.
 
 *Macros filters*
 
