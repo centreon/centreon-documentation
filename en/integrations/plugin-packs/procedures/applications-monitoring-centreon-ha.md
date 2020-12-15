@@ -117,6 +117,14 @@ ssh <cluster-node-ip-address>
 
 Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
 
+The `centreon-engine` user is now able to log in *via* SSH to both central nodes.
+
+Now add the `centreon-engine` user to the `haclient` group to entitle it to run the cluster management commands.
+
+```bash
+usermod -a -G haclient centreon-engine
+```
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
