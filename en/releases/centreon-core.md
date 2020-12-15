@@ -517,7 +517,7 @@ ISO-8859-15, CP-1252 and UTF-8.
 
 *TLS*
 
-Credentials were no more loaded by the TLS connector. This is fixed with this
+Credentials were not loaded by the TLS connector anymore. This is fixed with this
 new version.
 
 *Custom variables*
