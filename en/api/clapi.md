@@ -2115,7 +2115,7 @@ Parameters that you can change are the following:
 
 #### Getparam
 
-In order to get specific parameters on a commandn, use the **GETPARAM** action:
+In order to get specific parameters on a command, use the **GETPARAM** action:
 
 ``` shell
 centreon -u admin -p centreon -o CMD -a getparam -v "test;name"
