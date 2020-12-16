@@ -114,6 +114,38 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Broker release notes
 
+### 20.10.2
+
+> Comportements connus:
+>
+>   - Si le chiffrement TLS est configuré pour utiliser une paire
+>     clé/certificat personnelle pour les entrées/sorties IPv4/6,
+>     **les deux extrémités doivent être mises à jour** pour assurer
+>     la communication.
+>
+>   - Si vous utilisez Centreon MAP avec un chiffrement TLS, assurez
+>     vous de **mettre à jour le serveur MAP** à la version >= 20.10.2.
+
+#### Bugfixes
+
+*TLS*
+
+Credentials were not more loaded by the TLS connector anymore. This is fixed with this
+new version.
+
+*Custom variables*
+
+They were updated several times in the database. It is fixed now.
+
+*Build*
+
+GnuTLS requirement now matches compilation version.
+
+*BAM*
+
+Reporting events were not stored into database because of truncated
+Business Activities names causing *duplicate entry* errors.
+
 ### 20.10.1
 
 #### Bugfixes
@@ -144,12 +176,12 @@ files and there are a lot of traffic.
 
 Those streams have several improvements:
 
-    -   Events exchanges are really faster, especially when Broker has
-        retention files.
-    -   Several queries have been changed to insert data in bulk, it is
-        the case for custom variables and metrics.
-    -   There are cases where those streams could crash that have been
-        also fixed.
+-   Events exchanges are much faster, especially when Broker has
+    retention files.
+-   Several queries have been changed to insert data in bulk, it is
+    the case for custom variables and metrics.
+-   There are cases where those streams could crash that have been
+    also fixed.
 
 *Statistics*
 
@@ -180,10 +212,10 @@ with the –pool\_size X argument or -s X.
 >     maintenue en s'assurant que les configurations des Brokers respectent
 >     les conditions suivantes :
 >
->       - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
->         ou *No* sur l'entrée du Central,
->       - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
->         ou *No* sur la sortie du Poller ou Remote Server.
+>     - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
+>       ou *No* sur l'entrée du Central,
+>     - le *chiffrement TLS* et la *compression* sont paramétrés à *Auto*
+>       ou *No* sur la sortie du Poller ou Remote Server.
 >
 >     Si le mode de connexion inversé (*one peer retention*) est utilisé,
 >     la mise à jour de Broker est obligatoire.
