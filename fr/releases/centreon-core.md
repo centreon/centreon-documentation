@@ -82,6 +82,27 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine release notes
 
+### 20.10.1
+
+#### Bugfixes
+
+*Stalking option*
+
+The stalking option works again, it has been fixed. Make sure you are not
+enabling volatile option at the same time to really get an output
+stalking.
+
+*Macros filters*
+
+Macros can be filtered. This was possible before and there was a
+regression breaking this functionality. So now, we can activate the
+macros filtering and then we can specify which macros to send to broker.
+
+*Notifications*
+
+Host/service status field 'Last Notification' was filled when
+state was HARD even if no notification is configured nor sent.
+
 ### 20.10.0
 
 > Comportements connus:
