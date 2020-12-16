@@ -18,6 +18,16 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP release notes
 
+### 20.04.5
+
+* [Amelioration] Le protocole TLS pour communiquer avec le composant Broker a été implémenté
+* [Fix] Mettre à jour depuis des versions précédentes causait parfois un échec lors du redémarrage du service centreon-map
+* [Fix] Une mise à jour ou une nouvelle installation causait parfois une mauvaise attribution des droits sur le dossier media
+* [Fix] Ajouter ou supprimer un Downtime depuis l'interface web causait parfois une rupture de connexion avec Broker
+* [Fix] Créer une carte avec un nom vide rendait parfois le menu Monitoring>Map inaccessible
+* [Fix] Ajouter un Output dans Studio avait parfois pour résultat une métrique mal formattée
+* [Fix][API] Une requête de token sur Swagger-iu retournait parfois une erreur
+
 ### 20.04.4
 
 * Sauvegarder une Geo View sur un Widget Custom View MAP était impossible dû à l'absence du bouton "Sauvegarder"
