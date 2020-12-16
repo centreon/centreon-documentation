@@ -209,6 +209,8 @@ with the –pool\_size X argument or -s X.
   disabled
 - [autodiscovery] Service discovery email sending not working properly
   when having services with space in their name
+- [autodiscovery] Service discovery email sending not working with groups
+  of contacts
 
 #### Enhancements
 
