@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please contact support.
 * [Enhancement] Full TLS compliance has been added for communication with Broker component
 * [Fix] Upgrading from previous versions could cause a failed restart of centreon-map service
 * [Fix] Fresh install or upgrade could result in wrong permissions for centreon-map media folder
-* [Fix] Adding or deleting a Downtown from the Web-UI could result in loss of connection with Broker
+* [Fix] Adding or deleting a Downtime from the Web-UI could result in loss of connection with Broker
 * [Fix] Creating a map with empty name could cause a failure to load the Monitoring>Map menu
 * [Fix] Adding an Output in Studio could sometimes result in mis formatted metric
 * [Fix] WhatsUp events were unnecessarily raised in web sessions potentially causing performance issues
