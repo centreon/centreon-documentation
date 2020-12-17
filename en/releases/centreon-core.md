@@ -780,6 +780,18 @@ TCP endpoint with the 'pool_size' label.
 
 ## Centreon Gorgone release notes
 
+### 20.04.8
+
+#### Bug fixes
+
+- [proxy] gorgone-proxy processes stucked when stopping gorgoned
+- [core] Rare case of database handler wrongly instantiated due to race
+  condition issue
+
+#### Enhancements
+
+- [proxy] Force TCP reconnection after 3 ping timeout
+
 ### 20.04.7
 
 #### Enhancements
