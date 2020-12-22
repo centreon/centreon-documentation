@@ -22,7 +22,7 @@ Ajouter le dépôt Centreon BAM fourni par Centreon.
 yum install https://yum.centreon.com/centreon-bam/d4e1d7d3e888f596674453d1f20ff6d3/20.10/el7/stable/noarch/RPMS/centreon-bam-release-20.10-2.el7.centos.noarch.rpm
 ```
 
-Et installer le paquet en exécutant les commandes ci-dessous :
+Et installer le paquet en exécutant la commande ci-dessous :
 
 ``` shell
 yum install centreon-bam-server
