@@ -160,13 +160,13 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 ## Installer l'extension sur Centreon
 
-Les actions listées dans ce chapitre doivent être lancées sur le serveur
-de supervision Centreon.
+Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Contactez le Centre de service de Centreon afin d'obtenir les
-repository de Centreon MBI.
+Pour obtenir les repository de Centreon MBI. Exécutez la commande suivante : 
 
-Lancez la commande suivante :
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.10-2.el7.centos.noarch.rpm
+
+Puis lancez la commande suivante :
 
     yum install centreon-bi-server
 
@@ -244,8 +244,11 @@ veillez à les connaître avant de commencer :
     centreonBI, sur le serveur Central (pour la mise à disposition des
     rapports générés sur l'interface)
 
-Pour lancer l'installation du serveur de reporting, installer le dépôt correspondant (fourni par le support)
-puis lancer la commande suivante:
+Pour lancer l'installation du serveur de reporting, installer le dépôt correspondant:
+
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.10-2.el7.centos.noarch.rpm
+
+Puis lancer la commande suivante:
 
     yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 
