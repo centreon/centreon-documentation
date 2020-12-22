@@ -163,10 +163,17 @@ Description des utilisateurs, umask et répertoire utilisateur :
 Les actions listées dans ce chapitre doivent être lancées sur le serveur
 de supervision Centreon.
 
-Contactez le Centre de service de Centreon afin d'obtenir les
-repository de Centreon MBI.
+Pour obtenir les repository de Centreon MBI. Exécutez la commande suivante : 
 
-Lancez la commande suivante :
+Si votre version est la 20.04
+
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
+
+Si votre version est la 20.10
+
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.10-2.el7.centos.noarch.rpm
+
+Puis lancez la commande suivante :
 
     yum install centreon-bi-server
 
