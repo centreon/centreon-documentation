@@ -258,7 +258,7 @@ installation process:
 
 To start installing the reporting server, install the corresponding repository:
 
-    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
 
 Then execute the following command:
 
