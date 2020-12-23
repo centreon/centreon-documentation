@@ -6,6 +6,10 @@ title: Introduction to Plugin Packs
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
 
+To obtain the Plugins Packs it is necessary to have a license and to install the associated repository:
+
+    yum install https://yum.centreon.com/plugin-packs/2e83f5ff110c44a9cab8f8c7ebbe3c4f/20.10/el7/stable/noarch/RPMS/centreon-plugin-packs-release-20.10-2.el7.centos.noarch.rpm
+
 The templates (commands, hosts and services templates) configure a monitoring
 plugin that actually executes the monitoring commands on a Centreon Poller.
 Plugins are not packaged with Plugin Packs and must be installed separately:
