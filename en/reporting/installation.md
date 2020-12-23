@@ -171,7 +171,7 @@ central server.
 
 To install the Centreon MBI repository on the Centreon central server. Run this command:
 
-    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.10-2.el7.centos.noarch.rpm
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
 
 Then run the following command: 
 
@@ -258,7 +258,7 @@ installation process:
 
 To start installing the reporting server, install the corresponding repository:
 
-    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.10/el7/stable/noarch/RPMS/centreon-mbi-release-20.10-2.el7.centos.noarch.rpm
+    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
 
 Then execute the following command:
 
@@ -268,7 +268,7 @@ If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key: :
 
     cd /etc/pki/rpm-gpg/
-    wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
+    wget http://yum.centreon.com/standard/20.04/el7/stable/RPM-GPG-KEY-CES
 
 ### Reporting server configuration
 
