@@ -208,7 +208,7 @@ need to install the Centreon-Release package :
 
 Install Centreon MAP release package :
 
-    yum install https://yum.centreon.com/centreon-map/bfcfef6922ae08bd2b641324188d8a5f/20.04/el7/stable/noarch/RPMS/centreon-map-release-20.04-1.el7.centos.noarch.rpm
+    yum install https://yum.centreon.com/centreon-map/bfcfef6922ae08bd2b641324188d8a5f/20.10/el7/stable/noarch/RPMS/centreon-map-release-20.10-2.el7.centos.noarch.rpm
 
 Install Centreon MAP from the Centreon MAP yum repository. It will automatically install java (OpenJDK 11) if needed.
 You need to have a MySQL/MariaDB database to store Centreon Map data, wether it's on localhost or somewhere else.:
