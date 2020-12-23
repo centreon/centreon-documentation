@@ -489,6 +489,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-fujitsu-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-timelinkmicro-tms6001-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-hp-blade-chassis-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-hp-ilo-restapi",
