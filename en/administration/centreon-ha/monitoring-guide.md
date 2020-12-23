@@ -30,7 +30,7 @@ Then add a new service by browsing to `Configuration` > `Services` > `Services b
 |:--------------------|:----------------------------------------------------------------|
 | *Description*       | MariaDB-Replication                                             |
 | *Linked with Hosts* | Central node                                                    |
-| *Template*          | App-DB-MySQL-MariaDB-Replication                                |
+| *Template*          | App-DB-MySQL-MariaDB-Replication-custom                         |
 | `PEERHOST`          | IP address of the other central node                            |
 | `PEERPORT`          | Port of the other central node's MariaDB server (default: 3306) |
 | `PEERUSERNAME`      | Login of the other central node's MariaDB server                |
