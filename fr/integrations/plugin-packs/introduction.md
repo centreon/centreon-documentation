@@ -7,6 +7,10 @@ Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
 de modèles de configuration qui rendent la supervision de votre infrastructure
 facile et intuitive.
 
+Pour pouvoir en bénéficier il est nécessaire d'avoir une licence et d'installer le dépôts associé:
+
+    yum install https://yum.centreon.com/plugin-packs/2e83f5ff110c44a9cab8f8c7ebbe3c4f/20.04/el7/stable/noarch/RPMS/centreon-plugin-packs-release-20.04-1.el7.centos.noarch.rpm
+
 Ces modèles (modèles d’hôtes et de services, commandes associées) configurent
 une sonde (aussi appelée plugin) qui elle-même exécute les commandes de
 supervision depuis un Centreon Poller. Les sondes ne sont pas téléchargées avec
