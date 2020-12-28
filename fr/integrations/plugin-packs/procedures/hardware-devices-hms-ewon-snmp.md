@@ -7,7 +7,7 @@ title: HMS Ewon SNMP
 
 ### Objets supervisés
 
-Le plugin-pack HMS Ewon la supervision des Tags.
+Le Plugin-Pack HMS Ewon la supervision des Tags.
 
 ### Métriques collectées
 

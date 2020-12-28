@@ -7,7 +7,7 @@ title: HMS Ewon SNMP
 
 ### Monitored Objects
 
-The plugin-pack HMS Ewon including monitoring of Tags.
+The Plugin-Pack HMS Ewon including monitoring of Tags.
 
 ### Collected Metrics
 
@@ -100,7 +100,7 @@ Tag 'Compt_Ea_Partiel' status: none, value: 20507
 Tag 'Compt_Er_Partiel' status: none, value: 1040
 ```
 
-The command above monitors a HMS Ewon tags (```--plugin=hardware::devices::hms::ewon::snmp::plugin --mode=tags```) identified
+The command above monitors HMS Ewon tags (```--plugin=hardware::devices::hms::ewon::snmp::plugin --mode=tags```) identified
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='ewon_ro'```).
 
