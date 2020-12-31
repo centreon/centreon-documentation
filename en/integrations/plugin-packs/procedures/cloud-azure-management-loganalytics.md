@@ -23,9 +23,9 @@ number of matched items. It can relies on both Azure API and Azure CLI.
 
 <!--Kusto-Query-->
 
-| Metric name               | Description                                       | Unit |
-|:--------------------------|:------------------------------------------------- |:-----|
-| match.count               | The number of log matching the query expression.  | B    |
+| Metric name               | Description                                       | Unit  |
+|:--------------------------|:------------------------------------------------- |:----- |
+| match.count               | The number of log matching the query expression.  | count |
 
 The KUSTOQUERY Macro is mandatory. 
 

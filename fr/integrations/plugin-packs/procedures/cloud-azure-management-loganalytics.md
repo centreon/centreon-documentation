@@ -25,9 +25,9 @@ Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 
 <!--Kusto-Query-->
 
-| Metric name               | Description                                       | Unit |
-|:--------------------------|:------------------------------------------------- |:-----|
-| match.count               | The number of log matching the query expression.  | B    |
+| Metric name               | Description                                       | Unit  |
+|:--------------------------|:------------------------------------------------- |:----- |
+| match.count               | The number of log matching the query expression.  | count |
 
 La Macro KUSTOQUERY est obligatoire. 
 
