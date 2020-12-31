@@ -47,7 +47,7 @@ yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 1. Install the Centreon Plugin on every Poller:
 
 ```bash
-yum install entreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
+yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 ```
 
 2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
@@ -87,7 +87,7 @@ and test the Plugin by running the following command:
     --snmp-community='ewon_ro' \
     --filter-tag-name=Partiel \
     --tag-threshold-warning='40000' \
-    --tag-threshold-critical='50000'
+    --tag-threshold-critical='50000' \
     --verbose
 ```
 

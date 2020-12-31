@@ -88,7 +88,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --snmp-community='ewon_ro' \
     --filter-tag-name=Partiel \
     --tag-threshold-warning='40000' \
-    --tag-threshold-critical='50000'
+    --tag-threshold-critical='50000' \
     --verbose
 ```
 
