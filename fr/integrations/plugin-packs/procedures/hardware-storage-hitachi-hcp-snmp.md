@@ -39,7 +39,7 @@ It is possible to filter on the name of a node using a REGEXP of the form [```--
 | *tenantname*#tenant.space.free.bytes       | Free space left on the tenant     | B    |
 | *tenantname*#tenant.space.usage.percentage | Usage of the tenant in percentage | %    |
 
-It is possible to filter on the name of a tenant using a REGEXP of the form [```--filter-tenant-name='backup'```].
+It is possible to filter on the ID of a tenant using a REGEXP of the form [```--filter-tenant-name='backup'```].
 
 <!--Volumes-->
 
@@ -55,6 +55,7 @@ It is possible to filter on the name of a tenant using a REGEXP of the form [```
 ## Prérequis
 
 Afin de contrôler vos équipements Hitach HCP, le SNMP doit être configuré.
+(https://knowledge.hitachivantara.com/Documents/Storage/Content_Platform/9.0.x/Administering_HCP/System_monitoring/03_Configuring_SNMP)
 
 ## Installation
 
