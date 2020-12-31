@@ -138,7 +138,8 @@ information below:
     ]
 ```
 
-Credentials are now stored locally .accessTokens.json file the Plugin can use. 
+Credentials are now stored locally in the .accessTokens.json file so the Plugin 
+can use it. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -189,7 +190,7 @@ The Macros vary depending on the custom-mode used.
 
 <!--Azure Monitor API-->
 
-| Mandatory   | Nom               | Description       |
+| Mandatory   | Name              | Description       |
 | :---------- | :---------------- | :---------------- |
 | X           | AZURECUSTOMMODE   | Custom mode 'api' |
 | X           | AZURESUBSCRIPTION | Subscription ID   |
@@ -199,12 +200,10 @@ The Macros vary depending on the custom-mode used.
 
 <!--Azure AZ CLI-->
 
-#### 'azcli' custom mode macros
-
-| Nom               | Description         |
-| :---------------- | :------------------ |
-| AZURECUSTOMMODE   | Custom mode 'azcli' |
-| AZURESUBSCRIPTION | Subscription ID     |
+| Mandatory   | Name              | Description         |
+| :---------- | :---------------- | :------------------ |
+| X           | AZURECUSTOMMODE   | Custom mode 'azcli' |
+| X           | AZURESUBSCRIPTION | Subscription ID     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
