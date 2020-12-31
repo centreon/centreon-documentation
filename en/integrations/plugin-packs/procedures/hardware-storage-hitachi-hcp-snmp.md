@@ -29,7 +29,7 @@ The Plugin-Pack Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volu
 | *nodeid*#node.sensor.fan.speed.rpm       | Sensor fan speed                  | rpm  |
 | *nodeid*#node.sensor.voltage.volt        | Sensor voltage                    | V    |
 
-It is possible to filter on the name of a node using a REGEXP of the form [```--filter-node-id='101'```].
+It is possible to filter on the ID of a node using a REGEXP of the form [```--filter-node-id='101'```].
 
 <!--Tenants-->
 
@@ -55,6 +55,7 @@ It is possible to filter on the name of a tenant using a REGEXP of the form [```
 ## Prerequisites
 
 To control your Hitachi HCP, the SNMP must be configured.
+(https://knowledge.hitachivantara.com/Documents/Storage/Content_Platform/9.0.x/Administering_HCP/System_monitoring/03_Configuring_SNMP)
 
 ## Setup
 
