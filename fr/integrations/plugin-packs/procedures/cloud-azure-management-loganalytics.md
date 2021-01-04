@@ -41,7 +41,6 @@ Deux moyens sont disponibles pour interroger les API Microsoft Azure.
 Centreon préconise l'utilisation de la méthode *API* plutôt que la *CLI*, cette dernière étant significativement
 moins performante. L'API permet également une authentification *Application* et ne nécessite pas de compte de service dédié.
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Azure Monitor API-->
@@ -49,7 +48,6 @@ moins performante. L'API permet également une authentification *Application* et
 Pour le custom-mode 'api', récupérez les informations en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
 dans Centreon.
-
 
 * Create an *application* in Azure Active Directory:
     - Login into your azure account.
@@ -97,7 +95,6 @@ dans Centreon.
 Afin d'utiliser le custom-mode 'azcli', installer le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
 
-
 - La CLI requiert une version de Python >= 2.7 (<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>)
 
 Sur un système utilisant le packaging RPM, utiliser les commandes ci-dessous avec 
@@ -119,14 +116,13 @@ az login
 
 La commande retourne le message ci-dessous contenant un code:
 
-    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin 
-    and enter the code CWT4WQZAD to authenticate.*
+    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
+    *and enter the code CWT4WQZAD to authenticate.*
 
 
 Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu.
 
 Se connecter avec le compte de service dédié à la supervision, cela devrait déclencher
-
 l'affichage des éléments suivants dans le terminal: 
 
 ```shell
@@ -165,7 +161,6 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon devant effectuer des requêtes vers Azure Log Analytics:
@@ -193,7 +188,6 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-Log-Analytics-custom
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Azure Monitor API-->
@@ -207,7 +201,6 @@ doivent être renseignées selon le custom-mode utilisé:
 | X           | AZURECLIENTSECRET | Client secret     |
 
 <!--Azure AZ CLI-->
-
 
 | Nom               | Description         |
 | :---------------- | :------------------ |
@@ -257,9 +250,7 @@ La requête indiquée dans la commande peut également intégrer une borne tempo
 n'obtenir que le nombre d'occurences sur lesquelles l'attribut *LastCall* date de plus de deux jours
 (```--query='Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(2d)'```).
 
-
 La borne de temps pour la requête peut également être précisée au format ISO-8601 via l'option ```--timespan```.
-
 
 La liste de toutes les options complémentaires et leurs signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
@@ -273,14 +264,12 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ### Diagnostic des erreurs communes  
 
-
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
 Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
-
 en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
 
 Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
@@ -291,7 +280,6 @@ ne sont pas valides.
 Le Plugin utilise un fichier de cache pour conserver les informations de connexions pour ne pas 
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
-
 
 Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_<md5>_<md5>_<md5>_<md5>.
 

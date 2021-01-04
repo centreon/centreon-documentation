@@ -11,14 +11,14 @@ collected by Azure Monitor Logs and interactively analyze their results.
 The *Azure Log Analytics* Plugin-Pack allows you to run KQL queries and monitor 
 number of matched items. It can rely on both Azure API and Azure CLI.
 
-
 ## Plugin Pack Assets
 
 ### Monitored Objects
 
 * Number of logs lines matching query expression
 
-## Collected Metrics
+### Collected Metrics
+
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -27,7 +27,6 @@ number of matched items. It can rely on both Azure API and Azure CLI.
 | Metric name               | Description                                        | Unit  |
 |:--------------------------|:-------------------------------------------------- |:----- |
 | match.count               | The number of logs matching the query expression.  | count |
-
 
 The KUSTOQUERY Macro is mandatory. 
 
@@ -43,7 +42,6 @@ Centreon recommends to use the API instead of the CLI for the following reasons:
     * API is much more efficient by avoiding CLI binary execution
     * API supports application authentication while CLI does not (yet)
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Azure Monitor API-->
@@ -53,32 +51,24 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 
 * Create an *application* in Azure Active Directory:
     - Log in to your Azure account.
-
     - Select *Azure Active directory* in the left sidebar.
-
     - Click on *App registrations*.
-
     - Click on *+ Add*.
-
     - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
     - Click on the *Create* button.
 
-
 * Get *Subscription ID*
     - Log in to your Azure account.
-
     - Select *Subscriptions* in the left sidebar.
     - Select whichever subscription is needed.
     - Click on *Overview*.
     - **Copy the Subscription ID.**
-
 
 * Get *Tenant ID*
     - Log in to your Azure account.
     - Select *Azure Active directory* in the left sidebar.
     - Click on *Properties*.
     - **Copy the directory ID.**
-
 
 * Get *Client ID*
     - Log in to your Azure account.
@@ -88,7 +78,6 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Select the application previously created.
     - Click on *Properties*.
     - **Copy the Application ID.**
-
 
 * Get *Client secret*
     - Log in to your Azure account.
@@ -101,11 +90,9 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-
 <!--Azure AZ CLI-->
 
 To use the *azcli* custom mode, install the required packages on every Centreon poller expected to 
-
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -128,8 +115,8 @@ az login
 
 The shell will output this message including an authentication code:
 
-    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin 
-    and enter the code CWT4WQZAD to authenticate.*
+    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
+    *and enter the code CWT4WQZAD to authenticate.*
 
 
 Go to <https://microsoft.com/devicelogin> and enter the code. 
@@ -195,7 +182,6 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 
 ### Host
 
-
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
@@ -257,12 +243,10 @@ The query runs in a specific workspace (```--workspace-id='xxxxxxxxxxxxxxx'```) 
 the output message to make it more relevant (```--custom-output='Number of computer without heartbeat for more than 2 days: %d'```). 
 
 The Query expression itself is included and can be copy/pasted from the one used in the Azure Analytics Web UI. The example is
-
 a query returning the number of lines where the LastCall is older than two days. 
 (```--query='Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(2d)'```)
 
 The query's timespan uses the ISO-8601 time format and can be specified with the option ```--timespan```.
-
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
@@ -283,11 +267,9 @@ When I run my command I obtain the following error message:
 It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
 some hints about where the problem stands. 
 
-
 As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
 
 #### The Azure credentials have changed and the Plugin does not work anymore
-
 
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
