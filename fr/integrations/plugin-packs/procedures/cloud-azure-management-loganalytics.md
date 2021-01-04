@@ -29,7 +29,6 @@ Il peut s'appuyer sur l'API Azure Management Monitor ou l'Azure CLI.
 |:--------------------------|:-------------------------------------------------- |:----- |
 | match.count               | The number of logs matching the query expression.  | count |
 
-
 La Macro KUSTOQUERY est obligatoire. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -118,7 +117,6 @@ La commande retourne le message ci-dessous contenant un code:
 
     *To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
     *and enter the code CWT4WQZAD to authenticate.*
-
 
 Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu.
 

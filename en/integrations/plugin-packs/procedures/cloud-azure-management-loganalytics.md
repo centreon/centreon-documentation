@@ -19,7 +19,6 @@ number of matched items. It can rely on both Azure API and Azure CLI.
 
 ### Collected Metrics
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Kusto-Query-->
@@ -117,7 +116,6 @@ The shell will output this message including an authentication code:
 
     *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
     *and enter the code CWT4WQZAD to authenticate.*
-
 
 Go to <https://microsoft.com/devicelogin> and enter the code. 
 
