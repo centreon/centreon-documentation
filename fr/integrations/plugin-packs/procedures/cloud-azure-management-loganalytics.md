@@ -49,44 +49,44 @@ et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la
 dans Centreon.
 
 * Create an *application* in Azure Active Directory:
-    - Login into your azure account.
-    - Select Azure Active directory in the left sidebar.
-    - Click on App registrations.
-    - Click + Add.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Click on *+ Add*.
     - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on create button.
+    - Click on the *Create* button.
 
 * Get *Subscription ID*
-    - Login into your azure account.
-    - Select Subscriptions in the left sidebar.
+    - Log in to your Azure account.
+    - Select *Subscriptions* in the left sidebar.
     - Select whichever subscription is needed.
-    - Click on overview.
+    - Click on *Overview*.
     - **Copy the Subscription ID.**
 
 * Get *Tenant ID*
-    - Login into your azure account.
-    - Select azure active directory in the left sidebar.
-    - Click properties.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Properties*.
     - **Copy the directory ID.**
 
 * Get *Client ID*
-    - Login into your azure account.
-    - Select azure active directory in the left sidebar.
-    - Click Enterprise applications.
-    - Click All applications.
-    - Select the application which you have created.
-    - Click Properties.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *Enterprise applications*.
+    - Click on *All applications*.
+    - Select the application previously created.
+    - Click on *Properties*.
     - **Copy the Application ID.**
 
 * Get *Client secret*
-    - Login into your azure account.
-    - Select azure active directory in the left sidebar.
-    - Click App registrations.
-    - Select the application which you have created.
-    - Click on All settings.
-    - Click on Keys.
-    - Type Key description and select the Duration.
-    - Click save.
+    - Log in to your Azure account.
+    - Select *Azure Active directory* in the left sidebar.
+    - Click on *App registrations*.
+    - Select the application previously created.
+    - Click on *All settings*.
+    - Click on *Keys*.
+    - Enter the key description and select the duration.
+    - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
 <!--Azure AZ CLI-->
