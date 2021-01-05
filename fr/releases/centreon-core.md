@@ -271,7 +271,7 @@ with the –pool\_size X argument or -s X.
 
 *x janvier 2021*
 
-#### Bug fixes
+#### Correctifs
 
 - [zmqclient] Harden communication to avoid "Protocol not good" errors
 - [zmqclient] Increment ZMQ_LINGER period for some modules
