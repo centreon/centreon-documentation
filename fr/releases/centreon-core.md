@@ -27,7 +27,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 - [API] Improve registration script
 - [Performance] Disable UI notification mechanism if not needed by user
-#### Bug fixes
+
+#### Correctifs
 
 - [API] Rework POST generated API request for PlatformTopology
 - [API] Service groups search not working
@@ -47,7 +48,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Services listing blinking in details panel
 - [Resources Status] Timeline tab content blinks while browsing resources
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Apache] Lack of click diversion protection (Clickjacking)
 - [Core] Update moment.js library

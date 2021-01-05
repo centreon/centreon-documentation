@@ -28,7 +28,7 @@ If you have feature requests or want to report a bug, please go to our
 - [API] Improve registration script
 - [Performance] Disable UI notification mechanism if not needed by user
 
-#### Bug fixes
+#### Bugfixes
 
 - [API] Rework POST generated API request for PlatformTopology
 - [API] Service groups search not working
