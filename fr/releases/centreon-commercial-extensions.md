@@ -8,41 +8,66 @@ title: Extensions Commerciales
 Vous trouverez dans ce chapitre tout ce qui concerne les **extensions
 commerciales** de Centreon.
 
-> Il est important de mettre à jour en utilisant la documentation adéquate de
-> mise à jour et de lire attentivement les notes de mise à jour afin d'être au
-> courant de changements qui pourraient impacter votre usage ou votre plateforme
-> ou des développements spécifiques que vous auriez fait.
+> Il est important de mettre à jour en utilisant la documentation
+> adéquate de mise à jour et de lire attentivement les notes de mise à
+> jour afin d'être au courant des changements qui pourraient impacter
+> votre usage ou votre plateforme ou des développements spécifiques que
+> vous auriez fait.
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
 commerciales, veuillez contacter le support.
 
-## Centreon MAP release notes
+## Centreon MAP
 
 ### 20.10.2
 
-* [Amelioration] Le protocole TLS pour communiquer avec le composant Broker a été implémenté
-* [Fix] Mettre à jour depuis des versions précédentes causait parfois un échec lors du redémarrage du service centreon-map
-* [Fix] Une mise à jour ou une nouvelle installation causait parfois une mauvaise attribution des droits sur le dossier media
-* [Fix] Ajouter ou supprimer un Downtime depuis l'interface web causait parfois une rupture de connexion avec Broker
-* [Fix] Créer une carte avec un nom vide rendait parfois le menu Monitoring>Map inaccessible
-* [Fix] Ajouter un Output dans Studio avait parfois pour résultat une métrique mal formattée
-* [Fix] Des événements WhatsUp étaient levés inutilement lors de sessions web causant parfois des baisses de performances
-* [Fix][API] Une requête de token sur Swagger-iu retournait parfois une erreur
+*16 décembre 2020*
+
+#### Améliorations
+
+- Le protocole TLS pour communiquer avec le composant Broker a été implémenté
+
+#### Correctifs
+
+- Mettre à jour depuis des versions précédentes causait parfois un
+  échec lors du redémarrage du service centreon-map
+- Une mise à jour ou une nouvelle installation causait parfois une
+  mauvaise attribution des droits sur le dossier media
+- Ajouter ou supprimer un Downtime depuis l'interface web causait
+  parfois une rupture de connexion avec Broker
+- Créer une carte avec un nom vide rendait parfois le menu 'Monitoring
+  > Map' inaccessible
+- Ajouter un Output dans Studio avait parfois pour résultat une
+  métrique mal formattée
+- Des événements WhatsUp étaient levés inutilement lors de sessions
+  web causant parfois des baisses de performances
+- [API] Une requête de token sur Swagger-iu retournait parfois une erreur
 
 ### 20.10.1
 
-* Sauvegarder une Geo View sur un Widget Custom View MAP était impossible dû à l'absence du bouton "Sauvegarder"
-* Partager les métriques de statistiques d'usage entre le serveur MAP et le Central en HTTPS échouait
-* Créer des liens en utilisant l'API REST peut maintenant recourir aux propriétés 'bendpoints', 'displayValue' et 'displayPercent'
-* Ajouter des ressources Centreon lors de la création d'un Widget Output par l'API REST est maintenant possible
-* Installer MAP Studio lors d'une nouvelle installation échouait à cause de la configuration du back-up automatique
+*19 novembre 2020*
+
+#### Correctifs
+
+- Sauvegarder une Geo View sur un Widget Custom View MAP était impossible
+  dû à l'absence du bouton "Sauvegarder"
+- Partager les métriques de statistiques d'usage entre le serveur MAP et
+  le Central en HTTPS échouait
+- Créer des liens en utilisant l'API REST peut maintenant recourir aux
+  propriétés 'bendpoints', 'displayValue' et 'displayPercent'
+- Ajouter des ressources Centreon lors de la création d'un Widget Output
+  par l'API REST est maintenant possible
+- Installer MAP Studio lors d'une nouvelle installation échouait à cause
+  de la configuration du back-up automatique
 
 ### 20.10.0
 
-#### Enhancements
+*21 octobre 2020*
 
--   La licence est maintenant entièrement géré sur le serveur Centreon
-    Central.
+#### Améliorations
+
+- La licence est maintenant entièrement géré sur le serveur Centreon
+  Central.
 
 #### Serveur plus rapide pour les cartes complexes
 
@@ -66,31 +91,39 @@ des cartes d'un serveur à l'autre facilement.
 Pour l'utiliser, il est nécessaire de l'installer et l'activer.
 Référez-vous à la [documentation dédiée](../graph-views/install.html#centreon-map-ng)
 
-## Centreon BAM release notes
+## Centreon BAM
 
 ### 20.10.0
+
+*21 octobre 2020*
+
+#### Améliorations
 
 - [Configuration] Mise à jour du style des pages *Activités métiers*
   et *Vues métiers*
 
-## Centreon MBI release notes
+## Centreon MBI
 
 ### 20.10.0
 
+*21 octobre 2020*
+
 - Compatibilité avec Centreon 20.10
 
-## Centreon Auto Discovery release notes
+## Centreon Auto Discovery
 
 ### 20.10.2
 
-#### Bugfixes
+*7 décembre 2020*
+
+#### Correctifs
 
 - [Host Discovery] Des valeurs longues dans le champs *host.ip* provoquent
   l'erreur "Error when sorting and filtering host modification results"
 - [Host Discovery] Le script de sauvegarde fonctionne maintenant sous
   CentOS 8
 
-#### Enhancements
+#### Améliorations
 
 - [Host Discovery] Ajout d'une boite de dialogue de confirmation lors de
   la suppression d'une tâche
@@ -99,12 +132,16 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.1
 
-#### Bugfixes
+*27 octobre 2020*
+
+#### Correctifs
 
 - Les scripts de mise à jour en doubles dans la version précédente
   entraînent une erreur SQL dans le log
 
 ### 20.10.0
+
+*21 octobre 2020*
 
 > Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.html#configuration-du-module-Gorgone)
 > pour vous assurer que la configuration correspond aux prérequis minimaux.
@@ -147,21 +184,25 @@ La découverte de service utilise maintenant Gorgone pour exécuter les plugins
 de découverte, et par conséquent le système de communication de Gorgone et
 non plus des connexions SSH autonomes.
 
-#### Bugfixes
+#### Correctifs
 
 - Contient tous les correctifs jusqu'à la version 20.04.6
 
-## Centreon Plugin Packs Manager release notes
+## Centreon Plugin Packs Manager
 
 ### 20.10.0
 
+*21 octobre 2020*
+
 - Compatibilité avec Centreon 20.10
 
-## Centreon License Manager release notes
+## Centreon License Manager
 
 ### 20.10.1
 
-#### Bug fixes
+*2 décembre 2020*
+
+#### Correctifs
 
 - After adding a license or a token the user must access to associated functionalities
 - Rights issues with the gnupg library with multiple users (only with Docker)
@@ -169,10 +210,14 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.0
 
+*21 octobre 2020*
+
 - Compatibilité avec Centreon 20.10
 
 ## Centreon Anomaly Detection
 
 ### 20.10.0
+
+*21 octobre 2020*
 
 - Compatibilité avec Centreon 20.10
