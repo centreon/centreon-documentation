@@ -7,7 +7,7 @@ title: Commvault CommServe Rest API
 
 ### Objets supervisés
 
-Le plugin-pack inclue la supervision des Alerts, Jobs, Media-agents et Storage-pools.
+Le Plugin-Pack inclue la supervision des Alerts, Jobs, Media-agents et Storage-pools.
 
 ### Métriques collectées
 
@@ -31,14 +31,14 @@ Le plugin-pack inclue la supervision des Alerts, Jobs, Media-agents et Storage-p
 | job long status       | Status on job time duration  |      |
 | jobs.total.count      | Number of jobs               |      |
 
-<!--Media-agents--->
+<!--Media-agents-->
 
 | Metric name              | Description             | Unit |
 | :----------------------- | :---------------------- | :--- |
 | media agent status       | Media agent status      |      |
 | media.agents.total.count | Number of media agents  |      |
 
-<!--Storage-pools--->
+<!--Storage-pools-->
 
 | Metric name                                          | Description                                          | Unit |
 | :--------------------------------------------------- | :--------------------------------------------------- | :--- |

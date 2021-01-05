@@ -7,7 +7,7 @@ title: Commvault CommServe Rest API
 
 ### Monitored Objects
 
-The plugin-pack includes monitoring of Alerts, Jobs, Media-agents and Storage-pools.
+The Plugin-Pack includes monitoring of Alerts, Jobs, Media-agents and Storage-pools.
 
 ### Collected Metrics
 
@@ -31,14 +31,14 @@ The plugin-pack includes monitoring of Alerts, Jobs, Media-agents and Storage-po
 | job long status       | Status on job time duration  |      |
 | jobs.total.count      | Number of jobs               |      |
 
-<!--Media-agents--->
+<!--Media-agents-->
 
 | Metric name              | Description             | Unit |
 | :----------------------- | :---------------------- | :--- |
 | media agent status       | Media agent status      |      |
 | media.agents.total.count | Number of media agents  |      |
 
-<!--Storage-pools--->
+<!--Storage-pools-->
 
 | Metric name                                          | Description                                          | Unit |
 | :--------------------------------------------------- | :--------------------------------------------------- | :--- |
@@ -136,7 +136,7 @@ It uses api-username (```--api-username='myapiusername'```), an api-password (``
 and it connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```)
 on the port 443 (```--port='443'```) using https (```--proto='https'```).
 
-This command would trigger a WARNING alert if the space used to raise over 90% of the storage capacity (--warning-space-usage-prct='60') and a CRITICAL alarm over 95% (--critical-space-usage-prct='95').
+This command would trigger a WARNING alert if the space used to raise over 90% of the storage capacity (```--warning-space-usage-prct='60'```) and a CRITICAL alarm over 95% (```--critical-space-usage-prct='95'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
