@@ -35,8 +35,8 @@ commerciales, veuillez contacter le support.
   mauvaise attribution des droits sur le dossier media
 - Ajouter ou supprimer un Downtime depuis l'interface web causait
   parfois une rupture de connexion avec Broker
-- Créer une carte avec un nom vide rendait parfois le menu 'Monitoring
-  > Map' inaccessible
+- Créer une carte avec un nom vide rendait parfois le menu 'Monitoring >
+  Map' inaccessible
 - Ajouter un Output dans Studio avait parfois pour résultat une
   métrique mal formattée
 - Des événements WhatsUp étaient levés inutilement lors de sessions
