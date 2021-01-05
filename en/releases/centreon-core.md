@@ -244,6 +244,23 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone release notes
 
+### 20.10.2
+
+#### Bug fixes
+
+- [zmqclient] Harden communication to avoid "Protocol not good" errors
+- [zmqclient] Increment ZMQ_LINGER period for some modules
+- [zmqclient] Lot of ESTABLISHED connections on server side when network
+  is flapping
+- [sshclient] Command actions badly encoded lead to badly encoded messages
+  in web UI (downtimes, acknowledgements)
+- [sshclient] Uncatched messages lead to problems with statistics collection
+  and Autodiscovery module.
+
+#### Enhancements
+
+- [anomalydetection] Reduce time interval between prediction downloads
+
 ### 20.10.1
 
 #### Bug fixes
