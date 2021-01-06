@@ -84,7 +84,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.2
 
-> This version needs Centreon Broker version to be 20.10.3 or higher.
+> This version requires Centreon Broker version to be 20.10.3 or higher.
 
 #### Bugfixes
 
