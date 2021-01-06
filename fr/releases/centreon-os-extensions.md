@@ -22,23 +22,25 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.3
 
-#### Enhancements
+#### Correctifs
 
-- [rpm] All the configuration files (except for logrotate.d and sudoers.d) are now preserved by the update process
+- [Sync] An error in the script prevented the files to be synchronized
+  correctly
 
-#### Bug fixes
+#### Améliorations
 
-- [Sync] An error in the script prevented the files to be synchronized correctly
+- [RPM] All the configuration files (except for logrotate.d and sudoers.d)
+  are now preserved by the update process
 
 ### 20.04.2
 
-#### Enhancements
+#### Correctifs
 
-* [Sync] Protect paths with quotes to manage directories with spaces
+- [Sync] Removing `-a` option to rsync
 
-#### Bug fixes
+#### Améliorations
 
-* [Sync] Removing `-a` option to rsync
+- [Sync] Protect paths with quotes to manage directories with spaces
 
 ### 20.04.1
 

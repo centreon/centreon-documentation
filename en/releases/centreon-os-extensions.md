@@ -22,23 +22,29 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.3
 
+*November 30, 2020*
+
+#### Bugfixes
+
+- [Sync] An error in the script prevented the files to be synchronized
+  correctly
+
 #### Enhancements
 
-- [rpm] All the configuration files (except for logrotate.d and sudoers.d) are now preserved by the update process
-
-#### Bug fixes
-
-- [Sync] An error in the script prevented the files to be synchronized correctly
+- [RPM] All the configuration files (except for logrotate.d and sudoers.d)
+  are now preserved by the update process
 
 ### 20.04.2
 
+*November 3, 2020*
+
+#### Bugfixes
+
+- [Sync] Removing `-a` option to rsync
+
 #### Enhancements
 
-* [Sync] Protect paths with quotes to manage directories with spaces
-
-#### Bug fixes
-
-* [Sync] Removing `-a` option to rsync
+- [Sync] Protect paths with quotes to manage directories with spaces
 
 ### 20.04.1
 
