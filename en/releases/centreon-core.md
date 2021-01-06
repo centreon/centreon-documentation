@@ -780,6 +780,21 @@ TCP endpoint with the 'pool_size' label.
 
 ## Centreon Gorgone release notes
 
+### 20.04.9
+
+#### Bug fixes
+
+- [zmqclient] Harden communication to avoid "Protocol not good" errors
+- [zmqclient] Increment ZMQ_LINGER period for some modules
+- [zmqclient] Lot of ESTABLISHED connections on server side when network
+  is flapping
+- [sshclient] Command actions badly encoded lead to badly encoded messages
+  in web UI (downtimes, acknowledgements)
+
+#### Enhancements
+
+- [anomalydetection] Reduce time interval between prediction downloads
+
 ### 20.04.8
 
 #### Bug fixes
