@@ -441,6 +441,25 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.04.9
+
+> This version requires Centreon Broker version to be 20.04.12 or higher.
+
+#### Bugfixes
+
+*Notification macros*
+
+The macros in which notification information can be found have been fixed
+(ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
+
+#### Enhancements
+
+*Instance updates*
+
+There is a minimal delay specified in seconds between two instance updates.
+By default, its value is 30s. It can be set with the variable
+instance_heartbeat_interval in the centengine.cfg file.
+
 ### 20.04.8
 
 #### Bugfixes
