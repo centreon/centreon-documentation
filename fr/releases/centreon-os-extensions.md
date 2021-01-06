@@ -22,6 +22,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.3
 
+*30 novembre 2020*
+
 #### Correctifs
 
 - [Sync] An error in the script prevented the files to be synchronized
@@ -33,6 +35,8 @@ commerciales, vous pouvez vous rendre sur notre
   are now preserved by the update process
 
 ### 20.04.2
+
+*3 novembre 2020*
 
 #### Correctifs
 
