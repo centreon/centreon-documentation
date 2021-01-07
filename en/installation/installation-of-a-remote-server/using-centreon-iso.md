@@ -128,7 +128,7 @@ reboot
 ### Services startup during system bootup
 
 To make services start automatically during system bootup, run these commands
-on the central server:
+on the remote server:
 
 ```shell
 systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
@@ -148,11 +148,11 @@ execute following command:
 
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
--v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
+-v '<IP_CENTREON_CENTRAL>;<don't check SSL CA on Central>;<HTTP method>;<TCP port>;<don't check SSL CA on Remote>;<no proxy to call Central>'
 ```
 
-  - Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
-    the poller. You can define multiple IP address using a coma as separator.
+  - Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server as seen
+    by the poller. You can define multiple IP address using a comma as separator.
 
     > To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
     > **https://\<IP_CENTREON_CENTRAL\>**.
@@ -160,30 +160,31 @@ execute following command:
     > To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
     > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
 
-  - For the **\<not check SSL CA on Central\>** option you can put **1** to do not
-    check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
-    **0**.
+  - For the **\<don't check SSL CA on Central\>** option, you should put **1** if
+    you intend not to check the SSL CA on the Centreon Central Server whenever
+    HTTPS is enabled, or put **0**.
 
-  - The **\<HTTP method\>** is to define how the Centreon Central server can
+  - The **\<HTTP method\>** option defines how the Centreon Central server can
     contact the Remote server: HTTP or HTTPS.
 
-  - The **\<TCP port\>** is to define on wich TCP port the entreon Central
+  - The **\<TCP port\>** option defines on which TCP port the Centreon Central
     server can contact the Remote server.
 
-  - For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
-    check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
+  - For the **\<don't check SSL CA on Remote\>** option, you should put **1** if
+    you intend not to check the SSL CA on the Remote server whenever HTTPS is
+    enabled, or put **0**.
 
-  - For the **\<no proxy to call Central\>** option you can put **1** to do not use
-    HTTP(S) proxy to contact the Centreon Central server.
+  - For the **\<no proxy to call Central\>** option, you should put **1** if you
+    intend not to use an HTTP(S) proxy to contact the Centreon Central server.
 
 
-For instance : 
+For instance :
 ``` shell
 /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer -v '10.1.2.3;1;HTTP;80;1;1'
 ```
 
 This command will enable **Remote Server** mode:
-  
+
   - by limiting menu access,
   - by limiting possible actions,
   - by allowing the Central to connect to it,
