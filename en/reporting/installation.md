@@ -170,8 +170,7 @@ The tasks explained in this chapter must be performed on the Centreon
 central server.
 
 Install the Centreon MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories)
-.
+[support portal](https://support.centreon.com/s/repositories).
 
 Then run the following command: 
 
@@ -257,8 +256,7 @@ installation process:
     interface).
 
 To start installing the reporting server, install the MBI repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories)
-.
+[support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
 

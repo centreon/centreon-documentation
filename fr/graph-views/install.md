@@ -207,8 +207,7 @@ need to install the Centreon-Release package :
 *If the URL doesn't work, you can manualy find this package in the folder*
 
 Install Centreon MAP repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories)
-.
+[support portal](https://support.centreon.com/s/repositories).
 
 Install Centreon MAP server, it will automatically install java (OpenJDK 11) if needed.
 You need to have a MySQL/MariaDB database to store Centreon Map data, wether it's on localhost or somewhere else.:
@@ -268,8 +267,7 @@ Enable the service to start up automatically on server boot:
 ### Central server
 
 Install Centreon MAP repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories)
-.
+[support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
 

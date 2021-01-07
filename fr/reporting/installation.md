@@ -163,8 +163,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
 Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories)
-.
+[portail support](https://support.centreon.com/s/repositories).
 
 Puis lancez la commande suivante :
 
@@ -245,8 +244,7 @@ veillez à les connaître avant de commencer :
     rapports générés sur l'interface)
 
 Installer le dépôt MBI, vous pouvez le trouver sur le 
-[portail support](https://support.centreon.com/s/repositories)
-.
+[portail support](https://support.centreon.com/s/repositories).
 
 Puis lancer la commande suivante:
 
