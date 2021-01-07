@@ -16,11 +16,9 @@ is **Centreon 20.10**.
 
 ### Install the package
 
-Add the Centreon BAM repository provided by Centreon on the Central server. To install it, run the following command:
-
-``` shell
-yum install https://yum.centreon.com/centreon-bam/d4e1d7d3e888f596674453d1f20ff6d3/20.10/el7/stable/noarch/RPMS/centreon-bam-release-20.10-2.el7.centos.noarch.rpm
-```
+Add the Centreon BAM repository,  you can find it on the 
+[support portal](https://support.centreon.com/s/repositories)
+.
 
 And install the package using the following command:
 
