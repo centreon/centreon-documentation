@@ -4,7 +4,7 @@ title: Introduction to Plugin Packs
 ---
 
 > To know how to install Plugin Packs, you can go to the dedicated part: 
-[Plugin Packs installation](/en/monitoring/pluginpacks.md).
+> [Plugin Packs installation](../../monitoring/pluginpacks.html).
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
