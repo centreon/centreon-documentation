@@ -162,9 +162,8 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 Les actions listées dans ce chapitre doivent être lancées sur le serveur de supervision Centreon.
 
-Pour obtenir les repository de Centreon MBI. Exécutez la commande suivante : 
-
-    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
+Installer le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/s/repositories).
 
 Puis lancez la commande suivante :
 
@@ -244,9 +243,8 @@ veillez à les connaître avant de commencer :
     centreonBI, sur le serveur Central (pour la mise à disposition des
     rapports générés sur l'interface)
 
-Pour lancer l'installation du serveur de reporting, installer le dépôt correspondant:
-
-    yum install https://yum.centreon.com/centreon-mbi/5e0524c1c4773a938c44139ea9d8b4d7/20.04/el7/stable/noarch/RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm
+Installer le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/s/repositories).
 
 Puis lancer la commande suivante:
 
