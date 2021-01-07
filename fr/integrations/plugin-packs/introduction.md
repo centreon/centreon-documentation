@@ -4,7 +4,7 @@ title: Introduction to Plugin Packs
 ---
 
 > Pour savoir comment installer un Plugin Pack, vous pouvez vous rendre sur la documentation dédiée: 
-[installation des Plugin Packs](/fr/monitoring/pluginpacks.md).
+> [installation des Plugin Packs](../../monitoring/pluginpacks.html).
 
 Un Plugin Pack (ou pack de supervision en français) est un jeu téléchargeable
 de modèles de configuration qui rendent la supervision de votre infrastructure
