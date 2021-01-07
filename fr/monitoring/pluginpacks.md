@@ -60,8 +60,8 @@ les équipes *[support Centreon](https://centreon.force.com)*.
 ### Accès aux Plugin Pack
 
 Si votre plate-forme Centreon est connectée à une souscription en ligne vous pouvez télécharger les Plugin Packs depuis
-l’interface utilisateur Plugin Pack Manager. Sinon, un dépôt RPM vous sera délivré par les équipes
-*[support Centreon](https://centreon.force.com)*.
+l’interface utilisateur Plugin Pack Manager. Sinon, vous devez installer le dépôt dédié, vous le trouverez sur le
+[portail du support](https://support.centreon.com/s/repositories).
 
 ## Vue d’ensemble
 

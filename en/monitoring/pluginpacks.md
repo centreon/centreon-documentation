@@ -55,8 +55,8 @@ subscription your license will be directly downloaded to your server. Otherwise,
 ### Access to Plugin Packs
 
 If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
-Manager user interface. Otherwise, a dedicated RPM repository will be provided by
-[Centreon support team](https://centreon.force.com).
+Manager user interface. Otherwise, you have to install a dedicated RPM repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
 
 ## Overview
 
