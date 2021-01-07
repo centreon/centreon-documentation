@@ -199,10 +199,6 @@ to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP server
 
-Install Centreon MAP from the Centreon MAP yum repository. It will automatically install java (OpenJDK 11) if needed.
-You need to have a MySQL/MariaDB database to
-store Centreon Map data, wether it's on localhost or somewhere else.
-
 If you installed your Centreon Map server from a "fresh CentOS installation" you
 need to install the Centreon-Release package : :
 
@@ -210,7 +206,11 @@ need to install the Centreon-Release package : :
 
 *If the URL doesn't work, you can manualy find this package in the folder*
 
-Then install Centreon Map server using the following command:
+Install Centreon MAP repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
+
+Install Centreon MAP server, it will automatically install java (OpenJDK 11) if needed.
+You need to have a MySQL/MariaDB database to store Centreon Map data, wether it's on localhost or somewhere else.:
 
     yum install centreon-map-server
 
@@ -267,6 +267,11 @@ Centreon Map server is now started and enabled, let's install the interface part
 ## Web Interface installation
 
 ### Central server
+
+Install Centreon MAP repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
+
+Then execute the following command:
 
     yum install centreon-map-web-client
 
