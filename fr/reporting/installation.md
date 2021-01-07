@@ -163,8 +163,8 @@ Description des utilisateurs, umask et répertoire utilisateur :
 Les actions listées dans ce chapitre doivent être lancées sur le serveur
 de supervision Centreon.
 
-Contactez le Centre de service de Centreon afin d'obtenir les
-repository de Centreon MBI.
+Installer le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/s/repositories).
 
 Lancez la commande suivante :
 
@@ -244,8 +244,10 @@ veillez à les connaître avant de commencer :
     centreonBI, sur le serveur Central (pour la mise à disposition des
     rapports générés sur l'interface)
 
-Pour lancer l'installation du serveur de reporting, installer le dépôt correspondant (fourni par le support)
-puis lancer la commande suivante:
+Installer le dépôt MBI, vous pouvez le trouver sur le 
+[portail support](https://support.centreon.com/s/repositories).
+
+Puis lancer la commande suivante:
 
     yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 

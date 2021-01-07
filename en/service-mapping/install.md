@@ -16,8 +16,10 @@ The required version of Centreon software for compatibility with Centreon MAP is
 
 ### Install the package
 
-Add the Centreon BAM repository provided by Centreon on the Central server and
-install the package using the following command:
+Add the Centreon BAM repository,  you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
+
+And install the package using the following command:
 
     yum install centreon-bam-server
 
