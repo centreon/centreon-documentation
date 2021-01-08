@@ -170,7 +170,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 2.Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Log Analytics*:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
+yum install centreon-pack-cloud-azure-management-log-analytics-api
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Azure Log Analytics* depuis la page "Configuration > Plugin packs > Gestionnaire"
