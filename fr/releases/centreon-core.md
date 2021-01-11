@@ -37,6 +37,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Configuration] Unable to save log level in Centreon Engine form
 - [Knowledge Base] Access to mediawiki is very slow
 - [Resources Status] Display issue when resource has a configured icon
+- [Resources Status] Incorrect default downtime duration
 - [Resources Status] Useless impacted_resources_count property
 
 #### Security fixes
