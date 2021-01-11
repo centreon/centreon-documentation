@@ -18,6 +18,37 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.04.8
+
+#### Enhancements
+
+- [Configuration] Add a special variable for trap OID
+- [Performance] Disable UI notification mechanism if not needed by user
+
+#### Bug fixes
+
+- [Authentication] Invalid credentials after edit profile change with special characters
+- [Authentication] New LDAP configurations are broken
+- [Authentication] Reach Centreon Front-end parameter ineffective
+- [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
+- [Configuration] Massive change on contact uses replacement instead of incremental method
+- [Configuration] PHP Warning while creating a Centreon Engine configuration
+- [Configuration] Unable to save log level in Centreon Engine form
+- [Graphs] Performance graph legend does not update dynamically
+- [Knowledge Base] Access to mediawiki is very slow
+- [Knowledge Base] URL for Service templates and host templates are wrong
+
+#### Security fixes
+
+- [Apache] Lack of click diversion protection (Clickjacking)
+- [Apache] Support for the HTTP TRACE method
+- [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Connectors & commands form
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Contact Groups form
+- [Configuration] XSS in updateContactParam.php & commonJS.php
+- [Media] Unrestricted file upload
+- [Monitoring/Legacy pages] Too much "Unable to hide passwords in command"
+
 ### 20.04.7
 
 #### Enhancements
