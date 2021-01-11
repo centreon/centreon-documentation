@@ -20,6 +20,11 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
+> Comportements connus :
+>
+> -   Les liens "url notes" et "url actions" maintenant visible dans la page "Resources Status"
+>     ne traduisent pas les macros, par exemple $HOSTNAME$.
+
 #### Enhancements
 
 - [API] Add normalizers for data found in concordanceArray
