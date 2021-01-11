@@ -111,7 +111,7 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
 
     <CURRENT_NODE_ADDRESS> : Protocol [http]:
     <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centroen]:
+    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
     ```
     5. If you use a proxy, please define credentials:
 

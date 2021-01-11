@@ -26,7 +26,7 @@ avec les opérations décrites dans cette procédure.
 
 ## Suppression du Cluster
 
-Afin de passer de centreon-failover à centroen-ha, il est nécessaire de détruire le cluster
+Afin de passer de centreon-failover à centreon-ha, il est nécessaire de détruire le cluster
 existant. L'interface Web de Centreon est indisponible durant toute la durée de la mise à jours 
 et ce jusqu'à la création d'un nouveau Cluster. 
 
