@@ -53,7 +53,7 @@ Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivan
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Exemple:

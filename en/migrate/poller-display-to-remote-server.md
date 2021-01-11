@@ -47,127 +47,127 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
 
 5. ## Register the server
 
-    To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
+To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
 
-    ``` shell
-    /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
-    -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
-    ```
+``` shell
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+```
 
-    Example:
+Example:
 
-    ``` shell
-    /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
-    ```
+``` shell
+/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
+```
 
-    > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
 
-    > The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
 
-    > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-    > HTTPS://<IP_TARGET_NODE>:PORT
+> If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
+> HTTPS://<IP_TARGET_NODE>:PORT
 
-    Then follow instructions by
-    1. Entering your password:
+Then follow instructions by
+1. Entering your password:
 
-    ``` shell
-    192.168.0.1: please enter your password:
-    ```
+``` shell
+192.168.0.1: please enter your password:
+```
 
-    2. Select the IP adress if multiple network interfaces exist:
+2. Select the IP adress if multiple network interfaces exist:
 
-    ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
-    ```
+```shell
+Which IP do you want to use as CURRENT NODE IP ?
+1) 192.168.0.2
+2) 192.168.0.3
+1
+```
 
-    3. Then validate the information:
+3. Then validate the information:
 
-    ``` shell
-    Summary of the informations that will be send:
+``` shell
+Summary of the informations that will be send:
 
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
+Api Connection:
+username: admin
+password: ******
+target server: 192.168.0.1
 
-    Pending Registration Server:
-    name: remote-1
-    type: remote
-    address: 192.168.0.2
+Pending Registration Server:
+name: remote-1
+type: remote
+address: 192.168.0.2
 
-    Do you want to register this server with those informations ? (y/n)y
-    ```
+Do you want to register this server with those informations ? (y/n)y
+```
 
-    4. Add additional information to enable future communication between your Remote Server and its Central
-    A few more information are required to convert your platform into Remote :
+4. Add additional information to enable future communication between your Remote Server and its Central
+A few more information are required to convert your platform into Remote :
 
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
+```shell
+<CURRENT_NODE_ADDRESS> : Please enter your username:
+admin
+<CURRENT_NODE_ADDRESS> : Please enter your password:
 
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
-    5. If you use a proxy, please define credentials:
+<CURRENT_NODE_ADDRESS> : Protocol [http]:
+<CURRENT_NODE_ADDRESS> : Port [80]:
+<CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+```
+5. If you use a proxy, please define credentials:
 
-    ```shell
-    Are you using a proxy ? (y/n)
-    y
-    enter your proxy Host:
-    myproxy.example.com
-    enter your proxy Port [3128]:
+```shell
+Are you using a proxy ? (y/n)
+y
+enter your proxy Host:
+myproxy.example.com
+enter your proxy Port [3128]:
 
-    Are you using a username/password ? (y/n)
-    y
-    enter your username:
-    my_proxy_username
-    enter your password:
+Are you using a username/password ? (y/n)
+y
+enter your username:
+my_proxy_username
+enter your password:
 
-    ```
+```
 
-    You will receive the validation of the Centreon central server:
+You will receive the validation of the Centreon central server:
 
-    ``` shell
-    2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted successfully.
-    2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
-    ```
+``` shell
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted successfully.
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
+```
 
-    ### Main errors messages
+### Main errors messages
 
-    ``` shell
-    2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
-    ```
+``` shell
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+```
 
-    > Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **<API_ACCOUNT>**.
 
-    ``` shell
-    2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
-    ```
+``` shell
+2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+```
 
-    > The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **<API_ACCOUNT>** doesn't have access to configuration API.
 
-    ``` shell
-    Failed connect to 192.169.0.1:444; Connection refused
-    ```
+``` shell
+Failed connect to 192.169.0.1:444; Connection refused
+```
 
-    > Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
-    ``` shell
-    2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
-    ```
+``` shell
+2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
+```
 
-    > The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
+> The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
-    ``` shell
-    2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
-    ```
+``` shell
+2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
+```
 
-    > Your Centreon target version is invalid. It should be greater or equal to 20.10.
+> Your Centreon target version is invalid. It should be greater or equal to 20.10.
 
 6. Add rights to centreon database user to use **LOAD DATA INFILE** command:
 
