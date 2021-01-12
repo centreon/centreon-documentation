@@ -147,7 +147,7 @@ Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les d√
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
 ```
 
 ### √âchanges de clefs SSH

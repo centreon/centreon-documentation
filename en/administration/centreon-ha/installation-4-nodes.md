@@ -153,7 +153,7 @@ Centreon offers a package named `centreon-ha`, which provides all the needed fil
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
