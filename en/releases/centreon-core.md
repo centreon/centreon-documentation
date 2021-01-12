@@ -36,7 +36,6 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Unable to save log level in Centreon Engine form
 - [Graphs] Performance graph legend does not update dynamically
 - [Knowledge Base] Access to mediawiki is very slow
-- [Knowledge Base] URL for Service templates and host templates are wrong
 
 #### Security fixes
 
