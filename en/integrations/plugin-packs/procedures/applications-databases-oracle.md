@@ -2,30 +2,46 @@
 id: applications-databases-oracle
 title: Oracle Database
 ---
+## Overview
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.6.1 | `STABLE` | Dec 20 2019 |
+Oracle Database is a database management system that allows users to define, create, maintain and control access to databases produced and marketed by Oracle.
+The Centreon Plugin-Pack *Oracle Database* aims to retrieve information and status from the Oracle database using Oracle Instant Client.
+
+## Plugin-Pack assets
+
+###  Monitored objects
+
+* Oracle server
+
+### Collected Metrics
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Oracle-Server-->
+
+| Metric name              | Description                                                          |
+| :----------------------- | :------------------------------------------------------------------- |
+| status                   | Status of the Oracle server                                          |
+| Connection-Number        | Number of connection running                                         |
+| Connection-Time          | Check the time to connect to the server                              |
+| Corrupted-Blocks         | Check the number of corrupted blocks in database                     |
+| Datacache-Hitratio       | Check the 'Data Buffer Cache Hit Ratio' of the server                |
+| Tablespace-Usage         | Check the used space in tablespaces                                  |
+| Rman-Backup-Problems     | Check RMAN backup errors of the server during the last three days    |
+| Tnsping                  | Check the connection to a remote listener                            |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-### Centreon Plugin
-
-Install this plugin on each needed poller:
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
-```
-
-## RPM
-
+### RPM
 In order to use this template, the `wget` command-line tool and the GNU Compiler Collection (`gcc`) are necessary.
 
 ```bash
 yum install -y gcc wget
 ```
 
-### Oracle instant client
+###  Oracle instant client
 
 Go to [Instant Client
 Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
@@ -53,8 +69,9 @@ cd /usr/local/src
 wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.64.tar.gz 
 tar xzf DBD-Oracle-1.64.tar.gz 
 cd DBD-Oracle-1.64 
-export ORACLE_HOME=/usr/lib/oracle/12.1/client64/ 
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib 
+export ORACLE_HOME=/usr/lib/oracle/12.1/client64
+export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib 
+export PATH=$ORACLE_HOME:$PATH
 perl Makefile.PL -m /usr/share/oracle/12.1/client64/demo/demo.mk
 ```
 
@@ -117,40 +134,49 @@ This user account must have the read permission on following tables:
   - v$filestat
   - v$log
   - v$instance
+  
+## Installation
 
-## Centreon Configuration
+<!--DOCUSAURUS_CODE_TABS-->
 
-### Create a new Oracle server
+<!--Online IMP Licence & IT-100 Editions-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Oracle Database:
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-DB-Oracle-custom       |
+```bash
+yum install centreon-plugin-Applications-Databases-Oracle
+```
 
-Click on the *Save* button.
+2. On the Centreon Web interface, install the *Oracle Database* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-Those services were automatically created for this host:
+<!--Offline IMP License-->
 
-| Service              | Description                                                       |
-| :------------------- | :---------------------------------------------------------------- |
-| ping                 | Monitor host response time                                        |
-| Connection-Number    | Check connection number to the Oracle server                      |
-| Connection-Time      | Check the time to connect to the server                           |
-| Corrupted-Blocks     | Check the number of corrupted blocks in database                  |
-| Datacache-Hitratio   | Check the 'Data Buffer Cache Hit Ratio' of the server.            |
-| Tablespace-Usage     | Check the used space in tablespaces                               |
-| Rman-Backup-Problems | Check RMAN backup errors of the server during the last three days |
-| Tnsping              | Check the connection to a remote listener                         |
+## Configuration
 
-### Host macro configuration
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Oracle Database:
 
-The following macros must be configured on host:
+```bash
+yum install centreon-plugin-Applications-Databases-Oracle
+```
+
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+
+```bash
+yum install centreon-pack-applications-databases-oracle
+```
+
+3. On the Centreon Web interface, install the Centreon Plugin-Pack *Oracle Database* from the "Configuration > Plugin Packs > Manager" page
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+## Configuration
+
+* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Fill the "IP Address / DNS" field with a localhost IP address (e.g 127.0.0.1)
+* Select the *App-DB-Oracle-custom* template.  
+
+Once the template applied, some Macros have to be configured:
 
 | Macro          | Description                           | Default value | Example  |
 | :------------- | :------------------------------------ | :------------ | :------- |
@@ -158,4 +184,55 @@ The following macros must be configured on host:
 | ORACLESID      | The name of the oracle instance       | SID           | ORCLB55  |
 | ORACLEUSERNAME | the oracle user                       | USERNAME      | root     |
 | ORACLEPASSWORD | the oracle user's password            | PASSWORD      | p@ssw0rd |
+
+## FAQ
+### How can I test the Plugin in the CLI and what do the main parameters stand for ?
+
+Once the Centreon Plugin installed, you can test it directly in the CLI of the
+Centreon poller by logging with the *centreon-engine* user:
+
+```bash
+/usr/lib/centreon/plugins//centreon_oracle.pl \
+--plugin=database::oracle::plugin \
+--mode='tnsping' \
+--hostname='10.30.2.47' \
+--sid='ORCLB55' \
+--port='1521' 
+```
+
+Expected output:
+
+```bash
+OK: Connection established to listener 'ORCLB55'
+```
+
+The available thresholds as well as all of the options that can be used with
+this Plugin can be displayed by adding the ```--help``` parameter to the 
+command:
+
+```bash
+/usr/lib/centreon/plugins//centreon_oracle.pl \
+--plugin=database::oracle::plugin \
+--mode='tnsping' \
+--help
+```
+
+You can display all of the modes that come with the Plugin with the command
+below:
+
+```bash
+/usr/lib/centreon/plugins//centreon_oracle.pl \
+--plugin=database::oracle::plugin \
+--list-mode
+```
+
+### Why do I get the following message:  ```CRITICAL: Cannot connect: (no error string) |```
+
+This error message means that the Centreon Plugin couldn't successfully connect to the oracle database.
+Check that an Oracle database is installed on this host.
+
+```DBD::Oracle is not root directory |```
+
+This error message means that the module DBD::Oracle is installed under the /root directory.
+Remove shell environment variable with PERL and compile DBD::Oracle Perl Module.
 
