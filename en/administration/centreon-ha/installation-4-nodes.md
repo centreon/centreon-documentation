@@ -1021,5 +1021,4 @@ Ticket Constraints:
 
 ## Integrating pollers
 
-You can now [add your pollers](integrating-pollers.html) and start monitoring!
-
+You can now [add your pollers](integrating-pollers.html) and begin to monitor!
