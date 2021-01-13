@@ -952,3 +952,7 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
+## Integrating pollers
+
+You can now [add your pollers](integrating-pollers.html) and start monitoring!
+

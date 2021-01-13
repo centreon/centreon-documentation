@@ -1018,3 +1018,8 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+## Integrating pollers
+
+You can now [add your pollers](integrating-pollers.html) and start monitoring!
+
