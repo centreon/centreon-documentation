@@ -5,7 +5,7 @@ title: Intégrer des pollers dans un cluster Centreon-HA
 
 ## Obtention des empreintes des nœuds centraux
 
-Le service Gorgone des deux centraux devront être en mesure de se connecter à celui des collecteurs.
+Le service Gorgone de chaque central devra être en mesure de se connecter à celui des collecteurs.
 
 * Pour commencer, il faut obtenir la signature de la clé privée de chacun des nœuds centraux :
 
@@ -50,4 +50,3 @@ systemctl restart gorgoned
 ```
 
 À ce stade, n'importe lequel des deux nœuds centraux doit pouvoir se connecter au service Gorgone du poller, et lui transmettre les nouvelles configurations engine/broker, redémarrer des services, récupérer des statistiques...
-
