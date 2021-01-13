@@ -5,7 +5,7 @@ title: Integrating new pollers in a Centreon-HA cluster
 
 ## Obtaining central nodes' thumbprints
 
-Both central nodes' Gorgone service will need to be authorized on the pollers' Gorgone service. 
+Both central nodes' Gorgone services will need to be authorized by the pollers' Gorgone services. 
 
 * First, let's get each central node's key:
 
@@ -50,4 +50,3 @@ systemctl restart gorgoned
 ```
 
 At this point any of your central nodes should be allowed to connect to your poller's Gorgone service and send configuration, retrieve statistics, restart services, ...
-
