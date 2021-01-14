@@ -18,25 +18,24 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--DOCUSAURUS_CODE_TABS-->
-
 <!--Connection-Time-->
 
 | Metric name         | Description                            | Unit   |
 | :------------------ | :------------------------------------- | :----- |
-| connection-time     | Server connection time                 | Count  |
+| connection_time     | Connection time to the database        | ms     |
 
 <!--Tnsping-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
-| status      | Check the connection to a remote listener  |      |
+| status      | Check Oracle listener status               |      |
 
 <!--Tablespace-Usage-->
 
-| Metric name | Description                                     | Unit |
-| :---------- | :-----------------------------------------------| :--- |
-| tablespace  | The percentage of used space in tablespaces     |   %  |
+| Metric name           | Description                                     | Unit |
+| :-------------------- | :-----------------------------------------------| :--- |
+|  tbs_#instance_usage  | Tablespace usage per Instance                   |   B  |
+|  tbs_#instance_free   | Tablespace free space left per instance         |   B  |
 
 <!--Session-Usage-->
 
@@ -48,7 +47,7 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 | Metric name			   | Description                                                         | Unit   |
 | :----------------------- | :------------------------------------------------------------------ | :----  |
-| rman_backup_problems     | RMAN backup errors number of the server during the last three days  | Count  |
+|  #backup_backup_problems | Number of problems per backup (last 3 days by default)              | Count  |
 
 <!--Process-Usage-->
 
@@ -58,9 +57,9 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 <!--Datacache-Hitratio-->
 
-| Metric name | Description                                          | Unit |
-| :---------- | :--------------------------------------------------- | :--- |
-| usage       | Check the 'Data Buffer Cache Hit Ratio' of the server|  %    |
+| Metric name               | Description                                          | Unit |
+| :------------------------ | :--------------------------------------------------- | :--- |
+| sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %    |
 
 <!--Corrupted-Blocks-->
 
@@ -74,8 +73,8 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 | :---------------- | :-----------------------------------------------| :----- |
 | connected_users   | The number of connection to the Oracle server   | Count  |
 
-<!--END_DOCUSAURUS_CODE_TABS-->
 
+<!--END_DOCUSAURUS_CODE_TABS-->
 ## Prérequis
 
 ### Privilèges API
@@ -105,27 +104,27 @@ rpm -ivh oracle-*.rpm
 
 ### Bibliothèque Perl pour oracle
 
-> Remplacer 12.1 par la version d'instantclient installée
+> Remplacer 21.1 par la version d'instantclient installée
 
 En tant que root, exécuter:
 
 ```bash
 cd /usr/local/src 
-wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.64.tar.gz 
-tar xzf DBD-Oracle-1.64.tar.gz 
-cd DBD-Oracle-1.64 
-export ORACLE_HOME=/usr/lib/oracle/12.1/client64
-export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib 
+wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz 
+tar xzf DBD-Oracle-1.80.tar.gz 
+cd DBD-Oracle-1.80 
+export ORACLE_HOME=/usr/lib/oracle/21.1/client64
+export LD_LIBRARY_PATH=/usr/lib/oracle/21.1/client64/lib 
 export PATH=$ORACLE_HOME:$PATH
-perl Makefile.PL -m /usr/share/oracle/12.1/client64/demo/demo.mk
+perl Makefile.PL -m /usr/share/oracle/21.1/client64/demo/demo.mk
 ```
 
 Le message suivant devrait apparaître:
 
 ```text
-LD_RUN_PATH=/usr/lib/oracle/12.1/client64/lib*
-Using DBD::Oracle 1.64. 
-Using DBD::Oracle 1.64. 
+LD_RUN_PATH=/usr/lib/oracle/21.1/client64/lib*
+Using DBD::Oracle 1.80. 
+Using DBD::Oracle 1.80. 
 Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
 Writing Makefile for DBD::Oracle
 ```
@@ -146,14 +145,14 @@ Puis créer le fichier: /etc/ld.so.conf.d/oracle.conf. Éditer et ajouter un lie
 
 ```bash
 cat > /etc/ld.so.conf.d/oracle.conf <<EOF
-/usr/lib/oracle/12.1/client64/lib/
+/usr/lib/oracle/21.1/client64/lib/
 EOF
 ```
 
 Parcourir le fichier et exécuter la commande défini ci-dessous:
 
 ```bash
-cd /usr/lib/oracle/12.1/client64/lib/
+cd /usr/lib/oracle/21.1/client64/lib/
 /sbin/ldconfig
 ```
 
@@ -258,7 +257,7 @@ Tablespace 'users' Total: 29.48 GB Used: 2.78 MB (0.01%) Free: 28.48 GB (99.99%)
 La commande ci-dessus contrôle l'espace utilisé dans les tablespaces (``` --mode='tablespace-usage' ```)
 d'une base de données oracle installée sur l'hôte 10.30.2.38 (``` --hostname='10.30.2.38' ```).
 Il utilise les informations d'Oracle pour se connecter à la base de données (``` --username='SYSTEM' --password='Centreon75' --port='1521' --sid='XE' ```).
-Le seuil d'alerte est dépassé si le pourcentage d'espace utilisé dans une tablespace dépasse 90%. Le seuil critique est dépassé si ce pourcentage dépasse 98%.
+Le seuil d'alerte est dépassé si le pourcentage d'espace utilisé dans une tablespace dépasse 90% (``` --warning-tablespace='90' ```). Le seuil critique est dépassé si ce pourcentage dépasse 98% (``` --critical-tablespace='98' ```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
