@@ -3,7 +3,7 @@ id: using-packages
 title: A partir des paquets
 ---
 
-Après avoir installer votre serveur, considérez la mise à jour votre système
+Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->

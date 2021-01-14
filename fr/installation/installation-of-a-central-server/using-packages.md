@@ -7,9 +7,13 @@ Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
 Ces paquets ont été testés avec succès sur les environnements CentOS
-en version 7.x.
+en version 7 et 8.
 
-Après avoir installer votre serveur, considérez la mise à jour votre système
+> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
+> qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
+> pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+
+Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
