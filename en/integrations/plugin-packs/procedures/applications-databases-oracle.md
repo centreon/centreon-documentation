@@ -21,19 +21,20 @@ The Centreon Plugin-Pack *Oracle Database* aims to retrieve informations and sta
 
 | Metric name         | Description                            | Unit   |
 | :------------------ | :------------------------------------- | :----- |
-| connection-time     | Server connection time                 | Count  |
+| connection_time     | Connection time to the database        | ms     |
 
 <!--Tnsping-->
 
 | Metric name | Description                                | Unit |
 | :---------- | :----------------------------------------- | :--- |
-| status      | Check the connection to a remote listener  |      |
+| status      | Check Oracle listener status               |      |
 
 <!--Tablespace-Usage-->
 
-| Metric name | Description                                     | Unit |
-| :---------- | :-----------------------------------------------| :--- |
-| tablespace  | The percentage of used space in tablespaces     |   %  |
+| Metric name           | Description                                     | Unit |
+| :-------------------- | :-----------------------------------------------| :--- |
+|  tbs_#instance_usage  | Tablespace usage per Instance                   |   B  |
+|  tbs_#instance_free   | Tablespace free space left per instance         |   B  |
 
 <!--Session-Usage-->
 
@@ -45,7 +46,7 @@ The Centreon Plugin-Pack *Oracle Database* aims to retrieve informations and sta
 
 | Metric name			   | Description                                                         | Unit   |
 | :----------------------- | :------------------------------------------------------------------ | :----  |
-| rman_backup_problems     | RMAN backup errors number of the server during the last three days  | Count  |
+|  #backup_backup_problems | Number of problems per backup (last 3 days by default)              | Count  |
 
 <!--Process-Usage-->
 
@@ -55,9 +56,9 @@ The Centreon Plugin-Pack *Oracle Database* aims to retrieve informations and sta
 
 <!--Datacache-Hitratio-->
 
-| Metric name | Description                                          | Unit |
-| :---------- | :--------------------------------------------------- | :--- |
-| usage       | Check the 'Data Buffer Cache Hit Ratio' of the server|  %    |
+| Metric name               | Description                                          | Unit |
+| :------------------------ | :--------------------------------------------------- | :--- |
+| sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %    |
 
 <!--Corrupted-Blocks-->
 
@@ -102,27 +103,27 @@ rpm -ivh oracle-*.rpm
 
 ### Perl library for oracle
 
-> Replace 12.1 by the version of instantclient installed
+> Replace 21.1 by the version of instantclient installed
 
 As root, run:
 
 ```bash
 cd /usr/local/src 
-wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.64.tar.gz 
-tar xzf DBD-Oracle-1.64.tar.gz 
-cd DBD-Oracle-1.64 
-export ORACLE_HOME=/usr/lib/oracle/12.1/client64
-export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib 
+wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz 
+tar xzf DBD-Oracle-1.80.tar.gz 
+cd DBD-Oracle-1.80 
+export ORACLE_HOME=/usr/lib/oracle/21.1/client64
+export LD_LIBRARY_PATH=/usr/lib/oracle/21.1/client64/lib 
 export PATH=$ORACLE_HOME:$PATH
-perl Makefile.PL -m /usr/share/oracle/12.1/client64/demo/demo.mk
+perl Makefile.PL -m /usr/share/oracle/21.1/client64/demo/demo.mk
 ```
 
 The following message should appear:
 
 ```text
-LD_RUN_PATH=/usr/lib/oracle/12.1/client64/lib*
-Using DBD::Oracle 1.64. 
-Using DBD::Oracle 1.64. 
+LD_RUN_PATH=/usr/lib/oracle/21.1/client64/lib*
+Using DBD::Oracle 1.80. 
+Using DBD::Oracle 1.80. 
 Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
 Writing Makefile for DBD::Oracle
 ```
@@ -144,11 +145,11 @@ Library:
 
 ```bash
 cat > /etc/ld.so.conf.d/oracle.conf <<EOF
-/usr/lib/oracle/12.1/client64/lib/
+/usr/lib/oracle/21.1/client64/lib/
 EOF
 ```
 
-You just have to enter in the file : /usr/lib/oracle/12.1/client64/lib/
+You just have to enter in the file : /usr/lib/oracle/21.1/client64/lib/
 
 Then :
 
@@ -253,10 +254,10 @@ Tablespace 'temp' Total: 29.48 GB Used: 0.00 B (0.00%) Free: 28.59 GB (100.00%)
 Tablespace 'users' Total: 29.48 GB Used: 2.78 MB (0.01%) Free: 28.48 GB (99.99%)
 ```
 
-The above command Check the used space in tablespaces (``` --mode='tablespace-usage' ```) 
-on a specific oracle database installed in the host 10.30.2.38 (``` --hostname='10.30.2.38' ```) 
+The above command checks the used space in tablespaces (``` --mode='tablespace-usage' ```) 
+on a oracle database installed in the host 10.30.2.38 (``` --hostname='10.30.2.38' ```) 
 It uses Oracle informations (``` --username='SYSTEM' --password='Centreon75' --port='1521' --sid='XE' ```) to connect to the database.
-The check provides a warning if the percentage of used space exceeds 90% and a critical if this percentage exceeds 98%.
+The check provides a warning if the percentage of used space exceeds 90% (``` --warning-tablespace='90' ```) and a critical if this percentage exceeds 98% (``` --critical-tablespace='98' ```).
 
 The available thresholds as well as all of the options that can be used with
 this Plugin can be displayed by adding the ```--help``` parameter to the 
@@ -280,7 +281,7 @@ below:
 
 ### Why do I get the following message:  
 
-### ```CRITICAL: Cannot connect: (no error string) |```
+### ```UNKNOWN: Cannot connect: (no error string) |```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the oracle database.
 Check that an Oracle database is installed on this host.
