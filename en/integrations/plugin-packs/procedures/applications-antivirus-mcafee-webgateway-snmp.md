@@ -96,9 +96,12 @@ protocol.
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link to the manufacturer official documentation
-BUT you should try to be as complete as possible here as it will save time to everybody*
-To use this pack, the SNMP service must be properly configured on your Kaspersky Security Center. Kaspersky provides an official documentation to achieve this: https://support.kaspersky.com/12603#block3
+To use this pack, the SNMP service must be properly configured on your McAfee 
+Web Gateway. McAfee provides an official documentation to achieve this:
+
+* https://docs.mcafee.com/bundle/web-gateway-8.2.x-product-guide/page/GUID-7F25543B-2BE5-47A5-BC40-AEEF65F5D156.html
+
+* https://docs.mcafee.com/bundle/web-gateway-8.2.x-interface-reference-guide/page/GUID-92B0527B-9709-43DD-AEDC-FE82966AC6EF.html
 
 ### Network flow
 
