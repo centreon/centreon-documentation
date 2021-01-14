@@ -307,6 +307,7 @@
                     "integrations/plugin-packs/procedures/applications-cisco-dnac-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ise-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ssms-restapi",
+                    "integrations/plugin-packs/procedures/applications-commvault-commserve-restapi",
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
