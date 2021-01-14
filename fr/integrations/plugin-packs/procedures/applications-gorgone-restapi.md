@@ -11,7 +11,7 @@ Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://gith
 
 ### Objets supervisés
 
-* Instances gorgoned 
+* Instances gorgoned
 
 ### Métriques collectées
 
@@ -19,16 +19,16 @@ Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://gith
 
 <!--Events-->
 
-| Metric name             | Description                                                                                    |
-| :---------------------- | :--------------------------------------------------------------------------------------------- |
-| path.events.total.count | By instances. e.g. ```internal``` ```external```. Number of events on a path                   |
-| event.total.count       | By instances. e.g. ```internal~pong```, ```internal~command```, ... Number of a specific event |
+| Metric name             | Description                                                                            |
+| :---------------------- | :------------------------------------------------------------------------------------- |
+| path.events.total.count | By instances. e.g. `internal` `external`. Number of events on a path                   |
+| event.total.count       | By instances. e.g. `internal~pong`, `internal~command`, ... Number of a specific event |
 
 <!--Nodes-->
 
-| Metric name                         | Description                                                                 |
-| :---------------------------------- | :---------------------------------------------------------------------------|
-| node.ping.received.lasttime.seconds | By instances (```node_id```'). Time since last ping response. Unit: seconds |
+| Metric name                         | Description                                                            |
+| :---------------------------------- | :----------------------------------------------------------------------|
+| node.ping.received.lasttime.seconds | By instances (`node_id`). Time since last ping response. Unit: seconds |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -36,7 +36,7 @@ Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://gith
 
 ### Configuration de Gorgone
 
-Assurer vous que le module Gorgone ```httpserver``` est correctement configuré. Au besoin, ajouter le avec la directive suivante
+Assurer vous que le module Gorgone `httpserver` est correctement configuré. Au besoin, ajouter le avec la directive suivante
 
 ```yaml
 modules:
@@ -52,10 +52,9 @@ modules:
         enabled: true
         subnets:
           - 127.0.0.1/32
-
 ```
 
-## Setup 
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -90,7 +89,7 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 ## Configuration
 
 * Rendez-vous dans le menu "Configuration > Hôtes" et ajouter un nouvel Hôte
-* Appliquer le modèle *App-Gorgone-Restapi-custom* et configurer les macros obligatoires mentionnées ci-dessous: 
+* Appliquer le modèle *App-Gorgone-Restapi-custom* et configurer les macros obligatoires mentionnées ci-dessous:
 
 
 | Mandatory   | Nom                    | Description                                                                |
@@ -108,17 +107,17 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 Une fois le Plugin installé, vous pouvez l'exécuter avec l'utilisateur centreon-engine:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \	
-	--plugin=apps::gorgone::restapi::plugin \
-	--mode=events \
-	--hostname='127.0.0.1' \
-	--port='8085' \
-	--proto='http' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \
+    --plugin=apps::gorgone::restapi::plugin \
+    --mode=events \
+    --hostname='127.0.0.1' \
+    --port='8085' \
+    --proto='http' \
+    --verbose
 ```
 
-Cette commande superviser le nombre d'événements traités par Gorgone. Lorsqu'une authentification basique est configurée, il est nécessaire de spécifier le nom 
-d'utilisateur et le mot de passe dans la commande comme ceci (```--api-username='John.doe' --api-password='6fbadZEJbsLG'```).
+Cette commande superviser le nombre d'événements traités par Gorgone. Lorsqu'une authentification basique est configurée, il est nécessaire de spécifier le nom
+d'utilisateur et le mot de passe dans la commande comme ceci (`--api-username='John.doe' --api-password='6fbadZEJbsLG'`).
 
 Le résultat attendu est similaire à:
 
@@ -132,19 +131,20 @@ checking path 'internal'
 ...
 ```
 
-Les options permettant au Plugin de déclencher des alertes peuvent être affiché via l'aide de la sonde. (```--help```):
+Les options permettant au Plugin de déclencher des alertes peuvent être affiché via l'aide de la sonde. (`--help`):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \	
-	--plugin=apps::gorgone::restapi::plugin \
-	--mode=events \
-        --help
+/usr/lib/centreon/plugins/centreon_gorgone_restapi.pl \
+    --plugin=apps::gorgone::restapi::plugin \
+    --mode=events \
+    --help
 ```
 
-Il est possible d'afficher l'ensemble des modes disponibles avec la commande ci-dessous: 
+Il est possible d'afficher l'ensemble des modes disponibles avec la commande ci-dessous:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_gorgone_restapi.pl \
     --plugin=apps::gorgone::restapi::plugin \
     --list-mode
 ```
+

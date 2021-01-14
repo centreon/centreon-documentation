@@ -5,43 +5,51 @@ title: How to write a module
 
 You want to create a new module for Centreon or to adapt an existing one? You're at the right place!
 
+An empty module template can be found inside [Centreon's repository](https://github.com/centreon/centreon-dummy)
+
+---
+> **_NOTE:_** Main documentation is directly stored in the
+> [dummy repository](https://github.com/centreon/centreon-dummy/blob/master/README.md)
+
+---
+
 You should know Centreon contains a page dedicated to the installation and the uninstallation of modules
 (**Administration > Extensions > Manager**). To make the module appears on this page, its directory must be placed inside
 Centreon's ``modules/`` directory. Example:
 
 ```Shell
-/usr/local/centreon/www/modules/module-Dummy
+/usr/share/centreon/www/modules/dummy
 ```
-
-An empty module template can be found inside [Centreon's repository](https://github.com/centreon/centreon-dummy)
 
 ## Basis
 
-The essential elements your module's directory must contain are presented below (\* = required):
+The essential elements your module's directory must contain are presented below:
 ```PHP
-// Short module's name. Must be equal to your module's directory name
-$module_conf['dummy']['name'] = "dummy"; 
-// Full module's name
-$module_conf['dummy']['rname'] = "Dummy Module";
-// Module's version
-$module_conf['dummy']['mod_release'] = "2.0"; 
-// Additional information
-$module_conf['dummy']['infos'] = "First of all"; 
-// Allow your module to be uninstalled
-$module_conf['dummy']['is_removeable'] = "1"; 
-// Module author's name
-$module_conf['dummy']['author'] = "Centreon Team"; 
-// 1: the module executes an SQL file for installation and/or uninstallation
-// 0: the module doesn't execute any SQL file
-$module_conf['dummy']['sql_files'] = "1"; 
-// 1: the module executes a PHP file for installation and/or uninstallation
-// 0: the module doesn't execute any SQL file
-$module_conf['dummy']['php_files'] = "1"; 
+$module_conf['dummy'] = [
+    // Short module's name. Must be equal to your module's directory name
+    'name' => 'dummy',
+    // Full module's name
+    'rname' => 'Dummy Example Module',
+    // Module's version
+    'mod_release' => '21.04',
+    // Additional information
+    'infos' => 'This module is a skeleton',
+    // Allow your module to be uninstalled
+    'is_removeable' => '1',
+    // Module author's name
+    'author' => 'Centreon',
+    // Stability of module.
+    'stability' => 'stable',
+    // Last time module was updated.
+    'last_update' => '2020-12-01',
+    // Release notes link, if any.
+    'release_note' => 'https://docs.centreon.com/current/en/releases/centreon-os-extensions.html',
+    // Images associated with this module.
+    'images' => [
+        'images/centreon.png',
+    ],
+];
 ```
-
-**[infos > infos.txt]**
-
-This file can contain various information about your module.
 
 **[php > install.php]**
 
@@ -89,21 +97,22 @@ You're free to organize the remaining files (your module's content) as you like.
 
 ## Advanced
 
+  > :warning: **This section is deprecated, please refer to
+  > the [dummy repository documentation](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
+
 That's great, you know how to install a module! As an empty module is not really useful, put your imagination at work.
 Knowing that you can do almost everything, it should not be too complicated :-).
 
 ### Connecting to the database
 
-You can use the ``centreon``, ``centstorage`` and ``ndo`` databases by calling the following file:
+You can use the ``centreon`` and ``centstorage`` databases by calling the following file:
 ``centreon/www/class/centreonDB.class.php``.
 
 For example, execute requests like this:
 
 ```PHP
-<?
 $pearDB = new CentreonDB();
 $pearDB->query("SELECT * FROM host");
-?>
 ```
 
 ### Existing functions

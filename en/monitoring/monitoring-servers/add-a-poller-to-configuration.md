@@ -63,6 +63,11 @@ recommended).
 
 Click on **Save**.
 
+> Note that the *SSH Legacy port* is not used anymore and will be removed.
+>
+> If you were using it in custom scripts, consider changing to use
+> Gorgone communication system.
+
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
@@ -70,11 +75,6 @@ icon on the line corresponding to your Poller <img src="../../assets/monitoring/
 
 A pop-in will show the configuration to copy into the **Poller terminal**.
 Click on **Copy to clipboard**.
-
-> Note that a SSH port is still required (SSH Legacy port) for the Service
-> Discovery extension.
->
-> This extension will soon use Gorgone communication protocol.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
@@ -147,7 +147,6 @@ Finally, enable the automatic startup of the service with the command:
 ```shell
 systemctl enable gorgoned
 ```
-
 <!--Using SSH-->
 
 #### Select communication type
@@ -158,6 +157,11 @@ connection protocol**. Define the suitable **port**.
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
 Click on **Save**.
+
+> Note that the *SSH Legacy port* is not used anymore and will be removed.
+>
+> If you were using it in custom scripts, consider changing to use
+> Gorgone communication system.
 
 #### Exchange SSH keys
 
@@ -185,7 +189,6 @@ Then, copy this key on to the **new Poller** with the following commands:
 su - centreon-gorgone
 ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
