@@ -111,16 +111,9 @@ When the installation is complete, click on **Reboot**:
 
 Connect to your server using a terminal, and execute the command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
-``` shell
-dnf update
-```
-<!--CentOS 7-->
 ``` shell
 yum update
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Accept all GPG keys if you are prompted
 
@@ -139,21 +132,6 @@ systemctl enable centreon centengine
 
 ## Register the server
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
-To register it to the Centreon Central server or a Remote server, execute the following command:
-
-``` shell
-php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
--t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
-```
-
-Example:
-
-``` shell
-php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
-```
-<!--CentOS 7-->
 Install the Software Collections repository using this command:
 
 ```shell
@@ -172,7 +150,6 @@ Example:
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
 > want to link your server to it.
