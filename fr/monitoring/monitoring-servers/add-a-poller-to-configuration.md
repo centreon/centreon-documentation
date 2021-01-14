@@ -58,14 +58,14 @@ Editer la configuration du Poller fraichement créé, et sélectionner **ZMQ**
 comme **Protocole de connexion utilisé par Gorgone**. Définir le **port**
 adéquat (le port **5556** est recommandé).
 
-> Il est à noter qu'un port SSH est toujours necessaire (SSH Legacy port) pour
-> l'extension de découverte de service (Service Discovery).
->
-> Cette extension utilisera bientôt le protocole de communication de Gorgone.
-
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
 Cliquer sur **Sauvegarder**.
+
+> Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
+>
+> Si vous l'utilisiez dans des scripts personnalisés, pensez à changer pour
+> utiliser le système de communication de Gorgone.
 
 #### Afficher la configuration de Gorgone
 
@@ -147,7 +147,6 @@ Enfin, activez le démarrage automatique du service avec la commande :
 ```shell
 systemctl enable gorgoned
 ```
-
 <!--Avec SSH-->
 
 #### Sélectionner le type de communication
@@ -158,6 +157,11 @@ comme **Protocole de connexion utilisé par Gorgone**. Définir le **port** adé
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
 Cliquer sur **Sauvegarder**.
+
+> Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
+>
+> Si vous l'utilisiez dans des scripts personnalisés, pensez à changer pour
+> utiliser le système de communication de Gorgone.
 
 ## Echange de clés SSH
 

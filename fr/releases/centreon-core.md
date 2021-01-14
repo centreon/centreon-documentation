@@ -18,6 +18,43 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web release notes
 
+### 20.10.2
+
+> Comportements connus :
+>
+> -   Les liens "url notes" et "url actions" maintenant visibles dans la page "Resources Status"
+>     ne traduisent pas les macros, par exemple $HOSTNAME$.
+
+#### Enhancements
+
+- [API] Add normalizers for data found in concordanceArray
+- [API] Get topology of servers of a Centreon Platform
+- [Configuration] Add a special variable for trap OID
+- [Configuration] Add pool size parameter in configuration for Centreon Broker
+- [Resources Status] Add alias & fqdn in host detail panels
+- [Resources Status] Add URL link button from host and service extended information configuration
+
+#### Bug fixes
+
+- [Authentication] New LDAP configurations are broken
+- [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
+- [Configuration] PHP Warning while creating a Centreon Engine configuration
+- [Configuration] Unable to save log level in Centreon Engine form
+- [Knowledge Base] Access to mediawiki is very slow
+- [Resources Status] Display issue when resource has a configured icon
+- [Resources Status] Incorrect default downtime duration
+- [Resources Status] Useless impacted_resources_count property
+
+#### Security fixes
+
+- [Apache] Support for the HTTP TRACE
+- [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
+- [Authentication] Reach Centreon Front-end parameter ineffective
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Connectors & commands form
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Contact Groups form
+- [Configuration] XSS in updateContactParam.php & commonJS.php
+- [Media] Unrestricted file upload
+
 ### 20.10.1
 
 #### Enhancements
