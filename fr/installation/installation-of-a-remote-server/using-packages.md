@@ -86,7 +86,14 @@ dnf config-manager --set-enabled powertools
 
 > Pour CentOS 8.2 utilisez la commande :
 > ```shell
+> dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
+> ```
+
+> Pour Oracle Linux utilisez la commande :
+> ```shell
+> dnf -y install dnf-plugins-core oracle-epel-release-el8
+> dnf config-manager --set-enabled ol8_codeready_builder
 > ```
 <!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
