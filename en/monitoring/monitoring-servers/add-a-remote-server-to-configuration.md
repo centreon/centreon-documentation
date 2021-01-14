@@ -63,7 +63,7 @@ recommended) or using SSH protocol.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Using ZMQ (Recommended)-->
+<!--Using ZMQ-->
 
 #### Select communication type
 
@@ -71,14 +71,14 @@ Edit the newly created Remote Server configuration, and select **ZMQ** as
 **Gorgone connection protocol**. Define the suitable **port** (port **5556**
 is recommended).
 
-> Note that a SSH port is still required (SSH Legacy port) for the Service
-> Discovery extension.
->
-> This extension will soon use Gorgone communication protocol.
-
 ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
 Click on **Save**.
+
+> Note that the *SSH Legacy port* is not used anymore and will be removed.
+>
+> If you were using it in custom scripts, consider changing to use
+> Gorgone communication system.
 
 #### Display Gorgone configuration
 
@@ -198,43 +198,12 @@ It should result as follow:
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
-<!--Using SSH-->
+<!--Using SSH (Deprecated)-->
 
-#### Select communication type
-
-Edit the newly created Remote Server configuration, and select **SSH** a
-**Gorgone connection protocol**. Define the suitable **port**.
-
-![image](../../assets/monitoring/monitoring-servers/remote-edit-ssh.png)
-
-Click on **Save**.
-
-#### Exchange SSH keys
-
-If you do not have any private SSH keys on the **Central server** for the
-**centreon-gorgone** user, create one with the following commands:
-
-```shell
-su - centreon-gorgone
-ssh-keygen -t rsa
-```
-
-> Hit enter when it prompts for a file to save the key to use the default
-> location, or, create one in a specified directory. **Leave the passphrase
-> blank**. You will receive a key fingerprint and a randomart image.
-
-Generate a password for the **centreon** user on the **new Remote Server**:
-
-```shell
-passwd centreon
-```
-
-Then, copy this key on to the **new Remote Server** with the following commands:
-
-```shell
-su - centreon-gorgone
-ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
-```
+> **Deprecated** 
+>
+> This mode should not be used anymore as it does not allow data
+> synchronisation between Central and Remote Server UI.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **To force the Central's Gorgone daemon to connect to the Remote Server**, restart
