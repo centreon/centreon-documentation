@@ -14,7 +14,7 @@ the reader. This page list properties available for each event type.
 | Property                                     | Type             | Description                                                              |
 |----------------------------------------------|------------------|--------------------------------------------------------------------------|
 | acknowledgement\_type                        | short integer    | Host acknowledgement when 0, service acknowledgement when 1.             |
-| author                                       | string           | acknowledgement author.                                                  |
+| author                                       | string           | Acknowledgement author.                                                  |
 | comment                                      | string           | Comment associated to the acknowledgement.                               |
 | deletion\_time                               | time             | Time at which the acknowledgement was deleted. If 0, it was not deleted. |
 | entry\_time                                  | time             | Time at which the acknowledgement was created.                           |
@@ -25,7 +25,7 @@ the reader. This page list properties available for each event type.
 | persistent\_comment                          | boolean          | True if the comment is persistent.                                       |
 | service\_id                                  | unsigned integer | Service ID. 0 for a host acknowledgement.                                |
 | state                                        | short integer    | Host / service state.                                                    |
-| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already .                      |
+| notify\_only\_if\_not\_already\_acknowledged | boolean          | A notification should be sent only if not already ack.                   |
 
 ### Comment
 
@@ -648,7 +648,7 @@ Engine state events are sent when the correlation engine starts or stops.
 
 | Property       | Type             | Description   | Version |
 |----------------|------------------|---------------|---------|
-| \_time      | time             |               |         |
+| ack\_time      | time             |               |         |
 | current\_state | integer          |               |         |
 | end\_time      | time             |               |         |
 | host\_id       | unsigned integer |               |         |
@@ -660,7 +660,7 @@ Engine state events are sent when the correlation engine starts or stops.
 
 | Property    | Type             | Description | Version |
 |-------------|------------------|-------------|---------|
-| \_time   | time             |             |         |
+| ack\_time   | time             |             |         |
 | end\_time   | time             |             |         |
 | host\_id    | unsigned integer |             |         |
 | service\_id | unsigned integer |             |         |
@@ -694,10 +694,10 @@ Engine state events are sent when the correlation engine starts or stops.
 
 | Property    | Type          | Description                                                                                                               | Version |
 |-------------|---------------|---------------------------------------------------------------------------------------------------------------------------|---------|
-| bbdo\_major | short integer | BBDO protocol major used by the peer sending this *version\_response* pet. The sole current protocol version is 1.0.0. |         |
-| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this *version\_response* pet.                                             |         |
-| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this *version\_response* pet.                                             |         |
-| extensions  | string        | Space-separated string of extensions supported by the peer sending this *version\_response* pet.                       |         |
+| bbdo\_major | short integer | BBDO protocol major used by the peer sending this *version\_response* packet. The sole current protocol version is 1.0.0. |         |
+| bbdo\_minor | short integer | BBDO protocol minor used by the peer sending this *version\_response* packet.                                             |         |
+| bbdo\_patch | short integer | BBDO protocol patch used by the peer sending this *version\_response* packet.                                             |         |
+| extensions  | string        | Space-separated string of extensions supported by the peer sending this *version\_response* packet.                       |         |
 
 ### Ack
 
