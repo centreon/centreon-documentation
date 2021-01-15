@@ -82,7 +82,7 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
 
 ```bash
-yum install hardware-storage-hitachi-hcp-snmp
+yum install centreon-pack-hardware-storage-hitachi-hcp-snmp
 ```
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Hitachi HCP SNMP* Plugin-Pack
