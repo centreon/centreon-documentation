@@ -78,6 +78,7 @@ The Centreon Plugin-Pack *Oracle Database* aims to retrieve informations and sta
 ## Prerequisites
 
 ### RPM
+
 In order to use this template, the `wget` command-line tool and the GNU Compiler Collection (`gcc`) are necessary.
 
 ```bash
@@ -101,7 +102,7 @@ Install them:
 rpm -ivh oracle-*.rpm
 ```
 
-### Perl library for oracle
+### Perl library for Oracle
 
 > Replace 21.1 by the version of instantclient installed
 
@@ -281,12 +282,13 @@ below:
 
 ### Why do I get the following message:  
 
-### ```UNKNOWN: Cannot connect: (no error string) |```
+#### ```UNKNOWN: Cannot connect: (no error string) |```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the oracle database.
+This error message means that the Centreon Plugin couldn't successfully connect to the Oracle database.
 Check that an Oracle database is installed on this host.
+Check also that no third party device (such as a firewall) is blocking the connection.
 
-### ```DBD::Oracle is not root directory |```
+#### ```DBD::Oracle is not root directory |```
 
 This error message means that the module DBD::Oracle is installed under the /root directory.
 Remove shell environment variable with PERL and compile DBD::Oracle Perl Module.
