@@ -3,11 +3,21 @@ id: using-packages
 title: A partir des paquets
 ---
 
+Centreon fournit des RPM pour ses produits au travers de la solution
+Centreon Open Sources disponible gratuitement sur notre dépôt.
+
+Ces paquets ont été testés avec succès sur les environnements CentOS
+en version 7 et 8.
+
+> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
+> qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
+> pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf update
 ```
@@ -72,10 +82,10 @@ yum install -y centos-release-scl
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-#### Dépôt *PowerTools* de Red Hat
+#### Dépôt PowerTools de Red Hat
 
-Afin d'installer les logiciels Centreon, le dépôt *PowerTools* de Red
-Hat doit être activé.
+Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
+activé.
 
 Exécutez les commandes suivantes :
 
@@ -89,12 +99,18 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
+<!--Oracle Linux 8-->
+#### Dépôt CodeReady Builder de Oracle
 
-> Pour Oracle Linux utilisez la commande :
-> ```shell
-> dnf -y install dnf-plugins-core oracle-epel-release-el8
-> dnf config-manager --set-enabled ol8_codeready_builder
-> ```
+Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
+doit être activé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
 <!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
@@ -121,7 +137,7 @@ serveur, ou déportée sur un serveur dédié.
 ### Avec base de données locale
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
@@ -142,7 +158,7 @@ systemctl restart mariadb
 
 Exécutez la commande suivante sur le serveur Centreon Central :
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
@@ -154,7 +170,7 @@ yum install -y centreon-base-config-centreon-engine centreon-widget\*
 
 Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
@@ -223,7 +239,7 @@ DROP USER '<USER>'@'<IP>';
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
@@ -239,7 +255,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.in
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
@@ -255,7 +271,7 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -274,7 +290,7 @@ Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl start httpd
 ```
@@ -299,7 +315,7 @@ Terminez l'installation en réalisant les
 Pour l'enregistrer sur le serveur Centreon Central exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>

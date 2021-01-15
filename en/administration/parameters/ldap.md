@@ -110,7 +110,7 @@ TLS_REQCERT never
 Then restart Apache:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart httpd
 ```

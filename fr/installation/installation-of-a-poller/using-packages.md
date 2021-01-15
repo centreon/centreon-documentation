@@ -3,6 +3,16 @@ id: using-packages
 title: A partir des paquets
 ---
 
+Centreon fournit des RPM pour ses produits au travers de la solution
+Centreon Open Sources disponible gratuitement sur notre dépôt.
+
+Ces paquets ont été testés avec succès sur les environnements CentOS
+en version 7 et 8.
+
+> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
+> qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
+> pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+
 ## Étapes pré-installation
 
 ### Désactiver SELinux
@@ -39,10 +49,10 @@ systemctl disable firewalld
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-#### Dépôt *PowerTools* de Red Hat
+#### Dépôt PowerTools de Red Hat
 
-Afin d'installer les logiciels Centreon, le dépôt *PowerTools* de Red
-Hat doit être activé.
+Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
+activé.
 
 Exécutez les commandes suivantes :
 
@@ -56,12 +66,18 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
+<!--Oracle Linux 8-->
+#### Dépôt CodeReady Builder de Oracle
 
-> Pour Oracle Linux utilisez la commande :
-> ```shell
-> dnf -y install dnf-plugins-core oracle-epel-release-el8
-> dnf config-manager --set-enabled ol8_codeready_builder
-> ```
+Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
+doit être activé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
 <!--CentOS 7-->
 #### Dépôt Redhat Software Collections
 
@@ -84,7 +100,7 @@ Exécutez la commande suivante à partir d’un utilisateur possédant les droit
 suffisants :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
 ```
@@ -99,7 +115,7 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 Pour installer le moteur de supervision, exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-poller-centreon-engine
 ```
@@ -130,7 +146,7 @@ systemctl start centreontrapd snmptrapd
 Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>

@@ -3,6 +3,15 @@ id: using-packages
 title: Using packages 
 ---
 
+Centreon provides RPM packages for its products through the Centreon Open
+Sources version available free of charge in our repository.
+
+These packages have been successfully tested in CentOS 7 and 8 environments.
+
+> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
+> your production environment. Nevertheless, these packages for CentOS 8 are
+> compatible with RHEL 8 and Oracle Linux 8 versions.
+
 ## Pre-installation steps
 
 ### Disable SELinux
@@ -54,12 +63,18 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
+<!--Oracle Linux 8-->
+#### Oracle CodeReady Builder repository
 
-> For Oracle Linux use:
-> ```shell
-> dnf -y install dnf-plugins-core oracle-epel-release-el8
-> dnf config-manager --set-enabled ol8_codeready_builder
-> ``
+To install Centreon you will need to enable the official Oracle CodeReady
+Builder repository supported by Oracle.
+
+Enable the repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
@@ -83,7 +98,7 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
 ```
@@ -98,7 +113,7 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 To install the monitoring engine, run the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-poller-centreon-engine
 ```
@@ -129,7 +144,7 @@ systemctl start centreontrapd snmptrapd
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>

@@ -145,7 +145,7 @@ Files system description:
 Description of software and linked users:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |

@@ -16,7 +16,7 @@ After installating your server, consider updating your operating system via the
 command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf update
 ```
@@ -84,13 +84,18 @@ dnf config-manager --set-enabled powertools
 > dnf -y install dnf-plugins-core epel-release
 > dnf config-manager --set-enabled PowerTools
 > ```
+<!--Oracle Linux 8-->
+#### Oracle CodeReady Builder repository
 
-> For Oracle Linux use:
-> ```shell
-> dnf -y install dnf-plugins-core oracle-epel-release-el8
-> dnf config-manager --set-enabled ol8_codeready_builder
-> ```
+To install Centreon you will need to enable the official Oracle CodeReady
+Builder repository supported by Oracle.
 
+Enable the repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
@@ -114,7 +119,7 @@ centreon-release package, which will provide the repository file.
 Install the Centreon repository using this command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
 ```
@@ -134,7 +139,7 @@ a remote database on a dedicated server.
 ### With a local database
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
@@ -155,7 +160,7 @@ systemctl restart mariadb
 
 Run the following command on the Central server:
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
@@ -167,7 +172,7 @@ yum install -y centreon-base-config-centreon-engine centreon-widget\*
 
 Then run the following commands on the dedicated server:
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
@@ -252,7 +257,7 @@ DROP USER '<USER>'@'<IP>';
 You are required to set the PHP time zone. Run the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
@@ -268,7 +273,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.in
 After saving the file, please do not forget to restart the PHP-FPM service:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
@@ -284,7 +289,7 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -303,7 +308,7 @@ Before starting the web installation process, start the Apache server with the
 following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 ```shell
 systemctl start httpd
 ```
