@@ -1,6 +1,6 @@
 ---
 id: using-packages
-title: Using packages 
+title: Using packages
 ---
 
 Centreon provides RPM packages for its products through the Centreon Open
@@ -418,8 +418,7 @@ enter your password:
 You will receive the validation of the Centreon central server:
 
 ``` shell
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted successfully.
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
 ```
 
 ### Main errors messages
