@@ -3,6 +3,8 @@ id: introduction
 title: Centreon Platform 20.04.0
 ---
 
+Release date: April 22, 2020
+
 You'll find in this chapter the global **Centreon Plateform 20.04.0** release
 note.
 
