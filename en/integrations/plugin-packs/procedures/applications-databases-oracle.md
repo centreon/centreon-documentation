@@ -179,7 +179,7 @@ This user account must have the read permission on following tables:
   - v$log
   - v$instance
   
-## Installation
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -194,8 +194,6 @@ yum install centreon-plugin-Applications-Databases-Oracle
 2. On the Centreon Web interface, install the *Oracle Database* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
-
-## Configuration
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Oracle Database:
 
@@ -220,8 +218,8 @@ yum install centreon-pack-applications-databases-oracle
 
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | ORACLEPASSWORD             | The oracle user's password 							|
-| X           | ORACLEPORT                 | By default: 1521						                |
+| X           | ORACLEPASSWORD             | The oracle user's password 			    |
+| X           | ORACLEPORT                 | By default: 1521					    |
 | X           | ORACLESID                  | The name of the oracle instance                        |
 | X           | ORACLEUSERNAME             | The oracle user name                                   |
 |             | ORACLESERVICENAME          | The oracle service name                                |
@@ -258,6 +256,7 @@ Tablespace 'users' Total: 29.48 GB Used: 2.78 MB (0.01%) Free: 28.48 GB (99.99%)
 The above command checks the used space in tablespaces (``` --mode='tablespace-usage' ```) 
 on a oracle database installed in the host 10.30.2.38 (``` --hostname='10.30.2.38' ```) 
 It uses Oracle informations (``` --username='SYSTEM' --password='Centreon75' --port='1521' --sid='XE' ```) to connect to the database.
+
 The check provides a warning if the percentage of used space exceeds 90% (``` --warning-tablespace='90' ```) and a critical if this percentage exceeds 98% (``` --critical-tablespace='98' ```).
 
 The available thresholds as well as all of the options that can be used with
