@@ -75,11 +75,12 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Prérequis
 
-### Privilèges API
+### RPM
 
-Pour utiliser ce modèle, il est nécessaire d'installer l'outil de ligne de commande `wget` et la collection de compilateurs GNU (`gcc`).
+Pour utiliser le Plugin-Pack Oracle, il est nécessaire d'installer l'outil de ligne de commande `wget` et la collection de compilateurs GNU (`gcc`).
 
 ```bash
 yum install -y gcc wget
@@ -89,20 +90,19 @@ yum install -y gcc wget
 
 Se connecter sur [Instant Client
 Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
-choisir le système d'exploitation ( le même que celui du collecteur Centreon qui supervisera une base de données Oracle, 
-probablement Linux x86-64) et télécharger les paquets suivants:
+Choisir le groupe de paquets correspondant au système d'exploitation du Collecteur, et télécharger les paquets suivants :
 
   - oracle-instantclient-basic
   - oracle-instantclient-sqlplus
   - oracle-instantclientdevel
 
-ensuite il faut les installer avec la commande suivante:
+Installer les paquets avec la commande suivante :
 
 ```bash
 rpm -ivh oracle-*.rpm
 ```
 
-### Bibliothèque Perl pour oracle
+### Bibliothèque Perl pour Oracle
 
 > Remplacer 21.1 par la version d'instantclient installée
 
@@ -160,7 +160,7 @@ cd /usr/lib/oracle/21.1/client64/lib/
 
 La façon la plus sûre de récupérer des informations du serveur Oracle est de créer un utilisateur dédié à Centreon.
 
-Ce compte utilisateur doit avoir la permission de lecture sur les tableaux suivants :
+Ce compte utilisateur doit avoir la permission de lecture sur les tables suivants :
 
   - dba\_free\_space
   - dba\_data\_files
@@ -268,7 +268,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 	--help
 ```
 
-Tous les modes fournis avec le plugin peuvent être consultées avec le paramètre ```--list-mode``` ainsi que suis:
+Tous les modes fournis avec le plugin peuvent être consultées avec le paramètre ```--list-mode```:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_oracle.pl \
@@ -278,12 +278,12 @@ Tous les modes fournis avec le plugin peuvent être consultées avec le paramèt
 
 ### J'obtiens le message d'erreur suivant:   
 
-### ```UNKNOWN: Cannot connect: (no error string) |```
+#### ```UNKNOWN: Cannot connect: (no error string) |```
 
-Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter à la base de données oracle.
-Vérifier qu'une base de données Oracle est installée sur cet hôte.
+Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter à la base de données Oracle.
+Vérifier qu'une base de données Oracle est installée sur cet hôte. Vérifiez également qu'aucun pare-feu ne bloque la connexion.
 
-### ```DBD::Oracle is not root directory |````
+#### ```DBD::Oracle is not root directory |````
 
 Ce message d'erreur signifie que le module DBD::Oracle est installé sous le répertoire /root.
 Supprimer la variable d'environnement shell avec PERL et compiler DBD::Oracle Perl Module.
