@@ -45,7 +45,7 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 <!--Rman-Backup-Problems-->
 
-| Metric name			   | Description                                                         | Unit   |
+| Metric name		   | Description                                                         | Unit   |
 | :----------------------- | :------------------------------------------------------------------ | :----  |
 |  #backup_backup_problems | Number of problems per backup (last 3 days by default)              | Count  |
 
@@ -59,7 +59,7 @@ Le Plugin Centreon associé *Oracle Database* permet d'interroger l'API Rest afi
 
 | Metric name               | Description                                          | Unit |
 | :------------------------ | :--------------------------------------------------- | :--- |
-| sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %    |
+| sga_data_buffer_hit_ratio | Check the 'Data Buffer Cache Hit Ratio' of the server|  %   |
 
 <!--Corrupted-Blocks-->
 
@@ -192,8 +192,6 @@ yum install centreon-plugin-Applications-Databases-Oracle
 
 <!--Offline IMP License-->
 
-## Configuration
-
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant une base de données Oracle :
 
 ```bash
@@ -219,8 +217,8 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |
-| X           | ORACLEPASSWORD             | The oracle user's password 							|
-| X           | ORACLEPORT                 | By default: 1521						                |
+| X           | ORACLEPASSWORD             | The oracle user's password 			    |
+| X           | ORACLEPORT                 | By default: 1521					    |
 | X           | ORACLESID                  | The name of the oracle instance                        |
 | X           | ORACLEUSERNAME             | The oracle user name                                   |
 |             | ORACLESERVICENAME          | The oracle service name                                |
@@ -257,6 +255,7 @@ Tablespace 'users' Total: 29.48 GB Used: 2.78 MB (0.01%) Free: 28.48 GB (99.99%)
 La commande ci-dessus contrôle l'espace utilisé dans les tablespaces (``` --mode='tablespace-usage' ```)
 d'une base de données oracle installée sur l'hôte 10.30.2.38 (``` --hostname='10.30.2.38' ```).
 Il utilise les informations d'Oracle pour se connecter à la base de données (``` --username='SYSTEM' --password='Centreon75' --port='1521' --sid='XE' ```).
+
 Le seuil d'alerte est dépassé si le pourcentage d'espace utilisé dans une tablespace dépasse 90% (``` --warning-tablespace='90' ```). Le seuil critique est dépassé si ce pourcentage dépasse 98% (``` --critical-tablespace='98' ```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
@@ -283,7 +282,7 @@ Tous les modes fournis avec le plugin peuvent être consultées avec le paramèt
 Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter à la base de données Oracle.
 Vérifier qu'une base de données Oracle est installée sur cet hôte. Vérifiez également qu'aucun pare-feu ne bloque la connexion.
 
-#### ```DBD::Oracle is not root directory |````
+#### ```DBD::Oracle is not root directory |```
 
 Ce message d'erreur signifie que le module DBD::Oracle est installé sous le répertoire /root.
 Supprimer la variable d'environnement shell avec PERL et compiler DBD::Oracle Perl Module.
