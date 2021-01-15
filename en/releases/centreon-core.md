@@ -268,7 +268,7 @@ with the –pool\_size X argument or -s X.
 
 *January x, 2021*
 
-#### Bug fixes
+#### Bugfixes
 
 - [zmqclient] Harden communication to avoid "Protocol not good" errors
 - [zmqclient] Increment ZMQ_LINGER period for some modules
@@ -287,7 +287,7 @@ with the –pool\_size X argument or -s X.
 
 *December 17, 2020*
 
-#### Bug fixes
+#### Bugfixes
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
