@@ -619,14 +619,14 @@ must be deleted.
 | state            | short integer    | Service state.                                                     |         |
 | is\_for\_rebuild | boolean          | Set to true when a graph is being rebuild (see the rebuild event). |         |
 
-### Metric Mapping
+### Metric mapping
 
 | Property  | Type             | Description | Version |
 |-----------|------------------|-------------|---------|
 | index\_id | unsigned integer | Index ID.   |         |
 | metric\_d | unsigned integer | Index ID.   |         |
 
-### Index Mapping
+### Index mapping
 
 | Property    | Type             | Description | Version |
 |-------------|------------------|-------------|---------|
