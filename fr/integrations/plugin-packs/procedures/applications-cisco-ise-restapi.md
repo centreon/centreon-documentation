@@ -3,49 +3,176 @@ id: applications-cisco-ise-restapi
 title: Cisco ISE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan  8 2019 |
+## Vue d'ensemble
 
-## Prerequisites
+Cisco Identity Service Engine est une solution d'administration de réseaux qui
+permet de simplifier le contrôle d'accès réseaux sécurisés.
 
-### Centreon Plugin
+Le Plugin-Pack Centreon *Cisco ISE* permet (par l'interrogation de l'API Rest)
+de récupérer le nombre de sessions active et de sessions *profiler service* 
+ainsi que le nombre que le nombre de  *postured endpoints*.
 
-Install this plugin on each needed poller:
+## Contenu du Plugin-Pack
 
-``` shell
+### Objets supervis�s
+
+* Cisco ISE
+
+### M�triques collect�es
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Session-->
+
+| Metric name              | Description                             |
+|:-------------------------|:----------------------------------------|
+| sessions.active.count    | The number of active sessions           |
+| endpoints.postured.count | The number of postured endpoints        |
+| sessions.profiler.count  | The number of profiler service sessions |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Pr�requis
+
+L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](###Hôte)
+doit faire partie des groupes Admin suivants et les informations 
+d'identification doivent être stockées dans la base de données interne de Cisco 
+ISE (utilisateurs administratifs internes)
+
+* Super Admin
+
+* System Admin
+
+* MnT Admin
+
+De plus, le collecteur Centreon en charge de la supervision des ressources doit
+également pouvoir joindre l'API Rest de Cisco ISE sur le(s) port(s) TCP/80 ou 
+TCP/443. Plus d'informations sur le site officiel de Cisco :
+https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node
+
+## Installation
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+
+```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-## Centreon Configuration
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
 
-### Create a host using the appropriate template
+<!--Offline IMP License-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
 
-| Field                   | Value                        |
-| :---------------------- | :--------------------------- |
-| Host name               | *Name of the host*           |
-| Alias                   | *Host description*           |
-| IP                      | *Host IP Address*            |
-| Monitored from          | *Monitoring Poller to use*   |
-| Host Multiple Templates | App-Cisco-Ise-Restapi-custom |
+```bash
+yum install centreon-plugin-Applications-Cisco-Ise-Restapi
+```
 
-Click on the *Save* button.
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-### Host Macro Configuration
+ ```bash
+yum install centreon-pack-applications-cisco-ise-restapi
+```
 
-The following macros must be configured on host:
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Cisco ISE* depuis la page "Configuration > Plugin packs > Manager"
 
-| Macro         | Description                  | Default value  |
-| :------------ | :--------------------------- | :------------- |
-| ISECUSTOMMODE | Mode used by plugin          | xmlapi         |
-| ISEAPIURLPATH | Path to the ISE API          | /admin/API/mnt |
-| ISEAPIPORT    | Port of the ISE API instance | 443            |
-| ISEAPIPROTO   | Protocol used by the ISE API | https          |
-| USERNAME      | Username to access ISE API   |                |
-| PASSWORD      | Password to access ISE API   |                |
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Click on the *Save* button.
+## Configuration
 
+### H�te
+
+* Ajoutez un nouvel H�te depuis la page "Configuration > H�tes"".
+* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre serveur *TO CHANGE*
+* Appliquez le Mod�le d'H�te *Applications-Cisco-Ise-Restapi-custom*
+
+| Mandatory | Name          | Description                                                                        |
+|:----------|:--------------|:-----------------------------------------------------------------------------------|
+| X         | ISECUSTOMMODE | Mode used by plugin (Default: 'xmlapi')                                            |
+| X         | ISEAPIURLPATH | Path to the ISE API (Default: '/admin/API/mnt')                                    |
+| X         | ISEAPIPORT    | Port of the ISE API instance (Default: '443')                                      |
+| X         | ISEAPIPROTO   | Protocol used by the ISE API (Default : 'https')                                   |
+| X         | USERNAME      | Username to access ISE API                                                         |
+| X         | PASSWORD      | Password to access ISE API                                                         |
+|           | EXTRAOPTIONS  | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+
+## FAQ
+
+### Comment tester mes configurations et le Plugin en ligne de commande ?
+
+Une fois le Plugin install�, vous pouvez tester celui-ci directement en ligne
+de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
+*centreon-engine* :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
+    --plugin=apps::cisco::ise::restapi::plugin \
+    --mode=session \
+    --custommode='xmlapi' \
+    --hostname='10.0.0.1' \
+    --url-path='admin/API/mnt' \
+    --username='user' \
+    --password='password' \
+    --port='443' \
+    --proto='https' \
+    --filter-counters='' \
+    --warning-active-sessions='20' \
+    --critical-active-sessions='50' \
+    --warning-postured-endpoints='' \
+    --critical-postured-endpoints='' \
+    --warning-profiler-service-sessions='' \
+    --critical-profiler-service-sessions='' \
+```
+
+La commande devrait retourner un message de sortie de la forme ci-dessous :
+
+```bash
+OK : Active sessions: 10, Postured endpoints: 20, Profiler service sessions: 20 | 'sessions.active.count'=10;0:20;0:50;0; 'endpoints.postured.count'=20;;;0 'sessions.profiler.count'=20;;;0;
+```
+
+Dans cet exemple, une alarme de type WARNING est d�clench�e si le nombre de 
+sessions actives est supérieur à 20. 
+
+Une alarme CRITICAL est quant � elle d�clench�e si le nombre de sessions 
+actives est supérieur à 50.
+
+La liste de toutes les options compl�mentaires et leur signification
+peut �tre affich�e en ajoutant le param�tre ```--help``` � la commande:
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
+    --plugin=apps::cisco::ise::restapi::plugin \
+    --mode=session \
+    --help
+```
+
+Tous les modes disponibles peuvent �tre affich�s via l'option
+```--list-mode``` :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
+    --plugin=apps::cisco::ise::restapi::plugin \
+    --list-mode 
+```
+
+### J'obtiens le message d'erreur suivant: UNKNOWN: 500 Can't connect to 10.0.0.1:43 |
+
+Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
+serveur Ciso ISE. Vérifiez que la requête n'est pas bloquée par un outil externe
+(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
+Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
+```--proxyurl='http://proxy.mycompany:8080'```.
+
+### J'obtiens le message d'erreur suivant: UNKNOWN: 501 Protocol scheme 'connect' is not supported |
+
+Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
+d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
+utlisée par défaut par le Plugin Centreon.
+
+Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire, 
+ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de 
+l'Hôte ou directement à la commande.
