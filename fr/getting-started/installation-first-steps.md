@@ -9,26 +9,14 @@ supervision de votre IT via Centreon.
 Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
-* [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
 * [Installation rapide](#installation-rapide)
+* [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
 * [Première connexion à l'interface](#première-connexion-à-linterface)
 * [Ajouter son jeton Centreon IT Edition](#ajouter-son-jeton-centreon-it-edition)
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
 * [Superviser votre premier hôte](#superviser-votre-premier-hôte)
 * [Deployer la configuration](#deployer-la-configuration)
 * [Tutoriels pour profiter de votre supervision](introduction-tutorials.html)
-
-## Demander votre essai gratuit
-
-Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
-Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
-et remplissez le formulaire :
-
-![image](../assets/getting-started/it_100_free_token_form.png)
-
-Vous recevrez un email contenant votre **jeton** permettant d'essayer **Centreon IT Edition**.
-
-Il est maintenant temps de passer au chapitre suivant pour installer votre plateforme Centreon.
 
 ## Installation rapide
 
@@ -99,6 +87,18 @@ Une fois ces opérations effectuées, vous pouvez supprimer ce message en suppri
 > Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
 
 Vous pouvez maintenant continuer vers la première section de connexion.
+
+## Demander votre essai gratuit
+
+Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
+Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
+et remplissez le formulaire :
+
+![image](../assets/getting-started/it_100_free_token_form.png)
+
+Vous recevrez un email contenant votre **jeton** permettant d'essayer **Centreon IT Edition**.
+
+Il est maintenant temps de passer au chapitre suivant pour installer votre plateforme Centreon.
 
 ## Première connexion à l'interface
 
