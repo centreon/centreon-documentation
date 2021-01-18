@@ -72,9 +72,9 @@ secondes par l'intermédiaire du protocole SNMP.
 
 ### Configuration du parefeu pfSense
 
-Afin de superviser le parefeu pfSense, le SNMP v2 ou v3 doit
+Afin de superviser le pare-feu pfSense, le SNMP v2 ou v3 doit
 être configuré comme indiqué sur la documentation officielle fournie par 
-Netgate: 
+Netgate:
 https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 
 ### Flux réseaux
@@ -88,7 +88,7 @@ SNMP (UDP/161) du serveur Kaspersky Security Center.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un pare-feu pfSense :
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
@@ -98,7 +98,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un pare-feu pfSense :
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
@@ -118,16 +118,18 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 
 ### H�te
 
-* Ajoutez un nouvel H�te depuis la page "Configuration > H�tes"".
-* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre serveur *TO CHANGE*
+* Ajoutez un nouvel H�te depuis la page "Configuration > H�tes".
+
+* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre pare-feu pfSense
+
 * Appliquez le Mod�le d'H�te *Network-Firewalls-Pfsense-Snmp-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
 
-| Obligatoire | Nom              | Description                                 |
-|:----------- |:---------------- |:------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                 |
+|:----------|:---------------- |:------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 

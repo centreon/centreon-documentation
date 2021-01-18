@@ -5,7 +5,8 @@ title: pfSense
 
 ## Overview
 
-pfSense is an open source firewall based on FreeBSD
+pfSense is an open source router and firewall software based on FreeBSD and
+entirely configurable throught a user-friendly web interface.
 
 The Centreon Plugin-Pack *pfSense* aims to collect the status of the interfaces 
 and the several number of packets per second using with the SNMP protocol.
@@ -86,7 +87,7 @@ port.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
@@ -96,7 +97,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a pfSense firewall:
 
 ```bash
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
@@ -117,8 +118,10 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 ### Host
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *TO CHANGE* Server settings
-* Apply the *Network-Firewalls-Pfsense-Snmp-custom* template and configure all the mandatory Macros :
+
+* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your pfSense firewall settings
+
+* Apply the *Network-Firewalls-Pfsense-Snmp-custom* template and configure all the mandatory Macros:
 
 If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* Macro to configure
 your own SNMPv3 credentials combo.
