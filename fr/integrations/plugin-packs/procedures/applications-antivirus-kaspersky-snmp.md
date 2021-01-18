@@ -9,9 +9,9 @@ Kaspersky est une société privée qui fournit des solutions de cybersécurité
 antivirus. Elle a été fondée en 1997 par Eugene Kaspersky, Natalya Kaspersky et
 Alexey De-Monderik.
 
-Le Plugin-Pack Centreon Kaspersky permet de récupérer le statut du Serveur 
-d'administration et des applications administrées par l'intermédiaire 
-du protocole SNMP.
+Le Plugin-Pack Centreon Kaspersky permet de récupérer, par l'intermédiaire du
+protocole SNMP, le statut du Serveur d'Administration et des applications 
+administrées.
 
 ## Contenu du Plugin-Pack 
 
@@ -83,7 +83,7 @@ https://support.kaspersky.com/fr/12603#block3
 ### Flux réseaux
 
 La communication doit être possible depuis le collecteur Centreon vers le port
-SNMP (UDP/161) du serveur Kaspersky Security Center.
+SNMP (UDP/161) du Kaspersky Security Center.
 
 ## Installation
 
@@ -98,6 +98,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
 2. Installer le Plugin-Pack 'Kaspersky' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
+
 <!--Offline IMP License-->
 
 1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
@@ -106,7 +107,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Centreon **Central** :
+2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Central Centreon :
 
 ```bash
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
@@ -120,11 +121,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur Kaspersky Security Center
-* Appliquez le Modèle d'Hôte App-Monitoring-Alyvix-Restapi-custom
-
-
-Lorsque vous ajoutez un Hôte, complétez les champs 'Communauté Snmp' et 
-'Version Snmp' pour refléter la configuration de l'équipement cible.
+* Appliquez le Modèle d'Hôte *App-Monitoring-Alyvix-Restapi-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
@@ -172,9 +169,13 @@ protocole SNMP
 (--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity').
 
 Dans cet exemple, une alarme de type WARNING est déclenchée si :
+
 * Le nombre d'installations à distance réussies est inférieur à 100 (--warning-progress='100:')
+
 * Le nombre d'installations à distance échouées est supérieur à 0 (--warning-failed='0')
-* Le nombre d'hôtes ayant une licence qui va expirer est supérieur à 0 (--warning-expiring='0')
+
+* Le nombre d'hôtes ayant une licence expirant bientôt est supérieur à 0 (--warning-expiring='0')
+
 * Le nombre d'hôtes ayant une licence expirée est supérieur à 0 (--warning-expired='0')
 
 Une alarme CRITICAL est quant à elle déclenchée si le nombre d'installations 
@@ -190,7 +191,8 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
   --help
 ```
 
-Tous les modes disponibles peuvent être affichés via l'option ```--list-mode``` :
+Tous les modes disponibles peuvent être affichés via l'option 
+```--list-mode``` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \

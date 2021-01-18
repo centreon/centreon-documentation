@@ -78,8 +78,8 @@ to achieve this: https://support.kaspersky.com/12603#block3
 
 ### Network flow
 
-The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
-port.
+The Kaspersky Security Center must be reachable from the Centreon Poller on the 
+UDP/161 SNMP port.
 
 ## Setup
 
@@ -163,9 +163,13 @@ requesting the Kaspersky Security Center using the SNMP protocol at 10.0.0.1
 (--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity').
 
 This command triggers a WARNING alarm in the following case:
-* The number of successful remote installation is lower than 100 (--warning-progress='100:')
+
+* The number of successful remote installations is lower than 100 (--warning-progress='100:')
+
 * The number of failed remote installations is greater then 0 (--warning-failed='0')
+
 * The number of hosts with expiring licence is greater then 0 (--warning-expiring='0')
+
 * The number of hosts with expired licence is greater then 0 (--warning-expired='0')
 
 A CRITICAL alarm is however triggered if the number of successful remote 
