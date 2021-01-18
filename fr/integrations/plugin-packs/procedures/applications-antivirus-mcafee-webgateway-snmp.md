@@ -17,7 +17,7 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
 ### Objets supervisés
 
-* McAfee Web Gateway
+* McAfee Web Gateway proxy
 
 ### Métriques collectées
 
@@ -96,9 +96,8 @@ détections des logiciels malveillants par l'intermédiaire du protocole SNMP.
 
 ## Prérequis
 
-Afin de superviser le McAfee 
-Web Gateway, le SNMP v2 ou v3 doit être configuré comme indiqué sur la 
-documentation officielle :
+Afin de superviser le proxy McAfee Web Gateway, le SNMP v2 ou v3 doit être 
+configuré comme indiqué sur la documentation officielle :
 
 * https://docs.mcafee.com/bundle/web-gateway-8.2.x-product-guide/page/GUID-7F25543B-2BE5-47A5-BC40-AEEF65F5D156.html
 
@@ -110,7 +109,7 @@ documentation officielle :
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un proxy McAfee Web Gateway :
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -120,7 +119,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser un proxy McAfee Web Gateway :
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -140,16 +139,18 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 
 ### Hôte
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"".
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *TO CHANGE*
+* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
+
+* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre proxy McAfee Web Gateway
+
 * Appliquez le Modèle d'Hôte *Applications-Antivirus-mcafee-webgateway-snmp-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
 
-| Obligatoire | Nom              | Description                                 |
-|:----------- |:---------------- |:------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Mandatory | Name             | Description                                 |
+|:----------|:---------------- |:--------------------------------------------|
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
 
 ## FAQ
 
@@ -176,7 +177,7 @@ commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 Expected command output is shown below:
 
 ```bash
-OK: Connected clients: 10, Open network sockets: 50 | clients.connected.count=10;0:20;0:30;0;   sockets.connected.count=50;0:60;0:70;0;
+OK: Connected clients: 10, Open network sockets: 50 | 'clients.connected.count'=10;0:20;0:30;0;  'sockets.connected.count'=50;0:60;0:70;0;;
 ```
 
 Dans cet exemple, le Plugin récupère le nombre de clients connectés
@@ -187,16 +188,18 @@ protocole SNMP
 
 Dans cet exemple, une alarme de type WARNING est déclenchée si :
 
-* Le nombre de client connectés est plus grand que 20 (--warning-clients='30)
-* Le nombre de prise réseaux ouvertes est plus grand que 60 (--warning-sockets='70')
+* Le nombre de client connectés est plus grand que 20 (--warning-clients='20)
+
+* Le nombre de prise réseaux ouvertes est plus grand que 60 (--warning-sockets='60')
 
 Une alarme CRITICAL est quant à elle déclenchée dans les cas suivants :
 
-* Le nombre de client connectés est plus grand que 30 (--critical-clients='20)
-* Le nombre de prise réseaux ouvertes est plus grand que 70 (--critical-sockets='60')
+* Le nombre de client connectés est plus grand que 30 (--critical-clients='30)
+
+* Le nombre de prise réseaux ouvertes est plus grand que 70 (--critical-sockets='70')
 
 La liste de toutes les options complémentaires et leur signification peut être 
-affichée en ajoutant le paramètre ```--help``` à la commande:
+affichée en ajoutant le paramètre ```--help``` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
@@ -212,3 +215,17 @@ Tous les modes disponibles peuvent être affichés via l'option
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
     --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
     --list-mode
+```
+
+### UNKNOWN: SNMP GET Request : Timeout
+
+Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
+pas à contacter le serveur Kaspersky Security Center sur le port 161 (firewall
+ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
+correcte.
+
+### UNKNOWN: SNMP GET Request : Cant get a single value.
+
+Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
+faire fonctionner le mode/plugin. L'agent SNMP doit pouvoir accéder à la branche 
+.1.3.6.1.4.1.1230.
