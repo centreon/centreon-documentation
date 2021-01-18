@@ -16,7 +16,7 @@ dedicated built-in REST API.
 
 ### Monitored objects
 
-* Cisco ISE
+* Cisco Identity Service Engine
 
 ### Monitored metrics
 
@@ -55,7 +55,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a Cisco Identity Service Engine:
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
@@ -86,7 +86,7 @@ yum install centreon-pack-applications-cisco-ise-restapi
 ### Host
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *TO CHANGE* Server settings
+* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Cisco Identity Service Engine settings
 * Apply the *Applications-Cisco-Ise-Restapi-custom* template and configure all the mandatory Macros :
 
 | Mandatory | Name          | Description                                                                        |

@@ -8,7 +8,7 @@ title: Cisco ISE
 Cisco Identity Service Engine est une solution d'administration de réseaux qui
 permet de simplifier le contrôle d'accès réseaux sécurisés.
 
-Le Plugin-Pack Centreon *Cisco ISE* permet (par l'interrogation de l'API Rest)
+Le Plugin-Pack Centreon *Cisco ISE* permet (par l'interrogation de l'API REST)
 de récupérer le nombre de sessions active et de sessions *profiler service* 
 ainsi que le nombre que le nombre de  *postured endpoints*.
 
@@ -16,7 +16,7 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 ### Objets supervis�s
 
-* Cisco ISE
+* Cisco Identity Service Engine
 
 ### M�triques collect�es
 
@@ -56,7 +56,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources Cisco Identity Service Engine:
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
@@ -66,13 +66,13 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE* :
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Cisco Identity Service Engine :
 
 ```bash
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Cisco ISE* :
 
  ```bash
 yum install centreon-pack-applications-cisco-ise-restapi
@@ -87,7 +87,7 @@ yum install centreon-pack-applications-cisco-ise-restapi
 ### H�te
 
 * Ajoutez un nouvel H�te depuis la page "Configuration > H�tes"".
-* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre serveur *TO CHANGE*
+* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre Cisco Identity Service Engine
 * Appliquez le Mod�le d'H�te *Applications-Cisco-Ise-Restapi-custom*
 
 | Mandatory | Name          | Description                                                                        |
@@ -159,7 +159,7 @@ Tous les modes disponibles peuvent �tre affich�s via l'option
     --list-mode 
 ```
 
-### J'obtiens le message d'erreur suivant: UNKNOWN: 500 Can't connect to 10.0.0.1:43 |
+### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to 10.0.0.1:443 |```
 
 Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
 serveur Ciso ISE. Vérifiez que la requête n'est pas bloquée par un outil externe
@@ -167,7 +167,7 @@ serveur Ciso ISE. Vérifiez que la requête n'est pas bloquée par un outil exte
 Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
 ```--proxyurl='http://proxy.mycompany:8080'```.
 
-### J'obtiens le message d'erreur suivant: UNKNOWN: 501 Protocol scheme 'connect' is not supported |
+### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
 
 Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
 d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
