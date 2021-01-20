@@ -517,7 +517,6 @@ or unloaded.
 | group\_name | string           | Group name.                                                 |         |
 | poller\_id  | unsigned integer |                                                             |         |
 
-
 ### Service status
 
 | Property                  | Type             | Description | Version |
