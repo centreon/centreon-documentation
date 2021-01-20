@@ -508,6 +508,18 @@ or unloaded.
 
 ### Service group member
 
+| Property    | Type             | Description                                                 | Version |
+|-------------|------------------|-------------------------------------------------------------|---------|
+| id          | unsigned integer |                                                             |         |
+| host\_id    | unsigned integer |                                                             |         |
+| service\_id | unsigned integer |                                                             |         |
+| enabled     | enabled          | True if the group is enable, false if it is not (deletion). |         |
+| group\_name | string           | Group name.                                                 |         |
+| poller\_id  | unsigned integer |                                                             |         |
+
+
+### Service status
+
 | Property                  | Type             | Description | Version |
 |---------------------------|------------------|-------------|---------|
 | acknowledged              | boolean          |             |         |
