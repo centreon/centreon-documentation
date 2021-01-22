@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
+*12 janvier 2020*
+
 > Comportements connus :
 >
 > -   Les liens "url notes" et "url actions" maintenant visibles dans la page "Resources Status"
@@ -131,6 +133,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
+*20 janvier 2020*
+
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
 #### Bugfixes
@@ -206,6 +210,8 @@ state was HARD even if no notification is configured nor sent.
 ## Centreon Broker
 
 ### 20.10.3
+
+*20 janvier 2020*
 
 #### Bugfixes
 

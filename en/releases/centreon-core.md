@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.2
 
+*January 12, 2021*
+
 > Known behaviours:
 >
 > -   The "url notes" and "url actions" links now visible in the "Resources Status"
@@ -131,6 +133,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.2
 
+*January 20, 2021*
+
 > This version requires Centreon Broker version to be 20.10.3 or higher.
 
 #### Bugfixes
@@ -206,6 +210,8 @@ state was HARD even if no notification is configured nor sent.
 ## Centreon Broker
 
 ### 20.10.3
+
+*January 20, 2021*
 
 #### Bugfixes
 
