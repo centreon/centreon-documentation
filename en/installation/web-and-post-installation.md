@@ -134,5 +134,5 @@ Go to `Administration > Extensions > Manager` menu and click on
 
 ## Getting started
 
-Go to the [Getting Started](../getting-started/installation-first-steps.html#start-to-monitor-your-first-host)
+Go to the [Getting Started](../getting-started/installation-first-steps.html#request-your-free-trial)
 chapter to configure your first monitoring.

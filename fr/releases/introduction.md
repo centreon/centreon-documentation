@@ -3,6 +3,8 @@ id: introduction
 title: Centreon Platform 20.04.0
 ---
 
+Date de sortie : 22 avril 2020
+
 Vous trouverez dans ce chapitre la note de version globale de la **Plateforme
 Centreon 20.04**.
 
