@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.8
 
+*January 12, 2021*
+
 #### Enhancements
 
 - [Configuration] Add a special variable for trap OID
@@ -487,6 +489,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.9
 
+*January 20, 2021*
+
 > This version requires Centreon Broker version to be 20.04.12 or higher.
 
 #### Bugfixes
@@ -642,6 +646,8 @@ a check_command. It will use the poller_id field of your config.
 ## Centreon Broker
 
 ### 20.04.12
+
+*January 20, 2021*
 
 #### Bugfixes
 
