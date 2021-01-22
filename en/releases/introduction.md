@@ -3,6 +3,8 @@ id: introduction
 title: Centreon Platform 20.10.0
 ---
 
+Release date: October 21, 2020
+
 You'll find in this chapter the global **Centreon Platform 20.10** release
 note.
 

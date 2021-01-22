@@ -43,10 +43,11 @@ le temps d’exécution d'un ou de multiples scénarios (*testcases*) lancés pa
 
 * Global (pour chaque *testcase*)
 
-| Metric name                        | Description                                    | Unit |
-|:-----------------------------------|:-----------------------------------------------|:-----|
-| *testcase_alias*#testcase-state    | Status of the case job execution               |      |
-| *testcase_alias*#testcase-duration | Total time of the case job execution           | ms   |
+| Metric name                         | Description                                    | Unit |
+|:------------------------------------|:-----------------------------------------------|:-----|
+| *testcase_alias*#testcase-state     | Status of the case job execution               |      |
+| *testcase_alias*#testcase-duration  | Total time of the case job execution           | ms   |
+| *testcase_alias*#testcase-freshness | Last execution time of the case job            | s    |
 
 * Par *testcase* (pour chaque *transaction*)
 
@@ -75,7 +76,7 @@ officielle: https://www.alyvix.com/learn/\.
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Alyvix Server*
@@ -86,7 +87,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les ressources *Alyvix Server*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Monitoring-Alyvix-Restapi
+yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
@@ -138,6 +139,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --critical-transaction-state='%{state} eq "FAILED"' \
     --warning-testcase-duration='40000' \
     --critical-testcase-duration='60000' \
+    --critical-testcase-freshness='600' \
     --verbose
 ```
 
@@ -151,10 +153,10 @@ OK: All test cases are ok | 'case_app1#testcase.duration.milliseconds'=3883ms;;;
 'case_app2~6_close_app1#transaction.duration.milliseconds'=104ms;;;0; 'case_app2~7_close_app2#transaction.duration.milliseconds'=0ms;;;0;
 'case_app2~8_check_picture#transaction.duration.milliseconds'=0ms;;;0;
 checking test case 'case_app1'
-    duration: 3883 ms, state: OK
+    duration: 3883 ms, state: OK, last execution: 2020-12-11T15:22:40 (1m 16s ago)
     transaction '1_openapp1' state: OK, duration: 77 ms
 checking test case 'case_app2'
-    duration: 30658 ms, state: OK
+    duration: 30658 ms, state: OK, last execution: 2020-12-11T15:20:39 (3m 18s ago)
     transaction '1_open_app1' state: OK, duration: 3 ms
     transaction '2_open_app2' state: OK, duration: 4 ms
     transaction '3_delay' state: OK, duration: 76 ms

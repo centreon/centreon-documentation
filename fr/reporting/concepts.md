@@ -538,7 +538,7 @@ Avant d'exécuter les commandes de la procédure, s'assurer que:
     `/etc/cron.d/centreon-bi-engine`. Il faudra le réactiver à la fin de la procédure
 -   La rétention est configurée sur l'interface Centreon BI et que la valeur configurée n'est pas supérieure à 1024 jours
 -   La rétention est activée dans l'interface
--   Les scripts présents dans /etc/cron.d/centreon-bi-backup-engine
+-   Les scripts présents dans `/etc/cron.d/centreon-bi-backup-reporting-server`
     doivent être commentés. Il faudra les dé-commenter à la fin de la
     procédure
 

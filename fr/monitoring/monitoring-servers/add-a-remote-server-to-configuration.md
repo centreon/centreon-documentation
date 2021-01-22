@@ -65,7 +65,7 @@ recommandé) ou en utilisant le protocole SSH.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Avec ZMQ (Recommandé)-->
+<!--Avec ZMQ-->
 
 #### Sélectionner le type de communication
 
@@ -73,14 +73,14 @@ Editer la configuration du Remote Server fraichement créé, et sélectionner **
 comme **Protocole de connexion utilisé par Gorgone**. Définir le **port**
 adéquat (le port **5556** est recommandé).
 
-> Il est à noter qu'un port SSH est toujours necessaire (SSH Legacy port) pour
-> l'extension de découverte de service (Service Discovery).
->
-> Cette extension utilisera bientôt le protocole de communication de Gorgone.
-
 ![image](../../assets/monitoring/monitoring-servers/remote-edit-zmq.png)
 
 Cliquer sur **Sauvegarder**.
+
+> Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
+>
+> Si vous l'utilisiez dans des scripts personnalisés, pensez à changer pour
+> utiliser le système de communication de Gorgone.
 
 #### Afficher la configuration de Gorgone
 
@@ -201,46 +201,13 @@ Le résultat devrait être similaire :
 
 Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
 ```
-<!--Avec SSH-->
+<!--Avec SSH (Déprécié)-->
 
-#### Sélectionner le type de communication
-
-Editer la configuration du Remote Server fraichement créé, et sélectionner **SSH**
-comme **Protocole de connexion utilisé par Gorgone**. Définir le **port** adéquat.
-
-![image](../../assets/monitoring/monitoring-servers/remote-edit-ssh.png)
-
-Cliquer sur **Sauvegarder**.
-
-## Echange de clés SSH
-
-Si vous n’avez pas de clé SSH privée sur le **serveur Central** pour
-l’utilisateur **centreon-gorgone**, vous pouvez la créer avec la commande
-suivante :
-
-```shell
-su - centreon-gorgone
-ssh-keygen -t rsa
-```
-
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un
-> fichier pour enregistrer la clé. **Laissez le mot de passe vide**. Vous
-> recevrez une empreinte digitale de clé et une image randomart.
-
-Générez un mot de passe sur le **nouveau Remote Server** pour l'utilisateur
-**centreon** :
-
-```shell
-passwd centreon
-```
-
-Pour finir, vous devez copier cette clé sur le **nouveau Remote Server** avec
-les commandes suivantes :
-
-```shell
-su - centreon-gorgone
-ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_REMOTE_SERVER>
-```
+> **Déprécié**
+>
+> Ce mode ne doit plus être utilisé car il n'autorise pas la
+> synchronisation des données entre l'interface utilisateur du Central
+> et du Remote Server.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 **Pour forcer le Gorgone du Central à se connecter au Remote Server**,
