@@ -82,7 +82,6 @@ The ServiceNow Stream-connector is now installed on your Centreon central server
 3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
 4. Add a new **Generic - Stream connector** output.
 5. Name it as you want (eg. **ServiceNow**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/servicenow.lua`.
-6. Add at least the following parameters, the parameters name must be string parameter containing your PagerDuty routing key/token (the parameter name *must be* `pdy_routing_key`):
 
 | Name              | Type   | Value                                          |
 | ----------------- | ------ | ---------------------------------------------- |
@@ -113,9 +112,25 @@ To optimize datas passing through the Stream-connector, you can optionnaly selec
 
 **Parameters table**
 
-| Name                | Type   | Value example                                    |
-| ------------------- | ------ | ------------------------------------------------ |
-| `logfile`           | String | `/custom/path/to/connector-snow.log`             |
+| Name                | Type   | Default value                        | Description                                                                             |
+| ------------------- | ------ | ------------------------------------ | --------------------------------------------------------------------------------------- |
+| `proxy_address`     | String | ``                                   | If needed, the address of the proxy server (requires proxy_port option)                 |
+| `proxy_port`        | String | ``                                   | The port of the proxy server                                                            |
+| `proxy_username`    | String | ``                                   | If needed, the proxy user (requires proxy_password option)                              |
+| `proxy_password`    | String | ``                                   | the proxy user password                                                                 |
+| `logfile`           | String | `/custom/path/to/connector-snow.log` | logfile for the stream connector                                                        |
+| `host_status`       | String | `0,1,2`                              | send event for up, down and unreachable hosts                                           |
+| `service_status`    | String | `0,1,2,3`                            | send event for ok, warning, critical, unknown services                                  |
+| `hard_only`         | Number | `1`                                  | Only send events in hard state                                                          |
+| `acknowledged`      | Number | `0`                                  | Only send events that are not acknowledged                                              |
+| `element_type`      | String | `host_status,service_status`         | Send host and service centreon status event                                             |
+| `category_type`     | String | `Neb`                                | Filter out non Neb events                                                               |
+| `in_downtime`       | Number | `0`                                  | Only send events that are not in downtime                                               |
+| `max_buffer_size`   | Number | `10`                                 | Send 10 events at a time unless max_buffer age is reached before                        |
+| `max_buffer_age`    | Number | `5`                                  | Store events for 5 second before sending them unless max_buffer_size is reached before  |
+| `max_stored_events` | Number | `10`                                 | Keep event in cache to avoid sending duplicated events, change with caution             |
+| `skip_anon_events`  | Number | `1`                                  | Do not send events from hosts or services that are not found in the broker cache        |
+| `skip_nil_id`       | Number | `1`                                  | Do not send events from objects that do not have an ID (meta services most of the time) |
 
 ## How to Uninstall
 
