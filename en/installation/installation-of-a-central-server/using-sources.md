@@ -585,6 +585,7 @@ Write right to Smarty Cache                                OK
 Change macros for centreon.cron                            OK
 Install Centreon cron.d file                               OK
 Change macros for centAcl.php                              OK
+Change macros for session.php                              OK
 Change macros for downtimeManager.php                      OK
 Change macros for centreon-backup.pl                       OK
 Install cron directory                                     OK
