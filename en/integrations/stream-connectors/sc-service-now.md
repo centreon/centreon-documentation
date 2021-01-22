@@ -43,7 +43,8 @@ to be processed in Service Now.
 
  - Madrid
  - New York 
- - Orlando 
+ - Orlando
+ - Quebec
 
 ## Requirements
 
