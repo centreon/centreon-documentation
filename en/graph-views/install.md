@@ -207,7 +207,7 @@ If you installed your Centreon Map server from a "fresh CentOS installation" you
 need to install the Centreon-Release package:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
 ```
@@ -312,7 +312,7 @@ Centreon Map server is now started and enabled, let's install the interface part
 ### Central server
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Install Centreon MAP repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
@@ -472,7 +472,7 @@ the usual server.
 To begin, install the server using the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-map-server-ng
 ```

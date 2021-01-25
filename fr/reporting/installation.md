@@ -76,7 +76,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 **Logiciels**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 - Centreon Web 20.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
@@ -179,7 +179,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-server
 ```
@@ -273,7 +273,7 @@ Installer le dépôt MBI, vous pouvez le trouver sur le
 Puis lancer la commande suivante:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```

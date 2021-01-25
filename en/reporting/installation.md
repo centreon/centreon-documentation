@@ -81,7 +81,7 @@ considerations.
 **Software**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 - Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
@@ -184,7 +184,7 @@ Install the Centreon MBI repository, you can find it on the
 Then run the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-server
 ```
@@ -279,7 +279,7 @@ To start installing the reporting server, install the MBI repository, you can fi
 Then execute the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```

@@ -59,7 +59,7 @@ Once you have your certificate, perform the following procedure to activate HTTP
 1. Install SSL module for Apache:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install mod_ssl mod_security openssl
 ```
@@ -79,7 +79,7 @@ Copy your certificate and key on the server according your configuration; by def
 3. Backup previous Apache configuration for Centreon:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
@@ -95,7 +95,7 @@ cp /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.origin}
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Edit the **/etc/httpd/conf.d/10-centreon.conf** as following:
 <!--CentOS 7-->
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following:
@@ -174,7 +174,7 @@ RedirectMatch ^/$ /centreon
 5. Enable HttpOnly / Secure flags and hide Apache server signature
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
 
 ```apacheconf
@@ -209,7 +209,7 @@ expose_php = Off
 6. Hide the default /icons directory
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
 
 ```apacheconf
@@ -235,7 +235,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and co
 8. Restart the Apache and PHP process to take in account the new configuration:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm httpd
 ```
@@ -318,7 +318,7 @@ To update the Centreon URI, you need to follow those steps:
 2. Edit Apache configuration file for Centreon Web 
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 vim /etc/httpd/conf.d/10-centreon.conf
 ```
@@ -337,7 +337,7 @@ It is possible to enable http2 protocol to improve Centreon network performance.
 To use http2, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
 
 2. Install nghttp2 module:

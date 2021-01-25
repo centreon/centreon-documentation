@@ -78,7 +78,7 @@ sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MES
 ```
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Restart Apache:
 ```shell
 systemctl restart httpd

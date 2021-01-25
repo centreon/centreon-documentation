@@ -150,7 +150,7 @@ Description des partitions :
 Description des logiciels et utilisateurs liés :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |

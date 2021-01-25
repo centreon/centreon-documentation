@@ -17,7 +17,7 @@ Après avoir installé votre serveur, réalisez la mise à jour de votre systèm
 d'exploitation via la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf update
 ```
@@ -65,6 +65,18 @@ systemctl disable firewalld
 ### Installer le dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
+#### Redhat CodeReady Builder repository
+
+To install Centreon you will need to enable the official CodeReady Builder
+repository supported by Redhat.
+
+Enable the CodeReady Builder repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
 <!--CentOS 8-->
 #### Dépôt PowerTools de Red Hat
 
@@ -119,7 +131,7 @@ préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
 ```
@@ -139,7 +151,7 @@ serveur, ou déportée sur un serveur dédié.
 ### Avec base de données locale
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon centreon-database
 systemctl daemon-reload
@@ -160,7 +172,7 @@ systemctl restart mariadb
 
 Exécutez la commande suivante sur le serveur Centreon Central :
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-base-config-centreon-engine centreon-widget\*
 ```
@@ -172,7 +184,7 @@ yum install -y centreon-base-config-centreon-engine centreon-widget\*
 
 Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-database
 systemctl daemon-reload
@@ -263,7 +275,7 @@ DROP USER '<USER>'@'<IP>';
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
@@ -279,7 +291,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.in
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
@@ -295,7 +307,7 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
@@ -314,7 +326,7 @@ Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl start httpd
 ```

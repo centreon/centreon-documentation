@@ -48,6 +48,18 @@ systemctl disable firewalld
 ### Installer les dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
+#### Redhat CodeReady Builder repository
+
+To install Centreon you will need to enable the official CodeReady Builder
+repository supported by Redhat.
+
+Enable the CodeReady Builder repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
 <!--CentOS 8-->
 #### Dépôt PowerTools de Red Hat
 
@@ -100,7 +112,7 @@ Exécutez la commande suivante à partir d’un utilisateur possédant les droit
 suffisants :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
 ```
@@ -115,7 +127,7 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 Pour installer le moteur de supervision, exécutez la commande :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 dnf install -y centreon-poller-centreon-engine
 ```
@@ -146,7 +158,7 @@ systemctl start centreontrapd snmptrapd
 Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS / Oracle Linux 8-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ``` shell
 php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
