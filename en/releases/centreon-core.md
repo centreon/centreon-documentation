@@ -119,6 +119,25 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.10.2
+
+> This version requires Centreon Broker version to be 20.10.3 or higher.
+
+#### Bugfixes
+
+*Notification macros*
+
+The macros in which notification information can be found have been fixed
+(ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
+
+#### Enhancements
+
+*Instance updates*
+
+There is a minimal delay specified in seconds between two instance updates.
+By default, its value is 30s. It can be set with the variable
+instance_heartbeat_interval in the centengine.cfg file.
+
 ### 20.10.1
 
 #### Bugfixes
@@ -171,6 +190,49 @@ state was HARD even if no notification is configured nor sent.
 - Contains all fixes up to version 20.04.7
 
 ## Centreon Broker release notes
+
+### 20.10.3
+
+#### Bugfixes
+
+*Conflict manager and comments*
+
+It is possible to lock the database during comments insertion. This new
+version fixes that.
+
+*BAM reporting dimensions computation*
+
+If there are retention files, dimensions computation could fail because of
+conflicts between new block computation and old ones (the ones in the
+retention). There was also an issue of concurrent access to tables during
+dimensions computation.
+
+*BAM availabilities rebuild*
+
+When availabilities are rebuilt, durations can be doubled. This new version
+fixes this issue.
+
+#### Enhancements
+
+*Logs*
+
+Logs are sent to the database in bulk as we already do for customvariables.
+
+*Lua*
+
+There is a new API available for the Lua connector. To use it, scripts
+must declare a global variable `broker_api_version=2`. From the user's
+point of view, Stream Connectors should work almost the same. In isolate
+cases, we could see scripts that do not work with this new API, then you
+can always work with Broker API version 1, by setting the variable to 1
+or by removing this variable declaration in the script. Why should we
+use the v2 version? Because it is faster, really faster.
+
+*TCP connections*
+
+If the connection between two peers is flapping, it may be difficult for one
+to reconnect to the other and this could lead to many CLOSE_WAIT on the
+acceptor side. This new version fixes this issue.
 
 ### 20.10.2
 

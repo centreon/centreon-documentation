@@ -1,11 +1,12 @@
 ---
-id: init-developer
+id: about-developer-resources
 title: À propos des ressources développeur
 ---
 
-Ce chapitre regroupe toutes les ressources permettant d'étendre les fonctionnalités de Centreon.
+Ce chapitre regroupe toutes les ressources permettant d'étendre les
+fonctionnalités de Centreon.
 
-> These resources are in English..
+> Ces pages ne sont disponibles qu'en anglais.
 
 - [How to write a module](developer-module.html)
 - [How to write a widget](developer-widget.html)

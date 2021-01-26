@@ -57,19 +57,21 @@ If you want to translate Centreon in other language than use by your Centreon se
 locale.
 
 For example, for Brazilian users, execute the following command:
-```shell
-sudo mkdir -p /usr/share/centreon/www/locale/pt_BR/LC_MESSAGES
+```Shell
+sudo mkdir -p /usr/share/centreon/www/locale/pt_BR.UTF-8/LC_MESSAGES
 ```
 
 Compile translated files:
 ```shell
 msgfmt messages.po -o messages.mo
 msgfmt help.pot -o help.mo
+php ./centreon-github/bin/centreon-translations.php pt centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.po centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.ser
 ```
 
 Copy compiled translated files:
 ```shell
 sudo cp *.mo /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
+sudo cp messages.ser /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
 ```
 
 Change rights on directory:
