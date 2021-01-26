@@ -25,7 +25,7 @@ Pour configurer votre première plateforme Centreon, nous vous suggérons d'util
 **Prérequis**
 
 Ces machines virtuelles sont disponibles au format OVA pour l'environnement VMware et OVF pour l'outil Oracle VirtualBox.
-Celles-ci sont basées sur le système d'exploitation **Linux CentOS v7** incluant une installation de Centreon permettant
+Celles-ci sont basées sur le système d'exploitation **Linux CentOS 7** incluant une installation de Centreon permettant
 de démarrer en toute simplicité votre première supervision.
 
 La machine virtuelle a besoin de :

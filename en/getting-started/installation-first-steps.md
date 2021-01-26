@@ -23,7 +23,7 @@ To setup your first Centreon platform, we suggest you to use a ready-to-use virt
 
 **Prerequisites**
 
-Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS v7** operating system including a Centreon installation allowing to easily start your first monitoring.
+Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS 7** operating system including a Centreon installation allowing to easily start your first monitoring.
 
 The virtual machine needs:
 

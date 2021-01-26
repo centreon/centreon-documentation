@@ -18,10 +18,10 @@ to suit your needs.
 
 Centreon MAP consists of three components:
 
-  - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-  - Centreon MAP Web interface, developed in Javascript, based on [Backbone.js](http://backbonejs.org/)
-  - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
-    4](https://wiki.eclipse.org/Eclipse4/RCP).
+- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
+- Centreon MAP Web interface, developed in Javascript, based on [Backbone.js](http://backbonejs.org/)
+- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
+4](https://wiki.eclipse.org/Eclipse4/RCP).
 
 The diagram below summarizes the architecture:
 
@@ -74,13 +74,17 @@ To correctly implement the dedicated memory, you have to edit the *JAVA\_OPTS*
 parameter in the Centreon Map configurations file `/etc/centreon-studio/centreon-map.conf` and
 restart the service:
 
-    JAVA_OPTS="-Xms512m -Xmx4G"
+```java
+JAVA_OPTS="-Xms512m -Xmx4G"
+```
 
-NB: The Xmx value depends on the amount of memory indicated in the above table.
+> The Xmx value depends on the amount of memory indicated in the above table.
 
 and restart the service:
 
-  systemctl restart centreon-map
+```shell
+systemctl restart centreon-map
+```
 
 The space used by Centreon MAP server is directly determined by the number of
 elements you add into your views. An element is any graphical object in Centreon
@@ -91,14 +95,14 @@ included in the count.
 
 **Software**
 
-  - OS: CentOS 7 / Redhat 7
-  - DBMS: MariaDB 10.3
-  - Firewall: Disabled
-  - SELinux: Disabled
+- OS: CentOS or Redhat 7 / 8
+- DBMS: MariaDB 10.3
+- Firewall: Disabled
+- SELinux: Disabled
 
 **Information required during configuration**
 
-  - Centreon Web login with admin rights.
+- Centreon Web login with admin rights.
 
 > Even with a correctly sized server, you should have in mind the best practices
 > & recommandations when creating views so you don't face performance issues.
@@ -115,19 +119,19 @@ team](https://centreon.force.com/) to get & install your license key.
 
 The Centreon MAP Web interface is compatible with the following web browsers:
 
-  - Firefox (latest version)
-  - Chrome (latest version)
-  - Safari (latest version).
-  - Microsoft Edge Chromium
+- Firefox (latest version)
+- Chrome (latest version)
+- Safari (latest version)
+- Microsoft Edge Chromium
 
 Resolution must be at least 1280 x 768.
 
 ### Centreon MAP Desktop Client
 
-  - 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
-  - **Java 64 bits version 8**
-  - Resolution must be at least 1280 x 768.
-  - Debian 7,8 or 9
+- 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
+- **Java 64 bits version 8**
+- Resolution must be at least 1280 x 768.
+- Debian 7,8 or 9
 
 > Desktop Client is not compatible with Microsoft Windows Server. * If a
 > version of Java other than 8 is installed, consider installing Java 8 and
@@ -138,34 +142,35 @@ To optimize the desktop client, you have to "give" it more memory than the
 default value. To do so, modify the Centreon-Map4.ini* file and add the
 following parameters:
 
-    -Xms512m
-    -Xmx4Go
+```java
+-Xms512m
+-Xmx4Go
+```
 
 Note: The Xmx value is the maximum memory used by the application (i.e, if your
 computer has 4 Go RAM, set this value to 3GB maximum (or 75% of the maximum).
 
 Depending on your OS, the file is located in one of this directories:
 
-  - WINDOWS: *C:\[USER\]\[AppdatalocaleCentreon-map4unstableCentreon-Map4.ini*
-  - LINUX: */opt/centreon-map4-desktop-client/Centreon-Map4.ini*
+- WINDOWS: *C:\[USER\]\[AppdatalocaleCentreon-map4unstableCentreon-Map4.ini*
+- LINUX: */opt/centreon-map4-desktop-client/Centreon-Map4.ini*
 
 ### Network requirements
 
 Centreon MAP Server machine must access:
 
-  - Centreon Central broker, usually on Centreon Central machine, using TCP port
-    5758
-  - Centreon Database, usually on Centreon Central machine, using TCP port 3306
-  - Centreon MAP database, usually on localhost, using TCP port 3306.
+- Centreon Central broker, usually on Centreon Central machine, using TCP port 5758
+- Centreon Database, usually on Centreon Central machine, using TCP port 3306
+- Centreon MAP database, usually on localhost, using TCP port 3306.
 
 All the ports above are default values and can be changed if needed.
 
-  - Centreon Web Central, using HTTP port 80 or HTTPS port 443
+- Centreon Web Central, using HTTP port 80 or HTTPS port 443
 
 Centreon MAP Desktop Client machines must access:
 
-  - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
-  - Internet with or without proxy.
+- Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
+- Internet with or without proxy.
 
 Ports 8080 and 8443 are recommanded default values, but other configurations are
 possible.
@@ -187,12 +192,11 @@ Provide this user with access to the Centreon Web real-time API:
 Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
 databases:
 
-    mysql
-
-
-    CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
-    GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
-    GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+```SQL
+CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+```
 
 The INSERT privilege will only be used during the installation process in order
 to create new Centreon Broker output. It will be revoked later.
@@ -200,9 +204,25 @@ to create new Centreon Broker output. It will be revoked later.
 ### Centreon MAP server
 
 If you installed your Centreon Map server from a "fresh CentOS installation" you
-need to install the Centreon-Release package :
+need to install the Centreon-Release package:
 
-    yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+```
+
+*If the URL doesn't work, you can manualy find this package in the folder*
+
+Then install Centreon Map server using the following command:
+
+```shell
+dnf install centreon-map-server
+```
+<!--CentOS 7-->
+```shell
+yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+```
 
 *If the URL doesn't work, you can manualy find this package in the folder*
 
@@ -212,28 +232,41 @@ Install Centreon MAP repository, you can find it on the
 Install Centreon MAP server, it will automatically install java (OpenJDK 11) if needed.
 You need to have a MySQL/MariaDB database to store Centreon Map data, wether it's on localhost or somewhere else.:
 
-    yum install centreon-map-server
+```shell
+yum install centreon-map-server
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Configuration
 
 Make sure the database that stores Centreon MAP data is optimized (automatically
-added by the RPM in /etc/my.cnf.d/map.cnf):
+added by the RPM in `/etc/my.cnf.d/map.cnf`):
 
-    max_allowed_packet=20M
-    innodb_log_file_size = 200M
+```shell
+max_allowed_packet=20M
+innodb_log_file_size = 200M
+```
 
 Then, restart MariaDB:
 
-    systemctl restart mysql
+```shell
+systemctl restart mariadb
+```
 
-Execute the Centreon MAP server configuration script. Two modes are available: interactive or automatic.
+Execute the Centreon MAP server configuration script. Two modes are available:
+interactive or automatic.
 
-- interactive *(no option/default mode)*: Several questions will be asked to interactively fill in the installation variables.
-- automatic *(--automatic or -a)*: The installation will be done automatically from the values set in `/etc/centreon-studio/vars.sh` file
+- interactive *(no option/default mode)*: Several questions will be asked to
+  interactively fill in the installation variables.
+- automatic *(--automatic or -a)*: The installation will be done automatically
+  from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode (interactive) and choose "No" when asked for advanced installation mode:
+If it's your first installation, we advice you to use the standard mode (interactive)
+and choose **No** when asked for advanced installation mode:
 
-    /etc/centreon-studio/configure.sh
+```shell
+/etc/centreon-studio/configure.sh
+```
 
 ### Central server
 
@@ -242,43 +275,67 @@ If it's your first installation, we advice you to use the standard mode (interac
 
 Restart Centreon Broker on the Central server:
 
-    systemctl restart cbd
+```shell
+systemctl restart cbd
+```
 
 Remove the INSERT privilege from user centreon_map:
 
-    REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
+```SQL
+REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
+```
 
 ### Centreon MAP server
 
 Check your configuration:
 
-    /etc/centreon-studio/diagnostic.sh
+```shell
+/etc/centreon-studio/diagnostic.sh
+```
 
 If configuration is correct, the centreon-map service can be started from the Centreon Map server:
 
-    systemctl restart centreon-map
+```shell
+systemctl restart centreon-map
+```
 
 Enable the service to start up automatically on server boot:
 
-    systemctl enable centreon-map
+```shell
+systemctl enable centreon-map
+```
+
+Centreon Map server is now started and enabled, let's install the interface part of the extension.
 
 ## Web Interface installation
 
 ### Central server
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Install Centreon MAP repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
+```shell
+dnf install centreon-map-web-client
+```
+<!--CentOS 7-->
+Install Centreon MAP repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
 
-    yum install centreon-map-web-client
+Then execute the following command:
+```shell
+yum install centreon-map-web-client
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Web
 
 Go to `Centreon > Administration > Extensions` and click on the install button:
 
-  - License Manager (*if not yet installed*)
-  - Map Web Client
+- License Manager (*if not yet installed*)
+- Map Web Client
 
 ![image](../assets/graph-views/install-web-step-1.png)
 
@@ -351,7 +408,9 @@ version of Java from [here](https://java.com/fr/download/manual.jsp).
 
 To check the Java version run the command:
 
-    java -version
+```shell
+java -version
+```
 
 **For Windows:**
 
@@ -375,13 +434,17 @@ Windows dedicated configuration page.
 
 Download the provided DEB file and run the command from the root directory:
 
-    sudo dpkg -i centreon-map4-desktop-client*.deb
+```shell
+sudo dpkg -i centreon-map4-desktop-client*.deb
+```
 
 Alternatively, you can open the DEB file using the Ubuntu software Center.
 
 You should now be able to run Centreon-Map4.
 
-    centreon-map4
+```shell
+centreon-map4
+```
 
 You will also find it in the list of installed applications.
 
@@ -408,13 +471,20 @@ the usual server.
 
 To begin, install the server using the following command:
 
-``` shell
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install centreon-map-server-ng
+```
+<!--CentOS 7-->
+```shell
 yum install centreon-map-server-ng
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 And proceed to the configuration with the following command:
 
-``` shell
+```shell
 /etc/centreon-map/configure.sh
 ```
 
@@ -425,13 +495,13 @@ in the **/etc/centreon-map/** folder.
 
 If the configuration is correct, the server can be started:
 
-``` shell
+```shell
 systemctl restart centreon-map-ng
 ```
 
 Enable the service to be started automatically at server startup:
 
-``` shell
+```shell
 systemctl enable centreon-map-ng
 ```
 
@@ -443,9 +513,9 @@ Centreon MAP Web Client.
 However, new options are available in the
 `Administration > Extensions > Options` page:
 
--   An input field for the IP address and port of the NG server,
--   A "yes/no" toggle to choose whether the new server should be
-    used to display maps.
+- An input field for the IP address and port of the NG server,
+- A "yes/no" toggle to choose whether the new server should be
+  used to display maps.
 
 ![image](../assets/graph-views/ng/configuration-ng-server-map.png)
 
