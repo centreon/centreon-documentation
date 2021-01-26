@@ -15,9 +15,14 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon offers an ISO file including CentOS 7 and all the required packages.
+Centreon provides RPM packages for its products through the Centreon Open
+Sources version available free of charge in our repository.
 
-If you prefer to use **Red Hat OS** you must install **version v7** and use the RPMs available from our repositories.
+These packages have been successfully tested in CentOS 7 and 8 environments.
+
+> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
+> your production environment. Nevertheless, these packages for CentOS 8 are
+> compatible with RHEL 8 and Oracle Linux 8 versions.
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
