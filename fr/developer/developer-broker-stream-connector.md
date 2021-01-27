@@ -309,7 +309,7 @@ The available methods are:
 5.  `get_hostgroups(host_id)` that gets the list of host groups containing the
     host corresponding to *host_id*. The return value is an array of objects,
     each one containing two fields, *group_id* and *group_name*.
-6.  `get_hostname(id)` (**API v1 only**) that gets from the cache the host name corresponding to
+6.  `get_hostname(id)` that gets from the cache the host name corresponding to
     the given host id. This function returns a string with the host name or
     *nil* otherwise.
 7.  `get_index_mapping(index_id)` that gets from the cache the
@@ -320,7 +320,7 @@ The available methods are:
 9.  `get_metric_mapping(metric_id)` that gets from the cache the
     metric mapping object of the given metric id. The result is a table
     containing two keys, `metric_id` and `index_id`.
-10. `get_service_description(host_id,service_id)` (**API v1 only**) that gets from the cache the
+10. `get_service_description(host_id,service_id)` that gets from the cache the
     service description of the given pair host_id / service_id. This function
     returns a string or *nil* otherwise.
 11. `get_servicegroup_name(id)` that gets from the cache the service group name*
@@ -345,9 +345,9 @@ The available methods are:
     a service. If you only provide the *host_id*, we suppose you want to get
     a host severity. If a host or a service does not have any severity, the
     function returns a *nil* value.
-17. `get_host(host_id)` (**API v2 only**) that returns an associative array
+17. `get_host(host_id)` (**API v2 recommended**) that returns an associative array
     proviing all the available information for one host from the cache.
-18. `get_service(host_id, service_id)` (**API v2 only**) that returns an associative array
+18. `get_service(host_id, service_id)` (**API v2 recommended**) that returns an associative array
     proviing all the available information for one service from the cache.
 
 ## The init() function
