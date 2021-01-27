@@ -27,7 +27,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Configuration] Add a special variable for trap OID
 - [Performance] Disable UI notification mechanism if not needed by user
 
-#### Corretifs
+#### Correctifs
 
 - [Authentication] Invalid credentials after edit profile change with special characters
 - [Authentication] New LDAP configurations are broken
