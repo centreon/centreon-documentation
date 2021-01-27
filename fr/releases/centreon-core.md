@@ -28,7 +28,7 @@ commerciales, vous pouvez vous rendre sur notre
 > -   Les liens "url notes" et "url actions" maintenant visibles dans la page "Resources Status"
 >     ne traduisent pas les macros, par exemple $HOSTNAME$.
 
-#### Enhancements
+#### Améliorations
 
 - [API] Add normalizers for data found in concordanceArray
 - [API] Get topology of servers of a Centreon Platform
@@ -37,7 +37,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Add alias & fqdn in host detail panels
 - [Resources Status] Add URL link button from host and service extended information configuration
 
-#### Bug fixes
+#### Correctifs
 
 - [Authentication] New LDAP configurations are broken
 - [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
@@ -48,7 +48,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Incorrect default downtime duration
 - [Resources Status] Useless impacted_resources_count property
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Apache] Support for the HTTP TRACE
 - [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
@@ -137,14 +137,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
-#### Bugfixes
+#### Correctifs
 
 *Notification macros*
 
 The macros in which notification information can be found have been fixed
 (ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
 
-#### Enhancements
+#### Améliorations
 
 *Instance updates*
 
@@ -213,7 +213,7 @@ state was HARD even if no notification is configured nor sent.
 
 *20 janvier 2020*
 
-#### Bugfixes
+#### Correctifs
 
 *Conflict manager and comments*
 
@@ -232,7 +232,7 @@ dimensions computation.
 When availabilities are rebuilt, durations can be doubled. This new version
 fixes this issue.
 
-#### Enhancements
+#### Améliorations
 
 *Logs*
 

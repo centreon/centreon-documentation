@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Add alias & fqdn in host detail panels
 - [Resources Status] Add URL link button from host and service extended information configuration
 
-#### Bug fixes
+#### Bugfixes
 
 - [Authentication] New LDAP configurations are broken
 - [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
