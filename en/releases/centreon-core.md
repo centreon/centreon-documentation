@@ -28,7 +28,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Add a special variable for trap OID
 - [Performance] Disable UI notification mechanism if not needed by user
 
-#### Bug fixes
+#### Bugfixes
 
 - [Authentication] Invalid credentials after edit profile change with special characters
 - [Authentication] New LDAP configurations are broken

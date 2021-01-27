@@ -22,12 +22,12 @@ commerciales, vous pouvez vous rendre sur notre
 
 *12 janvier 2021*
 
-#### Enhancements
+#### Améliorations
 
 - [Configuration] Add a special variable for trap OID
 - [Performance] Disable UI notification mechanism if not needed by user
 
-#### Bug fixes
+#### Corretifs
 
 - [Authentication] Invalid credentials after edit profile change with special characters
 - [Authentication] New LDAP configurations are broken
@@ -39,7 +39,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Graphs] Performance graph legend does not update dynamically
 - [Knowledge Base] Access to mediawiki is very slow
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Apache] Lack of click diversion protection (Clickjacking)
 - [Apache] Support for the HTTP TRACE method
@@ -492,14 +492,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 > Cette version nécessite Centreon Broker 20.04.12 ou supérieur.
 
-#### Bugfixes
+#### Correctifs
 
 *Notification macros*
 
 The macros in which notification information can be found have been fixed
 (ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
 
-#### Enhancements
+#### Améliorations
 
 *Instance updates*
 
@@ -648,7 +648,7 @@ a check_command. It will use the poller_id field of your config.
 
 *20 janvier 2021*
 
-#### Bugfixes
+#### Correctifs
 
 *Conflict manager and comments*
 
@@ -667,7 +667,7 @@ dimensions computation.
 When availabilities are rebuilt, durations can be doubled. This new version
 fixes this issue.
 
-#### Enhancements
+#### Améliorations
 
 *Logs*
 
