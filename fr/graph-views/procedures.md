@@ -398,7 +398,4 @@ You should see server's state:
 ```
 
 > Don't forget to update both your desktop client configuration and your web
-> interface configuration. For your desktop client, follow the instructions for
-> setting up a server connexion `here <qc_login>`
-> For your web interface, follow these instructions: `these
-> steps<web_configuration>`
+> interface configuration.

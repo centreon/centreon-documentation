@@ -146,10 +146,10 @@ To do so, right click on the container or inside the target one and click on
 After (`linking your Mapbox account here <mapbox>`{.interpreted-text
 role="ref"}) you can create a standard view and define a geo background:
 
-1) Open your desktop client.
-2) Open a view.
-3) Right click on the background of the view and select "Edit."
-4) Check the "Geographic" checkbox.
+1. Open your desktop client.
+2. Open a view.
+3. Right click on the background of the view and select "Edit."
+4. Check the "Geographic" checkbox.
 
 ![image](../assets/graph-views/mapbox-change-style.png)
 
