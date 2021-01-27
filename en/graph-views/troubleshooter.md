@@ -3,9 +3,9 @@ id: troubleshooter
 title: Troubleshooter
 ---
 
-This chapter describes common errors you might encounter while using Centreon
-MAP. Please read the questions and answers below before contacting our support
-team.
+This chapter describes common errors you might encounter while using
+Centreon MAP. Please read the questions and answers below before
+contacting our support team.
 
 We will continue to update this section based on your feedback.
 
@@ -13,45 +13,68 @@ We will continue to update this section based on your feedback.
 
 ### How can I check if my Centreon MAP server is running correctly?
 
-Their are two main ways to check if your Centreon MAP server is up and running.
+Their are two main ways to check if your Centreon MAP server is up and
+running.
 
-First of all, check that Centreon MAP service is running. To do so, connect through SSH to the
-server hosting Centreon MAP and run the following command:
+First of all, check that Centreon MAP service is running. To do so,
+connect through SSH to the server hosting Centreon MAP and run the
+following command:
 
-    systemctl status centreon-map
+```shell
+systemctl status centreon-map
+```
 
 You should receive the following output:
 
-   centreon-map - Centreon Studio map server
-   Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
-   Active: active (running) since ...
+```shell
+centreon-map - Centreon Studio map server
+Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
+Active: active (running) since ...
+```
 
 If your Centreon MAP service is stopped the message will be:
 
-   centreon-map - Centreon Studio map server
-   Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
-   Active: inactive (dead)
+```shell
+centreon-map - Centreon Studio map server
+Loaded: loaded (/usr/lib/systemd/system/centreon-map; disabled; vendor preset: disabled)
+Active: inactive (dead)
+```
 
 In this case, start the Centreon MAP service:
 
-    sudo systemctl start centreon-map
+```shell
+sudo systemctl start centreon-map
+```
 
-Once you are sure your server is running, try to access its API through your web
-browser. Check the REST API used by the web interface as follows:
+Once you are sure your server is running, try to access its API through
+your web browser. Check the REST API used by the web interface as
+follows:
 
-If your server is running in http mode enter
-*http://\<IP\_SERVER\_MAP\>:8080/api/beta/actuator/health*
+- If your server is running in HTTP mode enter:
 
-If your server is running in HTTPS mode enter
-*https://\<IP\_SERVER\_MAP\>:8443/api/beta/actuator/health*
+    ```text
+    http://<MAP_IP>:8080/api/beta/actuator/health
+    ```
+
+- If your server is running in HTTPS mode enter:
+
+    ```text
+    https://<MAP_IP>:8443/api/beta/actuator/health
+    ```
 
 You can also check the SOAP API used by the desktop client:
 
-If your server is running in http mode enter
-*http://\<IP\_SERVER\_MAP\>:8080/centreon-studio/services*
+- If your server is running in HHTP mode enter:
 
-If your server is running in HTTPS mode enter
-*https://\<IP\_SERVER\_MAP\>:8443/centreon-studio/services*
+    ```text
+    http://<MAP_IP>:8080/centreon-studio/services
+    ```
+
+- If your server is running in HTTPS mode enter:
+
+    ```text
+    https://<MAP_IP>:8443/centreon-studio/services
+    ```
 
 ![image](../assets/graph-views/server-api-soap.png)
 

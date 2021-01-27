@@ -29,17 +29,17 @@ The diagram below summarizes the architecture:
 
 **Table of network flow**
 
-| **Application** | **Source** | **Destination**           | **Port**  | **Protocol** | **Purpose**                                         |
-| --------------- | ---------- | ------------------------- | --------- | ------------ | --------------------------------------------------- |
-| Map Server      | Map server | Centreon central broker   | 5758      | TCP          | Get real-time status updates                        |
-| Map Server      | Map server | Centreon MariaDB database | 3306      | TCP          | Retrieve configuration and other data from Centreon |
-| Map Server      | Map server | Map server database       | 3306      | TCP          | Store all views and data related to Centreon MAP    |
-| Web + Desktop   | Map server | Centreon central          | 80/443    | HTTP/HTTPS   | Authentication & data retrieval                     |
-| Web interface   | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve views & content                            |
-| Web interface   | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve and create views & content                 |
-| Desktop client  | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Internet\* (p2 repo)      | 80        | HTTP         | Retrieve automatic desktop client update            |
+| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
+|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
+| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
+| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
+| Map Server     | Map server | Map server database       | 3306      | TCP        | Store all views and data related to Centreon MAP    |
+| Web + Desktop  | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
+| Web interface  | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve views & content                            |
+| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
+| Desktop client | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve and create views & content                 |
+| Desktop client | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
+| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Retrieve automatic desktop client update            |
 
 \* *With or without a proxy*
 

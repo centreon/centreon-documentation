@@ -11,79 +11,87 @@ system.
 Centreon provides a plugin pack and a plugin to monitor your Centreon MAP
 server.
 
-### Installing the plugins
+### Install the Packs
 
-Use SSH to access the poller that will be monitoring your Centreon MAP server.
+On the Central server, install the required Packs with the following commands:
+
+```shell
+yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-monitoring-centreon-map-jmx centreon-pack-applications-webservers-tomcat-jmx centreon-plugin-Applications-Databases-Mysql
+```
+
+From the Plugin Packs Manager, install the Packs.
+
+### Install the Plugins
+
+Use SSH to access the Poller that will be monitoring your Centreon MAP server.
+
 Install all the required plugins with the following commands:
 
-    yum install centreon-pack-operatingsystems-linux-snmp
-    yum install centreon-pack-applications-monitoring-centreon-map-jmx
-    yum install centreon-pack-applications-webservers-tomcat-jmx
-
-    yum install centreon-plugin-Operatingsystems-Linux-Snmp
-    yum install centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx
-    yum install centreon-plugin-Applications-Webservers-Tomcat-Jmx
-
-OPTIONAL - Only if you have a local MariaDB DB for your Map server
-
-    yum install centreon-pack-applications-databases-mysql
-    yum install centreon-plugin-Applications-Databases-Mysql
+```shell
+yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx centreon-plugin-Applications-Webservers-Tomcat-Jmx centreon-pack-applications-databases-mysql
+```
 
 ### Configure your database
 
-Access your MariaDB server where the Centreon MAP database is stored (the Centreon
-MAP database is called 'centreon\_studio' by default).
+Access your MariaDB server where the Centreon MAP database is stored (the
+Centreon MAP database is called 'centreon\_studio' by default).
 
-Run the following commands:
+Execute the following query on the SQL instance:
 
-    mysql centreon_studio
-    GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
+```sql
+GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
+```
 
-  - Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
-  - Replace \<POLLER\_IP\> by the IP address of the poller which will be
-    monitoring your DB.
-  - Replace 'PASSWORD' by any password you prefer.
+- Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
+- Replace \<POLLER\_IP\> by the IP address of the poller which will be
+  monitoring your DB.
+- Replace 'PASSWORD' by any password you prefer.
 
 ### Configure your services
 
-Access your Centreon Web interface. Go to *Configuration \> Host \> Add*.
+Access your Centreon Web interface. Go to `Configuration > Host > Add`.
 
 Fill in the basic information about your host and add the following host
 templates:
 
-  - OS-Linux-SNMP-custom
-  - App-Monitoring-Centreon-Map-JMX-custom
-  - App-Webserver-Tomcat-JMX-custom
+- OS-Linux-SNMP-custom
+- App-Monitoring-Centreon-Map-JMX-custom
+- App-Webserver-Tomcat-JMX-custom
 
-Also add the following only if you have a local MariaDB DB on you Map server:
+Also add the following only if you have a local MariaDB DB on you MAP server:
 
-  - App-DB-MySQL-custom
+- App-DB-MySQL-custom
 
 ![image](../assets/graph-views/map4-host-configuration.png)
 
 Important:
 
-1)  The above host templates are the three main templates required for
-    monitoring your Centreon MAP server.
+1. The above host templates are the three main templates required for
+   monitoring your Centreon MAP server.
 
-2)  The MySQL/MariaDB template is useful only if there is a MariaDB server on your
-    Centreon MAP server (for Centreon MAP database).
+2. The MySQL/MariaDB template is useful only if there is a MariaDB server
+   on your Centreon MAP server (for Centreon MAP database).
 
-3)  Enter the Jolokia URL, accessible on the Centreon Map server, through actuator endpoint:
+3. Enter the Jolokia URL, accessible on the Centreon Map server, through
+   actuator endpoint:
 
-    For an HTTP configuration
+    - For an HTTP configuration:
 
+        ```text
         http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
+        ```
 
-    For an HTTPS configuration
+    - For an HTTPS configuration:
 
+        ```text
         https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
+        ```
 
     > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
-4)  *If you have installed a MariaDB server on your Centreon MAP server*, enter
-    the user/password you used in [Configure your
-    database](#configure-your-database).
+4. *If you have installed a MariaDB server on your Centreon MAP server*, enter
+   the user/password you used in [Configure your
+   database](#configure-your-database).
 
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
@@ -92,10 +100,20 @@ monitored.
 
 ![image](../assets/graph-views/map4-services.png)
 
-> You may also just check the access to the following URL that tells that the server is Up or not 
-> 
-> - If your server is running in http mode: http://<IP_SERVER\_MAP>:8080/centreon-studio/api/beta/actuator/health.
-> - If your server is running in HTTPS mode: https://<IP_SERVER_MAP>:8443/centreon-studio/api/beta/actuator/health.
+> You may also just check the access to the following URL that tells that
+> the server is up or not:
+>
+> - If your server is running in HTTP mode:
+>
+>     ```text
+>     http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
+>     ```
+>
+> - If your server is running in HTTPS mode:
+>
+>     ```text
+>     https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+>     ```
 
 ## Migrating your Centreon MAP server
 
@@ -112,20 +130,28 @@ new Centreon MAP server.
 
 Stop Centreon Map service on **both** Centreon MAP servers:
 
-    systemctl stop centreon-map
+```shell
+systemctl stop centreon-map
+```
 
 Dump the Centreon MAP data:
 
-    mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
+```shell
+mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
+```
 
 Upload *centreon\_studio.sql* to the new Centreon MAP (in /tmp) server and
 import it into the database:
 
-    mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
+```shell
+mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
+```
 
 Start Centreon Map service on the new Centreon MAP servers:
 
-    systemctl start centreon-map
+```shell
+systemctl start centreon-map
+```
 
 ## Centreon MAP configuration files
 
@@ -140,9 +166,11 @@ to the folder /etc/centreon-studio.
 
 If these files are modified, the server must be restarted with the command:
 
-    systemctl restart centreon-map
+```shell
+systemctl restart centreon-map
+```
 
-> Do not delete any variables in these files\! This may cause the server to
+> Do not delete any variables in these files! This may cause the server to
 > malfunction or not to start up.
 
 ## Backup of Centreon MAP server
@@ -151,23 +179,25 @@ If these files are modified, the server must be restarted with the command:
 
 The saved items are:
 
-  - Saving configuration files (**/etc/centreon-studio**)
-  - Saving database **centreon\_studio**
+- Saving configuration files (**/etc/centreon-studio**)
+- Saving database **centreon\_studio**
 
-### How it works ?
+### How it works?
 
 The backup script is executed on a daily basis (2AM) with a cron job located in
 **/etc/cron.d/centreon-map-server-backup**:
 
-    #
-    # Cron to backup Centreon MAP server
-    #
-    PATH=/sbin:/bin:/usr/sbin:/usr/bin
+```text
+#
+# Cron to backup Centreon MAP server
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
-    # rewrite file with new cron line
-    CRONTAB_EXEC_USER=""
+# rewrite file with new cron line
+CRONTAB_EXEC_USER=""
 
-    0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
+0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
+```
 
 The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
 **BACKUP\_DIR**, which is defined in configuration file.
@@ -176,9 +206,9 @@ The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
 
 Backup parameters are stored in **/etc/centreon-studio/backup.conf**
 
-  - ENABLE: enable/disable backup mechanism (default value: 0)
-  - BACKUP\_DIR: where the backup is stored (default value: /var/backup)
-  - RETENTION\_AGE: backup retention in days (default value: 8)
+- ENABLE: enable/disable backup mechanism (default value: 0)
+- BACKUP\_DIR: where the backup is stored (default value: /var/backup)
+- RETENTION\_AGE: backup retention in days (default value: 8)
 
 > **We advise to export backups to another resource in order to secure them.**
 
@@ -186,9 +216,9 @@ Backup parameters are stored in **/etc/centreon-studio/backup.conf**
 
 Restore process is divided in several steps:
 
-  - Extracting backup
-  - Restoring configuration files
-  - Restoring database
+- Extracting backup
+- Restoring configuration files
+- Restoring database
 
 > **We assume that you have followed the Centreon MAP server installation
 > procedure to get a fresh install.**
@@ -198,57 +228,77 @@ Restore process is divided in several steps:
 Get the last **centreon-map-server-yyyy-mm-dd.tar.gz** backup and extract it
 into **/tmp** directory:
 
-    cd /tmp
-    tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
+```shell
+cd /tmp
+tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
+```
 
 ### Restoring configuration files
 
 To restore configuration files, run the following command:
 
-    cp -R etc/centreon-studio/* /etc/centreon-studio/
+```shell
+cp -R etc/centreon-studio/* /etc/centreon-studio/
+```
 
 ### Restoring database
 
 To restore **centreon\_studio** database, run the following command:
 
-    systemctl stop centreon-map
-    mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
-    systemctl start centreon-map
+```shell
+systemctl stop centreon-map
+mysql -h <db_host> -u <db_user> -p<db_password> <db_name> < centreon-map-server.dump
+systemctl start centreon-map
+```
 
-## Change Centreon Map server port
+## Change Centreon MAP server port
 
-By default, the Centreon MAP server is listening and sending information through
-the port 8080. If you set the SSL (see [HTTPS/TLS
-Configuration](procedures-secure.md#httpstls-configuration), use the port 8443.
+By default, the Centreon MAP server is listening and sending information
+through the port 8080. If you set the SSL (see [HTTPS/TLS
+Configuration](secure-your-map-platform.html#configure-httpstls-on-the-web-server),
+use the port 8443.
 
-You can change this port (e.g., if you have a firewall on your network blocking
-these ports).
+You can change this port (e.g., if you have a firewall on your network
+blocking these ports).
 
-> If the new port is below 1024, use this procedure below "Define port below 1024" instead.
+> If the new port is below 1024, use this procedure below "Define
+> port below 1024" instead.
 
-On your Centreon MAP server, stop the Centreon Map server:
+On your Centreon MAP server, stop the Centreon MAP server:
 
-    systemctl stop centreon-map
+```shell
+systemctl stop centreon-map
+```
 
-Edit the studio-config.properties settings file located in /etc/centreon-studio:
+Edit the studio-config.properties settings file located in
+/etc/centreon-studio:
 
-    vim /etc/centreon-studio/studio-config.properties
+```shell
+vim /etc/centreon-studio/studio-config.properties
+```
 
 Add the following line at the MAP SERVER section
 
-    centreon-map.port=XXXX
+```text
+centreon-map.port=XXXX
+```
 
-...replace *XXXX* with the port you want.
+> Replace *XXXX* with the port you want.
 
-Then restart the Centreon Map server:
+Then restart the Centreon MAP server:
 
-    systemctl start centreon-map
+```shell
+systemctl start centreon-map
+```
 
-Wait for Centreon MAP service to start completely (~30 sec to 1 minutes). Test that your server is
-up and accessible on the new port you defined by entering the following URL in
-your web browser:
+Wait for Centreon MAP service to start completely (~30 sec to 1 minutes).
 
-    http://\<IP\_MAP\_SERVER\>:\<NEW\_PORT\>/centreon-studio/api/beta/actuator/health
+Test that your server is up and accessible on the new port you defined by
+entering the following URL in your web browser:
+
+```text
+http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
+```
 
 ## Define port below 1024
 
@@ -266,10 +316,16 @@ forwarding" through the firewall.
 
 1.  Check your firewall.
 
-On your MAP server, run the following command to check that the firewall is
-running:
+    On your MAP server, run the following command to check that the firewall is
+    running:
 
-    # systemctl status iptables
+    ```shell
+    systemctl status iptables
+    ```
+
+    If your firewall is running, you will see the following output:
+
+    ```shell
     Table: raw
     Chain PREROUTING (policy ACCEPT)
     num  target     prot opt source               destination
@@ -283,47 +339,64 @@ running:
     ...
     ...
     ...
+    ```
 
-If your firewall is stopped, you will see the following output:
+    If your firewall is stopped, you will see the following output:
 
+    ```shell
     iptables: Firewall is not running.
+    ```
 
-Start the firewall:
+    Start the firewall:
 
+    ```shell
     systemctl start iptables
+    ```
 
 2.  Enable a connection on the port for MAP for listening and sending.
 
-Execute the following lines on your console:
+    Execute the following lines on your console:
 
+    ```shell
     /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
     /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    ```
 
 3.  Add port forwarding.
 
-Execute the following line on your console:
+    Execute the following line on your console:
 
+    ```shell
     iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+    ```
 
 4.  Restart and save.
 
-Restart your firewall:
+    Restart your firewall:
 
+    ```shell
     systemctl restart iptables
+    ```
 
-Save this configuration so it will be applied each time you reboot your server:
+    Save this configuration so it will be applied each time you reboot your server:
 
+    ```shell
     /sbin/iptables save
+    ```
 
 Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
-http://\<IP\_MAP\_SERVER\>/centreon-studio/api/beta/actuator/health
+```text
+http://<MAP_IP>/centreon-studio/api/beta/actuator/health
+```
 
 You should see server's state:
-``` shell
+
+```json
 {"status":"UP"}
 ```
+
 > Don't forget to update both your desktop client configuration and your web
 > interface configuration. For your desktop client, follow the instructions for
 > setting up a server connexion `here <qc_login>`
