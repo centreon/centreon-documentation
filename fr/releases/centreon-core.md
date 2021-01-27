@@ -384,7 +384,7 @@ with the –pool\_size X argument or -s X.
   is flapping
 - [sshclient] Command actions badly encoded lead to badly encoded messages
   in web UI (downtimes, acknowledgements)
-- [sshclient] Uncatched messages lead to problems with statistics collection
+- [sshclient] Uncaught messages lead to problems with statistics collection
   and Autodiscovery module.
 
 #### Améliorations
