@@ -3,6 +3,8 @@ id: introduction
 title: Centreon Platform 20.10.0
 ---
 
+Release date: October 21, 2020
+
 You'll find in this chapter the global **Centreon Platform 20.10** release
 note.
 
@@ -83,7 +85,7 @@ popular Linux kernel security module.
 ### Up-to-date Linux Operating System for up-to-date security patches (coming soon)
 
 Centreon 20.10 runs on the latest version of the CentOS or RedHat Enterprise Linux
-(RHEL) operating system: CentOS v8 or RHEL v8.
+(RHEL) operating system: CentOS 8 or RHEL v8.
 
 ### Vulnerability Fix Engagement Plan
 

@@ -15,9 +15,14 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon offers an ISO file including CentOS v7 and all the required packages.
+Centreon provides RPM packages for its products through the Centreon Open
+Sources version available free of charge in our repository.
 
-If you prefer to use **Red Hat OS** you must install **version v7** and use the RPMs available from our repositories.
+These packages have been successfully tested in CentOS 7 and 8 environments.
+
+> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
+> your production environment. Nevertheless, these packages for CentOS 8 are
+> compatible with RHEL 8 and Oracle Linux 8 versions.
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
@@ -144,6 +149,19 @@ Files system description:
 
 Description of software and linked users:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+| Software          | Service          | User             | Comment         |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
+| MariaDB           | mariadb          | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--CentOS 7-->
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
@@ -154,6 +172,7 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description of optional software and linked users:
 
@@ -164,14 +183,14 @@ Description of optional software and linked users:
 
 Description of groups and linked users for Centreon Open Source and IT Edition:
 
-| Group            | Users                                                   |
-|----------------- |---------------------------------------------------------|
-| apache           | nagios,centreon,centreon-gorgone                        |
-| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
-| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
-| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
-| centreon-gorgone | centreon,apache                                         |
-| rrdcached        | centreon-broker,apache                                  |
+| Group            | Users                                                            |
+|------------------|------------------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                                 |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone          |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone          |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone          |
+| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker |
+| rrdcached        | centreon-broker,apache                                           |
 
 Description of groups and linked users for Centreon Business Edition:
 
@@ -181,7 +200,7 @@ Description of groups and linked users for Centreon Business Edition:
 | centreon         | centreon-engine,centreon-broker,apache,rrdcached,centreonBI,centreon-gorgone |
 | centreon-broker  | centreon,nagios,centreon-engine,apache,rrdcached,centreon-gorgone            |
 | centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone                      |
-| centreon-gorgone | centreon,apache                                                              |
+| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker             |
 | centreonBI       | apache                                                                       |
 | centreon-map     |                                                                              |
 | mysql            | centreonBI                                                                   |

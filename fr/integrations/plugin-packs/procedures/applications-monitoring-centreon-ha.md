@@ -111,6 +111,14 @@ Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'�
 ssh <cluster-node-ip-address>
 ```
 
+L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
+
+Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'exécuter les commandes nécessaires à la surveillance du cluster :
+
+```bash
+usermod -a -G haclient centreon-engine
+```
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->

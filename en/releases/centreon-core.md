@@ -18,6 +18,43 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web release notes
 
+### 20.10.2
+
+> Known behaviours:
+>
+> -   The "url notes" and "url actions" links now visible in the "Resources Status"
+>     page do not translate macros, for example $HOSTNAME$.
+
+#### Enhancements
+
+- [API] Add normalizers for data found in concordanceArray
+- [API] Get topology of servers of a Centreon Platform
+- [Configuration] Add a special variable for trap OID
+- [Configuration] Add pool size parameter in configuration for Centreon Broker
+- [Resources Status] Add alias & fqdn in host detail panels
+- [Resources Status] Add URL link button from host and service extended information configuration
+
+#### Bug fixes
+
+- [Authentication] New LDAP configurations are broken
+- [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
+- [Configuration] PHP Warning while creating a Centreon Engine configuration
+- [Configuration] Unable to save log level in Centreon Engine form
+- [Knowledge Base] Access to mediawiki is very slow
+- [Resources Status] Display issue when resource has a configured icon
+- [Resources Status] Incorrect default downtime duration
+- [Resources Status] Useless impacted_resources_count property
+
+#### Security fixes
+
+- [Apache] Support for the HTTP TRACE
+- [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
+- [Authentication] Reach Centreon Front-end parameter ineffective
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Connectors & commands form
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Contact Groups form
+- [Configuration] XSS in updateContactParam.php & commonJS.php
+- [Media] Unrestricted file upload
+
 ### 20.10.1
 
 #### Enhancements
@@ -82,6 +119,46 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine release notes
 
+### 20.10.2
+
+> This version requires Centreon Broker version to be 20.10.3 or higher.
+
+#### Bugfixes
+
+*Notification macros*
+
+The macros in which notification information can be found have been fixed
+(ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
+
+#### Enhancements
+
+*Instance updates*
+
+There is a minimal delay specified in seconds between two instance updates.
+By default, its value is 30s. It can be set with the variable
+instance_heartbeat_interval in the centengine.cfg file.
+
+### 20.10.1
+
+#### Bugfixes
+
+*Stalking option*
+
+The stalking option works again, it has been fixed. Make sure you are not
+enabling volatile option at the same time to really get an output
+stalking.
+
+*Macros filters*
+
+Macros can be filtered. This was possible before and there was a
+regression breaking this functionality. So now, we can activate the
+macros filtering and then we can specify which macros to send to broker.
+
+*Notifications*
+
+Host/service status field 'Last Notification' was filled when
+state was HARD even if no notification is configured nor sent.
+
 ### 20.10.0
 
 > Known behaviours:
@@ -114,6 +191,80 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Broker release notes
 
+### 20.10.3
+
+#### Bugfixes
+
+*Conflict manager and comments*
+
+It is possible to lock the database during comments insertion. This new
+version fixes that.
+
+*BAM reporting dimensions computation*
+
+If there are retention files, dimensions computation could fail because of
+conflicts between new block computation and old ones (the ones in the
+retention). There was also an issue of concurrent access to tables during
+dimensions computation.
+
+*BAM availabilities rebuild*
+
+When availabilities are rebuilt, durations can be doubled. This new version
+fixes this issue.
+
+#### Enhancements
+
+*Logs*
+
+Logs are sent to the database in bulk as we already do for customvariables.
+
+*Lua*
+
+There is a new API available for the Lua connector. To use it, scripts
+must declare a global variable `broker_api_version=2`. From the user's
+point of view, Stream Connectors should work almost the same. In isolate
+cases, we could see scripts that do not work with this new API, then you
+can always work with Broker API version 1, by setting the variable to 1
+or by removing this variable declaration in the script. Why should we
+use the v2 version? Because it is faster, really faster.
+
+*TCP connections*
+
+If the connection between two peers is flapping, it may be difficult for one
+to reconnect to the other and this could lead to many CLOSE_WAIT on the
+acceptor side. This new version fixes this issue.
+
+### 20.10.2
+
+> Known behaviours:
+>
+>   - If TLS encryption is configured to use private key/certificate couple
+>     for IPv4/6 input/output endpoints, **both ends must be updated**
+>     to ensure communication.
+>
+>   - If you use Centreon MAP with TLS encryption, make sure to **update MAP
+>     server** to version >= 20.10.2.
+
+#### Bugfixes
+
+*TLS*
+
+Credentials were not loaded by the TLS connector anymore. This is fixed with this
+new version.
+
+*Custom variables*
+
+They were updated several times in the database. It is fixed now.
+
+*Build*
+
+GnuTLS requirement now matches compilation version.
+
+*BAM*
+
+Reporting events were not stored into database because of truncated
+Business Activities names causing *duplicate entry* errors.
+
 ### 20.10.1
 
 #### Bugfixes
@@ -144,12 +295,12 @@ files and there are a lot of traffic.
 
 Those streams have several improvements:
 
-    -   Events exchanges are really faster, especially when Broker has
-        retention files.
-    -   Several queries have been changed to insert data in bulk, it is
-        the case for custom variables and metrics.
-    -   There are cases where those streams could crash that have been
-        also fixed.
+-   Events exchanges are much faster, especially when Broker has
+    retention files.
+-   Several queries have been changed to insert data in bulk, it is
+    the case for custom variables and metrics.
+-   There are cases where those streams could crash that have been
+    also fixed.
 
 *Statistics*
 
@@ -178,10 +329,10 @@ with the –pool\_size X argument or -s X.
 >     However, during an upgrade process, communication can be maintained
 >     by making sure Broker's configurations match the following conditions:
 >
->       - *TLS encryption* and *compression* are either set to
->         *Auto* or *No* on Central input,
->       - *TLS encryption* and *compression* are either set to
->         *Auto* or *No* on Poller or Remote Server output.
+>     - *TLS encryption* and *compression* are either set to
+>       *Auto* or *No* on Central input,
+>     - *TLS encryption* and *compression* are either set to
+>       *Auto* or *No* on Poller or Remote Server output.
 >
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
@@ -191,6 +342,30 @@ with the –pool\_size X argument or -s X.
 - Contains all fixes up to version 20.04.9
 
 ## Centreon Gorgone release notes
+
+### 20.10.1
+
+#### Bug fixes
+
+- [proxy] gorgone-proxy processes stucked when stopping gorgoned
+- [core] Rare case of database handler wrongly instantiated due to race
+  condition issue
+- [core] Hardened management of message encoding/decoding
+- [autodiscovery] Handle Centreon API modules version endpoint empty
+  response
+- [autodiscovery] Uncatched error when reaching Host Discovery global timeout
+- [autodiscovery] Discovered services state flapped between enabled and
+  disabled
+- [autodiscovery] Service discovery email sending not working properly
+  when having services with space in their name
+- [autodiscovery] Service discovery email sending not working with groups
+  of contacts
+
+#### Enhancements
+
+- [proxy] Force TCP reconnection after 3 ping timeout
+- [zmqclient] ID is not necessary anymore in end targets configuration
+  (ie Pollers)
 
 ### 20.10.0
 
