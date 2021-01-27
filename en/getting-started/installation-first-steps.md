@@ -8,8 +8,8 @@ Hello & Welcome! We are excited to help you begin your Centreon journey.
 You will find in this chapter how to quickly start on Centreon. It is composed of a quick start to install 
 and use Centreon followed by tutorials to help you use the main capabilities of Centreon.
 
-* [Request your free trial](#request-your-free-trial)
 * [Setup your first platform](#setup-your-first-platform)
+* [Request your free trial](#request-your-free-trial)
 * [First login](#first-login)
 * [Add your Centreon IT Edition token](#add-your-centreon-it-edition-token)
 * [Basic principles of monitoring](#basic-principle-of-monitoring)
@@ -17,25 +17,13 @@ and use Centreon followed by tutorials to help you use the main capabilities of 
 * [Deploying a configuration](#deploying-a-configuration)
 * [Access to tutorials to enjoy your monitoring](introduction-tutorials.html)
 
-## Request your free trial
-
-Centreon offers you the possibility to test all the features of the **Centreon IT edition** for free.
-For this purpose, go to our website in the **[Try Centreon IT Edition](https://www.centreon.com/en/free-trial/)** section and
-fill in the form :
-
-![image](../assets/getting-started/it_100_free_token_form.png)
-
-You will receive an email containing your **token** to try **Centreon IT edition**.
-
-Now it is time to move on next chapter to install your Centreon platform.
-
 ## Setup your first platform
 
 To setup your first Centreon platform, we suggest you to use a ready-to-use virtual machine.
 
 **Prerequisites**
 
-Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS v7** operating system including a Centreon installation allowing to easily start your first monitoring.
+Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS 7** operating system including a Centreon installation allowing to easily start your first monitoring.
 
 The virtual machine needs:
 
@@ -92,6 +80,18 @@ Once those operations have been carried out, you can delete this message by dele
 > For security reasons, we highly recommend you to change those passwords after the installation completed.
 
 You can now move to the *First login* section.
+
+## Request your free trial
+
+Centreon offers you the possibility to test all the features of the **Centreon IT edition** for free.
+For this purpose, go to our website in the **[Try Centreon IT Edition](https://www.centreon.com/en/free-trial/)** section and
+fill in the form :
+
+![image](../assets/getting-started/it_100_free_token_form.png)
+
+You will receive an email containing your **token** to try **Centreon IT edition**.
+
+Now it is time to move on next chapter to install your Centreon platform.
 
 ## First login
 

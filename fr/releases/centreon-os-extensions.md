@@ -19,6 +19,16 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon High-Availability release notes
 
+### 20.10.1
+
+#### Enhancements
+
+- [rpm] Tous les fichiers de configuration (sauf logrotate.d et sudoers.d) sont préservés en cas de mise à jour
+
+#### Bug fixes
+
+- [Sync] Une erreur dans le script empêchait de synchroniser les fichiers correctement
+
 ### 20.10.0
 
 - Compatibilité avec Centreon 20.10

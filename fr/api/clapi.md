@@ -735,7 +735,7 @@ Object name: **CENTBROKERCFG**
 In order to list available Centreon Broker CFG, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a show 
+centreon -u admin -p centreon -o CENTBROKERCFG -a show
 config id;config name;instance
 1;Central CFG;Central
 2;Sattelite CFG;Sattelite
@@ -755,7 +755,7 @@ Columns are the following:
 In order to add a Centreon Broker CFG, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a add -v "broker cfg for poller test;Poller test" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a add -v "broker cfg for poller test;Poller test"
 ```
 
 Required fields are:
@@ -771,7 +771,7 @@ If you want to remove a Centreon Broker CFG, use the **DEL** action. The Name is
 to delete:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a del -v "broker cfg for poller test" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a del -v "broker cfg for poller test"
 ```
 
 #### Setparam
@@ -780,7 +780,7 @@ If you want to change a specific parameter of a Centreon Broker configuration, u
 configuration name is used for identifying the configuration to update:
 
 ``` shell
-centreon -u admin -p centreon -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name" 
+centreon -u admin -p centreon -o CENTBROKERCFG -a setparam -v "broker cfg for poller test;name;new broker cfg name"
 ```
 
 Arguments are composed of the following columns:
@@ -801,6 +801,7 @@ Parameters that you may change are:
 | event\_queue\_max\_size | Event queue max size (when number is reached, temporary output will be used). |
 | cache\_directory        | Path for cache files                                                          |
 | daemon                  | Link this configuration to cbd service (0 or 1)                               |
+| pool\_size              | Number of threads used (by default, use the number of CPUs)                   |
 
 #### Listinput, Listoutput and Listlogger
 
@@ -2046,6 +2047,14 @@ id;name;type;line
 [...]
 ```
 
+You can also specify the command to search:
+
+``` shell
+centreon -u admin -p centreon -o CMD -a show -v 'check-ping'
+id;name;type;line
+1;check-ping;check;$USER1$/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$
+```
+
 Columns are the following:
 
 | Column       | Description                                       |
@@ -2094,16 +2103,52 @@ centreon -u admin -p centreon -o CMD -a setparam -v 'check-host-alive;name;check
 
 Parameters that you can change are the following:
 
-| Parameter | Description                             |
-| --------- | --------------------------------------- |
-| name      | Name of command                         |
-| line      | Command line                            |
-| type      | *check*, *notif*, *misc* or *discovery* |
-| graph     | Graph template applied on command       |
-| example   | Example of arguments (i.e: \!80\!90)    |
-| comment   | Comments regarding the command          |
+| Parameter    | Description                             |
+| ---------    | --------------------------------------- |
+| name         | Name of command                         |
+| line         | Command line                            |
+| type         | *check*, *notif*, *misc* or *discovery* |
+| graph        | Graph template applied on command       |
+| example      | Example of arguments (i.e: \!80\!90)    |
+| comment      | Comments regarding the command          |
+| activate     | Activate or disable the command         |
+| enable_shell | Enable / Disable shell                  |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Getparam
+
+In order to get specific parameters on a command, use the **GETPARAM** action:
+
+``` shell
+centreon -u admin -p centreon -o CMD -a getparam -v "test;name"
+alias
+test
+```
+
+``` shell
+centreon -u admin -p centreon -o CMD -a getparam -v "test;name|alia|comment"
+Object not found:alia
+```
+
+``` shell
+centreon -u admin -p centreon -o CMD -a getparam -v "test;name|line|type"
+name;line;type
+check-ping;check;$USER1$/check_ping;Check ping
+```
+
+You may edit the following parameters:
+
+| Parameter    | Description                             |
+| ---------    | --------------------------------------- |
+| name         | Name of command                         |
+| line         | Command line                            |
+| type         | *check*, *notif*, *misc* or *discovery* |
+| graph        | Graph template applied on command       |
+| example      | Example of arguments (i.e: \!80\!90)    |
+| comment      | Comments regarding the command          |
+| activate     | Activate or disable the command         |
+| enable_shell | Enable / Disable shell                  |
 
 #### Getargumentdescr
 
@@ -2907,6 +2952,41 @@ You may change the following parameters:
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
+#### Getparam
+
+In order to get specific parameters on a host group, use the **GETPARAM** action:
+
+``` shell
+centreon -u admin -p centreon -o HG -a getparam -v "test;alias"
+alias
+test
+```
+
+``` shell
+centreon -u admin -p centreon -o HG -a getparam -v "test;alias|alia|comment"
+Object not found:alia
+```
+
+``` shell
+centreon -u admin -p centreon -o HOST -a getparam -v "test;alias|comment|notes"
+alias;comment;notes
+test;my comment;my notes
+```
+
+You may edit the following parameters:
+
+| Parameter        | Description                     |
+| ---------------- | ------------------------------- |
+| name             | Name                            |
+| alias            | Alias                           |
+| comment          | Comment                         |
+| activate         | *1* when enabled, *0* otherwise |
+| notes            | Notes                           |
+| notes\_url       | Notes URL                       |
+| action\_url      | Action URL                      |
+| icon\_image      | Icon image                      |
+| map\_icon\_image | Map icon image                  |
+
 #### Getmember
 
 If you want to retrieve the members of a host group, use the **GETMEMBER** action:
@@ -2963,6 +3043,34 @@ id;name;alias;address;activate
 87;sri-dev6;dev6;192.168.2.6;1
 94;sri-dev7;dev7;192.168.2.7;1
 95;sri-dev8;dev8;192.168.2.8;1
+```
+
+You can also specify the host to search:
+
+``` shell
+centreon -u admin -p centreon -o HOST -a show -v 'sri-dev1'
+id;name;alias;address;activate
+82;sri-dev1;dev1;192.168.2.1;1
+```
+
+Columns are the following :
+
+| Column     | Description                     |
+| ---------- | ------------------------------- |
+| ID         | ID of host                      |
+| Name       | Host name                       |
+| Alias      | Host alias                      |
+| IP/Address | IP of host                      |
+| Activate   | 1 when enabled, 0 when disabled |
+
+#### Show by address
+
+In order to list available hosts by address, use the **SHOWBYADDRESS** action:
+
+``` shell
+centreon -u admin -p centreon -o HOST -a showbyaddress -v 'localhost'
+id;name;alias;address;activate
+82;sri-dev1;dev1;localhost;1
 ```
 
 Columns are the following :
@@ -3068,6 +3176,7 @@ You may edit the following parameters:
 | statusmap\_image               | Status map image (used by statusmap                                    |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
+| comment                        | Comment                                                                |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
@@ -3142,6 +3251,7 @@ You may edit the following parameters:
 | statusmap\_image               | Status map image (used by statusmap                                    |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
+| comment                        | Comment                                                                |
 
 #### Setinstance
 
@@ -4156,6 +4266,15 @@ id;name;alias
 11;Alfresco;Alfresco Services
 ```
 
+You can also specify the servicegroup to search:
+
+``` shell
+centreon -u admin -p centreon -o SG -a show -v 'Alfresco'
+id;name;alias
+11;Alfresco;Alfresco Services
+```
+
+
 #### Add
 
 In order to add a servicegroup, use the **ADD** action:
@@ -4201,6 +4320,36 @@ You can change the following parameters:
 | comment   | Comments regarding service group         |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Getparam
+
+In order to get specific parameters on a servicegroup, use the **GETPARAM** action:
+
+``` shell
+centreon -u admin -p centreon -o SG -a getparam -v "test;alias"
+alias
+test
+```
+
+``` shell
+centreon -u admin -p centreon -o SG -a getparam -v "test;alias|alia|comment"
+Object not found:alia
+```
+
+``` shell
+centreon -u admin -p centreon -o SG -a getparam -v "test;alias|name|comment"
+alias;name;comment
+Web service;app1;my best app1
+```
+
+You may edit the following parameters:
+
+| Parameter | Description                              |
+| --------- | ---------------------------------------- |
+| activate  | *1* when service is enabled, 0 otherwise |
+| name      | Name of service group                    |
+| alias     | Alias of service group                   |
+| comment   | Comments regarding service group         |
 
 #### Getservice and Gethostgroupservice
 
@@ -4269,6 +4418,23 @@ host id;host name;id;description;check command;check command arg;normal check in
 14;Centreon-Server;25;Memory;;;;;;2;2;1
 14;Centreon-Server;26;Ping;;;;;;2;2;0
 14;Centreon-Server;40;dummy;check_centreon_dummy;!2!critical;;;;2;2;1
+```
+
+You can also specify the service to search:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a show -v 'Disk-/'
+host id;host name;id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled;activate
+14;Centreon-Server;19;Disk-/;;;;;;2;2;1
+15;Centreon-DB;20;Disk-/;;;;;;2;2;1
+```
+
+Or can specify service on host to search:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a show -v 'Centreon-Server;Disk-/'
+host id;host name;id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled;activate
+14;Centreon-Server;19;Disk-/;;;;;;2;2;1
 ```
 
 Columns are the following:
@@ -4384,6 +4550,68 @@ Parameters that may be modified:
 | service\_notification\_options | Notification options (w,u,c,r,f,s)                                                            |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Getparam
+
+In order to get specific parameters on a service configuration, use the **GETPARAM** action:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a getparam -v "test;comment"
+alias
+test
+```
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a getparam -v "test;comment|alia|description"
+Object not found:alia
+```
+
+``` shell
+centreon -u admin -p centreon -o HOST -a getparam -v "test;comment|template|description"
+comment;template;description
+Check disk /;ST_DISK;DIsk-/
+```
+
+You may edit the following parameters:
+
+| Parameter                      | Description                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------- |
+| activate                       | *1* when service is enabled, 0 otherwise                                                      |
+| description                    | Description                                                                                   |
+| template                       | Name of the service template                                                                  |
+| is\_volatile                   | *1* when service is volatile, *0* otherwise                                                   |
+| check\_period                  | Name of the check period                                                                      |
+| check\_command                 | Name of the check command                                                                     |
+| check\_command\_arguments      | Arguments that go along with the check command, prepend each argument with the '\!' character |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared                                     |
+| normal\_check\_interval        | value in minutes                                                                              |
+| retry\_check\_interval         | value in minutes                                                                              |
+| active\_checks\_enabled        | *1* when active checks are enabled, *0* otherwise                                             |
+| passive\_checks\_enabled       | *1* when passive checks are enabled, *0* otherwise                                            |
+| notifications\_enabled         | *1* when notification is enabled, *0* otherwise                                               |
+| contact\_additive\_inheritance | Enables contact additive inheritance                                                          |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                                                     |
+| notification\_interval         | value in minutes                                                                              |
+| notification\_period           | Name of the notification period                                                               |
+| notification\_options          | Status linked to notifications                                                                |
+| first\_notification\_delay     | First notification delay in seconds                                                           |
+| recovery\_notification\_delay  | Recovery notification delay                                                                   |
+| obsess\_over\_service          | *1* when obsess over service is enabled, *0* otherwise                                        |
+| check\_freshness               | *1* when check freshness is enabled, *0* otherwise                                            |
+| freshness\_threshold           | Value in seconds                                                                              |
+| event\_handler\_enabled        | *1* when event handler is enabled, *0* otherwise                                              |
+| flap\_detection\_enabled       | *1* when flap detection is enabled, *0* otherwise                                             |
+| retain\_status\_information    | *1* when status information is retained, *0* otherwise                                        |
+| retain\_nonstatus\_information | *1* when non status information is retained, *0* otherwise                                    |
+| event\_handler                 | Name of the event handler command                                                             |
+| event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the '\!' character |
+| notes                          | Notes                                                                                         |
+| notes\_url                     | Notes URL                                                                                     |
+| action\_url                    | Action URL                                                                                    |
+| icon\_image                    | Icon image                                                                                    |
+| icon\_image\_alt               | Icon image alt text                                                                           |
+| comment                        | Comment                                                                                       |
+| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                            |
 
 #### Addhost and Sethost
 
@@ -4575,6 +4803,68 @@ In order to remove a trap from a service, use the **DELTRAP** command:
 centreon -u admin -p centreon -o SERVICE -a deltrap -v "test;ping;snOspfVirtIfConfigError"
 ```
 
+#### Getservicegroup
+
+In order to view the servicegroup of a service, use the **GETSERVICEGROUP** action:
+
+``` shell
+centreon -u admin -p centreon -o "SERVICE" -a getservicegroup -v "Centreon-Server;Ping"
+id;name
+48;SG1
+39;SG2
+```
+
+#### Addservicegroup and Setservicegroup
+
+In order to add a new servicegroup, use the **ADDSERVICEGROUP** or **SETSERVICEGROUP** actions where *add* will append and *set* will overwrite
+previous definitions:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addservicegroup -v "test;ping;SG2"
+centreon -u admin -p centreon -o SERVICE -a setservicegroup -v "test;ping;SG1|SG2"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Delservicegroup
+
+In order to remove a servicegroup from a service, use the **DELSERVICEGROUP** command:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delservicegroup -v "test;ping;SG1"
+```
+
+#### Getcategory
+
+In order to view the category of a service, use the **GETCATEGORY** action:
+
+``` shell
+centreon -u admin -p centreon -o "SERVICE" -a getcategory -v "Centreon-Server;Ping"
+id;name
+48;CPU
+```
+
+#### Addcategory and Setcategory
+
+In order to add a new category, use the **ADDCATEGORY** or **SETCATEGORY** actions where *add* will append and *set* will overwrite
+previous definitions:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a addcategory -v "test;ping;CPU"
+centreon -u admin -p centreon -o SERVICE -a setcategory -v "test;ping;CPU"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Delcategory
+
+In order to remove a category from a service, use the **DELCATEGORY** command:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delcategory -v "test;ping;CPU"
+```
+
+
 ### Service templates
 
 Object name: **STPL**
@@ -4594,6 +4884,14 @@ id;description;check command;check command arg;normal check interval;retry check
 7;SNMP-DISK-/usr;Disk-/usr;check_centreon_remote_storage;!/usr!80!90;;;;2;2
 8;SNMP-DISK-/home;Disk-/home;check_centreon_remote_storage;!/home!80!90;;;;2;2
 9;SNMP-DISK-/opt;Disk-/opt;check_centreon_remote_storage;!/opt!80!90;;;;2;2
+```
+
+You can also specify the service template to search:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a show -v 'Ping-LAN'
+id;description;check command;check command arg;normal check interval;retry check interval;max check attempts;active checks enabled;passive checks enabled
+3;Ping-LAN;Ping;check_centreon_ping;!3!200,20%!400,50%;;;;2;2
 ```
 
 Columns are the following :
@@ -4702,6 +5000,73 @@ Parameters that may be modified:
 | service\_notification\_options | Notification options (w,u,c,r,f,s)                                                             |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Getparam
+
+In order to get specific parameters on a service template, use the **GETPARAM** action:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a getparam -v "test;alias"
+alias
+test
+```
+
+``` shell
+centreon -u admin -p centreon -o STPL -a getparam -v "test;alias|alia|comment"
+Object not found:alia
+```
+
+``` shell
+centreon -u admin -p centreon -o STPL -a getparam -v "test;alias|notes|comment"
+alias;notes;comment
+test;my notes;my comment
+```
+
+You may edit the following parameters:
+
+| Parameter                      | Description                                                                                    |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- |
+| activate                       | 1 when service is enabled, 0 otherwise                                                         |
+| description                    | Service template description                                                                   |
+| alias                          | Service template alias                                                                         |
+| template                       | Name of the service template                                                                   |
+| is\_volatile                   | 1 when service is volatile, 0 otherwise                                                        |
+| check\_period                  | Name of the check period                                                                       |
+| check\_command                 | Name of the check command                                                                      |
+| check\_command\_arguments      | Arguments that go along with the check command, prepend each argument with the '\!' characteri |
+| max\_check\_attempts           | Maximum number of attempt before a HARD state is declared                                      |
+| normal\_check\_interval        | value in minutes                                                                               |
+| retry\_check\_interval         | value in minutes                                                                               |
+| active\_checks\_enabled        | 1 when active checks are enabled, 0 otherwise                                                  |
+| passive\_checks\_enabled       | 1 when passive checks are enabled, 0 otherwise                                                 |
+| contact\_additive\_inheritance | Enables contact additive inheritance=                                                          |
+| cg\_additive\_inheritance      | Enables contactgroup additive inheritance                                                      |
+| notification\_interval         | value in minutes                                                                               |
+| notification\_period           | Name of the notification period                                                                |
+| notification\_options          | Status linked to notifications                                                                 |
+| first\_notification\_delay     | First notification delay in seconds                                                            |
+| recovery\_notification\_delay  | Recovery notification delay                                                                    |
+| parallelize\_check             | 1 when parallelize checks are enabled, 0 otherwise                                             |
+| obsess\_over\_service          | 1 when obsess over service is enabled, 0 otherwise                                             |
+| check\_freshness               | 1 when check freshness is enabled, 0 otherwise                                                 |
+| freshness\_threshold           | Service freshness threshold in seconds                                                         |
+| event\_handler\_enabled        | 1 when event handler is enabled, 0 otherwise                                                   |
+| flap\_detection\_enabled       | 1 when flap detection is enabled, 0 otherwise                                                  |
+| process\_perf\_data            | 1 when process performance data is enabled, 0 otherwise                                        |
+| retain\_status\_information    | 1 when status information is retained, 0 otherwise                                             |
+| retain\_nonstatus\_information | 1 when non status information is retained, 0 otherwise                                         |
+| stalking\_options              | Comma separated options: 'o' for OK, 'w' for Warning, 'u' for Unknown and 'c' for Critical     |
+| event\_handler                 | Name of the event handler command                                                              |
+| event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the "\!" character  |
+| notes                          | Notes                                                                                          |
+| notes\_url                     | Notes URL                                                                                      |
+| action\_url                    | Action URL                                                                                     |
+| icon\_image                    | Icon image                                                                                     |
+| icon\_image\_alt               | Icon image alt text                                                                            |
+| graphtemplate                  | Graph template namei                                                                           |
+| comment                        | Comment                                                                                        |
+| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                             |
+
 
 #### Addhosttemplate and Sethosttemplate
 
@@ -4856,6 +5221,36 @@ In order to remove a trap from a service template, use the **DELTRAP** action:
 
 ``` shell
 centreon -u admin -p centreon -o STPL -a deltrap -v "Ping-LAN;snOspfVirtIfConfigError"
+```
+
+#### Getcategory
+
+In order to view the category of a service template, use the **GETCATEGORY** action:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a getcategory -v "ping"
+id;name
+48;CPU
+```
+
+#### Addcategory and Setcategory
+
+In order to add a new category, use the **ADDCATEGORY** or **SETCATEGORY** actions where *add* will append and *set* will overwrite
+previous definitions:
+
+``` shell
+centreon -u admin -p centreon -o STPL -a addcategory -v "ping;CPU"
+centreon -u admin -p centreon -o STPL -a setcategory -v "ping;CPU"
+```
+
+> ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
+
+#### Delcategory
+
+In order to remove a category from a service template, use the **DELCATEGORY** command:
+
+``` shell
+centreon -u admin -p centreon -o SERVICE -a delcategory -v "ping;CPU"
 ```
 
 ### Settings
@@ -5282,7 +5677,6 @@ Required fields are:
 | Mib file | File path of .mib |
 
 
-
 ## Service Mapping
 
 The service mapping capabilities in Centreon relies on the **Centreon Business Activity Monitoring (BAM)** extension. 
@@ -5510,7 +5904,7 @@ Parameters that you can change are the following:
   |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |
   
 > Note: Changing State Source will require updating your Level W and Level C to match the appropriate 
->   Calculation Method!
+>    Calculation Method!
 
 #### SETBV
 
@@ -5806,6 +6200,7 @@ Parameters that you can change are the following:
   |Rule name        | Boolean rule name                                    |                             
   |Rule expression  |Boolean rule expression                               |
   |Bool state       |Impact is applied when expression returns this state  |
+
 
 
 ## Poller management

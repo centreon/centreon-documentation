@@ -1,9 +1,10 @@
 ---
-id: init-developer
-title: About Developer
+id: about-developer-resources
+title: About developer resources
 ---
 
-This chapter gathers all the resources allowing to extend the functionality of Centreon
+This chapter gathers all the resources allowing to extend the functionality
+of Centreon
 
 - [How to write a module](developer-module.html)
 - [How to write a widget](developer-widget.html)

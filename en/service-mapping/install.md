@@ -4,7 +4,7 @@ title: Install Centreon BAM extension
 ---
 
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To
-> purchase one and retrieve the necessary repositories, contact
+> purchase one, contact
 > [Centreon](mailto:sales@centreon.com).
 
 ## Prerequisites
@@ -16,8 +16,10 @@ is **Centreon 20.10**.
 
 ### Install the package
 
-Add the Centreon BAM repository provided by Centreon on the Central server and
-install the package using the following command:
+Add the Centreon BAM repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
+
+And install the package using the following command:
 
 ``` shell
 yum install centreon-bam-server

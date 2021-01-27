@@ -13,16 +13,17 @@ title: Oracle Database
 
 Install this plugin on each needed poller:
 
-``` shell
+```bash
 yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
 ## RPM
 
-In order to use this template, the following RPM is needed to compile Perl
-library:
+In order to use this template, the `wget` command-line tool and the GNU Compiler Collection (`gcc`) are necessary.
 
-  - gcc
+```bash
+yum install -y gcc wget
+```
 
 ### Oracle instant client
 
@@ -37,57 +38,64 @@ and download the following packages:
 
 Install them:
 
-    $ rpm -ivh oracle-*.rpm
+```bash
+rpm -ivh oracle-*.rpm
+```
 
 ### Perl library for oracle
 
-<aside class="notice">
-Replace 12.1 by the version of instantclient installed
-</aside>
+> Replace 12.1 by the version of instantclient installed
 
 As root, run:
 
-    $ cd /usr/local/src 
-    $ wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.64.tar.gz 
-    $ tar xzf DBD-Oracle-1.64.tar.gz 
-    $ cd DBD-Oracle-1.64 
-    $ export ORACLE_HOME=/usr/lib/oracle/12.1/client64/ 
-    $ export LD_LIBRARY_PATH=$ORACLE_HOME/lib 
-    $ perl Makefile.PL -m /usr/share/oracle/12.1/client64/demo/demo.mk
-
-<aside class="notice">
-If `DBD::Oracle-1.28` is used, the last command line should be:
-</aside>
-
-    $ perl Makefile.PL -V 12.1
+```bash
+cd /usr/local/src 
+wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.64.tar.gz 
+tar xzf DBD-Oracle-1.64.tar.gz 
+cd DBD-Oracle-1.64 
+export ORACLE_HOME=/usr/lib/oracle/12.1/client64/ 
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib 
+perl Makefile.PL -m /usr/share/oracle/12.1/client64/demo/demo.mk
+```
 
 The following message should appear:
 
-    LD_RUN_PATH=/usr/lib/oracle/12.1/client64/lib*
-    Using DBD::Oracle 1.64. 
-    Using DBD::Oracle 1.64. 
-    Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
-    Writing Makefile for DBD::Oracle
+```text
+LD_RUN_PATH=/usr/lib/oracle/12.1/client64/lib*
+Using DBD::Oracle 1.64. 
+Using DBD::Oracle 1.64. 
+Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
+Writing Makefile for DBD::Oracle
+```
 
 Compile the library:
 
-    $ make
+```bash
+make
+```
 
 Then install it:
 
-    $ make install
+```bash
+make install
+```
 
 Then create the file : /etc/ld.so.conf.d/oracle.conf and link to the Oracle Perl
 Library:
 
-    $ touch /etc/ld.so.conf.d/oracle.conf
-    $ vi /etc/ld.so.conf.d/oracle.conf
+```bash
+cat > /etc/ld.so.conf.d/oracle.conf <<EOF
+/usr/lib/oracle/12.1/client64/lib/
+EOF
+```
 
 You just have to enter in the file : /usr/lib/oracle/12.1/client64/lib/
 
 Then :
 
-    /sbin/ldconfig
+```bash
+/sbin/ldconfig
+```
 
 ### user account
 
