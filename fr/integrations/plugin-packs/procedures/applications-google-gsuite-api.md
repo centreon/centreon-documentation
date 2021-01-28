@@ -59,7 +59,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les applications *Google GSuite*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Google-Gsuite-Api
+yum install centreon-plugin-Applications-Google-Gsuite-Api
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google GSuite* 
