@@ -29,18 +29,6 @@ the new repository**
 
 Run the following commands to upgrade your Centreon MAP server:
 
-<<<<<<< HEAD
-- Stop and disable legacy tomcat service coming from precedent version
-``` shell
-systemctl stop tomcat
-systemctl disable tomcat
-```
-- Update Centreon & Centreon Map repositories. Then and update Centreon MAP server
-``` shell
-yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
-yum install -y http://yum.centreon.com/xxxxxxx // ask Centreon support
-yum update centreon-map-server
-=======
 1. Stop and disable legacy tomcat service coming from precedent version:
 
     ```shell
@@ -50,25 +38,12 @@ yum update centreon-map-server
 
 2. Update Centreon & Centreon MAP repositories:
 
-<!--DOCUSAURUS_CODE_TABS-->
+    ```shell
+    yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+    ```
 
-<!--RHEL / CentOS / Oracle Linux 8-->
-
-```shell
-dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
->>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
-```
-
-<!--CentOS 7-->
-
-```shell
-yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+    > Install Centreon MAP repository, you can find it on the
+    > [support portal](https://support.centreon.com/s/repositories).
 
 3. Update Centreon MAP server:
 
@@ -88,7 +63,7 @@ yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centre
 
 ```shell
 yum remove tomcat
-cp /var/log/centreon-studio/* /var/log/centreon-map/ 
+cp /var/log/centreon-studio/* /var/log/centreon-map/
 rm -rf /var/log/centreon-studio
 ```
 
