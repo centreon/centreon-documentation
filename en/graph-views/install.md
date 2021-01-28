@@ -6,22 +6,31 @@ title: Install Centreon MAP extension
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
-This chapter describes how to install Centreon MAP. The server must be installed
-on a dedicated machine to allow Centreon MAP to operate with its own database
-and avoid any potential conflict with the Centreon central server.
+This chapter describes how to install Centreon MAP. The server must be
+installed on a dedicated machine to allow Centreon MAP to operate with
+its own database and avoid any potential conflict with the Centreon
+central server.
 
-Before installation, be sure to review the Prerequisites chapter for system
-requirements (CPU and memory). Remember to choose the best type of architecture
-to suit your needs.
+Before installation, be sure to review the Prerequisites chapter for
+system requirements (CPU and memory). Remember to choose the best type
+of architecture to suit your needs.
 
 ## Architecture
 
 Centreon MAP consists of three components:
 
+<<<<<<< HEAD
   - Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
   - Centreon MAP Web interface, developed in Javascript, based on [Backbone.js](http://backbonejs.org/)
   - Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
     4](https://wiki.eclipse.org/Eclipse4/RCP).
+=======
+- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
+- Centreon MAP Web interface, developed in Javascript, based on
+  [Backbone.js](http://backbonejs.org/)
+- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
+  4](https://wiki.eclipse.org/Eclipse4/RCP).
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 The diagram below summarizes the architecture:
 
@@ -29,17 +38,17 @@ The diagram below summarizes the architecture:
 
 **Table of network flow**
 
-| **Application** | **Source** | **Destination**           | **Port**  | **Protocol** | **Purpose**                                         |
-| --------------- | ---------- | ------------------------- | --------- | ------------ | --------------------------------------------------- |
-| Map Server      | Map server | Centreon central broker   | 5758      | TCP          | Get real-time status updates                        |
-| Map Server      | Map server | Centreon MariaDB database | 3306      | TCP          | Retrieve configuration and other data from Centreon |
-| Map Server      | Map server | Map server database       | 3306      | TCP          | Store all views and data related to Centreon MAP    |
-| Web + Desktop   | Map server | Centreon central          | 80/443    | HTTP/HTTPS   | Authentication & data retrieval                     |
-| Web interface   | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve views & content                            |
-| Web interface   | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Map server                | 8080/8443 | HTTP/HTTPS   | Retrieve and create views & content                 |
-| Desktop client  | User       | Internet\* (Mapbox)       | 443       | HTTPS        | Retrieve Mapbox data                                |
-| Desktop client  | User       | Internet\* (p2 repo)      | 80        | HTTP         | Retrieve automatic desktop client update            |
+| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
+|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
+| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
+| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
+| Map Server     | Map server | Map server database       | 3306      | TCP        | Store all views and data related to Centreon MAP    |
+| Web + Desktop  | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
+| Web interface  | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve views & content                            |
+| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
+| Desktop client | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve and create views & content                 |
+| Desktop client | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
+| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Retrieve automatic desktop client update            |
 
 \* *With or without a proxy*
 
@@ -47,20 +56,25 @@ The diagram below summarizes the architecture:
 
 ### Centreon
 
+<<<<<<< HEAD
 The required version of Centreon software for compatibility with Centreon MAP is
 **Centreon 20.04**
+=======
+The required version of Centreon software for compatibility with Centreon
+MAP is **Centreon 20.10**
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 **Centreon must be installed using the RPM packages.**
 
 ### Centreon MAP Server
 
-**License**
+#### License
 
 The server requires the license to be available and valid on Centreon's central
 server. To do this, you must contact the support [Centreon support
 team](https://centreon.force.com/) to get & install your license key.
 
-**Hardware**
+#### Hardware
 
 Hardware requirements for your dedicated Centreon MAP server are as follows:
 
@@ -70,48 +84,55 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 | *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
 | *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
 
-To correctly implement the dedicated memory, you have to edit the *JAVA\_OPTS*
-parameter in the Centreon Map configurations file `/etc/centreon-studio/centreon-map.conf` and
-restart the service:
+To correctly implement the dedicated memory, you have to edit the
+*JAVA\_OPTS* parameter in the Centreon Map configurations file
+`/etc/centreon-studio/centreon-map.conf` and restart the service:
 
+<<<<<<< HEAD
     JAVA_OPTS="-Xms512m -Xmx4G"
+=======
+```text
+JAVA_OPTS="-Xms512m -Xmx4G"
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 NB: The Xmx value depends on the amount of memory indicated in the above table.
 
-and restart the service:
+Then restart the service:
 
   systemctl restart centreon-map
 
-The space used by Centreon MAP server is directly determined by the number of
-elements you add into your views. An element is any graphical object in Centreon
-MAP. Most elements (like hosts, groups, etc.) have children which must be
-included in the count.
+The space used by Centreon MAP server is directly determined by the
+number of elements you add into your views. An element is any graphical
+object in Centreon MAP. Most elements (like hosts, groups, etc.) have
+children which must be included in the count.
 
 > These values are applied after optimization of Centreon MAP tables.
 
-**Software**
+#### Software
 
   - OS: CentOS 7 / Redhat 7
   - DBMS: MariaDB 10.3
   - Firewall: Disabled
   - SELinux: Disabled
 
-**Information required during configuration**
+#### Information required during configuration
 
   - Centreon Web login with admin rights.
 
-> Even with a correctly sized server, you should have in mind the best practices
-> & recommandations when creating views so you don't face performance issues.
+> Even with a correctly sized server, you should have in mind the best
+> practices & recommandations when creating views so you don't face
+> performance issues.
 
 ### Centreon MAP Web interface
 
-**License**
+#### License
 
 The web interface requires the license to be available and valid on Centreon's
 central server. To do this, you must contact the support [Centreon support
 team](https://centreon.force.com/) to get & install your license key.
 
-**Compatibility**
+#### Compatibility
 
 The Centreon MAP Web interface is compatible with the following web browsers:
 
@@ -135,28 +156,56 @@ Resolution must be at least 1280 x 768.
 > $path_to_java8$` BEFORE `-vmwargs`.
 
 To optimize the desktop client, you have to "give" it more memory than the
-default value. To do so, modify the Centreon-Map4.ini* file and add the
-following parameters:
+default value. Modify the following file:
 
+<<<<<<< HEAD
     -Xms512m
     -Xmx4Go
+=======
+<!--DOCUSAURUS_CODE_TABS-->
 
-Note: The Xmx value is the maximum memory used by the application (i.e, if your
-computer has 4 Go RAM, set this value to 3GB maximum (or 75% of the maximum).
+<!--Windows-->
 
-Depending on your OS, the file is located in one of this directories:
+```shell
+C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+```
 
+<!--Linux-->
+
+```shell
+/opt/centreon-map4-desktop-client/Centreon-Map4.ini
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+And add the following lines at the end of the file, on a new line:
+
+<<<<<<< HEAD
   - WINDOWS: *C:\[USER\]\[AppdatalocaleCentreon-map4unstableCentreon-Map4.ini*
   - LINUX: */opt/centreon-map4-desktop-client/Centreon-Map4.ini*
+=======
+```text
+-Xms512m
+-Xmx4g
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 ### Network requirements
 
 Centreon MAP Server machine must access:
 
+<<<<<<< HEAD
   - Centreon Central broker, usually on Centreon Central machine, using TCP port
     5758
   - Centreon Database, usually on Centreon Central machine, using TCP port 3306
   - Centreon MAP database, usually on localhost, using TCP port 3306.
+=======
+- Centreon Central broker, usually on Centreon Central machine, using TCP
+  port 5758
+- Centreon Database, usually on Centreon Central machine, using TCP port 3306
+- Centreon MAP database, usually on localhost, using TCP port 3306.
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 All the ports above are default values and can be changed if needed.
 
@@ -167,8 +216,8 @@ Centreon MAP Desktop Client machines must access:
   - Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
   - Internet with or without proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other configurations are
-possible.
+Ports 8080 and 8443 are recommanded default values, but other
+configurations are possible.
 
 ## Server installation
 
@@ -187,40 +236,102 @@ Provide this user with access to the Centreon Web real-time API:
 Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
 databases:
 
+<<<<<<< HEAD
     mysql
 
 
     CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
     GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
     GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+=======
+```sql
+CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
-The INSERT privilege will only be used during the installation process in order
-to create new Centreon Broker output. It will be revoked later.
+The INSERT privilege will only be used during the installation process
+in order to create new Centreon Broker output. It will be revoked later.
 
 ### Centreon MAP server
 
+<<<<<<< HEAD
 If you installed your Centreon Map server from a "fresh CentOS installation" you
 need to install the Centreon-Release package : :
 
     yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+=======
+If you installed your Centreon MAP server from a "fresh CentOS installation"
+you need to install the `centreon-release` package:
 
-*If the URL doesn't work, you can manualy find this package in the folder*
+<!--DOCUSAURUS_CODE_TABS-->
 
-Install Centreon MAP repository, you can find it on the 
+<!--RHEL / CentOS / Oracle Linux 8-->
+
+```shell
+dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+```
+
+<!--CentOS 7-->
+
+```shell
+yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> If the URL doesn't work, you can manualy find this package in the folder.
+
+Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
-Install Centreon MAP server, it will automatically install java (OpenJDK 11) if needed.
-You need to have a MySQL/MariaDB database to store Centreon Map data, wether it's on localhost or somewhere else.:
+Then install Centreon MAP server using the following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL / CentOS / Oracle Linux 8-->
+
+```shell
+dnf install centreon-map-server
+```
+
+<!--CentOS 7-->
+
+<<<<<<< HEAD
     yum install centreon-map-server
+=======
+```shell
+yum install centreon-map-server
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
+
+When installing Centreon MAP server, it will automatically install java
+(OpenJDK 11) if needed.
+
+> You need to have a MySQL/MariaDB database to store Centreon MAP data, wether
+> it's on localhost or somewhere else.
 
 ### Configuration
 
+<<<<<<< HEAD
 Make sure the database that stores Centreon MAP data is optimized (automatically
 added by the RPM in /etc/my.cnf.d/map.cnf):
 
     max_allowed_packet=20M
     innodb_log_file_size = 200M
+=======
+Make sure the database that stores Centreon MAP data is optimized
+(automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
+
+```text
+max_allowed_packet = 20M
+innodb_log_file_size = 200M
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 Then, restart MariaDB:
 
@@ -231,7 +342,12 @@ Execute the Centreon MAP server configuration script. Two modes are available: i
 - interactive *(no option/default mode)*: Several questions will be asked to interactively fill in the installation variables.
 - automatic *(--automatic or -a)*: The installation will be done automatically from the values set in `/etc/centreon-studio/vars.sh` file
 
+<<<<<<< HEAD
 If it's your first installation, we advice you to use the standard mode (interactive) and choose "No" when asked for advanced installation mode:
+=======
+If it's your first installation, we advice you to use the standard mode
+(interactive) and choose **No** when asked for advanced installation mode:
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
     /etc/centreon-studio/configure.sh
 
@@ -246,7 +362,13 @@ Restart Centreon Broker on the Central server:
 
 Remove the INSERT privilege from user centreon_map:
 
+<<<<<<< HEAD
     REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
+=======
+```sql
+REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
+```
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 ### Centreon MAP server
 
@@ -254,7 +376,8 @@ Check your configuration:
 
     /etc/centreon-studio/diagnostic.sh
 
-If configuration is correct, the centreon-map service can be started from the Centreon Map server:
+If configuration is correct, the centreon-map service can be
+started from the Centreon MAP server:
 
     systemctl restart centreon-map
 
@@ -262,22 +385,47 @@ Enable the service to start up automatically on server boot:
 
     systemctl enable centreon-map
 
-Centreon Map server is now started and enabled, let's install the interface part of the extension.
+Centreon Map server is now started and enabled, let's install
+the interface part of the extension.
 
 ## Web Interface installation
 
 ### Central server
 
+<<<<<<< HEAD
 Install Centreon MAP repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
 
     yum install centreon-map-web-client
+=======
+Install Centreon MAP repository, you can find it on the
+[support portal](https://support.centreon.com/s/repositories).
+
+Then execute the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL / CentOS / Oracle Linux 8-->
+
+```shell
+dnf install centreon-map-web-client
+```
+
+<!--CentOS 7-->
+
+```shell
+yum install centreon-map-web-client
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
 
 ### Web
 
-Go to `Centreon > Administration > Extensions` and click on the install button:
+Go to `Centreon > Administration > Extensions` and click on the install
+button:
 
   - License Manager (*if not yet installed*)
   - Map Web Client
@@ -286,8 +434,8 @@ Go to `Centreon > Administration > Extensions` and click on the install button:
 
 You can see a red stripe asking for a license.
 
-Upload the license **map.license** given by the support team. Refresh the page and
-the banner must be green with the valid license date.
+Upload the license **map.license** given by the support team. Refresh
+the page and the banner must be green with the valid license date.
 
 ![image](assets/graph-views/install-web-step-2.png)
 
@@ -309,13 +457,14 @@ The Centreon MAP Web interface is now available in `Monitoring > MAP`.
 
 ![image](assets/graph-views/install-web-step-4.png)
 
-*If the content doesn't display, you may empty your browser cache*
+>If the content doesn't display, you may empty your browser cache
 
 ### Centreon MAP Widget
 
-By installing the Web interface, you automatically add the Centreon MAP Widget,
-but you need to perform one last task. Go to `Administration > Extensions`
-and click on the "Install" button on the widget. The result after installed:
+By installing the Web interface, you automatically add the Centreon MAP
+Widget, but you need to perform one last task. Go to
+`Administration > Extensions` and click on the "Install" button on the
+widget. The result after installed:
 
 ![image](assets/graph-views/install-web-step-widget.png)
 
@@ -323,8 +472,8 @@ and click on the "Install" button on the widget. The result after installed:
 
 ### Executables
 
-The desktop client is currently available only for **64-bit** Windows, Mac and
-Linux platforms (Debian and Ubuntu).
+The desktop client is currently available only for **64-bit** Windows,
+Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in `Monitoring > Map > Desktop Client` or
 [here](https://download.centreon.com/?action=product&product=centreon-map&version=20.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
@@ -339,19 +488,22 @@ You can find the installers in `Monitoring > Map > Desktop Client` or
 The desktop client requires **Java 8**. You can download and install the latest
 version of Java from [here](https://java.com/fr/download/manual.jsp).
 
-> Be sure to download the 64-bit version. Browsers are usually 32-bit and the
-> Oracle website generally proposes 32-bit Java instead of the 64-bit version.
-> If you already have Java installed, use the java -version command to check the
-> architecture. If 64-bit does not appear, the version is 32-bit.
+> Be sure to download the 64-bit version. Browsers are usually 32-bit
+> and the Oracle website generally proposes 32-bit Java instead of the
+> 64-bit version. If you already have Java installed, use the java
+> -version command to check the architecture. If 64-bit does not appear,
+> the version is 32-bit.
 
-> On a Mac platform, note that you must install Oracle JDK instead of the
-> usually-required JRE.
+> On a Mac platform, note that you must install Oracle JDK instead of
+> the usually-required JRE.
 
 To check the Java version run the command:
 
     java -version
 
-**For Windows:**
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Windows-->
 
 Execute centreon-map4-desktop-client-xxxx.exe:
 
@@ -369,7 +521,7 @@ Windows dedicated configuration page.
 
 ![image](assets/graph-views/windows_start_menu.png)
 
-**For Debian**
+<!--Debian-->
 
 Download the provided DEB file and run the command from the root directory:
 
@@ -385,9 +537,95 @@ You will also find it in the list of installed applications.
 
 ![image](assets/graph-views/ubuntu_launch_menu.png)
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Updates
 
+<<<<<<< HEAD
 Once installed, the Desktop Client is automatically kept up to date through an
 online update system. When it connects to a Centreon MAP server it automatically
 downloads and installs the latest version compatible with the server.
 Auto-update requires your computer to have internet access.
+=======
+Once installed, the Desktop Client is automatically kept up to date
+through an online update system. When it connects to a Centreon MAP
+server it automatically downloads and installs the latest version
+compatible with the server. Auto-update requires your computer to have
+internet access.
+
+## Centreon MAP NG
+
+The server is in **experimental phase** and is subject to evolution.
+
+It is currently only used for visualizing maps. Maps creation and edition
+still use the server as we know it.
+
+### Server
+
+The Centreon MAP NG Server is available on the same repository as
+the usual server.
+
+To begin, install the server using the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL / CentOS / Oracle Linux 8-->
+
+```shell
+dnf install centreon-map-server-ng
+```
+<!--CentOS 7-->
+
+```shell
+yum install centreon-map-server-ng
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+And proceed to the configuration with the following command:
+
+```shell
+/etc/centreon-map/configure.sh
+```
+
+The configuration is exactly the same as the usual server, but is stored
+in the **/etc/centreon-map/** folder.
+
+> The default listening port is **8081**.
+
+If the configuration is correct, the server can be started:
+
+```shell
+systemctl restart centreon-map-ng
+```
+
+Enable the service to be started automatically at server startup:
+
+```shell
+systemctl enable centreon-map-ng
+```
+
+### Client
+
+The client does not require any other installation than the actual
+Centreon MAP Web Client.
+
+However, new options are available in the
+`Administration > Extensions > Options` page:
+
+- An input field for the IP address and port of the NG server,
+- A "yes/no" toggle to choose whether the new server should be
+  used to display maps.
+
+![image](../assets/graph-views/ng/configuration-ng-server-map.png)
+
+In the `Monitoring > Map` page, new actions allow to launch
+synchronizations: - Resources from the production server to the NG
+server - Standard maps - Geoviews - ACLs - Images
+
+Synchronization progression can then be followed from this same page.
+
+![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
+
+> At each synchronizations, all resources are deleted and imported
+> again.
+>>>>>>> 3aa3d3a... enh(graph-views): separate map TLS procedure section (#493)
