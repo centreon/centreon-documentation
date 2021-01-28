@@ -7,25 +7,28 @@ title: Centreon Core
 
 Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Core**.
 
-> Il est important de mettre à jour en utilisant la documentation adéquate de
-> mise à jour et de lire attentivement les notes de mise à jour afin d'être au
-> courant des changements qui pourraient impacter votre usage ou votre plateforme
-> ou des développements spécifiques que vous auriez fait.
+> Il est important de mettre à jour en utilisant la documentation
+> adéquate de mise à jour et de lire attentivement les notes de mise à
+> jour afin d'être au courant des changements qui pourraient impacter
+> votre usage ou votre plateforme ou des développements spécifiques que
+> vous auriez fait.
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
 commerciales, vous pouvez vous rendre sur notre
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-## Centreon Web release notes
+## Centreon Web
 
 ### 20.10.2
+
+*12 janvier 2020*
 
 > Comportements connus :
 >
 > -   Les liens "url notes" et "url actions" maintenant visibles dans la page "Resources Status"
 >     ne traduisent pas les macros, par exemple $HOSTNAME$.
 
-#### Enhancements
+#### Améliorations
 
 - [API] Add normalizers for data found in concordanceArray
 - [API] Get topology of servers of a Centreon Platform
@@ -34,7 +37,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Add alias & fqdn in host detail panels
 - [Resources Status] Add URL link button from host and service extended information configuration
 
-#### Bug fixes
+#### Correctifs
 
 - [Authentication] New LDAP configurations are broken
 - [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
@@ -45,7 +48,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Incorrect default downtime duration
 - [Resources Status] Useless impacted_resources_count property
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Apache] Support for the HTTP TRACE
 - [Apache] Uncorrect HTTPS declaration of SSLCipherSuite in Centreon example file
@@ -57,17 +60,21 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.1
 
-#### Enhancements
+*25 novembre 2020*
+
+#### Améliorations
 
 - [API] Improve registration script
 - [Performance] Disable UI notification mechanism if not needed by user
-#### Bug fixes
+
+#### Correctifs
 
 - [API] Rework POST generated API request for PlatformTopology
 - [API] Service groups search not working
 - [Administration] "show deprecated pages" option does not work anymore
 - [Administration] 'options' table for centreon database is sometimes empty
-- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output not working properly for Centreon Broker form
+- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output
+  not working properly for Centreon Broker form
 - [Core] Perl lib db query bad looping parameters
 - [Core] Too much rows in extended_service_informations tables
 - [Event View] Cannot search with regex using "+" character
@@ -75,16 +82,19 @@ commerciales, vous pouvez vous rendre sur notre
 - [Graphs] Performance graph legend does not update dynamically
 - [Reporting] Dashboard won't build when having service by hostgroup
 - [Resources Status] Cannot search multiple times in hostgroup filter
-- [Resources Status] Infinite scroll + refresh button duplicates events in timeline
+- [Resources Status] Infinite scroll + refresh button duplicates events in
+  timeline
 - [Resources Status] Services listing blinking in details panel
 - [Resources Status] Timeline tab content blinks while browsing resources
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Apache] Lack of click diversion protection (Clickjacking)
 - [Core] Update moment.js library
 
 ### 20.10.0
+
+*21 octobre 2020*
 
 > Comportements connus:
 >
@@ -103,7 +113,7 @@ commerciales, vous pouvez vous rendre sur notre
 >     L'appel se fait maintenant via Gorgone, comme pour la copie des
 >     fichiers, et nécessite que la communication utilise ZMQ.
 
-#### Enhancements
+#### Améliorations
 
 - [API] Possibility to Register servers (Remote Server, Poller, Centreon Map)
 - [Configuration/Wizard] Add possibility to select registered poller
@@ -114,23 +124,27 @@ commerciales, vous pouvez vous rendre sur notre
 - [Monitoring/Resources Status] Be able to filter on status output
 - [Monitoring/Resources Status] Add possibility to save/manage filters
 - [Monitoring/Resources Status] Add possibility to submit result for resources
-- [Monitoring/Resources Status] Redirect all realtime links to Resources Status page
-- [Remote Server] Replace HTTP flow by gorgone between Central and Remote Servers
+- [Monitoring/Resources Status] Redirect all realtime links to Resources
+  Status page
+- [Remote Server] Replace HTTP flow by gorgone between Central and Remote
+  Servers
 
-## Centreon Engine release notes
+## Centreon Engine
 
 ### 20.10.2
 
+*20 janvier 2020*
+
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
-#### Bugfixes
+#### Correctifs
 
 *Notification macros*
 
 The macros in which notification information can be found have been fixed
 (ie $NOTIFICATION*$, $HOSTNOTIFICATION*$, $SERVICENOTIFICATION*$)
 
-#### Enhancements
+#### Améliorations
 
 *Instance updates*
 
@@ -140,7 +154,9 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.10.1
 
-#### Bugfixes
+*16 décembre 2020*
+
+#### Correctifs
 
 *Stalking option*
 
@@ -160,6 +176,8 @@ Host/service status field 'Last Notification' was filled when
 state was HARD even if no notification is configured nor sent.
 
 ### 20.10.0
+
+*21 octobre 2020*
 
 > Comportements connus:
 >
@@ -185,15 +203,17 @@ state was HARD even if no notification is configured nor sent.
 >     usermod -a -G centreon-gorgone centreon-engine
 >     ```
 
-#### Bugfixes
+#### Correctifs
 
 - Contient tous les correctifs jusqu'à la version 20.04.7
 
-## Centreon Broker release notes
+## Centreon Broker
 
 ### 20.10.3
 
-#### Bugfixes
+*20 janvier 2020*
+
+#### Correctifs
 
 *Conflict manager and comments*
 
@@ -212,7 +232,7 @@ dimensions computation.
 When availabilities are rebuilt, durations can be doubled. This new version
 fixes this issue.
 
-#### Enhancements
+#### Améliorations
 
 *Logs*
 
@@ -236,6 +256,8 @@ acceptor side. This new version fixes this issue.
 
 ### 20.10.2
 
+*16 décembre 2020*
+
 > Comportements connus:
 >
 >   - Si le chiffrement TLS est configuré pour utiliser une paire
@@ -246,12 +268,12 @@ acceptor side. This new version fixes this issue.
 >   - Si vous utilisez Centreon MAP avec un chiffrement TLS, assurez
 >     vous de **mettre à jour le serveur MAP** à la version >= 20.10.2.
 
-#### Bugfixes
+#### Correctifs
 
 *TLS*
 
-Credentials were not more loaded by the TLS connector anymore. This is fixed with this
-new version.
+Credentials were not more loaded by the TLS connector anymore. This is fixed
+with this new version.
 
 *Custom variables*
 
@@ -268,7 +290,9 @@ Business Activities names causing *duplicate entry* errors.
 
 ### 20.10.1
 
-#### Bugfixes
+*25 novembre 2020*
+
+#### Correctifs
 
 *Build*
 
@@ -285,7 +309,7 @@ writing at the same time.
 Writing on a tcp stream could slow down in case of many retention files. The
 issue was essentially in the flush internal function.
 
-#### Enhancements
+#### Améliorations
 
 *TCP connections*
 
@@ -318,6 +342,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
+*21 octobre 2020*
+
 > Comportements connus:
 >
 >   - Si Broker sur un Poller ou un Remote Server n'est pas mis à jour en
@@ -340,15 +366,36 @@ with the –pool\_size X argument or -s X.
 >     Si le mode de connexion inversé (*one peer retention*) est utilisé,
 >     la mise à jour de Broker est obligatoire.
 
-#### Bugfixes
+#### Correctifs
 
 - Contient tous les correctifs jusqu'à la version 20.04.9
 
-## Centreon Gorgone release notes
+## Centreon Gorgone
+
+### 20.10.2
+
+*x janvier 2021*
+
+#### Correctifs
+
+- [zmqclient] Harden communication to avoid "Protocol not good" errors
+- [zmqclient] Increment ZMQ_LINGER period for some modules
+- [zmqclient] Lot of ESTABLISHED connections on server side when network
+  is flapping
+- [sshclient] Command actions badly encoded lead to badly encoded messages
+  in web UI (downtimes, acknowledgements)
+- [sshclient] Uncaught messages lead to problems with statistics collection
+  and Autodiscovery module.
+
+#### Améliorations
+
+- [anomalydetection] Reduce time interval between prediction downloads
 
 ### 20.10.1
 
-#### Bug fixes
+*17 décembre 2020*
+
+#### Correctifs
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
@@ -364,7 +411,7 @@ with the –pool\_size X argument or -s X.
 - [autodiscovery] Service discovery email sending not working with groups
   of contacts
 
-#### Enhancements
+#### Améliorations
 
 - [proxy] Force TCP reconnection after 3 ping timeout
 - [zmqclient] ID is not necessary anymore in end targets configuration
@@ -372,11 +419,13 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-#### Bugfixes
+*21 octobre 2020*
+
+#### Correctifs
 
 - Contient tous les correctifs jusqu'à la version 20.04.6
 
-#### Enhancements
+#### Améliorations
 
 - [module] Add new core/pipeline module
 - [module] Add new centreon/judge module
