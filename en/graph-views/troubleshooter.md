@@ -54,14 +54,14 @@ follows:
 
 <!--HTTP-->
 
-```text
-http://\<MAP_IP\>:8080/api/beta/actuator/health
+```shell
+http://<MAP_IP>:8080/api/beta/actuator/health
 ```
 
 <!--HTTPS-->
 
-```text
-https://\<MAP_IP\>:8443/api/beta/actuator/health
+```shell
+https://<MAP_IP>:8443/api/beta/actuator/health
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -72,14 +72,14 @@ You can also check the SOAP API used by the desktop client:
 
 <!--HTTP-->
 
-```text
-http://\<MAP_IP\>:8080/centreon-studio/services
+```shell
+http://<MAP_IP>:8080/centreon-studio/services
 ```
 
 <!--HTTPS-->
 
-```text
-https://\<MAP_IP\>:8443/centreon-studio/services
+```shell
+https://<MAP_IP>:8443/centreon-studio/services
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->

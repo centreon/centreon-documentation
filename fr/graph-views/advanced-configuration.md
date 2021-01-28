@@ -79,14 +79,14 @@ Important:
 
     <!--HTTP-->
 
-    ```text
-    http://\<MAP_IP\>:8080/centreon-studio/actuator/jolokia
+    ```shell
+    http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
     ```
 
     <!--HTTPS-->
 
-    ```text
-    https://\<MAP_IP\>:8443/centreon-studio/actuator/jolokia
+    ```shell
+    https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
     ```
 
     <!--END_DOCUSAURUS_CODE_TABS-->
@@ -104,24 +104,24 @@ monitored.
 
 ![image](../assets/graph-views/map4-services.png)
 
-> You may also just check the access to the following URL that tells that
-> the server is up or not:
->
-> <!--DOCUSAURUS_CODE_TABS-->
->
-> <!--HTTP-->
->
-> ```text
-> http://\<MAP_IP\>:8080/centreon-studio/api/beta/actuator/health.
-> ```
->
-> <!--HTTPS-->
->
-> ```text
-> https://\<MAP_IP\>:8443/centreon-studio/api/beta/actuator/health.
-> ```
->
-> <!--END_DOCUSAURUS_CODE_TABS-->
+You may also just check the access to the following URL that tells that
+the server is up or not:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--HTTP-->
+
+```shell
+http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
+```
+
+<!--HTTPS-->
+
+```shell
+https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Migrating your Centreon MAP server
 

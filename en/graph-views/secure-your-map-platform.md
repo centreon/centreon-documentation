@@ -14,7 +14,8 @@ platform.
 > MAP server.
 >
 > If you want to create an auto-signed key and add it to your server, please
-> refer to the [following section](#httpstls-configuration-with-an-auto-signed-key)
+> refer to the [following
+> section](#httpstls-configuration-with-an-auto-signed-key)
 
 You will require:
 
@@ -37,7 +38,8 @@ keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeyst
 ```
 
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
-and set below parameters inside "/etc/centreon-studio/studio-config.properties"
+and set below parameters inside
+`/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -56,7 +58,7 @@ centreon-map.keystore-pass=xxx
 >
 > Users will have to open the URL:
 >
-> ```text
+> ```shell
 > https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 > ```
 >
@@ -78,7 +80,7 @@ keytool -genkey -alias studio -keyalg RSA -keystore /etc/centreon-studio/studio.
 ```
 
 The alias value "studio" and the keystore file path
-"/etc/centreon-studio/studio.jks" may be changed, but unless there is a
+`/etc/centreon-studio/studio.jks` may be changed, but unless there is a
 specific reason, we advise keeping the default values.
 
 Provide the needed information when creating the keystore.
@@ -88,7 +90,8 @@ the same password as the one used for the keystore itself by pressing the
 ENTER key.
 
 Put above keystore file (studio.jks) to the folder "/etc/centreon-studio/",
-and set below parameters inside "/etc/centreon-studio/studio-config.properties"
+and set below parameters inside
+`/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.keystore=/etc/centreon-studio/studio.jks
@@ -106,7 +109,7 @@ centreon-map.keystore-pass=xxx
     systemctl stop centreon-map
     ```
 
-2. Edit the file "/etc/centreon-studio/centreon-map.conf", adding ",tls"
+2. Edit the file `/etc/centreon-studio/centreon-map.conf`, adding ",tls"
    after "prod" profile:
 
     ```text
@@ -161,7 +164,7 @@ First of all, you should [activate HTTPS/TLS on the web
 server](#configure-httpstls-on-the-web-server)
 
 Then, set the following parameter in MAP server configuration at
-"/etc/centreon-studio/studio-config.properties" to enable TLS socket
+`/etc/centreon-studio/studio-config.properties` to enable TLS socket
 connection with Broker :
 
 ```text
@@ -187,7 +190,7 @@ Then, put the generated output file "truststore.jks" into
 "/etc/centreon-studio" of MAP server host.
 
 And add truststore parameters in
-"/etc/centreon-studio/studio-config.properties":
+`/etc/centreon-studio/studio-config.properties`:
 
 ```text
 centreon-map.truststore=/etc/centreon-studio/truststore.jks
@@ -200,7 +203,7 @@ centreon-map.truststore-pass=XXXX
 Meanwhile, you should activate the "tls_broker" profile of Centreon MAP
 service.
 
-Edit the file "/etc/centreon-studio/centreon-map.conf", and replace ",tls" by
+Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace ",tls" by
 ",tls_broker" after "prod" profile:
 
 ```text
