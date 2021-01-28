@@ -75,21 +75,21 @@ Important:
 3. Enter the Jolokia URL, accessible on the Centreon Map server, through
    actuator endpoint:
 
-    <!--DOCUSAURUS_CODE_TABS-->
+<!--DOCUSAURUS_CODE_TABS-->
 
-    <!--HTTP-->
+<!--HTTP-->
 
-    ```shell
-    http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
-    ```
+```shell
+http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
+```
 
-    <!--HTTPS-->
+<!--HTTPS-->
 
-    ```shell
-    https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
-    ```
+```shell
+https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
+```
 
-    <!--END_DOCUSAURUS_CODE_TABS-->
+<!--END_DOCUSAURUS_CODE_TABS-->
 
     > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
