@@ -33,7 +33,7 @@ of users through ACL groups.
 ACL groups may be allowed to visualize, create, modify and delete one or
 more views independently.
 
-Go into `Preferences > Preferences` and then select `Views > ACLs`.
+Go into `Preferences > Preferences` and then select *Views > ACLs* tab.
 
 ![image](../assets/graph-views/acl_views_preference_page.png)
 
@@ -185,7 +185,7 @@ Preferences. Go to `Status > Status size` to configure it globally or to
 ### Configure tiles provider
 
 You can choose the tile service provider or even add your own provider
-in `Administration > Extension | Map Option`. By default, Centreon Map
+in `Administration > Extension > Map | Options`. By default, Centreon Map
 geoviews comes Open Street Map & Mapbox.
 
 Please refer to [this
@@ -198,7 +198,7 @@ To change the tile provider, select one in the list and click save.
 
 If you want to use your own Tile service provider, if for example you
 have an internal Open Street Map server, go to the
-`Administration > Extension | Map Option` and choose the "Custom" style.
+`Administration > Extension > Map | Options` and choose the "Custom" style.
 
 Define the parameters needed and then save.
 
@@ -210,11 +210,11 @@ You can add any external data layer to Centreon GeoView by going to
 `Administration > Extension > Map`. The layer mechanism is the same that the
 tiles provider: we're compatible with tiles map (TMS).
 
-Most of the time, the data layer configuration will consist in :
+Most of the time, the data layer configuration will consist in:
 
-- Defining the URL
-- Setting your token
-- Adding any extra parameters in a JSON format
+- Defining the URL,
+- Setting your token,
+- Adding any extra parameters in a JSON format.
 
 ![image](../assets/graph-views/geo_datalayers_conf_form.png)
 
@@ -229,11 +229,11 @@ Mapbox account & link it to your Centreon Map.
 Mapbox is a service that generates attractive and customizable maps. You
 can use Mapbox with Centreon MAP for free by:
 
-- Creating an account [on Mapbox](https://www.mapbox.com/).
-- [Retrieving a private
-  token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
-  from your Mapbox account and add it to the configuration of the Centreon MAP
-  Server (or during the installation).
+1. Creating an account [on Mapbox](https://www.mapbox.com/).
+2. [Retrieving a private
+   token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#creating-and-managing-access-tokens)
+   from your Mapbox account and add it to the configuration of the Centreon MAP
+   Server (or during the installation).
 
 During the token creation, you're asked to select properties, select:
 
@@ -242,8 +242,9 @@ During the token creation, you're asked to select properties, select:
 
 Your account allows free limited use of the service up to 50k tiles/month.
 
-*A tile is an image used to compose the geographic view.* If you need more
-tiles, you can upgrade your account
+*A tile is an image used to compose the geographic view.*
+
+If you need more tiles, you can upgrade your account
 ([pricing](https://www.mapbox.com/pricing/)).
 
 **Configuration on the Centreon MAP server**

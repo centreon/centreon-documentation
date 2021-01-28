@@ -220,18 +220,11 @@ If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--RHEL / CentOS / Oracle Linux 8-->
 
 ```shell
 dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
-```
-
-*If the URL doesn't work, you can manualy find this package in the folder*
-
-Then install Centreon Map server using the following command:
-
-```shell
-dnf install centreon-map-server
 ```
 
 <!--CentOS 7-->
@@ -240,26 +233,41 @@ dnf install centreon-map-server
 yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
 
-*If the URL doesn't work, you can manualy find this package in the folder*
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Install Centreon MAP repository, you can find it on the 
+> If the URL doesn't work, you can manualy find this package in the folder.
+
+Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
-Install Centreon MAP server, it will automatically install java (OpenJDK 11)
-if needed.
+Then install Centreon MAP server using the following command:
 
-You need to have a MySQL/MariaDB database to store Centreon Map data, wether
-it's on localhost or somewhere else.:
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL / CentOS / Oracle Linux 8-->
+
+```shell
+dnf install centreon-map-server
+```
+
+<!--CentOS 7-->
 
 ```shell
 yum install centreon-map-server
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+When installing Centreon MAP server, it will automatically install java
+(OpenJDK 11) if needed.
+
+> You need to have a MySQL/MariaDB database to store Centreon MAP data, wether
+> it's on localhost or somewhere else.
 
 ### Configuration
 
-Make sure the database that stores Centreon MAP data is optimized (automatically
-added by the RPM in `/etc/my.cnf.d/map.cnf`):
+Make sure the database that stores Centreon MAP data is optimized
+(automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
 
 ```text
 max_allowed_packet = 20M
@@ -280,8 +288,8 @@ interactive or automatic.
 - automatic *(--automatic or -a)*: The installation will be done automatically
   from the values set in `/etc/centreon-studio/vars.sh` file
 
-If it's your first installation, we advice you to use the standard mode (interactive)
-and choose **No** when asked for advanced installation mode:
+If it's your first installation, we advice you to use the standard mode
+(interactive) and choose **No** when asked for advanced installation mode:
 
 ```shell
 /etc/centreon-studio/configure.sh
@@ -332,23 +340,25 @@ the interface part of the extension.
 
 ### Central server
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Install Centreon MAP repository, you can find it on the 
+Install Centreon MAP repository, you can find it on the
 [support portal](https://support.centreon.com/s/repositories).
 
 Then execute the following command:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL / CentOS / Oracle Linux 8-->
+
 ```shell
 dnf install centreon-map-web-client
 ```
-<!--CentOS 7-->
-Install Centreon MAP repository, you can find it on the 
-[support portal](https://support.centreon.com/s/repositories).
 
-Then execute the following command:
+<!--CentOS 7-->
+
 ```shell
 yum install centreon-map-web-client
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Web

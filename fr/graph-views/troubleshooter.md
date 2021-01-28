@@ -55,13 +55,13 @@ follows:
 <!--HTTP-->
 
 ```text
-http://<MAP_IP>:8080/api/beta/actuator/health
+http://\<MAP_IP\>:8080/api/beta/actuator/health
 ```
 
 <!--HTTPS-->
 
 ```text
-https://<MAP_IP>:8443/api/beta/actuator/health
+https://\<MAP_IP\>:8443/api/beta/actuator/health
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -73,13 +73,13 @@ You can also check the SOAP API used by the desktop client:
 <!--HTTP-->
 
 ```text
-http://<MAP_IP>:8080/centreon-studio/services
+http://\<MAP_IP\>:8080/centreon-studio/services
 ```
 
 <!--HTTPS-->
 
 ```text
-https://<MAP_IP>:8443/centreon-studio/services
+https://\<MAP_IP\>:8443/centreon-studio/services
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -150,12 +150,11 @@ own database. On your desktop client, you should see all your files from
 Centreon Web under the Media tab panel in the "Centreon" folder. If not,
 you may want to verify the following:
 
-On your Centreon MAP server, open the file my.cnf and check if the line
-`max_allowed_packet=20M` is present.
+On your Centreon MAP server, open the file `/etc/my.cnf` and check if the line
+following line is present:
 
-```shell
-# vi /etc/my.cnf
-max_allowed_packet=20M
+```text
+max_allowed_packet = 20M
 ```
 
 Then reload your MariaDB database:
@@ -184,7 +183,7 @@ For the 'centreon.url' variable, check that there is a full path to your
 Centreon Web interface:
 
 ```text
-centreon.url=http://<IP_SERVER_MAP>
+centreon.url=http://\<IP_SERVER_MAP\>
 ```
 
 > Don't forget to replace "http" with "https" if your Centreon Web

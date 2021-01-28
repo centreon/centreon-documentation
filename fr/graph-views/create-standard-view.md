@@ -108,7 +108,7 @@ description).
 
 ![image](../assets/graph-views/new_view_wizard.png)
 
-You can then either click **Finish** to create the view or click "Next" to
+You can then either click **Finish** to create the view or click **Next** to
 associate an image to it.
 
 Once done, you will see your new view in the left tab panel.
@@ -143,12 +143,12 @@ To do so, right click on the container or inside the target one and click on
 
 ### Add a geographic background
 
-After (`linking your Mapbox account here <mapbox>`{.interpreted-text
-role="ref"}) you can create a standard view and define a geo background:
+After linking your Mapbox account you can create a standard view and
+define a geo background:
 
-1. Open your desktop client.
-2. Open a view.
-3. Right click on the background of the view and select "Edit."
+1. Open your desktop client,
+2. Open a view,
+3. Right click on the background of the view and select "Edit",
 4. Check the "Geographic" checkbox.
 
 ![image](../assets/graph-views/mapbox-change-style.png)
@@ -247,7 +247,7 @@ you can edit it by double-clicking on the output and modifing the
 #### Customizing the output
 
 You can customize the output by adding service and metric properties. To
-do so, edit the output (by double-clicking) then click twice on the Next
+do so, edit the output (by double-clicking) then click twice on the **Next**
 button.
 
 You will see this page:
@@ -314,10 +314,10 @@ When creating the process widget, you must choose a service.
 
 To create a service dedicated to an "action":
 
-- Create a command (`Configuration > Command > Add`) that contains "service
-  httpd restart" (remember to enable shell).
-- Link the command to a passive service.
-- Link the passive service to a host (e.g., the host that hosts the website).
+1. Create a command (`Configuration > Command > Add`) that contains "service
+   httpd restart" (remember to enable shell).
+2. Link the command to a passive service.
+3. Link the passive service to a host (e.g., the host that hosts the website).
 
 Then you can assign that service to the widget.
 
@@ -382,9 +382,10 @@ cannot add or modify images in that folder**. However, if you want to
 add new media than will only be used in Centreon MAP, follow this
 procedure:
 
-- Open the **Media** panel.
-- Create at least one folder.
-- right click on the new folder and then. click on **Import**.
+1. Open the **Media** panel,
+2. Create at least one folder,
+3. Right click on the new folder,
+4. Click on **Import**.
 
 ![image](../assets/graph-views/media_add.png)
 
@@ -455,5 +456,5 @@ The command and arguments will be:
 ```
 
 Every time the command is run, a prompt will be displayed proposing the
-default value. The user can either press ENTER to validate or override
+default value. The user can either press **ENTER** to validate or override
 it with another value.

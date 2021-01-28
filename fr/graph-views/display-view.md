@@ -54,7 +54,7 @@ each user had to configure it's own color using the desktop client. We changed
 this mechanism so that you can define a link coloration method for **all user**
 at once. To do so:
 
-1. Go to `Administration > Extension | Map Option`
+1. Go to `Administration > Extension > Map | Options`
 2. In the "Link color definition" section, select the coloration method and
    parameter you want to apply
 

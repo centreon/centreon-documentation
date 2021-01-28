@@ -1,6 +1,6 @@
 ---
-id: procedures
-title: Procedures
+id: advanced-configuration
+title: Advanced configuration
 ---
 
 This chapter describes advanced procedures for configuring your Centreon MAP
@@ -75,17 +75,21 @@ Important:
 3. Enter the Jolokia URL, accessible on the Centreon Map server, through
    actuator endpoint:
 
-    - For an HTTP configuration:
+    <!--DOCUSAURUS_CODE_TABS-->
 
-        ```text
-        http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
-        ```
+    <!--HTTP-->
 
-    - For an HTTPS configuration:
+    ```text
+    http://\<MAP_IP\>:8080/centreon-studio/actuator/jolokia
+    ```
 
-        ```text
-        https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
-        ```
+    <!--HTTPS-->
+
+    ```text
+    https://\<MAP_IP\>:8443/centreon-studio/actuator/jolokia
+    ```
+
+    <!--END_DOCUSAURUS_CODE_TABS-->
 
     > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
@@ -103,17 +107,21 @@ monitored.
 > You may also just check the access to the following URL that tells that
 > the server is up or not:
 >
-> - If your server is running in HTTP mode:
+> <!--DOCUSAURUS_CODE_TABS-->
 >
->     ```text
->     http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
->     ```
+> <!--HTTP-->
 >
-> - If your server is running in HTTPS mode:
+> ```text
+> http://\<MAP_IP\>:8080/centreon-studio/api/beta/actuator/health.
+> ```
 >
->     ```text
->     https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
->     ```
+> <!--HTTPS-->
+>
+> ```text
+> https://\<MAP_IP\>:8443/centreon-studio/api/beta/actuator/health.
+> ```
+>
+> <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Migrating your Centreon MAP server
 
@@ -297,7 +305,7 @@ Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:
 
 ```text
-http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
+http://\<MAP_IP\>:\<NEW_PORT\>/centreon-studio/api/beta/actuator/health
 ```
 
 ## Define port below 1024
@@ -388,7 +396,7 @@ Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
 ```text
-http://<MAP_IP>/centreon-studio/api/beta/actuator/health
+http://\<MAP_IP\>/centreon-studio/api/beta/actuator/health
 ```
 
 You should see server's state:

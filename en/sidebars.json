@@ -176,9 +176,10 @@
                     "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
-                    "graph-views/procedures",
+                    "graph-views/advanced-configuration",
                     "graph-views/secure-your-map-platform",
-                    "graph-views/known-issues"
+                    "graph-views/known-issues",
+                    "graph-views/troubleshooter"
                 ],
                 "label": "Administrate",
                 "type": "subcategory"
