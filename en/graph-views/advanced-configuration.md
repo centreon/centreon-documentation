@@ -91,7 +91,7 @@ https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-    > Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
+> Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
 
 4. *If you have installed a MariaDB server on your Centreon MAP server*, enter
    the user/password you used in [Configure your
@@ -304,8 +304,8 @@ Wait for Centreon MAP service to start completely (~30 sec to 1 minutes).
 Test that your server is up and accessible on the new port you defined by
 entering the following URL in your web browser:
 
-```text
-http://\<MAP_IP\>:\<NEW_PORT\>/centreon-studio/api/beta/actuator/health
+```shell
+http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
 ```
 
 ## Define port below 1024
@@ -395,8 +395,8 @@ forwarding" through the firewall.
 Your Centreon MAP server is now accessible on port 80. Check this by entering
 the following URL in your browser:
 
-```text
-http://\<MAP_IP\>/centreon-studio/api/beta/actuator/health
+```shell
+http://<MAP_IP>/centreon-studio/api/beta/actuator/health
 ```
 
 You should see server's state:

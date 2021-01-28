@@ -182,8 +182,8 @@ vim /etc/centreon-studio/studio-config.properties
 For the 'centreon.url' variable, check that there is a full path to your
 Centreon Web interface:
 
-```text
-centreon.url=http://\<IP_SERVER_MAP\>
+```shell
+centreon.url=http://<MAP_IP>
 ```
 
 > Don't forget to replace "http" with "https" if your Centreon Web
@@ -276,7 +276,7 @@ Add the following line at the end of the file on a new line, where
 `<CENTREON_URL>` is the URL with which you access the web interface of
 Centreon Web from your computer:
 
-```text
+```shell
 -Dcentreon.url=<CENTREON_URL>
 ```
 

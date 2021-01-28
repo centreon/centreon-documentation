@@ -21,7 +21,7 @@ Be sure to read the release notes for an explanation of features, fixes
 A or B that changes) you need to contact our Support service to retrieve
 the new repository**
 
-## Centreon MAP Server
+## Centreon MAP server
 
 > If you are still running version **4.0.X**, you **must first install
 > and run the server in version 4.1.X before upgrading to the latest
@@ -54,8 +54,8 @@ yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centre
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-    > Install Centreon MAP repository, you can find it on the
-    > [support portal](https://support.centreon.com/s/repositories).
+> Install Centreon MAP repository, you can find it on the
+> [support portal](https://support.centreon.com/s/repositories).
 
 3. Update Centreon MAP server:
 
