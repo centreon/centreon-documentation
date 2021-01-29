@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.1
 
-*November 30, 2020*
+`November 30, 2020`
 
 #### Enhancements
 
@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
-*November 2, 2020*
+`November 2, 2020`
 
 - Compatibility with Centreon 20.10
 
@@ -44,7 +44,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
 
@@ -52,6 +52,6 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
