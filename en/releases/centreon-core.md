@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.8
 
-*January 12, 2021*
+`January 12, 2021`
 
 #### Enhancements
 
@@ -53,7 +53,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.7
 
-*Novembre 19, 2020*
+`Novembre 19, 2020`
 
 #### Enhancements
 
@@ -101,7 +101,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.6
 
-*October 28, 2020*
+`October 28, 2020`
 
 > Newly shared views do not break widget preferences.
 > But, if you have already broken widget preferences for users who add a shared
@@ -164,7 +164,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.5
 
-*August 10, 2020*
+`August 10, 2020`
 
 #### Bugfixes
 
@@ -202,7 +202,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.4
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Bugfixes
 
@@ -232,7 +232,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.3
 
-*June 10, 2020*
+`June 10, 2020`
 
 #### Enhancements
 
@@ -264,7 +264,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.2
 
-*May 18, 2020*
+`May 18, 2020`
 
 > Due to a generation problem, 20.04.1 and 20.04.2 versions are both
 > included in 20.04.2 version.
@@ -294,7 +294,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-*April, 22 2020*
+`April, 22 2020`
 
 > Known issues:
 >
@@ -489,7 +489,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.9
 
-*January 20, 2021*
+`January 20, 2021`
 
 > This version requires Centreon Broker version to be 20.04.12 or higher.
 
@@ -510,7 +510,7 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.04.8
 
-*December 16, 2020*
+`December 16, 2020`
 
 #### Bugfixes
 
@@ -533,7 +533,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.04.7
 
-*Octobre 12, 2020*
+`Octobre 12, 2020`
 
 #### Bugfixes
 
@@ -544,7 +544,7 @@ for a problem. This is now fixed.
 
 ### 20.04.6
 
-*September 3, 2020*
+`September 3, 2020`
 
 #### Bugfixes
 
@@ -555,7 +555,7 @@ SERVICEPROBLEMID and LASTSERVICEPROBLEMID). This new version fixes this point.
 
 ### 20.04.5
 
-*August 18, 2020*
+`August 18, 2020`
 
 #### Bugfixes
 
@@ -566,7 +566,7 @@ characters that were not UTF-8. It is fixed and moved to the cbmod module.
 
 ### 20.04.4
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Bugfixes
 
@@ -577,7 +577,7 @@ This is fixed with this new version.
 
 ### 20.04.3
 
-*June 23, 2020*
+`June 23, 2020`
 
 #### Bugfixes
 
@@ -591,7 +591,7 @@ UTF-8.
 
 ### 20.04.2
 
-*June 16, 2020*
+`June 16, 2020`
 
 #### Bugfixes
 
@@ -603,7 +603,7 @@ are still there. With this new version, it is fixed.
 
 ### 20.04.1
 
-*May 12, 2020*
+`May 12, 2020`
 
 #### Bugfixes
 
@@ -613,7 +613,7 @@ Engine was stuck when we put -1 as debug_lvl in centengine.cfg.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 #### Bugfixes
 
@@ -647,7 +647,7 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.12
 
-*January 20, 2021*
+`January 20, 2021`
 
 #### Bugfixes
 
@@ -692,7 +692,7 @@ acceptor side. This new version fixes this issue.
 
 ### 20.04.11
 
-*December 16, 2020*
+`December 16, 2020`
 
 > Known behaviours:
 >
@@ -725,7 +725,7 @@ Business Activities names causing *duplicate entry* errors.
 
 ### 20.04.10
 
-*November 25, 2020*
+`November 25, 2020`
 
 #### Bugfixes
 
@@ -777,7 +777,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.04.9
 
-*October 26, 2020*
+`October 26, 2020`
 
 > Known behaviours:
 >
@@ -861,7 +861,7 @@ TCP endpoint with the 'pool_size' label.
 
 ### 20.04.8
 
-*August 18 2020*
+`August 18 2020`
 
 #### Bugfixes
 
@@ -873,7 +873,7 @@ strings could be considered as UTF-8 strings whereas they were not.
 
 ### 20.04.7
 
-*August 4 2020*
+`August 4 2020`
 
 #### Enhancements
 
@@ -883,7 +883,7 @@ Conflict manager configuration is easier and more flexible.
 
 ### 20.04.6
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Bugfixes
 
@@ -898,7 +898,7 @@ BAM module is better managed on database server reload/restart.
 
 ### 20.04.5
 
-*June 11, 2020*
+`June 11, 2020`
 
 > Known issues:
 >
@@ -926,7 +926,7 @@ and the string looses its sense. This is fixed.
 
 ### 20.04.4
 
-*May 27, 2020*
+`May 27, 2020`
 
 #### Bugfixes
 
@@ -938,7 +938,7 @@ in 20.04.3.
 
 ### 20.04.3
 
-*May 26, 2020*
+`May 26, 2020`
 
 #### Bugfixes
 
@@ -965,7 +965,7 @@ avoid this, we truncate too long strings and set a warning log for users.
 
 ### 20.04.2
 
-*May 13, 2020*
+`May 13, 2020`
 
 #### Bugfixes
 
@@ -991,7 +991,7 @@ the host_id, we suppose you want a host severity.
 
 ### 20.04.1
 
-*May 12, 2020*
+`May 12, 2020`
 
 #### Bugfixes
 
@@ -1023,7 +1023,7 @@ filename.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 #### Enhancements
 
@@ -1074,7 +1074,7 @@ This patch fixes that.
 
 ### 20.04.9
 
-*January x, 2021*
+`January 29, 2021`
 
 #### Bugfixes
 
@@ -1091,7 +1091,7 @@ This patch fixes that.
 
 ### 20.04.8
 
-*December 17, 2020*
+`December 17, 2020`
 
 #### Bugfixes
 
@@ -1105,7 +1105,7 @@ This patch fixes that.
 
 ### 20.04.7
 
-*November 23, 2020*
+`November 23, 2020`
 
 #### Enhancements
 
@@ -1115,7 +1115,7 @@ This patch fixes that.
 
 ### 20.04.6
 
-*Otober 19, 2020*
+`Otober 19, 2020`
 
 #### Bugfixes
 
@@ -1132,7 +1132,7 @@ This patch fixes that.
 
 ### 20.04.5
 
-*September 16, 2020*
+`September 16, 2020`
 
 #### Bugfixes
 
@@ -1140,7 +1140,7 @@ This patch fixes that.
 
 ### 20.04.4
 
-*August 13, 2020*
+`August 13, 2020`
 
 #### Bugfixes
 
@@ -1157,7 +1157,7 @@ This patch fixes that.
 
 ### 20.04.3
 
-*June 22, 2020*
+`June 22, 2020`
 
 #### Bugfixes
 
@@ -1170,7 +1170,7 @@ This patch fixes that.
 
 ### 20.04.2
 
-*May 12, 2020*
+`May 12, 2020`
 
 #### Bugfixes
 
@@ -1191,7 +1191,7 @@ This patch fixes that.
 
 ### 20.04.1
 
-*April 23, 2020*
+`April 23, 2020`
 
 #### Bugfixes
 
@@ -1199,6 +1199,6 @@ This patch fixes that.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 - Add Gorgone in replacement of Centcore
