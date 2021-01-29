@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.2
 
-*January 12, 2021*
+`January 12, 2021`
 
 > Known behaviours:
 >
@@ -60,7 +60,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.1
 
-*November 25, 2020*
+`November 25, 2020`
 
 #### Enhancements
 
@@ -94,7 +94,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 > Known behaviours:
 >
@@ -133,7 +133,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.2
 
-*January 20, 2021*
+`January 20, 2021`
 
 > This version requires Centreon Broker version to be 20.10.3 or higher.
 
@@ -154,7 +154,7 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.10.1
 
-*December 16, 2020*
+`December 16, 2020`
 
 #### Bugfixes
 
@@ -177,7 +177,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 > Known behaviours:
 >
@@ -211,7 +211,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.3
 
-*January 20, 2021*
+`January 20, 2021`
 
 #### Bugfixes
 
@@ -256,7 +256,7 @@ acceptor side. This new version fixes this issue.
 
 ### 20.10.2
 
-*December 16, 2020*
+`December 16, 2020`
 
 > Known behaviours:
 >
@@ -289,7 +289,7 @@ Business Activities names causing *duplicate entry* errors.
 
 ### 20.10.1
 
-*November 25, 2020*
+`November 25, 2020`
 
 #### Bugfixes
 
@@ -341,7 +341,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 > Known behaviours:
 >
@@ -371,7 +371,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.2
 
-*January x, 2021*
+`January 29, 2021`
 
 #### Bugfixes
 
@@ -390,7 +390,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.1
 
-*December 17, 2020*
+`December 17, 2020`
 
 #### Bugfixes
 
@@ -416,7 +416,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 #### Bugfixes
 

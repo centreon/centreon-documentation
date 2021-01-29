@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.2
 
-*December 16, 2020*
+`December 16, 2020`
 
 #### Enhancements
 
@@ -44,7 +44,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.1
 
-*November 19, 2020*
+`November 19, 2020`
 
 #### Bugfixes
 
@@ -60,7 +60,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 #### Enhancements
 
@@ -91,7 +91,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - [Configuration] Update style of pages *Business Activities* and
   *Business Views*
@@ -100,7 +100,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
 
@@ -108,7 +108,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.2
 
-*December 7, 2020*
+`December 7, 2020`
 
 #### Bugfixes
 
@@ -124,7 +124,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.1
 
-*October 27, 2020*
+`October 27, 2020`
 
 #### Bugfixes
 
@@ -132,7 +132,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 > Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
 > to make sure the configuration matches minimal prerequisites.
@@ -179,7 +179,7 @@ standalone SSH connections.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
 
@@ -187,7 +187,7 @@ standalone SSH connections.
 
 ### 20.10.1
 
-*December 2, 2020*
+`December 2, 2020`
 
 #### Bugfixes
 
@@ -197,7 +197,7 @@ standalone SSH connections.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
 
@@ -205,6 +205,6 @@ standalone SSH connections.
 
 ### 20.10.0
 
-*October 21, 2020*
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10

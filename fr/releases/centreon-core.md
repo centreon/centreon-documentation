@@ -21,7 +21,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
-*12 janvier 2020*
+`12 janvier 2020`
 
 > Comportements connus :
 >
@@ -60,7 +60,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.1
 
-*25 novembre 2020*
+`25 novembre 2020`
 
 #### Améliorations
 
@@ -94,7 +94,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 > Comportements connus:
 >
@@ -133,7 +133,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
-*20 janvier 2020*
+`20 janvier 2020`
 
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
@@ -154,7 +154,7 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.10.1
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 #### Correctifs
 
@@ -177,7 +177,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 > Comportements connus:
 >
@@ -211,7 +211,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.3
 
-*20 janvier 2020*
+`20 janvier 2020`
 
 #### Correctifs
 
@@ -256,7 +256,7 @@ acceptor side. This new version fixes this issue.
 
 ### 20.10.2
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 > Comportements connus:
 >
@@ -290,7 +290,7 @@ Business Activities names causing *duplicate entry* errors.
 
 ### 20.10.1
 
-*25 novembre 2020*
+`25 novembre 2020`
 
 #### Correctifs
 
@@ -342,7 +342,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 > Comportements connus:
 >
@@ -374,7 +374,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.2
 
-*x janvier 2021*
+`29 janvier 2021`
 
 #### Correctifs
 
@@ -393,7 +393,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.1
 
-*17 décembre 2020*
+`17 décembre 2020`
 
 #### Correctifs
 
@@ -419,7 +419,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 #### Correctifs
 

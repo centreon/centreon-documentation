@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.2
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 #### Améliorations
 
@@ -45,7 +45,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.1
 
-*19 novembre 2020*
+`19 novembre 2020`
 
 #### Correctifs
 
@@ -62,7 +62,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 #### Améliorations
 
@@ -95,7 +95,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 #### Améliorations
 
@@ -106,7 +106,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10
 
@@ -114,7 +114,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.2
 
-*7 décembre 2020*
+`7 décembre 2020`
 
 #### Correctifs
 
@@ -132,7 +132,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.1
 
-*27 octobre 2020*
+`27 octobre 2020`
 
 #### Correctifs
 
@@ -141,7 +141,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 > Référez vous à la [Configuration du module Gorgone](../monitoring/discovery/administration.html#configuration-du-module-Gorgone)
 > pour vous assurer que la configuration correspond aux prérequis minimaux.
@@ -192,7 +192,7 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10
 
@@ -200,7 +200,7 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.1
 
-*2 décembre 2020*
+`2 décembre 2020`
 
 #### Correctifs
 
@@ -210,7 +210,7 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10
 
@@ -218,6 +218,6 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10

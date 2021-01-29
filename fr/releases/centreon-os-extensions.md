@@ -22,7 +22,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.1
 
-*30 novembre 2020*
+`30 novembre 2020`
 
 #### Améliorations
 
@@ -36,7 +36,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-*2 novembre 2020*
+`2 novembre 2020`
 
 - Compatibilité avec Centreon 20.10
 
@@ -44,7 +44,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10
 
@@ -52,6 +52,6 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.0
 
-*21 octobre 2020*
+`21 octobre 2020`
 
 - Compatibilité avec Centreon 20.10
