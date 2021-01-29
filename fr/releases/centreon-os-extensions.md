@@ -22,7 +22,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.3
 
-*30 novembre 2020*
+`30 novembre 2020`
 
 #### Correctifs
 
@@ -36,7 +36,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.2
 
-*3 novembre 2020*
+`3 novembre 2020`
 
 #### Correctifs
 
@@ -48,7 +48,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.1
 
-*8 juillet 2020*
+`8 juillet 2020`
 
 #### Correctifs
 
@@ -63,7 +63,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 - [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha)
 
@@ -71,7 +71,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 - Manage compatibility with Centreon 20.04
 
@@ -85,7 +85,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 - Manage compatibility with Centreon 20.04
 

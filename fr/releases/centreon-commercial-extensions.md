@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.5
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 #### Améliorations
 
@@ -43,7 +43,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.4
 
-*17 novembre 2020*
+`17 novembre 2020`
 
 #### Correctifs
 
@@ -60,7 +60,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.3
 
-*9 octobre 2020*
+`9 octobre 2020`
 
 #### Correctifs
 
@@ -69,7 +69,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.2
 
-*22 septembre 2020*
+`22 septembre 2020`
 
 #### Correctifs
 
@@ -95,7 +95,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.1
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Correctifs
 
@@ -104,7 +104,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 #### Améliorations
 
@@ -127,7 +127,7 @@ liens
 
 ### 20.04.5
 
-*16 novembre 2020*
+`16 novembre 2020`
 
 #### Correctifs
 
@@ -144,7 +144,7 @@ liens
 
 ### 20.04.4
 
-*30 octobre 2020*
+`30 octobre 2020`
 
 #### Correctifs
 
@@ -163,7 +163,7 @@ liens
 
 ### 20.04.3
 
-*29 juillet 2020*
+`29 juillet 2020`
 
 #### Correctifs
 
@@ -178,7 +178,7 @@ liens
 
 ### 20.04.2
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Correctifs
 
@@ -202,7 +202,7 @@ liens
 
 ### 20.04.1
 
-*2 juin 2020*
+`2 juin 2020`
 
 #### Correctifs
 
@@ -217,7 +217,7 @@ liens
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 #### Nouvelles fonctionnalités
 
@@ -231,7 +231,7 @@ liens
 
 ### 20.04.3
 
-*28 octobre 2020*
+`28 octobre 2020`
 
 #### Correctifs
 
@@ -244,7 +244,7 @@ liens
 
 ### 20.04.2
 
-*22 septembre 2020*
+`22 septembre 2020`
 
 #### Améliorations
 
@@ -254,7 +254,7 @@ liens
 
 ### 20.04.1
 
-*12 mai 2020*
+`12 mai 2020`
 
 #### Correctifs
 
@@ -265,7 +265,7 @@ liens
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 - Gestion de la compatibilité avec Centreon 20.04
 
@@ -273,7 +273,7 @@ liens
 
 ### 20.04.7
 
-*9 décembre 2020*
+`9 décembre 2020`
 
 #### Correctifs
 
@@ -288,7 +288,7 @@ liens
 
 ### 20.04.6
 
-*19 novembre 2020*
+`19 novembre 2020`
 
 #### Correctifs
 
@@ -304,7 +304,7 @@ liens
 
 ### 20.04.5
 
-*16 septembre 2020*
+`16 septembre 2020`
 
 #### Correctifs
 
@@ -325,7 +325,7 @@ liens
 
 ### 20.04.4
 
-*29 juillet 2020*
+`29 juillet 2020`
 
 #### Correctifs
 
@@ -347,7 +347,7 @@ liens
 
 ### 20.04.3
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Améliorations
 
@@ -355,7 +355,7 @@ liens
 
 ### 20.04.2
 
-*3 juin 2020*
+`3 juin 2020`
 
 > Known issues:
 >
@@ -386,7 +386,7 @@ liens
 
 ### 20.04.1
 
-*12 mai 2020*
+`12 mai 2020`
 
 #### Améliorations
 
@@ -400,7 +400,7 @@ liens
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 Redesign hosts discovery with a new wizard to add discovery job:
 
@@ -425,7 +425,7 @@ configuration value:
 
 ### 20.04.1
 
-*23 avril 2020*
+`23 avril 2020`
 
 #### Correctifs
 
@@ -433,7 +433,7 @@ configuration value:
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 #### Améliorations
 
@@ -448,7 +448,7 @@ configuration value:
 
 ### 20.04.3
 
-*2 décembre 2020*
+`2 décembre 2020`
 
 - After adding a license or a token the user must access to associated
   functionalities
@@ -456,21 +456,21 @@ configuration value:
 
 ### 20.04.2
 
-*25 mai 2020*
+`25 mai 2020`
 
 - The centreon_map user needs to be admin to have the license working on
   Central server
 
 ### 20.04.1
 
-*24 avril 2020*
+`24 avril 2020`
 
 - Manage unlink platform from previous IMP trial to access to IT-100
   free etition.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 Remove `Administration > Extensions > Subscription` menu to manage IT Edition
 subscription from `Administration > Extensions > Manager` menu:
@@ -485,7 +485,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.4
 
-*26 novembre 2020*
+`26 novembre 2020`
 
 #### Correctifs
 
@@ -493,7 +493,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.3
 
-*28 octobre 2020*
+`28 octobre 2020`
 
 #### Améliorations
 
@@ -507,7 +507,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.2
 
-*28 juillet 2020*
+`28 juillet 2020`
 
 #### Correctifs
 
@@ -516,7 +516,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.1
 
-*1 juillet 2020*
+`1 juillet 2020`
 
 #### Améliorations
 
@@ -533,7 +533,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 First version allowing to monitor the detection of anomalies using
 floating thresholds.

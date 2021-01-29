@@ -20,7 +20,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.8
 
-*12 janvier 2021*
+`12 janvier 2021`
 
 #### Améliorations
 
@@ -52,7 +52,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.7
 
-*19 novembre 2020*
+`19 novembre 2020`
 
 #### Améliorations
 
@@ -100,7 +100,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.6
 
-*28 octobre 2020*
+`28 octobre 2020`
 
 > Newly shared views do not break widget preferences.
 > But, if you have already broken widget preferences for users who add a shared
@@ -163,7 +163,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.5
 
-*10 août 2020*
+`10 août 2020`
 
 #### Correctifs
 
@@ -201,7 +201,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.4
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Correctifs
 
@@ -231,7 +231,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.3
 
-*10 juin 2020*
+`10 juin 2020`
 
 #### Améliorations
 
@@ -263,7 +263,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.2
 
-*18 mai 2020*
+`18 mai 2020`
 
 > Due to a generation problem, 20.04.1 and 20.04.2 versions are both
 > included in 20.04.2 version.
@@ -293,7 +293,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 > Known issues:
 >
@@ -488,7 +488,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.9
 
-*20 janvier 2021*
+`20 janvier 2021`
 
 > Cette version nécessite Centreon Broker 20.04.12 ou supérieur.
 
@@ -509,7 +509,7 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.04.8
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 #### Correctifs
 
@@ -532,7 +532,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.04.7
 
-*12 octobre 2020*
+`12 octobre 2020`
 
 #### Correctifs
 
@@ -543,7 +543,7 @@ for a problem. This is now fixed.
 
 ### 20.04.6
 
-*3 septembre 2020*
+`3 septembre 2020`
 
 #### Correctifs
 
@@ -554,7 +554,7 @@ SERVICEPROBLEMID and LASTSERVICEPROBLEMID). This new version fixes this point.
 
 ### 20.04.5
 
-*18 août 2020*
+`18 août 2020`
 
 #### Correctifs
 
@@ -565,7 +565,7 @@ characters that were not UTF-8. It is fixed and moved to the cbmod module.
 
 ### 20.04.4
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Correctifs
 
@@ -576,7 +576,7 @@ This is fixed with this new version.
 
 ### 20.04.3
 
-*23 juin 2020*
+`23 juin 2020`
 
 #### Correctifs
 
@@ -590,7 +590,7 @@ UTF-8.
 
 ### 20.04.2
 
-*16 juin 2020*
+`16 juin 2020`
 
 #### Correctifs
 
@@ -602,7 +602,7 @@ are still there. With this new version, it is fixed.
 
 ### 20.04.1
 
-*12 mai 2020*
+`12 mai 2020`
 
 #### Correctifs
 
@@ -612,7 +612,7 @@ Engine was stuck when we put -1 as debug_lvl in centengine.cfg.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 #### Correctifs
 
@@ -646,7 +646,7 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.12
 
-*20 janvier 2021*
+`20 janvier 2021`
 
 #### Correctifs
 
@@ -691,7 +691,7 @@ acceptor side. This new version fixes this issue.
 
 ### 20.04.11
 
-*16 décembre 2020*
+`16 décembre 2020`
 
 > Comportements connus:
 >
@@ -725,7 +725,7 @@ Business Activities names causing *duplicate entry* errors.
 
 ### 20.04.10
 
-*25 novembre 2020*
+`25 novembre 2020`
 
 #### Correctifs
 
@@ -777,7 +777,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.04.9
 
-*26 octobre 2020*
+`26 octobre 2020`
 
 > Comportements connus:
 >
@@ -862,7 +862,7 @@ TCP endpoint with the 'pool_size' label.
 
 ### 20.04.8
 
-*18 août 2020*
+`18 août 2020`
 
 #### Correctifs
 
@@ -874,7 +874,7 @@ strings could be considered as UTF-8 strings whereas they were not.
 
 ### 20.04.7
 
-*4 août 2020*
+`4 août 2020`
 
 #### Améliorations
 
@@ -884,7 +884,7 @@ Conflict manager configuration is easier and more flexible.
 
 ### 20.04.6
 
-*6 juillet 2020*
+`6 juillet 2020`
 
 #### Correctifs
 
@@ -899,7 +899,7 @@ BAM module is better managed on database server reload/restart.
 
 ### 20.04.5
 
-*11 juin 2020*
+`11 juin 2020`
 
 > Known issues:
 >
@@ -927,7 +927,7 @@ and the string looses its sense. This is fixed.
 
 ### 20.04.4
 
-*27 mai 2020*
+`27 mai 2020`
 
 #### Correctifs
 
@@ -939,7 +939,7 @@ in 20.04.3.
 
 ### 20.04.3
 
-*26 mai 2020*
+`26 mai 2020`
 
 #### Correctifs
 
@@ -966,7 +966,7 @@ avoid this, we truncate too long strings and set a warning log for users.
 
 ### 20.04.2
 
-*13 mai 2020*
+`13 mai 2020`
 
 #### Correctifs
 
@@ -992,7 +992,7 @@ the host_id, we suppose you want a host severity.
 
 ### 20.04.1
 
-*12 mai 2020*
+`12 mai 2020`
 
 #### Correctifs
 
@@ -1024,7 +1024,7 @@ filename.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 #### Améliorations
 
@@ -1075,7 +1075,7 @@ This patch fixes that.
 
 ### 20.04.9
 
-*January x, 2021*
+`January 29, 2021`
 
 #### Correctifs
 
@@ -1092,7 +1092,7 @@ This patch fixes that.
 
 ### 20.04.8
 
-*17 décembre 2020*
+`17 décembre 2020`
 
 #### Correctifs
 
@@ -1106,7 +1106,7 @@ This patch fixes that.
 
 ### 20.04.7
 
-*23 novembre 2020*
+`23 novembre 2020`
 
 #### Améliorations
 
@@ -1116,7 +1116,7 @@ This patch fixes that.
 
 ### 20.04.6
 
-*19 octobre 2020*
+`19 octobre 2020`
 
 #### Correctifs
 
@@ -1133,7 +1133,7 @@ This patch fixes that.
 
 ### 20.04.5
 
-*16 septembre 2020*
+`16 septembre 2020`
 
 #### Correctifs
 
@@ -1141,7 +1141,7 @@ This patch fixes that.
 
 ### 20.04.4
 
-*13 août 2020*
+`13 août 2020`
 
 #### Correctifs
 
@@ -1158,7 +1158,7 @@ This patch fixes that.
 
 ### 20.04.3
 
-*22 juin 2020*
+`22 juin 2020`
 
 #### Correctifs
 
@@ -1171,7 +1171,7 @@ This patch fixes that.
 
 ### 20.04.2
 
-*12 mai 2020*
+`12 mai 2020`
 
 #### Correctifs
 
@@ -1192,7 +1192,7 @@ This patch fixes that.
 
 ### 20.04.1
 
-*23 avril 2020*
+`23 avril 2020`
 
 #### Correctifs
 
@@ -1200,6 +1200,6 @@ This patch fixes that.
 
 ### 20.04.0
 
-*22 avril 2020*
+`22 avril 2020`
 
 - Add Gorgone in replacement of Centcore

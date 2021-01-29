@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.5
 
-*December 16, 2020*
+`December 16, 2020`
 
 #### Enhancements
 
@@ -42,7 +42,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
-*November 17, 2020*
+`November 17, 2020`
 
 #### Bugfixes
 
@@ -58,7 +58,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.3
 
-*October 9, 2020*
+`October 9, 2020`
 
 #### Bugfixes
 
@@ -67,7 +67,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.2
 
-*Septembre 22, 2020*
+`Septembre 22, 2020`
 
 #### Bugfixes
 
@@ -91,7 +91,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.1
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Bugfixes
 
@@ -100,7 +100,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 #### Enhancements
 
@@ -123,7 +123,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.5
 
-*November 16, 2020*
+`November 16, 2020`
 
 #### Bugfixes
 
@@ -138,7 +138,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
-*Octobre 30, 2020*
+`Octobre 30, 2020`
 
 #### Bugfixes
 
@@ -153,7 +153,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.3
 
-*July 29, 2020*
+`July 29, 2020`
 
 #### Bugfixes
 
@@ -167,7 +167,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.2
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Bugfixes
 
@@ -189,7 +189,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.1
 
-*June 2, 2020*
+`June 2, 2020`
 
 #### Bugfixes
 
@@ -203,7 +203,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 #### New features
 
@@ -216,7 +216,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.3
 
-*Octobre 28, 2020*
+`Octobre 28, 2020`
 
 #### Bugfixes
 
@@ -227,7 +227,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.2
 
-*September 22, 2020*
+`September 22, 2020`
 
 #### Enhancements
 
@@ -237,7 +237,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.1
 
-*May 12, 2020*
+`May 12, 2020`
 
 #### Bugfixes
 
@@ -247,7 +247,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 - Manage compatibility with Centreon 20.04
 
@@ -255,7 +255,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.7
 
-*December 9, 2020*
+`December 9, 2020`
 
 #### Bugfixes
 
@@ -270,7 +270,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.6
 
-*November 19, 2020*
+`November 19, 2020`
 
 #### Bugfixes
 
@@ -286,7 +286,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.5
 
-*September 16, 2020*
+`September 16, 2020`
 
 #### Bugfixes
 
@@ -307,7 +307,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
-*July 29, 2020*
+`July 29, 2020`
 
 #### Bugfixes
 
@@ -329,7 +329,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.3
 
-*July 6, 2020*
+`July 6, 2020`
 
 #### Enhancements
 
@@ -337,7 +337,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.2
 
-*June 3, 2020*
+`June 3, 2020`
 
 > Known issues:
 >
@@ -368,7 +368,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.1
 
-*May 12, 2020*
+`May 12, 2020`
 
 #### Enhancements
 
@@ -382,7 +382,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 Redesign hosts discovery with a new wizard to add discovery job:
 
@@ -407,7 +407,7 @@ configuration value:
 
 ### 20.04.1
 
-*April 23, 2020*
+`April 23, 2020`
 
 #### Bugfixes
 
@@ -415,7 +415,7 @@ configuration value:
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 #### Enhancements
 
@@ -430,7 +430,7 @@ configuration value:
 
 ### 20.04.3
 
-*December 2, 2020*
+`December 2, 2020`
 
 - After adding a license or a token the user must access to associated
   functionalities
@@ -438,21 +438,21 @@ configuration value:
 
 ### 20.04.2
 
-*May 25, 2020*
+`May 25, 2020`
 
 - The centreon_map user needs to be admin to have the license working
   on Central server
 
 ### 20.04.1
 
-*April 24, 2020*
+`April 24, 2020`
 
 - Manage unlink platform from previous IMP trial to access to IT-100
   free edition.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 Remove `Administration > Extensions > Subscription` menu to manage IT Edition
 subscription from `Administration > Extensions > Manager` menu:
@@ -467,7 +467,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.4
 
-*November 26, 2020*
+`November 26, 2020`
 
 #### Bugfixes
 
@@ -475,7 +475,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.3
 
-*October 28, 2020*
+`October 28, 2020`
 
 #### Enhancements
 
@@ -489,7 +489,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.2
 
-*July 28, 2020*
+`July 28, 2020`
 
 #### Bugfixes
 
@@ -498,7 +498,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.1
 
-*July 1, 2020*
+`July 1, 2020`
 
 #### Enhancements
 
@@ -515,7 +515,7 @@ subscriptions are now automatically downloaded.
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 First version allowing to monitor the detection of anomalies using
 floating thresholds.

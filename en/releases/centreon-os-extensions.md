@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.3
 
-*November 30, 2020*
+`November 30, 2020`
 
 #### Bugfixes
 
@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.2
 
-*November 3, 2020*
+`November 3, 2020`
 
 #### Bugfixes
 
@@ -48,7 +48,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.1
 
-*July 8, 2020*
+`July 8, 2020`
 
 #### Bugfixes
 
@@ -61,7 +61,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 - [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha)
 
@@ -69,7 +69,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 - Manage compatibility with Centreon 20.04
 
@@ -83,7 +83,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.0
 
-*April 22, 2020*
+`April 22, 2020`
 
 - Manage compatibility with Centreon 20.04
 
