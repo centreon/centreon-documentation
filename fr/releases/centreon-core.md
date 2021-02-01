@@ -1075,7 +1075,7 @@ This patch fixes that.
 
 ### 20.04.9
 
-`January 29, 2021`
+`29 janvier 2021`
 
 #### Correctifs
 
