@@ -1,6 +1,6 @@
 ---
-id: cloud-azure-management-loganalytics
-title: Azure Log Analytics
+id: cloud-azure-database-elasticpool
+title: Azure Elastic Pool
 ---
 
 ## Overview
