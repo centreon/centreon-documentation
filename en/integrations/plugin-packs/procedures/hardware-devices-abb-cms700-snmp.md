@@ -3,10 +3,6 @@ id: hardware-devices-abb-cms700-snmp
 title: ABB CMS-700
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Oct  3 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | HW-Device-Abb-Cms700-SNMP-custom |
 
 Click on the *Save* button.
-

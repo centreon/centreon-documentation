@@ -3,10 +3,6 @@ id: applications-protocol-bgp-snmp
 title: BGP Protocol SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul 31 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-BGP-SNMP-custom |
 
 Click on the *Save* button.
-

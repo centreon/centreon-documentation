@@ -11,7 +11,6 @@ Linux is a family of open source Unix-like operating systems based on the Linux 
 
 ### Monitored Objects
 
-
 This Plugin-Pack provides assets to monitor all types of Linux based systems with a SSH server enabled:
 * Centos 
 * Redhat
@@ -92,7 +91,6 @@ This Plugin-Pack provides assets to monitor all types of Linux based systems wit
 | device.io.read.usage.bytespersecond    | Read IO usage in Bytes per second. Unit : B/s                |
 | device.io.write.usage.bytespersecond   | Write IO usage in Bytes per second. Unit : B/s               |
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
-| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for different usage type of CPU. Unit : %     |
 

@@ -3,10 +3,6 @@ id: hardware-ats-eaton-snmp
 title: Eaton ATS SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | May 29 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-ATS-Eaton-SNMP-custom   |
 
 Click on the *Save* button.
-

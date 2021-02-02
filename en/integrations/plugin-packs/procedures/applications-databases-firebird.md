@@ -3,10 +3,6 @@ id: applications-databases-firebird
 title: Firebird
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  7 2017 |
-
 \#\#Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table :
 | Host Multiple Templates | App-DB-Firebird-custom     |
 
 Click "Save" button.
-

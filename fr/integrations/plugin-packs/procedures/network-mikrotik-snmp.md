@@ -3,10 +3,6 @@ id: network-mikrotik-snmp
 title: Mikrotik SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Dec 31 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Mikrotik-SNMP-custom   |
 
 Click on the *Save* button.
-

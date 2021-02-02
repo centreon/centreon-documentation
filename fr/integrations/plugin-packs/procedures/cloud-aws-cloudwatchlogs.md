@@ -15,7 +15,6 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 > Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` and ```--stream-name```) afin
 > de limiter les résultats retournés par l'API.
 
-
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
@@ -30,7 +29,6 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 | Metric name | Description                                                                                                               |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Logs        | Refer to any log entry that match filters. Threshold are String on top of %{message}, %{stream\_name}, %{since} variables |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -71,7 +69,6 @@ yum install awscli
 > **Attention** il n'est actuellement **pas** possible d'utiliser *paws* dans les cas suivants:
 > * si la connexion s'effectue au travers d'un proxy.
 > * utilisation de la fonctionnalité de *Découverte d'Hôte* dans Centreon.
-
 
 ## Installation 
 

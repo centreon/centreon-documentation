@@ -68,7 +68,6 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
 
-
 <!--Offline IMP License-->
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de Pure Storage:

@@ -3,10 +3,6 @@ id: applications-mail-bluemind
 title: BlueMind
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.15 | `STABLE` | Jul 11 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -64,4 +60,3 @@ the following table:
 | Host Multiple Templates | *App-Mail-Bluemind-custom* |
 
 Click the *Save* button.
-

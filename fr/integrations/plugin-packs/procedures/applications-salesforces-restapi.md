@@ -42,7 +42,6 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 
 2. Installer le plugin-pack Salesforce via le menu "Configuration > Plugin packs > Manager" 
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin Salesforce sur le collecteur supervisant Salesforce
@@ -113,4 +112,3 @@ Vous pouvez également ajouter l'option ```--debug``` pour avoir d'avantage d'in
 ### Comment determiner le nom de l'instance Salesforce ? 
 
 Le nom de votre instance est la première partie de l'URL utilisée pour se connecter à l'instance en tant qu'utilisateur. Par exemple, si l'URL est archimede.my.salesforce.com, alors 'archimede' est le nom de votre instance. 
-

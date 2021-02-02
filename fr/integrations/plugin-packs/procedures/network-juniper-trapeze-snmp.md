@@ -3,10 +3,6 @@ id: network-juniper-trapeze-snmp
 title: Juniper Trapeze
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.19 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-Trapeze-SNMP-custom |
 
 Click on the *Save* button.
-

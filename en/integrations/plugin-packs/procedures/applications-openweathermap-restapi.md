@@ -3,10 +3,6 @@ id: applications-openweathermap-restapi
 title: OpenWeatherMap
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | May 20 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -85,4 +81,3 @@ CRITICALWIND
 Set critical threshold for wind (in m/s)
 
 Click on the *Save* button.
-

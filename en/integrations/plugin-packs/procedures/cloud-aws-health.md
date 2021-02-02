@@ -16,7 +16,6 @@ The AWS Health Centreon Plugin uses the Amazon Health API to collect the related
 
 * Events related to AWS accounts and resources
 
-
 ## Monitored metrics 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -29,7 +28,6 @@ The AWS Health Centreon Plugin uses the Amazon Health API to collect the related
 | events.open.count     | Number of open events     |
 | events.closed.count   | Number of closed events   |
 | events.upcoming.count | Number of upcoming events |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -64,12 +62,9 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 > **Warning** For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
-
-
 
 ## Setup 
 
@@ -84,7 +79,6 @@ yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
 2. On the Centreon Web interface, install the *AWS Health* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -120,7 +114,6 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 ## FAQ
 
@@ -183,7 +176,6 @@ has been collected and will prevent the UNKNOWN error message.
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ? 
 
 This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
-
 
 #### ```UNKNOWN: 500 Can't connect to health.us-east-1.amazonaws.com:443 |```
 

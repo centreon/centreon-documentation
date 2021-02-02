@@ -3,10 +3,6 @@ id: network-moxa-switch-snmp
 title: Moxa Switch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct 24 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | Net-Moxa-Switch-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-wazuh-restapi
 title: Wazuh Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | WAZUHAPIPASSWORD | Password to access Wazuh API   |               |
 
 Click on the *Save* button.
-

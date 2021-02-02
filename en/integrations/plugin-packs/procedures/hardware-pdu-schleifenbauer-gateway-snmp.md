@@ -3,10 +3,6 @@ id: hardware-pdu-schleifenbauer-gateway-snmp
 title: Schleifenbauer Gateway SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Pdu-Schleifenbauwer-Gateway-SNMP-custom |
 
 Click on the *Save* button.
-

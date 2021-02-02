@@ -143,7 +143,6 @@ depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'a
 Une alarme WARNING sera ainsi déclenchée si le statut d'une de ces applications est signalée comme dégradée (```--warning-status='%{status} eq "DEGRADED"'```);
 l'alarme sera de type CRITICAL pour une application inaccessible (```--critical-status='%{status} eq "UNAVALAIBLE"'```).
 
-
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:
 

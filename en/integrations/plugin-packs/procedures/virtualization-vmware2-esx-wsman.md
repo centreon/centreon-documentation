@@ -3,10 +3,6 @@ id: virtualization-vmware2-esx-wsman
 title: VMware ESX WS-MAN
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Feb  6 2019 |
-
 ### Centreon Plugin
 
 Install this plugin on each needed poller:
@@ -36,4 +32,3 @@ the following table:
 | Host Multiple Templates              | Virt-VMWare2-ESX-WSMAN-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-databases-warp10-sensision
 title: Warp10 Sensision
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Sep 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -49,4 +45,3 @@ The following services will be created:
 
   - Fetch-Statistics
   - Script-Statistics
-

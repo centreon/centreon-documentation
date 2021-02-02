@@ -3,10 +3,6 @@ id: hardware-storage-dell-compellent-api
 title: Dell Compellent API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This plugin pack requires the use of:
@@ -56,4 +52,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Dell-Compellent-NRPE-custom |
 
 Click on the *Save* button.
-

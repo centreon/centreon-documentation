@@ -3,10 +3,6 @@ id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-EX-custom      |
 
 Click on the *Save* button.
-

@@ -23,7 +23,6 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 | App-IIS-Restapi-ApplicationPools-Name | Discover application pools hosted by your IIS server |
 | App-IIS-Restapi-Websites-Name         | Discover websites hosted by your IIS server          |
 
-
 ### Monitored metrics 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -52,7 +51,6 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 ### IIS configuration
 
 To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
-
 
 ## Setup 
 
@@ -91,7 +89,6 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template *App-Webserver-IIS-Restapi-custom* and configure all the Macros :
 
-
 | Mandatory   | Nom                | Description                                                                |
 | :---------- | :----------------- | :------------------------------------------------------------------------- |
 | X           | IISAPIPORT         | Port used. Default is 55539                                                |
@@ -103,9 +100,7 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 
 By default ```IISAPIEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use the *curl* backend and to ignore the validity's check of the SSL certificate.
 
-
 **Use the discovery module to add the monitoring of your *application pools* and *websites*, Go to *Configuration > Services > Scan* to perform a scan**
-
 
 ## FAQ
 
@@ -134,7 +129,6 @@ The command above checks the status and the usage of the Website *www* (```--fil
 It uses an API username (```--api-username='John.doe'```), API password (```--api-password='6fbadZEJbsLG'```) and API token (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) generated from the IIS Administration API.
 The *curl* backend is used (```--http-backend='curl'```) and the SSL certificate validity is not checked (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
 
-
 This command would trigger a CRITICAL alert if:
   * the status of the website is different of *starting* or *started*.
 
@@ -157,7 +151,6 @@ The available thresholds as well as all the options that can be used with this P
 ```
 You can display all the modes that come with the Plugin with the command below: 
 
-
 ```bash
 /usr/lib/centreon/plugins//centreon_iis_restapi.pl \
     --plugin=apps::iis::restapi::plugin \
@@ -171,7 +164,6 @@ You can display all the modes that come with the Plugin with the command below:
 This error message means that a Perl library required to use the *curl* backend is missing.
 
 In order to fix this issue, install the Net\:\:Curl\:\:Easy Perl library using the following command:
-
 
 ```bash
 yum install perl-Net-Curl

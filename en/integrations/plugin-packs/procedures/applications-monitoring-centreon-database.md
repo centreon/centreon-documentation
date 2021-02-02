@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-database
 title: Centreon Database
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.0 | `STABLE` | Jan 30 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -54,4 +50,3 @@ The following macros must be configured on host:
 | MYSQLPORT     | Port used to connect to the DB server | MYSQLPORT     | 3306     |
 | MYSQLUSERNAME | the mysql db user                     | MYSQLUSERNAME | monitor  |
 | MYSQLPASSWORD | the mysql db user's password          | MYSQLPASSWORD | HuGr6834 |
-

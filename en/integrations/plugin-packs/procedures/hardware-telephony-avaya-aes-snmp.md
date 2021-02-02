@@ -3,10 +3,6 @@ id: hardware-telephony-avaya-aes-snmp
 title: Avaya AES SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Sep 18 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Telephony-Avaya-Aes-SNMP-custom |
 
 Click on the *Save* button.
-

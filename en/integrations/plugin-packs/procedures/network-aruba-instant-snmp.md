@@ -3,10 +3,6 @@ id: network-aruba-instant-snmp
 title: Aruba Instant SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Aug  5 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -53,4 +49,3 @@ The following services will be created:
 
   - Ap-Usage
   - Ssid-Status
-

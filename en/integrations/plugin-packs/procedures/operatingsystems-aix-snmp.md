@@ -3,10 +3,6 @@ id: operatingsystems-aix-snmp
 title: AIX SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.3 | `STABLE` | Nov 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -42,4 +38,3 @@ the following table:
 | Host Multiple Templates | OS-AIX-SNMP-custom         |
 
 Click on the *Save* button.
-

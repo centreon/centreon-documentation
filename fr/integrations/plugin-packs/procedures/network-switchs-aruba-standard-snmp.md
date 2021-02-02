@@ -3,10 +3,6 @@ id: network-switchs-aruba-standard-snmp
 title: Aruba Standard
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.0 | `STABLE` | Oct 16 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -95,4 +91,3 @@ The following services will be created:
 
   - Ap-Ssid-Statistics
   - Ap-Status
-

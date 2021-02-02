@@ -102,7 +102,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Team-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Team* depuis la page "Configuration > Plugin packs > Manager" 
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Team :

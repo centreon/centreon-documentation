@@ -3,10 +3,6 @@ id: cloud-aws-cloudwatch
 title: Amazon CloudWatch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -47,4 +43,3 @@ the following table:
 | Host Multiple Templates              | Cloud-Aws-Api              |
 
 Click on the *Save* button.
-

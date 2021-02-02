@@ -60,7 +60,6 @@ et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts.
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Unit: percentage (%)   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Unit: percentage (%) |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -117,8 +116,6 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 | :---------- | :---------------------- | :------------------------------- |
 |             | SNMPEXTRAOPTIONS        | SNMP Extra options of Ruckus ICX |
 
-
-
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
@@ -157,7 +154,6 @@ options ```--warning-*``` et ```--critical-*```, par exemple:
 
 ```--warning-usage-free=500000000 --critical-usage-free=250000000```
 
-
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 
 ```bash
@@ -174,7 +170,6 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
     --plugin=network::ruckus::icx::snmp::plugin \
     --list-mode
 ```
-
 
 ### UNKNOWN: SNMP GET Request : Timeout
 

@@ -3,10 +3,6 @@ id: cloud-prometheus-api
 title: Prometheus Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Jan 11 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -50,4 +46,3 @@ The following macros must be configured on host:
 | PROMETHEUSAPIPROTO    | Protocol used by API                                            | http          |
 
 Click on the *Save* button.
-

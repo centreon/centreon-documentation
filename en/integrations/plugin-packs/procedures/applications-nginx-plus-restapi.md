@@ -143,7 +143,6 @@ on the url */api/6* (```--api-path='/api/6'```) using https (```--proto='https'`
 This command will trigger a WARNING alarm if the active connections increase to 60 (```--warning-active='60'```)
 and a CRITICAL alarm if it increases to 80 (```--critical-active='80'```).
 
-
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```bash

@@ -3,10 +3,6 @@ id: cloud-prometheus-node-exporter-api
 title: Node Exporter
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Feb  4 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | PROMETHEUSAPIPROTO    | Protocol used by API              | http          |
 
 Click on the *Save* button.
-

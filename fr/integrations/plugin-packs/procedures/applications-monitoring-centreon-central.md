@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-central
 title: Centreon Central
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.3 | `STABLE` | Feb 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Monitoring-Centreon-Central-custom |
 
 Click on the *Save* button.
-

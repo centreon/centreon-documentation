@@ -3,10 +3,6 @@ id: hardware-storage-hp-msa2000-snmp
 title: HP MSA2000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | May  3 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Hp-Msa2000-SNMP-custom |
 
 Click on the *Save* button.
-

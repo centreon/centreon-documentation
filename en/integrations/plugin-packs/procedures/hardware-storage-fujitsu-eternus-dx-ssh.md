@@ -3,10 +3,6 @@ id: hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.22 | `STABLE` | Oct  3 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -54,4 +50,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Fujitsu-Eternus-DX-SSH-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: network-oneaccess-snmp
 title: OneAccess Network
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-OneAccess-SNMP-custom  |
 
 Click on the *Save* button.
-

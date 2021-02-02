@@ -3,10 +3,6 @@ id: hardware-storage-quantum-scalar-snmp
 title: Quantum Scalar
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Quantum-Scalar-SNMP-custom |
 
 Click on the *Save* button.
-

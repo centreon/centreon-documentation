@@ -3,10 +3,6 @@ id: hardware-servers-supermicro-snmp
 title: Supermicro
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug  7 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -46,4 +42,3 @@ Those services were automatically created for this host:
 | :-------------- | :----------------------------- |
 | Ping            | Monitor host response time     |
 | Hardware-Global | Monitor Global hardware status |
-

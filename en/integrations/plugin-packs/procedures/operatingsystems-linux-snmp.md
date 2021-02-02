@@ -49,7 +49,6 @@ In addition to modes and metrics described here, it is also possible to monitor 
 *  TCP connection: Check number of TCP connections. [State:listen, closeWait, ...] [type: ipv4, dns, ...] [service]
 *  Uptime: Elapsed time since the last reboot
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--cpu-->

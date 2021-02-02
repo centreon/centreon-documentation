@@ -70,7 +70,6 @@ yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
 
 2. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor Dell Xseries resources:
