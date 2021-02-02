@@ -19,6 +19,29 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.9
+
+#### Bugfixes
+
+- [CLAPI] APPLYCFG on a Poller behind a Remote Server doesn't trigger sync task for the RS itself
+- [CLAPI] Cancel RTACKNOWLEDGEMENT doesn't work for services
+- [CLAPI] Create user with language
+- [CLAPI] Import fails on password type macros
+- [CLAPI] Show RTACKNOWLEDGEMENT for a service only shows first one to have been defined
+- [UX] Remplace "Test Proxy Configuration" with "Test Internet Connection"
+
+#### Security fixes
+
+- [ACL/Access Groups] Cross-site Scripting (XSS) Stored/Persistent for search
+- [ACL/Actions Access] Cross-site Scripting (XSS) Stored/Persistent for search
+- [ACL/Resources Access] Cross-site Scripting (XSS) Stored/Persistent for search
+- [API] Missing access control mechanism in rest API v1
+- [Configuration > Servicegroups] Leak of technical information
+- [Configuration/H/HTPL/S/STPL] Password in plain text
+- [Core] Centreon token is vulnerable against replay attack
+- [Core] Token usage is not mandatory
+- [Media] PHP warning about missing tmp dir used during media upload
+
 ### 20.04.8
 
 `January 12, 2021`
