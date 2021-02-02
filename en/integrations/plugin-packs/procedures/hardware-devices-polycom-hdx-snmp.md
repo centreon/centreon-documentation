@@ -104,7 +104,6 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom H
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
 
-
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
@@ -112,11 +111,9 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 2. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Polycom HDX devices:
-
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
@@ -124,14 +121,12 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-
 ```bash
 yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 ```
 
 3. On the Centreon Web interface, install the *Polycom HDX SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -171,14 +166,12 @@ OK: View Station Phone Number: '0123456789' Stats: H323 Packet Loss 1.00 %, H323
 'h323-packet-loss'=1.00%;;;0;100 'h323-jitter'=30.00ms;;;0;100 'vs_latency'=4.00;;;0;100
 ```
 
-
 The command above monitors the sessions statistics of a Polycom HDX ViewStation device (```--plugin=hardware::devices::polycom::hdx::snmp::plugin --mode=viewstation-stats```) identified
 by the IP address *10.0.0.1* (```--hostname=10.0.0.1```). As the Plugin is using the SNMP protocol to request the device, the related
 *community* and *version* are specified (```--snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
 This command would trigger a WARNING alarm if the packet loss rate of the active calls raises over 5% (```--warning-h323-packet-loss='5'```)
 and a CRITICAL alarm over 10% (```--critical-h323-packet-loss='10'```).
-
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
 parameter to the command:

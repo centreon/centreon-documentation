@@ -3,10 +3,6 @@ id: applications-github-http
 title: Github
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -41,4 +37,3 @@ your repository path for URLPATH macro (/repo/OWNER/REPONAME)
 
 Also do not forget to set GITHUBUSERNAME AND GITHUBPASSWORD macro value at the
 host level
-

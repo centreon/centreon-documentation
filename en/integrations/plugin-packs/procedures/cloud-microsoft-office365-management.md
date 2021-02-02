@@ -96,7 +96,6 @@ when Azure AD redirects the tenant admin to your designated URL.
 More information on how to get the token based on the authorization code is detailed here:
 https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis#request-an-access-token-using-the-authorization-code
 
-
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -110,7 +109,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
 2. On the Centreon Web interface, install the Plugin-Pack on the "Configuration > Plugin packs > Manager" page.
-
 
 <!--Offline IMP License-->
 
@@ -135,15 +133,12 @@ yum install centreon-pack-cloud-microsoft-office365-management
 Log into Centreon and add a new host through "Configuration > Hosts".
 In the host configuration form, apply the "Cloud-Microsoft-Office365-Management-Api-Custom" template and set the macros marked as mandatory below:
 
-
 | Mandatory | Name                  | Description                                            |
 | :-------- | :-------------------- | :----------------------------------------------------- |
 | X         | OFFICE365CUSTOMMODE   | Centreon Plugin access mode (default: 'managementapi') |
 | X         | OFFICE365TENANT       | Office 365 tenant ID                                   |
 | X         | OFFICE365CLIENTID     | Office 365 client ID                                   |
 | X         | OFFICE365CLIENTSECRET | Office 365 client secret                               |
-
-
 
 ## FAQ
 
@@ -180,7 +175,6 @@ This command aims to check  the status of the *Exchange Online* service (```--mo
 It will also return the list of all of the associated features as no relevant filter has been set (```--filter-feature-name=''```).
 A CRITICAL alert would be triggered if the *Exchange Online* returned service status is not *Normal* (```--critical-status='%{status}```).
 
-
 ### When executing the command, I get the following error message: ```UNKNOWN: Cannot decode json response```
 
 If you receive this message, add the ```--debug``` option to the command to get more information about the error:
@@ -209,7 +203,6 @@ the associated privileges, delete the Plugin cache file: ```/var/lib/centreon/ce
 * The Plugin cannot connect to the Office 365 API: there might be a third-party device (Firewall, Proxy...) dropping the flows.
 * The "lwb" web library used by the Plugin in unable to properly handle the request. Prevent this behavior by using the "curl" backend. 
 Just add the following option ```--http-backend=curl``` to the command.
-
 
 ### How do I get a description of the available options ?
 

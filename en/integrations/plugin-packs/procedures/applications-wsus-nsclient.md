@@ -3,10 +3,6 @@ id: applications-wsus-nsclient
 title: Microsoft WSUS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jun  3 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ the following table:
 | Host Multiple Templates | Apps-Wsus-NRPE/App-Wsus-NSClient-05-Restapi |
 
 Click on the *Save* button.
-

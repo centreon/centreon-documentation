@@ -3,10 +3,6 @@ id: network-juniper-ggsn-snmp
 title: Juniper GGSN
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.21 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-Ggsn-SNMP-custom |
 
 Click on the *Save* button.
-

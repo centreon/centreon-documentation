@@ -3,10 +3,6 @@ id: hardware-storage-emc-isilon-snmp
 title: EMC Isilon
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-EMC-Isilon-SNMP-custom |
 
 Click on the *Save* button.
-

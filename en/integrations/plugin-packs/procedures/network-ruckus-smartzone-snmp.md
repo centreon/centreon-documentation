@@ -24,7 +24,6 @@ Ruckus SmartZone network controllers simplify the complexity of scaling and mana
 | Net-Ruckus-Smartzone-SNMP-Disk-Name    |  Discover storage point attached to your controller |
 | Net-Ruckus-Smartzone-SNMP-Traffic-Name |  Discover interfaces attached to your controller    |
 
-
 ### Monitored metrics 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -136,7 +135,6 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 3. On the Centreon Web interface, install the 'Ruckus Smartzone' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 

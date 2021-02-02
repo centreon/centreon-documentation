@@ -3,10 +3,6 @@ id: applications-sendmail-snmp
 title: Sendmail
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug 11 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | App-Sendmail-SNMP-custom   |
 
 Click on the *Save* button.
-

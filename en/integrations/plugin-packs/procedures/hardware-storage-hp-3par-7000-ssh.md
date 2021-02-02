@@ -3,10 +3,6 @@ id: hardware-storage-hp-3par-7000-ssh
 title: HP 3PAR 7000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `DEPRECATED` | Oct  2 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -71,4 +67,3 @@ Notice: In macro "SSHUSERNAME" define the administrator account used to copy
 public SSH key of centreon-engine user.
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: hardware-servers-sun-mseries-snmp
 title: Sun Mseries
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.7 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ the following table:
 | Host Multiple Templates              | Template provided by the plugin-pack |
 
 Click on the *Save* button.
-

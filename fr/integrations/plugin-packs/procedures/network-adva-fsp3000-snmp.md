@@ -3,10 +3,6 @@ id: network-adva-fsp3000-snmp
 title: Adva FSP 3000 SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  5 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Adva-Fsp3000-SNMP-custom |
 
 Click on the *Save* button.
-

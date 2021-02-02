@@ -30,13 +30,11 @@ design specific equipment or system on user's requirements.
 |:------------|:---------------|:-------|
 | status      | Antenna status | String |
 
-
 <!--Frequency-->
 
 | Metric name                              | Description                       | Unit  | 
 | :--------------------------------------- | :-------------------------------- |------ |
 | generation.frequency.quality.count       | Quality of frequency generation:  | Count |
-
 
 <!--Gnss-->
 
@@ -64,12 +62,9 @@ design specific equipment or system on user's requirements.
 
 On the TMS device, enable and configure the SNMP agent in order to allow the Centreon Poller to request it.
 
-
 ### Network flows
 
-
 The Centreon Poller must be able to reach the UDP/161 SNMP port of the TMS device.
-
 
 ## Installation
 
@@ -79,7 +74,6 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TMS devic
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Timelinkmicro devices:
 
-
 ```bash
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
@@ -87,18 +81,15 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 2. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Timelinkmicro devices:
-
 
 ```bash
 yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
-
 
 ```bash
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
@@ -107,14 +98,12 @@ yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 3. On the Centreon Web interface, install the *Timelinkmicro Tms6001 Snmp* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
 * Add a new Host and apply the *HW-Timelink-tms6001-SNMP-Custom* Host Template
 * Fill SNMP Version and Community fields according to the device's configuration
-
 
   :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
 
@@ -128,7 +117,6 @@ through "Configuration > Plugin packs > Manager" page.
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
 and test the Plugin by running the following command:
-
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
@@ -144,7 +132,6 @@ This check monitors open alarms (```--mode=alarms```) on a Timelink device with 
 using SNMP v2 and 'timelink_ro' Community string (```--snmp-version='2c' --snmp-community='timelink_ro'```) 
 
 Use the ```--list-mode``` option to display all the modes available in the Plugin:
-
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \

@@ -3,10 +3,6 @@ id: hardware-servers-hp-snmp
 title: HP Proliant
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -58,4 +54,3 @@ the following table:
 | Host Multiple Templates | *HW-Server-Hp-SNMP-custom* |
 
 Click the *Save* button.
-

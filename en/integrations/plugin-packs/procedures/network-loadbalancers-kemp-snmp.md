@@ -3,10 +3,6 @@ id: network-loadbalancers-kemp-snmp
 title: Kemp Loadbalancer
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Kemp-SNMP-custom       |
 
 Click on the *Save* button.
-

@@ -85,7 +85,6 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 
 3. On the centreon Web interface, install the *Nimble SNMP* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-
 ## Configuration
 
 * Log into Centreon and add new host through "Configuration > Hosts".

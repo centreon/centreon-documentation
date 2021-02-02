@@ -75,7 +75,6 @@ et des métriques relatives aux équipements Versa Networks
 | ipsec.packets.in.count           | Number of incoming packets trough the IPsec tunnel | Count |
 | ipsec.traffic.in.bytespersecond  | Incoming traffic going through the IPsec tunnel    | B/s   |
 | ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
-| ipsec.packets.out.count          | Number of outgoing packets trough the IPsec tunnel | Count |
 | ipsec.traffic.out.bytespersecond | Outcoming taffic going through the IPsec tunnel    | B/s   |
 | ipsec.packets.invalid.count      | Number of invalid packets through the IPsec tunnel | Count |
 | ipsec.ike.disconnected.count     | number of IKE disconnect by IPsec tunnel           | Count |

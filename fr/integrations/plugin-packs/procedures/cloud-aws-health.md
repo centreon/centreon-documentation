@@ -10,7 +10,6 @@ vous guide dans les modifications planifiées et accélère le dépannage de pro
 
 Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les métriques associées.
 
-
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
@@ -32,7 +31,6 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 | events.closed.count   | Number of closed events   |
 | events.upcoming.count | Number of upcoming events |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -45,9 +43,7 @@ Voici la liste des droits nécessaires au travers des *access/secret keys* utili
 | :----------------------------- | :-------------------------------------------------------------------------- |
 | health:DescribeEvents          | Returns information about events that meet the specified filter criteria.   |
 
-
 L'API AWS Health nécessite un plan de support Business or Enterprise d'AWS Support. Un appel de l'API Health à partir d'un compte qui ne dispose pas d'un plan de support Business ou Enterprise entraîne une exception *SubscriptionRequiredException*.
-
 
 ### Dépendances du Plugin
 
@@ -106,9 +102,7 @@ yum install centreon-pack-cloud-aws-health.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AWS Health* depuis la page "Configuration > Plugin Packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 
@@ -125,7 +119,6 @@ yum install centreon-pack-cloud-aws-health.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -155,7 +148,6 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--verbose 	
 ```
 
-
 La commande retourne le message de sortie ci-dessous:
 
 ```bash 	
@@ -178,7 +170,6 @@ La liste de tous les filtres et seuil disponibles peut être affichée en ajouta
 
 ### J'obtiens le message d'erreur suivant:  
 
-
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
@@ -187,11 +178,9 @@ Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la périod
 
 Vous pouvez ajouter ```--zeroed``` à la macro **EXTRAOPTIONS** du *Service* en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
 
-
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
 
 Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
-
 
 #### ```UNKNOWN: 500 Can't connect to health.us-east-1.amazonaws.com:443 |```
 
@@ -201,4 +190,3 @@ Cela signifie que Centreon n'a pas réussi à se connecter à l'API AWS Health.
 
 Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le collecteur Centreon,
 il est nécessaire de le préciser dans la commande en utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
-

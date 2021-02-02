@@ -3,10 +3,6 @@ id: applications-databases-sybase
 title: Sybase
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Feb  6 2017 |
-
 \#\#Prerequisites
 
 ### Centreon Plugin
@@ -66,4 +62,3 @@ The following macros must be configured on host:
 | SYBASEUSERNAME | the Sybase user             | USERNAME      | root     |
 | SYBASEPASSWORD | the Sybase password         | PASSWORD      | p@ssw0rd |
 | SYBASEPORT     | Port Of the Sybase Database | 2638          | 2638     |
-

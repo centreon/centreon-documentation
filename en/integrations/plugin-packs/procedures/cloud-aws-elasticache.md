@@ -3,10 +3,6 @@ id: cloud-aws-elasticache
 title: Amazon ElastiCache
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -58,4 +54,3 @@ The following macros must be configured on host:
 | AWSINSTANCENAME | Name of your Cache instance          |               |
 
 Click on the *Save* button.
-

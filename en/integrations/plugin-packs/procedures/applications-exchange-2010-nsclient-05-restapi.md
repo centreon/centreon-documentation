@@ -3,10 +3,6 @@ id: applications-exchange-2010-nsclient-05-restapi
 title: Exchange 2010 API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.16 | `STABLE` | Feb 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -70,4 +66,3 @@ Click on the *Save* button.
 
 By default, the host template checks nothing. Go to plugin-pack manager to see
 services available.
-

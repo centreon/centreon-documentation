@@ -3,10 +3,6 @@ id: network-routers-juniper-mseries-snmp
 title: Juniper M-Series
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.4 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Juniper-Mseries-SNMP-custom |
 
 Click on the *Save* button.
-

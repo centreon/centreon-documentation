@@ -3,10 +3,6 @@ id: applications-databases-oracle
 title: Oracle Database
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.6.1 | `STABLE` | Dec 20 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -62,7 +58,6 @@ The following message should appear:
 
 ```text
 LD_RUN_PATH=/usr/lib/oracle/12.1/client64/lib*
-Using DBD::Oracle 1.64. 
 Using DBD::Oracle 1.64. 
 Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
 Writing Makefile for DBD::Oracle
@@ -158,4 +153,3 @@ The following macros must be configured on host:
 | ORACLESID      | The name of the oracle instance       | SID           | ORCLB55  |
 | ORACLEUSERNAME | the oracle user                       | USERNAME      | root     |
 | ORACLEPASSWORD | the oracle user's password            | PASSWORD      | p@ssw0rd |
-

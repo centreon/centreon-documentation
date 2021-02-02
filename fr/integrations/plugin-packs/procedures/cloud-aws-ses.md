@@ -50,7 +50,6 @@ des privilèges suivants :
 |:-------------------------------|:------------------------------------------------------- |
 | cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/SES namespace    |
 
-
 ### Dépendances du Plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible
@@ -183,7 +182,6 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 ```
 
 #### J'obtiens le message d'erreur suivant:  
-
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 

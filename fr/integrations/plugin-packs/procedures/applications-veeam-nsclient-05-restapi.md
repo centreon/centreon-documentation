@@ -3,10 +3,6 @@ id: applications-veeam-nsclient-05-restapi
 title: Veeam API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -53,4 +49,3 @@ the following table:
 | Host Multiple Templates              | App-Veeam-NSClient-05-Restapi-custom |
 
 Click on the *Save* button.
-

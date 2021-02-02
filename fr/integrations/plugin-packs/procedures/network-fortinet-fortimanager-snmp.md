@@ -3,10 +3,6 @@ id: network-fortinet-fortimanager-snmp
 title: Fortinet Fortimanage
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Jan 18 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | Net-Fortinet-Fortimanager-SNMP-custom |
 
 Click on the *Save* button.
-

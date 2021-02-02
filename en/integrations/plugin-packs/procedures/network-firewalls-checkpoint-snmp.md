@@ -3,10 +3,6 @@ id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.3 | `STABLE` | Oct  9 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -49,4 +45,3 @@ Those services were automatically created for this host:
 | Connections | *Monitor connections used* |
 | Hardware    | *Monitor Hardware*         |
 | HA-State    | Monitor HA State           |
-

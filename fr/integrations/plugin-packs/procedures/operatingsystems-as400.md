@@ -3,10 +3,6 @@ id: operatingsystems-as400
 title: IBM AS400
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 2.0.7 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -62,4 +58,3 @@ The following macros must be configured on host:
 | DAEMONAS400PORT | The connection port used   | 8091          | 8091      |
 | AS400USER       | AS400 login                | DEFAULT       | usr1      |
 | AS400PASSWORD   | AS400 password             | DEFAULT       | x5jGyR    |
-

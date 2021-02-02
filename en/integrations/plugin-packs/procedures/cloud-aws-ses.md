@@ -87,7 +87,6 @@ yum install centreon-plugin-Cloud-Aws-Ses-Api
 
 2. On the Centreon Web interface, install the *Amazon SES* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Amazon SES resources:
@@ -189,7 +188,6 @@ the UNKNOWN error message.
 
 This command result means that the credentials provided don't have enough
 privileges to perform the underlying AWS Operation.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 

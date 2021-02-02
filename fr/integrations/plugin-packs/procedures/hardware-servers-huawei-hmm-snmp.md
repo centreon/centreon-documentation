@@ -3,10 +3,6 @@ id: hardware-servers-huawei-hmm-snmp
 title: Huawei HMM
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan 11 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -36,4 +32,3 @@ Only the Chassis service will be deployed. You need to manually add the Blade
 service for each blade setting the blade id.
 
 Click on the *Save* button.
-

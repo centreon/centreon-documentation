@@ -3,10 +3,6 @@ id: applications-lmsensors-snmp
 title: LM Sensors
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Jun  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -41,4 +37,3 @@ the following table:
 | Host Multiple Templates              | App-Lmsensors-SNMP-custom  |
 
 Click on the *Save* button.
-

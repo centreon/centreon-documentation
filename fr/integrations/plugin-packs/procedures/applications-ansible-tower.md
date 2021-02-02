@@ -3,10 +3,6 @@ id: applications-ansible-tower
 title: Ansible Tower
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 17 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | App-Ansible-Tower-custom   |
 
 Click on the *Save* button.
-

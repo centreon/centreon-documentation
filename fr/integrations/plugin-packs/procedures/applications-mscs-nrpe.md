@@ -3,10 +3,6 @@ id: applications-mscs-nrpe
 title: Microsoft Cluster Se
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Mar  1 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -57,4 +53,3 @@ Click on the *Save* button.
 
 By default, the host template checks nothing. Go to plugin-pack manager to see
 services available.
-

@@ -8,7 +8,6 @@ title: Netdata RestAPI
 Netdata est un outil open source pour visualiser et surveiller les mesures en temps réel, optimisé pour accumuler tous les types de données, 
 tels que l'utilisation du processeur, l'activité du disque, les requêtes SQL, les visites sur un site Web, etc.
 
-
 ## Contenu du Plugin-Pack
 
 ### Éléments supervisés
@@ -36,7 +35,6 @@ Le Plugin-Pack dans sa version actuelle permet la supervision des points de cont
 * Trafic réseau
 * "Chart" personnalisé
 
-
 ### Métriques collectées
 
 Les métriques collectées par le Plugin sont les suivantes:
@@ -51,14 +49,12 @@ Les métriques collectées par le Plugin sont les suivantes:
 | netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
 | netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
 
-
 <!--CPU-->
 
 | Metric name                     | Description             | Unit |
 | :------------------------------ | :---------------------- | :--- |
 | cpu.utilization.percentage      | Average total CPU usage | %    |
 | core.cpu.utilization.percentage | Per core CPU usage      | %    |
-
 
 <!--Disks-->
 
@@ -68,7 +64,6 @@ Les métriques collectées par le Plugin sont les suivantes:
 | storage.space.usage.bytes      | Per partition space usage (in Bytes) | B    |
 | storage.space.usage.percentage | Per partition space usage (in %)     | %    |
 | storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
-
 
 <!--Inodes-->
 
@@ -110,7 +105,6 @@ Les métriques collectées par le Plugin sont les suivantes:
 | network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
 | network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -121,7 +115,6 @@ L'agent Netdata doit être installé et opérationnel sur le serveur cible afin 
 
 Vous trouverez plus d'informations sur comment installer et configurer l'agent Netdata en suivant la documentation officielle:
 https://learn.netdata.cloud/docs/agent/packaging/installer
-
 
 ## Installation
 
@@ -193,13 +186,11 @@ CPU '0' usage: 16.71 %
 CPU '1' usage: 17.75 %
 ```
 
-
 Cette commande vérifie l'utilisation CPU moyenne (```--mode=cpu```) d'un serveur hébergeant l'agent Netdata en requêtant l'API de ce dernier
 (```--plugin=apps::monitoring::netdata::restapi::plugin --hostname=10.0.0.1```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation CPU moyenne dépasse 70%   (```--warning-average=70```)
 et une alarme de type CRITICAL pour une utilisation moyenne supérieure à 80% (```--critical-average=80```).
-
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 

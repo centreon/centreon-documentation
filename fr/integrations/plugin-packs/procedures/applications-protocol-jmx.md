@@ -3,10 +3,6 @@ id: applications-protocol-jmx
 title: JMX value
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -35,4 +31,3 @@ by the following table:
 | Macros           | JOLOKIAURL, MBEANPATTERN, ATTRIBUTE, PATH            |
 
 Click on the *Save* button.
-

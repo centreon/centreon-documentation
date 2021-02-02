@@ -3,10 +3,6 @@ id: hardware-ups-mge-snmp
 title: MGE UPS System
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-UPS-Mge-SNMP-custom     |
 
 Click on the *Save* button.
-

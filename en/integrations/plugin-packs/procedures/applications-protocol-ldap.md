@@ -3,10 +3,6 @@ id: applications-protocol-ldap
 title: LDAP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -40,4 +36,3 @@ the following table:
 | Host Multiple Templates | App-Protocol-LDAP-custom   |
 
 Click on the *Save* button.
-

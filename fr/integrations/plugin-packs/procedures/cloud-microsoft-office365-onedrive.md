@@ -92,7 +92,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Onedrive* depuis la page "Configuration > Plugin packs > Manager" 
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Onedrive :
@@ -125,14 +124,12 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-
 La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
 Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 
 l'option ```--filter-perfdata='^(?!.*perfdate).*$'```
 
 Une fois l'hôte créé, il est également possible de paramétrer un ensemble de
 macros de service selon la configuration souhaitée :
-
 
 | Mandatory | Name          | Description                                              |
 | :-------- | :------------ | :------------------------------------------------------- |
@@ -208,4 +205,3 @@ utlisée par défaut par le Plugin Centreon.
 
 Cette erreur peut être résolue en utilisant le backend HTTP *curl*.
 Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
-

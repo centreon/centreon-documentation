@@ -3,10 +3,6 @@ id: applications-protocol-ntp
 title: NTP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr 13 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates                 | App-Protocol-NTP-custom    |
 
 Click on the *Save* button.
-

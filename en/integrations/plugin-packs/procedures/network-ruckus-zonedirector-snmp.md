@@ -22,7 +22,6 @@ Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (
 | :----------------------------------- | :-------------------------------------------------- |
 | Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller   |
 
-
 ### Monitored metrics 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -101,7 +100,6 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 3. On the Centreon Web interface, install the 'Ruckus Zonedirector' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 

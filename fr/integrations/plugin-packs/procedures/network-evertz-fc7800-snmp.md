@@ -3,10 +3,6 @@ id: network-evertz-fc7800-snmp
 title: Evertz FC7800
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct 26 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Aruba-Standard-SNMP-custom |
 
 Click on the *Save* button.
-

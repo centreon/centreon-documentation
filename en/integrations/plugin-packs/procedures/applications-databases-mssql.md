@@ -3,10 +3,6 @@ id: applications-databases-mssql
 title: Microsoft SQL Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.19 | `STABLE` | Oct 23 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -165,4 +161,3 @@ The following macros must be configured on host:
 | MSSQLUSERNAME | the MSSQL user              | USERNAME      | root     |
 | MSSQLPASSWORD | the MSSQL password          | PASSWORD      | p@ssw0rd |
 | MSSQLPORT     | Port to connect to database | 1433          | 1433     |
-

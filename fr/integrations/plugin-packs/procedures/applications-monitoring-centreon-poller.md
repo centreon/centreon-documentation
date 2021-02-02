@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-poller
 title: Centreon Poller
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.2 | `STABLE` | Feb  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | App-Monitoring-Centreon-Poller-custom |
 
 Click on the *Save* button.
-

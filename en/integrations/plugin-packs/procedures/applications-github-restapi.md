@@ -3,10 +3,6 @@ id: applications-github-restapi
 title: Github
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.4 | `STABLE` | Apr 12 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -41,4 +37,3 @@ your repository path for URLPATH macro (/repo/OWNER/REPONAME)
 
 Also do not forget to set GITHUBUSERNAME AND GITHUBPASSWORD macro value at the
 host level
-
