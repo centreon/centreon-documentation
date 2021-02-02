@@ -176,8 +176,10 @@
                     "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
-                    "graph-views/procedures",
-                    "graph-views/known-issues"
+                    "graph-views/advanced-configuration",
+                    "graph-views/secure-your-map-platform",
+                    "graph-views/known-issues",
+                    "graph-views/troubleshooter"
                 ],
                 "label": "Administrate",
                 "type": "subcategory"
@@ -270,6 +272,7 @@
             {
                 "ids": [
                     "migrate/introduction",
+                    "migrate/migrate-from-20-x",
                     "migrate/migrate-from-3-4",
                     "migrate/nagios-to-centreon",
                     "migrate/poller-display-to-remote-server"

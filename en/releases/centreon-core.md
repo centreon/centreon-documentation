@@ -7,18 +7,21 @@ title: Centreon Core
 
 You can find in this chapter all changelogs concerning **Centreon Core**.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> It is very important when you update your system to refer to this
+> section in order to learn about behavior changes or major changes that
+> have been made on this version. This will let you know the impact of
+> the installation of these versions on the features you use or the
+> specific developments that you have built on your platform (modules,
+> widgets, plugins).
 
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose)
 
-## Centreon Web release notes
+## Centreon Web
 
 ### 20.10.2
+
+`January 12, 2021`
 
 > Known behaviours:
 >
@@ -34,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Add alias & fqdn in host detail panels
 - [Resources Status] Add URL link button from host and service extended information configuration
 
-#### Bug fixes
+#### Bugfixes
 
 - [Authentication] New LDAP configurations are broken
 - [CLAPI] Export does not export default contactgroup linked to a LDAP configuration
@@ -57,17 +60,21 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.1
 
+`November 25, 2020`
+
 #### Enhancements
 
 - [API] Improve registration script
 - [Performance] Disable UI notification mechanism if not needed by user
-#### Bug fixes
+
+#### Bugfixes
 
 - [API] Rework POST generated API request for PlatformTopology
 - [API] Service groups search not working
 - [Administration] "show deprecated pages" option does not work anymore
 - [Administration] 'options' table for centreon database is sometimes empty
-- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output not working properly for Centreon Broker form
+- [Configuration] Radio buttons for "InfluxDB - Storage - InfluxDB" output
+  not working properly for Centreon Broker form
 - [Core] Perl lib db query bad looping parameters
 - [Core] Too much rows in extended_service_informations tables
 - [Event View] Cannot search with regex using "+" character
@@ -75,7 +82,8 @@ If you have feature requests or want to report a bug, please go to our
 - [Graphs] Performance graph legend does not update dynamically
 - [Reporting] Dashboard won't build when having service by hostgroup
 - [Resources Status] Cannot search multiple times in hostgroup filter
-- [Resources Status] Infinite scroll + refresh button duplicates events in timeline
+- [Resources Status] Infinite scroll + refresh button duplicates events in
+  timeline
 - [Resources Status] Services listing blinking in details panel
 - [Resources Status] Timeline tab content blinks while browsing resources
 
@@ -85,6 +93,8 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Update moment.js library
 
 ### 20.10.0
+
+`October 21, 2020`
 
 > Known behaviours:
 >
@@ -114,12 +124,16 @@ If you have feature requests or want to report a bug, please go to our
 - [Monitoring/Resources Status] Be able to filter on status output
 - [Monitoring/Resources Status] Add possibility to save/manage filters
 - [Monitoring/Resources Status] Add possibility to submit result for resources
-- [Monitoring/Resources Status] Redirect all realtime links to Resources Status page
-- [Remote Server] Replace HTTP flow by Gorgone between Central and Remote Servers
+- [Monitoring/Resources Status] Redirect all realtime links to Resources
+  Status page
+- [Remote Server] Replace HTTP flow by Gorgone between Central and Remote
+  Servers
 
-## Centreon Engine release notes
+## Centreon Engine
 
 ### 20.10.2
+
+`January 20, 2021`
 
 > This version requires Centreon Broker version to be 20.10.3 or higher.
 
@@ -139,6 +153,8 @@ By default, its value is 30s. It can be set with the variable
 instance_heartbeat_interval in the centengine.cfg file.
 
 ### 20.10.1
+
+`December 16, 2020`
 
 #### Bugfixes
 
@@ -160,6 +176,8 @@ Host/service status field 'Last Notification' was filled when
 state was HARD even if no notification is configured nor sent.
 
 ### 20.10.0
+
+`October 21, 2020`
 
 > Known behaviours:
 >
@@ -189,9 +207,11 @@ state was HARD even if no notification is configured nor sent.
 
 - Contains all fixes up to version 20.04.7
 
-## Centreon Broker release notes
+## Centreon Broker
 
 ### 20.10.3
+
+`January 20, 2021`
 
 #### Bugfixes
 
@@ -236,6 +256,8 @@ acceptor side. This new version fixes this issue.
 
 ### 20.10.2
 
+`December 16, 2020`
+
 > Known behaviours:
 >
 >   - If TLS encryption is configured to use private key/certificate couple
@@ -249,8 +271,8 @@ acceptor side. This new version fixes this issue.
 
 *TLS*
 
-Credentials were not loaded by the TLS connector anymore. This is fixed with this
-new version.
+Credentials were not loaded by the TLS connector anymore. This is fixed
+with this new version.
 
 *Custom variables*
 
@@ -266,6 +288,8 @@ Reporting events were not stored into database because of truncated
 Business Activities names causing *duplicate entry* errors.
 
 ### 20.10.1
+
+`November 25, 2020`
 
 #### Bugfixes
 
@@ -317,6 +341,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
+`October 21, 2020`
+
 > Known behaviours:
 >
 >   - If Broker on a Poller or Remote Server is not upgraded to 20.10
@@ -341,11 +367,32 @@ with the –pool\_size X argument or -s X.
 
 - Contains all fixes up to version 20.04.9
 
-## Centreon Gorgone release notes
+## Centreon Gorgone
+
+### 20.10.2
+
+`January 29, 2021`
+
+#### Bugfixes
+
+- [zmqclient] Harden communication to avoid "Protocol not good" errors
+- [zmqclient] Increment ZMQ_LINGER period for some modules
+- [zmqclient] Lot of ESTABLISHED connections on server side when network
+  is flapping
+- [sshclient] Command actions badly encoded lead to badly encoded messages
+  in web UI (downtimes, acknowledgements)
+- [sshclient] Uncaught messages lead to problems with statistics collection
+  and Autodiscovery module.
+
+#### Enhancements
+
+- [anomalydetection] Reduce time interval between prediction downloads
 
 ### 20.10.1
 
-#### Bug fixes
+`December 17, 2020`
+
+#### Bugfixes
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
@@ -368,6 +415,8 @@ with the –pool\_size X argument or -s X.
   (ie Pollers)
 
 ### 20.10.0
+
+`October 21, 2020`
 
 #### Bugfixes
 

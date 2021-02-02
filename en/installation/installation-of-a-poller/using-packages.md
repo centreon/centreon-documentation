@@ -3,6 +3,15 @@ id: using-packages
 title: Using packages 
 ---
 
+Centreon provides RPM packages for its products through the Centreon Open
+Sources version available free of charge in our repository.
+
+These packages have been successfully tested in CentOS 7 and 8 environments.
+
+> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
+> your production environment. Nevertheless, these packages for CentOS 8 are
+> compatible with RHEL 8 and Oracle Linux 8 versions.
+
 ## Pre-installation steps
 
 ### Disable SELinux
@@ -35,6 +44,50 @@ systemctl disable firewalld
 
 ### Install the repositories
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8-->
+#### Redhat CodeReady Builder repository
+
+To install Centreon you will need to enable the official CodeReady Builder
+repository supported by Redhat.
+
+Enable the CodeReady Builder repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+<!--CentOS 8-->
+#### Redhat PowerTools repository
+
+To install Centreon you will need to enable the official PowerTools repository
+supported by Redhat.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
+
+> For CentOS 8.2 use:
+> ```shell
+> dnf -y install dnf-plugins-core epel-release
+> dnf config-manager --set-enabled PowerTools
+> ```
+<!--Oracle Linux 8-->
+#### Oracle CodeReady Builder repository
+
+To install Centreon you will need to enable the official Oracle CodeReady
+Builder repository supported by Oracle.
+
+Enable the repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+<!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
@@ -47,6 +100,7 @@ Install the Software Collections repository using this command:
 ```shell
 yum install -y centos-release-scl
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
 
@@ -55,17 +109,31 @@ centreon-release package, which will provide the repository file.
 
 Install the Centreon repository using this command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
+```
+<!--CentOS 7-->
 ```shell
 yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
 To install the monitoring engine, run the command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y centreon-poller-centreon-engine
+```
+<!--CentOS 7-->
 ```shell
 yum install -y centreon-poller-centreon-engine
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 To make services start automatically during system bootup, run the following
 command:
@@ -87,6 +155,19 @@ systemctl start centreontrapd snmptrapd
 
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+-t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+```
+
+Example:
+
+``` shell
+php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+```
+<!--CentOS 7-->
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
@@ -97,6 +178,7 @@ Example:
 ``` shell
 /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
 > want to link your server to it.
@@ -109,61 +191,61 @@ Example:
 Then follow instructions by
 1. Entering your password:
 
-``` shell
-192.168.0.1: please enter your password
-```
+    ``` shell
+    192.168.0.1: please enter your password
+    ```
 
 2. Define if you use a proxy to connect to Centreon central or the Remote Server:
 
-``` shell
-Are you using a proxy ? (y/n)n
-```
+    ``` shell
+    Are you using a proxy ? (y/n)n
+    ```
 
-If you use a proxy, please define credentials:
+    If you use a proxy, please define credentials:
 
-``` shell
-Are you using a proxy ? (y/n)y
+    ``` shell
+    Are you using a proxy ? (y/n)y
 
-proxy host: myproxy.example.com
+    proxy host: myproxy.example.com
 
-proxy port: 3128
+    proxy port: 3128
 
-proxy username (press enter if no username/password are required): myuser
+    proxy username (press enter if no username/password are required): myuser
 
-please enter the proxy password:
-```
+    please enter the proxy password:
+    ```
 
 3. Select the IP adress:
 
-```shell
-Found IP on CURRENT NODE:
-   [1]: 192.168.0.2
-Which IP do you want to use as CURRENT NODE IP ?1
-```
+    ```shell
+    Found IP on CURRENT NODE:
+    [1]: 192.168.0.2
+    Which IP do you want to use as CURRENT NODE IP ?1
+    ```
 
 4. Then validate the information:
 
-``` shell
-Summary of the informations that will be send:
+    ``` shell
+    Summary of the informations that will be send:
 
-Api Connection:
-username: admin
-password: ******
-target server: 192.168.0.1
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
 
-Pending Registration Server:
-name: poller-1
-type: poller
-address: 192.168.0.2
+    Pending Registration Server:
+    name: poller-1
+    type: poller
+    address: 192.168.0.2
 
-Do you want to register this server with those informations ? (y/n)y
-```
+    Do you want to register this server with those informations ? (y/n)y
+    ```
 
-You will receive the validation of the Centreon central or the Remote Server server:
+    You will receive the validation of the Centreon central or the Remote Server server:
 
-``` shell
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
-```
+    ``` shell
+    2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
+    ```
 
 ### Main errors messages
 

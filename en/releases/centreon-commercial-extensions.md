@@ -8,40 +8,63 @@ title: Commercial Extensions
 You can find in this chapter all changelogs concerning **Centreon Commercial
 Extension**.
 
-> It is very important when you update your system to refer to this section in
-> order to learn about behavior changes or major changes that have been made on
-> this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have
-> built on your platform (modules, widgets, plugins).
+> It is very important when you update your system to refer to this
+> section in order to learn about behavior changes or major changes that
+> have been made on this version. This will let you know the impact of
+> the installation of these versions on the features you use or the
+> specific developments that you have built on your platform (modules,
+> widgets, plugins).
 
 If you have feature requests or want to report a bug, please contact support.
 
-## Centreon MAP release notes
+## Centreon MAP
 
 ### 20.10.2
 
-* [Enhancement] Full TLS compliance has been added for communication with Broker component
-* [Fix] Upgrading from previous versions could cause a failed restart of centreon-map service
-* [Fix] Fresh install or upgrade could result in wrong permissions for centreon-map media folder
-* [Fix] Adding or deleting a Downtime from the Web-UI could result in loss of connection with Broker
-* [Fix] Creating a map with empty name could cause a failure to load the Monitoring>Map menu
-* [Fix] Adding an Output in Studio could sometimes result in mis formatted metric
-* [Fix] WhatsUp events were unnecessarily raised in web sessions potentially causing performance issues
-* [Fix][API] Requesting token from Swagger-ui could result in an error
-
-### 20.10.1
-
-* Saving Geo Views on a Custom View Map widget was impossible due to missing "Save" button
-* Sharing usage statistics metrics between MAP server and Central through HTTPS failed
-* Creating Links through REST API can now make use of 'bendpoints', 'displayValue' and 'displayPercent' properties
-* Adding Centreon resources when creating an Output widget through REST API is now possible
-* Installing a fresh MAP Studio resulted in automated back-up failure
-
-### 20.10.0
+`December 16, 2020`
 
 #### Enhancements
 
--   The license is now entirely managed on the Centreon Central server.
+- Full TLS compliance has been added for communication with Broker component
+
+#### Bugfixes
+
+- Upgrading from previous versions could cause a failed restart of
+  centreon-map service
+- Fresh install or upgrade could result in wrong permissions for
+  centreon-map media folder
+- Adding or deleting a Downtime from the Web-UI could result in loss of
+  connection with Broker
+- Creating a map with empty name could cause a failure to load the
+  'Monitoring > Map' menu
+- Adding an Output in Studio could sometimes result in mis formatted metric
+- WhatsUp events were unnecessarily raised in web sessions potentially
+  causing performance issues
+- [API] Requesting token from Swagger-ui could result in an error
+
+### 20.10.1
+
+`November 19, 2020`
+
+#### Bugfixes
+
+- Saving Geo Views on a Custom View Map widget was impossible due to
+  missing "Save" button
+- Sharing usage statistics metrics between MAP server and Central through
+  HTTPS failed
+- Creating Links through REST API can now make use of 'bendpoints',
+  'displayValue' and 'displayPercent' properties
+- Adding Centreon resources when creating an Output widget through REST
+  API is now possible
+- Installing a fresh MAP Studio resulted in automated back-up failure
+
+### 20.10.0
+
+`October 21, 2020`
+
+#### Enhancements
+
+- The license is now entirely managed on the Centreon Central server.
 
 #### Faster server for complex maps
 
@@ -64,22 +87,28 @@ maps from one server to the other easily.
 To use it, it is necessary to install and activate it. Refer to the
 [dedicated documentation](../graph-views/install.html#centreon-map-ng)
 
-## Centreon BAM release notes
+## Centreon BAM
 
 ### 20.10.0
+
+`October 21, 2020`
 
 - [Configuration] Update style of pages *Business Activities* and
   *Business Views*
 
-## Centreon MBI release notes
+## Centreon MBI
 
 ### 20.10.0
 
+`October 21, 2020`
+
 - Compatibility with Centreon 20.10
 
-## Centreon Auto Discovery release notes
+## Centreon Auto Discovery
 
 ### 20.10.2
+
+`December 7, 2020`
 
 #### Bugfixes
 
@@ -95,11 +124,15 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.1
 
+`October 27, 2020`
+
 #### Bugfixes
 
 - Double upgrade scripts in previous build lead to sql error in log
 
 ### 20.10.0
+
+`October 21, 2020`
 
 > Refer to the [Gorgone module configuration](../monitoring/discovery/administration.html#gorgone-module-configuration)
 > to make sure the configuration matches minimal prerequisites.
@@ -142,17 +175,21 @@ standalone SSH connections.
 
 - Contains all fixes up to version 20.04.6
 
-## Centreon Plugin Packs Manager release notes
+## Centreon Plugin Packs Manager
 
 ### 20.10.0
 
+`October 21, 2020`
+
 - Compatibility with Centreon 20.10
 
-## Centreon License Manager release notes
+## Centreon License Manager
 
 ### 20.10.1
 
-#### Bug fixes
+`December 2, 2020`
+
+#### Bugfixes
 
 - After adding a license or a token the user must access to associated functionalities
 - Rights issues with the gnupg library with multiple users (only with Docker)
@@ -160,10 +197,14 @@ standalone SSH connections.
 
 ### 20.10.0
 
+`October 21, 2020`
+
 - Compatibility with Centreon 20.10
 
 ## Centreon Anomaly Detection
 
 ### 20.10.0
+
+`October 21, 2020`
 
 - Compatibility with Centreon 20.10
