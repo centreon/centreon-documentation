@@ -3,10 +3,6 @@ id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.2 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-SSG-custom     |
 
 Click on the *Save* button.
-

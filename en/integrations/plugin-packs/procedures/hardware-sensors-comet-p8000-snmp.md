@@ -3,10 +3,6 @@ id: hardware-sensors-comet-p8000-snmp
 title: Geist p8000 sensor SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan 29 2020 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Sensor-Comet-P8000-SNMP-custom |
 
 Click on the *Save* button.
-

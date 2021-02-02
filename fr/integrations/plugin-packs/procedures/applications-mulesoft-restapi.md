@@ -22,7 +22,6 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-
 <!--Services-->
 
 | Rule name                                | Description                                                        |
@@ -32,7 +31,6 @@ Le Plugin Centreon associé permet d'interroger l'API Rest de Mulesoft Anypoint 
 | App-Mulesoft-Restapi-Queue-Messages-Name | Discover Anypoint MQ queues and monitor the related messages count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ### Métriques collectées
 
@@ -80,7 +78,6 @@ l'API Rest Mulesoft: https://anypoint.mulesoft.com/exchange/portals/anypoint-pla
 | mulesoft.servers.status.running.count      | Number of running servers      |
 | mulesoft.servers.status.disconnected.count | Number of disconnected servers |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -122,7 +119,6 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Mulesoft Anypoint* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
@@ -139,7 +135,6 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Mulesof
 | (X)       | REGIONID    | Mulesoft MQ region ID to use (only mandatory for *messages* mode) |
 | X         | APIUSERNAME | API username                                                      |
 | X         | APIPASSWORD | API password (*password* type should be ticked)                   |
-
 
 ## FAQ
 
@@ -175,11 +170,9 @@ Cette application appartient à l'environnement *1234abc-56de-78fg-90hi-1234abcd
 Cette commande déclenchera une alarme WARNING si le statut de l'application contient le mot *STOPPED* (```--warning-status='%{status} =~ /STOPPED/'```) 
 et une alarme CRITICAL s'il contient le mot *FAILED* (```--critical-status='%{status} =~ /FAILED/'```).
 
-
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 
 ```/usr/lib/centreon/plugins/centreon_mulesoft_restapi.pl --plugin=apps::mulesoft::restapi::plugin --mode=applications --help```
-
 
 ### Comment puis-je supprimer les perfdatas *count* dans le cas où je ne souhaite vérifier qu'une seule application ?
 

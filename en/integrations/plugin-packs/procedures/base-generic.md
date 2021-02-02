@@ -3,10 +3,6 @@ id: base-generic
 title: Base Pack
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.2 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 There is no prerequisites needed for this Plugin Pack.
@@ -56,4 +52,3 @@ The following macros must be configured on services:
 | Ping    | PACKETNUMBER | Number of packet   | 5             | 5       |
 | Ping    | WARNING      | Warning threshold  | 200,20%       | 200,20% |
 | Ping    | CRITICAL     | Critical Threshold | 400,50%       | 400,50% |
-

@@ -20,7 +20,6 @@ The Plugin-Pack Hitachi HCP SNMP including monitoring of Nodes, Tenants and Volu
 | node status                              | Status of the node                |      |
 | nic status                               | Status of the nic                 |      |
 | san path status                          | Status of the san path            |      |
-| san path status                          | Status of the san path            |      |
 | bbu status                               | Status of the battery backup unit |      |
 | *nodeid*#node.space.usage.bytes          | Usage of the node                 | B    |
 | *nodeid*#node.space.free.bytes           | Free space left on the node       | B    |

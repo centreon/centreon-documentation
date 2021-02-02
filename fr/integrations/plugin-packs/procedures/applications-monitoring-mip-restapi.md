@@ -3,10 +3,6 @@ id: applications-monitoring-mip-restapi
 title: Maltem Insight Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Dec  4 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ The following macros must be configured on host:
 | MIPAPITOKEN | Token to access API          |               |
 
 Click on the *Save* button.
-

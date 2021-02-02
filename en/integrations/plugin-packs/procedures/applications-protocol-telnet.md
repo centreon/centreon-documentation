@@ -3,10 +3,6 @@ id: applications-protocol-telnet
 title: Telnet Scenario
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Feb  6 2017 |
-
 \#\#Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ the following table :
 | Host Multiple Templates | App-Protocol-Telnet-custom |
 
 Click "Save" button.
-

@@ -132,9 +132,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Virtualization-Nutanix-Snmp
 ```
 
-
 2. Installer le Plugin-Pack 'Nutanix' depuis la page "Configuration > Plugin packs > Manager" de l'interface Web Centreon
-
 
 <!--Offline IMP License-->
 

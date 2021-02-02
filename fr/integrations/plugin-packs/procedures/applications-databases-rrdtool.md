@@ -172,5 +172,3 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
     --custommode=perlmod \
     --help
 ```
-
-

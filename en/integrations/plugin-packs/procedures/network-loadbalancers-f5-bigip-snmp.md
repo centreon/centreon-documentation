@@ -3,10 +3,6 @@ id: network-loadbalancers-f5-bigip-snmp
 title: F5 BigIP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.1 | `STABLE` | Oct 10 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-F5-Bigip-SNMP-custom   |
 
 Click on the *Save* button.
-

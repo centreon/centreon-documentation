@@ -3,10 +3,6 @@ id: network-riverbed-steelhead-snmp
 title: Riverbed SteelHead
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Mar 20 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Riverbed-Steelhead-SNMP-custom |
 
 Click on the *Save* button.
-

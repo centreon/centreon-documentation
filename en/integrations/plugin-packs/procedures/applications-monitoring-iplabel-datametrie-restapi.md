@@ -55,7 +55,6 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label datametrie:
@@ -121,7 +120,6 @@ can be displayed by adding the ```--help``` parameter to the command:
 ```
 /usr/lib/centreon/plugins/centreon_monitoring_iplabel_datametrie_restapi.pl --plugin=apps::monitoring::iplabel::datametrie::restapi::plugin --mode=kpi --help
 ```
-
 
 ### Why do I get the following error: 
 

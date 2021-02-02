@@ -3,10 +3,6 @@ id: network-cisco-apic-restapi
 title: Cisco Apic
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Dec  4 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -38,4 +34,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Apic-Restapi-custom |
 
 Click on the *Save* button.
-

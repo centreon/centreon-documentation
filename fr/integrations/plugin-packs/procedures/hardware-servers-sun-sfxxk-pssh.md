@@ -3,10 +3,6 @@ id: hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.7 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -57,4 +53,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Sun-Sfxxk-PSSH-custom |
 
 Click on the *Save* button.
-

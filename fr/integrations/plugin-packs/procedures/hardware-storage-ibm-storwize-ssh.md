@@ -3,10 +3,6 @@ id: hardware-storage-ibm-storwize-ssh
 title: IBM Storwize
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Nov 21 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-IBM-Storwize-SSH-custom |
 
 Click on the *Save* button.
-

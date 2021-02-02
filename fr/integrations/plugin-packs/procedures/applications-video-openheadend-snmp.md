@@ -3,10 +3,6 @@ id: applications-video-openheadend-snmp
 title: OpenHeadend
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Aug 11 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | App-Video-Openheadend-SNMP-custom |
 
 Click on the *Save* button.
-

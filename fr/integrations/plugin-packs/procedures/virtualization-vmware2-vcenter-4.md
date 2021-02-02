@@ -3,10 +3,6 @@ id: virtualization-vmware2-vcenter-4
 title: VMware vCenter v4
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.2 | `STABLE` | Apr 18 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin

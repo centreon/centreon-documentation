@@ -3,10 +3,6 @@ id: hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jun  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Kvm-Adder-Aim-SNMP-custom |
 
 Click on the *Save* button.
-

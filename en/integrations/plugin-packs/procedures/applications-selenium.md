@@ -3,10 +3,6 @@ id: applications-selenium
 title: Selenium
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Nov  9 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -61,4 +57,3 @@ The following macros must be configured on the deployed services :
 | SCENARIONAME | Name of the scenario without extension |
 
 Click on the *Save* button.
-

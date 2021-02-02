@@ -3,10 +3,6 @@ id: applications-vtom-restapi
 title: VTOM
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Vtom-Restapi-custom    |
 
 Click on the *Save* button.
-

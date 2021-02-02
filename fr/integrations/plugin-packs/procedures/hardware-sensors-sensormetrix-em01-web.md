@@ -3,10 +3,6 @@ id: hardware-sensors-sensormetrix-em01-web
 title: Sensormetrix
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates              | *HW-Sensor-Sensormetrix-Em01-Web-custom* |
 
 Click on the *Save* button.
-

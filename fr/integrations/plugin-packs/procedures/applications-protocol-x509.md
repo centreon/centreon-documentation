@@ -3,10 +3,6 @@ id: applications-protocol-x509
 title: X509 Certificat
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -62,4 +58,3 @@ The following macros must be configured on service (\* means mandatory options):
 | CRITICAL\* | Critical Thresold (number of days) | 30:           | 30:     |
 | ISSUERNAME | Content of the issuer name         |               |         |
 | OBJECTNAME | Content of the object name         |               |         |
-

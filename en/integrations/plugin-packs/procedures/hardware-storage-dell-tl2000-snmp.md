@@ -3,10 +3,6 @@ id: hardware-storage-dell-tl2000-snmp
 title: Dell TL2000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Dell-TL2000-SNMP-custom |
 
 Click on the *Save* button.
-

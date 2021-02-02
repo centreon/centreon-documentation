@@ -119,8 +119,7 @@ The following message should appear:
 
 ```text
 LD_RUN_PATH=/usr/lib/oracle/21.1/client64/lib*
-Using DBD::Oracle 1.80. 
-Using DBD::Oracle 1.80. 
+Using DBD::Oracle 1.80.
 Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
 Writing Makefile for DBD::Oracle
 ```
@@ -285,4 +284,3 @@ Check also that no third party device (such as a firewall) is blocking the conne
 
 This error message means that the module DBD::Oracle is installed under the /root directory.
 Remove shell environment variable with PERL and compile DBD::Oracle Perl Module.
-

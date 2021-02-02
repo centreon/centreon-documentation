@@ -3,10 +3,6 @@ id: operatingsystems-solaris-snmp
 title: Solaris SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Oct 10 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | OS-Solaris-SNMP-custom     |
 
 Click on the *Save* button.
-

@@ -30,7 +30,6 @@ Polycom DMA.
 | :---------------------- | :----------------- | :---- |
 | dma.alerts.total.count  | Number of alerts.  | Count |
 
-
 <!--Conference-Manager-->
 
 | Metric name                               | Description                                    | Unit   |
@@ -48,7 +47,6 @@ Polycom DMA.
 | dma.cluster.voice.port.percentage         | Percentage of voice port used by a cluster     | %      |
 
 Vous pouvez utiliser l'option `--filter-cluster` afin de restreindre le contrôle sur un cluster donné.
-
 
 <!--Clusters-Usage-->
 

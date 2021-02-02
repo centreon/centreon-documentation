@@ -3,10 +3,6 @@ id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.13 | `STABLE` | Jan  18 2019 |
-
 ## Overview
 
 NSClient++ provides is own REST API using the webserver module.

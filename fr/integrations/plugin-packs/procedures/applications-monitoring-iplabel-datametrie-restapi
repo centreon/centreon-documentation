@@ -55,7 +55,6 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Datametrie-Restapi
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--Offline IMP License-->
 
 1. Installer le code du connecteur sur l'ensemble des collecteurs supervisant des ressources de IP-Label datametrie:
@@ -120,7 +119,6 @@ peuvent être affichés en ajoutant le paramètre ```--help``` à la commande :
 ```
 /usr/lib/centreon/plugins/centreon_monitoring_iplabel_datametrie_restapi.pl --plugin=apps::monitoring::iplabel::datametrie::restapi::plugin --mode=kpi --help
 ```
-
 
 ### Pourquoi est-ce que j'obtiens l'erreur suivante : 
 

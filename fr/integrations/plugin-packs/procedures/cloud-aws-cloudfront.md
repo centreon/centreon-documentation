@@ -3,10 +3,6 @@ id: cloud-aws-cloudfront
 title: Amazon CloudFront
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -60,4 +56,3 @@ The following services will be created:
   - Cloudfront-Errors
   - Cloudfront-Requests
   - Cloudfront-Throughput
-

@@ -113,14 +113,12 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Polycom RealPresence DMA devices:
 
-
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
-
 
 <!--Offline IMP License-->
 
@@ -133,7 +131,6 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-
 ```bash
 yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
@@ -141,14 +138,12 @@ yum install centreon-pack-hardware-devices-polycom-dma-snmp
 3. On the Centreon Web interface, install the *Polycom DMA SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
 * Add a new Host and apply the *HW-Device-Polycom-Dma-SNMP-Custom* Host Template
 * Fill SNMP Version and Community fields according to the device's configuration
-
 
   :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
@@ -162,7 +157,6 @@ through "Configuration > Plugin packs > Manager" page.
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account 
 and test the Plugin by running the following command:
-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_polycom_dma_snmp.pl \

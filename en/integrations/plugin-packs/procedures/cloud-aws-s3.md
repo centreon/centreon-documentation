@@ -3,10 +3,6 @@ id: cloud-aws-s3
 title: Amazon S3
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.5.0 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -58,4 +54,3 @@ The following macros must be configured on host:
 | AWSINSTANCENAME | Name of your S3 instance             |               |
 
 Click on the *Save* button.
-

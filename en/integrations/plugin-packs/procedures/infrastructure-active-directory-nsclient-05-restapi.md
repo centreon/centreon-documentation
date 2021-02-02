@@ -3,10 +3,6 @@ id: infrastructure-active-directory-nsclient-05-restapi
 title: Active Directory API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Infra-ActiveDirectory-NSClient-05-Restapi-custom |
 
 Click on the *Save* button.
-

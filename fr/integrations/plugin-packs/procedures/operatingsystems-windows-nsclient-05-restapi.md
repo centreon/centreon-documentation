@@ -3,10 +3,6 @@ id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.13 | `STABLE` | Jan  18 2019 |
-
 ## Vue d'ensemble
 
 NSClient++ Rest API fournit sa propre API Rest via le module Webserver et permet d'exploiter au maximum
@@ -166,7 +162,6 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 | X           | NSCPRESTAPIPROTO          | Protocole web utilisé pour la communication avec l'API Rest (HTTPS par défaut)                 |
 | X           | NSCPRESTAPILEGACYPASSWORD | Mot de passe configuré pour l'échange de données via l'api Rest (voir le chapitre "Prérequis") |
 |             | NSCPRESTAPIEXTRAOPTIONS   | Options supplémentaires à passer si nécessaire, par exemple "--timeout=30"                     |
-
 
 ## FAQ
 

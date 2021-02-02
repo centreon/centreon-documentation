@@ -3,10 +3,6 @@ id: network-loadbalancers-a10-ax-snmp
 title: A10 AX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 Monitoring procedure
 
 ## Prerequisites
@@ -53,4 +49,3 @@ the following table:
 | Host Multiple Templates              | Net-A10-Ax-SNMP-custom     |
 
 Click on the *Save* button.
-

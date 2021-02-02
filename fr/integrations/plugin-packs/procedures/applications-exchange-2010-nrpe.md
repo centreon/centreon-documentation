@@ -3,10 +3,6 @@ id: applications-exchange-2010-nrpe
 title: MS Exchange 2K10
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -70,4 +66,3 @@ Click on the *Save* button.
 
 By default, the host template checks nothing. Go to plugin-pack manager to see
 services available.
-

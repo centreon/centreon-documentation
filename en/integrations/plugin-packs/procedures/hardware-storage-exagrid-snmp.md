@@ -3,10 +3,6 @@ id: hardware-storage-exagrid-snmp
 title: Exagrid
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  7 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Exagrid-SNMP-custom |
 
 Click on the *Save* button.
-

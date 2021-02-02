@@ -3,10 +3,6 @@ id: network-digi-portserverts-snmp
 title: Digi PortServers TS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Digi-Portserverts-SNMP-custom |
 
 Click on the *Save* button.
-

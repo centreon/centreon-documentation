@@ -3,10 +3,6 @@ id: network-firewalls-juniper-srx-snmp
 title: Juniper SRX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-SRX-custom     |
 
 Click on the *Save* button.
-

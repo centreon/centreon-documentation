@@ -3,10 +3,6 @@ id: applications-kafka-jmx
 title: Kafka
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Sep 10 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Kafka-JMX-custom       |
 
 Click on the *Save* button.
-
