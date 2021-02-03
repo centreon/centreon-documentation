@@ -78,7 +78,7 @@ Since 20.04, Centreon uses a new version of PHP.
 The PHP timezone should be set. Run the command:
 
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
 > Change **Europe/Paris** to your time zone. You can find the supported list of
@@ -87,8 +87,8 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.in
 Then, run the following commands:
 
 ```shell
-systemctl enable rh-php72-php-fpm
-systemctl start rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
 ```
 
 #### Update the Apache web server

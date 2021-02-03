@@ -52,14 +52,14 @@ installez le module **centreon-license-manager**.
     Pour l'enregistrer sur le serveur Centreon Central exécutez la commande suivante :
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+    /opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
     -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
     ```
 
     Exemple:
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
+    /opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
     ```
 
     > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.

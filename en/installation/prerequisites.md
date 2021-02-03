@@ -165,7 +165,7 @@ Description of software and linked users:
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
+| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |

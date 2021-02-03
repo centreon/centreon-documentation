@@ -169,14 +169,14 @@ php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192
 ```
 <!--CentOS 7-->
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Example:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

@@ -141,14 +141,14 @@ yum install -y centos-release-scl
 To register it to the Centreon Central server or a Remote server, execute the following command:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Example:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Poller -h 192.168.0.1 -n poller-1
 ```
 
 > Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you

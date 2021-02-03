@@ -131,7 +131,7 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 ```shell
-systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ## Web installation
@@ -148,14 +148,14 @@ Conclude installation by performing [web installation steps](../web-and-post-ins
 To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Example:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin \
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin \
 -t Remote -h 192.168.0.1 -n remote-1
 ```
 

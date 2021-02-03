@@ -745,7 +745,7 @@ Certaines ressources ne doivent être démarrées que sur un seul nœud, mais po
 
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php72-php-fpm \
+	systemd:rh-php73-php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \

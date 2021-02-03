@@ -257,7 +257,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -273,7 +273,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php72-php-fpm
+systemctl restart rh-php73-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -289,7 +289,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -341,14 +341,14 @@ php /usr/share/centreon/bin/registerServerTopology.php -u admin \
 ```
 <!--CentOS 7-->
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
 -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Exemple:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

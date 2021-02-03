@@ -203,7 +203,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
+Éditez le fichier **/etc/opt/rh/rh-php73/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -273,7 +273,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php72-php-fpm httpd24-httpd
+systemctl restart rh-php73-php-fpm httpd24-httpd
 ```
 
 Puis vérifiez le statut :

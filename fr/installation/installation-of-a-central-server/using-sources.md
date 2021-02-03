@@ -27,22 +27,22 @@ Vous pouvez maintenant installer les prérequis :
 ``` shell
 yum update
 yum install -y \
-    rh-php72
-    rh-php72-php-zip \
-    rh-php72-php-xml \
-    rh-php72-php-fpm \
-    rh-php72-php-process \
-    rh-php72-php-common \
-    rh-php72-php-pdo \
-    rh-php72-php-intl \
-    rh-php72-php-pear \
-    rh-php72-php-json \
-    rh-php72-php-mysqlnd \
-    rh-php72-php-ldap \
-    rh-php72-php-gd \
-    rh-php72-php-cli \
-    rh-php72-php-mbstring \
-    rh-php72-php-snmp \
+    rh-php73
+    rh-php73-php-zip \
+    rh-php73-php-xml \
+    rh-php73-php-fpm \
+    rh-php73-php-process \
+    rh-php73-php-common \
+    rh-php73-php-pdo \
+    rh-php73-php-intl \
+    rh-php73-php-pear \
+    rh-php73-php-json \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-ldap \
+    rh-php73-php-gd \
+    rh-php73-php-cli \
+    rh-php73-php-mbstring \
+    rh-php73-php-snmp \
     perl-DBD-MySQL \
     perl-Sys-Syslog \
     httpd24-httpd \
@@ -73,23 +73,23 @@ Des commandes additionnelles sont nécessaires pour configurer correctement l'en
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php72/root/bin/pear channel-update pear.php.net
+/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
 ```
 
 Si vous ne pouvez pas accéder directement à Internet directement mais passer par un proxy, exécutez la commande
 suivante :
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Puis exécutez :
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear upgrade-all
+/opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
 <!--Debian Stretch / Ubuntu 18.04-->
-Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
+Ajoutez le dépot suivant, nécéssaire pour installer php 7.3 :
 
 ### For Debian Stretch
 

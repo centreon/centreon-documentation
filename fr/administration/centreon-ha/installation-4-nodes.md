@@ -777,7 +777,7 @@ Les ressources clones sont des ressources actives sur les deux noeuds Centraux.
 
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php72-php-fpm \
+	systemd:rh-php73-php-fpm \
     meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \

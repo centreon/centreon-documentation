@@ -51,14 +51,14 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4.html).
     command:
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
+    /opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
     -t Remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
     ```
 
     Example:
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin \
+    /opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin \
     -t Remote -h 192.168.0.1 -n remote-1
     ```
 
