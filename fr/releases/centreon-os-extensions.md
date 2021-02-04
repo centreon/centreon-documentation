@@ -85,6 +85,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.1
 
+`February 4, 2021`
+
 #### Correctifs
 
 - Manage pagination for GLPI webservice
