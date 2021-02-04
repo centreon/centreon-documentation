@@ -52,6 +52,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.1
 
+`February 4, 2021`
+
 #### Bugfixes
 
 - Manage pagination for GLPI webservice
