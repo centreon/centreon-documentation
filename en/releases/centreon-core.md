@@ -19,6 +19,37 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.3
+
+#### Enhancements
+
+- [API] Add endpoint for Topology/enableRemote
+- [API] Add Delete method for Topology/enableRemote
+- [Core] [Refactor the script to register new server in bash instead of PHP
+
+#### Bugfixes
+
+- [Administration] ACL Menus Access - Lines alignment
+- [Administration] ACL Menus Access - Unable to select subgroup access options
+- [CLAPI] APPLYCFG on a Poller behind a Remote Server doesn't trigger sync task for the RS itself
+- [CLAPI] Cancel RTACKNOWLEDGEMENT doesn't work for services
+- [CLAPI] Create user with language
+- [CLAPI] Import fails on password type macros
+- [CLAPI] Show RTACKNOWLEDGEMENT for a service only shows first one to have been defined
+- [Update] Central IP is override by 127.0.0.1 in platform_topology table
+
+#### Security fixes
+
+- [ACL/Access Groups] Cross-site Scripting (XSS) Stored/Persistent for search
+- [ACL/Actions Access] Cross-site Scripting (XSS) Stored/Persistent for search
+- [ACL/Resources Access] Cross-site Scripting (XSS) Stored/Persistent for search
+- [API] Missing access control mechanism in rest API v1
+- [Configuration > Servicegroups] Leak of technical information
+- [Configuration/H/HTPL/S/STPL] Password in plain text
+- [Core] Centreon token is vulnerable against replay attack
+- [Core] Token usage is not mandatory
+- [Media] PHP warning about missing tmp dir used during media upload
+
 ### 20.10.2
 
 `January 12, 2021`
