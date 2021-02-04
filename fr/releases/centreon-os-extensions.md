@@ -50,6 +50,12 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Open Ticket
 
+### 20.10.1
+
+#### Correctifs
+
+- Manage pagination for GLPI webservice
+
 ### 20.10.0
 
 `21 octobre 2020`
