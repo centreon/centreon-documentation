@@ -81,6 +81,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Open Ticket
 
+### 20.04.1
+
+`February 4, 2021`
+
+#### Bugfixes
+
+- Manage pagination for GLPI webservice
+
 ### 20.04.0
 
 `April 22, 2020`

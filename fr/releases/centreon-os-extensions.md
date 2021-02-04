@@ -83,6 +83,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Open Ticket
 
+### 20.04.1
+
+`February 4, 2021`
+
+#### Correctifs
+
+- Manage pagination for GLPI webservice
+
 ### 20.04.0
 
 `22 avril 2020`
