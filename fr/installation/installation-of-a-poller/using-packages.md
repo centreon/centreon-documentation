@@ -245,13 +245,13 @@ Vous recevrez la validation du serveur Centreon central ou du serveur Remote Ser
 > L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
 
 ``` shell
-Failed connect to 10.30.3.11:444; Connection refused
+Failed connect to 192.168.0.1:444; Connection refused
 ```
 
 > Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
 
 ``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
+2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
 > L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.

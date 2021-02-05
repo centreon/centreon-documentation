@@ -149,7 +149,7 @@ To transform the server into a Remote Server and register it to the Centreon Cen
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+-t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Example:
@@ -172,7 +172,7 @@ Then follow instructions by
 192.168.0.1: please enter your password:
 ```
 
-2. Select the IP adress if multiple network interfaces exist:
+2. Select the IP address if multiple network interfaces exist:
 
 ```shell
 Which IP do you want to use as CURRENT NODE IP ?
@@ -199,8 +199,8 @@ address: 192.168.0.2
 Do you want to register this server with those informations ? (y/n)y
 ```
 
-4. Add additional information to enable future communication between your Remote Server and its Central
-A few more information are required to convert your platform into Remote :
+4. Add additional information to enable future communication between your Remote Server and its Central,
+kindly fill in the required information to convert your platform into Remote :
 
 ```shell
 <CURRENT_NODE_ADDRESS> : Please enter your username:
@@ -219,7 +219,6 @@ y
 enter your proxy Host:
 myproxy.example.com
 enter your proxy Port [3128]:
-
 Are you using a username/password ? (y/n)
 y
 enter your username:
@@ -249,13 +248,13 @@ You will receive the validation of the Centreon central server:
 > The **<API_ACCOUNT>** doesn't have access to configuration API.
 
 ``` shell
-Failed connect to 192.169.0.1:444; Connection refused
+Failed connect to 192.168.0.1:444; Connection refused
 ```
 
 > Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
 
 ``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
+2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
 > The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
