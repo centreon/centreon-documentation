@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
+`08 janvier 2021`
+
 #### Améliorations
 
 - [API] Add endpoint for Topology/enableRemote
@@ -52,7 +54,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
-`12 janvier 2020`
+`12 janvier 2021`
 
 > Comportements connus :
 >
