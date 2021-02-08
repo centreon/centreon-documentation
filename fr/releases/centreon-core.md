@@ -21,7 +21,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
-`08 janvier 2021`
+`08 février 2021`
 
 #### Améliorations
 
