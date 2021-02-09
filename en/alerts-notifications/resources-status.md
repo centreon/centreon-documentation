@@ -85,7 +85,7 @@ reset the event.
 
 ### Pre-defined filters
 
-When you open the Events view, the default filter is "Unhandled
+When you open the Resource status page, the default filter is "Unhandled
 problems". This filter quickly show all problems/alerts that are not yet
 handled so you can focus on choosing the most relevant alerts to take
 care of. You can choose two other filters that are "Resources problems"
@@ -108,22 +108,24 @@ It's possible to filter out the events by name of resources. You can use
 the power of regular expression mechanism to finely search for resources
 (host or services)
 
-By default, the search bar with look for your expression to match with
+By default, the search bar with look for your expression to match with:
 
 -   Host name
 -   Host alias
 -   Address or FQDN
 -   Service description
+-   Information
 
 ![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
 It's possible to force search on a defined fields by using the following
 labels:
 
--   h.name: only search in host.name field
+-   h.name: only search in the host name field
 -   h.alias: only search in host alias field
--   h.address: only search in host address field
--   s.description: only search in service description field
+-   h.address: only search in the host address field
+-   s.description: only search in the service description field
+-   information: only search in the information field
 
 ![image](../assets/alerts/resources-status/resources-status-search-label.png)
 
@@ -140,6 +142,11 @@ to expand the filter bar to access the following additionnal criteria:
 -   Service groups
 
 ![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+### Hide / show criterias
+
+It’s also possible to manage the display of criterias (in order to display only the pertinent ones), by clicking on the "Select criterias" on the left hand-side:
+
+![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
 
 ### Save your filter
 
@@ -159,6 +166,10 @@ categorized under "My Filter".
 
 ![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
 
+By clicking on the "Edit filters" menu, you can manage your existing filters (rename, re-order and delete):
+
+![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
+
 ## Detail panel
 
 When you click on a line, a detail panel opens to display main information
@@ -171,7 +182,7 @@ Regarding the type of resource, the detail panel displays different information.
 The host panel contains several informative tabs:
 
 -   Detailed information about its current status,
--   A listing of its attached services and their current status,
+-   A listing of its attached services and their current status (as well as their graphes if the corrseponding mode is selected),
 -   The timeline of events that occurred for this host,
 -   Shortcuts to the configuration, logs and report.
 
@@ -194,3 +205,27 @@ The service panel contains several informative tabs:
 
 If an acknowledgement or downtime is set on the service, it will be displayed in
 the panel and the header will be accordingly colored.
+
+#### Graph
+
+The graph tab enables you to visually display how the metrics evolves for the selected resource. Hovering the metric curves will display a tooltip containing the different values for the corresponding point in time.
+
+It’s possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will do the opposite: unselect it and select all others:
+
+![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
+
+You can also toggle the selection of individual metrics by ctrl - cliking (or cmd - clicking on Macos) on the corresponding legend:
+
+![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+
+The "Display events" switch allows you to display some timeline events (Downtime, Acknowledgement, Comment) directly on the graph, via annotations:
+
+![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
+
+It’s possible to add a comment directly on the graph, by clicking anywhere at the time you want to add it, and select "Add a comment" on the tooltip that appears:
+
+![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
+
+By clicking on the "Export to PNG" button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
+
+![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
