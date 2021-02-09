@@ -20,7 +20,7 @@ Public IP service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Public IP* includes a Host Discovery *provider* to automatically discover the Azure instancesof a given
+The Centreon Plugin-Pack *Azure Public IP* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Public IP**:
 
