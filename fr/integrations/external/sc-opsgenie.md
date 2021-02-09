@@ -80,8 +80,8 @@ Le Stream Connector Opsgenie est maintenant installé sur votre serveur Centreon
 1. Connectez vous sur l'interface web votre Centreon avec un compte administrateur
 2. Rendez vous dans le menu **Configuration** > **Collecteurs** et allez dans **Configuration Broker**
 3. Cliquez sur la configuration broker **central-broker-master** et allez dans l'onglet **ouput**
-4. Ajouter un nouvel output **Generic - Stream connector**.
-5. Nommez le comme vous le souhaites (ex : **Opsgenie**) et indiquez le bon chemin pour le script LUA : `/usr/share/centreon-broker/lua/opsgenie.lua`.
+4. Ajoutez un nouvel output **Generic - Stream connector**.
+5. Nommez le comme vous le souhaitez (ex : **Opsgenie**) et indiquez le bon chemin pour le script LUA : `/usr/share/centreon-broker/lua/opsgenie.lua`.
 6. Ajoutez au moins un paramètre string. Ce paramètre est une clé d'API qui doit être configurée. Le nom du paramètre *doit être* `app_api_token` (pour les alertes) ou `integration_api_token` (pour les incidents, nécessite le module Centreon BAM). Si vous voulez utilisez ces deux aspects alors vous devez renseigner les deux paramètres dans la configuration.
 
 | Name                      | Type   | Value                   |
@@ -156,7 +156,7 @@ Pour être sûr que tout va bien, vous pouvez jeter un oeil aux fichiers de log 
 
 1. Connectez vous à l'interface web de Centreon avec un compte administrateur.
 2. Naviguez dans le menu **Configuration** > **Collecteurs** et sélectionnez **Configuration du broker**.
-3. Cliquez sur la configuration rboker **central-broker-master** puis allez dans l'onglet **Output**.
+3. Cliquez sur la configuration broker **central-broker-master** puis allez dans l'onglet **Output**.
 4. Supprimez l'output **Generic - Stream connector** en cliquant sur l'icône de croix rouge en bout de ligne.
 5. Sauvegardez votre configuration et rendez vous dans le menu **Configuration** > **Collecteurs** et sélectionnez **Collecteurs**.
 6. Sélectionnez le collecteur **Central** et cliquez sur **Exporter la configuration**
