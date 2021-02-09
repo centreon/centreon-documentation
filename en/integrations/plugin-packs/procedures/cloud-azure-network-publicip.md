@@ -5,7 +5,7 @@ title: Azure Public IP
 
 ## Overview
 
-ublic IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated
+Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated
 to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically
 assigns an available IP address that isn't dedicated to the resource.
 
