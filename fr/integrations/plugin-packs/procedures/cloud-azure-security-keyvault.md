@@ -276,10 +276,9 @@ sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxx
 Les métriques retournées seront une moyenne (```--aggregation='average'```) sur un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un point par tranche de 5 minutes (```--interval='PT5M'```).
 
-Dans cette exemple, une alarme de type WARNING sera déclenchée si le taux de disponibilité de l'instance pendant l'intervalle donné
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le taux de disponibilité de l'instance pendant l'intervalle donné
 est inférieur à 100% (```--warning-vault-availability-percentage='100:'```); l'alarme sera de type CRITICAL en dessous de 50%
 de taux de disponibilité (```--critical-vault-availability-percentage='50:'```).
-
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
