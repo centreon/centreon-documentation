@@ -413,7 +413,7 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
 Voici le résultat : 
 ```Shell
@@ -427,7 +427,7 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
 ```
 Voici le résultat :
 ```Shell
@@ -532,7 +532,7 @@ Pour connaître manuellement le nom des interfaces réseau disponibles, vous pou
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+    --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 Voici le résultat : 
 ```Shell
@@ -572,7 +572,7 @@ Ou pour récupérer la liste des spanning-tree :
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+    --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
 Voici le résultat : 
 ```Shell
