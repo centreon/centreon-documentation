@@ -394,7 +394,7 @@ To know manually the name of the available files system you can execute the plug
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+    --hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
 You will see the result:
 ```Shell
@@ -408,7 +408,7 @@ It is the same to know the name of the available network interfaces:
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
---hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+--hostname=10.40.1.254 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -511,7 +511,7 @@ To know manually the name of the available network interfaces you can execute th
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin \
-    --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 You will see the result:
 ```Shell
@@ -551,7 +551,7 @@ It is the same to know the name of the spanning-tree:
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin \
-    --hostname=10.40.1.254 --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+    --hostname=10.40.1.254 --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
 You will see the result:
 ```Shell
