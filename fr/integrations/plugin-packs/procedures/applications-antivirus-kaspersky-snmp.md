@@ -36,7 +36,7 @@ administrées.
 
 | Metric name           | Description               |
 |:---------------------|:---------------------------| 
-| events.critical.count | Number of critacal events |     
+| events.critical.count | Number of critical events |     
 
 <!--Logical-Network-->
 
@@ -54,7 +54,7 @@ administrées.
 | protection.hosts.antivirus.notrunning.count        | Number of hosts without a running antivirus            |
 | protection.hosts.realtime.notrunning.count         | Number of hosts without a running real time protection |
 | protection.hosts.realtime.unacceptable.level.count | Number of hosts with unacceptable protection level     |
-| protection.hosts.uncured.objects.count             | Number of hosts with uncurred objects                  |
+| protection.hosts.uncured.objects.count             | Number of hosts with uncured objects                   |
 | protection.hosts.2manythreats.count                | Number of hosts with too many threats                  |
 
 <!--Updates-->
@@ -117,11 +117,11 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Configuration de l'Hôte
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur Kaspersky Security Center
-* Appliquez le Modèle d'Hôte *App-Monitoring-Alyvix-Restapi-custom*
+* Appliquez le Modèle d'Hôte *App-Antivirus-Kaspersky-SNMP-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
@@ -140,46 +140,32 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
  
 ```bash
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin \
-  --mode=deployment --hostname=10.0.0.1 \
-  --snmp-version='2c' \
-  --snmp-community='mysnmpcommunity' \
-  --warning-status='%{status} =~ /Warning/i' \
-  --critical-status='%{status} =~ /Critical/i' \
-  --warning-progress='100:' \
-  --critical-progress='95:' \
-  --warning-failed='0' \
-  --critical-failed='' \
-  --warning-expiring='0' \
-  --critical-expiring='' \
-  --warning-expired='0' \
-  --critical-expired=''
+  --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection 
+  --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
+  --warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'
+  --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
+  --warning-not-acceptable-level='0' --critical-not-acceptable-level='' \
+  --warning-not-cured-objects='0' --critical-not-cured-objects='' \
+  --warning-too-many-threats='0' --critical-too-many-threats='' \
+  --warning-too-many-threats='0' --critical-too-many-threats='' \
+  --use-new-perfdata
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous :
 
 ```bash
-OK: status : skipped (no value(s)) - Deployment progress: 4743/4844 (97.91%) - 0 failed remote installation(s) - 0 host(s) with expiring licence - 0 host(s) with expired licence | 'progress'=4743;;;0;4844 'failed'=0;0:0;;0; 'expiring'=0;0:0;;0; 'expired'=0;0:0;;0;
+WARNING: 2 host(s) without running antivirus - 1 hosts(s) without running real time protection - 8 host(s) with not cured objects - 5 host(s) with too many threats | 'protection.hosts.antivirus.notrunning.count'=2;0:0;;0; 'protection.hosts.realtime.notrunning.count'=1;0:0;;0; 'protection.hosts.realtime.unacceptable.level.count'=0;0:0;;0; 'protection.hosts.uncured.objects.count'=8;0:0;;0; 'protection.hosts.toomanythreats.count'=5;0:0;;0;
 ```
 
-Dans cet exemple, le Plugin récupère le status du déploiement de l'antivirus 
-(--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=deployment) indiqué par 
+Dans cet exemple, le Plugin contrôle le statut de la protection des éléments du parc
+(```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=protection```) indiqué par 
 le Kasperky Security Center à l'adresse 10.0.0.1 par l'intermédiaire du 
 protocole SNMP 
-(--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity').
+(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
 
-Dans cet exemple, une alarme de type WARNING est déclenchée si :
-
-* Le nombre d'installations à distance réussies est inférieur à 100 (--warning-progress='100:')
-
-* Le nombre d'installations à distance échouées est supérieur à 0 (--warning-failed='0')
-
-* Le nombre d'hôtes ayant une licence expirant bientôt est supérieur à 0 (--warning-expiring='0')
-
-* Le nombre d'hôtes ayant une licence expirée est supérieur à 0 (--warning-expired='0')
-
-Une alarme CRITICAL est quant à elle déclenchée si le nombre d'installations 
-à distance réussies est inférieur à 95 (--critical-progress='95:').
+Dans cet exemple, une alarme est déclenchée si le statut global de la protection est différent de 'OK' 
+(```--warning-status='%{status} =~ /Warning/i'``` et ```--critical-status='%{status} =~ /Critical/i'```) 
+ou alors que le nombre de PC sans protection ou avec une protection insuffisante est supérieur à 0 (```--warning-no-antivirus='0'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
