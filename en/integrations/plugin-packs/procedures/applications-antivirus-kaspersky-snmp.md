@@ -135,42 +135,30 @@ user:
  
 ```bash
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin \
-  --mode=deployment --hostname=10.0.0.1 \
-  --snmp-version='2c' \
-  --snmp-community='mysnmpcommunity' \
-  --warning-status='%{status} =~ /Warning/i' \
-  --critical-status='%{status} =~ /Critical/i' \
-  --warning-progress='100:' \
-  --critical-progress='95:' \
-  --warning-failed='0' \
-  --critical-failed='' \
-  --warning-expiring='0' \
-  --critical-expiring='' \
-  --warning-expired='0' \
-  --critical-expired=''
+  --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection 
+  --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
+  --warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'
+  --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
+  --warning-not-acceptable-level='0' --critical-not-acceptable-level='' \
+  --warning-not-cured-objects='0' --critical-not-cured-objects='' \
+  --warning-too-many-threats='0' --critical-too-many-threats='' \
+  --warning-too-many-threats='0' --critical-too-many-threats='' \
+  --use-new-perfdata
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK: status : skipped (no value(s)) - Deployment progress: 4743/4844 (97.91%) - 0 failed remote installation(s) - 0 host(s) with expiring licence - 0 host(s) with expired licence | 'progress'=4743;;;0;4844 'failed'=0;0:0;;0; 'expiring'=0;0:0;;0; 'expired'=0;0:0;;0;
+WARNING: 2 host(s) without running antivirus - 1 hosts(s) without running real time protection - 8 host(s) with not cured objects - 5 host(s) with too many threats | 'protection.hosts.antivirus.notrunning.count'=2;0:0;;0; 'protection.hosts.realtime.notrunning.count'=1;0:0;;0; 'protection.hosts.realtime.unacceptable.level.count'=0;0:0;;0; 'protection.hosts.uncured.objects.count'=8;0:0;;0; 'protection.hosts.toomanythreats.count'=5;0:0;;0;
 ```
 
-In this example, the Plugin gets the antivirus software deployment status 
-(```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=deployment```) by 
+In this example, the Plugin gets protection status of the hosts managed by the Kaspersky Antivirus Manager
+(```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=protection```) by 
 requesting the Kaspersky Security Center using the SNMP protocol at 10.0.0.1
-(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity'```).
+(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
 
-This command triggers a WARNING alarm in the following cases:
-
-* The number of successful remote installations is lower than 100 (```--warning-progress='100:'```)
-* The number of failed remote installations is greater than 0 (```--warning-failed='0'```)
-* The number of hosts with expiring licence is greater than 0 (```--warning-expiring='0'```)
-* The number of hosts with expired licence is greater than 0 (```--warning-expired='0'```)
-
-A CRITICAL alarm is however triggered if the number of successful remote 
-installations is lower than 95 (```--critical-progress='95:'```).
+This command will trigger an alarm when the global protection status is not OK (```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=protection```)
+or when the number of host without antivirus or an unsatisfying level of protection is above 0 (```--warning-no-antivirus='0' --warning-not-acceptable-level='0'```).
 
 All available options for a given mode can be displayed by adding the 
 ```--help``` parameter to the command:
