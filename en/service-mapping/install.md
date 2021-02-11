@@ -33,9 +33,18 @@ using the interface.
 
 ### Install the interface
 
-Log on to the Centreon web interface using an account with privileges
-sufficient to install extension. Then go to the
-`Administration > Extension > Manager`
+Go to the `Administration > Extension > Manager` menu and click on the install
+button for the following modules:
+
+- License Manager (if not yet installed)
+- Business Activiy Monitoring
+
+![image](../assets/service-mapping/installation/install-web-step-1.png)
+
+Once installed and the license added, the module will be framed in green and
+will indicate the license expiry date:
+
+![image](../assets/service-mapping/installation/install-web-step-2.png)
 
 > If you are using MariaDB replication for your monitoring databases,
 > installing Centreon BAM generates a view. You need to exclude it from
