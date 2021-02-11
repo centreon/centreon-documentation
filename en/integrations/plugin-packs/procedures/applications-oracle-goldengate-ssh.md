@@ -7,7 +7,7 @@ title: Oracle GoldenGate SSH
 
 ### Monitored Objects
 
-The Plugin-Pack includes monitoring of Processes.
+The Plugin-Pack includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility. 
 
 ### Collected Metrics
 
