@@ -87,24 +87,20 @@ yum install -y gcc wget
 
 ###  Oracle instant client
 
-Go to [Instant Client
-Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
-choose the right OS (the one running monitoring engine, probably Linux x86-64)
-and download the following packages:
+Go to [Instant Client Downloads](http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html),
+choose the right OS your Poller is running on (Linux x86-64) and download the following packages:
 
   - oracle-instantclient-basic
   - oracle-instantclient-sqlplus
   - oracle-instantclientdevel
 
-Install them:
+Install the RPM Package manually:
 
 ```bash
 rpm -ivh oracle-*.rpm
 ```
 
 ### Perl library for Oracle
-
-> Replace 21.1 by the version of instantclient installed
 
 As root, run:
 
@@ -135,14 +131,14 @@ Compile the library:
 make
 ```
 
-Then install it:
+Install it:
 
 ```bash
 make install
 ```
 
-Then create the file : /etc/ld.so.conf.d/oracle.conf and link to the Oracle Perl
-Library:
+Create the file /etc/ld.so.conf.d/oracle.conf and add one line representing the 
+path to the library: 
 
 ```bash
 cat > /etc/ld.so.conf.d/oracle.conf <<EOF
@@ -150,15 +146,13 @@ cat > /etc/ld.so.conf.d/oracle.conf <<EOF
 EOF
 ```
 
-You just have to enter in the file : /usr/lib/oracle/21.1/client64/lib/
-
-Then :
+Update library cache with the following command: 
 
 ```bash
 /sbin/ldconfig
 ```
 
-### user account
+### User account
 
 The safest way to retrieve information from the Oracle server is to create a
 dedicated user for Centreon.
