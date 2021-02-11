@@ -19,6 +19,19 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.6
+
+`11 février 2021`
+
+#### Bugfixes
+
+- Nom d'hôte manquant dans le titre d'un service graph
+- Un graph créé depuis un service dans un élément host n'était pas correctement
+  rafraichi
+- Ouvrir une map depuis le listing ou le widget pouvait être trop long
+- L'info-bulle sur les éléments hostgroup n'affichait pas les ressources en
+  état critique
+
 ### 20.04.5
 
 `16 décembre 2020`

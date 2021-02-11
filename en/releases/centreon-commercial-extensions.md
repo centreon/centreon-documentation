@@ -19,6 +19,18 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.04.6
+
+`February 11, 2021`
+
+#### Bugfixes
+
+- Missing hostname in metric labels of service graph
+- Graph created from a service in host element was not refreshed correctly
+- Opening map from map listing or widget could could take too much time
+- Hostgroup element tooltip did not display resources in critical status in
+  the error list for this hostgroup
+
 ### 20.04.5
 
 `December 16, 2020`
