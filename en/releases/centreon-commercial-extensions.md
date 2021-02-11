@@ -20,7 +20,7 @@ If you have feature requests or want to report a bug, please contact support.
 ## Centreon MAP
 
 ### 20.04.6
-
+`January 10, 2021`
 #### Bugfixes
 
 - Missing hostname in metric labels of service graph
