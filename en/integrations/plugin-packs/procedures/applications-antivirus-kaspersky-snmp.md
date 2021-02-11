@@ -162,7 +162,7 @@ In this example, the Plugin gets the antivirus software deployment status
 requesting the Kaspersky Security Center using the SNMP protocol at 10.0.0.1
 (```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
-This command triggers a WARNING alarm in the following case:
+This command triggers a WARNING alarm in the following cases:
 
 * The number of successful remote installations is lower than 100 (```--warning-progress='100:'```)
 * The number of failed remote installations is greater than 0 (```--warning-failed='0'```)
