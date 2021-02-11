@@ -7,7 +7,8 @@ title: Oracle GoldenGate SSH
 
 ### Objets supervisés
 
-Le Plugin-Pack inclue la supervision Processes.
+Le Plugin-Pack inclue la supervision du statut et des lags des *Processes* Oracle GG en 
+utilisant la commande GGSCI. 
 
 ### Métriques collectées
 
