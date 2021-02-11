@@ -21,6 +21,8 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.6
 
+`11 février 2021`
+
 #### Bugfixes
 
 - Nom d'hôte manquant dans le titre d'un service graph
