@@ -31,8 +31,8 @@ Administration Server and managed products with the SNMP protocol.
 <!--Events-->
 
 | Metric name           | Description               |
-|:---------------------|:---------------------------| 
-| events.critical.count | Number of critacal events |     
+|:----------------------|:--------------------------| 
+| events.critical.count | Number of critical events |     
 
 <!--Logical-Network-->
 
@@ -50,8 +50,8 @@ Administration Server and managed products with the SNMP protocol.
 | protection.hosts.antivirus.notrunning.count        | Number of hosts without a running antivirus            |
 | protection.hosts.realtime.notrunning.count         | Number of hosts without a running real time protection |
 | protection.hosts.realtime.unacceptable.level.count | Number of hosts with unacceptable protection level     |
-| protection.hosts.uncured.objects.count             | Number of hosts with uncurred objects                  |
-| protection.hosts.2manythreats.count                | Number of hosts with too many threats                  |
+| protection.hosts.uncured.objects.count             | Number of hosts with uncured objects                   |
+| protection.hosts.toomanythreats.count              | Number of hosts with too many threats                  |
 
 <!--Updates-->
 
@@ -113,7 +113,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Host
+## Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your Kaspersky Security Center settings
@@ -158,22 +158,19 @@ OK: status : skipped (no value(s)) - Deployment progress: 4743/4844 (97.91%) - 0
 ```
 
 In this example, the Plugin gets the antivirus software deployment status 
-(--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=deployment) by 
+(```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=deployment```) by 
 requesting the Kaspersky Security Center using the SNMP protocol at 10.0.0.1
-(--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity').
+(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
 This command triggers a WARNING alarm in the following case:
 
-* The number of successful remote installations is lower than 100 (--warning-progress='100:')
-
-* The number of failed remote installations is greater then 0 (--warning-failed='0')
-
-* The number of hosts with expiring licence is greater then 0 (--warning-expiring='0')
-
-* The number of hosts with expired licence is greater then 0 (--warning-expired='0')
+* The number of successful remote installations is lower than 100 (```--warning-progress='100:'```)
+* The number of failed remote installations is greater than 0 (```--warning-failed='0'```)
+* The number of hosts with expiring licence is greater than 0 (```--warning-expiring='0'```)
+* The number of hosts with expired licence is greater than 0 (```--warning-expired='0'```)
 
 A CRITICAL alarm is however triggered if the number of successful remote 
-installations is lower than 95 (--critical-progress='95:').
+installations is lower than 95 (```--critical-progress='95:'```).
 
 All available options for a given mode can be displayed by adding the 
 ```--help``` parameter to the command:
@@ -185,7 +182,7 @@ All available options for a given mode can be displayed by adding the
   --help
 ```
 
-All plugin modes can be listed with the following command:
+All Plugin modes can be listed with the following command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
