@@ -26,6 +26,8 @@ If you have feature requests or want to report a bug, please contact support.
 - Missing hostname in metric labels of service graph
 - Graph created from a service in host element was not refreshed correctly
 - Opening map from map listing or widget could could take too much time
+- Hostgroup element tooltip did not display resources in critical status in
+  the error list for this hostgroup
 
 ### 20.04.5
 

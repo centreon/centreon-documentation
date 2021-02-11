@@ -27,6 +27,8 @@ commerciales, veuillez contacter le support.
 - Un graph créé depuis un service dans un élément host n'était pas correctement
   rafraichi
 - Ouvrir une map depuis le listing ou le widget pouvait être trop long
+- L'info-bulle sur les éléments hostgroup n'affichait pas les ressources en
+  état critique
 
 ### 20.04.5
 
