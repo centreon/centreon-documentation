@@ -14,7 +14,7 @@ Le Plugin-Pack Google Compute Engine collecte les données pour:
 
 ### Métriques collectées
 
-Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total.
+Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -146,7 +146,8 @@ La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
 OK: Instance 'instance-centreon1-drb5' aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20 | 'instance-centreon1-drb5~average#computeengine.cpu.utilization.percentage'=1.04%;0:90;0:95;0;100 'instance-centreon1-drb5~average#computeengine.cpu.reserved_cores.count'=0.20;;;;
-Checking 'instance-centreon1-drb5'aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20
+Checking 'instance-centreon1-drb5'
+    aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20
 ```
 
 Cette commande contrôle l'utilisation processeur (```--mode=cpu```) d'une instance Google Compute Engine 
@@ -165,8 +166,7 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-
-### J'obtiens le message d'erreur suivant:  ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
+### J'obtiens le message d'erreur suivant: ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
 

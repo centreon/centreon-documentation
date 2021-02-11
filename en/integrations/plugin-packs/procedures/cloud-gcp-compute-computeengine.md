@@ -14,7 +14,7 @@ The Plugin-Pack Google Compute Engine collects metrics for:
 
 ### Collected Metrics
 
-For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total.
+For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -146,7 +146,8 @@ Expected command output is shown below:
 
 ```bash
 OK: Instance 'instance-centreon1-drb5' aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20 | 'instance-centreon1-drb5~average#computeengine.cpu.utilization.percentage'=1.04%;0:90;0:95;0;100 'instance-centreon1-drb5~average#computeengine.cpu.reserved_cores.count'=0.20;;;;
-Checking 'instance-centreon1-drb5'aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20
+Checking 'instance-centreon1-drb5'
+    aggregation 'average' metrics cpu utilization: 1.04 %, cpu reserved cores: 0.20
 ```
 
 The command above monitors cpu usage of a Google Compute Engine instance (```--plugin=cloud::google::gcp::compute::computeengine::plugin --mode=cpu```) identified
