@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.3
 
+`February 11, 2021`
+
 #### Bugfixes
 
 - Missing hostname in metric labels of service graph
