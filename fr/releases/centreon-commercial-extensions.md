@@ -19,6 +19,15 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.3
+
+#### Bugfixes
+
+- Nom d'hôte manquant dans le titre d'un service graph
+- Un graph créé depuis un service dans un élément host n'était pas correctement
+  rafraichi
+- Ouvrir une map depuis le listing ou le widget pouvait être trop long
+
 ### 20.10.2
 
 `16 décembre 2020`
