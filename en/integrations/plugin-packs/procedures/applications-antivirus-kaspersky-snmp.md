@@ -135,7 +135,7 @@ user:
  
 ```bash
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection 
+  --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection \
   --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
   --warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'
   --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
@@ -157,7 +157,7 @@ In this example, the Plugin gets protection status of the hosts managed by the K
 requesting the Kaspersky Security Center using the SNMP protocol at 10.0.0.1
 (```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
 
-This command will trigger an alarm when the global protection status is not OK (```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=protection```)
+This command will trigger an alarm when the global protection status is not OK (```--warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'```)
 or when the number of host without antivirus or an unsatisfying level of protection is above 0 (```--warning-no-antivirus='0' --warning-not-acceptable-level='0'```).
 
 All available options for a given mode can be displayed by adding the 
