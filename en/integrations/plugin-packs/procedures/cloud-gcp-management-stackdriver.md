@@ -10,11 +10,11 @@ title: Google Stackdriver
 The Plugin-Pack Google Stackdriver collects metrics:
 * Get-metrics
 
-You can find the listing of metrics: https://cloud.google.com/monitoring/api/metrics_gcp
+A description of all GCP metrics can be found here: https://cloud.google.com/monitoring/api/metrics_gcp
 
 ### Collected Metrics
 
-For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
+For all collected metrics, following *aggregation* are available: _average_, _minimum_, _maximum_ and _total_.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
