@@ -833,6 +833,7 @@
                     "integrations/plugin-packs/procedures/hardware-ups-powerware-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-socomec-netvision-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-standard-rfc1628-snmp"
                 ],
                 "label": "Ups Pdu",
