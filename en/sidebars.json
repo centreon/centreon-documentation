@@ -319,6 +319,7 @@
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
+                    "integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-jboss-jmx",
