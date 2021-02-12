@@ -536,6 +536,7 @@
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
+                    "integrations/plugin-packs/procedures/network-athonet-epc-snmp",
                     "integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp",
                     "integrations/plugin-packs/procedures/network-barracuda-cloudgen-snmp",
                     "integrations/plugin-packs/procedures/network-beeware-snmp",
