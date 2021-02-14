@@ -449,6 +449,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
                     "integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql",
                     "integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine",
+                    "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
