@@ -211,7 +211,7 @@ the panel and the header will be accordingly colored.
 
 The graph tab enables you to visually display how the metrics evolves for the selected resource. Hovering the metric curves will display a tooltip containing the different values for the corresponding point in time.
 
-It’s possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will do the opposite: unselect it and select all others:
+It's possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will do the opposite: unselect it and select all others:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
