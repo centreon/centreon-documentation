@@ -227,7 +227,7 @@ La bascule "Afficher les évènements" permet d'afficher certains évènements d
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
-Il est possible d’ajouter un commentaire directement sur le graphique, en cliquant n’importe où, au niveau du temps souhaité, et ensuite en cliquant sur "Ajouter un commentaire" sur l’info bulle qui apparaît:
+Il est possible d'ajouter un commentaire directement sur le graphique, en cliquant n’importe où, au niveau du temps souhaité, et ensuite en cliquant sur "Ajouter un commentaire" sur l'info bulle qui apparaît :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 
