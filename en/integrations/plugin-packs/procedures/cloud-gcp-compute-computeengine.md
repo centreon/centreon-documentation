@@ -12,6 +12,20 @@ The Plugin-Pack Google Compute Engine collects metrics for:
 * Diskio
 * Network
 
+### Discovery rules
+
+The Centreon Plugin-Pack *Google Compute Engine* includes a Host Discovery *provider* to automatically discover virtual machines
+for a given Google Cloud Project.
+
+This provider is named **Google Compute Engine**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-computeengine-provider.png)
+
+> Note that the key file must be deployed on the Poller(s) expected to discover GCP assets.
+
+More information about the Host Discovery module is available in the Centreon documentation:
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.html)
+
 ### Collected Metrics
 
 For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
