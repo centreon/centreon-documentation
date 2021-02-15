@@ -142,6 +142,7 @@ to expand the filter bar to access the following additionnal criteria:
 -   Service groups
 
 ![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+
 ### Hide / show criterias
 
 It’s also possible to manage the display of criterias (in order to display only the pertinent ones), by clicking on the "Select criterias" on the left hand-side:
