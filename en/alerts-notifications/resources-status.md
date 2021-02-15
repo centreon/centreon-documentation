@@ -222,7 +222,7 @@ The "Display events" switch allows you to display some timeline events (Downtime
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
-It’s possible to add a comment directly on the graph, by clicking anywhere at the time you want to add it, and select "Add a comment" on the tooltip that appears:
+It's possible to add a comment directly on the graph, by clicking anywhere at the time you want to add it, and select "Add a comment" on the tooltip that appears:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 
