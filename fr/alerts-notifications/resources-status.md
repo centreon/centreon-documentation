@@ -146,7 +146,7 @@ est possible de déplier les filtres afin d'accéder à plus de critères:
 
 ### Afficher / masquer des critères
 
-Il est également possible d’afficher ou de marsquer des critères qui ne sont pas pertinents pour la recherche à effectuer, en cliquant sur le bouton "Séléctionner des critères" à gauche:
+Il est également possible d'afficher ou de masquer des critères qui ne sont pas pertinents pour la recherche à effectuer, en cliquant sur le bouton "Sélectionner des critères" à gauche :
 
 ![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
 
