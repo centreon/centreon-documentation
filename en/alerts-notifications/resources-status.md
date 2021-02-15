@@ -214,7 +214,7 @@ It’s possible to select or deselect metrics for display using the legend. By c
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by ctrl - cliking (or cmd - clicking on Macos) on the corresponding legend:
+You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding legend:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
