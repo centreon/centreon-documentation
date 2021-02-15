@@ -182,7 +182,7 @@ Regarding the type of resource, the detail panel displays different information.
 The host panel contains several informative tabs:
 
 -   Detailed information about its current status,
--   A listing of its attached services and their current status (as well as their graphes if the corrseponding mode is selected),
+-   A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected),
 -   The timeline of events that occurred for this host,
 -   Shortcuts to the configuration, logs and report.
 
