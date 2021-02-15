@@ -219,7 +219,7 @@ Il est possible de séléctionner ou déséléctionner des métriques pour l’a
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-Vous pouvez également basculer l’affichage de chaque métrique individuellement en utilisant ctrl + clique (ou bien cmd + clique si vous utilisez Macos) sur la légende correspondante:
+Vous pouvez également basculer l'affichage de chaque métrique individuellement en utilisant Ctrl+clique (ou bien Cmd+clique pour les utilisateurs Mac) sur la légende correspondante :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
