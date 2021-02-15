@@ -215,7 +215,7 @@ seront visibles sur le panneau.
 
 L'onglet graphique vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. En survolant les courbes avec la souris, vous afficherez une bulle contentant les valeurs des différentes métriques correspondant à l'instant.
 
-Il est possible de sélectionner ou désélectionner des métriques pour l'affichage un utilisant la légende. En cliquant sur un élément de la légende, l'ensemble des autres métriques sera désélectionnée, tandis que celle correspondant à la légende restera sélectionnée. Cliquer sur une métrique étant la seule sélectionnée provoquera le comportement inverse: cette dernière sera désélectionnée, et l'ensemble des autres sélectionnée :
+Il est possible de sélectionner ou désélectionner des métriques pour l'affichage un utilisant la légende. En cliquant sur un élément de la légende, l'ensemble des autres métriques sera désélectionnée, tandis que celle correspondant à la légende restera sélectionnée. Cliquer sur une métrique étant la seule sélectionnée sélectionnera également l'ensemble des autres :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
