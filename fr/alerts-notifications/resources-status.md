@@ -186,7 +186,7 @@ En fonction du type de ressource, différents onglets sont disponibles.
 Le panneau d'hôte contient plusieurs onglets informatifs :
 
 -   Informations détaillées sur le statut courant,
--   La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est séléctionné),
+-   La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 -   La chronologie des événements survenus pour cet hôte,
 -   Les raccourcis vers la configuration, les journaux d'évènement et les
     rapports de disponibilité.
