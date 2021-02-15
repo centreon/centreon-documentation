@@ -14,6 +14,20 @@ The Plugin-Pack Google CloudSQL MySQL collects metrics for:
 * Queries
 * Storage
 
+### Discovery rules
+
+The Centreon Plugin-Pack *Google CloudSQL MySQL* includes a Host Discovery *provider* to automatically discover databases
+for a given Google Cloud Project. 
+
+This provider is named **Google CloudSQL MySQL**:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql-provider.png)
+
+> Note that the key file must be deployed on the Poller(s) expected to discover GCP assets.
+
+More information about the Host Discovery module is available in the Centreon documentation:
+[Host Discovery](../../../monitoring/discovery/hosts-discovery.html)
+
 ### Collected Metrics
 
 For all collected metrics, we can choose the *aggregation*: _average_, _minimum_, _maximum_ and _total_.
@@ -185,4 +199,4 @@ parameter to the command:
 This command result means that Google Cloud does not have any value for the requested period.
 
 This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric 
-has been collected and will prevent the UNKNOWN error message. 
+has been collected and will prevent the UNKNOWN error message.
