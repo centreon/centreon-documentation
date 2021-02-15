@@ -231,6 +231,6 @@ Il est possible d'ajouter un commentaire directement sur le graphique, en cliqua
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 
-En cliquant sur le bouton "Exporter comme PNG", vous pouvez exporter une capture du graphique sous forme d’image PNG, qui va aussi inclure les évènements de la chronologie, si la bascule correspondante est activée. Notez que seules les métriques séléctionnées seront exportées:
+En cliquant sur le bouton "Exporter comme PNG", vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
