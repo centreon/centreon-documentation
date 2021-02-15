@@ -12,6 +12,18 @@ Le Plugin-Pack Google Compute Engine collecte les données pour:
 * Diskio
 * Network
 
+### Règles de découverte
+
+Le Plugin-Pack Centreon *Google Compute Engine* inclut un *provider* de découverte d'Hôtes.
+Celui-ci permet de découvrir l'ensemble des instances de calculs rattachées à un projet GCP donné:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine.png)
+
+> Le fichier *key* doit être déployé sur les Collecteurs utilisés pour la découverte en amont de son execution (voir chapitre Prérequis)
+
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
+[Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.html)
+
 ### Métriques collectées
 
 Pour l'ensemble des métriques collectées, il est possible de choisir *aggregation*: _average_, _minimum_, _maximum_ et _total_.
