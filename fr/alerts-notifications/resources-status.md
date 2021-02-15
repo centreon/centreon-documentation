@@ -170,7 +170,7 @@ sous la section "Mes filtres".
 
 ![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
 
-En cliquant sur le menu "Éditer les filtres", il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant):
+En cliquant sur le menu "Éditer les filtres", il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
 
 ![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
 
