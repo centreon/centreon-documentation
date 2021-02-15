@@ -223,7 +223,7 @@ Vous pouvez également basculer l’affichage de chaque métrique individuelleme
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
-La bascule "Afficher les évènements" permet d’afficher certains évènements de la chronologie de la ressource (Plages de maintenance, Acquittements, Commentaires) directement sur le graphique, à travers des annotations:
+La bascule "Afficher les évènements" permet d'afficher certains évènements de la chronologie de la ressource (Plages de maintenance, Acquittements, Commentaires) directement sur le graphique, aux travers d'annotations :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
