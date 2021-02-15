@@ -213,7 +213,7 @@ seront visibles sur le panneau.
 
 #### Graphique
 
-L’onglet graphique vous permet d’afficher de manière visuelle l’évolution des métriques dans le temps pour la ressource séléctionnée. En survolant les courbes avec la souris, vous afficherez une bulle contentant les valeurs des différentes métriques correspondant à l’instant.
+L'onglet graphique vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. En survolant les courbes avec la souris, vous afficherez une bulle contentant les valeurs des différentes métriques correspondant à l'instant.
 
 Il est possible de séléctionner ou déséléctionner des métriques pour l’affichage un utilisant la légende. En cliquant sur un élément de légende, l’ensemble des autres métriques sera déséléctionnée, tandis que celle correspondant à la légende restera séléctionnée. Cliquer sur une métrique étant la seule séléctionnée provoquera le comportement inverse: cette dernière sera déséléctionnée, et l’ensemble des autres séléctionnée:
 
