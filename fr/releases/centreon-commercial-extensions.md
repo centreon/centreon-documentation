@@ -138,6 +138,15 @@ liens
 
 ## Centreon BAM
 
+### 20.04.6
+
+`16 février 2021`
+
+### Correctifs
+
+- Dans le listing de supervision des BA, les infobulles de graphique des BA sont
+  désormais correctement affichées.
+
 ### 20.04.5
 
 `16 novembre 2020`

@@ -133,6 +133,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 20.04.6
+
+`February 16, 2021`
+
+#### Bugfixes
+
+- In BAM monitoring listing, the graph tooltip is now displayed correctly
+
 ### 20.04.5
 
 `November 16, 2020`
