@@ -28,7 +28,7 @@ protocol.
 | Metric name             | Description                         |
 |:------------------------|:------------------------------------|
 | clients.connected.count | The number of connected client      |
-| sockets.connected.count | The nNumber of open network sockets |
+| sockets.connected.count | The number of open network sockets  |
 
 <!--Connections-->
 
@@ -38,7 +38,7 @@ protocol.
 | connections.blocked.persecond             | The number of blocked connections per second                     | connections/s |
 | connections.antimalware.blocked.persecond | The number of connections blocked by the Anti Malware per second | connections/s |
 | connections.mediafilter.blocked.persecond | The number of connections blocked by the Media Filter per second | connections/s |
-| connections.urlfilter.blocked.persecond   | The number of connections blocked by the URL Filter   per second | connections/s |
+| connections.urlfilter.blocked.persecond   | The number of connections blocked by the URL Filter per second   | connections/s |
 
 <!--Detections-->
 
@@ -58,20 +58,20 @@ protocol.
 
 | Metric name                            | Description                      | Unit    |
 |:---------------------------------------|:---------------------------------|:------- |
-| ftp.traffic.client2proxy.bitspersecond | FTP traffic from client to proxy | b/s     |
-| ftp.traffic.server2proxy.bitspersecond | FTP traffic from server to proxy | b/s     |
-| ftp.traffic.proxy2client.bitspersecond | FTP traffic from proxy to client | b/s     |
-| ftp.traffic.proxy2server.bitspersecond | FTP traffic from proxy to server | b/s     |
+| ftp.traffic.clienttoproxy.bitspersecond | FTP traffic from client to proxy | b/s     |
+| ftp.traffic.servertoproxy.bitspersecond | FTP traffic from server to proxy | b/s     |
+| ftp.traffic.proxytoclient.bitspersecond | FTP traffic from proxy to client | b/s     |
+| ftp.traffic.proxytoserver.bitspersecond | FTP traffic from proxy to server | b/s     |
 
 <!--Httpstatistics-->
 
 | Metric name                             | Description                           | Unit    |
 |:----------------------------------------|:--------------------------------------|:------- |
 | http.requests.persecond                 | The number of HTTP request per second |         |
-| http.traffic.client2proxy.bitspersecond | HTTP traffic from client to proxy     | b/s     |
-| http.traffic.server2proxy.bitspersecond | HTTP traffic from server to proxy     | b/s     |
-| http.traffic.proxy2client.bitspersecond | HTTP traffic from proxy to client     | b/s     |
-| http.traffic.proxy2server.bitspersecond | HTTP traffic from proxy to server     | b/s     |
+| http.traffic.clienttoproxy.bitspersecond | HTTP traffic from client to proxy     | b/s     |
+| http.traffic.servertoproxy.bitspersecond | HTTP traffic from server to proxy     | b/s     |
+| http.traffic.proxytoclient.bitspersecond | HTTP traffic from proxy to client     | b/s     |
+| http.traffic.proxytoserver.bitspersecond | HTTP traffic from proxy to server     | b/s     |
 
 <!--Httpsstatistics-->
 
@@ -79,10 +79,10 @@ protocol.
 | Metric name                              | Description                            | Unit    |
 |:-----------------------------------------|:---------------------------------------|:--------|
 | https.requests.persecond                 | The number of HTTPS request per second |         |
-| https.traffic.client2proxy.bitspersecond | HTTPS traffic from client to proxy     | b/s     |
-| https.traffic.server2proxy.bitspersecond | HTTPS traffic from server to proxy     | b/s     |
-| https.traffic.proxy2client.bitspersecond | HTTPS traffic from proxy to client     | b/s     |
-| https.traffic.proxy2server.bitspersecond | HTTPS traffic from proxy to server     | b/s     |
+| https.traffic.clienttoproxy.bitspersecond | HTTPS traffic from client to proxy     | b/s     |
+| https.traffic.servertoproxy.bitspersecond | HTTPS traffic from server to proxy     | b/s     |
+| https.traffic.proxytoclient.bitspersecond | HTTPS traffic from proxy to client     | b/s     |
+| https.traffic.proxytoserver.bitspersecond | HTTPS traffic from proxy to server     | b/s     |
 
 <!--Versions-->
 
@@ -95,6 +95,8 @@ protocol.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
+
+### McAfee Web Gateway proxy configuration
 
 To use this pack, the SNMP service must be properly configured on your McAfee 
 Web Gateway. McAfee provides an official documentation to achieve this:
@@ -114,7 +116,7 @@ UDP/161 SNMP port.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -124,7 +126,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -142,13 +144,13 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 
 ## Configuration
 
-### Host
+### Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your a McAfee Web Gateway proxy settings
 
-* Apply the *Applications-Antivirus-mcafee-webgateway-snmp-custom* template and configure all the mandatory Macros :
+* Select the *App-Antivirus-Mcafee-Webgateway-SNMP-custom* template to apply to the Host.
 
 If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* Macro to configure
 your own SNMPv3 credentials combo.
@@ -159,11 +161,10 @@ your own SNMPv3 credentials combo.
 
 ## FAQ
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### How do I run my plugin through the CLI and what do the main parameters stand for ?
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
-command:
+Once you've installed the plugin, you can test it logging with centreon-engine 
+user:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
@@ -173,10 +174,11 @@ command:
     --snmp-version='2c' \
     --snmp-community='my-snmp-community' \
     --filter-counters='' \
-    --warning-clients='20' \
+    --warning-clients='' \
     --critical-clients='30' \
-    --warning-sockets='60' \
-    --critical-sockets='70' 
+    --warning-sockets='' \
+    --critical-sockets='70' \
+    --use-new-perfdata
 ```
 
 Expected command output is shown below:
@@ -186,23 +188,15 @@ OK: Connected clients: 10, Open network sockets: 50 | 'clients.connected.count'=
 ```
 
 In this example, the Plugin gets the number of connected clients
-(--plugin=apps::antivirus::mcafee::webgateway::snmp::plugin--mode=client) by 
-requesting the McAfee Web Gateway using the SNMP protocol at 10.0.0.1
-(--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity').
+(```--plugin=apps::antivirus::mcafee::webgateway::snmp::plugin--mode=client```)
+by requesting the McAfee Web Gateway using the SNMP protocol at 10.0.0.1
+(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='mysnmpcommunity'```).
 
-This command triggers a WARNING alarm in the following cases:
+This command will trigger an alarm when the number of connected clients is greater 
+than 30 (```--critical-clients='30'```) or the number of open network sockets is 
+greater then 70 (```--critical-sockets='70'```)
 
-* The number of connected clients is greater than 20 (--warning-clients='20)
-
-* The number of open network sockets is greater then 60 (--warning-sockets='60')
-
-A CRITICAL alarm is however triggered in the following cases:
-
-* The number of connected clients is greater than 30 (--critical-clients='30)
-
-* The number of open network sockets is greater then 70 (--critical-sockets='70')
-
-All the available options for a given mode can be displayed by adding the 
+All available options for a given mode can be displayed by adding the 
 ```--help``` parameter to the command:
 
 ```bash
@@ -212,8 +206,7 @@ All the available options for a given mode can be displayed by adding the
     --help
 ```
 
-All plugin modes can be listed by adding the ```--list-mode``` parameter to he 
-following command:
+All Plugin modes can be listed with the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_mcafee_webgateway_snmp.pl \
