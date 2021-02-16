@@ -217,7 +217,7 @@ Tous les modes disponibles peuvent être affichés via l'option
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
-pas à contacter le serveur Kaspersky Security Center sur le port 161 (firewall
+pas à contacter le proxy McAfee Web Gateway sur le port 161 (firewall
 ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
 correcte.
 
