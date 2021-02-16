@@ -64,22 +64,6 @@ systemctl disable firewalld
 
 ### Installer le dépôts
 
-#### Dépôt *Software collections* de Red Hat
-
-Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
-Hat doit être activé.
-
-> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
-> et les librairies associées.
-
-Exécutez la commande suivante :
-
-```shell
-yum install -y centos-release-scl
-```
-
-#### Dépôt Centreon
-
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8-->
 #### Redhat CodeReady Builder repository
@@ -105,12 +89,6 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
-
-> Pour CentOS 8.2 utilisez la commande :
-> ```shell
-> dnf -y install dnf-plugins-core epel-release
-> dnf config-manager --set-enabled PowerTools
-> ```
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
@@ -136,6 +114,24 @@ Exécutez la commande suivante :
 
 ```shell
 yum install -y centos-release-scl
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### Dépôt Centreon
+
+Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
+préalable installer le fichier lié au dépôt.
+
+Exécutez la commande suivante :
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.noarch.rpm
+```
+<!--CentOS 7-->
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -195,6 +191,11 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+Sécurisez votre installation MariaDB en exécutant la commande suivante :
+```shell
+mysql_secure_installation
+```
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
