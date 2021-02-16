@@ -93,6 +93,15 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.1
+
+`16 février 2021`
+
+#### Correctifs
+
+- Dans le listing de supervision des BA, les infobulles de graphique des BA sont
+  désormais correctement affichées.
+
 ### 20.10.0
 
 `21 octobre 2020`
