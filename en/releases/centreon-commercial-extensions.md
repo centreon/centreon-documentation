@@ -89,6 +89,14 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.1
+
+`February 16, 2021`
+
+#### Bugfixes
+
+- In BAM monitoring listing, the graph tooltip is now displayed correctly.
+
 ### 20.10.0
 
 `October 21, 2020`
