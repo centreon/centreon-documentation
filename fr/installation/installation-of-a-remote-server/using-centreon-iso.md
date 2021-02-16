@@ -5,6 +5,10 @@ title: A partir de l'ISO Centreon
 
 Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
 
+> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> / RHEL en version 8, vous devez suivre la procédure
+> [à partir des paquets RPM](./using-packages.html)
+
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.

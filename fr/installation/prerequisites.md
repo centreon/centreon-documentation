@@ -37,7 +37,7 @@ complexe à partir des fichiers sources de chaque composant.
 
 | Logiciel | Version |
 |----------|---------|
-| MariaDB  | 10.3.x  |
+| MariaDB  | 10.4.x  |
 
 ### Dépendances logicielles
 
@@ -49,7 +49,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.2        |
+| PHP      | 7.3        |
 | Qt       | \>= 4.7.4  |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
