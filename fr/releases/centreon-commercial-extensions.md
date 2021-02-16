@@ -142,7 +142,7 @@ liens
 
 `16 février 2021`
 
-### Correctifs
+#### Correctifs
 
 - Dans le listing de supervision des BA, les infobulles de graphique des BA sont
   désormais correctement affichées.
