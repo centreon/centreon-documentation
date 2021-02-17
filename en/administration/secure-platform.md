@@ -37,6 +37,110 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 > As a reminder, the list of users and groups can be found [here](../installation/prerequisites.html#users-and-groups)
 
+## Enable SELinux
+
+Centreon recently developed SELinux rules in order to strengthen the control of
+components by the operating system.
+
+> These rules are currently in test mode and can be activated.
+> You can activate them by following this procedure. In you detect of a problem,
+> it is possible to disable SELinux globally and to send us your feedback in
+> order to improve our rules.
+
+### SELinux Overview
+
+SELinux provides a flexible Mandatory Access Control (MAC) system built into the
+Linux kernel. Under standard Linux Discretionary Access Control (DAC), an
+application or process running as a user (UID or SUID) has the user's permissions
+to objects such as files, sockets, and other processes. Running a MAC kernel
+protects the system from malicious or flawed applications that can damage or
+destroy the system.
+
+SELinux defines the access and transition rights of every user, application,
+process, and file on the system. SELinux then governs the interactions of these
+entities using a security policy that specifies how strict or lenient a given Linux
+operting system installation should be.
+
+On a day-to-day basis, system users will be largely unaware of SELinux. Only
+system administrators need to consider how strict a policy to implement for
+their server environment. The policy can be as strict or as lenient as needed,
+and is very finely detailed. This detail gives the SELinux kernel complete,
+granular control over the entire system.
+
+More information about SELinux please see [SELinux project page](https://selinuxproject.org/page/Main_Page)
+
+### Install Centreon SELinux packages
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+   ```shell
+   yum --enablerepo='centreon-testing*' install \
+   centreon-common-selinux \
+   centreon-web-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Poller-->
+   ```shell
+   yum --enablerepo='centreon-testing*' install \
+   centreon-common-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Map server-->
+   ```shell
+   yum --enablerepo='centreon-testing*' install centreon-map-selinux
+   ```
+<!--MBI server-->
+   ```shell
+   yum --enablerepo='centreon-testing*' install centreon-mbi-selinux
+   ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+To check the installation, execute the following command:
+
+```shell
+semodule -l | grep centreon
+```
+
+Regarding your king of server you cann see:
+```shell
+centreon-broker	0.0.2
+centreon-common	0.0.7
+centreon-engine	0.0.2
+centreon-gorgoned	0.0.1
+centreon-web	0.0.5
+```
+
+### Enable SELinux
+
+By default, SELinux is disabled during Centreon installation process.
+To enable SELinux, you need to modify the `/etc/selinux/config` file as:
+
+```shell
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=enforcing
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+
+Then reboot your server:
+```shell
+shutdown -r now
+```
+
+
 ## Securing the installation of the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
