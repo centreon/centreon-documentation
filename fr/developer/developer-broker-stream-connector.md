@@ -346,9 +346,9 @@ The available methods are:
     a host severity. If a host or a service does not have any severity, the
     function returns a *nil* value.
 17. `get_host(host_id)` (**API v2 recommended**) that returns an associative array
-    proviing all the available information for one host from the cache.
+    providing all the available information for one host from the cache.
 18. `get_service(host_id, service_id)` (**API v2 recommended**) that returns an associative array
-    proviing all the available information for one service from the cache.
+    providing all the available information for one service from the cache.
 
 ## The init() function
 
