@@ -104,7 +104,7 @@ address: 192.168.0.2
 Do you want to register this server with those informations ? (y/n)y
 ```
 
-4. Ajouter des informations nécessaire pour permettre de futures communication entre votre Remote Server et son Central
+4. Ajouter les informations nécessaires pour permettre de futures communications entre votre Remote Server et son Central
 
 ```shell
 <CURRENT_NODE_ADDRESS> : Please enter your username:
