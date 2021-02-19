@@ -70,64 +70,65 @@ Example:
 Then follow instructions by
 1. Entering your password:
 
-``` shell
-192.168.0.1: please enter your password:
-```
+    ``` shell
+    192.168.0.1: please enter your password:
+    ```
 
 2. Select the IP address if multiple network interfaces exist:
 
-```shell
-Which IP do you want to use as CURRENT NODE IP ?
-1) 192.168.0.2
-2) 192.168.0.3
-1
-```
+    ```shell
+    Which IP do you want to use as CURRENT NODE IP ?
+    1) 192.168.0.2
+    2) 192.168.0.3
+    1
+    ```
 
 3. Then validate the information:
 
-``` shell
-Summary of the informations that will be send:
-
-Api Connection:
-username: admin
-password: ******
-target server: 192.168.0.1
-
-Pending Registration Server:
-name: remote-1
-type: remote
-address: 192.168.0.2
-
-Do you want to register this server with those informations ? (y/n)y
-```
+    ``` shell
+    Summary of the informations that will be send:
+    
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
+    
+    Pending Registration Server:
+    name: remote-1
+    type: remote
+    address: 192.168.0.2
+    
+    Do you want to register this server with those informations ? (y/n)y
+    ```
 
 4. Add additional information to enable future communication between your Remote Server and its Central,
 Kindly fill in the required information to convert your platform into Remote :
 
-```shell
-<CURRENT_NODE_ADDRESS> : Please enter your username:
-admin
-<CURRENT_NODE_ADDRESS> : Please enter your password:
+    ```shell
+    <CURRENT_NODE_ADDRESS> : Please enter your username:
+    admin
+    <CURRENT_NODE_ADDRESS> : Please enter your password:
+    
+    <CURRENT_NODE_ADDRESS> : Protocol [http]:
+    <CURRENT_NODE_ADDRESS> : Port [80]:
+    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+    ```
 
-<CURRENT_NODE_ADDRESS> : Protocol [http]:
-<CURRENT_NODE_ADDRESS> : Port [80]:
-<CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-```
 5. If you use a proxy, please define credentials:
 
-```shell
-Are you using a proxy ? (y/n)
-y
-enter your proxy Host:
-myproxy.example.com
-enter your proxy Port [3128]:
-Are you using a username/password ? (y/n)
-y
-enter your username:
-my_proxy_username
-enter your password:
-
-```
+    ```shell
+    Are you using a proxy ? (y/n)
+    y
+    enter your proxy Host:
+    myproxy.example.com
+    enter your proxy Port [3128]:
+    Are you using a username/password ? (y/n)
+    y
+    enter your username:
+    my_proxy_username
+    enter your password:
+    
+    ```
 
 You will receive the validation of the Centreon central server:
 

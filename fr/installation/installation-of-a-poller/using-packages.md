@@ -194,35 +194,36 @@ Suivre ensuite les instructions
 
 1. Saisir le mot de passe :
 
-``` shell
-192.168.0.1: please enter your password:
-```
+    ``` shell
+    192.168.0.1: please enter your password:
+    ```
+
 2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
 
-```shell
-Which IP do you want to use as CURRENT NODE IP ?
-1) 192.168.0.2
-2) 192.168.0.3
-1
-```
+    ```shell
+    Which IP do you want to use as CURRENT NODE IP ?
+    1) 192.168.0.2
+    2) 192.168.0.3
+    1
+    ```
 
 3. Valider les informations:
 
-``` shell
-Summary of the informations that will be send:
-
-Api Connection:
-username: admin
-password: ******
-target server: 192.168.0.1
-
-Pending Registration Server:
-name: poller-1
-type: poller
-address: 192.168.0.2
-
-Do you want to register this server with those informations ? (y/n)y
-```
+    ``` shell
+    Summary of the informations that will be send:
+    
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
+    
+    Pending Registration Server:
+    name: poller-1
+    type: poller
+    address: 192.168.0.2
+    
+    Do you want to register this server with those informations ? (y/n)y
+    ```
 
 Vous recevrez la validation du serveur Centreon central ou du serveur Remote Server :
 
