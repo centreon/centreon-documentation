@@ -115,19 +115,19 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin=apps::iis::restapi::plugin \
-	--mode=websites \
-	--hostname='www.int.centreon.com' \
-	--port='55539' \
-	--proto='https' \
-	--api-username='John.Doe' \
-	--api-password='6fbadZEJbsLG' \
-	--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
-	--http-backend='curl' \
-	--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-	--filter-name='^www$' \
-	--critical-status='%{status} !~ /starting|started/' \
-	--verbose
+    --plugin=apps::iis::restapi::plugin \
+    --mode=websites \
+    --hostname='www.int.centreon.com' \
+    --port='55539' \
+    --proto='https' \
+    --api-username='John.Doe' \
+    --api-password='6fbadZEJbsLG' \
+    --api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
+    --http-backend='curl' \
+    --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+    --filter-name='^www$' \
+    --critical-status='%{status} !~ /starting|started/' \
+    --verbose
 ```
 
 The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
@@ -151,8 +151,8 @@ The available thresholds as well as all of the options that can be used with thi
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin apps::iis::restapi::plugin \
-	--mode websites \
+    --plugin apps::iis::restapi::plugin \
+    --mode websites \
         --help
 ```
 You can display all of the modes that come with the Plugin with the command below: 
