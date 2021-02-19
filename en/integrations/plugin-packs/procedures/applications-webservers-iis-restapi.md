@@ -42,8 +42,8 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 | status                              | Status of the website.                                                  |
 | website.traffic.in.bitspersecond    | Incoming traffic going through the website. Unit: bits/second           |
 | website.traffic.out.bitspersecond   | Outgoing traffic going through the website. Unit: bits/second           |
-| website.connections.current.count   | Nomber of current connections by website. Unit: count                   |
-| website.connections.total.persecond | Number of total connecions per second by website. Unit: requests/second |
+| website.connections.current.count   | Number of current connections by website. Unit: count                   |
+| website.connections.total.persecond | Number of total connections per second by website. Unit: requests/second |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -60,7 +60,7 @@ To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. M
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
@@ -147,7 +147,7 @@ Website 'www' traffic in: 5.41 Kb/s, traffic out: 59.74 Kb/s, current connection
 
 Some thresholds can also be set on metrics with options ```--warning-*``` and ```--critical-*```.
 
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+The available thresholds as well as all the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
@@ -155,7 +155,7 @@ The available thresholds as well as all of the options that can be used with thi
     --mode websites \
         --help
 ```
-You can display all of the modes that come with the Plugin with the command below: 
+You can display all the modes that come with the Plugin with the command below: 
 
 
 ```bash
