@@ -42,8 +42,8 @@ Internet Information Services (IIS, formerly Internet Information Server) is an 
 | status                              | Status of the website.                                                  |
 | website.traffic.in.bitspersecond    | Incoming traffic going through the website. Unit: bits/second           |
 | website.traffic.out.bitspersecond   | Outgoing traffic going through the website. Unit: bits/second           |
-| website.connections.current.count   | Nomber of current connections by website. Unit: count                   |
-| website.connections.total.persecond | Number of total connecions per second by website. Unit: requests/second |
+| website.connections.current.count   | Number of current connections by website. Unit: count                   |
+| website.connections.total.persecond | Number of total connections per second by website. Unit: requests/second |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -60,7 +60,7 @@ To use this Plugin-Pack, you must enable the Microsoft IIS Administration API. M
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor IIS resources:
 
 ```bash
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
@@ -115,22 +115,22 @@ Once the Centreon plugin installed, you can test it logging with the centreon-en
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin=apps::iis::restapi::plugin \
-	--mode=websites \
-	--hostname='www.int.centreon.com' \
-	--port='55539' \
-	--proto='https' \
-	--api-username='John.Doe' \
-	--api-password='6fbadZEJbsLG' \
-	--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
-	--http-backend='curl' \
-	--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-	--filter-name='^www$' \
-	--critical-status='%{status} !~ /starting|started/' \
-	--verbose
+    --plugin=apps::iis::restapi::plugin \
+    --mode=websites \
+    --hostname='www.int.centreon.com' \
+    --port='55539' \
+    --proto='https' \
+    --api-username='John.Doe' \
+    --api-password='6fbadZEJbsLG' \
+    --api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
+    --http-backend='curl' \
+    --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+    --filter-name='^www$' \
+    --critical-status='%{status} !~ /starting|started/' \
+    --verbose
 ```
 
-The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centroen.com'```).
+The command above checks the status and the usage of the Website *www* (```--filter-name=^www$```) hosted by the IIS server *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
 It uses an API username (```--api-username='John.doe'```), API password (```--api-password='6fbadZEJbsLG'```) and API token (```--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw'```) generated from the IIS Administration API.
 The *curl* backend is used (```--http-backend='curl'```) and the SSL certificate validity is not checked (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
 
@@ -147,15 +147,15 @@ Website 'www' traffic in: 5.41 Kb/s, traffic out: 59.74 Kb/s, current connection
 
 Some thresholds can also be set on metrics with options ```--warning-*``` and ```--critical-*```.
 
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
+The available thresholds as well as all the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin apps::iis::restapi::plugin \
-	--mode websites \
+    --plugin apps::iis::restapi::plugin \
+    --mode websites \
         --help
 ```
-You can display all of the modes that come with the Plugin with the command below: 
+You can display all the modes that come with the Plugin with the command below: 
 
 
 ```bash

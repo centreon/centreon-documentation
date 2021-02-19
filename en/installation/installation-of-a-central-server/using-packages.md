@@ -12,7 +12,7 @@ These packages have been successfully tested in CentOS 7 and 8 environments.
 > your production environment. Nevertheless, these packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
 
-After installating your server, consider updating your operating system via the
+After installing your server, consider updating your operating system via the
 command:
 
 <!--DOCUSAURUS_CODE_TABS-->
