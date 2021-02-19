@@ -49,118 +49,127 @@ installez le module **centreon-license-manager**.
 
 5. Enregistrer le Remote Server
 
-    Pour l'enregistrer sur le serveur Centreon Central exécutez la commande suivante :
+Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
+
+``` shell
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+```
+
+Exemple:
+
+``` shell
+/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
+```
+
+> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
+
+> Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+
+> Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
+> HTTPS://<IP_TARGET_NODE>:PORT
+
+Suivre ensuite les instructions
+
+1. Saisir le mot de passe :
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u <API_ACCOUNT> \
-    -t Poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
+    192.168.0.1: please enter your password
     ```
 
-    Exemple:
+2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
+
+    ```shell
+    Which IP do you want to use as CURRENT NODE IP ?
+    1) 192.168.0.2
+    2) 192.168.0.3
+    1
+    ```
+
+3. Valider les informations:
 
     ``` shell
-    /opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/registerServerTopology.php -u admin -t Remote -h 192.168.0.1 -n remote-1
+    Summary of the informations that will be send:
+    
+    Api Connection:
+    username: admin
+    password: ******
+    target server: 192.168.0.1
+    
+    Pending Registration Server:
+    name: remote-1
+    type: remote
+    address: 192.168.0.2
+    
+    Do you want to register this server with those informations ? (y/n)y
     ```
 
-    > Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
+4. Ajouter les informations nécessaires pour permettre de futures communications entre votre Remote Server et son Central
 
-    > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
-
-    > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-    > HTTPS://<IP_TARGET_NODE>:PORT
-
-    Suivre ensuite les instructions
-
-    1. Saisir le mot de passe :
-
-        ``` shell
-        192.168.0.1: please enter your password
-        ```
-
-    2. Définir les accès au proxy pour atteindre le serveur Centreon :
-
-        ``` shell
-        Are you using a proxy ? (y/n)n
-        ```
-
-        Si vous utilisez un proxy, veuillez définir les informations d'identification :
-
-        ``` shell
-        Are you using a proxy ? (y/n)y
-
-        proxy host: myproxy.example.com
-
-        proxy port: 3128
-
-        proxy username (press enter if no username/password are required): myuser
-
-        please enter the proxy password:
-        ```
-
-    3. Sélectionner l'adresse IP :
-
-        ```shell
-        Found IP on CURRENT NODE:
-        [1]: 192.168.0.2
-        Which IP do you want to use as CURRENT NODE IP ?1
-        ```
-
-    4. Valider les informations:
-
-        ``` shell
-        Summary of the informations that will be send:
-
-        Api Connection:
-        username: admin
-        password: ******
-        target server: 192.168.0.1
-
-        Pending Registration Server:
-        name: remote-1
-        type: remote
-        address: 192.168.0.2
-
-        Do you want to register this server with those informations ? (y/n)y
-        ```
-
-        Vous recevrez la validation du serveur Centreon Central :
-
-        ``` shell
-        2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote': 'remote-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
-        ```
-
-    ### Principaux messages d'erreur
-
-    ``` shell
-    2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+    ```shell
+    <CURRENT_NODE_ADDRESS> : Please enter your username:
+    admin
+    <CURRENT_NODE_ADDRESS> : Please enter your password:
+    
+    <CURRENT_NODE_ADDRESS> : Protocol [http]:
+    <CURRENT_NODE_ADDRESS> : Port [80]:
+    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
     ```
 
-    > Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
+5. Définir les accès au proxy du serveur Centreon du Central :
 
-    ``` shell
-    2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+    ```shell
+    Are you using a proxy ? (y/n)
+    y
+    enter your proxy Host:
+    myproxy.example.com
+    enter your proxy Port [3128]:
+    Are you using a username/password ? (y/n)
+    y
+    enter your username:
+    my_proxy_username
+    enter your password:
+    
     ```
 
-    > L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+Vous recevrez la validation du serveur Centreon Central :
 
-    ``` shell
-    Failed connect to 10.30.3.11:444; Connection refused
-    ```
+``` shell
+2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
+```
 
-    > Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
+### Principaux messages d'erreur
 
-    ``` shell
-    2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.169.0.1:443/centreon/api/latest/login
-    ```
+``` shell
+2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+```
 
-    > L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
-    > Par exemple : **--root monitoring**.
+> Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
 
-    ``` shell
-    2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
-    ```
+``` shell
+2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+```
 
-    > La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
+> L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+
+``` shell
+Failed connect to 192.168.0.1:444; Connection refused
+```
+
+> Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
+
+``` shell
+2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
+```
+
+> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
+> Par exemple : **--root monitoring**.
+
+``` shell
+2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
+```
+
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
 
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:
