@@ -257,7 +257,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> The access url is not complete or invalide. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
+> The access url is not complete or is invalid. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
 
 ``` shell
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
