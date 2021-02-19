@@ -42,8 +42,8 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 | status                              | Status of the website.                                                  |
 | website.traffic.in.bitspersecond    | Incoming traffic going through the website. Unit: bits/second           |
 | website.traffic.out.bitspersecond   | Outgoing traffic going through the website. Unit: bits/second           |
-| website.connections.current.count   | Nomber of current connections by website. Unit: count                   |
-| website.connections.total.persecond | Number of total connecions per second by website. Unit: requests/second |
+| website.connections.current.count   | Number of current connections by website. Unit: count                   |
+| website.connections.total.persecond | Number of total connections per second by website. Unit: requests/second |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -51,7 +51,7 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 
 ### Configuration IIS
 
-Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administration. Microsoft founit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
+Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administration. Microsoft fournit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
 
 
 ## Installation
@@ -118,19 +118,19 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin apps::iis::restapi::plugin \
-	--mode websites \
-	--hostname='www.int.centreon.com' \
-	--port='55539' \
-	--proto='https' \
-	--api-username='John.Doe' \
-	--api-password='6fbadZEJbsLG' \
-	--api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
-	--http-backend='curl' \
-	--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
-	--filter-name='^www$' \
-	--critical-status='%{status} !~ /starting|started/' \
-	--verbose
+    --plugin apps::iis::restapi::plugin \
+    --mode websites \
+    --hostname='www.int.centreon.com' \
+    --port='55539' \
+    --proto='https' \
+    --api-username='John.Doe' \
+    --api-password='6fbadZEJbsLG' \
+    --api-token='ZHppZCWPzREgSb9SDYOegsY0_D4KJKgZ5q8QavEWBPmmi8fgt2-8Cw' \
+    --http-backend='curl' \
+    --curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+    --filter-name='^www$' \
+    --critical-status='%{status} !~ /starting|started/' \
+    --verbose
 ```
 
 Cette commande supervise le statut et l'utilisation du site *www* (```--filter-name=^www$```) hébergé sur le serveur IIS *www.int.centreon.com* (```--hostname='www.int.centreon.com'```).
@@ -157,8 +157,8 @@ Pour chaque mode, les options disponibles peuvent être consultées en ajoutant 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
-	--plugin apps::iis::restapi::plugin \
-	--mode websites \
+    --plugin apps::iis::restapi::plugin \
+    --mode websites \
         --help
 ```
 
@@ -174,7 +174,7 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 
 #### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
 
-Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
+Ce message d'erreur indique qu'une librairie Perl est manquante pour utiliser le backend *curl*.
 
 Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
 
