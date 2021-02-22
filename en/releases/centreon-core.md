@@ -38,7 +38,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration/] "Conf Changed" yes is green instead of red in pollers listing
 - [Configuration] Creation forms generate satus code 400 errors
 - [Configuration] Non-admin users can't create host/service
-- [Remote Server] Import task failed when a Poller is link to additional RS
+- [Remote Server] Import task failed when a Poller is linked to additional RS
 - [Resources Status] Display order of events in timeline
 - [Resources Status] Panel does not display radius
 - [Resources Status] Unexpected behavior when setting a DT with an empty comment field
