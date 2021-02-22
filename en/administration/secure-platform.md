@@ -69,6 +69,30 @@ granular control over the entire system.
 
 More information about SELinux please see [SELinux project page](https://selinuxproject.org/page/Main_Page)
 
+### Enable SELinux in permissive mode
+
+By default, SELinux is disabled during Centreon installation process.
+To enable SELinux in permissive mode, you need to modify the `/etc/selinux/config`
+file as:
+
+```shell
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=permissive
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+
+Then reboot your server:
+```shell
+shutdown -r now
+```
 ### Install Centreon SELinux packages
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -117,28 +141,6 @@ centreon-web	0.0.5
 ```
 
 ### Enable SELinux
-
-By default, SELinux is disabled during Centreon installation process.
-To enable SELinux, you need to modify the `/etc/selinux/config` file as:
-
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=enforcing
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
-
-Then reboot your server:
-```shell
-shutdown -r now
-```
 
 
 ## Securing the installation of the DBMS
