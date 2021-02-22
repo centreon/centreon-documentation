@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [CLAPI] No control on dependencies relations
 - [Configuration/] "Conf Changed" yes is green instead of red in pollers listing
-- [Configuration] Creation forms generate 400 errors
+- [Configuration] Creation forms generate satus code 400 errors
 - [Configuration] Non-admin users can't create host/service
 - [Remote Server] Import task failed when a Poller is link to additional RS
 - [Resources Status] Display order of events in timeline
