@@ -19,7 +19,44 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.4
+
+#### Améliorations
+
+- [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
+- [Configuration] Add the 'postpone_notification_to_timeperiod' parameter in Engine configuration
+- [Configuration] Improve access to the list of pollers
+- [Core] Performance improvements for partitioning
+- [Core] Update PHP 7.3 compatibility
+- [Core] Use Gorgone to dispatch downtimes locally
+- [Resources Status] Display of comments in the host details page
+- [Top counters] Displayed values for services don't consider host acknowledgments
+
+#### Correctifs
+
+- [CLAPI] No control on dependencies relations
+- [Configuration/] "Conf Changed" yes is green instead of red in pollers listing
+- [Configuration] Creation forms generate 400 errors
+- [Configuration] Non-admin users can't create host/service
+- [Remote Server] Import task failed when a Poller is link to additional RS
+- [Resources Status] Display order of events in timeline
+- [Resources Status] Panel does not display radius
+- [Resources Status] Unexpected behavior when setting a DT with an empty comment field
+
+#### Correctifs de sécurité
+
+- [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access"
+- [Administration] XSS stored in the LDAP form
+- [Apache] remove deprecated TLS cyphers
+- [Authentication] Session is active longer than expected
+- [Authentication] User enumeration in login page
+- [Configuration] Cross-site Scripting (XSS) Reflected in "Configuration > Hosts"
+- [Core] Vulnerable handlebars.js library
+- [Reporting] Cross-site Scripting (XSS) Reflected in "Dashboard > Hosts"
+
 ### 20.10.3
+
+`8 février 2021`
 
 #### Améliorations
 
@@ -52,7 +89,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
-`12 janvier 2020`
+`12 janvier 2021`
 
 > Comportements connus :
 >
