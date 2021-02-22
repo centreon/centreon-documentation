@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [CLAPI] No control on dependencies relations
 - [Configuration] Non-admin users can't create host/service
-- [Remote Server] Import task failed when a Poller is link to additional RS
+- [Remote Server] Import task failed when a Poller is linked to additional RS
 
 #### Security fixes
 
