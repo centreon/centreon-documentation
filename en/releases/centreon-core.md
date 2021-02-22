@@ -19,7 +19,39 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.10
+
+#### Enhancements
+
+- [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
+- [Configuration] Add the 'postpone_notification_to_timeperiod' parameter in Engine configuration
+- [Configuration] Improve access to the list of pollers
+- [Core] Performance improvements for partitioning
+- [Core] Update PHP 7.3 compatibility
+- [Core] Use Gorgone to dispatch downtimes locally
+- [Resources Status] Display of comments in the host details page
+- [Top counters] Displayed values for services don't consider host acknowledgments
+
+#### Bugfixes
+
+- [CLAPI] No control on dependencies relations
+- [Configuration] Non-admin users can't create host/service
+- [Remote Server] Import task failed when a Poller is link to additional RS
+
+#### Security fixes
+
+- [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access"
+- [Administration] XSS stored in the LDAP form
+- [Apache] remove deprecated TLS cyphers
+- [Authentication] Session is active longer than expected
+- [Authentication] User enumeration in login page
+- [Configuration] Cross-site Scripting (XSS) Reflected in "Configuration > Hosts"
+- [Core] Vulnerable handlebars.js library
+- [Reporting] Cross-site Scripting (XSS) Reflected in "Dashboard > Hosts"
+
 ### 20.04.9
+
+`January 28, 2021`
 
 #### Bugfixes
 
