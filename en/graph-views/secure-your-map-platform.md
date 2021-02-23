@@ -168,7 +168,7 @@ Then, set the following parameters in MAP server configuration at
 
 To set the communication protocol with Centreon server to HTTPS:
 ```text
-centreon.url=https://<server-adress>
+centreon.url=https://<server-address>
 ```
 
 To enable TLS socket connection with Broker :
