@@ -149,7 +149,8 @@ The available thresholds as well as all the options that can be used with this P
     --mode websites \
         --help
 ```
-You can display all the modes that come with the Plugin with the command below: 
+
+You can display all the modes that come with the Plugin with the command below:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_iis_restapi.pl \
