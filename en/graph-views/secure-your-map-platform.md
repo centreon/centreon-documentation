@@ -163,9 +163,15 @@ certificate as described below:
 First of all, you should [activate HTTPS/TLS on the web
 server](#configure-httpstls-on-the-web-server)
 
-Then, set the following parameter in MAP server configuration at
-`/etc/centreon-studio/studio-config.properties` to enable TLS socket
-connection with Broker :
+Then, set the following parameters in MAP server configuration at
+`/etc/centreon-studio/studio-config.properties` :
+
+To set the communication protocol with Centreon server to HTTPS:
+```text
+centreon.url=https://<server-adress>
+```
+
+To enable TLS socket connection with Broker :
 
 ```text
 broker.tls=true
