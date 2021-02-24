@@ -24,6 +24,7 @@ servers:
 > This upgrade process will only upgrade Centreon components first.
 >
 > MariaDB will be upgraded afterwards.
+
 ### Update the Centreon repository
 
 Run the following commands:
