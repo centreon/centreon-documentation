@@ -4,7 +4,10 @@ title: Upgrade from Centreon 19.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 19.04
-to version 20.10.
+to version 21.04.
+
+> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
 
 ## Perform a backup
 
@@ -16,12 +19,18 @@ servers:
 
 ## Upgrade the Centreon Central server
 
+> Since 21.04, Centreon uses **MariaDB 10.5**.
+>
+> This upgrade process will only upgrade Centreon components first.
+>
+> MariaDB will be upgraded afterwards.
+
 ### Update the Centreon repository
 
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -32,12 +41,6 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 > ```
 
 ### Upgrade the Centreon solution
-
-> Since 20.04, Centreon uses **MariaDB 10.3**.
->
-> This upgrade process will only upgrade Centreon components first.
->
-> MariaDB will be upgraded afterwards.
 
 Clean yum cache:
 
@@ -208,6 +211,7 @@ To act this change, run the following commands:
 systemctl stop centcore
 systemctl enable gorgoned
 systemctl start gorgoned
+systemctl disable centcore
 ```
 
 Engine statistics that have been collected by *Centcore* will know be collected
@@ -237,28 +241,30 @@ command:
     systemctl restart cbd centengine
     ```
 
-### Upgrade MariaDB server
-
 The MariaDB components can now be upgraded.
 
 Be aware that MariaDB strongly recommends to upgrade the server through each
 major release. Please refer to the [official MariaDB
 documentation](https://mariadb.com/kb/en/upgrading/) for further information.
 
-You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+You must update MariaDB from your starting version (probably 10.1), up to
+version 10.5. The version upgrade must be done 1 to 1, for example 10.1 to 10.2,
+10.2 to 10.3, etc.
 
-That is why Centreon provides both 10.2 and 10.3 versions on its stable
+That is why Centreon provides all versions from 10.1 to 10.5 on its stable
 repositories.
 
 > Refer to the official MariaDB documentation to know more about this process:
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
 #### Configuration
 
-`innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2, so you should remove it
-from file **/etc/my.cnf.d/centreon.cnf**
+`innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2,
+so you should remove it from file **/etc/my.cnf.d/centreon.cnf**
 
 ```diff
 #
@@ -362,6 +368,82 @@ MariaDB:
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
 
+#### Upgrade from 10.3 to 10.4
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.3 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.4 version:
+
+    ```shell
+    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.4 to 10.5
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.4 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
 #### Enable MariaDB on startup
 
 Execute the following command:
@@ -381,7 +463,7 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
