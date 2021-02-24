@@ -6,6 +6,9 @@ title: Upgrade from Centreon 18.10
 This chapter describes how to upgrade your Centreon platform from version 18.10
 to version 21.04.
 
+> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+
 ## Perform a backup
 
 Be sure that you have fully backed up your environment for the following
