@@ -22,7 +22,7 @@ servers:
 
 ## Upgrade the Centreon Central server
 
-> Since 21.10, Centreon uses **MariaDB 10.5**.
+> Since 21.04, Centreon uses **MariaDB 10.5**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
