@@ -28,7 +28,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Core] Performance improvements for partitioning
 - [Core] Update PHP 7.3 compatibility
 - [Core] Use Gorgone to dispatch downtimes locally
-- [Resources Status] Display of comments in the host details page
+- [Status Details] Display of comments in the host details page
 - [Top counters] Displayed values for services don't consider host acknowledgements
 
 #### Correctifs
