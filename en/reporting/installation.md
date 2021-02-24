@@ -82,7 +82,7 @@ considerations.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon 20.10
+- Centreon 21.04
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
@@ -90,7 +90,7 @@ considerations.
   - wait_timeout
   - interactive_timeout
 <!--CentOS 7-->
-- Centreon 20.10
+- Centreon 21.04
 - Check that the parameter `date.timezone` is correctly configured in
   `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
   command `timedatectl status`)
@@ -283,19 +283,27 @@ Then execute the following command:
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--CentOS 7-->
-```shell
-yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
-If you installed your reporting server using a fresh CentOS image you
+If you installed your reporting server using a fresh distribution you
 need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
+wget http://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
 ```
+<!--CentOS 7-->
+```shell
+yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
+```
+
+If you installed your reporting server using a fresh distribution you
+need to add the following GPG key:
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget http://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Reporting server configuration
 

@@ -77,7 +77,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon Web 20.10
+- Centreon Web 21.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -88,7 +88,7 @@ serveur de reporting pour des questions de performances & d'isolation.
   - wait_timeout
   - interactive_timeout
 <!--CentOS 7-->
-- Centreon Web 20.10
+- Centreon Web 21.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -277,17 +277,25 @@ Puis lancer la commande suivante:
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+```shell
+cd /etc/pki/rpm-gpg/
+wget http://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
+```
 <!--CentOS 7-->
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
-Dans le cas d'une installation basée sur une image CentOS vierge, installez la clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
+wget http://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Configurer le serveur de reporting
 
