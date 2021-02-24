@@ -93,6 +93,15 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.2
+
+`February 24, 2021`
+
+#### Correctifs
+
+- Ajout d'un fichier manquant lors du processus de mise à jour, qui rendait
+  les pages de configuration de BAM non utilisables.
+
 ### 20.10.1
 
 `16 février 2021`

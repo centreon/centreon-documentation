@@ -89,6 +89,15 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.2
+
+`February 24, 2021`
+
+#### Bugfixes
+
+- Added missing required file for update that made BAM configuration
+  pages unusable
+
 ### 20.10.1
 
 `February 16, 2021`
