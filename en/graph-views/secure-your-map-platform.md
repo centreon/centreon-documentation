@@ -151,6 +151,20 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
+To create self-signed certificate, you can create one using the following commands: 
+
+```text
+openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr -days 365
+openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
+```
+
+And then, copy the private key and the certificate into `/etc/centreon/broker_cert/` directory:
+
+```text
+cp broker_private.key /etc/centreon/broker_cert/
+cp broker_public.crt /etc/centreon/broker_cert/
+```
+
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
 > [keystore for MAP server](#configure-httpstls-on-the-web-server)
