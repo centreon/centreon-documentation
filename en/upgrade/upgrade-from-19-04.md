@@ -241,6 +241,8 @@ command:
     systemctl restart cbd centengine
     ```
 
+### Upgrade MariaDB server
+
 The MariaDB components can now be upgraded.
 
 Be aware that MariaDB strongly recommends to upgrade the server through each
