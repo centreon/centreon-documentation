@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 19.10
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 19.10 vers la version 20.10.
+Centreon depuis la version 19.10 vers la version 21.04.
 
 > Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x)
