@@ -3,10 +3,6 @@ id: hardware-servers-hp-ilo-restapi
 title: HP Ilo Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Dec 30 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Server-Hp-Ilo-Restapi-custom |
 
 Click on the *Save* button.
-

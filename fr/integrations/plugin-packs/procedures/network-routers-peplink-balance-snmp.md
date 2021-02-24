@@ -3,10 +3,6 @@ id: network-routers-peplink-balance-snmp
 title: Peplink Balance
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul 23 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Peplink-Balance-SNMP-custom |
 
 Click on the *Save* button.
-

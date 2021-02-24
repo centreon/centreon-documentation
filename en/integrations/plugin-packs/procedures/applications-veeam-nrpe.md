@@ -3,10 +3,6 @@ id: applications-veeam-nrpe
 title: Veeam
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -53,4 +49,3 @@ the following table:
 | Host Multiple Templates              | App-Veeam-NRPE-custom      |
 
 Click on the *Save* button.
-

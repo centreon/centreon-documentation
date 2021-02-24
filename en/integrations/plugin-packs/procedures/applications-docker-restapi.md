@@ -78,7 +78,6 @@ yum install centreon-plugin-Applications-Docker-Restapi
 
 2. Install the "Docker-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the plugin on every poller expected to monitor Docker resources:

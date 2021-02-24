@@ -3,10 +3,6 @@ id: network-firewalls-fortinet-fortigate-snmp
 title: Fortinet Fortigate
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.9 | `STABLE` | Feb 10 2020 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | Net-Fortinet-Fortigate-SNMP-custom |
 
 Click on the *Save* button.
-

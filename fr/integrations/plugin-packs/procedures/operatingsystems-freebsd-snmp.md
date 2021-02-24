@@ -3,10 +3,6 @@ id: operatingsystems-freebsd-snmp
 title: FreeBSD SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.3 | `STABLE` | Jun 13 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | OS-FreeBSD-SNMP-custom     |
 
 Click on the *Save* button.
-

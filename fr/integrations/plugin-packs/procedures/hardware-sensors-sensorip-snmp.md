@@ -3,10 +3,6 @@ id: hardware-sensors-sensorip-snmp
 title: Sensor IP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates              | HW-Sensor-Sensorip-SNMP-custom |
 
 Click on the *Save* button.
-

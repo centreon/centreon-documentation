@@ -3,10 +3,6 @@ id: applications-weblogic-jmx
 title: Weblogic Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Weblogic-JMX-custom    |
 
 Click on the *Save* button.
-

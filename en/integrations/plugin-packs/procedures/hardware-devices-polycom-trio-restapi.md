@@ -3,10 +3,6 @@ id: hardware-devices-polycom-trio-restapi
 title: Polycom Trio Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan 29 2020 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | POLYCOMTRIAPIPASSWORD | Password to access API   |               |
 
 Click on the *Save* button.
-

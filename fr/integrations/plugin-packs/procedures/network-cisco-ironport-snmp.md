@@ -3,10 +3,6 @@ id: network-cisco-ironport-snmp
 title: Cisco IronPort
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.6 | `STABLE` | Nov 22 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Ironport-SNMP-custom |
 
 Click on the *Save* button.
-

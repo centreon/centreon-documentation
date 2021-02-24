@@ -3,10 +3,6 @@ id: applications-protocol-modbus
 title: Modbus
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  8 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -44,4 +40,3 @@ After that, you can add service linked with template
 *App-Protocol-Modbus-Numeric-Value-Generic*. To fill the macro *CONFIG*, read
 [Modbus
 config](https://github.com/centreon/centreon-plugins/blob/master/docs/en/user/guide.rst#modbus-protocol)
-

@@ -3,10 +3,6 @@ id: cloud-azure-network-vpngateway
 title: Azure VPN Gateway
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -129,4 +125,3 @@ Click on the *Save* button.
 Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
 to see the description of return metrics for this Azure service.
-

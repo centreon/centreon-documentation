@@ -58,7 +58,6 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 2. On the Centreon Web interface, install the monitoring templates from the Centreon Plugin-Pack on the
 Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor IP-Label Newtest instances:

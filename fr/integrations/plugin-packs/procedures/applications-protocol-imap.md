@@ -3,10 +3,6 @@ id: applications-protocol-imap
 title: IMAP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -68,4 +64,3 @@ On your Host or Host template, please set the following macro :
 | Macro            | Value  |
 | :--------------- | :----- |
 | IMAPEXTRAOPTIONS | \--ssl |
-

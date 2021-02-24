@@ -3,10 +3,6 @@ id: hardware-storage-hp-storeonce-restapi
 title: HP StoreOnce
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.4 | `STABLE` | Oct  3 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-HP-Storeonce-Restapi-custom |
 
 Click on the *Save* button.
-

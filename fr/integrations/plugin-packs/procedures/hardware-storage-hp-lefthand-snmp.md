@@ -3,10 +3,6 @@ id: hardware-storage-hp-lefthand-snmp
 title: HP Lefthand
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.4 | `STABLE` | Aug 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Hp-Lefthand-SNMP-custom |
 
 Click on the *Save* button.
-

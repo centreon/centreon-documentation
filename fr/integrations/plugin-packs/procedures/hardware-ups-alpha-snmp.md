@@ -3,10 +3,6 @@ id: hardware-ups-alpha-snmp
 title: Alpha UPS SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct  4 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-UPS-Alpha-SNMP-custom   |
 
 Click on the *Save* button.
-

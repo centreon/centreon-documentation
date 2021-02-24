@@ -3,10 +3,6 @@ id: network-extreme-snmp
 title: Extreme Network
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Oct  9 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Extreme-SNMP-custom    |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: network-switchs-cisco-smallbusiness-standard-snmp
 title: Cisco Small Business
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.0 | `STABLE` | Jan 18 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Sb-Standard-SNMP-custom |
 
 Click on the *Save* button.
-

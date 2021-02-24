@@ -3,10 +3,6 @@ id: applications-protocol-tcp
 title: Protocol TCP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug 11 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-Tcp-custom    |
 
 Click on the *Save* button.
-

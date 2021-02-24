@@ -92,7 +92,6 @@ Once the template applied, some Macros have to be configured:
 | X           | CLIENTSECRET           | Client Secret to access to the API.                                        |
 |             | APIEXTRAOPTIONS        | Any extra option you may want to add to the command                        |
 
-
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?

@@ -3,10 +3,6 @@ id: network-firewalls-pfsense-snmp
 title: pfSense
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.13 | `STABLE` | Apr 27 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Net-FW-Pfsense-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-biztalk
 title: MS Biztalk
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table :
 | Host Multiple Templates                 | App-Biztalk-custom         |
 
 Click "Save" button.
-

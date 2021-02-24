@@ -37,7 +37,6 @@ Following metrics are collected from the SANtricity API:
 | :--------------------  | :----------------------- |
 | raid\_status           | Raid status information  | 
 
-
 <!--Storage Controllers-->
 
 | Metric name                          | Description                          |
@@ -57,7 +56,6 @@ Following metrics are collected from the SANtricity API:
 | pool.space.usage.bytes      | Pool space usage. Unit: B            |
 | pool.space.usage.percentage | Pool space percentage usage. Unit: % |
 | pool.space.free.bytes       | Pool free space. Unit: B             |
-
 
 <!--Storage Volumes-->
 
@@ -83,7 +81,6 @@ More information about the setup steps and the service configuration can be foun
 
 * Installing the SANtricity Web Services software: https://library.netapp.com/ecm/ecm_download_file/ECMLP2846165
 * Configuring and using the SANtricity Rest API: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2.html 
-
 
 ## Setup
 
@@ -213,4 +210,3 @@ In order to fix this issue, install the 'Net\:\:Curl\:\:Easy' Perl library using
 ```bash
 yum install perl-Net-Curl
 ```
-

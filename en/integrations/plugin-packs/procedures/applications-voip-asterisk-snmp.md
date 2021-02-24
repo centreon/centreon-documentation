@@ -3,10 +3,6 @@ id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Oct  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -91,4 +87,3 @@ the following table:
 | Host Multiple Templates              | App-VoIP-Asterisk-SNMP-custom |
 
 Click on the *Save* button.
-

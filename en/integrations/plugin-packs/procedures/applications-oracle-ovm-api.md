@@ -176,4 +176,3 @@ When using a proxy to connect to the Oracle VM Manager API, this error message m
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
-

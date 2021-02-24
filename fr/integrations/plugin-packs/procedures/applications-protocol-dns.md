@@ -3,10 +3,6 @@ id: applications-protocol-dns
 title: DNS Service
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-DNS-custom    |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-hibernate-jmx
 title: Hibernate
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  9 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Hibernate-JMX-custom   |
 
 Click on the *Save* button.
-

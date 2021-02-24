@@ -3,10 +3,6 @@ id: hardware-storage-kaminario-restapi
 title: Kaminario RestAPI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Mar  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Kaminario-Restapi-custom |
 
 Click on the *Save* button.
-

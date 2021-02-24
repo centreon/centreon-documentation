@@ -3,10 +3,6 @@ id: hardware-sensors-serverscheck-sensorgateway-snmp
 title: SensorGateway
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom |
 
 Click on the *Save* button.
-

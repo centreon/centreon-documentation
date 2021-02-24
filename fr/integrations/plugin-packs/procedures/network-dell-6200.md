@@ -3,10 +3,6 @@ id: network-dell-6200
 title: Dell 6200
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `DEPRECATED` | Aug  8 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Dell-6200-custom       |
 
 Click on the *Save* button.
-

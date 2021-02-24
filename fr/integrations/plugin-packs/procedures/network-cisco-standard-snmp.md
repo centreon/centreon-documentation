@@ -35,7 +35,6 @@ Vous pouvez superviser tous les équipements embarquant les MIBs standards de Ci
 | Net-Cisco-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces réseau et supervision des paquets en erreur/discard sur l'interface |
 | Net-Cisco-Standard-SNMP-Traffic-Name       | Découverte des interfaces réseau et supervision du trafic sur l'interface                     |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Métriques collectées
@@ -124,7 +123,6 @@ Router(config)#
 Router(config)#snmp-server community public RO 
 ```
 
-
 Dans l'exemple ci-dessus, la communauté choisie est 'public'. Cette valeur est ici utilisée à titre d'exemple et est à proscrire en utilisation normale. 
 
 ### Flux réseaux
@@ -144,7 +142,6 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
 2. Installer le Plugin-Pack 'Cisco-Standard-Snmp' depuis l'interface Web et la page "Configuration > Plugin packs > Manager"
-
 
 <!--Offline IMP License-->
 

@@ -3,10 +3,6 @@ id: hardware-pdu-raritan-snmp
 title: Raritan PDU
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Pdu-Raritan-SNMP-custom |
 
 Click on the *Save* button.
-

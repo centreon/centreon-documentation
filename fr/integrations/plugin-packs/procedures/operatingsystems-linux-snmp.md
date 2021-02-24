@@ -48,7 +48,6 @@ En plus des modes et des métriques détaillés ci-après, il est également pos
   *  TCP connection: Contrôle des connexions TCP en cours ainsi que leur statut (ESTABLISHED, ...)
   *  Uptime: Temps écoulé depuis le dernier redémarrage de l'équipement
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Cpu-->
@@ -111,7 +110,6 @@ Il est possible de filtrer sur le nom d'une interface en utilisant une REGEXP de
 | Metric name                            | Description                                   |
 | :------------------------------------- | :-------------------------------------------- |
 | partition\#storage.space.usage.bytes    | Used space on a disk partition. Unit: Bytes  |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

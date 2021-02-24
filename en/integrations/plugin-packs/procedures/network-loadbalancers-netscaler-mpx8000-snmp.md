@@ -3,10 +3,6 @@ id: network-loadbalancers-netscaler-mpx8000-snmp
 title: Netscaler MPX 8000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.12 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Citrix-Netscaler-MPX8000-SNMP-custom |
 
 Click on the *Save* button.
-

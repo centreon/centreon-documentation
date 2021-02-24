@@ -31,13 +31,11 @@ avec référence GNSS et IRIGB
 |:------------|:---------------|:-------|
 | status      | Antenna status | String |
 
-
 <!--Frequency-->
 
 | Metric name                              | Description                       | Unit   | 
 | :--------------------------------------- | :-------------------------------- |:------ |
 | generation.frequency.quality.count       | Quality of frequency generation:  | Count  |
-
 
 <!--Gnss-->
 
@@ -66,11 +64,9 @@ avec référence GNSS et IRIGB
 L'agent SNMP de l'équipement Tms6001 doit être configuré et activé pour permettre la récupération des informations
 de supervision par le Plugin.
 
-
 ### Flux réseaux
 
 Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipement Tms6001 sur le port UDP/161 SNMP.
-
 
 ## Installation
 
@@ -86,8 +82,6 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* sur la page "Configuration > Plugin packs > Manager"
 
-
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisants des équipements Tms6001:
@@ -98,20 +92,17 @@ yum install centreon-plugin-Hardware-Devices-Timelinkmicro-Tms6001-Snmp
 
 2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central::
 
-
 ```bash
 yum install centreon-pack-hardware-devices-timelinkmicro-tms6001-snmp
 ```
 
 3. Installer le Plugin-Pack *Timelinkmicro-Tms6001-Snmp* depuis la page "Configuration > Plugin packs > Manager" de l'interface Web. 
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration d'un hôte
 
 Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Version SNMP' selon la configuration de l'équipement cible. 
-
 
   :warning: Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
@@ -125,7 +116,6 @@ Lorsque vous ajoutez un hôte, complétez les champs 'Communauté SNMP' et 'Vers
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
-
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
 	--plugin=hardware::devices::timelinkmicro::tms6001::snmp \
@@ -138,9 +128,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 
 Cette commande contrôle le nombre d'alarmes (```--mode=alarms```) d'un équipement ayant pour adresse IP *10.30.2.114* (```--hostname=10.30.2.114```) en version 2 du protocole SNMP et avec la communauté *timelink_ro* (```--snmp-version='2c' --snmp-community='timelink_ro'```) 
 
-
 Tous les modes disponibles peuvent être affichés via l'option ```--list-mode```:
-
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
@@ -149,7 +137,6 @@ Tous les modes disponibles peuvent être affichés via l'option ```--list-mode``
 ```
 
 Pour un mode en particulier, il est possible d'utiliser le paramètre  ```--help``` pour lister toutes les options disponibles:
-
 
 ```bash
 /usr/lib/centreon/plugins//centreon_timelinkmicro_tms6001_snmp.pl \
