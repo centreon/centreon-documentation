@@ -10,7 +10,7 @@ title: Install Centreon BAM extension
 ## Prerequisites
 
 The required version of Centreon software for compatibility with Centreon BAM
-is **Centreon 20.10**.
+is **Centreon 21.04**.
 
 ## Installation
 
