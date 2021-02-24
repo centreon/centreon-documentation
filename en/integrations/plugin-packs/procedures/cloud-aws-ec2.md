@@ -148,7 +148,6 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 2. On the Centreon Web interface, install the Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor Amazon EC2 resources:

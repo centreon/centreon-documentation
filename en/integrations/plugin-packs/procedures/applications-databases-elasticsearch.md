@@ -102,7 +102,6 @@ In order to monitor an Elasticsearch cluster, it must be prepared acccording to 
 
 In order to be able to communicate with the Elasticsearch node's API, the Centreon Poller should access to the port 9200 with the http protocol on the Elasticsearch node.
 
-
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->

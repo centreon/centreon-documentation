@@ -3,10 +3,6 @@ id: hardware-storage-ibm-ts3200-snmp
 title: IBM TS3200
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.23 | `STABLE` | Feb 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-IBM-TS3200-SNMP-custom |
 
 Click on the *Save* button.
-

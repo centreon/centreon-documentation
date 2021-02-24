@@ -3,10 +3,6 @@ id: applications-protocol-snmp
 title: Generic SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.0 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | App-Protocol-SNMP-custom   |
 
 Click on the *Save* button.
-

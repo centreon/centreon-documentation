@@ -3,10 +3,6 @@ id: hardware-servers-cisco-ucs-snmp
 title: Cisco UCS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.7 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Cisco-UCS-custom        |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-varnish-nrpe
 title: Varnish NRPE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  8 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -35,4 +31,3 @@ the following table:
 | Host Multiple Templates | App-Varnish-NRPE-custom    |
 
 Click on the *Save* button.
-

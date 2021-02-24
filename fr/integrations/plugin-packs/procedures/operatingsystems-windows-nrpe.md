@@ -3,10 +3,6 @@ id: operatingsystems-windows-nrpe
 title: Windows NRPE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.5 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | OS-Windows-NRPE-custom     |
 
 Click on the *Save* button.
-

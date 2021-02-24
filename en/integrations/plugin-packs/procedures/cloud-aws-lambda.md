@@ -3,10 +3,6 @@ id: cloud-aws-lambda
 title: AWS Lambda
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.1 | `STABLE` | Oct  1 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -66,4 +62,3 @@ The following service macros should be set as shown:
 | FUNCTIONNAME | *Name of the Lambda function* |
 
 Add as many services as needed.
-

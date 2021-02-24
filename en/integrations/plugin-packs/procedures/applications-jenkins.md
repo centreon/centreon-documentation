@@ -3,10 +3,6 @@ id: applications-jenkins
 title: Jenkins
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.7 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugins
@@ -56,4 +52,3 @@ The following macros must be configured on service (\* means mandatory options):
 | JOBNAME  | the imap user's password        | IMAPPASSWORD  | bar      |
 | WARNING  | Warning Thresold                | 60:           | 60:      |
 | CRITICAL | Critical Thresold               | 30:           | 30:      |
-

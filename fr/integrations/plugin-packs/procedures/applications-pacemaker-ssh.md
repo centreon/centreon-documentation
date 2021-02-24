@@ -3,10 +3,6 @@ id: applications-pacemaker-ssh
 title: Pacemaker
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Sep 21 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -43,4 +39,3 @@ Click on the *Save* button.
 Pick the service you want to deploy. Choose CRM and/or Constraints service
 template if you use CRM shell for cluster administration. Use Clustat if you
 have a Redhat clustat cluster.
-

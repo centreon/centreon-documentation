@@ -3,10 +3,6 @@ id: hardware-ups-standard-rfc1628-snmp
 title: UPS Standard
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.22 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-UPS-Standard-Rfc1628-SNMP-custom |
 
 Click on the *Save* button.
-

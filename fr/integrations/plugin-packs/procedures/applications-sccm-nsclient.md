@@ -201,7 +201,6 @@ du Plugin *SCCM* integré dans *centreon-nsclient* (```--command=check_centreon_
 
 Une alarme de type CRITICAL sera déclenchée si le status *site SCCM* est reporté en état *FAILED* (```--arg='--critical-status="%{status} eq FAILED"'```).
 
-
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:
 

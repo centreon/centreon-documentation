@@ -3,10 +3,6 @@ id: hardware-servers-hp-ilo-xmlapi
 title: HP Ilo XMLAPI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Server-Hp-Ilo-Xmlapi-custom |
 
 Click on the *Save* button.
-

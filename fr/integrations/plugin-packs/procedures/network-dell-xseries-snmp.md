@@ -63,19 +63,15 @@ La communication doit être possible sur le port UDP 161 de l'équipement Dell X
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources Dell Xseries SNMP :
 
-
 ```bash
 yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
 
-
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources Dell Xseries SNMP :
-
 
 ```bash
 yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
@@ -83,13 +79,11 @@ yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
 
 2. Installer le RPM du Centreon Plugin-Pack sur le serveur Centreon Central :
 
-
 ```bash
 yum install centreon-pack-network-switch-dell-xseries-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -112,7 +106,6 @@ de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
-
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
 	--plugin=network::dell::xseries::snmp::plugin \
@@ -129,7 +122,6 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 ```
 
 La commande doit retourner un résultat de la forme suivante:
-
 
 ```bash
 OK: cpu total: 15 % average-1s: 18.00% average-1m: 25.00% average-5m: 15.00%|'cpu.utilization.1s.percentage'=18%;80;90;0;100; 'cpu.utilization.1m.percentage'=25%;80;90;0;100; 'cpu.utilization.1s.percentage'=15%;;;0;100
@@ -155,7 +147,6 @@ La syntaxe des différentes options des seuils ainsi que la liste des options et
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous recevez ce message, cela signifie que l'équipement Dell Xseries n'est pas accessible sur le port UDP 161 ou que la communauté SNMP configurée n'est pas correcte. Il est également possible qu'un pare-feu bloque le flux.
-
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 

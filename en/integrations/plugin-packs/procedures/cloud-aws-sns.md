@@ -47,7 +47,6 @@ https://docs.aws.amazon.com/sns/latest/dg/sns-monitoring-using-cloudwatch.html
 | sns.notifications.failed.count    | The number of messages that Amazon SNS failed to deliver.                                           |
 | sns.notifications.filtered.count  | The number of messages that were rejected by subscription filter policies.                          |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -61,7 +60,6 @@ Configure a service account (*access/secret keys* combo) for which the following
 | sns:ListTopics                 | Returns a list of the requester's topics.            |
 | cloudwatch:listMetrics         | List all metrics from Cloudwatch AWS/VPN namespace   |
 | cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/VPN namespace |
-
 
 ### Plugin dependencies
 
@@ -84,12 +82,9 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 > **Warning** For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
-
-
 
 ## Setup 
 
@@ -104,7 +99,6 @@ yum install centreon-plugin-Cloud-Aws-Sns-Api
 ```
 
 2. On the Centreon Web interface, install the *Amazon SNS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -140,7 +134,6 @@ yum install centreon-pack-cloud-aws-sns.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 ## FAQ
 
@@ -182,7 +175,6 @@ The calculated metrics are an sum of values (```--statistic='sum'```) on a 600 s
 with one sample per 60s / 1 minute (```--period='60'```).
 In the example above, only the *failed* notifications statistics will be returned (```--filter-metric='NumberOfNotificationsFailed'```).
 
-
 This command would trigger a WARNING alert if at least one notification is marked as *failed* (```--warning-notifications-failed=0```)
 during the sample period and a CRITICAL alert beyond 5 *failed* notifications.
 
@@ -205,7 +197,6 @@ has been collected and will prevent the UNKNOWN error message.
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ? 
 
 This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 

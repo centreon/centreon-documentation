@@ -3,10 +3,6 @@ id: hardware-ups-apc-snmp
 title: APC UPS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Mar 19 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-UPS-Apc-SNMP-custom     |
 
 Click on the *Save* button.
-

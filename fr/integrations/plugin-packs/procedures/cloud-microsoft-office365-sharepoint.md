@@ -108,7 +108,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 
 2. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Office365 Sharepoint* depuis la page "Configuration > Plugin packs > Manager" 
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Office 365 Sharepoint :
@@ -140,7 +139,6 @@ certaines Macros liées à l'Hôte doivent être renseignées :
 | X         | OFFICE365CLIENTID     | Client-id of your registered application                                   |
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
-
 
 La métrique *perfdate* enrengistre la date à laquelle celle-ci a été collectée. 
 Vous pouvez la filter en paramétrant la macro *OFFICE365EXTRAOPTIONS* avec 

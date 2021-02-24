@@ -3,10 +3,6 @@ id: hardware-kvm-avocent-acs-6000-snmp
 title: Avocent ACS 6000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Kvm-Avocent-Acs-6000-SNMP-custom |
 
 Click on the *Save* button.
-

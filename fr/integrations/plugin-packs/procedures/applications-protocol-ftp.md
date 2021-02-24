@@ -3,10 +3,6 @@ id: applications-protocol-ftp
 title: FTP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `STABLE` | Mar 15 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ On your Host or Host template, please set the following macro :
 | Macro           | Value  |
 | :-------------- | :----- |
 | FTPEXTRAOPTIONS | \--ssl |
-

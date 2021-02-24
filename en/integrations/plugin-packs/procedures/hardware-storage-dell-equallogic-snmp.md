@@ -3,10 +3,6 @@ id: hardware-storage-dell-equallogic-snmp
 title: Dell Equallogic
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr 26 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Dell-Equallogic-SNMP-custom |
 
 Click on the *Save* button.
-

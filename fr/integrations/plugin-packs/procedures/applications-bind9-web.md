@@ -3,10 +3,6 @@ id: applications-bind9-web
 title: Bind9 Web
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  5 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -35,4 +31,3 @@ the following table :
 | Host Multiple Templates                 | App-Bind9-Web-custom       |
 
 Click "Save" button.
-

@@ -3,10 +3,6 @@ id: network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Alvarion-Breezeaccess-SNMP-custom |
 
 Click on the *Save* button.
-

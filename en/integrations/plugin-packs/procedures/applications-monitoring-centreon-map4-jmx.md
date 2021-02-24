@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-map4-jmx
 title: Centreon Map4
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.2 | `DEPRECATED` | Feb 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Monitoring-Centreon-Map4-JMX-custom |
 
 Click on the *Save* button.
-

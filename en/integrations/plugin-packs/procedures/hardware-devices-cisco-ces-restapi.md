@@ -3,10 +3,6 @@ id: hardware-devices-cisco-ces-restapi
 title: Cisco Collaboration Endpoint Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan 14 2020 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | CESAPIPASSWORD | Password to access API       |               |
 
 Click on the *Save* button.
-

@@ -116,7 +116,6 @@ Voici la liste des droits nécessaires au travers des access/secret key utilisé
 | rds:DescribeDBInstances        | Display RDS instances & cluster descriptions                       |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/RDS namespace on Cloudwatch               |
 
-
 ### Plugin dependencies
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire awscli, soit le SDK perl Paws. Le SDK est recommandé car plus performant. **Attention** il n'est pas possible d'utiliser perl-Paws si vous passez pas un proxy !
@@ -150,7 +149,6 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
 2. Installer le pack depuis la page "Configuration > Plugin packs > Manager":
-
 
 <!--Offline IMP License-->
 
@@ -224,7 +222,6 @@ Une alerte WARNING sera déclenchée si la valeur dépasse 25, et CRITICAL si el
 Toutes les options des différents modes sont consultables via le help:
 
 ```/usr/lib/centreon/plugins//centreon_aws_rds_api.pl --plugin=cloud::aws::rds::plugin --mode=<modename> --help```
-
 
 ### UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values
 

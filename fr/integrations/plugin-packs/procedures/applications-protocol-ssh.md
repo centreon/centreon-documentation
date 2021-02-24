@@ -3,10 +3,6 @@ id: applications-protocol-ssh
 title: Protocol SSH
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Oct  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-Ssh-custom    |
 
 Click on the *Save* button.
-

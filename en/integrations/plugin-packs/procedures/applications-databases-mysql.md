@@ -3,10 +3,6 @@ id: applications-databases-mysql
 title: MySQL/MariaDB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.6 | `STABLE` | Jul 11 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -75,4 +71,3 @@ The following macros must be configured on host:
 | MYSQLPORT     | Port used to connect to the DB server | MYSQLPORT     | 3306     |
 | MYSQLUSERNAME | the mysql db user                     | MYSQLUSERNAME | root     |
 | MYSQLPASSWORD | the mysql db user's password          | MYSQLPASSWORD | HuGr6834 |
-

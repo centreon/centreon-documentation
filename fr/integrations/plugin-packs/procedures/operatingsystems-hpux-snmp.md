@@ -3,10 +3,6 @@ id: operatingsystems-hpux-snmp
 title: HP-UX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -53,4 +49,3 @@ the following table:
 | Host Multiple Templates | OS-Hpux-SNMP-custom        |
 
 Click on the *Save* button.
-

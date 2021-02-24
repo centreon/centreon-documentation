@@ -3,10 +3,6 @@ id: applications-protocol-bgp
 title: BGP Protocol
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `DEPRECATED` | Jul 10 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-BGP-custom    |
 
 Click on the *Save* button.
-

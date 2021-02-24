@@ -41,7 +41,6 @@ More information about collected metrics is available in the official Amazon doc
 | :------------------ | :-------------------------------------------------------------- |
 | ClientConnections   | The number of client connections to a file system. Unit: Count  |
 
-
 <!--Data Usage-->
 
 | Metric name        | Description                                                                                                                                                                                |
@@ -102,7 +101,6 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 
 2. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller monitoring EFS ressources:
@@ -118,7 +116,6 @@ yum install centreon-pack-cloud-aws-efs.noarch
 ```
 
 3. On Centreon Web interface in "Configuration > Plugin packs > Manager", install the "Amazon EFS" Plugin-Pack:
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -175,7 +172,6 @@ This command would trigger a WARNING alert if the calculated value raises beyond
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```/usr/lib/centreon/plugins//centreon_aws_efs_api.pl --plugin=cloud::aws::efs::plugin --mode=connections --help```
-
 
 ### Why do I get the following result ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values``` ?
 

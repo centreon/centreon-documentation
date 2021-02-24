@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-map-jmx
 title: Centreon Map
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.3 | `STABLE` | Apr 19 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Monitoring-Centreon-Map-JMX-custom |
 
 Click on the *Save* button.
-

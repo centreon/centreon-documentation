@@ -84,7 +84,6 @@ yum install perl-Paws
 yum install awscli
 ```
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation

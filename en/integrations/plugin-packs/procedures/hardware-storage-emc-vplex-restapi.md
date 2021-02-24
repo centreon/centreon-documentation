@@ -3,10 +3,6 @@ id: hardware-storage-emc-vplex-restapi
 title: EMC Vplex
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-EMC-Vplex-Restapi-custom |
 
 Click on the *Save* button.
-

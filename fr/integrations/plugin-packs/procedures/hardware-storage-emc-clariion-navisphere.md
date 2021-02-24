@@ -3,10 +3,6 @@ id: hardware-storage-emc-clariion-navisphere
 title: EMC Clariion
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.24 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Template provided by the plugin-pack |
 
 Click on the *Save* button.
-

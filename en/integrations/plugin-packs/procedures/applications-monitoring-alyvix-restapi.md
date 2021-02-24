@@ -74,7 +74,6 @@ https://www.alyvix.com/learn/\.
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Alyvix Server* ressources:
 
-
 ```bash
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```

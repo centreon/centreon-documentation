@@ -3,10 +3,6 @@ id: hardware-servers-fujitsu-snmp
 title: Fujitsu Server SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct  4 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Fujitsu-SNMP-custom |
 
 Click on the *Save* button.
-

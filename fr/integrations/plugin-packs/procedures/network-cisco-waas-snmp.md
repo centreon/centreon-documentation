@@ -3,10 +3,6 @@ id: network-cisco-waas-snmp
 title: Cisco Waas
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Cisco-WaaS-SNMP-custom |
 
 Click on the *Save* button.
-

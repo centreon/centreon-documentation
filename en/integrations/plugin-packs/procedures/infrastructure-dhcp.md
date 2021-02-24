@@ -3,10 +3,6 @@ id: infrastructure-dhcp
 title: DHCP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -55,4 +51,3 @@ No macro is defined for this template.
 ### Service Macro configuration
 
 No macro is defined for this template.
-

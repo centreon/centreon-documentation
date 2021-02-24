@@ -94,7 +94,6 @@ yum install centreon-pack-applications-nginx-plus-restapi.noarch
 
 ## Configuration
 
-
 Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par environnement Nginx Plus
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Nginx-Plus-Restapi-custom*. Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
@@ -106,7 +105,6 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Nginx-P
 | X         | APIPASSWORD     | Nginx basic password.                                                      |
 | X         | APIPATH         | Specify api path (Default: '/api/6')                                       |
 |    	    | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
-
 
 ## FAQ
 

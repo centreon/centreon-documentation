@@ -3,10 +3,6 @@ id: network-radware-alteon-snmp
 title: Radware Alteon
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug  9 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Radware-Alteon-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-databases-mongodb
 title: MongoDB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.5 | `STABLE` | Jun  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -43,4 +39,3 @@ The following macros must be configured on host:
 | MONGODBPORT     | Port used to connect to the MongoDB instance | 27017         |
 | MONGODBUSERNAME | The MongoDB username                         |               |
 | MONGODBPASSWORD | The MongoDB password                         |               |
-

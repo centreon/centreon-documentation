@@ -64,11 +64,9 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 > **Warning** For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
-
 
 ## Setup 
 
@@ -83,7 +81,6 @@ yum install centreon-plugin-Cloud-Aws-CloudWatchLogs-Api
 ```
 
 2. On the Centreon Web interface, install the *Amazon CloudWatch Logs* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -119,7 +116,6 @@ yum install centreon-pack-cloud-aws-cloudwatchlogs.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 ## FAQ
 
@@ -173,7 +169,6 @@ parameter to the command:
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ? 
 
 This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.us-east-1.amazonaws.com:443 |```
 

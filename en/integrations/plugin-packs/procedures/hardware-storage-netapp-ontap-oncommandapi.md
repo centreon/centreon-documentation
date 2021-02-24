@@ -41,4 +41,3 @@ The following macros must be configured on host:
 | ONCOMMANDAPIPROTO    | OnCommand API protcole | https          |
 
 Click on the *Save* button.
-

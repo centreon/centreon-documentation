@@ -114,7 +114,6 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--Offline IMP License-->
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Office 365 Management:
 
@@ -173,7 +172,6 @@ Feature 'Sign-in' Status is 'Normal service'
 Feature 'Voice mail' Status is 'Normal service'
 ```
 
-
 La commande ci-dessus requête une API de gestion Office 365 (```--plugin=cloud::microsoft::office365::management::plugin```) via le tenant (```--tenant='b3dd23de-593f3cfe-4d741212-bcf9-f035c1a2eb24'```),
 le client (```--client-id='76f82731-073b-4eb2-9228-901d252d2cb6-1b0d'```), le client secret (```--client-secret='9/kRTASjPoy9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='```) 
 et fournit l'état du service (```--mode=service-status```) "Exchange Online" (```--filter-service-name='Exchange Online'```) ainsi que l'état des 'features' du service selectionné.
@@ -197,7 +195,6 @@ UNKNOWN: Cannot decode json response: malformed JSON string, neither tag, array,
 string or atom, at character offset 0 (before "System.Collections.G...") at 
 /usr/lib/centreon/plugins/centreon_office365_management_api.pl line xxx
 ```
-
 
 ##### Remarques 
 

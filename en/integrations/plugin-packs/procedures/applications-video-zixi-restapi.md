@@ -3,10 +3,6 @@ id: applications-video-zixi-restapi
 title: ZIXI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  8 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Video-Zixi-Broadcaster-Restapi-custom |
 
 Click on the *Save* button.
-

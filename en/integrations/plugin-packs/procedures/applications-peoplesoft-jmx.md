@@ -3,10 +3,6 @@ id: applications-peoplesoft-jmx
 title: Peoplesoft
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Peoplesoft-JMX-custom  |
 
 Click on the *Save* button.
-

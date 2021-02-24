@@ -164,7 +164,6 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 2. Install the 'Vmware VM' Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Vmware VM Centreon Plugin on every poller expected to monitor the devices:
@@ -187,7 +186,6 @@ yum install centreon-pack-virtualization-vmware2-vm
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the relevant Host Template "VVirt-VMWare2-Vm-custom", and configure the mandatory Macros:
-
 
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |

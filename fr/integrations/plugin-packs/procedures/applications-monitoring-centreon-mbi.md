@@ -3,10 +3,6 @@ id: applications-monitoring-centreon-mbi
 title: Centreon MBI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.0 | `STABLE` | Jan 30 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -121,4 +117,3 @@ Click on the *Save* button.
 
 We advice you to also link your reporting server to *App-DB-MySQL* template.
 Refer to its monitoring procedure for the configuration.
-

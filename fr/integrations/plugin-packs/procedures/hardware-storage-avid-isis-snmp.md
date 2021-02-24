@@ -3,10 +3,6 @@ id: hardware-storage-avid-isis-snmp
 title: Avid Isis
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Avid-Isis-SNMP-custom |
 
 Click on the *Save* button.
-

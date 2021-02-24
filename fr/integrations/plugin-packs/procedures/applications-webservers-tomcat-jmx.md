@@ -3,10 +3,6 @@ id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.14 | `STABLE` | Jan 30 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Webserver-Tomcat-JMX-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: cloud-aws-elb
 title: AWS ELB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.5.0 | `STABLE` | Oct 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -101,4 +97,3 @@ The following services will be created:
   - Elb-Performances
   - Elb-Queues
   - Elb-Targets-Health
-
