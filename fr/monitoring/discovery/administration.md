@@ -5,8 +5,9 @@ title: Administration
 
 ## Mise à jour
 
-> Lors de la montée de version vers 20.04, toutes les données de la
-> fonctionnalité **Host Discovery** seront perdues:
+> Lors de la montée de version à partir d'une version antérieure à la version
+> 20.04, toutes les données de la > fonctionnalité **Host Discovery** seront
+> perdues:
 >
 > - Tâches de découverte,
 > - Paramètres/informations d'identification sauvegardés.
@@ -16,7 +17,7 @@ title: Administration
 >
 > Les hôtes découverts au travers des tâches ne sont pas touchés.
 >
-> La montée de version vers 20.10 conserve toutes les données présentent depuis
+> La montée de version vers 21.04 conserve toutes les données présentent depuis
 > la version 20.04.
 
 Pour mettre à jour le module, exécutez la commande suivante :

@@ -5,7 +5,8 @@ title: Administration
 
 ## Update
 
-> When upgrading to 20.04, all data of **Host Discovery** feature will be lost:
+> When upgrading from a version earlier than version 20.04, all data of 
+> **Host Discovery** feature will be lost:
 >
 > - Discovery tasks,
 > - Saved parameters/credentials.
@@ -14,7 +15,7 @@ title: Administration
 >
 > Discovered hosts through those tasks will remain.
 >
-> Upgrading to 20.10 will keep all data stored since 20.04.
+> Upgrading to 21.04 will keep all data stored since 20.04.
 
 To update the module, run the following command:
 
