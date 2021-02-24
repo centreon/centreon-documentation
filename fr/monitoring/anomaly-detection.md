@@ -295,7 +295,7 @@ de notification.
 
 #### Quand la fonctionnalité sera-t-elle disponible? Et pour quelle édition Centreon ?
 
-La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 20.10.
+La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 21.10.
 
 ### Combien de temps les données sont-elles hébergées ?
 
