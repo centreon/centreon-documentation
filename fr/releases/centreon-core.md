@@ -41,7 +41,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 - [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access"
 - [Administration] XSS stored in the LDAP form
-- [Apache] Remove deprecated TLS cyphers
+- [Apache] Remove deprecated TLS ciphers
 - [Authentication] Session is active longer than expected
 - [Authentication] User enumeration in login page
 - [Configuration] Cross-site Scripting (XSS) Reflected in "Configuration > Hosts"
