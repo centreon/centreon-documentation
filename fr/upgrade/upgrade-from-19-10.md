@@ -6,6 +6,9 @@ title: Montée de version depuis Centreon 19.10
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 19.10 vers la version 20.10.
 
+> Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
+> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x)
+
 ## Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
@@ -16,6 +19,13 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
+> Depuis 21.04, Centreon utilise **MariaDB 10.5**.
+>
+> Le processus suivant met seulement à jour les composants Centreon pour le
+> moment.
+>
+> MariaDB sera mis à jour après.
+
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.
@@ -23,7 +33,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
@@ -34,13 +44,6 @@ yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/cen
 > ```
 
 ### Montée de version de la solution Centreon
-
-> Depuis 20.04, Centreon utilise **MariaDB 10.3**.
->
-> Le processus suivant met seulement à jour les composants Centreon pour le
-> moment.
->
-> MariaDB sera mis à jour après.
 
 Videz le cache de yum :
 
@@ -178,8 +181,8 @@ Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 #### Démarrer le gestionnaire de tâches
 
-Depuis 20.04, Centreon a changé son gestionnaire de tâches en passant de
-*Centcore* à *Gorgone*.
+Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en
+passant de *Centcore* à *Gorgone*.
 
 Pour acter ce changement, réalisez les actions suivantes :
 
@@ -187,6 +190,7 @@ Pour acter ce changement, réalisez les actions suivantes :
 systemctl stop centcore
 systemctl enable gorgoned
 systemctl start gorgoned
+systemctl disable centcore
 ```
 
 Les statistiques Engine qui étaient collectées par *Centcore* le seront
@@ -226,17 +230,20 @@ passant par chacune des versions majeures. Veuillez vous référer à la
 [documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour
 plus d'informations.
 
-Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
-10.3.
+Vous devez mettre à jour MariaDB à partir de votre version de départ
+(probablement 10.1), jusqu'à la version 10.5. La mise à jour de la version doit
+être effectuée de 1 à 1, par exemple 10.1 vers 10.2, 10.2 vers 10.3, etc.
 
-Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
-dépôts stables.
+C'est pourquoi Centreon fournit toutes les versions de la 10.1 à la 10.5 sur
+ses dépôts stables.
 
 > Référez vous à la documentation officielle de MariaDB pour en savoir
 > d'avantage sur ce processus :
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
 #### Configuration
 
@@ -345,6 +352,82 @@ recommande :
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
+#### Montée de version de 10.3 à 10.4
+
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Désinstallez la version actuelle 10.3 :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Installez la version 10.4 :
+
+    ```shell
+    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
+
+#### Montée de version de 10.4 à 10.5
+
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Désinstallez la version actuelle 10.4 :
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Installez la version 10.5 :
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
+
 #### Activer MariaDB au démarrage automatique
 
 Exécutez la commande suivante :
@@ -364,7 +447,7 @@ Cette procédure est identique à la montée de version d'un serveur Centreon Ce
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
