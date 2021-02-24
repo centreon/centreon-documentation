@@ -23,7 +23,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
-> Depuis 21.04, Centreon utilise **MariaDB 10.5**.
+> Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
 >
 > Le processus suivant met seulement à jour les composants Centreon pour le
 > moment.
