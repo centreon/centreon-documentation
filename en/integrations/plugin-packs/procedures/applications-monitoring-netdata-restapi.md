@@ -38,7 +38,6 @@ The current version of the Netdata RestAPI Plugin-Pack can monitor the following
 * Network traffic
 * Custom Netdata "chart"
 
-
 ### Collected metrics
 
 The following metrics are collected by the Centreon Netdata RestAPI Plugin:
@@ -53,14 +52,12 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
 | netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
 
-
 <!--CPU-->
 
 | Metric name                     | Description             | Unit |
 | :------------------------------ | :---------------------- | :--- |
 | cpu.utilization.percentage      | Average total CPU usage | %    |
 | core.cpu.utilization.percentage | Per core CPU usage      | %    |
-
 
 <!--Disks-->
 
@@ -70,7 +67,6 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | storage.space.usage.bytes      | Per partition space usage (in Bytes) | B    |
 | storage.space.usage.percentage | Per partition space usage (in %)     | %    |
 | storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
-
 
 <!--Inodes-->
 
@@ -112,7 +108,6 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 | network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
 | network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -123,7 +118,6 @@ The Netdata agent has to be set up and configured on the targeted server in orde
 
 More information about how to get and install the agent is available in the official Netdata documentation:
 https://learn.netdata.cloud/docs/agent/packaging/installer
-
 
 ## Installation
 
@@ -162,7 +156,6 @@ yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
 * Log into Centreon and add new host through "Configuration > Hosts".
 * Apply the template *App-Monitoring-Netdata-Restapi* to the Host and configure all the mandatories Macros:
 
-
 | Mandatory | Name                | Description                                                                  |
 | :-------- | :------------------ | :--------------------------------------------------------------------------- |
 | X         | NETDATAAPIPORT      | Port used (Default: 19999)                                                   |
@@ -195,13 +188,11 @@ CPU '0' usage: 16.71 %
 CPU '1' usage: 17.75 %
 ```
 
-
 The above command checks the average CPU usage (```--mode=cpu```) of an Unix server hosting the Netdata agent. The Plugin gets the information by
 requesting the agent API (```--plugin=apps::monitoring::netdata::restapi::plugin --hostname=10.0.0.1```).
 
 This command would trigger a WARNING alarm if the average CPU usage raises beyond 70% (```--warning-average=70```)
 and a CRITICAL beyond 80% (```--critical-average=80```).
-
 
 The available thresholds as well as all of the options that can be used with this Plugin 
 can be displayed by adding the ```--help``` parameter to the command:
@@ -213,7 +204,6 @@ can be displayed by adding the ```--help``` parameter to the command:
 	--mode=cpu \
 	--help
 ```
-
 
 ### Why do I get the following error message: 
 
@@ -240,4 +230,3 @@ In order to fix this issue, install the 'Net\:\:Curl\:\:Easy' Perl library using
 ```bash
 yum install perl-Net-Curl
 ```
-

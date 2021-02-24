@@ -3,10 +3,6 @@ id: cloud-aws-kinesis
 title: Amazon Kinesis
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.2 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -65,4 +61,3 @@ The following service macros should be set as shown:
 | Macro      | Value                    |
 | :--------- | :----------------------- |
 | STREAMNAME | *Name of Kinesis stream* |
-

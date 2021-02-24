@@ -3,10 +3,6 @@ id: network-switchs-brocade-snmp
 title: Brocade Switch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.0 | `STABLE` | Nov  8 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Brocade-SNMP-custom    |
 
 Click on the *Save* button.
-

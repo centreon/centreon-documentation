@@ -5,10 +5,8 @@ title: Cisco Meraki Rest API
 
 ## Overview
 
-
 Cisco Meraki is a cloud-managed IT company headquartered in San Francisco, California. 
 Their products include wireless, switching, security, enterprise mobility management (EMM) and security cameras, all centrally managed from the web.
-
 
 ## Plugin-Pack assets
 
@@ -17,7 +15,6 @@ Their products include wireless, switching, security, enterprise mobility manage
 * Meraki Access Points devices
 
 * Meraki Networks
-
 
 ### Monitored metrics 
 
@@ -75,7 +72,6 @@ You can generate, revoke, and regenerate your API key on your profile.
 > Keep your API key safe as it provides authentication to all of your organizations with the API enabled. 
 > If your API key is shared, you can regenerate your API key at any time. This will revoke the existing API key.
 
-
 ## Setup 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -108,7 +104,6 @@ yum install centreon-pack-network-cisco-meraki-restapi.noarch
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
@@ -124,11 +119,9 @@ All of the Host Templates share the following configuration Macros:
 | X           | MERAKIAPITOKEN     | Meraki API key of your profile. Password checkbox must be checked          |
 |             | MERAKIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-
 Set additionnal Macros that come with the Host Templates: 
 
 <!--DOCUSAURUS_CODE_TABS-->
-
 
 <!--Net-Cisco-Meraki-Device-Restapi-custom-->
 
@@ -136,14 +129,11 @@ Set additionnal Macros that come with the Host Templates:
 | :---------- | :--------------- | :--------------------------------------------------------- |
 | X           | MERAKIDEVICENAME | Name of the device you want to monitor (can be a regexp)   |
 
-
 <!--Net-Cisco-Meraki-Network-Restapi-custom-->
 
 | Mandatory   | Nom               | Description                                              |
 | :---------- | :---------------- | :------------------------------------------------------- |
 | X           | MERAKINETWORKNAME | Name of the network you want to monitor (can be a regexp)|
-
-
 
 ## FAQ
 
@@ -186,7 +176,6 @@ The above command checks a specific Cisco AP device named *centreon-par-training
 It uses an API token (```--api-token='12345abcd6789efgh0123abcd4567efgh8901abcd'```) generated from the Cisco Meraki management dashboard 
 and uses the company proxy (```--proxyurl='proxy.mycompany:8080'```) to connect to the Meraki API.
 
-
 This command would trigger a CRITICAL alert if:
 * The returned device's status is "alerting" (```--critical-status='%{status} =~ /alerting/i'```)
 * The device link is "failed" (```--critical-link-status='%{link_status} =~ /failed/i'```)
@@ -199,7 +188,6 @@ can be displayed by adding the ```--help``` parameter to the command:
 ```
 /usr/lib/centreon/plugins/centreon_cisco_meraki_restapi.pl --plugin='network::cisco::meraki::cloudcontroller::restapi::plugin' --mode='devices' --help
 ```
-
 
 ### Why do I get the following error: 
 

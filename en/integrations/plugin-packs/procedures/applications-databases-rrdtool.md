@@ -173,4 +173,3 @@ All the options that can be used with this plugin can be found over the ```--hel
     --custommode=perlmod \
     --help
 ```
-

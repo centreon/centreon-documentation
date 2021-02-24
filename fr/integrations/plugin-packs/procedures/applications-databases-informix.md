@@ -3,10 +3,6 @@ id: applications-databases-informix
 title: Informix DB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.25 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -101,4 +97,3 @@ the following table:
 | Host Multiple Templates              | App-DB-Informix-custom     |
 
 Click on the *Save* button.
-

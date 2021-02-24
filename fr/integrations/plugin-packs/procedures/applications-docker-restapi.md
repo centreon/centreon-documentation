@@ -18,7 +18,6 @@ Docker permet d'embarquer une application dans un ou plusieurs containers logici
 
 Plus d'informations sur les métriques remontées sont disponibles sur la documentation officielle de l'Api Rest Docker: https://docs.docker.com/engine/api/v1.30/
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Container-Usage-->
 
@@ -76,7 +75,6 @@ yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
 2. Installer le Plugin-Pack "Docker" depuis la page "Configuration > Plugin packs > Manager" de l'interface Web de Centreon
-
 
 <!--Offline IMP License-->
 1. Installer le Plugin sur l'ensemble des collecteurs supervisant des ressources Docker:

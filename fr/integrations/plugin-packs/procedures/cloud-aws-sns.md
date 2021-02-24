@@ -46,7 +46,6 @@ https://docs.aws.amazon.com/fr_fr/sns/latest/dg/sns-monitoring-using-cloudwatch.
 | sns.notifications.failed.count    | The number of messages that Amazon SNS failed to deliver.                                           |
 | sns.notifications.filtered.count  | The number of messages that were rejected by subscription filter policies.                          |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
@@ -114,7 +113,6 @@ yum install centreon-pack-cloud-aws-sns.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SNS* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
@@ -132,8 +130,6 @@ yum install centreon-pack-cloud-aws-sns.noarch
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
-
 
 ## FAQ
 
@@ -170,7 +166,6 @@ Notifications for topic 'my_sns_topic_1' :
     Statistic 'Sum' number of notifications failed: 0 
 ```
 
-
 La commande ci-dessus collecte les statistiques de notification du 'topic' nommé *my_sns_topic_1* (```--mode=notifications --topic-name='my_sns_topic_1'```).
 Cette ressource SNS est hébergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch s'effectue
 à l'aide des identifiants *aws-secret-key* et *aws-access-key* préalablement configurés sur la console AWS (```--aws-secret-key='****' --aws-access-key='****'```).
@@ -187,9 +182,7 @@ La liste de toutes les métriques, seuils associés et options complémentaires 
 /usr/lib/centreon/plugins/centreon_aws_sns_api.pl --plugin=cloud::aws::sns::plugin --mode=notifications --help
 ```
 
-
 ### J'obtiens le message d'erreur suivant:  
-
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
@@ -199,11 +192,9 @@ Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la périod
 
 Vous pouvez ajouter ```--zeroed``` à la macro **EXTRAOPTIONS** du *Service* en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
 
-
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
 
 Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 

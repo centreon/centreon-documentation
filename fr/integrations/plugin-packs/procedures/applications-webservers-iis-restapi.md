@@ -23,7 +23,6 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 | App-IIS-Restapi-ApplicationPools-Name | Discover application pools hosted by your IIS server |
 | App-IIS-Restapi-Websites-Name         | Discover websites hosted by your IIS server          |
 
-
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -52,7 +51,6 @@ Internet Information Services (IIS, anciennement Internet Information Server) es
 ### Configuration IIS
 
 Pour utiliser ce Plugin-Pack, vous devez activer l'API Microsoft IIS Administration. Microsoft founit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
-
 
 ## Installation
 
@@ -91,7 +89,6 @@ yum install centreon-pack-applications-webservers-iis-restapi.noarch
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "App-Webserver-IIS-Restapi-custom" et configurez toutes les macros :
 
-
 | Mandatory   | Nom                | Description                                                                |
 | :---------- | :----------------- | :------------------------------------------------------------------------- |
 | X           | IISAPIPORT         | Port used. Default is 55539                                                |
@@ -107,14 +104,11 @@ Par défaut ```IISAPIEXTRAOPTIONS``` contient les options : ```--http-backend=cu
 *application pools/websites*. Pour ce faire, allez dans
 *Configuration > Services > Découverte Automatisée > Manuelle* puis lancez une découverte**
 
-
 ## FAQ
 
 ### Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
-
 
 ```bash
 /usr/lib/centreon/plugins/centreon_iis_restapi.pl \	
@@ -139,7 +133,6 @@ Un utilisateur (```--api-username='John.doe'```), un mot de passe (```--api-pass
 
 Le backend *curl* (```--http-backend='curl'```) est utilisé par la commande et le certificat SSL du serveur cible n'est pas vérifié (```--curl-opt="CURLOPT_SSL_VERIFYPEER => 0"```).
 
-
 Cette command déclenchera une alerte CRITIQUE si :
   * le status du website est différent de *starting* ou *started*.
 
@@ -151,7 +144,6 @@ Website 'www' traffic in: 5.41 Kb/s, traffic out: 59.74 Kb/s, current connection
 ```
 
 Des seuils peuvent être positionnés à l'aide des options --warning-* et --critical-* sur les métriques.
-
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option --help à la commande :
 
@@ -177,7 +169,6 @@ Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivant
 Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
 
 Pour corriger ce problème, installer la librairie Perl Net\:\:Curl\:\:Easy à l'aide de la commande suivante :
-
 
 ```bash
 yum install perl-Net-Curl

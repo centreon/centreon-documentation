@@ -3,10 +3,6 @@ id: network-cisco-esa-xmlapi
 title: Cisco ESA XMLAPI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | May 14 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Esa-XmlApi-custom |
 
 Click on the *Save* button.
-

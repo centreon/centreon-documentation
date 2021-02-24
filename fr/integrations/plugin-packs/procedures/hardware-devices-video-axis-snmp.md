@@ -3,10 +3,6 @@ id: hardware-devices-video-axis-snmp
 title: Axis Video
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.5 | `STABLE` | Jan  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | HW-Devices-Video-Axis-custom |
 
 Click on the *Save* button.
-

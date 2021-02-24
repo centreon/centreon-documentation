@@ -3,10 +3,6 @@ id: applications-databases-couchdb-restapi
 title: CouchDB Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Dec 30 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates              | App-DB-Couchdb-Restapi-custom |
 
 Click on the *Save* button.
-

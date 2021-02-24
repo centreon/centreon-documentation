@@ -3,10 +3,6 @@ id: network-cisco-callmanager-snmp
 title: Cisco Call Manager
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Nov  9 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Callmanager-SNMP-custom |
 
 Click on the *Save* button.
-

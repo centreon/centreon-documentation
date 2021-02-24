@@ -91,7 +91,6 @@ Here are the metrics that are collected by default:
 | :------- | :----------------------------- | :-: |
 | `uptime` | Elapsed time since last reboot |  s  |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -299,4 +298,3 @@ And restart the daemon:
 ```bash
 systemctl restart centreon-nrpe3.service
 ```
-

@@ -3,10 +3,6 @@ id: hardware-servers-lenovo-xcc-snmp
 title: Lenovo XCC SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jun  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Lenovo-Xcc-SNMP-custom |
 
 Click on the *Save* button.
-

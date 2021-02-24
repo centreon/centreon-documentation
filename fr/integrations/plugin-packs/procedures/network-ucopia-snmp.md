@@ -3,10 +3,6 @@ id: network-ucopia-snmp
 title: Ucopia
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Jul  9 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Ucopia-Wlc-SNMP-custom |
 
 Click on the *Save* button.
-

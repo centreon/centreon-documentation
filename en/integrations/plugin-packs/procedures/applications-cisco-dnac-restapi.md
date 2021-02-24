@@ -156,4 +156,3 @@ When using a proxy to connect to the Cisco DNA Center API, this error message me
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
-

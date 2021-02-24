@@ -3,10 +3,6 @@ id: hardware-storage-dell-ml6000-snmp
 title: Dell ML6000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Dell-ML6000-SNMP-custom |
 
 Click on the *Save* button.
-

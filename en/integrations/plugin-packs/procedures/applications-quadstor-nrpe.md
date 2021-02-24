@@ -3,10 +3,6 @@ id: applications-quadstor-nrpe
 title: Quadstor
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  9 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -35,4 +31,3 @@ the following table:
 | Host Multiple Templates | App-Quadstor-Vtl-NRPE-custom |
 
 Click on the *Save* button.
-

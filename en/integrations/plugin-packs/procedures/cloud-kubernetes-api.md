@@ -3,10 +3,6 @@ id: cloud-kubernetes-api
 title: Kubernetes API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jul 22 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -47,4 +43,3 @@ The following macros must be configured on host:
 | KUBERNETESAPIPROTO      | Protocol used by API                   | https         |
 
 Click on the *Save* button.
-

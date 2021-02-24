@@ -108,7 +108,6 @@ yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *NetApp Ontap Rest API* depuis la page "Configuration > Plugin Packs > Manager"
 
-
 ## Configuration
 
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".

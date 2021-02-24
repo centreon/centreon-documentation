@@ -3,10 +3,6 @@ id: applications-openldap-ldap
 title: OpenLDAP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jun  5 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -40,4 +36,3 @@ the following table:
 | Host Multiple Templates | App-OpenLDAP-LDAP-custom   |
 
 Click on the *Save* button.
-

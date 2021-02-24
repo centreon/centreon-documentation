@@ -3,10 +3,6 @@ id: network-switchs-arista-snmp
 title: Arista Switch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Nov  2 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Arista-SNMP-custom     |
 
 Click on the *Save* button.
-

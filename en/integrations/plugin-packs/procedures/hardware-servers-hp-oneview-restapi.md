@@ -3,10 +3,6 @@ id: hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct  7 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Hp-Oneview-Restapi-custom |
 
 Click on the *Save* button.
-

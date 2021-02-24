@@ -3,10 +3,6 @@ id: cloud-ibm-softlayer-api
 title: IBM Softlayer
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Nov 26 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Cloud-Ibm-Softlayer-Api    |
 
 Click on the *Save* button.
-

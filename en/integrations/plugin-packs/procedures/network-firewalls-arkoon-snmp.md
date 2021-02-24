@@ -3,10 +3,6 @@ id: network-firewalls-arkoon-snmp
 title: Arkoon
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Sep 23 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -49,4 +45,3 @@ Those services were automatically created for this host:
 | Memory  | Monitor memory used        |
 | Swap    | Monitor swap used          |
 | Uptime  | Monitor uptime             |
-

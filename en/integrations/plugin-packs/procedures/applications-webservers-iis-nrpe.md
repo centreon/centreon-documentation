@@ -3,10 +3,6 @@ id: applications-webservers-iis-nrpe
 title: Microsoft IIS Server NRPE (Deprecated)
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.1 | `DEPRECATED` | Mar 27 2018 |
-
 ## Deprecated
 
 This Plugin-Pack has been deprecated and replaced by `Microsoft IIS Server Restapi`. Check [this procedure](applications-webservers-iis-restapi.html)
@@ -62,4 +58,3 @@ Click on the *Save* button.
 
 By default, the host template checks IIS services. Go to plugin-pack manager to
 see other services available.
-

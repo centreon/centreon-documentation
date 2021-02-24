@@ -22,7 +22,6 @@ Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) in
 | :----------------------------------- | :---------------------------------------------------- |
 | Net-Ruckus-Zonedirector-SNMP-Ap-Name | Découverte des points d'accès gérés par un contrôleur |
 
-
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->

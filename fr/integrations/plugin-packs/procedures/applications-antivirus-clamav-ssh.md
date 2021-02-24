@@ -3,10 +3,6 @@ id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.15 | `STABLE` | Feb 21 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | App-Antivirus-Clamav-SSH-custom |
 
 Click on the *Save* button.
-

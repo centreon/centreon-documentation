@@ -3,10 +3,6 @@ id: hardware-servers-hp-blade-chassis-snmp
 title: HP Blade Chassis
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.22 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Hp-Bladechassis-SNMP-custom |
 
 Click on the *Save* button.
-

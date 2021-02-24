@@ -3,10 +3,6 @@ id: hardware-devices-aeg-acm-snmp
 title: AEG ACM
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Dec 20 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | HW-Device-Aeg-Acm-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -93,7 +93,6 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template *App-Gorgone-Restapi-custom* and configure all the Macros :
 
-
 | Mandatory   | Nom                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
 | X           | GORGONEAPIPORT         | Port used. Default is 8085                                                 |
@@ -145,10 +144,8 @@ The available thresholds as well as all of the options that can be used with thi
 ```
 You can display all of the modes that come with the Plugin with the command below:
 
-
 ```bash
 /usr/lib/centreon/plugins//centreon_gorgone_restapi.pl \
     --plugin=apps::gorgone::restapi::plugin \
     --list-mode
 ```
-

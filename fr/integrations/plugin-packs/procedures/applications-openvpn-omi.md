@@ -3,10 +3,6 @@ id: applications-openvpn-omi
 title: OpenVPN OMI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Jun 21 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -40,4 +36,3 @@ the following table:
 | Host Multiple Templates | App-OpenVPN-OMI-custom     |
 
 Click on the *Save* button.
-

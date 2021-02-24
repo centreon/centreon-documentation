@@ -3,10 +3,6 @@ id: applications-webservers-nginx-serverstatus
 title: Nginx Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -74,4 +70,3 @@ the following table:
 | Host Multiple Templates | *App-Webserver-Nginx-ServerStatus-custom* |
 
 Click the *Save* button.
-

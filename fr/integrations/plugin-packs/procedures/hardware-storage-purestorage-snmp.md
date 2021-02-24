@@ -57,7 +57,6 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin packs > Manager":
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources de Pure Storage:

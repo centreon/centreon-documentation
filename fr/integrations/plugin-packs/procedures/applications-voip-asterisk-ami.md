@@ -3,10 +3,6 @@ id: applications-voip-asterisk-ami
 title: Asterisk VoIP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Dec  7 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -62,4 +58,3 @@ the following table:
 | Host Multiple Templates              | App-VoIP-Asterisk-AMI-custom |
 
 Click on the *Save* button.
-

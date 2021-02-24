@@ -3,10 +3,6 @@ id: applications-zookeeper-jmx
 title: Zookeeper
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Sep 14 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Zookeeper-JMX-custom   |
 
 Click on the *Save* button.
-

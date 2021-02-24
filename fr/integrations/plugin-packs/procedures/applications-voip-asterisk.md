@@ -3,10 +3,6 @@ id: applications-voip-asterisk
 title: Asterisk VoIP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.11 | `DEPRECATED` | Dec  7 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -143,4 +139,3 @@ Warning: this file must contain only one line
 Warning: the files `/home/centreon/bin/asterisk_centreon.conf` and
 `/home/centreon/bin/asterisk_centreon.conf` must be executable and readable by
 the *centreon* user
-

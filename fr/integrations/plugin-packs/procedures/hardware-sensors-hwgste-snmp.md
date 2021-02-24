@@ -3,10 +3,6 @@ id: hardware-sensors-hwgste-snmp
 title: HWg-STE Sensor
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -42,4 +38,3 @@ the following table:
 | Host Multiple Templates              | HW-Sensor-HWgSTE-SNMP      |
 
 Click on the *Save* button.
-

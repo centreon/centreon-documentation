@@ -3,10 +3,6 @@ id: network-generic-bluecoat-snmp
 title: Bluecoat generic
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.24 | `STABLE` | Jan 11 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -58,4 +54,3 @@ Those services were automatically created for this host:
 | Client-Requests    | Check http client requests (in percent by type : hit, partial, misses, errors) |
 | Client-Traffic     | Check bytes/s received/delivered to clients                                    |
 | Server-Connections | Check current server connections on Bluecoat                                   |
-

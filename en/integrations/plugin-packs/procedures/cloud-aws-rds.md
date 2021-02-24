@@ -116,7 +116,6 @@ Wether you are using a service account or a dedicated monitoring one, your IAM r
 | rds:DescribeDBInstances        | Display RDS instances & cluster descriptions                       |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/RDS namespace on Cloudwatch               |
 
-
 ### Plugin dependencies
 
 To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources. 
@@ -152,7 +151,6 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -226,7 +224,6 @@ A WARNING alert will be triggered if the value raises beyond 25 and a CRITICAL a
 All options are described through the plugin help:
 
 ```/usr/lib/centreon/plugins//centreon_aws_rds_api.pl --plugin=cloud::aws::rds::plugin --mode=<modename> --help```
-
 
 ### UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values
 

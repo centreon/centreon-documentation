@@ -3,10 +3,6 @@ id: applications-webservers-tomcat-webmanager
 title: Tomcat Webmanager
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Jul  5 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -62,4 +58,3 @@ the following table:
 | Host Multiple Templates | *App-Webserver-Tomcat6|7-Webmanager* |
 
 Click the *Save* button.
-

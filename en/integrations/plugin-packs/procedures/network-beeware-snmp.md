@@ -3,10 +3,6 @@ id: network-beeware-snmp
 title: Bee Ware
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Aug 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | Net-Beeware-SNMP-custom    |
 
 Click on the *Save* button.
-

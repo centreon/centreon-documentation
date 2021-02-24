@@ -54,7 +54,6 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 
 2. Install the "Pure Storage SNMP" Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:

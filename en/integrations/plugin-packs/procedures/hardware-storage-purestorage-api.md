@@ -61,7 +61,6 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Restapi
 
 2. Install the "Pure-Storage-Restapi" Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor Pure Storage resources:

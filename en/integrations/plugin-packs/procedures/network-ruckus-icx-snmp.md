@@ -59,7 +59,6 @@ the most performance and cost effective unified wired and wireless access soluti
 | interface.packets.out.error.percentage   | Outgoing errored packets going through the interface. Unit: percentage (%)   |
 | interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. Unit: percentage (%) |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -86,7 +85,6 @@ yum install centreon-plugin-Network-Switch-Ruckus-Icx-Snmp
 
 2. Install the *Ruckus ICX* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Plugin on every poller expected to monitor Ruckus ICX resources:
@@ -112,7 +110,6 @@ yum install centreon-pack-network-switch-ruckus-icx-snmp
 
 > If you're using the version 3 of the SNMP protocol, select the related SNMP version in the Host configuration form and
 > set the SNMP v3 specific settings in the *SNMPEXTRAOPTIONS* Macro:
-
 
 | Mandatory | Name             | Description                                 |
 | :-------- | :--------------- | :------------------------------------------ |

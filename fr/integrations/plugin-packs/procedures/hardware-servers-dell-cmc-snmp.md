@@ -3,10 +3,6 @@ id: hardware-servers-dell-cmc-snmp
 title: Dell CMC
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-Dell-CMC-SNMP-custom |
 
 Click on the *Save* button.
-

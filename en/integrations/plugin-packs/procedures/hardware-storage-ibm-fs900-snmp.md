@@ -3,10 +3,6 @@ id: hardware-storage-ibm-fs900-snmp
 title: IBM FlashSystem 900
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Mar  9 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-IBM-FS900-SNMP-custom |
 
 Click on the *Save* button.
-

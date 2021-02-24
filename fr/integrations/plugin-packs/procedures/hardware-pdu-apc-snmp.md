@@ -3,10 +3,6 @@ id: hardware-pdu-apc-snmp
 title: APC PDU
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Pdu-Apc-SNMP-custom     |
 
 Click on the *Save* button.
-

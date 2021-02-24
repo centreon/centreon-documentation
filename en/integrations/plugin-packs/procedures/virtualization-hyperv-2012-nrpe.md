@@ -3,10 +3,6 @@ id: virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -53,4 +49,3 @@ the following table:
 | Host Multiple Templates | \*Virt-Hyperv-2012-Node-NRPE-custom\* or \*Virt-Hyperv-2012-Scvmm-NRPE-custom\* |
 
 Click on the *Save* button.
-
