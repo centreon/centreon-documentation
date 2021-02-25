@@ -30,7 +30,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Core] Update PHP 7.3 compatibility
 - [Core] Use Gorgone to dispatch downtimes locally
 - [Status Details] Display of comments in the host details page
-- [Top counters] Displayed values for services don't consider host acknowledgments
+- [Top counters] Displayed values for services don't consider host acknowledgements
 
 #### Correctifs
 
