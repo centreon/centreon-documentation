@@ -19,7 +19,45 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.4
+
+`February 25, 2021`
+
+#### Enhancements
+
+- [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
+- [Configuration] Add the 'postpone_notification_to_timeperiod' parameter in Engine configuration
+- [Configuration] Improve access to the list of pollers
+- [Core] Performance improvements for partitioning
+- [Core] Update PHP 7.3 compatibility
+- [Core] Use Gorgone to dispatch downtimes locally
+- [Status Details] Display of comments in the host details page
+- [Top counters] Displayed values for services don't consider host acknowledgements
+
+#### Bugfixes
+
+- [CLAPI] No control on dependencies relations
+- [Configuration/] "Conf Changed" yes is green instead of red in pollers listing
+- [Configuration] Creation forms generate status code 400 errors
+- [Configuration] Non-admin users can't create host/service
+- [Resources Status] Display order of events in timeline
+- [Resources Status] Panel does not display radius
+- [Resources Status] Unexpected behavior when setting a DT with an empty comment field
+
+#### Security fixes
+
+- [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access" - CVE-2020-22425
+- [Administration] XSS stored in the LDAP form
+- [Apache] Remove deprecated TLS ciphers
+- [Authentication] Session is active longer than expected
+- [Authentication] User enumeration in login page
+- [Configuration] Cross-site Scripting (XSS) Reflected in "Configuration > Hosts"
+- [Core] Vulnerable handlebars.js library
+- [Reporting] Cross-site Scripting (XSS) Reflected in "Dashboard > Hosts"
+
 ### 20.10.3
+
+`February 8, 2021`
 
 #### Enhancements
 
