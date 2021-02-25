@@ -26,7 +26,6 @@ If you have feature requests or want to report a bug, please go to our
 #### Enhancements
 
 - [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
-- [Configuration] Add the 'postpone_notification_to_timeperiod' parameter in Engine configuration
 - [Configuration] Improve access to the list of pollers
 - [Core] Performance improvements for partitioning
 - [Core] Update PHP 7.3 compatibility
