@@ -20,9 +20,6 @@ d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 ### Objets supervisés
 
 * Instances Azure *Event Grid*
-    * Errors
-    * Traffic
-    * Usage
 
 ### Règles de découverte
 

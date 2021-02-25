@@ -19,9 +19,6 @@ Event Grid service.
 ### Monitored Objects
 
 * Azure *Event Grid* instances
-    * 
-    * 
-    * 
 
 ### Discovery rules
 
