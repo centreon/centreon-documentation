@@ -145,7 +145,7 @@ Centreon offers a package named `centreon-ha`, which provides all the needed fil
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
@@ -951,4 +951,8 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+## Integrating pollers
+
+You can now [add your pollers](integrating-pollers.html) and start monitoring!
 
