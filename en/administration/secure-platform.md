@@ -50,7 +50,7 @@ mysql_secure_installation
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-auto-signed-certificat).
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat).
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
