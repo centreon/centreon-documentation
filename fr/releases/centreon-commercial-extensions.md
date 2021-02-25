@@ -293,6 +293,12 @@ liens
 
 ## Centreon Auto Discovery
 
+### 20.04.8
+
+#### Correctifs de sécurité
+
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière version (apportant des corrections de failles de sécurité)
+
 ### 20.04.7
 
 `9 décembre 2020`
