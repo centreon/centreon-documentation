@@ -25,7 +25,6 @@ commerciales, vous pouvez vous rendre sur notre
 #### Améliorations
 
 - [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
-- [Configuration] Add the 'postpone_notification_to_timeperiod' parameter in Engine configuration
 - [Configuration] Improve access to the list of pollers
 - [Core] Performance improvements for partitioning
 - [Core] Update PHP 7.3 compatibility
