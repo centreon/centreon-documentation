@@ -44,7 +44,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Correctifs de sécurité
 
-- [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access"
+- [Administration] Cross-site Scripting (XSS) Stored/Persistent in "ACL > Resources Access" - CVE-2020-22425
 - [Administration] XSS stored in the LDAP form
 - [Apache] Remove deprecated TLS ciphers
 - [Authentication] Session is active longer than expected
