@@ -123,6 +123,16 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon Auto Discovery
 
+### 20.10.3
+
+#### Security fixes
+
+- [Service Discovery] Update jQuery calls to match latest version (fixes vulnerabilities)
+
+#### Bugfixes
+
+- Creation forms generate 400 errors
+
 ### 20.10.2
 
 `December 7, 2020`
