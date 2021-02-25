@@ -273,6 +273,12 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
+### 20.04.8
+
+#### Security fixes
+
+- [Service Discovery] Update jQuery calls to match latest version (fixes vulnerabilities)
+
 ### 20.04.7
 
 `December 9, 2020`
