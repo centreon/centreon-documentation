@@ -20,7 +20,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## 20.04.10
 
-`February 24, 2021`
+`24 février 2021`
 
 #### Améliorations
 
