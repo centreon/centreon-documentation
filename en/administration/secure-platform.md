@@ -224,7 +224,7 @@ If everything is ok, you must have:
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 
-### Securing the Apache web server with auto-signed certificat
+### Securing the Apache web server with self-signed certificat
 
 Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
 
