@@ -130,6 +130,12 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon Auto Discovery
 
+### 20.10.3
+
+#### Correctifs de sécurité
+
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière version (apportant des corrections de failles de sécurité)
+
 ### 20.10.2
 
 `7 décembre 2020`
