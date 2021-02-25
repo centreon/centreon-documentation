@@ -50,7 +50,7 @@ More information about the Host Discovery module is available in the Centreon do
 | eventgrid.dropped.events.count      | Dropped Events       |
 | eventgrid.deadlettered.events.count | Dead Lettered Events |
 
-<!--Events-Stats-->
+<!--Events Stats-->
 
 | Metric name                                   | Description                      | Unit |
 |:----------------------------------------------|:---------------------------------|:-----|

@@ -50,7 +50,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | eventgrid.dropped.events.count      | Dropped Events       |
 | eventgrid.deadlettered.events.count | Dead Lettered Events |
 
-<!--Events-Stats-->
+<!--Events Stats-->
 
 | Metric name                                   | Description                      | Unit |
 |:----------------------------------------------|:---------------------------------|:-----|
