@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.4
 
+`February 25, 2021`
+
 #### Enhancements
 
 - [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
