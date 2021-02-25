@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## 20.04.10
 
+`February 24, 2021`
+
 #### Améliorations
 
 - [Configuration] Add the 'instance_heartbeat_interval' parameter in Engine configuration
