@@ -329,7 +329,7 @@ subjectAltName = @alt_names
 
 Let's create a private key nammed `centreon7.key` without a password so that it can be used by the apache service.
 ```text
-openssl genrsa -out centreon7.key 1024
+openssl genrsa -out centreon7.key 2048
 ```
 
 Protect your file by limiting rights:
