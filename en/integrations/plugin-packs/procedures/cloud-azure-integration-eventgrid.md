@@ -227,15 +227,16 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECLIENTID         | Client ID                        |
 | X         | AZURECLIENTSECRET     | Client secret                    |
 | X         | AZURERESOURCE         | Id of the Event Grid instance    |
-| X         | AZURERESOURCETYPE     | Type  of the Event Grid instance |
+| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
-| X         | AZURESUBSCRIPTION | Subscription ID               |
-| X         | AZURERESOURCE     | Id of the Event Grid instance |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
+| X         | AZURERESOURCE     | Id of the Event Grid resource        |
+| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
