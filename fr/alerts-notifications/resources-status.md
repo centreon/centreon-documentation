@@ -114,6 +114,7 @@ Par défaut la recherche se fait sur les champs suivants:
 -   Alias de l'hôte
 -   Adresse ou FQDN de l'hôte
 -   Description du service
+-   Information
 
 ![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
@@ -124,6 +125,7 @@ utilisant les labels suivants:
 -   h.alias: chercher uniquement sur l'alias de l'hôte
 -   h.address: chercher uniquement sur le FQDN / l'adresse IP de l'hôte
 -   s.description: chercher uniquement sur la description du service
+-   information: chercher uniquement sur l’information
 
 ![image](../assets/alerts/resources-status/resources-status-search-label.png)
 
@@ -141,6 +143,12 @@ est possible de déplier les filtres afin d'accéder à plus de critères:
 -   Groupe de services
 
 ![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+
+### Afficher / masquer des critères
+
+Il est également possible d'afficher ou de masquer des critères qui ne sont pas pertinents pour la recherche à effectuer, en cliquant sur le bouton "Sélectionner des critères" à gauche :
+
+![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
 
 ### Sauvergarder un filtre
 
@@ -162,6 +170,10 @@ sous la section "Mes filtres".
 
 ![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
 
+En cliquant sur le menu "Éditer les filtres", il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
+
+![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
+
 ## Panneau de détail
 
 Lorsque vous cliquez sur une ligne, un panneau de détail s'affiche pour
@@ -174,7 +186,7 @@ En fonction du type de ressource, différents onglets sont disponibles.
 Le panneau d'hôte contient plusieurs onglets informatifs :
 
 -   Informations détaillées sur le statut courant,
--   La liste des services rattachés à cet hôte avec leur statut,
+-   La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 -   La chronologie des événements survenus pour cet hôte,
 -   Les raccourcis vers la configuration, les journaux d'évènement et les
     rapports de disponibilité.
@@ -198,3 +210,27 @@ Le panneau de service contient plusieurs onglets informatifs :
 
 Si le service est acquitté ou en downtime, des informations supplémentaires
 seront visibles sur le panneau.
+
+#### Graphique
+
+L'onglet graphique vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. En survolant les courbes avec la souris, vous afficherez une bulle contentant les valeurs des différentes métriques correspondant à l'instant.
+
+Il est possible de sélectionner ou désélectionner des métriques pour l'affichage un utilisant la légende. En cliquant sur un élément de la légende, l'ensemble des autres métriques sera désélectionnée, tandis que celle correspondant à la légende restera sélectionnée. Cliquer sur une métrique étant la seule sélectionnée sélectionnera également l'ensemble des autres :
+
+![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
+
+Vous pouvez également basculer l'affichage de chaque métrique individuellement en utilisant Ctrl+clique (ou bien Cmd+clique pour les utilisateurs Mac) sur la légende correspondante :
+
+![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+
+La bascule "Afficher les évènements" permet d'afficher certains évènements de la chronologie de la ressource (Plages de maintenance, Acquittements, Commentaires) directement sur le graphique, aux travers d'annotations :
+
+![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
+
+Il est possible d'ajouter un commentaire directement sur le graphique, en cliquant n’importe où, au niveau du temps souhaité, et ensuite en cliquant sur "Ajouter un commentaire" sur l'info bulle qui apparaît :
+
+![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
+
+En cliquant sur le bouton "Exporter comme PNG", vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
+
+![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
