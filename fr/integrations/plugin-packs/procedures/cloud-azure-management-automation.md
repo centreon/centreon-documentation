@@ -1,34 +1,37 @@
 ---
-id: cloud-azure-integration-eventgrid
-title: Azure Event Grid
+id: cloud-azure-management-automation
+title: Azure Automation
 ---
 
 ## Vue d'ensemble
 
-Azure Event Grid simplifie les applications basées sur des événements en gérant
-le routage de tous les événements de n’importe quelle source vers n’importe
-quelle destination. Conçu pour offrir une haute disponibilité, des performances
-constantes et une mise à l’échelle dynamique, Event Grid permet de se concentrer
-sur la logique de vos applications plutôt que sur l’infrastructure.
+Azure Automation offre un service d’automatisation et de configuration cloud 
+prenant en charge une gestion cohérente de vos environnements Azure et 
+non-Azure. Il comprend l’automatisation des processus, la gestion de la 
+configuration, la gestion des mises à jour, les fonctionnalités partagées et les 
+fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet 
+lors du déploiement, des opérations et de la désaffectation des charges de 
+travail et des ressources.
 
-Le Plugin-Pack Centreon *Azure Event Grid* s'appuie sur les API Azure Monitor 
-afin de récuperer les métriques relatives au service Event Grid. Il est possible
-d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+Le Plugin-Pack Centreon *Azure Automation* s'appuie sur les API Azure Monitor 
+afin de récuperer les métriques relatives au service
+Automation. Il est possible d'utiliser les 2 modes proposés par 
+Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
 
-* Instances Azure *Event Grid*
+* Instances Azure *Automation*
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Event Grid* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Event Grid**.
-Celui-ci permet de découvrir l'ensemble des instances *Event Grid* rattachés à une *souscription* Microsoft Azure donnée:
+Le Plugin-Pack Centreon *Azure Automation* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Automation**.
+Celui-ci permet de découvrir l'ensemble des instances *Automation* rattachés à une *souscription* Microsoft Azure donnée:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-automation-provider.png)
 
-> La découverte *Azure Event Grid* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
+> La découverte *Azure Automation* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
 > de cette utilisation. 
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
@@ -38,25 +41,13 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Events-->
+<!--Jobs-->
 
-| Metric name                         | Description                    |
-|:------------------------------------|:-------------------------------|
-| eventgrid.matched.events.count      | Number of matched Events       |
-| eventgrid.unmatched.events.count    | Number of unmatched Events     |
-| eventgrid.dropped.events.count      | Number of dropped Events       |
-| eventgrid.deadlettered.events.count | Number of dead Lettered Events |
-
-<!--Events Stats-->
-
-| Metric name                                   | Description                                | Unit |
-|:----------------------------------------------|:-------------------------------------------|:-----|
-| eventgrid.delivery.successfull.count          | Number of delivered Events                 |      |
-| eventgrid.delivery.failed.count               | Number of delivery failed Events           |      |
-| eventgrid.publish.successfull.count           | Number of published Events                 |      |
-| eventgrid.publish.failed.count                | Number of publish failed Events            |      |
-| eventgrid.public.success.latency.milliseconds | Number of publish success Latency          | ms   |
-| eventgrid.processing.duration.milliseconds    | Number of destination processing duration  | ms   |
+| Metric Name                        | Description                                    |
+|:-----------------------------------|:-----------------------------------------------|
+| automation.jobs.total.count        | Number of total jobs                           |
+| automation.machineruns.total.count | Number of total update deployment machine runs |
+| automation.runs.total.count        | Number of total Update deployment runs         |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -178,29 +169,29 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Event Grid:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Grid* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Event Grid:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Event Grid*:
+2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Automation*:
 
 ```bash
-yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
+yum install centreon-pack-cloud-azure-management-automation.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Event Grid* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Gestionnaire"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -209,7 +200,7 @@ yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
 ### Hôte
 
 * Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
-et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Integration-EventGrid-custom*.
+et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Integration-Automation-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
@@ -217,24 +208,22 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom                   | Description                      |
-|:----------|:----------------------|:---------------------------------|
-| X         | AZURECUSTOMMODE       | Custom mode 'api'                |
-| X         | AZURESUBSCRIPTION     | Subscription ID                  |
-| X         | AZURETENANT           | Tenant ID                        |
-| X         | AZURECLIENTID         | Client ID                        |
-| X         | AZURECLIENTSECRET     | Client secret                    |
-| X         | AZURERESOURCE         | Id of the Event Grid instance    |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                   |
+|:----------|:------------------|:------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURETENANT       | Tenant ID                     |
+| X         | AZURECLIENTID     | Client ID                     |
+| X         | AZURECLIENTSECRET | Client secret                 |
+| X         | AZURERESOURCE     | Id of the Automation instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
-| X         | AZURESUBSCRIPTION | Subscription ID                      |
-| X         | AZURERESOURCE     | Id of the Event Grid resource        |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                   |
+|:----------|:------------------|:------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURERESOURCE     | Id of the Automation instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -247,9 +236,9 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_integration_eventgrid_api.pl \
-    --plugin=cloud::azure::integration::eventgrid::plugin \
-    --mode=events \
+/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+    --plugin=cloud::azure::management::automation::plugin \
+    --mode=jobs \
     --custommode=api \
     --subscription='xxxxxxxxx' \
     --tenant='xxxxxxxxx' \
@@ -258,8 +247,8 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
     --resource='SVC001ABCD' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-matched-events='800' \
-    --critical-matched-events='900'
+    --warning-jobs-total='800' \
+    --critical-jobs-total='900'
 ```
 
 La commande devrait retourner un message de sortie similaire à:
@@ -270,8 +259,8 @@ OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, 
 'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
 ```
 
-La commande ci-dessus vérifie les requêtes sur l'instance *Event Grid* nommée *SIG001ABCD*
-(```--plugin=cloud::azure::integration::eventgrid::plugin --mode=requests --resource='SIG001ABCD'```).
+La commande ci-dessus vérifie les requêtes sur l'instance *Automation* nommée *SIG001ABCD*
+(```--plugin=cloud::azure::management::automation::plugin --mode=jobs --resource='SIG001ABCD'```).
 
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -279,17 +268,17 @@ sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxx
 Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
-Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *matched events* pendant l'intervalle donné
-est supérieur à 800 (```-warning-matched-events='800'```); l'alarme sera de type CRITICAL au-delà de 900 requêtes
-(```--critical-matched-events='900'```).
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
+est supérieur à 800 (```--warning-throttled-requests='800'```); l'alarme sera de type CRITICAL au-delà de 900 requêtes
+(```--critical-throttled-requests='900'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_integration_eventgrid_api.pl \
-    --plugin=cloud::azure::integration::eventgrid::plugin \
-    --mode=events \
+/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+    --plugin=cloud::azure::management::automation::plugin \
+    --mode=jobs \
     --help
 ```
 

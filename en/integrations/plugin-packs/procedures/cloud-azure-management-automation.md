@@ -1,32 +1,33 @@
 ---
-id: cloud-azure-integration-eventgrid
-title: Azure Event Grid
+id: cloud-azure-management-automation
+title: Azure Automation
 ---
 
 ## Overview
 
-Azure Event Grid Service simplifies event-based apps by managing routing of all
-events from any source to any destination. Designed for high availability, 
-consistent performance, and dynamic scale, Event Grid lets clients focus on
-their app logic rather than infrastructure.
+Azure Automation delivers a cloud-based automation and configuration service 
+that supports consistent management across your Azure and non-Azure 
+environments. It comprises process automation, configuration management, update 
+management, shared capabilities, and heterogeneous features. Automation gives 
+you complete control during deployment, operations, and decommissioning of 
+workloads and resources.
 
-The Centreon Plugin-Pack *Azure Event Grid* can rely on Azure API or Azure CLI 
-to collect the metrics related to the
-Event Grid service.
+The Centreon Plugin-Pack *Azure Automation* can rely on Azure API or Azure CLI 
+to collect the metrics related to the Automation service.
 
 ## Plugin Pack Assets
 
 ### Monitored Objects
 
-* Azure *Event Grid* instances
+* Azure *Automation* instances
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Event Grid* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Plugin-Pack *Azure Automation* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
-This provider is named **Microsoft Azure Event Grid**:
+This provider is named **Microsoft Azure Automation**:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-automation-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
@@ -37,25 +38,13 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Events-->
+<!--Jobs-->
 
-| Metric name                         | Description                    |
-|:------------------------------------|:-------------------------------|
-| eventgrid.matched.events.count      | Number of matched Events       |
-| eventgrid.unmatched.events.count    | Number of unmatched Events     |
-| eventgrid.dropped.events.count      | Number of dropped Events       |
-| eventgrid.deadlettered.events.count | Number of dead Lettered Events |
-
-<!--Events Stats-->
-
-| Metric name                                   | Description                                | Unit |
-|:----------------------------------------------|:-------------------------------------------|:-----|
-| eventgrid.delivery.successfull.count          | Number of delivered Events                 |      |
-| eventgrid.delivery.failed.count               | Number of delivery failed Events           |      |
-| eventgrid.publish.successfull.count           | Number of published Events                 |      |
-| eventgrid.publish.failed.count                | Number of publish failed Events            |      |
-| eventgrid.public.success.latency.milliseconds | Number of publish success Latency          | ms   |
-| eventgrid.processing.duration.milliseconds    | Number of destination processing duration  | ms   |
+| Metric Name                        | Description                                    |
+|:-----------------------------------|:-----------------------------------------------|
+| automation.jobs.total.count        | Number of total jobs                           |
+| automation.machineruns.total.count | Number of total update deployment machine runs |
+| automation.runs.total.count        | Number of total Update deployment runs         |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -178,29 +167,29 @@ can use it.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
+1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Event Grid* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Automation* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
 ```bash
-yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
+yum install centreon-pack-cloud-azure-management-automation.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Event Grid* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Automation* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -211,7 +200,7 @@ yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
-* Select the *Cloud-Azure-integration-EventGrid-custom* template to apply to the Host.
+* Select the *Cloud-Azure-Integration-Automation-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
@@ -219,24 +208,22 @@ These mandatory Macros differ regarding the custom mode used:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom                   | Description                      |
-|:----------|:----------------------|:---------------------------------|
-| X         | AZURECUSTOMMODE       | Custom mode 'api'                |
-| X         | AZURESUBSCRIPTION     | Subscription ID                  |
-| X         | AZURETENANT           | Tenant ID                        |
-| X         | AZURECLIENTID         | Client ID                        |
-| X         | AZURECLIENTSECRET     | Client secret                    |
-| X         | AZURERESOURCE         | Id of the Event Grid instance    |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                   |
+|:----------|:------------------|:------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURETENANT       | Tenant ID                     |
+| X         | AZURECLIENTID     | Client ID                     |
+| X         | AZURECLIENTSECRET | Client secret                 |
+| X         | AZURERESOURCE     | Id of the Automation instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
-| X         | AZURESUBSCRIPTION | Subscription ID                      |
-| X         | AZURERESOURCE     | Id of the Event Grid resource        |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                   |
+|:----------|:------------------|:------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURERESOURCE     | Id of the Automation instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -248,9 +235,9 @@ Once the Plugin installed, log into your Centreon Poller CLI using the *centreon
 user account and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_integration_eventgrid_api.pl \
-    --plugin=cloud::azure::integration::eventgrid::plugin \
-    --mode=events \
+/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+    --plugin=cloud::azure::management::automation::plugin \
+    --mode=jobs \
     --custommode=api \
     --subscription='xxxxxxxxx' \
     --tenant='xxxxxxxxx' \
@@ -259,8 +246,8 @@ user account and test the Plugin by running the following command:
     --resource='SVC001ABCD' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-matched-events='800' \
-    --critical-matched-events='900'
+    --warning-jobs-total='800' \
+    --critical-jobs-total='900'
 ```
 
 Expected command output is shown below:
@@ -271,24 +258,24 @@ OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, 
 'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
 ```
 
-The command above checks the *events* of an Azure *Event Grid* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::integration::eventgrid::plugin --mode=events --custommode=api```).
-This Event Grid instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
+The command above checks the *jobs* of an Azure *Automation* instance using the 'api' custom-mode
+(```--plugin=cloud::azure::managemen::automation::plugin --mode=jobs --custommode=api```).
+This Automation instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
 The calculated metrics are the total (```--aggregation='total'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the *matched events* count is reported as over 800
-(```--warning-matched-events='800'```) and a CRITICAL alarm over 900 (```--critical-matched-events='900'```).
+This command would trigger a WARNING alarm if the *total jobs* count is reported as over 800
+(```--warning-jobs-total='800'```) and a CRITICAL alarm over 900 (```--critical-jobs-total='900'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_integration_eventgrid_api.pl \
-    --plugin=cloud::azure::integration::eventgrid::plugin \
-    --mode=events \
+/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+    --plugin=cloud::azure::managemen::automation::plugin \
+    --mode=jobs \
     --help
 ```
 
