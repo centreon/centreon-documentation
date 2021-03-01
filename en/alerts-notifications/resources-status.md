@@ -11,7 +11,7 @@ events.
 
 ## Events list
 
-The event list is a condensed & efficient view of all alerts or resource status
+The event list is a condensed and efficient view of all alerts or resource status
 monitored by Centreon.
 
 ![image](../assets/alerts/resources-status/resources-status-listing.png)
@@ -28,7 +28,7 @@ When one or more alerts are visible, you may need to acknowledge them to tell
 your team that the problem is handled, you can do that in two ways:
 
 -   By directly acknowledging on the line, a "Acknowledgement" button
-    apper on mouse over
+    appear on mouseover
 -   By selecting multiple lines and clicking on the "Acknowledgement"
     button, above the table
 
@@ -37,28 +37,32 @@ You can also disacknowledge previously acknowledged events by choosing the
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
-> Only "non-ok" resources can be ackwnoledged
+> Only "non-ok" resources can be acknowledged
+> You can not acknowledge a resource already acknowledged
 
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
+The colour of the lines for resources with an acknownledgement set is changed
+to yellow.
 
 The acknowledgement can also be deleted to put the event back to the unhandled
 events and resume the notifications.
 
 ### Set a planned downtime
 
-When a maintenance is planned on one or multiple resources, you can set this
-planned downtime in Centreon in two ways:
+When a maintenance is planned on one or multiple resources, you can set a
+planned downtime for them in Centreon in two ways:
 
 -   By directly setting a planned downtime on the line when the mouse is
-    over
+    over it
 -   By selecting multiple lines and clicking on the "Downtime" button,
     above the table
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
 When a resource is in planned downtime, the alert is not visible anymore in the
-"Unhandled problems" filter and notifications for this resource are stopped.
+"Unhandled problems" filter and notifications for this resource are stopped. The
+colour of lines for resources with a downtime set is changed to light purple.
 
 ### Refresh a status
 
@@ -86,7 +90,7 @@ reset the event.
 ### Pre-defined filters
 
 When you open the Resource status page, the default filter is "Unhandled
-problems". This filter quickly show all problems/alerts that are not yet
+problems". This filter quickly shows all problems/alerts that are not yet
 handled so you can focus on choosing the most relevant alerts to take
 care of. You can choose two other filters that are "Resources problems"
 and "All".
@@ -155,7 +159,7 @@ You may create some "complex" filters that set you in a specific
 context, using multiple criterias and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
-This is possible using the **icon** next to Filter. You'll be able to:
+This is possible using the **gear icon** next to Filter. You'll be able to:
 
 -   Save your current search as a new filter
 -   Save the current filter so that it's updated using your current
@@ -223,7 +227,7 @@ The "Display events" switch allows you to display some timeline events (Downtime
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
-It's possible to add a comment directly on the graph, by clicking anywhere at the time you want to add it, and select "Add a comment" on the tooltip that appears:
+It's possible to add a comment directly on the graph, by left clicking anywhere at the time you want to add it, and select "Add a comment" on the tooltip that appears:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 

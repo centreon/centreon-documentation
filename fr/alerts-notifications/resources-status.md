@@ -38,6 +38,7 @@ prendre en compte immédiatement et ce, de deux manières:
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
 > Seules les ressources en statut "Non-OK" peuvent être acquittées.
+> Seule une ressource non acquittée peut être acquittée.
 
 L'acquitement a pour effet de masquer l'alerte de la vue "Unhandled
 problems" et de stopper les notifications partant de la ressource.
@@ -51,7 +52,7 @@ Il est possible de planifier une plage de maintenance :
 
 -   En définissant directement une plage de maintenance via le bouton
     qui s'affiche au survol de la ligne
--   En sélectionne une ou plusieurs lignes et en cliquant sur le bouton
+-   En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton
     "Downtime"
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
@@ -63,7 +64,7 @@ de la ressource.
 ### Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
-le statut d'un service / hôte en lançant un controle manuellement via
+le statut d'un service / hôte en lançant un contrôle manuellement via
 l'interface. Cela est possible de deux manières différentes
 
 -   En lançant le contrôle directement via le bouton qui s'affiche au
@@ -75,7 +76,7 @@ l'interface. Cela est possible de deux manières différentes
 
 ### Soumettre un statut
 
-Dans certains cas, notamment avec les services dit "passif", il peut
+Dans certains cas, notamment avec les services dit "passifs", il peut
 être utile de soumettre un résultat, c'est à dire un statut, un message
 de sortie et des métriques, afin de remettre à zéro l'évènement.
 
@@ -93,8 +94,8 @@ autres filtre: "Resource Problems" & "All".
 
 Signification des filtres:
 
--   Unhandled problems: Le statut de la ressources est Warning ou
-    Critical ou Unknown ou Down ET la resource n'est ni acquittée ni en
+-   Unhandled problems: Le statut de la ressource est Warning ou
+    Critical ou Unknown ou Down ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
 -   Resource problems: Le statut de la ressources est Warning ou
     Critical ou Unknown ou Down
@@ -193,7 +194,7 @@ Le panneau d'hôte contient plusieurs onglets informatifs :
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
-Si l'hôte est acquitté ou en downtime, des informations supplémentaires
+Si l'hôte est acquitté ou en maintenance planifiée, des informations supplémentaires
 seront visibles sur le panneau.
 
 ### Panneau de service
