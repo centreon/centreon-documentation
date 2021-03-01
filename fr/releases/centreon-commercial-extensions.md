@@ -134,7 +134,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Correctifs de sécurité
 
-- [Service Discovery] Mise en conformité des appels jQuery avec la dernière version (apportant des corrections de failles de sécurité)
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière
+version (apportant des corrections de failles de sécurité)
 
 #### Correctifs
 
