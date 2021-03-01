@@ -297,7 +297,8 @@ liens
 
 #### Correctifs de sécurité
 
-- [Service Discovery] Mise en conformité des appels jQuery avec la dernière version (apportant des corrections de failles de sécurité)
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière
+version (apportant des corrections de failles de sécurité)
 
 ### 20.04.7
 
