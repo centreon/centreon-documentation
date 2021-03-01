@@ -127,7 +127,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 #### Security fixes
 
-- [Service Discovery] Update jQuery calls to match latest version (fixes vulnerabilities)
+- [Service Discovery] Update jQuery calls to match latest version (fixes
+vulnerabilities)
 
 #### Bugfixes
 
