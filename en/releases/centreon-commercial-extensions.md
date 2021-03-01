@@ -277,7 +277,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Security fixes
 
-- [Service Discovery] Update jQuery calls to match latest version (fixes vulnerabilities)
+- [Service Discovery] Update jQuery calls to match latest version (fixes
+vulnerabilities)
 
 ### 20.04.7
 
