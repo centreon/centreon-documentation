@@ -153,9 +153,10 @@ Nothing is better than a clear example to understand how the Expression generic 
 
 #### ```--query``` option and QUERIES macro
 
-The ```--query``` option allows to define two things: 
-    - the Centreon metric name (```cpu_requests```)
-    - the PromQL query (```sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100```)
+The ```--query``` option allows to define two things:
+
+- the Centreon metric name (```cpu_requests```)
+- the PromQL query (```sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100```)
 
 In the Service definition, you can specify several queries that's why the QUERIES macro 
 exceptionnaly includes the option definition. Here, QUERIES value would be "--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'". 
@@ -227,7 +228,6 @@ The <error_text> should give more information about the root cause
 #### UNKNOWN: 400 Bad Request |
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
-
 
 
 
