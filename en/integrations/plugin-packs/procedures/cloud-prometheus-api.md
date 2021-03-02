@@ -85,9 +85,9 @@ yum install centreon-pack-cloud-prometheus-api
 
 ### Host
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* Select the *Cloud-Prometheus-Api-custom* template to apply to the Host.
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+- Log into Centreon and add a new Host through "Configuration > Hosts".
+- Select the *Cloud-Prometheus-Api-custom* template to apply to the Host.
+- Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
 | Mandatory | Nom                     | Description                                            |
 |:----------|:------------------------|:------------------------------------------------------ |
@@ -228,7 +228,6 @@ The <error_text> should give more information about the root cause
 #### UNKNOWN: 400 Bad Request |
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
-
 
 
 
