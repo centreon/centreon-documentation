@@ -37,7 +37,7 @@ Go to the `Administration > Extension > Manager` menu and click on the install
 button for the following modules:
 
 - License Manager (if not yet installed)
-- Business Activiy Monitoring
+- Business Activity Monitoring
 
 ![image](../assets/service-mapping/installation/install-web-step-1.png)
 
