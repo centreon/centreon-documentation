@@ -571,3 +571,8 @@ Synchronization progression can then be followed from this same page.
 
 > At each synchronizations, all resources are deleted and imported
 > again.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](./../administration/secure-your-map-platform.html)
