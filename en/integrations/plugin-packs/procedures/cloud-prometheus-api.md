@@ -167,9 +167,11 @@ in the graphs (```--instance='node'```). The INSTANCE macro value would be "node
 
 #### ```--multiple-output```/```--output``` options and MULTIPLEOUTPUT/OUTPUT macros
 
-The output-related options gives ability to tune output messages of the check in the following cases:
-    - Check a metric on multiple instances
-    - Check returning an error
+The output-related options gives ability to tune output messages of the
+check in the following cases:
+
+- Check a metric on multiple instances
+- Check returning an error
 
 Values can be specified through the corresponding macros, in this example the value of OUTPUT macro
 would be "%{instance} CPU Requests: %{cpu_requests}%". Note that we use the Centreon label defined in the ```--query```
@@ -225,7 +227,6 @@ The <error_text> should give more information about the root cause
 #### UNKNOWN: 400 Bad Request |
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
-
 
 
 
