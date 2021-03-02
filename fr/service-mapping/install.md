@@ -10,7 +10,7 @@ title: Installer l'extension Centreon BAM
 ## Prerequisites
 
 La version de Centreon nécessaire au fonctionnement de Centreon BAM
-est la version **Centreon 20.10**
+est la version **Centreon 21.04**
 
 ## Installation
 

@@ -19,7 +19,7 @@ désinstallez le module **centreon-poller-display-central**
 Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4.html)
 si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
 [procédure de migration](../migrate/migrate-from-3-4.html) d'un serveur Centreon
-Central vers 20.10.
+Central vers 21.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
 > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers. Demandez
@@ -169,7 +169,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
 
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:

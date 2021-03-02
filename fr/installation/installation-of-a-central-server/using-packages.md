@@ -89,12 +89,6 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
-
-> Pour CentOS 8.2 utilisez la commande :
-> ```shell
-> dnf -y install dnf-plugins-core epel-release
-> dnf config-manager --set-enabled PowerTools
-> ```
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
@@ -133,11 +127,11 @@ Exécutez la commande suivante :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -197,6 +191,11 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+Sécurisez votre installation MariaDB en exécutant la commande suivante :
+```shell
+mysql_secure_installation
+```
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :

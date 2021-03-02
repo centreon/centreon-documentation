@@ -5,6 +5,9 @@ title: Using Centreon ISO
 
 Installing a Remote Server is similar to installing a Centreon Central Server.
 
+> If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
+> in version 8, you must [use RPM packages](./using-packages.html)
+
 ## Step 1: Startup the server
 
 To install Centreon, start up your server from the Centreon ISO image in version el7.
@@ -264,7 +267,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 20.10.
+> Your Centreon target version is invalid. It should be greater or equal to 21.04.
 
 ## Extend local DBMS rights
 

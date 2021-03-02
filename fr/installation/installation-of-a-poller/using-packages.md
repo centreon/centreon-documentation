@@ -72,12 +72,6 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
-
-> Pour CentOS 8.2 utilisez la commande :
-> ```shell
-> dnf -y install dnf-plugins-core epel-release
-> dnf config-manager --set-enabled PowerTools
-> ```
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
@@ -114,11 +108,11 @@ suffisants :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.centos.noarch.rpm
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.centos.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -262,7 +256,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
 
 ## Ajouter le Poller à la configuration
 

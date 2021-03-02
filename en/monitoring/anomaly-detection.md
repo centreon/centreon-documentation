@@ -287,7 +287,7 @@ the models, as well as the generation of alerts in the event console and the tri
 
 #### When will the feature be available? And for what Centreon Edition?
 
-The Anomaly Detection functionality will be available for Centreon Business Edition in the 20.10 version.
+The Anomaly Detection functionality will be available for Centreon Business Edition in the 21.10 version.
 
 ### How long is the data stored?
 

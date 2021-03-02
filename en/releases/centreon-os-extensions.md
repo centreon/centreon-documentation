@@ -20,46 +20,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 20.10.1
+### 21.04.0
 
-`November 30, 2020`
-
-#### Enhancements
-
-- [rpm] All the configuration files (except for logrotate.d and sudoers.d)
-  are now preserved by the update process
-
-#### Bugfixes
-
-- [Sync] An error in the script prevented the files to be synchronized
-  correctly
-
-### 20.10.0
-
-`November 2, 2020`
-
-- Compatibility with Centreon 20.10
+- Compatibility with Centreon 21.04
 
 ## Centreon DSM
 
-### 20.10.0
+### 21.04.0
 
-`October 21, 2020`
-
-- Compatibility with Centreon 20.10
-
-## Centreon Open Ticket
-
-### 20.10.1
-
-`February 4, 2021`
-
-#### Bugfixes
-
-- Manage pagination for GLPI webservice
-
-### 20.10.0
-
-`October 21, 2020`
-
-- Compatibility with Centreon 20.10
+- Compatibility with Centreon 21.04

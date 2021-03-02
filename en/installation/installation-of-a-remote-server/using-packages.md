@@ -86,12 +86,6 @@ Enable the PowerTools repository using these commands:
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
-
-> For CentOS 8.2 use:
-> ```shell
-> dnf -y install dnf-plugins-core epel-release
-> dnf config-manager --set-enabled PowerTools
-> ```
 <!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
@@ -129,11 +123,11 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -193,6 +187,11 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+Secure your MariaDB installation by executing the following command:
+```shell
+mysql_secure_installation
+```
 
 Then create a distant user with **root** privileges needed for Centreon
 installation:
@@ -451,7 +450,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 20.10.
+> Your Centreon target version is invalid. It should be greater or equal to 21.04.
 
 ## Extend local DBMS rights
 

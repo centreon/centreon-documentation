@@ -50,7 +50,7 @@ The diagram below summarizes the architecture:
 ### Centreon
 
 The required version of Centreon software for compatibility with Centreon
-MAP is **Centreon 20.10**
+MAP is **Centreon 21.04**
 
 **Centreon must be installed using the RPM packages.**
 
@@ -224,13 +224,13 @@ you need to install the `centreon-release` package:
 <!--RHEL / CentOS / Oracle Linux 8-->
 
 ```shell
-dnf install http://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-2.el8.noarch.rpm
+dnf install http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-2.el8.noarch.rpm
 ```
 
 <!--CentOS 7-->
 
 ```shell
-yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-2.el7.centos.noarch.rpm
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -419,7 +419,7 @@ The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=20.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.

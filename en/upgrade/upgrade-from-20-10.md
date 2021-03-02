@@ -1,9 +1,9 @@
 ---
-id: upgrade-from-20-04
-title: Upgrade from Centreon 20.04
+id: upgrade-from-20-10
+title: Upgrade from Centreon 20.10
 ---
 
-This chapter describes how to upgrade your Centreon platform from version 20.04
+This chapter describes how to upgrade your Centreon platform from version 20.10
 to version 21.04.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
