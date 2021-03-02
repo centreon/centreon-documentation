@@ -15,8 +15,8 @@ from the time-series database.
 
 ### Monitored Objects
 
-* All metrics stored by Prometheus
-* Status of the targets
+- All metrics stored by Prometheus
+- Status of the targets
 
 ### Collected Metrics
 
@@ -228,6 +228,5 @@ The <error_text> should give more information about the root cause
 #### UNKNOWN: 400 Bad Request |
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
-
 
 
