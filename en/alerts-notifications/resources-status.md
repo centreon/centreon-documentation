@@ -28,7 +28,7 @@ When one or more alerts are visible, you may need to acknowledge them to tell
 your team that the problem is handled, you can do that in two ways:
 
 -   By directly acknowledging on the line, a "Acknowledgement" button
-    appear on mouseover
+    appears on mouseover
 -   By selecting multiple lines and clicking on the "Acknowledgement"
     button, above the table
 
