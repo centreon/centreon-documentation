@@ -139,3 +139,8 @@ le bouton **Install all** :
 
 Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.html#demander-votre-essai-gratuit)
 pour mettre en place votre première supervision.
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../administration/secure-platform)

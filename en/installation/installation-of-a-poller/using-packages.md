@@ -257,3 +257,8 @@ Failed connect to 192.168.0.1:444; Connection refused
 ## Add the Poller to configuration
 
 Go to the [Add a Poller to configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.html).
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform)
