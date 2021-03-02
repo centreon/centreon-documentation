@@ -133,15 +133,20 @@ semodule -l | grep centreon
 
 Regarding your king of server you cann see:
 ```shell
-centreon-broker	0.0.2
-centreon-common	0.0.7
-centreon-engine	0.0.2
+centreon-broker	0.0.3
+centreon-common	0.0.8
+centreon-engine	0.0.3
 centreon-gorgoned	0.0.1
-centreon-web	0.0.5
+centreon-plugins	0.0.2
+centreon-web	0.0.7
 ```
 
 ### Enable SELinux
 
+### Tips
+
+If you use "Post generation command" fonctionality when you export your configuration,
+you must create your own SELinux rules to authorize "gorgoned" to run your command.
 
 ## Securing the installation of the DBMS
 
