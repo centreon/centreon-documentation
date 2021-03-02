@@ -193,7 +193,7 @@ the obtained value with thresholds.
 The macros value would be '%{cpu_requests} > 60' for WARNINGSTATUS and '%{cpu_requests} > 70' 
 for CRITICALSTATUS.
 
-### Expected output and macros summary
+#### Expected output and macros summary
 
 If everything is OK, a output similar to the one below should be displayed: 
 
@@ -216,16 +216,16 @@ Here is a summary of the Service's macros definitions:
 | CRITICALSTATUS    | %{cpu_requests} > 70                                   |
 | EXTRAOPTIONS      | --verbose --use-new-perfdata                           |
 
-### Troubleshooting
+## Troubleshooting
 
-#### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text) |
+### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text) |
 
 When facing this error message, check that port, hostname are OK and double check the 
 connection between your Centreon Poller and the Prometheus Server. 
 
 The <error_text> should give more information about the root cause 
 
-#### UNKNOWN: 400 Bad Request |
+### UNKNOWN: 400 Bad Request |
 
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI. 
 
