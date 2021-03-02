@@ -489,3 +489,8 @@ Remote Servers utilisera toujours SSH.
 
 Considérez changer le protocole de communication en suivant la procédure
 [Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.html#changer-la-communication-de-ssh-a-zmq).
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../administration/secure-platform)

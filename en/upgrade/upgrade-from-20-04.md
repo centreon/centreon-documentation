@@ -231,3 +231,8 @@ yum update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform)
