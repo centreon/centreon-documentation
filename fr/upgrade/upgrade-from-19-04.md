@@ -521,4 +521,4 @@ Considérez changer le protocole de communication en suivant la procédure
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform)
+[recommandations](./../administration/secure-platform.html)

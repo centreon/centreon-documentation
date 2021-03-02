@@ -265,4 +265,4 @@ Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform)
+[recommandations](./../administration/secure-platform.html)

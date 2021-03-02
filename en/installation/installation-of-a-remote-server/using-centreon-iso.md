@@ -286,4 +286,4 @@ Go to the
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform)
+[recommendations](./../administration/secure-platform.html)
