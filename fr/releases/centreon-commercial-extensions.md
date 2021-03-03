@@ -137,10 +137,6 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 - [Service Discovery] Mise en conformité des appels jQuery avec la dernière
 version (apportant des corrections de failles de sécurité)
 
-#### Correctifs
-
-- Le formulaire de création génère une erreur HTTP 400
-
 ### 20.10.2
 
 `7 décembre 2020`
