@@ -53,7 +53,7 @@ events and resume the notifications.
 When a maintenance is planned on one or multiple resources, you can set a
 planned downtime for them in Centreon in two ways:
 
--   By directly setting a planned downtime on the line when the mouse is
+-   By directly setting a planned downtime on the line,
     a "Set Downtime" button appears on mouseover
 -   By selecting multiple lines and clicking on the "Downtime" button,
     above the table
