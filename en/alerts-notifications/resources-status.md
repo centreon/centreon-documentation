@@ -27,7 +27,7 @@ It's possible to sort by the column of your choice.
 When one or more alerts are visible, you may need to acknowledge them to tell
 your team that the problem is handled, you can do that in two ways:
 
--   By directly acknowledging on the line, an "Acknowledgement" button
+-   By directly acknowledging the line, an "Acknowledgement" button
     appears on mouseover
 -   By selecting multiple lines and clicking on the "Acknowledgement"
     button, above the table
