@@ -162,7 +162,7 @@ In that case, you may want to save this filter and re-use it later.
 This is possible using the **gear icon** next to Filter. You'll be able to:
 
 -   Save your current search as a new filter
--   Save the current filter so that it's updated using your current
+-   Save the current filter so that it is updated using your current
     applied criterias
 -   Edit filters so that you can rename, re-order or delete them
 
