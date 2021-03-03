@@ -163,7 +163,6 @@ Here is the list of all available parameters:
 | force\_rule          | Run disabled rules ('0': not forced, '1': forced)                                                 |
 | filter\_hosts        | Array of hosts against which run the discovery (empty means all)                                  |
 | filter\_pollers      | Array of pollers for which linked hosts will be discovered against (empty means all)              |
-| manual               | Run discovery for manual scan from web UI ('0': automatic, '1': manual)                           |
 | dry\_run             | Run discovery without configuration changes ('0': changes, '1': dry run)                          |
 | no\_generate\_config | No configuration generation (even if there is some changes) ('0': generation, '1': no generation) |
 

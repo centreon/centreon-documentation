@@ -172,7 +172,6 @@ Ci-dessous la liste des paramètres disponibles:
 | force\_rule          | Exécuter les règles désactivées ('0': non forcé, '1': forcé)                                                     |
 | filter\_hosts        | Tableau d'hôtes sur lesquels effectuer la découverte (vide pour tous les utiliser)                               |
 | filter\_pollers      | Tableau de Pollers pour lesquels les hôtes attachés se verront lancé la découverte (vide pour tous les utiliser) |
-| manual               | Exécuter la découverte pour les scans manuels depuis l'interface web ('0': automatique, '1': manuel)             |
 | dry\_run             | Exécuter la découverte sans faire de modification ('0': modifications, '1': dry run)                             |
 | no\_generate\_config | Sans génération de configuration (même si des changements ont eu lieu) ('0': generation, '1': pas de generation) |
 
