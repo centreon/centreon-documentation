@@ -38,7 +38,7 @@ You can also disacknowledge previously acknowledged events by choosing the
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
 > Only "non-ok" resources can be acknowledged
-> You can not acknowledge a resource already acknowledged
+> You cannot acknowledge a resource already acknowledged
 
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
