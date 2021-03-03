@@ -97,7 +97,7 @@ Signification des filtres:
 -   Unhandled problems: Le statut de la ressource est Warning ou
     Critical ou Unknown ou Down ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
--   Resource problems: Le statut de la ressources est Warning ou
+-   Resource problems: Le statut de la ressource est Warning ou
     Critical ou Unknown ou Down
 -   All: toutes les ressources
 
