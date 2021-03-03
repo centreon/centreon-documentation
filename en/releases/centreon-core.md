@@ -1127,6 +1127,12 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
+### 20.04.10
+
+#### Enhancements
+
+- [core] Bulk external commands sent to Engine
+
 ### 20.04.9
 
 `January 29, 2021`
