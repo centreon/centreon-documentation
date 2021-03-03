@@ -62,7 +62,7 @@ planned downtime for them in Centreon in two ways:
 
 When a resource is in planned downtime, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped. The
-colour of lines for resources with a downtime set is changed to light purple.
+color of lines for resources with a planned downtime is changed to light purple.
 
 ### Refresh a status
 
