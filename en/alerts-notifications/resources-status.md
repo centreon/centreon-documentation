@@ -42,7 +42,7 @@ You can also disacknowledge previously acknowledged events by choosing the
 
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
-The colour of the lines for resources with an acknownledgement set is changed
+The color of the line for acknowledged resources is changed
 to yellow.
 
 The acknowledgement can also be deleted to put the event back to the unhandled
