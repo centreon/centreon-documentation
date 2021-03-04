@@ -146,7 +146,7 @@ vgdisplay vg_data | grep -i free*
 **Logiciels**
 
 * OS : CentOS / Redhat 7 ou 8
-* SGBD : MariaDB 10.3.x
+* SGBD : MariaDB 10.5
 * Firewall : Désactivé
 * SELinux : Désactivé
 

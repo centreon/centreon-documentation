@@ -60,7 +60,7 @@ la vérification sur les serveurs de bases de données s'ils sont dédiés.
 
 ## Mise à jour de MariaDB / MySQL
 
-Centreon est compatible avec la version 10.3 de MariaDB depuis la version 20.04. 
+Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.04. 
 
 Réaliser la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10.html#montée-de-version-du-serveur-mariadb). 
 
