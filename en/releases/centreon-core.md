@@ -437,6 +437,15 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone
 
+### 20.10.3
+
+`March 4, 2021`
+
+#### Enhancements
+
+- [core] Bulk external commands sent to Engine
+
+
 ### 20.10.2
 
 `January 29, 2021`
