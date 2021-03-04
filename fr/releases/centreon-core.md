@@ -541,6 +541,21 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.04.10
+
+> Cette version nécessite Centreon Broker 20.04.13 ou supérieur.
+
+#### Correctifs
+
+- Les notifications de type recovery n'étaient pas envoyées à la sortie d'un arrêt prévu
+- Les notifications de type recovery n'étaient pas envoyées à l'entrée en période de notification
+- Les statuts d'hôtes et de services étaient transmis en double à Broker
+- La macro $TIMET$ conteanait l'heure formatée au lieu d'un timestamp
+- Le flapping n'était pas détecté correctement
+- La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
+- La période de notification de l'utilisateur n'était pas correctement appliquée
+- Engine pouvait s'arrêter sans loggger aucune erreur
+
 ### 20.04.9
 
 `20 janvier 2021`
