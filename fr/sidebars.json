@@ -48,6 +48,10 @@
             },
             "ceip/what-is-centreon-ceip"
         ],
+        "Sécurisez votre plate-forme": [
+            "administration/secure-platform",
+            "graph-views/secure-your-map-platform"
+        ],
         "Supervision": [
             "monitoring/about",
             "monitoring/generic-actions",
@@ -177,7 +181,6 @@
                     "graph-views/configure",
                     "graph-views/remote-server",
                     "graph-views/advanced-configuration",
-                    "graph-views/secure-your-map-platform",
                     "graph-views/known-issues",
                     "graph-views/troubleshooter"
                 ],
@@ -213,7 +216,6 @@
             }
         ],
         "Administration": [
-            "administration/secure-platform",
             {
                 "ids": [
                     "administration/parameters/centreon-ui",

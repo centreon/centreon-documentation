@@ -240,3 +240,8 @@ yum update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../administration/secure-platform.html)
