@@ -1130,6 +1130,8 @@ This patch fixes that.
 
 ### 20.04.10
 
+`4 mars 2021`
+
 #### Améliorations
 
 - [core] Envoi par blocs des commandes externes à Engine
