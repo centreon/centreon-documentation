@@ -1127,7 +1127,10 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
+
 ### 20.04.10
+
+`March 4, 2021`
 
 #### Enhancements
 
@@ -1176,7 +1179,7 @@ This patch fixes that.
 
 ### 20.04.6
 
-`Otober 19, 2020`
+`October 19, 2020`
 
 #### Bugfixes
 
