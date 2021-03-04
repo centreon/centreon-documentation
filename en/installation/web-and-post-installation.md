@@ -140,4 +140,4 @@ chapter to configure your first monitoring.
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](./../administration/secure-platform.html)
+[recommendations](../administration/secure-platform.html)

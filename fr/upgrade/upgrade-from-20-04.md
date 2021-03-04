@@ -244,4 +244,4 @@ yum update centreon\*
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](./../administration/secure-platform.html)
+[recommandations](../administration/secure-platform.html)
