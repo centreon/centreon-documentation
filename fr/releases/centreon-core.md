@@ -1128,6 +1128,14 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
+### 20.04.10
+
+`4 mars 2021`
+
+#### Améliorations
+
+- [core] Envoi par blocs des commandes externes à Engine
+
 ### 20.04.9
 
 `29 janvier 2021`
