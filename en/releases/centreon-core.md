@@ -1127,7 +1127,6 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
-
 ### 20.04.10
 
 `March 4, 2021`
