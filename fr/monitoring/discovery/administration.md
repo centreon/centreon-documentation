@@ -166,14 +166,14 @@ avec différents paramètres:
 
 Ci-dessous la liste des paramètres disponibles:
 
-| Clé                  | Valeur                                                                                                           |
-|----------------------|------------------------------------------------------------------------------------------------------------------|
-| filter\_rules        | Tableau de règles à utiliser pour la découverte (vide pour toutes les utiliser)                                  |
-| force\_rule          | Exécuter les règles désactivées ('0': non forcé, '1': forcé)                                                     |
-| filter\_hosts        | Tableau d'hôtes sur lesquels effectuer la découverte (vide pour tous les utiliser)                               |
-| filter\_pollers      | Tableau de Pollers pour lesquels les hôtes attachés se verront lancé la découverte (vide pour tous les utiliser) |
-| dry\_run             | Exécuter la découverte sans faire de modification ('0': modifications, '1': dry run)                             |
-| no\_generate\_config | Sans génération de configuration (même si des changements ont eu lieu) ('0': generation, '1': pas de generation) |
+| Clé                  | Valeur                                                                                                               |
+|----------------------|----------------------------------------------------------------------------------------------------------------------|
+| filter\_rules        | Tableau de règles à utiliser pour la découverte (vide pour toutes les utiliser)                                      |
+| force\_rule          | Exécuter les règles désactivées ('0': non forcé, '1': forcé)                                                         |
+| filter\_hosts        | Tableau d'hôtes sur lesquels effectuer la découverte (vide pour tous les utiliser)                                   |
+| filter\_pollers      | Tableau de collecteurs pour lesquels les hôtes attachés se verront lancé la découverte (vide pour tous les utiliser) |
+| dry\_run             | Exécuter la découverte sans faire de modification ('0': modifications, '1': dry run)                                 |
+| no\_generate\_config | Sans génération de configuration (même si des changements ont eu lieu) ('0': generation, '1': pas de generation)     |
 
 ### Accès aux API
 

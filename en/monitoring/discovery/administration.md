@@ -157,14 +157,14 @@ parameters:
 
 Here is the list of all available parameters:
 
-| Key                  | Value                                                                                             |
-|----------------------|---------------------------------------------------------------------------------------------------|
-| filter\_rules        | Array of rules to use for discovery (empty means all)                                             |
-| force\_rule          | Run disabled rules ('0': not forced, '1': forced)                                                 |
-| filter\_hosts        | Array of hosts against which run the discovery (empty means all)                                  |
-| filter\_pollers      | Array of pollers for which linked hosts will be discovered against (empty means all)              |
-| dry\_run             | Run discovery without configuration changes ('0': changes, '1': dry run)                          |
-| no\_generate\_config | No configuration generation (even if there is some changes) ('0': generation, '1': no generation) |
+| Key                  | Value                                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------------|
+| filter\_rules        | Array of rules to use for discovery (empty means all)                                              |
+| force\_rule          | Run disabled rules ('0': not forced, '1': forced)                                                  |
+| filter\_hosts        | Array of hosts which will run the discovery (empty means all)                                      |
+| filter\_pollers      | Array of pollers for which linked hosts will undergo discovery (empty means all)                   |
+| dry\_run             | Run discovery without configuration changes ('0': changes, '1': dry run)                           |
+| no\_generate\_config | No configuration generation (even if there are some changes) ('0': generation, '1': no generation) |
 
 ### API accesses
 
