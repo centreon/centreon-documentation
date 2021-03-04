@@ -124,3 +124,8 @@ reboot
 ## Ajouter le Poller à la configuration
 
 Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.html).
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../../administration/secure-platform.html)

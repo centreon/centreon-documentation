@@ -407,3 +407,8 @@ will still be using SSH protocol.
 Consider changing the communication protocol by following the
 [Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.html#change-communication-from-ssh-to-zmq)
 procedure.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform.html)

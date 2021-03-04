@@ -275,3 +275,8 @@ GRANT FILE on *.* to 'centreon'@'localhost';
 
 Rendez-vous au chapitre
 [Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.html).
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../../administration/secure-platform.html)
