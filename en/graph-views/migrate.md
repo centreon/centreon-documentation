@@ -8,7 +8,7 @@ This section explains how to move Centreon MAP server over to another server.
 This task may be useful if you need to migrate your reporting server from
 CentOS 6 to CentOS 7.
 
-## Install the new Centreon MAP server
+### Install the new Centreon MAP server
 
 Please refer to the installation chapter in this documentation to install
 your new Centreon MAP server.
