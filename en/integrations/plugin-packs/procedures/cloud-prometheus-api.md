@@ -57,7 +57,8 @@ HTTP.
 
 1. Install the Centreon Plugin package on every Centreon Poller expected to query Prometheus:
 
-```bash
+
+`bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
@@ -124,11 +125,11 @@ Target 'http://10.244.1.249:9153/metrics' health is 'up' [pod = coredns-74ff55c5
 Target 'http://10.244.2.5:9153/metrics' health is 'up' [pod = coredns-74ff55c5b-vh9zt][namespace = kube-system][service = prometheus-operator-coredns][instance = 10.244.2.5:9153][job = coredns][endpoint = http-metrics]
 ```
 
-The command above check the status of the targets (```--mode=target-status```) linked 
-to a Prometheus server (```--hostname=amzprometheus.int.centreon.com```)  exposing its API 
-over HTTP and listnening on port 80 (```--port='80' --proto='http'```). 
+The command above check the status of the targets (`--mode=target-status`) linked 
+to a Prometheus server (`--hostname=amzprometheus.int.centreon.com`)  exposing its API 
+over HTTP and listnening on port 80 (`--port='80' --proto='http'`). 
 
-Only targets linked with the coredns job label are checked (```--filter-label='job,coredns'```). 
+Only targets linked with the coredns job label are checked (`--filter-label='job,coredns'`). 
 
 The command triggers a CRITICAL if any of the Target status is not equal to "up". 
 
@@ -151,22 +152,22 @@ Nothing is better than a clear example to understand how the Expression generic 
     --use-new-perfdata --verbose 
 ```
 
-#### ```--query``` option and QUERIES macro
+#### `--query` option and QUERIES macro
 
-The ```--query``` option allows to define two things:
+The `--query` option allows to define two things:
 
-- the Centreon metric name (```cpu_requests```)
-- the PromQL query (```sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100```)
+- the Centreon metric name (`cpu_requests`)
+- the PromQL query (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
 
 In the Service definition, you can specify several queries that's why the QUERIES macro 
 exceptionnaly includes the option definition. Here, QUERIES value would be "--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'". 
 
-#### ```--instance``` option and INSTANCE macro
+#### `--instance` option and INSTANCE macro
 
 The instance option explicits the Prometheus metric dimension/label the Plugin will highlight 
-in the graphs (```--instance='node'```). The INSTANCE macro value would be "node" in this example. 
+in the graphs (`--instance='node'`). The INSTANCE macro value would be "node" in this example. 
 
-#### ```--multiple-output```/```--output``` options and MULTIPLEOUTPUT/OUTPUT macros
+#### `--multiple-output`/`--output` options and MULTIPLEOUTPUT/OUTPUT macros
 
 The output-related options gives ability to tune output messages of the
 check in the following cases:
@@ -175,19 +176,19 @@ check in the following cases:
 - Check returning an error
 
 Values can be specified through the corresponding macros, in this example the value of OUTPUT macro
-would be "%{instance} CPU Requests: %{cpu_requests}%". Note that we use the Centreon label defined in the ```--query```
+would be "%{instance} CPU Requests: %{cpu_requests}%". Note that we use the Centreon label defined in the `--query`
 option to use the obtained value). We also use the '%{instance}' keyword to display the node name. 
 
 The MULTIPLEOUTPUT value would be "Nodes CPU Requests within bounds"
 
-#### ```--\*-status``` options and \*STATUS macros 
+#### `--\*-status` options and \*STATUS macros 
 
 --warning-status and --critical-status purpose is to define when the Plugin will raise an alert. 
 
 In the command above, the check triggers a *WARNING* alarm when the 'cpu_requests' value is above 60 and a 
 *CRITICAL* one when it is above 70. 
 
-Note that the Centreon label defined in the ```--query``` options is used again to compare 
+Note that the Centreon label defined in the `--query` options is used again to compare 
 the obtained value with thresholds. 
 
 The macros value would be '%{cpu_requests} > 60' for WARNINGSTATUS and '%{cpu_requests} > 70' 
