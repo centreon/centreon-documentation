@@ -131,6 +131,50 @@ Discovery** amène une définition pour cette tâche dans le fichier suivant :
 La configuration par défaut exécute les règles de découvertes tous les jours à
 22h30.
 
+> Si vous aviez changé la tâche cron pour adapter la planification, vous
+> devez appliquer ces changements dans le nouveau fichier.
+
+Il est aussi possible d'exécuter plusieurs tâches de découverte de service
+avec différents paramètres:
+
+```yaml
+- id: service_discovery_poller_1
+  timespec: "15 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-1
+- id: service_discovery_poller_2_linux
+  timespec: "30 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Linux-SNMP-Disk-Name
+      - OS-Linux-SNMP-Traffic-Name
+- id: service_discovery_poller_2_windows
+  timespec: "45 9 * * *"
+  action: LAUNCHSERVICEDISCOVERY
+  parameters:
+    filter_pollers:
+      - Poller-2
+    filter_rules:
+      - OS-Windows-SNMP-Disk-Name
+      - OS-Windows-SNMP-Traffic-Name
+```
+
+Ci-dessous la liste des paramètres disponibles:
+
+| Clé                  | Valeur                                                                                                               |
+|----------------------|----------------------------------------------------------------------------------------------------------------------|
+| filter\_rules        | Tableau de règles à utiliser pour la découverte (vide pour toutes les utiliser)                                      |
+| force\_rule          | Exécuter les règles désactivées ('0': non forcé, '1': forcé)                                                         |
+| filter\_hosts        | Tableau d'hôtes sur lesquels effectuer la découverte (vide pour tous les utiliser)                                   |
+| filter\_pollers      | Tableau de collecteurs pour lesquels les hôtes attachés se verront lancé la découverte (vide pour tous les utiliser) |
+| dry\_run             | Exécuter la découverte sans faire de modification ('0': modifications, '1': dry run)                                 |
+| no\_generate\_config | Sans génération de configuration (même si des changements ont eu lieu) ('0': generation, '1': pas de generation)     |
+
 ### Accès aux API
 
 A l'installation de Gorgone, une configuration par défaut pour accéder aux API
