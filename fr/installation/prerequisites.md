@@ -37,7 +37,7 @@ complexe à partir des fichiers sources de chaque composant.
 
 | Logiciel | Version |
 |----------|---------|
-| MariaDB  | 10.4.x  |
+| MariaDB  | 10.5.x  |
 
 ### Dépendances logicielles
 

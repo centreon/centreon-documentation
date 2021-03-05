@@ -98,7 +98,7 @@ children which must be included in the count.
 #### Software
 
 - OS: CentOS or Redhat 7 / 8
-- DBMS: MariaDB 10.3
+- DBMS: MariaDB 10.5
 - Firewall: Disabled
 - SELinux: Disabled
 

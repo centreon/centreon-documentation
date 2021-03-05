@@ -33,7 +33,7 @@ Execute the following command to ensure database files compatibility:
 -   If you see errors, especially on the following tables mysql
     innodb_index_stats, innodb_table_stats, gtid_slave_pos, it
     might be caused by an incompatibility between MySQL/MariaDB 5.5 and
-    MariaDB 10.1. In that case, follow the procedure below:
+    MariaDB 10.5. In that case, follow the procedure below:
 
         service mysql stop
         cp -a /var/lib/mysql/ /var/lib/mysql.bak

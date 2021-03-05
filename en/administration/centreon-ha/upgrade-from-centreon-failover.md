@@ -49,11 +49,11 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 ## Upgrade MariaDB / MySQL
 
-Centreon >= 20.04 comes with a compatibility with MariaDB 10.3.
+Centreon >= 21.04 comes with a compatibility with MariaDB 10.5.
 
 Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-from-19-10.html#upgrade-mariadb-server). 
 
-Once both nodes are running the 10.3 MariaDB version, stop mysql/mariadb processes. 
+Once both nodes are running the 10.5 MariaDB version, stop mysql/mariadb processes. 
 
 ## Upgrade Centreon Packages 
 
