@@ -1,6 +1,6 @@
 ---
 id: using-virtual-machines
-title: Using virtual machines (VMs)
+title: Using virtual machine (VM)
 ---
 
 > If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
@@ -43,7 +43,7 @@ the instructions to import the virtual machine.
 Edit your virtual machine and in the **System** tab, check the
 **Hardware Clock in UTC Time** box, then click on **OK**.
 
-![image](../assets/installation/ova_vbox_use_hardware_clock.png)
+![image](../../assets/installation/ova_vbox_use_hardware_clock.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

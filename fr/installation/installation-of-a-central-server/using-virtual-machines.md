@@ -1,6 +1,6 @@
 ---
 id: using-virtual-machines
-title: A partir des VMs
+title: A partir d'une VM
 ---
 
 > Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
@@ -53,7 +53,7 @@ les instructions pour importer la machine virtuelle.
 Editez la machine virtuelle et dans l'onglet **System** cocher la case
 **Hardware Clock in UTC Time**, puis cliquez sur **OK**.
 
-![image](../assets/installation/ova_vbox_use_hardware_clock.png)
+![image](../../assets/installation/ova_vbox_use_hardware_clock.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
