@@ -23,7 +23,9 @@ To setup your first Centreon platform, we suggest you to use a ready-to-use virt
 
 **Prerequisites**
 
-Those virtual machines are available in OVA format for VMware environment and OVF for Oracle VirtualBox tool. Those are based on **Linux CentOS 7** operating system including a Centreon installation allowing to easily start your first monitoring.
+This virtual machine is available in OVA format for VMware environment and for
+Oracle VirtualBox tool. It is based on **Linux CentOS 7** operating system
+including a Centreon installation allowing to easily start your first monitoring.
 
 The virtual machine needs:
 
@@ -41,20 +43,25 @@ You can install Centreon:
 - [Using Centreon ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
 - From ready-to-use virtual machines:
 
-The virtual machines are available on the [Centreon download web site](https://download.centreon.com).
+The virtual machine is available on the [Centreon download web site](https://download.centreon.com).
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--VMware environment-->
 \
-Go to to **File > Deploy OVF Template** and select the **OVA file**. Since the menu selections are actually linked to
-your specific VMWare configuration, we are unable to provide more information. Be advised that best practice is to use
+Go to to **File > Deploy OVF Template** and select the **OVA file**. Since the
+menu selections are actually linked to your specific VMWare configuration, we
+are unable to provide more information. Be advised that best practice is to use
 the **Thin Provision** option to save as much free space as possible on the disk.
 
 <!--Oracle Virtualbox-->
 \
-Extract the contents of the archive and double-click on the **OVF file**. Follow the instructions to import the virtual
-machine.
+Extract the contents of the archive and double-click on the **OVA file**. Follow
+the instructions to import the virtual machine.
+Edit your virtual machine and in the **System** tab, check the
+**Hardware Clock in UTC Time**, then click on **OK**.
+
+![image](../assets/installation/ova_vbox_use_hardware_clock.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
