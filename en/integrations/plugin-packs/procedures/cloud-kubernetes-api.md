@@ -344,7 +344,7 @@ The defaults values are the following:
 | Warning (pod)        | none                                                 |                                                                                               |
 | Critical (pod)       | `%{status} !~ /running/i`                            | Will raise a critical alert if a pod is not in a running status                               |
 | Warning (container)  | none                                                 |                                                                                               |
-| Critical (container) | `%{status} !~ /running/i \|\| %{state} !~ /^ready$/` | Will raise a critical alert if a container is not in a running status or not in a ready state |
+| Critical (container) | <code>%{status} !~ /running/i &#124;&#124; %{state} !~ /^ready$/</code> | Will raise a critical alert if a container is not in a running status or not in a ready state |
 
 Refer to the
 [official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
