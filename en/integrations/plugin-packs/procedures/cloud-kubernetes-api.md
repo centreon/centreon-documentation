@@ -20,14 +20,14 @@ There is mainly three ways:
 
 - Gather all metrics on only one Centreon host with a service per Kubernetes
   unit (i.e. deployments, daemonsets, etc) - apply
-  [manual creation](manual-creation) procedure,
+  [manual creation](#manual-creation) procedure,
 - Gather all metrics on only one Centreon host with a service for each
-  instances of each Kubernetes units - apply [manual creation](manual-creation)
-  and [service discovery](service-discovery) procedures,
+  instances of each Kubernetes units - apply [manual creation](#manual-creation)
+  and [service discovery](#service-discovery) procedures,
 - Collect infrastructural metrics (master and worker nodes) with a Centreon
   host per Kubernetes node, and keep orchestration/application metrics
   on a unique host (using one of the 2 previous scenarii) - apply
-  [host discovery](host-discovery) procedure.
+  [host discovery](#host-discovery) procedure.
 
 For all those scenarii, discovery and classic templating will be used.
 
@@ -339,12 +339,12 @@ It is then possible to place thresholds using the following special variables:
 
 The defaults values are the following:
 
-| Threshold            | Value                                              | Description                                                                                   |
-|----------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| Warning (pod)        | none                                               |                                                                                               |
-| Critical (pod)       | `%{status} !~ /running/i`                          | Will raise a critical alert if a pod is not in a running status                               |
-| Warning (container)  | none                                               |                                                                                               |
-| Critical (container) | `%{status} !~ /running/i || %{state} !~ /^ready$/` | Will raise a critical alert if a container is not in a running status or not in a ready state |
+| Threshold            | Value                                                | Description                                                                                   |
+|----------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Warning (pod)        | none                                                 |                                                                                               |
+| Critical (pod)       | `%{status} !~ /running/i`                            | Will raise a critical alert if a pod is not in a running status                               |
+| Warning (container)  | none                                                 |                                                                                               |
+| Critical (container) | `%{status} !~ /running/i \|\| %{state} !~ /^ready$/` | Will raise a critical alert if a container is not in a running status or not in a ready state |
 
 Refer to the
 [official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
@@ -537,7 +537,7 @@ To access the cluster, kubectl needs a configuration file with all needed
 information.
 
 Here is an example of a configuration file creation based on a service
-account (created in [previous chapter](create-a-service-account)).
+account (created in [previous chapter](#create-a-service-account)).
 
 You will need to fill the following information and execute the commands
 on the master node:
@@ -661,10 +661,10 @@ from the list.
 Set credentials to access the Kubernetes API depending on the chosen flavor:
 
 - If using RestAPI: set the token
-  [retrieved ealier](retrieve-token-from-service-account) from the service
+  [retrieved ealier](#retrieve-token-from-service-account) from the service
   account,
 - If using kubectl: set the path to the
-  [created configuration file](create-a-kubectl-configuration) (prefer using
+  [created configuration file](#create-a-kubectl-configuration) (prefer using
   relative path to make it work for both discovery and monitoring,
   i.e. `~/.kube/config`).
 
@@ -679,7 +679,7 @@ If scheduled, job will add new nodes added to the cluster automatically.
 
 #### Service discovery
 
-In addition to [manual creation](manual-creation), it is possible to add a
+In addition to [manual creation](#manual-creation), it is possible to add a
 service for each instances of each Kubernetes units (scenario 2). It is then
 recommended to disable the previously created services when adding host.
 
