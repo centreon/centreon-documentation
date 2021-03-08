@@ -25,7 +25,6 @@ The Plugin-Pack EMC PowerPath Management Appliance collects metrics for:
 | *hostname*#host.volumes.dead.count     | Number of dead volumes attached                              |      |
 | *hostname*#host.volumes.degraded.count | Number of degraded volumes attached                          |      |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -80,15 +79,15 @@ yum install centreon-pack-applications-emc-ppma-restapi
 | X         | PPMAAPIPASSWORD     | EMC PPMA password                                                          |
 |           | PPMAAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-By default, Host Template *App-Emc-Ppma-Restapi* doesn't have Service Template attached. You could:
- * attached Service Template to Host Template *App-Emc-Ppma-Restapi-custom*
- * using service discovery
+By default, Host Template *App-Emc-Ppma-Restapi* doesn't have Service Template attached. You may want to:
+ * attach Service Template to Host Template *App-Emc-Ppma-Restapi-custom*
+ * use service discovery
 
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command
+Once the Plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following command
 (Parameters such as ```api-username``` or ```api-password```have to be adjusted):
 
 ```bash
