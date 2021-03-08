@@ -186,6 +186,8 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
+## J'obtiens le message d'erreur suivant:
+
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 

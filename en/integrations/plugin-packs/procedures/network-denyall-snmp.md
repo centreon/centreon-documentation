@@ -183,6 +183,8 @@ parameter to the command:
     --help
 ```
 
+## Troubleshooting
+
 ### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this message, you're probably facing one of theses issues:
