@@ -18,7 +18,7 @@ The virtual machine needs:
 - Memory: depending on your operating system, you will need at least 1 GB of RAM. To fully enjoy Centreon's experience, you need at least 2 GB of free memory.
 - Hard Disk storage: The virtual machine requires at least 6.5 GB of free space on your hard disk. However, if you want keep using Centreon, it is recommended to have at least 10 GB as its size will grow over time.
 
-### Download
+## Download
 
 The virtual machine is available on the [Centreon download web site](https://download.centreon.com).
 
@@ -52,7 +52,7 @@ a network card. Select the correct associated network to access to Internet.
 
 The virtual machine can now be started.
 
-#### First boot
+## First boot
 
 Once your virtual machine has started. You must connect to it via a shell terminal and perform the requested operations.
 
@@ -60,7 +60,7 @@ Once your virtual machine has started. You must connect to it via a shell termin
 
 Once those operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
 
-#### Default credentials
+## Default credentials
 
 - The default Centreon web interface account is: **admin / centreon**.
 - The server administration account (through SSH) is: **root / centreon**.
@@ -78,7 +78,7 @@ To connect to your Centreon web interface access to URL: http://IP_ADDRESS/centr
 
 Fill in your user name and associated password and click on **Connect** button:
 
-![image](../assets/getting-started/aconnection.png)
+![image](../../assets/getting-started/aconnection.png)
 
 You are now connected to the Centreon web interface.
 

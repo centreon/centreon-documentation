@@ -26,7 +26,7 @@ La machine virtuelle a besoin de :
   sur votre disque dur. Cependant, si vous souhaitez continuer à utiliser Centreon,
   il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec le temps.
 
-### Téléchargement
+## Téléchargement
 
 La machine virtuelle est disponible sur notre site de
 [téléchargement Centreon](https://download.centreon.com).
@@ -63,7 +63,7 @@ le bon réseau associé pour accéder à Internet.
 
 Vous pouvez maintenant démarrer la machine virtuelle.
 
-#### Premier démarrage
+## Premier démarrage
 
 Une fois votre machine virtuelle démarrée, vous devez vous y connecter via un
 terminal shell et effectuer les opérations demandées.
@@ -73,7 +73,7 @@ terminal shell et effectuer les opérations demandées.
 Une fois ces opérations effectuées, vous pouvez supprimer ce message en
 supprimant le fichier /etc/profile.d/centreon.sh.
 
-#### Identifiants par défaut
+## Identifiants par défaut
 
 - Le compte d'interface Web Centreon par défaut est : **admin / centreon**.
 - Le compte d'administration du serveur (via SSH) est: **root / centreon**.
@@ -91,7 +91,7 @@ Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/cent
 
 Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bouton **Connect** :
 
-![image](../assets/getting-started/aconnection.png)
+![image](../../assets/getting-started/aconnection.png)
 
 Vous êtes maintenant connecté à l'interface web Centreon.
 
