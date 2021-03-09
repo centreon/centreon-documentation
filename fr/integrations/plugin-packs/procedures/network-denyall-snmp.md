@@ -20,8 +20,6 @@ Le Plugin-Pack DenyAll SNMP collecte les données pour:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--DOCUSAURUS_CODE_TABS-->
-
 <!--Cpu-->
 
 | Metric name                              | Description              | Unit |
