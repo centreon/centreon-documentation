@@ -20,8 +20,8 @@ To make things more flexible, procedures can be associated with templates.
 1.31) on your system.
 
 You can [download MediaWiki
-here](http://www.mediawiki.org/wiki/MediaWiki) and access to the [documentation
-here](http://www.mediawiki.org/wiki/User_hub
+here](http://www.mediawiki.org/wiki/MediaWiki) and access the [documentation
+here](http://www.mediawiki.org/wiki/User_hub)
 
 ## Configure the access to the wiki
 
