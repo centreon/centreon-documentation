@@ -13,6 +13,19 @@ The Plugin-Pack Ubiquiti AirFiber SNMP collects metrics for:
 * Memory
 * Radios
 
+### Discovery rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                                  | Description                                                           |
+| :----------------------------------------- | :-------------------------------------------------------------------- |
+| Net-Ubiquiti-Airfiber-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization         |
+| Net-Ubiquiti-Airfiber-SNMP-Radio-Name      | Discover radio interfaces and monitor bandwidth utilization           |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Collected Metrics
 
 <!--DOCUSAURUS_CODE_TABS-->

@@ -13,6 +13,19 @@ Le Plugin-Pack Ubiquiti AirFiber SNMP collecte les données pour:
 * Memory
 * Radios
 
+### Règles de découvertes
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Nom de la règle                            | Description                                                                                  |
+| :----------------------------------------- | :------------------------------------------------------------------------------------------- |
+| Net-Ubiquiti-Airfiber-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
+| Net-Ubiquiti-Airfiber-SNMP-Radio-Name      | Découvre les interfaces radios et supervise le statut et l'utilisation de la bande passante  |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
