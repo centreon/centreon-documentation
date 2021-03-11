@@ -19,6 +19,20 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.7
+
+`12 mars 2021`
+
+#### Améliorations
+
+- Ajout de paramètres de personnalisation de la rotation des logs
+  sur centreon-map-server.
+
+#### Bugfixes
+
+- La recherche depuis le panneau de Resources du client Desktop prenait parfois beaucoup de temps
+- Ajout du client mysql qui n'était pas fourni si centreon-map-server était installé avec une base déportée
+
 ### 20.04.6
 
 `11 février 2021`
