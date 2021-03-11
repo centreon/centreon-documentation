@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.04.7
 
-`12 février 2021`
+`12 mars 2021`
 
 #### Améliorations
 
