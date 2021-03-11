@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.7
 
-`February 12, 2021`
+`March 12, 2021`
 
 #### Enhancements
 
