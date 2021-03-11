@@ -23,7 +23,7 @@ commerciales, veuillez contacter le support.
 
 `12 février 2021`
 
-#### Enhancements
+#### Améliorations
 
 - Added customizable log configuration settings for logs rotation on
   centreon-map-server.
