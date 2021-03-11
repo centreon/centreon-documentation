@@ -25,7 +25,7 @@ commerciales, veuillez contacter le support.
 
 #### Améliorations
 
-- Added customizable log configuration settings for logs rotation on
+- Ajout de paramètres de personnalisation de la rotation des logs
   centreon-map-server.
 
 #### Bugfixes
