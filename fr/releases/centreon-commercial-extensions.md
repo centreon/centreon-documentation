@@ -26,7 +26,7 @@ commerciales, veuillez contacter le support.
 #### Améliorations
 
 - Ajout de paramètres de personnalisation de la rotation des logs
-  centreon-map-server.
+  sur centreon-map-server.
 
 #### Bugfixes
 
