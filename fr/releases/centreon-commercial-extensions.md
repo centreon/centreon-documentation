@@ -30,7 +30,6 @@ commerciales, veuillez contacter le support.
 
 #### Bugfixes
 
-- Fixed search bar in Desktop client Resources panel which could take a
 - La recherche depuis le panneau de Resources du client Desktop prenait parfois beaucoup de temps
 - Added missing mysql client that was not provided if centreon-map-server
   was installed using a dedicated database.
