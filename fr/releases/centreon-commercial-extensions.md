@@ -31,7 +31,6 @@ commerciales, veuillez contacter le support.
 #### Bugfixes
 
 - La recherche depuis le panneau de Resources du client Desktop prenait parfois beaucoup de temps
-- Added missing mysql client that was not provided if centreon-map-server
 - Ajout du client mysql qui n'était pas fourni si centreon-map-server était installé avec une base déportée
 
 ### 20.04.6
