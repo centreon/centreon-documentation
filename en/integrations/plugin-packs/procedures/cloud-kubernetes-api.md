@@ -53,12 +53,18 @@ memory requets/limits.
 In parallele to this discovery, unitary services can be created thanks to
 the Service Discovery rules:
 
-| Rule                                    | Description                                             |
-|-----------------------------------------|---------------------------------------------------------|
-| Cloud-Kubernetes-Api-Daemonsets-Status  | Discover Kubernetes daemonsets to monitor their status  |
-| Cloud-Kubernetes-Api-Deployments-Status | Discover Kubernetes deployments to monitor their status |
-| Cloud-Kubernetes-Api-Nodes-Usage        | Discover Kubernetes nodes to monitor their usage        |
-| Cloud-Kubernetes-Api-Pods-Status        | Discover Kubernetes pods to monitor their status        |
+| Rule                                               | Description                                                        |
+|----------------------------------------------------|--------------------------------------------------------------------|
+| Cloud-Kubernetes-Api-CronJobs-Status               | Discover Kubernetes CronJobs to monitor their status               |
+| Cloud-Kubernetes-Api-Daemonsets-Status             | Discover Kubernetes DaemonSets to monitor their status             |
+| Cloud-Kubernetes-Api-Deployments-Status            | Discover Kubernetes Deployments to monitor their status            |
+| Cloud-Kubernetes-Api-Nodes-Status                  | Discover Kubernetes Nodes to monitor their status                  |
+| Cloud-Kubernetes-Api-Nodes-Usage                   | Discover Kubernetes Nodes to monitor their usage                   |
+| Cloud-Kubernetes-Api-PersistentVolumes-Status      | Discover Kubernetes PersistentVolumes to monitor their status      |
+| Cloud-Kubernetes-Api-Pods-Status                   | Discover Kubernetes Pods to monitor their status                   |
+| Cloud-Kubernetes-Api-ReplicaSets-Status            | Discover Kubernetes ReplicaSets to monitor their status            |
+| Cloud-Kubernetes-Api-ReplicationControllers-Status | Discover Kubernetes ReplicationControllers to monitor their status |
+| Cloud-Kubernetes-Api-StatefulSets-Status           | Discover Kubernetes StatefulSets to monitor their status           |
 
 ### Templates
 
@@ -68,12 +74,19 @@ on the scenarii mentioned earlier:
 - All in one host template that will gather checks and metrics with a
   service per Kubernetes unit:
 
-    | Cloud-Kubernetes-Api |
-    |----------------------|
-    | Daemonset Status     |
-    | Deployment Status    |
-    | Node Usage           |
-    | Pod Status           |
+    | Cloud-Kubernetes-Api         |
+    |------------------------------|
+    | Cluster Events               |
+    | CronJob Status               |
+    | DaemonSet Status             |
+    | Deployment Status            |
+    | Node Status                  |
+    | Node Usage                   |
+    | PersistentVolume Status      |
+    | Pod Status                   |
+    | ReplicatSet Status           |
+    | ReplicationController Status |
+    | StatefulSet Status           |
 
 - A minimal host template that will only collect metrics for the Kubernetes
   nodes:
@@ -81,12 +94,104 @@ on the scenarii mentioned earlier:
     | Cloud-Kubernetes-Node-Api |
     |---------------------------|
     | Node Usage                |
+    | Node Status               |
 
 ## Monitored metrics and indicators
 
-### Daemonsets status
+### Cluster events
 
-This indicator will ensure that daemonsets are within defined bounds by
+This indicator allows to watch the number of events occurring on the cluster,
+like the `kubectl get events` can provide:
+
+```text
+NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
+graphite    26m         Warning   Unhealthy   pod/graphite-0   Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)', Count: 1, First seen: 26m 21s ago (2021-03-11T12:26:23Z), Last seen: 26m 21s ago (2021-03-11T12:26:23Z)
+```
+
+The collected metrics will be:
+
+| Metric                      |
+|-----------------------------|
+| `events.type.warning.count` |
+| `events.type.normal.count`  |
+
+It is then possible to place thresholds using the following special variables:
+
+- `%{type}`
+- `%{object}`
+- `%{message}`
+- `%{count}`
+- `%{first_seen}`
+- `%{last_seen}`
+- `%{name}`
+- `%{namespace}`
+
+The defaults values are the following:
+
+| Threshold | Value                   | Description                                             |
+|-----------|-------------------------|---------------------------------------------------------|
+| Warning   | `%{type} =~ /warning/i` | Will raise a warning alert if there is `warning` events |
+| Critical  | `%{type} =~ /error/i`   | Will raise a critical alert if there is `error` events  |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/)
+for more information about collected metrics and how to fine tune your
+thresholds.
+
+### CronJobs status
+
+This indicator allows to check that CronJobs are executed as they should,
+like the `kubectl get cronjobs` can provide:
+
+```text
+NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+hello   */1 * * * *   False     1        6s              2d1h
+```
+
+The resulting output in Centreon could look like:
+
+```text
+CronJob 'hello' Jobs Active: 1, Last schedule time: 6s ago (2021-03-11T12:31:00Z)
+```
+
+The collected metric for each CronJobs will be:
+
+| Metric                      | Kubernetes metric        |
+|-----------------------------|--------------------------|
+| `cronjob.jobs.active.count` | `active`                 |
+
+If the service collects metrics of several CronJobs (depending on the
+chosen scenario), CronJob's name will be appended to the metric name:
+
+| Metric                            |
+|-----------------------------------|
+| `hello#cronjob.jobs.active.count` |
+
+It is then possible to place thresholds using the following special variables:
+
+- `%{active}`
+- `%{last_schedule}`
+- `%{name}`
+- `%{namespace}`
+
+There is no default thresholds. An interesting one could be the following:
+`%{last_schedule} > x` where `x` in seconds is the duration beyond which
+the CronJob is considered not running as scheduled.
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+for more information about collected metrics and how to fine tune your
+thresholds.
+
+### DaemonSets status
+
+This indicator will ensure that DaemonSets are within defined bounds by
 looking at the number of available and/or up-to-date pods compared to
 the desired count, like the `kubectl get daemonsets` can provide:
 
@@ -103,32 +208,34 @@ Daemonset 'kube-flannel-ds-amd64' Pods Desired: 3, Current: 3, Available: 3, Up-
 Daemonset 'kube-proxy' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
 ```
 
-The collected metrics for each deployment will be:
+The collected metrics for each Daemonsets will be:
 
-| Metric         | Metric (v2 format)                  | Kubernetes metric        |
-|----------------|-------------------------------------|--------------------------|
-| `desired`      | `daemonset.pods.desired.count`      | `desiredNumberScheduled` |
-| `current`      | `daemonset.pods.current.count`      | `currentNumberScheduled` |
-| `available`    | `daemonset.pods.available.count`    | `numberAvailable`        |
-| `up_to_date`   | `daemonset.pods.uptodate.count`     | `updatedNumberScheduled` |
-| `ready`        | `daemonset.pods.ready.count`        | `numberReady`            |
-| `misscheduled` | `daemonset.pods.misscheduled.count` | `numberMisscheduled`     |
+| Metric                              | Kubernetes metric        |
+|-------------------------------------|--------------------------|
+| `daemonset.pods.desired.count`      | `desiredNumberScheduled` |
+| `daemonset.pods.current.count`      | `currentNumberScheduled` |
+| `daemonset.pods.available.count`    | `numberAvailable`        |
+| `daemonset.pods.uptodate.count`     | `updatedNumberScheduled` |
+| `daemonset.pods.ready.count`        | `numberReady`            |
+| `daemonset.pods.misscheduled.count` | `numberMisscheduled`     |
 
-If the service collects metrics of several daemonsets (depending on the
-chosen scenario), daemonset's name will be happened to the metric name:
+If the service collects metrics of several DaemonSets (depending on the
+chosen scenario), DaemonSet's name will be appended to the metric name:
 
-| Metric               | Metric (v2 format)                        |
-|----------------------|-------------------------------------------|
-| `desired_kube-proxy` | `kube-proxy#daemonset.pods.desired.count` |
+| Metric                                    |
+|-------------------------------------------|
+| `kube-proxy#daemonset.pods.desired.count` |
 
 It is then possible to place thresholds using the following special variables:
 
-- %{desired}
-- %{current}
-- %{available}
-- %{up\_to\_date}
-- %{ready}
-- %{misscheduled}
+- `%{desired}`
+- `%{current}`
+- `%{available}`
+- `%{up_to_date}`
+- `%{ready}`
+- `%{misscheduled}`
+- `%{name}`
+- `%{namespace}`
 
 The defaults values are the following:
 
@@ -144,7 +251,7 @@ thresholds.
 
 ### Deployments status
 
-This indicator will ensure that deployments are within defined bounds by
+This indicator will ensure that Deployments are within defined bounds by
 looking at the number of available and/or up-to-date replicas compared to
 the desired count, like the `kubectl get deployments` can provide:
 
@@ -165,30 +272,32 @@ Deployment 'dashboard-metrics-scraper' Replicas Desired: 1, Current: 1, Availabl
 Deployment 'kubernetes-dashboard' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
 ```
 
-The collected metrics for each deployment will be:
+The collected metrics for each Deployments will be:
 
-| Metric       | Metric (v2 format)                    | Kubernetes metric              |
-|--------------|---------------------------------------|--------------------------------|
-| `desired`    | `deployment.replicas.desired.count`   | `replicas` (in `spec` entry)   |
-| `current`    | `deployment.replicas.current.count`   | `replicas` (in `status` entry) |
-| `available`  | `deployment.replicas.available.count` | `availableReplicas`            |
-| `ready`      | `deployment.replicas.ready.count`     | `readyReplicas`                |
-| `up_to_date` | `deployment.replicas.uptodate.count`  | `updatedReplicas`              |
+| Metric                                | Kubernetes metric              |
+|---------------------------------------|--------------------------------|
+| `deployment.replicas.desired.count`   | `replicas` (in `spec` entry)   |
+| `deployment.replicas.current.count`   | `replicas` (in `status` entry) |
+| `deployment.replicas.available.count` | `availableReplicas`            |
+| `deployment.replicas.ready.count`     | `readyReplicas`                |
+| `deployment.replicas.uptodate.count`  | `updatedReplicas`              |
 
-If the service collects metrics of several deployments (depending on the
-chosen scenario), deployment's name will be happened to the metric name:
+If the service collects metrics of several Deployments (depending on the
+chosen scenario), Deployment's name will be appended to the metric name:
 
-| Metric                  | Metric (v2 format)                                |
-|-------------------------|---------------------------------------------------|
-| `desired_tiller-deploy` | `tiller-deploy#deployment.replicas.desired.count` |
+| Metric                                            |
+|---------------------------------------------------|
+| `tiller-deploy#deployment.replicas.desired.count` |
 
 It is then possible to place thresholds using the following special variables:
 
-- %{desired}
-- %{current}
-- %{available}
-- %{ready}
-- %{up\_to\_date}
+- `%{desired}`
+- `%{current}`
+- `%{available}`
+- `%{ready}`
+- `%{up_to_date}`
+- `%{name}`
+- `%{namespace}`
 
 The defaults values are the following:
 
@@ -202,9 +311,52 @@ Refer to the
 for more information about collected metrics and how to fine tune your
 thresholds.
 
+### Nodes status
+
+This indicator will ensure that Nodes are running well by looking at the
+conditions statuses, like the `kubectl describe nodes` can list:
+
+```text
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Condition 'DiskPressure' Status is 'False', Reason: 'KubeletHasNoDiskPressure', Message: 'kubelet has no disk pressure'
+Condition 'MemoryPressure' Status is 'False', Reason: 'KubeletHasSufficientMemory', Message: 'kubelet has sufficient memory available'
+Condition 'PIDPressure' Status is 'False', Reason: 'KubeletHasSufficientPID', Message: 'kubelet has sufficient PID available'
+Condition 'Ready' Status is 'True', Reason: 'KubeletReady', Message: 'kubelet is posting ready status'
+```
+
+No metrics are collected.
+
+It is possible to place thresholds using the following special variables:
+
+- `%{type}`
+- `%{status}`
+- `%{reason}`
+- `%{message}`
+
+The defaults values are the following:
+
+| Threshold | Value                                                                                                                    | Description                                                                                                                                |
+|-----------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Critical  | <code>(%{type} =~ /Ready/i && %{status} !~ /True/i) &#124;&#124; (%{type} =~ /.*Pressure/i && %{status} !~ /False/i)</code>  | Will raise a critical alert if the status of the `Ready` condition is not `True` or if the status of a `Pressure` condition is not `False` |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/architecture/nodes/#condition)
+for more information about statuses and how to fine tune your thresholds.
+
 ### Nodes usage
 
-This indicator will gather metrics about nodes usage like pods allocation,
+This indicator will gather metrics about Nodes usage like pods allocation,
 requests for CPU and memory made by those pods, and limits for CPU and
 memory allowed to those same pods.
 
@@ -254,29 +406,66 @@ Node 'master-node' CPU requests: 37.50% (0.75/2), CPU limits: 5.00% (0.1/2), Mem
 Node 'worker-node' CPU requests: 35.00% (0.7/2), CPU limits: 115.00% (2.3/2), Memory requests: 31.51% (1.17GB/3.70GB), Memory limits: 115.21% (4.26GB/3.70GB), Pods allocation: 9.09% (10/110)
 ```
 
-The collected metrics for each node will be:
+The collected metrics for each Nodes will be:
 
-| Metric            | Metric (v2 format)           |
-|-------------------|------------------------------|
-| `cpu_requests`    | `cpu.requests.percentage`    |
-| `cpu_limits`      | `cpu.limits.percentage`      |
-| `memory_requests` | `memory.requests.percentage` |
-| `memory_limits`   | `memory.limits.percentage`   |
-| `allocated_pods`  | `pods.allocation.percentage` |
+| Metric                       |
+|------------------------------|
+| `cpu.requests.percentage`    |
+| `cpu.limits.percentage`      |
+| `memory.requests.percentage` |
+| `memory.limits.percentage`   |
+| `pods.allocation.percentage` |
 
-If the service collects metrics of several nodes (depending on the
-chosen scenario), node's name will be happened to the metric name:
+If the service collects metrics of several Nodes (depending on the
+chosen scenario), Node's name will be appended to the metric name:
 
-| Metric                       | Metric (v2 format)                       |
-|------------------------------|------------------------------------------|
-| `allocated_pods_worker-node` | `worker-node#pods.allocation.percentage` |
+| Metric                                   |
+|------------------------------------------|
+| `worker-node#pods.allocation.percentage` |
 
 Thresholds expressed in percentage can be put for all metrics, for warning
 and critical alerts.
 
+### PersistentVolumes status
+
+This indicator will ensure that PersistentVolumes are operating correctly by
+looking at the phase they are in, like the `kubectl get pv` can provide:
+
+```text
+NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
+pv-nfs-kubestorage-001   5Gi        RWO            Retain           Available                                                   630d
+pv-nfs-kubestorage-002   5Gi        RWO            Retain           Bound       tick/data-influxdb                              630d
+pv-nfs-kubestorage-003   5Gi        RWO            Retain           Released    graphite/graphite-pvc                           630d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Persistent Volume 'pv-nfs-kubestorage-001' Phase is 'Available'
+Persistent Volume 'pv-nfs-kubestorage-002' Phase is 'Bound'
+Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
+```
+
+No metrics are collected.
+
+It is possible to place thresholds using the following special variables:
+
+- `%{phase}`
+- `%{name}`
+
+The defaults values are the following:
+
+| Threshold | Value                                     | Description                                                                        |
+|-----------|-------------------------------------------|------------------------------------------------------------------------------------|
+| Critical  | `%{phase} !~ /Bound|Available|Released/i` | Will raise a critical alert if the phase is not `Bound`, `Available` or `Released` |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+for more information about statuses and how to fine tune your thresholds.
+
 ### Pods status
 
-This indicator will ensure that pods and their containers are within defined
+This indicator will ensure that Pods and their containers are within defined
 bounds by looking at the number of ready containers compared to
 the desired count, like the `kubectl get pods` can provide:
 
@@ -313,41 +502,208 @@ Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
     Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
 ```
 
-The collected metrics for each deployment will be:
+The collected metrics for each Pods will be:
 
-| Metric             | Metric (v2 format)          |
-|--------------------|-----------------------------|
-| `containers_ready` | `containers.ready.count`    |
-| `restarts_count`   | `restarts.total.count`      |
-| `restarts_count`   | `containers.restarts.count` |
+| Metric                      |
+|-----------------------------|
+| `containers.ready.count`    |
+| `restarts.total.count`      |
+| `containers.restarts.count` |
 
-If the service collects metrics of several pods (depending on the
-chosen scenario), pod's name and container's name will be happened to the
+If the service collects metrics of several Pods (depending on the
+chosen scenario), Pod's name and container's name will be appended to the
 metric name:
 
-| Metric                                           | Metric (v2 format)                                          |
-|--------------------------------------------------|-------------------------------------------------------------|
-| `containers_ready_coredns-74ff55c5b-g4hmt`       | `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
-| `restarts_count_coredns-74ff55c5b-g4hmt`         | `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
-| `restarts_count_coredns-74ff55c5b-g4hmt_coredns` | `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
+| Metric                                                      |
+|-------------------------------------------------------------|
+| `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
+| `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
+| `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
 
 It is then possible to place thresholds using the following special variables:
 
-- %{display}
-- %{status}
-- %{state} (containers only)
+- `%{name}`
+- `%{status}`
+- `%{state}` (containers only)
+- `%{name}`
+- `%{namespace}` (Pods only)
 
 The defaults values are the following:
 
-| Threshold            | Value                                                | Description                                                                                   |
-|----------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| Warning (pod)        | none                                                 |                                                                                               |
-| Critical (pod)       | `%{status} !~ /running/i`                            | Will raise a critical alert if a pod is not in a running status                               |
-| Warning (container)  | none                                                 |                                                                                               |
+| Threshold            | Value                                                                   | Description                                                                                   |
+|----------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Critical (pod)       | `%{status} !~ /running/i`                                               | Will raise a critical alert if a pod is not in a running status                               |
 | Critical (container) | <code>%{status} !~ /running/i &#124;&#124; %{state} !~ /^ready$/</code> | Will raise a critical alert if a container is not in a running status or not in a ready state |
 
 Refer to the
 [official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
+for more information about collected metrics and how to fine tune your
+thresholds.
+
+### ReplicaSets status
+
+This indicator will ensure that ReplicaSets are within defined bounds by
+looking at the number of ready replicas compared to the desired count,
+like the `kubectl get replicasets` can provide:
+
+```text
+NAMESPACE              NAME                                   DESIRED   CURRENT   READY   AGE
+kube-system            coredns-74ff55c5b                      2         2         2       44d
+kube-system            tiller-deploy-7bf78cdbf7               1         1         1       630d
+kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc   1         1         1       44d
+kubernetes-dashboard   kubernetes-dashboard-7448ffc97b        1         1         1       44d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+ReplicaSet 'coredns-74ff55c5b' Replicas Desired: 2, Current: 2, Ready: 2
+ReplicaSet 'tiller-deploy-7bf78cdbf7' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'dashboard-metrics-scraper-79c5968bdc' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'kubernetes-dashboard-7448ffc97b' Replicas Desired: 1, Current: 1, Ready: 1
+```
+
+The collected metrics for each ReplicaSets will be:
+
+| Metric                              | Kubernetes metric              |
+|-------------------------------------|--------------------------------|
+| `replicaset.replicas.desired.count` | `replicas` (in `spec` entry)   |
+| `replicaset.replicas.current.count` | `replicas` (in `status` entry) |
+| `replicaset.replicas.ready.count`   | `readyReplicas`                |
+
+If the service collects metrics of several ReplicaSets (depending on the
+chosen scenario), ReplicaSet's name will be appended to the metric name:
+
+| Metric                                                       |
+|--------------------------------------------------------------|
+| `tiller-deploy-7bf78cdbf7#replicaset.replicas.desired.count` |
+
+It is then possible to place thresholds using the following special variables:
+
+- `%{desired}`
+- `%{current}`
+- `%{ready}`
+- `%{name}`
+- `%{namespace}`
+
+The defaults values are the following:
+
+| Threshold | Value                   | Description                                                                                  |
+|-----------|-------------------------|----------------------------------------------------------------------------------------------|
+| Critical  | `%{ready} < %{desired}` | Will raise a critical alert if the number of ready replicas is lower than the desired number |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+for more information about collected metrics and how to fine tune your
+thresholds.
+
+### ReplicationControllers status
+
+This indicator will ensure that ReplicationControllers are within defined
+bounds by looking at the number of ready replicas compared to the desired
+count, like the `kubectl get rc` can provide:
+
+```text
+NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
+elk         nginx   3         3         3       2d19h
+```
+
+The resulting output in Centreon could look like:
+
+```text
+ReplicationController 'nginx' Replicas Desired: 3, Current: 3, Ready: 3
+```
+
+The collected metrics for each ReplicaSets will be:
+
+| Metric                                         | Kubernetes metric              |
+|------------------------------------------------|--------------------------------|
+| `replicationcontroller.replicas.desired.count` | `replicas` (in `spec` entry)   |
+| `replicationcontroller.replicas.current.count` | `replicas` (in `status` entry) |
+| `replicationcontroller.replicas.ready.count`   | `readyReplicas`                |
+
+If the service collects metrics of several ReplicationControllers (depending
+on the chosen scenario), ReplicationController's name will be appended to
+the metric name:
+
+| Metric                                               |
+|------------------------------------------------------|
+| `nginx#replicationcontroller.replicas.desired.count` |
+
+It is then possible to place thresholds using the following special variables:
+
+- `%{desired}`
+- `%{current}`
+- `%{ready}`
+- `%{name}`
+- `%{namespace}`
+
+The defaults values are the following:
+
+| Threshold | Value                   | Description                                                                                  |
+|-----------|-------------------------|----------------------------------------------------------------------------------------------|
+| Critical  | `%{ready} < %{desired}` | Will raise a critical alert if the number of ready replicas is lower than the desired number |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)
+for more information about collected metrics and how to fine tune your
+thresholds.
+
+### StatefulSets status
+
+This indicator will ensure that StatefulSets are within defined bounds by
+looking at the number of ready/up-to-date replicas compared to the desired
+count, like the `kubectl get statefulsets` can provide:
+
+```text
+NAMESPACE    NAME                                        READY   AGE
+elk          elasticsearch-master                        2/2     44d
+graphite     graphite                                    1/1     3d
+prometheus   prometheus-prometheus-operator-prometheus   1/1     619d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+StatefulSet 'elasticsearch-master' Replicas Desired: 2, Current: 2, Up-to-date: 2, Ready: 2
+StatefulSet 'graphite' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+StatefulSet 'prometheus-prometheus-operator-prometheus' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+```
+
+The collected metrics for each StatefulSets will be:
+
+| Metric                                | Kubernetes metric              |
+|---------------------------------------|--------------------------------|
+| `statefulset.replicas.desired.count`  | `replicas` (in `spec` entry)   |
+| `statefulset.replicas.current.count`  | `currentReplicas`              |
+| `statefulset.replicas.ready.count`    | `readyReplicas`                |
+| `statefulset.replicas.uptodate.count` | `updatedReplicas`              |
+
+If the service collects metrics of several StatefulSets (depending on the
+chosen scenario), StatefulSet's name will be appended to the metric name:
+
+| Metric                                        |
+|-----------------------------------------------|
+| `graphite#statefulset.replicas.desired.count` |
+
+It is then possible to place thresholds using the following special variables:
+
+- `%{desired}`
+- `%{current}`
+- `%{ready}`
+- `%{up_to_date}`
+- `%{name}`
+- `%{namespace}`
+
+The defaults values are the following:
+
+| Threshold | Value                        | Description                                                                                      |
+|-----------|------------------------------|--------------------------------------------------------------------------------------------------|
+| Warning   | `%{up_to_date} < %{desired}` | Will raise a warning alert if the number of up-to-date replicas is lower than the desired number |
+| Critical  | `%{ready} < %{desired}`      | Will raise a critical alert if the number of ready replicas is lower than the desired number     |
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -395,12 +751,19 @@ rules:
   - apiGroups:
       - ""
       - apps
+      - batch
     resources:
+      - cronjobs
       - daemonsets
       - deployments
+      - events
       - namespaces
       - nodes
+      - persistentvolumes
       - pods
+      - replicasets
+      - replicationcontrollers
+      - statefulsets
     verbs:
       - get
       - list
@@ -581,9 +944,9 @@ users:
 EOF
 ```
 
-This will create a `centreon-account-config` file. This file must be copied
-to the Pollers Engine user's home, usually in a `.kube` directory
-(i.e. `/var/lib/centreon-engine/.kube/config`).
+This will create a `config` file. This file must be copied to the Pollers
+Engine user's home, usually in a `.kube` directory (i.e.
+`/var/lib/centreon-engine/.kube/config`).
 
 This path will be used later in Centreon host configuration.
 
