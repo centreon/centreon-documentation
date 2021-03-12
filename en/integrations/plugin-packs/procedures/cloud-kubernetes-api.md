@@ -32,7 +32,7 @@ There is mainly three ways:
 For all those scenarii, discovery and classic templating will be used.
 
 You just need to choose which flavor you like the most: communicating with
-the RestAPI exposed by the Kubernetes cluster, or using the CLI tool kubectl
+the RestAPI exposed by the Kubernetes cluster, or using the CLI tool `kubectl`
 to communicate with the cluster's control plane.
 
 ### Discovery
@@ -48,9 +48,9 @@ Here is the list of the Host Discovery providers:
 
 Both providers will search for Kubernetes nodes, and link them to a minimal
 host template to monitor the node usage in terms of pods allocation, cpu and
-memory requets/limits.
+memory requests/limits.
 
-In parallele to this discovery, unitary services can be created thanks to
+In parallel to this discovery, unitary services can be created thanks to
 the Service Discovery rules:
 
 | Rule                                               | Description                                                        |
@@ -530,10 +530,10 @@ It is then possible to place thresholds using the following special variables:
 
 The defaults values are the following:
 
-| Threshold            | Value                                                                   | Description                                                                                   |
-|----------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| Critical (pod)       | `%{status} !~ /running/i`                                               | Will raise a critical alert if a pod is not in a running status                               |
-| Critical (container) | <code>%{status} !~ /running/i &#124;&#124; %{state} !~ /^ready$/</code> | Will raise a critical alert if a container is not in a running status or not in a ready state |
+| Threshold            | Value                                                                   | Description                                                                                       |
+|----------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| Critical (pod)       | `%{status} !~ /running/i`                                               | Will raise a critical alert if a pod is not in a `running` status                                 |
+| Critical (container) | <code>%{status} !~ /running/i &#124;&#124; %{state} !~ /^ready$/</code> | Will raise a critical alert if a container is not in a `running` status or not in a `ready` state |
 
 Refer to the
 [official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
@@ -920,7 +920,7 @@ token=$(kubectl get secret $secret --namespace $namespace --output jsonpath='{.d
 > The account name and namespace must match with the account created earlier.
 > All others need to be adapted.
 
-Then execute this command to generate the config file
+Then execute this command to generate the config file :
 
 ```shell
 cat <<EOF >> config
@@ -1001,7 +1001,7 @@ Optional macros values can be set:
 | Macro          | Description                                | Default value |
 |----------------|--------------------------------------------|---------------|
 | `PROXYURL`     | URL of the proxy (if needed)               | none          |
-| `TIMEOUT`      | Time in seconds before the query times out | `10`          |
+| `TIMEOUT`      | Time in seconds before the query timed out | `10`          |
 | `EXTRAOPTIONS` | Extra options (if needed)                  | none          |
 
 If choosing `Cloud-Kubernetes-Api`, host will be added with all services to
@@ -1017,7 +1017,7 @@ the Engines.
 
 #### Host discovery
 
-Add a job from `Configuration > Discovery` menu and choose a provided
+Add a job from `Configuration > Discovery` menu and choose a provider
 between `Kubernetes Nodes (RestAPI)` and `Kubernetes Nodes (Kubectl)`
 from the list.
 
