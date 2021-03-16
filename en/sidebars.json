@@ -630,6 +630,7 @@
                     "integrations/plugin-packs/procedures/network-firewalls-juniper-ssg-snmp",
                     "integrations/plugin-packs/procedures/network-juniper-trapeze-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-kemp-snmp",
+                    "integrations/plugin-packs/procedures/network-meru-snmp",
                     "integrations/plugin-packs/procedures/network-mikrotik-snmp",
                     "integrations/plugin-packs/procedures/network-mitel-3300icp-snmp",
                     "integrations/plugin-packs/procedures/network-moxa-switch-snmp",
