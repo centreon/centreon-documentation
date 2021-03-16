@@ -596,6 +596,7 @@
                     "integrations/plugin-packs/procedures/network-dell-n4000",
                     "integrations/plugin-packs/procedures/network-dell-os10-snmp",
                     "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
+                    "integrations/plugin-packs/procedures/network-denyall-snmp",
                     "integrations/plugin-packs/procedures/network-switch-dell-xseries-snmp",
                     "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portserverts-snmp",
