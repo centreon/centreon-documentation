@@ -243,19 +243,19 @@ user account and test the Plugin by running the following command:
     --tenant='xxxxxxxxx' \
     --client-id='xxxxxxxxx' \
     --client-secret='xxxxxxxxx' \
-    --resource='SVC001ABCD' \
+    --resource='AUTOMATION01' \
+    --resource-group='xxxxxxxxx' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-jobs-total='800' \
-    --critical-jobs-total='900'
+    --aggregation='Total' \
+    --warning-jobs-total='80' \
+    --critical-jobs-total='90'
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, Successful Requests: 1221.00 Throttled Requests: 6.00 |
-'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0; 
-'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
+OK: Instance 'AUTOMATION01' Statistic 'total' Metrics Total Update Deployment Runs: 0.00, Total Update Deployment Machine Runs: 0.00, Total Jobs: 0.00 | 'AUTOMATION01~total#automation.runs.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.machineruns.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.jobs.total.count'=0.00;0:80;0:90;0;
 ```
 
 The command above checks the *jobs* of an Azure *Automation* instance using the 'api' custom-mode

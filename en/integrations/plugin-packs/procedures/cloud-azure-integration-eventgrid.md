@@ -236,7 +236,7 @@ These mandatory Macros differ regarding the custom mode used:
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
 | X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the Event Grid resource        |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| X         | AZURERESOURCETYPE | Type of the Event Grid instance      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -256,24 +256,25 @@ user account and test the Plugin by running the following command:
     --tenant='xxxxxxxxx' \
     --client-id='xxxxxxxxx' \
     --client-secret='xxxxxxxxx' \
-    --resource='SVC001ABCD' \
+    --resource='EVENT01' \
+    --resource-group='xxxxxxxxx'
+    --resrouce-type='domains' \
+    --aggregation='Total' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-matched-events='800' \
-    --critical-matched-events='900'
+    --warning-matched-events='80' \
+    --critical-matched-events='90'
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, Successful Requests: 1221.00 Throttled Requests: 6.00 |
-'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0; 
-'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
+OK: Instance 'EVENT01' Statistic 'total' Metrics Matched Events: 0.00, Dead Lettered Events: 0.00, Dropped Events: 0.00 | 'EVENT01~total#eventgrid.matched.events.count'=0.00;0:80;0:90;0; 'EVENT01~total#eventgrid.deadlettered.events.count'=0.00;;;0; 'EVENT01~total#eventgrid.dropped.events.count'=0.00;;;0;
 ```
 
 The command above checks the *events* of an Azure *Event Grid* instance using the 'api' custom-mode
 (```--plugin=cloud::azure::integration::eventgrid::plugin --mode=events --custommode=api```).
-This Event Grid instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
+This Event Grid instance is identified by its id (```--resource='EVENT01'```), its type (```--resrouce-type='domains'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
@@ -281,7 +282,7 @@ The calculated metrics are the total (```--aggregation='total'```) of values on 
 with one sample per 5 minutes (```--interval='PT5M'```).
 
 This command would trigger a WARNING alarm if the *matched events* count is reported as over 800
-(```--warning-matched-events='800'```) and a CRITICAL alarm over 900 (```--critical-matched-events='900'```).
+(```--warning-matched-events='80'```) and a CRITICAL alarm over 900 (```--critical-matched-events='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 

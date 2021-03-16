@@ -255,33 +255,34 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
     --tenant='xxxxxxxxx' \
     --client-id='xxxxxxxxx' \
     --client-secret='xxxxxxxxx' \
-    --resource='SVC001ABCD' \
+    --resource='EVENT01' \
+    --resource-group='xxxxxxxxx'
+    --resrouce-type='domains' \
+    --aggregation='Total' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-matched-events='800' \
-    --critical-matched-events='900'
+    --warning-matched-events='80' \
+    --critical-matched-events='90'
 ```
 
 La commande devrait retourner un message de sortie similaire à:
 
 ```bash
-OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, Successful Requests: 1221.00 Throttled Requests: 6.00 |
-'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0; 
-'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
+OK: Instance 'EVENT01' Statistic 'total' Metrics Matched Events: 0.00, Dead Lettered Events: 0.00, Dropped Events: 0.00 | 'EVENT01~total#eventgrid.matched.events.count'=0.00;0:80;0:90;0; 'EVENT01~total#eventgrid.deadlettered.events.count'=0.00;;;0; 'EVENT01~total#eventgrid.dropped.events.count'=0.00;;;0;
 ```
 
-La commande ci-dessus vérifie les requêtes sur l'instance *Event Grid* nommée *SIG001ABCD*
-(```--plugin=cloud::azure::integration::eventgrid::plugin --mode=requests --resource='SIG001ABCD'```).
+La commande ci-dessus vérifie les évènements sur l'instance *Event Grid* nommée *EVENT01*
+(```--plugin=cloud::azure::integration::eventgrid::plugin --mode=events --resource='EVENT01'```).
 
-Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
+Le mode de connexion utilisé est 'api' (```--custommode=api```), son type (```--resrouce-type='domains'```) et les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
 Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *matched events* pendant l'intervalle donné
-est supérieur à 800 (```-warning-matched-events='800'```); l'alarme sera de type CRITICAL au-delà de 900 requêtes
-(```--critical-matched-events='900'```).
+est supérieur à 800 (```-warning-matched-events='80'```); l'alarme sera de type CRITICAL au-delà de 90 évènements
+(```--critical-matched-events='90'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:

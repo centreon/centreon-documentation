@@ -244,23 +244,23 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
     --tenant='xxxxxxxxx' \
     --client-id='xxxxxxxxx' \
     --client-secret='xxxxxxxxx' \
-    --resource='SVC001ABCD' \
+    --resource='AUTOMATION01' \
+    --resource-group='xxxxxxxxx' \
     --timeframe='900' \
     --interval='PT5M' \
-    --warning-jobs-total='800' \
-    --critical-jobs-total='900'
+    --aggregation='Total' \
+    --warning-jobs-total='80' \
+    --critical-jobs-total='90'
 ```
 
 La commande devrait retourner un message de sortie similaire à:
 
 ```bash
-OK: Instance 'SVC001ABCD' Statistic 'total' Metrics Incoming Requests: 1227.00, Successful Requests: 1221.00 Throttled Requests: 6.00 |
-'SVC001ABCD~maximum#servicebus.namespace.requests.incoming.count'=1221;;;0; 'SVC001ABCD~maximum#servicebus.namespace.requests.successful.count'=1221;;;0; 
-'SVC001ABCD~maximum#servicebus.namespace.requests.throttled.count'=6;800;900;0;
+OK: Instance 'AUTOMATION01' Statistic 'total' Metrics Total Update Deployment Runs: 0.00, Total Update Deployment Machine Runs: 0.00, Total Jobs: 0.00 | 'AUTOMATION01~total#automation.runs.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.machineruns.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.jobs.total.count'=0.00;0:80;0:90;0;
 ```
 
-La commande ci-dessus vérifie les requêtes sur l'instance *Automation* nommée *SIG001ABCD*
-(```--plugin=cloud::azure::management::automation::plugin --mode=jobs --resource='SIG001ABCD'```).
+La commande ci-dessus vérifie les requêtes sur l'instance *Automation* nommée *AUTOMATION01*
+(```--plugin=cloud::azure::management::automation::plugin --mode=jobs --resource='AUTOMATION01'```).
 
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
