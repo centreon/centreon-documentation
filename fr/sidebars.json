@@ -668,6 +668,7 @@
                     "integrations/plugin-packs/procedures/network-stormshield-snmp",
                     "integrations/plugin-packs/procedures/network-stormshield-ssh",
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
+                    "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
