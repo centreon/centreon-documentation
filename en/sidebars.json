@@ -525,6 +525,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-huawei-hmm-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-huawei-ibmc-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-ibm-bladecenter-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-ibm-hmc-ssh",
                     "integrations/plugin-packs/procedures/hardware-servers-ibm-imm-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp",
