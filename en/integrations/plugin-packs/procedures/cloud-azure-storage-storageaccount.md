@@ -3,10 +3,6 @@ id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.2 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -129,4 +125,3 @@ Click on the *Save* button.
 Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftstoragestorageaccounts>
 to see the description of return metrics for this Azure service.
-

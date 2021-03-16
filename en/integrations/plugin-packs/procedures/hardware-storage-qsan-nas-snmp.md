@@ -3,10 +3,6 @@ id: hardware-storage-qsan-nas-snmp
 title: QSAN NAS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug  8 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Qsan-Nas-SNMP-custom |
 
 Click on the *Save* button.
-

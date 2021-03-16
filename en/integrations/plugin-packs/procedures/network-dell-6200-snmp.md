@@ -3,10 +3,6 @@ id: network-dell-6200-snmp
 title: Dell 6200 SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Dell-6200-custom       |
 
 Click on the *Save* button.
-

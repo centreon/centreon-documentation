@@ -3,6 +3,9 @@ id: using-virtual-machines
 title: Using virtual machines (VMs)
 ---
 
+> If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
+> in version 8, you must [use RPM packages](./using-packages.html)
+
 Two preconfigured virtual machines are available on the Centreon [download web site](https://download.centreon.com)
 
 These virtual machines are available in OVA (VMware) and OVF (VirtualBox) format.

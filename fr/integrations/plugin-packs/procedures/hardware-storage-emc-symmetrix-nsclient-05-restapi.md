@@ -3,10 +3,6 @@ id: hardware-storage-emc-symmetrix-nsclient-05-restapi
 title: EMC Symmetrix API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  3 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -52,4 +48,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-EMC-Symmetrix-Dmx34-NSClient-05-Restapi or HW-Storage-EMC-Symmetrix-Vmax-NSClient-05-Restapi |
 
 Click on the *Save* button.
-

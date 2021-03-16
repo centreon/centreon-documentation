@@ -91,7 +91,6 @@ Here are the metrics that are collected by default:
 | :------- | :----------------------------- | :-: |
 | `uptime` | Elapsed time since last reboot |  s  |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
@@ -115,12 +114,20 @@ The monitored hosts will need two components to be monitored:
 
 To install them, run the commands below:
 
-```bash
-yum install http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.centos.noarch.rpm
+dnf install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
+```
+<!--CentOS 7-->
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` and `http://yum.centreon.com/standard/20.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20201006-142255.el7.centos.noarch.rpm` and `http://yum.centreon.com/standard/21.04/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-3.2.1-8.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
 
 #### NRPE daemon configuration
 
@@ -299,4 +306,3 @@ And restart the daemon:
 ```bash
 systemctl restart centreon-nrpe3.service
 ```
-

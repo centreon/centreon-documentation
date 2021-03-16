@@ -3,10 +3,6 @@ id: applications-cisco-cms-restapi
 title: Cisco CMS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -48,4 +44,3 @@ The following macros must be configured on host:
 | PASSWORD      | Password to access CMS API   |               |
 
 Click on the *Save* button.
-

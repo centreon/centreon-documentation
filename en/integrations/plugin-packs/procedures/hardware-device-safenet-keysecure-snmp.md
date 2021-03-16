@@ -3,10 +3,6 @@ id: hardware-device-safenet-keysecure-snmp
 title: Safenet Keysecure
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Aug 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Device-Safenet-Keysecure-SNMP-custom |
 
 Click on the *Save* button.
-

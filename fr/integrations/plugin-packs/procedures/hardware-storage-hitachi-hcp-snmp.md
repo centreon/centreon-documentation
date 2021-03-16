@@ -7,7 +7,7 @@ title: Hitachi HCP SNMP
 
 ### Objets supervisés
 
-Le Plugin-Pack Hitachi HCP SNMP la supervision des Nodes, Tenants et Volumes.
+Le Plugin-Pack Hitachi HCP SNMP inclut la supervision des Nodes, Tenants et Volumes.
 
 ### Métriques collectées
 
@@ -19,7 +19,6 @@ Le Plugin-Pack Hitachi HCP SNMP la supervision des Nodes, Tenants et Volumes.
 | :--------------------------------------- | :-------------------------------- | :--- |
 | node status                              | Status of the node                |      |
 | nic status                               | Status of the nic                 |      |
-| san path status                          | Status of the san path            |      |
 | san path status                          | Status of the san path            |      |
 | bbu status                               | Status of the battery backup unit |      |
 | *nodeid*#node.space.usage.bytes          | Usage of the node                 | B    |
@@ -54,7 +53,7 @@ It is possible to filter on the ID of a tenant using a REGEXP of the form [```--
 
 ## Prérequis
 
-Afin de contrôler vos équipements Hitach HCP, le SNMP doit être configuré.
+Afin de contrôler vos équipements Hitachi HCP, le SNMP doit être configuré.
 (https://knowledge.hitachivantara.com/Documents/Storage/Content_Platform/9.0.x/Administering_HCP/System_monitoring/03_Configuring_SNMP)
 
 ## Installation
@@ -82,7 +81,7 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hcp-Snmp
 2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
 
 ```bash
-yum install hardware-storage-hitachi-hcp-snmp
+yum install centreon-pack-hardware-storage-hitachi-hcp-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Hitachi HCP SNMP* depuis la page "Configuration > Plugin packs > Manager"
@@ -91,7 +90,7 @@ yum install hardware-storage-hitachi-hcp-snmp
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Hitach HCP.
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Hitachi HCP.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Storage-Hitachi-Hcp-SNMP-custom*. 
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 

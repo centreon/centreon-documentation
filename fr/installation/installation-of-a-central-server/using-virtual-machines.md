@@ -3,6 +3,10 @@ id: using-virtual-machines
 title: A partir des VMs
 ---
 
+> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
+> / RHEL en version 8, vous devez suivre la procédure
+> [à partir des paquets RPM](./using-packages.html)
+
 Deux machines virtuelles pré-configurées sont disponibles sur le [site de
 téléchargement](https://download.centreon.com) de Centreon.
 

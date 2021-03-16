@@ -120,6 +120,13 @@ TLS_REQCERT never
 
 Puis redémarrez le serveur Apache :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+systemctl restart httpd
+```
+<!--CentOS 7-->
 ```shell
 systemctl restart httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->

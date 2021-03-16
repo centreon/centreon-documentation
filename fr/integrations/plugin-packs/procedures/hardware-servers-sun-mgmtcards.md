@@ -3,10 +3,6 @@ id: hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Nov 22 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -71,4 +67,3 @@ the following table:
 | Host Multiple Templates              | Template provided by the plugin-pack |
 
 Click on the *Save* button.
-

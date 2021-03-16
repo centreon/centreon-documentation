@@ -3,10 +3,6 @@ id: applications-rapidrecovery-snmp
 title: Rapid Recovery SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Dec 16 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | App-Rapidrecovery-SNMP-custom |
 
 Click on the *Save* button.
-

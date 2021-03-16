@@ -3,10 +3,6 @@ id: network-firewalls-cisco-asa-snmp
 title: Cisco ASA
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.3 | `STABLE` | Jun  4 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | Net-FW-Cisco-Asa-SNMP-custom |
 
 Click on the *Save* button.
-

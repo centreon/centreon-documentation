@@ -3,10 +3,6 @@ id: applications-jboss-jmx
 title: JBoss Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Dec  5 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Jboss-JMX-custom       |
 
 Click on the *Save* button.
-

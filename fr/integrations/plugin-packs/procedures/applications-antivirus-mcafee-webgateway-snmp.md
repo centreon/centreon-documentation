@@ -106,7 +106,7 @@ configuré comme indiqué sur la documentation officielle :
 * https://docs.mcafee.com/bundle/web-gateway-8.2.x-interface-reference-guide/page/GUID-92B0527B-9709-43DD-AEDC-FE82966AC6EF.html
 
 ## Flux réseaux
-La communication doit être possible depuis le collecteur Centreon vers le port SNMP (UDP/161) du Kaspersky Security Center.
+La communication doit être possible depuis le Collecteur Centreon vers le port SNMP (UDP/161) du Kaspersky Security Center.
 
 
 ## Installation
@@ -115,7 +115,7 @@ La communication doit être possible depuis le collecteur Centreon vers le port 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin Centreon McAfee Web Gatewaysur l'ensemble des collecteurs Centreon supervisant un proxy McAfee Web Gateway :
+1. Installer le Plugin Centreon McAfee Web Gatewaysur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -125,7 +125,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin Centreon McAfee Web Gateway sur l'ensemble des collecteurs Centreon supervisant un proxy McAfee Web Gateway :
+1. Installer le Plugin Centreon McAfee Web Gateway sur l'ensemble des Collecteurs Centreon supervisant un proxy McAfee Web Gateway :
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -144,9 +144,7 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ## Configuration de l'Hôte
 
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
-
 * Complétez les champs "Nom", "Alias" & "IP Address / DNS" correspondant à votre proxy McAfee Web Gateway
-
 * Appliquez le Modèle d'Hôte *App-Antivirus-Mcafee-Webgateway-SNMP-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
@@ -213,6 +211,8 @@ Tous les modes disponibles peuvent être affichés via l'option
     --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
     --list-mode
 ```
+
+## Troubleshooting
 
 ### UNKNOWN: SNMP GET Request : Timeout
 

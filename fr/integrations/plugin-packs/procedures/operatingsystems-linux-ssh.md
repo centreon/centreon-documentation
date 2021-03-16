@@ -94,7 +94,6 @@ Ce Plugin-Pack est compatible avec n'importe quelle distribution Linux avec un d
 | device.io.write.usage.bytespersecond   | Write IO usage in bytes per second. Unit : B/s               |
 | device.io.read.time.milliseconds       | Read time in milliseconds. Unit : ms                         |
 | device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
-| device.io.write.time.milliseconds      | Write time in milliseconds. Unit : ms                        |
 | device.io.utils.percentage             | IO utilization for  different usage type of CPU. Unit : %    |
 
 <!--Openfiles-->
@@ -247,7 +246,6 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh.noarch
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Linux SSH :
@@ -264,9 +262,7 @@ yum install centreon-pack-operatingsystems-linux-ssh.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Linux SSH* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 
@@ -313,7 +309,6 @@ et l'utilisateur applicatif créé sur le serveur Linux. (Macro SSHUSERNAME).
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
-
 
 ## FAQ
 

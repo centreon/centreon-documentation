@@ -3,10 +3,6 @@ id: network-freebox-restapi
 title: Freebox
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `DEV` | Nov 22 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -52,4 +48,3 @@ the following table:
 | Host Multiple Templates | Net-Freebox-Restapi-custom |
 
 Click on the *Save* button.
-

@@ -4,10 +4,7 @@ title: Upgrade from Centreon 3.4
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
-(Centreon Web 2.8) to version 20.10.
-
-> Upon completing the upgrade procedure, Centreon EMS users will have to request
-> a new license from [Centreon support](https://centreon.force.com).
+(Centreon Web 2.8) to version 21.04.
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
@@ -25,35 +22,28 @@ servers:
 
 ## Upgrade the Centreon central server
 
-### Install Redhat Software Collections repository
-
-To install Centreon you will need to set up the official software collections
-repository supported by Redhat.
-
-> *Software collections* are required in order to install PHP 7 and the
-> associated libraries (Centreon requirement).
-
-Run the following command: :
-
-```shell
-yum install -y centos-release-scl
-```
-
-### Update the Centreon repository
-
-Run the following commands:
-
-```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
-```
-
-### Upgrade the Centreon solution
-
-> Since 20.04, Centreon uses **MariaDB 10.3**.
+> Since 21.04, Centreon uses **MariaDB 10.5**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
 > MariaDB will be upgraded afterwards.
+
+### Install Redhat Software Collections repository
+
+Run the following commands:
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+```
+
+> If you are using a CentOS environment, you must install the *Software
+> Collections* repositories with the following command:
+>
+> ```shell
+> yum install -y centos-release-scl-rh
+> ```
+
+### Upgrade the Centreon solution
 
 Clean yum cache:
 
@@ -183,7 +173,7 @@ systemctl restart httpd24-httpd
 
 ### Synchronize the plugins
 
-> Centreon Web 20.10 resource $USER1$ actually points to
+> Centreon Web 21.04 resource $USER1$ actually points to
 > /usr/lib64/nagios/plugins.
 
 To mitigate this issue run the following commands:
@@ -257,6 +247,7 @@ To act this change, run the following commands:
 systemctl stop centcore
 systemctl enable gorgoned
 systemctl start gorgoned
+systemctl disable centcore
 ```
 
 Engine statistics that have been collected by *Centcore* will know be collected
@@ -291,17 +282,25 @@ command:
 The MariaDB components can now be upgraded.
 
 Be aware that MariaDB strongly recommends to upgrade the server through each
-major release. Please refer to the [official MariaDB documentation](https://mariadb.com/kb/en/upgrading/) for further information.
+major release. Please refer to the [official MariaDB
+documentation](https://mariadb.com/kb/en/upgrading/) for further information.
 
-You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+You must update MariaDB from your starting version (probably 10.1), up to
+version 10.5. The version upgrade must be done 1 to 1, for example 10.1 to 10.2,
+10.2 to 10.3, etc.
 
-That is why Centreon provides both 10.2 and 10.3 versions on its stable
+That is why Centreon provides all versions from 10.1 to 10.5 on its stable
 repositories.
 
 > Refer to the official MariaDB documentation to know more about this process:
 >
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
+
+> If you are using a version older than MariaDB 10.1, please update to version
+> 10.1 first.
 
 #### Configuration
 
@@ -410,6 +409,82 @@ MariaDB:
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
 
+#### Upgrade from 10.3 to 10.4
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.3 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.4 version:
+
+    ```shell
+    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.4 to 10.5
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.4 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
 #### Enable MariaDB on startup
 
 Execute the following command:
@@ -425,7 +500,7 @@ systemctl enable mariadb
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -477,3 +552,8 @@ will still be using SSH protocol.
 Consider changing the communication protocol by following the
 [Change communication from SSH to ZMQ](../monitoring/monitoring-servers/communications.html#change-communication-from-ssh-to-zmq)
 procedure.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform.html)

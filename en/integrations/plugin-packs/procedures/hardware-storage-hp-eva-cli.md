@@ -3,10 +3,6 @@ id: hardware-storage-hp-eva-cli
 title: HP EVA
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  7 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Hp-Eva-Cli      |
 
 Click on the *Save* button.
-

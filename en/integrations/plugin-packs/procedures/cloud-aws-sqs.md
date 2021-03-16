@@ -36,7 +36,6 @@ The Amazon SQS Centreon Plugin uses the Amazon Cloudwatch APIs to collect the re
 More information about collected metrics is available in the official Amazon documentation:
 https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-monitoring-using-cloudwatch.html
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Sqs-Queues-->
@@ -51,7 +50,6 @@ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-m
 | sqs.queue.messages.deleted.count    | The number of messages deleted from the queue.                                                  |      |
 | sqs.queue.messages.received.count   | The number of messages returned by calls to the ReceiveMessage action.                          |      |
 | sqs.queue.messages.sent.count       | The number of messages added to a queue.                                                        |      |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -88,12 +86,9 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 > **Warning** For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
-
-
 
 ## Setup 
 
@@ -108,7 +103,6 @@ yum install centreon-plugin-Cloud-Aws-Sqs-Api
 ```
 
 2. On the Centreon Web interface, install the *Amazon SQS* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -153,7 +147,6 @@ Once the Host template applied, a *Sqs-Queues* service will be created. This ser
 The *QUEUENAME* Service Macro is mandatory for the resources to be monitored properly and has to be set. You can then duplicate the service
 as much as the different queues to be monitored (the Services names can also be adjusted accordingly with the queues names).
 
-
 ## FAQ
 
 ### How to check in the CLI that the configuration is OK and what are the main options for ?
@@ -194,7 +187,6 @@ identified by the usage of API credentials (```--aws-secret-key='****' --aws-acc
 The calculated metrics are an average of values (```--statistic='average'```) on a 600 secondes / 10 min period (```--timeframe='600'```) with one sample per 60s / 1 minute (```--period='60'```).
 In the example above, only the *sent* and *received* messages statistics will be returned (```--filter-metric='NumberOfMessagesSent|NumberOfMessagesReceived'```).
 
-
 This command would trigger a CRITICAL alert if no messages (*less than 1*) have been sent or received (```--critical-messages-sent=0: ```)
 during the sample period.
 
@@ -217,7 +209,6 @@ has been collected and will prevent the UNKNOWN error message.
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ? 
 
 This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 

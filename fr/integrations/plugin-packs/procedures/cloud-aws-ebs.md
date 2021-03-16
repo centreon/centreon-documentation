@@ -12,7 +12,6 @@ des systèmes de fichiers et des workflows multimédias, sont largement déploy�
 
 Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les métriques associées.
 
-
 ## Contenu du Plugin-Pack
 
 ### Objets supervisés
@@ -28,7 +27,6 @@ Le Plugin Centreon Amazon EBS utilise l'API Amazon Cloudwatch pour collecter les
 | :------------------------------ | :---------------------------- |
 | Cloud-Aws-Ebs-Api-HostDiscovery | Découverte de vos volumes EBS |
 
-
 <!--Services-->
 
 Aucune règle de découverte de service n'est associée à ce Plugin-Pack. 
@@ -42,14 +40,12 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.h
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-
 <!--Ebs-Volume-Io-->
 
 | Metric name      | Description                                                                             |
 | :--------------- | :-------------------------------------------------------------------------------------- |
 | VolumeReadBytes  | Provides information on the read operations in a specified period of time. Unit: Bytes  |
 | VolumeWriteBytes | Provides information on the write operations in a specified period of time. Unit: Bytes |
-
 
 <!--Ebs-Iops-->
 
@@ -61,16 +57,13 @@ https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.h
 | VolumeConsumedReadWriteOps | The total amount of read and write operations (normalized to 256K capacity units) consumed in a specified period of time. Unit: Count |
 | VolumeQueueLength          | The number of read and write operation requests waiting to be completed in a specified period of time. Unit: Count                    |
 
-
 <!--Ebs-Time-->
-
 
 | Metric name          | Description                                                                                                              |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
 | VolumeTotalReadTime  | The total number of seconds spent by all read operations that completed in a specified period of time. Unit: Seconds     |
 | VolumeTotalWriteTime | The total number of seconds spent by all write operations that completed in a specified period of time. Unit: Seconds    |
 | VolumeIdleTime       | The total number of seconds in a specified period of time when no read or write operations were submitted. Unit: Seconds |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -84,7 +77,6 @@ Voici la liste des droits nécessaires au travers des *access/secret keys* utili
 | :----------------------------- | :-------------------------------------------------------------- |
 | ec2:DescribeVolumes            | Describes the specified EBS volumes or all of your EBS volumes  |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/EBS namespace on Cloudwatch            |
-
 
 ### Dépendances du Plugin
 
@@ -143,9 +135,7 @@ yum install centreon-pack-cloud-aws-ebs.noarch
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EBS' depuis la page "Configuration > Plugin Packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 
@@ -163,7 +153,6 @@ Lorsque vous ajoutez un Hôte à Centreon, choisissez le modèle *Cloud-Aws-Ebs-
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

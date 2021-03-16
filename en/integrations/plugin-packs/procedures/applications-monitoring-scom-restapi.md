@@ -3,10 +3,6 @@ id: applications-monitoring-scom-restapi
 title: SCOM Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Sep  9 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -50,4 +46,3 @@ The following macros must be configured on host:
 | SCOMAPIPASSWORD | Password to access API        |               |
 
 Click on the *Save* button.
-

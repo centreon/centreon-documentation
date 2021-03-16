@@ -110,7 +110,6 @@ on the "Configuration > Plugin Packs > Manager" page
 * Select and apply the *App-Rubrik-Restapi-custom* Host Template
 * Set the the Host Macros marked as *mandatory* hereafter:
 
-
 | Mandatory | Name                       | Description                                                                        |
 |:----------|:-------------------------- |:-----------------------------------------------------------------------------------|
 | X         | RUBRIKAPIPORT              | RestAPI port of the Rubrik RestAPI (Default: '443')                                |
@@ -153,7 +152,6 @@ node 'RVMHM194S00XXXX' [ip address: 172.10.69.97] status: ok
 
 The Plugin mode collects the status of the nodes (```--plugin=apps::backup::rubrik::restapi::plugin --mode=nodes```)
 linked to a cluster reachable at its IP Address *10.0.0.1* on port *443* (```--hostname='10.0.0.1' --port='443'```).
-
 
 All the filters that can be used as well as all the available thresholds parameters 
 can be displayed by adding the  ```--help``` parameter to the command:

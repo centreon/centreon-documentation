@@ -3,10 +3,6 @@ id: network-fritzbox-upnp
 title: FritzBox
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct 25 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | Net-Audiocodes-SNMP-custom |
 
 Click on the *Save* button.
-

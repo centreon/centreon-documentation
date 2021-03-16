@@ -3,10 +3,6 @@ id: operatingsystems-linux-nrpe
 title: Linux NRPE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Jan 18 2019 |
-
 ## Prerequisites
 
 This chapter describes the installation prerequisites required by plugins to
@@ -36,4 +32,3 @@ the following table:
 | Host Multiple Templates | OS-Linux-NRPE-custom       |
 
 Click on the *Save* button.
-

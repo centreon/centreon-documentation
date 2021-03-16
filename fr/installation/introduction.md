@@ -6,11 +6,12 @@ title: Introduction
 Ce chapitre décrit les différentes étapes de mise en place d'une plate-forme de
 supervision basée sur Centreon.
 
-La plate-forme de supervision peut-être installée de plusieurs manières.
-Cependant, **nous vous recommandons vivement d'utiliser Centreon ISO pour
-installer votre plate-forme**. Profitez ainsi de nos travaux d'industrialisation
-de l'installation et de la mise à jour de l'environnement. Profitez également
-des optimisations installées en standard par le système.
+La plate-forme de supervision peut-être installée de plusieurs manières. 
+Cependant, **nous vous recommandons vivement d'utiliser Centreon ISO ou les dépôt
+Centreon (paquets), pour installer votre plate-forme**. Profitez ainsi de nos
+travaux d'industrialisation de l'installation et de la mise à jour de
+l'environnement. Profitez également des optimisations installées en standard par
+le système.
 
 L'installation de Centreon peut être effectuée à partir des sources (tar.gz)
 mais le travail est plus complexe. De plus l'installeur ne sera supporté que par
@@ -26,9 +27,9 @@ Avant toute installation
 3.  [Téléchargez Centreon](https://download.centreon.com/)
 4.  Enfin, vous pourrez procéder à l'installation de la plate-forme.
 
-Pour tester rapidement Centreon à partir d'un serveur CentOS en version 7.x,
-vous pouvez exécuter la commande suivante en **root** :
+Pour tester rapidement Centreon à partir d'un serveur CentOS / Oracle Linux / RHEL
+en version 8, vous pouvez exécuter la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/20.10.x/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
 ```

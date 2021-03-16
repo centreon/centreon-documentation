@@ -3,10 +3,6 @@ id: applications-redis-cli
 title: Redis Cli
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Dec  8 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -42,4 +38,3 @@ The following macros must be configured on host:
 | Macro     | Description       | Default value |
 | :-------- | :---------------- | :------------ |
 | REDISPORT | Redis server port | 6379          |
-

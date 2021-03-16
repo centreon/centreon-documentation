@@ -43,7 +43,6 @@ Ce modèle ne collecte pas de métrique, mais donne l'état général du cluster
   * `centreontrapd`
   * `snmptrapd`
 
-
 <!--proc-corosync-->
 
 | Metric name | Description                                                    | Unit  |
@@ -240,7 +239,6 @@ ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-
 #### UNKNOWN: Command error: Permission denied, please try again
 
 Le message complet ressemble à ce qui suit :
@@ -274,6 +272,3 @@ Dans le cas contraire, lancer ces commandes :
 chmod 700 /var/lib/centreon-engine/.ssh
 chmod 600 /var/lib/centreon-engine/.ssh/authorized_keys
 ```
-
-
-

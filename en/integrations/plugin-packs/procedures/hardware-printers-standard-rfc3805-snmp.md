@@ -3,10 +3,6 @@ id: hardware-printers-standard-rfc3805-snmp
 title: Printer standard
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.25 | `STABLE` | Feb 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -63,4 +59,3 @@ Following services are automatically created :
 
 If you want, you can add the paper tray check with the service template
 provided.
-

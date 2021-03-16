@@ -8,7 +8,6 @@ title: Netapp Santricity Restapi
 Le système d'exploitation SANtricity, délivré par l'entreprise NetApp, accélère et fiabilise vos données de stockage tout en renforçant la protection de celles-ci.
 Le service SANtricity Web Services Proxy (WSP) permet d'accéder de manière normalisée à la configuration et aux indicateurs des équipements NetApp par l'utilisation d'une API Rest HTTP.
 
-
 ## Contenu du Plugin-Pack
 
 ### Éléments supervisés
@@ -37,7 +36,6 @@ Les métriques collectées sont les suivantes:
 | :--------------------  | :----------------------- |
 | raid\_status           | Raid status information  |
 
-
 <!--Storage Controllers-->
 
 | Metric name                          | Description                          |
@@ -57,7 +55,6 @@ Les métriques collectées sont les suivantes:
 | pool.space.usage.bytes      | Pool space usage. Unit: B            |
 | pool.space.usage.percentage | Pool space percentage usage. Unit: % |
 | pool.space.free.bytes       | Pool free space. Unit: B             |
-
 
 <!--Storage Volumes-->
 
@@ -114,7 +111,6 @@ centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 
 3. Depuis l'interface Web de Centreon, installer le Plugin-Pack *Netapp Santricity Restapi* depuis la page "Configuration > Plugin Packs > Manager"
 
-
 ## Configuration
 
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
@@ -160,13 +156,11 @@ checking storage system 'SAN-XXXX'
     volume 'Datastore_Y' status: optimal
 ```
 
-
 Cette commande vérifie le statut des volumes NetApp (```--mode=storage-volumes```) en requêtant l'API SANtricity du serveur *santricity.int.centreon.com* (```--hostname=sancitricy.int.centreon.com```).
 L'authentification à l'API s'effectue avec un utilisateur *admin* (```--api-user=admin```) et un mot de passe *xxxx* associé (```api-password='xxxx'```).
 
 Cette commande déclenchera une alarme WARNING si l'un des volumes est en statut *degraded* (```--warning-volume-status='%{status} =~ /degraded/i'```)
 et une alarme de type CRITICAL pour un statut *failed* (```--critical-volume-status='%{status} =~ /failed/i'```).
-
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 

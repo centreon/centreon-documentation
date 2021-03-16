@@ -3,10 +3,6 @@ id: hardware-storage-ibm-ts2900-snmp
 title: IBM TS2900
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Aug  9 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-IBM-TS2900-SNMP-custom |
 
 Click on the *Save* button.
-

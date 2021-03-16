@@ -185,7 +185,6 @@ yum install centreon-pack-virtualization-vmware2-vm
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "Virt-VMWare2-VM-custom" et configurez toutes les macros :
 
-
 | Mandatory   | Name                       | Description                                            |
 | :---------- | :------------------------- | :----------------------------------------------------- |
 | X           | CENTREONVMWARECONTAINER    | Name of your container in the file centreon_vmware.pm  |

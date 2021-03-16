@@ -3,10 +3,6 @@ id: network-silverpeak-snmp
 title: Silverpeak
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul 23 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Silverpeak-SNMP-custom |
 
 Click on the *Save* button.
-

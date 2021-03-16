@@ -38,7 +38,6 @@ Following models can be monitored:
 | :-------------------------------------- | :------------------------------------------------------------------ |
 | battery.temperature.celsius             | Current battery temperature. Units: celsius & fahrenheit            |
 | battery.charge.remaining.percentage     | Current battery charge remaining. Units: percentage & amperehour    |
-| battery.charge.remaining.percentage     | Current battery charge remaining. Units: percentage & amperehour    |
 | battery.charge.remaining.time.seconds   | Current battery charge remaining. Unit: seconds                     |
 | battery.charge.remaining.time.seconds   | Current battery charge remaining time. Unit: seconds                |
 | battery.voltage.volt                    | Current battery voltage. Unit: volt                                 |
@@ -84,7 +83,6 @@ yum install centreon-plugin-Hardware-Devices-Eltek-Enexus-Snmp
 ```
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
-
 
 <!--Offline IMP License-->
 

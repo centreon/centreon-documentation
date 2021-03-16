@@ -86,7 +86,6 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 2. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Nimble Flash Arrays:
@@ -103,12 +102,10 @@ yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 
 3. On the centreon Web interface, install the *Nimble Storage Rest API* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
 
-
 ## Configuration
 
 * Log into Centreon and add new host through "Configuration > Hosts".
 * Apply the template *HW-Storage-Nimble-Restapi* to the Host and configure all the mandatories Macros:
-
 
 | Mandatory | Name                | Description                                                                  |
 | :-------- | :------------------ | :--------------------------------------------------------------------------- |

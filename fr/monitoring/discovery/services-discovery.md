@@ -109,8 +109,8 @@ Puis compléter la règle :
     création ou la désactivation de services à la suite de la découverte
   - **Disable elements not found** : Permettre au module de désactiver les
     services associés aux éléments qui ne sont plus trouvés
-  - **Update existing services** : Si actif, les services déjà découverts ne
-    seront pas mis à jour si une propriété change (valeur de macros
+  - **Update existing services** : Si actif, les services déjà découverts
+    seront mis à jour si une propriété change (valeur de macros
     personnalisées, etc.).
   - **Activate** : Activer ou désactiver la règle (la règle sera ignorée par le
     processus de découverte si elle est désactivée).

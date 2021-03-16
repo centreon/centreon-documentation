@@ -3,10 +3,6 @@ id: applications-trendmicro-iwsva-snmp
 title: TrendMicro Iwsva
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.4 | `STABLE` | Sep 26 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | App-Trendmicro-Iwsva-SNMP-custom |
 
 Click on the *Save* button.
-

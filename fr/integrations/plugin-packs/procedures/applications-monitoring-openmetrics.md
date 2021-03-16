@@ -3,10 +3,6 @@ id: applications-monitoring-openmetrics
 title: OpenMetrics
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Sep 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -115,4 +111,3 @@ Examples on command line:
 ### Duplicate service to monitor more metrics
 
 You can now duplicate the service to monitor several metrics.
-

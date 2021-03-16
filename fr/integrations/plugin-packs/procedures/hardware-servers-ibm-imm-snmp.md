@@ -3,10 +3,6 @@ id: hardware-servers-ibm-imm-snmp
 title: IBM IMM
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.24 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Server-IBM-IMM-SNMP-custom |
 
 Click on the *Save* button.
-

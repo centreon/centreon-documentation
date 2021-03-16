@@ -100,9 +100,7 @@ protocol.
 
 To use this pack, the SNMP service must be properly configured on your McAfee 
 Web Gateway. McAfee provides an official documentation to achieve this:
-
 * https://docs.mcafee.com/bundle/web-gateway-8.2.x-product-guide/page/GUID-7F25543B-2BE5-47A5-BC40-AEEF65F5D156.html
-
 * https://docs.mcafee.com/bundle/web-gateway-8.2.x-interface-reference-guide/page/GUID-92B0527B-9709-43DD-AEDC-FE82966AC6EF.html
 
 ### Network flow
@@ -116,7 +114,7 @@ UDP/161 SNMP port.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -126,7 +124,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon poller expected to monitor a McAfee Web Gateway proxy:
+1. Install the Centreon McAfee Web Gateway Plugin package on every Centreon Poller expected to monitor a McAfee Web Gateway proxy:
 
 ```bash
 yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
@@ -147,9 +145,7 @@ yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ### Host configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your a McAfee Web Gateway proxy settings
-
 * Select the *App-Antivirus-Mcafee-Webgateway-SNMP-custom* template to apply to the Host.
 
 If you are using SNMP Version 3, use the *SNMPEXTRAOPTIONS* Macro to configure
@@ -161,7 +157,7 @@ your own SNMPv3 credentials combo.
 
 ## FAQ
 
-### How do I run my plugin through the CLI and what do the main parameters stand for ?
+### How do I run my plugin through the CLI and what do the main parameters stand for?
 
 Once you've installed the plugin, you can test it logging with centreon-engine 
 user:
@@ -213,6 +209,8 @@ All Plugin modes can be listed with the following command:
     --plugin=apps::antivirus::mcafee::webgateway::snmp::plugin \
     --list-mode
 ```
+
+## Troubleshooting
 
 ### UNKNOWN: SNMP GET Request : Timeout
 

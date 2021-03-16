@@ -3,10 +3,6 @@ id: hardware-storage-violin-3000-snmp
 title: Violin Memory 3000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Violin-3000-SNMP-custom |
 
 Click on the *Save* button.
-

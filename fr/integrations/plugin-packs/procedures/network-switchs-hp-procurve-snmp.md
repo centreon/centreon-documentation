@@ -3,10 +3,6 @@ id: network-switchs-hp-procurve-snmp
 title: HP Procurve
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-HP-Procurve-SNMP-custom |
 
 Click on the *Save* button.
-

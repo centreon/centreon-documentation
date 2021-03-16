@@ -3,10 +3,6 @@ id: applications-databases-sap-hana
 title: SAP HANA
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Aug 25 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -60,4 +56,3 @@ the following table:
 | Host Multiple Templates | App-DB-Sap-Hana-custom     |
 
 Click on the *Save* button.
-

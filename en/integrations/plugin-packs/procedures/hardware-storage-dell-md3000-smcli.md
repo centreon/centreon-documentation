@@ -3,10 +3,6 @@ id: hardware-storage-dell-md3000-smcli
 title: Dell MD3000
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -75,4 +71,3 @@ the following table:
 | Host Multiple Templates              | Template provided by the plugin-pack |
 
 Click on the *Save* button.
-

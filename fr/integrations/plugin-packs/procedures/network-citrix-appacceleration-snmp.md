@@ -3,10 +3,6 @@ id: network-citrix-appacceleration-snmp
 title: Citrix Acceleration
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Oct 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | Net-Citrix-Appacceleration-SNMP-custom |
 
 Click on the *Save* button.
-

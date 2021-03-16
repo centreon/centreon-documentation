@@ -3,10 +3,6 @@ id: hardware-telephony-alcatel-oxe-snmp
 title: Alcatel OXE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Telephony-Alcatel-OXE-SNMP-custom |
 
 Click on the *Save* button.
-

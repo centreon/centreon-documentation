@@ -3,10 +3,6 @@ id: network-h3c-snmp
 title: H3C Network
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates              | Net-H3C-SNMP-custom        |
 
 Click on the *Save* button.
-

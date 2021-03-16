@@ -11,7 +11,6 @@ needed to deliver Versa’s VNF-based network and security services.
 The Centreon Plugin-Pack relies on the Versa Director API to query and
 collect status and metrics of the Versa equipments managed by the Director.
 
-
 You can find more information about the Versa Director API on the official documentation:
 https://apidocs.versa-networks.com/
 
@@ -58,7 +57,6 @@ https://apidocs.versa-networks.com/
 | policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link   | Count |
 | policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action      | Count |
 
-
 * Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
 
 | Metric name                          | Description                        | Unit  |
@@ -66,7 +64,6 @@ https://apidocs.versa-networks.com/
 | <monitor-name>.health.up.count       | Number of health monitors up       | Count |
 | <monitor-name>.health.disabled.count | Number of health monitors disabled | Count |
 | <monitor-name>.health.down.count     | Number of health monitors down     | Count |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

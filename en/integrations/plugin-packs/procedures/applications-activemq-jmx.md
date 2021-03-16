@@ -178,4 +178,5 @@ You can disable this method by editing the jolokia-access.xml file and remove th
  <strict-checking/>
 </cors>
 ```
+
 Restart your ActiveMQ server afterwards for the changes to be applied.

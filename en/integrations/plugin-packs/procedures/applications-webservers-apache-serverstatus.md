@@ -3,10 +3,6 @@ id: applications-webservers-apache-serverstatus
 title: Apache Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.20 | `STABLE` | Feb 23 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -77,4 +73,3 @@ the following table:
 | Host Multiple Templates | *App-Webserver-Apache-ServerStatus-custom* |
 
 Click the *Save* button.
-

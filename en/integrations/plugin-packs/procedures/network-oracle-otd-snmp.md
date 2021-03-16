@@ -3,10 +3,6 @@ id: network-oracle-otd-snmp
 title: Traffic Director
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Aug 25 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | Net-Oracle-Otd-SNMP-custom |
 
 Click on the *Save* button.
-

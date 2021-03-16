@@ -3,10 +3,6 @@ id: applications-lync-2013-mssql
 title: Lync 2013
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Jan 17 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -151,4 +147,3 @@ The following macros must be configured on host:
 | MSSQLUSERNAME | MSSQL username                                                          |               |
 | MSSQLPASSWORD | MSSQL password                                                          |               |
 | MSSQLPORT     | Port Of the MSSQL instance (need to check in the SQL Studio if dynamic) |               |
-

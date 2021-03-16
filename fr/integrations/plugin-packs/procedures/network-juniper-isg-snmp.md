@@ -3,10 +3,6 @@ id: network-juniper-isg-snmp
 title: Juniper ISG
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Juniper-Isg-SNMP-custom |
 
 Click on the *Save* button.
-

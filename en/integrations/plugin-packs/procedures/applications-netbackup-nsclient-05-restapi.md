@@ -3,10 +3,6 @@ id: applications-netbackup-nsclient-05-restapi
 title: Netbackup Rest API
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -61,4 +57,3 @@ the following table:
 | Host Multiple Templates              | App-Netbackup-NRPE-custom  |
 
 Click on the *Save* button.
-

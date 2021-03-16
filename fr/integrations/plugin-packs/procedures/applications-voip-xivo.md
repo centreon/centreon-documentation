@@ -3,10 +3,6 @@ id: applications-voip-xivo
 title: XiVO VoIP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Feb 21 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -68,4 +64,3 @@ This service was automatically created for this host:
 | XiVO-process-xivo-confd     | Monitor xivo-confd processus     |
 | XiVO-process-xivo-dxtora    | Monitor xivo-dxtora processus    |
 | XiVO-process-xivo-provd     | Monitor xivo-provd processus     |
-

@@ -48,6 +48,10 @@
             },
             "ceip/what-is-centreon-ceip"
         ],
+        "Sécurisez votre plate-forme": [
+            "administration/secure-platform",
+            "graph-views/secure-your-map-platform"
+        ],
         "Supervision": [
             "monitoring/about",
             "monitoring/generic-actions",
@@ -176,8 +180,9 @@
                     "graph-views/migrate",
                     "graph-views/configure",
                     "graph-views/remote-server",
-                    "graph-views/procedures",
-                    "graph-views/known-issues"
+                    "graph-views/advanced-configuration",
+                    "graph-views/known-issues",
+                    "graph-views/troubleshooter"
                 ],
                 "label": "Administrer",
                 "type": "subcategory"
@@ -211,7 +216,6 @@
             }
         ],
         "Administration": [
-            "administration/secure-platform",
             {
                 "ids": [
                     "administration/parameters/centreon-ui",
@@ -234,6 +238,7 @@
                     "administration/centreon-ha/architectures",
                     "administration/centreon-ha/installation-2-nodes",
                     "administration/centreon-ha/installation-4-nodes",
+                    "administration/centreon-ha/integrating-pollers",
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/update",
@@ -259,6 +264,7 @@
             {
                 "ids": [
                     "upgrade/introduction",
+                    "upgrade/upgrade-from-20-10",
                     "upgrade/upgrade-from-20-04",
                     "upgrade/upgrade-from-19-10",
                     "upgrade/upgrade-from-19-04",
@@ -271,6 +277,7 @@
             {
                 "ids": [
                     "migrate/introduction",
+                    "migrate/migrate-from-20-x",
                     "migrate/migrate-from-3-4",
                     "migrate/nagios-to-centreon",
                     "migrate/poller-display-to-remote-server"
@@ -307,6 +314,7 @@
                     "integrations/plugin-packs/procedures/applications-cisco-dnac-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ise-restapi",
                     "integrations/plugin-packs/procedures/applications-cisco-ssms-restapi",
+                    "integrations/plugin-packs/procedures/applications-commvault-commserve-restapi",
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
@@ -316,6 +324,7 @@
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
+                    "integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-jboss-jmx",
@@ -347,6 +356,7 @@
                     "integrations/plugin-packs/procedures/applications-monitoring-openmetrics",
                     "integrations/plugin-packs/procedures/applications-openvpn-omi",
                     "integrations/plugin-packs/procedures/applications-openweathermap-restapi",
+                    "integrations/plugin-packs/procedures/applications-oracle-goldengate-ssh",
                     "integrations/plugin-packs/procedures/applications-oracle-ovm-api",
                     "integrations/plugin-packs/procedures/applications-pacemaker-ssh",
                     "integrations/plugin-packs/procedures/applications-peoplesoft-jmx",
@@ -423,10 +433,16 @@
                     "integrations/plugin-packs/procedures/cloud-aws-lambda",
                     "integrations/plugin-packs/procedures/cloud-aws-transitgateway",
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
+                    "integrations/plugin-packs/procedures/cloud-aws-ses",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-firewall",
+                    "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-publicip",
                     "integrations/plugin-packs/procedures/cloud-azure-management-recovery",
                     "integrations/plugin-packs/procedures/cloud-azure-management-resource",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase",
@@ -435,6 +451,10 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
+                    "integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql",
+                    "integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine",
+                    "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
+                    "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
@@ -533,6 +553,7 @@
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
+                    "integrations/plugin-packs/procedures/network-athonet-epc-snmp",
                     "integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp",
                     "integrations/plugin-packs/procedures/network-barracuda-cloudgen-snmp",
                     "integrations/plugin-packs/procedures/network-beeware-snmp",
@@ -580,6 +601,7 @@
                     "integrations/plugin-packs/procedures/network-extreme-snmp",
                     "integrations/plugin-packs/procedures/network-lenovo-flexsystem-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-f5-bigip-snmp",
+                    "integrations/plugin-packs/procedures/network-fiberstore-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
@@ -830,6 +852,7 @@
                     "integrations/plugin-packs/procedures/hardware-ups-powerware-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-socomec-netvision-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-standard-rfc1628-snmp"
                 ],
                 "label": "Ups Pdu",
@@ -916,7 +939,7 @@
             "api/graph-views-api"
         ],
         "Ressources dévelopeur": [
-            "developer/init-developer",
+            "developer/about-developer-resources",
             "developer/developer-module",
             "developer/developer-stream-connector",
             "developer/developer-translate-centreon",

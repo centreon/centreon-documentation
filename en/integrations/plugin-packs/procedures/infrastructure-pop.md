@@ -3,10 +3,6 @@ id: infrastructure-pop
 title: POP Server
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.8 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -60,4 +56,3 @@ The following macros must be configured on services:
 | POP     | WARNING  | Connection time Warning threshold in Seconds  | 5             |         |
 | POP     | CRITICAL | Connection time Critical threshold in Seconds | 8             |         |
 | POP     | PORT     | Communication Port                            | 110           |         |
-

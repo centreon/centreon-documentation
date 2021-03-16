@@ -158,7 +158,7 @@ Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les d�
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
 ```
 
 ### Échanges de clefs SSH
@@ -1019,3 +1019,8 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+## Intégrer des collecteurs
+
+Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.html) et commencer à superviser !
+
