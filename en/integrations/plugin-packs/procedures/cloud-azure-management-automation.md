@@ -170,7 +170,7 @@ can use it.
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
+yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
 2. On the Centreon Web interface, install the *Azure Automation* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -180,7 +180,7 @@ yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Automation resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
+yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
@@ -200,7 +200,7 @@ yum install centreon-pack-cloud-azure-management-automation.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
-* Select the *Cloud-Azure-Integration-Automation-custom* template to apply to the Host.
+* Select the *Cloud-Azure-Management-Automation-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
@@ -267,8 +267,8 @@ to be used with the custom mode are specified in the options (```--subscription=
 The calculated metrics are the total (```--aggregation='total'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the *total jobs* count is reported as over 800
-(```--warning-jobs-total='800'```) and a CRITICAL alarm over 900 (```--critical-jobs-total='900'```).
+This command would trigger a WARNING alarm if the *total jobs* count is reported as over 80
+(```--warning-jobs-total='80'```) and a CRITICAL alarm over 90 (```--critical-jobs-total='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 

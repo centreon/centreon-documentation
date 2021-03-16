@@ -172,7 +172,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
+yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
 2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Automation* depuis la page "Configuration > Plugin packs > Manager"
@@ -182,7 +182,7 @@ yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
 1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des resources Azure Automation:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-Automation-Api
+yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Automation*:
@@ -200,7 +200,7 @@ yum install centreon-pack-cloud-azure-management-automation.noarch
 ### Hôte
 
 * Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
-et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Integration-Automation-custom*.
+et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-Automation-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées selon le custom-mode utilisé:
 
@@ -259,7 +259,7 @@ La commande devrait retourner un message de sortie similaire à:
 OK: Instance 'AUTOMATION01' Statistic 'total' Metrics Total Update Deployment Runs: 0.00, Total Update Deployment Machine Runs: 0.00, Total Jobs: 0.00 | 'AUTOMATION01~total#automation.runs.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.machineruns.total.count'=0.00;;;0; 'AUTOMATION01~total#automation.jobs.total.count'=0.00;0:80;0:90;0;
 ```
 
-La commande ci-dessus vérifie les requêtes sur l'instance *Automation* nommée *AUTOMATION01*
+La commande ci-dessus vérifie les tâches sur l'instance *Automation* nommée *AUTOMATION01*
 (```--plugin=cloud::azure::management::automation::plugin --mode=jobs --resource='AUTOMATION01'```).
 
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
@@ -269,8 +269,8 @@ Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
-est supérieur à 800 (```--warning-throttled-requests='800'```); l'alarme sera de type CRITICAL au-delà de 900 requêtes
-(```--critical-throttled-requests='900'```).
+est supérieur à 80 (```--warning-throttled-requests='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
+(```--critical-throttled-requests='90'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:

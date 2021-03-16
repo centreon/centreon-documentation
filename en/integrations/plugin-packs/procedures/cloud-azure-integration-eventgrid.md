@@ -181,7 +181,7 @@ can use it.
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Itegration-EventGrid-Api
 ```
 
 2. On the Centreon Web interface, install the *Azure Event Grid* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -191,7 +191,7 @@ yum install centreon-plugin-Cloud-Azure-integration-EventGrid-Api
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 ```
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
@@ -211,7 +211,7 @@ yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
-* Select the *Cloud-Azure-integration-EventGrid-custom* template to apply to the Host.
+* Select the *Cloud-Azure-Integration-EventGrid-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used:
 
