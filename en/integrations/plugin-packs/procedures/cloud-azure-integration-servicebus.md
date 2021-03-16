@@ -23,7 +23,7 @@ ServiceBus service.
     * Connections
     * Messages
     * Requests
-    * Resources
+    * Namespaces
 
 ### Discovery rules
 
@@ -61,7 +61,7 @@ More information about the Host Discovery module is available in the Centreon do
 | servicebus.namespace.requests.successful.count | Successful Requests | Count |
 | servicebus.namespace.requests.throttled.count  | Throttled Requests  | Count |
 
-<!--Resources-->
+<!--Namespaces-->
 
 | Metric Name                                  | Description  | Unit |
 |:---------------------------------------------|:-------------|:-----|
