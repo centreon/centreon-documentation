@@ -436,6 +436,7 @@
                     "integrations/plugin-packs/procedures/cloud-aws-transitgateway",
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-aws-ses",
+                    "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
