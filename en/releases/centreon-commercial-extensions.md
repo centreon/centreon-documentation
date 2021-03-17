@@ -280,6 +280,10 @@ If you have feature requests or want to report a bug, please contact support.
 - [Service Discovery] Update jQuery calls to match latest version (fixes
 vulnerabilities)
 
+#### Enhancements
+
+- [Host Discovery] Limit provider definition version that is imported to 2.0
+
 ### 20.04.7
 
 `December 9, 2020`
