@@ -130,6 +130,14 @@ To use it, it is necessary to install and activate it. Refer to the
 - [Service Discovery] Update jQuery calls to match latest version (fixes
 vulnerabilities)
 
+#### Bug fixes
+
+- [Core] Creation forms generate 400 errors due to bad query
+
+#### Enhancements
+
+- [Host Discovery] Limit provider definition version that is imported to 2.0
+
 ### 20.10.2
 
 `December 7, 2020`
