@@ -307,6 +307,20 @@ liens
 
 ## Centreon Auto Discovery
 
+### 20.04.8
+
+`17 mars 2021`
+
+#### Correctifs de sécurité
+
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière
+version (apportant des corrections de failles de sécurité)
+
+#### Améliorations
+
+- [Host Discovery] Limiter la définition du *provider* de découverte qui est
+importé à la version 2.0
+
 ### 20.04.7
 
 `9 décembre 2020`
