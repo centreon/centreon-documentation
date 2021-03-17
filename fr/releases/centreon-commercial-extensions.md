@@ -137,6 +137,16 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 - [Service Discovery] Mise en conformité des appels jQuery avec la dernière
 version (apportant des corrections de failles de sécurité)
 
+#### Correctifs
+
+- [Core] Une mauvaise requête générait des erreurs 400
+
+#### Améliorations
+
+- [Host Discovery] Limiter la définition du *provider* de découverte qui est
+importé à la version 2.0
+
+
 ### 20.10.2
 
 `7 décembre 2020`
