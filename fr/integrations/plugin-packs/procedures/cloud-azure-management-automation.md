@@ -269,8 +269,8 @@ Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
-est supérieur à 80 (```--warning-throttled-requests='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
-(```--critical-throttled-requests='90'```).
+est supérieur à 80 (```--warning-jobs-total='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
+(```--critical-jobs-total='90'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
