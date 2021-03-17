@@ -39,11 +39,11 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Http-Requests-->
 
-| Metric Name                            | Description                            |
-|:---------------------------------------|:---------------------------------------|
-| http.incoming.requests.count           | Total number of incoming http requests |
-| http.incoming.requests.milliseconds    | Latency on an http request             |
-| http.throttled.incoming.requests.count | Throttled http requests                |
+| Metric Name                                             | Description                            |
+|:--------------------------------------------------------|:---------------------------------------|
+| appconfiguration.http.incoming.requests.count           | Total number of incoming http requests |
+| appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             |
+| appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
