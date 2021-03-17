@@ -125,6 +125,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.3
 
+`March 17, 2021`
+
 #### Security fixes
 
 - [Service Discovery] Update jQuery calls to match latest version (fixes
