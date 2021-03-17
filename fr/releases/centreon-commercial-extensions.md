@@ -132,6 +132,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.3
 
+`17 mars 2021`
+
 #### Correctifs de sécurité
 
 - [Service Discovery] Mise en conformité des appels jQuery avec la dernière
