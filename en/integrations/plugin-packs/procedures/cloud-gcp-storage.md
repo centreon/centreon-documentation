@@ -54,6 +54,11 @@ Configure a service account key (download its private key as a JSON file) for wh
 
 How to create a service account key: https://developers.google.com/identity/protocols/oauth2/service-account
 
+### Centreon
+
+Deploy the key file on every Poller expected to monitor Google Cloud resources. The key file 
+should be readable by centreon-engine poller.
+
 ## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
