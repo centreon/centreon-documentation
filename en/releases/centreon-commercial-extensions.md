@@ -275,6 +275,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.8
 
+`March 17, 2021`
+
 #### Security fixes
 
 - [Service Discovery] Update jQuery calls to match latest version (fixes
