@@ -441,6 +441,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-network-firewall",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
