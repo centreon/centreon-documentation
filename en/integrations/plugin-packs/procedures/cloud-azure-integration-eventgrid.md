@@ -181,7 +181,7 @@ can use it.
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Itegration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 ```
 
 2. On the Centreon Web interface, install the *Azure Event Grid* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
