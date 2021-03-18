@@ -131,14 +131,14 @@ To check the installation, execute the following command:
 semodule -l | grep centreon
 ```
 
-Regarding your king of server you cann see:
+Regarding your king of server you can see:
 ```shell
-centreon-broker	0.0.3
-centreon-common	0.0.8
-centreon-engine	0.0.3
-centreon-gorgoned	0.0.1
+centreon-broker	0.0.5
+centreon-common	0.0.10
+centreon-engine	0.0.8
+centreon-gorgoned	0.0.3
 centreon-plugins	0.0.2
-centreon-web	0.0.7
+centreon-web	0.0.8
 ```
 
 ### Enable SELinux
