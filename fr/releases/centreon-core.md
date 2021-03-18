@@ -20,14 +20,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.11
 
-#### Bugfixes
+#### Correctifs
 
 - [CLAPI] CFGMOVE & APPLYCFG don't work
 - [Core] Update centreon copyright dates
 - [Install] Complete the Last step upgrade redirection
 - [Administration/About] Update about page with current team
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Core] Cross-site Scripting (XSS) in index.php
 - [Lib] Update jQuery to version >= 3.5.1
