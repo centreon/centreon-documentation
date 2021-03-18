@@ -21,7 +21,7 @@ Front Door service.
     * Health
     * Latency
     * Requests
-	* Size
+    * Size
 
 ### Discovery rules
 

@@ -22,7 +22,7 @@ Front Door. Il est possible d'utiliser les 2 modes proposés par Microsoft: Rest
     * Health
     * Latency
     * Requests
-	* Size
+    * Size
 
 ### Règles de découverte
 
