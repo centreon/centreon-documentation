@@ -267,8 +267,8 @@ user account and test the Plugin by running the following command:
     --timeframe='900' \
     --interval='PT5M' \
     --aggregation='Average' \
-    --warning-average='80' \
-    --critical-average='90'
+    --warning-cpu-average='80' \
+    --critical-cpu-average='90'
 ```
 
 Expected command output is shown below:
@@ -287,7 +287,7 @@ The calculated metrics are the average (```--aggregation='average'```) of values
 with one sample per 5 minutes (```--interval='PT5M'```).
 
 This command would trigger a WARNING alarm if the *total jobs* count is reported as over 80
-(```--warning-average='80'```) and a CRITICAL alarm over 90 (```--critical-average='90'```).
+(```--warning-cpu-average='80'```) and a CRITICAL alarm over 90 (```--critical-cpu-average='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
