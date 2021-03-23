@@ -208,6 +208,14 @@ non plus des connexions SSH autonomes.
 
 ## Centreon Plugin Packs Manager
 
+### 20.10.1
+
+`26 février 2021`
+
+#### Correctifs de sécurité
+
+- [Core] Vulnerable handlebars.js library
+
 ### 20.10.0
 
 `21 octobre 2020`
