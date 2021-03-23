@@ -18,6 +18,22 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.11
+
+`23 mars 2021`
+
+#### Correctifs
+
+- [CLAPI] CFGMOVE & APPLYCFG don't work
+- [Core] Update centreon copyright dates
+- [Install] Complete the Last step upgrade redirection
+- [Administration/About] Update about page with current team
+
+#### Correctifs de sécurité
+
+- [Core] Cross-site Scripting (XSS) in index.php
+- [Lib] Update jQuery to version >= 3.5.1
+
 ### 20.04.10
 
 `24 février 2021`

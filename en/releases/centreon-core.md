@@ -19,6 +19,22 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.11
+
+`March 23, 2021`
+
+#### Bugfixes
+
+- [CLAPI] CFGMOVE & APPLYCFG don't work
+- [Core] Update centreon copyright dates
+- [Install] Complete the Last step upgrade redirection
+- [Administration/About] Update about page with current team
+
+#### Security fixes
+
+- [Core] Cross-site Scripting (XSS) in index.php
+- [Lib] Update jQuery to version >= 3.5.1
+
 ### 20.04.10
 
 `February 24, 2021`
