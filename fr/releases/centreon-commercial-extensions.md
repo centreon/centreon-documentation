@@ -473,6 +473,14 @@ configuration value:
 
 ## Centreon Plugin Pack Manager
 
+### 20.04.2
+
+`26 février 2021`
+
+#### Correctifs de sécurité
+
+- [Core] Vulnerable handlebars.js library
+
 ### 20.04.1
 
 `23 avril 2020`
