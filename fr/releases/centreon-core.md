@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.11
 
+`23 mars 2021`
+
 #### Correctifs
 
 - [CLAPI] CFGMOVE & APPLYCFG don't work
