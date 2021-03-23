@@ -471,7 +471,15 @@ configuration value:
 - **monitoring**: allows to select the monitoring server which will monitor
   the discovered resource (on a condition or not)
 
-## Centreon Plugin Pack Manager
+## Centreon Plugin Packs Manager
+
+### 20.04.2
+
+`26 février 2021`
+
+#### Correctifs de sécurité
+
+- [Core] Vulnerable handlebars.js library
 
 ### 20.04.1
 
