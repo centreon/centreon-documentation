@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.11
 
+`March 23, 2021`
+
 #### Bugfixes
 
 - [CLAPI] CFGMOVE & APPLYCFG don't work
