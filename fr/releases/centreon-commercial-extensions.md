@@ -245,6 +245,8 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.2
 
+`24 mars 2021`
+
 #### Correctifs
 
 - The Add Token button is not visible when the online license is over
