@@ -235,6 +235,12 @@ non plus des connexions SSH autonomes.
 
 ## Centreon License Manager
 
+### 20.10.2
+
+#### Correctifs
+
+- The Add Token button is not visible when the online license is over
+
 ### 20.10.1
 
 `2 décembre 2020`

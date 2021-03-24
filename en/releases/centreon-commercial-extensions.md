@@ -219,6 +219,12 @@ standalone SSH connections.
 
 ## Centreon License Manager
 
+### 20.10.2
+
+#### Bugfixes
+
+- The Add Token button is not visible when the online license is over
+
 ### 20.10.1
 
 `December 2, 2020`
