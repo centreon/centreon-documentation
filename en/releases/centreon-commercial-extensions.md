@@ -229,6 +229,8 @@ standalone SSH connections.
 
 ### 20.10.2
 
+`March 24, 2021`
+
 #### Bugfixes
 
 - The Add Token button is not visible when the online license is over
