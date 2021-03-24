@@ -254,7 +254,7 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_database_sqlmanagedinstance_api.pl \
     --plugin=cloud::azure::database::sqlmanagedinstance::plugin \
     --mode=cpu \
     --custommode=api \
@@ -294,7 +294,7 @@ La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_database_sqlmanagedinstance_api.pl \
     --plugin=cloud::azure::database::sqlmanagedinstance::plugin \
     --mode=cpu \
     --help

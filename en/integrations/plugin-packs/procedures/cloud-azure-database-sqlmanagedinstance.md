@@ -254,7 +254,7 @@ Once the Plugin installed, log into your Centreon Poller CLI using the *centreon
 user account and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_database_sqlmanagedinstance_api.pl \
     --plugin=cloud::azure::database::sqlmanagedinstance::plugin \
     --mode=cpu \
     --custommode=api \
@@ -292,7 +292,7 @@ This command would trigger a WARNING alarm if the *total jobs* count is reported
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
+/usr/lib/centreon/plugins/centreon_azure_database_sqlmanagedinstance_api.pl \
     --plugin=cloud::azure::database::sqlmanagedinstance::plugin \
     --mode=cpu \
     --help
