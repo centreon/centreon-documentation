@@ -504,6 +504,10 @@ configuration value:
 
 ## Centreon License Manager
 
+### 20.04.4
+
+- The Add Token button is not visible when the online license is over
+
 ### 20.04.3
 
 `2 décembre 2020`
