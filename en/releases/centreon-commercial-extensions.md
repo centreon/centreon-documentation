@@ -487,6 +487,8 @@ configuration value:
 
 ### 20.04.4
 
+`March 24, 2021`
+
 - The Add Token button is not visible when the online license is over
 
 ### 20.04.3
