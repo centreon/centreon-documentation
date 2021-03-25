@@ -44,7 +44,7 @@ Pour afficher la matrice de notification d’un contact, cliquez sur **View cont
   besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
 
 ```url
-http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
+http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_user]&token=[value_autologin]
 ```
 
 > La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
