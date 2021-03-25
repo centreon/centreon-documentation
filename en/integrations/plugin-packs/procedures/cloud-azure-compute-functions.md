@@ -68,7 +68,7 @@ More information about the Host Discovery module is available in the Centreon do
 
 | Metric Name                       | Description                           |
 |:----------------------------------|:--------------------------------------|
-| functions.executions.count.count  | The number of function exectution     |
+| functions.executions.count        | The number of function exectution     |
 | functions.executions.units.count  | The number of functon execution units |
  
 <!--Gc-Usage-->

@@ -71,7 +71,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 | Metric Name                       | Description                           |
 |:----------------------------------|:--------------------------------------|
-| functions.executions.count.count  | The number of function exectution     |
+| functions.executions.count        | The number of function exectution     |
 | functions.executions.units.count  | The number of functon execution units |
 
 <!--Gc-Usage-->
