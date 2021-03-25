@@ -248,14 +248,14 @@ yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
 * Ajoutez un Hôte à Centreon, remplissez le champ *Adresse IP/DNS* avec l'adresse 127.0.0.1 
 et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Analytics-EventHubs-custom*.
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
-doivent être renseignées selon le custom-mode utilisé:
-
-<!--DOCUSAURUS_CODE_TABS-->
+doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des Macros:
 > * Utilisation de l'ID complet de la ressource (de type ```/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>```)
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée aux Macros *AZURERESOURCEGROUP* et *AZURERESOURCETYPE*
+
+<!--DOCUSAURUS_CODE_TABS-->
 
 <!--Azure Monitor API-->
 

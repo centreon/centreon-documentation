@@ -250,14 +250,14 @@ yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
 
 * Select the *Cloud-Azure-Analytics-EventHubs-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
-These mandatory Macros differ regarding the custom mode used:
-
-<!--DOCUSAURUS_CODE_TABS-->
+These mandatory Macros differ regarding the custom mode used.
 
 > Two methods can be used to set the Macros:
 > * full ID of the Resource (```/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>```)
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
+
+<!--DOCUSAURUS_CODE_TABS-->
 
 <!--Azure Monitor API-->
 
