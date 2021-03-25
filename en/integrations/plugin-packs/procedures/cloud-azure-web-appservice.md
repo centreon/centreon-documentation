@@ -5,7 +5,8 @@ title: Azure App Service
 
 ## Overview
 
-
+Azure App Service is a solution that allows to easily build, deploy and scale
+web apps and APIs running on containers or in Windows or Linux.
 
 The Centreon Plugin-Pack *Azure App Service* can rely on Azure API or Azure CLI 
 to collect the metrics related to the App Service service.
@@ -307,7 +308,7 @@ user account and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_web_appservice_api.pl \
-    --plugin=cloud::azure::web:appservice::plugin \
+    --plugin=cloud::azure::web::appservice::plugin \
     --mode=cpu-time \
     --custommode=api \
     --subscription='xxxxxxxxx' \
@@ -330,7 +331,7 @@ OK: Instance 'APP01' Statistic 'total' Metrics CPU Time: 0.08s | 'APP01~total#ap
 ```
 
 The command above checks the *Cpu-Time* of an Azure *App Service* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::web:appservice::plugin --mode=cpu-time --custommode=api```).
+(```--plugin=cloud::azure::web::appservice::plugin --mode=cpu-time --custommode=api```).
 This App Service instance is identified by its id (```--resource='APP01'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -345,7 +346,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_web_appservice_api.pl \
-    --plugin=cloud::azure::web:appservice::plugin \
+    --plugin=cloud::azure::web::appservice::plugin \
     --mode=cpu-time \
     --help
 ```

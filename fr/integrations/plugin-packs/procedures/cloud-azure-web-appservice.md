@@ -5,7 +5,9 @@ title: Azure App Service
 
 ## Vue d'ensemble
 
-
+Azure App Service est une solution qui permet de facilement créer, déployer et
+mettre à l'échelle des applications web et APIs sur des conteneurs ou sur Windows
+et Linux.
 
 Le Plugin-Pack Centreon *Azure App Service* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
@@ -35,27 +37,43 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Cpu-->
+<!--App-Usage-->
 
-| Metric Name                                   | Description            | Unit |
-|:----------------------------------------------|:-----------------------|:-----|
-| sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %    |
-| sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     |      |
+| Metric Name                          | Description                                                                       |
+|:-------------------------------------|:----------------------------------------------------------------------------------|
+| appservice.connections.count         | The number of bound sockets existing in the sandbox                               |
+| appservice.assemblies.current.count  | The current number of assemblies loaded across all AppDomains in this application |
+| appservice.handle.count              | The total number of handles currently open by the app process                     |
+| appservice.thread.count              | The number of threads currently active in the app process                         |
+| appservice.appdomains.count          | The current number of AppDomains loaded in this application                       |
+| appservice.appdomains.unloaded.count | The total number of AppDomains unloaded since the start of the application        |
 
-<!--Storage-->
+<!--Cpu-Time-->
 
-| Metric Name                                     | Description            |
-|:------------------------------------------------|:-----------------------|
-| sqlmanagedinstance.storage.space.reserved.count | Storage space reserved |
-| sqlmanagedinstance.storage.space.used.count     | Storage space used     |
+| Metric Name                     | Description                                      | Unit    |
+|:--------------------------------|:-------------------------------------------------|:--------|
+| appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | seconds |
 
-<!--Diskio-->
+<!--Data-->
 
-| Metric Name                            | Description       | Unit  |
-|:---------------------------------------|:------------------|:------|
-| sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | bytes |
-| sqlmanagedinstance.bytes.written.bytes | IO bytes written  | bytes |
-| sqlmanagedinstance.io.requests.count   | IO requests count |       |
+| Metric Name               | Description                                          | Unit  |
+|:--------------------------|:---------------------------------------------------- |:------|
+| appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | bytes |
+| appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | bytes |
+
+<!--File-System-->
+
+| Metric Name                       | Description                                        |
+|:----------------------------------|:---------------------------------------------------|
+| appservice.filesystem.usage.bytes | Percentage of filesystem quota consumed by the app |
+ 
+<!--Gc-Usage-->
+
+| Metric Name              | Description                                                                                           |
+|:-------------------------|:------------------------------------------------------------------------------------------------------|
+| appservice.gc.gen0.count | The number of times the generation 0 objects are garbage collected since the start of the app process |
+| appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process |
+| appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process |
 
 <!--Health-->
 
@@ -63,6 +81,45 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 |:------------|:----------------------------|
 | status      | Current operational status  |
 | summary     | Last related status message |
+
+<!--Http-Requests-->
+
+| Metric Name                          | Description                                                                 |
+|:-------------------------------------|:----------------------------------------------------------------------------|
+| appservice.http.request.count        | The total number of requests regardless of their resulting HTTP status code |
+| appservice.http.request.queue.count  | The number of requests in the application request queue                     |
+| appservice.htpp.request.XXX.count    | The count of requests resulting in an HTTP status code = XXX                | 
+
+<!--IO-Operations-->
+
+| Metric Name                                | Description                                                                                      | Unit |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----|
+| appservice.bytes.other.bytespersecond      | The rate at which the app process is issuing bytes to I/O operations that don't involve data     | B/s  |
+| appservice.operations.other.bytespersecond | The rate at which the app process is issuing I/O operations that aren't read or write operations | B/s  |
+| appservice.bytes.read.bytespersecond       | The rate at which the app process is reading bytes from I/O operations                           | B/s  |
+| appservice.operations.read.bytespersecond  | The rate at which the app process is issuing read I/O operations                                 | B/s  |
+| appservice.bytes.write.bytespersecond      | The rate at which the app process is writing bytes to I/O operations                             | B/s  |
+| appservice.operations.write.bytespersecond | The rate at which the app process is issuing write I/O operations                                | B/s  |
+
+<!--Memory-->
+
+| Metric Name                                | Description                                                                                           | Unit  |
+|:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:------|
+| appservice.memory.average.usage.bytes      | The average amount of memory used by the app                                                          | bytes |
+| appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | bytes |
+| appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | bytes |
+
+<!--Response-Time-->
+
+| Metric Name                           | Description                                  | Unit    |
+|:--------------------------------------|:---------------------------------------------|:--------|
+| appservice.http.response.time.seconds | The time taken for the app to serve requests | seconds |
+
+<!--Status-->
+
+| Metric Name             | Description         | 
+|:------------------------|:--------------------|
+| appservice.status.count | Health check status |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -221,89 +278,24 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--App-Usage-->
+<!--Azure Monitor API-->
 
-| Metric Name                          | Description                                                                       |
-|:-------------------------------------|:----------------------------------------------------------------------------------|
-| appservice.connections.count         | The number of bound sockets existing in the sandbox                               |
-| appservice.assemblies.current.count  | The current number of assemblies loaded across all AppDomains in this application |
-| appservice.handle.count              | The total number of handles currently open by the app process                     |
-| appservice.thread.count              | The number of threads currently active in the app process                         |
-| appservice.appdomains.count          | The current number of AppDomains loaded in this application                       |
-| appservice.appdomains.unloaded.count | The total number of AppDomains unloaded since the start of the application        |
+| Mandatory | Nom               | Description                             |
+|:----------|:------------------|:----------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'api'                       |
+| X         | AZURESUBSCRIPTION | Subscription ID                         |
+| X         | AZURETENANT       | Tenant ID                               |
+| X         | AZURECLIENTID     | Client ID                               |
+| X         | AZURECLIENTSECRET | Client secret                           |
+| X         | AZURERESOURCE     | Id of the App Service instance          |
 
-<!--Cpu-Time-->
+<!--Azure AZ CLI-->
 
-| Metric Name                     | Description                                      | Unit    |
-|:--------------------------------|:-------------------------------------------------|:--------|
-| appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | seconds |
-
-<!--Data-->
-
-| Metric Name               | Description                                          | Unit  |
-|:--------------------------|:---------------------------------------------------- |:------|
-| appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | bytes |
-| appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | bytes |
-
-<!--File-System-->
-
-| Metric Name                       | Description                                        |
-|:----------------------------------|:---------------------------------------------------|
-| appservice.filesystem.usage.bytes | Percentage of filesystem quota consumed by the app |
- 
-<!--Gc-Usage-->
-
-| Metric Name              | Description                                                                                           |
-|:-------------------------|:------------------------------------------------------------------------------------------------------|
-| appservice.gc.gen0.count | The number of times the generation 0 objects are garbage collected since the start of the app process |
-| appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process |
-| appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process |
-
-<!--Health-->
-
-| Status Name | Description                 |
-|:------------|:----------------------------|
-| status      | Current operational status  |
-| summary     | Last related status message |
-
-<!--Http-Requests-->
-
-| Metric Name                          | Description                                                                 |
-|:-------------------------------------|:----------------------------------------------------------------------------|
-| appservice.http.request.count        | The total number of requests regardless of their resulting HTTP status code |
-| appservice.http.request.queue.count  | The number of requests in the application request queue                     |
-| appservice.htpp.request.XXX.count    | The count of requests resulting in an HTTP status code = XXX                | 
-
-<!--IO-Operations-->
-
-| Metric Name                                | Description                                                                                      | Unit |
-|:-------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----|
-| appservice.bytes.other.bytespersecond      | The rate at which the app process is issuing bytes to I/O operations that don't involve data     | B/s  |
-| appservice.operations.other.bytespersecond | The rate at which the app process is issuing I/O operations that aren't read or write operations | B/s  |
-| appservice.bytes.read.bytespersecond       | The rate at which the app process is reading bytes from I/O operations                           | B/s  |
-| appservice.operations.read.bytespersecond  | The rate at which the app process is issuing read I/O operations                                 | B/s  |
-| appservice.bytes.write.bytespersecond      | The rate at which the app process is writing bytes to I/O operations                             | B/s  |
-| appservice.operations.write.bytespersecond | The rate at which the app process is issuing write I/O operations                                | B/s  |
-
-<!--Memory-->
-
-| Metric Name                                | Description                                                                                           | Unit  |
-|:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:------|
-| appservice.memory.average.usage.bytes      | The average amount of memory used by the app                                                          | bytes |
-| appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | bytes |
-| appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | bytes |
-
-<!--Response-Time-->
-
-| Metric Name                           | Description                                  | Unit    |
-|:--------------------------------------|:---------------------------------------------|:--------|
-| appservice.http.response.time.seconds | The time taken for the app to serve requests | seconds |
-
-<!--Status-->
-
-| Metric Name             | Description         | 
-|:------------------------|:--------------------|
-| appservice.status.count | Health check status |
+| Mandatory | Nom               | Description                             |
+|:----------|:------------------|:----------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                     |
+| X         | AZURESUBSCRIPTION | Subscription ID                         |
+| X         | AZURERESOURCE     | Id of the App Service instance          |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -317,7 +309,7 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_web_appservice_api.pl \
-    --plugin=cloud::azure::web:appservice::plugin \
+    --plugin=cloud::azure::web::appservice::plugin \
     --mode=cpu-time \
     --custommode=api \
     --subscription='xxxxxxxxx' \
@@ -340,7 +332,7 @@ OK: Instance 'APP01' Statistic 'total' Metrics CPU Time: 0.08s | 'APP01~total#ap
 ```
 
 La commande ci-dessus vérifie le temps processeur consommé sur l'instance *App Service* nommée *APP01*
-(```--plugin=cloud::azure::web:appservice::plugin --mode=cpu-time --resource='APP01'```).
+(```--plugin=cloud::azure::web::appservice::plugin --mode=cpu-time --resource='APP01'```).
 
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -357,7 +349,7 @@ peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_web_appservice_api.pl \
-    --plugin=cloud::azure::web:appservice::plugin \
+    --plugin=cloud::azure::web::appservice::plugin \
     --mode=cpu-time \
     --help
 ```
