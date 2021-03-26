@@ -7,7 +7,7 @@ title: Palo Alto firewall SSH
 
 ### Objets supervisés
 
-Le Plugin-Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les noeuds et des composants matériels en 
+Le Plugin-Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
 utilisant les commandes SSH. 
 
 ### Métriques collectées
