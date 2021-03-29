@@ -24,7 +24,7 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
-| interfaces.total.count                    | Total number of interfaces	           | count|
+| interfaces.total.count                    | Total number of interfaces	         | count|
 
 <!--IPSec-->
 
@@ -46,7 +46,7 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 ## Prerequisites
 
 In order to work, the plugin requires an SSH connection between the Poller and the server running Palo Alto firewall SSH. 
-The remote user must have enough privileges to execute the command ```cli```. 
+The remote user must have enough privileges to execute the SSH commands. 
 
 ## Setup
 
