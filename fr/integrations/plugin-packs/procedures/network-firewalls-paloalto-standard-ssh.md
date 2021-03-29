@@ -83,7 +83,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Palo Alto firewall.
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par firewall Palo Alto.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
