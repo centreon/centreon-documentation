@@ -45,7 +45,7 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 
 ## Prerequisites
 
-In order to work, the plugin requires an SSH connection between the Poller and the server running Palo Alto firewall SSH. 
+In order to work, the plugin requires an SSH connection between the Poller and the equipment running Palo Alto firewall SSH. 
 The remote user must have enough privileges to execute the SSH commands. 
 
 ## Setup
@@ -167,7 +167,7 @@ Checking voltages
 
 The above command gets the state of the Palo Alto firewall environment (```--mode=environment```).
 It uses a SSH username _centreon_ (```--ssh-username=centreon```), a SSH password _centreon-password_ (```--ssh-password='centreon-password'```),
-uses a SSH backend _libssh_ (```--ssh-backend='libssh'```) and it connects to the host _10.30.2.81_ (```--hostname=10.30.2.81```).
+uses a SSH backend _sshcli_ (```--ssh-backend='sshcli'```) and it connects to the host _10.30.2.81_ (```--hostname=10.30.2.81```).
 
 All the options that can be used with this plugin can be found over the ```--help``` options:
 
