@@ -25,7 +25,7 @@ utilisant les commandes SSH.
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
-| interfaces.total.count                    | Total number of interfaces	           | count|
+| interfaces.total.count                    | Total number of interfaces	         | count|
 
 <!--IPSec-->
 
@@ -47,7 +47,7 @@ utilisant les commandes SSH.
 ## Prérequis
 
 Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur executant Palo Alto firewall SSH. L'utilisateur distant
-doit avoir assez de privilèges pour executer la commande ```cli```. 
+doit avoir assez de privilèges pour executer les commandes SSH. 
 
 ## Installation
 
@@ -83,7 +83,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par application Palo Alto firewall.
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Palo Alto firewall.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
@@ -159,10 +159,10 @@ Temperature sensor on slot 2' temperature is 59C [instance: 40.1].
 Temperature sensor on slot 3' temperature is 57C [instance: 89.1].
 Temperature sensor on slot 4' temperature is 67C [instance: 89.2].
 Checking voltages
-1500mV voltage sensor, slot 1' voltage is 17,32 V [instance: 18.1].
-1800mV voltage sensor, slot 1' voltage is 10,72 V [instance: 18.2].
-1500mV voltage sensor, slot 2' voltage is 17,32 V [instance: 89.1].
-1800mV voltage sensor, slot 2' voltage is 10,72 V [instance: 89.2].
+1,500V voltage sensor, slot 1' voltage is 1,732 V [instance: 18.1].
+1,800V voltage sensor, slot 1' voltage is 1,072 V [instance: 18.2].
+1,500V voltage sensor, slot 2' voltage is 1,732 V [instance: 89.1].
+1,800V voltage sensor, slot 2' voltage is 1,072 V [instance: 89.2].
 ```
 
 La commande ci-dessus contrôle l'environment matériels du firewall Palo Alto (```--mode=environment```).
