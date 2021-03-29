@@ -45,7 +45,7 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 
 ## Prerequisites
 
-In order to work, the plugin requires an SSH connection between the Poller and the equipment running Palo Alto firewall SSH. 
+In order to work, the plugin requires an SSH connection between the Poller and the firewall Palo Alto. 
 The remote user must have enough privileges to execute the SSH commands. 
 
 ## Setup
