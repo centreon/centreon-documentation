@@ -8,6 +8,8 @@ title: Athonet ePC SNMP
 ### Monitored Objects
 
 The Plugin-Pack Athonet ePC SNMP collects metrics for:
+* aggregate
+* apns
 * interfaces (diameter, GA, GTPC, LTE)
 * license
 * lte
@@ -16,6 +18,8 @@ This table describes which metrics can be collected according to roles.
 
 |                     | MME | SPGW | HSS | PCRF |
 | :------------------ | :-: | :--: | :-: | :--: |
+| aggregate           |     |  X   |  X  |      |
+| apns                |     |  X   |     |      |
 | interfaces-diameter |  X  |  X   |  X  |  X   |
 | interfaces-ga       |     |  X   |     |      |
 | interfaces-gtpc     |  X  |  X   |     |      |
@@ -26,6 +30,24 @@ This table describes which metrics can be collected according to roles.
 ### Collected Metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--Aggregate-->
+
+| Metric name                       | Description                       | Unit  |
+| :-------------------------------- | :-------------------------------- | :---- |
+| aggregate.packets.in.count        | Aggregate incoming packets        |       |
+| aggregate.packets.out.count       | Aggregate outgoing packets        |       |
+| hss.users.roaming.connected.count | Number of roaming users connected |       |
+| hss.requests.authentication.count | Number of authentication requests |       |
+| hss.location.updates.count        | Number of location updates        |       |
+
+<!--Apns-->
+
+| Metric name                                | Descritption                           | Unit  |
+| :----------------------------------------- | :------------------------------------- | :---- |
+| *apn_name*\#apn.traffic.in.bytespersecond  | Incoming traffic going through the apn | B/s   |
+| *apn_name*\#apn.traffic.out.bytespersecond | Outgoing traffic going through the apn | B/s   |
+| *apn_name*\#apn.pdp_contexts.count         | Number of pdp contexts                 |       |
 
 <!--Interfaces-diameter-->
 
@@ -82,6 +104,9 @@ This table describes which metrics can be collected according to roles.
 | license.sessions.active.usage.count      | Number of active sessions on the license      |       |
 | license.sessions.active.free.count       | Number of free active sessions on the license |       |
 | license.sessions.active.usage.percentage | Percentage of active sessions on the license  | %     |
+| license.usim.usage.count                 | Number of provisioned usim on the license     |       |
+| license.usim.free.count                  | Number of provisioned usim on the license     |       |
+| license.usim.usage.percentage            | Percentage of provisioned usim on the license | %     |
 
 <!--Lte-->
 
