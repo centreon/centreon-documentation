@@ -21,6 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.5
 
+#### Bugfixes
 
 - [Lib] Update moment-timezone to manage new timezones
 - [Resources Status] Error when getting the command line for Meta Service detail
