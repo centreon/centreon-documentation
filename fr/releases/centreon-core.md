@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.12
 
+`1 avril 2021`
+
 #### Correctifs
 
 - [Lib] Update moment-timezone to manage new timezones

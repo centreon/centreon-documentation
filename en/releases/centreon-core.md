@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.12
 
+`April 1, 2021`
+
 #### Bugfixes
 
 - [Lib] Update moment-timezone to manage new timezones
