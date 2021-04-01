@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.5
 
+`1 avril 2021`
+
 #### Correctifs
 
 - [Lib] Update moment-timezone to manage new timezones
