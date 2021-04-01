@@ -19,6 +19,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.5
+
+
+- [Lib] Update moment-timezone to manage new timezones
+- [Resources Status] Error when getting the command line for Meta Service detail
+
+#### Security fixes
+
+- [APIv2] API realtime rights give API configuration rights
+
 ### 20.10.4
 
 `February 25, 2021`

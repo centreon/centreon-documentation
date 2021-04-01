@@ -19,6 +19,17 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.5
+
+#### Correctifs
+
+- [Lib] Update moment-timezone to manage new timezones
+- [Resources Status] Error when getting the command line for Meta Service detail
+
+#### Correctifs de sécurité
+
+- [APIv2] API realtime rights give API configuration rights
+
 ### 20.10.4
 
 `25 février 2021`
