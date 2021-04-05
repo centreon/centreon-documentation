@@ -92,7 +92,7 @@ computation to your use case.
 The following parameters can be configured in
 `/etc/centreon-studio/studio-config.properties`.
 
-If you had, remove or update a parameter, make sure to restart centreon-map.
+If you add, remove or update a parameter, make sure to restart centreon-map.
 
 **What's an inherited status ?**
 
