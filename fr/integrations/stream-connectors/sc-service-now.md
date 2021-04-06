@@ -69,7 +69,7 @@ yum install -y lua-curl
 Download the connector source code: 
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/servicenow.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/pagerduty/connector-servicenow.lua
+wget -O /usr/share/centreon-broker/lua/servicenow.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/connector-servicenow.lua
 chmod 644 /usr/share/centreon-broker/lua/servicenow.lua
 ```
 

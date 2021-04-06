@@ -69,7 +69,7 @@ yum install -y lua-curl epel-release
 Ces paquets sont nécessaires pour que le script marche. Maintenant, il faut le télécharger :
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/opsgenie/opsgenie.lua
+wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/opsgenie/opsgenie-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/opsgenie.lua
 ```
 
