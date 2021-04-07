@@ -176,7 +176,7 @@ anomaly detection service:
 Click on **Save** and [deploy the monitoring
 configuration](./monitoring-servers/deploying-a-configuration).
 
-### Utiliser l'assistant de création
+### Use the creation wizard
 
 Since version 20.10.1, it is possible to use the creation wizard. Indeed, this
 new functionality makes it possible to highlight the services presenting either a
