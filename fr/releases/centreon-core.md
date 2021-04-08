@@ -39,4 +39,4 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- [Core] Better congestion management for communication
