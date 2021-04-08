@@ -360,7 +360,6 @@ to be updated.
 | host\_id              | unsigned integer | Host ID. 0 if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
 | host\_name            | string           | Host name. Can be empty if log entry does not refer to a specific host or service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |         |
 | instance\_name        | string           | Instance name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |         |
-| issue\_start\_time    | time             | Issue start time if correlation is enabled and log entry refers to an issue.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |         |
 | log\_type             | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |         |
 | msg\_type             | short integer    | 0 for SERVICE ALERT (sent on service state change), 1 for HOST ALERT (sent on host state change(, 2 for SERVICE NOTIFICATION (notification sent out for a service), 3 for HOST NOTIFICATION (notification sent out for a host), 4 for Warning (Centreon Engine warning), 5 for EXTERNAL COMMAND (external command received), 6 for CURRENT SERVICE STATE (current state of monitored service, usually sent at configuration reload), 7 for CURRENT HOST STATE (current state of monitored host, usually sent at configuration reload), 8 for INITIAL SERVICE STATE (initial state of service, after retention processing, sent at process start), 9 for INITIAL HOST STATE (initial state of monitored host, after retention processing, sent at process start), 10 for ACKNOWLEDGE\_SVC\_PROBLEM external command (special case of EXTERNAL COMMAND for service acknowledgement), 11 for ACKNOWLEDGE\_HOST\_PROBLEM external command (special case of EXTERNAL COMMAND for host acknowledgement). |         |
 | notification\_cmd     | string           | Notification command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |         |
@@ -644,60 +643,6 @@ must be deleted.
 | index\_id   | unsigned integer | Index ID.   |         |
 | host\_id    | unsigned integer | Index ID.   |         |
 | service\_id | unsigned integer | Index ID.   |         |
-
-## Correlation
-
-### Engine state
-
-Engine state events are sent when the correlation engine starts or stops.
-
-| Property | Type    | Description                                                          | Version |
-|----------|---------|----------------------------------------------------------------------|---------|
-| started  | boolean | True if the correlation engine is starting, false if it is stopping. |         |
-
-### State
-
-| Property       | Type             | Description   | Version |
-|----------------|------------------|---------------|---------|
-| ack\_time      | time             |               |         |
-| current\_state | integer          |               |         |
-| end\_time      | time             |               |         |
-| host\_id       | unsigned integer |               |         |
-| in\_downtime   | boolean          |               |         |
-| service\_id    | unsigned integer | 0 for a host. |         |
-| start\_time    | time             |               |         |
-
-### Issue
-
-| Property    | Type             | Description | Version |
-|-------------|------------------|-------------|---------|
-| ack\_time   | time             |             |         |
-| end\_time   | time             |             |         |
-| host\_id    | unsigned integer |             |         |
-| service\_id | unsigned integer |             |         |
-| start\_time | time             |             |         |
-
-### Issue parent
-
-| Property            | Type             | Description | Version |
-|---------------------|------------------|-------------|---------|
-| child\_host\_id     | unsigned integer |             |         |
-| child\_service\_id  | unsigned integer |             |         |
-| child\_start\_time  | time             |             |         |
-| end\_time           | time             |             |         |
-| parent\_host\_id    | unsigned integer |             |         |
-| parent\_service\_id | unsigned integer |             |         |
-| parent\_start\_time | time             |             |         |
-| start\_time         | time             |             |         |
-
-### Log issue
-
-| Property           | Type             | Description | Version |
-|--------------------|------------------|-------------|---------|
-| log\_ctime         | time             |             |         |
-| host\_id           | unsigned integer |             |         |
-| service\_id        | unsigned integer |             |         |
-| issue\_start\_time | time             |             |         |
 
 ## BBDO
 
