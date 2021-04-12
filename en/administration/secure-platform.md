@@ -42,38 +42,39 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon recently developed SELinux rules in order to strengthen the control of
 components by the operating system.
 
-> These rules are currently in test mode and can be activated.
+> These rules are currently in **beta mode** and can be activated.
 > You can activate them by following this procedure. In you detect of a problem,
 > it is possible to disable SELinux globally and to send us your feedback in
-> order to improve our rules.
+> order to improve our rules on [Github](https://github.com/centreon/centreon).
 
 ### SELinux Overview
 
-SELinux provides a flexible Mandatory Access Control (MAC) system built into the
-Linux kernel. Under standard Linux Discretionary Access Control (DAC), an
-application or process running as a user (UID or SUID) has the user's permissions
-to objects such as files, sockets, and other processes. Running a MAC kernel
-protects the system from malicious or flawed applications that can damage or
-destroy the system.
+Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
+directories?
 
-SELinux defines the access and transition rights of every user, application,
-process, and file on the system. SELinux then governs the interactions of these
-entities using a security policy that specifies how strict or lenient a given Linux
-operting system installation should be.
+The standard access policy based on the user, group, and other permissions, known as Discretionary Access Control
+(DAC), does not enable system administrators to create comprehensive and fine-grained security policies, such as
+restricting specific applications to only viewing log files, while allowing other applications to append new data to
+the log files.
 
-On a day-to-day basis, system users will be largely unaware of SELinux. Only
-system administrators need to consider how strict a policy to implement for
-their server environment. The policy can be as strict or as lenient as needed,
-and is very finely detailed. This detail gives the SELinux kernel complete,
-granular control over the entire system.
+SELinux implements Mandatory Access Control (MAC). Every process and system resource has a special security label
+called an SELinux context. A SELinux context, sometimes referred to as an SELinux label, is an identifier which
+abstractsaway the system-level details and focuses on the security properties of the entity. Not only does this provide
+a consistent way of referencing objects in the SELinux policy, but it also removes any ambiguity that can be found in
+other identification methods. For example, a file can have multiple valid path names on a system that makes use of bind
+mounts.
 
-More information about SELinux please see [SELinux project page](https://selinuxproject.org/page/Main_Page)
+La politique SELinux utilise ces contextes dans une série de règles qui définissent comment les processus peuvent
+interagir entre eux et avec les différentes ressources système. Par défaut, la stratégie n'autorise aucune interaction
+à moins qu'une règle n'accorde explicitement l'accès.
 
-### Enable SELinux in permissive mode
+For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-By default, SELinux is disabled during Centreon installation process.
-To enable SELinux in permissive mode, you need to modify the `/etc/selinux/config`
-file as:
+### Activer SELinux en mode permissif
+
+By default, SELinux is disabled during Centreon installation process. To enable SELinux in permissive mode, you need to
+modify the `/etc/selinux/config` file as:
 
 ```shell
 # This file controls the state of SELinux on the system.
@@ -93,13 +94,15 @@ Then reboot your server:
 ```shell
 shutdown -r now
 ```
+
 ### Install Centreon SELinux packages
+
+Depending on the type of server, install the packages with the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Central / Remote Server-->
    ```shell
-   yum --enablerepo='centreon-testing*' install \
-   centreon-common-selinux \
+   yum install centreon-common-selinux \
    centreon-web-selinux \
    centreon-broker-selinux \
    centreon-engine-selinux \
@@ -108,8 +111,7 @@ shutdown -r now
    ```
 <!--Poller-->
    ```shell
-   yum --enablerepo='centreon-testing*' install \
-   centreon-common-selinux \
+   yum install centreon-common-selinux \
    centreon-broker-selinux \
    centreon-engine-selinux \
    centreon-gorgoned-selinux \
@@ -117,11 +119,11 @@ shutdown -r now
    ```
 <!--Map server-->
    ```shell
-   yum --enablerepo='centreon-testing*' install centreon-map-selinux
+   yum install centreon-map-selinux
    ```
 <!--MBI server-->
    ```shell
-   yum --enablerepo='centreon-testing*' install centreon-mbi-selinux
+   yum install centreon-mbi-selinux
    ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -131,7 +133,7 @@ To check the installation, execute the following command:
 semodule -l | grep centreon
 ```
 
-Regarding your king of server you can see:
+Depending on your type of server, you can see:
 ```shell
 centreon-broker	0.0.5
 centreon-common	0.0.10
@@ -141,12 +143,27 @@ centreon-plugins	0.0.2
 centreon-web	0.0.8
 ```
 
-### Enable SELinux
+### Audit logs and enable SELinux
 
-### Tips
+Before to enable SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
-If you use "Post generation command" fonctionality when you export your configuration,
-you must create your own SELinux rules to authorize "gorgoned" to run your command.
+```shell
+cat /var/log/audit/audit.log | grep -i denied
+```
+
+If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition of
+the Centreon default SELinux rules. To do this, use the following command to tranform error in SELinux rules:
+
+```shell
+audit2allow -a
+```
+
+Then execute the proposed rules.
+
+If after a while, no error is present, you can activate SELinux in full mode by
+following this [procedure](#enable-selinux-in-permissive-mode) using **enforcing** mode.
+
+> Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
 ## Securing the installation of the DBMS
 
