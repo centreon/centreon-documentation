@@ -292,7 +292,7 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
     * NTP synchronization with the reference time server
 * Processes
     * System processes `crond`, `ntpd`, `rsyslogd`
-    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
+    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php73-php-fpm`
 
 ### Application monitoring
 

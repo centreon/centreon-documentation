@@ -90,7 +90,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 <!--CentOS 7-->
 - Centreon Web 21.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/opt/rh/rh-php72/php.ini` (même que celui retourné par la commande
+  `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`: Elles arrêtent l'exécution des requêtes

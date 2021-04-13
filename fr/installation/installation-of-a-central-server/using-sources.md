@@ -27,22 +27,22 @@ Vous pouvez maintenant installer les prérequis :
 ``` shell
 yum update
 yum install -y \
-    rh-php72
-    rh-php72-php-zip \
-    rh-php72-php-xml \
-    rh-php72-php-fpm \
-    rh-php72-php-process \
-    rh-php72-php-common \
-    rh-php72-php-pdo \
-    rh-php72-php-intl \
-    rh-php72-php-pear \
-    rh-php72-php-json \
-    rh-php72-php-mysqlnd \
-    rh-php72-php-ldap \
-    rh-php72-php-gd \
-    rh-php72-php-cli \
-    rh-php72-php-mbstring \
-    rh-php72-php-snmp \
+    rh-php73
+    rh-php73-php-zip \
+    rh-php73-php-xml \
+    rh-php73-php-fpm \
+    rh-php73-php-process \
+    rh-php73-php-common \
+    rh-php73-php-pdo \
+    rh-php73-php-intl \
+    rh-php73-php-pear \
+    rh-php73-php-json \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-ldap \
+    rh-php73-php-gd \
+    rh-php73-php-cli \
+    rh-php73-php-mbstring \
+    rh-php73-php-snmp \
     openssl \
     perl-DBD-MySQL \
     perl-Sys-Syslog \
@@ -74,23 +74,23 @@ Des commandes additionnelles sont nécessaires pour configurer correctement l'en
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php72/root/bin/pear channel-update pear.php.net
+/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
 ```
 
 Si vous ne pouvez pas accéder directement à Internet directement mais passer par un proxy, exécutez la commande
 suivante :
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Puis exécutez :
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear upgrade-all
+/opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
 <!--Debian Stretch / Ubuntu 18.04-->
-Ajoutez le dépot suivant, nécéssaire pour installer php 7.2 :
+Ajoutez le dépot suivant, nécéssaire pour installer php 7.3 :
 
 ### For Debian Stretch
 
@@ -115,23 +115,23 @@ Installez les dépendances nécessaires :
 
 ``` shell
 apt-get install \
-    php7.2 \
-    php7.2-opcache \
-    libapache2-mod-php7.2 \
-    php7.2-mysql \
-    php7.2-curl \
-    php7.2-json \
-    php7.2-gd \
-    php7.2-mcrypt \
-    php7.2-intl \
-    php7.2-mbstring \
-    php7.2-xml \
-    php7.2-zip \
-    php7.2-fpm \
-    php7.2-readline \
-    php7.2-sqlite3 \
-    php7.2-ldap \
-    php7.2-snmp \
+    php7.3 \
+    php7.3-opcache \
+    libapache2-mod-php7.3 \
+    php7.3-mysql \
+    php7.3-curl \
+    php7.3-json \
+    php7.3-gd \
+    php7.3-mcrypt \
+    php7.3-intl \
+    php7.3-mbstring \
+    php7.3-xml \
+    php7.3-zip \
+    php7.3-fpm \
+    php7.3-readline \
+    php7.3-sqlite3 \
+    php7.3-ldap \
+    php7.3-snmp \
     php-db \
     php-date
     php-pear \
@@ -151,9 +151,9 @@ Activez les modules :
 
 ``` shell
 a2enmod proxy_fcgi setenvif proxy rewrite
-a2enconf php7.2-fpm
-a2dismod php7.2
-systemctl restart apache2 php7.2-fpm
+a2enconf php7.3-fpm
+a2dismod php7.3
+systemctl restart apache2 php7.3-fpm
 ```
 
 Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :

@@ -69,7 +69,7 @@ Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la comman
 suivante :
 
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
 > Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
@@ -84,8 +84,8 @@ Réalisez les actions suivantes :
 ```shell
 systemctl disable rh-php71-php-fpm
 systemctl stop rh-php71-php-fpm
-systemctl enable rh-php72-php-fpm
-systemctl start rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
 systemctl restart httpd24-httpd
 ```
 

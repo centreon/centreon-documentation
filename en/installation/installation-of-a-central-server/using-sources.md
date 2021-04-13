@@ -8,7 +8,261 @@ title: Using sources
 > Most CentOS users will find easier to install Centreon Web by [using packages](using-packages.html).
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--Redhat/CentOS-->
+<!--CentOS 8-->
+To install Centreon you will need to enable the official PowerTools repository.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
+
+Install the Centreon repository for additional perl dependencies:
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+CentOS Linux 8 - AppStream
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+The repository are now installed.
+
+You can now install the necessary prerequisites:
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Additional commands are necessary to configure the environment correctly:
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+If you can’t access the Internet directly but have to pass via a proxy,
+perform the following command:
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Then execute:
+```shell
+/bin/pear upgrade-all
+```
+<!--Oracle Linux 8-->
+To install Centreon you will need to enable the official Oracle CodeReady Builder repository supported by Oracle.
+
+Enable the PowerTools repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Install the Centreon repository for additional perl dependencies:
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+Oracle Linux 8 Application Stream (x86_64)
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+The repository are now installed.
+
+You can now install the necessary prerequisites:
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Additional commands are necessary to configure the environment correctly:
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+If you can’t access the Internet directly but have to pass via a proxy,
+perform the following command:
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Then execute:
+```shell
+/bin/pear upgrade-all
+```
+<!--Redhat/CentOS 7-->
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
 > Software collections are required for installing PHP 7 and associated libraries (Centreon requirement).
@@ -26,22 +280,22 @@ You can now install the necessary prerequisites:
 ``` shell
 yum update
 yum install -y \
-    rh-php72 \
-    rh-php72-php-zip \
-    rh-php72-php-xml \
-    rh-php72-php-fpm \
-    rh-php72-php-process \
-    rh-php72-php-common \
-    rh-php72-php-pdo \
-    rh-php72-php-intl \
-    rh-php72-php-pear \
-    rh-php72-php-json \
-    rh-php72-php-mysqlnd \
-    rh-php72-php-ldap \
-    rh-php72-php-gd \
-    rh-php72-php-cli \
-    rh-php72-php-mbstring \
-    rh-php72-php-snmp \
+    rh-php73 \
+    rh-php73-php-zip \
+    rh-php73-php-xml \
+    rh-php73-php-fpm \
+    rh-php73-php-process \
+    rh-php73-php-common \
+    rh-php73-php-pdo \
+    rh-php73-php-intl \
+    rh-php73-php-pear \
+    rh-php73-php-json \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-ldap \
+    rh-php73-php-gd \
+    rh-php73-php-cli \
+    rh-php73-php-mbstring \
+    rh-php73-php-snmp \
     openssl \
     perl-DBD-MySQL \
     perl-Sys-Syslog \
@@ -73,23 +327,23 @@ Additional commands are necessary to configure the environment correctly:
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php72/root/bin/pear channel-update pear.php.net
+/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
 ```
 
 If you can’t access the Internet directly but have to pass via a proxy,
 perform the following command:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Then execute:
 
 ``` shell
-/opt/rh/rh-php72/root/bin/pear upgrade-all
+/opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
-<!--Debian Stretch / Ubuntu 18.04-->
-Add the php 7.2 repository:
+<!--Debian Buster-->
+Add the php 7.3 repository:
 
 ### For Debian Stretch
 
@@ -114,45 +368,90 @@ Install the following prerequisites:
 
 ``` shell
 apt-get install \
-    php7.2 \
-    php7.2-opcache \
-    libapache2-mod-php7.2 \
-    php7.2-mysql \
-    php7.2-curl \
-    php7.2-json \
-    php7.2-gd \
-    php7.2-mcrypt \
-    php7.2-intl \
-    php7.2-mbstring \
-    php7.2-xml \
-    php7.2-zip \
-    php7.2-fpm \
-    php7.2-readline \
-    php7.2-sqlite3 \
-    php7.2-ldap \
-    php7.2-snmp \
-    php-db \
-    php-date
-    php-pear \
-    sudo \
-    tofrodos \
     bsd-mailx \
-    lsb-release \
-    mariadb-server \
+    cmake \
+    dnsutils \
+    fping \
+    gawk \
+    gettext \
+    libapache2-mod-php7.3 \
+    libcgsi-gsoap-dev \
     libconfig-inifiles-perl \
     libcrypt-des-perl \
+    libdate-manip-perl \
+    libdatetime-perl \
+    libdbd-mysql-perl \
+    libdbd-pg-perl \
+    libdbi-perl \
     libdigest-hmac-perl \
     libdigest-sha-perl \
-    libgd-perl
+    libgcrypt-dev \
+    libgd-perl \
+    libgnutls28-dev \
+    libjson-perl \
+    libkrb5-dev \
+    libldap2-dev \
+    liblua5.2-dev \
+    libmariadb-dev \
+    libmcrypt-dev \
+    libmodule-build-perl \
+    libmodule-install-perl \
+    libnet-dns-perl \
+    libnet-ldap-perl \
+    libnet-ntp-perl \
+    libnet-snmp-perl \
+    libnet-telnet-perl \
+    libperl-dev \
+    librrd-dev \
+    librrds-perl \
+    libsnmp-dev \
+    libsnmp-perl \
+    libssh2-1-dev \
+    libssl-dev \
+    liburi-encode-perl \
+    libwrap0-dev \
+    libwww-perl \
+    libxerces-c-dev \
+    libxml-libxml-perl \
+    libxml-xpath-perl \
+    lsb-release \
+    mariadb-server \
+    ntp \
+    php-curl \
+    php-date \
+    php-db \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysql \
+    php-pear \
+    php-readline \
+    php-snmp \
+    php-sqlite3 \
+    php-xml \
+    php-zip \
+    python3-pip \
+    rrdtool \
+    smbclient \
+    snmp \
+    snmp-mibs-downloader \
+    snmpd \
+    snmptrapd \
+    sudo \
+    tofrodos \
+    zlib1g-dev
 ```
 
 Activate the modules:
 
 ``` shell
 a2enmod proxy_fcgi setenvif proxy rewrite
-a2enconf php7.2-fpm
-a2dismod php7.2
-systemctl restart apache2 php7.2-fpm
+a2enconf php7.3-fpm
+a2dismod php7.3
+systemctl restart apache2 php7.3-fpm
 ```
 
 Additional commands are necessary to configure the environment correctly:
@@ -259,22 +558,71 @@ Save the file and restart Apache:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+## Centreon library (Centreon CLIB)
+
+Please install Centreon CLIB using [this procedure](https://github.com/centreon/centreon-clib#fetching-sources).
+
 ## Monitoring engine (Centreon Engine)
 
-You can install it following the procedure in documentation. Don’t forget to install the
-[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) if you have not already done so.
+### Prerequisites
+
+Create Centreon Engine user and group:
+```shell
+groupadd -g 6001 centreon-engine
+useradd -u 6001 -g centreon-engine -m -r -d /var/lib/centreon-engine -c "Centreon Engine" -s /bin/bash centreon-engine
+```
+
+### Installation
+
+Please install Centreon Engine using [this procedure](https://github.com/centreon/centreon-engine/blob/master/README.md#fetching-sources).
+> Don’t forget to install the [Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) if you have not already done so.
 
 ## Stream Multiplexer (Centreon Broker)
 
-Install this Stream Multiplexers before continuing with the installation.
+### Prerequisites
+
+Create Centreon Engine user and group:
+```shell
+groupadd -g 6002 centreon-broker
+useradd -u 6002 -g centreon-broker -m -r -d /var/lib/centreon-broker -c "Centreon Broker"  -s /bin/bash centreon-broker
+```
+
+### Installation
+
+Please install Centreon Broker using [this procedure](https://github.com/centreon/centreon-broker/blob/master/README.md#fetching-sources).
+
+> If you want to use Stream Connectorsfunctionality, please install [lua-curl](https://luarocks.org/modules/moteus/lua-curl).
+
+
+## Centreon Plugins
+
+Download the latest version from the [Centreon download web site](https://download.centreon.com) in **Custom Platforms**
+tab, then **Plugins** tab.
+
+Then copy the tarball on your server in **/tmp** directory and execute the following commands:
+```shell
+tar xzf centreon-plugins-20210317.tar.gz
+cd centreon-plugins-20210317
+chown centreon-engine: *
+chmod gu+x *
+mkdir -p /usr/lib/centreon/plugins
+mv * /usr/lib/centreon/plugins/
+```
+
+> Change the timestamp **20210317** date.
+
+## Centreon Gorgone
+
+Please install Centreon Gorgone using [this procedure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
 ## Centreon
 
-Download the latest version of Centreon [here](https://download.centreon.com).
+Download the latest version from the [Centreon download web site](https://download.centreon.com)
+in **Custom Platforms** tab, then **Web** tab.
 
 Extract the Centreon archive:
 
-``` shell
+```shell
 tar zxf centreon-web-YY.MM.x.tar.gz
 cd centreon-web-YY.MM.x
 ```
@@ -284,15 +632,17 @@ quick yes/no questions can be replied to by [y] most of the time.
 >
 > If centreon sources have been downloaded from github, run those commands:
 >
-> ``` shell
+> ```shell
 > composer install --no-dev --optimize-autoloader
-> npm install
+> npm ci
 > npm run build
 > ```
+>
+> you can download **composer** from [official web site](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos).
 
 Run the installation script:
 
-``` shell
+```shell
 ./install.sh -i
 ```
 
@@ -302,7 +652,7 @@ Run the installation script:
 > no problem during this stage. Otherwise repeat the Prerequisites installation
 > process:
 
-``` shell
+```shell
 ###############################################################################
 #                                                                             #
 #                         Centreon (www.centreon.com)                         #
