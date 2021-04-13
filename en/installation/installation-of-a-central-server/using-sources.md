@@ -262,6 +262,133 @@ Then execute:
 ```shell
 /bin/pear upgrade-all
 ```
+<!--RHEL 8-->
+To install Centreon you will need to enable the official CodeReady Builder repository supported by Redhat.
+
+Enable the CodeReady Builder repository using these commands:
+
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Install the Centreon repository for additional perl dependencies:
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+The repository are now installed.
+
+You can now install the necessary prerequisites:
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Additional commands are necessary to configure the environment correctly:
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+If you can’t access the Internet directly but have to pass via a proxy,
+perform the following command:
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Then execute:
+```shell
+/bin/pear upgrade-all
+```
 <!--Redhat/CentOS 7-->
 To install Centreon you will need to set up the official software collections repository supported by Redhat.
 
@@ -273,54 +400,84 @@ Install the software collections repository using this command:
 yum install -y centos-release-scl
 ```
 
-The repository is now installed.
+Add nodesource repository:
+```shell
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+```
+
+The repository are now installed.
 
 You can now install the necessary prerequisites:
-
-``` shell
+```shell
 yum update
 yum install -y \
-    rh-php73 \
-    rh-php73-php-zip \
-    rh-php73-php-xml \
-    rh-php73-php-fpm \
-    rh-php73-php-process \
-    rh-php73-php-common \
-    rh-php73-php-pdo \
-    rh-php73-php-intl \
-    rh-php73-php-pear \
-    rh-php73-php-json \
-    rh-php73-php-mysqlnd \
-    rh-php73-php-ldap \
-    rh-php73-php-gd \
-    rh-php73-php-cli \
-    rh-php73-php-mbstring \
-    rh-php73-php-snmp \
-    openssl \
-    perl-DBD-MySQL \
-    perl-Sys-Syslog \
-    httpd24-httpd \
-    perl-DBI \
-    perl-DBD-MySQL \
-    rrdtool \
-    perl-rrdtool \
-    perl-Crypt-DES \
-    perl-Digest-SHA1 \
-    perl-Digest-HMAC \
-    net-snmp-utils \
-    perl-Socket6 \
-    perl-IO-Socket-INET6 \
-    net-snmp \
-    net-snmp-libs \
-    dmidecode \
-    lm_sensors \
-    net-snmp-perl \
-    fping \
     cpp \
+    dmidecode \
+    fping \
+    freetds \
     gcc \
     gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
     libstdc++ \
-    glib2-devel
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    rh-php73 \
+    rh-php73-php-cli \
+    rh-php73-php-common \
+    rh-php73-php-fpm \
+    rh-php73-php-gd \
+    rh-php73-php-intl \
+    rh-php73-php-json \
+    rh-php73-php-ldap \
+    rh-php73-php-mbstring \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-pdo \
+    rh-php73-php-pear \
+    rh-php73-php-process \
+    rh-php73-php-snmp \
+    rh-php73-php-xml \
+    rh-php73-php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
 ```
 
 Additional commands are necessary to configure the environment correctly:
@@ -343,30 +500,8 @@ Then execute:
 /opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
 <!--Debian Buster-->
-Add the php 7.3 repository:
-
-### For Debian Stretch
-
-``` shell
-apt-get install wget apt-transport-https lsb-release ca-certificates
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" >> /etc/apt/sources.list.d/php.list
-apt-get update
-```
-
-### For Ubuntu 18.04
-
-> It is necessary to add sudo in front of the following commands:
->
-> ``` shell
-> $ apt-get install software-properties-common
-> $ add-apt-repository ppa:ondrej/php
-> $ apt update
-> ```
-
 Install the following prerequisites:
-
-``` shell
+```shell
 apt-get install \
     bsd-mailx \
     cmake \
@@ -419,7 +554,6 @@ apt-get install \
     ntp \
     php-curl \
     php-date \
-    php-db \
     php-fpm \
     php-gd \
     php-intl \
@@ -437,7 +571,6 @@ apt-get install \
     rrdtool \
     smbclient \
     snmp \
-    snmp-mibs-downloader \
     snmpd \
     snmptrapd \
     sudo \
@@ -489,72 +622,6 @@ Restart SNMP service:
 ``` shell
 service snmpd restart
 service snmptrapd restart
-```
-
-<!--Suse-->
-Install the following prerequisites:
-
-``` shell
-yast -i gcc \
-    gcc-c++ \
-    make \
-    automake \
-    apache2 \
-    php5 \
-    php5-mysql \
-    apache2-mod_php5 \
-    php5-pear \
-    php5-ldap \
-    php5-snmp \
-    php5-gd \
-    php5-soap \
-    php5-intl \
-    php5-posix \
-    php5-gettext \
-    php5-mbstring \
-    mysql \
-    libmysqlclient-devel \
-    perl-DBD-mysql \
-    mysql-community-server \
-    rrdtool \
-    perl-Config-IniFiles \
-    net-snmp \
-    perl-Net-SNMP \
-    perl-SNMP \
-    gd \
-    libjpeg-devel \
-    libpng-devel \
-    fontconfig-devel \
-    freetype2-devel \
-    sudo \
-    mailx \
-    fping \
-    iputils \
-    dos2unix \
-    cron \
-    dejavu \
-    nagios-plugins
-```
-
-On some OpenSuse distributions, the default settings of the **mine** type are not valid to function with the Centreon
-web interface. Edit the */etc/mime.types* file and find the lines:
-
-``` shell
-text/x-xsl xsl
-text/x-xslt xslt xsl
-```
-
-Replace them by:
-
-``` shell
-text/xml xsl
-text/xml xslt xsl
-```
-
-Save the file and restart Apache:
-
-``` shell
-/etc/init.d/apache2 restart
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
