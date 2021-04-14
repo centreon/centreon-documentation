@@ -78,6 +78,27 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                                     Stream                                 Profiles                                                 Summary
+php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
 <!--CentOS 8-->
 #### Redhat PowerTools repository
 

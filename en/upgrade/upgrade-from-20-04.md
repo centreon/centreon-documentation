@@ -36,22 +36,6 @@ Run the following commands:
 yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
 ```
 
-### Upgrade PHP
-
-Centreon 21.04 use PHP in version 7.3.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-You need to change the PHP stream from version 7.2 to 7.3 by executing the following commands and answering **y**
-to confirm:
-```shell
-dnf module reset php
-dnf module install php:7.3
-```
-<!--CentOS 7-->
-PHP will be updated with Centreon automatically.
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ### Upgrade the Centreon solution
 
 Clean yum cache:

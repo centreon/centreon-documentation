@@ -648,7 +648,7 @@ Please install Centreon Engine using [this procedure](https://github.com/centreo
 
 ### Prerequisites
 
-Create Centreon Engine user and group:
+Create Centreon Broker user and group:
 ```shell
 groupadd -g 6002 centreon-broker
 useradd -u 6002 -g centreon-broker -m -r -d /var/lib/centreon-broker -c "Centreon Broker"  -s /bin/bash centreon-broker
@@ -658,7 +658,7 @@ useradd -u 6002 -g centreon-broker -m -r -d /var/lib/centreon-broker -c "Centreo
 
 Please install Centreon Broker using [this procedure](https://github.com/centreon/centreon-broker/blob/master/README.md#fetching-sources).
 
-> If you want to use Stream Connectorsfunctionality, please install [lua-curl](https://luarocks.org/modules/moteus/lua-curl).
+> If you want to use Stream Connector functionality, please install [lua-curl](https://luarocks.org/modules/moteus/lua-curl).
 
 
 ## Centreon Plugins

@@ -9,75 +9,484 @@ title: A partir des sources
 [les paquets fournis par Centreon](using-packages.html).
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--Redhat/CentOS-->
-Afin d’installer les logiciels Centreon, le dépôt Software collections de Red Hat doit être activé.
+<!--CentOS 8-->
+Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Red Hat doit être activé.
 
-> Le dépôt Software collections est nécessaire pour l’installation de PHP 7 et les librairies associées.
+Exécutez les commandes suivantes :
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
 
-Exécutez la commande suivante :
+Installez le dépôt Centreon pour les dépendances perl additionnelles :
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Activez PHP 7.3 avec la commande suivante :
+```shell
+dnf module enable php:7.3 -y
+```
+
+Contrôlez que PHP 7.3 est activé :
+```shell
+dnf module list php
+```
+
+Vous devriez avoir le résultat suivant :
+```shell
+CentOS Linux 8 - AppStream
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+Les dépôts sont maintenant installés.
+
+Vous pouvez maintenant installer les prérequis :
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
+suivante :
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Puis exécutez :
+```shell
+/bin/pear upgrade-all
+```
+<!--Oracle Linux 8-->
+Afin d'installer les logiciels Centreon, le dépôt Oracle CodeReady Builder de Oracle doit être activé.
+
+Exécutez les commandes suivantes :
+```shell
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Installez le dépôt Centreon pour les dépendances perl additionnelles :
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Activez PHP 7.3 avec la commande suivante :
+```shell
+dnf module enable php:7.3 -y
+```
+
+Contrôlez que PHP 7.3 est activé :
+```shell
+dnf module list php
+```
+
+Vous devriez avoir le résultat suivant :
+```shell
+Oracle Linux 8 Application Stream (x86_64)
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+Les dépôts sont maintenant installés.
+
+Vous pouvez maintenant installer les prérequis :
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
+suivante :
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Puis exécutez :
+```shell
+/bin/pear upgrade-all
+```
+<!--RHEL 8-->
+Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Redhat doit être activé.
+
+Exécutez les commandes suivantes :
+```shell
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Installez le dépôt Centreon pour les dépendances perl additionnelles :
+```shell
+dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+```
+
+Activez PHP 7.3 avec la commande suivante :
+```shell
+dnf module enable php:7.3 -y
+```
+
+Contrôlez que PHP 7.3 est activé :
+```shell
+dnf module list php
+```
+
+Vous devriez avoir le résultat suivant :
+```shell
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
+
+Les dépôts sont maintenant installés.
+
+Vous pouvez maintenant installer les prérequis :
+```shell
+dnf update
+dnf install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    php \
+    php-cli \
+    php-common \
+    php-devel \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
+```shell
+/bin/pear channel-update pear.php.net
+```
+
+Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
+suivante :
+```shell
+/bin/pear config-set http_proxy http://my_proxy.com:port
+```
+
+Puis exécutez :
+```shell
+/bin/pear upgrade-all
+```
+<!--Redhat/CentOS 7-->
+Pour installer Centreon, vous devrez configurer le dépôt officiel des collections de logiciels pris en charge par
+Redhat.
+
+> Des collections de logiciels sont nécessaires pour l'installation de PHP 7 et des bibliothèques associées.
+
+Installez le dépôt des collections de logiciels à l'aide de cette commande :
 
 ``` shell
 yum install -y centos-release-scl
 ```
 
-Le dépôt est maintenant installé.
-
-Vous pouvez maintenant installer les prérequis :
-
-``` shell
-yum update
-yum install -y \
-    rh-php73
-    rh-php73-php-zip \
-    rh-php73-php-xml \
-    rh-php73-php-fpm \
-    rh-php73-php-process \
-    rh-php73-php-common \
-    rh-php73-php-pdo \
-    rh-php73-php-intl \
-    rh-php73-php-pear \
-    rh-php73-php-json \
-    rh-php73-php-mysqlnd \
-    rh-php73-php-ldap \
-    rh-php73-php-gd \
-    rh-php73-php-cli \
-    rh-php73-php-mbstring \
-    rh-php73-php-snmp \
-    openssl \
-    perl-DBD-MySQL \
-    perl-Sys-Syslog \
-    httpd24-httpd \
-    perl-DBI \
-    perl-DBD-MySQL \
-    rrdtool \
-    perl-rrdtool \
-    perl-Crypt-DES \
-    perl-Digest-SHA1 \
-    perl-Digest-HMAC \
-    net-snmp-utils \
-    perl-Socket6 \
-    perl-IO-Socket-INET6 \
-    net-snmp \
-    net-snmp-libs \
-    dmidecode \
-    lm_sensors \
-    net-snmp-perl \
-    fping \
-    cpp \
-    gcc \
-    gcc-c++ \
-    libstdc++ \
-    glib2-devel
+Ajoutez le dépôt nodesource :
+```shell
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
 ```
 
-Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :
+Les dépôts sont maintenant installés.
+
+Vous pouvez maintenant installer les prérequis :
+```shell
+yum update
+yum install -y \
+    cpp \
+    dmidecode \
+    fping \
+    freetds \
+    gcc \
+    gcc-c++ \
+    glib2-devel \
+    gnutls \
+    gnutls-devel \
+    httpd \
+    libstdc++ \
+    lm_sensors \
+    lua \
+    lua-devel \
+    mailx \
+    make \
+    net-snmp \
+    net-snmp-libs \
+    net-snmp-perl \
+    net-snmp-utils \
+    net-tools \
+    npm \
+    openssl \
+    openwsman-perl \
+    perl \
+    perl-Crypt-DES \
+    perl-DBD-MySQL \
+    perl-DBI \
+    perl-DateTime \
+    perl-DateTime-Format-Duration-ISO8601 \
+    perl-Digest-HMAC \
+    perl-Digest-SHA1 \
+    perl-Encode \
+    perl-interpreter \
+    perl-IO-Socket-INET6 \
+    perl-JSON \
+    perl-MQSeries \
+    perl-MongoDB \
+    perl-Net-Curl \
+    perl-Redis \
+    perl-Socket \
+    perl-Socket6 \
+    perl-Sys-Syslog \
+    perl-URI \
+    perl-UUID \
+    perl-rrdtool \
+    rh-php73 \
+    rh-php73-php-cli \
+    rh-php73-php-common \
+    rh-php73-php-fpm \
+    rh-php73-php-gd \
+    rh-php73-php-intl \
+    rh-php73-php-json \
+    rh-php73-php-ldap \
+    rh-php73-php-mbstring \
+    rh-php73-php-mysqlnd \
+    rh-php73-php-pdo \
+    rh-php73-php-pear \
+    rh-php73-php-process \
+    rh-php73-php-snmp \
+    rh-php73-php-xml \
+    rh-php73-php-zip \
+    plink \
+    quota \
+    rrdtool \
+    rrdtool-devel \
+    unixODBC
+```
+
+Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
 
 ``` shell
 usermod -U apache
 /opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
 ```
 
-Si vous ne pouvez pas accéder directement à Internet directement mais passer par un proxy, exécutez la commande
+Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
 suivante :
 
 ``` shell
@@ -89,213 +498,211 @@ Puis exécutez :
 ``` shell
 /opt/rh/rh-php73/root/bin/pear upgrade-all
 ```
-<!--Debian Stretch / Ubuntu 18.04-->
-Ajoutez le dépot suivant, nécéssaire pour installer php 7.3 :
-
-### For Debian Stretch
-
-``` shell
-apt-get install wget apt-transport-https lsb-release ca-certificates
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" >> /etc/apt/sources.list.d/php.list
-apt-get update
-```
-
-### For Ubuntu 18.04
-
-> Il est nécessaire d'ajouter sudo devant les commandes ci-dessous :
->
-> ``` shell  
-> apt-get install software-properties-common
-> add-apt-repository ppa:ondrej/php
-> apt update
-> ```
-
-Installez les dépendances nécessaires :
-
-``` shell
+<!--Debian Buster-->
+Installez les prérequis suivants :
+```shell
 apt-get install \
-    php7.3 \
-    php7.3-opcache \
-    libapache2-mod-php7.3 \
-    php7.3-mysql \
-    php7.3-curl \
-    php7.3-json \
-    php7.3-gd \
-    php7.3-mcrypt \
-    php7.3-intl \
-    php7.3-mbstring \
-    php7.3-xml \
-    php7.3-zip \
-    php7.3-fpm \
-    php7.3-readline \
-    php7.3-sqlite3 \
-    php7.3-ldap \
-    php7.3-snmp \
-    php-db \
-    php-date
-    php-pear \
-    sudo \
-    tofrodos \
     bsd-mailx \
-    lsb-release \
-    mariadb-server \
+    cmake \
+    dnsutils \
+    fping \
+    gawk \
+    gettext \
+    libapache2-mod-php7.3 \
+    libcgsi-gsoap-dev \
     libconfig-inifiles-perl \
     libcrypt-des-perl \
+    libdate-manip-perl \
+    libdatetime-perl \
+    libdbd-mysql-perl \
+    libdbd-pg-perl \
+    libdbi-perl \
     libdigest-hmac-perl \
     libdigest-sha-perl \
-    libgd-perl
+    libgcrypt-dev \
+    libgd-perl \
+    libgnutls28-dev \
+    libjson-perl \
+    libkrb5-dev \
+    libldap2-dev \
+    liblua5.2-dev \
+    libmariadb-dev \
+    libmcrypt-dev \
+    libmodule-build-perl \
+    libmodule-install-perl \
+    libnet-dns-perl \
+    libnet-ldap-perl \
+    libnet-ntp-perl \
+    libnet-snmp-perl \
+    libnet-telnet-perl \
+    libperl-dev \
+    librrd-dev \
+    librrds-perl \
+    libsnmp-dev \
+    libsnmp-perl \
+    libssh2-1-dev \
+    libssl-dev \
+    liburi-encode-perl \
+    libwrap0-dev \
+    libwww-perl \
+    libxerces-c-dev \
+    libxml-libxml-perl \
+    libxml-xpath-perl \
+    lsb-release \
+    mariadb-server \
+    ntp \
+    php-curl \
+    php-date \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysql \
+    php-pear \
+    php-readline \
+    php-snmp \
+    php-sqlite3 \
+    php-xml \
+    php-zip \
+    python3-pip \
+    rrdtool \
+    smbclient \
+    snmp \
+    snmpd \
+    snmptrapd \
+    sudo \
+    tofrodos \
+    zlib1g-dev
 ```
 
-Activez les modules :
-
-``` shell
+Activate the modules :
+```shell
 a2enmod proxy_fcgi setenvif proxy rewrite
 a2enconf php7.3-fpm
 a2dismod php7.3
 systemctl restart apache2 php7.3-fpm
 ```
 
-Des commandes additionnelles sont nécessaires pour configurer correctement l'environnement :
-
-``` shell
+Des commandes supplémentaires sont nécessaires pour configurer correctement l'environnement :
+```shell
 groupadd -g 6000 centreon
 useradd -u 6000 -g centreon -m -r -d /var/lib/centreon -c "Centreon Admin" -s /bin/sh centreon
 ```
 
-Pour finir, vous devez installer des MIBs SNMP. En raison d'un problème de licence, les fichiers MIBs ne sont pas
-disponibles par défaut sous Debian. Pour les ajouter, modifiez le fichier */etc/apt/sources.list* et ajouter la
-catégorie **non-free**.
+Pour terminer, vous devez installer les MIB SNMP. En raison d'un problème de licence, les fichiers MIB ne sont pas
+disponibles par défaut dans Debian. Pour les ajouter, modifiez le fichier /etc/apt/sources.list et ajoutez la catégorie
+*non-free*.
 
-Puis exécutez les commandes suivantes :
-
-``` shell
+Exécutez les commandes suivantes :
+```shell
 apt-get update
 apt-get install snmp-mibs-downloader
 ```
 
-Modifiez le fichier de configuration SNMP */etc/default/snmpd* en ajoutant :
-
-``` shell
+Puis modifiez le fichier de configuration SNMP */etc/default/snmpd* en ajoutant :
+```shell
 export MIBDIRS=/usr/share/snmp/mibs
 export MIBS=ALL
 ```
 
-Commentez :
-
-``` shell
+Et commentez :
+```shell
 #mibs ALL
 ```
 
 Redémarrez le service SNMP :
-
-``` shell
+```shell
 service snmpd restart
 service snmptrapd restart
 ```
-<!--Suse-->
-Installez les dépendances nécessaires :
-
-``` shell
-yast -i gcc \
-    gcc-c++ \
-    make \
-    automake \
-    apache2 \
-    php5 \
-    php5-mysql \
-    apache2-mod_php5 \
-    php5-pear \
-    php5-ldap \
-    php5-snmp \
-    php5-gd \
-    php5-soap \
-    php5-intl \
-    php5-posix \
-    php5-gettext \
-    php5-mbstring \
-    mysql \
-    libmysqlclient-devel \
-    perl-DBD-mysql \
-    mysql-community-server \
-    rrdtool \
-    perl-Config-IniFiles \
-    net-snmp \
-    perl-Net-SNMP \
-    perl-SNMP \
-    gd \
-    libjpeg-devel \
-    libpng-devel \
-    fontconfig-devel \
-    freetype2-devel \
-    sudo \
-    mailx \
-    fping \
-    iputils \
-    dos2unix \
-    cron \
-    dejavu \
-    nagios-plugins
-```
-
-Sur certaines distributions OpenSuse, le paramétrage par défaut des type **mine** n'est pas valide pour fonctionner
-avec l'interface web Centreon. Editez le fichier */etc/mime.types* et rechercher les lignes :
-
-``` shell
-text/x-xsl xsl
-text/x-xslt xslt xsl
-```
-
-Remplacez-les par :
-
-``` shell
-text/xml xsl
-text/xml xslt xsl
-```
-
-Sauvegardez le fichier et redémarrez apache :
-
-``` shell
-/etc/init.d/apache2 restart
-```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Moteur de supervision (Centreon Engine)
+## Centreon library (Centreon CLIB)
 
-Installez ce moteur avant de poursuivre l'installation. N'oubliez pas d'installer les
-[Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) si vous ne l'avez pas déjà fait.
+Installez Centreon CLIB en utilisant [cette procédure](https://github.com/centreon/centreon-clib#fetching-sources).
 
-## Multiplexeur de flux (Centreon Broker)
+## Monitoring engine (Centreon Engine)
 
-Installez ce multiplexeurs de flux avant de poursuivre l'installation.
+### Prérequis
+
+Créez un utilisateur et un groupe Centreon Engine :
+```shell
+groupadd -g 6001 centreon-engine
+useradd -u 6001 -g centreon-engine -m -r -d /var/lib/centreon-engine -c "Centreon Engine" -s /bin/bash centreon-engine
+```
+
+### Installation
+
+Installez Centreon Engine en utilisant [cette procédure](https://github.com/centreon/centreon-engine/blob/master/README.md#fetching-sources).
+> N'oubliez pas d'installer les [Nagios plugins](http://nagios.sourceforge.net/docs/3_0/quickstart.html) si vous ne l'avez pas déjà fait.
+
+## Stream Multiplexer (Centreon Broker)
+
+### Prérequis
+
+Créez un utilisateur et un groupe Centreon Broker :
+```shell
+groupadd -g 6002 centreon-broker
+useradd -u 6002 -g centreon-broker -m -r -d /var/lib/centreon-broker -c "Centreon Broker"  -s /bin/bash centreon-broker
+```
+
+### Installation
+
+Installez Centreon Broker en utilisant [cette procédure](https://github.com/centreon/centreon-broker/blob/master/README.md#fetching-sources).
+
+> Si vous souhaitez utiliser la fonctionnalité Stream Connector, installez
+> [lua-curl](https://luarocks.org/modules/moteus/lua-curl).
+
+
+## Centreon Plugins
+
+Téléchargez la dernière version depuis le [site Web de téléchargement Centreon](https://download.centreon.com)
+dans l'onglet **Custom Platforms**, puis l'onglet **Plugins**.
+
+Copiez ensuite l'archive tar sur votre serveur dans le répertoire **/tmp** et exécutez les commandes suivantes :
+```shell
+tar xzf centreon-plugins-20210317.tar.gz
+cd centreon-plugins-20210317
+chown centreon-engine: *
+chmod gu+x *
+mkdir -p /usr/lib/centreon/plugins
+mv * /usr/lib/centreon/plugins/
+```
+
+> Modifiez la date du paquet **20210317** par la votre.
+
+## Centreon Gorgone
+
+Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
 ## Centreon
 
-Téléchargez la dernière version de [Centreon ici](https://download.centreon.com).
+Téléchargez la dernière version depuis le [site Web de téléchargement Centreon](https://download.centreon.com)
+dans l'onglet **Custom Platforms**, puis l'onglet **Web**.
 
-Extraire Centreon de l'archive :
-
-``` shell
+Ouvrez l'archive Centreon :
+```shell
 tar zxf centreon-web-YY.MM.x.tar.gz
 cd centreon-web-YY.MM.x
 ```
 
-> Le script d'installation permet une configuration personnalisée, cette procédure vous montrera les meilleurs chemins
-> à utiliser.
->
+> Le script d'installation permet une configuration personnalisée, cette procédure vous montrera les meilleurs chemins à utiliser.
+> 
 > En outre, les questions rapides Yes/No peuvent être répondues par [y] la plupart du temps.
->
+> 
 > Si les sources de centreon ont été téléchargées depuis github, exécutez ces commandes :
->
-> ``` shell
+> ```shell
 > composer install --no-dev --optimize-autoloader
-> npm install
+> npm ci
 > npm run build
 > ```
+>
+> Vous pouvez télécharger **composer** deuisp [le site officiel](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos).
 
 Exécutez le script d'installation :
-
-``` shell
+```shell
 ./install.sh -i
 ```
 
