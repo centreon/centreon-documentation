@@ -80,6 +80,11 @@ systemctl enable php-fpm
 systemctl restart php-fpm
 ```
 <!--CentOS 7-->
+Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
 Exécutez les commandes suivantes :
 ```shell
 systemctl stop rh-php72-php-fpm

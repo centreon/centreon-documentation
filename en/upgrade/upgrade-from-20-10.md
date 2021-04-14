@@ -76,6 +76,11 @@ systemctl enable php-fpm
 systemctl restart php-fpm
 ```
 <!--CentOS 7-->
+The PHP timezone should be set. Run the command:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
 Execute the following commands:
 ```shell
 systemctl stop rh-php72-php-fpm
