@@ -72,14 +72,37 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Exécutez les commandes suivantes :
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+<!--CentOS 7-->
+Exécutez les commandes suivantes :
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Finalisation de la mise à jour
 
-Avant de démarrer la montée de version via l'interface web, rechargez le
-serveur Apache avec la commande suivante :
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+```shell
+systemctl reload httpd
+```
+<!--CentOS 7-->
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
 mise à jour :

@@ -68,14 +68,39 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Execute the following commands:
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+<!--CentOS 7-->
+Execute the following commands:
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Finalizing the upgrade
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Before starting the web upgrade process, reload the Apache server with the
 following command:
-
+```shell
+systemctl reload httpd
+```
+<!--CentOS 7-->
+Before starting the web upgrade process, reload the Apache server with the
+following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
