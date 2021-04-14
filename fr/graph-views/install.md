@@ -224,13 +224,13 @@ you need to install the `centreon-release` package:
 <!--RHEL / CentOS / Oracle Linux 8-->
 
 ```shell
-dnf install http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-2.el8.noarch.rpm
+dnf install http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
 ```
 
 <!--CentOS 7-->
 
 ```shell
-yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-2.el7.centos.noarch.rpm
+yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
