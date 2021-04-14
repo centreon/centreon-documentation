@@ -655,7 +655,6 @@ Installez Centreon Broker en utilisant [cette procédure](https://github.com/cen
 > Si vous souhaitez utiliser la fonctionnalité Stream Connector, installez
 > [lua-curl](https://luarocks.org/modules/moteus/lua-curl).
 
-
 ## Centreon Plugins
 
 Téléchargez la dernière version depuis le [site Web de téléchargement Centreon](https://download.centreon.com)
@@ -676,6 +675,31 @@ mv * /usr/lib/centreon/plugins/
 ## Centreon Gorgone
 
 Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
+
+### Securisez l'installation MySQL
+
+Si vous avez installé le serveur Centreon avec une base de données locale, depuis MariaDB 10.5 il est nécessaire de
+sécuriser son installation avant d'installer Centreon.
+
+> Répondez NON à toute question SAUF celles énumérées ci-dessous:
+
+```shell
+mysql_secure_installation
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+[...]
+Change the root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+... Success!
+[...]
+Reload privilege tables now? [Y/n] y
+... Success!
+```
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Centreon
 

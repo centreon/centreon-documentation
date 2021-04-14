@@ -300,6 +300,31 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
 
+### Secure MySQL installation
+
+Si vous avez installé le serveur Centreon avec une base de données locale, depuis MariaDB 10.5 il est nécessaire de
+sécuriser son installation avant d'installer Centreon.
+
+> Répondez NON à toute question SAUF celles énumérées ci-dessous:
+
+```shell
+mysql_secure_installation
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+[...]
+Change the root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+... Success!
+[...]
+Reload privilege tables now? [Y/n] y
+... Success!
+```
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
+
 ## Installation web
 
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la
