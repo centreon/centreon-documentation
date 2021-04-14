@@ -328,6 +328,13 @@ DROP USER '<USER>'@'<IP>';
 
 ## Configuration
 
+### Server name
+
+Define the server name using following command:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ### Set the PHP time zone
 
 You are required to set the PHP time zone. Run the command:

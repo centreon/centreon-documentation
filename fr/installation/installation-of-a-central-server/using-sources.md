@@ -701,6 +701,13 @@ Reload privilege tables now? [Y/n] y
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
 
+## Nom du serveur
+
+Définissez le nom du serveur à l'aide de la commande suivante:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ## Centreon
 
 Téléchargez la dernière version depuis le [site Web de téléchargement Centreon](https://download.centreon.com)

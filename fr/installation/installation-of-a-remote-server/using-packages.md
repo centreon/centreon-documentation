@@ -250,6 +250,13 @@ DROP USER '<USER>'@'<IP>';
 
 ## Configuration
 
+### Nom du serveur
+
+Définissez le nom du serveur à l'aide de la commande suivante:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ### Fuseau horaire PHP
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :

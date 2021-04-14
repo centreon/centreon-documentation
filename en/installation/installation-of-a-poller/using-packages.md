@@ -44,6 +44,13 @@ systemctl disable firewalld
 
 > You can find instructions [here](../../administration/secure-platform.html#enable-firewalld) to configure firewalld.
 
+### Server name
+
+Define the server name using following command:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->

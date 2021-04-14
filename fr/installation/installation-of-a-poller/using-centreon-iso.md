@@ -109,6 +109,13 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ![image](../../assets/installation/18_reboot_server.png)
 
+## Nom du serveur
+
+Définissez le nom du serveur à l'aide de la commande suivante:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
