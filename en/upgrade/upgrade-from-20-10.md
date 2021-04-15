@@ -12,6 +12,10 @@ to version 21.04.
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
+> Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
+> insertion of the data collected into the database during the update. These will be stored in temporary files and then
+> installed at the end of the update process.
+
 ## Perform a backup
 
 Be sure that you have fully backed up your environment for the following
@@ -53,6 +57,16 @@ PHP will be updated with Centreon automatically.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
+
+Stop the Centreon Broker process:
+```shell
+systemctl stop cbd
+```
+
+Delete existing retention files:
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 Clean yum cache:
 
@@ -134,6 +148,13 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Restart Centreon processes
+
+Restart the processes:
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Upgrade extensions
 
