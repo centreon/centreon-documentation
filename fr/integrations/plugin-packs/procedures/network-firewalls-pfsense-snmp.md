@@ -5,9 +5,10 @@ title: pfSense
 
 ## Vue d'ensemble
 
-pfSense is an open source firewall based on FreeBSD.
+pfSense est un routeur/pare-feu open source basé sur FreeBSD et
+entièrement configurable via une interface Web.
 
-The Centreon Plugin-Pack *pfSense* permet de récupérer le status des interfaces
+Le Plugin-Pack Centreon *pfSense* permet de récupérer le status des interfaces
 réseaux ainsi que les informations sur le nombre de packets différents par
 secondes par l'intermédiaire du protocole SNMP.
 
@@ -192,11 +193,12 @@ Tous les modes disponibles peuvent �tre affich�s via l'option
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
-pas à contacter le serveur Kaspersky Security Center sur le port 161 (firewall
+pas à contacter le pare-feu pfSence sur le port 161 (firewall
 ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
 correcte.
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
-faire fonctionner le mode/plugin.
+faire fonctionner le mode/plugin. L'agent SNMP doit pouvoir accéder à la branche 
+.1.3.6.1.4.1.12325.1.200.1.
