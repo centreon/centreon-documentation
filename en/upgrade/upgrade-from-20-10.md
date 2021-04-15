@@ -13,7 +13,7 @@ to version 21.04.
 > If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
 > Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
-> insertion into the database of the data collected during the update. These will be stored in temporary files and then
+> insertion of the data collected into the database during the update. These will be stored in temporary files and then
 > installed at the end of the update process.
 
 ## Perform a backup
