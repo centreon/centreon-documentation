@@ -13,7 +13,7 @@ Après l'installation de Centreon, il est nécessaire de changer les mots de pas
 - centreon
 - centreon-engine
 - centreon-broker
-- centreon-gorgoned
+- centreon-gorgone
 
 Pour cela, utilisez la commande suivante avec un compte privilégié (par exemple sudo) ou avec root (non recommandé - vous devez
 avoir un utilisateur dédié) :

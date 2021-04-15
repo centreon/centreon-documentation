@@ -13,7 +13,7 @@ After installing Centreon, it is necessary to change the default passwords of th
 - centreon
 - centreon-engine
 - centreon-broker
-- centreon-gorgoned
+- centreon-gorgone
 
 To do this, use the following command with a privileged account (eg. sudo) or with root (not recommended — you should
 have a dedicated user):
