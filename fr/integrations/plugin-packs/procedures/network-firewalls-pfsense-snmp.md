@@ -151,12 +151,16 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
     --warning-traffic-in-block='80' \
     --warning-traffic-out-block='90' \
     --critical-traffic-in-block='80' \
-    -
+    --use-new-perfdata
+```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous :
 
 ```bash
-OK : All pfInterfaes are ok |
+OK : All pfInterfaes are ok | 'pfinterface.pass.traffic.in.bitspersecond'=43978.08b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.pass.traffic.out.bitspersecond'=77012.32b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.block.traffic.in.bitspersecond'=33878.08b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.block.traffic.out.bitspersecond'=25014.32b/s;0:8000000000;0:9000000000;0;10000000000
 ```
 
 Dans cet exemple, une alarme de type WARNING est d�clench�e si :

@@ -149,13 +149,17 @@ Plugin by running the following command:
     --warning-traffic-in-block='80' \
     --warning-traffic-out-block='90' \
     --critical-traffic-in-block='80' \
-    --critical-traffic-out-block='90'
+    --critical-traffic-out-block='90' \
+    --use-new-perfdata
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK : All pfInterfaes are ok |
+OK : All pfInterfaes are ok | 'pfinterface.pass.traffic.in.bitspersecond'=43978.08b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.pass.traffic.out.bitspersecond'=77012.32b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.block.traffic.in.bitspersecond'=33878.08b/s;0:8000000000;0:9000000000;0;10000000000
+'pfinterface.block.traffic.out.bitspersecond'=25014.32b/s;0:8000000000;0:9000000000;0;10000000000
 ```
 
 This command triggers a WARNING alarm in the following cases:
