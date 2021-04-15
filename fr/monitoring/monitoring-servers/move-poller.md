@@ -107,7 +107,7 @@ systemctl restart gorgoned
 
 Rendez-vous dans le menu **Configuration > Pollers > Pollers** et éditez la configuration liée à votre collecteur.
 
-DAns l'onglet **Output** , ajoutez ou modifiez l'entrée **TCP - IPv4** pour se connecter au nouveau serveur :
+Dans l'onglet **Output** , ajoutez ou modifiez l'entrée **TCP - IPv4** pour se connecter au nouveau serveur :
 
 ![image](../../assets/monitoring/monitoring-servers/move_poller_conf_2.png)
 
