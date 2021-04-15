@@ -13,6 +13,10 @@ Centreon depuis la version 20.10 vers la version 21.04.
 > Si cela n'est pas le cas, merci de suivre avant le
 > [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
+> Attention, suite à la mise correction d'un problème relatif au schéma de base de données, il sera nécessaire
+> d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées
+> sur dans des fichiers temporaires puis instérées à la fin du processus de mise à jour.
+
 ## Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
@@ -57,6 +61,16 @@ PHP sera mis à jour automatiquement avec Centreon.
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Montée de version de la solution Centreon
+
+Arrêter le processus Centreon Broker :
+```shell
+systemctl stop cbd
+```
+
+Supprimer les fichiers de rétention présent :
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 Videz le cache de yum :
 
@@ -137,6 +151,13 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Redémarrez les processus Centreon
+
+Redamarrez les processus :
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Montée de version des extensions
 
