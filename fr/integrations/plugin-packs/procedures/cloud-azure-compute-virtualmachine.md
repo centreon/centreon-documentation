@@ -29,6 +29,10 @@ By installing the plugin, some perl depencies will be installed :
 
 The login and access token handling will be made by the plugin itself.
 
+> Using a proxy? Add this non-mandatory dependancy to your central server / all the pollers that will perform discovery using a proxy. 
+>
+> `yum install perl-LWP-Protocol-connect̀`
+
 ### Azure CLI 2.0 (for 'azcli' custom mode)
 
 The CLI needs at least Python version 2.7
