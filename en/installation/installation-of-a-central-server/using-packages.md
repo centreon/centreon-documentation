@@ -78,6 +78,27 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+Name                                     Stream                                 Profiles                                                 Summary
+php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
 <!--CentOS 8-->
 #### Redhat PowerTools repository
 
@@ -90,6 +111,27 @@ Enable the PowerTools repository using these commands:
 dnf -y install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 ```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+CentOS Linux 8 - AppStream
+Name                                     Stream                                 Profiles                                                 Summary
+php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
+```
 <!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
@@ -101,6 +143,27 @@ Enable the repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Enable PHP 7.3 using the following command:
+```shell
+dnf module enable php:7.3 -y
+```
+
+Check that PHP 7.3 is activated:
+```shell
+dnf module list php
+```
+
+You should have this result:
+```shell
+Oracle Linux 8 Application Stream (x86_64)
+Name                                Stream                                 Profiles                                                 Summary
+php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
+php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
+
+Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
@@ -274,7 +337,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -290,7 +353,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php72-php-fpm
+systemctl restart rh-php73-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -306,7 +369,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
