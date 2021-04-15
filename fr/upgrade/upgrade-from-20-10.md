@@ -15,7 +15,7 @@ Centreon depuis la version 20.10 vers la version 21.04.
 
 > Attention, suite à la correction d'un problème relatif au schéma de base de données, il sera nécessaire
 > d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées
-> sur dans des fichiers temporaires puis instérées à la fin du processus de mise à jour.
+> dans des fichiers temporaires puis insérées à la fin du processus de mise à jour.
 
 ## Sauvegarde
 
