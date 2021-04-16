@@ -135,7 +135,7 @@ bantime = 10m
 maxretry = 3
 ```
 
-> **maxretry** est le nombre d'authentification échoués avant bannissement de l'adresse IP.
+> **maxretry** est le nombre d'authentifications échouées avant bannissement de l'adresse IP.
 >
 > **bantime** est la durée du bannissement.
 >
