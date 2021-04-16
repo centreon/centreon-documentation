@@ -32,31 +32,31 @@ This provider is named **Microsoft Azure SQL Managed Instance**:
 More information about the Host Discovery module is available in the Centreon documentation:
 [Host Discovery](../../../monitoring/discovery/hosts-discovery.html)
 
-### Collected Metrics
+### Collected metrics and status
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Cpu-->
 
-| Metric Name                                   | Description            | Unit |
-|:----------------------------------------------|:-----------------------|:-----|
-| sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %    |
-| sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     |      |
+| Metric Name                                   | Description            | Unit  |
+|:----------------------------------------------|:-----------------------|:------|
+| sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %     |
+| sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     | Count |
 
 <!--Storage-->
 
-| Metric Name                                     | Description            |
-|:------------------------------------------------|:-----------------------|
-| sqlmanagedinstance.storage.space.reserved.count | Storage space reserved |
-| sqlmanagedinstance.storage.space.used.count     | Storage space used     |
+| Metric Name                                     | Description            | Unit  |
+|:------------------------------------------------|:-----------------------|:------|
+| sqlmanagedinstance.storage.space.reserved.count | Storage space reserved | Count |
+| sqlmanagedinstance.storage.space.used.count     | Storage space used     | Count |
 
 <!--Diskio-->
 
 | Metric Name                            | Description       | Unit  |
 |:---------------------------------------|:------------------|:------|
-| sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | bytes |
-| sqlmanagedinstance.bytes.written.bytes | IO bytes written  | bytes |
-| sqlmanagedinstance.io.requests.count   | IO requests count |       |
+| sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | B     |
+| sqlmanagedinstance.bytes.written.bytes | IO bytes written  | B     |
+| sqlmanagedinstance.io.requests.count   | IO requests count | Count |
 
 <!--Health-->
 
@@ -277,7 +277,7 @@ Expected command output is shown below:
 OK: Instance 'SQL01' Statistic 'average' Metrics Average CPU percentage: 55.00, Virtual core count: 2 | 'SQL01~average#qlmanagedinstance.cpu.utilization.percentage'=55.00%;0:80;0:90;0; 'SQL01~average#sqlmanagedinstance.cpu.virtualcores.count'=2;;;0; 
 ```
 
-The command above checks the *jobs* of an Azure *SQL Managed Instance* instance using the 'api' custom-mode
+The command above checks the *CPU* usage of an Azure *SQL Managed Instance* instance using the 'api' custom-mode
 (```--plugin=cloud::azure::database::sqlmanagedinstance::plugin --mode=cpu --custommode=api```).
 This SQL Managed Instance instance is identified by its id (```--resource='SQL01'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
@@ -286,8 +286,8 @@ to be used with the custom mode are specified in the options (```--subscription=
 The calculated metrics are the average (```--aggregation='average'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the *total jobs* count is reported as over 80
-(```--warning-cpu-average='80'```) and a CRITICAL alarm over 90 (```--critical-cpu-average='90'```).
+This command would trigger a WARNING alarm if the *CPU* usage of the instance is reported as over 80% of its capacity
+(```--warning-cpu-average='80'```) and a CRITICAL alarm over 90% (```--critical-cpu-average='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 

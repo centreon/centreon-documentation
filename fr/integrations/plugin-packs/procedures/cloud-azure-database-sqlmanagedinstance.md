@@ -40,25 +40,25 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Cpu-->
 
-| Metric Name                                   | Description            | Unit |
-|:----------------------------------------------|:-----------------------|:-----|
-| sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %    |
-| sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     |      |
+| Metric Name                                   | Description            | Unit  |
+|:----------------------------------------------|:-----------------------|:------|
+| sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %     |
+| sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     | Count |
 
 <!--Storage-->
 
-| Metric Name                                     | Description            |
-|:------------------------------------------------|:-----------------------|
-| sqlmanagedinstance.storage.space.reserved.count | Storage space reserved |
-| sqlmanagedinstance.storage.space.used.count     | Storage space used     |
+| Metric Name                                     | Description            | Unit  |
+|:------------------------------------------------|:-----------------------|:------|
+| sqlmanagedinstance.storage.space.reserved.count | Storage space reserved | Count |
+| sqlmanagedinstance.storage.space.used.count     | Storage space used     | Count |
 
 <!--Diskio-->
 
 | Metric Name                            | Description       | Unit  |
 |:---------------------------------------|:------------------|:------|
-| sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | bytes |
-| sqlmanagedinstance.bytes.written.bytes | IO bytes written  | bytes |
-| sqlmanagedinstance.io.requests.count   | IO requests count |       |
+| sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | B     |
+| sqlmanagedinstance.bytes.written.bytes | IO bytes written  | B     |
+| sqlmanagedinstance.io.requests.count   | IO requests count | Count |
 
 <!--Health-->
 
@@ -277,7 +277,7 @@ La commande devrait retourner un message de sortie similaire à:
 OK: Instance 'SQL01' Statistic 'average' Metrics Average CPU percentage: 55.00, Virtual core count: 2 | 'SQL01~average#qlmanagedinstance.cpu.utilization.percentage'=55.00%;0:80;0:90;0; 'SQL01~average#sqlmanagedinstance.cpu.virtualcores.count'=2;;;0; 
 ```
 
-La commande ci-dessus vérifie les tâches sur l'instance *SQL Managed Instance* nommée *SQL01*
+La commande ci-dessus vérifie l'utilisation *CPU* de l'instance *SQL Managed Instance* nommée *SQL01*
 (```--plugin=cloud::azure::database::sqlmanagedinstance::plugin --mode=cpu --resource='SQL01'```).
 
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
@@ -286,9 +286,9 @@ sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxx
 Les statuts caculés se baseront sur les valeurs moyenne d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
-Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
-est supérieur à 80 (```--warning-cpu-average='80'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
-(```--critical-cpu-average='90'```).
+Dans cet exemple, une alarme de type WARNING sera déclenchée si l'utilisation *CPU* pendant l'intervalle donné
+est supérieure à 80% de la capacité de l'instance (```--warning-cpu-average='80'```); l'alarme sera de type CRITICAL au-delà de
+90% d'utilisation (```--critical-cpu-average='90'```).
 
 La liste de toutes les options complémentaires et leur signification
 peut être affichée en ajoutant le paramètre ```--help``` à la commande:
