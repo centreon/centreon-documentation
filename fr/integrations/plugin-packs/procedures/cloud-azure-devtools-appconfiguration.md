@@ -39,11 +39,11 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Http-Requests-->
 
-| Metric Name                                             | Description                            |
-|:--------------------------------------------------------|:---------------------------------------|
-| appconfiguration.http.incoming.requests.count           | Total number of incoming http requests |
-| appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             |
-| appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                |
+| Metric Name                                             | Description                            | Unit  |
+|:--------------------------------------------------------|:---------------------------------------|:------|
+| appconfiguration.http.incoming.requests.count           | Total number of incoming http requests | Count |
+| appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             | ms    |
+| appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -204,21 +204,21 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
-| X         | AZURESUBSCRIPTION | Subscription ID               |
-| X         | AZURETENANT       | Tenant ID                     |
-| X         | AZURECLIENTID     | Client ID                     |
-| X         | AZURECLIENTSECRET | Client secret                 |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'api'                    |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
+| X         | AZURETENANT       | Tenant ID                            |
+| X         | AZURECLIENTID     | Client ID                            |
+| X         | AZURECLIENTSECRET | Client secret                        |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
-| X         | AZURESUBSCRIPTION | Subscription ID               |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -265,11 +265,11 @@ La commande ci-dessus vérifie le nombre de requêtes HTTP sur l'instance *App C
 Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
 sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
-Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
+Les statuts caculés se baseront sur le nombre de valeurs d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
-Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *total jobs* pendant l'intervalle donné
-est supérieur à 80 (```--warning-http-requests='800'```); l'alarme sera de type CRITICAL au-delà de 90 tâches
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre de *requests* pendant l'intervalle donné
+est supérieur à 800 (```--warning-http-requests='800'```); l'alarme sera de type CRITICAL au-delà de 900 requêtes
 (```--critical-http-requests='900'```).
 
 La liste de toutes les options complémentaires et leur signification

@@ -36,11 +36,11 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--Http-Requests-->
 
-| Metric Name                                             | Description                            |
-|:--------------------------------------------------------|:---------------------------------------|
-| appconfiguration.http.incoming.requests.count           | Total number of incoming http requests |
-| appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             |
-| appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                |
+| Metric Name                                             | Description                            | Unit  |
+|:--------------------------------------------------------|:---------------------------------------|:------|
+| appconfiguration.http.incoming.requests.count           | Total number of incoming http requests | Count |
+| appconfiguration.http.incoming.requests.milliseconds    | Latency on an http request             | ms    |
+| appconfiguration.http.throttled.incoming.requests.count | Throttled http requests                | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -204,21 +204,21 @@ These mandatory Macros differ regarding the custom mode used:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
-| X         | AZURESUBSCRIPTION | Subscription ID               |
-| X         | AZURETENANT       | Tenant ID                     |
-| X         | AZURECLIENTID     | Client ID                     |
-| X         | AZURECLIENTSECRET | Client secret                 |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'api'                    |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
+| X         | AZURETENANT       | Tenant ID                            |
+| X         | AZURECLIENTID     | Client ID                            |
+| X         | AZURECLIENTSECRET | Client secret                        |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
-| X         | AZURESUBSCRIPTION | Subscription ID               |
+| Mandatory | Nom               | Description                          |
+|:----------|:------------------|:-------------------------------------|
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
+| X         | AZURESUBSCRIPTION | Subscription ID                      |
 | X         | AZURERESOURCE     | Id of the App Configuration instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -260,15 +260,15 @@ Throttled Incoming HTTP requests: 0.00, Incoming HTTP requests duration: 0.00ms 
 
 The command above checks the number of *http-requests* of an Azure *App Configuration* instance using the 'api' custom-mode
 (```--plugin=cloud::azure::devtools::appconfiguration::plugin --mode=http-requests --custommode=api```).
-This App Configuration instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
+This App Configuration instance is identified by its id (```--resource='APPCONF01'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
-The calculated metrics are the total (```--aggregation='total'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
+The calculated metrics are the count (```--aggregation='Count'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the *total jobs* count is reported as over 80
-(```--warning-http-requests='800'```) and a CRITICAL alarm over 90 (```--critical-http-requests='900'```).
+This command would trigger a WARNING alarm if the number of *requests* is reported as over 800
+(```--warning-http-requests='800'```) and a CRITICAL alarm over 900 (```--critical-http-requests='900'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
