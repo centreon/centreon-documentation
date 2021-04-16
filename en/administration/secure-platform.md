@@ -46,6 +46,121 @@ installation. Please execute the following command and follow instruction:
 mysql_secure_installation
 ```
 
+## Enable firewalld
+
+Install firewalld:
+```shell
+yum install firewalld
+```
+
+Enable firewalld:
+```shell
+systemctl enable firewalld
+systemctl start firewalld
+```
+
+> The list of network flows required for each type of server is defined
+> [here](../installation/architectures.html#tables-of-platform-flows).
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+Example of rules for a Centreon Central or Remote Server:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# Centreon Broker
+firewall-cmd --zone=public --add-port=5669/tcp --permanent
+```
+<!--Poller-->
+Example of rules for Centreon poller:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Once the rules have been added, it is necessary to reload firewalld:
+```shell
+firewall-cmd --reload
+```
+
+### Enable fail2ban
+
+Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks.
+
+Install fail2ban:
+```shell
+yum install epel-release
+yum install fail2ban fail2ban-systemd yum python-inotify
+```
+
+If you have SELinux installed, then update the SELinux policies:
+```shell
+yum update -y selinux-policy*
+```
+
+Enable firewalld:
+```shell
+systemctl enable fail2ban
+systemctl start fail2ban 
+```
+
+Copy the default rules file:
+```shell
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+
+Edit `/etc/fail2ban/jail.local` file and search **[centreon]** block, then modify such as:
+```shell
+[centreon]
+port    = http,https
+logpath = /var/log/centreon/login.log
+backend  = pyinotify
+```
+
+To enable the **centreon** fail2ban rule, create the `/etc/fail2ban/jail.d/custom.conf` file and add following lines:
+```shell
+[centreon]
+enabled = true
+findtime = 10m
+bantime = 10m
+maxretry = 3
+```
+
+> **maxretry** is the number of authentication failed before to ban the IP address
+>
+> **bantime** is the duration of the ban
+>
+> **findtime** is the time range to find authentication failed
+
+Then restart fail2ban to load your rule:
+```shell
+systemctl restart fail2ban
+```
+
+To check the status of the **centreon** rule you can run:
+```shell
+fail2ban-client status centreon
+Status for the jail: centreon
+|- Filter
+|  |- Currently failed:	1
+|  |- Total failed:	17
+|  `- File list:	/var/log/centreon/login.log
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	2
+   `- Banned IP list:
+```
+
+> For more information go to the [official website](http://www.fail2ban.org).
+
 ## Securing the Apache web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
