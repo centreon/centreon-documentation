@@ -62,6 +62,9 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
+> pour configurer le pare-feu.
+
 ### Installer le dépôts
 
 #### Dépôt *Software collections* de Red Hat
