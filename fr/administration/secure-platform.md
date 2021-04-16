@@ -46,6 +46,51 @@ l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les in
 mysql_secure_installation
 ```
 
+# Activation de firewalld
+
+Installez firewalld:
+```shell
+yum install firewalld
+```
+
+Activez firewalld:
+```shell
+systemctl enable firewalld
+systemctl start firewalld
+```
+
+> La liste des flux réseau nécessaires pour chaque type de serveur est définie
+> [ici](../installation/architectures.html#tables-of-platform-flows).
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+Exemple de règles pour un Centreon Central ou Remote Server:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# Centreon Broker
+firewall-cmd --zone=public --add-port=5669/tcp --permanent
+```
+<!--Poller-->
+Exemple de règles pour un collecteur Centreon:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Une fois les règles ajoutées, il est nécessaire de recharger firewalld:
+```shell
+firewall-cmd --reload
+```
+
 ## Sécurisez le serveur web Apache
 
 Par défaut, Centreon installe un serveur Web en mode HTTP. Il est fortement recommandé de passer en mode HTTPS en

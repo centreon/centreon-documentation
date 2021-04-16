@@ -59,6 +59,8 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
+> You can find instructions [here](../../administration/secure-platform.html#enable-firewalld) to configure firewalld.
+
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->

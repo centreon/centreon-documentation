@@ -46,6 +46,51 @@ installation. Please execute the following command and follow instruction:
 mysql_secure_installation
 ```
 
+## Enable firewalld
+
+Install firewalld:
+```shell
+yum install firewalld
+```
+
+Enable firewalld:
+```shell
+systemctl enable firewalld
+systemctl start firewalld
+```
+
+> The list of network flows required for each type of server is defined
+> [here](../installation/architectures.html#tables-of-platform-flows).
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+Example of rules for a Centreon Central or Remote Server:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# Centreon Broker
+firewall-cmd --zone=public --add-port=5669/tcp --permanent
+```
+<!--Poller-->
+Example of rules for Centreon poller:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Once the rules have been added, it is necessary to reload firewalld:
+```shell
+firewall-cmd --reload
+```
+
 ## Securing the Apache web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
