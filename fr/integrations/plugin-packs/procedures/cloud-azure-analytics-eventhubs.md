@@ -318,7 +318,7 @@ OK: Instance 'HUB001ABCD' Statistic 'total' Metrics Server Errors: 12.00, User E
 ```
 
 La commande ci-dessus vérifie les erreurs existantes sur l'instance *Event Hubs* nommée *HUB001ABCD*
-(```--plugin=cloud::azure::analytics::eventhubs::plugin --mode=requests --resource='SIG001ABCD'```) et liée au *Resource Group* *RSG1234*
+(```--plugin=cloud::azure::analytics::eventhubs::plugin --mode=requests --resource='HUB001ABCD'```) et liée au *Resource Group* *RSG1234*
 (```--resource-group='RSG1234'```). Cette ressource est de type *namespaces* (```--resource-type='namespaces'```), en opposition
 aux ressources de type *clusters*.
 

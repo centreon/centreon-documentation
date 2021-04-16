@@ -320,7 +320,7 @@ OK: Instance 'HUB001ABCD' Statistic 'total' Metrics Server Errors: 12.00, User E
 
 The command above checks the *errors* of an Azure *Event Hub* instance using the 'api' custom-mode
 (```--plugin=cloud::azure::analytics::eventhubs::plugin --mode=errors --custommode=api```).
-This Event Hub instance is identified by its id (```--resource='FRT001ABCD'```), its associated group (```--resource-group='RSG1234'```)
+This Event Hub instance is identified by its id (```--resource='HUB001ABCD'```), its associated group (```--resource-group='RSG1234'```)
 and its type (```--resource-type='namespaces'```). The authentication parameters to be used with the custom mode are specified
 in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
