@@ -141,11 +141,11 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
+Centreon offers a package named `centreon-ha-web`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
 
 ```bash
 yum install epel-release
-yum install centreon-ha pcs pacemaker corosync corosync-qdevice
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
