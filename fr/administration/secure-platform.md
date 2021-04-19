@@ -150,7 +150,7 @@ cat /var/log/audit/audit.log | grep -i denied
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
 en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
-l'erreur en règles SELinux:
+l'erreur en règles SELinux :
 
 ```shell
 audit2allow -a
