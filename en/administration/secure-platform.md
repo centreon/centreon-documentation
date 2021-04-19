@@ -144,7 +144,7 @@ centreon-web	0.0.8
 
 ### Audit logs and enable SELinux
 
-Before to enable SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
+Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
 cat /var/log/audit/audit.log | grep -i denied
