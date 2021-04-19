@@ -21,7 +21,15 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+#### Documentation
+
+- Added a chapter to enable firewalld and rules example to improve security
+- Added a chapter to enable Fail2ban to improve security
+- Added a chapter to move a collector from one server to another
+
+#### Security
+
+- Add SELinux packages
 
 ## Centreon Engine
 
