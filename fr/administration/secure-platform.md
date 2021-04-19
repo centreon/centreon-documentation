@@ -51,7 +51,7 @@ des composants par le système d'exploitation.
 ### Présentation de SELinux
 
 Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
-fondamentalement à la question: `Le <subject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
+fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
 La stratégie d'accès standard basée sur l'utilisateur, le groupe et d'autres autorisations, connue sous le nom de
@@ -72,7 +72,7 @@ interagir entre eux et avec les différentes ressources système. Par défaut, l
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Enable SELinux in permissive mode
+### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
 vous devez modifier le fichier `/etc/selinux/config` comme tel que :
@@ -154,7 +154,7 @@ cat /var/log/audit/audit.log | grep -i denied
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
 en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
-l'erreur en règles SELinux:
+l'erreur en règles SELinux :
 
 ```shell
 audit2allow -a

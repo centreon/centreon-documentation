@@ -60,7 +60,7 @@ the log files.
 
 SELinux implements Mandatory Access Control (MAC). Every process and system resource has a special security label
 called an SELinux context. A SELinux context, sometimes referred to as an SELinux label, is an identifier which
-abstractsaway the system-level details and focuses on the security properties of the entity. Not only does this provide
+abstracts away the system-level details and focuses on the security properties of the entity. Not only does this provides
 a consistent way of referencing objects in the SELinux policy, but it also removes any ambiguity that can be found in
 other identification methods. For example, a file can have multiple valid path names on a system that makes use of bind
 mounts.
