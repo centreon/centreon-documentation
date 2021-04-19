@@ -68,7 +68,7 @@ noms de chemin valides sur un système qui utilise des montages de liaison.
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Enable SELinux in permissive mode
+### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
 vous devez modifier le fichier `/etc/selinux/config` comme tel que :
