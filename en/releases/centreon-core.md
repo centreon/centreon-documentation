@@ -26,7 +26,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Define new logging options for Centreon Broker
 - [Resources Status] Added Meta-Services to types of resources handled
 - [Resources Status] Added many filtering options (including Monitoring Server)
-- [Resources Status] Added possibility to select and re-order displayed columns
+- [Resources Status] Added new columns (active/passive, notifications on/off) and possibility to select and re-order displayed columns
 - [Resources Status] All page parameters are now saved within local storage and URL
 - [Resources Status] Optimized overall listing to display ~50% more alerts
 - [Resources Status] Revamped the Graph panel overall, mainly:
