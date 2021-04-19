@@ -14,11 +14,11 @@ secondes par l'intermédiaire du protocole SNMP.
 
 ## Contenu du Plugin-Pack
 
-### Objets supervis�s
+### Objets supervisés
 
 * pfSense firewall
 
-### M�triques collect�es
+### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -69,7 +69,7 @@ secondes par l'intermédiaire du protocole SNMP.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Pr�requis
+## Prérequis
 
 ### Configuration du parefeu pfSense
 
@@ -117,13 +117,13 @@ yum install centreon-pack-network-firewalls-pfsense-snmp
 
 ## Configuration
 
-### H�te
+### Hôte
 
-* Ajoutez un nouvel H�te depuis la page "Configuration > H�tes".
+* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 
-* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre pare-feu pfSense
+* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre pare-feu pfSense
 
-* Appliquez le Mod�le d'H�te *Network-Firewalls-Pfsense-Snmp-custom*
+* Appliquez le Modèle d'Hôte *Network-Firewalls-Pfsense-Snmp-custom*
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres 
 spécifiques associés via la macro SNMPEXTRAOPTIONS
@@ -136,7 +136,7 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS
 
 ### Comment tester mes configurations et le Plugin en ligne de commande ?
 
-Une fois le Plugin install�, vous pouvez tester celui-ci directement en ligne
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 *centreon-engine* :
 
@@ -163,20 +163,20 @@ OK : All pfInterfaes are ok | 'pfinterface.pass.traffic.in.bitspersecond'=43978.
 'pfinterface.block.traffic.out.bitspersecond'=25014.32b/s;0:8000000000;0:9000000000;0;10000000000
 ```
 
-Dans cet exemple, une alarme de type WARNING est d�clench�e si :
+Dans cet exemple, une alarme de type WARNING est déclenchée si :
 
-* The traffic in Pass is greater than 80% (--warning-traffic-in-block='80')
+* La charge de la bande passante passant par l'interface est plus grande que 80% (--warning-traffic-in-block='80')
 
-* The traffic in Block is greater than 80% (--warning-traffic-out-block='80')
+* La charge de la bande passante bloquée est plus grande que 80% (--warning-traffic-out-block='80')
 
-Une alarme CRITICAL est quant � elle d�clench�e si 
+Une alarme CRITICAL est quant à elle déclenchée si 
 
-* The traffic in Pass is greater than 90% (--critical-traffic-in-block='90')
+* La charge de la bande passante passant par l'interface est plus grande que 90% (--critical-traffic-in-block='90')
 
-* The traffic in Block is greater than 90% (--critical-traffic-out-block='90')
+* La charge de la bande passante bloquée est plus grande que 90% (--critical-traffic-out-block='90')
 
-La liste de toutes les options compl�mentaires et leur signification
-peut �tre affich�e en ajoutant le param�tre ```--help``` � la commande:
+La liste de toutes les options complémentaires et leur signification
+peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pfsense.pl \
@@ -185,7 +185,7 @@ peut �tre affich�e en ajoutant le param�tre ```--help``` � la commande:
     --help
 ```
 
-Tous les modes disponibles peuvent �tre affich�s via l'option
+Tous les modes disponibles peuvent être affichés via l'option
 ```--list-mode``` :
 
 ```bash
