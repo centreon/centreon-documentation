@@ -14,11 +14,11 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 ## Contenu du Plugin-Pack
 
-### Objets supervis�s
+### Objets supervisés
 
 * Cisco Identity Service Engine
 
-### M�triques collect�es
+### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -32,7 +32,7 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Pr�requis
+## Prérequis
 
 L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](###Hôte)
 doit faire partie des groupes Admin suivants et les informations 
@@ -84,11 +84,11 @@ yum install centreon-pack-applications-cisco-ise-restapi
 
 ## Configuration
 
-### H�te
+### Hôte
 
-* Ajoutez un nouvel H�te depuis la page "Configuration > H�tes"".
-* Compl�tez les champs "Nom","Alias" & "IP Address / DNS" correspondant � votre Cisco Identity Service Engine
-* Appliquez le Mod�le d'H�te *Applications-Cisco-Ise-Restapi-custom*
+* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"".
+* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre Cisco Identity Service Engine
+* Appliquez le Modèle d'Hôte *Applications-Cisco-Ise-Restapi-custom*
 
 | Mandatory | Name          | Description                                                                        |
 |:----------|:--------------|:-----------------------------------------------------------------------------------|
@@ -104,7 +104,7 @@ yum install centreon-pack-applications-cisco-ise-restapi
 
 ### Comment tester mes configurations et le Plugin en ligne de commande ?
 
-Une fois le Plugin install�, vous pouvez tester celui-ci directement en ligne
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 *centreon-engine* :
 
@@ -134,14 +134,14 @@ La commande devrait retourner un message de sortie de la forme ci-dessous :
 OK : Active sessions: 10, Postured endpoints: 20, Profiler service sessions: 20 | 'sessions.active.count'=10;0:20;0:50;0; 'endpoints.postured.count'=20;;;0 'sessions.profiler.count'=20;;;0;
 ```
 
-Dans cet exemple, une alarme de type WARNING est d�clench�e si le nombre de 
+Dans cet exemple, une alarme de type WARNING est déclenchée si le nombre de 
 sessions actives est supérieur à 20. 
 
-Une alarme CRITICAL est quant � elle d�clench�e si le nombre de sessions 
+Une alarme CRITICAL est quant à elle déclenchée si le nombre de sessions 
 actives est supérieur à 50.
 
-La liste de toutes les options compl�mentaires et leur signification
-peut �tre affich�e en ajoutant le param�tre ```--help``` � la commande:
+La liste de toutes les options complémentaires et leur signification
+peut être affichée en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_ise_restapi.pl \
@@ -150,7 +150,7 @@ peut �tre affich�e en ajoutant le param�tre ```--help``` � la commande:
     --help
 ```
 
-Tous les modes disponibles peuvent �tre affich�s via l'option
+Tous les modes disponibles peuvent être affichés via l'option
 ```--list-mode``` :
 
 ```bash
