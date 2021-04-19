@@ -19,8 +19,6 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
-## Centreon MAP
-
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
@@ -30,7 +28,9 @@ If you have feature requests or want to report a bug, please contact support.
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
+
 ## Centreon MBI
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
