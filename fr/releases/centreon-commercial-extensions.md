@@ -39,7 +39,7 @@ commerciales, veuillez contacter le support.
 
 - Les modificateurs *Association* se nomment désormais *Property*.
 - Possibilité de lier les hôtes découverts à des groupes d'hôtes, soit déjà existants, soit créés à la volée.
-- Possibilité de lier les hôtes découverts à des groupes d'hôtes, soit déjà existants, soit créés à la volée.
+- Possibilité de lier les hôtes découverts à des catégories d'hôtes, soit déjà existants, soit créés à la volée.
 - Possibilité de lier les hôtes découverts à des sévérités d'hôtes (déjà existantes).
 - Les modificateurs de type *Property*, *Host group*, *Host category* et *Macro* supportent la concaténation.
 - Changement de comportement pour aligner l'UX sur celle de la page de *Statut des ressources* : 
