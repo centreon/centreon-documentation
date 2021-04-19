@@ -51,7 +51,7 @@ des composants par le système d'exploitation.
 ### Présentation de SELinux
 
 Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
-fondamentalement à la question: `Le <subject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
+fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
 La stratégie d'accès standard basée sur l'utilisateur, le groupe et d'autres autorisations, connue sous le nom de
