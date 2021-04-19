@@ -5,21 +5,25 @@ title: Centreon Core
 
 ## Introduction
 
-Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Core**.
+You can find in this chapter all changelogs concerning **Centreon Core**.
 
-> Il est important de mettre à jour en utilisant la documentation
-> adéquate de mise à jour et de lire attentivement les notes de mise à
-> jour afin d'être au courant des changements qui pourraient impacter
-> votre usage ou votre plateforme ou des développements spécifiques que
-> vous auriez fait.
+> It is very important when you update your system to refer to this
+> section in order to learn about behavior changes or major changes that
+> have been made on this version. This will let you know the impact of
+> the installation of these versions on the features you use or the
+> specific developments that you have built on your platform (modules,
+> widgets, plugins).
 
-Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions
-commerciales, vous pouvez vous rendre sur notre
-[Github](https://github.com/centreon/centreon/issues/new/choose).
+If you have feature requests or want to report a bug, please go to our
+[Github](https://github.com/centreon/centreon/issues/new/choose)
 
 ## Centreon Web
 
 ### 21.04.0
+
+#### Enhancements
+
+- [Configuration] Define new logging options for Centreon Broker
 
 #### Documentation
 
@@ -30,6 +34,11 @@ commerciales, vous pouvez vous rendre sur notre
 #### Security
 
 - Add SELinux packages
+
+#### Performances
+
+- Move to PHP 7.3
+- Move to MariaDB 10.5
 
 ## Centreon Engine
 

@@ -21,6 +21,10 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.0
 
+#### Enhancements
+
+- [Configuration] Define new logging options for Centreon Broker
+
 #### Documentation
 
 - Added a chapter to enable firewalld and rules example to improve security
@@ -30,6 +34,11 @@ If you have feature requests or want to report a bug, please go to our
 #### Security
 
 - Add SELinux packages
+
+#### Performances
+
+- Move to PHP 7.3
+- Move to MariaDB 10.5
 
 ## Centreon Engine
 
