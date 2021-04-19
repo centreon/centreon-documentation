@@ -70,7 +70,7 @@ the various system resources. By default, the policy does not allow any interact
 
 For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activer SELinux en mode permissif
+### Activate SELinux in permissive mode
 
 By default, SELinux is disabled during Centreon installation process. To enable SELinux in permissive mode, you need to
 modify the `/etc/selinux/config` file as:
