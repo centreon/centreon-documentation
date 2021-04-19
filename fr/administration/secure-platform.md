@@ -66,6 +66,10 @@ seulement cela fournit un moyen cohérent de référencer des objets dans la str
 toute ambiguïté qui peut être trouvée dans d'autres méthodes d'identification. Par exemple, un fichier peut avoir plusieurs
 noms de chemin valides sur un système qui utilise des montages de liaison.
 
+La politique SELinux utilise ces contextes dans une série de règles qui définissent comment les processus peuvent
+interagir entre eux et avec les différentes ressources système. Par défaut, la stratégie n'autorise aucune interaction
+à moins qu'une règle n'accorde explicitement l'accès.
+
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
 ### Enable SELinux in permissive mode

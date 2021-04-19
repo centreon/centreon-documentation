@@ -65,9 +65,8 @@ a consistent way of referencing objects in the SELinux policy, but it also remov
 other identification methods. For example, a file can have multiple valid path names on a system that makes use of bind
 mounts.
 
-La politique SELinux utilise ces contextes dans une série de règles qui définissent comment les processus peuvent
-interagir entre eux et avec les différentes ressources système. Par défaut, la stratégie n'autorise aucune interaction
-à moins qu'une règle n'accorde explicitement l'accès.
+The SELinux policy uses these contexts in a series of rules which define how processes can interact with each other and
+the various system resources. By default, the policy does not allow any interaction unless a rule explicitly grants access.
 
 For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
