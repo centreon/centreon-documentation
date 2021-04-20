@@ -19,6 +19,44 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.6
+
+`April 20, 2021`
+
+#### Bugfixes
+
+- [ACL] Use ACL Action to generate traps
+- [About] Update about page with current team
+- [Administration] Cannot list Pollers in Platform Status pages
+- [Configuration] Error while adding a Remote Server and attaching a poller to it via wizard
+- [Configuration] Poller attached to remote is not fully removed from database when deleted using the from
+- [Core/API/v1] Can't filter on criticality
+- [Core] Configuration output can lead to an empty broker configuration
+- [Core] Update centreon copyright dates
+- [Extensions Manager] No popup when removing extension
+- [Graph] Adapt graph scale for b/s unit
+- [Graphs] Colors of labels don't match colors of curves (old library)
+- [Install] During installation, web installer can not be executed fully
+- [Platform Topology] Distant Poller attached behind a Remote Server does not receive conf
+- [Platform Topology] Missing current node IP address in register script
+- [Platform Topology] Register script concatenates default values to values from the template
+- [Platform Topology] Script target address not parsed correctly.
+- [Platform Topology] Enhance register script displaying
+- [Reporting] Dashboard is slow to display with large service groups
+- [Resources Status] Bad urls for mediawiki
+- [Resources Status] Macros in "URL" and "Action URL"
+- [Resources Status] Missing french translations
+- [UX] Remove "deprecated" from menu for deprecated monitoring pages
+
+#### Security fixes
+
+- [Core] XSS in index.php and index.html
+- [Library] Update jQuery to version sup or equal 3.5.1
+
+#### Performance
+
+- [API/Topology] Refacto PlatformTopology 20.10
+
 ### 20.10.5
 
 `April 1, 2021`
