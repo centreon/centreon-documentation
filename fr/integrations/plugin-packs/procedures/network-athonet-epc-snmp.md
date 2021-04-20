@@ -33,13 +33,13 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 
 <!--Aggregate-->
 
-| Metric name                       | Description                       | Unit  |
-| :-------------------------------- | :-------------------------------- | :---- |
-| aggregate.packets.in.count        | Aggregate incoming packets        |       |
-| aggregate.packets.out.count       | Aggregate outgoing packets        |       |
-| hss.users.roaming.connected.count | Number of roaming users connected |       |
-| hss.requests.authentication.count | Number of authentication requests |       |
-| hss.location.updates.count        | Number of location updates        |       |
+| Metric name                          | Description                       | Unit  |
+| :----------------------------------- | :-------------------------------- | :---- |
+| aggregate.traffic.in.bytespersecond  | Aggregate incoming traffic        | B/s   |
+| aggregate.traffic.out.bytespersecond  Aggregate outgoing traffic         | B/s   |
+| hss.users.roaming.connected.count    | Number of roaming users connected |       |
+| hss.requests.authentication.count    | Number of authentication requests |       |
+| hss.location.updates.count           | Number of location updates        |       |
 
 <!--Apns-->
 
@@ -77,8 +77,8 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
 | lte.interfaces.total.count                                                              | Number of interfaces                                                            |       |
 | status                                                                                  | Status of the interface                                                         |       |
-| *interface_name*\#lte.interface.packets.in.count                                        | Incoming packets going through the interface                                    |       |
-| *interface_name*\#lte.interface.packets.out.count                                       | Outgoing packets going through the interface                                    |       |
+| *interface_name*\#lte.interface.traffic.in.bytespersecond                               | Incoming traffic going through the interface                                    | B/s   |
+| *interface_name*\#lte.interface.traffic.out.bytespersecond                              | Outgoing traffic going through the interface                                    | B/s   |
 | *interface_name*\#lte.interface.users.connected.count                                   | Number of connected users                                                       |       |
 | *interface_name*\#lte.interface.users.idle.count                                        | Number of idle users                                                            |       |
 | *interface_name*\#lte.interface.sessions.active.count                                   | Number of active sessions from users                                            |       |
@@ -97,7 +97,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | Metric name                              | Description                                   | Unit  |
 | :--------------------------------------- | :-------------------------------------------- | :---- |
 | status                                   | Status of the license                         |       |
-| license.expires.seconds                  | Expiration time                               |       |
+| license.expires.days                     | Expiration time                               |       |
 | license.users.active.usage.count         | Number of active users on the license         |       |
 | license.users.active.free.count          | Number of free active users on the license    |       |
 | license.users.active.usage.percentage    | Percentage of active users on the license     | %     |
@@ -112,8 +112,8 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 
 | Metric name                                                           | Description                                                                     | Unit  |
 | :-------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
-| lte.interface.packets.in.count                                        | Incoming packets going through the interface                                    |       |
-| lte.interface.packets.out.count                                       | Outgoing packets going through the interface                                    |       |
+| lte.interface.traffic.in.bytespersecond                               | Incoming traffic going through the interface                                    | B/s   |
+| lte.interface.traffic.out.bytespersecond                              | Outgoing traffic going through the interface                                    | B/s   |
 | lte.interface.users.connected.count                                   | Number of connected users                                                       |       |
 | lte.interface.users.idle.count                                        | Number of idle users                                                            |       |
 | lte.interface.sessions.active.count                                   | Number of active sessions from users                                            |       |
@@ -128,6 +128,7 @@ Ce tableau décrit quelles données peuvent être collectés sur les différents
 | lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
 
 ## Prérequis
 
@@ -200,9 +201,9 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
 La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
-OK: Lte packets in: 0, packets out: 0 - connected users: 0, idle users: 0, active sessions: 0 - attach requests total: 0 success: 0 (100.00%) - pdn context activation requests total: 0 success: 0 (100.00%) - ue context release requests: 0, ue context release with radio lost requests: 0 - pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0 | 'lte.packets.in.count'=0;;;0; 'lte.packets.out.count'=0;;;0; 'lte.users.connected.count'=0;0:100;0:200;0; 'lte.users.idle.count'=0;;;0; 'lte.sessions.active.count'=0;;;0; 'lte.requests.attach.success.count'=0;;;0;0 'lte.requests.attach.success.percentage'=100%;;;0;100 'lte.requests.pdn_context.activations.success.count'=0;;;0;0 'lte.requests.pdn_context.activations.success.percentage'=100%;;;0;100 'lte.requests.ue_context_release.total.count'=0;;;0; 'lte.requests.ue_context_release.radio_lost.count'=0;;;0; 'lte.requests.pdn_context.reject.insufficent_resources.count'=0;;;0; 'lte.requests.pdn_context.reject.no_apn.count'=0;;;0; 'lte.requests.pdn_context.reject.not_subscribed.count'=0;;;0;
+OK: Lte traffic in: 0 B/s, traffic out: 0 B/s - connected users: 0, idle users: 0, active sessions: 0 - attach requests total: 0 success: 0 (100.00%) - pdn context activation requests total: 0 success: 0 (100.00%) - ue context release requests: 0, ue context release with radio lost requests: 0 - pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0 | 'lte.traffic.in.bytespersecond'=0B/s;;;0; 'lte.traffic.out.bytespersecond'=0B/s;;;0; 'lte.users.connected.count'=0;0:100;0:200;0; 'lte.users.idle.count'=0;;;0; 'lte.sessions.active.count'=0;;;0; 'lte.requests.attach.success.count'=0;;;0;0 'lte.requests.attach.success.percentage'=100%;;;0;100 'lte.requests.pdn_context.activations.success.count'=0;;;0;0 'lte.requests.pdn_context.activations.success.percentage'=100%;;;0;100 'lte.requests.ue_context_release.total.count'=0;;;0; 'lte.requests.ue_context_release.radio_lost.count'=0;;;0; 'lte.requests.pdn_context.reject.insufficent_resources.count'=0;;;0; 'lte.requests.pdn_context.reject.no_apn.count'=0;;;0; 'lte.requests.pdn_context.reject.not_subscribed.count'=0;;;0;
 checking lte
-    packets in: 0, packets out: 0
+    traffic in: 0 B/s, traffic out: 0 B/s
     connected users: 0, idle users: 0, active sessions: 0
     attach requests total: 0 success: 0 (100.00%)
     pdn context activation requests total: 0 success: 0 (100.00%)
