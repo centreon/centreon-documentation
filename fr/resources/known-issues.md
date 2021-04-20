@@ -1,13 +1,12 @@
 ---
 id: known-issues
-title: Known issues
+title: Problèmes connus
 ---
 
-Below is a list of know issues and/or bugs you may encounter.
-We try to provide workarounds. We apply fixes when
-necessary and are forever improving our software in order to solve any
-issues for future releases.
+Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
+Nous essayons ici de fournir des contournements.
+Nous appliquons des correctifs lorsque cela est nécessaire and améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
 
-| Issues | Workaround if exists |
-| ------ | -------------------- |
-| You have reached the maximum of id into centreon_storage.index_data | Play the following request into MySQL / MariaDB :<br/> In your monitoring database :<br /> `ALTER TABLE index_data MODIFY id bigint unsigned AUTO_INCREMENT;`<br /> `ALTER TABLE metrics MODIFY index_id bigint unsigned;`<br/> In your configuration database :<br /> `ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;`<br /> `ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;`<br /> Depending on your metrics volumes, this operation could be more or less longer. |
+| Problèmes | contournement s'il existe |
+| --------- | ------------------------- |
+| Vous avez atteint le maximum d'id dans la table centreon_storage.index_data | Exécutez la requête suivante dans MySQL / MariaDB :<br/> Dans votre base de données temps réel :<br /> `ALTER TABLE index_data MODIFY id bigint unsigned AUTO_INCREMENT;`<br /> `ALTER TABLE metrics MODIFY index_id bigint unsigned;`<br/> Dans votre base de données de configuration :<br /> `ALTER TABLE ods_view_details MODIFY index_id bigint unsigned;`<br /> `ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;`<br /> Selon la volumétrie de vos métriques, cette opération peut être plus ou moins longue. |
