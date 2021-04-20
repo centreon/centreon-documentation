@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.6
 
+`20 avril 2021`
+
 #### Correctifs
 
 - [ACL] Use ACL Action to generate traps

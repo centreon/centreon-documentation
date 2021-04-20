@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.6
 
+`April 20, 2021`
+
 #### Bugfixes
 
 - [ACL] Use ACL Action to generate traps
