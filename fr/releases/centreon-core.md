@@ -39,7 +39,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Platform Topology] Missing current node IP address in register script
 - [Platform Topology] Register script concatenates default values to values from the template
 - [Platform Topology] Script target address not parsed correctly.
-- [Platform Topology]Enhance register script displaying
+- [Platform Topology] Enhance register script displaying
 - [Reporting] Dashboard is slow to display with large service groups
 - [Resources Status] Bad urls for mediawiki
 - [Resources Status] Macros in "URL" and "Action URL"
