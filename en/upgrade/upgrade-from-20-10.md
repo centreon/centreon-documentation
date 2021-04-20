@@ -12,6 +12,10 @@ to version 21.04.
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
+> Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
+> insertion of the data collected into the database during the update. These will be stored in temporary files and then
+> installed at the end of the update process.
+
 ## Perform a backup
 
 Be sure that you have fully backed up your environment for the following
@@ -33,10 +37,36 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 
+### Upgrade PHP
+
+Centreon 21.04 use PHP in version 7.3.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+You need to change the PHP stream from version 7.2 to 7.3 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:7.3
+```
+<!--CentOS 7-->
+PHP will be updated with Centreon automatically.
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Upgrade the Centreon solution
+
+Stop the Centreon Broker process:
+```shell
+systemctl stop cbd
+```
+
+Delete existing retention files:
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 Clean yum cache:
 
@@ -52,14 +82,44 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Execute the following commands:
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+<!--CentOS 7-->
+The PHP timezone should be set. Run the command:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Execute the following commands:
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Finalizing the upgrade
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Before starting the web upgrade process, reload the Apache server with the
 following command:
-
+```shell
+systemctl reload httpd
+```
+<!--CentOS 7-->
+Before starting the web upgrade process, reload the Apache server with the
+following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
@@ -88,6 +148,13 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Restart Centreon processes
+
+Restart the processes:
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Upgrade extensions
 
@@ -213,7 +280,7 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 
 ### Upgrade the Centreon solution

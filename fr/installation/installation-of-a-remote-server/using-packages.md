@@ -62,6 +62,9 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
+> pour configurer le pare-feu.
+
 ### Installer le dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -127,11 +130,11 @@ Exécutez la commande suivante :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-1.el8.noarch.rpm
+dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -258,7 +261,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -274,7 +277,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php72-php-fpm
+systemctl restart rh-php73-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -290,7 +293,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

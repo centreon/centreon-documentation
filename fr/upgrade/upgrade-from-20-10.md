@@ -13,6 +13,10 @@ Centreon depuis la version 20.10 vers la version 21.04.
 > Si cela n'est pas le cas, merci de suivre avant le
 > [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
+> Attention, suite à la correction d'un problème relatif au schéma de base de données, il sera nécessaire
+> d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées
+> dans des fichiers temporaires puis insérées à la fin du processus de mise à jour.
+
 ## Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
@@ -37,10 +41,36 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 
+### Upgrade PHP
+
+Centreon 21.04 utilise PHP en version 7.3.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Vous devez changer le flux PHP de la version 7.2 à 7.3 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+```shell
+dnf module reset php
+dnf module install php:7.3
+```
+<!--CentOS 7-->
+PHP sera mis à jour automatiquement avec Centreon.
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Montée de version de la solution Centreon
+
+Arrêter le processus Centreon Broker :
+```shell
+systemctl stop cbd
+```
+
+Supprimer les fichiers de rétention présent :
+```shell
+rm /var/lib/centreon-broker/* -f
+```
 
 Videz le cache de yum :
 
@@ -56,14 +86,42 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Exécutez les commandes suivantes :
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+<!--CentOS 7-->
+Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Exécutez les commandes suivantes :
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Finalisation de la mise à jour
 
-Avant de démarrer la montée de version via l'interface web, rechargez le
-serveur Apache avec la commande suivante :
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+```shell
+systemctl reload httpd
+```
+<!--CentOS 7-->
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
 mise à jour :
@@ -93,6 +151,13 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Redémarrez les processus Centreon
+
+Redamarrez les processus :
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Montée de version des extensions
 
@@ -222,7 +287,7 @@ Central.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon
