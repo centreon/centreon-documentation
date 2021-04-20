@@ -977,6 +977,9 @@
                 "label": "Release notes",
                 "type": "subcategory"
             }
+        ],
+        "Resources": [
+            "resources/known-issues"
         ]
     }
 }
