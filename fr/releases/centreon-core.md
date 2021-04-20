@@ -44,6 +44,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Resources Status] Bad urls for mediawiki
 - [Resources Status] Macros in "URL" and "Action URL"
 - [Resources Status] Missing french translations
+- [UX] Remove "deprecated" from menu for deprecated monitoring pages
 
 #### Correctifs de sécurité
 
