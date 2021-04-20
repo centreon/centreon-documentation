@@ -44,13 +44,36 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- Ability to submit external commands via gRPC
 
 ## Centreon Broker
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+> **Problèmes connus**
+> * Streams broker: un même paramètre utilisé dans plusieurs sorties d'un même flux broker ne peut avoir qu'une seule valeur (la dernière exprimée l'emporte).
+> * BAM: les impacts de KPIs de type Meta-Service ne sont pas correctement calculés. Un correctif sera publié très prochainement.
+> * BAM: les impacts de KPIs de tpe BA au statut UNKNOWN ne sont pas correctement calculés. Un correctif sera publié très prochainement.
+
+#### Nouveaux logs broker
+
+- New logs, with new format, no more epoch timestamps.
+
+```log
+[2021-04-16 13:49:06.781] [core] [info] Clearing old connections
+[2021-04-16 13:56:10.985] [core] [info] main: configuration update requested
+```
+
+- New log config options, with a different log level for `core`, `config`, `sql`, `processing`, `perfdata`, `bbdo`, `tcp`, `tls`, `lua`, `bam`.
+- Old logs are still supported, but you are encouraged to abandon them.
+
+#### Autres améliorations
+
+- Support of UInt64 for `id` column of `index_data` table: fixes issues on platforms having a large amount of metrics.
+
+> **Warning:** this change needs cbd service(s) to be stopped during the upgrade to 21.04.0 and all "queue" and "unprocessed" files must be removed.
+
+- Improvement of the acknowledgement of events when broker is shutting down.
 
 ## Centreon Gorgone
 

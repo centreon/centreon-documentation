@@ -47,7 +47,7 @@ If you have feature requests or want to report a bug, please contact support.
 - Ability to link the discovered hosts to host existing host severities.
 - Property, macro, hostgroup and hostcategory mappers now support concatenation of either custom strings or discovered information.
 - UX alignment with Resource Status
-    - Clicking anywhere on a job's row now opens the side pane, not the job's result.
+    - Clicking anywhere on a job's row now opens the side panel, not the job's result.
     - Clicking on the contextual arrow leads to the job's result (*ie.* the discovered hosts).
 
 ## Centreon Plugin Packs Manager
