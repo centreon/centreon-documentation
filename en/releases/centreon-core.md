@@ -58,7 +58,11 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.0
 
-- Ability to submit external commands via gRPC
+- When used with centreon-connectors, Engine could crash when we stop it. This should be fixed now.
+- Ability to submit external commands via gRPC.
+
+> **Warning:** External commands via gRPC are proposed in beta version. The API may change in a near
+future.
 
 ## Centreon Broker
 
@@ -71,7 +75,10 @@ If you have feature requests or want to report a bug, please go to our
 
 #### New broker logs
 
-- New logs, with new format, no more epoch timestamps.
+- New logs, with new format, epoch timestamps are replaced by real dates.
+
+> **Warning:** you may still see timestamps in your logs until you disable the
+old logs system.
 
 ```log
 [2021-04-16 13:49:06.781] [core] [info] Clearing old connections

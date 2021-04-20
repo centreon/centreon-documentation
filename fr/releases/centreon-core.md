@@ -44,7 +44,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.0
 
-- Ability to submit external commands via gRPC
+- Lorsqu'utilisé avec les centreon-connectors, Engine pouvait crasher lorsqu'on l'arrêtait. Cette
+nouvelle version fixe ce problème.
+- Possibilité de soumettre des commandes externes via gRPC.
+
+> **Warning:** Les commandes externes via gRPC sont proposées en version beta. L'API peut encore changer
+dans une prochaine version.
 
 ## Centreon Broker
 
@@ -57,7 +62,10 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Nouveaux logs broker
 
-- New logs, with new format, no more epoch timestamps.
+- Nouveaux logs avec un nouveau format, les timestamps sont maintenant remplacés par de vraies dates.
+
+> **Warning:** Vous pouvez toujours constater des logs commençant par des timestamps car les anciens
+logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ```log
 [2021-04-16 13:49:06.781] [core] [info] Clearing old connections
