@@ -16,7 +16,7 @@ monitored by Centreon.
 
 ![image](../assets/alerts/resources-status/resources-status-listing.png)
 
-It's possible to sort by the column of your choice.
+It's possible to add, remove and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
