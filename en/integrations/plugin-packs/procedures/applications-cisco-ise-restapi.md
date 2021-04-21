@@ -125,6 +125,7 @@ Plugin by running the following command:
     --critical-postured-endpoints='' \
     --warning-profiler-service-sessions='' \
     --critical-profiler-service-sessions='' \
+    --use-new-perfdata
 ```
 
 Expected command output is shown below:
