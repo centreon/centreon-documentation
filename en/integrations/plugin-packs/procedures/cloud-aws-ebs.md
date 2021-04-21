@@ -28,7 +28,6 @@ The Amazon EBS Centreon Plugin uses the Amazon Cloudwatch API to collect the rel
 | :------------------------------ | :------------------- |
 | Cloud-Aws-Ebs-Api-HostDiscovery | Discover EBS volumes |
 
-
 <!--Services-->
 
 No services discovery rule available on this pack
@@ -42,14 +41,12 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-
 <!--Ebs-Volume-Io-->
 
 | Metric name      | Description                                                                             |
 | :--------------- | :-------------------------------------------------------------------------------------- |
 | VolumeReadBytes  | Provides information on the read operations in a specified period of time. Unit: Bytes  |
 | VolumeWriteBytes | Provides information on the write operations in a specified period of time. Unit: Bytes |
-
 
 <!--Ebs-Iops-->
 
@@ -61,16 +58,13 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html
 | VolumeConsumedReadWriteOps | The total amount of read and write operations (normalized to 256K capacity units) consumed in a specified period of time. Unit: Count |
 | VolumeQueueLength          | The number of read and write operation requests waiting to be completed in a specified period of time. Unit: Count                    |
 
-
 <!--Ebs-Time-->
-
 
 | Metric name          | Description                                                                                                              |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
 | VolumeTotalReadTime  | The total number of seconds spent by all read operations that completed in a specified period of time. Unit: Seconds     |
 | VolumeTotalWriteTime | The total number of seconds spent by all write operations that completed in a specified period of time. Unit: Seconds    |
 | VolumeIdleTime       | The total number of seconds in a specified period of time when no read or write operations were submitted. Unit: Seconds |
-
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -106,12 +100,9 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 > **Warning** For now, it is not possible to use *paws* in the following situations:
 > * if you are using a proxy to reach AWS Cloudwatch APIs. 
 > * to automatically add Hosts in Centreon using the *Host Discovery* feature
-
-
 
 ## Setup 
 
@@ -126,7 +117,6 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 ```
 
 2. On the Centreon Web interface, install the 'Amazon EBS' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
-
 
 <!--Offline IMP License-->
 
@@ -152,7 +142,6 @@ Log into Centreon and add a new Host through "Configuration > Hosts". Select the
 
 Once the template applied, some Macros have to be configured:
 
-
 | Mandatory   | Nom             | Description                                                                                 |
 | :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
 | X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
@@ -164,7 +153,6 @@ Once the template applied, some Macros have to be configured:
 |             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
 |             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
 |             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
-
 
 ## FAQ
 

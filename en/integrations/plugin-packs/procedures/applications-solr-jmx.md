@@ -3,10 +3,6 @@ id: applications-solr-jmx
 title: Solr
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Sep 14 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | App-Solr-JMX-custom        |
 
 Click on the *Save* button.
-

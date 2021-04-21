@@ -9,8 +9,8 @@ supervision de votre IT via Centreon.
 Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Il est composé de 
 plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de quelques tutoriels.
 
-* [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
 * [Installation rapide](#installation-rapide)
+* [Demandez votre essai gratuit](#demander-votre-essai-gratuit)
 * [Première connexion à l'interface](#première-connexion-à-linterface)
 * [Ajouter son jeton Centreon IT Edition](#ajouter-son-jeton-centreon-it-edition)
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
@@ -18,61 +18,62 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 * [Deployer la configuration](#deployer-la-configuration)
 * [Tutoriels pour profiter de votre supervision](introduction-tutorials.html)
 
-## Demander votre essai gratuit
-
-Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
-Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
-et remplissez le formulaire :
-
-![image](../assets/getting-started/it_100_free_token_form.png)
-
-Vous recevrez un email contenant votre **jeton** permettant d'essayer **Centreon IT Edition**.
-
-Il est maintenant temps de passer au chapitre suivant pour installer votre plateforme Centreon.
-
 ## Installation rapide
 
-Pour configurer votre première plateforme Centreon, nous vous suggérons d'utiliser une machine virtuelle prête à l'emploi.
+Pour configurer votre première plateforme Centreon, nous vous suggérons d'utiliser
+une machine virtuelle prête à l'emploi.
 
 **Prérequis**
 
-Ces machines virtuelles sont disponibles au format OVA pour l'environnement VMware et OVF pour l'outil Oracle VirtualBox.
-Celles-ci sont basées sur le système d'exploitation **Linux CentOS v7** incluant une installation de Centreon permettant
-de démarrer en toute simplicité votre première supervision.
+Cette machine virtuelle est disponible au format OVA pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
+Celles-ci sont basées sur le système d'exploitation **Linux CentOS 7** incluant
+une installation de Centreon permettant de démarrer en toute simplicité votre
+première supervision.
 
 La machine virtuelle a besoin de :
 
-- Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait faire l'affaire.
-- Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go de RAM. Pour profiter pleinement de
-  l'expérience, vous avez besoin d'au moins 2 Go de mémoire libre.
-- Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre sur votre disque dur. Cependant, si
-  vous souhaitez continuer à utiliser Centreon, il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec
-  le temps.
+- Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait
+  faire l'affaire.
+- Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go
+  de RAM. Pour profiter pleinement de l'expérience, vous avez besoin d'au moins
+  2 Go de mémoire libre.
+- Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre
+  sur votre disque dur. Cependant, si vous souhaitez continuer à utiliser Centreon,
+  il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec le temps.
 - Un accès Internet pour bénéficier de l'offre gratuite IT-100.
 
-> Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites.html).
+> Pour une installation plus personnalisée, les prérequis complets sont disponibles
+[ici](../installation/prerequisites.html).
 
 ### Téléchargement
 
 Vous pouvez installer Centreon :
 
 - [A partir de l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
-- A partir des machines virtuelles prêtes à l'emploi :
+- A partir de la machine virtuelle prête à l'emploi :
 
-Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
+La machine virtuelle est disponible sur notre site de
+[téléchargement Centreon](https://download.centreon.com).
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--VMware environment-->
 \
-Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
-liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
-consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
+Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**.
+Parce que les sélections de menu sont liées à votre configuration VMWare, nous ne
+pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
+consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace
+libre que possible sur le disque.
 
 <!--Oracle Virtualbox-->
 \
-Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
-machine virtuelle.
+Extraire le contenu de l'archive et double-cliquez sur le **fichier OVA**. Suivez
+les instructions pour importer la machine virtuelle.
+Editez la machine virtuelle et dans l'onglet **System** cocher la case
+**Hardware Clock in UTC Time**, puis cliquez sur **OK**.
+
+![image](../assets/installation/ova_vbox_use_hardware_clock.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -99,6 +100,18 @@ Une fois ces opérations effectuées, vous pouvez supprimer ce message en suppri
 > Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
 
 Vous pouvez maintenant continuer vers la première section de connexion.
+
+## Demander votre essai gratuit
+
+Centreon vous propose de tester gratuitement toutes les fonctionnalités de **Centreon IT Edition**.
+Pour cela-, rendez-vous sur notre site internet dans la rubrique **[Essayez Centreon IT Edition](https://www.centreon.com/essai-gratuit/)**
+et remplissez le formulaire :
+
+![image](../assets/getting-started/it_100_free_token_form.png)
+
+Vous recevrez un email contenant votre **jeton** permettant d'essayer **Centreon IT Edition**.
+
+Il est maintenant temps de passer au chapitre suivant pour installer votre plateforme Centreon.
 
 ## Première connexion à l'interface
 
@@ -413,7 +426,7 @@ Pour connaître manuellement le nom des partitions disponibles, vous pouvez exé
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-storages
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-storages
 ```
 Voici le résultat : 
 ```Shell
@@ -427,7 +440,7 @@ Faites de même pour connaître la liste des interfaces réseau :
 
 ```Shell
 /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin \
-    --hostname=10.24.11.66 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
+    --hostname=10.40.1.169 --snmp-version='2c' --snmp-community='public' --mode=list-interfaces
 ```
 Voici le résultat :
 ```Shell
@@ -532,7 +545,7 @@ Pour connaître manuellement le nom des interfaces réseau disponibles, vous pou
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-interfaces
+    --snmp-community=public --snmp-version=2c --mode=list-interfaces
 ```
 Voici le résultat : 
 ```Shell
@@ -572,7 +585,7 @@ Ou pour récupérer la liste des spanning-tree :
 ```Shell
 /usr/lib/centreon/plugins/centreon_cisco_standard_snmp.pl \
     --plugin=network::cisco::standard::snmp::plugin --hostname=10.40.1.254 \
-    --snmp-community=mrthsrnrd --snmp-version=2c --mode=list-spanning-trees
+    --snmp-community=public --snmp-version=2c --mode=list-spanning-trees
 ```
 Voici le résultat : 
 ```Shell

@@ -3,10 +3,6 @@ id: applications-pvx-restapi
 title: PVX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | May 13 2019 |
-
 ## Prerequisites
 
 ### PVX version
@@ -117,4 +113,3 @@ The command line should return:
     }
 
 The API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
-

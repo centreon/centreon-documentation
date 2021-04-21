@@ -49,7 +49,6 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 * qosusage: Check QOS configuration and associated consumptions
 * stack: Check the health of your device stack
 
-
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--cpu-->
@@ -143,7 +142,6 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
 2. Install The 'Cisco-Standard-Snmp' Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
-
 
 <!--Offline IMP License-->
 

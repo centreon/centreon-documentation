@@ -59,7 +59,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 1. Installer le Plugin sur chaque collecteur Centreon devant superviser les applications *Google GSuite*:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Google-Gsuite-Api
+yum install centreon-plugin-Applications-Google-Gsuite-Api
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Google GSuite* 
@@ -142,7 +142,6 @@ depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'a
 
 Une alarme WARNING sera ainsi déclenchée si le statut d'une de ces applications est signalée comme dégradée (```--warning-status='%{status} eq "DEGRADED"'```);
 l'alarme sera de type CRITICAL pour une application inaccessible (```--critical-status='%{status} eq "UNAVALAIBLE"'```).
-
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:

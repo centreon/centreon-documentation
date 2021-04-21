@@ -121,7 +121,6 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 | X         | OFFICE365CLIENTSECRET | Secret-if of your registered application                                   |
 |           | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-
 The metric *perfdate* will record the date the metric was collected. You can 
 filter it by entering ```--filter-perfdata='^(?!.*perfdate).*$'``` into the
 *OFFICE365EXTRAOPTIONS* macro.
@@ -150,7 +149,6 @@ Centreon poller by logging with the *centreon-engine* user:
   --client-id='9876dcba-5432-10dc-ba98-76543210dcba' \
   --client-secret='8/RON4vUGhAcg6DRmSxc4AwgxSRoNfKg4d8xNizIMnwg='
 ```
-
 
 ```bash
 OK: Active sites on 2020-09-27 : 3/1031 (0.29%) - Total Usage (active sites)

@@ -56,7 +56,6 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 
 2. Sur l'interface Web de Centreon, installer Plugin-Pack *IP-Label Newtest Rest API* au travers du menu "Configuration > Plugin packs > Gestionnaire"
 
-
 <!--Offline IMP License-->
 
 1. Installer le Plugin *IP-Label Newtest* sur chaque collecteur Centreon devant superviser des robots Newtest:

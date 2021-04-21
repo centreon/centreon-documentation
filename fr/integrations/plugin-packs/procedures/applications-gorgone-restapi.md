@@ -91,7 +91,6 @@ yum install centreon-pack-applications-gorgone-restapi.noarch
 * Rendez-vous dans le menu "Configuration > Hôtes" et ajouter un nouvel Hôte
 * Appliquer le modèle *App-Gorgone-Restapi-custom* et configurer les macros obligatoires mentionnées ci-dessous:
 
-
 | Mandatory   | Nom                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
 | X           | GORGONEAPIPORT         | Port used. Default is 8085                                                 |
@@ -147,4 +146,3 @@ Il est possible d'afficher l'ensemble des modes disponibles avec la commande ci-
     --plugin=apps::gorgone::restapi::plugin \
     --list-mode
 ```
-

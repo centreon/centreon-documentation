@@ -3,10 +3,6 @@ id: network-firewalls-juniper-sa-snmp
 title: Juniper SA
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.3 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | Net-Juniper-SA-custom      |
 
 Click on the *Save* button.
-

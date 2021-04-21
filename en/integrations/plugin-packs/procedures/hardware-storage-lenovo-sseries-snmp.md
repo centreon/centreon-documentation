@@ -3,10 +3,6 @@ id: hardware-storage-lenovo-sseries-snmp
 title: Lenovo S Series
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Dell-Lenovo-Sseries-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-voip-3cx-restapi
 title: 3CX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates              | App-VoIP-3cx-Restapi-custom |
 
 Click on the *Save* button.
-

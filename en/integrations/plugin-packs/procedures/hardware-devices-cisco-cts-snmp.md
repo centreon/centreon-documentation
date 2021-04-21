@@ -72,7 +72,6 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Cisco CTS* ressources:
 
-
 ```bash
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```

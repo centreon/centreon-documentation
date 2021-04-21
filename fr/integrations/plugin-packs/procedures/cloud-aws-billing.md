@@ -3,10 +3,6 @@ id: cloud-aws-billing
 title: AWS Billing
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.4.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -70,4 +66,3 @@ Add as many services as needed or use the autodiscovery rule :
   - Cloud-Aws-Billing-Api-Estimated-Charges
 
 This rule will add a service named *Billing-$servicename$* per AWS service.
-

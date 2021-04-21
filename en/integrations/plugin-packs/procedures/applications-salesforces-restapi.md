@@ -42,7 +42,6 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 
 2. Install the Salesforce Plugin-Pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller expected to monitor Salesforce:

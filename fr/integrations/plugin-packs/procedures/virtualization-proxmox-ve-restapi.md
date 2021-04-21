@@ -3,10 +3,6 @@ id: virtualization-proxmox-ve-restapi
 title: Proxmox VE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jan 10 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -97,4 +93,3 @@ https
 http
 
 Click on the *Save* button.
-

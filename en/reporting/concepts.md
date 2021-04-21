@@ -495,7 +495,7 @@ Before running the commands in the procedure below, check that:
     procedure.
 -   Retention is enabled on the interface.
 -   Retention is configured for no more than 1024 days.
--   The scripts in /etc/cron.d/centreon-bi-backup-engine are not enabled
+-   The scripts in `/etc/cron.d/centreon-bi-backup-reporting-server` are not enabled
     (commented out). They must be enabled at the end of the procedure.
 
 

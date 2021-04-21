@@ -3,10 +3,6 @@ id: network-firewalls-paloalto-standard-snmp
 title: Palo Alto firewall SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.3 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-PaloAlto-Standard-SNMP-custom |
 
 Click on the *Save* button.
-

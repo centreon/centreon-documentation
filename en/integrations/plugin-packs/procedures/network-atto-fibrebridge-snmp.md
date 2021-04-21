@@ -3,10 +3,6 @@ id: network-atto-fibrebridge-snmp
 title: Atto Fibrebridge SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul  8 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | Net-Atto-Fibrebridge-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: network-mitel-3300icp-snmp
 title: Mitel 3300ICP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Dec 21 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Mitel-3300icp-SNMP-custom |
 
 Click on the *Save* button.
-

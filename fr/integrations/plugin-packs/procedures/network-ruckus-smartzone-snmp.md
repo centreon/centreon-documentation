@@ -24,7 +24,6 @@ Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du sect
 | Net-Ruckus-Smartzone-SNMP-Disk-Name    |  Découverte des points de montage d'un contrôleur      |
 | Net-Ruckus-Smartzone-SNMP-Traffic-Name |  Découverte des interfaces d'un contrôleur             |
 
-
 ### Métriques collectées 
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -136,7 +135,6 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 3. Installer le Plugin-Pack 'Ruckus Smartzone' depuis la page "Configuration > Plugin Packs > Manager" de l'interface Web. 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 

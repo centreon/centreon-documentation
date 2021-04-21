@@ -3,10 +3,6 @@ id: applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jun 14 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | RABBITMQAPIPASSWORD | Password to access RabbitMQ API   |               |
 
 Click on the *Save* button.
-

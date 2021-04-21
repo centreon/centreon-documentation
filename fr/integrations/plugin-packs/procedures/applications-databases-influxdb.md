@@ -3,10 +3,6 @@ id: applications-databases-influxdb
 title: InfluxDB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jun 18 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | INFLUXDBPROTO    | The InfluxDB instance protocol | http          | https    |
 | INFLUXDBUSERNAME | The InfluxDB instance username |               | centreon |
 | INFLUXDBPASSWORD | The InfluxDB instance password |               | centreon |
-

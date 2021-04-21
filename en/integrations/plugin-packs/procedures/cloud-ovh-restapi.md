@@ -3,10 +3,6 @@ id: cloud-ovh-restapi
 title: OVH
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Aug 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates              | Cloud-Ovh-Restapi          |
 
 Click on the *Save* button.
-

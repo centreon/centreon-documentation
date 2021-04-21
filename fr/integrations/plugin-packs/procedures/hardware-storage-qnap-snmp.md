@@ -3,10 +3,6 @@ id: hardware-storage-qnap-snmp
 title: Qnap
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Qnap-SNMP-custom |
 
 Click on the *Save* button.
-

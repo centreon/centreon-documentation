@@ -3,10 +3,6 @@ id: hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.13 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-EMC-Symmetrix-Dmx34-NRPE or HW-Storage-EMC-Symmetrix-Vmax-NRPE |
 
 Click on the *Save* button.
-

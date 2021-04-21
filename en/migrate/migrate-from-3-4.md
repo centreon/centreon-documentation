@@ -6,7 +6,7 @@ title: Migrate from a Centreon 3.4 platform
 ## Prerequisites
 
 The following procedure only applies to migration from a Centreon 3.4 platform
-installed on a 64-bit GNU/Linux distribution other than CentOS or Red Hat 7.
+installed on a 64-bit GNU/Linux distribution other than CentOS / Oracle Linux / RHEL 8.
 Here are the system requirements:
 
 | Components      | Version |
@@ -76,7 +76,7 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
      service mysqld stop
     ```
 
-3. Export the dumps to the new Centreon 20.10 database server (make sure you
+3. Export the dumps to the new Centreon 21.04 database server (make sure you
 have enough space for large databases dumps):
 
     ```shell
@@ -84,7 +84,7 @@ have enough space for large databases dumps):
     rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
     ```
 
-4. On the Centreon 20.10 database server, drop the original databases and
+4. On the Centreon 21.04 database server, drop the original databases and
 create them again:
 
     ```shell
@@ -130,7 +130,7 @@ installation. The main directories to synchronize are:
 > To run the plugins, you must first install the required dependencies.
 
 > If you still have distant Centreon Engine 1.8.1 Pollers that you want to
-> postpone the upgrade to 20.10, be aware that Centreon Web 20.10 resource
+> postpone the upgrade to 21.04, be aware that Centreon Web 21.04 resource
 > $USER1$ actually points to /usr/lib64/nagios/plugins
 >
 > On the 1.8.1 Pollers to mitigate the issue:
@@ -149,18 +149,18 @@ installation. The main directories to synchronize are:
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
-You can now push poller configuration from Centreon 20.10 whether the distant
-Poller is Centreon Engine 20.10 or 1.8.1.
+You can now push poller configuration from Centreon 21.04 whether the distant
+Poller is Centreon Engine 21.04 or 1.8.1.
 
 ### Upgrade Centreon
 
 On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-20.10.0-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-21.04.0-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory:
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-20.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-21.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > If you use the same IP address or same DNS name between old Centreon webserver
@@ -190,4 +190,4 @@ configuration of all your pollers and export it.
 ### Upgrade the modules
 
 Please refer to the documentation of each module to verify compatibility with
-Centreon 20.10 and perform the upgrade.
+Centreon 21.04 and perform the upgrade.

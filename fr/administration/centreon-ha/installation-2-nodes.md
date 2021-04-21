@@ -147,7 +147,7 @@ Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les d�
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
 ```
 
 ### Échanges de clefs SSH
@@ -316,7 +316,9 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA/OVF, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
+Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou
+déployée via une VM OVA, le mot de passe de l'utilisateur
+`'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 
@@ -546,8 +548,9 @@ chmod 775 /var/log/centreon-engine/
 mkdir /var/log/centreon-engine/archives
 chown centreon-engine: /var/log/centreon-engine/archives
 chmod 775 /var/log/centreon-engine/archives/
-chmod 664 /var/log/centreon-engine/*
-chmod 664 /var/log/centreon-engine/archives/*
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
 - Découverte des services 
@@ -745,7 +748,7 @@ Certaines ressources ne doivent être démarrées que sur un seul nœud, mais po
 
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php72-php-fpm \
+	systemd:rh-php73-php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
@@ -953,3 +956,10 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+
+
+## Intégrer des collecteurs
+
+Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.html) et commencer à superviser !
+

@@ -3,10 +3,6 @@ id: infrastructure-active-directory-nrpe
 title: MS Active Directory
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.2 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Infra-ActiveDirectory-NRPE-custom |
 
 Click on the *Save* button.
-

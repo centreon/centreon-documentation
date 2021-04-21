@@ -3,10 +3,6 @@ id: network-netasq-snmp
 title: NetASQ Network
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `DEPRECATED` | Aug 25 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Netasq-SNMP-custom     |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: network-citrix-sdx-snmp
 title: Citrix SDX
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.2 | `STABLE` | Oct 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | Net-Citrix-Sdx-SNMP-custom |
 
 Click on the *Save* button.
-

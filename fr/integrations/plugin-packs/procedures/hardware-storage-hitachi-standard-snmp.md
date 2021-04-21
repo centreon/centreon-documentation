@@ -3,10 +3,6 @@ id: hardware-storage-hitachi-standard-snmp
 title: Hitachi Standard
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.4 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Hitachi-Standard-SNMP-custom |
 
 Click on the *Save* button.
-

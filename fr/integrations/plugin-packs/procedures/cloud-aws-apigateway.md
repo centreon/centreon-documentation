@@ -3,10 +3,6 @@ id: cloud-aws-apigateway
 title: Amazon API Gateway
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.5.0 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -65,4 +61,3 @@ The following service macros should be set as shown:
 | Macro   | Value                 |
 | :------ | :-------------------- |
 | APINAME | *Name of you AWS API* |
-

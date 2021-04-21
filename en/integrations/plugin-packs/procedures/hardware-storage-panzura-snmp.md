@@ -3,10 +3,6 @@ id: hardware-storage-panzura-snmp
 title: Panzura
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.23 | `STABLE` | Feb 18 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Panzura-SNMP-custom |
 
 Click on the *Save* button.
-

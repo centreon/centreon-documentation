@@ -3,10 +3,6 @@ id: network-switchs-hirschmann
 title: Hirschmann switch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -66,4 +62,3 @@ The following macros must be configured on host (\* means mandatory options):
 | Macro            | Description                       | Default value | Example |
 | :--------------- | :-------------------------------- | :------------ | :------ |
 | SNMPEXTRAOPTIONS | Extra options for SNMP connection |               |         |
-

@@ -117,7 +117,6 @@ yum install centreon-pack-cloud-aws-sqs.noarch
 
 3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Amazon SQS* depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
@@ -144,7 +143,6 @@ Une fois l'hôte créé et sauvegardé dans Centreon, un service "Sqs-Queues" es
 Ce service est "générique"; afin que celui-ci puisse commencer à remonter des informations, il vous sera nécessaire de 
 spécifier le nom de la *queue* SQS à superviser sur la Macro de Service **QUEUENAME** (le nom du Service peut également être modifié en conséquence).
 Ce service peut ensuite être dupliqué et la valeur de la Macro ajustée pour chaque *queue* à superviser.
-
 
 ## FAQ
 
@@ -182,7 +180,6 @@ SQS Queue'my_sqs_queue_1'
     Statistic 'Average' number of messages sent: 45, number of messages received: 32  
 ```
 
-
 La commande ci-dessus collecte les métriques de la 'queue' nommée *my_sqs_queue_1* (```--mode=queues --queue-name='my_sqs_queue_1'```).
 Cette ressource SQS est hébergée dans la région AWS *eu-west-1* (```--region='eu-west-1'```). La connexion à l'API Cloudwatch s'effectue
 à l'aide des identifiants *aws-secret-key* et *aws-access-key* préalablement configurés sur la console AWS (```--aws-secret-key='****' --aws-access-key='****'```).
@@ -199,9 +196,7 @@ La liste de toutes les métriques, seuils associés et options complémentaires 
 /usr/lib/centreon/plugins/centreon_aws_sqs_api.pl --plugin=cloud::aws::sqs::plugin --mode=queues --help
 ```
 
-
 #### J'obtiens le message d'erreur suivant:  
-
 
 #### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
@@ -211,11 +206,9 @@ Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la périod
 
 Vous pouvez ajouter ```--zeroed``` à la macro **EXTRAOPTIONS** du *Service* en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
 
-
 #### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]```
 
 Cette erreur signifie que le rôle IAM associé au combo access-key/secret-key n'a pas les droits suffisants pour réaliser une opération donnée.
-
 
 #### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
 

@@ -43,7 +43,6 @@ This template does not collect metrics, but provides the general state of the cl
   * `centreontrapd`
   * `snmptrapd`
 
-
 <!--proc-corosync-->
 
 | Metric name | Description                                         | Unit  |
@@ -279,6 +278,3 @@ To fix any read/write/execute permission difference, just run:
 chmod 700 /var/lib/centreon-engine/.ssh
 chmod 600 /var/lib/centreon-engine/.ssh/authorized_keys
 ```
-
-
-

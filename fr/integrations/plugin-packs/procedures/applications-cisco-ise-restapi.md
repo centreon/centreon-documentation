@@ -40,9 +40,7 @@ d'identification doivent être stockées dans la base de données interne de Cis
 ISE (utilisateurs administratifs internes)
 
 * Super Admin
-
 * System Admin
-
 * MnT Admin
 
 De plus, le collecteur Centreon en charge de la supervision des ressources doit

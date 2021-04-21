@@ -4,7 +4,13 @@ title: Upgrade from Centreon 20.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 20.04
-to version 20.10.
+to version 21.04.
+
+> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+
+> To perform this procedure, your MariaDB version must be >= 10.3.22.
+> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
 ## Perform a backup
 
@@ -16,20 +22,19 @@ servers:
 
 ## Upgrade the Centreon Central server
 
+> Since 21.04, Centreon uses **MariaDB 10.5**.
+>
+> This upgrade process will only upgrade Centreon components first.
+>
+> MariaDB will be upgraded afterwards.
+
 ### Update the Centreon repository
 
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 
@@ -95,6 +100,108 @@ with the following:
 
 Then you can upgrade all other commercial extensions.
 
+### Upgrade MariaDB server
+
+The MariaDB components can now be upgraded.
+
+Be aware that MariaDB strongly recommends to upgrade the server through each
+major release. Please refer to the [official MariaDB
+documentation](https://mariadb.com/kb/en/upgrading/) for further information.
+
+You then need to upgrade from 10.3 to 10.4 and from 10.4 to 10.5.
+
+That is why Centreon provides both 10.4 and 10.5 versions on its stable
+repositories.
+
+> Refer to the official MariaDB documentation to know more about this process:
+>
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
+
+#### Upgrade from 10.3 to 10.4
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.3 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.4 version:
+
+    ```shell
+    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.4 to 10.5
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall current 10.4 version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Enable MariaDB on startup
+
+Execute the following command:
+
+```shell
+systemctl enable mariadb
+```
+
 ## Upgrade the Remote Servers
 
 This procedure is the same than to upgrade a Centreon Central server.
@@ -106,15 +213,8 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-2.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 
@@ -131,3 +231,8 @@ yum update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform.html)

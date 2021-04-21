@@ -115,14 +115,12 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Polycom R
 1. Install the Centreon Plugin package on every Centreon Poller expected to monitor 
 Polycom RPRM devices:
 
-
 ```bash
 yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
-
 
 <!--Offline IMP License-->
 
@@ -135,7 +133,6 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Rprm-Snmp
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-
 ```bash
 yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 ```
@@ -143,14 +140,12 @@ yum install centreon-pack-hardware-devices-polycom-rprm-snmp
 3. On the Centreon Web interface, install the *Polycom RPRM SNMP* Plugin-Pack 
 through "Configuration > Plugin packs > Manager" page.
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
 * Add a new Host and apply the *HW-Device-Polycom-Rprm-SNMP-Custom* Host Template
 * Fill the SNMP Version and Community fields according to the device's configuration
-
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Host Macro to add specific authentication parameters
 

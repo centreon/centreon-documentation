@@ -3,10 +3,6 @@ id: applications-rudder-restapi
 title: Rudder
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.5 | `STABLE` | Oct 16 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -101,4 +97,3 @@ Check the *Create Services linked to the Template too* box and click on the
 The following service will be created:
 
   - Node-Compliance
-

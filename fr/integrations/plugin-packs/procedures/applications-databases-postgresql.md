@@ -3,10 +3,6 @@ id: applications-databases-postgresql
 title: PostgreSQL DB
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Nov  2 2018 |
-
 ## Prerequisites
 
 #### Create a user dedicated on the server.
@@ -104,4 +100,3 @@ The following macros must be configured on services:
 | Time-Sync          | CRTICAL          | Critical Threshold                | 5                                       | 5                               |
 | Time-Sync          | ACTION           | The test determined by the plugin | timesync                                |                                 |
 | Time-Sync          | EXTRAEXCLUDE     | Database to exclude               | \--exclude=postgres,template0,template1 |                                 |
-

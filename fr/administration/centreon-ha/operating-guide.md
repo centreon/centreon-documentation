@@ -283,7 +283,7 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
     * Synchronisation NTP
 * Processus
     * Contrôle de l'état des processus `crond`, `chronyd`, `rsyslogd`
-    * Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
+    * Contrôles de l'état des processus `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php73-php-fpm`
 
 ### Supervision applicative
 

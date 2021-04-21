@@ -3,10 +3,6 @@ id: network-efficientip-snmp
 title: Efficienti IP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Apr 25 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Efficientip-SNMP-custom |
 
 Click on the *Save* button.
-

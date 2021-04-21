@@ -3,10 +3,6 @@ id: cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.2 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | PROMETHEUSAPIPROTO    | Protocol used by API              | http          |
 
 Click on the *Save* button.
-

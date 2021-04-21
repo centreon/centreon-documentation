@@ -3,18 +3,17 @@ id: introduction
 title: Introduction to Centreon MAP
 ---
 
-> This documentation is only available in **english** for now
+The graphical view capabilities in Centreon relies on the **Centreon MAP**
+extension.
 
-The graphical view capabilities in Centreon relies on the **Centreon MAP** extension.
-
-> Centreon MAP is a Centreon **extension** that requires a valid license key. To
-> purchase one and retrieve the necessary repositories, contact
+> Centreon MAP is a Centreon **extension** that requires a valid license
+> key. To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
-Centreon MAP is a data-mapping and visualization tool designed for IT Operations
-management (ITOM) administrators and developers. It is capable of displaying
-efficient graphic insights and mapping correlated data in customized
-user-relevant views.
+Centreon MAP is a data-mapping and visualization tool designed for IT
+Operations management (ITOM) administrators and developers. It is
+capable of displaying efficient graphic insights and mapping correlated
+data in customized user-relevant views.
 
 Create logical views using the Desktop client...
 
@@ -31,6 +30,6 @@ over a city, country or world.
 
 Both types of views may be displayed in the same Centreon web user interface:
 
-  - Either from the Centreon MAP dedicated user interface, which also includes a
-    search facility
-  - Or within a Custom View, using the dedicated Centreon MAP widget
+- Either from the Centreon MAP dedicated user interface, which also includes a
+  search facility
+- Or within a Custom View, using the dedicated Centreon MAP widget

@@ -3,10 +3,6 @@ id: network-cisco-standard-ssh
 title: Cisco Standard SSH
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Jul 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | Net-Cisco-Standard-SSH-custom |
 
 Click on the *Save* button.
-
