@@ -202,7 +202,7 @@ gauche de la ligne. Vous arrivez sur le formulaire de création pré-remplis :
 
 Modifez le nom du service puis cliquez sur le bouton **Save**.
 
-> Si la liste est vide, c'est que le calcul afin de déterminer les servies
+> Si la liste est vide, c'est que le calcul afin de déterminer les services
 > intéressant n'a pas encore démarré.
 > 
 > Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
