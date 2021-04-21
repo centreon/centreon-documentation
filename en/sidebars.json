@@ -440,6 +440,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
+                    "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
                     "integrations/plugin-packs/procedures/cloud-azure-network-firewall",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
