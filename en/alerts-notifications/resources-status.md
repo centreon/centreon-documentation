@@ -227,7 +227,18 @@ You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
-The "Display events" switch allows you to display some timeline events (Downtime, Acknowledgement, Comment) directly on the graph, via annotations:
+Graphs display metric evolution over a given period of time. This can be defined in the following ways:
+- A selection of preconfigured periods is available in the graph header: 
+
+    [Last Day | Last 7 Days | Last 31 Days]
+- Datetime pickers are available for Start and End points in time. Anytime the displayed period changes, this element is updated accordingly
+- Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (respectively backward and forward in time)
+- Selecting a period of time within the graph will zoom in on this period
+
+![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
+
+
+The "Display events" toggle (available under the **gear** button) allows you to display some timeline events (Downtime, Acknowledgement, Comment) directly on the graph, via annotations:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
