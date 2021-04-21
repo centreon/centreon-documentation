@@ -11,6 +11,21 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 > **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
 
+### Network Flows
+
+In addition of necessary flows describe on the [official documentation](../../architectures.html#tables-of-network-flows),
+you will need to open the following flows:
+
+| From                      | Destination               | Protocol | Port     | Application                                  |
+| :------------------------ | :------------------------ | :------- | :------- | :------------------------------------------- |
+| Central Servers           | Central Servers           | SSH      | TCP 22   | Synchronization of configuration files       |
+| Central Servers           | Central Servers           | BDDO     | TCP 5670 | RRDs synchronization                         |
+| Central Servers           | Central Servers           | MySQL    | TCP 3306 | MySQL synchronization                        |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast) |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)   |
+| Central Servers + QDevice | Central Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster             |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice               |
+
 ### Installed Centreon platform
 
 A Centreon HA cluster can only be installed on base of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
@@ -141,11 +156,11 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
+Centreon offers a package named `centreon-ha-web`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
 
 ```bash
 yum install epel-release
-yum install centreon-ha pcs pacemaker corosync corosync-qdevice
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
@@ -314,8 +329,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-When upgrading to centreon-ha from an existing Centreon platform or an OVA VM
-deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
+When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 

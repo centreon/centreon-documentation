@@ -9,6 +9,22 @@ title: Installation d'un cluster à 4 nœuds
 
 Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
 
+### Flux réseaux
+
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../../architectures.html#tables-of-network-flows)
+Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
+
+| Source                            | Destination                       | Protocole | Port     | Commentaires                                  |
+| :-------------------------------- | :-------------------------------- | :-------- | :------- | :-------------------------------------------- |
+| Serveurs Centraux                 | Serveurs Centraux                 | SSH       | TCP 22   | Synchronisation des fichiers de configuration |
+| Serveurs Centraux                 | Serveurs Centraux                 | BDDO      | TCP 5670 | Synchronisation des RRDs                      |
+| Serveurs BDD                      | Serveurs BDD                      | MySQL     | TCP 3306 | Synchronisation MySQL                         |
+| Serveurs BDD                      | Serveurs BDD                      | SSH       | TCP 22   | Synchronisation MySQL                         |
+| Serveurs Centraux + BDD + QDevice | Serveurs Centraux + BDD + QDevice | Corosync  | UDP 5404 | Communication au sein du cluster (Multicast)  |
+| Serveurs Centraux + BDD + QDevice | Serveurs Centraux + BDD + QDevice | Corosync  | UDP 5405 | Communication au sein du cluster (Unicast)    |
+| Serveurs Centraux + BDD + QDevice | Serveurs Centraux + BDD + QDevice | PCS       | TCP 2224 | Communication au sein du cluster              |
+| Serveurs Centraux + BDD + QDevice | Serveurs Centraux + BDD + QDevice | Corosync  | TCP 5403 | Communication avec le qdevice                 |
+
 ### Installation de Centreon
 
 L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../../installation/introduction.html)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
@@ -154,11 +170,22 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur l'ensemble des noeuds :
+Centreon propose les paquets `centreon-ha-common` et `centreon-ha-web`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon.
+
+#### Serveurs Centraux
+
+Ces paquets sont à installer sur l'ensemble les 2 Serveurs Centraux :
 
 ```bash
 yum install epel-release
-yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+#### Serveurs Base de données
+
+```bash
+yum install epel-release
+yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 ### Échanges de clefs SSH

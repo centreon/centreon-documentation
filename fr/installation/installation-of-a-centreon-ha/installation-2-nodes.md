@@ -11,6 +11,21 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 > **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable de toute détérioration ou perte de données.
 
+### Flux réseaux
+
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../../architectures.html#tables-of-network-flows)
+Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
+
+| Source                      | Destination                 | Protocole | Port     | Commentaires                                  |
+| :-------------------------- | :-------------------------- | :-------- | :------- | :-------------------------------------------- |
+| Serveurs Centraux           | Serveurs Centraux           | SSH       | TCP 22   | Synchronisation des fichiers de configuration |
+| Serveurs Centraux           | Serveurs Centraux           | BDDO      | TCP 5670 | Synchronisation des RRDs                      |
+| Serveurs Centraux           | Serveurs Centraux           | MySQL     | TCP 3306 | Synchronisation MySQL                         |
+| Serveurs Centraux + QDevice | Serveurs Centraux + QDevice | Corosync  | UDP 5404 | Communication au sein du cluster (Multicast)  |
+| Serveurs Centraux + QDevice | Serveurs Centraux + QDevice | Corosync  | UDP 5405 | Communication au sein du cluster (Unicast)    |
+| Serveurs Centraux + QDevice | Serveurs Centraux + QDevice | PCS       | TCP 2224 | Communication au sein du cluster              |
+| Serveurs Centraux + QDevice | Serveurs Centraux + QDevice | Corosync  | TCP 5403 | Communication avec le qdevice                 |
+
 ### Installation de Centreon
 
 L'installation d'un cluster Centreon-HA ne peut se faire que sur la base d'une installation fonctionnelle de Centreon. Avant de suivre cette procédure, il est donc impératif d'avoir appliqué **[cette procédure d'installation](../../installation/introduction.html)** jusqu'au bout **en réservant environ 5GB de libre** sur le *volume group* qui contient  les données MariaDB (point de montage `/var/lib/mysql` par défaut). 
@@ -143,11 +158,11 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 ### Installation des paquets
 
-Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
+Centreon propose les paquets `centreon-ha-common` et `centreon-ha-web`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
 
 ```bash
 yum install epel-release
-yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
+yum install centreon-ha-common centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
 
 ### Échanges de clefs SSH
