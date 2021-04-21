@@ -104,7 +104,7 @@ La configuration doit se faire en 3 étapes :
 ### Activer l'envoi des données collectées vers Centreon Cloud
 
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
-cliquez sur le bouton **Add Anomaly Service** :
+cliquez sur le bouton **Create manually** :
 
 ![imaage](../assets/monitoring/anomaly/configure_01.png)
 
@@ -179,6 +179,41 @@ Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 
 Cliquez sur **Save** et [déployer la
 supervision](./monitoring-servers/deploying-a-configuration).
+
+### Utiliser l'assistant de création
+
+Depuis la version 20.10.1, il est possible d'utiliser l'assistant de création.
+En effet, cette nouvelle fonctionnalité permet de mettre en avant les services
+présentant soit une saisonnalité, soit une stabilité régulière.
+
+Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
+cliquez sur le bouton **Create from analysis**.
+
+La liste des services existant de votre plate-forme Centreon est affichée ainsi
+qu'un score en nombre d'étoiles : de 5 étoiles à 0, 5 étoiles représentant les
+services à fort potentiel :
+
+![imaage](../assets/monitoring/anomaly/configure_analysis_01.png)
+
+Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
+gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
+
+![imaage](../assets/monitoring/anomaly/configure_analysis_02.png)
+
+Modifez le nom du service puis cliquez sur le bouton **Save**.
+
+> Si la liste est vide, c'est que le calcul afin de déterminer les services
+> intéressant n'a pas encore démarré.
+> 
+> Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
+> `gorgoned` (définit dans le fichier **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml**).
+> 
+> Il est possible de lancer le premier calcul manuellement via la commande
+> suivante depuis le serveur Centreon central :
+> ```shell
+> su - centreon
+> perl /usr/share/centreon/bin/anomaly_detection --seasonality
+> ```
 
 ## Visualiser les anomalies détectées
 
