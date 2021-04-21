@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
     }
     const regexp = new RegExp('/' + version + '/', 'g');
     const selected = currentUrl.match(regexp) ? 'selected' : '';
-    selectHtml += '<option value="' + versionHref + '" ' + selected + '>' + version + ((version === '20.10') ? ' (current)':'') + '</option>';
+    selectHtml += '<option value="' + versionHref + '" ' + selected + '>' + version + ((version === '21.04') ? ' (current)':'') + '</option>';
   });
 
   selectHtml += '<option value="' + olderUrl + '">Older</option>';
