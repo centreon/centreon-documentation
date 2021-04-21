@@ -183,7 +183,7 @@ Main options:
 Log options:
 
   - Log directory
-    Path where the log file must be created.
+    Path where the log file will be created.
 
   - Log filename	
     Name of the log file. Default is <name of this broker configuration entry>.log
