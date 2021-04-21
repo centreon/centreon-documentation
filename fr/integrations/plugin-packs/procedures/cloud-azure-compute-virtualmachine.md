@@ -29,7 +29,7 @@ By installing the plugin, some perl depencies will be installed :
 
 The login and access token handling will be made by the plugin itself.
 
-> You are using a proxy? Add this non-mandatory dependency to your central server and all the pollers that will perform discovery using a proxy. 
+> You are using a proxy? Add this optional dependency to your central server and all the pollers that will perform discovery using a proxy. 
 >
 > `yum install perl-LWP-Protocol-connect̀`
 
