@@ -196,7 +196,7 @@ services à fort potentiel :
 ![imaage](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
-gauche de la ligne. Vous arrivez sur le formulaire de création pré-remplis :
+gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 
 ![imaage](../assets/monitoring/anomaly/configure_analysis_02.png)
 
