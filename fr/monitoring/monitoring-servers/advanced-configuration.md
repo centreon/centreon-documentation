@@ -190,7 +190,7 @@ Log options:
     
   - Maximum files size (in bytes)
     A value different from zero will cause the creation of a new numbered log
-    file as soon as the maximum size is reached. Recommanded value is `0`.
+    file as soon as the maximum size is reached. Recommended value is `0`.
     
   - core	
     Log level for `core` log messages, the main logs of centreon-broker.
