@@ -157,24 +157,25 @@ Several actions can be done on jobs:
   - Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
   - If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
   - And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
+  - And the most important, access the result of the discovery task <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
 
 ## Analyse a discovery job result
 
-From the `Configuration > Hosts > Discovery` menu, click on a *Finished* job to
-visualize the result.
+  - From the `Configuration > Hosts > Discovery` menu, click on the arrow <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
+of a *Finished* job to visualize the result.
 
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-The mappers linked to this job can be edited and applied directly on the result
+  - The mappers linked to this job can be edited and applied directly on the result
 by clicking the edit action <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
-Select the hosts you want to add to the configuration and click on the save
+  - Select the hosts you want to add to the configuration and click on the save
 action <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
-A task will be launched in background to save the hosts and create the services
-linked to host templates.
+The hosts will then be created as well as the services linked to their host 
+templates.
 
-Go to the `Configuration > Hosts` menu to see the newly created hosts.
+  - Go to the `Configuration > Hosts` menu to see the newly created hosts.
 
 ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -183,27 +184,30 @@ job listing and see if an error occured during the saving task.
 
 ## Edit a discovery job
 
-From the `Configuration > Hosts > Discovery` menu, click on the *Edit* action.
+  - From the `Configuration > Hosts > Discovery` menu, click on the *Edit* action.
 
 ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
-On the panel on the right, every parameters of the job can be edited.
+  - On the panel on the right, every parameters of the job can be edited.
 
 Edition of the *mapper* will have a direct effect on the job result.
 
-Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+  - Click on the *Save* icon <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
 
 ## How to use the *mappers*
 
 A *mapper* is an object letting you map an attribute's value of a discovered
 item to a property of a future host.
 
-There is six types of *mappers*:
+There are nine types of *mappers*:
 
-  - Association: map an attribute's value to a common host property like name,
+  - Property: map an attribute's value to a common host property like name,
     alias or IP,
   - Macro: map an attribute's value to a host custom macro,
   - Template: add a host template,
+  - Host group: link the host to a group,
+  - Host category: categorize the host,
+  - Host severity: prioritize the host according to a severity,
   - Monitoring: choose from which monitoring server will be monitored the host,
   - Exclusion: exclude a subset of hosts based on their attributes (see the
     [example](#dynamically-update-your-configuration) below),
@@ -221,6 +225,11 @@ contain.
 The list of attributes depends on the provider and are listed as *Source* for
 both *mappers* and conditions.
 
+> From version 21.04, mappers *Property*, *Macro*, *Host group* and *Host category*
+ support concatenating either discovery attributes or custom strings.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
+
 ### Add a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
@@ -233,16 +242,16 @@ Click on **SAVE** to add the *mapper*.
 
 ### Edit a *mapper*
 
-From the job wizard at step four, or from the edition panel in the *Mappers*
+  - From the job wizard at step four, or from the edition panel in the *Mappers*
 section, click on the *Edit* icon <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
-Change any fields wanted or even the type of *mapper*.
+  - Change any fields wanted or even the type of *mapper*.
 
-Click on **SAVE** to save the *mapper*.
+  - Click on **SAVE** to save the *mapper*.
 
 ### Delete a *mapper*
 
-From the job wizard at step four, or from the edition panel in the *Mappers*
+  - From the job wizard at step four, or from the edition panel in the *Mappers*
 section, click on the *Delete* icon <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
 
 A popin window will ask you to confirm the action.
@@ -251,12 +260,12 @@ Click on **DELETE** to delete the *mapper*.
 
 ## *Mappers* types
 
-### Association
+### Property
 
-The **Association** *mapper* is used to set common properties of a host like
+The **Property** *mapper* is used to set common properties of a host like
 its name, alias or IP address. Those three properties are mandatory.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-association.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
 
 The *Source* listing allows to choose between credentials, parameters or
 discovery result attributes.
@@ -288,6 +297,64 @@ replace method.
 
 The *Host template* listing allows to choose among all host templates defined
 in the configuration.
+
+### Host group
+
+From version 21.04, the discovered hosts can be linked to host groups. There
+are two ways of doing it.
+
+#### Select an existing host group
+
+The first way is to link the hosts to an existing host group. Just pick a host
+group in the scrolling menu.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+
+#### Create host groups on-the-fly
+
+The second way is to create the host group on-the-fly. Both custom strings and
+discovery attributes can be used and concatenated to compose the host group's
+name.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+
+In this example, when discovering Linux servers, the `os-linux` host group will
+be created.
+
+Of course, if a host group already exists with the same name, it won't be 
+created again, the host will simply be linked to it.
+
+### Host category
+
+From version 21.04, the discovered hosts can also be categorized using host 
+categories. Again, there are two ways of doing it.
+
+#### Select an existing host category
+
+The first way is to link the hosts to an existing host category. Just pick a host
+category in the scrolling menu.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
+
+#### Create host categories on-the-fly
+
+The second way is to create the host category on-the-fly. Both custom strings
+and discovery attributes can be used and concatenated to compose the host 
+category's name.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
+
+Of course, if a host category already exists with the same name, it won't be 
+created again, the host will simply be linked to it.
+
+### Host severity
+
+Still from version 21.04, discovered hosts can also be prioritized using host
+severities. Since severities are not just a simple label but also have a 
+numeric level, they can't be created on-the-fly, and can only be picked in the
+scrolling menu.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
 
 ### Monitoring
 
