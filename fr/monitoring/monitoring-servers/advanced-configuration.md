@@ -182,7 +182,56 @@ Main options:
 
 Log options:
 
-  - Write timestamp  
+  - Log directory
+    Path where the log file must be created.
+
+  - Log filename	
+    Name of the log file. Default is <name of this broker configuration entry>.log
+    
+  - Maximum files size (in bytes)
+    A value different from zero will cause the creation of a new numbered log
+    file as soon as the maximum size is reached. Recommanded value is `0`.
+    
+  - core	
+    Log level for `core` log messages, the main logs of centreon-broker.
+    
+  - config
+    Log level for `config` log messages.
+    Useful to troubleshoot configuration handling issues.
+    
+  - sql
+    Log level for `sql` log messages.
+    Useful to troubleshoot database queries issues.
+    
+  - processing
+    Log level for `processing` log messages. You shouldn't change it unless 
+    you known what you are looking for.
+    
+  - perfdata
+    Log level for `perfdata` log messages.
+    Useful to troubleshoot performance data processing issues.
+    
+  - bbdo
+    Log level for `bbdo` log messages.
+    Useful to troubleshoot [broker binary data objects](../../developer/developer-broker-bbdo.html) issues.
+    
+  - tcp
+    Log level for `tcp` log messages.
+    Useful to troubleshoot network related issues.
+    
+  - tls
+    Log level for `tls` log messages.
+    Useful to troubleshoot TLS encryption issues.
+    
+  - lua
+    Log level for `lua` log messages.
+    Useful to troubleshoot [Lua Stream Connectors](../../developer/developer-broker-stream-connector.html) issues.
+    
+  - bam
+    Log level for `bam` log messages.
+    Useful to troubleshoot [Business Activity Monitoring](../../service-mapping/introduction.html) issues.
+
+  - Write timestamp (applies to the [deprecated loggger options](#broker-logger-configuration-page-deprecated))
     If activated, each log entry is preceded by the timestamp of the time it was
     written down. This is useful to know when an error occured. Best practice is
     'Yes'.
@@ -282,7 +331,7 @@ parameters:
 To reiterate, TCP *Input* can either listen on a given port or can attempt to
 initiate a connection if a host is given. This allow flexible network topology.
 
-### Broker Logger Configuration Page
+### Broker Logger configuration page (deprecated)
 
 This section lists all the loggers activated for this instance of Centreon
 Broker. Centreon Broker can have as many loggers as needed.
