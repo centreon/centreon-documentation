@@ -3,7 +3,7 @@ id: introduction
 title: Centreon Platform 21.04.0
 ---
 
-Release date: October 21, 2021
+Release date: April 21, 2021
 
 You'll find in this chapter the global **Centreon Platform 21.04** release
 note.

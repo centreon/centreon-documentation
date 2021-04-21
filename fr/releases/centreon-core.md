@@ -35,7 +35,7 @@ If you have feature requests or want to report a bug, please go to our
     - Added zoom feature via in-graph selection
     - Added time translation to move forward and backward (by half the displayed period)
     - Added option to display events (downtimes, acknowledgements, etc.) within graph
-    - Removed metrics values within tootips
+    - Removed metrics values within tooltips
     - Added metrics values display in legend on graph hover
     - Added metrics mean, max and average display in legend otherwise
 
