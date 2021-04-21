@@ -48,6 +48,13 @@ systemctl disable firewalld
 > Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
 > pour configurer le pare-feu.
 
+### Nom du serveur
+
+Définissez le nom du serveur à l'aide de la commande suivante:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ### Installer les dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -136,19 +143,19 @@ yum install -y centreon-poller-centreon-engine
 
 Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivant :
-
 ```shell
 systemctl enable centengine centreontrapd snmptrapd
 ```
 
 Les services de supervision passive peuvent être démarrés :
-
 ```shell
 systemctl start centreontrapd snmptrapd
 ```
 
-> Le service de supervision active sera démarré suite à la génération de sa
-> configuration.
+Redémarrez Centreon Engine :
+```shell
+systemctl restart centengine
+```
 
 ## Enregistrer le serveur
 

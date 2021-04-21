@@ -110,29 +110,41 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
+### Server name
+
+Define the server name using following command:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ## Update the system
 
 Connect to your server using a terminal, and execute the command:
-
-``` shell
+```shell
 yum update
 ```
 
 > Accept all GPG keys if you are prompted
 
 Then restart your server with the following command:
-
-``` shell
+```shell
 reboot
 ```
 
-After the machine has been rebooted, enable the services to allow
-centengine to be running on startup.
-
-``` shell
-systemctl enable centreon centengine
+After the machine has been rebooted, enable the services to allow centengine to be running on startup.
+```shell
+systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
+Passive monitoring services can be started:
+```shell
+systemctl start centreontrapd snmptrapd
+```
+
+Restart Centreon Engine:
+```shell
+systemctl restart centengine
+```
 ## Register the server
 
 To register it to the Centreon Central server or a Remote server, execute the following command:

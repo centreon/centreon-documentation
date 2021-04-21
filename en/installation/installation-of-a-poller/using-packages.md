@@ -44,6 +44,13 @@ systemctl disable firewalld
 
 > You can find instructions [here](../../administration/secure-platform.html#enable-firewalld) to configure firewalld.
 
+### Server name
+
+Define the server name using following command:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -133,19 +140,19 @@ yum install -y centreon-poller-centreon-engine
 
 To make services start automatically during system bootup, run the following
 command:
-
 ``` shell
 systemctl enable centengine centreontrapd snmptrapd
 ```
 
 Passive monitoring services can be started:
-
 ```shell
 systemctl start centreontrapd snmptrapd
 ```
 
-> Active monitoring service will be started following the generation of its
-> configuration.
+Restart Centreon Engine:
+```shell
+systemctl restart centengine
+```
 
 ## Register the server
 

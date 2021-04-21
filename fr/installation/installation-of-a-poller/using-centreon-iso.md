@@ -109,26 +109,40 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ![image](../../assets/installation/18_reboot_server.png)
 
+## Nom du serveur
+
+Définissez le nom du serveur à l'aide de la commande suivante:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
-
-``` shell
+```shell
 yum update
 ```
 
 > Acceptez toutes les clés GPG proposées.
 
-Redémarrez votre système avec la commande:
-
-``` shell
+Redémarrez votre système avec la commande :
+```shell
 reboot
 ```
 
-Activer le service centengine pour le rendre actif au démarrage.
-
+Activer le service centengine pour le rendre actif au démarrage :
 ```shell
-systemctl enable centreon centengine
+systemctl enable centreon centengine centreontrapd snmptrapd
+```
+
+Les services de supervision passive peuvent être démarrés :
+```shell
+systemctl start centreontrapd snmptrapd
+```
+
+Redémarrez Centreon Engine :
+```shell
+systemctl restart centengine
 ```
 
 ## Enregistrer le serveur

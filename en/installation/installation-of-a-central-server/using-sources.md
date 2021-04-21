@@ -682,6 +682,38 @@ mv * /usr/lib/centreon/plugins/
 
 Please install Centreon Gorgone using [this procedure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
+### Secure MySQL installation
+
+If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
+before installing Centreon.
+
+> Answer NO to any question EXCEPT the ones listed below:
+
+```shell
+mysql_secure_installation
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+[...]
+Change the root password? [Y/n] y
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+... Success!
+[...]
+Reload privilege tables now? [Y/n] y
+... Success!
+```
+
+> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+## Server name
+
+Define the server name using following command:
+```shell
+hostnamectl set-hostname new_server_name
+```
+
 ## Centreon
 
 Download the latest version from the [Centreon download web site](https://download.centreon.com)
