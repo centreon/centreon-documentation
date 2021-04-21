@@ -211,7 +211,11 @@ the panel and the header will be accordingly colored.
 
 #### Graph
 
-The graph tab enables you to visually display how the metrics evolves for the selected resource. Hovering the metric curves will display a tooltip containing the different values for the corresponding point in time.
+The graph tab enables you to visually display how the metrics evolve for the selected resource. 
+
+Hovering over the metric curves will display under the graph's title the precise time and also display within the legend the different values for that same point in time.
+
+![image](../assets/alerts/resources-status/resources-status-graph-values-in-legend.gif)
 
 It's possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will select all of them:
 
