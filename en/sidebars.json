@@ -972,6 +972,9 @@
                 "label": "Release notes by component",
                 "type": "subcategory"
             }
+        ],
+        "Resources": [
+            "resources/known-issues"
         ]
     }
 }
