@@ -37,7 +37,14 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- Les modificateurs *Association* se nomment désormais *Property*.
+- Possibilité de lier les hôtes découverts à des groupes d'hôtes, soit déjà existants, soit créés à la volée.
+- Possibilité de lier les hôtes découverts à des catégories d'hôtes, soit déjà existants, soit créés à la volée.
+- Possibilité de lier les hôtes découverts à des sévérités d'hôtes (déjà existantes).
+- Les modificateurs de type *Property*, *Host group*, *Host category* et *Macro* supportent la concaténation.
+- Changement de comportement pour aligner l'UX sur celle de la page de *Statut des ressources* : 
+    - Cliquer sur la ligne d'une tâche fait désormmais apparaître le panneau latéral de paramétrage de la tâche, et non plus les résultats de la tâche.
+    - Cliquer sur la flèche qui apparaît sur la ligne d'une tâche lorsqu'on y passe la souris permet d'accéder aux résultats de la tâche de découverte, c'est à dire afficher les hôtes découverts.
 
 ## Centreon Plugin Packs Manager
 
