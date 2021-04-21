@@ -454,6 +454,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-integration-servicebus",
                     "integrations/plugin-packs/procedures/cloud-azure-web-signalr",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-sqldmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
