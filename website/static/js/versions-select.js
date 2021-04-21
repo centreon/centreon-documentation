@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 window.addEventListener('load', () => {
-  const versions = ['20.10', '20.04'];
+  const versions = ['21.04', '20.10', '20.04'];
   const olderUrl = 'https://docs.centreon.com/older/index.html';
 
   // Add the version selector before the search bar
