@@ -71,7 +71,7 @@ luarocks install luatz
 These packages are necessary for the script to run. Now let's download the script:
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/pagerduty.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/pagerduty/pagerduty.lua
+wget -O /usr/share/centreon-broker/lua/pagerduty.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/pagerduty/pagerduty-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/pagerduty.lua
 ```
 

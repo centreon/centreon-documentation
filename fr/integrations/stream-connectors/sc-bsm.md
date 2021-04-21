@@ -48,7 +48,7 @@ luarocks install luaxml
 Ce paquet est nécessaire au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/bsm_connector.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/bsm/bsm_connector.lua
+wget -O /usr/share/centreon-broker/lua/bsm_connector.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/bsm/bsm_connector-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/bsm_connector.lua
 ```
 
