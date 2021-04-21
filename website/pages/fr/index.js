@@ -44,7 +44,7 @@ const stringsAndParagraphs = {
   },
   installationBlock: {
     title: `Installation`,
-    content1stPart: `Il existe plusieurs méthodes pour installer Centreon, depuis une ISO ou depuis une image OVA ou OVF. Dans tous les cas,`,
+    content1stPart: `Il existe plusieurs méthodes pour installer Centreon, depuis une ISO ou depuis une image OVA. Dans tous les cas,`,
     link: ` suivez pas à pas `,
     content2ndPart: `les étapes de ce chapitre.`,
   },

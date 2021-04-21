@@ -316,7 +316,9 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou déployée via une VM OVA/OVF, le mot de passe de l'utilisateur `'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
+Lorsque la solution centreon-ha est ajoutée à une plateforme Centreon existante ou
+déployée via une VM OVA, le mot de passe de l'utilisateur
+`'@MARIADB_CENTREON_USER@'@'localhost'` doit être mis à jour: 
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 

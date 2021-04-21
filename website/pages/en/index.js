@@ -44,7 +44,7 @@ const stringsAndParagraphs = {
   },
   installationBlock: {
     title: `Installing`,
-    content1stPart: `You may install Centreon from its ISO image or from an OVA or OVF file. Read this chapter and follow the`,
+    content1stPart: `You may install Centreon from its ISO image or from an OVA file. Read this chapter and follow the`,
     link: ` step-by-step procedure`,
     content2ndPart: `.`,
   },

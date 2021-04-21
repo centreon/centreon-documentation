@@ -20,47 +20,60 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 
 ## Installation rapide
 
-Pour configurer votre première plateforme Centreon, nous vous suggérons d'utiliser une machine virtuelle prête à l'emploi.
+Pour configurer votre première plateforme Centreon, nous vous suggérons d'utiliser
+une machine virtuelle prête à l'emploi.
 
 **Prérequis**
 
-Ces machines virtuelles sont disponibles au format OVA pour l'environnement VMware et OVF pour l'outil Oracle VirtualBox.
-Celles-ci sont basées sur le système d'exploitation **Linux CentOS 7** incluant une installation de Centreon permettant
-de démarrer en toute simplicité votre première supervision.
+Cette machine virtuelle est disponible au format OVA pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
+Celles-ci sont basées sur le système d'exploitation **Linux CentOS 7** incluant
+une installation de Centreon permettant de démarrer en toute simplicité votre
+première supervision.
 
 La machine virtuelle a besoin de :
 
-- Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait faire l'affaire.
-- Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go de RAM. Pour profiter pleinement de
-  l'expérience, vous avez besoin d'au moins 2 Go de mémoire libre.
-- Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre sur votre disque dur. Cependant, si
-  vous souhaitez continuer à utiliser Centreon, il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec
-  le temps.
+- Processeur. Tout processeur Intel ou AMD récent avec au moins 2vCPU devrait
+  faire l'affaire.
+- Mémoire. Selon vos systèmes d'exploitation, vous aurez besoin d'au moins 1 Go
+  de RAM. Pour profiter pleinement de l'expérience, vous avez besoin d'au moins
+  2 Go de mémoire libre.
+- Espace disque. La machine virtuelle nécessite au moins 6,5 Go d'espace libre
+  sur votre disque dur. Cependant, si vous souhaitez continuer à utiliser Centreon,
+  il est recommandé d'avoir au moins 10 Go car sa taille augmentera avec le temps.
 - Un accès Internet pour bénéficier de l'offre gratuite IT-100.
 
-> Pour une installation plus personnalisée, les prérequis complets sont disponibles [ici](../installation/prerequisites.html).
+> Pour une installation plus personnalisée, les prérequis complets sont disponibles
+[ici](../installation/prerequisites.html).
 
 ### Téléchargement
 
 Vous pouvez installer Centreon :
 
 - [A partir de l'ISO](../installation/installation-of-a-central-server/using-centreon-iso.html)
-- A partir des machines virtuelles prêtes à l'emploi :
+- A partir de la machine virtuelle prête à l'emploi :
 
-Les machines virtuelles sont disponibles sur notre site de [téléchargement Centreon](https://download.centreon.com).
+La machine virtuelle est disponible sur notre site de
+[téléchargement Centreon](https://download.centreon.com).
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--VMware environment-->
 \
-Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**. Parce que les sélections de menu sont
-liées à votre configuration VMWare, nous ne pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
-consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace libre que possible sur le disque.
+Accédez à **Fichier > Déployer le modèle OVF** et sélectionnez le **fichier OVA**.
+Parce que les sélections de menu sont liées à votre configuration VMWare, nous ne
+pouvons pas fournir plus d'informations. Sachez que la meilleure pratique
+consiste à utiliser l'option **Thin Provision** pour économiser autant d'espace
+libre que possible sur le disque.
 
 <!--Oracle Virtualbox-->
 \
-Extraire le contenu de l'archive et double-cliquez sur le **fichier OVF**. Suivez les instructions pour importer la
-machine virtuelle.
+Extraire le contenu de l'archive et double-cliquez sur le **fichier OVA**. Suivez
+les instructions pour importer la machine virtuelle.
+Editez la machine virtuelle et dans l'onglet **System** cocher la case
+**Hardware Clock in UTC Time**, puis cliquez sur **OK**.
+
+![image](../assets/installation/ova_vbox_use_hardware_clock.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

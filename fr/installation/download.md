@@ -5,10 +5,9 @@ title: Téléchargements
 
 De manière générale, les logiciels Open Sources fournis par Centreon sont disponibles sous 4 formats :
 
-* [ISO Linux basée sur la distribution CentOS 7](https://download.centreon.com) (recommandé)
-* [Paquets RPM pour les distribution CentOS / Oracle Linux / RHEL en versions 7 et 8](https://download.centreon.com) (recommandé)
-* [Machines virtuelles; basées sur les distributions CentOS 7](https://download.centreon.com), aux formats OVA (VMware)
-  et OVF (VirtualBox et autres).
+* [ISO Linux basée sur la distribution CentOS 7](https://download.centreon.com) (recommandé),
+* [Paquets RPM pour les distribution CentOS / Oracle Linux / RHEL en versions 7 et 8](https://download.centreon.com) (recommandé),
+* [Machine virtuelle basées sur les distributions CentOS 7](https://download.centreon.com),
 * [Archives contenant les sources](https://download.centreon.com).
 
 Les paquets RPM sont le meilleur format pour obtenir nos logiciels. Ces derniers ont été packagés par des experts
