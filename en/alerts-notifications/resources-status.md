@@ -215,13 +215,15 @@ The graph tab enables you to visually display how the metrics evolve for the sel
 
 Hovering over the metric curves will display under the graph's title the precise time and also display within the legend the different values for that same point in time.
 
+When the pointer is not hovering over curves, the legend displays Min, Max and Average values for each metric.
+
 ![image](../assets/alerts/resources-status/resources-status-graph-values-in-legend.gif)
 
-It's possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will select all of them:
+It's possible to select or deselect metrics to display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will select all of them:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding legend:
+You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding tile within the legend:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
