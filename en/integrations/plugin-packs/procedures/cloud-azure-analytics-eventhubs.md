@@ -30,7 +30,7 @@ The Centreon Plugin-Pack *Azure Event Hubs* includes a Host Discovery *provider*
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Event Hubs**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
