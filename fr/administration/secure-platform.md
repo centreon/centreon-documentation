@@ -37,6 +37,136 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 > Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.html#utilisateurs-et-groupes)
 
+## Activer SELinux
+
+Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
+des composants par le système d'exploitation.
+
+> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
+> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> problème, il est possible de désactiver SELinux globalement et de nous envoyer
+> vos commentaires afin d'améliorer nos règles sur
+> [Github](https://github.com/centreon/centreon).
+
+### Présentation de SELinux
+
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
+peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
+
+La stratégie d'accès standard basée sur l'utilisateur, le groupe et d'autres autorisations, connue sous le nom de
+contrôle d'accès discrétionnaire (DAC), ne permet pas aux administrateurs système de créer des stratégies de sécurité
+complètes et précises, telles que la restriction d'applications spécifiques à l'affichage uniquement des fichiers
+journaux, tout en permettant à d'autres applications d'ajouter de nouvelles données aux fichiers journaux.
+
+SELinux implémente le contrôle d'accès obligatoire (MAC). Chaque processus et ressource système possède une étiquette
+de sécurité spéciale appelée contexte SELinux. Un contexte SELinux, parfois appelé étiquette SELinux, est un identifiant
+qui fait abstraction des détails au niveau du système et se concentre sur les propriétés de sécurité de l'entité. Non
+seulement cela fournit un moyen cohérent de référencer des objets dans la stratégie SELinux, mais cela supprime également
+toute ambiguïté qui peut être trouvée dans d'autres méthodes d'identification. Par exemple, un fichier peut avoir plusieurs
+noms de chemin valides sur un système qui utilise des montages de liaison.
+
+La politique SELinux utilise ces contextes dans une série de règles qui définissent comment les processus peuvent
+interagir entre eux et avec les différentes ressources système. Par défaut, la stratégie n'autorise aucune interaction
+à moins qu'une règle n'accorde explicitement l'accès.
+
+Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
+
+### Activer SELinux en mode permissif
+
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
+vous devez modifier le fichier `/etc/selinux/config` comme tel que :
+
+```shell
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=permissive
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+
+Puis redémarrez votre serveur :
+```shell
+shutdown -r now
+```
+
+### Installer les paquets Centreon SELinux
+
+Suivant le type de serveur, installer les paquets avec la commande suivante :
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+   ```shell
+   yum install centreon-common-selinux \
+   centreon-web-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Poller-->
+   ```shell
+   yum install centreon-common-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Map server-->
+   ```shell
+   yum install centreon-map-selinux
+   ```
+<!--MBI server-->
+   ```shell
+   yum install centreon-mbi-selinux
+   ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Pour vérifier l'installation, exécutez la commande suivante :
+
+```shell
+semodule -l | grep centreon
+```
+
+Suivant votre type de serveur, vous pouvez voir :
+```shell
+centreon-broker	0.0.5
+centreon-common	0.0.10
+centreon-engine	0.0.8
+centreon-gorgoned	0.0.3
+centreon-plugins	0.0.2
+centreon-web	0.0.8
+```
+
+### Auditer les journaux et activer SELinux
+
+Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune erreur n'apparaît à l'aide de la
+commande suivante :
+```shell
+cat /var/log/audit/audit.log | grep -i denied
+```
+
+Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
+en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
+l'erreur en règles SELinux :
+
+```shell
+audit2allow -a
+```
+
+Exécutez ensuite les règles proposées.
+
+Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
+[procédure](#enable-selinux-in-permissive-mode) avec le mode **enforcing**.
+
+> N'hésitez pas à nous faire pas de vos retours sur [Github](https://github.com/centreon/centreon).
+
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
