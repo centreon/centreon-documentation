@@ -126,6 +126,7 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
     --critical-postured-endpoints='' \
     --warning-profiler-service-sessions='' \
     --critical-profiler-service-sessions='' \
+    --use-new-perfdata
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous :
