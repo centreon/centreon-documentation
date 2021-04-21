@@ -205,7 +205,7 @@ Log options:
     
   - processing
     Log level for `processing` log messages. You shouldn't change it unless 
-    you known what you are looking for.
+    you know what you are looking for.
     
   - perfdata
     Log level for `perfdata` log messages.
