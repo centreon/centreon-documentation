@@ -51,7 +51,6 @@ try {
       }
     }
 
-    /**
     stage('Release') {
       timeout(time: 1, unit: 'HOURS') {
         inputError = true
@@ -65,7 +64,7 @@ try {
         sh "./centreon-build/jobs/doc/21.04/doc-release.sh"
       }
     }
-    */
+ 
   }
 } catch(e) {
   if (!inputError) {
