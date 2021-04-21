@@ -357,7 +357,7 @@ saisie propose les informations disponibles).
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
 
-Bien sûr, si une catégprie d'hôtes existe déjà avec ce nom, elle ne sera pas 
+Bien sûr, si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas 
 recréé, l'hôte sera simplement rattaché à cette catégorie.
 
 ### Host severity
