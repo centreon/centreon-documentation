@@ -37,16 +37,14 @@ You can also disacknowledge previously acknowledged events by choosing the
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
-> Only "non-ok" resources can be acknowledged
-> You cannot acknowledge a resource already acknowledged
+> Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource already acknowledged
 
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
 The color of the line for acknowledged resources is changed
 to yellow.
 
-The acknowledgement can also be deleted to put the event back to the unhandled
-events and resume the notifications.
+The acknowledgement can also be deleted, in which case the event will be included again in the Unhandled Problems and its notifications will resume.
 
 ### Set a planned downtime
 
@@ -66,9 +64,8 @@ color of lines for resources with a planned downtime is changed to light purple.
 
 ### Refresh a status
 
-In many situations, you need to quickly re-check one or multiple service
-to refresh their status. You can set this planned downtime in Centreon
-in two ways:
+In many situations, you need to quickly re-check one or multiple services
+to refresh their status. This can be achieved in two ways:
 
 -   By directly clicking on the "Check" button on the line when the
     mouse is over
@@ -82,6 +79,7 @@ in two ways:
 In some cases, especially with so-called "passive" services, it can be useful
 to submit a result, i.e. a status, an output and metrics, in order to
 reset the event.
+This can be achieved using the "Submit Status" action, available when a single passive service is selected.
 
 ![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
@@ -112,7 +110,7 @@ It's possible to filter out the events by name of resources. You can use
 the power of regular expression mechanism to finely search for resources
 (host or services)
 
-By default, the search bar with look for your expression to match with:
+By default, the search bar will look for your expression to match with:
 
 -   Host name
 -   Host alias
@@ -122,7 +120,7 @@ By default, the search bar with look for your expression to match with:
 
 ![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
-It's possible to force search on a defined fields by using the following
+It's possible to force search on specific fields by using the following
 labels:
 
 -   h.name: only search in the host name field
@@ -138,25 +136,23 @@ labels:
 If pre-defined filter and the search bar are not enough, it's possible
 to expand the filter bar to access the following additionnal criteria:
 
--   Resource types (host or service)
--   Statuses (Ok,Warning, Critical, Unknown, Pending, Up, Down)
+-   Resource types (host, service or meta-service)
+-   Statuses (Ok, Warning, Critical, Unknown, Pending, Up, Down)
 -   States: Is the problem already acknowledged, in a planned downtime
     or simply unhandled
 -   Host groups
 -   Service groups
+-   Monitoring server: monitoring server (or poller) to which the resources are attached
 
-![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+You can use the **[+]** button on the left to select the set of criteria displayed.
 
-### Hide / show criterias
+![image](../assets/alerts/resources-status/resources-status-search-advanced.gif)
 
-It's also possible to manage the display of criterias (in order to display only the pertinent ones), by clicking on the "Select criterias" on the left hand-side:
-
-![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
 
 ### Save your filter
 
 You may create some "complex" filters that set you in a specific
-context, using multiple criterias and even complex regular expressions.
+context, using multiple criteria and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
 This is possible using the **gear icon** next to Filter. You'll be able to:
@@ -177,10 +173,12 @@ By clicking on the "Edit filters" menu, you can manage your existing filters (re
 
 ## Detail panel
 
-When you click on a line, a detail panel opens to display main information
+When you click on a line, a detail panel opens on the right side to display main information
 concerning the resource.
 
-Regarding the type of resource, the detail panel displays different information.
+The panel is extendable to the left up to 85% of your page width with its content responding to the changes in available space.
+
+Depending on the type of resource, the detail panel displays different information.
 
 ### Host panel
 
