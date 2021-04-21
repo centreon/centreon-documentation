@@ -24,11 +24,11 @@ dedicated built-in REST API.
 
 <!--Session-->
 
-| Metric name              | Description                             |
-|:-------------------------|:----------------------------------------|
-| sessions.active.count    | The number of active sessions           |
-| endpoints.postured.count | The number of postured endpoints        |
-| sessions.profiler.count  | The number of profiler service sessions |
+| Metric name              | Description                             | Unit  |
+|:-------------------------|:----------------------------------------|:------|
+| sessions.active.count    | The number of active sessions           | Count |
+| endpoints.postured.count | The number of postured endpoints        | Count |
+| sessions.profiler.count  | The number of profiler service sessions | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
