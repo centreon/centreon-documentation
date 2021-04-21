@@ -3,10 +3,6 @@ id: applications-haproxy-snmp
 title: Haproxy SNMP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.14 | `STABLE` | Mar  1 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | App-Haproxy-SNMP-custom    |
 
 Click on the *Save* button.
-

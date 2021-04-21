@@ -3,10 +3,6 @@ id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.4 | `STABLE` | Mar 27 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | OS-Windows-Nsclient-05-custom |
 
 Click on the *Save* button.
-

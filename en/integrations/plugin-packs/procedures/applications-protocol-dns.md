@@ -70,7 +70,6 @@ yum install centreon-pack-applications-protocol-dns
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Configuration
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".

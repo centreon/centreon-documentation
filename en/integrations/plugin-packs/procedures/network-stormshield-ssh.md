@@ -3,10 +3,6 @@ id: network-stormshield-ssh
 title: Stormshield SSH
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | Net-Stormshield-SSH-custom |
 
 Click on the *Save* button.
-

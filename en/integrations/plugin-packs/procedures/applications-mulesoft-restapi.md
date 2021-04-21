@@ -31,7 +31,6 @@ The Centreon Plugin and Plugin-Packs rely on the Mulesoft Anypoint Rest API to c
 | App-Mulesoft-Restapi-Server-Name         | Discover Anypoint servers and monitor their status                 |
 | App-Mulesoft-Restapi-Queue-Messages-Name | Discover Anypoint MQ queues and monitor the related messages count |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
@@ -79,9 +78,7 @@ More information about collected metrics is available in the official Mulesoft R
 | mulesoft.servers.status.running.count      | Number of running servers      |
 | mulesoft.servers.status.disconnected.count | Number of disconnected servers |
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Prerequisites
 
@@ -89,7 +86,6 @@ More information about collected metrics is available in the official Mulesoft R
 
 A service account with proper access in the right Mulesoft environment/organization has to be used.
 This account has to own the privileges to manage Applications, Servers, Clusters and Messages Queues on the designated environment.
-
 
 ## Installation
 
@@ -104,7 +100,6 @@ yum install centreon-plugin-Applications-Mulesoft-Restapi.noarch
 ```
 
 2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
-
 
 <!--Offline IMP License-->
 
@@ -122,9 +117,7 @@ yum install centreon-pack-applications-mulesoft-restapi.noarch
 
 3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mulesoft Anypoint* Plugin-Pack
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
-
 
 ## Configuration
 
@@ -139,7 +132,6 @@ Once the template applied, some Macros have to be configured:
 | (X)       | REGIONID    | Mulesoft MQ region ID to use (only mandatory for *messages* mode) |
 | X         | APIUSERNAME | API username                                                      |
 | X         | APIPASSWORD | API password (*password* type should be ticked)                   |
-
 
 ## FAQ
 
@@ -175,7 +167,6 @@ This command would trigger a WARNING alert if the returned status of the applica
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
 ```/usr/lib/centreon/plugins//centreon_mulesoft_restapi.pl --plugin=apps::mulesoft::restapi::plugin --mode=applications --help```
-
 
 ### How do I remove the *count* perfdatas if I want to filter on just one application ?
 

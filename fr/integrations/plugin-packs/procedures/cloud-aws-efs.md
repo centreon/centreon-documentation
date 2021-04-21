@@ -39,7 +39,6 @@ Vous pouvez vous renseigner en détails sur les métriques présentées ci-aprè
 | :------------------ | :-------------------------------------------------------------- |
 | ClientConnections   | The number of client connections to a file system. Unit: Count  |
 
-
 <!--Data Usage-->
 
 | Metric name        | Description                                                                                                                                                                                |
@@ -114,7 +113,6 @@ yum install centreon-pack-cloud-aws-efs.noarch
 
 3. Dans l'interface Web de Centreon, installer le Plugin-Pack 'Amazon EFS' depuis la page "Configuration > Plugin packs > Manager"
 
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
@@ -178,4 +176,3 @@ Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: N
 Cela signifie qu'Amazon Cloudwatch n'a pas consolidé de données sur la période.
 
 Vous pouvez ajouter ```--zeroed``` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNWON.
-

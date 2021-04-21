@@ -11,7 +11,7 @@ latest open source capabilities.
 ## Version number format: YY.MM
 
 Releases of Centreon are named according to the year and the month of delivery.
-For example, Centreon 20.10 was released in October 2020. All modules and
+For example, Centreon 21.04 was released in April, 2020. All modules and
 components of the Centreon software suite use the same versioning.
 
 ## Release cadence
@@ -37,12 +37,12 @@ The lifecycle of a version is divided into three phases:
 The first phase begins the lifecycle of the release.
 
 The second phase of a version begins when the next major version is available.
-For example, the release of Centreon 20.10 starts the second phase of Centreon
-20.04.
+For example, the release of Centreon 21.04 starts the second phase of Centreon
+20.10.
 
 The third phase of a version begins when the second next major version is
-available. For example, the release of Centreon 20.10 starts the third phase of
-Centreon 19.10 and the second phase of Centreon 20.04.
+available. For example, the release of Centreon 21.04 starts the third phase of
+Centreon 20.04 and the second phase of Centreon 20.10.
 
 This schema shows the Centreon lifecycle:
 

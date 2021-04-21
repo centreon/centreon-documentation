@@ -197,11 +197,4 @@ All plugin modes can be listed with the following command:
 If you get this message, you're probably facing one of theses issues:
 
 * Your SNMP server isn't started or misconfigured
-
 * An external device is blocking your request (firewall, ...)
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-This message generally means that SNMP privileges are not wide enough for the
-mode/plugin to work properly. The SNMP agent must be able to access the branch
-.1.3.6.1.4.1.12325.1.200.1.

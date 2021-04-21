@@ -3,10 +3,6 @@ id: cloud-azure-management-monitor
 title: Azure Monitor
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.3.0 | `STABLE` | Apr 18 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -130,4 +126,3 @@ Click on the *Save* button.
 Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics>
 to see the description of available metrics.
-

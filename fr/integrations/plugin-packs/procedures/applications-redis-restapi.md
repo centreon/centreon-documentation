@@ -3,10 +3,6 @@ id: applications-redis-restapi
 title: Redis Restapi
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.4 | `STABLE` | Jan 17 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -40,4 +36,3 @@ The following macros must be configured on host:
 | REDISPORT     | Redis server port     | 6379          |
 | REDISUSERNAME | Redis server username |               |
 | REDISPASSWORD | Redis server password |               |
-

@@ -3,10 +3,6 @@ id: applications-vmware-vcsa-restapi
 title: VMware VCSA RestAPI
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Oct 16 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -46,4 +42,3 @@ The following macros must be configured on host:
 | VCSAAPIPASSWORD | Password to access API   |               |
 
 Click on the *Save* button.
-

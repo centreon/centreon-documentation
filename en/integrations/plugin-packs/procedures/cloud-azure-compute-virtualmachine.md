@@ -3,10 +3,6 @@ id: cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.5.1 | `STABLE` | Oct 15 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -137,4 +133,3 @@ Click on the *Save* button.
 Go to
 <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines>
 to see the description of return metrics for this Azure service.
-

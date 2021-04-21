@@ -158,7 +158,7 @@ Centreon propose le paquet `centreon-ha`, qui fournit tous les scripts et les d�
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice 
 ```
 
 ### Échanges de clefs SSH
@@ -578,8 +578,9 @@ chmod 775 /var/log/centreon-engine/
 mkdir /var/log/centreon-engine/archives
 chown centreon-engine: /var/log/centreon-engine/archives
 chmod 775 /var/log/centreon-engine/archives/
-chmod 664 /var/log/centreon-engine/*
-chmod 664 /var/log/centreon-engine/archives/*
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
 - Découverte des services 
@@ -777,7 +778,7 @@ Les ressources clones sont des ressources actives sur les deux noeuds Centraux.
 
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php72-php-fpm \
+	systemd:rh-php73-php-fpm \
     meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
@@ -1019,3 +1020,8 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+## Intégrer des collecteurs
+
+Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.html) et commencer à superviser !
+

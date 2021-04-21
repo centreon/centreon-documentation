@@ -3,10 +3,6 @@ id: hardware-ups-powerware-snmp
 title: Powerware UPS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-UPS-Powerware-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: applications-protocol-ospf
 title: OSPF Protocol
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.9 | `STABLE` | Feb  6 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | App-Protocol-Ospf-custom   |
 
 Click on the *Save* button.
-

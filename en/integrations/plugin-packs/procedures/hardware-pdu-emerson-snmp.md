@@ -3,10 +3,6 @@ id: hardware-pdu-emerson-snmp
 title: Emerson PDU
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.0 | `STABLE` | Oct  4 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates              | HW-Pdu-Emerson-SNMP-custom |
 
 Click on the *Save* button.
-

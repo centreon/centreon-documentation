@@ -3,10 +3,6 @@ id: network-switchs-alcatel-omniswitch-6850
 title: Omniswitch 6850
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Mar 29 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Alcatel-OmniSwitch-6850-custom |
 
 Click on the *Save* button.
-

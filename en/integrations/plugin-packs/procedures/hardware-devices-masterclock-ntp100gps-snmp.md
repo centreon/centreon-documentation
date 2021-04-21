@@ -3,10 +3,6 @@ id: hardware-devices-masterclock-ntp100gps-snmp
 title: Masterclock NTP100GP
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.0 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -39,4 +35,3 @@ the following table:
 | Host Multiple Templates | HW-Device-Masterclock-Ntp100gps-SNMP-custom |
 
 Click on the *Save* button.
-

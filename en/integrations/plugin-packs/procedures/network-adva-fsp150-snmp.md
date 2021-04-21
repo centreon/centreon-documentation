@@ -81,7 +81,6 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Adva FSP 150 SNMP Centreon Plugin on every poller expected to monitor Adva resources:

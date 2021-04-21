@@ -3,10 +3,6 @@ id: network-netgear-mseries-snmp
 title: Netgear MSeries
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.1 | `STABLE` | Oct 28 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates | Net-Netgear-Mseries-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -161,4 +161,3 @@ When using a proxy to connect to the Commvault CommServe Rest API, this error me
 the proxy connection protocol.
 
 In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
-

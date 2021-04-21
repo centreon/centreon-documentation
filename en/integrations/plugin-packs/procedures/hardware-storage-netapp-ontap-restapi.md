@@ -119,7 +119,6 @@ yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template *HW-Storage-NetApp-Ontap-Restapi-custom* and configure all the Macros:
 
-
 | Mandatory   | Nom                    | Description                                                                |
 | :---------- | :--------------------- | :------------------------------------------------------------------------- |
 | X           | APIPORT                | Port used. Default is 443                                                  |

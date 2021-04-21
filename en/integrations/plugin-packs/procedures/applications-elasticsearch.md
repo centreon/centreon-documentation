@@ -3,10 +3,6 @@ id: applications-elasticsearch
 title: Elasticsearch (Deprecated)
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.15 | `DEPRECATED` | Jul 11 2019 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -67,4 +63,3 @@ The following macros must be configured on services:
 | URLPATH  | Path to connect to web inteface     | /             | /       |
 | WARNING  | Warning Thresold (number of nodes)  | 2:            | 2:      |
 | CRITICAL | Critical Thresold (number of nodes) | 1:            | 1:      |
-

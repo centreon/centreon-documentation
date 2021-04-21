@@ -142,7 +142,6 @@ yum install centreon-plugin-Applications-Bluemind-Ssh
 
 2. Install the monitoring templates from the Centreon Plugin-Pack on the "Configuration > Plugin packs > Manager" page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin package on every poller expected to monitor BlueMind servers:

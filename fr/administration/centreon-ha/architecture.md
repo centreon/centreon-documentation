@@ -106,7 +106,7 @@ Le tableau ci-dessous décrit l'ensemble des ressources Pacemaker :
 | ----------------------- | -------------------- | ---------------------------------------------------------- |
 | `ms_mysql`              | multi-state resource | Pilote le démarrage du processus `mysql` et la réplication |
 | `ms_mysql-master`       | location             | Spécifie où se situe le nœud MariaDB maître                |
-| `php7`                  | clone service        | Service FastCGI Process Manager `rh-php72-php-fpm`         |
+| `php7`                  | clone service        | Service FastCGI Process Manager `rh-php73-php-fpm`         |
 | `cbd_rrd`               | clone service        | Service Broker RRD `cbd`                                   |
 | `centreon`              | group                | Groupe centreon pour les 'primitive service'               |
 | `vip`                   | primitive service    | VIP pour centreon                                          |

@@ -10,7 +10,7 @@ title: Installer l'extension Centreon BAM
 ## Prerequisites
 
 La version de Centreon nécessaire au fonctionnement de Centreon BAM
-est la version **Centreon 20.10**
+est la version **Centreon 21.04**
 
 ## Installation
 
@@ -33,22 +33,18 @@ télécharger la via l'interface.
 
 ### Installation sur l'interface
 
-Se connecter sur l'interface web de Centreon en utilisant un compte
-ayant les droits d'installer des modules et se rendre dans le menu
-`Administration > Extensions > Gestionnaire`.
+Se rendre dans le menu `Administration > Extensions > Gestionnaire` et cliquez
+sur le bouton d'installation des modules suivantes :
 
-Cliquer sur l'icône d'installation correspondante au module **Centreon
-BAM** située dans la colonne Actions:
+- License Manager (si celui-ci n'est pas déjà installé)
+- Business Activity Monitoring
 
-![image](../assets/service-mapping/installation/install_module_1.png)
+![image](../assets/service-mapping/installation/install-web-step-1.png)
 
-Cliquer sur le bouton **Install module** :
+Une fois installé et la licence ajoutée, le module sera encadré en vert et
+indiquera la date de fin de validité de la licence :
 
-![image](../assets/service-mapping/installation/install_module_2.png)
-
-Cliquer sur "Back", le module est maintenant installé :
-
-![image](../assets/service-mapping/installation/install_module_4.png)
+![image](../assets/service-mapping/installation/install-web-step-2.png)
 
 > Si vous utilisez une réplication MariaDB pour vos bases de données de
 > **monitoring**, lors de l'installation de Centreon BAM, une vue est

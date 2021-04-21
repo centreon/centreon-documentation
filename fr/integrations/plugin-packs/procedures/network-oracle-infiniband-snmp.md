@@ -3,10 +3,6 @@ id: network-oracle-infiniband-snmp
 title: Oracle Infiniband
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | Apr 12 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | Net-Oracle-Infiniband-SNMP-custom |
 
 Click on the *Save* button.
-

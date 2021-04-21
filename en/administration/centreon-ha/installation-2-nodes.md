@@ -145,7 +145,7 @@ Centreon offers a package named `centreon-ha`, which provides all the needed fil
 
 ```bash
 yum install epel-release
-yum install centreon-ha
+yum install centreon-ha pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
@@ -545,8 +545,9 @@ chmod 775 /var/log/centreon-engine/
 mkdir /var/log/centreon-engine/archives
 chown centreon-engine: /var/log/centreon-engine/archives
 chmod 775 /var/log/centreon-engine/archives/
-chmod 664 /var/log/centreon-engine/*
-chmod 664 /var/log/centreon-engine/archives/*
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
 ```
 
 - Services discovery
@@ -743,7 +744,7 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php72-php-fpm \
+	systemd:rh-php73-php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
@@ -951,4 +952,8 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+## Integrating pollers
+
+You can now [add your pollers](integrating-pollers.html) and start monitoring!
 

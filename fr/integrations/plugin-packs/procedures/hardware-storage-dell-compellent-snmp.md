@@ -3,10 +3,6 @@ id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | HW-Storage-Dell-Compellent-SNMP-custom |
 
 Click on the *Save* button.
-

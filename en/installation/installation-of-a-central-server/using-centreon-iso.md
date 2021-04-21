@@ -3,6 +3,9 @@ id: using-centreon-iso
 title: Using Centreon ISO
 ---
 
+> If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
+> in version 8, you must [use RPM packages](./using-packages.html)
+
 ## Step 1: Startup the server
 
 To install Centreon, start up your server from the Centreon ISO image in version el7.
@@ -129,7 +132,7 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 ```shell
-systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ## Web installation

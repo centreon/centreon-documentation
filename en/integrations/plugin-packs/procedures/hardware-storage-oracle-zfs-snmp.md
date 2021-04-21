@@ -3,10 +3,6 @@ id: hardware-storage-oracle-zfs-snmp
 title: Oracle ZFS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `DEV` | Apr 20 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Oracle-Zfs-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -3,10 +3,6 @@ id: network-audiocodes-snmp
 title: AudioCodes
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.1.1 | `STABLE` | May  2 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | Net-Audiocodes-SNMP-custom |
 
 Click on the *Save* button.
-

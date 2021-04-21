@@ -12,7 +12,7 @@ Download the following [archive](http://blog.centreon.com/wp-content/uploads/201
 copy it on a Linux server.
 
 Execute the following commands:
-```Shell
+```shell
 unzip centreon-translation.zip
 cd centreon-translation
 ```
@@ -24,7 +24,7 @@ Your environment to translate Centreon is now ready.
 During the first generation, the script will clone Centreon sources from GitHub on your server.
 
 Execute the following command:
-```Shell
+```shell
 sh make-translation.sh
 ```
 
@@ -42,12 +42,12 @@ You can now start translation of Centreon by editing files with a PO file editor
 ## Use your translation
 
 On your Centreon server, install gettext:
-```Shell
+```shell
 sudo yum install gettext
 ```
 
 Create the locale directory for your Centreon:
-```Shell
+```shell
 sudo mkdir -p /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
 ```
 
@@ -58,29 +58,40 @@ locale.
 
 For example, for Brazilian users, execute the following command:
 ```Shell
-sudo mkdir -p /usr/share/centreon/www/locale/pt_BR/LC_MESSAGES
+sudo mkdir -p /usr/share/centreon/www/locale/pt_BR.UTF-8/LC_MESSAGES
 ```
 
 Compile translated files:
-```Shell
+```shell
 msgfmt messages.po -o messages.mo
 msgfmt help.pot -o help.mo
+php ./centreon-github/bin/centreon-translations.php pt centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.po centreon-github/lang/pt_BR.UTF-8/LC_MESSAGES/messages.ser
 ```
 
 Copy compiled translated files:
-```Shell
+```shell
 sudo cp *.mo /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
+sudo cp messages.ser /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`/LC_MESSAGES
 ```
 
 Change rights on directory:
-```Shell
+```shell
 sudo chown -R apache.apache /usr/share/centreon/www/locale/`locale | grep LC_MESSAGES | cut -d \" -f 2`
 ```
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Restart Apache:
-```Shell
-sudo service httpd24-httpd restart
+```shell
+systemctl restart httpd
 ```
+<!--CentOS 7-->
+Restart Apache:
+```shell
+systemctl restart httpd24-httpd
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Connect to your Centreon web interface, edit your profile and select new language:
 
 ![image](../assets/getting-started/change_language_2.png)
@@ -93,7 +104,7 @@ Centreon developers released every month a new version of Centreon Web. So trans
 release.
 
 To maintain translation up-to-date follow this steps:
-```Shell
+```shell
 sh make-translation.sh
 ```
 
@@ -103,7 +114,7 @@ At the end of execution, two files up-to-date are available:
 * help.pot to translate help tooltips in configuration forms
 
 Merge this files with previous translation (messages.po and help.po):
-```Shell
+```shell
 msgmerge help.po help.pot -o new_help.po
 msgmerge messages.po messages.pot -o new_messages.po
 ```

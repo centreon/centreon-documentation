@@ -3,10 +3,6 @@ id: hardware-storage-dell-fluidfs-snmp
 title: Dell FluidFS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Aug 24 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -45,4 +41,3 @@ the following table:
 | Host Multiple Templates | HW-Storage-Dell-Fluidfs-SNMP-custom |
 
 Click on the *Save* button.
-

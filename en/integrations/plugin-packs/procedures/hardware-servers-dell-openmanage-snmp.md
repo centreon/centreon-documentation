@@ -3,10 +3,6 @@ id: hardware-servers-dell-openmanage-snmp
 title: Dell OpenManage
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.10 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 This chapter describes the prerequisites installation needed by plugins to run.
@@ -46,4 +42,3 @@ Those services were automatically created for this host:
 | :------ | :----------------------------- |
 | Ping    | Monitor host response time     |
 | Global  | Monitor Global hardware status |
-

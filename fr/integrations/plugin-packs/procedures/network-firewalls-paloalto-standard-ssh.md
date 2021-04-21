@@ -3,10 +3,6 @@ id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.0 | `STABLE` | Oct 25 2019 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -33,4 +29,3 @@ the following table:
 | Host Multiple Templates              | Net-PaloAlto-Standard-SSH-custom |
 
 Click on the *Save* button.
-

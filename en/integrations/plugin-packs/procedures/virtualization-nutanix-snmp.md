@@ -134,7 +134,6 @@ yum install centreon-plugin-Virtualization-Nutanix-Snmp
 
 2. Install the Nutanix plugin-pack on "Configuration > Plugin packs > Manager" Centreon Web UI page
 
-
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every poller expected to monitor Nutanix resources:

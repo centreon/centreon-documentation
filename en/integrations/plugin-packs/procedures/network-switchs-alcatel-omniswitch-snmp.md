@@ -3,10 +3,6 @@ id: network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.2.13 | `STABLE` | Oct 29 2018 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -51,4 +47,3 @@ the following table:
 | Host Multiple Templates              | Net-Alcatel-OmniSwitch-SNMP-custom |
 
 Click on the *Save* button.
-

@@ -65,7 +65,6 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 | issued_to          | Propriétaire de la licence               |         |
 | issue_date         | Date de concession de la licence         |         |
 
-
 <!--node-statistics-->
 
 | Métrique          | Description                                               | Unité   |

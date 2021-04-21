@@ -200,9 +200,3 @@ Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
 pas à contacter le pare-feu pfSence sur le port 161 (firewall
 ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
 correcte.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
-faire fonctionner le mode/plugin. L'agent SNMP doit pouvoir accéder à la branche 
-.1.3.6.1.4.1.12325.1.200.1.

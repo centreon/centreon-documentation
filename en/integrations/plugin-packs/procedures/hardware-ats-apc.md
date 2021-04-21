@@ -3,10 +3,6 @@ id: hardware-ats-apc
 title: APC ATS
 ---
 
-| Current version | Status | Date |
-| :-: | :-: | :-: |
-| 3.0.3 | `STABLE` | Jul 10 2017 |
-
 ## Prerequisites
 
 ### Centreon Plugin
@@ -37,4 +33,3 @@ the following table:
 | Host Multiple Templates | HW-ATS-Apc-SNMP-custom     |
 
 Click on the *Save* button.
-
