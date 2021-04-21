@@ -60,7 +60,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Google GSuite* applications:
 
 ```bash
-yum install centreon-plugin-centreon-plugin-Applications-Google-Gsuite-Api
+yum install centreon-plugin-Applications-Google-Gsuite-Api
 ```
 
 2. On the Centreon Web interface, install the *Google GSuite* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page

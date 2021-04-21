@@ -259,7 +259,7 @@ OK: Instance 'AUTOMATION01' Statistic 'total' Metrics Total Update Deployment Ru
 ```
 
 The command above checks the *jobs* of an Azure *Automation* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::managemen::automation::plugin --mode=jobs --custommode=api```).
+(```--plugin=cloud::azure::management::automation::plugin --mode=jobs --custommode=api```).
 This Automation instance is identified by its id (```--resource='SVC001ABCD'```) and the authentication parameters
 to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx'
 --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -274,7 +274,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_automation_api.pl \
-    --plugin=cloud::azure::managemen::automation::plugin \
+    --plugin=cloud::azure::management::automation::plugin \
     --mode=jobs \
     --help
 ```

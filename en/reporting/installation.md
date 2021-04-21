@@ -92,7 +92,7 @@ considerations.
 <!--CentOS 7-->
 - Centreon 21.04
 - Check that the parameter `date.timezone` is correctly configured in
-  `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
+  `/etc/opt/rh/rh-php73/php.ini` (same timezone displayed with the
   command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:

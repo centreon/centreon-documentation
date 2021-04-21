@@ -88,7 +88,7 @@ Every day, a script launched by a cron realizes the creation of missing tables
 or those in advance:
 
 ```text
-0 4 * * * centreon /opt/rh/rh-php72/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
+0 4 * * * centreon /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
 ```
 
 Sample partitioning **partitioning-data\_bin.xml** file:
@@ -135,7 +135,7 @@ The migration of the table is done by using the **-m** option and specifying the
 name of the table to migrate:
 
 ```shell
-/opt/rh/rh-php72/root/bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
+/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
 ```
 
 If the table migration is ok, the old table can be deleted with the following
