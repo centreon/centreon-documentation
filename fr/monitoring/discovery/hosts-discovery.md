@@ -162,24 +162,24 @@ Plusieurs actions peuvent être réalisées sur les tâches :
   - Ou même supprimées <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
   - Si la tâches est planifiée, elle peut être mise en pause <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
   - Et reprise <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
+  - Et le plus important, accéder aux résultats de la tâche de découverte <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
 
 ## Analyser le résultat d'une tâche
 
-Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur une tâche
-terminée to visualiser le resulat.
+  - Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur la flèche <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" /> 
+d'une tâche terminée pour en visualiser le resulat.
 
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-Les modificateurs liés à cette tâche peuvent être édités et appliqués
+  - Les modificateurs liés à cette tâche peuvent être édités et appliqués
 directement au résultat en cliquant sur le bouton d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
-Sélectionnez les hôtes que vous voulez ajouter à la configuration et cliquez
+  - Sélectionnez les hôtes que vous voulez ajouter à la configuration et cliquez
 sur le bouton d'enregistrement <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
-Une tâche sera lancée pour enregistrer les hôtes et créer les services liés aux
-modèles d'hote.
+Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hote.
 
-Allez au menu `Configuration > Hôtes` pour voir les hôtes nouvellement créés.
+  - Allez au menu `Configuration > Hôtes` pour voir les hôtes nouvellement créés.
 
 ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -189,30 +189,31 @@ survenue pendant la tâche d'enregistrement.
 
 ## Editer une tâche de découverte
 
-Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur l'icone
-d'édition.
+  - Depuis le menu `Configuration > Hôtes > Découverte`, cliquez dans la ligne 
+de la tâche.
 
-![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
-
-Depuis le panneau sur la droite, tous les paramètres d'une tâche peuvent être
+  - Depuis le panneau sur la droite, tous les paramètres d'une tâche peuvent être
 modifiés.
 
 L'édition des *modificateurs* aura un effet direct sur les résultats de la
 tâche.
 
-Cliquez sur l'icone de sauvegarde  <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+  - Cliquez sur l'icone de sauvegarde  <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
 
 ## Comment utiliser les *modificateurs*
 
 Un *modificateur* est un objet vous permettant de lier la valeur d'un
 attribut d'un item découvert à la propriété d'un futur hôte.
 
-Il y a six types de *modificateur* :
+Il y a neuf types de *modificateur* :
 
-  - Association: associe la valeur d'un attribut aux propriétés communes
+  - Property: associe la valeur d'un attribut aux propriétés communes
     d'un hôte comme son nom, son alias ou son adresse IP,
   - Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
   - Template: ajoute un modèle d'hôte,
+  - Host group: rattachement à un groupe d'hôtes,
+  - Host category: classification des hôtes par catégorie,
+  - Host severity: priorisation des hôtes par sévérité,
   - Monitoring: choisit depuis quel serveur de supervision l'hôte sera
     supervisé,
   - Exclusion: exclure un sous-ensemble des hôtes sur la base de leurs attributs,
@@ -230,7 +231,13 @@ peuvent être : *equal*, *not equal*, *contain* et *not contain*.
 La liste des attributs dépend du fournisseur et sont listés comme *Source* pour
 à la fois les *modificateurs* et les *conditions*.
 
-### AJouter un *modificateur*
+> Depuis la version 21.04, dans les modificateurs *Property*, *Macro*, *Host
+group* et *Host category* il est possible de concaténer un ou plusieurs
+de ces attributs avec une ou plusieurs chaines de caractères personnalisées.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
+
+### Ajouter un *modificateur*
 
 Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section *Modificateurs*, cliquez sur **+AJOUTER UN
@@ -243,16 +250,17 @@ Cliquez sur **ENREGISTRER** pour ajouter un *modificateur*.
 
 ### Editer un *modificateur*
 
-Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
-panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+  - Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
+le panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone 
+d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
 
-Modifiez n'importe quel champs ou le type de *modificateur* lui-même.
+  - Modifiez n'importe quel champs ou le type de *modificateur* lui-même.
 
-Cliquez sur **ENREGISTRER** pour enregistrer le *modificateur*.
+  - Cliquez sur **ENREGISTRER** pour enregistrer le *modificateur*.
 
 ### Supprimer un *modificateur*
 
-Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
+  - Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone de
 suppression  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
 
@@ -262,13 +270,13 @@ Cliquez sur **SUPPRIMER** pour supprimer le *modificateur*.
 
 ## Types de **modificateur**
 
-### Association
+### Property
 
-Le *modificateur* **Association** est utilisé pour définir les propriétés
+Le *modificateur* **Property** est utilisé pour définir les propriétés
 communes d'un hôte comme son nom, son alias ou son adresse IP. Ces trois
 propriétés sont obligatoires.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-association.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
 
 La liste des *Source* permet de choisir entre les données d'identification
 (credentials), les paramètres additionnels (parameters) ou les attributs
@@ -302,6 +310,65 @@ n'est pas un remplacement.
 
 La liste *Modèles d'hôte** permet de choisir parmis tous les modèles d'hôte
 définis dans la configuration.
+
+### Host group
+
+Depuis la version 21.04, il est possible de rattacher des hôtes découverts
+automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
+
+#### Sélection d'un groupe d'hôtes existant
+
+La première possibilité consiste à choisir un groupe d'hôtes déjà existant.
+Il suffit d'en sélectionner un dans le menu déroulant.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+
+#### Création de groupe d'hôtes à la volée
+
+La seconde consiste à composer un nom de groupe à partir de chaines de 
+caractères et/ou d'informations issues de la découverte (une aide à la 
+saisie propose les informations disponibles).
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+
+Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
+`os-linux` sera créé.
+
+Bien sûr, si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
+l'hôte sera simplement rattaché à ce groupe.
+
+### Host category
+
+Depuis la version 21.04, il est également possible de catégoriser les hôtes
+découverts automatiquement. Cela peut se faire de deux manières.
+
+#### Sélection d'une catégorie d'hôtes existante
+
+La première possibilité consiste à choisir une catégorie d'hôtes déjà existante.
+Il suffit d'en sélectionner une dans le menu déroulant.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
+
+#### Création de catégorie d'hôtes à la volée
+
+La seconde consiste à composer un nom de catégorie à partir de chaines de
+caractères et/ou d'informations issues de la découverte (une aide à la 
+saisie propose les informations disponibles).
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
+
+Bien sûr, si une catégprie d'hôtes existe déjà avec ce nom, elle ne sera pas 
+recréé, l'hôte sera simplement rattaché à cette catégorie.
+
+### Host severity
+
+Toujours depuis la version 21.04, il est également possible de hiérarchiser
+les hôtes découverts automatiquement à l'aide de sévérités d'hôtes. Les 
+sévérités étant constituées d'un nom et d'un niveau (numérique), celles-ci
+ne peuvent pas être créées à la volée. On ne proposera que la sélection
+d'une sévérité existante dans le menu déroulant.
+
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
 
 ### Monitoring
 
