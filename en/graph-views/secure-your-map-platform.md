@@ -181,7 +181,7 @@ Then, set the following parameters in MAP server configuration at
 `/etc/centreon-studio/studio-config.properties` :
 
 To set the communication protocol with Centreon server to HTTPS:
-```text
+```shell
 centreon.url=https://<server-address>
 ```
 
