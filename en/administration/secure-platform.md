@@ -346,7 +346,7 @@ openssl req -new -key centreon7.key -out centreon7.csr
 
 4. Creation of a private key for the certificate authority's certificate
 
-First, create a private key for this authority. We add the -des3 option to include a password. This password will be requested each time this key is used.
+First, create a private key for this authority. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
 ```text
 openssl genrsa -des3 2048 > ca_demo.key
 ```
