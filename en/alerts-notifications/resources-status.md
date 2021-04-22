@@ -16,7 +16,7 @@ monitored by Centreon.
 
 ![image](../assets/alerts/resources-status/resources-status-listing.png)
 
-It's possible to sort by the column of your choice.
+It's possible to add, remove and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
@@ -37,16 +37,14 @@ You can also disacknowledge previously acknowledged events by choosing the
 
 ![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
-> Only "non-ok" resources can be acknowledged
-> You cannot acknowledge a resource already acknowledged
+> Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource already acknowledged
 
 When a resource is acknowledged, the alert is not visible anymore in the
 "Unhandled problems" filter and notifications for this resource are stopped.
 The color of the line for acknowledged resources is changed
 to yellow.
 
-The acknowledgement can also be deleted to put the event back to the unhandled
-events and resume the notifications.
+The acknowledgement can also be deleted, in which case the event will be included again in the Unhandled Problems and its notifications will resume.
 
 ### Set a planned downtime
 
@@ -66,9 +64,8 @@ color of lines for resources with a planned downtime is changed to light purple.
 
 ### Refresh a status
 
-In many situations, you need to quickly re-check one or multiple service
-to refresh their status. You can set this planned downtime in Centreon
-in two ways:
+In many situations, you need to quickly re-check one or multiple services
+to refresh their status. This can be achieved in two ways:
 
 -   By directly clicking on the "Check" button on the line when the
     mouse is over
@@ -82,6 +79,7 @@ in two ways:
 In some cases, especially with so-called "passive" services, it can be useful
 to submit a result, i.e. a status, an output and metrics, in order to
 reset the event.
+This can be achieved using the "Submit Status" action, available when a single passive service is selected.
 
 ![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
@@ -112,7 +110,7 @@ It's possible to filter out the events by name of resources. You can use
 the power of regular expression mechanism to finely search for resources
 (host or services)
 
-By default, the search bar with look for your expression to match with:
+By default, the search bar will look for your expression to match with:
 
 -   Host name
 -   Host alias
@@ -122,7 +120,7 @@ By default, the search bar with look for your expression to match with:
 
 ![image](../assets/alerts/resources-status/resources-status-search-simple.png)
 
-It's possible to force search on a defined fields by using the following
+It's possible to force search on specific fields by using the following
 labels:
 
 -   h.name: only search in the host name field
@@ -138,25 +136,23 @@ labels:
 If pre-defined filter and the search bar are not enough, it's possible
 to expand the filter bar to access the following additionnal criteria:
 
--   Resource types (host or service)
--   Statuses (Ok,Warning, Critical, Unknown, Pending, Up, Down)
+-   Resource types (host, service or meta-service)
+-   Statuses (Ok, Warning, Critical, Unknown, Pending, Up, Down)
 -   States: Is the problem already acknowledged, in a planned downtime
     or simply unhandled
 -   Host groups
 -   Service groups
+-   Monitoring server: monitoring server (or poller) to which the resources are attached
 
-![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+You can use the **[+]** button on the left to select the set of criteria displayed.
 
-### Hide / show criterias
+![image](../assets/alerts/resources-status/resources-status-search-advanced.gif)
 
-It's also possible to manage the display of criterias (in order to display only the pertinent ones), by clicking on the "Select criterias" on the left hand-side:
-
-![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
 
 ### Save your filter
 
 You may create some "complex" filters that set you in a specific
-context, using multiple criterias and even complex regular expressions.
+context, using multiple criteria and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
 This is possible using the **gear icon** next to Filter. You'll be able to:
@@ -177,10 +173,12 @@ By clicking on the "Edit filters" menu, you can manage your existing filters (re
 
 ## Detail panel
 
-When you click on a line, a detail panel opens to display main information
+When you click on a line, a detail panel opens on the right side to display main information
 concerning the resource.
 
-Regarding the type of resource, the detail panel displays different information.
+The panel is extendable to the left up to 85% of your page width with its content responding to the changes in available space.
+
+Depending on the type of resource, the detail panel displays different information.
 
 ### Host panel
 
@@ -213,17 +211,34 @@ the panel and the header will be accordingly colored.
 
 #### Graph
 
-The graph tab enables you to visually display how the metrics evolves for the selected resource. Hovering the metric curves will display a tooltip containing the different values for the corresponding point in time.
+The graph tab enables you to visually display how the metrics evolve for the selected resource. 
 
-It's possible to select or deselect metrics for display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will select all of them:
+Hovering over the metric curves will display under the graph's title the precise time and also display within the legend the different values for that same point in time.
+
+When the pointer is not hovering over curves, the legend displays Min, Max and Average values for each metric.
+
+![image](../assets/alerts/resources-status/resources-status-graph-values-in-legend.gif)
+
+It's possible to select or deselect metrics to display using the legend. By clicking on a legend item, it will unselect all metrics other than this one. Clicking on a metric being the only one selected will select all of them:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding legend:
+You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding tile within the legend:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
 
-The "Display events" switch allows you to display some timeline events (Downtime, Acknowledgement, Comment) directly on the graph, via annotations:
+Graphs display metric evolution over a given period of time. This can be defined in the following ways:
+- A selection of preconfigured periods is available in the graph header: 
+
+    [Last Day | Last 7 Days | Last 31 Days]
+- Datetime pickers are available for Start and End points in time. Anytime the displayed period changes, this element is updated accordingly
+- Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (respectively backward and forward in time)
+- Selecting a period of time within the graph will zoom in on this period
+
+![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
+
+
+The "Display events" toggle (available under the **gear** button) allows you to display some timeline events (Downtime, Acknowledgement, Comment) directly on the graph, via annotations:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
