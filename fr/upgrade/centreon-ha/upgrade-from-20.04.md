@@ -1,9 +1,9 @@
 ---
 id: upgrade-centreon-ha-from-20-04
-title: Upgrade Centreon HA from Centreon 20.04
+title: Montée de version de Centreon HA depuis Centreon 20.04
 ---
 
-Ce chapitre décrit la procédure de montée de version de votre plate-forme
+Ce chapitre décrit la procédure de montée de version de votre plateforme
 Centreon HA depuis la version 20.04 vers la version 21.04.
 
 ## Prérequis
@@ -51,22 +51,29 @@ Mettez à jour l'ensemble des composants :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--HA 2 Nodes-->
+
 ```shell
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
 yum autoremove centreon-ha
 ```
+
 <!--HA 4 Nodes-->
+
+Sur les serveurs Centraux
 ```shell
-# On the Central Servers
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
 yum autoremove centreon-ha
-# On the Database Servers
+```
+
+Sur les serveurs de base de données :
+```shell
 yum update centreon\*
 yum install centreon-ha-common
 yum autoremove centreon-ha
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
@@ -106,7 +113,7 @@ pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATAB
 
 Une fois les mises à jour terminées sur les deux serveurs, il reste à appliquer la mise à jour via l'interface web en fermant la session en cours ou en rafraichissant la page de login.
 
-En parallèle, sur le central "esclave", il faut déplacer le répertoire "install" pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule et regénérer le cache Symfony :
+En parallèle, sur le central passif, il faut déplacer le répertoire "install" pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule et regénérer le cache Symfony :
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
@@ -125,13 +132,13 @@ rm /etc/cron.d/centreon-auto-disco
 
 ### Redémarrez les processus Centreon
 
-Redémarrez les processus sur le nœud Central maître:
+Redémarrez les processus sur le nœud Central actif:
 
 ```
 systemctl restart cbd centengine centreontrapd gorgoned
 ```
 
-Et sur le nœud "esclave":
+Et sur le nœud passif:
 
 ```bash
 systemctl restart cbd
@@ -158,7 +165,7 @@ dépôts stables.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
->**WARNING** les commandes suivantes de mise à jour vers Centreon doivent d'abord être exécutées sur le nœud de base de données maître. Une fois le nœud de base de données maître mis à jour en 10.05, vous pouvez mettre à jour le nœud de base de données "esclave".
+>**WARNING** les commandes suivantes de mise à jour vers Centreon doivent d'abord être exécutées sur le nœud de base de données actif. Une fois le nœud de base de données maître mis à jour en 10.05, vous pouvez mettre à jour le nœud de base de données passif.
 
 #### Montée de version de 10.3 à 10.4
 
@@ -254,9 +261,9 @@ si vous avez sécurisé votre serveur de base de données.
 #### Relancer la réplication MariaDB
 
 Suite à la mise à jour de MariaDB, la réplication MariaDB sera KO.
-Pour la relancer, exécutez la commande suivante sur le nœud de bases de données secondaire pour écraser ses données avec celles du serveur principal. 
+Pour la relancer, exécutez la commande suivante sur le nœud de bases de données passif pour écraser ses données avec celles du serveur actif. 
 
-Il faut donc lancer la commande suivante sur **le nœud de bases de données secondaire** :
+Il faut donc lancer la commande suivante sur **le nœud de bases de données passif** :
 
 ```bash
 systemctl stop mysql
@@ -274,7 +281,7 @@ Si un processus `mysqld` est toujours en activité, alors il faut lancer la comm
 mysqladmin -p shutdown
 ```
 
-Une fois que le service est bien arrêté sur **le nœud de bases de données secondaire**, lancer le script de synchronisation **depuis le nœud de bases de données principal** : 
+Une fois que le service est bien arrêté sur **le nœud de bases de données passif**, lancer le script de synchronisation **depuis le nœud de bases de données actif** : 
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
@@ -291,7 +298,7 @@ Position Status [OK]
 
 ### Suppression des fichiers "memory" de Broker
 
-> **WARNING** exécutez uniquement cette commande sur le nœud central secondaire.
+> **WARNING** exécutez uniquement cette commande sur le nœud central passif.
 
 Avant de manager de nouveau le cluster à l'aide de pcs, pour éviter des problèmes
 liés au changement de version majeure, supprimer tous les fichiers *.queue.*,
@@ -392,4 +399,4 @@ Il est toujours recommandé, après une mise à jour, de contrôler que tout fon
 * Accès aux menus dans l'interface.
 * Génération de configuration + reload ou restart de Centreon Engine
 * Plannifier un contrôle immédiat dans le menu "Monitoring" et contrôler que c'est bien pris en compte (dans un délai raisonnable). Faire de même avec un acquittement, un arrêt prévu...
-* Migrer une ressource ou un groupe de ressources d'un nœud à l'autre, rebooter un serveur maître et contrôler que tout continue de fonctionner (refaire le tests ci-dessus).
+* Migrer une ressource ou un groupe de ressources d'un nœud à l'autre, rebooter un serveur actif et contrôler que tout continue de fonctionner (refaire le tests ci-dessus).

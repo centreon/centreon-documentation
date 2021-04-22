@@ -16,15 +16,15 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 In addition of necessary flows describe on the [official documentation](../../architectures.html#tables-of-network-flows),
 you will need to open the following flows:
 
-| From                      | Destination               | Protocol | Port     | Application                                  |
-| :------------------------ | :------------------------ | :------- | :------- | :------------------------------------------- |
-| Central Servers           | Central Servers           | SSH      | TCP 22   | Synchronization of configuration files       |
-| Central Servers           | Central Servers           | BDDO     | TCP 5670 | RRDs synchronization                         |
-| Central Servers           | Central Servers           | MySQL    | TCP 3306 | MySQL synchronization                        |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast) |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)   |
-| Central Servers + QDevice | Central Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster             |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice               |
+| From                      | Destination               | Protocol | Port     | Application                                                                                |
+| :------------------------ | :------------------------ | :------- | :------- | :----------------------------------------------------------------------------------------- |
+| Active Node               | Passive Node              | SSH      | TCP 22   | Synchronization of configuration files (Must be also open from passive to the active node) |
+| Active Node               | Passive Node              | BDDO     | TCP 5670 | RRDs synchronization (Must be also open from passive to the active node)                   |
+| Active Node               | Passive Node              | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
+| Central Servers + QDevice | Central Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
+| Central Servers + QDevice | Central Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
 
 ### Installed Centreon platform
 

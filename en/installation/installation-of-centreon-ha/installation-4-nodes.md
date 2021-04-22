@@ -15,16 +15,16 @@ and of Pacemaker clustering tools in order to have a proper understanding of wha
 In addition of necessary flows describe on the [official documentation](../../architectures.html#tables-of-network-flows),
 you will need to open the following flows:
 
-| From                           | Destination                    | Protocol | Port     | Application                                  |
-| :----------------------------- | :----------------------------- | :------- | :------- | :------------------------------------------- |
-| Central Servers                | Central Servers                | SSH      | TCP 22   | Synchronization of configuration files       |
-| Central Servers                | Central Servers                | BDDO     | TCP 5670 | RRDs synchronization                         |
-| Database Servers               | Database Servers               | MySQL    | TCP 3306 | MySQL synchronization                        |
-| Database Servers               | Database Servers               | SSH      | TCP 22   | MySQL synchronization                        |
-| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast) |
-| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)   |
-| Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster             |
-| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice               |
+| From                           | Destination                    | Protocol | Port     | Application                                                                                |
+| :----------------------------- | :----------------------------- | :------- | :------- | :----------------------------------------------------------------------------------------- |
+| Active Central Server          | Passive Central Server         | SSH      | TCP 22   | Synchronization of configuration files (Must be also open from passive to the active node) |
+| Active Central Server          | Passive Central Server         | BDDO     | TCP 5670 | RRDs synchronization (Must be also open from passive to the active node)                   |
+| Active Database Server         | Passive Database Server        | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Active Database Server         | Passive Database Server        | SSH      | TCP 22   | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
 
 
 ### Installed Centreon platform

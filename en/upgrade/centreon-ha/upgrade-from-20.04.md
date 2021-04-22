@@ -3,7 +3,7 @@ id: upgrade-centreon-ha-from-20-04
 title: Upgrade Centreon HA from Centreon 20.04
 ---
 
-This chapter describes how to upgrade your Centreon HA platform from version 20.10
+This chapter describes how to upgrade your Centreon HA platform from version 20.04
 to version 21.04.
 
 ## Prerequisites
@@ -49,22 +49,31 @@ Then upgrade all the components with the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--HA 2 Nodes-->
+
 ```shell
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
 yum autoremove centreon-ha
 ```
+
 <!--HA 4 Nodes-->
+
+On the Central Servers:
+
 ```shell
-# On the Central Servers
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
 yum autoremove centreon-ha
-# On the Database Servers
+```
+
+On the Database Servers:
+
+```shell
 yum update centreon\*
 yum install centreon-ha-common
 yum autoremove centreon-ha
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 The PHP timezone should be set. Run the command on both Central Server nodes:
@@ -101,9 +110,9 @@ pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATAB
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-20-10.md#finalizing-the-upgrade) Only on the **master central node**.
+Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-20-10.md#finalizing-the-upgrade) Only on the **active central node**.
 
-On the slave central node, just move the "install" dir to avoid getting the "upgrade" screen in the WUI in the event of a further exchange of roles.
+On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the WUI in the event of a further exchange of roles.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
@@ -120,13 +129,13 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
-Then to restart all the processes on the master central node:
+Then to restart all the processes on the active central node:
 
 ```bash
 systemctl restart cbd-sql cbd gorgoned centengine
 ```
 
-And on the slave central node:
+And on the passive central node:
 
 ```bash
 systemctl restart cbd
@@ -150,9 +159,9 @@ repositories.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
-> **WARNING** the following commands must be executed firstly on the master
-database node. Once the master database node is in 10.5, you can upgrade the
-slave database node.
+> **WARNING** the following commands must be executed firstly on the active 
+database node. Once the active database node is in 10.5, you can upgrade the
+passive database node.
 
 #### Upgrade from 10.3 to 10.4
 
@@ -289,7 +298,7 @@ Position Status [OK]
 
 ### Clean broker memory files
 
-> **WARNING** perform this command only the slave central node.
+> **WARNING** perform this command only the passive central node.
 
 Before resuming the cluster resources management, to avoid broker's issues, cleanup all the *.memory.* or *.unprocessed.* or *.queue.* broker files on:
 
@@ -387,4 +396,4 @@ You should now check that eveything works fine:
 * Access to the web UI menus.
 * Poller configuration generation + reload and restart method.
 * Schedule immediate check (Central + Pollers) and acknowledge, downtime etc.
-* Move resources or reboot master server and check again that everything is fine.
+* Move resources or reboot active server and check again that everything is fine.

@@ -36,7 +36,7 @@
                     "installation/installation-of-centreon-ha/installation-4-nodes",
                     "installation/installation-of-centreon-ha/integrating-pollers"
                 ],
-                "label": "Installation of a Remote Server",
+                "label": "Installation of Centreon HA",
                 "type": "subcategory"
             },
             "installation/web-and-post-installation",
