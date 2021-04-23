@@ -10,6 +10,23 @@ title: Installing a Centreon HA 4-nodes cluster
 Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, 
 and of Pacemaker clustering tools in order to have a proper understanding of what is being done.
 
+### Network Flows
+
+In addition of necessary flows describe on the [official documentation](../../architectures.html#tables-of-network-flows),
+you will need to open the following flows:
+
+| From                           | Destination                    | Protocol | Port     | Application                                                                                |
+| :----------------------------- | :----------------------------- | :------- | :------- | :----------------------------------------------------------------------------------------- |
+| Active Central Server          | Passive Central Server         | SSH      | TCP 22   | Synchronization of configuration files (Must be also open from passive to the active node) |
+| Active Central Server          | Passive Central Server         | BDDO     | TCP 5670 | RRDs synchronization (Must be also open from passive to the active node)                   |
+| Active Database Server         | Passive Database Server        | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Active Database Server         | Passive Database Server        | SSH      | TCP 22   | MySQL synchronization (Must be also open from passive to the active node)                  |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
+
+
 ### Installed Centreon platform
 
 A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
@@ -149,11 +166,24 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on every nodes (Except Quorum):
+Centreon offers a package named `centreon-ha-web` for the Central Servers and package `centreon-ha-common` for the Database servers, which provides all the needed files and dependencies required by a Centreon cluster.
+
+#### Central Servers
+
+These packages must be installed on both Central Servers (Except Quorum):
 
 ```bash
 yum install epel-release
-yum install centreon-ha pcs pacemaker corosync corosync-qdevice
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
+#### Database Servers
+
+These packages must be installed on both Database Servers (Except Quorum):
+
+```bash
+yum install epel-release
+yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 ### SSH keys exchange
@@ -334,8 +364,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
-When upgrading to centreon-ha from an existing Centreon platform or an OVA VM
-deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
+When upgrading to centreon-ha from an existing Centreon platform or an OVA/OVF VM deployment, update `'@MARIADB_CENTREON_USER@'@'localhost'` password:
 
 ```sql
 ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@'; 

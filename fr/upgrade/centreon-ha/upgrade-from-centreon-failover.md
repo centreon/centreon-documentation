@@ -1,6 +1,6 @@
 ---
 id: upgrade-from-centreon-failover
-title: Upgrade from Centreon-Failover to Centreon-HA
+title: Montée de version de Centreon Failover vers Centreon HA
 ---
 
 ## Prérequis
