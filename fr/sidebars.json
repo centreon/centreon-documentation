@@ -29,6 +29,16 @@
                 "label": "Installer un serveur central",
                 "type": "subcategory"
             },
+            {
+                "ids": [
+                    "installation/installation-of-centreon-ha/architectures",
+                    "installation/installation-of-centreon-ha/installation-2-nodes",
+                    "installation/installation-of-centreon-ha/installation-4-nodes",
+                    "installation/installation-of-centreon-ha/integrating-pollers"
+                ],
+                "label": "Installation de Centreon HA",
+                "type": "subcategory"
+            },
             "installation/web-and-post-installation",
             {
                 "ids": [
@@ -236,14 +246,8 @@
             "administration/database-partitioning",
             {
                 "ids": [
-                    "administration/centreon-ha/architectures",
-                    "administration/centreon-ha/installation-2-nodes",
-                    "administration/centreon-ha/installation-4-nodes",
-                    "administration/centreon-ha/integrating-pollers",
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
-                    "administration/centreon-ha/update",
-                    "administration/centreon-ha/upgrade-from-centreon-failover",
                     "administration/centreon-ha/troubleshooting-guide"
                 ],
                 "label": "Centreon HA",
@@ -257,7 +261,8 @@
         "Mettre à Jour, Monter de Version et Migrer": [
             {
                 "ids": [
-                    "update/update-centreon-platform"
+                    "update/update-centreon-platform",
+                    "update/update-centreon-ha"
                 ],
                 "label": "Update",
                 "type": "subcategory"
@@ -270,7 +275,10 @@
                     "upgrade/upgrade-from-19-10",
                     "upgrade/upgrade-from-19-04",
                     "upgrade/upgrade-from-18-10",
-                    "upgrade/upgrade-from-3-4"
+                    "upgrade/upgrade-from-3-4",
+                    "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
+                    "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
+                    "upgrade/centreon-ha/upgrade-from-centreon-failover" 
                 ],
                 "label": "Upgrade",
                 "type": "subcategory"
