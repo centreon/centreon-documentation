@@ -10,7 +10,7 @@ title: Antivirus ClamAV
 Install this plugin on each needed poller:
 
 ``` shell
-yum install centreon-plugin-Applications-Antivirus-Clamav-Ssh
+yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
 ### SSH
