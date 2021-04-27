@@ -167,8 +167,8 @@ Checking voltages
 ```
 
 La commande ci-dessus contrôle les composants matériels du pare-feu Palo Alto (```--mode=environment```).
-Le Plugin utilise le Backend _sshcli_ (```--ssh-backend='sshcli'```) avec l'utisateur _centreon_ (```--ssh-username=centreon --ssh-password='centreon-password'```)
-et il se connecte à l'hôte _10.30.2.81_ (```--hostname='10.30.2.81'```).
+Le Plugin utilise le Backend _sshcli_ (```--ssh-backend='sshcli'```) avec l'utisateur _centreon_ (```--ssh-username=centreon```), 
+son mot de passe (```--ssh-password='centreon-password'```) et il se connecte à l'hôte _10.30.2.81_ (```--hostname='10.30.2.81'```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande :
 
