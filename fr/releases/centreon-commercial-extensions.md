@@ -156,12 +156,12 @@ liens
 
 #### Correctifs
 
-- [Configuration] BA selector when adding KPI is not handy
-- [Widget] Filter downtime not working in widget
+- [Configuration] Le sélecteur de BA lors de l'ajout de KPI n'est pas pratique
+- [Widget] Le filtre tempds d'arrêt ne fonctionnent pas dans le widget
 
 #### Correctifs de sécurité
 
-- [Lib] Vulnerable jQuery version
+- [Lib] Version jQuery vulnérable
 
 ### 20.04.6
 
