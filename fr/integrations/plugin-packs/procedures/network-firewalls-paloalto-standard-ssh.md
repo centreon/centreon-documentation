@@ -46,8 +46,8 @@ utilisant les commandes SSH.
 
 ## Prérequis
 
-Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur executant Palo Alto firewall SSH. L'utilisateur distant
-doit avoir assez de privilèges pour executer les commandes SSH. 
+Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Collecteur et le pare-feu Palo Alto. L'utilisateur distant
+doit avoir assez de privilèges pour exécuter les commandes SSH. 
 
 ## Installation
 
@@ -83,7 +83,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par firewall Palo Alto.
+Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par pare-feu Palo Alto.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
@@ -99,7 +99,7 @@ Une fois celui-ci configuré, certaines macros doivent être renseignées:
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--plink backend-->
@@ -112,7 +112,7 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 |             | SSHPORT         | Par default: 22                                                                                 |
 |             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
 
-:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
+:warning: Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur _centreon-engine_ du Collecteur
 et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 <!--libssh backend (par défaut)-->
@@ -146,7 +146,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 ```
 
 Exemple de sortie:
-```
+
+```bash
 OK: All 12 components are ok [4/4 psus, 4/4 temperatures, 4/4 voltages].
 Checking power supplies
 Power supply 'Power Supply A1' status is normal [instance: 1].
@@ -165,8 +166,8 @@ Checking voltages
 1,800V voltage sensor, slot 2' voltage is 1,072 V [instance: 89.2].
 ```
 
-La commande ci-dessus contrôle l'environment matériels du firewall Palo Alto (```--mode=environment```).
-Le Plugin utilise le Backend _sshcli_ (```--ssh-backend='sshcli'```) avec l'utisateur _centreon_ (```--ssh-username=centreon --api-password='centreon-password'```)
+La commande ci-dessus contrôle les composants matériels du pare-feu Palo Alto (```--mode=environment```).
+Le Plugin utilise le Backend _sshcli_ (```--ssh-backend='sshcli'```) avec l'utisateur _centreon_ (```--ssh-username=centreon --ssh-password='centreon-password'```)
 et il se connecte à l'hôte _10.30.2.81_ (```--hostname='10.30.2.81'```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande :
@@ -180,4 +181,4 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
 
-Cela signifie que vous n'avez pas validé manuellement la signature (fingerprint) du serveur cible avec ```libssh``` ou ```plink``` sur le Poller Centreon.
+Cela signifie que vous n'avez pas validé manuellement la signature (fingerprint) du serveur cible avec ```libssh``` ou ```plink``` sur le Collecteur Centreon.
