@@ -542,6 +542,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.04.11
+
+#### Bugfixes
+
+- Bad memory access on hostgroupname/servicegroupname macros
+- SERVICEGROUPNAME macro doesn't appear in notifications
+
 ### 20.04.10
 
 > This version requires Centreon Broker version to be 20.04.13 or higher.
