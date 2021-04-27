@@ -252,6 +252,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
+#### Bugfixes
+
 - Update column length for BAM reporting
 - Inconsistency between Centreon & Centreon MBI column size for metric unit
 - Publication rule don't save backslash into CFIS publication
