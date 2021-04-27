@@ -19,6 +19,51 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.7
+
+### Enhancements
+
+- [Custom Views] Add regex filtering to widget compare field
+
+#### Bugfixes
+
+- [Configuration] Can not delete Remote Server from UI
+- [Configuration] Central's Engine configuration is set to use aggressive host checking
+- [Configuration] Hosts/services templates become simple hosts/services
+- [Configuration] Unable to create Meta service with high amount of metrics
+- [Configuration] Wrong number of services/pages to display
+- [Graph] Graphics are not displayable in the interface
+- [Monitoring] Cancelled BA downtime from Downtime menu
+- [Monitoring] Export event logs with filter on output is broken
+- [Platform Topology] API: remote / poller to central with proxy
+- [Platform Topology] Remove all topology when Remote => Central Conversion
+- [Platform Topology] Script: Unable to register a remote on a Central
+- [Platform Topology] Unable to replace 127.0.0.1 by real IP in poller form when already saved in platform_topology
+- [Purge] Script can't drop several partitions
+- [Resources Status] Be able to sort by Parent name in listing
+- [Resources Status] Manage notes on resources for Notes URL
+- [Resources Status] Missing french translations
+- [Resources Status] Service link to multiple hosts or service by hostgroup won't be listed
+- [Resources Status] Service link to multiple hosts or service by hostgroup won't be listed
+- [UI] Centreon blank page on all menu with firefox < 78
+
+#### Security fixes
+
+- [Administration] User can install or delete modules with no ACL rights
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Dependency/Notification form
+- [Configuration] SQL injection in user additional information
+- [Configuration] Stored XSS in host Alias for host form
+- [Core] Predictable anti-CSRF token
+- [Graph] SQL Injection on graph periods
+- [Graph] SQL Injection on graph split
+- [Lib] Update centreon vulnerable packages
+- [Resources Status / Service Details] Passwords are displayed in command line
+- [Resources Status / Service Details] Passwords field for EXTRAOPTIONS is not hidden in command line
+
+#### Performance 
+
+- [Core] Replace "WITH RECURSIVE" MySQL calls with PHP-based recursion loops
+
 ### 20.10.6
 
 `April 20, 2021`
