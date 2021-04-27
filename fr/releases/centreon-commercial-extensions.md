@@ -267,9 +267,9 @@ liens
 
 ### 20.04.4
 
-- Update column length for BAM reporting
-- Inconsistency between Centreon & Centreon MBI column size for metric unit
-- Publication rule don't save backslash into CFIS publication
+- Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
+- La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CFIS
 
 ### 20.04.3
 
