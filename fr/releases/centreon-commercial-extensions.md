@@ -254,6 +254,13 @@ non plus des connexions SSH autonomes.
 
 ## Centreon License Manager
 
+### 20.10.3
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- No 'Add token' button and duplication of the 'Get fingerprint' or 'Upload license' button
+- Update vulnerable npm packages
+
 ### 20.10.2
 
 `24 mars 2021`
