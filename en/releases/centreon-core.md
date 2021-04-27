@@ -729,6 +729,30 @@ a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
 
+### 20.04.13
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working	David Boucher
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+- Limit downtime start date, end date and duration
+- Stopping Engine using systemctl can lead to a segfault
+
+*Security*
+
+- Strengthen TLS / SSL exchanges
+
 ### 20.04.12
 
 `January 20, 2021`
