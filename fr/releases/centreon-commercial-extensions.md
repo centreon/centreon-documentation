@@ -152,6 +152,17 @@ liens
 
 ## Centreon BAM
 
+### 20.04.7
+
+#### Correctifs
+
+- [Configuration] BA selector when adding KPI is not handy
+- [Widget] Filter downtime not working in widget
+
+#### Correctifs de sécurité
+
+- [Lib] Vulnerable jQuery version
+
 ### 20.04.6
 
 `16 février 2021`
