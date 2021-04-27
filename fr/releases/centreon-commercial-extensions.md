@@ -135,6 +135,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.1
 
+#### Correctifs
+
 - Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
 - Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
 - La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CFIS
