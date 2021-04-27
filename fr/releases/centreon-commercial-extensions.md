@@ -265,6 +265,18 @@ liens
 
 ## Centreon 
 
+### 20.04.5
+
+#### Correctifs
+
+- Depuis la version 20.04, les rapports ne ont plus téléchargeables	
+- Correction des rapports de sauvegarde de script
+
+#### Correctifs de sécurité
+
+- Version jQuery vulnérable
+- Supprimer les cyphers TLS obsolètes MBI
+
 ### 20.04.4
 
 #### Correctifs
