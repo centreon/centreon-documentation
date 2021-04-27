@@ -472,7 +472,7 @@ and enable for **IPv4** inputs and outputs:
 This the official [Centreon gorgone documentation](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore)
 to secure the communication.
 
-## Security event information management - SEIM
+## Security Information and Event Management - SIEM
 
 Centreon event logs are available in the following directories:
 
