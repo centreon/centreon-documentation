@@ -263,7 +263,13 @@ liens
 - Toutes les pages de configuration & temps réelle ont été mise à jour pour
   gérer ces nouvelles méthodes de calcul
 
-## Centreon MBI
+## Centreon 
+
+### 20.04.4
+
+- Update column length for BAM reporting
+- Inconsistency between Centreon & Centreon MBI column size for metric unit
+- Publication rule don't save backslash into CFIS publication
 
 ### 20.04.3
 
