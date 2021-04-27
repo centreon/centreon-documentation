@@ -541,6 +541,13 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.04.11
+
+#### Correctifs
+
+- Mauvais accès à la mémoire sur les macros hostgroupname / servicegroupname
+- La macro SERVICEGROUPNAME n'apparaît pas dans les notifications
+
 ### 20.04.10
 
 > Cette version nécessite Centreon Broker 20.04.13 ou supérieur.
