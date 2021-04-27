@@ -52,7 +52,20 @@ The Plugin-Pack includes monitoring the AIX system using SSH commands, such as:
 
 ## Prerequisites
 
-In order to work, the plugin requires an SSH connection between the Poller and the server running AIX SSH. 
+To work, the Plugin requires an SSH connection between the Poller and the server running AIX SSH. From the Poller, the user _centreon-engine_ will initiate the connection with your AIX server because it is the user who executes the Poller commands.
+Example:
+
+```bash
+[centreon-engine@collecteur1 ~]/usr/lib/centreon/plugins/centreon_aix_local.pl \
+    --plugin=os::aix::local::plugin \
+    --mode=errpt \
+    --hostname=10.30.2.81 \
+    --ssh-username=svc_centreon \
+    --ssh-password='svc_centreon-password' \
+    --ssh-backend=sshcli \
+    --verbose
+```
+
 The remote user must have enough privileges to execute the command ```sshcli```. 
 
 ## Setup
