@@ -19,6 +19,18 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.10.4
+
+#### Bugfixes
+
+- [Desktop] The filter of resources panel is too slow
+- [Server] Add customized properties hint to log configuration
+- [Server] RestTemplate as http client should validate with truststore or ignore CA validation of auto-signed certificat
+- [Server] Server rpm should require mysql client
+- [Server] Stub real time status message with legacy server
+- [Web-Client] Don't display a clickable mouse over a Shape and Text with no clickable
+- [Web-Client] Timestamp is not properly displayed in the DT tooltip
+
 ### 20.10.3
 
 `February 11, 2021`
