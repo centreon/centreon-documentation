@@ -199,6 +199,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.4
+
+#### Bugfixes
+
+- Avoid sending erratic timestamps
+- Bad memory access on hostgroupname/servicegroupname macros
+- Host "Hard State Duration" shows N/A when no associated to services
+- Limit downtime start date, end date and duration
+- SERVICEGROUPNAME macro doesn't appear in notifications
+
 ### 20.10.3
 
 > This version requires Centreon Broker version to be 20.10.4 or higher.
