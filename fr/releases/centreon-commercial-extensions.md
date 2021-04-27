@@ -108,18 +108,18 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Correctifs
 
-- [Configuration] BA selector when adding KPI is not handy
-- [Monitoring] BA listing order by level doesn't work
-- [Widget] Filter downtime not working in widget
+- [Configuration] Le sélecteur de BA lors de l'ajout de KPI n'est pas pratique
+- [Monitoring] L'ordre BA dans la liste par niveau ne fonctionne pas
+- [Widget] Le filtre tempds d'arrêt ne fonctionnent pas dans le widget
 
 #### Correctifs de sécurité
 
-- [Core] Handle end of life for Flash
-- [Lib] Vulnerable jQuery version
+- [Core] Gérer la fin de vie de Flash
+- [Lib] Version jQuery vulnérable
 
 ### 20.10.2
 
-`February 24, 2021`
+`24 février 2021`
 
 #### Correctifs
 
