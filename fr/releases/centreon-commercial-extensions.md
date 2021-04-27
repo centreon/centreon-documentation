@@ -133,6 +133,12 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon MBI
 
+### 20.10.1
+
+- Update column length for BAM reporting
+- Inconsistency between Centreon & Centreon MBI column size for metric unit
+- Publication rule don't save backslash into CFIS publication
+
 ### 20.10.0
 
 `21 octobre 2020`

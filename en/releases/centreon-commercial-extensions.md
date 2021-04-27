@@ -125,6 +125,12 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+### 20.10.1
+
+- Update column length for BAM reporting
+- Inconsistency between Centreon & Centreon MBI column size for metric unit
+- Publication rule don't save backslash into CFIS publication
+
 ### 20.10.0
 
 `October 21, 2020`
