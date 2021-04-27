@@ -125,6 +125,20 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+### 20.10.2
+
+#### Bugfixes
+
+- Fix script backup reporting
+- Notification for administrators not working on success
+- Publication rule doesn't work with custom paths
+- Since version 20.04, reports are no longer downloadable
+
+#### Security fixes
+
+- Remove MBI deprecated TLS cyphers
+- Vulnerable jQuery version
+
 ### 20.10.1
 
 #### Bugfixes

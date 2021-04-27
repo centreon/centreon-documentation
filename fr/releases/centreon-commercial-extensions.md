@@ -133,6 +133,20 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon MBI
 
+### 20.10.2
+
+#### Correctifs
+
+- Correction des rapports de sauvegarde de script
+- Depuis la version 20.04, les rapports ne ont plus téléchargeables
+- La notification pour les administrateurs ne fonctionne pas en cas de succès
+- La règle de publication ne fonctionne pas avec les chemins personnalisés
+
+#### Correctifs de sécurité
+
+- Version jQuery vulnérable
+- Supprimer les cyphers TLS obsolètes MBI
+
 ### 20.10.1
 
 #### Correctifs
