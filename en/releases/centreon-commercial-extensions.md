@@ -263,6 +263,17 @@ standalone SSH connections.
 
 ## Centreon Anomaly Detection
 
+### 20.10.1
+
+#### Enhancements
+
+- Detect metrics with seasonality or stability
+
+#### Bugfixes
+
+- Failed to export configuration
+- No notification contacts/groups are generated in configuration
+
 ### 20.10.0
 
 `October 21, 2020`

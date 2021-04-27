@@ -280,6 +280,17 @@ non plus des connexions SSH autonomes.
 
 ## Centreon Anomaly Detection
 
+### 20.10.1
+
+#### Améliorations
+
+- Détecter les métriques avec saisonnalité ou stabilité
+
+#### Correctifs
+
+- Échec de l'exportation de la configuration
+- Aucun contacts/groupes de notification ne sont générés dans la configuration
+
 ### 20.10.0
 
 `21 octobre 2020`
