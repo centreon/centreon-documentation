@@ -352,7 +352,6 @@ state was HARD even if no notification is configured nor sent.
 
 *Security*
 
-- SQL Injection with custom variables
 - Strengthen TLS / SSL exchanges
 
 ### 20.10.3
