@@ -61,6 +61,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.1
 
+`April 28, 2021`
+
 #### Bugfixes
 
 -  Bad memory access on hostgroupname/servicegroupname macros
