@@ -52,21 +52,41 @@ The Plugin-Pack includes monitoring the AIX system using SSH commands, such as:
 
 ## Prerequisites
 
-To work, the Plugin requires an SSH connection between the Poller and the server running AIX SSH. From the Poller, the user _centreon-engine_ will initiate the connection with your AIX server because it is the user who executes the Poller commands.
-Example:
+### SSH configuration
+
+A user is required to query the OS Linux by SSH. There is no need for root or sudo privileges.
+There are two possible ways to perform SSH check, either by exchanging the SSH key from centreon-engine to the target server, 
+or by setting your unique user and password directly in the host macros.
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--SSH keys exchange-->
+
+Add and generate a password for your user on the **Target sever**:
 
 ```bash
-[centreon-engine@collecteur1 ~]/usr/lib/centreon/plugins/centreon_aix_local.pl \
-    --plugin=os::aix::local::plugin \
-    --mode=errpt \
-    --hostname=10.30.2.81 \
-    --ssh-username=svc_centreon \
-    --ssh-password='svc_centreon-password' \
-    --ssh-backend=sshcli \
-    --verbose
+adduser ro_ssh_centreon
+passwd ro_ssh_centreon
 ```
 
-The remote user must have enough privileges to execute the command ```sshcli```. 
+Switch to `centreon-engine`'s bash environment on your Central server and Poller :
+
+```bash
+su - centreon-engine
+```
+
+Then, copy this key on to the **Target server** with the following commands:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
+```
+
+<!--User/Password Authentication-->
+
+After setting the Name, Alias, IP, and Host Template parameters, you need to set up in the macros described in the **Configuration** part below.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Setup
 
