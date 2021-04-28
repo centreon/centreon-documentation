@@ -201,6 +201,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
+`20 avril 2021`
+
 > Cette version nécessite Centreon Broker 20.10.4 ou supérieur.
 
 #### Correctifs
