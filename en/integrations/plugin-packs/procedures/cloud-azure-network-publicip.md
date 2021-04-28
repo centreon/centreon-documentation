@@ -113,7 +113,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 
 <!--Azure AZ CLI-->
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
+To use the 'azcli' custom mode, install the required packages on every Centreon Poller expected to 
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -172,7 +172,7 @@ can use it.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Public IP resources:
+1.  Install the Centreon Plugin package on every Centreon Poller expected to monitor Azure Public IP resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api
@@ -182,7 +182,7 @@ yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Public IP resources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Azure Public IP resources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Network-PublicIP-Api

@@ -13,7 +13,7 @@ After installing Centreon, it is necessary to change the default passwords of th
 - centreon
 - centreon-engine
 - centreon-broker
-- centreon-gorgoned
+- centreon-gorgone
 
 To do this, use the following command with a privileged account (eg. sudo) or with root (not recommended — you should
 have a dedicated user):
@@ -50,7 +50,7 @@ mysql_secure_installation
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one.
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat)
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
@@ -224,6 +224,149 @@ If everything is ok, you must have:
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 
+### Securing the Apache web server with self-signed certificat
+
+Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
+
+1. Preparation of the openssl configuration
+
+Due to a policy change at google, self-signed certificates may be rejected by the google chrome browser. (it is not even possible to add an exception). To continue to use this browser, you have to change the openssl configuration.
+
+open the file `/etc/pki/tls/openssl.cnf` and find the `[v3_ca]` section:
+```text
+# Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+[ alt_names ]
+IP.1 = xxx.xxx.xxx.xxx
+DNS.1 = centreon7.localdomain
+# If you have several IP (HA: vip + ip)
+# IP.2 = xxx.xxx.xxx.xxx
+
+[ v3_ca ]
+subjectAltName = @alt_names
+```
+
+2. Creating a private key for the server
+
+Let's create a private key nammed `centreon7.key` without a password so that it can be used by the apache service.
+```text
+openssl genrsa -out centreon7.key 2048
+```
+
+Protect your file by limiting rights:
+```text
+chmod 400 centreon7.key
+```
+
+3. Creation of a certificate signing request file 
+
+From the key you created, create a CSR (Certificate Signing Request) file. Fill in the fields according to your company. The "Common Name" field must be identical to the hostname of your apache server (in our case it is centreon7.localdomain).
+```text
+openssl req -new -key centreon7.key -out centreon7.csr
+```
+
+4. Creation of a private key for the certificate authority's certificate
+
+First, create a private key for this authority. We add the -aes256 option to encrypt the output key and include a password. This password will be requested each time this key is used.
+```text
+openssl genrsa -aes256 2048 > ca_demo.key
+```
+
+5. Creation of the x509 certificate from the private key of the certificate authority's certificate
+
+Next, create a x509 certificate that will be valid for one year.
+
+>  Note that it is necessary to simulate a trusted third party, so the "Common Name" must be different from the server certificate.
+
+```text
+openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
+```
+
+The certificate being created, you will be able to use it to sign your server certificate.
+
+6. Creating a certificate for the server
+
+Use the x509 certificate to sign your certificate for the server
+```text
+openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+```
+
+The CAcreateserial option is only needed the first time. The previously created password must be entered. You get your server certificate named centreon7.crt.
+
+You can view the contents of the : 
+```text
+less centreon7.crt
+```
+
+7. Copy files to apache configuration
+
+Copy the private key of the server and the previously signed server certificate.
+```text
+cp centreon7.key /etc/pki/tls/private/centreon7.key
+cp centreon7.crt /etc/pki/tls/certs/
+```
+8. Update Apache configuration file
+
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`. 
+Here is an example of how the file should look like: 
+
+```text
+Alias /centreon/api /usr/share/centreon
+Alias /centreon /usr/share/centreon/www/
+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+</LocationMatch>
+<LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+</LocationMatch>
+ProxyTimeout 300
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+<VirtualHost *:443>
+#####################
+# SSL configuration #
+#####################
+    SSLEngine on
+    SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    <Directory "/usr/share/centreon/www">
+        DirectoryIndex index.php
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.html [L]
+        ErrorDocument 404 /centreon/index.html
+        AddType text/plain hbs
+    </Directory>
+    <Directory "/usr/share/centreon/api">
+        Options Indexes
+        AllowOverride all
+        Order allow,deny
+        Allow from all
+        Require all granted
+        <IfModule mod_php5.c>
+            php_admin_value engine Off
+        </IfModule>
+        AddType text/plain hbs
+    </Directory>
+</VirtualHost>
+```
+9. Copy the x509 certificate to the client's browser
+
+Now, you will have to retrieve the certificate file x509 ca_demo.crt and import this file into your browser's certificate manager.
+
 ## Custom URI
 
 It is possible to update the URI of Centreon. For example, **/centreon** can be replaced by **/monitoring**.
@@ -329,7 +472,7 @@ and enable for **IPv4** inputs and outputs:
 This the official [Centreon gorgone documentation](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore)
 to secure the communication.
 
-## Security event information management - SEIM
+## Security Information and Event Management - SIEM
 
 Centreon event logs are available in the following directories:
 

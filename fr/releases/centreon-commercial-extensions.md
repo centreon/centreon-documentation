@@ -19,6 +19,20 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.04.7
+
+`12 mars 2021`
+
+#### Améliorations
+
+- Ajout de paramètres de personnalisation de la rotation des logs
+  sur centreon-map-server.
+
+#### Bugfixes
+
+- La recherche depuis le panneau de Resources du client Desktop prenait parfois beaucoup de temps
+- Ajout du client mysql qui n'était pas fourni si centreon-map-server était installé avec une base déportée
+
 ### 20.04.6
 
 `11 février 2021`
@@ -293,6 +307,20 @@ liens
 
 ## Centreon Auto Discovery
 
+### 20.04.8
+
+`17 mars 2021`
+
+#### Correctifs de sécurité
+
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière
+version (apportant des corrections de failles de sécurité)
+
+#### Améliorations
+
+- [Host Discovery] Limiter la définition du *provider* de découverte qui est
+importé à la version 2.0
+
 ### 20.04.7
 
 `9 décembre 2020`
@@ -443,7 +471,15 @@ configuration value:
 - **monitoring**: allows to select the monitoring server which will monitor
   the discovered resource (on a condition or not)
 
-## Centreon Plugin Pack Manager
+## Centreon Plugin Packs Manager
+
+### 20.04.2
+
+`26 février 2021`
+
+#### Correctifs de sécurité
+
+- [Core] Vulnerable handlebars.js library
 
 ### 20.04.1
 
@@ -467,6 +503,12 @@ configuration value:
   Centreon documentation
 
 ## Centreon License Manager
+
+### 20.04.4
+
+`24 mars 2021`
+
+- The Add Token button is not visible when the online license is over
 
 ### 20.04.3
 
