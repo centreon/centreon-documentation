@@ -543,6 +543,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.11
 
+`28 avril 2021`
+
 #### Correctifs
 
 - Mauvais accès à la mémoire sur les macros hostgroupname / servicegroupname
