@@ -219,7 +219,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.2
 
-`20 janvier 2020`
+`20 janvier 2021`
 
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
