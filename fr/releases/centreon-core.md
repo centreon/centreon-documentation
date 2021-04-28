@@ -330,6 +330,8 @@ state was HARD even if no notification is configured nor sent.
 
 ## 20.10.4
 
+`28 avril 2021`
+
 *Broker*
 
 - Add TLS handshake in broker debug logs
