@@ -554,7 +554,7 @@ commerciales, vous pouvez vous rendre sur notre
 - Le flapping n'était pas détecté correctement
 - La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
 - La période de notification de l'utilisateur n'était pas correctement appliquée
-- Engine pouvait s'arrêter sans loggger aucune erreur
+- Engine pouvait s'arrêter sans logger aucune erreur
 
 ### 20.04.9
 
