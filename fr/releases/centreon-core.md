@@ -346,7 +346,7 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
-## 20.10.4
+### 20.10.4
 
 `28 avril 2021`
 
