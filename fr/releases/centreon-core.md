@@ -543,6 +543,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.10
 
+`28 avril 2021`
+
 > Cette version nécessite Centreon Broker 20.04.13 ou supérieur.
 
 #### Correctifs
