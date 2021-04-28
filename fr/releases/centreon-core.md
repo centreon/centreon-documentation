@@ -328,6 +328,33 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+## 20.10.4
+
+`28 avril 2021`
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Cast index_data.id to unsigned int 64
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working
+- Study ARM compilation
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+
+*Security*
+
+- SQL Injection with custom variables
+- Strengthen TLS / SSL exchanges
+
 ### 20.10.3
 
 `20 janvier 2020`
