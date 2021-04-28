@@ -10,7 +10,9 @@ to version 21.04.
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
-> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
+> If not, please follow [this](./upgrade-from-19-10.html#upgrade-mariadb-server)
+> procedure in order to update MariaDB before you can continue with the upgrade
+> from version 20.10 to version 21.04 as described by this document.
 
 > Warning, following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of the data collected into the database during the update. These will be stored in temporary files and then
@@ -185,9 +187,20 @@ repositories.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
+#### Update the Centreon repository
+> This step is required ONLY when your environment features an architecture with
+> a dedicated remote DBMS. If your environment features Centreon Central and
+> MariaDB together in the same server, you SHOULD simply skip this step.
+
+Run the following command on the dedicated DBMS server:
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+```
+
 #### Upgrade from 10.3 to 10.4
 
-Follow those summarized steps to perform the upgrade in the way recommended by
+Follow these summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:
@@ -225,7 +238,7 @@ MariaDB:
 
 #### Upgrade from 10.4 to 10.5
 
-Follow those summarized steps to perform the upgrade in the way recommended by
+Follow these summarized steps to perform the upgrade in the way recommended by
 MariaDB:
 
 1. Stop the mariadb service:
