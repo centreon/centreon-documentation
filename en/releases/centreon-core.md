@@ -571,6 +571,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+
+### 20.04.11
+
+`April 28, 2021`
+
+#### Bugfixes
+
+- Bad memory access on hostgroupname/servicegroupname macros
+- SERVICEGROUPNAME macro doesn't appear in notifications
+
 ### 20.04.10
 
 `April 28, 2021`
@@ -587,6 +597,7 @@ If you have feature requests or want to report a bug, please go to our
 - SERVICENOTESURL macro value was encoded in notifications
 - Engine did not respect user's defined notification periods 
 - Engine stopped working without logging an error
+
 
 ### 20.04.9
 

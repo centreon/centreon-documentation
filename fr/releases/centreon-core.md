@@ -570,6 +570,16 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+
+### 20.04.11
+
+`28 avril 2021`
+
+#### Correctifs
+
+- Mauvais accès à la mémoire sur les macros hostgroupname / servicegroupname
+- La macro SERVICEGROUPNAME n'apparaît pas dans les notifications
+
 ### 20.04.10
 
 `28 avril 2021`
@@ -586,6 +596,7 @@ commerciales, vous pouvez vous rendre sur notre
 - La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
 - La période de notification de l'utilisateur n'était pas correctement appliquée
 - Engine pouvait s'arrêter sans logger aucune erreur
+
 
 ### 20.04.9
 
