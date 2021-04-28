@@ -40,8 +40,17 @@ The Centreon Anomaly Detection module requires the following prerequisites:
 
 ### Installing packages
 
-Run the following command as a privileged user:
+Add additional repository:
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Nothing to do
+<!--CentOS 7-->
+```shell
+yum install -y epel-release
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
+Then run the following command:
 ```shell
 yum install centreon-anomaly-detection
 ```
