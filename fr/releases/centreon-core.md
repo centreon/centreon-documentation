@@ -730,6 +730,8 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.13
 
+`April 28, 2021`
+
 *Broker*
 
 - Add TLS handshake in broker debug logs
