@@ -59,6 +59,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.1
+
+`April 28, 2021`
+
+#### Bugfixes
+
+-  Bad memory access on hostgroupname/servicegroupname macros
+
 ### 21.04.0
 
 - When used with centreon-connectors, Engine could crash when we stop it. This should be fixed now.
