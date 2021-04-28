@@ -201,6 +201,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.3
 
+`April 28, 2021`
+
 > This version requires Centreon Broker version to be 20.10.4 or higher.
 
 #### Bugfixes
