@@ -250,6 +250,23 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.3
+
+`April 28, 2021`
+
+> This version requires Centreon Broker version to be 20.10.4 or higher.
+
+#### Bugfixes
+
+- Recovery notifications were not sent when exiting from downtime
+- Recovery notifications are not sent when entering in notification timeperiod
+- Hosts and services actively checked had their statuses returned to Broker twice
+- $TIMET$ macro displayed time instead of epoch
+- Flapping was not detected
+- SERVICENOTESURL macro value was encoded in notifications
+- Engine did not respect user's defined notification periods 
+- Engine stopped working without logging an error
+
 ### 20.10.2
 
 `January 20, 2021`
