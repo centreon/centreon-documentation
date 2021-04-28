@@ -51,22 +51,41 @@ Le Plugin-Pack inclue la supervision le système AIX en utilisant les commandes 
 
 ## Prérequis
 
-Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Collecteur et le serveur executant AIX SSH. Depuis le Collecteur, 
-c'est l'utilisateur _centreon-engine_ qui initiera la connexion avec votre serveur AIX car c'est utilisateur qui exécute les commandes du Collecteur.
-Exemple :
+### Configuration SSH
+
+Un simple utilisateur est nécessaire pour interroger le système d'exploitation Linux par SSH. Il n'est pas nécessaire d'avoir des privilèges root ou sudo.
+Il y a deux façons possibles d'effectuer la vérification SSH, soit en échangeant la clé SSH de centreon-engine au serveur cible, 
+ou en définissant votre utilisateur et votre mot de passe directement dans les macros hôtes.
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Exchange des Clés SSH -->
+
+Ajouter et générer un mot de passe pour votre utilisateur sur le **Serveur Cible** :
 
 ```bash
-[centreon-engine@collecteur1 ~]/usr/lib/centreon/plugins/centreon_aix_local.pl \
-    --plugin=os::aix::local::plugin \
-    --mode=errpt \
-    --hostname=10.30.2.81 \
-    --ssh-username=svc_centreon \
-    --ssh-password='svc_centreon-password' \
-    --ssh-backend=sshcli \
-    --verbose
+adduser ro_ssh_centreon
+passwd ro_ssh_centreon
 ```
 
-L'utilisateur distant doit avoir assez de privilèges pour executer la commande ```sshcli```.
+Basculer vers l'environnement bash de `centreon-engine` sur votre serveur Central et sur Poller :
+
+```bash
+su - centreon-engine
+```
+
+Ensuite, copier cette clé sur le **Serveur cible** avec les commandes suivantes :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
+```
+
+<!--Autentification Utilisateur/Mot de passe-->
+
+Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez remplir les macros décritent dans la partie **Configuration** ci-dessous.
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Installation
 
