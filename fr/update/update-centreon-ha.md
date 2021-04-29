@@ -1,5 +1,5 @@
 ---
-id: update
+id: update-centreon-ha
 title: Mise à jour d'une plateforme Centreon-HA
 ---
 
