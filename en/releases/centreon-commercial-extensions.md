@@ -252,6 +252,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - Update column length for BAM reporting
