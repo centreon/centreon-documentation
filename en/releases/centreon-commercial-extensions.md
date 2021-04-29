@@ -101,6 +101,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.3
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - [Configuration] Improved behavior of BA selector when adding KPI
