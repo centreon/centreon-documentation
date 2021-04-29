@@ -131,7 +131,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 - Update column length for BAM reporting
 - Inconsistency between Centreon & Centreon MBI column size for metric_unit
-- Publication rule doesn't save backslash into CFIS publication
+- Publication rule doesn't save backslash into CIFS publication
 
 ### 20.10.0
 
