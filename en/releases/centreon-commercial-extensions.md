@@ -103,7 +103,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 #### Bugfixes
 
-- [Configuration] BA selector when adding KPI is not handy
+- [Configuration] Improved behavior of BA selector when adding KPI
 - [Monitoring] BA listing order by level doesn't work
 - [Widget] Filter downtime not working in widget
 
