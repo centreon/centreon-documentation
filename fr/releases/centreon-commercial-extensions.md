@@ -108,7 +108,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Correctifs
 
-- [Configuration] Le sélecteur de BA lors de l'ajout de KPI n'est pas pratique
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
 - [Monitoring] L'ordre BA dans la liste par niveau ne fonctionne pas
 - [Widget] Le filtre tempds d'arrêt ne fonctionnent pas dans le widget
 
