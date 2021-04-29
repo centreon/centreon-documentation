@@ -104,9 +104,24 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.3
+
+`29 avril 2021`
+
+#### Correctifs
+
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
+- [Monitoring] L'ordre BA dans la liste par niveau ne fonctionne pas
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
+
+#### Correctifs de sécurité
+
+- [Core] Gérer la fin de vie de Flash
+- [Lib] Version jQuery vulnérable
+
 ### 20.10.2
 
-`February 24, 2021`
+`24 février 2021`
 
 #### Correctifs
 

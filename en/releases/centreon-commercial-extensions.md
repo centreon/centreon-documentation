@@ -99,6 +99,21 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.3
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- [Configuration] Improved behavior of BA selector when adding KPI
+- [Monitoring] BA listing order by level doesn't work
+- [Widget] Filter downtime was not working in widget
+
+#### Security fixes
+
+- [Core] Handle end of life for Flash
+- [Lib] Vulnerable jQuery version
+
 ### 20.10.2
 
 `February 24, 2021`
