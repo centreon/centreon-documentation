@@ -263,7 +263,7 @@ liens
 - Toutes les pages de configuration & temps réelle ont été mise à jour pour
   gérer ces nouvelles méthodes de calcul
 
-## Centreon 
+## Centreon MBI
 
 ### 20.04.4
 
