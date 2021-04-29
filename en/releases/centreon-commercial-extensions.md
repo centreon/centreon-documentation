@@ -127,6 +127,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.1
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - Update column length for BAM reporting
