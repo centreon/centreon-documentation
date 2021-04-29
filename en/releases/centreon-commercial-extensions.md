@@ -151,6 +151,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.7
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - [Configuration] BA selector when adding KPI is not handy
