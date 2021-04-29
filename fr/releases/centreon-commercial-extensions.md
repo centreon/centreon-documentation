@@ -157,7 +157,7 @@ liens
 `29 avril 2021`
 #### Correctifs
 
-- [Configuration] Le sélecteur de BA lors de l'ajout de KPI n'est pas pratique
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
 - [Widget] Le filtre tempds d'arrêt ne fonctionnent pas dans le widget
 
 #### Correctifs de sécurité
