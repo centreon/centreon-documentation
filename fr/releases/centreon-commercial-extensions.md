@@ -155,6 +155,7 @@ liens
 ### 20.04.7
 
 `29 avril 2021`
+
 #### Correctifs
 
 - [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
