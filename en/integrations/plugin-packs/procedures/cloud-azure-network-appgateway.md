@@ -33,7 +33,7 @@ The Centreon Plugin-Pack *Azure Application Gateway* includes a Host Discovery *
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Gateway**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-appgateway-appgateway-provider.png)
+![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
@@ -324,11 +324,11 @@ user account and test the Plugin by running the following command:
 Expected command output is shown below:
 
 ```bash
-OK: Instance 'LBA831200ALGI01' Statistic 'total' Metrics Failed Requests: 0.00, Total Requests: 523.00 |
-'LBA831200ALGI01~total#appgateway.requests.failed.count'=0.00;0:80;0:90;0; 'LBA831200ALGI01~total#appgateway.requests.total.count'=523.00;;;0;
+OK: Instance 'APP001ABCD' Statistic 'total' Metrics Failed Requests: 0.00, Total Requests: 523.00 |
+'APP001ABCD~total#appgateway.requests.failed.count'=0.00;0:80;0:90;0; 'APP001ABCD~total#appgateway.requests.total.count'=523.00;;;0;
 ```
 
-The command above checks the *errors* of an Azure *Event Hub* instance using the 'api' custom-mode
+The command above checks the *requests* of an Azure *Application Gateway* instance using the 'api' custom-mode
 (```--plugin=cloud::azure::network::appgateway::plugin --mode=requests --custommode=api```).
 This Event Hub instance is identified by its id (```--resource='APP001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'

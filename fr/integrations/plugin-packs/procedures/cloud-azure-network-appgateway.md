@@ -32,7 +32,7 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 Le Plugin-Pack Centreon *Azure Application Gateway* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Gateway**.
 Celui-ci permet de découvrir l'ensemble des instances *Application Gateway* rattachés à une *souscription* Microsoft Azure donnée:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-appgateway-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
 
 > La découverte *Azure Application Gateway* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
 > de cette utilisation. 
@@ -326,7 +326,7 @@ OK: Instance 'APP001ABCD' Statistic 'total' Metrics Failed Requests: 0.00, Total
 'APP001ABCD~total#appgateway.requests.failed.count'=0.00;0:80;0:90;0; 'APP001ABCD~total#appgateway.requests.total.count'=523.00;;;0;
 ```
 
-La commande ci-dessus vérifie les erreurs existantes sur l'instance *Application Gateway* nommée *APP001ABCD*
+La commande ci-dessus vérifie les statistiques de *requêtes* de l'instance *Application Gateway* nommée *APP001ABCD*
 (```--plugin=cloud::azure::network::appgateway::plugin --mode=requests --resource='APP001ABCD'```) et liée au *Resource Group* *RSG1234*
 (```--resource-group='RSG1234'```).
 
