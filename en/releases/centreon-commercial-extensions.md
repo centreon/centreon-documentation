@@ -263,6 +263,16 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
+### 20.04.4
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- Update column length for BAM reporting
+- Inconsistency between Centreon & Centreon MBI column size for metric_unit
+- Publication rule doesn't save backslash into CIFS publication
+
 ### 20.04.3
 
 `Octobre 28, 2020`
