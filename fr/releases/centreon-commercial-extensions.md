@@ -158,7 +158,7 @@ liens
 #### Correctifs
 
 - [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
-- [Widget] Le filtre tempds d'arrêt ne fonctionnent pas dans le widget
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
 
 #### Correctifs de sécurité
 
