@@ -19,6 +19,17 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.3
+
+`11 février 2021`
+
+#### Bugfixes
+
+- Nom d'hôte manquant dans le titre d'un service graph
+- Un graph créé depuis un service dans un élément host n'était pas correctement
+  rafraichi
+- Ouvrir une map depuis le listing ou le widget pouvait être trop long
+
 ### 20.10.2
 
 `16 décembre 2020`
@@ -93,9 +104,24 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.3
+
+`29 avril 2021`
+
+#### Correctifs
+
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
+- [Monitoring] L'ordre BA dans la liste par niveau ne fonctionne pas
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
+
+#### Correctifs de sécurité
+
+- [Core] Gérer la fin de vie de Flash
+- [Lib] Version jQuery vulnérable
+
 ### 20.10.2
 
-`February 24, 2021`
+`24 février 2021`
 
 #### Correctifs
 
@@ -129,6 +155,25 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 - Compatibilité avec Centreon 20.10
 
 ## Centreon Auto Discovery
+
+### 20.10.3
+
+`17 mars 2021`
+
+#### Correctifs de sécurité
+
+- [Service Discovery] Mise en conformité des appels jQuery avec la dernière
+version (apportant des corrections de failles de sécurité)
+
+#### Correctifs
+
+- [Core] Une mauvaise requête générait des erreurs 400
+
+#### Améliorations
+
+- [Host Discovery] Limiter la définition du *provider* de découverte qui est
+importé à la version 2.0
+
 
 ### 20.10.2
 
@@ -208,6 +253,14 @@ non plus des connexions SSH autonomes.
 
 ## Centreon Plugin Packs Manager
 
+### 20.10.1
+
+`26 février 2021`
+
+#### Correctifs de sécurité
+
+- [Core] Vulnerable handlebars.js library
+
 ### 20.10.0
 
 `21 octobre 2020`
@@ -215,6 +268,14 @@ non plus des connexions SSH autonomes.
 - Compatibilité avec Centreon 20.10
 
 ## Centreon License Manager
+
+### 20.10.2
+
+`24 mars 2021`
+
+#### Correctifs
+
+- The Add Token button is not visible when the online license is over
 
 ### 20.10.1
 

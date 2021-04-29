@@ -13,7 +13,7 @@ Après l'installation de Centreon, il est nécessaire de changer les mots de pas
 - centreon
 - centreon-engine
 - centreon-broker
-- centreon-gorgoned
+- centreon-gorgone
 
 Pour cela, utilisez la commande suivante avec un compte privilégié (par exemple sudo) ou avec root (non recommandé - vous devez
 avoir un utilisateur dédié) :
@@ -37,6 +37,136 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 > Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.html#utilisateurs-et-groupes)
 
+## Activer SELinux
+
+Centreon a récemment développé des règles SELinux afin de renforcer le contrôle
+des composants par le système d'exploitation.
+
+> Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
+> pouvez les activer en suivant cette procédure. Lors de la détection d'un
+> problème, il est possible de désactiver SELinux globalement et de nous envoyer
+> vos commentaires afin d'améliorer nos règles sur
+> [Github](https://github.com/centreon/centreon).
+
+### Présentation de SELinux
+
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
+peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
+
+La stratégie d'accès standard basée sur l'utilisateur, le groupe et d'autres autorisations, connue sous le nom de
+contrôle d'accès discrétionnaire (DAC), ne permet pas aux administrateurs système de créer des stratégies de sécurité
+complètes et précises, telles que la restriction d'applications spécifiques à l'affichage uniquement des fichiers
+journaux, tout en permettant à d'autres applications d'ajouter de nouvelles données aux fichiers journaux.
+
+SELinux implémente le contrôle d'accès obligatoire (MAC). Chaque processus et ressource système possède une étiquette
+de sécurité spéciale appelée contexte SELinux. Un contexte SELinux, parfois appelé étiquette SELinux, est un identifiant
+qui fait abstraction des détails au niveau du système et se concentre sur les propriétés de sécurité de l'entité. Non
+seulement cela fournit un moyen cohérent de référencer des objets dans la stratégie SELinux, mais cela supprime également
+toute ambiguïté qui peut être trouvée dans d'autres méthodes d'identification. Par exemple, un fichier peut avoir plusieurs
+noms de chemin valides sur un système qui utilise des montages de liaison.
+
+La politique SELinux utilise ces contextes dans une série de règles qui définissent comment les processus peuvent
+interagir entre eux et avec les différentes ressources système. Par défaut, la stratégie n'autorise aucune interaction
+à moins qu'une règle n'accorde explicitement l'accès.
+
+Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
+
+### Activer SELinux en mode permissif
+
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
+vous devez modifier le fichier `/etc/selinux/config` comme tel que :
+
+```shell
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=permissive
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+
+Puis redémarrez votre serveur :
+```shell
+shutdown -r now
+```
+
+### Installer les paquets Centreon SELinux
+
+Suivant le type de serveur, installer les paquets avec la commande suivante :
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+   ```shell
+   yum install centreon-common-selinux \
+   centreon-web-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Poller-->
+   ```shell
+   yum install centreon-common-selinux \
+   centreon-broker-selinux \
+   centreon-engine-selinux \
+   centreon-gorgoned-selinux \
+   centreon-plugins-selinux
+   ```
+<!--Map server-->
+   ```shell
+   yum install centreon-map-selinux
+   ```
+<!--MBI server-->
+   ```shell
+   yum install centreon-mbi-selinux
+   ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Pour vérifier l'installation, exécutez la commande suivante :
+
+```shell
+semodule -l | grep centreon
+```
+
+Suivant votre type de serveur, vous pouvez voir :
+```shell
+centreon-broker	0.0.5
+centreon-common	0.0.10
+centreon-engine	0.0.8
+centreon-gorgoned	0.0.3
+centreon-plugins	0.0.2
+centreon-web	0.0.8
+```
+
+### Auditer les journaux et activer SELinux
+
+Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune erreur n'apparaît à l'aide de la
+commande suivante :
+```shell
+cat /var/log/audit/audit.log | grep -i denied
+```
+
+Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
+en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
+l'erreur en règles SELinux :
+
+```shell
+audit2allow -a
+```
+
+Exécutez ensuite les règles proposées.
+
+Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
+[procédure](#enable-selinux-in-permissive-mode) avec le mode **enforcing**.
+
+> N'hésitez pas à nous faire pas de vos retours sur [Github](https://github.com/centreon/centreon).
+
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
@@ -45,6 +175,122 @@ l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les in
 ```shell
 mysql_secure_installation
 ```
+
+# Activation de firewalld
+
+Installez firewalld:
+```shell
+yum install firewalld
+```
+
+Activez firewalld:
+```shell
+systemctl enable firewalld
+systemctl start firewalld
+```
+
+> La liste des flux réseau nécessaires pour chaque type de serveur est définie
+> [ici](../installation/architectures.html#tables-of-platform-flows).
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Central / Remote Server-->
+Exemple de règles pour un Centreon Central ou Remote Server:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# Centreon Broker
+firewall-cmd --zone=public --add-port=5669/tcp --permanent
+```
+<!--Poller-->
+Exemple de règles pour un collecteur Centreon:
+```shell
+# For default protocols
+firewall-cmd --zone=public --add-service=ssh --permanent
+firewall-cmd --zone=public --add-service=snmp --permanent
+firewall-cmd --zone=public --add-service=snmptrap --permanent
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Une fois les règles ajoutées, il est nécessaire de recharger firewalld:
+```shell
+firewall-cmd --reload
+```
+
+### Activez fail2ban
+
+Fail2ban est un framework de prévention contre les intrusions, écrit en Python.
+
+Installez fail2ban :
+```shell
+yum install epel-release
+yum install fail2ban fail2ban-systemd yum python-inotify
+```
+
+Si SELinux est installé, mettez à jour les politiques SELinux :
+```shell
+yum update -y selinux-policy*
+```
+
+Activez firewalld :
+```shell
+systemctl enable fail2ban
+systemctl start fail2ban 
+```
+
+Copiez le fichier de règles par défaut :
+```shell
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+
+Editez le fichier `/etc/fail2ban/jail.local` et recherchez le bloc **[centreon]**, puis modifiez tel que :
+```shell
+[centreon]
+port    = http,https
+logpath = /var/log/centreon/login.log
+backend  = pyinotify
+```
+
+Pour activer la règle **centreon** fail2ban, créez le fichier `/etc/fail2ban/jail.d/custom.conf` et ajoutez les lignes
+suivantes :
+```shell
+[centreon]
+enabled = true
+findtime = 10m
+bantime = 10m
+maxretry = 3
+```
+
+> **maxretry** est le nombre d'authentifications échouées avant bannissement de l'adresse IP.
+>
+> **bantime** est la durée du bannissement.
+>
+> **findtime** est la plage de temps pour trouver les authentifications en échecs.
+
+Puis redémarrez fail2ban pour charger votre règle :
+```shell
+systemctl restart fail2ban
+```
+
+Pour vérifier l'état de la règle **centreon**, vous pouvez exécuter :
+```shell
+fail2ban-client status centreon
+Status for the jail: centreon
+|- Filter
+|  |- Currently failed:	1
+|  |- Total failed:	17
+|  `- File list:	/var/log/centreon/login.log
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	2
+   `- Banned IP list:
+```
+
+> Pour plus d'informations, visitez le [site officiel](http://www.fail2ban.org).
 
 ## Sécurisez le serveur web Apache
 
@@ -459,7 +705,7 @@ et sorties **IPv4**:
 
 La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
 
-## Gestion des informations sur les événements de sécurité - SEIM
+## Gestion de l'information et des événements de sécurité (SIEM)
 
 Les journaux des événements Centreon sont disponibles dans les répertoires suivants :
 

@@ -19,6 +19,16 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.10.3
+
+`February 11, 2021`
+
+#### Bugfixes
+
+- Missing hostname in metric labels of service graph
+- Graph created from a service in host element was not refreshed correctly
+- Opening map from map listing or widget could could take too much time
+
 ### 20.10.2
 
 `December 16, 2020`
@@ -89,6 +99,21 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.3
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- [Configuration] Improved behavior of BA selector when adding KPI
+- [Monitoring] BA listing order by level doesn't work
+- [Widget] Filter downtime was not working in widget
+
+#### Security fixes
+
+- [Core] Handle end of life for Flash
+- [Lib] Vulnerable jQuery version
+
 ### 20.10.2
 
 `February 24, 2021`
@@ -122,6 +147,23 @@ To use it, it is necessary to install and activate it. Refer to the
 - Compatibility with Centreon 20.10
 
 ## Centreon Auto Discovery
+
+### 20.10.3
+
+`March 17, 2021`
+
+#### Security fixes
+
+- [Service Discovery] Update jQuery calls to match latest version (fixes
+vulnerabilities)
+
+#### Bug fixes
+
+- [Core] Creation forms generate 400 errors due to bad query
+
+#### Enhancements
+
+- [Host Discovery] Limit provider definition version that is imported to 2.0
 
 ### 20.10.2
 
@@ -194,6 +236,14 @@ standalone SSH connections.
 
 ## Centreon Plugin Packs Manager
 
+### 20.10.1
+
+`February 26, 2021`
+
+#### Security fixes
+
+- [Core] Vulnerable handlebars.js library
+
 ### 20.10.0
 
 `October 21, 2020`
@@ -201,6 +251,14 @@ standalone SSH connections.
 - Compatibility with Centreon 20.10
 
 ## Centreon License Manager
+
+### 20.10.2
+
+`March 24, 2021`
+
+#### Bugfixes
+
+- The Add Token button is not visible when the online license is over
 
 ### 20.10.1
 

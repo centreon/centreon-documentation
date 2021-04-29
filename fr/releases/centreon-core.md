@@ -19,6 +19,57 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.6
+
+`20 avril 2021`
+
+#### Correctifs
+
+- [ACL] Use ACL Action to generate traps
+- [About] Update about page with current team
+- [Administration] Cannot list Pollers in Platform Status pages
+- [Configuration] Error while adding a Remote Server and attaching a poller to it via wizard
+- [Configuration] Poller attached to remote is not fully removed from database when deleted using the from
+- [Core/API/v1] Can't filter on criticality
+- [Core] Configuration output can lead to an empty broker configuration
+- [Core] Update centreon copyright dates
+- [Extensions Manager] No popup when removing extension
+- [Graph] Adapt graph scale for b/s unit
+- [Graphs] Colors of labels don't match colors of curves (old library)
+- [Install] During installation, web installer can not be executed fully
+- [Platform Topology] Distant Poller attached behind a Remote Server does not receive conf
+- [Platform Topology] Missing current node IP address in register script
+- [Platform Topology] Register script concatenates default values to values from the template
+- [Platform Topology] Script target address not parsed correctly.
+- [Platform Topology] Enhance register script displaying
+- [Reporting] Dashboard is slow to display with large service groups
+- [Resources Status] Bad urls for mediawiki
+- [Resources Status] Macros in "URL" and "Action URL"
+- [Resources Status] Missing french translations
+- [UX] Remove "deprecated" from menu for deprecated monitoring pages
+
+#### Correctifs de sécurité
+
+- [Core] XSS in index.php and index.html
+- [Library] Update jQuery to version sup or equal 3.5.1
+
+#### Performance
+
+- [API/Topology] Refacto PlatformTopology 20.10
+
+### 20.10.5
+
+`1 avril 2021`
+
+#### Correctifs
+
+- [Lib] Update moment-timezone to manage new timezones
+- [Resources Status] Error when getting the command line for Meta Service detail
+
+#### Correctifs de sécurité
+
+- [APIv2] API realtime rights give API configuration rights
+
 ### 20.10.4
 
 `25 février 2021`
@@ -201,6 +252,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.4
 
+`29 avril 2021`
+
 #### Correctifs
 
 - Évitez d'envoyer des horodatages erratiques
@@ -211,6 +264,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
+`28 avril 2021`
+
 > Cette version nécessite Centreon Broker 20.10.4 ou supérieur.
 
 #### Correctifs
@@ -218,16 +273,15 @@ commerciales, vous pouvez vous rendre sur notre
 - Les notifications de type recovery n'étaient pas envoyées à la sortie d'un arrêt prévu
 - Les notifications de type recovery n'étaient pas envoyées à l'entrée en période de notification
 - Les statuts d'hôtes et de services étaient transmis en double à Broker
-- La macro $TIMET$ conteanait l'heure formatée au lieu d'un timestamp
+- La macro $TIMET$ contenait l'heure formatée au lieu d'un timestamp
 - Le flapping n'était pas détecté correctement
 - La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
 - La période de notification de l'utilisateur n'était pas correctement appliquée
-- Engine pouvait s'arrêter sans loggger aucune erreur
-
+- Engine pouvait s'arrêter sans logger aucune erreur
 
 ### 20.10.2
 
-`20 janvier 2020`
+`20 janvier 2021`
 
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
@@ -302,6 +356,32 @@ state was HARD even if no notification is configured nor sent.
 - Contient tous les correctifs jusqu'à la version 20.04.7
 
 ## Centreon Broker
+
+### 20.10.4
+
+`28 avril 2021`
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Cast index_data.id to unsigned int 64
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working
+- Study ARM compilation
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+
+*Security*
+
+- Strengthen TLS / SSL exchanges
 
 ### 20.10.3
 

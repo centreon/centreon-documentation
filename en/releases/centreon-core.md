@@ -19,6 +19,57 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.10.6
+
+`April 20, 2021`
+
+#### Bugfixes
+
+- [ACL] Use ACL Action to generate traps
+- [About] Update about page with current team
+- [Administration] Cannot list Pollers in Platform Status pages
+- [Configuration] Error while adding a Remote Server and attaching a poller to it via wizard
+- [Configuration] Poller attached to remote is not fully removed from database when deleted using the from
+- [Core/API/v1] Can't filter on criticality
+- [Core] Configuration output can lead to an empty broker configuration
+- [Core] Update centreon copyright dates
+- [Extensions Manager] No popup when removing extension
+- [Graph] Adapt graph scale for b/s unit
+- [Graphs] Colors of labels don't match colors of curves (old library)
+- [Install] During installation, web installer can not be executed fully
+- [Platform Topology] Distant Poller attached behind a Remote Server does not receive conf
+- [Platform Topology] Missing current node IP address in register script
+- [Platform Topology] Register script concatenates default values to values from the template
+- [Platform Topology] Script target address not parsed correctly.
+- [Platform Topology] Enhance register script displaying
+- [Reporting] Dashboard is slow to display with large service groups
+- [Resources Status] Bad urls for mediawiki
+- [Resources Status] Macros in "URL" and "Action URL"
+- [Resources Status] Missing french translations
+- [UX] Remove "deprecated" from menu for deprecated monitoring pages
+
+#### Security fixes
+
+- [Core] XSS in index.php and index.html
+- [Library] Update jQuery to version sup or equal 3.5.1
+
+#### Performance
+
+- [API/Topology] Refacto PlatformTopology 20.10
+
+### 20.10.5
+
+`April 1, 2021`
+
+#### Bugfixes
+
+- [Lib] Update moment-timezone to manage new timezones
+- [Resources Status] Error when getting the command line for Meta Service detail
+
+#### Security fixes
+
+- [APIv2] API realtime rights give API configuration rights
+
 ### 20.10.4
 
 `February 25, 2021`
@@ -201,6 +252,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.4
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - Avoid sending erratic timestamps
@@ -210,6 +263,8 @@ If you have feature requests or want to report a bug, please go to our
 - SERVICEGROUPNAME macro doesn't appear in notifications
 
 ### 20.10.3
+
+`April 28, 2021`
 
 > This version requires Centreon Broker version to be 20.10.4 or higher.
 
@@ -301,6 +356,32 @@ state was HARD even if no notification is configured nor sent.
 - Contains all fixes up to version 20.04.7
 
 ## Centreon Broker
+
+### 20.10.4
+
+`April 28, 2021`
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Cast index_data.id to unsigned int 64
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working
+- Study ARM compilation
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+
+*Security*
+
+- Strengthen TLS / SSL exchanges
 
 ### 20.10.3
 

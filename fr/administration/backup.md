@@ -49,9 +49,9 @@ Apache, PHP, SNMP, centreon, centreon-broker
 
 Format de la sauvegarde :
 
-  - YYYY-MM-DD-Monitoring-Engine.tar.gz (fichiers de configuration
+  - YYYY-MM-DD-centreon-engine.tar.gz (fichiers de configuration
     centreon-engine)
-  - YYYY-MM-DD-Central.tar.gz (autres fichiers de configuration)
+  - YYYY-MM-DD-central.tar.gz (autres fichiers de configuration)
 
 ## Configuration
 
