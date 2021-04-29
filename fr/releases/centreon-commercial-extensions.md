@@ -152,6 +152,19 @@ liens
 
 ## Centreon BAM
 
+### 20.04.7
+
+`29 avril 2021`
+
+#### Correctifs
+
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
+
+#### Correctifs de sécurité
+
+- [Lib] Version jQuery vulnérable
+
 ### 20.04.6
 
 `16 février 2021`

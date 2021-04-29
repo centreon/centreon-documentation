@@ -149,6 +149,19 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 20.04.7
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- [Configuration] Improved behavior of BA selector when adding KPI 
+- [Widget] Filter downtime was not working in widget
+
+#### Security fixes
+
+- [Lib] Vulnerable jQuery version
+
 ### 20.04.6
 
 `February 16, 2021`
