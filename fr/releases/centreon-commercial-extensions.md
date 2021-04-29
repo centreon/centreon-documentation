@@ -270,7 +270,7 @@ liens
 #### Correctifs
 
 - Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
-- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour la colonne metric_unit
 - La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CFIS
 
 ### 20.04.3
