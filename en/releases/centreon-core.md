@@ -250,6 +250,18 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.4
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- Avoid sending erratic timestamps
+- Bad memory access on hostgroupname/servicegroupname macros
+- Host "Hard State Duration" shows N/A when no associated to services
+- Limit downtime start date, end date and duration
+- SERVICEGROUPNAME macro doesn't appear in notifications
+
 ### 20.10.3
 
 `April 28, 2021`

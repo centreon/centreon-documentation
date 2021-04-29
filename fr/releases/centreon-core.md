@@ -250,6 +250,18 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.4
+
+`29 avril 2021`
+
+#### Correctifs
+
+- Évitez d'envoyer des horodatages erratiques
+- La macro SERVICEGROUPNAME n'apparaît pas dans les notifications
+- Le champ "Hard State Duration" de l'hôte affiche "N/A" lorsqu'il n'est pas associé à des services
+- Limiter la date de début, la date de fin et la durée des temps d'arrêt
+- Mauvais accès à la mémoire sur les macros hostgroupname / servicegroupname
+
 ### 20.10.3
 
 `28 avril 2021`
@@ -266,7 +278,6 @@ commerciales, vous pouvez vous rendre sur notre
 - La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
 - La période de notification de l'utilisateur n'était pas correctement appliquée
 - Engine pouvait s'arrêter sans logger aucune erreur
-
 
 ### 20.10.2
 
