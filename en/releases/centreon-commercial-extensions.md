@@ -155,7 +155,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Bugfixes
 
-- [Configuration] BA selector when adding KPI is not handy
+- [Configuration] Improved behavior of BA selector when adding KPI 
 - [Widget] Filter downtime not working in widget
 
 #### Security fixes
