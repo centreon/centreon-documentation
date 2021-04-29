@@ -106,6 +106,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.3
 
+`29 avril 2021`
+
 #### Correctifs
 
 - [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
