@@ -267,6 +267,8 @@ liens
 
 ### 20.04.4
 
+`29 avril 2021`
+
 #### Correctifs
 
 - Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
