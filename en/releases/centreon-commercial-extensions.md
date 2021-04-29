@@ -105,7 +105,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 - [Configuration] Improved behavior of BA selector when adding KPI
 - [Monitoring] BA listing order by level doesn't work
-- [Widget] Filter downtime not working in widget
+- [Widget] Filter downtime was not working in widget
 
 #### Security fixes
 
