@@ -140,6 +140,16 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+### 20.10.1
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- Update column length for BAM reporting
+- Inconsistency between Centreon & Centreon MBI column size for metric_unit
+- Publication rule doesn't save backslash into CIFS publication
+
 ### 20.10.0
 
 `October 21, 2020`

@@ -148,6 +148,16 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon MBI
 
+### 20.10.1
+
+`29 avril 2021`
+
+#### Correctifs
+
+- Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour la colonne metric_unit
+- La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CIFS
+
 ### 20.10.0
 
 `21 octobre 2020`
