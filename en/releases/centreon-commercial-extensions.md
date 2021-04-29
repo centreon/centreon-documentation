@@ -256,7 +256,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 - Update column length for BAM reporting
 - Inconsistency between Centreon & Centreon MBI column size for metric_unit
-- Publication rule doesn't save backslash into CFIS publication
+- Publication rule doesn't save backslash into CIFS publication
 
 ### 20.04.3
 
