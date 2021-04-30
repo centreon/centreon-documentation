@@ -28,9 +28,6 @@ servers:
 >
 > MariaDB will be upgraded afterwards.
 
-> Please, make sure you are logged out from the Centreon web interface 
-> before starting the upgrade procedure.
-
 ### Update the Centreon repository
 
 Run the following commands:
@@ -40,6 +37,9 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 
 ### Upgrade the Centreon solution
+
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
 
 Clean yum cache:
 

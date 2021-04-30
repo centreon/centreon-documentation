@@ -16,6 +16,9 @@ pcs resource unmanage ms_mysql
 
 ## Update process from the WUI
 
+> Please, make sure all users logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
 ### Centreon-Web update
 
 Update your cluster by running the following command on each node:

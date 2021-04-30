@@ -62,6 +62,9 @@ PHP sera mis à jour automatiquement avec Centreon.
 
 ### Montée de version de la solution Centreon
 
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
 Arrêter le processus Centreon Broker :
 ```shell
 systemctl stop cbd
