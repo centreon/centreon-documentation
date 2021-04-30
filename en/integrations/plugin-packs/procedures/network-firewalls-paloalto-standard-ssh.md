@@ -3,11 +3,22 @@ id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
 
-## Plugin-Pack Assets
+## Plugin Pack Assets
 
 ### Monitored Objects
 
-The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using SSH commands.
+The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using SSH commands.
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                                     | Description                                                              |
+| :-------------------------------------------- | :----------------------------------------------------------------------- |
+| Net-PaloAlto-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errors and discards              |
+| Net-PaloAlto-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor status and bandwidth utilization |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Collected Metrics
 
@@ -20,17 +31,32 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 | hardware.temperature.celsius              | Temperature of the different sensors   | C    |
 | hardware.voltage.volt                     | Voltage of the different sensors       | V    |
 
+<!--HA-->
+
+| Metric name                               | Description         | Unit |
+| :---------------------------------------- | :------------------ | :--- |
+| sync status                               | HA Sync status      |      |
+| member status                             | HA member status    |      |
+| link status                               | HA Link status      |      |
+
 <!--Interfaces-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| interfaces.total.count                    | Total number of interfaces	         | count|
+| Metric name                               | Description                                                       | Unit  |
+| :---------------------------------------- | :---------------------------------------------------------------- | :---- |
+| interfaces.total.count                    | Total number of interfaces	                                    | count |
+| interfaces status                         | Status of the interface operationnal and high availability state	|       |
 
 <!--IPSec-->
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
-| tunnels.ipsec.total.count                 | Total number of tunel ipsec            | count|
+| tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count|
+
+<!--Licenses-->
+
+| Metric name                               | Description                                             | Unit |
+| :---------------------------------------- | :------------------------------------------------------ | :--- |
+| status                                    | Licence validity check of enabled features Sync status  |      |
 
 <!--System-->
 
@@ -45,8 +71,8 @@ The Plugin-Pack includes monitoring of the system, interfaces, licenses, ipsec, 
 
 ## Prerequisites
 
-In order to work, the plugin requires an SSH connection between the Poller and the firewall Palo Alto. 
-The remote user must have enough privileges to execute the SSH commands. 
+In order to work, the Plugin requires an SSH connection between the Poller and the Palo Alto firewall. 
+The remote user must have enough privileges to execute system commands. 
 
 ## Setup
 
@@ -84,7 +110,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 * Add a new Host and apply the *Net-PaloAlto-Standard-SSH-custom* Host Template
 
-> 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
+> Three SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
