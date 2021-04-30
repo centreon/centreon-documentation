@@ -683,12 +683,12 @@
             },
             {
                 "ids": [
-                    "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
-                    "integrations/plugin-packs/procedures/operatingsystems-aix-ssh",
                     "integrations/plugin-packs/procedures/base-generic",
+                    "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-aix-ssh",  
+                    "integrations/plugin-packs/procedures/operatingsystems-as400",                   
                     "integrations/plugin-packs/procedures/operatingsystems-freebsd-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-hpux-snmp",
-                    "integrations/plugin-packs/procedures/operatingsystems-as400",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe3",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-snmp",
