@@ -28,6 +28,9 @@ servers:
 >
 > MariaDB will be upgraded afterwards.
 
+> Please, make sure you are logged out from the Centreon web interface 
+> before starting the upgrade procedure.
+
 ### Update the Centreon repository
 
 Run the following commands:

@@ -15,6 +15,9 @@ servers:
 
 ## Update the Centreon Central server
 
+> Please, make sure all users are logged out from the Centreon web interface 
+> before starting the upgrade procedure.
+
 ### Update the Centreon solution
 
 Clean yum cache:
