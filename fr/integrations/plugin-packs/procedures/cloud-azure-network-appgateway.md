@@ -9,10 +9,10 @@ Azure Application Gateway est un équilibreur de charge du trafic web qui vous p
 Les équilibreurs de charge traditionnels fonctionnent au niveau de la couche de transport (couche OSI 4 - TCP et UDP) et
 acheminent le trafic en fonction de l’adresse IP et du port sources, vers une adresse IP et un port de destination.
 
-Le Plugin-Pack Centreon *Azure Application Gateway* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le Plugin Pack Centreon *Azure Application Gateway* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Application Gateway. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Contenu du Plugin-Pack
+## Contenu du Pack
 
 ### Objets supervisés
 
@@ -29,7 +29,7 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 
 ### Règles de découverte
 
-Le Plugin-Pack Centreon *Azure Application Gateway* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Gateway**.
+Le Plugin Pack Centreon *Azure Application Gateway* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Gateway**.
 Celui-ci permet de découvrir l'ensemble des instances *Application Gateway* rattachés à une *souscription* Microsoft Azure donnée:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
@@ -242,13 +242,13 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Azure Application Gateway*:
+2. Sur le serveur Central Centreon, installer le RPM du Pack *Azure Application Gateway*:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-appgateway.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *Azure Application Gateway* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
