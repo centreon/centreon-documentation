@@ -12,7 +12,7 @@ to a destination IP address and port.
 The Centreon Plugin-Pack *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
 
-## Plugin Pack Assets
+## Pack Assets
 
 ### Monitored Objects
 
@@ -29,7 +29,7 @@ Application Gateway service.
 
 ### Discovery rules
 
-The Centreon Plugin-Pack *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Gateway**:
 
@@ -233,7 +233,7 @@ can use it.
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
@@ -243,13 +243,13 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-network-appgateway.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
