@@ -296,9 +296,7 @@ in *AZURERESOURCE*
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## FAQ
-
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+## How to check in the CLI that the configuration is OK and what are the main options for ?
 
 Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
 user account and test the Plugin by running the following command:
