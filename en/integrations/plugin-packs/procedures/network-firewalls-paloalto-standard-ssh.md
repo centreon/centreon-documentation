@@ -7,7 +7,7 @@ title: Palo Alto firewall SSH
 
 ### Monitored Objects
 
-The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using SSH commands.
+The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using system commands.
 
 ### Discovery Rules
 
@@ -50,9 +50,9 @@ The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses
 
 <!--IPSec-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count |
 
 <!--Licenses-->
 
@@ -62,12 +62,12 @@ The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses
 
 <!--System-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| system.antivirus.lastupdate.time.seconds  | Last antivirus update                  | s    |
-| system.threat.lastupdate.time.seconds     | Last threat update                     | s    |
-| system.sessions.traffic.count             | Number of traffic sessions             | count|
-| system.sessions.total.active.count        | Total number of active sessions        | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| system.antivirus.lastupdate.time.seconds  | Last antivirus update                  | s     |
+| system.threat.lastupdate.time.seconds     | Last threat update                     | s     |
+| system.sessions.traffic.count             | Number of traffic sessions             | count |
+| system.sessions.total.active.count        | Total number of active sessions        | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -108,7 +108,7 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Host Configuration
 
 * Add a new Host and apply the *Net-PaloAlto-Standard-SSH-custom* Host Template
 
@@ -154,11 +154,9 @@ With that backend, you do not have to validate the target server fingerprint man
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## FAQ
+## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
-
-Once the Plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following command :
+Once the Plugin installed, log into your Poller using the *centreon-engine* user account and run the following command :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_paloalto_ssh.pl \
@@ -205,6 +203,8 @@ All the options that can be used with this plugin can be found over the ```--hel
     --mode=environment \
     --help
 ```
+
+## Troubleshooting
 
 ### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
 
