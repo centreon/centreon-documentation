@@ -3,11 +3,11 @@ id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
 
-## Plugin-Pack Assets
+## Plugin Pack Assets
 
 ### Monitored Objects
 
-The Plugin-Pack BDT MutliStak SNMP collects metrics for:
+The Plugin Pack BDT MutliStak SNMP collects metrics for:
 * Hardware
 
 ### Collected Metrics
@@ -27,7 +27,7 @@ The Plugin-Pack BDT MutliStak SNMP collects metrics for:
 
 ## Prerequisites
 
-To control your BDT MultiStak, the SNMP must be configured.
+To monitor your BDT MultiStak device, the SNMP must be configured.
 
 ## Setup
 
@@ -41,7 +41,7 @@ To control your BDT MultiStak, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
+2. On the Centreon Web interface in "Configuration > Plugin ¨Packs > Manager", install the *BDT MultiStak SNMP* Plugin-Pack
 
 <!--Offline IMP License-->
 
@@ -51,7 +51,7 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-bdt-multistak-snmp
@@ -72,9 +72,7 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 | :-------- | :--------------- | :--------------------------------------------- |
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-## FAQ
-
-### How to test the Plugin and what are the main options for?
+## How to test the Plugin and what are the main options for?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
 and test the Plugin by running the following command:
