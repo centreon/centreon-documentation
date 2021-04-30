@@ -8,7 +8,7 @@ title: Palo Alto firewall SSH
 ### Objets supervisés
 
 Le Plugin Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
-utilisant les commandes SSH. 
+utilisant des commandes systèmes.
 
 ### Règles de découvertes 
 
@@ -89,7 +89,7 @@ doit avoir assez de privilèges pour exécuter des commandes systèmes.
 yum install centreon-plugin-Network-Firewalls-Paloalto-Standard-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Palo Alto firewall SSH* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
