@@ -9,6 +9,8 @@ title: Palo Alto firewall SSH
 
 The Centreon Plugin Pack includes monitoring of the system, interfaces, licenses, ipsec, high availability between nodes and hardware components using SSH commands.
 
+### Discovery Rules
+
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Services-->
