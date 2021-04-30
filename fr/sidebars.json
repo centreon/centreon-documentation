@@ -29,6 +29,7 @@
                 "label": "Installer un serveur central",
                 "type": "subcategory"
             },
+            "installation/web-and-post-installation",
             {
                 "ids": [
                     "installation/installation-of-centreon-ha/architectures",
@@ -39,7 +40,6 @@
                 "label": "Installation de Centreon HA",
                 "type": "subcategory"
             },
-            "installation/web-and-post-installation",
             {
                 "ids": [
                     "installation/installation-of-a-poller/using-centreon-iso",
