@@ -3,11 +3,11 @@ id: operatingsystems-aix-ssh
 title: AIX SSH
 ---
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack inclue la supervision le système AIX en utilisant les commandes SSH, tel que :
+Le Plugin Pack inclue la supervision le système AIX en utilisant les commandes SSH, tel que :
 * Retour de commande
 * Messages errpt
 * Inodes
@@ -21,39 +21,36 @@ Le Plugin-Pack inclue la supervision le système AIX en utilisant les commandes 
 
 <!--Cmdreturn-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| command.exit.code.count                   | Number of exit code return             | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| command.exit.code.count                   | Number of exit code return             | count |
 
 <!--Inodes-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| storage.inodes.usage.percentage           | Inodes usage in percentage	           | %    |
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| storage.inodes.usage.percentage           | Inodes usage in percenta               | %     |
 
 <!--Process-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| processes.alerts.count                    | Number of alerts processes             | count|
-| processes.total.count                     | Total number of alerts processes       | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| processes.alerts.count                    | Number of alerts processes             | count |
+| processes.total.count                     | Total number of alerts processes       | count |
 
 <!--Storage-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| storage.space.usage.bytes                 | Storage space usage                    | B    |
-| storage.space.free.bytes                  | Storage free space usage               | B    |
-| storageresource.space.usage.percentage    | Storage percentage space usage         | %    |
-
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| storage.space.usage.bytes                 | Storage space usage                    | B     |
+| storage.space.free.bytes                  | Storage free space usage               | B     |
+| storageresource.space.usage.percentage    | Storage percentage space usage         | %     |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-### Configuration SSH
-
-Un simple utilisateur est nécessaire pour interroger le système d'exploitation Linux par SSH. Il n'est pas nécessaire d'avoir des privilèges root ou sudo.
+Un simple utilisateur est nécessaire pour interroger le système d'exploitation AIX par SSH. Il n'est pas nécessaire d'avoir des privilèges root ou sudo.
 Il y a deux façons possibles d'effectuer la vérification SSH, soit en échangeant la clé SSH de centreon-engine au serveur cible, 
 ou en définissant votre utilisateur et votre mot de passe directement dans les macros hôtes.
 
@@ -115,13 +112,13 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 yum install centreon-pack-operatingsystems-aix-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *AIX SSH* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *AIX SSH* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par serveur AIX.
+Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par serveur AIX.
 Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *OS-AIX-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
@@ -165,9 +162,7 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine*
 
@@ -196,6 +191,7 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
     --mode=lvsync \
     --help
 ```
+## Troubleshooting
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
 
