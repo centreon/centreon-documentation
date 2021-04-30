@@ -52,8 +52,6 @@ The Plugin Pack includes monitoring the AIX system commands using SSH, such as:
 
 ## Prerequisites
 
-### SSH configuration
-
 A user is required to query the OS AIX by SSH. There is no need for root or sudo privileges.
 There are two possible ways to perform SSH check, either by exchanging the SSH key from centreon-engine to the target server, 
 or by setting your unique user and password directly in the host macros.
