@@ -293,9 +293,7 @@ dans la Macro *AZURERESOURCE*
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de
 commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
