@@ -3,11 +3,11 @@ id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
 ---
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack BDT MultiStak SNMP collecte les données pour:
+Le Plugin Pack BDT MultiStak SNMP collecte les données pour:
 * Hardware
 
 ### Métriques collectées
@@ -41,7 +41,7 @@ Afin de contrôler votre équipement BDT MultiStak, le SNMP doit être configur�
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *BDT MultiStak SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin-Pack *BDT MultiStak SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -51,7 +51,7 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-bdt-multistak-snmp
@@ -74,9 +74,7 @@ yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 | :---------- | :---------------------- | :---------------------------------|
 |             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
 depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
@@ -115,7 +113,7 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## J'obtiens le message d'erreur suivant:
+## _Troubleshooting_ 
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
