@@ -3,12 +3,25 @@ id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
 ---
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
+Le Plugin Pack inclue la supervision du système, des interfaces, des licences, des ipsec, de la haute disponibilité entre les nœuds et des composants matériels en 
 utilisant les commandes SSH. 
+
+### Règles de découvertes 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                                     | Description                                                                  |
+| :-------------------------------------------- | :--------------------------------------------------------------------------- |
+| Net-PaloAlto-Standard-SNMP-Packet-Errors-Name | Découverte des interfaces et contrôle des paquets en erreurs                 |
+| Net-PaloAlto-Standard-SNMP-Traffic-Name       | Découverte des interfaces et contrôle de leur statut et de la bande-passante |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Métriques collectées
 
@@ -21,33 +34,48 @@ utilisant les commandes SSH.
 | hardware.temperature.celsius              | Temperature of the different sensors   | C    |
 | hardware.voltage.volt                     | Voltage of the different sensors       | V    |
 
+<!--HA-->
+
+| Metric name                               | Description         | Unit |
+| :---------------------------------------- | :------------------ | :--- |
+| sync status                               | HA Sync status      |      |
+| member status                             | HA member status    |      |
+| link status                               | HA Link status      |      |
+
 <!--Interfaces-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| interfaces.total.count                    | Total number of interfaces	         | count|
+| Metric name                               | Description                                                       | Unit  |
+| :---------------------------------------- | :---------------------------------------------------------------- | :---- |
+| interfaces.total.count                    | Total number of interfaces	                                    | count |
+| interfaces status                         | Status of the interface operationnal and high availability state	|       |
 
 <!--IPSec-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| tunnels.ipsec.total.count                 | Total number of tunel ipsec            | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| tunnels.ipsec.total.count                 | Total number of ipsec tunnels          | count |
+
+<!--Licenses-->
+
+| Metric name                               | Description                                             | Unit |
+| :---------------------------------------- | :------------------------------------------------------ | :--- |
+| status                                    | Licence validity check of enabled features Sync status  |      |
 
 <!--System-->
 
-| Metric name                               | Description                            | Unit |
-| :---------------------------------------- | :------------------------------------- | :--- |
-| system.antivirus.lastupdate.time.seconds  | Last antivirus update                  | s    |
-| system.threat.lastupdate.time.seconds     | Last threat update                     | s    |
-| system.sessions.traffic.count             | Number of traffic sessions             | count|
-| system.sessions.total.active.count        | Total number of active sessions        | count|
+| Metric name                               | Description                            | Unit  |
+| :---------------------------------------- | :------------------------------------- | :---- |
+| system.antivirus.lastupdate.time.seconds  | Last antivirus update                  | s     |
+| system.threat.lastupdate.time.seconds     | Last threat update                     | s     |
+| system.sessions.traffic.count             | Number of traffic sessions             | count |
+| system.sessions.total.active.count        | Total number of active sessions        | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
 Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Collecteur et le pare-feu Palo Alto. L'utilisateur distant
-doit avoir assez de privilèges pour exécuter les commandes SSH. 
+doit avoir assez de privilèges pour exécuter des commandes systèmes.
 
 ## Installation
 
@@ -83,8 +111,8 @@ yum install centreon-pack-network-firewalls-paloalto-standard-ssh
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par pare-feu Palo Alto.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
+Ce Plugin Pack est conçu de manière à avoir dans Centreon un hôte par pare-feu Palo Alto.
+Lorsque vous ajoutez un Hôte à Centreon, appliquez-lui le modèle *Net-PaloAlto-Standard-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées:
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -127,9 +155,9 @@ et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
 
 Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible. 
 
-## FAQ
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine*
 
@@ -178,6 +206,8 @@ Toutes les options et leur utilisation peuvent être consultées avec le paramè
     --mode=environment \
     --help
 ```
+
+## Troubleshooting
 
 ### J'ai ce message d'erreur : ```UNKNOWN: Command error: Host key verification failed.```. Qu'est-ce que cela signifie ?
 
