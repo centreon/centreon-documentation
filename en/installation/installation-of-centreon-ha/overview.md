@@ -19,6 +19,7 @@ allowing fault-tolerance on the following components:
   * centreon-broker (multiplexer)
   * centreon-gorgone (task manager)
   * centreon-central-sync (config file replication)
+  * snmptrapd and centreontrapd (system and applicative trap management processes)
 * Central Server third-party daemons
   * php-fpm (FastCGI PHP cache)
   * apache server (webserver)
@@ -81,7 +82,7 @@ Pacemaker offers various types of constraints:
 * Colocation: how resources behave to each other.
 
 For example, Centreon-HA uses location constraints to specify to Pacemaker that the database process 
-needs to be up on backend nodes but not on the front-end node. 
+needs to be up on backend nodes but not on frontend nodes. 
 
 Regarding colocation constraints, they can ensure a Virtual IP sticks to the master nodes and/or role. 
 Therefore Users, Pollers, and Daemons constantly interact with the primary node. 
@@ -89,7 +90,7 @@ Therefore Users, Pollers, and Daemons constantly interact with the primary node.
 ### QDevice and votes
 
 The configuration of a qdevice is **mandatory** to avoid split-brain and other situations nobody wants 
-to face in a Cluster. The server with the `quorum-device` role =aims to obtain an absolute majority in a vote 
+to face in a Cluster. The server with the `quorum-device` role aims to obtain an absolute majority in a vote 
 to elect a master node or resource role.
 
 ## Support
@@ -122,7 +123,7 @@ if your organization requires a systematic split of front and back servers or yo
 scope is above 5k Hosts. 
 
 Schemas below show both architecture flavor and network flows between servers. To get the complete network 
-flow matrix, refer to the architecture dedicated installation page. 
+flow matrix, refer to the architecture dedicated installation page.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -142,28 +143,25 @@ Reach [this page](../../installation/installation-of-centreon-ha/installation-4-
 
 ### Server organization
 
-Setting up a Centreon-HA cluster might be overkill if all your servers are running in the same datacenter or 
-the same rack. 
+Setting up a Centreon-HA cluster might be overkill or at least not optimal when all your servers are running in 
+the same datacenter or the same rack. 
 
-In a perfect world, the primary and secondary nodes are running on different (geographical) sites, and the qdevice communicate
-with both sites independently. 
+In a perfect world, the primary and secondary nodes are running on different (geographical) sites, and the qdevice 
+communicate with both sites independently. 
 
 ### Role of the Centreon central server
 
 In the case of a highly available architecture the **Centreon central cluster must not be used as a poller**. 
-In other words, it mustn't monitor resources. Its monitoring ability should only be used to monitor its pollers. 
+In other words, it should not monitor resources. Its monitoring ability should only be used to monitor its pollers. 
 If this recommendation is not followed, the `centengine` service would take too long to restart 
 and **it may cause the functional `centreon` group to failover**.
 
 ### VIP and load balancing
 
-Centreon recommends using VIP addresses for both Central and Database servers. 
+Centreon recommends using VIP addresses.
 
-If you use a load balancer, it's necessary to manage the routing of all application flows. 
+Use a load balancer is an option but it should support custom rules to route application flows.
 
 For example, in a four nodes setup, a load balancer can rely on:
 * the listening port or the apache process state to route Users and Pollers' communication toward frontend servers.
 * the value of the "read_only" flag on both database servers to determine which one is the primary one.
-
-
-
