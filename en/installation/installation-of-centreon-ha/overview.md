@@ -105,7 +105,10 @@ Centreon officialy supports Clustering on the following Products:
 And on the following Operating Systems: 
 
 * CentOS 7
-* RHEL 7
+* RHEL 7 
+
+*Important:* To install pacemaker and corosync packages on RedHat systems, servers must have access to
+the _Red Hat Enterprise Linux High Availability_ licensed repository.  
 
 The only official database server Centreon supports is MariaDB. 
 
