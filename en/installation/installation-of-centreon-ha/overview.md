@@ -131,23 +131,23 @@ flow matrix, refer to the architecture dedicated installation page.
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes.png) to start your two nodes setup! 
+Reach [this page](../../installation/installation-of-centreon-ha/installation-2-nodes.html) to start your two nodes setup! 
 
 <!--Four-nodes-cluster-->
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.png) to start your two nodes setup!
+Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.html) to start your two nodes setup!
 
 ## Additionnal information
 
 ### Server organization
 
 Setting up a Centreon-HA cluster might be overkill or at least not optimal when all your servers are running in 
-the same datacenter or the same rack. 
+the same datacenter and even more within the same rack. 
 
 In a perfect world, the primary and secondary nodes are running on different (geographical) sites, and the qdevice 
-communicate with both sites independently. 
+communicate with both sites independently. Obviously, all nodes need to communicate with each other.
 
 ### Role of the Centreon central server
 
@@ -163,5 +163,5 @@ Centreon recommends using VIP addresses.
 Use a load balancer is an option but it should support custom rules to route application flows.
 
 For example, in a four nodes setup, a load balancer can rely on:
-* the listening port or the apache process state to route Users and Pollers' communication toward frontend servers.
-* the value of the "read_only" flag on both database servers to determine which one is the primary one.
+* frontend-vip: the listening port or the apache process state to route Users and Pollers' communication toward frontend servers.
+* backend-vip: the value of the "read_only" flag on both database servers to determine which one is the primary one.
