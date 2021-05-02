@@ -137,7 +137,7 @@ Reach [this page](../../installation/installation-of-centreon-ha/installation-2-
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.html) to start your two nodes setup!
+Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.html) to start your four nodes setup!
 
 ## Additionnal information
 
