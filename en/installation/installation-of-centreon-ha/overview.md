@@ -139,6 +139,8 @@ Reach [this page](../../installation/installation-of-centreon-ha/installation-2-
 
 Reach [this page](../../installation/installation-of-centreon-ha/installation-4-nodes.html) to start your four nodes setup!
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Additionnal information
 
 ### Server organization
