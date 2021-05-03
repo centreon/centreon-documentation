@@ -3,11 +3,11 @@ id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
 ---
 
-## Plugin-Pack Assets
+## Plugin Pack Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Huawei OceanStor SNMP collects metrics for:
+The Plugin Pack *Huawei OceanStor SNMP* collects metrics for:
 * Controllers
 * Hardware
 * Storage pools
@@ -77,7 +77,7 @@ To control your Huawei OceanStor, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Huawei OceanStor SNMP* Plugin-Pack
+2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Huawei OceanStor SNMP* Plugin-Pack
 
 <!--Offline IMP License-->
 
@@ -87,13 +87,13 @@ yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Huawei OceanStor SNMP* Plugin-Pack
+3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Huawei OceanStor SNMP* Plugin Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -108,9 +108,7 @@ yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 | :-------- | :--------------- | :--------------------------------------------- |
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-## FAQ
-
-### How to test the Plugin and what are the main options for?
+## How to test the Plugin and what are the main options for?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
 and test the Plugin by running the following command:
