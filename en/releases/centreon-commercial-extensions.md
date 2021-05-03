@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Bugfixes
 
-- [Desktop] The filter of resources panel is too slow
+- [Desktop] The search filter of resources panel is too slow
 - [Server] Add customized properties hint to log configuration
 - [Server] RestTemplate as http client should validate with truststore or ignore CA validation of auto-signed certificat
 - [Server] Server rpm should require mysql client
