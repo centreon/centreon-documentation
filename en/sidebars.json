@@ -798,6 +798,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-emc-xtremio-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-exagrid-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-fujitsu-eternus-dx-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-hnas-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp",
