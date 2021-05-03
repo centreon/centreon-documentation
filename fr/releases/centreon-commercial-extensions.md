@@ -23,7 +23,7 @@ commerciales, veuillez contacter le support.
 
 #### Bugfixes
 
-- [Desktop] Le panneau du filtre des ressources est trop lent
+- [Desktop] Le filtre de recherches des ressources est trop lent
 - [Server] Ajout d'un indice de propriétés personnalisées à la configuration du journal
 - [Server] RestTemplate en tant que client http doit valider avec truststore ou ignorer la validation par l'autorité de certification du certificat signé automatiquement
 - [Server] Essayez d'écraser les données en temps réel du statut du serveur hérité, le desktop n'a pas besoin d'afficher des informations en temps réel lors de la création d'un élément graphique.
