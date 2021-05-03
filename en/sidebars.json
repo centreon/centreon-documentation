@@ -767,6 +767,7 @@
                 "ids": [
                     "integrations/plugin-packs/procedures/hardware-storage-adic-tape-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-avid-isis-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-bdt-multistak-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-buffalo-terastation-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-api",
