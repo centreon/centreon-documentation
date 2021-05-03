@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.4
 
+`May 3, 2021`
+
 #### Bugfixes
 
 - [Desktop] The search filter of resources panel is too slow
