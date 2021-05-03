@@ -3,11 +3,11 @@ id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
 ---
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack Huawei OceanStor SNMP collecte les données pour:
+Le Plugin Pack *Huawei OceanStor SNMP* collecte les données pour:
 * Controllers
 * Hardware
 * Storage pools
@@ -77,7 +77,7 @@ Afin de contrôler votre équipement Huawei OceanStor, le SNMP doit être config
 yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -87,13 +87,13 @@ yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Huawei OceanStor SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -110,9 +110,7 @@ yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 | :---------- | :---------------------- | :---------------------------------|
 |             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
 depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
