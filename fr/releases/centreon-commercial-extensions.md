@@ -21,6 +21,8 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.4
 
+`3 mai 2021`
+
 #### Bugfixes
 
 - [Desktop] Le filtre de recherches des ressources est trop lent
