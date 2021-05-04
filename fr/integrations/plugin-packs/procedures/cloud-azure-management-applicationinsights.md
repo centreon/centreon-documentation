@@ -5,7 +5,8 @@ title: Azure Application Insights
 
 ## Vue d'ensemble
 
-
+Azure Applications Insights étend les fonction d'Azure Monitor permettant de
+superviser des applications en temps réel
 
 Le Plugin Pack Centreon *Azure Application Insights* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Application Gateway. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
@@ -15,15 +16,14 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 ### Objets supervisés
 
 * Instances Azure *Application Insights*
-    * Backend-Status
-    * Backend-Time
-    * Clients-Traffic
-    * Connections
-    * Gateway-Time
-    * Health
-    * Requests
-    * Throughput
-    * Units
+    * Cpu   
+    * Memory 
+    * Requests            
+    * Exceptions     
+    * Availability   
+    * IO-Operations  
+    * External-Calls   
+    * Browser-Timings
 
 ### Règles de découverte
 

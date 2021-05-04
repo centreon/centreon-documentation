@@ -5,7 +5,8 @@ title: Azure Application Insights
 
 ## Overview
 
-
+Azure Applications Insights extends the functionality of Azure Monitor to
+supervise applications in real time.
 
 The Centreon Plugin Pack *Azure Application Insights* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
@@ -15,15 +16,14 @@ Application Gateway service.
 ### Monitored Objects
 
 * Azure *Application Insights* instances
-    * Backend-Status
-    * Backend-Time
-    * Clients-Traffic
-    * Connections
-    * Gateway-Time
-    * Health
-    * Requests
-    * Throughput
-    * Units
+    * Cpu   
+    * Memory 
+    * Requests            
+    * Exceptions     
+    * Availability   
+    * IO-Operations  
+    * External-Calls   
+    * Browser-Timings
 
 ### Discovery rules
 
