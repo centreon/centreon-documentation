@@ -113,6 +113,17 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.4
+
+`May 04, 2021`
+
+#### Bugfixes
+- [Monitoring] Fixed missing French translation for "warning" and "critical" status 
+
+#### Security fixes
+
+- [Lib] Updated vulnerable npm packages
+
 ### 20.10.3
 
 `April 29, 2021`
