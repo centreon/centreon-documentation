@@ -118,6 +118,17 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.4
+
+`04 Mai 2021`
+
+#### Correctifs
+- [Monitoring] Ajout des traductions manquantes en Français pour les status "warning" et "critical" 
+
+#### Securité
+
+- [Lib] Mise à jour des paquets npm vulnérables
+
 ### 20.10.3
 
 `29 avril 2021`
