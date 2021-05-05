@@ -69,7 +69,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 |:-----------------------------|:-------------------|:------|
 | apimanagement.requests.count | Number of requests | count |
 
-> You can filter the type of requests (eg. failed or successful requests) with the "FILTERDIMENSION" Macro.
+> Le type de requêtes peut être filtré avec la Macro de service "FILTERDIMENSION".
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

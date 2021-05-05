@@ -63,7 +63,7 @@ More information about the Host Discovery module is available in the Centreon do
 |:-----------------------------|:-------------------|:------|
 | apimanagement.requests.count | Number of requests | count |
 
-> You can filter the type of requests (eg. failed or successful requests) with the "FILTERDIMENSION" Macro.
+> You can filter the type of requests (eg. failed or successful requests) with the "FILTERDIMENSION" service Macro.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
