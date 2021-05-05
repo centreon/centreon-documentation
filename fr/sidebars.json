@@ -362,6 +362,7 @@
                     "integrations/plugin-packs/procedures/applications-pfsense-fauxapi",
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
+                    "integrations/plugin-packs/procedures/applications-proxmox-mg-api",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
