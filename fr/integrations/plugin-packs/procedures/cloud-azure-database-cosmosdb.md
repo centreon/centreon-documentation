@@ -46,7 +46,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 | Metric Name                                      | Description          | Unit |
 |:-------------------------------------------------|:---------------------|:-----|
-| cosmosdb.account.service.availbaility.percentage | Service Availability | %    |
+| cosmosdb.account.service.availability.percentage | Service Availability | %    |
 
 <!--Cache-->
 

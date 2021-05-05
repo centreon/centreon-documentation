@@ -46,7 +46,7 @@ More information about the Host Discovery module is available in the Centreon do
 
 | Metric Name                                      | Description          | Unit |
 |:-------------------------------------------------|:---------------------|:-----|
-| cosmosdb.account.service.availbaility.percentage | Service Availability | %    |
+| cosmosdb.account.service.availability.percentage | Service Availability | %    |
 
 <!--Cache-->
 
