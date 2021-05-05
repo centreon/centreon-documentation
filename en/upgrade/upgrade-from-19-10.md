@@ -76,7 +76,7 @@ Execute the following commands:
 systemctl stop rh-php72-php-fpm
 systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
-systemctl start rh-php
+systemctl start rh-php73-php-fpm
 ```
 
 ### Additional actions
