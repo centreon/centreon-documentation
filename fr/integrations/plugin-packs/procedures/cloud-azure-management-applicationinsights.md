@@ -16,14 +16,14 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 ### Objets supervisés
 
 * Instances Azure *Application Insights*
-    * Cpu   
-    * Memory 
-    * Requests            
-    * Exceptions     
     * Availability   
-    * IO-Operations  
-    * External-Calls   
     * Browser-Timings
+    * Cpu
+    * Exceptions
+    * External-Calls   
+    * IO-Operations  
+    * Memory 
+    * Requests
 
 ### Règles de découverte
 
