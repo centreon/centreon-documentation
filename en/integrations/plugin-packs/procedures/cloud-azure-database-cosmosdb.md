@@ -320,7 +320,7 @@ OK: Instance 'DB001ABCD' Statistic 'average' Metrics Server Side Latency: 0.00ms
 ```
 
 The command above checks the *latency* of an Azure *Cosmos DB* account using the 'api' custom-mode
-(```--plugin=cloud::azure::database::cosmosdb::plugin --mode=cpu --custommode=api```).
+(```--plugin=cloud::azure::database::cosmosdb::plugin --mode=latency --custommode=api```).
 This Cosmos DB account is identified by its id (```--resource='PLAN001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
 --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
