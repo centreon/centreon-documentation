@@ -31,7 +31,7 @@ The Centreon Plugin Pack *Azure Application Insights* includes a Host Discovery 
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Insights**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
