@@ -31,7 +31,7 @@
             },
             {
                 "ids": [
-                    "installation/installation-of-centreon-ha/architectures",
+                    "installation/installation-of-centreon-ha/overview",
                     "installation/installation-of-centreon-ha/installation-2-nodes",
                     "installation/installation-of-centreon-ha/installation-4-nodes",
                     "installation/installation-of-centreon-ha/integrating-pollers"
