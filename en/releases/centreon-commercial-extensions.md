@@ -149,6 +149,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 20.04.8
+
+`May 05, 2021`
+
+#### Bugfixes
+
+- [Monitoring] Downtimes were properly displayed within widgets but not within monitoring pages
+
 ### 20.04.7
 
 `April 29, 2021`
