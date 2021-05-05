@@ -319,9 +319,6 @@ The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder 
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-When I run my command I obtain the following error message:
-```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
-
 It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
 some hints about where the problem stands. 
 

@@ -328,9 +328,6 @@ Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
-```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
-
 Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
 en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
 
