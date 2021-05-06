@@ -135,6 +135,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.2
 
+`6 mai 2021`
+
 #### Correctifs
 
 - Correction des rapports de sauvegarde de script
