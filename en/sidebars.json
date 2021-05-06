@@ -32,7 +32,7 @@
             "installation/web-and-post-installation",
             {
                 "ids": [
-                    "installation/installation-of-centreon-ha/architectures",
+                    "installation/installation-of-centreon-ha/overview",
                     "installation/installation-of-centreon-ha/installation-2-nodes",
                     "installation/installation-of-centreon-ha/installation-4-nodes",
                     "installation/installation-of-centreon-ha/integrating-pollers"
@@ -372,6 +372,7 @@
                     "integrations/plugin-packs/procedures/applications-pfsense-fauxapi",
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
+                    "integrations/plugin-packs/procedures/applications-proxmox-mg-api",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
@@ -445,9 +446,12 @@
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-aws-ses",
                     "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-apimanagement",
                     "integrations/plugin-packs/procedures/cloud-azure-network-appgateway",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-appplicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
+                    "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
                     "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
@@ -699,11 +703,12 @@
             },
             {
                 "ids": [
-                    "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
                     "integrations/plugin-packs/procedures/base-generic",
+                    "integrations/plugin-packs/procedures/operatingsystems-aix-snmp",
+                    "integrations/plugin-packs/procedures/operatingsystems-aix-ssh",  
+                    "integrations/plugin-packs/procedures/operatingsystems-as400",                   
                     "integrations/plugin-packs/procedures/operatingsystems-freebsd-snmp",
                     "integrations/plugin-packs/procedures/operatingsystems-hpux-snmp",
-                    "integrations/plugin-packs/procedures/operatingsystems-as400",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-nrpe3",
                     "integrations/plugin-packs/procedures/operatingsystems-linux-snmp",
@@ -774,6 +779,7 @@
                 "ids": [
                     "integrations/plugin-packs/procedures/hardware-storage-adic-tape-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-avid-isis-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-bdt-multistak-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-buffalo-terastation-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-compellent-api",
@@ -795,6 +801,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-emc-xtremio-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-exagrid-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-fujitsu-eternus-dx-ssh",
+                    "integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-hcp-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-hnas-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-hitachi-standard-snmp",

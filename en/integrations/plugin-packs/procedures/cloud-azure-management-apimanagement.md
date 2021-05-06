@@ -1,39 +1,32 @@
 ---
-id: cloud-azure-network-appgateway
-title: Azure Application Gateway
+id: cloud-azure-management-apimanagement
+title: Azure API Management
 ---
 
 ## Overview
 
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional
-load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port,
-to a destination IP address and port.
+Azure API Management allows you to create, manage and publish APIs for existing
+back-end services.
 
-The Centreon Plugin-Pack *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
-Application Gateway service.
+The Centreon Plugin Pack *Azure API Management* can rely on Azure API or Azure CLI to collect the metrics related to the
+API Management service.
 
 ## Pack Assets
 
 ### Monitored Objects
 
-* Azure *Application Gateway* instances
-    * Backend-Status
-    * Backend-Time
-    * Clients-Traffic
-    * Connections
-    * Gateway-Time
-    * Health
+* Azure *API Management* instances
+    * Events
     * Requests
-    * Throughput
-    * Units
+    * Requests duration
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Plugin Pack *Azure API Management* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
-This provider is named **Microsoft Azure Application Gateway**:
+This provider is named **Microsoft Azure API Management**:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-apimanagement-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
@@ -44,67 +37,33 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Backend-Status-->
+<!--Events-->
 
-| Metric Name                              | Description             | Unit  |
-|:-----------------------------------------|:------------------------|:------|
-| appgateway.backend.response.status.count | Backend Response Status | Count |
+| Metric Name                            | Description                | Unit  |
+|:---------------------------------------|:---------------------------|:------|
+| apimanagement.events.dropped.count     | Dropped EventHub Events    | Count |
+| apimanagement.events.rejected.count    | Rejected EventHub Events   | Count |
+| apimanagement.events.successful.count  | Successful EventHub Events | Count |
+| apimanagement.events.throttled.count   | Throttled EventHub Events  | Count |
+| apimanagement.events.timedout.count    | Timed Out EventHub Events  | Count |
+| apimanagement.events.total.usage.bytes | Size of EventHub Events    | Bytes |
+| apimanagement.events.total.count       | Total EventHub Events      | Count |
+| apimanagement.events.failed.count      | Failed EventHub Events     | Count |
 
-<!--Backend-Time-->
+<!--Events-Duration-->
 
-| Metric Name                                            | Description                      | Unit |
-|:-------------------------------------------------------|:---------------------------------|:-----|
-| appgateway.backend.connect.time.milliseconds           | Backend Connect Time             | ms   |
-| appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
-| appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
+| Metric Name                                          | Description                          | Unit  |
+|:-----------------------------------------------------|:-------------------------------------|:------|
+| apimanagement.requests.backend.duration.milliseconds | Duration of Backend Requests         | ms    |
+| apimanagement.requests.duration.milliseconds         | Overall Duration of Gateway Requests | ms    |
 
-<!--Clients-Traffic-->
+<!--Total-Requests-->
 
-| Metric Name                               | Description            | Unit |
-|:------------------------------------------|:-----------------------|:-----|
-| appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
-| appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
+| Metric Name                  | Description        | Unit  |
+|:-----------------------------|:-------------------|:------|
+| apimanagement.requests.count | Number of requests | count |
 
-<!--Connections-->
-
-| Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
-| appgateway.backend.connections.current.count | Current Connections | Count |
-
-<!--Gateway-Time-->
-
-| Metric Name                        | Description                    | Unit |
-|:-----------------------------------|:-------------------------------|:-----|
-| appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
-
-<!--Health-->
-
-| Status Name | Description                 |
-|:------------|:----------------------------|
-| status      | Current operational status  |
-| summary     | Last related status message |
-
-<!--Requests-->
-
-| Metric Name                      | Description     | Unit  |
-|:---------------------------------|:----------------|:------|
-| appgateway.requests.failed.count | Failed Requests | Count |
-| appgateway.requests.total.count  | Total Requests  | Count |
-
-<!--Throughput-->
-
-| Metric Name                          | Description | Unit |
-|:-------------------------------------|:------------|:-----|
-| appgateway.throughput.bytespersecond | Throughput  | B/s  |
-
-<!--Units-->
-
-| Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
-| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
-| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
-| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
-| appgateway.compute.units.count          | Compute Units consumed          | Count |
+> You can filter the type of requests (eg. failed or successful requests) with the "FILTERDIMENSION" service Macro.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -227,29 +186,29 @@ can use it.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure API Management resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
+yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure API Management* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure API Management resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
+yum install centreon-plugin-Cloud-Azure-Management-ApiManagement-Api
 ```
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
 ```bash
-yum install centreon-pack-cloud-azure-network-appgateway.noarch
+yum install centreon-pack-cloud-azure-management-apimanagement.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure API Management* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -260,7 +219,7 @@ yum install centreon-pack-cloud-azure-network-appgateway.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
-* Select the *Cloud-Azure-Network-AppGateway-custom* template to apply to the Host.
+* Select the *Cloud-Azure-Management-ApiManagement-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used.
 
@@ -280,7 +239,7 @@ in *AZURERESOURCE*
 | X         | AZURETENANT        | Tenant ID                                          |
 | X         | AZURECLIENTID      | Client ID                                          |
 | X         | AZURECLIENTSECRET  | Client secret                                      |
-| X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource     |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
@@ -290,7 +249,7 @@ in *AZURERESOURCE*
 |:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource     |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
@@ -302,8 +261,8 @@ Once the Plugin installed, log into your Centreon Poller CLI using the *centreon
 user account and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
-    --plugin=cloud::azure::network::appgateway::plugin \
+/usr/lib/centreon/plugins/centreon_azure_management_apimanagement_api.pl \
+    --plugin=cloud::azure::management::apimanagement::plugin \
     --mode=requests \
     --custommode=api \
     --subscription='xxxxxxxxx' \
@@ -315,8 +274,9 @@ user account and test the Plugin by running the following command:
     --timeframe='900' \
     --interval='PT5M' \
     --aggregation='Total' \
-    --warning-failed-requests='80' \
-    --critical-failed-requests='90'
+    --warning-requests='80' \
+    --critical-requests='90' \
+    --filter-dimension="GatewayResponseCodeCategory eq '4XX'"
 ```
 
 Expected command output is shown below:
@@ -326,8 +286,8 @@ OK: Instance 'APP001ABCD' Statistic 'total' Metrics Failed Requests: 0.00, Total
 'APP001ABCD~total#appgateway.requests.failed.count'=0.00;0:80;0:90;0; 'APP001ABCD~total#appgateway.requests.total.count'=523.00;;;0;
 ```
 
-The command above checks the *requests* of an Azure *Application Gateway* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::network::appgateway::plugin --mode=requests --custommode=api```).
+The command above checks the *requests* of an Azure *API Management* instance using the 'api' custom-mode
+(```--plugin=cloud::azure::management::apimanagement::plugin --mode=requests --custommode=api```).
 This Event Hub instance is identified by its id (```--resource='APP001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
 --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
@@ -335,14 +295,15 @@ The authentication parameters to be used with the custom mode are specified in t
 The calculated metrics are the total values (```--aggregation='Total'```) of a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the number of *failed* requests is reported as over 80 (```--warning-failed-requests='80'```)
-and a CRITICAL alarm over 90 *failed* requests (```--critical-failed-requests='90'```).
+This command would trigger a WARNING alarm if the number of failed requests
+(```--filter-dimension="GatewayResponseCodeCategory eq '2XX'"```) is reported as over 80 (```--warning-requests='80'```)
+and a CRITICAL alarm over 90 requests (```--critical-requests='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
-    --plugin=cloud::azure::network::appgateway::plugin \
+/usr/lib/centreon/plugins/centreon_azure_management_apimanagement_api.pl \
+    --plugin=cloud::azure::management::apimanagement::plugin \
     --mode=requests \
     --help
 ```
@@ -357,9 +318,6 @@ If some of the authentication parameters change, you must delete the cache file.
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_<md5>_<md5>_<md5>_<md5>.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
-
-When I run my command I obtain the following error message:
-```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
 It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
 some hints about where the problem stands. 

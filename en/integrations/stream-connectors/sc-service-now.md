@@ -42,7 +42,7 @@ to be processed in Service Now.
 ## Compatibility
 
  - Madrid
- - New York 
+ - New York
  - Orlando
  - Quebec
 
@@ -52,8 +52,6 @@ to be processed in Service Now.
 * A ServiceNow OAuth account is needed for the stream connector to POST events over the Snow API. Refer to their [official documentation](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
 * The ServiceNow account must have the following privileges: evt_mgmt_integration 
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
-
-
 
 ## Integration Walkthrough
 
@@ -70,7 +68,7 @@ yum install -y lua-curl
 Download the connector source code: 
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/servicenow.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/connector-servicenow.lua
+wget -O /usr/share/centreon-broker/lua/servicenow.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/servicenow-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/servicenow.lua
 ```
 
