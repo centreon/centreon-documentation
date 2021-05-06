@@ -447,6 +447,7 @@
                     "integrations/plugin-packs/procedures/cloud-aws-ses",
                     "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
                     "integrations/plugin-packs/procedures/cloud-azure-network-appgateway",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-appplicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
