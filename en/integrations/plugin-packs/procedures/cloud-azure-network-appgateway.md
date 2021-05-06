@@ -33,7 +33,7 @@ The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Gateway**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
