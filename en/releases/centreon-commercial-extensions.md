@@ -127,6 +127,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.2
 
+`May 6, 2021`
+
 #### Bugfixes
 
 - Fix script backup reporting
