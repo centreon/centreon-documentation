@@ -252,6 +252,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.5
 
+`May 6, 2021`
+
 #### Bugfixes
 
 - Since version 20.04, reports are no longer downloadable
