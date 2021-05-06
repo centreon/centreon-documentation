@@ -45,6 +45,10 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Montée de version de la solution Centreon
 
+
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
 Arrêter le processus Centreon Broker :
 ```shell
 systemctl stop cbd

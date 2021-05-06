@@ -38,6 +38,10 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
 Stop the Centreon Broker process:
 ```shell
 systemctl stop cbd
@@ -47,6 +51,7 @@ Delete existing retention files:
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
 
 Clean yum cache:
 
