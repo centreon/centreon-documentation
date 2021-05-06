@@ -109,16 +109,16 @@ cd /usr/local/src
 wget http://www.cpan.org/modules/by-module/DBD/DBD-Oracle-1.80.tar.gz 
 tar xzf DBD-Oracle-1.80.tar.gz 
 cd DBD-Oracle-1.80 
-export ORACLE_HOME=/usr/lib/oracle/21.1/client64
-export LD_LIBRARY_PATH=/usr/lib/oracle/21.1/client64/lib 
+export ORACLE_HOME=/usr/lib/oracle/21/client64
+export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib 
 export PATH=$ORACLE_HOME:$PATH
-perl Makefile.PL -m /usr/share/oracle/21.1/client64/demo/demo.mk
+perl Makefile.PL -m /usr/share/oracle/21/client64/demo/demo.mk
 ```
 
 The following message should appear:
 
 ```text
-LD_RUN_PATH=/usr/lib/oracle/21.1/client64/lib*
+LD_RUN_PATH=/usr/lib/oracle/21/client64/lib*
 Using DBD::Oracle 1.80. 
 Using DBI 1.52 (for perl 5.008008 on x86_64-linux-thread-multi) installed in /usr/lib64/perl5/vendor_perl/5.8.8/x86\_64-linux-thread-multi/auto/DBI/
 Writing Makefile for DBD::Oracle
@@ -141,7 +141,7 @@ path to the library:
 
 ```bash
 cat > /etc/ld.so.conf.d/oracle.conf <<EOF
-/usr/lib/oracle/21.1/client64/lib/
+/usr/lib/oracle/21/client64/lib/
 EOF
 ```
 
