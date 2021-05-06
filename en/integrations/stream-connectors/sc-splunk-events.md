@@ -83,7 +83,7 @@ luarocks install luatz
 These packages are necessary for the script to run. Now let's download the script:
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/splunk-events-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/splunk/splunk-events-http.lua
+wget -O /usr/share/centreon-broker/lua/splunk-events-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-events-http-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
 
