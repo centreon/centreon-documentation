@@ -1,39 +1,37 @@
 ---
-id: cloud-azure-network-appgateway
-title: Azure Application Gateway
+id: cloud-azure-management-applicationinsights
+title: Azure Application Insights
 ---
 
 ## Overview
 
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional
-load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port,
-to a destination IP address and port.
+Azure Applications Insights extends the functionality of Azure Monitor to
+observe applications in real time.
 
-The Centreon Plugin-Pack *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon Plugin Pack *Azure Application Insights* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
 
 ## Pack Assets
 
 ### Monitored Objects
 
-* Azure *Application Gateway* instances
-    * Backend-Status
-    * Backend-Time
-    * Clients-Traffic
-    * Connections
-    * Gateway-Time
-    * Health
-    * Requests
-    * Throughput
-    * Units
+* Azure *Application Insights* instances
+    * Availability   
+    * Browser-Timings
+    * Cpu
+    * Exceptions
+    * External-Calls   
+    * IO-Operations  
+    * Memory 
+    * Requests          
 
 ### Discovery rules
 
-The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
+The Centreon Plugin Pack *Azure Application Insights* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
 subscription and add them to the Centreon configuration.
-This provider is named **Microsoft Azure Application Gateway**:
+This provider is named **Microsoft Azure Application Insights**:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
@@ -44,67 +42,78 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Backend-Status-->
+<!--Availability-->
 
-| Metric Name                              | Description             | Unit  |
-|:-----------------------------------------|:------------------------|:------|
-| appgateway.backend.response.status.count | Backend Response Status | Count |
+| Metric Name                                          | Description                | Unit  |
+|:-----------------------------------------------------|:---------------------------|:------|
+| appinsights.availability.percentage                  | Availability               | %     |
+| appinsights.availability.tests.count                 | Availability tests         | Count |
+| appinsights.availability.tests.duration.milliseconds | Availability test duration | ms    |
 
-<!--Backend-Time-->
+<!--Browsertimings-->
 
-| Metric Name                                            | Description                      | Unit |
-|:-------------------------------------------------------|:---------------------------------|:-----|
-| appgateway.backend.connect.time.milliseconds           | Backend Connect Time             | ms   |
-| appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
-| appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
+| Metric Name                                  | Description                    | Unit |
+|:---------------------------------------------|:-------------------------------|:-----|
+| appinsights.processing.duration.milliseconds | Client processing time         | ms   |
+| appinsights.processing.duration.milliseconds | Page load network connect time | ms   |
+| appinsights.receive.duration.milliseconds    | Receiving response time        | ms   |
+| appinsights.send.duration.milliseconds       | Send request time              | ms   |
+| appinsights.total.duration.milliseconds      | Browser page load time         | ms   |
 
-<!--Clients-Traffic-->
+<!--Cpu-->
 
-| Metric Name                               | Description            | Unit |
-|:------------------------------------------|:-----------------------|:-----|
-| appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
-| appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
+| Metric Name                                 | Description    | Unit |
+|:--------------------------------------------|:---------------|:-----|
+| appinsights.cpu.utilization.percentage      | Processor time | %    |
+| appinsights.cpu.w3wp.utilization.percentage | Process CPU    | %    |
 
-<!--Connections-->
+<!--Exceptions-->
 
-| Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
-| appgateway.backend.connections.current.count | Current Connections | Count |
+| Metric Name                          | Description        | Unit  |
+|:-------------------------------------|:-------------------|:------|
+| appinsights.exceptions.browser.count | Browser exceptions | Count |
+| appinsights.exceptions.server.count  | Server exceptions  | Count |
+| appinsights.exceptions.total.count   | Exceptions         | Count |
 
-<!--Gateway-Time-->
+<!--Externalcalls-->
 
-| Metric Name                        | Description                    | Unit |
-|:-----------------------------------|:-------------------------------|:-----|
-| appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
+| Metric Name                             | Description              | Unit  |
+|:----------------------------------------|:-------------------------|:------|
+| appinsights.calls.count                 | Dependency calls         | Count |
+| appinsights.calls.duration.milliseconds | Dependency duration      | ms    |
+| appinsights.calls.failure.count         | Dependency call failures | Count |
 
-<!--Health-->
+<!--Iooperations-->
 
-| Status Name | Description                 |
-|:------------|:----------------------------|
-| status      | Current operational status  |
-| summary     | Last related status message |
+| Metric Name                                        | Description     | Unit |
+|:---------------------------------------------------|:----------------|:-----|
+| appinsights.bytes.total.operations.bytesperseconds | Process IO rate | B/s  |
+
+<!--Memory-->
+
+| Metric Name                        | Description           | Unit |
+|:-----------------------------------|:----------------------|:-----|
+| appinsights.memory.available.bytes | Available memory      | B    |
+| appinsights.memory.private.bytes   | Process private bytes | B    |
+
+<!--Pageviews-->
+
+| Metric Name                             | Description         | Unit  |
+|:----------------------------------------|:--------------------|:------|
+| appinsights.pageviews.load.milliseconds | Page view load time | ms    |
+| appinsights.pageviews.total.count       | Page views          | Count |
 
 <!--Requests-->
 
-| Metric Name                      | Description     | Unit  |
-|:---------------------------------|:----------------|:------|
-| appgateway.requests.failed.count | Failed Requests | Count |
-| appgateway.requests.total.count  | Total Requests  | Count |
-
-<!--Throughput-->
-
-| Metric Name                          | Description | Unit |
-|:-------------------------------------|:------------|:-----|
-| appgateway.throughput.bytespersecond | Throughput  | B/s  |
-
-<!--Units-->
-
-| Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
-| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
-| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
-| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
-| appgateway.compute.units.count          | Compute Units consumed          | Count |
+| Metric Name                                      | Description                        | Unit       |
+|:-------------------------------------------------|:-----------------------------------|:-----------|
+| appinsights.requests.duration.milliseconds       | Server response time               | ms         |
+| appinsights.requests.execution.time.milliseconds | HTTP request execution time        | ms         |
+| appinsights.requests.failed.count                | Failed requests                    | Count      |
+| appinsights.requests.failed.count                | HTTP requests in application queue | Count      |
+| appinsights.requests.http.perseconds             | HTTP request rate                  | requests/s |
+| appinsights.requests.server.perseconds           | Server request rate                | requests/s |
+| appinsights.requests.total.count                 | Server requests                    | Count      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -227,29 +236,29 @@ can use it.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Insights resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
+yum install centreon-plugin-Cloud-Azure-Management-ApplicationInsights-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Azure Application Insights* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Gateway resources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Application Insights resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
+yum install centreon-plugin-Cloud-Azure-Management-ApplicationInsights-Api
 ```
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
 ```bash
-yum install centreon-pack-cloud-azure-network-appgateway.noarch
+yum install centreon-pack-cloud-azure-management-applicationinsights.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Application Gateway* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Azure Application Insights* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -260,7 +269,7 @@ yum install centreon-pack-cloud-azure-network-appgateway.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
-* Select the *Cloud-Azure-Network-AppGateway-custom* template to apply to the Host.
+* Select the *Cloud-Azure-Management-ApplicationInsights-custom* template to apply to the Host.
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 These mandatory Macros differ regarding the custom mode used.
 
@@ -302,8 +311,8 @@ Once the Plugin installed, log into your Centreon Poller CLI using the *centreon
 user account and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
-    --plugin=cloud::azure::network::appgateway::plugin \
+/usr/lib/centreon/plugins/centreon_azure_management_applicationinsights_api.pl \
+    --plugin=cloud::azure::management::applicationsinsights::plugin \
     --mode=requests \
     --custommode=api \
     --subscription='xxxxxxxxx' \
@@ -315,64 +324,60 @@ user account and test the Plugin by running the following command:
     --timeframe='900' \
     --interval='PT5M' \
     --aggregation='Total' \
-    --warning-failed-requests='80' \
-    --critical-failed-requests='90'
+    --warning-requests-failed='80' \
+    --critical-requests-failed='90'
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK: Instance 'APP001ABCD' Statistic 'total' Metrics Failed Requests: 0.00, Total Requests: 523.00 |
-'APP001ABCD~total#appgateway.requests.failed.count'=0.00;0:80;0:90;0; 'APP001ABCD~total#appgateway.requests.total.count'=523.00;;;0;
+OK: Instance 'APP001ABCD' Statistic 'total' Metrics Server requests: 3266.57, HTTP request rate: 0.00requests/s, Server response time: 3266.57ms, HTTP request execution time: 0.00ms, HTTP requests in application queue: 0.00, Server request rate: 0.10requests/s, Failed requests: 0.00 | 'APP001ABCD~total#appinsights.requests.total.count'=3266.57;;;0; 'APP001ABCD~total#appinsights.requests.http.perseconds'=0.00requests/s;;;0; 'APP001ABCD~total#appinsights.requests.duration.milliseconds'=3266.57ms;;;0; 'APP001ABCD~total#appinsights.requests.execution.time.milliseconds'=0.00ms;;;0; 'APP001ABCD~total#appinsights.requests.failed.count'=0.00;;;0; 'APP001ABCD~total#appinsights.requests.server.perseconds'=0.10requests/s;;;0; 'APP001ABCD~total#appinsights.requests.failed.count'=0.00;;;0;
 ```
 
-The command above checks the *requests* of an Azure *Application Gateway* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::network::appgateway::plugin --mode=requests --custommode=api```).
-This Event Hub instance is identified by its id (```--resource='APP001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
+The command above checks the *requests* of an Azure *Application Insights* instance using the 'api' custom-mode
+(```--plugin=cloud::azure::management::applicationsinsights::plugin --mode=requests --custommode=api```).
+This Application Insights instance is identified by its id (```--resource='APP001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
 --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
 
 The calculated metrics are the total values (```--aggregation='Total'```) of a 900 secondes / 15 min period (```--timeframe='900'```)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the number of *failed* requests is reported as over 80 (```--warning-failed-requests='80'```)
-and a CRITICAL alarm over 90 *failed* requests (```--critical-failed-requests='90'```).
+This command would trigger a WARNING alarm if the number of *failed* requests is reported as over 80 (```--warning-requests-failed='80'```)
+and a CRITICAL alarm over 90 *failed* requests (```--critical-requests-failed='90'```).
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_network_appgateway_api.pl \
-    --plugin=cloud::azure::network::appgateway::plugin \
+/usr/lib/centreon/plugins/centreon_azure_management_applicationinsights_api.pl \
+    --plugin=cloud::azure::management::applicationsinsights::plugin \
     --mode=requests \
     --help
 ```
 
-### Troubleshooting
+## Troubleshooting
 
-#### The Azure credentials have changed and the Plugin does not work anymore
+### The Azure credentials have changed and the Plugin does not work anymore
 
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
 The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_<md5>_<md5>_<md5>_<md5>.
 
-#### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
+### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-When I run my command I obtain the following error message:
-```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
-
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
+This error message means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
 some hints about where the problem stands. 
 
 As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
 
-#### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
+### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
 
 This error message means that the Centreon Plugin couldn't successfully connect to the Azure Login API. Check that no third party
 device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API.
 This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
+### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
 
 This command result means that Azure does not have any value for the requested period.
 This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric has
