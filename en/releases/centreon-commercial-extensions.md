@@ -165,6 +165,23 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+
+### 20.10.2
+
+`May 6, 2021`
+
+#### Bugfixes
+
+- Fix script backup reporting
+- Notification for administrators not working on success
+- Publication rule doesn't work with custom paths
+- Since version 20.04, reports are no longer downloadable
+
+#### Security fixes
+
+- Remove MBI deprecated TLS cyphers
+- Vulnerable jQuery version
+
 ### 20.10.1
 
 `April 29, 2021`
@@ -174,6 +191,7 @@ To use it, it is necessary to install and activate it. Refer to the
 - Update column length for BAM reporting
 - Inconsistency between Centreon & Centreon MBI column size for metric_unit
 - Publication rule doesn't save backslash into CIFS publication
+
 
 ### 20.10.0
 
