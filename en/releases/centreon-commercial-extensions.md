@@ -149,6 +149,27 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 20.04.8
+
+`May 06, 2021`
+
+#### Bugfixes
+
+- [Monitoring] Downtimes were properly displayed within widgets but not within monitoring pages
+
+### 20.04.7
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- [Configuration] Improved behavior of BA selector when adding KPI 
+- [Widget] Filter downtime was not working in widget
+
+#### Security fixes
+
+- [Lib] Vulnerable jQuery version
+
 ### 20.04.6
 
 `February 16, 2021`
@@ -266,11 +287,13 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.4
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - Update column length for BAM reporting
-- Inconsistency between Centreon & Centreon MBI column size for metric unit
-- Publication rule don't save backslash into CIFS publication
+- Inconsistency between Centreon & Centreon MBI column size for metric_unit
+- Publication rule doesn't save backslash into CIFS publication
 
 ### 20.04.3
 
@@ -506,6 +529,12 @@ configuration value:
   Centreon documentation
 
 ## Centreon License Manager
+
+### 20.04.5
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- Update vulnerable npm packages
 
 ### 20.04.4
 

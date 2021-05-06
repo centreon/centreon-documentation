@@ -571,6 +571,34 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+
+### 20.04.11
+
+`April 28, 2021`
+
+#### Bugfixes
+
+- Bad memory access on hostgroupname/servicegroupname macros
+- SERVICEGROUPNAME macro doesn't appear in notifications
+
+### 20.04.10
+
+`April 28, 2021`
+
+> This version requires Centreon Broker version to be 20.04.13 or higher.
+
+#### Bugfixes
+
+- Recovery notifications were not sent when exiting from downtime
+- Recovery notifications are not sent when entering in notification timeperiod
+- Hosts and services actively checked had their statuses returned to Broker twice
+- $TIMET$ macro displayed time instead of epoch
+- Flapping was not detected
+- SERVICENOTESURL macro value was encoded in notifications
+- Engine did not respect user's defined notification periods 
+- Engine stopped working without logging an error
+
+
 ### 20.04.9
 
 `January 20, 2021`
@@ -728,6 +756,32 @@ You can now use $POLLERID$ macro to retrieve the name of your poller in
 a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
+
+### 20.04.13
+
+`April 28, 2021`
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working	David Boucher
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+- Limit downtime start date, end date and duration
+- Stopping Engine using systemctl can lead to a segfault
+
+*Security*
+
+- Strengthen TLS / SSL exchanges
 
 ### 20.04.12
 

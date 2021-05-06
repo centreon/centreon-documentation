@@ -152,6 +152,27 @@ liens
 
 ## Centreon BAM
 
+### 20.04.8
+
+`6 mai 2021`
+
+#### Correctifs
+
+- [Monitoring] Les temps d'arrêt étaient bien affichés dans le Widget mais pas dans les pages Monitoring.
+
+### 20.04.7
+
+`29 avril 2021`
+
+#### Correctifs
+
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
+
+#### Correctifs de sécurité
+
+- [Lib] Version jQuery vulnérable
+
 ### 20.04.6
 
 `16 février 2021`
@@ -285,6 +306,16 @@ liens
 
 - Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
 - Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
+- La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CIFS
+
+### 20.04.4
+
+`29 avril 2021`
+
+#### Correctifs
+
+- Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour la colonne metric_unit
 - La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CIFS
 
 ### 20.04.3
@@ -525,6 +556,12 @@ configuration value:
   Centreon documentation
 
 ## Centreon License Manager
+
+### 20.04.5
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- Update vulnerable npm packages
 
 ### 20.04.4
 
