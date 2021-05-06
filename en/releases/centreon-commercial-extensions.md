@@ -508,6 +508,12 @@ configuration value:
 
 ## Centreon License Manager
 
+### 20.04.5
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- Update vulnerable npm packages
+
 ### 20.04.4
 
 `March 24, 2021`
