@@ -152,6 +152,14 @@ liens
 
 ## Centreon BAM
 
+### 20.04.8
+
+`6 mai 2021`
+
+#### Correctifs
+
+- [Monitoring] Les temps d'arrêt étaient bien affichés dans le Widget mais pas dans les pages Monitoring.
+
 ### 20.04.7
 
 `29 avril 2021`
