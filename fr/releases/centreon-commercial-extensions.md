@@ -19,6 +19,20 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.4
+
+`3 mai 2021`
+
+#### Bugfixes
+
+- [Desktop] Le filtre de recherches des ressources est trop lent
+- [Server] Ajout d'un indice de propriétés personnalisées à la configuration du journal
+- [Server] RestTemplate en tant que client http doit valider avec truststore ou ignorer la validation par l'autorité de certification du certificat signé automatiquement
+- [Server] Essayez d'écraser les données en temps réel du statut du serveur hérité, le desktop n'a pas besoin d'afficher des informations en temps réel lors de la création d'un élément graphique.
+- [Server] Le rpm du serveur apporte à présent un client mysql
+- [Web-Client] Ne pas afficher d'action cliquable sur une forme et un texte si non cliquable
+- [Web-Client] L'horodatage ne s'affiche pas correctement dans l'info-bulle des temps d'arrêt
+
 ### 20.10.3
 
 `11 février 2021`
@@ -104,9 +118,35 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon BAM
 
+### 20.10.4
+
+`04 Mai 2021`
+
+#### Correctifs
+- [Monitoring] Ajout des traductions manquantes en Français pour les status "warning" et "critical" 
+
+#### Securité
+
+- [Lib] Mise à jour des paquets npm vulnérables
+
+### 20.10.3
+
+`29 avril 2021`
+
+#### Correctifs
+
+- [Configuration] Correction du comportement de la sélection de BA lors de l'ajout de d'indicateurs.
+- [Monitoring] L'ordre BA dans la liste par niveau ne fonctionne pas
+- [Widget] Le filtre temps d'arrêt ne fonctionne pas dans le widget
+
+#### Correctifs de sécurité
+
+- [Core] Gérer la fin de vie de Flash
+- [Lib] Version jQuery vulnérable
+
 ### 20.10.2
 
-`February 24, 2021`
+`24 février 2021`
 
 #### Correctifs
 
@@ -151,10 +191,12 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.1
 
+`29 avril 2021`
+
 #### Correctifs
 
 - Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
-- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour la colonne metric_unit
 - La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CIFS
 
 ### 20.10.0
@@ -277,6 +319,15 @@ non plus des connexions SSH autonomes.
 - Compatibilité avec Centreon 20.10
 
 ## Centreon License Manager
+
+### 20.10.3
+
+`6 mai 2021`
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- No 'Add token' button and duplication of the 'Get fingerprint' or 'Upload license' button
+- Update vulnerable npm packages
 
 ### 20.10.2
 

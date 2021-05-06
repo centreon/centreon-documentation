@@ -250,9 +250,38 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.4
+
+`29 avril 2021`
+
+#### Correctifs
+
+- Évitez d'envoyer des horodatages erratiques
+- La macro SERVICEGROUPNAME n'apparaît pas dans les notifications
+- Le champ "Hard State Duration" de l'hôte affiche "N/A" lorsqu'il n'est pas associé à des services
+- Limiter la date de début, la date de fin et la durée des temps d'arrêt
+- Mauvais accès à la mémoire sur les macros hostgroupname / servicegroupname
+
+### 20.10.3
+
+`28 avril 2021`
+
+> Cette version nécessite Centreon Broker 20.10.4 ou supérieur.
+
+#### Correctifs
+
+- Les notifications de type recovery n'étaient pas envoyées à la sortie d'un arrêt prévu
+- Les notifications de type recovery n'étaient pas envoyées à l'entrée en période de notification
+- Les statuts d'hôtes et de services étaient transmis en double à Broker
+- La macro $TIMET$ contenait l'heure formatée au lieu d'un timestamp
+- Le flapping n'était pas détecté correctement
+- La macro $SERVICENOTESURL$ était encodée par Engine dans les notifications
+- La période de notification de l'utilisateur n'était pas correctement appliquée
+- Engine pouvait s'arrêter sans logger aucune erreur
+
 ### 20.10.2
 
-`20 janvier 2020`
+`20 janvier 2021`
 
 > Cette version nécessite Centreon Broker 20.10.3 ou supérieur.
 
@@ -327,6 +356,32 @@ state was HARD even if no notification is configured nor sent.
 - Contient tous les correctifs jusqu'à la version 20.04.7
 
 ## Centreon Broker
+
+### 20.10.4
+
+`28 avril 2021`
+
+*Broker*
+
+- Add TLS handshake in broker debug logs
+- Allow point as a valid character for ouput's name
+- Broker hangs when stopped alone (without watchdog)
+- Cast index_data.id to unsigned int 64
+- Connection interruption not detected by Central (one peer retention mode)
+- Harden SIGTERM handling when shutting down
+- Insert NULL instead of Nan or Inf for metrics data
+- Provide host_id and service_id in logs when metrics fail to be inserted in database
+- Rebuild of RRD not working
+- Study ARM compilation
+- TLS common name check impossible if it is too long
+
+*Engine*
+
+- Engine stops working without error
+
+*Security*
+
+- Strengthen TLS / SSL exchanges
 
 ### 20.10.3
 

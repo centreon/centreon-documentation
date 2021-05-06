@@ -19,6 +19,20 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 20.10.4
+
+`May 3, 2021`
+
+#### Bugfixes
+
+- [Desktop] The search filter of resources panel is too slow
+- [Server] Add customized properties hint to log configuration
+- [Server] RestTemplate as http client should validate with truststore or ignore CA validation of auto-signed certificat
+- [Server] Server rpm now pulls mysql client
+- [Server] Stub real time status message with legacy server
+- [Web-Client] Don't display a clickable mouse over a Shape and Text with no clickable
+- [Web-Client] Timestamp is not properly displayed in the DT tooltip
+
 ### 20.10.3
 
 `February 11, 2021`
@@ -99,6 +113,32 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon BAM
 
+### 20.10.4
+
+`May 04, 2021`
+
+#### Bugfixes
+- [Monitoring] Fixed missing French translation for "warning" and "critical" status 
+
+#### Security fixes
+
+- [Lib] Updated vulnerable npm packages
+
+### 20.10.3
+
+`April 29, 2021`
+
+#### Bugfixes
+
+- [Configuration] Improved behavior of BA selector when adding KPI
+- [Monitoring] BA listing order by level doesn't work
+- [Widget] Filter downtime was not working in widget
+
+#### Security fixes
+
+- [Core] Handle end of life for Flash
+- [Lib] Vulnerable jQuery version
+
 ### 20.10.2
 
 `February 24, 2021`
@@ -125,6 +165,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+
 ### 20.10.2
 
 `May 6, 2021`
@@ -143,11 +184,14 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.1
 
+`April 29, 2021`
+
 #### Bugfixes
 
 - Update column length for BAM reporting
-- Inconsistency between Centreon & Centreon MBI column size for metric unit
-- Publication rule don't save backslash into CIFS publication
+- Inconsistency between Centreon & Centreon MBI column size for metric_unit
+- Publication rule doesn't save backslash into CIFS publication
+
 
 ### 20.10.0
 
@@ -260,6 +304,15 @@ standalone SSH connections.
 - Compatibility with Centreon 20.10
 
 ## Centreon License Manager
+
+### 20.10.3
+
+`May 6, 2021`
+
+- Add a retry mechanism to get list of subscription
+- Improve message if all licenses have been linked
+- No 'Add token' button and duplication of the 'Get fingerprint' or 'Upload license' button
+- Update vulnerable npm packages
 
 ### 20.10.2
 
