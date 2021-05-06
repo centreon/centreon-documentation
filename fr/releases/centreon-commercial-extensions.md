@@ -306,6 +306,8 @@ non plus des connexions SSH autonomes.
 
 ### 20.10.3
 
+`6 mai 2021`
+
 - Add a retry mechanism to get list of subscription
 - Improve message if all licenses have been linked
 - No 'Add token' button and duplication of the 'Get fingerprint' or 'Upload license' button

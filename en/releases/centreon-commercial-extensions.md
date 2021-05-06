@@ -289,6 +289,8 @@ standalone SSH connections.
 
 ### 20.10.3
 
+`May 6, 2021`
+
 - Add a retry mechanism to get list of subscription
 - Improve message if all licenses have been linked
 - No 'Add token' button and duplication of the 'Get fingerprint' or 'Upload license' button
