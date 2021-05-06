@@ -267,6 +267,8 @@ liens
 
 ### 20.04.5
 
+`6 mai 2021`
+
 #### Correctifs
 
 - Depuis la version 20.04, les rapports ne ont plus téléchargeables	
