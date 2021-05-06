@@ -284,7 +284,29 @@ liens
 - Toutes les pages de configuration & temps réelle ont été mise à jour pour
   gérer ces nouvelles méthodes de calcul
 
-## Centreon MBI
+## Centreon 
+
+### 20.04.5
+
+`6 mai 2021`
+
+#### Correctifs
+
+- Depuis la version 20.04, les rapports ne ont plus téléchargeables	
+- Correction des rapports de sauvegarde de script
+
+#### Correctifs de sécurité
+
+- Version jQuery vulnérable
+- Supprimer les cyphers TLS obsolètes MBI
+
+### 20.04.4
+
+#### Correctifs
+
+- Mise à jour de la longueur de la colonne en base de données pour les rapports BAM
+- Incohérence entre la taille des colonnes Centreon et Centreon MBI pour l'unité métrique
+- La règle de publication ne sauvegarde pas la barre oblique inverse dans la publication du CIFS
 
 ### 20.04.4
 
