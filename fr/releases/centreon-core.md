@@ -23,7 +23,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 `7 mai 2021`
 
-### Améliorations
+#### Améliorations
 
 - [Custom Views] Add regex filtering to widget compare field
 
