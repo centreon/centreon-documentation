@@ -44,7 +44,6 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Manage notes on resources for Notes URL
 - [Resources Status] Missing french translations
 - [Resources Status] Service link to multiple hosts or service by hostgroup won't be listed
-- [Resources Status] Service link to multiple hosts or service by hostgroup won't be listed
 - [UI] Centreon blank page on all menu with firefox < 78
 
 #### Security fixes
