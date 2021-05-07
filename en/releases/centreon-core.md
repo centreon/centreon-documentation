@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.7
 
+`May 7, 2021`
+
 ### Enhancements
 
 - [Custom Views] Add regex filtering to widget compare field
