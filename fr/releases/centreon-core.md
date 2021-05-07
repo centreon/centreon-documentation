@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.7
 
+`7 mai 2021`
+
 ### Améliorations
 
 - [Custom Views] Add regex filtering to widget compare field
