@@ -34,6 +34,8 @@ If you need help with this integration, depending on how you are using Centreon,
 
 ### In Opsgenie
 
+> Warning, this documentation was written in February 2021, it is possible that certain elements described below became obsoletes due to changes on Opsgenie.
+
 #### Opsgenie integration: alerts
 
 1. From the **Settings** menu, select **Integration list**.
