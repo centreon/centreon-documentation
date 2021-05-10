@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.13
 
+`10 mai 2021`
+
 #### Correctifs
 
 - [Administration] Cannot list Pollers in Centreon Engine statistics
