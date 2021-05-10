@@ -45,6 +45,21 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Montée de version de la solution Centreon
 
+
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
+Arrêter le processus Centreon Broker :
+```shell
+systemctl stop cbd
+```
+
+Supprimer les fichiers de rétention présent :
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
+
 Videz le cache de yum :
 
 ```shell
@@ -145,11 +160,7 @@ ProxyTimeout 300
         php_admin_value engine Off
     </IfModule>
 
-+    RewriteRule ^index\.html$ - [L]
-+    RewriteCond %{REQUEST_FILENAME} !-f
-+    RewriteCond %{REQUEST_FILENAME} !-d
-+    RewriteRule . /index.html [L]
-+    ErrorDocument 404 /centreon/index.html
++    FallbackResource /centreon/index.html
 
     AddType text/plain hbs
 </Directory>
@@ -213,6 +224,13 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Redémarrez les processus Centreon
+
+Redamarrez le processus cbd:
+```
+systemctl start cbd
+```
 
 #### Montée de version des extensions
 

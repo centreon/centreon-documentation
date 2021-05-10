@@ -42,6 +42,9 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
 Stop the Centreon Broker process:
 ```shell
 systemctl stop cbd
@@ -76,7 +79,11 @@ Execute the following commands:
 systemctl stop rh-php72-php-fpm
 systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
+<<<<<<< HEAD
 systemctl start rh-php
+=======
+systemctl start rh-php73-php-fpm
+>>>>>>> 447297c48fcbb0b7fedd3a567ff9f22dbb0165f2
 ```
 
 ### Additional actions
@@ -119,11 +126,7 @@ ProxyTimeout 300
         php_admin_value engine Off
     </IfModule>
 
-+    RewriteRule ^index\.html$ - [L]
-+    RewriteCond %{REQUEST_FILENAME} !-f
-+    RewriteCond %{REQUEST_FILENAME} !-d
-+    RewriteRule . /index.html [L]
-+    ErrorDocument 404 /centreon/index.html
++    FallbackResource /centreon/index.html
 
     AddType text/plain hbs
 </Directory>

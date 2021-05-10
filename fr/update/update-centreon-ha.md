@@ -16,6 +16,9 @@ pcs resource unmanage ms_mysql
 
 ## Déroulement de la mise à jour
 
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
 ### Mise à jour de Centreon-Web
 
 Lancer la mise à jour sur les deux serveurs centraux :

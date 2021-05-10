@@ -32,7 +32,7 @@
             "installation/web-and-post-installation",
             {
                 "ids": [
-                    "installation/installation-of-centreon-ha/architectures",
+                    "installation/installation-of-centreon-ha/overview",
                     "installation/installation-of-centreon-ha/installation-2-nodes",
                     "installation/installation-of-centreon-ha/installation-4-nodes",
                     "installation/installation-of-centreon-ha/integrating-pollers"
@@ -372,6 +372,7 @@
                     "integrations/plugin-packs/procedures/applications-pfsense-fauxapi",
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
+                    "integrations/plugin-packs/procedures/applications-proxmox-mg-api",
                     "integrations/plugin-packs/procedures/applications-pvx-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
@@ -445,9 +446,13 @@
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-aws-ses",
                     "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-apimanagement",
                     "integrations/plugin-packs/procedures/cloud-azure-network-appgateway",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-appplicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
+                    "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
                     "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
