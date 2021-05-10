@@ -19,6 +19,27 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.1
+
+#### Bugfixes
+
+- [Configuration] Default Centreon Engine value is different from the tooltip, and affects performance
+- [Patform Topology] Register a remote / poller to central with proxy
+- [Resources Status] Click anywhere in metric tile within the legend to select metrics to display in graph
+- [Resources Status] Custom filters can not be listed from the drop down menu after upgrade to 21.04
+- [Resources Status] Graph export does not work correctly on Safari and Firefox
+- [Resources Status] Graph units are not properly displayed when graphs has a 2 way scale	Tom Darneix
+- [Resources Status] Jagged disposition when multiple graphs displayed in extended host panel
+- [Resources Status] Listing refresh gets slower as the number of items per page increase
+
+#### Performances
+
+- Replace "WITH RECURSIVE" MySQL calls with PHP-based recursion loops
+
+#### Security
+
+- [Configuration] SQL injection in additional user information
+
 ### 21.04.0
 
 #### Enhancements
@@ -38,9 +59,6 @@ If you have feature requests or want to report a bug, please go to our
     - Removed metrics values within tootips
     - Added metrics values display in legend on graph hover
     - Added metrics mean, max and average display in legend otherwise
-
-
-
 
 #### Documentation
 
