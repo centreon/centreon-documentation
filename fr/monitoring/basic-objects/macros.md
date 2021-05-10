@@ -84,7 +84,7 @@ Pour ajouter une macro de ressources :
   macro.
 * Les champs **Status** et **Comment** permettent d’activer/désactiver la macro ou de la commenter.
 
-## Les macros d’environnements
+## Les macros d’environnement
 
 Les macros d’environnement (aussi appelées macros “à la demande” ou “on demand” en anglais) permettent de récupérer des
 informations à partir de tous les objets issus de la supervision. Elles sont utilisées afin de pouvoir récupérer à un
@@ -100,4 +100,4 @@ La documentation complète des macros à la demande est disponible à cette *[ad
 > L’utilisation de ces macros n’est pas recommandée car la recherche d’une valeur d’un paramètre d’un objet depuis un
 > autre objet est consommateur en termes de ressources.
 
-> L’activation du paramètre **Use large installation tweaks** rend impossible l’utilisation des macros d’environnements.
+> L’activation du paramètre **Use large installation tweaks** rend impossible l’utilisation des macros d’environnement.

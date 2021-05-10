@@ -52,7 +52,7 @@ Pour dupliquer une Business Activity:
 Pour dupliquer un hôte :
 
 1. Sélectionnez l’hôte que vous souhaitez dupliquer
-2. Dans la colonne **Options**, entrez le nombre de duplication que vous souhaitez obtenir
+2. Dans la colonne **Options**, entrez le nombre de duplications que vous souhaitez obtenir
 
 ![image](../assets/configuration/common/01duplicate.png)
 
