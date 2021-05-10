@@ -4,7 +4,7 @@ title: A partir des paquets
 ---
 
 Centreon fournit des RPM pour ses produits au travers de la solution
-Centreon Open Sources disponible gratuitement sur notre dépôt.
+Centreon Open Sources daedaedaddisponible gratuitement sur notre dépôt.
 
 Ces paquets ont été testés avec succès sur les environnements CentOS
 en version 7 et 8.
