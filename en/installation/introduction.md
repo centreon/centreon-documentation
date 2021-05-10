@@ -27,5 +27,5 @@ To quickly test Centreon from a CentOS / Oracle Linux / RHEL in version 8, you
 can run the following command as **root**:
 
 ```Bash
-curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/21.04.x/unattended.sh | sh
 ```
