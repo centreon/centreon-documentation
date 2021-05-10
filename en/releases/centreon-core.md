@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.13
 
+`May 10, 2021`
+
 #### Bugfixes
 
 - [Administration] Cannot list Pollers in Centreon Engine statistics
