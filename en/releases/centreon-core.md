@@ -19,6 +19,32 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.13
+
+`May 10, 2021`
+
+#### Bugfixes
+
+- [Administration] Cannot list Pollers in Centreon Engine statistics
+- [Configuration] Configuration output can lead to an empty broker configuration
+- [Configuration] Hosts/services templates become simple hosts/services
+- [Configuration] Wrong number of services/pages to display
+- [Monitoring] Cancelled BA downtime from Downtime menu
+- [Purge] Script can't drop several partitions
+
+#### Security fixes
+
+- [Administration] User can install or delete modules with no ACL rights
+- [Configuration] Cross-site Scripting (XSS) Stored/Persistent in Dependency/Notification form
+- [Configuration] SQL injection in user additional information
+- [Configuration] Stored XSS in host Alias for host form
+- [Core] Predictable anti-CSRF token
+- [Graph] SQL Injection on graph periods
+- [Graph] SQL Injection on graph split
+- [Lib] Update centreon vulnerable packages
+- [Resources Status / Service Details] Passwords are displayed in command line
+- [Resources Status / Service Details] Passwords field for EXTRAOPTIONS is not hidden in command line
+
 ### 20.04.12
 
 `April 1, 2021`
