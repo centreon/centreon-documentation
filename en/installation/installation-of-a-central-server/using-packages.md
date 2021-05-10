@@ -8,7 +8,7 @@ Sources version available free of charge in our repository.
 
 These packages have been successfully tested in CentOS 7 and 8 environments.
 
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
+> Due to Red Hat's stances on CentOS 8, we suggest not to use said version for
 > your production environment. Nevertheless, these packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
 
