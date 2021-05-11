@@ -28,7 +28,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Click anywhere in the metric tile within the legend to select metrics to display in graphs
 - [Resources Status] Custom filters cannot be listed from the drop down menu after upgrade to 21.04
 - [Resources Status] Graph export does not work correctly on Safari and Firefox
-- [Resources Status] Graph units are not properly displayed when graphs has a 2 way scale	Tom Darneix
+- [Resources Status] Graph units are not properly displayed when graphs have a 2 way scale
 - [Resources Status] Jagged disposition when multiple graphs displayed in extended host panel
 - [Resources Status] Listing refresh gets slower as the number of items per page increases
 
