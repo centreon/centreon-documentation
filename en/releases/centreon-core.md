@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Bugfixes
 
 - [Configuration] Default Centreon Engine value is different from the tooltip, and affects performance
-- [Patform Topology] Register a remote / poller to central with proxy
+- [Platform Topology] Register a remote / poller to central with proxy
 - [Resources Status] Click anywhere in metric tile within the legend to select metrics to display in graph
 - [Resources Status] Custom filters can not be listed from the drop down menu after upgrade to 21.04
 - [Resources Status] Graph export does not work correctly on Safari and Firefox
