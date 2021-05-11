@@ -21,7 +21,7 @@ Critical. Ceux-ci sont modifiables par la suite.
 
 Certains Plugin Packs contiennent aussi des règles de découverte. Ces règles
 sont exécutées par le moteur de découverte Centreon pour déterminer une liste
-de ressources supplémentaires à superviser. Les règles de découverte de hôtes
+de ressources supplémentaires à superviser. Les règles de découverte d'hôtes
 listent de nouveaux hôtes (ex : des ressources AWS EC2, des machines virtuelles
 VMware) alors que les règles de découverte de services listent des services
 supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
