@@ -19,6 +19,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+`11 mai 2021`
+
 ### 21.04.1
 
 #### Correctifs
