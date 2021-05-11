@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.1
 
+`May 11, 2021`
+
 #### Bugfixes
 
 - [Configuration] Default Centreon Engine value is different from the tooltip, and affects performance
