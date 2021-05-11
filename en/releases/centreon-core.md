@@ -30,7 +30,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Graph export does not work correctly on Safari and Firefox
 - [Resources Status] Graph units are not properly displayed when graphs has a 2 way scale	Tom Darneix
 - [Resources Status] Jagged disposition when multiple graphs displayed in extended host panel
-- [Resources Status] Listing refresh gets slower as the number of items per page increase
+- [Resources Status] Listing refresh gets slower as the number of items per page increases
 
 #### Performances
 
