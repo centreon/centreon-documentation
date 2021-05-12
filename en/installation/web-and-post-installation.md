@@ -136,8 +136,3 @@ Go to `Administration > Extensions > Manager` menu and click on
 
 Don't forget to secure your Centreon platform following our
 [recommendations](../administration/secure-platform.html)
-
-## Getting started
-
-Go to the [Getting Started](../getting-started/installation-first-steps.html#request-your-free-trial)
-chapter to configure your first monitoring.

@@ -721,3 +721,8 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu
 [`Administration  >  Parameters  >  Backup`](./backup.html).
+
+## Premiers pas
+
+Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.html#demander-votre-essai-gratuit)
+pour mettre en place votre première supervision.

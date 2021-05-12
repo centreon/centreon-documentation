@@ -855,3 +855,8 @@ Centreon event logs are available in the following directories:
 
 Centreon offers to save the configuration of the platform. To do this, go to the
 [`Administration  >  Parameters  >  Backup`](./backup.html) menu.
+
+## Getting started
+
+Go to the [Getting Started](../getting-started/installation-first-steps.html#request-your-free-trial)
+chapter to configure your first monitoring.
