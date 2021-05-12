@@ -56,11 +56,11 @@
                 "label": "Installation of a Remote server",
                 "type": "subcategory"
             },
-            "ceip/what-is-centreon-ceip"
-        ],
-        "Secure your platform": [
-            "administration/secure-platform",
-            "graph-views/secure-your-map-platform"
+            "Secure your platform": [
+				"administration/secure-platform",
+				"graph-views/secure-your-map-platform"
+			],
+			"ceip/what-is-centreon-ceip"
         ],
         "Monitoring": [
             "monitoring/about",

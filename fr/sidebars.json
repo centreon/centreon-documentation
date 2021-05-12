@@ -56,11 +56,11 @@
                 "label": "Installer un Remote Sever",
                 "type": "subcategory"
             },
-            "ceip/what-is-centreon-ceip"
-        ],
-        "Sécurisez votre plate-forme": [
-            "administration/secure-platform",
-            "graph-views/secure-your-map-platform"
+            "Sécurisez votre plate-forme": [
+				"administration/secure-platform",
+				"graph-views/secure-your-map-platform"
+			],
+			"ceip/what-is-centreon-ceip"
         ],
         "Supervision": [
             "monitoring/about",

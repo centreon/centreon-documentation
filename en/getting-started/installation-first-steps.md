@@ -78,6 +78,11 @@ Once your virtual machine has started. You must connect to it via a shell termin
 
 Once those operations have been carried out, you can delete this message by deleting the /etc/profile.d/centreon.sh file.
 
+#### Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform.html)
+
 #### Default credentials
 
 - The default Centreon web interface account is: **admin / centreon**.

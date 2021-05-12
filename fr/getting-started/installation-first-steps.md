@@ -91,6 +91,11 @@ opérations demandées.
 
 Une fois ces opérations effectuées, vous pouvez supprimer ce message en supprimant le fichier /etc/profile.d/centreon.sh.
 
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../administration/secure-platform.html)
+
 #### Identifiants par défaut
 
 - Le compte d'interface Web Centreon par défaut est : **admin / centreon**.
