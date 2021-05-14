@@ -39,8 +39,8 @@ associée, référez-vous au chapitre Plugin Packs de cette documentation.
 
 ### Centreon Plugin Pack Manager
 
-Le module **Centreon Plugin Pack Manager** est un module natif Centreon qui permet de gérer l’installation et de la
-suppression des Plugin Packs. C’est un élément clé, il fait régulièrement l’object de mises à jour. Il est donc
+Le module **Centreon Plugin Pack Manager** est un module natif Centreon qui permet de gérer l’installation et la
+suppression des Plugin Packs. C’est un élément clé, il fait régulièrement l’objet de mises à jour. Il est donc
 recommandé de rester à jour sur ce composant.
 
 Pour mettre à jour le module, lancez la commande :
@@ -65,10 +65,10 @@ l’interface utilisateur Plugin Pack Manager. Sinon, vous devez installer le d�
 
 ## Vue d’ensemble
 
-Les **Centreon Plugin Pack** sont des ensembles de **modèles** de supervision **standardisés**, **préconfigurés**
-permettant un **déploiement rapide** de la supervision de votre infrastructure IT.
+Les **Centreon Plugin Packs** sont des ensembles de modèles de supervision standardisés, préconfigurés
+permettant un déploiement rapide de la supervision de votre infrastructure IT.
 
-Ces modèles (commandes, modèles de services et d’hôtes) sont rattachés à des **plugins** (sondes) de supervision. Ces
+Ces modèles (commandes, modèles de services et d’hôtes) sont rattachés à des plugins (sondes) de supervision. Ces
 plugins peuvent être :
 
 * des plugins existants provenant de la communauté, ayant été sélectionnés et validés par Centreon comme étant
@@ -76,9 +76,9 @@ plugins peuvent être :
 * des plugins développés par Centreon, distribués gratuitement et disponibles soit au travers de paquets RPM, soit via
   le projet *[Centreon Plugins](https://github.com/centreon/centreon-plugins)*.
 
-La valeur ajoutée des **Plugin Packs** est la **préconfiguration** de la **supervision** dans le logiciel Centreon.
-Lors de leur installation, **ils apportent** dans Centreon des **objets pré-paramétrés** tels que les **commandes**,
-des **modèles d’hôtes** et des **modèles de services**.
+La valeur ajoutée des **Plugin Packs** est la préconfiguration de la supervision dans le logiciel Centreon.
+Lors de leur installation, ils apportent dans Centreon des objets pré-paramétrés tels que les commandes,
+des modèles d’hôtes et des modèles de services.
 
 Une fois le Plugin Pack installé, l’étape suivante consiste à installer les plugins de supervision utilisés par les
 commandes du Plugin Pack. Pour cela, se référer à la documentation du pack (dans le cas où quelque chose doit être
