@@ -24,7 +24,7 @@ déroulante qui vient d’apparaître :
 > Si cette liste est vide, cela signifie que cet hôte n’appartient pas à un
 > modèle d’hôtes lié à une règle de découverte.
 
-Cliquez sur le bouton **Scan** et patienter durant l’analyse des éléments
+Cliquez sur le bouton **Scan** et patientez durant l’analyse des éléments
 disponibles :
 
 ![image](../../assets/configuration/autodisco/manual_scan_wait.png)
@@ -38,7 +38,7 @@ Les éléments ont été ajoutés et il n’est plus possible de les sélectionn
 
 ![image](../../assets/configuration/autodisco/manual_scan_added.png)
 
-> Dans la liste de résultat de la découverte des éléments, il se peut que
+> Dans la liste de résultats de la découverte des éléments, il se peut que
 > certains éléments ne puissent être sélectionnés. Cela indique qu’ils font déjà
 > partie de la configuration.
 
@@ -49,9 +49,9 @@ Services > Services par hôte`:
 
 ## Règles de découverte
 
-### General options
+### Options générales
 
-Options générales Une règle de découverte permet de créer dynamiquement des
+Une règle de découverte permet de créer dynamiquement des
 services et de les lier à un hôte, en se basant sur les éléments remontés par
 les sondes. Les services unitaires créés sont attachés à des modèles de services
 ce qui permet d’utiliser les fonctionnalités de Centreon (héritage, surcharge,
@@ -76,17 +76,17 @@ Voici une description des premiers champs à saisir :
   - **Service template**: le modèle de service utilisé pour créer les nouveaux
     services
 
-Rendez-vous dans le second onglet **Inclusions / Exclusions & Macros** tab. You
-should see available XML attributes:
+Rendez-vous dans le second onglet **Inclusions/Exclusions & Macros** tab. Vous
+devriez voir les attributs XML disponibles :
 
 ![image](../../assets/configuration/autodisco/create_rule_3.png)
 
-Revenez au premier onglet et définir le nom des services qui seront créés ainsi
+Revenez au premier onglet et définissez le nom des services qui seront créés ainsi
 que les autres champs disponibles :
 
 ![image](../../assets/configuration/autodisco/create_rule_4.png)
 
-Saisir le nom du service qui sera créé via le champ **Service display name**.
+Saisissez le nom du service qui sera créé via le champ **Service display name**.
 
 > Le nom du service peut contenir une macro correspondant à un attribut du flux
 > XML. Par exemple, pour une interface réseau, son nom peut être amené par
@@ -101,11 +101,11 @@ Puis compléter la règle :
   - **Linked Instances** : permet d’exécuter la règle que pour les hôtes liés
     aux collecteurs sélectionnées.
 
-> Laisser vide pour exécutr la règle depuis n’importe quel collecteur.
+> Laisser vide pour exécuter la règle depuis n’importe quel collecteur.
 
   - **Contacts** : Les contacts qui seront notifiés sur la création ou la
     désactivation de services à la suite de la découverte
-  - **Contact groups**: Les groupes de contact qui seront notifiés sur la
+  - **Contact groups** : Les groupes de contacts qui seront notifiés sur la
     création ou la désactivation de services à la suite de la découverte
   - **Disable elements not found** : Permettre au module de désactiver les
     services associés aux éléments qui ne sont plus trouvés
@@ -117,16 +117,16 @@ Puis compléter la règle :
 
 Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
-### Inclusions / Exclusions & Macros
+### Inclusions/Exclusions & Macros
 
-Les **Inclusions / Exclusions et Macro** fonctionnent de la manière suivante :
+Les **Inclusions/Exclusions et Macro** fonctionnent de la manière suivante :
 
 ![image](../../assets/configuration/autodisco/create_rule_5.png)
 
-Les **Inclusions / Exclusions** permettent d’inclure ou d’exclure des éléments
-durant la découverte. Cette inclusion/ exclusion concerne les attributs XML
+Les **Inclusions/Exclusions** permettent d’inclure ou d’exclure des éléments
+durant la découverte. Cette inclusion/exclusion concerne les attributs XML.
 
-Les règle d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
+Les règles d’inclusion/exclusion sont définies à partir de l’algorithme suivant :
 
   - Si seules des règles d’inclusion sont présentes, la valeur de l’attribut
     correspondant à au moins une inclusion est prise en compte
@@ -164,7 +164,7 @@ L’expression peut être appliquée sur :
 La seconde partie **Customize** code permet d’utiliser du code Perl.
 
 **Custom display scan** permet de modifier l’affichage dans la découverte
-manuelle Par défaut, la découverte manuelle affiche le nom du service. Voici un
+manuelle. Par défaut, la découverte manuelle affiche le nom du service. Voici un
 exemple pour ajouter la taille des disques :
 
 ``` perl
@@ -252,7 +252,7 @@ Saisissez les champs suivants :
   - **Command Name** : nom de la commande
   - **Command type** : sélectionnez l’option **Discovery**
   - **Command Line**: saisir la ligne de commande pour exécuter la sonde et
-    récupérer la liste éléments disponibles
+    récupérer la liste des éléments disponibles
 
 ![image](../../assets/configuration/autodisco/command_disco.png)
 
@@ -281,7 +281,7 @@ un ensemble d’éléments similaires comme les systèmes de fichiers ou les
 interfaces réseaux d’un équipement donné.
 
 Cette sonde doit être exécutable en ligne de commande (shell) par l’utilisateur
-**centreon** (ou l’utilisateur du moteur de supervision). Il peut être exécuté
+`centreon` (ou l’utilisateur du moteur de supervision). Il peut être exécuté
 localement ou à distance en utilisant des protocoles comme SSH ou NRPE.
 
 Les résultats doivent être présentés dans un flux XML valide où chaque élément
@@ -336,9 +336,9 @@ options :
 
 | Directive       | Type    | Description                                                                                             |
 |-----------------|---------|---------------------------------------------------------------------------------------------------------|
-| filter\_rules   | tableau | Permet d’exéxuter la ou les règles                                                                      |
-| filter\_hosts   | tableau | Permet d’exécuter toutes les règles de découverte liées aux modèles d’hôte de ou des hôtes sélectionnés |
-| filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant à ou aux Collecteurs         |
+| filter\_rules   | tableau | Permet d’exécuter la ou les règles                                                                      |
+| filter\_hosts   | tableau | Permet d’exécuter toutes les règles de découverte liées aux modèles d’hôte du ou des hôtes sélectionnés |
+| filter\_pollers | tableau | Permet d’exécuter les règles de découverte pour les ressources appartenant au ou aux collecteurs         |
 | dry\_run        | booléen | Exécute la découverte sans changement dans la confugration (utiliser à des fin de test)                 |
 
 ### Exemples
@@ -363,7 +363,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
 }'
 ```
 
-Test d'une règle en particuliers :
+Test d'une règle en particulier :
 
 ``` shell
 curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
@@ -387,7 +387,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
 }'
 ```
 
-Test d'une règle en particuliers pour l'hôte défini :
+Test d'une règle en particulier pour l'hôte défini :
 
 ``` shell
 curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \

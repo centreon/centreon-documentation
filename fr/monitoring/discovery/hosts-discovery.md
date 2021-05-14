@@ -20,17 +20,17 @@ Premièrement, choisissez un fournisseur en cliquant dessus :
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-La bar de recherche permet de chercher un fournisseur spécifique :
+La barre de recherche permet de chercher un fournisseur spécifique :
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
-> Les fournisseurs de découverte sont amnenés par l'installation de Plugin Packs
+> Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
 > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
 > le [catalogue des Plugin
 > Packs](../../integrations/plugin-packs/introduction.html).
 
 Un nom peut être défini pour identifier la tâche. Le nom du fournisseur sera
-utiliser par défaut.
+utilisé par défaut.
 
 ### Définir les paramètres d'accès et de découverte
 
@@ -39,10 +39,10 @@ de supervision depuis lequel sera faite à la découverte :
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
-Certain fournisseur demande d'autres paramètres d'accès comme un proxy si la
+Certains fournisseurs demandent d'autres paramètres d'accès comme un proxy si la
 découverte doit se faire sur un service en ligne et/ou des identifiants.
 
-Puis, des paramètres additionnels peuvent être nécessaire pour définir la portée
+Puis, des paramètres additionnels peuvent être nécessaires pour définir la portée
 de la découverte :
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
@@ -52,7 +52,7 @@ de la découverte :
 La quatrième étape définit comment le résultat de la découverte sera traité pour
 créer les hôtes dans la configuration :
 
-Dans cet étape, des *modificateurs* peuvent être ajoutés ou réarrangés à
+Dans cette étape, des *modificateurs* peuvent être ajoutés ou réarrangés à
 convenance. Allez au chapitre [Comment utiliser les
 *modificateurs*](#comment-utiliser-les-modificateurs) pour en savoir plus.
 
@@ -75,12 +75,12 @@ découverte réussie.
 #### Analyse automatique
 
 L'analyse automatique traitera le résultat automatiquement et utilisera les
-politiques choisies parmis les suivantes :
+politiques choisies parmi les suivantes :
 
   - Ajouter les hôtes à la configuration quand ils sont découverts pour la
     première fois
   - Désactiver les hôtes déjà ajoutés à la configuration si la règle de
-    modification les exclus
+    modification les exclut
   - Activer les hôtes déjà ajoutés à la configuration si ils sont découverts
     mais désactivés
 
@@ -90,12 +90,12 @@ politiques choisies parmis les suivantes :
 
 > Note: le fait que des hôtes soient non découverts (ou plus découverts) ne
 > désactivera pas les hôtes dans la configuration Centreon. Seuls les hôtes
-> découverts et dans le même temps excluts seront désactivés (voir
+> découverts et dans le même temps exclus seront désactivés (voir
 > modificateur [exclusion](#exclusion)).
 
 ### Définir l'exécution
 
-La dernière étape permet de choisir parmis deux méthodes d'exécution.
+La dernière étape permet de choisir parmi deux méthodes d'exécution.
 
 #### Exécuter immédiatement
 
@@ -146,9 +146,9 @@ Les états d'une tâche peuvent être :
   - En cours <img src="../../assets/monitoring/discovery/host-discovery-running.png" width="25" />
   - En cours d'enregistrement <img src="../../assets/monitoring/discovery/host-discovery-saving.png" width="25" />
   - Terminé <img src="../../assets/monitoring/discovery/host-discovery-finished.png" width="25" />
-  - Echoué <img src="../../assets/monitoring/discovery/host-discovery-failed.png" width="25" />
+  - Échoué <img src="../../assets/monitoring/discovery/host-discovery-failed.png" width="25" />
 
-Si une tâche est dans un état *Echoué*, survolez l'icone pour en connaitre la
+Si une tâche est dans un état *Échoué*, survolez l'icône pour en connaître la
 raison.
 
 Si une tâche est dans l'état *Terminé*, cliquez dessus pour analyser le
@@ -160,14 +160,14 @@ Plusieurs actions peuvent être réalisées sur les tâches :
   - Les tâches peuvent être re-exécutées en utilisant l'action *Forcer l'exécution* <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="24" />
   - Elles peuvent aussi être éditées <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" /> 
   - Ou même supprimées <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
-  - Si la tâches est planifiée, elle peut être mise en pause <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
+  - Si la tâche est planifiée, elle peut être mise en pause <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
   - Et reprise <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
   - Et le plus important, accéder aux résultats de la tâche de découverte <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
 
 ## Analyser le résultat d'une tâche
 
   - Depuis le menu `Configuration > Hôtes > Découverte`, cliquez sur la flèche <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" /> 
-d'une tâche terminée pour en visualiser le resulat.
+d'une tâche terminée pour en visualiser le résultat.
 
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
@@ -177,7 +177,7 @@ directement au résultat en cliquant sur le bouton d'édition <img src="../../as
   - Sélectionnez les hôtes que vous voulez ajouter à la configuration et cliquez
 sur le bouton d'enregistrement <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
-Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hote.
+Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
   - Allez au menu `Configuration > Hôtes` pour voir les hôtes nouvellement créés.
 
@@ -187,7 +187,7 @@ Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
 configuration, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
-## Editer une tâche de découverte
+## Éditer une tâche de découverte
 
   - Depuis le menu `Configuration > Hôtes > Découverte`, cliquez dans la ligne 
 de la tâche.
@@ -198,42 +198,42 @@ modifiés.
 L'édition des *modificateurs* aura un effet direct sur les résultats de la
 tâche.
 
-  - Cliquez sur l'icone de sauvegarde  <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+  - Cliquez sur l'icône de sauvegarde  <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
 
 ## Comment utiliser les *modificateurs*
 
 Un *modificateur* est un objet vous permettant de lier la valeur d'un
 attribut d'un item découvert à la propriété d'un futur hôte.
 
-Il y a neuf types de *modificateur* :
+Il y a neuf types de *modificateurs* :
 
-  - Property: associe la valeur d'un attribut aux propriétés communes
+  - Property : associe la valeur d'un attribut aux propriétés communes
     d'un hôte comme son nom, son alias ou son adresse IP,
-  - Macro: associe la valeur d'un attribut à une macro *custom* d'un hôte,
-  - Template: ajoute un modèle d'hôte,
-  - Host group: rattachement à un groupe d'hôtes,
-  - Host category: classification des hôtes par catégorie,
-  - Host severity: priorisation des hôtes par sévérité,
-  - Monitoring: choisit depuis quel serveur de supervision l'hôte sera
+  - Macro : associe la valeur d'un attribut à une macro *custom* d'un hôte,
+  - Template : ajoute un modèle d'hôte,
+  - Host group : rattachement à un groupe d'hôtes,
+  - Host category : classification des hôtes par catégorie,
+  - Host severity : priorisation des hôtes par sévérité,
+  - Monitoring : choisit depuis quel serveur de supervision l'hôte sera
     supervisé,
-  - Exclusion: exclure un sous-ensemble des hôtes sur la base de leurs attributs,
-  - Inclusion: inclut un sous-ensemble des hôtes qui aurait été exclus.
+  - Exclusion : exclure un sous-ensemble des hôtes sur la base de leurs attributs,
+  - Inclusion : inclut un sous-ensemble des hôtes qui aurait été exclus.
 
-Pour tous ces *modificateur*, des conditions peuvent être définies pour savoir
+Pour tous ces *modificateurs*, des conditions peuvent être définies pour savoir
 si la modification sera effective ou non.
 
 Les conditions sont aussi basées sur la valeur des attributs à laquelle est
-comparée une valeur définie pas l'utilisateur. Les opérateurs de comparaison
+comparée une valeur définie par l'utilisateur. Les opérateurs de comparaison
 peuvent être : *equal*, *not equal*, *contain* et *not contain*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
-La liste des attributs dépend du fournisseur et sont listés comme *Source* pour
+La liste des attributs dépend du fournisseur. Ils sont listés comme *Source* pour
 à la fois les *modificateurs* et les *conditions*.
 
 > Depuis la version 21.04, dans les modificateurs *Property*, *Macro*, *Host
 group* et *Host category* il est possible de concaténer un ou plusieurs
-de ces attributs avec une ou plusieurs chaines de caractères personnalisées.
+de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
@@ -248,20 +248,20 @@ tous les champs requis.
 
 Cliquez sur **ENREGISTRER** pour ajouter un *modificateur*.
 
-### Editer un *modificateur*
+### Éditer un *modificateur*
 
   - Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
 le panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone 
 d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
 
-  - Modifiez n'importe quel champs ou le type de *modificateur* lui-même.
+  - Modifiez n'importe quel champ ou le type de *modificateur* lui-même.
 
   - Cliquez sur **ENREGISTRER** pour enregistrer le *modificateur*.
 
 ### Supprimer un *modificateur*
 
   - Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
-panneau d'édition dans la section *Modificateurs*, cliquez sur l'icone de
+panneau d'édition dans la section *Modificateurs*, cliquez sur l'icône de
 suppression  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
 
 Une fenêtre demandera de confirmer l'action.
@@ -278,11 +278,11 @@ propriétés sont obligatoires.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
 
-La liste des *Source* permet de choisir entre les données d'identification
+La liste *Source* permet de choisir entre les données d'identification
 (credentials), les paramètres additionnels (parameters) ou les attributs
 attendus dans le résultat (attributes).
 
-La liste des *Destination* permet de définir à quelle propriété la valeur sera
+La liste *Destination* permet de définir à quelle propriété la valeur sera
 associée.
 
 ### Macro
@@ -292,11 +292,11 @@ définir au niveau de l'hôte.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.png)
 
-La liste des *Source* permet de choisir entre les données d'identification
+La liste *Source* permet de choisir entre les données d'identification
 (credentials), les paramètres additionnels (parameters) ou les attributs
 attendus dans le résultat (attributes).
 
-Le champs *Destination* est un champs texte libre.
+Le champ *Destination* est un champ texte libre.
 
 La case *Mot de passe* définit si la macro sera créée comme une macro "mot de
 passe" ou non.
@@ -308,7 +308,7 @@ n'est pas un remplacement.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-template.png)
 
-La liste *Modèles d'hôte** permet de choisir parmis tous les modèles d'hôte
+La liste *Modèles d'hôte* permet de choisir parmi tous les modèles d'hôte
 définis dans la configuration.
 
 ### Host group
@@ -325,7 +325,7 @@ Il suffit d'en sélectionner un dans le menu déroulant.
 
 #### Création de groupe d'hôtes à la volée
 
-La seconde consiste à composer un nom de groupe à partir de chaines de 
+La seconde consiste à composer un nom de groupe à partir de chaînes de 
 caractères et/ou d'informations issues de la découverte (une aide à la 
 saisie propose les informations disponibles).
 
@@ -351,14 +351,14 @@ Il suffit d'en sélectionner une dans le menu déroulant.
 
 #### Création de catégorie d'hôtes à la volée
 
-La seconde consiste à composer un nom de catégorie à partir de chaines de
+La seconde consiste à composer un nom de catégorie à partir de chaînes de
 caractères et/ou d'informations issues de la découverte (une aide à la 
 saisie propose les informations disponibles).
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
 
 Bien sûr, si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas 
-recréé, l'hôte sera simplement rattaché à cette catégorie.
+recréée, l'hôte sera simplement rattaché à cette catégorie.
 
 ### Host severity
 
@@ -378,7 +378,7 @@ supervision l'hôte sera supervisé.
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
 
 Le bouton radio *Sélecteur d'instance de supervision* permet de choisir entre
-le serveur de supervision définit dans la tâche ou depuis ceux disponibles sur
+le serveur de supervision défini dans la tâche ou depuis ceux disponibles sur
 la plateforme Centreon.
 
 Ce *modificateur* est obligatoire.
@@ -420,14 +420,14 @@ virtuelles.
 *Créer la bonne tâche de découverte*
 
 Depuis la page principale de la découverte d'hôtes, ajoutez une tâche en
-commençant pas choisir le fournisseur VMware VM.
+commençant par choisir le fournisseur VMware VM.
 
 Définissez le serveur de supervision depuis lequel vous voulez faire la
-découverte. Pour ce fournisseur en particuliers, ce paramètre doit être en
+découverte. Pour ce fournisseur en particulier, ce paramètre doit être en
 accord avec les paramètres de découverte où vous définissez les informations
 relatives aux accès au Connecteur Centreon VMware (nom d'hôte/ip et port).
 
-Dans la plupart des cas, vous allez installer le Connecteur sur le serveur de
+Dans la plupart des cas, vous allez installer le connecteur sur le serveur de
 supervision, les paramètres d'accès seront donc *localhost* et le port par
 défaut *5700*.
 
@@ -466,10 +466,10 @@ se retrouvent dans un état arrêté (3).
 La dernière activera les machines virtuelles qui sont de nouveau dans un état
 démarré (4).
 
-Biensur, les deux dernières politiques fonctionnent mieux si la tâche de
+Bien sûr, les deux dernières politiques fonctionnent mieux si la tâche de
 découverte est planifiée pour être exécutée plus d'une fois.
 
-> Note: si une machine virtuelle est amenée à être supprimée, elle ne sera pas
+> Note : Si une machine virtuelle est amenée à être supprimée, elle ne sera pas
 > supprimée (ni même désactivée) de la configuration Centreon. Seul les hôtes
-> découverts et dans le même temps excluts sont désactivés dans la configuration
+> découverts et dans le même temps exclus sont désactivés dans la configuration
 > (si la politique est choisie).
