@@ -427,7 +427,7 @@ découverte. Pour ce fournisseur en particulier, ce paramètre doit être en
 accord avec les paramètres de découverte où vous définissez les informations
 relatives aux accès au Connecteur Centreon VMware (nom d'hôte/ip et port).
 
-Dans la plupart des cas, vous allez installer le Connecteur sur le serveur de
+Dans la plupart des cas, vous allez installer le connecteur sur le serveur de
 supervision, les paramètres d'accès seront donc *localhost* et le port par
 défaut *5700*.
 
