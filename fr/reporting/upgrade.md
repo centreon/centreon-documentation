@@ -23,7 +23,7 @@ Lors d'une montée de version majeure (ex: 20.10.x à 21.04.x) il faut en premie
 
 Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
 
-![image](../assets/upgrade/support_repos.png)
+![image](../assets/reporting/support_repos.png)
 
 ## Mettre à jour l'interface
 

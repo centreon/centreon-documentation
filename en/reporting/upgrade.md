@@ -22,7 +22,7 @@ When you upgrade from a previous version to 21.04.x, you first need to update th
 
 You will find the new "Business" repository on the "Depots" tab from your Centreon Support account on https://support.centreon.com :
 
-![image](../assets/upgrade/support_repos.png)
+![image](../assets/reporting/support_repos.png)
 
 ## Upgrade the extension interface
 
