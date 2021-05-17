@@ -18,14 +18,11 @@ The upgrade of Centreon MBI is made of 3 steps :
 
 ## Update the repostory
 
-When you upgrade from a minor to another minor (i.e 19.10.x to 20.04.x ) you first need to update the repository on 
-your Central & reporting servers.
+When you upgrade from a previous version to 21.04.x, you first need to update the repository on your Central & Reporting servers.
 
-Execute the following command to install the new repository:
+You will find the new "Business" repository on the "Depots" tab from your Centreon Support account on https://support.centreon.com :
 
-    yum update $(IFS=$'\n' BASE=( $(sed -n 's/baseurl=\(.*\/stable\/noarch\)/\1/p' /etc/yum.repos.d/centreon-mbi.repo) ) ; echo "${BASE[0]/19.10/20.04}RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm")
-
-*You may need to update 19.10 if you're not currently in this version*
+![image](../assets/upgrade/support_repos.png)
 
 ## Upgrade the extension interface
 
