@@ -64,7 +64,7 @@ More information about the Host Discovery module is available in the Centreon do
 
 | Metric Name                                 | Description    | Unit |
 |:--------------------------------------------|:---------------|:-----|
-| appinsights.cpu.utilization.percentage      | Processor time | %    |
+| appinsights.cpu.nonidle.time.percentage     | Processor time | %    |
 | appinsights.cpu.w3wp.utilization.percentage | Process CPU    | %    |
 
 <!--Exceptions-->
@@ -87,7 +87,7 @@ More information about the Host Discovery module is available in the Centreon do
 
 | Metric Name                                        | Description     | Unit |
 |:---------------------------------------------------|:----------------|:-----|
-| appinsights.bytes.total.operations.bytesperseconds | Process IO rate | B/s  |
+| appinsights.process.bytes.operations.bytesperseconds | Process IO rate | B/s  |
 
 <!--Memory-->
 
@@ -110,9 +110,9 @@ More information about the Host Discovery module is available in the Centreon do
 | appinsights.requests.duration.milliseconds       | Server response time               | ms         |
 | appinsights.requests.execution.time.milliseconds | HTTP request execution time        | ms         |
 | appinsights.requests.failed.count                | Failed requests                    | Count      |
-| appinsights.requests.failed.count                | HTTP requests in application queue | Count      |
+| appinsights.requests.queued.count                | HTTP requests in application queue | Count      |
 | appinsights.requests.http.perseconds             | HTTP request rate                  | requests/s |
-| appinsights.requests.server.perseconds           | Server request rate                | requests/s |
+| appinsights.requests.perseconds                  | Server request rate                | requests/s |
 | appinsights.requests.total.count                 | Server requests                    | Count      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
