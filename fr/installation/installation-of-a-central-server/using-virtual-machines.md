@@ -95,12 +95,12 @@ Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bo
 
 Vous êtes maintenant connecté à l'interface web Centreon.
 
-## Premiers pas
-
-Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
-pour mettre en place votre première supervision.
-
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.html)
+
+## Premiers pas
+
+Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
+pour mettre en place votre première supervision.

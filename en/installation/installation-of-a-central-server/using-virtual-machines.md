@@ -82,12 +82,12 @@ Fill in your user name and associated password and click on **Connect** button:
 
 You are now connected to the Centreon web interface.
 
-## Getting started
-
-Go to the [Getting Started](../../getting-started/installation-first-steps.html)
-chapter to configure your first monitoring.
-
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.html)
+
+## Getting started
+
+Go to the [Getting Started](../../getting-started/installation-first-steps.html)
+chapter to configure your first monitoring.
