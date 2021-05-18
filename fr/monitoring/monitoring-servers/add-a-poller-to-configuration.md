@@ -6,7 +6,7 @@ title: Ajouter un Poller à la configuration
 ## Configurer un nouveau Poller
 
 Depuis la version 18.10, un nouvel assistant de configuration permet de créer
-toutes les configurations nécessaire pour ajouter un Poller.
+toutes les configurations nécessaires pour ajouter un Poller.
 
 > Vous pouvez toujours ajouter un nouveau Poller manuellement mais la procédure
 > suivante est recommandée.
@@ -24,10 +24,10 @@ cliquez sur **Suivant** :
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-> L'adresse IP du collecteur est l'adresse IP ou le FQNS pour accéder au
+> L'adresse IP du collecteur est l'adresse IP ou le FQDN pour accéder au
 > collecteur depuis le serveur Centreon Central.
 >
-> L'adresse IP du serveur Centreon Central est l'adresse IP ou le FQNS pour accéder au
+> L'adresse IP du serveur Centreon Central est l'adresse IP ou le FQDN pour accéder au
 > serveur Centreon Central depuis le collecteur.
 
 Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur
@@ -54,13 +54,13 @@ recommandé) ou en utilisant le protocole SSH.
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Poller fraichement créé, et sélectionner **ZMQ**
-comme **Protocole de connexion utilisé par Gorgone**. Définir le **port**
+Éditez la configuration du Poller fraîchement créé, et sélectionnez **ZMQ**
+comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port**
 adéquat (le port **5556** est recommandé).
 
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
 
-Cliquer sur **Sauvegarder**.
+Cliquez sur **Sauvegarder**.
 
 > Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
 >
@@ -69,15 +69,15 @@ Cliquer sur **Sauvegarder**.
 
 #### Afficher la configuration de Gorgone
 
-Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
+Depuis la liste des Pollers, cliquez sur l'icône d'action **Gorgone
 configuration** sur la ligne correspondant à votre Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
 Une pop-in affiche la configuration à copier dans le **terminal du Poller**.
-Cliquer sur **Copy to clipboard**.
+Cliquez sur **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-Coller le contenu du presse-papier directement dans le **terminal du Poller**
+Collez le contenu du presse-papier directement dans le **terminal du Poller**
 car celui-ci créera le fichier de configuration attendu :
 
 ```shell
@@ -106,21 +106,21 @@ gorgone:
 EOF
 ```
 
-Appuyer sur la touche *Entrée* pour que la commande soit appliquée.
+Appuyez sur la touche *Entrée* pour que la commande soit appliquée.
 
 > Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
 > pour la copier dans un fichier de configuration personnalisé.
 
 #### Démarrer le daemon Gorgone
 
-Depuis le Poller, exécuter la commande suivante pour démarrer le service
+Depuis le Poller, exécutez la commande suivante pour démarrer le service
 Gorgone :
 
 ```shell
 systemctl start gorgoned
 ```
 
-Assurez vous que le service est démarré en exécutant la commande suivante :
+Assurez-vous que le service est démarré en exécutant la commande suivante :
 
 ```shell
 systemctl status gorgoned
@@ -151,19 +151,19 @@ systemctl enable gorgoned
 
 #### Sélectionner le type de communication
 
-Editer la configuration du Poller fraichement créé, et sélectionner **SSH**
-comme **Protocole de connexion utilisé par Gorgone**. Définir le **port** adéquat.
+Éditez la configuration du Poller fraîchement créé, et sélectionnez **SSH**
+comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port** adéquat.
 
 ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
 
-Cliquer sur **Sauvegarder**.
+Cliquez sur **Sauvegarder**.
 
 > Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
 >
 > Si vous l'utilisiez dans des scripts personnalisés, pensez à changer pour
 > utiliser le système de communication de Gorgone.
 
-## Echange de clés SSH
+## Échange de clés SSH
 
 Si vous n’avez pas de clé SSH privée sur le **serveur Central** pour
 l’utilisateur **centreon-gorgone**, vous pouvez la créer avec la commande
@@ -174,7 +174,7 @@ su - centreon-gorgone
 ssh-keygen -t rsa
 ```
 
-> Appuyez sur la touche *entrée* quand il vous sera demandé de saisir un
+> Appuyez sur la touche *Entrée* quand il vous sera demandé de saisir un
 > fichier pour enregistrer la clé. **Laissez le mot de passe vide**. Vous
 > recevrez une empreinte digitale de clé et une image randomart.
 
@@ -193,7 +193,7 @@ ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-**Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez le avec
+**Pour forcer le Gorgone du Central à se connecter au Poller**, redémarrez-le avec
 la commande suivante depuis le **serveur Central** :
 
 ```shell
@@ -202,11 +202,11 @@ systemctl restart gorgoned
 
 ## Exporter la configuration
 
-Depuis la liste des Pollers, sélectionner le Poller et cliquer sur **Exporter
+Depuis la liste des Pollers, sélectionnez le Poller et cliquez sur **Exporter
 la configuration**.
 
-Cocher ensuite les quatre premières cases, sélectionner la méthode **Redémarrer**
-et cliquer sur  **Exporter** :
+Cochez ensuite les quatre premières cases, sélectionnez la méthode **Redémarrer**
+et cliquez sur  **Exporter** :
 
 ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 

@@ -21,7 +21,7 @@ La configuration des périodes temporelles se déroule dans le menu : **Configur
 
 * Les champs **Time period name** et **Alias** définissent respectivement le nom et la description de la période
   temporelle.
-* Tes champs appartenant à la sous-catégorie **Time range** définissent les jours de la semaine pour lesquels il est
+* Les champs appartenant à la sous-catégorie **Time range** définissent les jours de la semaine pour lesquels il est
   nécessaire de définir des plages horaires.
 * Le tableau **Exceptions** permet d’inclure des jours exclus de la période de temps.
 

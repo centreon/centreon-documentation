@@ -18,6 +18,9 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Mise à jour de la solution Centreon
 
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
 Videz le cache de yum :
 
 ```shell

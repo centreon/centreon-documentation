@@ -60,6 +60,9 @@ PHP will be updated with Centreon automatically.
 
 ### Upgrade the Centreon solution
 
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
 Stop the Centreon Broker process:
 ```shell
 systemctl stop cbd

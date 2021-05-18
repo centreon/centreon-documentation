@@ -91,7 +91,7 @@ Le champ **Service Trap Relation** permet de définir les traps SNMP qui pourron
   bagotage en pourcentage de changement.
 * Le champ **Performance data processing** permet d’activer ou de désactiver le traitement des données de performances
   (et donc la génération des graphiques de performances).
-* Les champs **Retain status information** et **Retention non status information** indiquent si les informations
+* Les champs **Retain status information** et **Retain non status information** indiquent si les informations
   concernant ou ne concernant pas le statut sont sauvegardées après chaque relance de la commande de vérification.
 * Le champ **Stalking Options** définit les options à enregistrer si la rétention est activée.
 * Le champ **Event handler enabled** permet d’activer ou de désactiver le gestionnaire d’évènements.

@@ -13,8 +13,8 @@ yum install -y centreon-auto-discovery-server
 
 ## Installation de l'extension
 
-Connectez-vous à l’interface web de Centreon en utilisant un compte ayant les
-droits d’installer des modules et rendez-vous dans le menu `Administration >
+Connectez-vous à l’interface web de Centreon en utilisant un compte ayant le
+droit d’installer des modules et rendez-vous dans le menu `Administration >
 Extensions > Manager`.
 
 > Assurez vous que les modules **License Manager** et **Plugin Packs Manager**

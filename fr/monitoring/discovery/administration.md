@@ -6,7 +6,7 @@ title: Administration
 ## Mise à jour
 
 > Lors de la montée de version à partir d'une version antérieure à la version
-> 20.04, toutes les données de la > fonctionnalité **Host Discovery** seront
+> 20.04, toutes les données de la fonctionnalité **Host Discovery** seront
 > perdues:
 >
 > - Tâches de découverte,
@@ -17,7 +17,7 @@ title: Administration
 >
 > Les hôtes découverts au travers des tâches ne sont pas touchés.
 >
-> La montée de version vers 21.04 conserve toutes les données présentent depuis
+> La montée de version vers 21.04 conserve toutes les données présentes depuis
 > la version 20.04.
 
 Pour mettre à jour le module, exécutez la commande suivante :
@@ -26,11 +26,11 @@ Pour mettre à jour le module, exécutez la commande suivante :
 yum update -y centreon-auto-discovery-server
 ```
 
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les
-droits d’installer des modules et rendez-vous dans le menu `Administration >
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant le
+droit d’installer des modules et rendez-vous dans le menu `Administration >
 Extensions > Gestionnaire`.
 
-> Assurez vous que les modules **License Manager** et **Plugin Packs Manager**
+> Assurez-vous que les modules **License Manager** et **Plugin Packs Manager**
 > sont à jour avant de procéder à la mise à jour du module **Auto Discovery**
 
 Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :
@@ -43,8 +43,8 @@ Le module est maintenant à jour :
 
 ## Désinstallation
 
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant les
-droits d’installer des modules et rendez-vous dans le menu `Administration >
+Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant le
+droit d’installer des modules et rendez-vous dans le menu `Administration >
 Extensions > Gestionnaire`.
 
 Cliquer sur l’icône de suppression correspondant au module **Auto Discovery** :
@@ -74,8 +74,8 @@ manière globale au module. S'il est nécessaire de la modifier (par exemple pou
 une découverte SNMP sur un large sous-réseau), il faut éditer le fichier
 de configuration et ajouter le directive *global_timeout*.
 
-Si les notifications par mail ont été activées dans des règles de dévouverte de
-services, les paramètres relatifs au système d'envoie peuvent être défini pour
+Si les notifications par mail ont été activées dans des règles de découverte de
+services, les paramètres relatifs au système d'envoi peuvent être définis pour
 choisir l'expéditeur, le sujet ou la commande mail.
 
 Exemple de configuration :
@@ -95,7 +95,7 @@ gorgone:
       mail_command: /bin/mail
 ```
 
-> Assurez vous de redémarrer le service Gorgone après chaque modification :
+> Assurez-vous de redémarrer le service Gorgone après chaque modification :
 >
 > ```shell
 > systemctl restart gorgoned
@@ -103,7 +103,7 @@ gorgone:
 
 ### Architecture distribuée
 
-La découverte d'hôtes et de services se basent sur Gorgone pour effectuer les
+La découverte d'hôtes et de services se base sur Gorgone pour effectuer les
 découvertes à la fois sur le serveur Central et sur les Remote Servers ou
 Pollers.
 
@@ -118,7 +118,7 @@ Pollers.
 ### Tâche planifiée de découverte de services
 
 Toutes les règles de découverte actives sont exécutées périodiquement à travers
-d'une tâche ordonnancée par le module cron de Gorgone. Le module **Auto
+une tâche ordonnancée par le module cron de Gorgone. Le module **Auto
 Discovery** amène une définition pour cette tâche dans le fichier suivant :
 `/etc/centreon-gorgone/config.d/cron.d/41-service-discovery.yaml`.
 
@@ -128,13 +128,13 @@ Discovery** amène une définition pour cette tâche dans le fichier suivant :
   action: LAUNCHSERVICEDISCOVERY
 ```
 
-La configuration par défaut exécute les règles de découvertes tous les jours à
+La configuration par défaut exécute les règles de découverte tous les jours à
 22h30.
 
 > Si vous aviez changé la tâche cron pour adapter la planification, vous
 > devez appliquer ces changements dans le nouveau fichier.
 
-Il est aussi possible d'exécuter plusieurs tâches de découverte de service
+Il est aussi possible d'exécuter plusieurs tâches de découverte de services
 avec différents paramètres:
 
 ```yaml
@@ -171,16 +171,16 @@ Ci-dessous la liste des paramètres disponibles:
 | filter\_rules        | Tableau de règles à utiliser pour la découverte (vide pour toutes les utiliser)                                      |
 | force\_rule          | Exécuter les règles désactivées ('0': non forcé, '1': forcé)                                                         |
 | filter\_hosts        | Tableau d'hôtes sur lesquels effectuer la découverte (vide pour tous les utiliser)                                   |
-| filter\_pollers      | Tableau de collecteurs pour lesquels les hôtes attachés se verront lancé la découverte (vide pour tous les utiliser) |
+| filter\_pollers      | Tableau de collecteurs pour lesquels les hôtes attachés se verront lancer la découverte (vide pour tous les utiliser) |
 | dry\_run             | Exécuter la découverte sans faire de modification ('0': modifications, '1': dry run)                                 |
 | no\_generate\_config | Sans génération de configuration (même si des changements ont eu lieu) ('0': generation, '1': pas de generation)     |
 
 ### Accès aux API
 
-A l'installation de Gorgone, une configuration par défaut pour accéder aux API
+À l'installation de Gorgone, une configuration par défaut pour accéder aux API
 de Centreon se trouve ici `/etc/centreon-gorgone/config.d/31-centreon-api.yaml`.
 
-Elle défini les accès pour Centreon CLAPI et l'API Rest pour permettre à la
+Elle définit les accès pour Centreon CLAPI et l'API Rest pour permettre à la
 découverte de communiquer avec Centreon.
 
 Exemple de configuration :
@@ -198,8 +198,8 @@ gorgone:
 ```
 
 L'accès à l'API Rest, représenté par *centreonv2*, nécessite les identifiants
-d'un utilisateur ayant *Accès à l'API de configuration*. Il est utilisé
-pour la découverte d'hôte.
+d'un utilisateur ayant accès à l'API de configuration. Il est utilisé
+pour la découverte d'hôtes.
 
 L'accès à CLAPI nécessite les identifiants d'un utilisateur *Administrateur*.
 Il est utilisé pour la découverte de service.
