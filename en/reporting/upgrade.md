@@ -16,11 +16,11 @@ The upgrade of Centreon MBI is made of 3 steps :
 - Updating the extension interface
 - Updating the reporting server
 
-## Update the repostory
+## Update the repository
 
-When you upgrade from a previous version to 21.04.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 21.04.x, you first need to update the repository on your Central & Reporting servers.
 
-You will find the new "Business" repository on the "Depots" tab from your Centreon Support account on https://support.centreon.com :
+You will find the new "Business" repository on the "Depots" tab in your Centreon Support account on https://support.centreon.com :
 
 ![image](../assets/reporting/support_repos.png)
 
