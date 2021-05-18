@@ -1,5 +1,5 @@
 ---
-id: architectures
+id: overview
 title: Architectures
 ---
 
