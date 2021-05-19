@@ -20,8 +20,8 @@ $ cp ../en/sidebars.json ./sidebars.json
 2. Copy footer configuration from the desired language directory:
 
 ```sh
-# cp ./core/<language>/Footer.json ./core/Footer.json
-$ cp ./core/en/Footer.json ./core/Footer.json
+# cp ./core/<language>/Footer.js ./core/Footer.js
+$ cp ./core/en/Footer.js ./core/Footer.js
 ```
 
 3. Copy and configured website configuration file:
