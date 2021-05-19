@@ -5,7 +5,7 @@ title: Centreon-HA
 
 ## Overview
 
-Centreon-HA is Centreon central server's high availability implementation. More information available [here](administration/centreon-ha/overview.md).
+Centreon-HA is Centreon central server's high availability implementation. More information available [here](installation/installation-of-centreon-ha/overview.md).
 
 This Plugin-Pack relies on two other Plugin-Packs:
 
