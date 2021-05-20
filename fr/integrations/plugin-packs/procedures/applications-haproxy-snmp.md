@@ -5,13 +5,11 @@ title: Haproxy SNMP
 
 ## Vue d'ensemble
 
-HAProxy is an open source software allowing high availability, load balancing 
-and proxying solutions for TCP and HTTP-based applications.
 HAProxy est un logiciel libre fournissant, avec une haute disponiblité,
 un load balancer et un proxy pour des applications TCP et HTTP.
 
-The Centreon Plugin Pack *Haproxy SNMP* permet de récuperer le status du server 
-ainsi que des métriques sur le nombre de sessions et le trafic par
+Le Plugin Pack Centreon *Haproxy SNMP* permet de récuperer le status du backend
+et du frontend ainsi que des métriques sur le nombre de sessions et le trafic par
 l'intermédiaire du protocole SNMP.
 
 ## Contenu du Pack
@@ -51,9 +49,9 @@ l'intermédiaire du protocole SNMP.
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link to
-the manufacturer official documentation BUT you should try to be as complete as
-possible here as it will save time to everybody*
+Afin de superviser le serveur HAProxy, le SNMP v2 ou v3 doit être 
+configuré comme indiqué sur la documentation officielle :
+https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 
 ## Installation
 
@@ -61,7 +59,7 @@ possible here as it will save time to everybody*
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
@@ -71,7 +69,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources HAProxy:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
@@ -92,7 +90,7 @@ yum install centreon-pack-applications-haproxy-snmp
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page "Configuration > Hôtes".
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *TO CHANGE*
+* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur HAProxy
 * Appliquez le Modèle d'Hôte *Applications-Haproxy-Snmp-custom* 
 
 Si vous utilisez SNMP en version 3, vous devez configurer les paramètres
@@ -126,13 +124,14 @@ spécifiques associés via la macro SNMPEXTRAOPTIONS.
     --critical-traffic-in=''  \
     --warning-traffic-out=''  \
     --critical-traffic-out=''  \
-    --verbose 
+    --verbose \
+    --use-new-perfdata
  ```
 
  La commande devrait retourner un message de sortie similaire à :
 
  ```bash
-OK : .... | 'frontend.sessions.current.count'=9000;;;; 'frontend.sessions.total.count'=9000;;;; 'frontend.traffic.in.bitpersecond'=9000b/s;;;; 'frontend.traffic.out.bitpersecond'=9000b/s;;;; 
+OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend.sessions.total.count'=9000;;;; 'frontend.traffic.in.bitpersecond'=9000b/s;;;; 'frontend.traffic.out.bitpersecond'=9000b/s;;;;
  ```
 
 Dans cet exemple, une alarme est déclenchée si le status du *frontend* est
@@ -159,13 +158,13 @@ différent de 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
 
 ### Diagnostic des erreurs communes
  
-### UNKNOWN: SNMP GET Request : Timeout
+#### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
 pas à contacter le serveur HAProxy sur le port 161 (firewall ou autre équipement
 en coupure) ou que la communauté SNMP configurée n'est pas correcte.
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
+#### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
 faire fonctionner le mode/plugin.

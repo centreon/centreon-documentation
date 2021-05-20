@@ -58,7 +58,7 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor HAProxy ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
@@ -68,7 +68,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor HAProxy ressources:
 
 ```bash
 yum install centreon-plugin-Applications-Haproxy-Snmp
@@ -89,7 +89,7 @@ yum install centreon-pack-applications-haproxy-snmp
 ### Host
 
  * Log into Centreon and add a new Host through "Configuration > Hosts".
- * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *TO CHANGE* Server settings
+ * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your HAProxy Server settings
  * Select the *Applications-Haproxy-Snmp-custom* template to apply to the Host
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
@@ -124,13 +124,14 @@ If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
     --warning-traffic-out=''  \
     --critical-traffic-out=''  \
     --use-new-perfdata
-    --verbose 
+    --verbose \
+    --use-new-perfdata
  ```
 
  Expected command output is shown below:
 
  ```bash
-OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend.sessions.total.count'=9000;;;; 'frontend.traffic.in.bitpersecond'=9000b/s;;;; 'frontend.traffic.out.bitpersecond'=9000b/s;;;; 
+OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend.sessions.total.count'=9000;;;; 'frontend.traffic.in.bitpersecond'=9000b/s;;;; 'frontend.traffic.out.bitpersecond'=9000b/s;;;;
  ```
 
 This command would trigger a CRITICAL alarm if the status of the *frontend* is 
@@ -155,9 +156,9 @@ different than 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
     --list-mode
  ```
 
- ### Troubleshooting
+### Troubleshooting
  
- #### UNKNOWN: SNMP GET Request : Timeout
+#### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this message, you're probably facing one of theses issues:
 
