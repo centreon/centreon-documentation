@@ -141,6 +141,13 @@ ou si le status de l'identification est différent de "accepted".
 
 ### Diagnostic des erreurs communes
 
-#### ```Error message```
+#### ```UNKNOWN: Login endpoint returns error code 'Auth_TIMEOUT' ```
 
- ......
+Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
+pas à contacter le serveur RADIUS (firewall ou autre équipement
+en coupure).
+
+#### ```UNKNOWN: Login endpoint returns error code 'Bad Response from server' ```
+
+Cela signifie que le secret utilisé pour s'authentifier au serveur RADIUS 
+est incorrect.

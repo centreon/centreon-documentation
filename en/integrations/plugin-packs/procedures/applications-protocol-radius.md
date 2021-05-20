@@ -140,6 +140,13 @@ than "accepted".
 
 ### Troubleshooting
 
-#### ```Error message```
+#### ```UNKNOWN: Login endpoint returns error code 'Auth_TIMEOUT' ```
 
- ......
+If you get this message, you're probably facing one of theses issues:
+
+* Your RADIUS server isn't started
+* An external device is blocking your request (firewall, ...)
+
+#### ```UNKNOWN: Login endpoint returns error code 'Bad Response from server' ```
+
+This error means the secret used to authenticate the RADIUS server is wrong.
