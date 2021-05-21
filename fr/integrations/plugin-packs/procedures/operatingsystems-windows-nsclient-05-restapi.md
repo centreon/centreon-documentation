@@ -91,6 +91,11 @@ les données de monitoring des serveurs Windows à travers une connexion HTTP s�
 
 ## Prérequis
 
+### Installation et paramètrages
+
+Il est possible d'installer une version tout en un de l'agent NSClient++ à partir du dernier binaire disponible
+[ici](https://github.com/centreon/centreon-nsclient-build/releases).
+
 * Le port TCP 8443 doit être ouvert sur le serveur Windows (port de l'API Rest Nsclient par défaut). 
 
 Afin de sécuriser la communication entre le poller et l'agent:
@@ -98,7 +103,7 @@ Afin de sécuriser la communication entre le poller et l'agent:
 * Modifier le paramètre *port* de l'API Rest du fichier *nsclient.ini*
 * Modifier le paramètre *allowed hosts* du fichier *nsclient.ini* en renseignant les adresses IP des collecteurs Centreon afin de n'autoriser que ceux-ci à interroger l'API 
 
-### Configurer l'accès Rest HTTPS
+### Autoriser l'accès à l'API Rest en HTTPS
 
 Pour vous connecter à l’API de Monitoring NSClient++, vous devez tout d'abord activer le service web de Nsclient:
 

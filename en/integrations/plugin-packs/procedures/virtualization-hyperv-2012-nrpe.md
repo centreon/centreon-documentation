@@ -17,21 +17,7 @@ yum install centreon-nrpe-plugin
 
 ### Nsclient++
 
-This plugin pack requires the use of:
-
-  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
-    target server as described on
-    [documentation](http://documentation.centreon.com)
-
-You can download it
-[here](https://github.com/centreon/centreon-nsclient-build/releases)
-
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
-
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://github.com/centreon/centreon-nsclient-build#centreon-nsclient-build)
+This Plugin Pack works with the Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
 
 ## Centreon Configuration
 

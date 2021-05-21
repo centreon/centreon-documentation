@@ -19,25 +19,7 @@ yum install centreon-nrpe-plugin
 
 ### Nsclient++
 
-This plugin pack requires the use of:
-
-  - the IIS plugin provided
-    [here](https://github.com/centreon/centreon-nsclient-build/releases)
-  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
-    target server as described on
-    [documentation](http://documentation.centreon.com)
-
-Note: Web Management Tools have to be installed on the IIS Server
-
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
-
-You can download it
-[here](https://github.com/centreon/centreon-nsclient-build/releases)
-
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://github.com/centreon/centreon-nsclient-build#centreon-nsclient-build)
+This Plugin Pack works with the Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
 
 ## Centreon Configuration
 
