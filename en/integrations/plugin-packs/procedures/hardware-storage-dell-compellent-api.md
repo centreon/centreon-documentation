@@ -9,7 +9,7 @@ This plugin pack requires the use of:
 
   - the Dell Storage Enterprise Manager provided
     [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
-  - NSClient++ package provided by Centreon, installed and configured on your
+  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
     target server as described on
     [documentation](http://documentation.centreon.com)
 

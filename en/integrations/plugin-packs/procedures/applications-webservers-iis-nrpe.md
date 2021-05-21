@@ -23,7 +23,7 @@ This plugin pack requires the use of:
 
   - the IIS plugin provided
     [here](https://github.com/centreon/centreon-nsclient-build/releases)
-  - NSClient++ package provided by Centreon, installed and configured on your
+  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
     target server as described on
     [documentation](http://documentation.centreon.com)
 

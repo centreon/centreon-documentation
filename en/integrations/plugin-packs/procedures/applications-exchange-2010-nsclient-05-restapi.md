@@ -19,8 +19,7 @@ This plugin pack requires the use of:
 
   - the Exchange 2010 plugin provided
     [here](https://github.com/centreon/centreon-nsclient-build/releases)
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on <http://documentation.centreon.com>
+  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
 
 You can download it
 [here](https://github.com/centreon/centreon-nsclient-build/releases)

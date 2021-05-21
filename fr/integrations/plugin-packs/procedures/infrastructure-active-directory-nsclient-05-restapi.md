@@ -17,7 +17,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 This plugin pack requires the use of:
 
-  - NSClient++ package provided by Centreon, installed and configured on your
+  - The Centreon flavor of NSClient++ monitoring agent available [here](https://github.com/centreon/centreon-nsclient-build/releases)
     target server as described on
     [documentation](http://documentation.centreon.com)
 
