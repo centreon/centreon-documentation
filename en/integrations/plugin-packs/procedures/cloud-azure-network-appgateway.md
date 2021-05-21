@@ -33,7 +33,7 @@ Both v1 & v2 versions are supported.
     * Health
     * Requests
     * Throughput
-    * Units    
+    * Units
 
 ### Discovery rules
 
