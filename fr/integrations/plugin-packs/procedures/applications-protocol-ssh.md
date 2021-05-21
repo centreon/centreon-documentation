@@ -24,10 +24,10 @@ SSH.
 
 <!--Ssh-Login-->
 
-| Metric name                  | Description         | Unit       |
-|:-----------------------------|:--------------------|:-----------|
-| status                       | Login status        |            |
-| radius.response.time.seconds | Login response time | seconds    |
+| Metric name           | Description         | Unit       |
+|:----------------------|:--------------------|:-----------|
+| status                | Login status        |            |
+| response.time.seconds | Login response time | seconds    |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -47,7 +47,7 @@ d'hôtes doivent être renseignées. Plus d'information dans le chapite
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des serveurs SSH:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
@@ -57,7 +57,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *TO CHANGE*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des serveurs SSH:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
@@ -78,7 +78,7 @@ yum install centreon-pack-applications-protocol-ssh
 ### Hôte
 
 * Ajoutez un Hôte à Centreon depuis la page "Configuration > Hôtes".
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *TO CHANGE*
+* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur SSH
 * Appliquez le Modèle d'Hôte *Applications-Protocol-Ssh-custom* 
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises(*Mandatory*) doivent être renseignées 
 

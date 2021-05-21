@@ -23,10 +23,10 @@ time of a SSH server login.
 
 <!--Ssh-Login-->
 
-| Metric name                  | Description         | Unit       |
-|:-----------------------------|:--------------------|:-----------|
-| status                       | Login status        |            |
-| radius.response.time.seconds | Login response time | seconds    |
+| Metric name           | Description         | Unit       |
+|:----------------------|:--------------------|:-----------|
+| status                | Login status        |            |
+| response.time.seconds | Login response time | seconds    |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -43,7 +43,7 @@ the mandatory Host Macros must be properly configured. More info in the
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
@@ -53,7 +53,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *TO CHANGE* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor a SSH server:
 
 ```bash
 yum install centreon-plugin-Applications-Protocol-Ssh
@@ -74,7 +74,7 @@ yum install centreon-pack-applications-protocol-ssh
 ### Host
 
 * Log into Centreon and add a new Host through "Configuration > Hosts".
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *TO CHANGE* Server settings
+* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your SSH server settings
 * Select the *Applications-Protocol-Ssh-custom* template to apply to the Host
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
