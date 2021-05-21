@@ -83,5 +83,6 @@ article a:hover {
 }
 
 .tabs .nav-tabs>div:hover {
-    background: #f8f8f8;
+	font-weight: bold;
+	border-bottom: 4px solid #23303a;
   }
