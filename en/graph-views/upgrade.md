@@ -44,12 +44,14 @@ Run the following commands to upgrade your Centreon MAP server:
 
 ```shell
 dnf install http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install <centreon_map_release_package>
 ```
 
 <!--CentOS 7-->
 
 ```shell
 yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install <centreon_map_release_package>
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -57,13 +59,18 @@ yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centre
 > Install Centreon MAP repository, you can find it on the
 > [support portal](https://support.centreon.com/s/repositories).
 
-3. Update Centreon MAP server:
+3. Clean yum metadata and cache
+
+   ```shell
+   yum clean all --enablerepo=*
+   ```
+4. Update Centreon MAP server:
 
     ```shell
     yum update centreon-map-server
     ```
 
-4. Enable and start `centreon-map` service:
+5. Enable and start `centreon-map` service:
 
     ```shell
     systemctl enable centreon-map
