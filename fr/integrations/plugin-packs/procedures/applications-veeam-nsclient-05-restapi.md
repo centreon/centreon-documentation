@@ -25,11 +25,11 @@ Note: If you use the NSClient++ installer provided by Centreon, the plugin is
 already included in centreon\_plugins.exe configured in NSClient++
 
 You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+[here](https://github.com/centreon/centreon-nsclient-build/releases)
 
 If you have some problems with the centreon\_plugins.exe, you can build it using
 [following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+procedure](https://github.com/centreon/centreon-nsclient-build#centreon-nsclient-build)
 
 Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 

@@ -29,7 +29,7 @@ already included in centreon\_plugins.exe configured in NSClient++
 
 If you have some problems with the centreon\_plugins.exe, you can build it using
 [following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+procedure](https://github.com/centreon/centreon-nsclient-build#centreon-nsclient-build)
 
 ## Centreon Configuration
 
