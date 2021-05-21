@@ -19,6 +19,19 @@ Be sure to read the release notes for an explanation of features, fixes
 
 ## Centreon MAP Server
 
+Update the release package to install the new repository file:
+
+``` shell
+# Replace <centreon_map_release_package> by the new centreon-map release package name
+yum install <centreon_map_release_package>
+```
+
+Clean yum metadata and cache.
+
+``` shell
+yum clean all --enablerepo=*
+```
+
 Run the following commands to upgrade your Centreon MAP server:
 
 ``` shell
@@ -28,6 +41,20 @@ systemctl start centreon-map
 ```
 
 ## Centreon MAP Web interface
+Update the release package to install the new repository file:
+
+``` shell
+# Replace <centreon_map_release_package> by the new release package name
+yum install <centreon_map_release_package>
+```
+
+Clean yum metadata and cache.
+
+``` shell
+yum clean all --enablerepo=*
+```
+
+Update the centreon map web client package.
 
 ```shell
 yum update centreon-map-web-client
