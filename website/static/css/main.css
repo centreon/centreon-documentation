@@ -77,7 +77,10 @@ article a:hover {
   }
 }
 
-ol ol,
-ul ol {
+ol ol, ul ol {
+  list-style-type: decimal;
+}
+
+ul ul ol, ul ol ol, ol ul ol, ol ol ol {
   list-style-type: decimal;
 }
