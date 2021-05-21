@@ -12,11 +12,20 @@ acheminent le trafic en fonction de l’adresse IP et du port sources, vers une 
 Le Plugin Pack Centreon *Azure Application Gateway* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Application Gateway. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
+Les versions 1 & 2 des ressources Application Gateway sont supportées.
+
 ## Contenu du Pack
 
 ### Objets supervisés
 
-* Instances Azure *Application Gateway*
+* Instances Azure *Application Gateway* v1
+    * Backend-Health
+    * Connections
+    * Health
+    * Requests
+    * Throughput
+
+* Instances Azure *Application Gateway* v2
     * Backend-Status
     * Backend-Time
     * Clients-Traffic
@@ -42,6 +51,23 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 ### Métriques & statuts collectés 
 
+Les métriques et statuts disponibles peuvent différer selon la version de l'instance *Application Gateway*.
+
+#### Spécifiques v1
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Backend-Health-->
+
+| Metric Name                             | Description          | Unit  |
+|:----------------------------------------|:---------------------|:------|
+| appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
+| appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### Spécifiques v2
+
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Backend-Status-->
@@ -65,17 +91,28 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
-<!--Connections-->
-
-| Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
-| appgateway.backend.connections.current.count | Current Connections | Count |
-
 <!--Gateway-Time-->
 
 | Metric Name                        | Description                    | Unit |
 |:-----------------------------------|:-------------------------------|:-----|
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
+
+<!--Units-->
+
+| Metric Name                             | Description                     | Unit  |
+|:----------------------------------------|:--------------------------------|:------|
+| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
+| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
+| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
+| appgateway.compute.units.count          | Compute Units consumed          | Count |
+
+#### Communs aux 2 versions
+
+<!--Connections-->
+
+| Metric Name                                  | Description         | Unit  |
+|:---------------------------------------------|:--------------------|:------|
+| appgateway.backend.connections.current.count | Current Connections | Count |
 
 <!--Health-->
 
@@ -96,15 +133,6 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 | Metric Name                          | Description | Unit |
 |:-------------------------------------|:------------|:-----|
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
-
-<!--Units-->
-
-| Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
-| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
-| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
-| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
-| appgateway.compute.units.count          | Compute Units consumed          | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
