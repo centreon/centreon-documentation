@@ -163,7 +163,7 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#enable-selinux-in-permissive-mode) avec le mode **enforcing**.
+[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
