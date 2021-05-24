@@ -76,3 +76,13 @@ article a:hover {
       margin-top: .95em;
   }
 }
+
+.tabs .nav-tabs>div.active {
+    border-bottom: 4px solid #23303a;
+    font-weight: bold;
+}
+
+.tabs .nav-tabs>div:hover {
+	font-weight: bold;
+	border-bottom: 4px solid #23303a;
+  }
