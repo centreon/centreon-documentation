@@ -85,7 +85,7 @@ You are now connected to the Centreon web interface.
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.html)
+[recommendations](../../administration/secure-platform.html).
 
 ## Getting started
 
