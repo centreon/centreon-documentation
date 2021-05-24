@@ -190,7 +190,7 @@ systemctl start firewalld
 ```
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.html#tables-of-platform-flows).
+> [ici](../installation/architectures.html#tableau-des-flux-de-la-plate-forme).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Central / Remote Server-->
