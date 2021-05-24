@@ -78,10 +78,18 @@ activé.
 
 Exécutez les commandes suivantes :
 
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
+- Pour CentOS 8.2 :
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
+- Pour CentOS 8.3 et Centos Stream :
+
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
+
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
