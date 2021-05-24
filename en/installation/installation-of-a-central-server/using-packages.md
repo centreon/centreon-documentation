@@ -109,10 +109,18 @@ supported by Redhat.
 
 Enable the PowerTools repository using these commands:
 
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
+- For Centos 8.2:
+
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
+
+- For CentOS 8.3 and CentOS Stream:
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
 
 Enable PHP 7.3 using the following command:
 ```shell
