@@ -15,12 +15,12 @@ Une période temporelle est la définition d’un intervalle de temps pour chacu
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
-2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#Syntaxe-d’une-période-de-temps). 
+2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
     - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
 
-3. Utilisez l'onglet **Période d'exception** pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
+3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
 
 4. Une fois la période de temps définie, vous pouvez l'utiliser :
 

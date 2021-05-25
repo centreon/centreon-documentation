@@ -16,12 +16,12 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 1. In the **Time Period Name** and **Alias** fields, enter a name and a description.
 
-2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#Syntax-of-a-time-period).) 
+2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).) 
 
     - These definitions are applied every week, indefinitely.
     - If you leave the field blank for a specific day, there will be no supervision on that day for actions to which this time period is applied.
 
-3. Use the [**Time Range Exceptions** tab](#Time-Range-Exceptions-tab) to include days that would not normally belong to the time period.
+3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include days that would not normally belong to the time period.
 
 4. Once you have created your time period, you can use it:
     - In the **Check Period** field for hosts, host templates, services and service templates.
