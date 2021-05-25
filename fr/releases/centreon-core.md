@@ -19,6 +19,43 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.8
+
+#### Correctifs
+
+- [Administration] Broker statistics for pollers are not shown
+- [APIv2] DELETE downtime on host not functionnal
+- [Configuration] Change default values for Centreon Engine
+- [Configuration] Unable to add a Poller with the Wizard
+- [Core] Avoid 404 redirection
+- [Resources Status] "Filter by Host" filter is not emptied between searches
+- [Resources Status] Apply ACL in command line block
+- [Resources Status] Manage not filled curves
+
+#### Correctifs de sécurité
+
+- [Administration] Import of JS in image files
+- [Administration] Insecure media file upload
+- [Administration] SQL Injection on ACL actions
+- [Administration] SQL Injection on ACL resources
+- [Administration] SQL Injection on reload ACL
+- [Configuration] SQL Injection on Graph component templates
+- [Configuration] SQL Injection on Graph generate image
+- [Configuration] SQL Injection on MediaWiki
+- [Configuration] SQL Injection on SNMP trap manufacturer
+- [Configuration] SQL Injection on poller form
+- [Configuration] Unserialize() are not sanitized in Centreon Broker wizard
+- [Configuration] Unserialize() are not sanitized in poller wirard
+- [Configuration] XSS reflected on Graph performance curves
+- [Configuration] XSS reflected on SNMP trap
+- [Configuration] XSS reflected on internal API broker configuration
+- [Reporting] SQL Injection on reporting export
+
+#### Performance
+
+- [ACL] ACL are computed every time for BV
+- [Generation] Bulk insert in index_data during config generation
+
 ### 20.10.7
 
 `7 mai 2021`
