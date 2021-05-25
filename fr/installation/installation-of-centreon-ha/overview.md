@@ -1,143 +1,172 @@
 ---
 id: overview
-title: Architectures
+title: Centreon-HA Overview
 ---
 
-> **Attention:** Pour les utilisateurs ayant un contrat de support Centreon, il est nécessaire de contacter un interlocuteur Commercial et/ou Technique Centreon avant d'entreprendre une migration de votre installation vers la haute-disponibilité. Les Modules additionnels nécessitent une licence particulière pour fonctionner sur chacun des noeuds. 
+## Introduction 
 
-## Cluster à 2 nœuds
+Centreon-HA est la seule solution officielle et supportée pour mettre en place un cluster de supervision en haute disponibilité. Il 
+inclut les éléments suivants : 
+* Une documentation, principalement pour décrire comment mettre en place votre Cluster sur votre solution Centreon.
+* Une collection de scripts permettant une gestion sûre et efficace des ressources liées à Centreon.
+* Des fichiers additionnels qui étendront les capacités par défaut de Centreon. 
 
-### Présentation
+Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs] (https://clusterlabs.org/),
+permettant une tolérance aux pannes sur les composants suivants : 
 
-L'architecture de la plate-forme de haute disponibilité Centreon est composée de 4 rôles :
+* Daemons applicatifs du serveur Central
+  * centreon-engine (ordonnanceur)
+  * centreon-broker (multiplexeur)
+  * centreon-gorgone (gestionnaire de tâches)
+  * centreon-central-sync (réplication des fichiers de configuration)
+  * snmptrapd et centreontrapd (système et processus applicatifs de gestion des traps SNMP)
+* Daemons tiers du serveur Central
+  * php-fpm (cache FastCGI PHP)
+  * apache server (server web)
+* Bases de données
+  * Réplication active/passive de binlogs (stockage)
+* Défaillances des hôtes
+  * Machines virtuelles ou serveurs physiques
 
-* `centreon-central-master` : serveur hébergeant l'interface web et la base de données de Centreon, serveur actif en mode nominal
-* `centreon-central-slave` : serveur hébergeant l'interface web et la base de données de Centreon, serveur passif en mode nominal
-* `quorum-device` : serveur tiers permettant de dégager une majorité de votes lors de l'élection d'un `master`
-* `poller` : serveur représentant un collecteur distant (les rôles de  poller et de quorum-device peuvent être tenus par le même serveur)
+> **Avertissement:** Si vous disposez d'un contrat IT ou Business edition, veuillez contacter votre représentant commercial Centreon 
+ou votre responsable de compte technique avant de le mettre en place. Les extensions ont besoin de fichiers
+de licence spécifiques pour fonctionner sans problème sur les deux nœuds.
 
-**Remarque :** On relèvera qu'il est question d'au moins 3 serveurs alors que le titre indique "2 nœuds". Il ne s'agit pas d'une coquille, il y a bien deux nœuds centraux, et la supervision **doit** reposer sur un ou plusieurs pollers, pas sur les centraux.
+## Concepts
 
-![image](../../assets/integrations/centreon-ha/cluster-2-nodes.png)
+La solution met en œuvre trois types de ressources différentes : 
 
-### Description des services du cluster
+* Ressources _multi-state_, fonctionnant sur les deux nœuds avec des rôles différents. 
+* Ressources _clone_, fonctionnant à la fois sur le nœud principal et le nœud secondaire.
+* Ressources _unique_, faisant partie d'un _groupe_ et fonctionnant sur un seul nœud.
 
-Le cluster héberge 3 types de services :
+Les services du cluster sont divisés en deux groupes fonctionnels.
 
-* les bases de données MariaDB `centreon` et `centreon_storage` ;
-* les processus/services Centreon pouvant être actifs sur les deux nœuds : Centreon RRD Broker, PHP7 ;
-* les processus/services Centreon ne devant être actifs que sur un nœud : Centreon Engine, Centreon Central Broker, Apache, Centcore/Gorgone, ...
+### Groupe fonctionnel MariaDB
 
-Les bases de données MariaDB et les services Centreon sont hébergés par les serveurs centraux, `centreon-central-master` et `centreon-central-slave`. Suivant l'état de la ressource sur le cluster, l'un des deux possède le rôle de maître MariaDB, le second est dit esclave et synchronise de manière asynchrone ses bases de données sur le serveur dit maître. Les services Centreon sont lancés sur le serveur dit maître, ainsi, la base de données est toujours locale du point de vue de ces services.
+Le groupe fonctionnel `ms_mysql` est une ressource _multi-state_. Cette ressource peut être en mode 
+actif/primaire sur un nœud et en mode secondaire/passif sur l'autre nœud. 
 
-Le serveur supportant le `quorum-device` (parfois noté `qdevice`) quant à lui n'héberge aucun service spécifique mis à part `pcsd`. Son rôle dans le cluster est de permettre de définir une majorité absolue et un quorum (nombre d'électeurs requis lors d'un vote), notamment lors de l'absence d'un des deux membres du cluster.
+La méta-ressource `ms_mysql-master` est affectée à la base de données primaire.
 
-![image](../../assets/integrations/centreon-ha/cluster_services_desc.png)
+### Groupe fonctionnel Centreon
 
-### Principaux composants Centreon
+Le groupe fonctionnel `centreon` rassemble toutes les ressources Centreon pour les gérer.
 
-#### Composants d'un collecteur de supervision
+### Description du type de ressources
 
-Un collecteur de supervision dispose :
+Toutes ces ressources sont décrites dans le tableau ci-dessous.
 
-* d'un ordonnanceur de supervision Centreon Engine (`centengine`) ;
-* d'un gestionnaire d'évènements Centreon Broker (`cbmod`) qui se connecte au serveur central actif pour transférer les données collectées.
+| Name                    | Type                 | Description                                                     |
+| ----------------------- | -------------------- | --------------------------------------------------------------- |
+| `ms_mysql`              | multi-state resource | Gère le processus `mysql` et la réplication des données.        |
+| `ms_mysql-master`       | location             | Définir la préférence de règle du serveur maître MariaDB        |
+| `php7`                  | service clone        | Service gestionnaire des processus FastCGI (`rh-php73-php-fpm`) |
+| `cbd_rrd`               | service clone        | Service du Broker RRD (`cbd`)                                   |
+| `centreon`              | groupe               | Groupe des "services primitifs" de Centreon                     |
+| `vip`                   | service primitif     | Adresse de la VIP pour Centreon                                 |
+| `http`                  | service primitif     | Service Apache  (`httpd24-httpd`)                               |
+| `gorgone`               | service primitif     | Service Gorgone  (`gorgoned`)                                   |
+| `centreon_central_sync` | service primitif     | Service de synchronisation des fichiers                         |
+| `cbd_central_broker`    | service primitif     | Service du Broker Central  (`cbd-sql`)                          |
+| `centengine`            | service primitif     | Service Centreon-Engine (`centengine`)                          |
+| `centreontrapd`         | service primitif     | Service de gestion des traps SNMP (`centreontrapd`)             |
+| `snmptrapd`             | service primitif     | Service d'écoute des traps SNMP (`snmptrapd`)                   |
 
-**Note :** Le module `cbmod` est configuré pour se connecter à la VIP Centreon.
+**Note:** Les ressources du groupe `centreon` sont démarrées les unes après les autres dans l'ordre de la liste.
 
-#### Composants d'un serveur central Centreon
+### Contraintes de resources　：
 
-Un serveur Centreon central dispose :
+Pacemaker propose différents types de contraintes :
+* Location : où la ressource doit ou ne doit pas s'exécuter.
+* Colocation : comment les ressources se comportent les unes par rapport aux autres.
 
-* d'un ordonnanceur de supervision Centreon Engine (`centengine`) ;
-* d'un gestionnaire d'évènements Centreon Broker (`cbmod`) qui se connecte en local pour transférer les données collectées ;
-* d'un processus de gestion centralisé des évènements (`cbd_central_broker`) qui : 
-    * insère en base de données les informations collectées;
-    * transfère en local les données de performance pour générer des graphiques.
+Par exemple, Centreon-HA utilise des contraintes de location pour spécifier à Pacemaker que le processus 
+de base de données doit être opérationnel sur les nœuds arrière mais pas sur les nœuds frontaux. 
 
-* d'un processus de gestion des données de performance (`cbd-central-rrd`) pour créer/mettre à jour les graphiques de performance (`RRD files`);
-* d'une interface web Centreon (`centreon`).
-* d'un processus de gestion des actions (`gorgoned` à partir de la version 20.04, anciennement `centcore`).
+En ce qui concerne les contraintes de colocation, ils peuvent s'assurer qu'une IP virtuelle (VIP) est attribuée aux nœuds maîtres et/ou au rôle. 
+Par conséquent, les utilisateurs, les Pollers et les Daemons interagissent constamment avec le nœud primaire.
 
-**Note :** Le processus `cbd-central-rrd` est actif sur les deux serveurs centraux afin de ne pas avoir à synchroniser les répertoires hébergeant les fichiers RRD via DRDB. Ce dernier est alimenté par une double sortie du processus `cbd_central-broker` pointant vers chacun des serveurs `centreon-central-master` et `centreon-central-slave`.
+### QDevice et votes
 
-#### Composants d'un serveur de gestion de base de donnés
+La configuration d'un qdevice est **obligatoire** pour éviter le split-brain et autres situations auxquelles personne ne veut être 
+confronté dans un Cluster. Le serveur avec le rôle `quorum-device` vise à obtenir une majorité absolue lors d'un vote 
+pour élire un nœud maître ou un rôle ressource.
 
-Un serveur Centreon central dispose :
+## Support
 
-* d'une base de données `centreon` contenant la configuration de la supervision ;
-* d'une base de données `centreon_storage` contenant les données collectées.
+### Logiciels et systèmes d'exploitation
 
-Les bases de données des serveurs `centreon-db-master` et `centreon-db-slave` sont synchronisées via le processus de réplication asynchrone MariaDB.
+Centreon supporte officiellement le Clustering sur les produits suivants : 
 
-#### Schéma global de fonctionnement
+* Toutes les éditions sous licence de Centreon 
+* Serveur de Map Centreon 
 
-![image](../../assets/integrations/centreon-ha/cluster-2-nodes-architecture.png)
+Et sur les systèmes d'exploitation suivants : 
 
-### Description des ressources du cluster
+* CentOS 7
+* RHEL 7 
 
-Les services du cluster sont répartis en 2 groupes fonctionnels
+*Important:* Pour installer les paquets pacemaker et corosync sur les systèmes RedHat, les serveurs doivent avoir accès au dépôt
+sous licence _Red Hat Enterprise Linux High Availability_.  
 
-#### Groupe fonctionnel MariaDB
+Le seul système de base de données officiel pris en charge par Centreon est MariaDB. 
 
-Le groupe fonctionnel `ms_mysql` est une ressource dite "multi-état". En effet, cette ressource est soit en mode "master" sur le serveur ayant le rôle de "maître", soit en mode "slave" sur le serveur ayant le rôle "esclave". Cette ressource doit être active sur chacun des deux serveurs mais possédant un rôle différent.
+Néanmoins, notez que nous avons validé que l'ensemble de la solution peut fonctionner sur MySQL 8 *avec quelques modifications*, 
+seule la [communauté] https://github.com/centreon-ha/issues) (ou vos DBA) peut vous aider 
+et vous supporter dans l'exécution d'un Cluster sur un serveur Oracle MySQL.
 
-#### Groupe fonctionnel Centreon
+Pour MariaDB et Oracle MySQL, la configuration de la réplication peut être intrusive. Nous *vous déconseillons fortement* de 
+mettre en place un Cluster sur un serveur contenant d'autres bases de données d'applications, nous ne le supporterons pas. 
 
-Le groupe fonctionnel `centreon` permet de regrouper l'ensemble de ressources suivant afin de faciliter leur gestion :
+### Architectures
 
-* service `cbd_central_broker` : service permettant de démarrer le démon `cbd` pour le broker central sur le serveur central actif ;
-* service `gorgone` (anciennement `centcore`) : service permettant de démarrer le processus `gorgoned` ;
-* service `snmptrapd` : service permettant de démarrer le processus `snmptrapd` ;
-* service `http` : service permettant de démarrer le processus `httpd24-httpd` ;
-* service `centreontrapd` : service permettant de démarrer le processus `centreontrapd` ;
-* service `centreon_central_sync` : service permettant de synchroniser un ensemble de fichiers de configuration nécessaire au fonctionnement de Centreon ;
-* service `centengine` : service permettant de démarrer le processus `centengine`.
+Centreon prend en charge les architectures à 2 et 4 nœuds. Nous recommandons l'utilisation d'une architecture à deux nœuds, 
+sauf si votre organisation exige une séparation systématique des serveurs frontaux et arrière ou si votre périmètre de surveillance 
+est supérieur à 5k hôtes. 
 
-**Note :** Les ressources sont démarrées les unes après les autres en suivant l'ordre de la liste.
+Les schémas ci-dessous montrent à la fois la structure de l'architecture et les flux réseau entre les serveurs. Pour obtenir la matrice 
+complète des flux, reportez-vous à la page d'installation de l'architecture dédiée.
 
-![image](../../assets/integrations/centreon-ha/cluster_resources_desc.png)
+<!--DOCUSAURUS_CODE_TABS-->
 
-#### Description des types de ressources
+<!--Cluster-deux-nœuds-->
 
-Le tableau ci-dessous décrit l'ensemble des ressources Pacemaker :
+![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
 
-| Nom                     | Type                 | Description                                                |
-| ----------------------- | -------------------- | ---------------------------------------------------------- |
-| `ms_mysql`              | multi-state resource | Pilote le démarrage du processus `mysql` et la réplication |
-| `ms_mysql-master`       | location             | Spécifie où se situe le nœud MariaDB maître                |
-| `php7`                  | clone service        | Service FastCGI Process Manager `rh-php73-php-fpm`         |
-| `cbd_rrd`               | clone service        | Service Broker RRD `cbd`                                   |
-| `centreon`              | group                | Groupe centreon pour les 'primitive service'               |
-| `vip`                   | primitive service    | VIP pour centreon                                          |
-| `http`                  | primitive service    | Service Apache `httpd24-httpd`                             |
-| `gorgone`               | primitive service    | Service Gorgone `gorgoned`                                 |
-| `centreon_central_sync` | primitive service    | Service pour la synchronisation de fichiers                |
-| `cbd_central_broker`    | primitive service    | Service central Broker `cbd-sql`                           |
-| `centengine`            | primitive service    | Service Centreon-Engine `centengine`                       |
-| `centreontrapd`         | primitive service    | Service de gestion des traps `centreontrapd`               |
-| `snmptrapd`             | primitive service    | Service de réception des traps SNMP `snmptrapd`            |
+Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-2-nodes.html) pour commencer votre installation à deux nœuds !
 
-### Recommandations
+<!--Cluster-quatre-nœuds-->
 
-#### Rôle du serveur central Centreon
+![image](../../assets/integrations/centreon-ha/centreon-ha-4-nodes-arch.png)
 
-Dans le cas d'une architecture en failover, le serveur hébergeant le rôle `centreon` ne doit pas être considéré comme un collecteur actif de supervision. Ce dernier ne doit superviser qu'un nombre très restreint de ressources, car **un redémarrage trop long de la ressource `centengine` peut entrainer une bascule du groupe fonctionnel `centreon`**.
+Accéder à [cette page](../../installation/installation-of-centreon-ha/installation-4-nodes.html) pour commencer votre installation à quatre nœuds !
 
-#### Utilisation de VIP
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Centreon préconise l'utilisation de VIP pour l'accès au SGBD actif ainsi qu'à l'interface Web Centreon.
+## Informations complémentaires
 
-### Contraintes
+### Organisation du serveur
 
-L'architecture de failover entraîne différentes contraintes :
+La mise en place d'un cluster Centreon-HA peut s'avérer excessive ou du moins non optimale lorsque tous vos serveurs 
+fonctionnent dans le même datacenter, voire dans la même baie. 
 
-* Synchronisation via rsync :
+Dans un monde parfait, les nœuds primaires et secondaires fonctionnent sur des sites (géographiques) différents, et le qdevice 
+communique avec les deux sites indépendamment. Évidemment, tous les nœuds doivent communiquer entre eux.
 
-  * des "media" (images et sons) du serveur Web ;
-  * des fichiers de configuration des serveurs centraux : "centreon-engine", "cbd-central-broker", "cbd-central-rrd".
-  * des rapports "centreon-bi" hébergés sur le serveur Web ;
+### Rôle du serveur central Centreon
 
-* Les fichiers MariaDB `ibdata*` et `ib_logfile*` doivent se situer dans le répertoire (ou un sous-répertoire) "datadir" (les scripts `centreondb-smooth-backup.sh` et `mysql-sync-bigdb.sh` ne sont pas compatibles avec ce fonctionnement) ;
-* Les fichiers MariaDB `log-bin*` et `relay-log*` peuvent se situer dans un répertoire (ou sous-répertoire) différent de "datadir". Ils peuvent aussi se situer sur volume logique ("lvm") différent du "datadir" (Néanmoins, le volume logique doit se situer dans le volume groupe où se situe "datadir").
+Dans le cas d'une architecture hautement disponible, le cluster central **Centreon ne doit pas être utilisé comme Poller**. 
+En d'autres termes, il ne doit pas surveiller les ressources. Sa capacité de supervision ne doit être utilisée que pour surveiller ses Pollers. 
+Si cette recommandation n'est pas suivie, le service `centengine` prendrait trop de temps à redémarrer 
+et **il pourrait provoquer le basculement du groupe fonctionnel `centreon`**.
 
+### VIP et équilibrage de charge
+
+Centreon recommande d'utiliser des adresses VIP.
+
+L'utilisation d'un load balancer est une option mais il doit prendre en charge des règles personnalisées afin de rediriger les flux d'applications.
+
+Par exemple, dans une configuration à quatre nœuds, un load balancer peut s'appuyer sur :
+* frontend-vip: le port d'écoute ou l'état du processus apache pour rediriger les communications des utilisateurs et des Pollers vers les serveurs frontaux.
+* backend-vip: la valeur de l'indicateur "read_only" sur les deux serveurs de base de données pour déterminer lequel est le serveur primaire.
