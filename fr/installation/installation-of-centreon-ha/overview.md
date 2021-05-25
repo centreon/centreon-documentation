@@ -16,13 +16,13 @@ permettant une tolérance aux pannes sur les composants suivants :
 
 * Daemons applicatifs du serveur Central
   * centreon-engine (ordonnanceur)
-  * centreon-broker (multiplexeur)
-  * centreon-gorgone (gestionnaire de tâches)
-  * centreon-central-sync (réplication des fichiers de configuration)
+  * centreon-Broker (multiplexeur)
+  * centreon-Gorgone (gestionnaire de tâches)
+  * centreon-entral-sync (réplication des fichiers de configuration)
   * snmptrapd et centreontrapd (système et processus applicatifs de gestion des traps SNMP)
 * Daemons tiers du serveur Central
   * php-fpm (cache FastCGI PHP)
-  * apache server (server web)
+  * apache server (serveur web)
 * Bases de données
   * Réplication active/passive de binlogs (stockage)
 * Défaillances des hôtes
@@ -57,7 +57,7 @@ Le groupe fonctionnel `centreon` rassemble toutes les ressources Centreon pour l
 
 Toutes ces ressources sont décrites dans le tableau ci-dessous.
 
-| Name                    | Type                 | Description                                                     |
+| Nom                     | Type                 | Description                                                     |
 | ----------------------- | -------------------- | --------------------------------------------------------------- |
 | `ms_mysql`              | multi-state resource | Gère le processus `mysql` et la réplication des données.        |
 | `ms_mysql-master`       | location             | Définir la préférence de règle du serveur maître MariaDB        |
@@ -82,7 +82,7 @@ Pacemaker propose différents types de contraintes :
 * Colocation : comment les ressources se comportent les unes par rapport aux autres.
 
 Par exemple, Centreon-HA utilise des contraintes de location pour spécifier à Pacemaker que le processus 
-de base de données doit être opérationnel sur les nœuds arrière mais pas sur les nœuds frontaux. 
+de base de données dois être opérationnel sur les nœuds arrière, mais pas sur les nœuds frontaux. 
 
 En ce qui concerne les contraintes de colocation, ils peuvent s'assurer qu'une IP virtuelle (VIP) est attribuée aux nœuds maîtres et/ou au rôle. 
 Par conséquent, les utilisateurs, les Pollers et les Daemons interagissent constamment avec le nœud primaire.
@@ -148,7 +148,7 @@ Accéder à [cette page](../../installation/installation-of-centreon-ha/installa
 
 ### Organisation du serveur
 
-La mise en place d'un cluster Centreon-HA peut s'avérer excessive ou du moins non optimale lorsque tous vos serveurs 
+La mise en place d'un cluster Centreon-HA peut s'avérer excessive ou du moins non-optimale lorsque tous vos serveurs 
 fonctionnent dans le même datacenter, voire dans la même baie. 
 
 Dans un monde parfait, les nœuds primaires et secondaires fonctionnent sur des sites (géographiques) différents, et le qdevice 
@@ -165,7 +165,7 @@ et **il pourrait provoquer le basculement du groupe fonctionnel `centreon`**.
 
 Centreon recommande d'utiliser des adresses VIP.
 
-L'utilisation d'un load balancer est une option mais il doit prendre en charge des règles personnalisées afin de rediriger les flux d'applications.
+L'utilisation d'un load balancer est une option, mais il doit prendre en charge des règles personnalisées afin de rediriger les flux d'applications.
 
 Par exemple, dans une configuration à quatre nœuds, un load balancer peut s'appuyer sur :
 * frontend-vip: le port d'écoute ou l'état du processus apache pour rediriger les communications des utilisateurs et des Pollers vers les serveurs frontaux.
