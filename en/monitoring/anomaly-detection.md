@@ -132,7 +132,7 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 Click on **Save**.
 
 It is now time to [deploy the
-monitoring](./monitoring-servers/deploying-a-configuration.html).
+monitoring](monitoring-servers/deploying-a-configuration).
 
 Then go to the `Monitoring > Status Details > Services` menu and select
 **All** value for the Service Status filter. After a few minutes, the first
@@ -162,7 +162,7 @@ deviations you want before to validate the alert using the **Detect anomalies
 after** field.
 
 Click on **Save** and [deploy the monitoring
-configuration](./monitoring-servers/deploying-a-configuration).
+configuration](monitoring-servers/deploying-a-configuration).
 
 ### Activate the notification process
 

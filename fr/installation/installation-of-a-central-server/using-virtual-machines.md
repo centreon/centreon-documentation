@@ -85,7 +85,7 @@ Vous pouvez maintenant continuer vers la première section de connexion.
 
 ## Première connexion à l'interface
 
-Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/centreon
+Pour se connecter à l'interface se rendre à l'adresse : `http://IP_ADDRESS/centreon`
 
 > Remplacer **IP_ADDRESS** par l'adresse IP ou FQDN du serveur web Centreon.
 

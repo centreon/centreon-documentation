@@ -11,7 +11,7 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 ### Flux réseaux
 
-En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../../architectures.html#tables-of-network-flows)
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures#tableaux-des-flux-réseau)
 Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 | Source                            | Destination                       | Protocole | Port     | Commentaires                                                                                                 |
