@@ -19,6 +19,37 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.14
+
+#### Bugfixes
+
+- [Administration] Broker statistics for pollers are not shown
+- [Core] Avoid 404 redirection
+
+#### Security fixes
+
+- [Administration] Import of JS in image files
+- [Administration] Insecure media file upload
+- [Administration] SQL Injection on ACL actions
+- [Administration] SQL Injection on ACL resources
+- [Administration] SQL Injection on reload ACL
+- [Configuration] SQL Injection on Graph component templates
+- [Configuration] SQL Injection on Graph generate image
+- [Configuration] SQL Injection on MediaWiki
+- [Configuration] SQL Injection on SNMP trap manufacturer
+- [Configuration] SQL Injection on poller form
+- [Configuration] Unserialize() are not sanitized in Centreon Broker wizard
+- [Configuration] Unserialize() are not sanitized in poller wirard
+- [Configuration] XSS reflected on Graph performance curves
+- [Configuration] XSS reflected on SNMP trap
+- [Configuration] XSS reflected on internal API broker configuration
+- [Reporting] SQL Injection on reporting export
+
+#### Performance
+
+- [ACL] ACL are computed every time for BV
+- [Generation] Bulk insert in index_data during config generation
+
 ### 20.04.13
 
 `May 10, 2021`
