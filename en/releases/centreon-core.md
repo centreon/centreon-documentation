@@ -39,8 +39,6 @@ If you have feature requests or want to report a bug, please go to our
 - [Administration] SQL Injection on ACL actions
 - [Administration] SQL Injection on ACL resources
 - [Administration] SQL Injection on reload ACL
-- [Configuration] SQL Injection on Graph component templates
-- [Configuration] SQL Injection on Graph generate image
 - [Configuration] SQL Injection on MediaWiki
 - [Configuration] SQL Injection on SNMP trap manufacturer
 - [Configuration] SQL Injection on poller form
@@ -49,6 +47,8 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] XSS reflected on Graph performance curves
 - [Configuration] XSS reflected on SNMP trap
 - [Configuration] XSS reflected on internal API broker configuration
+- [Graph] SQL Injection on Graph component templates
+- [Graph] SQL Injection on Graph generate image
 - [Reporting] SQL Injection on reporting export
 
 #### Performance
