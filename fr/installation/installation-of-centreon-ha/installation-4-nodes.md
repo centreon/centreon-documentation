@@ -36,7 +36,10 @@ La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particu
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-> **AVERTISSEMENT :** Si ce prérequis n'est pas vérifié, il ne sera pas possible de synchroniser les bases de données de la façon indiquée dans ce document.
+* Les fichiers MariaDB `ibdata*` et `ib_logfile*` doivent être dans le répertoire "datadir" ou dans un sous-répertoire (les scripts `centreondb-smooth-backup.sh` et `mysql-sync-bigdb.sh` ne sont pas compatibles avec cette opération) ;
+* Les fichiers MariaDB `log-bin*` et `relay-log*` peuvent être situés dans un répertoire (ou un sous-répertoire) différent de "datadir". Ils peuvent également se trouver sur un volume logique (`lvm`) différent de "datadir". Cependant, le volume logique doit être situé dans le groupe de volume où "datadir" est stocké.
+
+> **AVERTISSEMENT :** Si ces prérequis spécifiques ne sont pas respectés, la méthode de synchronisation des bases de données décrite ci-dessous ne fonctionnera pas.
 
 ### *Quorum Device*
 
