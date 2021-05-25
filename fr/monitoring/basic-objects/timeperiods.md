@@ -44,7 +44,7 @@ Quelques exemples :
 
 ### Onglet Période d'exception
 
-L'onglet **Période d'exception** permet d’inclure ou d'exclure dans la plage temporelle des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
+L'onglet **Période d'exception** permet d’inclure dans la plage temporelle des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
 
 Exemple : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
 
@@ -55,8 +55,11 @@ Exemple : Un administrateur souhaite définir une période temporelle qui regrou
 Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exceptionnelle, il est nécessaire d’utiliser les exceptions.
 
 Pour ajouter une exception, dans le champ **Exceptions**, cliquez sur **Ajouter une nouvelle entrée**. Définissez une plage horaire pour chaque
-journée exceptionnelle. Le tableau ci-dessous présente quelques exemples
-possibles :
+journée exceptionnelle. 
+
+>Utilisez la syntaxe suivante pour exclure des jours entiers de la supervision : 00:00-00:00.
+
+Le tableau ci-dessous présente quelques exemples possibles :
 
 | Jour(s)           | Plage(s) horaire(s)     | Explications                                                 |
 | ----------------- | ----------------------- | ------------------------------------------------------------ |

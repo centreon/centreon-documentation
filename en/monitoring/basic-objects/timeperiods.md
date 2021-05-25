@@ -44,7 +44,7 @@ Here are a few examples:
 
 ### Time Range Exceptions tab
 
-The **Time Range Exceptions** tab allows you to include or exclude exceptional days in the time period. The periods you define here override the definition of regular days defined in **Basic Settings**.
+The **Time Range Exceptions** tab allows you to include exceptional days in the time period. The periods you define here override the definition of regular days defined in **Basic Settings**.
 
 Example: An administrator wants to define a time period which covers the times when the offices are closed, i.e.:
 
@@ -54,7 +54,11 @@ Example: An administrator wants to define a time period which covers the times w
 
 To be able to define the national holiday days and the exceptional closure days, it is necessary to use the exceptions.
 
-To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period. The table below shows some possible examples :
+To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period. 
+
+>Use the following syntax to exclude whole days from the supervision: 00:00-00:00.
+
+The table below shows some possible examples :
 
 | Day(s)            | Time period             | Meaning                                                   |
 | ----------------- | ----------------------- | --------------------------------------------------------- |
