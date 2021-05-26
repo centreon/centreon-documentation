@@ -5,8 +5,8 @@ title: Centreon-HA Overview
 
 ## Introduction 
 
-Centreon-HA est la seule solution officielle et supportée pour mettre en place un cluster de supervision en haute disponibilité. Il 
-inclut les éléments suivants : 
+Centreon-HA est la seule solution officielle et supportée pour mettre en place un cluster de supervision en haute disponibilité. Il inclut
+les éléments suivants : 
 * Une documentation, principalement pour décrire comment mettre en place votre Cluster sur votre solution Centreon.
 * Une collection de scripts permettant une gestion sûre et efficace des ressources liées à Centreon.
 * Des fichiers additionnels qui étendront les capacités par défaut de Centreon. 
@@ -14,13 +14,13 @@ inclut les éléments suivants :
 Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs] (https://clusterlabs.org/),
 permettant une tolérance aux pannes sur les composants suivants : 
 
-* Daemons applicatifs du serveur Central
+* Daemons applicatifs du serveur central
   * centreon-engine (ordonnanceur)
   * centreon-Broker (multiplexeur)
   * centreon-Gorgone (gestionnaire de tâches)
-  * centreon-entral-sync (réplication des fichiers de configuration)
+  * centreon-central-sync (réplication des fichiers de configuration)
   * snmptrapd et centreontrapd (système et processus applicatifs de gestion des traps SNMP)
-* Daemons tiers du serveur Central
+* Daemons tiers du serveur central
   * php-fpm (cache FastCGI PHP)
   * apache server (serveur web)
 * Bases de données
@@ -28,7 +28,7 @@ permettant une tolérance aux pannes sur les composants suivants :
 * Défaillances des hôtes
   * Machines virtuelles ou serveurs physiques
 
-> **Avertissement:** Si vous disposez d'un contrat IT ou Business edition, veuillez contacter votre représentant commercial Centreon 
+> **Avertissement:** Si vous disposez d'une IT ou Business edition, veuillez contacter votre représentant commercial Centreon 
 ou votre responsable de compte technique avant de le mettre en place. Les extensions ont besoin de fichiers
 de licence spécifiques pour fonctionner sans problème sur les deux nœuds.
 
@@ -57,21 +57,21 @@ Le groupe fonctionnel `centreon` rassemble toutes les ressources Centreon pour l
 
 Toutes ces ressources sont décrites dans le tableau ci-dessous.
 
-| Nom                     | Type                 | Description                                                     |
-| ----------------------- | -------------------- | --------------------------------------------------------------- |
-| `ms_mysql`              | multi-state resource | Gère le processus `mysql` et la réplication des données.        |
-| `ms_mysql-master`       | location             | Définir la préférence de règle du serveur maître MariaDB        |
-| `php7`                  | service clone        | Service gestionnaire des processus FastCGI (`rh-php73-php-fpm`) |
-| `cbd_rrd`               | service clone        | Service du Broker RRD (`cbd`)                                   |
-| `centreon`              | groupe               | Groupe des "services primitifs" de Centreon                     |
-| `vip`                   | service primitif     | Adresse de la VIP pour Centreon                                 |
-| `http`                  | service primitif     | Service Apache  (`httpd24-httpd`)                               |
-| `gorgone`               | service primitif     | Service Gorgone  (`gorgoned`)                                   |
-| `centreon_central_sync` | service primitif     | Service de synchronisation des fichiers                         |
-| `cbd_central_broker`    | service primitif     | Service du Broker Central  (`cbd-sql`)                          |
-| `centengine`            | service primitif     | Service Centreon-Engine (`centengine`)                          |
-| `centreontrapd`         | service primitif     | Service de gestion des traps SNMP (`centreontrapd`)             |
-| `snmptrapd`             | service primitif     | Service d'écoute des traps SNMP (`snmptrapd`)                   |
+| Nom                     | Type                  | Description                                                     |
+| ----------------------- | --------------------- | --------------------------------------------------------------- |
+| `ms_mysql`              | ressource multi-state | Gère le processus `mysql` et la réplication des données.        |
+| `ms_mysql-master`       | location              | Définir la préférence de règle du serveur maître MariaDB        |
+| `php7`                  | service clone         | Service gestionnaire des processus FastCGI (`rh-php73-php-fpm`) |
+| `cbd_rrd`               | service clone         | Service du Broker RRD (`cbd`)                                   |
+| `centreon`              | groupe                | Groupe des "services primitifs" de Centreon                     |
+| `vip`                   | service primitif      | Adresse de la VIP pour Centreon                                 |
+| `http`                  | service primitif      | Service Apache  (`httpd24-httpd`)                               |
+| `gorgone`               | service primitif      | Service Gorgone  (`gorgoned`)                                   |
+| `centreon_central_sync` | service primitif      | Service de synchronisation des fichiers                         |
+| `cbd_central_broker`    | service primitif      | Service du Broker Central  (`cbd-sql`)                          |
+| `centengine`            | service primitif      | Service Centreon-Engine (`centengine`)                          |
+| `centreontrapd`         | service primitif      | Service de gestion des traps SNMP (`centreontrapd`)             |
+| `snmptrapd`             | service primitif      | Service d'écoute des traps SNMP (`snmptrapd`)                   |
 
 **Note:** Les ressources du groupe `centreon` sont démarrées les unes après les autres dans l'ordre de la liste.
 
@@ -151,12 +151,12 @@ Accéder à [cette page](../../installation/installation-of-centreon-ha/installa
 La mise en place d'un cluster Centreon-HA peut s'avérer excessive ou du moins non-optimale lorsque tous vos serveurs 
 fonctionnent dans le même datacenter, voire dans la même baie. 
 
-Dans un monde parfait, les nœuds primaires et secondaires fonctionnent sur des sites (géographiques) différents, et le qdevice 
+Dans un monde parfait, les nœuds primaires et secondaires fonctionnent sur des sites (géographiques) différents, et le QDevice 
 communique avec les deux sites indépendamment. Évidemment, tous les nœuds doivent communiquer entre eux.
 
 ### Rôle du serveur central Centreon
 
-Dans le cas d'une architecture hautement disponible, le cluster central **Centreon ne doit pas être utilisé comme Poller**. 
+Dans le cas d'une architecture hautement disponible, le **cluster central Centreon ne doit pas être utilisé comme Poller**. 
 En d'autres termes, il ne doit pas surveiller les ressources. Sa capacité de supervision ne doit être utilisée que pour surveiller ses Pollers. 
 Si cette recommandation n'est pas suivie, le service `centengine` prendrait trop de temps à redémarrer 
 et **il pourrait provoquer le basculement du groupe fonctionnel `centreon`**.
@@ -165,8 +165,8 @@ et **il pourrait provoquer le basculement du groupe fonctionnel `centreon`**.
 
 Centreon recommande d'utiliser des adresses VIP.
 
-L'utilisation d'un load balancer est une option, mais il doit prendre en charge des règles personnalisées afin de rediriger les flux d'applications.
+L'utilisation d'un load balancer est une option, mais il doit prendre en charge des règles personnalisées afin d'acheminer les flux d'applications.
 
 Par exemple, dans une configuration à quatre nœuds, un load balancer peut s'appuyer sur :
-* frontend-vip: le port d'écoute ou l'état du processus apache pour rediriger les communications des utilisateurs et des Pollers vers les serveurs frontaux.
+* frontend-vip: le port d'écoute ou l'état du processus apache pour acheminer les communications des utilisateurs et des Pollers vers les serveurs frontaux.
 * backend-vip: la valeur de l'indicateur "read_only" sur les deux serveurs de base de données pour déterminer lequel est le serveur primaire.
