@@ -42,7 +42,7 @@ La commande `vgs` doit retourner un affichage de la forme ci-dessous (en particu
 
 > **AVERTISSEMENT :** Si ces prérequis spécifiques ne sont pas respectés, la méthode de synchronisation des bases de données décrite ci-dessous ne fonctionnera pas.
 
-### *Quorum Device*
+### Quorum Device
 
 Pour le bon fonctionnement du cluster, en particulier pour éviter les cas de split-brain, il est nécessaire d'avoir un serveur tiers pour tenir le rôle d'arbitre. Il est possible d'utiliser un poller pour remplir ce rôle.
 
