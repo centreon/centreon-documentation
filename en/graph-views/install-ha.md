@@ -577,7 +577,7 @@ You can now follow the state of the cluster with the `crm_mon` command, which wi
 
 #### Creating the *Quorum Device*
 
-Run this command on one of the Map nodes:
+Run this command on one of the Centreon-Map nodes:
 
 ```bash
 pcs quorum device add model net \
@@ -680,8 +680,8 @@ pcs resource create vip \
 #### Centreon-Map service
 
 ```bash
-pcs resource create centreon-Map \
-    systemd:centreon-Map \
+pcs resource create centreon-map \
+    systemd:centreon-map \
     meta target-role="started" \
     op start interval="0s" timeout="90s" \
     stop interval="0s" timeout="90s" \
@@ -724,7 +724,7 @@ Active resources:
      Slaves: [ @MAP_SECONDARY_NAME@ ]
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-     centreon-Map	(systemd:centreon-Map):   Started @MAP_PRIMARY_NAME@
+     centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
 ```
 
 #### Checking the database replication thread
