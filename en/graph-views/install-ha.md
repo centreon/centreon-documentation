@@ -1,14 +1,14 @@
 ---
 id: install-ha
-title: Install Centreon MAP in High Availability
+title: Install Centreon-Map in High Availability
 ---
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve the
+> Centreon-Map requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 ## Overview
 
-Centreon MAP HA relies on the same concepts as Centreon HA.
+Centreon-Map HA relies on the same concepts as Centreon HA.
 You will found all the information on the [overview](../installation/installation-of-centreon-ha/overview.html).
 
 > **WARNING:** The following documentation is only supported for MariaDB 10.3 and CentOS 7.
@@ -50,9 +50,9 @@ you will need to open the following flows:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Installed Centreon MAP platform
+### Installed Centreon-Map platform
 
-A Centreon MAP HA cluster can only be installed on base of an operating Centreon MAP platform.
+A Centreon-Map HA cluster can only be installed on base of an operating Centreon-Map platform.
 Before following this procedure, it is mandatory that **[this installation procedure](../install.html)** has already been completed
 and that **about 5GB free space have been spared on the LVM volume group** that
 carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
@@ -66,11 +66,11 @@ The output of the `vgs` command must look like (what must be payed attention on 
 
 ```
 
-The 2 servers MAP must be linked to the same Central Server.
-The script `/etc/centreon-studio/diagnostic.sh` must return `[OK]` on **booth** MAP Server:
+The 2 servers Centreon-Map must be linked to the same Central Server.
+The script `/etc/centreon-studio/diagnostic.sh` must return `[OK]` on **both** Centreon-Map server:
 
 ```bash
-########## Centreon Map server version ##########
+########## Centreon-Map server version ##########
 
   [INFO] centreon-map-server-xx.xx.x-x.el7.noarch
 
@@ -118,22 +118,22 @@ must be the same on the 2 nodes. The options that can be enable or disable are d
 
 ### Quorum Device
 
-In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
+In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a Poller of the monitoring platform.
 
 ### Defining hosts' names and addresses
 
 In this procedure, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses) by the following macros:
 
-* `@MAP_PRIMARY_IPADDR@`: primary MAP server's IP address
-* `@MAP_PRIMARY_NAME@`: primary MAP server's name (must be identical to `hostname -s`)
-* `@MAP_SECONDARY_IPADDR@`: secondary MAP server's IP address
-* `@MAP_SECONDARY_NAME@`: secondary MAP server's name (must be identical to `hostname -s`)
+* `@MAP_PRIMARY_IPADDR@`: primary Centreon-Map server's IP address
+* `@MAP_PRIMARY_NAME@`: primary Centreon-Map server's name (must be identical to `hostname -s`)
+* `@MAP_SECONDARY_IPADDR@`: secondary Centreon-Map server's IP address
+* `@MAP_SECONDARY_NAME@`: secondary Centreon-Map server's name (must be identical to `hostname -s`)
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
 * `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
 * `@MARIADB_REPL_PASSWD@`: MariaDB replication password
-* `@MARIADB_CENTREON_USER@`: MariaDB Centreon MAP login (default: `centreon_map`)
-* `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon MAP password
+* `@MARIADB_CENTREON_USER@`: MariaDB Centreon-Map login (default: `centreon_map`)
+* `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon-Map password
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
 * `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
@@ -146,7 +146,7 @@ Before actually setting the cluster up, some system prerequisites have to be met
 
 ### Kernel network tuning
 
-In order to improve the cluster reliability, and since *Centreon MAP HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon MAP servers (including quorum device):
+In order to improve the cluster reliability, and since *Centreon-Map HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon-Map servers (including quorum device):
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -162,7 +162,7 @@ systemctl restart network
 
 ### Name resolution
 
-So that the *Centreon MAP HA* cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
+So that the *Centreon-Map HA* cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -177,14 +177,14 @@ From here, `@MAP_PRIMARY_NAME@` will be named the "primary server/node" and `@MA
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both map nodes:
+Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both Map nodes:
 
 ```bash
 yum install epel-release
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
-SH keys exchange
+### SSH keys exchange
 
 SSH key-based authentication must be set so that files and commands can be sent from one node to another by UNIX accounts:
 
@@ -216,13 +216,13 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (sill as `mysql` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (still as `mysql` user):
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `mysql` user):
+The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `mysql` user):
 
 ```bash
 ssh <peer node hostname>
@@ -234,7 +234,7 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Primary-Secondary MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-**Note**: unless otherwise stated, each of the following steps have to be run **on both map nodes**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both Centreon-Map nodes**.
 
 ### Configuring MariaDB
 
@@ -267,13 +267,13 @@ collation-server=utf8_general_ci
 To apply the new configuration, you have to restart the database server:
 
 ```bash
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 Make sure that the restart went well:
 
 ```bash
-systemctl status mysql
+systemctl status mariadb
 ```
 
 > **Warning:** Other files in `/etc/my.cnf.d/` such as `map.cnf` will be ignored from now. Any customization will have to be added to `server.cnf`.
@@ -341,7 +341,7 @@ EOF
 
 ### Configuring the MariaDB scripts environment variables
 
-The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon MAP HA* scripts dedicated to MariaDB can work properly. These variables must be assigned the chosen values for the macros.
+The `/etc/centreon-ha/mysql-resources.sh` file declares environment variables that must be configured so that the *Centreon-Map HA* scripts dedicated to MariaDB can work properly. These variables must be assigned the chosen values for the macros.
 
 ```bash
 #!/bin/bash
@@ -362,7 +362,7 @@ CENTREON_STORAGE_DB='centreon_studio'
 ###############################
 ```
 
-> **Note:** this script is normaly use for *Centreon HA* that's why we need to setup twice centreon\_studio as `CENTREON_DB` and `CENTREON_STORAGE_DB`.
+> **Note:** this script is normaly use for *Centreon HA* that's why we need to setup twice centreon_studio as `CENTREON_DB` and `CENTREON_STORAGE_DB`.
 
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
@@ -411,7 +411,7 @@ log-bin=mysql-bin
 Then apply this change by restarting MariaDB on both nodes:
 
 ```bash
-systemctl restart mysql
+systemctl restart mariadb
 ```
 
 ### Synchronizing the databases and enabling MariaDB replication
@@ -421,7 +421,7 @@ In the process of synchronizing the databases, you will first stop the secondary
 Run this command **on the secondary node:**
 
 ```bash
-systemctl stop mysql
+systemctl stop mariadb
 ```
 
 It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
@@ -487,11 +487,11 @@ Position Status [OK]
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 ```bash
-systemctl stop centreon-map mysql
-systemctl disable centreon-map mysql
+systemctl stop centreon-map mariadb
+systemctl disable centreon-map mariadb
 ```
 
-By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
+By default, the `mariadb` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
 ```bash
 chkconfig mysql off
@@ -501,7 +501,7 @@ chkconfig mysql off
 
 #### Activating the clustering services
 
-First we enable all the services and start `pcsd` on both map nodes:
+First we enable all the services and start `pcsd` on both Centreon-Map nodes:
 
 ```bash
 systemctl start pcsd
@@ -510,7 +510,7 @@ systemctl start pcsd
 
 #### Preparing the server that will hold the function of *quorum device* 
 
-You can use one of your pollers to play this role. It must be prepared with the commands below: 
+You can use one of your Pollers to play this role. It must be prepared with the commands below: 
 
 ```bash
 yum install pcs corosync-qnetd
@@ -528,13 +528,13 @@ COROSYNC_QNETD_OPTIONS="-4"
 
 #### Authenticating to the cluster's members
 
-For the sake of simplicity, the `hacluster` user will be assigned the same password on both map nodes **and `@QDEVICE_NAME@`**.
+For the sake of simplicity, the `hacluster` user will be assigned the same password on both Centreon-Map nodes **and `@QDEVICE_NAME@`**.
 
 ```bash
 passwd hacluster
 ```
 
-Now that both of the map nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the map nodes** in order to authenticate on all the hosts taking part in the cluster.
+Now that both of the Centreon-Map nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the Centreon-Map nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 ```bash
 pcs cluster auth \
@@ -548,7 +548,7 @@ pcs cluster auth \
 
 #### Creating the cluster
 
-The following command creates the cluster. It must be run **only on one of the map nodes**. 
+The following command creates the cluster. It must be run **only on one of the Centreon-Map nodes**. 
 
 ```bash
 pcs cluster setup \
@@ -558,7 +558,7 @@ pcs cluster setup \
     "@MAP_SECONDARY_NAME@"
 ```
 
-Then start the `pacemaker` service **on both map nodes**:
+Then start the `pacemaker` service **on both Centreon-Map nodes**:
 
 ```bash
 systemctl enable pacemaker pcsd corosync
@@ -577,7 +577,7 @@ You can now follow the state of the cluster with the `crm_mon` command, which wi
 
 #### Creating the *Quorum Device*
 
-Run this command on one of the map nodes:
+Run this command on one of the Map nodes:
 
 ```bash
 pcs quorum device add model net \
@@ -587,7 +587,7 @@ pcs quorum device add model net \
 
 ### Creating the MariaDB cluster resources
 
-To be run **only on one map node**:
+To be run **only on one Centreon-Map node**:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -677,11 +677,11 @@ pcs resource create vip \
     --group centreon_map
 ```
 
-#### Centreon MAP service
+#### Centreon-Map service
 
 ```bash
-pcs resource create centreon-map \
-    systemd:centreon-map \
+pcs resource create centreon-Map \
+    systemd:centreon-Map \
     meta target-role="started" \
     op start interval="0s" timeout="90s" \
     stop interval="0s" timeout="90s" \
@@ -724,7 +724,7 @@ Active resources:
      Slaves: [ @MAP_SECONDARY_NAME@ ]
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-     centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
+     centreon-Map	(systemd:centreon-Map):   Started @MAP_PRIMARY_NAME@
 ```
 
 #### Checking the database replication thread
@@ -763,9 +763,9 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-### Update Centreon WEB UI extension
+### Update Centreon-Web UI extension
 
-Now that you're using VIP Address, you must update the parameter `Map server address`
+Now that you're using VIP Address, you must update the parameter `Centreon-Map server address`
 in the menu **Administration > Extensions > Options** to the VIP address or the FQDN that
 resolves the VIP.
 
