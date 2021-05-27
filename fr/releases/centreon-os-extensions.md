@@ -22,7 +22,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- Compatibilité avec Centreon 21.04
 
 ## Centreon Open Tickets
 
@@ -30,20 +30,20 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Bugfixes
 
-- [Widget] Compatibility with jQuery 3.5
-- [Widget] Redirect properly to KB pages
-- [GLPI] Update default ticket url
+- [Widget] Compatibilité avec jQuery 3.5
+- [Widget] Correction de la redirection vers la pages KB
+- [GLPI] Mise à jour de l'url par défaut des tickets
 
 #### Enhancements
 
-- [Widget] Displayed jira ticket ID is now human readable
+- [Widget] L'ID des tickets jira affiché est maintenant lisible par l'homme
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- Compatibilité avec Centreon 21.04
 
 ## Centreon DSM
 
 ### 21.04.0
 
-- Compatibility with Centreon 21.04
+- Compatibilité avec Centreon 21.04
