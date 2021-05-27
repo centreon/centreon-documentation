@@ -177,7 +177,7 @@ From here, `@MAP_PRIMARY_NAME@` will be named the "primary server/node" and `@MA
 
 ### Installing system packages
 
-Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both Map nodes:
+Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both Centreon-Map nodes:
 
 ```bash
 yum install epel-release
