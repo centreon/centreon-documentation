@@ -38,7 +38,7 @@ La solution met en œuvre trois types de ressources différentes :
 
 * Ressources _multi-state_, fonctionnant sur les deux nœuds avec des rôles différents. 
 * Ressources _clone_, fonctionnant à la fois sur le nœud principal et le nœud secondaire.
-* Ressources _unique_, faisant partie d'un _groupe_ et fonctionnant sur un seul nœud.
+* Ressources _unique_, faisant partie d'un groupe et fonctionnant sur un seul nœud.
 
 Les services du cluster sont divisés en deux groupes fonctionnels.
 
@@ -78,14 +78,14 @@ Toutes ces ressources sont décrites dans le tableau ci-dessous.
 ### Contraintes de resources　：
 
 Pacemaker propose différents types de contraintes :
-* Location : où la ressource doit ou ne doit pas s'exécuter.
-* Colocation : comment les ressources se comportent les unes par rapport aux autres.
+* _Location_ : où la ressource doit ou ne doit pas s'exécuter.
+* _Colocation_ : comment les ressources se comportent les unes par rapport aux autres.
 
 Par exemple, Centreon-HA utilise des contraintes de location pour spécifier à Pacemaker que le processus 
-de base de données dois être opérationnel sur les nœuds arrière, mais pas sur les nœuds frontaux. 
+de base de données dois être opérationnel sur les nœuds backend, mais pas sur les nœuds frontend. 
 
-En ce qui concerne les contraintes de colocation, ils peuvent s'assurer qu'une IP virtuelle (VIP) est attribuée aux nœuds maîtres et/ou au rôle. 
-Par conséquent, les utilisateurs, les Pollers et les Daemons interagissent constamment avec le nœud primaire.
+En ce qui concerne les contraintes de colocation, ils peuvent s'assurer qu'une IP virtuelle (VIP) est attribuée aux nœuds primaires.
+Par conséquent, les utilisateurs, les Collecteurs et les Démons interagissent constamment avec le nœud primaire.
 
 ### QDevice et votes
 
@@ -100,7 +100,7 @@ pour élire un nœud maître ou un rôle ressource.
 Centreon supporte officiellement le Clustering sur les produits suivants : 
 
 * Toutes les éditions sous licence de Centreon 
-* Serveur de Map Centreon 
+* Serveur de Centreon-Map
 
 Et sur les systèmes d'exploitation suivants : 
 
@@ -122,7 +122,7 @@ mettre en place un Cluster sur un serveur contenant d'autres bases de données d
 ### Architectures
 
 Centreon prend en charge les architectures à 2 et 4 nœuds. Nous recommandons l'utilisation d'une architecture à deux nœuds, 
-sauf si votre organisation exige une séparation systématique des serveurs frontaux et arrière ou si votre périmètre de surveillance 
+sauf si votre organisation exige une séparation systématique des serveurs frontend et backend ou si votre périmètre de supevision 
 est supérieur à 5k hôtes. 
 
 Les schémas ci-dessous montrent à la fois la structure de l'architecture et les flux réseau entre les serveurs. Pour obtenir la matrice 
@@ -146,10 +146,10 @@ Accéder à [cette page](../../installation/installation-of-centreon-ha/installa
 
 ## Informations complémentaires
 
-### Organisation du serveur
+### Placement des serveurs
 
 La mise en place d'un cluster Centreon-HA peut s'avérer excessive ou du moins non-optimale lorsque tous vos serveurs 
-fonctionnent dans le même datacenter, voire dans la même baie. 
+fonctionnent dans le même datacenter, voir dans la même baie. 
 
 Dans un monde parfait, les nœuds primaires et secondaires fonctionnent sur des sites (géographiques) différents, et le QDevice 
 communique avec les deux sites indépendamment. Évidemment, tous les nœuds doivent communiquer entre eux.
@@ -161,12 +161,12 @@ En d'autres termes, il ne doit pas surveiller les ressources. Sa capacité de su
 Si cette recommandation n'est pas suivie, le service `centengine` prendrait trop de temps à redémarrer 
 et **il pourrait provoquer le basculement du groupe fonctionnel `centreon`**.
 
-### VIP et équilibrage de charge
+### VIP et Bascule
 
-Centreon recommande d'utiliser des adresses VIP.
+Centreon recommande d'utiliser des adresses virtuelles.
 
-L'utilisation d'un load balancer est une option, mais il doit prendre en charge des règles personnalisées afin d'acheminer les flux d'applications.
+L'utilisation d'un _load balancer_ est une option, mais il doit prendre en charge des règles personnalisées afin d'acheminer les flux d'applications.
 
-Par exemple, dans une configuration à quatre nœuds, un load balancer peut s'appuyer sur :
-* frontend-vip: le port d'écoute ou l'état du processus apache pour acheminer les communications des utilisateurs et des Pollers vers les serveurs frontaux.
+Par exemple, dans une configuration à quatre nœuds, un _load balancer_ peut s'appuyer sur :
+* frontend-vip: le port d'écoute ou l'état du processus apache pour acheminer les communications des utilisateurs et des Collecteurs vers les serveurs frontend.
 * backend-vip: la valeur de l'indicateur "read_only" sur les deux serveurs de base de données pour déterminer lequel est le serveur primaire.
