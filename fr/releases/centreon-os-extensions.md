@@ -28,13 +28,13 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.1
 
-#### Bugfixes
+#### Correctifs
 
 - [Widget] Compatibilité avec jQuery 3.5
 - [Widget] Correction de la redirection vers la pages KB
 - [GLPI] Mise à jour de l'url par défaut des tickets
 
-#### Enhancements
+#### Améliorations
 
 - [Widget] L'ID des tickets jira affiché est maintenant lisible par l'homme
 
