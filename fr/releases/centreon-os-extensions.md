@@ -24,7 +24,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 - Compatibilité avec Centreon 21.04
 
-## Centreon Open Tickets
+## Centreon Open Ticket
 
 ### 21.04.1
 

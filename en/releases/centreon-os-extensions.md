@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - Compatibility with Centreon 21.04
 
-## Centreon Open Tickets
+## Centreon Open Ticket
 
 ### 21.04.1
 
