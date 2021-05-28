@@ -28,6 +28,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.1
 
+`28 mai 2021`
+
 #### Correctifs
 
 - [Widget] Compatibilité avec jQuery 3.5
