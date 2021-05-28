@@ -24,6 +24,26 @@ If you have feature requests or want to report a bug, please go to our
 
 - Compatibility with Centreon 21.04
 
+## Centreon Open Ticket
+
+### 21.04.1
+
+`May 28, 2021`
+
+#### Bugfixes
+
+- [Widget] Compatibility with jQuery 3.5
+- [Widget] Redirect properly to KB pages
+- [GLPI] Update default ticket url
+
+#### Enhancements
+
+- [Widget] Displayed jira ticket ID is now human readable
+
+### 21.04.0
+
+- Compatibility with Centreon 21.04
+
 ## Centreon DSM
 
 ### 21.04.0
