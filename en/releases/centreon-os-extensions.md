@@ -50,6 +50,15 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Open Ticket
 
+### 20.10.2
+
+`May 28, 2021`
+
+#### Bugfixes
+
+- [Widget] Compatibility with jQuery 3.5
+- [Widget] Redirect properly to KB pages
+
 ### 20.10.1
 
 `February 4, 2021`
