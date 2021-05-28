@@ -296,6 +296,13 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.5
+
+#### Correctifs
+
+- Engine consomme 100% de CPU quand `check_period` est `none`
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter
+
 ### 20.10.4
 
 `29 avril 2021`

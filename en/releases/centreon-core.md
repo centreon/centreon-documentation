@@ -296,6 +296,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.5
+
+#### Bugfixes
+
+- Engine burns 100% of the CPU when check_period set to none
+- Engine/broker build migrated from Bintray to ConanCenter
+
 ### 20.10.4
 
 `April 29, 2021`
