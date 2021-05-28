@@ -134,7 +134,7 @@ cliquez sur le bouton **Create manually** :
 Cliquez sur **Save**.
 
 Il est maintenant temps de [déployer la
-supervision](monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.html).
 
 Accédez ensuite au menu `Supervision > Détails des statuts > Services` et
 sélectionnez **All** pour le filtre État du service. Après quelques minutes,
@@ -165,7 +165,7 @@ nombre de déviation à partir duquel le service se critique en utilisant le cha
 **Detect anomalies after**.
 
 Cliquez sur **Save** et [déployer la
-supervision](monitoring-servers/deploying-a-configuration).
+supervision](monitoring-servers/deploying-a-configuration.html).
 
 ### Activer le processus de notification
 
