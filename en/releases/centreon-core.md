@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] SQL Injection on SNMP trap manufacturer
 - [Configuration] SQL Injection on poller form
 - [Configuration] Unserialize() are not sanitized in Centreon Broker wizard
-- [Configuration] Unserialize() are not sanitized in poller wirard
+- [Configuration] Unserialize() are not sanitized in poller wizard
 - [Configuration] XSS reflected on Graph performance curves
 - [Configuration] XSS reflected on SNMP trap
 - [Configuration] XSS reflected on internal API broker configuration
