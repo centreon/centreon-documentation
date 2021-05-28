@@ -7,10 +7,10 @@ title: Aruba Instant SNMP
 
 Aruba Networks is a provider of network access solutions for enterprises.
 
-The Centreon Plugin-Pack *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics of the Aruba Wireless Access Point equipments. 
+The Centreon Plugin Pack *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics of the Aruba Wireless Access Point equipments. 
 
 
-## Plugin-Pack assets
+## Plugin Pack assets
 
 ### Monitored objects
 
@@ -20,14 +20,20 @@ The Centreon Plugin-Pack *Aruba Instant SNMP* relies on the SNMP protocol to que
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Session-Usage-->
+<!--Ap-Usage-->
 
-| Metric name                     | Description                                  | Unit   |
-| :------------------------------ | :------------------------------------------- | :----- |
-| accesspoints.total.count        | Number of access points on the device        | Count  |
-| clients.current.count           | Number of clients connected to the device    | Count  |
-| cpu.utilization.percentage      | Used CPU on the device                       | %      |
-| memory.usage.percentage         | Percentage of memory usage of the device     | %      |
+| Metric name                         | Description                                      | Unit   |
+| :---------------------------------- | :----------------------------------------------- | :----- |
+| accesspoints.total.count            | Number of access points on the Aruba device      | Count  |
+| ap_name#clients.current.count       | Number of clients connected to the access point  | Count  |
+| ap_name#cpu.utilization.percentage  | Percentage of used CPU on the access point       |   %    |
+| ap_name#memory.usage.bytes          | Memory usage of the access point                 |   B    |
+| ap_name#memory.usage.percentage     | Percentage of memory usage of the access point   |   %    |
+| ap_name#memory.free.bytes           | Free memory on the access point                  |   B    |
+| ap_name#memory.free.percentage      | Percentage of free memory on the access point    |   %    |
+| ap_name#memory.usage.bytes          | Memory usage on the access point                 |   B    |
+| ap_name#memory.usage.percentage     | Percentage of memory usage on the access point   |   %    |
+
 
 <!--SSID-Status-->
 
@@ -59,7 +65,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Aruba dev
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
 <!--Offline IMP License-->
 
@@ -69,29 +75,28 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
  ```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```
 
-3. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin-Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Aruba Instant SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
-Create your host and apply the *Net-Aruba-Instant-SNMP-custom* host template. You must set SNMP community and version in the dedicated fields of the host form. 
+Create your Host and apply the *Net-Aruba-Instant-SNMP-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
-  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS host macro
+  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
 |             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-## FAQ
 
-### How to test my plugin and what do the main parameters stand for ?
+## How to test my plugin and what do the main parameters stand for ?
 
 Once the plugin is installed, you can test it logging into the CLI with the centreon-engine user.
 
@@ -115,8 +120,6 @@ Once the plugin is installed, you can test it logging into the CLI with the cent
 	--warning-mem-usage-prct='' \
 	--critical-mem-usage-prct='' \
 	--verbose
-
-OK: total access points: 10, Current Clients: 15, Cpu: 8.00 %, Memory Used: 10.00% | 'accesspoints.total.count'=10;;0;100 'clients.current.count'=15;;0;100; 'cpu.utilization.percentage'=8.00%;;0;100; 'memory.usage.percentage '=10.00;;0;100;
 
 ```
 
@@ -146,11 +149,13 @@ All plugin modes can be listed with the following command:
 	--list-mode
 ```
 
+## Troubleshooting section
+
 ### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this error, it may indicate that some flows are blocked between the Centreon Poller and the Aruba devices. 
 
-It can also mean that the Centreon host configuration doesn't reflect the SNMP configuration on Aruba side (version, community). 
+It can also mean that the Centreon Host Configuration doesn't reflect the SNMP configuration on Aruba side (version, community). 
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 

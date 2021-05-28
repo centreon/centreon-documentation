@@ -7,9 +7,9 @@ title: Aruba Instant SNMP
 
 Aruba Networks est un fournisseur de solutions d'accès réseau.
 
-Le Plugin-Pack *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux bornes d'accès sans fil de marque Aruba.
+Le Plugin Pack *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux bornes d'accès sans fil de marque Aruba.
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
@@ -21,12 +21,17 @@ Le Plugin-Pack *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter,
 
 <!--Session-Usage-->
 
-| Metric name                     | Description                                  | Unit   |
-| :------------------------------ | :------------------------------------------- | :----- |
-| accesspoints.total.count        | Number of access points on the device        | Count  |
-| clients.current.count           | Number of clients connected to the device    | Count  |
-| cpu.utilization.percentage      | Used CPU on the device                       | %      |
-| memory.usage.percentage         | Percentage of memory usage of the device     | %      |
+| Metric name                         | Description                                      | Unit   |
+| :---------------------------------- | :----------------------------------------------- | :----- |
+| accesspoints.total.count            | Number of access points on the Aruba device      | Count  |
+| ap_name#clients.current.count       | Number of clients connected to the access point  | Count  |
+| ap_name#cpu.utilization.percentage  | Percentage of used CPU on the access point       |   %    |
+| ap_name#memory.usage.bytes          | Memory usage of the access point                 |   B    |
+| ap_name#memory.usage.percentage     | Percentage of memory usage of the access point   |   %    |
+| ap_name#memory.free.bytes           | Free memory on the access point                  |   B    |
+| ap_name#memory.free.percentage      | Percentage of free memory on the access point    |   %    |
+| ap_name#memory.usage.bytes          | Memory usage on the access point                 |   B    |
+| ap_name#memory.usage.percentage     | Percentage of memory usage on the access point   |   %    |
 
 <!--SSID-Status-->
 
@@ -55,7 +60,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -65,27 +70,23 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 yum install centreon-plugin-Network-Aruba-Instant-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Plugin-Pack *Aruba Instant SNMP* :
+2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Aruba Instant SNMP* :
 
  ```bash
 yum install centreon-pack-network-aruba-instant-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *Aruba Instant SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-### Hôte
-
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"".
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre équipement Aruba
 * Appliquez le Modèle d'Hôte *Net-Aruba-Instant-SNMP-custom*
 
-## FAQ
-
-### Comment tester mes configurations et le Plugin en ligne de commande ?
+## Comment tester mes configurations et le Plugin en ligne de commande ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
@@ -111,8 +112,6 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 	--warning-mem-usage-prct='' \
 	--critical-mem-usage-prct='' \
 	--verbose
-
-OK: total access points: 10, Current Clients: 15, Cpu: 8.00 %, Memory Used: 10.00% | 'accesspoints.total.count'=10;;0;100 'clients.current.count'=15;;0;100; 'cpu.utilization.percentage'=8.00%;;0;100; 'memory.usage.percentage '=10.00;;0;100;
 
 ```
 
@@ -140,6 +139,8 @@ Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode 
 	--plugin=network::aruba::instant::snmp::plugin \
 	--list-mode
 ```
+
+## J'obtiens le message d'erreur suivant:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
