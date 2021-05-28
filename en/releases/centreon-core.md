@@ -79,6 +79,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.2
+
+#### Bugfixes
+
+- Engine burns 100% of the CPU when check_period set to none
+- Engine/broker build migrated from Bintray to ConanCenter
+- Centengine can hang when we stop it
+
 ### 21.04.1
 
 `April 28, 2021`

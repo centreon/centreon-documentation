@@ -79,6 +79,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.2
+
+#### Correctifs
+
+- Engine consomme 100% de CPU quand `check_period` est `none`
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter
+- Centengine peut se figer lors de l'arrêt
+
 ### 21.04.1
 
 `28 avril 2021`
