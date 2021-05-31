@@ -86,7 +86,7 @@ yum install centreon-pack-network-aruba-instant-snmp
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre équipement Aruba
 * Appliquez le Modèle d'Hôte *Net-Aruba-Instant-SNMP-custom*
 
-## Comment tester mes configurations et le Plugin en ligne de commande ?
+## Comment tester le Plugin en ligne de commande et comment utiliser ses options ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne
 de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
@@ -140,7 +140,7 @@ Tous les modes disponibles peuvent être affichés via l'option ``` --list-mode 
 	--list-mode
 ```
 
-## J'obtiens le message d'erreur suivant:
+## Diagnostic des erreurs communes
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
