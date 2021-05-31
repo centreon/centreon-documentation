@@ -288,7 +288,7 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Securing the Apache web server
+## Enabling HTTPS on the web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
