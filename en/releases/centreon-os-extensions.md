@@ -81,6 +81,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Open Ticket
 
+### 20.04.2
+
+`May 31, 2021`
+
+#### Bugfixes
+
+- [Widget] Compatibility with jQuery 3.5
+
 ### 20.04.1
 
 `February 4, 2021`

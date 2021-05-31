@@ -83,9 +83,17 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Open Ticket
 
+### 20.04.2
+
+`31 mai 2021`
+
+#### Correctifs
+
+- [Widget] Compatibilité avec jQuery 3.5
+
 ### 20.04.1
 
-`February 4, 2021`
+`4 février 2021`
 
 #### Correctifs
 
