@@ -149,7 +149,7 @@ All plugin modes can be listed with the following command:
 	--list-mode
 ```
 
-## Troubleshooting section
+## Troubleshooting
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
