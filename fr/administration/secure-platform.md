@@ -582,7 +582,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
+1. [Configurer le https pour Centreon](./secure-platform.html#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -617,7 +617,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
+1. [Configurer le https pour Centreon](./secure-platform.html#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 

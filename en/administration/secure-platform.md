@@ -288,7 +288,7 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Enabling HTTPS on the web server
+## Enable HTTPS on the web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
@@ -715,7 +715,7 @@ To use http2, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
@@ -750,7 +750,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
