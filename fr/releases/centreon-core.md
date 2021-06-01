@@ -786,7 +786,7 @@ a check_command. It will use the poller_id field of your config.
 
 #### Sécurité
 
-- Blocage des injecions SQL depuis des *custom variables*
+- Blocage des injections SQL depuis des *custom variables*
 - Suppression de SSL et de suites de chiffrement dépréciées
 
 #### Correctifs
