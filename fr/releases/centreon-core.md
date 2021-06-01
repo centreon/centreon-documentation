@@ -102,7 +102,7 @@ dans une prochaine version.
 
 #### Sécurité
 
-- Blocage des injecions SQL depuis des *custom variables*
+- Blocage des injections SQL depuis des *custom variables*
 
 #### Correctifs
 
