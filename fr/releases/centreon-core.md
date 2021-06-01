@@ -407,7 +407,7 @@ state was HARD even if no notification is configured nor sent.
 
 #### Sécurité
 
-- Blocage des injecions SQL depuis des *custom variables*
+- Blocage des injections SQL depuis des *custom variables*
 - Suppression de SSL et de suites de chiffrement dépréciées
 
 #### Correctifs
