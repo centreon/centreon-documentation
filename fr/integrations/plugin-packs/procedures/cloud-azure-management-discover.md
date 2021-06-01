@@ -20,7 +20,7 @@ afin de modéliser une infrastructure Azure dans Centreon
 Le Plugin Pack Centreon *Azure Discover* fournit un *provider* de découverte d'Hôtes nommé **Microsoft Azure Management Discover**
 Celui-ci permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée:
 
-![image](../../../assets/integrations/Plugin Packs/procedures/cloud-azure-management-discover-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-provider.png)
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
 [Découverte des hôtes](../../../monitoring/discovery/hosts-discovery.html)
@@ -121,7 +121,7 @@ Les Plugin Packs supplémentaires seront installés en dépendance afin de perme
 Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
 
-[image](../../../assets/integrations/Plugin Packs/procedures/cloud-azure-management-discover-accessparameters.png)
+[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
 
 - Sélectionnez le **collecteur Centreon** depuis lequel sera lancé la découverte
 - Renseignez les paramètres relatifs à l'utilisation d'un **proxy d'entreprise** si besoin
@@ -130,7 +130,7 @@ d'accès à l'API comme ci-après:
 Dans le cadre d'une première utilisation, vous pouvez créer un nouveau profil d'accès à Azure en cliquant sur '+'. Renseignez ensuite
 les informations demandées comme ci-après:
 
-[image](../../../assets/integrations/Plugin Packs/procedures/cloud-azure-management-discover-credentials.png)
+[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
 
 > Tous les champs du formulaire *credentials* doivent être renseignés
 
@@ -140,7 +140,7 @@ Cliquez sur *confirm* puis sur *next* pour afficher la page des paramètres de l
 
 Renseignez si besoin les information ci-après:
 
-[image](../../../assets/integrations/Plugin Packs/procedures/cloud-azure-management-discover-discoparameters.png)
+[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
 
 > Tous les champs de ce formulaire sont facultatifs
 
