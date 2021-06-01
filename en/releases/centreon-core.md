@@ -97,6 +97,19 @@ future.
 
 ## Centreon Broker
 
+### 21.04.1
+
+#### Security
+
+- Avoid SQL injections with custom variables
+
+#### Bugfixes
+
+- Engine/broker build migrated from Bintray to ConanCenter
+- Metaservices used as KPIs did not impact BAs (Centreon BAM)
+- CRITICAL impact was applied instead of UNKNOWN for BAs used as KPIs (Centreon BAM)
+- Broker's restart was slowed by suboptimal queries processing downtimes and comments
+
 ### 21.04.0
 
 > **Known issues**
