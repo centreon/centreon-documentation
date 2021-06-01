@@ -110,13 +110,11 @@ Les Plugin Packs supplémentaires seront installés en dépendance afin de perme
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Paramétrer une découverte
 
 > Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](../../../monitoring/discovery/hosts-discovery.html)
 
-### Paramétrer une découverte
-
-#### Paramètres d'accès
+### Paramètres d'accès
 
 Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
@@ -136,7 +134,7 @@ les informations demandées comme ci-après:
 
 Cliquez sur *confirm* puis sur *next* pour afficher la page des paramètres de la découverte.
 
-#### Paramètres de découverte
+### Paramètres de découverte
 
 Renseignez si besoin les information ci-après:
 
@@ -145,10 +143,13 @@ Renseignez si besoin les information ci-après:
 > Tous les champs de ce formulaire sont facultatifs
 
 - Azure Location/Resource Group: permet de restreindre la découverte à une *location* ou un *resource group* donné
-- Filter on namespace/type: permet de restreindre la découverte à un Service Azure spécifique
-> ** Attention** : les champs *Resource namepsace* et *Resource type* doivent dans ce cas être tous les deux renseignés
+- Filter on namespace/type: permet de restreindre la découverte à un Service Azure spécifique, par exemple:
+    - *Resource namepsace*: 'Microsoft.Compute'
+    - *Resource type*: 'virtualMachines'
+> ** Attention** : pour l'utilisation de ce filtre,
+> les champs *Resource namepsace* et *Resource type* doivent dans ce cas être **tous les deux** renseignés
 
-#### Lancement de la découverte et affichage des résultats
+### Lancement de la découverte et affichage des résultats
 
 Les étapes 4, 5 & 6 permettent de modifier les *mappers* et d'ajuster la modélisation des résultats. Réferez-vous à la [documentation
 du module](../../../monitoring/discovery/hosts-discovery.html) pour plus d'informations.
@@ -156,12 +157,9 @@ du module](../../../monitoring/discovery/hosts-discovery.html) pour plus d'infor
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
 Azure sont automatiquement appliqués. Sélectionnez les éléments à modéliser dans Centreon et *Sauvegardez*.
 
-## FAQ
+## Diagnostic des erreurs communes  
 
-
-### Diagnostic des erreurs communes  
-
-#### Les identifiants ont changé et mon Plugin ne fonctionne plus
+### Les identifiants ont changé et mon Plugin ne fonctionne plus
 
 Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
@@ -169,7 +167,7 @@ Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache
 
 Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_<md5>_<md5>_<md5>_<md5>.
 
-#### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
+### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
 Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
