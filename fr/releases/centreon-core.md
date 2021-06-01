@@ -782,6 +782,18 @@ a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
 
+### 20.04.14
+
+#### Sécurité
+
+- Blocage des injecions SQL depuis des *custom variables*
+- Suppression de SSL et de suites de chiffrement dépréciées
+
+#### Correctifs
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter
+- Les metaservices utilisés comme KPI n'impactaient pas les activités métier (Centreon BAM)
+
 ### 20.04.13
 
 `April 28, 2021`
