@@ -298,6 +298,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.5
 
+> Cette version nécessite Centreon Clib 20.10.2 et Centreon-Connector 20.10.2 ou supérieur.
+
 #### Correctifs
 
 - Engine consomme 100% de CPU quand `check_period` est `none`
