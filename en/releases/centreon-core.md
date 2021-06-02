@@ -599,6 +599,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.12
 
+> This version requires Centreon Clib and Centreon-Connector versions to be 20.04.2 or higher.
+
 #### Bugfixes
 
 - Engine cpu usage increased to 100% when `check_period` is set to `none`
