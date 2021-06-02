@@ -159,9 +159,9 @@ Azure sont automatiquement appliqués. Sélectionnez les éléments à modélise
 
 ## Diagnostic des erreurs communes  
 
-### Les identifiants ont changé et mon Plugin ne fonctionne plus
+### Les identifiants ont changé et la découverte ne fonctionne plus
 
-Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
+Le Plugin de découverte utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
@@ -169,11 +169,11 @@ Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
+le *job* de découverte renvoie le message suivant : 
 ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
 
 Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
-en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
+en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_NAME'. 
 
 Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
 n'est (ne sont) pas valide(s).
