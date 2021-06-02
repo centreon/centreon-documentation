@@ -24,7 +24,7 @@ Toutes les commandes peuvent être configurées au sein du menu : **Configuratio
 
 ## Ajouter une commande
 
-1. Renez-vous dans le menu **Configuration > Commands**
+1. Rendez-vous dans le menu **Configuration > Commands**
 2. Cliquez sur le bouton **Add**
 
 ![image](../../assets/configuration/04command.png)

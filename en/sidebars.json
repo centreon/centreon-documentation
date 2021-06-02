@@ -32,7 +32,7 @@
             "installation/web-and-post-installation",
             {
                 "ids": [
-                    "installation/installation-of-centreon-ha/architectures",
+                    "installation/installation-of-centreon-ha/overview",
                     "installation/installation-of-centreon-ha/installation-2-nodes",
                     "installation/installation-of-centreon-ha/installation-4-nodes",
                     "installation/installation-of-centreon-ha/integrating-pollers"
@@ -446,10 +446,15 @@
                     "integrations/plugin-packs/procedures/cloud-aws-vpn",
                     "integrations/plugin-packs/procedures/cloud-aws-ses",
                     "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-apimanagement",
                     "integrations/plugin-packs/procedures/cloud-azure-network-appgateway",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
+                    "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-mysql",                  
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
                     "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
@@ -467,7 +472,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-integration-servicebus",
                     "integrations/plugin-packs/procedures/cloud-azure-web-signalr",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase",
-                    "integrations/plugin-packs/procedures/cloud-azure-database-sqldmanagedinstance",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",

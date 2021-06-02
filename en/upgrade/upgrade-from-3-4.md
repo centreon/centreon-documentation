@@ -45,6 +45,16 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+Stop the Centreon Broker process:
+```shell
+systemctl stop cbd
+```
+
+Delete existing retention files:
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 Clean yum cache:
 
 ```shell
@@ -108,7 +118,7 @@ systemctl start httpd24-httpd
 If you had a custom apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/secure-platform.html#securing-the-apache-web-server)
+> [this procedure](../administration/secure-platform.html#enable-https-on-the-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -140,11 +150,7 @@ ProxyTimeout 300
         php_admin_value engine Off
     </IfModule>
 
-+    RewriteRule ^index\.html$ - [L]
-+    RewriteCond %{REQUEST_FILENAME} !-f
-+    RewriteCond %{REQUEST_FILENAME} !-d
-+    RewriteRule . /index.html [L]
-+    ErrorDocument 404 /centreon/index.html
++    FallbackResource /centreon/index.html
 
     AddType text/plain hbs
 </Directory>
@@ -225,6 +231,13 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 ### Post-upgrade actions
+
+#### Restart Centreon processes
+
+Restart the cbd process:
+```
+systemctl start cbd
+```
 
 #### Upgrade extensions
 

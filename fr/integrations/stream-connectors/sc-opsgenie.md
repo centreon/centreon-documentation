@@ -34,6 +34,8 @@ Si vous avez besoin d'aide avec cette intégration, selon votre utilisation de C
 
 ### Dans Opsgenie
 
+> Attention, cette documentation a été écrite en février 2021, il est possible que des changements sur Opsgenie rendent obsolète des éléments décrits ci-dessous
+
 #### intégration Opsgenie: alerts
 
 1. Depuis le menu **Setting**, selectionnez **Integration list**

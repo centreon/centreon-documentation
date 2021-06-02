@@ -42,6 +42,21 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
+Stop the Centreon Broker process:
+```shell
+systemctl stop cbd
+```
+
+Delete existing retention files:
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
+
 Clean yum cache:
 
 ```shell
@@ -56,6 +71,19 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+The PHP timezone should be set. Run the command:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Execute the following commands:
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+
 ### Additional actions
 
 #### Configure Apache API access
@@ -64,7 +92,7 @@ If you had a custom apache configuration, upgrade process through RPM did not
 update it.
 
 > If you use https, you can follow [this
-> procedure](../administration/secure-platform.html#securing-the-apache-web-server)
+> procedure](../administration/secure-platform.html#enable-https-on-the-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -96,11 +124,7 @@ ProxyTimeout 300
         php_admin_value engine Off
     </IfModule>
 
-+    RewriteRule ^index\.html$ - [L]
-+    RewriteCond %{REQUEST_FILENAME} !-f
-+    RewriteCond %{REQUEST_FILENAME} !-d
-+    RewriteRule . /index.html [L]
-+    ErrorDocument 404 /centreon/index.html
++    FallbackResource /centreon/index.html
 
     AddType text/plain hbs
 </Directory>
@@ -163,6 +187,13 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Restart Centreon processes
+
+Restart the cbd process:
+```
+systemctl start cbd 
+```
 
 #### Upgrade extensions
 

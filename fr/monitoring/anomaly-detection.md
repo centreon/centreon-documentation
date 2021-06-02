@@ -3,8 +3,8 @@ id: anomaly-detection
 title: Détection d'anomalies
 ---
 
-> Centreon Anomaly Detection est actuellement en **phase de béta fermée** et
-> nécessitent un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
+> Centreon Anomaly Detection est actuellement en **phase de bêta fermée** et
+> nécessite un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
 > phase bêta au public sous certaines conditions.
 
 ## Description

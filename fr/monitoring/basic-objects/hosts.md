@@ -43,7 +43,7 @@ La partie Macros permet d’ajouter des macros personnalisées.
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../../assets/configuration/common/undo.png" width="32" />
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur <img src="../../assets/configuration/common/undo.png" width="32" />
 
 Pour afficher la description de la macro, cliquez sur <img src="../../assets/configuration/common/description.png" width="32" />
 
@@ -54,7 +54,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 ### Propriété d’ordonancement de l’hôte
 
 * Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
-* Le champ **Max Check Attempts** définit le nombre de contrôle à effectuer avant de valider le statut de l’hôte :
+* Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut de l’hôte :
   lorsque le statut est validé, le processus de notification est enclenché.
 * Le champ **Normal Check Interval** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
   le statut de l’hôte est OK.
@@ -64,7 +64,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 ## Onglet Notification
 
 * Le champ **Notification Enabled** permet d’activer ou de désactiver les notifications concernant l’objet.
-* Le champ **Notification Options** définissent les statuts pour lesquels une notification sera envoyée.
+* Le champ **Notification Options** définit les statuts pour lesquels une notification sera envoyée.
 * Le champ **Notification Interval**  est exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
   changement de statut.
@@ -115,7 +115,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * Le champ **Alt Icon** est le texte utilisé si l’icône ne peut être affichée.
 * Le champ **Severity level** indique le niveau de criticité de l’hôte.
 * Le champ **Status Map Image** défini le logo du module Centreon Map.
-* The **Geo coordinates** défini les coordonnées géographiques utilisées par le module Centreon Map pour positionner
+* Le champ **Geo coordinates** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs présentés ci-dessous sont obsolètes :
@@ -125,7 +125,7 @@ Les champs présentés ci-dessous sont obsolètes :
 
 ### Groupes d'accès
 
-* Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateur), permet de lier l’hôte
+* Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateurs), permet de lier l’hôte
   à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
   *[les listes de contrôles d'accès](../../administration/access-control-lists.html)*).
 

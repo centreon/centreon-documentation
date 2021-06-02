@@ -42,6 +42,19 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Montée de version de la solution Centreon
 
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
+Arrêter le processus Centreon Broker :
+```shell
+systemctl stop cbd
+```
+
+Supprimer les fichiers de rétention présent :
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 Videz le cache de yum :
 
 ```shell
@@ -55,6 +68,19 @@ yum update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+
+Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Exécutez les commandes suivantes :
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
 
 ### Finalisation de la mise à jour
 
@@ -93,6 +119,13 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Restart Centreon processes
+
+Restart the processes:
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Montée de version des extensions
 

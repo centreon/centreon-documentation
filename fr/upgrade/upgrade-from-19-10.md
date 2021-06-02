@@ -45,6 +45,20 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Montée de version de la solution Centreon
 
+
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
+
+Arrêter le processus Centreon Broker :
+```shell
+systemctl stop cbd
+```
+
+Supprimer les fichiers de rétention présent :
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
 Videz le cache de yum :
 
 ```shell
@@ -59,6 +73,19 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+Le fuseau horaire PHP doit être défini. Exécutez la commande:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Exécutez les commandes suivantes
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
+
 ### Actions complémentaires
 
 #### Configurer l'accès à l'API
@@ -67,7 +94,7 @@ Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
 n'y a pas touché.
 
 > Si vous utilisez le https, vous pouvez suivre
-> [cette procédure](../administration/secure-platform.html#sécurisez-le-serveur-web-apache)
+> [cette procédure](../administration/secure-platform.html#passer-le-serveur-web-en-https)
 
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -99,11 +126,7 @@ ProxyTimeout 300
         php_admin_value engine Off
     </IfModule>
 
-+    RewriteRule ^index\.html$ - [L]
-+    RewriteCond %{REQUEST_FILENAME} !-f
-+    RewriteCond %{REQUEST_FILENAME} !-d
-+    RewriteRule . /index.html [L]
-+    ErrorDocument 404 /centreon/index.html
++    FallbackResource /centreon/index.html
 
     AddType text/plain hbs
 </Directory>
@@ -167,6 +190,13 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Redémarrez les processus Centreon
+
+Redamarrez le processus cbd:
+```
+systemctl start cbd
+```
 
 #### Montée de version des extensions
 

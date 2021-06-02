@@ -9,7 +9,7 @@ Les contacts au sein de Centreon sont utilisés afin de :
 
 * Pouvoir se connecter à l’interface web de Centreon : chaque contact dispose de ses propres droits afin de se
   connecter à l’interface web.
-* Etre alerté en cas de nécessité (notification).
+* Être alerté en cas de nécessité (notification).
 
 Afin d’ajouter un contact, il suffit de se rendre dans le menu **Configuration > Users > Add**.
 

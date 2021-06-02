@@ -6,7 +6,7 @@ title: Ajouter un Remote Server à la configuration
 ## Configurer un nouveau Remote Server
 
 Depuis la version 18.10, un nouvel assistant de configuration permet de créer
-toutes les configurations nécessaire pour ajouter un Remote Server.
+toutes les configurations nécessaires pour ajouter un Remote Server.
 
 Rendez-vous dans le menu `Configuration > Collecteurs` et cliquez sur
 **Ajouter un serveur à l'aide de l'assistant** pour accéder à l'assistant de
@@ -39,7 +39,7 @@ la méthode d'accès et le port si celui-ci n'est pas par défaut.
 L'option **Do not check SSL certificate validation** permet de contacter le
 Remote Server si celui-ci possède un certificat SSL auto-signé.
 
-L'option **Do not use configured proxy tp connect to this server** permet de
+L'option **Do not use configured proxy to connect to this server** permet de
 contacter le Remote Server en n'utilisant pas la configuration du proxy
 configurée sur le serveur Centreon Central.
 

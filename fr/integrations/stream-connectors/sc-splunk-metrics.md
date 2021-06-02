@@ -75,7 +75,7 @@ luarocks install luatz
 Ces paquets sont nécessaires au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/splunk-metrics-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-metrics-http.lua
+wget -O /usr/share/centreon-broker/lua/splunk-metrics-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-metrics-http-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-http.lua
 ```
 

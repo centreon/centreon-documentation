@@ -11,12 +11,20 @@ to a destination IP address and port.
 
 The Centreon Plugin-Pack *Azure Application Gateway* can rely on Azure API or Azure CLI to collect the metrics related to the
 Application Gateway service.
+Both v1 & v2 versions are supported.
 
 ## Pack Assets
 
 ### Monitored Objects
 
-* Azure *Application Gateway* instances
+* Azure *Application Gateway* v1 instances:
+    * Backend-Health
+    * Connections
+    * Health
+    * Requests
+    * Throughput
+
+* Azure *Application Gateway* v2 instances:
     * Backend-Status
     * Backend-Time
     * Clients-Traffic
@@ -33,7 +41,7 @@ The Centreon Plugin Pack *Azure Application Gateway* includes a Host Discovery *
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Application Gateway**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-appgateway-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
@@ -41,6 +49,23 @@ More information about the Host Discovery module is available in the Centreon do
 [Host Discovery](../../../monitoring/discovery/hosts-discovery.html)
 
 ### Collected metrics & status
+
+Regarding the version of the Application Gateway, metrics can differ.
+
+#### Specific to v1
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Backend-Health-->
+
+| Metric Name                             | Description          | Unit  |
+|:----------------------------------------|:---------------------|:------|
+| appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
+| appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### Specific to v2
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -65,17 +90,28 @@ More information about the Host Discovery module is available in the Centreon do
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
-<!--Connections-->
-
-| Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
-| appgateway.backend.connections.current.count | Current Connections | Count |
-
 <!--Gateway-Time-->
 
 | Metric Name                        | Description                    | Unit |
 |:-----------------------------------|:-------------------------------|:-----|
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
+
+<!--Units-->
+
+| Metric Name                             | Description                     | Unit  |
+|:----------------------------------------|:--------------------------------|:------|
+| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
+| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
+| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
+| appgateway.compute.units.count          | Compute Units consumed          | Count |
+
+#### Common
+
+<!--Connections-->
+
+| Metric Name                                  | Description         | Unit  |
+|:---------------------------------------------|:--------------------|:------|
+| appgateway.backend.connections.current.count | Current Connections | Count |
 
 <!--Health-->
 
@@ -96,15 +132,6 @@ More information about the Host Discovery module is available in the Centreon do
 | Metric Name                          | Description | Unit |
 |:-------------------------------------|:------------|:-----|
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
-
-<!--Units-->
-
-| Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
-| appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
-| appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
-| appgateway.capacity.units.count         | Capacity Units consumed         | Count |
-| appgateway.compute.units.count          | Compute Units consumed          | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

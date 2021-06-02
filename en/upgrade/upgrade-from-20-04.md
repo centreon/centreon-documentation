@@ -7,7 +7,7 @@ This chapter describes how to upgrade your Centreon platform from version 20.04
 to version 21.04.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.html#upgrade-mariadb-server)
@@ -38,6 +38,21 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+
+> Please, make sure all users are logged out from the Centreon web interface
+> before starting the upgrade procedure.
+
+Stop the Centreon Broker process:
+```shell
+systemctl stop cbd
+```
+
+Delete existing retention files:
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
+
 Clean yum cache:
 
 ```shell
@@ -51,6 +66,19 @@ yum update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
+
+The PHP timezone should be set. Run the command:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+```
+
+Execute the following commands:
+```shell
+systemctl stop rh-php72-php-fpm
+systemctl disable rh-php72-php-fpm
+systemctl enable rh-php73-php-fpm
+systemctl start rh-php73-php-fpm
+```
 
 ### Finalizing the upgrade
 
@@ -88,6 +116,13 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Restart Centreon processes
+
+Restart the processes:
+```
+systemctl restart cbd centengine centreontrapd gorgoned
+```
 
 #### Upgrade extensions
 

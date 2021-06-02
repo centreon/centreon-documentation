@@ -288,7 +288,7 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Securing the Apache web server
+## Enable HTTPS on the web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
@@ -386,11 +386,7 @@ ProxyTimeout 300
             php_admin_value engine Off
         </IfModule>
 
-        RewriteRule ^index\.html$ - [L]
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule . /index.html [L]
-        ErrorDocument 404 /centreon/index.html
+        FallbackResource /centreon/index.html
 
         AddType text/plain hbs
     </Directory>
@@ -630,7 +626,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`. 
 Here is an example of how the file should look like: 
 
-```text
+```apacheconf
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
@@ -664,11 +660,7 @@ ProxyTimeout 300
         <IfModule mod_php5.c>
             php_admin_value engine Off
         </IfModule>
-        RewriteRule ^index\.html$ - [L]
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule . /index.html [L]
-        ErrorDocument 404 /centreon/index.html
+        FallbackResource /centreon/index.html
         AddType text/plain hbs
     </Directory>
     <Directory "/usr/share/centreon/api">
@@ -723,7 +715,7 @@ To use http2, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
@@ -758,7 +750,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 

@@ -18,14 +18,12 @@ La montée de version de Centreon MBI se fait en 3 étapes :
 
 ## Monter de version du paquet
 
-Lors d'une montée de version mineure ou majeure (ex: 19.10.x à 20.04.x) il faut en premier lieu mettre à jour
- le dépôt contenant les paquets. Si vous n'avez pas encore ce nouveau dépôt, le demander au support Centreon.
+Lors d'une montée de version majeure (ex: 20.10.x à 21.04.x) il faut en premier lieu mettre à jour
+ le dépôt contenant les paquets. 
 
-Exécutez la commande suivante pour installer le nouveau dépôt:
+Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
 
-    yum update $(IFS=$'\n' BASE=( $(sed -n 's/baseurl=\(.*\/stable\/noarch\)/\1/p' /etc/yum.repos.d/centreon-mbi.repo) ) ; echo "${BASE[0]/19.10/20.04}RPMS/centreon-mbi-release-20.04-1.el7.centos.noarch.rpm")
-
-*Si vous n'êtes pas en 19.10, adapté la commande*
+![image](../assets/reporting/support_repos.png)
 
 ## Mettre à jour l'interface
 

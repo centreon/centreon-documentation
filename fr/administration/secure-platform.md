@@ -163,9 +163,9 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#enable-selinux-in-permissive-mode) avec le mode **enforcing**.
+[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
 
-> N'hésitez pas à nous faire pas de vos retours sur [Github](https://github.com/centreon/centreon).
+> N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
 ## Sécurisez l'installation du SGBD
 
@@ -190,7 +190,7 @@ systemctl start firewalld
 ```
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.html#tables-of-platform-flows).
+> [ici](../installation/architectures.html#tableau-des-flux-de-la-plate-forme).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Central / Remote Server-->
@@ -292,7 +292,7 @@ Status for the jail: centreon
 
 > Pour plus d'informations, visitez le [site officiel](http://www.fail2ban.org).
 
-## Sécurisez le serveur web Apache
+## Passez le serveur web en HTTPS
 
 Par défaut, Centreon installe un serveur Web en mode HTTP. Il est fortement recommandé de passer en mode HTTPS en
 ajoutant votre certificat.
@@ -392,11 +392,7 @@ ProxyTimeout 300
             php_admin_value engine Off
         </IfModule>
 
-        RewriteRule ^index\.html$ - [L]
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule . /index.html [L]
-        ErrorDocument 404 /centreon/index.html
+        FallbackResource /centreon/index.html
 
         AddType text/plain hbs
     </Directory>
@@ -586,7 +582,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
+1. [Configurer le https pour Centreon](./secure-platform.html#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
@@ -621,7 +617,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configurer le https pour Centreon](./secure-platform.html#securisez-le-serveur-web-apache)
+1. [Configurer le https pour Centreon](./secure-platform.html#passer-le-serveur-web-en-https)
 
 2. Installer le module nghttp2:
 
