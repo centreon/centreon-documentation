@@ -1,0 +1,52 @@
+---
+id: interface
+title: Découvrir l'interface Centreon
+---
+
+## Première connexion à l'interface
+
+Pour se connecter à l'interface se rendre à l'adresse : `http://ADRESSE_IP/centreon`.
+
+> Remplacer **ADRESSE_IP** par l'adresse IP ou le FQDN du serveur web Centreon.
+
+Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bouton **Connect** :
+
+![image](../assets/getting-started/aconnection.png)
+
+>Les identifiants par défaut sont : `admin`/`centreon`. 
+
+Vous êtes maintenant connecté à l'interface web Centreon.
+
+## Présentation rapide des menus
+
+L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise :
+
+![image](../assets/getting-started/amenu.png)
+
+* Le menu **Accueil** permet d'accéder au premier écran d'accueil après s'être connecté. Il résume l'état général de
+  la supervision. Votre espace de travail peut être vide pour l'instant. Une fois que vous avez configuré les widgets
+  personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
+* Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
+  visualisation des logs.
+* Le menu **Vues** permet de visualiser et de configurer les graphiques de performances pour chaque élément du système
+  d'informations.
+* Le menu **Rapports** permet de visualiser de manière intuitive (via des diagrammes) l'évolution de la supervision sur
+  une période donnée.
+* Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
+* Le menu **Administration** permet de configurer l'interface web Centreon ainsi que de visualiser l'état général des serveurs.
+
+## Langue de l'interface utilisateur
+
+Dans le bandeau, cliquez sur l'icône profile, puis cliquez sur **Edit profile**:
+
+![image](../assets/getting-started/change_language_1.png)
+
+Dans la liste de sélection des langages, sélectionnez le vôtre :
+
+![image](../assets/getting-started/change_language_2.png)
+
+Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
+langue.
+
+> Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
+> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon.html) pour plus d'informations.
