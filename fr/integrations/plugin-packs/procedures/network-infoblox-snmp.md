@@ -7,7 +7,7 @@ title: Infoblox SNMP
 
 ### Objets supervisés
 
-Le Plugin Pack infoblox SNMP collecte les données pour:
+Le Plugin Pack Infoblox SNMP collecte les données pour:
 * Dhcp
 * Dns
 * Interfaces
@@ -80,7 +80,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | :------------------------------------------------- | :------------------------------- | :--- |
 | service status                                     | Status of the service            |      |
 
-<!--System-usage-->
+<!--System-->
 
 | Metric name                     | Description                 | Unit |
 | :------------------------------ | :-------------------------- | :--- |

@@ -80,7 +80,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | :------------------------------------------------- | :------------------------------- | :--- |
 | service status                                     | Status of the service            |      |
 
-<!--System-usage-->
+<!--System-->
 
 | Metric name                     | Description                 | Unit |
 | :------------------------------ | :-------------------------- | :--- |
