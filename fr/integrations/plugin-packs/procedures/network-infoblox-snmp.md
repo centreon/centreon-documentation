@@ -171,7 +171,7 @@ checking system 'IB-825'
     high-availablity status is 'Not Configured'
 ```
 
-Cette commande contrôle le système (```--mode=system-usage```) d'un équipement Infoblox ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+Cette commande contrôle le système (```--mode=system```) d'un équipement Infoblox ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *infoblox_ro* (```--snmp-community='infoblox_ro'```).
 
 Cette commande déclenchera une alarme WARNING si l'utilisation processeur est supérieur à 90% (```--warning-cpu-load='90'```)
