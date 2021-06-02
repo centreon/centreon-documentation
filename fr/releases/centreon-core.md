@@ -42,8 +42,8 @@ commerciales, vous pouvez vous rendre sur notre
 - [Configuration] XSS reflected on internal API broker configuration
 - [Graph] SQL Injection on Graph component templates
 - [Graph] SQL Injection on Graph generate image
+- [Install] Packaging, remove . gitignore files
 - [Reporting] SQL Injection on reporting export
-[SECU][WEB] Packaging, remove . gitignore files
 #### Performance
 
 - [ACL] ACL are computed every time for BV
