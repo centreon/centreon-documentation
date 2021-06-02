@@ -24,7 +24,11 @@ If you have feature requests or want to report a bug, please go to our
 #### Bugfixes
 
 - [Administration] Broker statistics for pollers are not shown
+- [APIv1] Cannot send external commands anymore
+- [APIv2] Unable to use v2 api (internal server error)
+- [APIv2] Can not authenticate using API when database name and database username are different from default
 - [Core] Avoid 404 redirection
+- [Install] Cannot update when you have no metaservices
 
 #### Security fixes
 
@@ -50,6 +54,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [ACL] ACL are computed every time for BV
 - [Generation] Bulk insert in index_data during config generation
+- [Purge] Purge of index_data is taking too long because of suboptimal SQL query
 
 ### 20.04.13
 
