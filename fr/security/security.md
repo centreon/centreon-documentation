@@ -83,7 +83,8 @@ Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler
 
 Veuillez ne pas signaler les vulnérabilités de sécurité via des problèmes publics GitHub.
 
-Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, cryptez votre message avec la [clé PGP](security@centreon.com)
+Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, cryptez votre message avec 
+la [clé PGP](https://github.com/centreon/centreon/blob/master/SECURITY.md#pgp-information)
 fournie.
 
 Vous devriez recevoir une réponse dans les 48 heures. Si, pour une raison quelconque ce n’est pas le
