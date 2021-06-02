@@ -81,6 +81,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.2
 
+> Cette version nécessite Centreon Broker 21.04.1, Centreon Clib 21.04.1 et Centreon-Connector 21.04.1 ou supérieur.
+
 #### Correctifs
 
 - Engine consomme 100% de CPU quand `check_period` est `none`
