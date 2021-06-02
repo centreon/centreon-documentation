@@ -1003,6 +1003,9 @@
                 "type": "subcategory"
             }
         ],
+        "Sécurité": [
+            "security/security"
+        ],
         "Ressources": [
             "resources/known-issues"
         ]
