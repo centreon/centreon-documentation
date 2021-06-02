@@ -23,12 +23,20 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Correctifs
 
-- [Administration] Broker statistics for pollers are not shown
+- [APIv1] Cannot send external commands anymore
+- [APIv2] Can not authenticate using API when database name and database username are different from default
 - [APIv2] DELETE downtime on host not functionnal
+- [APIv2] Unable to use v2 api (internal server error)
+- [Administration] Broker statistics for pollers are not shown
+- [Anomaly] host_id is null is stream connector flow
 - [Configuration] Change default values for Centreon Engine
 - [Configuration] Unable to add a Poller with the Wizard
 - [Core] Avoid 404 redirection
+- [Install] Cannot update when you have no metaservices
+- [LDAP] Adding new user from LDAP results in Request Entity Too Large error
+- [Reporting] Dashboard can't display reporting for service (query too long)
 - [Resources Status] "Filter by Host" filter is not emptied between searches
+- [Resources Status] Action ACL not working
 - [Resources Status] Apply ACL in command line block
 - [Resources Status] Manage not filled curves
 
@@ -49,12 +57,14 @@ commerciales, vous pouvez vous rendre sur notre
 - [Configuration] XSS reflected on internal API broker configuration
 - [Graph] SQL Injection on Graph component templates
 - [Graph] SQL Injection on Graph generate image
+- [Install] Packaging, remove . gitignore files
 - [Reporting] SQL Injection on reporting export
 
 #### Performance
 
 - [ACL] ACL are computed every time for BV
 - [Generation] Bulk insert in index_data during config generation
+- [Purge] Purge of index_data is taking too long because of suboptimal SQL query
 
 ### 20.10.7
 
