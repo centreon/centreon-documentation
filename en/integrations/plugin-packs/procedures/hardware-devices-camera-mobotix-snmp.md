@@ -41,20 +41,21 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 <!--System-->
 
-| Metric name                     | Description                 | Unit |
-| :------------------------------ | :-------------------------- | :--- |
-| cpu.utilization.percentage      | CPU utilization             | %    |
-| memory.usage.percentage         | Memory usage                | %    |
-| swap.usage.percentage           | Swap usage                  | %    |
-| system.cpu1.temperature.celsius | CPU1 temperature            | C    |
-| system.cpu2.temperature.celsius | CPU2 temperature            | C    |
-| ha status                       | Status of high-availability |      |
+| Metric name                         | Description                      | Unit |
+| :---------------------------------- | :------------------------------- | :--- |
+| system.sdcard.usage.percent         | SD card usage                    | %    |
+| system.temperature.internal.celsius | Internal temperature             | C    |
+| system.temperature.external.celsius | External temperature             | C    |
+| system.temperature.gps.celsius      | GPS temperature                  | C    |
+| system.illumination.right.lux       | Illumination of the right sensor | lx   |
+| system.illumination.left.lux        | Illumination of the left sensor  | lx   |
+| system.video.framerate.persecond    | Current video framerate          |      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
-To control your Infoblox, the SNMP must be configured.
+To control your Mobotix, the SNMP must be configured.
 
 ## Setup
 
@@ -65,33 +66,33 @@ To control your Infoblox, the SNMP must be configured.
 1. Install the Centreon Plugin on every Poller:
 
 ```bash
-yum install centreon-plugin-Network-Infoblox-Snmp
+yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
+2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mobotix Camera* Plugin Pack
 
 <!--Offline IMP License-->
 
 1. Install the Centreon Plugin on every Poller:
 
 ```bash
-yum install centreon-plugin-Network-Infoblox-Snmp
+yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
 2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
 
 ```bash
-yum install centreon-pack-network-infoblox-snmp
+yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Infoblox SNMP* Plugin Pack
+3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mobotix Camera* Plugin Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
 * Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
-* Apply the *Net-Infoblox-SNMP-custom* Host Template
+* Apply the *HW-Device-Camera-Mobotix-SNMP-custom* Host Template
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
@@ -105,42 +106,36 @@ Once the plugin installed, log into your Centreon Poller CLI using the *centreon
 and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
-    --plugin=network::infoblox::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_camera_mobotix_snmp.pl \
+    --plugin=hardware::devices::camera::mobotix::snmp::plugin \
     --mode=system \
     --hostname=10.30.2.114 \
     --snmp-version='2c' \
-    --snmp-community='infoblox_ro' \
-    --warning-cpu-load='90' \
-    --critical-cpu-load='95' \
+    --snmp-community='mobotix_ro' \
+    --warning-temperature-internal=45 \
+    --critical-temperature-internal=50 \
     --verbose
 ```
 
 Expected command output is shown below:
 
 ```bash
-OK: System 'IB-825' is ok | 'cpu.utilization.percentage'=3.00%;0:90;0:95;0;100 'memory.usage.percentage'=2.00%;;;0;100 'swap.usage.percentage'=0.00%;;;0;100 'system.cpu1.temperature.celsius'=20.00C;;;;
-checking system 'IB-825'
-    cpu load: 3.00 %
-    memory used: 2.00 %
-    swap used: 0.00 %
-    cpu1 temperature: 20.00 C
-    high-availablity status is 'Not Configured'
+OK: internal temperature: 23 C - illumination right: 17 lx - video framerate: 2 fps | 'system.temperature.internal.celsius'=23C;0:45;0:50;; 'system.illumination.right.lux'=17lx;;;; 'system.video.framerate.persecond'=2fps;;;;
 ```
 
-The command above monitors Infoblox (```--plugin=network::infoblox::snmp::plugin --mode=system```) identified
+The command above monitors Mobotix (```--plugin=hardware::devices::camera::mobotix::snmp::plugin --mode=system```) identified
 by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
-*community* and *version* are specified (```--snmp-version='2c' --snmp-community='infoblox_ro'```).
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='mobotix_ro'```).
 
-This command would trigger a WARNING alarm if cpu utilization over 90% 
-(```--warning-cpu-load='90'```) and a CRITICAL alarm over 95% (```--critical-cpu-load='95'```).
+This command would trigger a WARNING alarm if internal temperature over 45C 
+(```--warning-temperature-internal=45```) and a CRITICAL alarm over 50C (```--critical-temperature-internal=50```).
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
 parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_infoblox_snmp.pl \
-    --plugin=network::infoblox::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_camera_mobotix_snmp.pl \
+    --plugin=hardware::devices::camera::mobotix::snmp::plugin \
     --mode=system \
     --help
 ```
@@ -158,4 +153,4 @@ If you get this message, you're probably facing one of theses issues:
 This error message often refers to the following issues: 
   - The agent doesn't support the MIB used by the plugin
   - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.7779
+    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.21701
