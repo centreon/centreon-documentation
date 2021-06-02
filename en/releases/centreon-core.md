@@ -416,7 +416,7 @@ state was HARD even if no notification is configured nor sent.
 - Metaservices used as KPIs did not impact BAs (Centreon BAM)
 - CRITICAL impact applied instead of UNKNOWN for BAs used as KPIs (Centreon BAM)
 - Broker was slow to restart because of suboptimal queries processing downtimes and comment
-- Limit the values of downtimes start date, end date and duration to fit the database columns' types
+- Limit the values of downtimes' start date, end date and duration to fit the database columns' types
 
 ### 20.10.4
 
