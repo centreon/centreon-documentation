@@ -127,8 +127,29 @@ old logs system.
 
 - Improvement of the acknowledgement of events when broker is shutting down.
 
+## Centreon Connector Perl
+
+### 21.04.1
+
+- Engine/broker build migrated from Bintray to ConanCenter.
+
+### 21.04.0
+
+- Compatibility with other 21.04 components.
+
+## Centreon Connector SSH
+
+### 21.04.1
+
+- Engine/broker build migrated from Bintray to ConanCenter.
+
+### 21.04.0
+
+- Compatibility with other 21.04 components.
+
 ## Centreon Gorgone
 
 ### 21.04.0
 
 - [Core] Better congestion management for communication
+

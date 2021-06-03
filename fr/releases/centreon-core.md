@@ -128,6 +128,26 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 - Improvement of the acknowledgement of events when broker is shutting down.
 
+## Centreon Connector Perl
+
+### 21.04.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 21.04.0
+
+- Compatibilité avec les autres composants 21.04.
+
+## Centreon Connector SSH
+
+### 21.04.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 21.04.0
+
+- Compatibilité avec les autres composants 21.04.
+
 ## Centreon Gorgone
 
 ### 21.04.0
