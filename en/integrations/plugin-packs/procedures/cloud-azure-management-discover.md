@@ -10,7 +10,7 @@ subscription.
 This Pack relies on the Azure Monitor API to fetch the resources of the Azure infrastructure and on all of the Centreon Plugin Packs
 for Azure to set templates and proper monitoring indicators for each type of resource.
 
-> This Plugin pack is only compatible with the 'api' custom-mode. 'azcli' is not supported for this usage.
+> This Plugin Pack is only compatible with the 'api' custom-mode. 'azcli' is not supported for this usage.
 
 ## Pack Assets
 
