@@ -590,6 +590,26 @@ with the –pool\_size X argument or -s X.
 
 - Contient tous les correctifs jusqu'à la version 20.04.9
 
+## Centreon Connector Perl
+
+### 20.10.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 20.10.0
+
+- Compatibilité avec les autres composants 20.10.
+
+## Centreon Connector SSH
+
+### 20.10.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 20.10.0
+
+- Compatibilité avec les autres composants 20.10.
+
 ## Centreon Gorgone
 
 ### 20.10.3

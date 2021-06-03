@@ -587,6 +587,26 @@ with the –pool\_size X argument or -s X.
 
 - Contains all fixes up to version 20.04.9
 
+## Centreon Connector Perl
+
+### 20.10.1
+
+- Engine/broker build migrated from Bintray to ConanCenter.
+
+### 20.10.0
+
+- Compatibility with other 21.04 components.
+
+## Centreon Connector SSH
+
+### 20.10.1
+
+- Engine/broker build migrated from Bintray to ConanCenter.
+
+### 20.10.0
+
+- Compatibility with other 20.10 components.
+
 ## Centreon Gorgone
 
 ### 20.10.3
