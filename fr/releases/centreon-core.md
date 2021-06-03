@@ -1275,6 +1275,26 @@ too old data compared to this retention, the connector ends with an error and
 Broker pushes data in retention instead of throwing them away.
 This patch fixes that.
 
+## Centreon Connector Perl
+
+### 20.04.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 20.04.0
+
+- Compatibilité avec les autres composants 20.04.
+
+## Centreon Connector SSH
+
+### 20.04.1
+
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter.
+
+### 20.04.0
+
+- Compatibilité avec les autres composants 20.04.
+
 ## Centreon Gorgone
 
 ### 20.04.10
