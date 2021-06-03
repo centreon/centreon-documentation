@@ -173,6 +173,19 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon MBI
 
+### 20.10.3
+
+`3 juin 2021`
+
+#### Correctifs
+
+- Correction des erreur JQuery avec MBI web client
+- Correction de l'exécution immédiate des jobs qui était effectuée dans le futur
+
+#### Enhancements
+
+- Ajout de l'option LIKE dans les préférences de widget MBI Hostgroups, Metric performances TOP X
+
 ### 20.10.2
 
 `6 mai 2021`
