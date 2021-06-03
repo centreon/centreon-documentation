@@ -413,6 +413,7 @@ state was HARD even if no notification is configured nor sent.
 #### Correctifs
 
 - Le build d'engine/broker a été migré de Bintray vers ConanCenter
+- La compatibilité BBDO était cassée suite à la mise à jour mineure 20.10.4, ce qui bloquait le rafraichissement des données de la supervision
 - Les metaservices utilisés comme KPI n'impactaient pas les activités métier (Centreon BAM)
 - L'impact *CRITICAL* était appliqué plutôt que l'impact *UNKNOWN* lorsqu'une BA était utilisée comme KPI d'une autre BA (Centreon BAM)
 - Le redémarrage de Broker était ralenti par des requêtes sous-optimales relatives aux arrêts prévus et aux commentaires
