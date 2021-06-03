@@ -96,7 +96,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 ## Prerequisites
 
 To control your Infoblox, the SNMP must be configured.
-
+The Poller should be able to perform SNMP requests toward the Infoblox device over SNMP UDP/161 port.
 ## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
