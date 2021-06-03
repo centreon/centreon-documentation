@@ -138,7 +138,7 @@ Cliquez sur *confirm* puis sur *next* pour afficher la page des paramètres de l
 
 Renseignez si besoin les information ci-après:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
 
 > Tous les champs de ce formulaire sont facultatifs
 
