@@ -143,7 +143,7 @@ Click on *confirm* then *next* to go to the next step of the wizard and adjust t
 
 If necessary, adjust the following settings:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
 
 > All the fields of this form are optional
 
