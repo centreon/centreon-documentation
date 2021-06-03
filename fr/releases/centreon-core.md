@@ -48,6 +48,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Graph] SQL Injection on Graph generate image
 - [Install] Packaging, remove . gitignore files
 - [Reporting] SQL Injection on reporting export
+
 #### Performance
 
 - [ACL] ACL are computed every time for BV
