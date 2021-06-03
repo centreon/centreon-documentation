@@ -172,7 +172,7 @@ To use it, it is necessary to install and activate it. Refer to the
 #### Bugfixes
 
 - Fixed JQuery issues with MBI web client
-- Fixed job immediate execution that was set in the future
+- Fixed immediate job execution ("immediate" jobs were delayed)
 
 #### Enhancements
 

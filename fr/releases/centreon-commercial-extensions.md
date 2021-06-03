@@ -179,7 +179,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 #### Correctifs
 
-- Correction des erreur JQuery avec MBI web client
+- Correction des erreurs JQuery avec MBI web client
 - Correction de l'exécution immédiate des jobs qui était effectuée dans le futur
 
 #### Enhancements
