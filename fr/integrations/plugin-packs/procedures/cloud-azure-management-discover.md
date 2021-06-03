@@ -119,7 +119,7 @@ Les Plugin Packs supplémentaires seront installés en dépendance afin de perme
 Après avoir sélectionné le provider **Azure Management Discover**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
 
 - Sélectionnez le **collecteur Centreon** depuis lequel sera lancé la découverte
 - Renseignez les paramètres relatifs à l'utilisation d'un **proxy d'entreprise** si besoin
