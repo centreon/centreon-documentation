@@ -182,7 +182,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 - Correction des erreurs JQuery avec MBI web client
 - Correction de l'exécution immédiate des jobs qui était effectuée dans le futur
 
-#### Enhancements
+#### Améliorations
 
 - Ajout de l'option LIKE dans les préférences de widget MBI Hostgroups, Metric performances TOP X
 
