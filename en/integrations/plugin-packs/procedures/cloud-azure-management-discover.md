@@ -133,7 +133,7 @@ as well as optional access parameters:
 The first time, a new credentials profile has to be created. You can do so by clicking the '+' button and set the proper Azure
 authentication parameters:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
 
 > All of the fields of the *credentials* form must be filled.
 
