@@ -128,7 +128,7 @@ d'accès à l'API comme ci-après:
 Dans le cadre d'une première utilisation, vous pouvez créer un nouveau profil d'accès à Azure en cliquant sur '+'. Renseignez ensuite
 les informations demandées comme ci-après:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
 
 > Tous les champs du formulaire *credentials* doivent être renseignés
 
