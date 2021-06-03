@@ -124,7 +124,7 @@ on the discovered elements).
 Create a new discovery job and select **Azure Management Discover** as the provider. Click on *next* and set the authentication parameters
 as well as optional access parameters:
 
-[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
 
 - Select the **Centreon Poller** from where the discovery job will be launched
 - If necessary, add an entreprise **proxy URL and port** to use to reach the Azure API
