@@ -18,6 +18,43 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.14
+
+#### Correctifs
+
+- [Administration] Broker statistics for pollers are not shown
+- [APIv1] Cannot send external commands anymore
+- [APIv2] Unable to use v2 api (internal server error)
+- [APIv2] Can not authenticate using API when database name and database username are different from default
+- [Core] Avoid 404 redirection
+- [Install] Cannot update when you have no metaservices
+
+#### Correctifs de sécurité
+
+- [Administration] Import of JS in image files
+- [Administration] Insecure media file upload
+- [Administration] SQL Injection on ACL actions
+- [Administration] SQL Injection on ACL resources
+- [Administration] SQL Injection on reload ACL
+- [Configuration] SQL Injection on MediaWiki
+- [Configuration] SQL Injection on SNMP trap manufacturer
+- [Configuration] SQL Injection on poller form
+- [Configuration] Unserialize() are not sanitized in Centreon Broker wizard
+- [Configuration] Unserialize() are not sanitized in poller wizard
+- [Configuration] XSS reflected on Graph performance curves
+- [Configuration] XSS reflected on SNMP trap
+- [Configuration] XSS reflected on internal API broker configuration
+- [Graph] SQL Injection on Graph component templates
+- [Graph] SQL Injection on Graph generate image
+- [Install] Packaging, remove . gitignore files
+- [Reporting] SQL Injection on reporting export
+
+#### Performance
+
+- [ACL] ACL are computed every time for BV
+- [Generation] Bulk insert in index_data during config generation
+- [Purge] Purge of index_data is taking too long because of suboptimal SQL query
+
 ### 20.04.13
 
 `10 mai 2021`
