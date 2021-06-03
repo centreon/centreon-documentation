@@ -165,6 +165,18 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+### 20.10.3
+
+`June 3, 2021`
+
+#### Bugfixes
+
+- Fixed JQuery issues with MBI web client
+- Fixed immediate job execution ("immediate" jobs were delayed)
+
+#### Enhancements
+
+- Added LIKE option in MBI widget preferences for Hostgroups, Metric perfomances TOP X
 
 ### 20.10.2
 
