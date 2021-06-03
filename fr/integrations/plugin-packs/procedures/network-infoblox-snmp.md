@@ -97,6 +97,8 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 Afin de contrôler votre équipement Infoblox, le SNMP doit être configuré. 
 
+Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
