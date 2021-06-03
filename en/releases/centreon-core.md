@@ -595,7 +595,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.0
 
-- Compatibility with other 21.04 components.
+- Compatibility with other 20.10 components.
 
 ## Centreon Connector SSH
 
