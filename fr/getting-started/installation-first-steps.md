@@ -8,10 +8,9 @@ supervision de votre IT via Centreon.
 
 Vous trouverez dans ce chapitre les informations nécessaires à un démarrage rapide sur Centreon. Découvrez comment :
 
-* [Installer un serveur central Centreon rapidement à partir
-d'une machine virtuelle prête à l'emploi](../installation/installation-of-a-central-server/using-virtual-machines).
+* [Savoir quelle installation choisir](which-install.html)
 * [Bénéficier de votre licence d'essai gratuite IT-100](IT100.html)
-* [Vous connecter pour la première fois à l'interface](#première-connexion-à-linterface)
+* [Vous connecter pour la première fois à l'interface](interface.html)
 * [Superviser votre premier hôte](first-supervision.html)
 * [Créer une vue personnalisée](create-custom-view.html)
 * [Créer une vue graphique](create-graphical-view.html)

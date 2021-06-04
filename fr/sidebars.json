@@ -2,6 +2,7 @@
     "docs": {
         "Getting Started": [
             "getting-started/installation-first-steps",
+            "getting-started/which-install",
 			"getting-started/IT100",
             "getting-started/interface",
 			"getting-started/first-supervision",
