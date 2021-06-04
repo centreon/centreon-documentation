@@ -405,6 +405,8 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.5
 
+`4 juin 2021`
+
 #### Sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
