@@ -79,6 +79,18 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.2
+
+`4 juin 2021`
+
+> Cette version nécessite Centreon Broker 21.04.1, Centreon Clib 21.04.1 et Centreon-Connector 21.04.1 ou supérieur.
+
+#### Correctifs
+
+- Engine consomme 100% de CPU quand `check_period` est `none`
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter
+- Centengine peut se figer lors de l'arrêt
+
 ### 21.04.1
 
 `28 avril 2021`
