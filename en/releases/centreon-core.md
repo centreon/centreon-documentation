@@ -143,6 +143,8 @@ old logs system.
 
 ### 21.04.1
 
+`June 4, 2021`
+
 - Engine/broker build migrated from Bintray to ConanCenter.
 
 ### 21.04.0
