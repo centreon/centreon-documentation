@@ -1279,6 +1279,8 @@ This patch fixes that.
 
 ### 20.04.1
 
+`4 Juin 2021`
+
 - Le build d'engine/broker a été migré de Bintray vers ConanCenter.
 
 ### 20.04.0
