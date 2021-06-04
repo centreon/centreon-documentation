@@ -599,6 +599,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.12
 
+`June 4, 2021`
+
 > This version requires Centreon Clib version to be 20.04.2 or higher.
 > This version requires Centreon-Connector version to be 20.04.1 or higher.
 
