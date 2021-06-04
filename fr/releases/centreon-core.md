@@ -598,6 +598,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.12
 
+`4 juin 2021`
+
 > Cette version nécessite Centreon Clib 20.04.2 ou supérieur.
 > Cette version nécessite Centreon-Connector 20.04.1 ou supérieur.
 
