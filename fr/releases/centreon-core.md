@@ -784,6 +784,8 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.14
 
+`4 juin 2021`
+
 #### Sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
