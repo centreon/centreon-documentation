@@ -151,11 +151,23 @@ Renseignez si besoin les information ci-après:
 
 ### Lancement de la découverte et affichage des résultats
 
-Les étapes 4, 5 & 6 permettent de modifier les *mappers* et d'ajuster la modélisation des résultats. Réferez-vous à la [documentation
-du module](../../../monitoring/discovery/hosts-discovery.html) pour plus d'informations.
+L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le Plugin Pack, il n'est normalement pas
+nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
+[documentation des mappers](../../../monitoring/discovery/hosts-discovery.html#comment-utiliser-les-modificateurs).
+
+Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
+[ici](../../../monitoring/discovery/hosts-discovery.html#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
-Azure sont automatiquement appliqués. Sélectionnez les éléments à modéliser dans Centreon et *Sauvegardez*.
+Azure sont automatiquement appliqués:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-results.png)
+
+> Certains éléments peuvent ne pas avoir de modèle appliqué dans la liste des résultats:
+> - les éléments ne sont pas des ressources pouvant être supervisées
+> - ces ressources ne sont pas couvertes par les Plugin Pack Centreon
+
+Sélectionnez les éléments à modéliser dans Centreon et *Sauvegardez*.
 
 ## Diagnostic des erreurs communes  
 
