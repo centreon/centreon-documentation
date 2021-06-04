@@ -99,6 +99,8 @@ future.
 
 ### 21.04.1
 
+`June 4, 2021`
+
 #### Security
 
 - Avoid SQL injections with custom variables
