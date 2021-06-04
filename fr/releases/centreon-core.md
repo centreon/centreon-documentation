@@ -100,6 +100,8 @@ dans une prochaine version.
 
 ### 21.04.1
 
+`4 juin 2021`
+
 #### Sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
