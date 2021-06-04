@@ -606,6 +606,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.1
 
+`4 juin 2021`
+
 - Le build d'engine/broker a été migré de Bintray vers ConanCenter.
 
 ### 20.10.0
