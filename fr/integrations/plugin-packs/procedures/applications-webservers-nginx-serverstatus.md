@@ -19,12 +19,12 @@ Nginx est un serveur web open-source aussi utilisé comme reverse proxy, cache H
 
 <!--Requests--> 
 
-| Metric name                               | Description                      | Unit 			    |
-| :---------------------------------------- | :------------------------------- | :----------------- |
-| server.connections.accepted.persecond     | Number of accepted connections   | Connections/second |
-| server.connections.handled.persecond      | Number of handled connections	   | Connections/second |
-| server.connections.dropped.count          | Number of dropped connections	   | Count              |
-| server.requests.persecond                 | Number of requests    		   | Requests/second    |
+| Metric name                               | Description                   | Unit 			    |
+| :---------------------------------------- | :---------------------------- | :---------------- |
+| server.connections.accepted.persecond     | Number of accepted connections| Connections/second|
+| server.connections.handled.persecond      | Number of handled connections	| Connections/second|
+| server.connections.dropped.count          | Number of dropped connections	| Count             |
+| server.requests.persecond                 | Number of requests    		| Requests/second   |
 
 
 <!--Connections-->
@@ -115,11 +115,11 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquez le modèle "App-Webserver-Nginx-ServerStatus-custom" et configurez toutes les macros obligatoires:
 
-| Mandatory | Name         			   | Description                                                                 |
-| :-------- | :----------------------- | :-------------------------------------------------------------------------- |
-|    X      | NGINXPORT                | Port used by Apache. Default is 80                                          |
-|    X      | NGINXPROTOCOL			   | Protocol used. Default is http				                                 |
-|           | NGINXSTATUSEXTRAOPTIONS  | Any extra option you may want to add to the command (eg. a --verbose flag)  |
+| Mandatory | Name         			 | Description                                                               |
+| :-------- | :--------------------- | :------------------------------------------------------------------------ |
+|    X      | NGINXPORT              | Port used by Apache. Default is 80                                        |
+|    X      | NGINXPROTOCOL			 | Protocol used. Default is http				                             |
+|           | NGINXSTATUSEXTRAOPTIONS| Any extra option you may want to add to the command (eg. a --verbose flag)|
 
 Par défaut ```NGINXSTATUSEXTRAOPTIONS``` contient les options : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` pour utiliser ```curl``` et pour ne pas contrôler le certificat SSL.
 

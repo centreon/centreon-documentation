@@ -19,12 +19,12 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 <!--Requests--> 
 
-| Metric name                               | Description                      | Unit 			    |
-| :---------------------------------------- | :------------------------------- | :----------------- |
-| server.connections.accepted.persecond     | Number of accepted connections   | Connections/second |
-| server.connections.handled.persecond      | Number of handled connections	   | Connections/second |
-| server.connections.dropped.count          | Number of dropped connections	   | Count              |
-| server.requests.persecond                 | Number of requests    		   | Requests/second    |
+| Metric name                               | Description                   | Unit 			    |
+| :---------------------------------------- | :---------------------------- | :---------------- |
+| server.connections.accepted.persecond     | Number of accepted connections| Connections/second|
+| server.connections.handled.persecond      | Number of handled connections	| Connections/second|
+| server.connections.dropped.count          | Number of dropped connections	| Count             |
+| server.requests.persecond                 | Number of requests    		| Requests/second   |
 
 
 <!--Connections-->
@@ -115,11 +115,11 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the *App-Webserver-Nginx-ServerStatus-custom* template and configure all the mandatory Macros :
 
-| Mandatory | Name         			   | Description                                                                 |
-| :-------- | :----------------------- | :-------------------------------------------------------------------------- |
-|    X      | NGINXPORT                | Port used by Apache. Default is 80                                          |
-|    X      | NGINXPROTOCOL			   | Protocol used. Default is http				                                 |
-|           | NGINXSTATUSEXTRAOPTIONS  | Any extra option you may want to add to the command (eg. a --verbose flag)  |
+| Mandatory | Name         			 | Description                                                               |
+| :-------- | :--------------------- | :------------------------------------------------------------------------ |
+|    X      | NGINXPORT              | Port used by Apache. Default is 80                                        |
+|    X      | NGINXPROTOCOL			 | Protocol used. Default is http				                             |
+|           | NGINXSTATUSEXTRAOPTIONS| Any extra option you may want to add to the command (eg. a --verbose flag)|
 
 By default ```NGINXSTATUSEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use the *curl* backend and to ignore the validity's check of the SSL certificate.
 
