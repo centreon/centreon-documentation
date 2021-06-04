@@ -29,7 +29,7 @@ The Centreon Plugin-Pack *Azure Front Door* includes a Host Discovery *provider*
 subscription and add them to the Centreon configuration.
 This provider is named **Microsoft Azure Front Door**:
 
-![image](../../../assets/networks/plugin-packs/procedures/cloud-azure-network-frontdoor-provider.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-network-frontdoor-provider.png)
 
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
 
