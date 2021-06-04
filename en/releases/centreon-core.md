@@ -296,6 +296,18 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.5
+
+`June 4, 2021`
+
+> This version requires Centreon Clib version to be 20.10.2 or higher.
+> This version requires Centreon-Connector version to be 20.10.1 or higher.
+
+#### Bugfixes
+
+- Engine cpu usage increased to 100% when `check_period` is set to `none`
+- Engine/broker build migrated from Bintray to ConanCenter
+
 ### 20.10.4
 
 `April 29, 2021`
