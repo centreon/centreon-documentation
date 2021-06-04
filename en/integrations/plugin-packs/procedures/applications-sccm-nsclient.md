@@ -46,8 +46,8 @@ hosting the SCCM feature. (Server running the SCCM Admin console)
 The Centreon Poller can connect to the agent using either the NRPE method or the RestAPI method.
 More information on how to achieve the installation and the configuration of the agent can be found in the associated procedure:
 
-* [NRPE](../operatingsystems-windows-nsclient-05-nrpe.html)
-* [RestAPI](../operatingsystems-windows-nsclient-05-restapi.html)
+* [NRPE](operatingsystems-windows-nsclient-05-nrpe.html)
+* [RestAPI](operatingsystems-windows-nsclient-05-restapi.html)
 
 ## Installation
 
