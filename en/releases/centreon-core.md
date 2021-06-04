@@ -81,6 +81,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.2
 
+`June 4, 2021`
+
 > This version requires Centreon Broker, Centreon Clib and Centreon-Connector versions to be 21.04.1 or higher.
 
 #### Bugfixes
