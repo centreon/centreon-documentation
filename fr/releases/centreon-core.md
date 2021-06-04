@@ -144,6 +144,8 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ### 21.04.1
 
+`4 juin 2021`
+
 - Le build d'engine/broker a été migré de Bintray vers ConanCenter.
 
 ### 21.04.0
