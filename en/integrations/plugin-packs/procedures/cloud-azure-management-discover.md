@@ -155,14 +155,24 @@ If necessary, adjust the following settings:
 
 ### Run the discovery job and display results
 
-The next steps (4,5 & 6) of the wizard allow to set the **mappers** and to define the discovery policy. You may want to modify the
-predefined configuration by checking the [module documentation](../../../monitoring/discovery/hosts-discovery.html).
+The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Plugin Pack comes along with predefined **mappers** that
+don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
+[this documentation](../../../monitoring/discovery/hosts-discovery.html#how-to-use-the-mappers) to do so.
 
-A typical discovery job doesn't need these settings to be altered.
+Final steps 5 & 6 will allow you to define a specific policy about the data modeling of the discovered results. Although the default configuration
+is usually enough to proceed, [this documentation](../../../monitoring/discovery/hosts-discovery.html#define-analysis-and-update-policies) 
+will help you to customize it if needed. Coming to step 6, just click on *finish* to launch the discovery job.
 
-Once the discovery job launched and complete, you can display the results by clicking on *job results*. All the available Host Templates
-corresponding to the discovered Azure resources will be automatically set.
-Select the elements you want to add to the Centreon configuration and click on *save*. And... you're done !
+Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates
+corresponding to the discovered Azure resources will be automatically set, like in the example below:
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-results.png)
+
+> Some discovered elements may come up without any predefined Host Template; this is usually due to the following reasons:
+> - These elements are not supposed to be monitored (Azure *technical* assets or dependencies of other assets)
+> - These ressources cannot yet be monitored using the Centreon Plugin Packs
+
+Just select the elements you want to add to the Centreon configuration and click on *save*. And... you're done !
 
 ## Troubleshooting
 
