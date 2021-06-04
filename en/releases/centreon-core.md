@@ -405,6 +405,8 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.5
 
+`June 4, 2021`
+
 #### Security
 
 - Avoid SQL injections with custom variables
