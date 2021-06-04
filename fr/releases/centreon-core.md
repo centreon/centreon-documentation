@@ -635,6 +635,17 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.04.12
+
+`4 juin 2021`
+
+> Cette version nécessite Centreon Clib 20.04.2 ou supérieur.
+> Cette version nécessite Centreon-Connector 20.04.1 ou supérieur.
+
+#### Correctifs
+
+- Engine consomme 100% de CPU quand `check_period` est `none`
+- Le build d'engine/broker a été migré de Bintray vers ConanCenter
 
 ### 20.04.11
 
