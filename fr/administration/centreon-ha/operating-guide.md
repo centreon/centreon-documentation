@@ -5,7 +5,7 @@ title: Guide d'exploitation du cluster
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
-> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-HA/installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
+> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ## Gestion du cluster
 
@@ -209,7 +209,7 @@ Position Status [OK]
 
 > Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
 
-> **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](installation-2-nodes.html), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
+> **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
@@ -263,7 +263,7 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-Pour recréer les ressources, on se référera à cette étape du [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes.html#création-du-groupe-de-ressources-centreon).
+Pour recréer les ressources, on se référera à cette étape du [guide d'installation d'un cluster à 2 nœuds](../../installation/installation-of-centreon-ha/installation-2-nodes.html#création-du-groupe-de-ressources-centreon).
 
 ## Superviser un cluster Centreon-HA
 
