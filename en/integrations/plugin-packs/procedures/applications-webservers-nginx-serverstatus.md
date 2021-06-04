@@ -19,22 +19,22 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 <!--Requests--> 
 
-| Metric name                               | Description                      | Unit 			     |
-| :---------------------------------------- | :------------------------------- | :-----------------  |
-| server.connections.accepted.persecond     | Number of accepted connections   | Connections/second  |
-| server.connections.handled.persecond      | Number of handled connections	   | Connections/second  |
-| server.connections.dropped.count          | Number of dropped connections	   | Count               |
-| server.requests.persecond                 | Number of requests    		   | Requests/second     |
+| Metric name                               | Description                      | Unit 			    |
+| :---------------------------------------- | :------------------------------- | :----------------- |
+| server.connections.accepted.persecond     | Number of accepted connections   | Connections/second |
+| server.connections.handled.persecond      | Number of handled connections	   | Connections/second |
+| server.connections.dropped.count          | Number of dropped connections	   | Count              |
+| server.requests.persecond                 | Number of requests    		   | Requests/second    |
 
 
 <!--Connections-->
 
-| Metric name                           | Description                           | Unit |
-| :---------------------------------    | :------------------------------------ | :--- |
-| server.connections.active.count       |  The number of active connections     | Count|
-| server.connections.waiting.count      |  The number of waiting connections    | Count|
-| server.connections.writing.count      |  The number of writing connections    | Count|
-| server.connections.reading.count      |  The number of reading connections    | Count|
+| Metric name                        | Description                           | Unit |
+| :--------------------------------- | :------------------------------------ | :--- |
+| server.connections.active.count    |  The number of active connections     | Count|
+| server.connections.waiting.count   |  The number of waiting connections    | Count|
+| server.connections.writing.count   |  The number of writing connections    | Count|
+| server.connections.reading.count   |  The number of reading connections    | Count|
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -61,7 +61,7 @@ bracket:
         ...
     }
 
-Make sure you are allowing pollers to access this URL.
+Make sure you are allowing Pollers to access this URL.
 
 You can check the validity of your configuration using:
 
@@ -90,7 +90,7 @@ You can now check the result by accessing the URL
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--Offline IMP License-->
 
@@ -106,7 +106,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 
-3. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Nginx Server* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -115,20 +115,19 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the *App-Webserver-Nginx-ServerStatus-custom* template and configure all the mandatory Macros :
 
-| Mandatory | Name         			   | Description                                                                        |
-|:----------|:------------------------ |:-----------------------------------------------------------------------------------|
-| X         | NGINXPORT                | Port used by Apache. Default is 80                                                 |
-| X         | NGINXPROTOCOL			   | Protocol used. Default is http				                                        |
-|           | NGINXSTATUSEXTRAOPTIONS  | Any extra option you may want to add to the command (eg. a --verbose flag)         |
+| Mandatory | Name         			   | Description                                                                 |
+| :-------- | :----------------------- | :-------------------------------------------------------------------------- |
+|    X      | NGINXPORT                | Port used by Apache. Default is 80                                          |
+|    X      | NGINXPROTOCOL			   | Protocol used. Default is http				                                 |
+|           | NGINXSTATUSEXTRAOPTIONS  | Any extra option you may want to add to the command (eg. a --verbose flag)  |
 
 By default ```NGINXSTATUSEXTRAOPTIONS``` contains : ```--http-backend=curl --curl-opt="CURLOPT_SSL_VERIFYPEER => 0"``` options to use the *curl* backend and to ignore the validity's check of the SSL certificate.
 
-## How to test my plugin and what do the main parameters stand for ?
+## How to test my Plugin and what do the main parameters stand for ?
 
-Once the plugin is installed, you can test it logging into the CLI with the centreon-engine user.
+Once the Plugin is installed, you can test it logging into the CLI with the centreon-engine user.
 
 ```bash
-
 /usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
 	--plugin=apps::nginx::serverstatus::plugin \
 	--mode=requests \
@@ -170,7 +169,7 @@ All available options for a given mode can be displayed by adding the ``` --help
 	--help
 ```
 
-All plugin modes can be listed with the following command:
+All Plugin modes can be listed with the following command:
 
 ```bash
 usr/lib/centreon/plugins//centreon_nginx_serverstatus.pl \
@@ -192,6 +191,6 @@ yum install perl-Net-Curl
 
 #### ```UNKNOWN: curl perform error : Couldn't connect to server```
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Nginx Server.
+This error message means that the Centreon Plugin couldn't successfully connect to the URL of the Nginx Server.
 Check that no third party device (such as a firewall) is blocking the request.
 A proxy connection may also be necessary to connect to the server. This can be done by using the ```--proxyurl``` option in the command.
