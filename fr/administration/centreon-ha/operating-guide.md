@@ -5,7 +5,7 @@ title: Guide d'exploitation du cluster
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
-> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
+> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-HA/installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ## Gestion du cluster
 
@@ -271,7 +271,7 @@ Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Lin
 
 ### Indicateurs systèmes et processus
 
-La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../plugin-packs/procedures/operatingsystems-linux-snmp.html)
+La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html)
 
 * Métriques systèmes
     * LOAD Average
@@ -287,8 +287,8 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision applicative
 
-* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../plugin-packs/procedures/applications-protocol-http.html)
-* Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../plugin-packs/procedures/applications-databases-mysql.html) :
+* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../../integrations/plugin-packs/procedures/applications-protocol-http.html)
+* Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../../integrations/plugin-packs/procedures/applications-databases-mysql.html) :
     * Contrôle de connexion au serveur MariaDB
     * Les buffers et caches MariaDB/InnoDB
     * L’usage des index
@@ -296,7 +296,7 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision du cluster
 
-Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [plugin pack Pacemaker](../plugin-packs/procedures/applications-pacemaker-ssh.html) :
+Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [plugin pack Pacemaker](../../integrations/plugin-packs/procedures/applications-pacemaker-ssh.html) :
 
 * Contraintes sur les ressources : uniquement sur la ressource `ms_mysql` et le groupe `centreon`
 * Failed actions

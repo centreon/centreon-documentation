@@ -46,8 +46,8 @@ Pour ce faire, l'agent *centreon-nsclient* doit être installé et configuré su
 Vous pouvez utiliser au choix les méthodes de connexion NRPE & RestAPI depuis le Collecteur Centreon pour interroger l'agent.
 Rendez-vous sur la documentation associée pour plus d'informations sur l'agent et ses différentes méthodes de connexion:
 
-* [NRPE](../operatingsystems-windows-nsclient-05-nrpe.html)
-* [RestAPI](../operatingsystems-windows-nsclient-05-restapi.html)
+* [NRPE](operatingsystems-windows-nsclient-05-nrpe.html)
+* [RestAPI](operatingsystems-windows-nsclient-05-restapi.html)
 
 ## Installation
 

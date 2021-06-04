@@ -187,7 +187,7 @@ Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
     champ **Notification Type**.
 
 Cliquez sur **Save** et [déployer la
-supervision](./monitoring-servers/deploying-a-configuration).
+supervision](./monitoring-servers/deploying-a-configuration.html).
 
 ### Utiliser l'assistant de création
 

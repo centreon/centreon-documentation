@@ -17,7 +17,7 @@ Le Plugin-Pack Google Compute Engine collecte les données pour:
 Le Plugin-Pack Centreon *Google Compute Engine* inclut un *provider* de découverte d'Hôtes.
 Celui-ci permet de découvrir l'ensemble des instances de calculs rattachées à un projet GCP donné:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-gcp-computeengine-provider.png)
 
 > Le fichier *key* doit être déployé sur les Collecteurs utilisés pour la découverte en amont de son execution (voir chapitre Prérequis)
 

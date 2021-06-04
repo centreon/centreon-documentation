@@ -120,7 +120,6 @@
             "monitoring/web-import-export"
         ],
         "Alerts & Notifications": [
-            "alerts-notifications/introduction",
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",

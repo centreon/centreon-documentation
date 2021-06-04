@@ -1,5 +1,5 @@
 ---
-id: applications-cisco-dnac-api
+id: applications-cisco-dnac-restapi
 title: Cisco DNA Center Rest API
 ---
 
