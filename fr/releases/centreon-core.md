@@ -647,6 +647,17 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone
 
+### 20.10.4
+
+### Bugfixes
+
+- [anomaly] Le host id était null dans les filtres de detection.
+
+### Enhancements
+
+- ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
+- ajout de la dépendance pour perl-Libssh-Session-0.8
+
 ### 20.10.3
 
 `4 mars 2021`
