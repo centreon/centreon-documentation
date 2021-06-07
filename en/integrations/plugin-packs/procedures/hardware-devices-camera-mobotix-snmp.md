@@ -85,7 +85,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mobotix Camera* Plugin Pack
+3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
