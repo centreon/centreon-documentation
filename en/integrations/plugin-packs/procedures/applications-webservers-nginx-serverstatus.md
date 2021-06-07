@@ -22,18 +22,18 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 | Metric name                               | Description                    | Unit               |
 | :---------------------------------------- | :----------------------------- | :----------------- |
 | server.connections.accepted.persecond     | Number of accepted connections | Connections/second |
-| server.connections.handled.persecond      | Number of handled connections	 | Connections/second |
-| server.connections.dropped.count          | Number of dropped connections	 | Count              |
+| server.connections.handled.persecond      | Number of handled connections  | Connections/second |
+| server.connections.dropped.count          | Number of dropped connections  | Count              |
 | server.requests.persecond                 | Number of requests             | Requests/second    |
 
 <!--Connections-->
 
-| Metric name                        | Description                           | Unit  |
-| :--------------------------------- | :------------------------------------ | :---- |
-| server.connections.active.count    |  The number of active connections     | Count |
-| server.connections.waiting.count   |  The number of waiting connections    | Count |
-| server.connections.writing.count   |  The number of writing connections    | Count |
-| server.connections.reading.count   |  The number of reading connections    | Count |
+| Metric name                        | Description                       | Unit  |
+| :--------------------------------- | :-------------------------------- | :---- |
+| server.connections.active.count    | The number of active connections  | Count |
+| server.connections.waiting.count   | The number of waiting connections | Count |
+| server.connections.writing.count   | The number of writing connections | Count |
+| server.connections.reading.count   | The number of reading connections | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -114,7 +114,7 @@ yum install centreon-pack-applications-webservers-nginx-serverstatus
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the *App-Webserver-Nginx-ServerStatus-custom* template and configure all the mandatory Macros :
 
-| Mandatory | Name         	          | Description                                                                |
+| Mandatory | Name                    | Description                                                                |
 | :-------- | :---------------------- | :------------------------------------------------------------------------- |
 |    X      | NGINXPORT               | Port used by Apache. Default is 80                                         |
 |    X      | NGINXPROTOCOL           | Protocol used. Default is http                                             |
