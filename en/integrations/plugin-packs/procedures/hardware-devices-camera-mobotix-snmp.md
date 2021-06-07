@@ -55,7 +55,9 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 ## Prerequisites
 
-To control your Mobotix, the SNMP must be configured.
+To monitor your Mobotix, the SNMP must be configured.
+
+The Poller should be able to perform requests against the Mobotix device over SNMP UDP/161 port. 
 
 ## Setup
 
