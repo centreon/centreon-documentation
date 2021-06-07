@@ -156,9 +156,7 @@ fonctionnera pas si vous ne l’exécutez pas.
         su - centreon
         ```
 
-
     2. Entrez la commande suivante :
-
 
         ```shell
         /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
