@@ -89,45 +89,63 @@ The host machine must have the following characteristics:
         
         Use the following command: 
         
-        ```timedatectl set-timezone your_timezone```
+        ```shell
+        timedatectl set-timezone your_timezone
+        ```
         
         For example, to set the timezone to Europe/London, type:
         
-        ```timedatectl set-timezone Europe/London```
+        ```shell
+        timedatectl set-timezone Europe/London
+        ```
 
         You can get a list of all available timezones using this command: 
         
-        ```timedatectl list-timezones```
+        ```shell
+        timedatectl list-timezones
+        ```
 
     - The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
         
-            ```/etc/opt/rh/rh-php73/php.d/50-centreon.ini```
+            ```shell
+            /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+            ```
         
         2. In `date.timezone`, define the timezone you want.
         
         3. Restart the php server: 
         
-            ```systemctl restart rh-php73-php-fpm```
+            ```shell
+            systemctl restart rh-php73-php-fpm
+            ```
 
     - The hostname of your server. The default name is `centreon-central`. To change it, use the following command: 
     
-        ```hostnamectl set-hostname your_hostname```
+        ```shell
+        hostnamectl set-hostname your_hostname
+        ```
     
         For example, if you want your machine to be called `supervision`, type:
         
-        ```hostnamectl set-hostname supervision```
+        ```shell
+        hostnamectl set-hostname supervision
+        ```
 
 5. Add a MySQL table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
 
     1. Connect as user ``centreon``: 
     
-        ```su - centreon```
+        ```shell
+        su - centreon
+        ```
 
     2. Type the following command: 
 
-        ```/opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php```
+        ```shell
+        /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
+        ```
 
         The partition is created:
 
@@ -135,13 +153,17 @@ The host machine must have the following characteristics:
 
     3. Restart the Centreon broker process so that changes are taken into account: 
     
-        ``systemctl restart cbd centengine gorgoned``
+        ```shell
+        systemctl restart cbd centengine gorgoned
+        ```
 
         Your Centreon server is now ready to use. 
 
         >Once those operations have been carried out, you can get rid of the message that describes them in the terminal. To do so, delete the following file:
         >
-        >``/etc/profile.d/centreon.sh``
+        >```shell
+        /etc/profile.d/centreon.sh
+        ```
     
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
