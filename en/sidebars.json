@@ -442,6 +442,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-discover",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-database-mysql",                  
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
