@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.2
 
+`7 juin 2021`
+
 #### Correctifs
 
 - [APIv1] Cannot send external commands anymore
