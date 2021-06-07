@@ -595,6 +595,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-vcs-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-voice-gateway-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-waas-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-wap-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-wlc-snmp",
                     "integrations/plugin-packs/procedures/network-citrix-appacceleration-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-netscaler-snmp",
