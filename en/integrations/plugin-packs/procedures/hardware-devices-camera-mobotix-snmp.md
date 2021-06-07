@@ -69,7 +69,7 @@ To control your Mobotix, the SNMP must be configured.
 yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Mobotix Camera* Plugin Pack
+2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Mobotix Camera* Plugin Pack
 
 <!--Offline IMP License-->
 
