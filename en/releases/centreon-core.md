@@ -184,7 +184,7 @@ old logs system.
 
 #### Bugfixes
 
-- [anomaly] Host ID was null in detection filters
+- [Anomaly] Host ID was null in detection filters
 
 ### 21.04.0
 
