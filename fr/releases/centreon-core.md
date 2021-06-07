@@ -1332,7 +1332,7 @@ This patch fixes that.
 
 - [anomaly] Le host id était null dans les filtres de detection.
 
-### Améliorations
+#### Améliorations
 
 - ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
 - ajout de la dépendance pour perl-Libssh-Session-0.8
