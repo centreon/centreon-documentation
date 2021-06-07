@@ -34,13 +34,13 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Unable to replace 127.0.0.1 by real IP in poller form when already saved in platform_topology
 - [Core] Avoid 404 redirection
 - [Install] Cannot update when you have no metaservices
-- [Install] Cannot update when you have no metaservices
 - [LDAP] Adding new user from LDAP results in Request Entity Too Large error
 - [Purge] Script can't drop several partitions
 - [Reporting] Dashboard can't display reporting for service (query too long)
 - [Resources Status] "Filter by Host" filter is not emptied between searches
 - [Resources Status] Action ACL not working
 - [Resources Status] Apply ACL in command line block
+- [Resources Status]  Increase font size of Timestamp in graph
 
 #### Security fixes
 
