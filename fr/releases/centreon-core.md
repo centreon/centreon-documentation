@@ -181,6 +181,12 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ## Centreon Gorgone
 
+### 21.04.1
+
+#### Correctifs
+
+- [anomaly] Le host id était null dans les filtres de detection.
+
 ### 21.04.0
 
 - [Core] Better congestion management for communication
