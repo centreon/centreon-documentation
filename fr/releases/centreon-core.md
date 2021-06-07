@@ -185,7 +185,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 #### Correctifs
 
-- [anomaly] Le host id était null dans les filtres de detection.
+- [anomaly] Le host ID était null dans les filtres de détection.
 
 ### 21.04.0
 
