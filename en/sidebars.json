@@ -4,7 +4,11 @@
             "getting-started/installation-first-steps",
             {
                 "ids": [
-                    "getting-started/introduction-tutorials",
+                    "getting-started/installation-first-steps",
+                    "getting-started/which-install",
+                    "getting-started/IT100",
+                    "getting-started/interface",
+                    "getting-started/first-supervision",
                     "getting-started/create-custom-view",
                     "getting-started/create-graphical-view",
                     "getting-started/model-it-services",

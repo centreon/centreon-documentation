@@ -1,15 +1,15 @@
 ---
 id: interface
-title: Découvrir l'interface Centreon
+title: Découvrir l'interface web Centreon
 ---
 
 ## Première connexion à l'interface
 
-Pour se connecter à l'interface se rendre à l'adresse : `http://ADRESSE_IP/centreon`.
+Pour vous connecter à l'interface web, rendez-vous à l'adresse : `http://ADRESSE_IP/centreon`.
 
-> Remplacer **ADRESSE_IP** par l'adresse IP ou le FQDN du serveur web Centreon.
+> Remplacez **ADRESSE_IP** par l'adresse IP ou le FQDN du serveur web Centreon.
 
-Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bouton **Connect** :
+Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Connect** :
 
 ![image](../assets/getting-started/aconnection.png)
 
@@ -37,11 +37,11 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 ## Langue de l'interface utilisateur
 
-Dans le bandeau, cliquez sur l'icône profile, puis cliquez sur **Edit profile**:
+Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Edit profile**:
 
 ![image](../assets/getting-started/change_language_1.png)
 
-Dans la liste de sélection des langages, sélectionnez le vôtre :
+Dans la liste de sélection des langues, sélectionnez la vôtre :
 
 ![image](../assets/getting-started/change_language_2.png)
 
@@ -49,4 +49,4 @@ Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [How to translate menu](../developer/developer-translate-centreon.html) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon.html) pour plus d'informations.
