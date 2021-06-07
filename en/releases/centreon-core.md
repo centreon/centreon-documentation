@@ -649,7 +649,7 @@ with the –pool\_size X argument or -s X.
 
 - [anomaly] Host ID was null in detection filters
 
-### Enhancements
+#### Enhancements
 
 - add logging option to better handle logging that could cause SQLite database to grow too large
 - added dependency for perl-Libssh-Session-0.8
