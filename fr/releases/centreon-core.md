@@ -1328,9 +1328,14 @@ This patch fixes that.
 
 ### 20.04.11
 
-#### Bugfixes
+#### Correctifs
 
 - [anomaly] Le host id était null dans les filtres de detection.
+
+### Améliorations
+
+- ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
+- ajout de la dépendance pour perl-Libssh-Session-0.8
 
 ### 20.04.10
 

@@ -1330,6 +1330,11 @@ This patch fixes that.
 
 - [anomaly] Host id was null in detection filters
 
+### Enhancements
+
+- add logging option to better handle logging that could cause SQLite database to grow too large
+- added dependency for perl-Libssh-Session-0.8
+
 ### 20.04.10
 
 `March 4, 2021`
