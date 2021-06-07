@@ -11,7 +11,7 @@ interface.
 ## Prerequisites
 
 First of all you need a Centreon server installed and ready to use. Please see
-the documentation [to install a Centreon server](../installation/centreon-from-iso.html).
+the documentation [to install a Centreon server](../installation/installation-of-a-central-server/using-centreon-iso.html).
 
 ## Installation
 

@@ -180,3 +180,4 @@ The host machine must have the following characteristics:
 - The root password of the DBMS is not initialized.
 
 > For security reasons, we highly recommend you to change those passwords after the installation completed.
+

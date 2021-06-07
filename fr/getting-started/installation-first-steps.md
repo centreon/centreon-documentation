@@ -15,7 +15,7 @@ plusieurs sections afin d'installer & utiliser rapidement Centreon suivis de que
 * [Ajouter son jeton Centreon IT Edition](#ajouter-son-jeton-centreon-it-edition)
 * [Principe de base de la supervision](#principe-de-base-de-la-supervision)
 * [Superviser votre premier hôte](#superviser-votre-premier-hôte)
-* [Deployer la configuration](#deployer-la-configuration)
+* [Déployer la configuration](#déployer-une-configuration)
 * [Tutoriels pour profiter de votre supervision](introduction-tutorials.html)
 
 ## Installation rapide
@@ -115,7 +115,7 @@ Il est maintenant temps de passer au chapitre suivant pour installer votre plate
 
 ## Première connexion à l'interface
 
-Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/centreon
+Pour se connecter à l'interface se rendre à l'adresse : `http://IP_ADDRESS/centreon`
 
 > Remplacer **IP_ADDRESS** par l'adresse IP ou FQDN du serveur web Centreon.
 

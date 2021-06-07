@@ -160,7 +160,7 @@ audit2allow -a
 Then execute the proposed rules.
 
 If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#enable-selinux-in-permissive-mode) using **enforcing** mode.
+following this [procedure](#activate-selinux-in-permissive-mode) using **enforcing** mode.
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
@@ -288,11 +288,11 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Securing the Apache web server
+## Enable HTTPS on the web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat).
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-self-signed-certificat).
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
@@ -715,7 +715,7 @@ To use http2, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 
@@ -750,7 +750,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configure https on Centreon](./secure-platform.html#securing-the-apache-web-server)
+1. [Configure https on Centreon](./secure-platform.html#enable-https-on-the-web-server)
 
 2. Install nghttp2 module:
 

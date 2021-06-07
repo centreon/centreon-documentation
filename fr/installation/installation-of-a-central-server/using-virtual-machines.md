@@ -142,6 +142,7 @@ changer, utilisez la commande suivante :
   Par exemple, si vous voulez renommer la machine `supervision`,
 entrez:
 
+
   ```shell
   hostnamectl set-hostname supervision
   ```
@@ -155,7 +156,9 @@ fonctionnera pas si vous ne l’exécutez pas.
         su - centreon
         ```
 
+
     2. Entrez la commande suivante :
+
 
         ```shell
         /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
@@ -189,6 +192,7 @@ de définir un mot de passe pour la base MySQL.
 9. Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
 pour mettre en place votre première supervision.
 
+
 ## Identifiants par défaut
 
 - Pour vous connecter à l'interface Web Centreon, l'identifiant par défaut est : `admin`/`centreon`.
@@ -196,3 +200,4 @@ pour mettre en place votre première supervision.
 - Le mot de passe root du SGBD n'est pas initialisé.
 
 > Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
+

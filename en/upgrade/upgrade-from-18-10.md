@@ -7,7 +7,7 @@ This chapter describes how to upgrade your Centreon platform from version 18.10
 to version 21.04.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+> you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
 
 ## Perform a backup
 
@@ -125,7 +125,7 @@ systemctl start httpd24-httpd
 If you had a custom Apache configuration, upgrade process through RPM did not update it.
 
 > If you use https, you can follow
-> [this procedure](../administration/secure-platform.html#securing-the-apache-web-server)
+> [this procedure](../administration/secure-platform.html#enable-https-on-the-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
