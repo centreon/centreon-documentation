@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.8
 
+`7 Juin 2021`
+
 #### Correctifs
 
 - [APIv1] Cannot send external commands anymore
