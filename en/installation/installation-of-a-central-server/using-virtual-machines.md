@@ -161,9 +161,7 @@ The host machine must have the following characteristics:
 
         >Once those operations have been carried out, you can get rid of the message that describes them in the terminal. To do so, delete the following file:
         >
-        >```shell
-        /etc/profile.d/centreon.sh
-        ```
+        >`/etc/profile.d/centreon.sh`
     
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
