@@ -39,4 +39,4 @@ Click on the *Save* button.
 After that, you can add service linked with template
 *App-Protocol-Modbus-Numeric-Value-Generic*. To fill the macro *CONFIG*, read
 [Modbus
-config](https://github.com/centreon/centreon-plugins/blob/master/docs/en/user/guide.rst #modbus-protocol)
+config](https://github.com/centreon/centreon-plugins/blob/master/doc/en/user/guide.rst#modbus-protocol)
