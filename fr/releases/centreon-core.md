@@ -655,7 +655,7 @@ with the –pool\_size X argument or -s X.
 
 #### Améliorations
 
-- ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
+- Ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
 - ajout de la dépendance pour perl-Libssh-Session-0.8
 
 ### 20.10.3
