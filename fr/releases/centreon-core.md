@@ -1330,7 +1330,7 @@ This patch fixes that.
 
 #### Correctifs
 
-- [anomaly] Le host id était null dans les filtres de detection.
+- [anomaly] Le host ID était null dans les filtres de détection.
 
 #### Améliorations
 
