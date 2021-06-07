@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.8
 
+`June 7, 2021`
+
 #### Bugfixes
 
 - [APIv1] Cannot send external commands anymore
