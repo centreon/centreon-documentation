@@ -651,7 +651,7 @@ with the –pool\_size X argument or -s X.
 
 #### Correctifs
 
-- [anomaly] Le host id était null dans les filtres de detection.
+- [anomaly] Le host ID était null dans les filtres de détection.
 
 ### Enhancements
 
