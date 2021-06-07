@@ -1326,6 +1326,12 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
+### 20.04.11
+
+#### Bugfixes
+
+- [anomaly] Le host id était null dans les filtres de detection.
+
 ### 20.04.10
 
 `4 mars 2021`
