@@ -33,11 +33,7 @@ procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/w
 
 Warning: If you use Netbackup on Windows, add options `--statefile-concat-cwd
 --statefile-dir="scripts/centreon/tmp"` in macro `EXTRAOPTIONS` of service
-`App-Netbackup-Job-Status-NRPE-Custom` Powershell and
-`Microsoft.Exchange.Management.PowerShell.E2010` snap-in have to be installed on
-Exchange Server
-
-Warning: Set service macro `MAILBOX` with the following syntax: DOMAIN\\username
+`App-Netbackup-Job-Status-NRPE-Custom`
 
 Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 
