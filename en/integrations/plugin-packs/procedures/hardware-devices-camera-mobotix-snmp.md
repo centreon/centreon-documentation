@@ -102,7 +102,7 @@ yum install centreon-pack-hardware-devices-camera-mobotix-snmp
 
 ## How to test the Plugin and what are the main options for?
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
+Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
 and test the Plugin by running the following command:
 
 ```bash
