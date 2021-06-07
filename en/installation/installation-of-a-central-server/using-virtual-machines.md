@@ -135,7 +135,7 @@ The host machine must have the following characteristics:
 
 5. Add a MySQL table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
 
-    1. Connect as user ``centreon``: 
+    1. Connect as user `centreon`: 
     
         ```shell
         su - centreon
