@@ -1328,7 +1328,7 @@ This patch fixes that.
 
 #### Bugfixes
 
-- [anomaly] Host id was null in detection filters
+- [anomaly] Host ID was null in detection filters
 
 ### Enhancements
 
