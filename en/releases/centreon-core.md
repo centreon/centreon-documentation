@@ -1332,7 +1332,7 @@ This patch fixes that.
 
 #### Enhancements
 
-- add logging option to better handle logging that could cause SQLite database to grow too large
+- Add logging option to better handle logs that could cause SQLite database to grow too large
 - Added dependency for perl-Libssh-Session-0.8
 
 ### 20.04.10
