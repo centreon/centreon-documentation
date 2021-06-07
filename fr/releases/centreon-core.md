@@ -1335,7 +1335,7 @@ This patch fixes that.
 #### Améliorations
 
 - Ajout d'une option de journalisation pour éviter une taille trop grande de la base SQLite
-- ajout de la dépendance pour perl-Libssh-Session-0.8
+- Ajout de la dépendance pour perl-Libssh-Session-0.8
 
 ### 20.04.10
 
