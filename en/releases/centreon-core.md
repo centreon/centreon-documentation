@@ -647,7 +647,7 @@ with the –pool\_size X argument or -s X.
 
 #### Bugfixes
 
-- [anomaly] Host id was null in detection filters
+- [anomaly] Host ID was null in detection filters
 
 ### Enhancements
 
