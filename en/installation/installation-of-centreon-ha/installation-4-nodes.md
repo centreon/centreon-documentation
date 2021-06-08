@@ -12,7 +12,7 @@ and of Pacemaker clustering tools in order to have a proper understanding of wha
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../../architectures.html#tables-of-network-flows),
+In addition of necessary flows describe on the [official documentation](../architectures.html#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                           | Destination                    | Protocol | Port     | Application                                                                                |
