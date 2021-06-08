@@ -448,12 +448,14 @@
                     "integrations/plugin-packs/procedures/cloud-azure-devtools-appconfiguration",
                     "integrations/plugin-packs/procedures/cloud-azure-management-apimanagement",
                     "integrations/plugin-packs/procedures/cloud-azure-network-appgateway",
-                    "integrations/plugin-packs/procedures/cloud-azure-management-appplicationinsights",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights",
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-discover",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-mysql",                  
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
                     "integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs",
                     "integrations/plugin-packs/procedures/cloud-azure-network-expressroute",
@@ -471,7 +473,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-integration-servicebus",
                     "integrations/plugin-packs/procedures/cloud-azure-web-signalr",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase",
-                    "integrations/plugin-packs/procedures/cloud-azure-database-sqldmanagedinstance",
+                    "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
@@ -537,6 +539,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-fujitsu-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-camera-mobotix-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-timelinkmicro-tms6001-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-hp-blade-chassis-snmp",
@@ -605,6 +608,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-vcs-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-voice-gateway-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-waas-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-wap-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-wlc-snmp",
                     "integrations/plugin-packs/procedures/network-citrix-appacceleration-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-netscaler-snmp",
@@ -999,6 +1003,10 @@
                 "type": "subcategory"
             }
         ],
+        "Security" : [
+            "security/security"
+        ],
+
         "Resources": [
             "resources/known-issues"
         ]

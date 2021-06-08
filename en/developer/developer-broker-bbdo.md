@@ -119,20 +119,6 @@ event ID.
 | index mapping   | 5
 | metric mapping  | 6
 
-### Correlation
-
-The table below lists event types available in the Correlation category.
-They have to be mixed with the BBDO_CORRELATION_TYPE category to get a
-BBDO event ID.
-
-| Type          | Value
-|---------------|------
-| engine_state  | 1
-| issue         | 2
-| issue_parent  | 3
-| state         | 4
-| log issue     | 5
-
 ### BBDO
 
 The table below lists event types available in the BBDO category.

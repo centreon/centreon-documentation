@@ -85,7 +85,7 @@ Vous pouvez maintenant continuer vers la première section de connexion.
 
 ## Première connexion à l'interface
 
-Pour se connecter à l'interface se rendre à l'adresse : http://IP_ADDRESS/centreon
+Pour se connecter à l'interface se rendre à l'adresse : `http://IP_ADDRESS/centreon`
 
 > Remplacer **IP_ADDRESS** par l'adresse IP ou FQDN du serveur web Centreon.
 
@@ -95,12 +95,12 @@ Renseigner le nom d'utilisateur et le mot de passe associé et cliquer sur le bo
 
 Vous êtes maintenant connecté à l'interface web Centreon.
 
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../../administration/secure-platform.html).
+
 ## Premiers pas
 
 Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
 pour mettre en place votre première supervision.
-
-## Sécurisez votre plateforme
-
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform.html)

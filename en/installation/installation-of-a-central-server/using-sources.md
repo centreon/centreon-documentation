@@ -13,10 +13,18 @@ To install Centreon you will need to enable the official PowerTools repository.
 
 Enable the PowerTools repository using these commands:
 
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
+- For Centos 8.2:
+
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
+
+- For CentOS 8.3 and CentOS Stream:
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
@@ -138,7 +146,7 @@ Then execute:
 <!--Oracle Linux 8-->
 To install Centreon you will need to enable the official Oracle CodeReady Builder repository supported by Oracle.
 
-Enable the PowerTools repository using these commands:
+Enable the CodeReady Builder repository using these commands:
 
 ```shell
 dnf -y install dnf-plugins-core oracle-epel-release-el8

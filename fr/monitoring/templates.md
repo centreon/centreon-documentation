@@ -116,7 +116,7 @@ Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
 L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 
-  - Load, CPU, Memoiry, disk-/ à partir des modèles de services issus du modèle
+  - Load, CPU, Memory, disk-/ à partir des modèles de services issus du modèle
     d’hôte “Linux-Server-RedHat-5”
   - broken-jobs, hit-ratio, tablespaces, listener à partir des modèles de
     services issus du modèle d’hôte “DB-MySQL”

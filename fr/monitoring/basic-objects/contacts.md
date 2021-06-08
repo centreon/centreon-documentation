@@ -9,7 +9,7 @@ Les contacts au sein de Centreon sont utilisés afin de :
 
 * Pouvoir se connecter à l’interface web de Centreon : chaque contact dispose de ses propres droits afin de se
   connecter à l’interface web.
-* Etre alerté en cas de nécessité (notification).
+* Être alerté en cas de nécessité (notification).
 
 Afin d’ajouter un contact, il suffit de se rendre dans le menu **Configuration > Users > Add**.
 
@@ -44,7 +44,7 @@ Pour afficher la matrice de notification d’un contact, cliquez sur **View cont
   besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
 
 ```url
-http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
+http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_user]&token=[value_autologin]
 ```
 
 > La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
