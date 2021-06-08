@@ -357,7 +357,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Accept: application/json" \
   --header "Content-Type: application/json" \
   --data '{
-    "filters_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
+    "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
     "dry_run": 1
 }'
 ```
@@ -369,7 +369,7 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Accept: application/json" \
   --header "Content-Type: application/json" \
   --data '{
-    "filters_hosts": ["centreon-server"],
+    "filter_hosts": ["centreon-server"],
     "dry_run": 1
 }'
 ```
@@ -381,8 +381,8 @@ curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" 
   --header "Accept: application/json" \
   --header "Content-Type: application/json" \
   --data '{
-    "filters_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
-    "filters_hosts": ["centreon-server"],
+    "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
+    "filter_hosts": ["centreon-server"],
     "dry_run": 1
 }'
 ```
