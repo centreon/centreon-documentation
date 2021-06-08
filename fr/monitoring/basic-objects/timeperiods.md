@@ -5,7 +5,7 @@ title: Les périodes temporelles
 
 ## Définition
 
-Une période temporelle est la définition d’un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à activer les fonctionnalités de l’ordonnanceur sur une période donnée. Elles permettent de définir :
+Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à activer les fonctionnalités de l’ordonnanceur sur une période donnée. Elles permettent de définir :
 
 * Quand les commandes de vérification seront exécutées
 * Quand des notifications seront envoyées.

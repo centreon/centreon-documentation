@@ -5,7 +5,7 @@ title: Time periods
 
 ## Definition
 
-A time period is the definition of a time interval for each day of the week. These time periods enable the functionalities of the scheduler over a given period of time. They apply to two types of actions:
+A time period defines a time interval for each day of the week. These time periods enable the functionalities of the scheduler over a given period of time. They apply to two types of actions:
 
 * The execution of check commands
 * The sending of notifications.
