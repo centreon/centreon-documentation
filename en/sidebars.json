@@ -980,6 +980,10 @@
                 "type": "subcategory"
             }
         ],
+        "Security" : [
+            "security/security"
+        ],
+
         "Resources": [
             "resources/known-issues"
         ]
