@@ -18,6 +18,12 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.15
+
+#### Correctifs
+
+- [Core] Correction de l'export de configuration
+
 ### 20.04.14
 
 `3 juin 2021`

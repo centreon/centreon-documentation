@@ -19,6 +19,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.15
+
+#### Bugfixes
+
+- [Core] Fixed broken configuration export 
+
 ### 20.04.14
 
 `June 3, 2021`
