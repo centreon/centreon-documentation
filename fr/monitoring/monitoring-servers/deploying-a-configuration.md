@@ -3,44 +3,48 @@ id: deploying-a-configuration
 title: Déployer une configuration
 ---
 
-Lors de la création/suppression/modification des objets via l’interface de
-configuration, les changements effectués ne sont pas appliqués de manière
-automatique aux serveurs de supervision. Afin de pouvoir appliquer les
-modifications effectuées, il est nécessaire de suivre la procédure suivante
-ci-dessous.
+Lorsque vous créez, supprimez ou modifiez des objets via le menu
+**Configuration**, les changements effectués ne sont pas appliqués de manière
+automatique (ni sur le serveur central sur lequel vous avez créé, supprimé ou modifié l'objet, ni sur aucun collecteur ou serveur distant qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
-## Procédure
+Pour des changements apportés à des serveurs distants ou des collecteurs, l'export doit se faire sur le serveur central.
 
-1.  Rendez-vous dans le menu `Configuration > Pollers`
-2.  Choisissez les collecteurs sur lesquels exporter la configuration
+## Exporter la configuration
 
-![image](../../assets/monitoring/monitoring-servers/monitoring-servers-list.png)
+1.  Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre serveur central et de tous les collecteurs et serveurs distants qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**. 
 
-3.  Cliquez sur **Exporter la configuration**
-4.  Cochez les cases **Générer les fichiers de configuration**, **Lancer le
-    débogage du moteur de supervision (-v)**, **Deplacer les fichiers générés**
-    et **Redémarrer l'ordonnanceur**
-5.  Cliquez sur **Exporter**
+2.  Sélectionnez le serveur central, le serveur distant ou le collecteur dont la configuration a changé.
 
-![image](../../assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
 
-> L’option **Commande exécutée post-génération** permet de demander l’exécution
-> de la commande post-génération paramétrée au niveau de la configuration de
-> l’ordonnanceur.
+3.  Cliquez sur **Exporter la configuration**.
 
-## Explications
+4.  Cochez les cases suivantes (voir la section [**Options d'export**](#options-dexport)) :
+    - **Générer les fichiers de configuration**
+    - **Lancer le débogage du moteur de supervision (-v)**
+    - **Déplacer les fichiers générés**
+    - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
+      - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
+      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le serveur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
-Au sein de la page de génération de la configuration, plusieurs options sont
-disponibles :
+5.  Cliquez sur **Exporter**. Un log de l'export s'affiche.
+
+    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
+
+6. Dans le log, vérifiez que l'export a bien fonctionné et qu'aucune erreur n'a été remontée.
+
+## Options d'export
+
+Les différentes options fonctionnent de la manière suivante :
 
   - **Générer les fichiers de configuration** : Génère les fichiers de
     configuration de l’ordonnanceur dans un répertoire temporaire. Cette
-    configuration est générée à partir des objets configurés via l’interface web
+    configuration est générée à partir des objets configurés via l’interface web.
   - **Lancer le débogage du moteur de supervision (-v)** : Permet à
-    l’ordonnanceur de vérifier la configuration générée
+    l’ordonnanceur de vérifier la configuration générée.
   - **Deplacer les fichiers générés** : Déplace les fichiers de configuration du
-    répertoire temporaire vers le répertoire de l’ordonnanceur
+    répertoire temporaire vers le répertoire de l’ordonnanceur.
   - **Redémarrer l'ordonnanceur** : Redémarre l’ordonnanceur afin d’appliquer
-    les nouveaux fichiers de configuration
+    les nouveaux fichiers de configuration.
   - **Commande exécutée post-génération** : Exécute la commande post-génération
-    paramétrée au niveau de la configuration de l’ordonnanceur
+    paramétrée au niveau de la configuration de l’ordonnanceur.
