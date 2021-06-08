@@ -94,13 +94,6 @@ Ces options peuvent être modifiées dans le fichier **/etc/sysconfig/snmptrapd*
 OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 ```
 
-Il est également possible de placer le dossier tampon snmptrapd en mémoire vive. Pour cela, ajoutez la ligne suivante
-dans le fichier **/etc/fstab** :
-
-```shell
-tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
-```
-
 ### centreontrapdforward
 
 Pour modifier le dossier tampon vers lequel les informations seront écrites, modifiez le fichier de configuration
