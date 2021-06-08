@@ -21,15 +21,15 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 
 <!--Audit-Logs-->
 
-| Metric name                  | Description                                | Unit |
-| :--------------------------- | :----------------------------------------- | :--- |
-| audit.total.count            | Number of audit logs                       | Count|
-| audit.cleared.count          | Number of cleared audit logs               | Count|                          
-| audit.info.count             | Number of info audit logs                  | Count|                      
-| audit.condition.count        | Number of condition audit logs             | Count|                             
-| audit.warning.count          | Number of warning audit logs               | Count|                            
-| audit.minor.count            | Number of minor audit logs                 | Count|                          
-| audit.critical.count         | Number of critical audit logs              | Count|                             
+| Metric name                  | Description                                | Unit  |
+| :--------------------------- | :----------------------------------------- | :---- |
+| audit.total.count            | Number of audit logs                       | count |
+| audit.cleared.count          | Number of cleared audit logs               | count |                          
+| audit.info.count             | Number of info audit logs                  | count |                      
+| audit.condition.count        | Number of condition audit logs             | count |                             
+| audit.warning.count          | Number of warning audit logs               | count |                            
+| audit.minor.count            | Number of minor audit logs                 | count |                          
+| audit.critical.count         | Number of critical audit logs              | count |                             
 
 <!--Equipment-->
 
@@ -39,31 +39,31 @@ The Centreon Plugin Pack *Cisco UCS* relies on the SNMP protocol to query and co
 
 <!--Faults-->
 
-| Metric name                   | Description                                | Unit |
-| :---------------------------- | :----------------------------------------- | :--- |
-| faults.problems.current.count | Number of current faults                   |Count |
-| faults.total.count            | Number of faults                           |Count |
-| faults.cleared.count          | Number of cleared faults                   |Count |
-| faults.info.count             | Number of info faults                      |Count |
-| faults.condition.count        | Number of conditions faults                |Count |
-| faults.warning.count          | Number of warning faults                   |Count |
-| faults.minor.count            | Number of minor faults                     |Count |
-| faults.major.count            | Number of major faults                     |Count |
-| faults.critical.count         | Number of critical faults                  |Count |
+| Metric name                   | Description                                | Unit  |
+| :---------------------------- | :----------------------------------------- | :---- |
+| faults.problems.current.count | Number of current faults                   | count |
+| faults.total.count            | Number of faults                           | count |
+| faults.cleared.count          | Number of cleared faults                   | count |
+| faults.info.count             | Number of info faults                      | count |
+| faults.condition.count        | Number of conditions faults                | count |
+| faults.warning.count          | Number of warning faults                   | count |
+| faults.minor.count            | Number of minor faults                     | count |
+| faults.major.count            | Number of major faults                     | count |
+| faults.critical.count         | Number of critical faults                  | count |
 
 <!--Mgmt-Entities-->
 
-| Metric name                     | Description                                | Unit |
-| :------------------------------ | :----------------------------------------- | :--- |
-| management_entities.total.count | Number of management entities              |count |
+| Metric name                     | Description                                | Unit  |
+| :------------------------------ | :----------------------------------------- | :---- |
+| management_entities.total.count | Number of management entities              | count |
 
 <!--Service-Profile-->
 
-| Metric name                   | Description                                | Unit |
-| :---------------------------- | :----------------------------------------- | :--- |
-| serviceprofiles.total.count   | Number of service profiles                 |Count |
-| serviceprofiles.online.count  | Number of online service profiles          |Count |
-| serviceprofiles.offline.count | Number of offline service profiles         |Count |
+| Metric name                   | Description                                | Unit  |
+| :---------------------------- | :----------------------------------------- | :---- |
+| serviceprofiles.total.count   | Number of service profiles                 | count |
+| serviceprofiles.online.count  | Number of online service profiles          | count |
+| serviceprofiles.offline.count | Number of offline service profiles         | count |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -90,7 +90,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the UCS serve
 yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--Offline IMP License-->
 
@@ -106,7 +106,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 
-3. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *Cisco UCS* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -142,7 +142,7 @@ The above command checks for faults on a UCS server (``` --mode=faults ```). Man
 
 (``` --hostname=10.30.2.11 ```) and the SNMP version you have set on your appliance (``` --snmp-community='cisco_ucs' ```).
 
-This command would trigger a WARNING alarm if a problem is detected on a UCS server resource with the severity WARNING or MINOR (``` --filter-severity='warning|minor=warning' ```) and
+This command would trigger a WARNING alarm if a problem with the severity WARNING or MINOR is detected on a UCS server resource  (``` --filter-severity='warning|minor=warning' ```) and
 
 a CRITICAL alarm if a problem is detected with the severity CRITICAL or MAJOR (``` --filter-severity='critical|major=critical' ```).
 

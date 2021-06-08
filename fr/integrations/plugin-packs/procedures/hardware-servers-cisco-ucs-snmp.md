@@ -21,15 +21,15 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 
 <!--Audit-Logs-->
 
-| Metric name                  | Description                                | Unit |
-| :--------------------------- | :----------------------------------------- | :--- |
-| audit.total.count            | Number of audit logs                       | Count|
-| audit.cleared.count          | Number of cleared audit logs               | Count|                          
-| audit.info.count             | Number of info audit logs                  | Count|                      
-| audit.condition.count        | Number of condition audit logs             | Count|                             
-| audit.warning.count          | Number of warning audit logs               | Count|                            
-| audit.minor.count            | Number of minor audit logs                 | Count|                          
-| audit.critical.count         | Number of critical audit logs              | Count|                             
+| Metric name                  | Description                                | Unit  |
+| :--------------------------- | :----------------------------------------- | :---- |
+| audit.total.count            | Number of audit logs                       | count |
+| audit.cleared.count          | Number of cleared audit logs               | count |                          
+| audit.info.count             | Number of info audit logs                  | count |                      
+| audit.condition.count        | Number of condition audit logs             | count |                             
+| audit.warning.count          | Number of warning audit logs               | count |                            
+| audit.minor.count            | Number of minor audit logs                 | count |                          
+| audit.critical.count         | Number of critical audit logs              | count |                             
 
 <!--Equipment-->
 
@@ -39,34 +39,35 @@ Le Plugin Pack *Cisco UCS* utilise le protocole SNMP pour se connecter, récupé
 
 <!--Faults-->
 
-| Metric name                   | Description                                | Unit |
-| :---------------------------- | :----------------------------------------- | :--- |
-| faults.problems.current.count | Number of current faults                   |Count |
-| faults.total.count            | Number of faults                           |Count |
-| faults.cleared.count          | Number of cleared faults                   |Count |
-| faults.info.count             | Number of info faults                      |Count |
-| faults.condition.count        | Number of conditions faults                |Count |
-| faults.warning.count          | Number of warning faults                   |Count |
-| faults.minor.count            | Number of minor faults                     |Count |
-| faults.major.count            | Number of major faults                     |Count |
-| faults.critical.count         | Number of critical faults                  |Count |
+| Metric name                   | Description                                | Unit  |
+| :---------------------------- | :----------------------------------------- | :---- |
+| faults.problems.current.count | Number of current faults                   | count |
+| faults.total.count            | Number of faults                           | count |
+| faults.cleared.count          | Number of cleared faults                   | count |
+| faults.info.count             | Number of info faults                      | count |
+| faults.condition.count        | Number of conditions faults                | count |
+| faults.warning.count          | Number of warning faults                   | count |
+| faults.minor.count            | Number of minor faults                     | count |
+| faults.major.count            | Number of major faults                     | count |
+| faults.critical.count         | Number of critical faults                  | count |
 
 <!--Mgmt-Entities-->
 
-| Metric name                     | Description                                | Unit |
-| :------------------------------ | :----------------------------------------- | :--- |
-| management_entities.total.count | Number of management entities              |count |
+| Metric name                     | Description                                | Unit  |
+| :------------------------------ | :----------------------------------------- | :---- |
+| management_entities.total.count | Number of management entities              | count |
 
 <!--Service-Profile-->
 
-| Metric name                   | Description                                | Unit |
-| :---------------------------- | :----------------------------------------- | :--- |
-| serviceprofiles.total.count   | Number of service profiles                 |Count |
-| serviceprofiles.online.count  | Number of online service profiles          |Count |
-| serviceprofiles.offline.count | Number of offline service profiles         |Count |
+| Metric name                   | Description                                | Unit  |
+| :---------------------------- | :----------------------------------------- | :---- |
+| serviceprofiles.total.count   | Number of service profiles                 | count |
+| serviceprofiles.online.count  | Number of online service profiles          | count |
+| serviceprofiles.offline.count | Number of offline service profiles         | count |
 
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
 
 ## Prérequis
 
@@ -74,6 +75,11 @@ La communauté SNMP doit être activée sur le serveur UCS en mode Read-only.
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers les ressources UCS.
 
+  :Remarque: si vous utilisez SNMP v3, définissez tous les paramètres spécifiques dans la macro hôte SNMPEXTRAOPTIONS
+
+| Mandatory   | Nom              | Description                                    |
+| :---------- | :--------------- | :--------------------------------------------- |
+|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## Installation
 
@@ -87,7 +93,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -103,7 +109,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *Cisco UCS* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -112,12 +118,6 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 * Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"".
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur UCS
 * Appliquez le Modèle d'Hôte *HW-Server-Cisco-Ucs-custom*
-
-    :Remarque: si vous utilisez SNMP v3, définissez tous les paramètres spécifiques dans la macro hôte SNMPEXTRAOPTIONS
-
-| Mandatory   | Nom              | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
 ## Comment tester le Plugin en ligne de commande et comment utiliser ses options ?
 
