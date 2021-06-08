@@ -19,6 +19,59 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.2
+
+`June 7, 2021`
+
+#### Bugfixes
+
+- [APIv1] Cannot send external commands anymore
+- [APIv2] Can not authenticate using API when database name and database username are different from default
+- [APIv2] DELETE downtime on host not functionnal
+- [APIv2] Unable to use v2 api (internal server error)
+- [Administration] Broker statistics for pollers are not shown
+- [Anomaly] host_id is null is stream connector flow
+- [Configuration] Change default values for Centreon Engine
+- [Configuration] New Logger conf is not exported to distant pollers well
+- [Configuration] Unable to replace 127.0.0.1 by real IP in poller form when already saved in platform_topology
+- [Core] Avoid 404 redirection
+- [Install] Cannot update when you have no metaservices
+- [LDAP] Adding new user from LDAP results in Request Entity Too Large error
+- [Purge] Script can't drop several partitions
+- [Reporting] Dashboard can't display reporting for service (query too long)
+- [Resources Status] "Filter by Host" filter is not emptied between searches
+- [Resources Status] Action ACL not working
+- [Resources Status] Apply ACL in command line block
+- [Resources Status]  Increase font size of Timestamp in graph
+
+#### Security fixes
+
+- [Administration] Import of JS in image files
+- [Administration] Insecure media file upload
+- [Administration] SQL Injection on ACL actions
+- [Administration] SQL Injection on ACL resources
+- [Administration] SQL Injection on reload ACL
+- [Configuration] SQL Injection on MediaWiki
+- [Configuration] SQL Injection on SNMP trap manufacturer
+- [Configuration] SQL Injection on poller form
+- [Configuration] Unserialize() are not sanitized in Centreon Broker wizard
+- [Configuration] Unserialize() are not sanitized in poller wizard
+- [Configuration] XSS reflected on Graph performance curves
+- [Configuration] XSS reflected on SNMP trap
+- [Configuration] XSS reflected on internal API broker configuration
+- [Graphs] SQL Injection on Graph component templates
+- [Graphs] SQL Injection on Graph generate image
+- [Graphs] SQL Injection on Graph periods
+- [Graphs] SQL Injection on Graph split
+- [Reporting] SQL Injection on reporting export
+- [Install] Packaging, remove . gitignore files
+
+#### Performance
+
+- [ACL] ACL are computed every time for BV
+- [Generation] Bulk insert in index_data during config generation
+- [Purge] Purge of index_data is taking too long because of suboptimal SQL query
+
 ### 21.04.1
 
 `May 11, 2021`
