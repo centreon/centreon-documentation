@@ -8,7 +8,7 @@ informatiques et leur coût et aligner leurs opérations informatiques sur leurs
 et d'excellence opérationnelle.
 Centreon s'engage pour la sécurité des données sur lesquelles elles s'appuient et améliore en
 permanence les politiques, les processus et les produits pour répondre aux normes les plus élevées.
-Cette page regroupe les informations si vous avez besoin d’en savoir plus.
+Cette page regroupe des informations à ce sujet.
 
 ## La sécurité “by design”
 
@@ -26,11 +26,11 @@ et une analyse de code statique est exécutée sur chaque version afin que les p
 potentiels puissent être détectés au plus tôt.
 
 Lorsque les artefacts déployables sont disponibles, toutes les modifications sont testées par les
-ingénieurs d'assurance qualité.
+ingénieurs d'Assurance Qualité.
 
 Les utilisateurs externes de Centreon (utilisateurs de la communauté ou de l'entreprise) peuvent
-également tester et utiliser n'importe quelle version beta en extrayant les packages des référentiels
-publics « instables ».
+également tester et utiliser n'importe quelle version bêta en déployant les packages des référentiels
+publics dits « unstable ».
 
 ### Opensource
 
@@ -38,7 +38,7 @@ Centreon distribue le cœur de sa plateforme sous licences GPLv2 et Apache Open 
 permet aux [contributeurs](https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md) d'étendre les fonctionnalités. Toute personne souhaitant contribuer et
 participer au développement du projet doit respecter le [Code de Conduite](https://github.com/centreon/centreon/blob/master/CODE_OF_CONDUCT.md) de Centreon.
 
-Toute contribution est publiée sous forme de « pull request » et livrée avec des [informations](https://github.com/centreon/centreon/blob/master/.github/PULL_REQUEST_TEMPLATE.md) qui
+Toute contribution est proposée sous forme de « pull request » et livrée avec des [informations](https://github.com/centreon/centreon/blob/master/.github/PULL_REQUEST_TEMPLATE.md) qui
 facilitent le processus de révision par Centreon. L'examen comprend la qualité du code, les tests
 fonctionnels, la documentation ainsi que la sécurité et détermine si la contribution est acceptée ou
 rejetée.
@@ -47,7 +47,7 @@ rejetée.
 
 En plus des contrôles de sécurité effectués via l'intégration continue, des tests d'intrusion manuels
 sont exécutés chaque année pour identifier de manière indépendante les vulnérabilités et affiner les
-recommandations de meilleures pratiques pour sécuriser les installations.
+recommandations des meilleures pratiques pour sécuriser les installations.
 
 ## Réponse aux vulnérabilités
 
@@ -76,19 +76,19 @@ de la remédiation :
 | 4.0 - 6.9 (Moyen)   | Centreon fournit un correctif ou une solution de contournement avec la  prochaine version prévue (généralement dans les 6 mois)                                                                                                                   |
 | 0.1 – 3.9 (Bas)     | Centreon fournit un correctif ou une solution de contournement dans les deux prochaines versions prévues du produit Centreon (généralement dans les 12 mois)                                                                                      |
 
-### Reporter une vulnérabilité
+### Signaler une vulnérabilité
 
 Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler comme décrit dans le
 [processus de signalement](https://github.com/centreon/centreon/blob/master/SECURITY.md).
 
-Veuillez ne pas signaler les vulnérabilités de sécurité via des problèmes publics GitHub.
+Veuillez ne pas exposer les vulnérabilités de sécurité via le signalement GitHub de bogue dit « Issue ».
 
-Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, cryptez votre message avec 
+Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec 
 la [clé PGP](https://github.com/centreon/centreon/blob/master/SECURITY.md#pgp-information)
 fournie.
 
 Vous devriez recevoir une réponse dans les 48 heures. Si, pour une raison quelconque ce n’est pas le
-cas, veuillez faire un suivi par e-mail pour vous assurer que nous avons reçu votre message initial.
+cas, n'hésitez pas à nous relancer par e-mail pour vous assurer que nous avons reçu votre message initial.
 
 ## Sécuriser votre installation Centreon
 
