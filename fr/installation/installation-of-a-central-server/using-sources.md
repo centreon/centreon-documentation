@@ -10,13 +10,22 @@ title: A partir des sources
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 8-->
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Red Hat doit être activé.
+Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
+activé.
 
 Exécutez les commandes suivantes :
-```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
+
+- Pour CentOS 8.2 :
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled PowerTools
+    ```
+- Pour CentOS 8.3 et Centos Stream :
+
+    ```shell
+    dnf -y install dnf-plugins-core epel-release
+    dnf config-manager --set-enabled powertools
+    ```
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell

@@ -132,12 +132,12 @@ Go to `Administration > Extensions > Manager` menu and click on
 
 ![image](../assets/installation/extensions-manager.png)
 
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform.html).
+
 ## Getting started
 
 Go to the [Getting Started](../getting-started/installation-first-steps.html#request-your-free-trial)
 chapter to configure your first monitoring.
-
-## Secure your platform
-
-Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform.html)

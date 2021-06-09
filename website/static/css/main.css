@@ -84,3 +84,14 @@ ol ol, ul ol {
 ul ul ol, ul ol ol, ol ul ol, ol ol ol {
   list-style-type: decimal;
 }
+
+.tabs .nav-tabs>div.active {
+    border-bottom: 4px solid #23303a;
+    font-weight: bold;
+}
+
+.tabs .nav-tabs>div:hover {
+	font-weight: bold;
+	border-bottom: 4px solid #23303a;
+  }
+

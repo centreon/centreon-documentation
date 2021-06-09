@@ -39,7 +39,7 @@ To display the matrix of notification of a contact, click on **View contact noti
   login and password but will use this key to log in directly. Connection syntax:
 
 ```url
-http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]
+http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_user]&token=[value_autologin]
 ```
 
 > The Possibility of automatic connection (auto login) should be enabled in the menu: **Administration \> Options**.

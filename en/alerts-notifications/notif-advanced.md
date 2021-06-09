@@ -10,7 +10,7 @@ when the notification is issued. This command is attached to each contact to be
 notified. Centreon has default commands that you can modify.
 
 Go to the [configuration commands
-chapter](../monitoring/commands.html#definition) to edit / add new notification
+chapter](../monitoring/basic-objects/commands.html#definition) to edit / add new notification
 commands.
 
 > You can also find in the [Centreon
