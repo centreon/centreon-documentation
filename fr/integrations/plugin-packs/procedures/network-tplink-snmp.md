@@ -1,6 +1,6 @@
 ---
 id: network-tplink-snmp
-title: Tp Link SNMP
+title: TP-Link SNMP
 ---
 
 ## Vue d'ensemble
