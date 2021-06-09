@@ -645,60 +645,6 @@ must be deleted.
 | host\_id    | unsigned integer | Index ID.   |         |
 | service\_id | unsigned integer | Index ID.   |         |
 
-## Correlation
-
-### Engine state
-
-Engine state events are sent when the correlation engine starts or stops.
-
-| Property | Type    | Description                                                          | Version |
-|----------|---------|----------------------------------------------------------------------|---------|
-| started  | boolean | True if the correlation engine is starting, false if it is stopping. |         |
-
-### State
-
-| Property       | Type             | Description   | Version |
-|----------------|------------------|---------------|---------|
-| ack\_time      | time             |               |         |
-| current\_state | integer          |               |         |
-| end\_time      | time             |               |         |
-| host\_id       | unsigned integer |               |         |
-| in\_downtime   | boolean          |               |         |
-| service\_id    | unsigned integer | 0 for a host. |         |
-| start\_time    | time             |               |         |
-
-### Issue
-
-| Property    | Type             | Description | Version |
-|-------------|------------------|-------------|---------|
-| ack\_time   | time             |             |         |
-| end\_time   | time             |             |         |
-| host\_id    | unsigned integer |             |         |
-| service\_id | unsigned integer |             |         |
-| start\_time | time             |             |         |
-
-### Issue parent
-
-| Property            | Type             | Description | Version |
-|---------------------|------------------|-------------|---------|
-| child\_host\_id     | unsigned integer |             |         |
-| child\_service\_id  | unsigned integer |             |         |
-| child\_start\_time  | time             |             |         |
-| end\_time           | time             |             |         |
-| parent\_host\_id    | unsigned integer |             |         |
-| parent\_service\_id | unsigned integer |             |         |
-| parent\_start\_time | time             |             |         |
-| start\_time         | time             |             |         |
-
-### Log issue
-
-| Property           | Type             | Description | Version |
-|--------------------|------------------|-------------|---------|
-| log\_ctime         | time             |             |         |
-| host\_id           | unsigned integer |             |         |
-| service\_id        | unsigned integer |             |         |
-| issue\_start\_time | time             |             |         |
-
 ## BBDO
 
 ### Version response
