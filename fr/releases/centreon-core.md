@@ -649,6 +649,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.4
 
+`10 juin 2021`
+
 #### Correctifs
 
 - [Anomaly] Le host ID était null dans les filtres de détection.
