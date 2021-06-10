@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.15
 
+`June 10, 2021`
+
 #### Bugfixes
 
 - [Core] Fixed broken configuration export 
