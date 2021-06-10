@@ -183,6 +183,8 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ### 21.04.1
 
+`10 juin 2021`
+
 #### Correctifs
 
 - [Anomaly] Le host ID était null dans les filtres de détection.
