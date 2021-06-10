@@ -1328,6 +1328,8 @@ This patch fixes that.
 
 ### 20.04.11
 
+`10 juin 2021`
+
 #### Correctifs
 
 - [Anomaly] Le host ID était null dans les filtres de détection.
