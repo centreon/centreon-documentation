@@ -233,6 +233,14 @@ old logs system.
 
 ## Centreon Gorgone
 
+### 21.04.1
+
+`June 10, 2021`
+
+#### Bugfixes
+
+- [Anomaly] Host ID was null in detection filters
+
 ### 21.04.0
 
 - [Core] Better congestion management for communication
