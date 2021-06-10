@@ -1326,6 +1326,8 @@ This patch fixes that.
 
 ### 20.04.11
 
+`June 10, 2021`
+
 #### Bugfixes
 
 - [Anomaly] Host ID was null in detection filters
