@@ -1324,6 +1324,19 @@ This patch fixes that.
 
 ## Centreon Gorgone
 
+### 20.04.11
+
+`June 10, 2021`
+
+#### Bugfixes
+
+- [Anomaly] Host ID was null in detection filters
+
+#### Enhancements
+
+- Add logging option to better handle logs that could cause SQLite database to grow too large
+- Added dependency for perl-Libssh-Session-0.8
+
 ### 20.04.10
 
 `March 4, 2021`
