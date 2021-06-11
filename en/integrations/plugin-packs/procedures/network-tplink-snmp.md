@@ -102,9 +102,9 @@ Create your Host and apply the *Net-Tplink-SNMP-custom* Host Template. You must 
 | :---------- | :--------------- | :--------------------------------------------- |
 |             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    | 
 
-## How to test my plugin and what do the main parameters stand for ?
+## How to test my plugin and what do the main parameters stand for?
 
-Once the plugin is installed, you can test it logging into the CLI with the centreon-engine user.
+Once the plugin is installed, you can test it by logging into the CLI with the centreon-engine user.
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
@@ -123,11 +123,11 @@ OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' us
 CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m)
 ```
 
-The command above check CPU usage for an TP-Link equipment (```--mode=cpu```). Mandatory options are the IP/FQDN of the device 
-(```--hostname=10.30.2.11```) and the SNMP version you have set on your appliance (```--snmp-community='centreon-tplink'```).
+The command above check CPU usage for TP-Link equipment (```--mode=cpu```). Mandatory options are the IP/FQDN of the device
+(```--hostname=10.30.2.11```) and the SNMP version you have set on your equipment (```--snmp-community='centreon-tplink'```).
 
-This command would trigger a WARNING alarm if the number of clients connected to the device is greater than 90 (```--warning-averange-5m='90'```) and 
-a CRITICAL alarm if the number of clients connected to the device is greater than 95 (```--critical-average-5m='95'```).
+This command would trigger a WARNING alarm if the CPU average to the equipment is greater than 90 (```--warning-average-5m='90'```) and
+a CRITICAL alarm if the CPU average to the equipment is greater than 95 (```--critical-average-5m='95'```).
 
 All available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
@@ -150,10 +150,10 @@ All plugin modes can be listed with the following command:
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-If you get this error, it may indicate that some flows are blocked between the Centreon Poller and the TP-Link equipment. 
-It can also mean that the Centreon Host Configuration doesn't reflect the SNMP configuration on TP-Link side (version, community). 
+If you get this error, it may indicate that some flows are blocked between the Centreon Poller and the TP-Link equipment.
+It can also mean that the Centreon Host Configuration doesn't reflect the SNMP configuration on the TP-Link side (version, community).
 
 ### UNKNOWN: SNMP GET Request : Cant get a single value.
 
-You may get this error when SNMP privileges are not wide enough. You can check that the SNMP community used in your command line has enough rights to walk the TP-Link entreprise SNMP branch: .1.3.6.1.4.1.11863
-You can use the snmpwalk utilities which is provided through net-snmp package.
+You may get this error when SNMP privileges are not wide enough. You can check that the SNMP community used in your command line has enough rights to walk the TP-Link enterprise SNMP branch: .1.3.6.1.4.1.11863
+You can use the snmpwalk utilities which is provided through the net-snmp package.
