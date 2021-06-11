@@ -3,7 +3,7 @@ id: update-centreon-ha
 title: Mise à jour d'une plateforme Centreon-HA
 ---
 
-La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon-HA installé suivant [cette documentation](centreon-ha-installation-2-nodes.html), dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
+La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon-HA installé suivant [cette documentation](../installation/installation-of-centreon-ha/installation-2-nodes.html), dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
 
 ## Suspension de la gestion des resources par le cluster
 

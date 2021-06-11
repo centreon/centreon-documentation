@@ -90,8 +90,8 @@ n'est en cours d'execution.
 ## Créer le cluster Centreon-HA
 
 En fonction de l'architecture utilisée, la procédure pour installer et configurer le Cluster diffère: 
-* Si Centreon et les bases de données sont sur le même noeud, suivez ce [guide d'installation](installation-2-nodes.html#mise-en-place-du-cluster-centreon)
-* Si les bases de données tournent sur un serveur dédié, suivez ce [guide d'installation](installation-4-nodes.html#mise-en-place-du-cluster-centreon)
+* Si Centreon et les bases de données sont sur le même noeud, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-2-nodes.html#mise-en-place-du-cluster-centreon)
+* Si les bases de données tournent sur un serveur dédié, suivez ce [guide d'installation](../../installation/installation-of-centreon-ha/installation-4-nodes.html#mise-en-place-du-cluster-centreon)
 
 Avant de passer à la finalisation de la mise à jour, assurez vous que toutes les ressources fonctionne correctement sans erreurs. 
 
