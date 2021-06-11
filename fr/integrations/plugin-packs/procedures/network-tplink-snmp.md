@@ -33,7 +33,6 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 
 
 <!--Interfaces-->
-<!--Interfaces-->
 
 | Metric name                              | Description                                             | Unit |
 |:---------------------------------------- |:------------------------------------------------------- | :--- |
