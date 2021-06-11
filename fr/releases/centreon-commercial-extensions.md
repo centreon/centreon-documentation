@@ -284,8 +284,17 @@ liens
 - Toutes les pages de configuration & temps réelle ont été mise à jour pour
   gérer ces nouvelles méthodes de calcul
 
-## Centreon 
+## Centreon MBI 
 
+### 20.04.6
+
+`11 juin 2021`
+
+#### Correctifs
+
+- Correction des erreurs JQuery avec MBI web client
+- Correction de l'exécution immédiate des jobs (les jobs "immédiats" étaient retardés)
+`
 ### 20.04.5
 
 `6 mai 2021`

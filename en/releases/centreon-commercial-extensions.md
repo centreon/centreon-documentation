@@ -271,6 +271,15 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
+### 20.04.6
+
+`June 11, 2021`
+
+#### Bugfixes
+
+- Fixed JQuery issues with MBI web client
+- Fixed immediate job execution ("immediate" jobs were delayed)
+
 ### 20.04.5
 
 `May 6, 2021`
