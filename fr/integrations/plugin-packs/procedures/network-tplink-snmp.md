@@ -23,6 +23,7 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--CPU-->
+
 * These 3 metrics for CPU core and average utilization
 
 | Metric name                         | Description                    | Unit   |
@@ -30,7 +31,6 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 | cpu.utilization.5s.percentage       | Percentage of CPU utilization  | %      |
 | cpu.utilization.1m.percentage       | Percentage of CPU utilization  | %      |
 | cpu.utilization.5m.percentage       | Percentage of CPU utilization  | %      |
-
 
 <!--Interfaces-->
 
