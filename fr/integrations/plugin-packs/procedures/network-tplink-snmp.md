@@ -15,7 +15,7 @@ Le Plugin Pack *TP-Link* utilise le protocole SNMP pour se connecter, récupére
 
 * CPU
 * Interfaces
-* Memoire
+* Mémoire
 * Uptime
 
 ### Métriques collectées
@@ -126,13 +126,13 @@ OK: 1 CPU(s) average usage is 7.00 % (5s) 20.00 % (1m) 10.00 % (5m) - CPU '1' us
 CPU '1' usage 7.00 % (5s) 20.00 % (1m) 10.00 % (5m)
 ```
 
-La commande ci-dessus vérifie l'usage CPU d'un équipement TP-Link (```--mode=cpu```). Les informations importantes sont l'adresse IP/FQDN 
+La commande ci-dessus vérifie l'utilisation CPU d'un équipement TP-Link (```--mode=cpu```). Les informations importantes sont l'adresse IP/FQDN 
 (```--hostname=10.30.2.11```) et la communauté SNMP configurée sur l'équipement (```--snmp-community='centreon-tplink'```).
 
-Une alarme de type WARNING est déclenchée si l'usage moyen du CPU est supérieur à 90 sur le 5 dernières minutes (```--warning-average-5m='90'```).
-Une alarme CRITICAL est quant à elle déclenchée si l'usage moyen du CPU est supérieur à 95 sur le 5 dernières minutes (``` --critical-average-5m='95' ```).
+Une alarme de type WARNING est déclenchée si l'utilisation moyenne du CPU est supérieure à 90 sur le 5 dernières minutes (```--warning-average-5m='90'```).
+Une alarme CRITICAL est quant à elle déclenchée si l'utilisation moyenne du CPU est supérieure à 95 sur le 5 dernières minutes (``` --critical-average-5m='95' ```).
 
-La liste de toutes les options complémentaires et leur signification peut être affichée en ajoutant le paramètre ``` --help ``` à la commande:
+La liste de toutes les options complémentaires et leur signification peut être affichée en ajoutant le paramètre ``` --help ``` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_tplink_snmp.pl \
