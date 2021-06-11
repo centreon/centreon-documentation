@@ -292,7 +292,7 @@ liens
 
 #### Correctifs
 
-- Correction des erreurs JQuery avec MBI web client
+- Correction des erreurs JQuery dans le client web MBI
 - Correction de l'exécution immédiate des jobs (les jobs "immédiats" étaient retardés)
 `
 ### 20.04.5
