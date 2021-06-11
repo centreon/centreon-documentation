@@ -106,7 +106,8 @@ de supprimer la clef publique de root de /root/.ssh/authorized_keys.
 
 Vous pouvez désormais finaliser la mise à jour de Centreon via le wizard Web: 
 * Si vous êtiez en version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.html#finalisation-de-la-mise-à-jour).
-* Si vous êtiez en version 20.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.html#finalisation-de-la-mise-à-jour).
+* Si vous étiez en version 20.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.html#finalisation-de-la-mise-à-jour).
+
 
 Ensuite, vérifiez que la commande de rechargement de Centreon-Broker pour le Serveur Central intègre bien la modification
 décrite [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html#modification-de-la-commande-de-rechargement-de-cbd). Celle-ci est configurable via le menu
