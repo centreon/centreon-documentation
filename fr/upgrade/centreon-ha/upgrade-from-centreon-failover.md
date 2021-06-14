@@ -96,7 +96,8 @@ En fonction de l'architecture utilisée, la procédure pour installer et configu
 Avant de passer à la finalisation de la mise à jour, assurez vous que toutes les ressources fonctionne correctement sans erreurs. 
 
 Si ce n'est pas le cas, il est recommandé de vérifier les éléments suivants:
-* [Echanges de clés SSH pour le Cluster](../../installation/installation-of-centreon-ha/installation-2-nodes.html#échanges-de-clefs-ssh)
+* [Echanges de clefs SSH pour le Cluster](../../installation/installation-of-centreon-ha/installation-2-nodes.html#échanges-de-clefs-ssh)
+
 * [Droits et privilèges des utilisateurs de bases de données](../../installation/installation-of-centreon-ha/installation-2-nodes.html#création-du-compte-centreon)
 
 Une fois que les clés SSH des utilisateurs centreon et mysql ont bien été échangées, il est recommandé
