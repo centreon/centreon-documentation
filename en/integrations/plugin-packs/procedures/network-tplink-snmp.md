@@ -72,11 +72,11 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the TP-Link e
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+2. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments :
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor TP-Link equipments:
 
 ```bash
 yum install centreon-plugin-Network-Tplink-Snmp
@@ -88,7 +88,7 @@ yum install centreon-plugin-Network-Tplink-Snmp
 yum install centreon-pack-network-tplink-snmp
 ```
 
-3. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin packs > Manager" page.
+3. On the Centreon Web interface, install the *TP-Link SNMP* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
