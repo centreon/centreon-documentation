@@ -479,6 +479,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
+                    "integrations/plugin-packs/procedures/cloud-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql",
                     "integrations/plugin-packs/procedures/cloud-gcp-compute-computeengine",
                     "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
