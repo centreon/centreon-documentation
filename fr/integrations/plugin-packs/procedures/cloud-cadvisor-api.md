@@ -5,27 +5,30 @@ title: cAdvisor API
 
 ## Overview
 
-cAdvisor (Container Advisor) provides container users an understanding of the resource usage and 
-performance characteristics of their running containers. 
+cAdvisor (Container Advisor) permet aux utilisateurs d'observer l'utilisation des ressources 
+et les performances de leurs conteneurs en cours d'execution.
 
-It is a running daemon that collects, aggregates, processes, and exports information about running containers.
+C'est un démon qui collecte et aggrége de multiples informations à propos des conteneurs. 
 
-This Pack aims to monitor metrics exposed through cAdvisor API endpoint. 
+Ce Pack vise à superviser les métriques exposées au travers de l'API de cAdvisor.
 
-## Monitored objects 
+## Contenu du Pack
 
-This Pack contains one Host Template and several Service Templates to monitor node resource allocation 
-and container performances: 
+## Objets supervisés 
+
+Ce Pack comprend un Modèle d'Hôte et plusieurs Modèles de Services permettant d'observer le statut 
+d'un noeud et les performances de conteneurs s'y éxécutant. Les Services suivants sont disponibles:
   * Container-Usage
   * Container-Disk-IO
   * Container-Traffic
   * Node-Status
 
-### Discovery rules
+### Règles de découverte
 
-The cAdvisor API Pack comes with several service discovery rules.
+Le Pack cAdvisor API propose différentes règles de découvertes de Service.
 
-To monitor container metrics, it's required to launch a discovery to add relevant services:
+Pour superviser les métriques des conteneurs, il est nécessaire d'utiliser la fonctionnalité de 
+découverte de Service de Centreon. Voici un résumé des règles disponibles: 
 
 | Rule                                    | Description                                            |
 |-----------------------------------------|--------------------------------------------------------|
@@ -33,7 +36,7 @@ To monitor container metrics, it's required to launch a discovery to add relevan
 | Cloud-cAdvisor-API-Container-Usage      | Discover containers and monitor CPU & RAM consumption  |
 | Cloud-cAdvisor-API-Container-Traffic    | Discover containers and monitor bandwidth utilization  |
 
-### Collected metrics
+### Métriques colletées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -75,17 +78,17 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 <!--Node-Status-->
 
-## Prerequisites
+## Prérequis
 
 ### cAdvisor
 
-A running cAdvisor container should be available. You can refer to the official
-[quick start](https://github.com/google/cadvisor#quick-start-running-cadvisor-in-a-docker-container).
+Un conteneur ou un démon cAdvisor doit être en cours d'execution et disponible. La 
+documentation officielle permet de [déployer le nécessaire rapidement](https://github.com/google/cadvisor#quick-start-running-cadvisor-in-a-docker-container).
 
-### Network flow
+### Flux réseaux
 
-The Poller should be able to reach the cAdvisor Host over TCP/8080 port. Note that the port 
-may be different on your setup. 
+Le Collecteur doit être en mesure de contacter le serveur hébergeant cAdvisor au travers 
+du port TCP/8080 port. Attention, selon la configuration le port peut être différent. 
 
 ## Installation
 
@@ -93,52 +96,52 @@ may be different on your setup.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
+1. Installer le Plugin sur tous les Collecteurs Centreon allant superviser des containers via cAdvisor:
 
 ```bash
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+2. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monito containers with cAdvisor:
+1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des containers via cAdvisor:
 
 ```bash
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Installer le Plugin sur chaque Collecteur allant superviser des containers via cAdvisor:
 
 ```bash
 yum install centreon-pack-cloud-cadvisor-api
 ```
 
-3. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+3. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Host configuration
 
-Add a host from `Configuration > Hosts` menu and select the `Cloud-cAdvisor-API` template. 
+Ajouter un Hôte depuis le menu `Configuration > Hosts` et selectionner le Modèle `Cloud-cAdvisor-API`.
 
-Here is a quick description of available configuration Macros: 
+Voici une description rapide des Macros de configuration disponibles : 
 
-|Mandatory | Macro                     | Description                                       | Default value                    |
-|----------|---------------------------|---------------------------------------------------|----------------------------------|
-|    x     | `CADVISORAPIPROTO`        | Protocol used to talk with cAdvisor API           | `http`                           |
-|    x     | `CADVISORAPIPORT`         | Network port cAdvisor API listens over            | `8080`                           |
-|    x     | `CADVISORAPIPATH`         | API Path to container metrics information         | `/containers/docker/`            |
-|          | `CADVISORAPIEXTRAOPTIONS` | Extraoptions you may want to add to your command  | `--http-backend=curl --insecure` |
-|          | `PROXYURL`                | URL of a proxy to use to reach cAdvisor API       |                                  | 
+| Mandatory | Macro                     | Description                                       | Default value                    |
+|-----------|---------------------------|---------------------------------------------------|----------------------------------|
+|     x     | `CADVISORAPIPROTO`        | Protocol used to talk with cAdvisor API           | `http`                           |
+|     x     | `CADVISORAPIPORT`         | Network port cAdvisor API listens over            | `8080`                           |
+|     x     | `CADVISORAPIPATH`         | API Path to container metrics information         | `/containers/docker/`            |
+|           | `CADVISORAPIEXTRAOPTIONS` | Extraoptions you may want to add to your command  | `--http-backend=curl --insecure` |
+|           | `PROXYURL`                | URL of a proxy to use to reach cAdvisor API       |                                  | 
 
-Click on the **Save** button and you're good to push the configuration to
-the Engines.
+Cliquer sur **Save**, vous pouvez désormais déployer votre configuration vers les Collecteurs. 
 
-## How to test my plugin and what do the main parameters stand for?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, you can test it by logging into the CLI with the centreon-engine user.
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis 
+votre collecteur Centreon en vous connectant avec l'utilisateur centreon-engine:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cadvisor_api.pl \
@@ -151,17 +154,18 @@ Once the plugin is installed, you can test it by logging into the CLI with the c
     --verbose --use-name
 ```
 
-Expected output is shown below: 
+La commande devrait retourner un message de sortie similaire à:
 
 ```bash
 OK: Container 'gray.eth0' Traffic In: 43.99 b/s, Traffic Out: 39.92 b/s | 'gray.eth0#container.traffic.in.bitspersecond'=43.99b/s;;;0; 'gray.eth0#container.traffic.out.bitspersecond'=39.92b/s;;;0;
 Container 'gray.eth0' Traffic In: 43.99 b/s, Traffic Out: 39.92 b/s
 ```
 
-The command above checks the incoming and outgoing traffic for a container (`--plugin=cloud::cadvisor::restapi::plugin --mode=traffic`).
-The focus is on the gray (`--filter-name='^gray$'`) container and we use this name as the perfdata instance `--use-name`. 
+Cette commande contrôle le traffic entrant et sortant d'un conteneur (`--plugin=cloud::cadvisor::restapi::plugin --mode=traffic`).
+Le conteneur ciblé à le nom gray (`--filter-name='^gray$'`) et nous faisons en sorte d'utiliser son nom comme instance pour les 
+graphiques de performances (`--use-name`). 
 
-All available options for a given mode can be displayed by adding the `--help` parameter to the command:
+Toutes les options disponibles et leur signification peuvent être affichées via le paramètre `--help` :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_cadvisor_api.pl \
@@ -169,17 +173,18 @@ All available options for a given mode can be displayed by adding the `--help` p
     --help
 ```
 
-## Troubleshooting
+## Diagnostic des erreurs communes
 
 ### UNKNOWN: curl perform error : Timeout was reached
 
-When this error occurs, check that you can reach the cAdvisor over the 8080/HTTP port. 
+Quand cette erreur est affichée, cela signifie qu'il n'a pas été possible de rentrer en contact avec 
+l'API cAdvisor
 
-You can use the `--debug` flag to obtain additionnal information about the reason of the failure.
+L'utilisation du flag `--debug` permet d'afficher des détails utiles au diagnostique.
 
-If a proxy is required, add its URL within the PROXYURL Macro at the Host level.
+Si vous utilisez un proxy, assurez-vous de l'avoir renseigné dans la Macro PROXYURL de l'Hôte. 
 
 ### UNKNOWN: No containers found or no data available for this specific metric.
 
-This error means that no data is available for this specific or that the container name used in 
-the filter might be mispelled (this can't happen if you use the service discoveru feature). 
+Cette erreur signifie qu'aucune donnée n'est disponible pour la métrique demandée ou que le nom du conteneur 
+est erronné (typo ou conteneur arrêté).
