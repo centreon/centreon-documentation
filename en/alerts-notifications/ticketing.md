@@ -50,7 +50,7 @@ The module offers many ready-to-use providers:
 * [GLPI](../integrations/open-tickets/glpi.html)
 * [GLPI RestAPI](../integrations/open-tickets/glpi-restapi.html)
 * [iTop](../integrations/open-tickets/itop.html)
-* [IWS Isilog](../integrations/open-tickets/iws-isilog)
+* [IWS Isilog](../integrations/open-tickets/iws-isilog.html)
 * [Jira](../integrations/open-tickets/jira.html)
 * [OTRS RestAPI](../integrations/open-tickets/otrs-restapi.html)
 * [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi.html)
