@@ -76,7 +76,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 yum install centreon-plugin-Network-Tplink-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -92,7 +92,7 @@ yum install centreon-plugin-Network-Tplink-Snmp
 yum install centreon-pack-network-tplink-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *TP-Link SNMP* depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
