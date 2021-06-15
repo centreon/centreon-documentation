@@ -57,7 +57,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 | Metric name                                                   | Description                      | Unit   |
 | :-------------------------------------------------------------| :------------------------------- | :----- |
-|	<container_name_or_id:device>#disk.io.read.bytespersecond     | Disk I/O Read from the container |  B/s   |
+| <container_name_or_id:device>#disk.io.read.bytespersecond     | Disk I/O Read from the container |  B/s   |
 | <container_name_or_id:device>#disk.io.write.bytespersecond    | Disk I/O Read from the container |  B/s   |
 
 By default, the --use-name flag will instance the metric with the <container_name>. 
@@ -67,7 +67,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 | Metric name                                                            | Description                      | Unit   |
 | :----------------------------------------------------------------------| :------------------------------- | :----- |
-|	<container_name_or_id.network_int>#container.traffic.in.bitspersecond  | Container incoming traffic       |  bps   |
+| <container_name_or_id.network_int>#container.traffic.in.bitspersecond  | Container incoming traffic       |  bps   |
 | <container_name_or_id.network_int>#container.traffic.out.bitspersecond | Container outgoing traffic       |  bps   |
 
 By default, the --use-name flag will instance the metric with the <container_name>. 
