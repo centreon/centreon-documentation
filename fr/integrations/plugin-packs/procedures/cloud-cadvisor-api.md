@@ -180,7 +180,7 @@ Toutes les options disponibles et leur signification peuvent être affichées vi
 Quand cette erreur est affichée, cela signifie qu'il n'a pas été possible de rentrer en contact avec 
 l'API cAdvisor
 
-L'utilisation du flag `--debug` permet d'afficher des détails utiles au diagnostique.
+L'utilisation du flag `--debug` permet d'afficher des détails utiles au diagnostic.
 
 Si vous utilisez un proxy, assurez-vous de l'avoir renseigné dans la Macro PROXYURL de l'Hôte. 
 
