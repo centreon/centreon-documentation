@@ -60,7 +60,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 | Metric name                                                   | Description                      | Unit   |
 | :-------------------------------------------------------------| :------------------------------- | :----- |
-|	<container_name_or_id:device>#disk.io.read.bytespersecond     | Disk I/O Read from the container |  B/s   |
+| <container_name_or_id:device>#disk.io.read.bytespersecond     | Disk I/O Read from the container |  B/s   |
 | <container_name_or_id:device>#disk.io.write.bytespersecond    | Disk I/O Read from the container |  B/s   |
 
 By default, the --use-name flag will instance the metric with the <container_name>. 
@@ -70,7 +70,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 | Metric name                                                            | Description                      | Unit   |
 | :----------------------------------------------------------------------| :------------------------------- | :----- |
-|	<container_name_or_id.network_int>#container.traffic.in.bitspersecond  | Container incoming traffic       |  bps   |
+| <container_name_or_id.network_int>#container.traffic.in.bitspersecond  | Container incoming traffic       |  bps   |
 | <container_name_or_id.network_int>#container.traffic.out.bitspersecond | Container outgoing traffic       |  bps   |
 
 By default, the --use-name flag will instance the metric with the <container_name>. 
@@ -128,13 +128,13 @@ Ajouter un Hôte depuis le menu `Configuration > Hosts` et selectionner le Modè
 
 Voici une description rapide des Macros de configuration disponibles : 
 
-| Mandatory | Macro                     | Description                                       | Default value                    |
-|-----------|---------------------------|---------------------------------------------------|----------------------------------|
-|     x     | `CADVISORAPIPROTO`        | Protocol used to talk with cAdvisor API           | `http`                           |
-|     x     | `CADVISORAPIPORT`         | Network port cAdvisor API listens over            | `8080`                           |
-|     x     | `CADVISORAPIPATH`         | API Path to container metrics information         | `/containers/docker/`            |
-|           | `CADVISORAPIEXTRAOPTIONS` | Extraoptions you may want to add to your command  | `--http-backend=curl --insecure` |
-|           | `PROXYURL`                | URL of a proxy to use to reach cAdvisor API       |                                  | 
+| Mandatory | Macro                     | Description                                            | Default value                    |
+|-----------|---------------------------|--------------------------------------------------------|----------------------------------|
+|     x     | `CADVISORAPIPROTO`        | Protocole utilisé pour communiquer avec l'API cAdvisor | `http`                           |
+|     x     | `CADVISORAPIPORT`         | Port d'écoute de l'API cAdvisor                        | `8080`                           |
+|     x     | `CADVISORAPIPATH`         | Chemin pour accèder à la page contenant les métriques  | `/containers/docker/`            |
+|           | `CADVISORAPIEXTRAOPTIONS` | Options additionnelles pour customiser les commandes   | `--http-backend=curl --insecure` |
+|           | `PROXYURL`                | L'URL du proxy à utiliser pour atteindre l'API         |                                  | 
 
 Cliquer sur **Save**, vous pouvez désormais déployer votre configuration vers les Collecteurs. 
 
