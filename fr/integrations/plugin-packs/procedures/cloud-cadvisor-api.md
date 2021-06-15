@@ -178,7 +178,7 @@ Toutes les options disponibles et leur signification peuvent être affichées vi
 ### UNKNOWN: curl perform error : Timeout was reached
 
 Quand cette erreur est affichée, cela signifie qu'il n'a pas été possible de rentrer en contact avec 
-l'API cAdvisor
+l'API cAdvisor.
 
 L'utilisation du flag `--debug` permet d'afficher des détails utiles au diagnostic.
 
