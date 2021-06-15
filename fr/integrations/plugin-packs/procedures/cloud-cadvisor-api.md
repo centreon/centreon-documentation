@@ -162,7 +162,7 @@ Container 'gray.eth0' Traffic In: 43.99 b/s, Traffic Out: 39.92 b/s
 ```
 
 Cette commande contrôle le traffic entrant et sortant d'un conteneur (`--plugin=cloud::cadvisor::restapi::plugin --mode=traffic`).
-Le conteneur ciblé à le nom gray (`--filter-name='^gray$'`) et nous faisons en sorte d'utiliser son nom comme instance pour les 
+Le conteneur ciblé a le nom gray (`--filter-name='^gray$'`) et nous faisons en sorte d'utiliser son nom comme instance pour les 
 graphiques de performances (`--use-name`). 
 
 Toutes les options disponibles et leur signification peuvent être affichées via le paramètre `--help` :
