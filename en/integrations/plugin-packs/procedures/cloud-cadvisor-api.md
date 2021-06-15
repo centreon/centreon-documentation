@@ -73,7 +73,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 By default, the --use-name flag will instance the metric with the <container_name>. 
 If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS macro at the Service Template level.
 
-<!--Node-Status-->
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
 
