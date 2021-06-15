@@ -187,4 +187,4 @@ Si vous utilisez un proxy, assurez-vous de l'avoir renseigné dans la Macro PROX
 ### UNKNOWN: No containers found or no data available for this specific metric.
 
 Cette erreur signifie qu'aucune donnée n'est disponible pour la métrique demandée ou que le nom du conteneur 
-est erronné (typo ou conteneur arrêté).
+est erronné (faute de frappe, ou conteneur arrêté).
