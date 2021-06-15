@@ -99,7 +99,7 @@ may be different on your setup.
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through "Configuration > Plugin Packs > Manager" page.
+2. On the Centreon Web interface, install the *cAdvisor API* Plugin Pack through the `Configuration > Plugin Packs > Manager` page.
 
 <!--Offline IMP License-->
 
