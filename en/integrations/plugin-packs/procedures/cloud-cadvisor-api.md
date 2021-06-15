@@ -103,7 +103,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon Poller expected to monito containers with cAdvisor:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor containers with cAdvisor:
 
 ```bash
 yum install centreon-plugin-Cloud-cAdvisor-Api
