@@ -84,7 +84,7 @@ A running cAdvisor container should be available. You can refer to the official
 
 ### Network flow
 
-The Poller should be able to reach the cAdvisor Host over TCP/8080 port. Note that the port 
+The Poller should be able to reach the cAdvisor Host over the TCP/8080 port. Note that the port 
 may be different on your setup. 
 
 ## Installation
