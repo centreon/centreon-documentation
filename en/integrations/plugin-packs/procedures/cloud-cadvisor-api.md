@@ -25,7 +25,7 @@ and container performances:
 
 The cAdvisor API Pack comes with several service discovery rules.
 
-To monitor container metrics, it's required to launch a discovery to add relevant services:
+To monitor container metrics, you must launch a discovery to add relevant services:
 
 | Rule                                    | Description                                            |
 |-----------------------------------------|--------------------------------------------------------|
