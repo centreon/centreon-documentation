@@ -8,7 +8,7 @@ title: cAdvisor API
 cAdvisor (Container Advisor) permet aux utilisateurs d'observer l'utilisation des ressources 
 et les performances de leurs conteneurs en cours d'exécution.
 
-C'est un démon qui collecte et aggrége de multiples informations à propos des conteneurs. 
+C'est un démon qui collecte et agrège de multiples informations à propos des conteneurs. 
 
 Ce Pack vise à superviser les métriques exposées au travers de l'API de cAdvisor.
 
