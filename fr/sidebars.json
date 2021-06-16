@@ -120,7 +120,6 @@
             "monitoring/web-import-export"
         ],
         "Alertes et Notifications": [
-            "alerts-notifications/introduction",
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
@@ -205,7 +204,6 @@
                 "ids": [
                     "reporting/manage-reports",
                     "reporting/reports",
-                    "reporting/available-reports",
                     "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
@@ -453,6 +451,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",                  
+                    "integrations/plugin-packs/procedures/cloud-azure-database-redis",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
                     "integrations/plugin-packs/procedures/cloud-azure-management-discover",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
@@ -696,6 +695,7 @@
                     "integrations/plugin-packs/procedures/network-stormshield-snmp",
                     "integrations/plugin-packs/procedures/network-stormshield-ssh",
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
+                    "integrations/plugin-packs/procedures/network-tplink-snmp",
                     "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
