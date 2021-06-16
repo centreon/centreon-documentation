@@ -36,7 +36,7 @@ découverte de Service de Centreon. Voici un résumé des règles disponibles:
 | Cloud-cAdvisor-API-Container-Usage      | Discover containers and monitor CPU & RAM consumption  |
 | Cloud-cAdvisor-API-Container-Traffic    | Discover containers and monitor bandwidth utilization  |
 
-### Métriques colletées
+### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
 
