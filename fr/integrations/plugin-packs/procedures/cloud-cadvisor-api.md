@@ -82,7 +82,7 @@ If you want to use the <container_id> instead, remove it from the EXTRAOPTIONS m
 
 ### cAdvisor
 
-Un conteneur ou un démon cAdvisor doit être en cours d'execution et disponible. La 
+Un conteneur ou un démon cAdvisor doit être en cours d'exécution et disponible. La 
 documentation officielle permet de [déployer le nécessaire rapidement](https://github.com/google/cadvisor#quick-start-running-cadvisor-in-a-docker-container).
 
 ### Flux réseaux
