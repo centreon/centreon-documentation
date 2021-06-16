@@ -122,7 +122,7 @@ yum install centreon-pack-cloud-cadvisor-api
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Host configuration
+### Configuration de l'hôte
 
 Ajouter un Hôte depuis le menu `Configuration > Hosts` et sélectionner le Modèle `Cloud-cAdvisor-API`.
 
