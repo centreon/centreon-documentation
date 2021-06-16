@@ -175,7 +175,7 @@ All available options for a given mode can be displayed by adding the `--help` p
 
 When this error occurs, check that you can reach the cAdvisor over the 8080/HTTP port. 
 
-You can use the `--debug` flag to obtain additionnal information about the reason of the failure.
+You can use the `--debug` flag to obtain additional information about the reason of the failure.
 
 If a proxy is required, add its URL within the PROXYURL Macro at the Host level.
 
