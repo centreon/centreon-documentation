@@ -23,10 +23,12 @@ The Plugin-Pack Acme Packet SNMP collects metrics for:
 
 <!--Services-->
 
-| Rule name                              | Description                                                           |
-| :------------------------------------- | :-------------------------------------------------------------------- |
-| Net-Acmepacket-SNMP-Interface-Name     | Discover network interfaces and monitor bandwidth utilization         |
-| Net-Acmepacket-SNMP-Policy-Server-Name | Discover external policy servers and monitor statistics               |
+| Rule name                              | Description                                                   |
+| :------------------------------------- | :------------------------------------------------------------ |
+| Net-Acmepacket-SNMP-Interface-Name     | Discover network interfaces and monitor bandwidth utilization |
+| Net-Acmepacket-SNMP-Policy-Server-Name | Discover external policy servers and monitor statistics       |
+| Net-Acmepacket-SNMP-Realm-Name         | Discover realms and monitor utilization                       |
+| Net-Acmepacket-SNMP-Sip-Name           | Discover Sip interfaces and monitor utilization               |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

@@ -27,6 +27,8 @@ Le Plugin-Pack Acme Packet SNMP collecte les données pour:
 | :------------------------------------- | :------------------------------------------------------------------------------------------- |
 | Net-Acmepacket-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 | Net-Acmepacket-SNMP-Policy-Server-Name | Découvre les policy servers externes et supervise leurs statistiques                         |
+| Net-Acmepacket-SNMP-Realm-Name         | Découvre les Realms et supervise l'utilisation                                               |
+| Net-Acmepacket-SNMP-Sip-Name           | Découvre les interfaces Sip et supervise le statut et l'utilisation                          |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
