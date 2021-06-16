@@ -88,7 +88,7 @@ documentation officielle permet de [déployer le nécessaire rapidement](https:/
 ### Flux réseaux
 
 Le Collecteur doit être en mesure de contacter le serveur hébergeant cAdvisor au travers 
-du port TCP/8080 port. Attention, selon la configuration le port peut être différent. 
+du port TCP/8080. Attention, selon la configuration le port peut être différent. 
 
 ## Installation
 
