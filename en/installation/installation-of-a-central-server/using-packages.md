@@ -359,7 +359,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zone [here](http://php.net/manual/en/timezones.php).
+> time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, please do not forget to restart the PHP-FPM service:
 
