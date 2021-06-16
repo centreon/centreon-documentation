@@ -25,7 +25,7 @@ d'un noeud et les performances de conteneurs s'y exécutant. Les Services suivan
 
 ### Règles de découverte
 
-Le Pack cAdvisor API propose différentes règles de découvertes de Service.
+Le Pack cAdvisor API propose différentes règles de découverte de Service.
 
 Pour superviser les métriques des conteneurs, il est nécessaire d'utiliser la fonctionnalité de 
 découverte de Service de Centreon. Voici un résumé des règles disponibles: 
