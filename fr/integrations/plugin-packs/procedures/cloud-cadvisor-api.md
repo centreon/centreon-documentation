@@ -102,7 +102,7 @@ du port TCP/8080. Attention, selon la configuration le port peut être différen
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page "Configuration > Plugin Packs > Manager"
+2. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page `Configuration > Plugin Packs > Manager`
 
 <!--Offline IMP License-->
 
