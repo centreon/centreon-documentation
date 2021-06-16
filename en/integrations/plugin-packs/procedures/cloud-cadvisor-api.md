@@ -127,7 +127,7 @@ Here is a quick description of available configuration Macros:
 
 |Mandatory | Macro                     | Description                                       | Default value                    |
 |----------|---------------------------|---------------------------------------------------|----------------------------------|
-|    x     | `CADVISORAPIPROTO`        | Protocol used to talk with cAdvisor API           | `http`                           |
+|    x     | `CADVISORAPIPROTO`        | Protocol used to talk with the cAdvisor API           | `http`                           |
 |    x     | `CADVISORAPIPORT`         | Network port cAdvisor API listens over            | `8080`                           |
 |    x     | `CADVISORAPIPATH`         | API Path to container metrics information         | `/containers/docker/`            |
 |          | `CADVISORAPIEXTRAOPTIONS` | Extraoptions you may want to add to your command  | `--http-backend=curl --insecure` |
