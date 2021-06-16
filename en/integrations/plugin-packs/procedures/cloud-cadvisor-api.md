@@ -181,5 +181,5 @@ If a proxy is required, add its URL within the PROXYURL Macro at the Host level.
 
 ### UNKNOWN: No containers found or no data available for this specific metric.
 
-This error means that no data is available for this specific or that the container name used in 
+This error means that no data is available for this specific metric or that the container name used in 
 the filter might be mispelled (this can't happen if you use the service discoveru feature). 
