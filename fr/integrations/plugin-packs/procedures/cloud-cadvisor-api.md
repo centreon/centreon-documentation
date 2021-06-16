@@ -118,7 +118,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 yum install centreon-pack-cloud-cadvisor-api
 ```
 
-3. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page "Configuration > Plugin Packs > Manager"
+3. Dans l'interface de Centreon, installer le Plugin Pack *cAdvisor API* depuis la page `Configuration > Plugin Packs > Manager`
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
