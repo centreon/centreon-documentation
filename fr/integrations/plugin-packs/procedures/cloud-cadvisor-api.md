@@ -17,7 +17,7 @@ Ce Pack vise à superviser les métriques exposées au travers de l'API de cAdvi
 ## Objets supervisés 
 
 Ce Pack comprend un Modèle d'Hôte et plusieurs Modèles de Services permettant d'observer le statut 
-d'un noeud et les performances de conteneurs s'y éxécutant. Les Services suivants sont disponibles:
+d'un noeud et les performances de conteneurs s'y exécutant. Les Services suivants sont disponibles:
   * Container-Usage
   * Container-Disk-IO
   * Container-Traffic
