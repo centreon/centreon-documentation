@@ -1279,8 +1279,8 @@ session.use_strict_mode = 1
 session.gc_maxlifetime = 7200
 ```
 
-> Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zones [here](http://php.net/manual/en/timezones.php).
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, please don't forget to restart apache server.
 
