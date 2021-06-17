@@ -228,7 +228,7 @@ Fail2ban est un framework de prévention contre les intrusions, écrit en Python
 Installez fail2ban :
 ```shell
 yum install epel-release
-yum install fail2ban fail2ban-systemd yum python-inotify
+yum install fail2ban fail2ban-systemd python-inotify
 ```
 
 Si SELinux est installé, mettez à jour les politiques SELinux :
