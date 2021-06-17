@@ -150,6 +150,11 @@ next to the status of a **Finished** job to visualize the results.
 2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
     The results will be updated automatically.
+    
+    Warning: editing mappers after a discovery job has been executed only makes sense if
+    the hosts have not yet been added to your monitoring configuration (either manually 
+    or automatically). Changes made to mappers in the discovery task are not taken into
+    account for hosts that have already been created.
 
 3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
 button: <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
@@ -170,6 +175,9 @@ list of jobs and see if an error occured during the saving task.
     ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
 2.  In this panel, edit the settings of the job. If you edit mappers, the results of the job will be updated immediately.
+
+    Warning: editing mappers after a discovery job has been executed only makes sense if
+    the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
 
 3. Click on the **Save** icon at the top right of the panel: <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
 
@@ -201,10 +209,15 @@ contain*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
-> From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host category**
+From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host category**
  support concatenating either discovery attributes or custom strings.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
+
+>Warning: editing mappers after a discovery job has been executed only makes sense
+>if the hosts have not yet been added to your monitoring configuration (either manually
+>or automatically). Changes made to mappers in the discovery task are not taken into account
+>for hosts that have already been created.
 
 ### Add a mapper
 

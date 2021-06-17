@@ -156,8 +156,10 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
 
-    Les changements seront appliqués directement au résultat.
+    Les changements seront appliqués directement à la liste des résultats. 
 
+    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
+    
 3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
 sur le bouton d'enregistrement : <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
 
@@ -177,6 +179,8 @@ survenue pendant la tâche d'enregistrement.
 de la tâche désirée. Un panneau apparaît à droite.
 
 2. Depuis ce panneau, modifiez les paramètres de la tâche. Si vous éditez des modificateurs, les résultats de la tâche seront mis à jour immédiatement.
+
+    Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
 
 2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
 
@@ -206,11 +210,16 @@ peuvent être : *equal*, *not equal*, *contain* et *not contain*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
-> Depuis la version 21.04, dans les modificateurs **Property**, **Macro**, **Host
+Depuis la version 21.04, dans les modificateurs **Property**, **Macro**, **Host
 group** et **Host category** il est possible de concaténer un ou plusieurs
 de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
+
+>Attention, ajouter, éditer ou supprimer des modificateurs après l'exécution de la
+ tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la
+ configuration. Les changements de modificateurs au niveau de la tâche de découverte 
+ ne sont pas pris en compte pour les hôtes déjà créés.
 
 ### Ajouter un modificateur
 
@@ -227,7 +236,7 @@ tous les champs requis.
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
 le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône 
-d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
 
 2. Modifiez n'importe quel champ ou le type de modificateur lui-même.
 
@@ -237,7 +246,7 @@ d'édition <img src="../../assets/monitoring/discovery/host-discovery-edit.png" 
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
-suppression  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+suppression :  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
 
     Une fenêtre demandera de confirmer l'action.
 
