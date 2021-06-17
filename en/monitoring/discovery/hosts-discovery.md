@@ -168,6 +168,8 @@ button: <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.pn
     If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occured during the saving task.
 
+5. [Deploy](../monitoring-servers/deploying-a-configuration.html) the configuration. The new hosts are now monitored.
+
 ## Edit a discovery job
 
 1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.

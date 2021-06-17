@@ -173,6 +173,8 @@ sur le bouton d'enregistrement : <img src="../../assets/monitoring/discovery/hos
 liste, retournez à la liste des tâches et regardez si une erreur est
 survenue pendant la tâche d'enregistrement.
 
+5. [Déployez](../monitoring-servers/deploying-a-configuration.html) la configuration. Les nouveaux hôtes sont maintenant supervisés.
+
 ## Éditer une tâche de découverte
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez dans la ligne 
