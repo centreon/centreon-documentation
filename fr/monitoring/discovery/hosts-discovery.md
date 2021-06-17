@@ -61,7 +61,7 @@ ressemblerait le résultat de la découverte :
 ### Étape 5 : Définir les politiques d'analyse et de mise à jour
 
 - **Analyse manuelle** : Une fois la tâche de découverte exécutée, dans la liste des hôtes découverts, l'utilisateur choisira manuellement quels 
-    hôtes ajouter à la page **Configuration > Hôtes > Hôtes** (voir [Analyser le résultat d'une tâche d'analyse](#analyser-le-résultat-dune-tâche-danalyse)).
+    hôtes ajouter à la page **Configuration > Hôtes > Hôtes** (voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte)).
 
 - **Analyse automatique** : L'analyse traitera le résultat automatiquement selon l'option sélectionnée (au moins une option doit être cochée) :
 
@@ -115,7 +115,7 @@ ressemblerait le résultat de la découverte :
 
         ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
-Cliquez sur **TERMINER** à la dernière étape de l'assistant pour ajouter et planifier la tâche. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche d'analyse](#analyser-le-résultat-dune-tâche-danalyse).
+Cliquez sur **TERMINER** à la dernière étape de l'assistant pour ajouter et planifier la tâche. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
 
 ## Gérer les tâches de découverte
 
@@ -133,7 +133,7 @@ Les états d'une tâche peuvent être :
   
     Si une tâche est dans l'état **Terminé**, cliquez sur la flèche près de son statut pour analyser le
 résultat. Allez au chapitre [Analyser le résultat d'une
-tâche d'analyse](#analyser-le-résultat-dune-tâche-danalyse) pour en savoir plus.
+tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte) pour en savoir plus.
 
     Si une tâche est dans un état **Échoué**, survolez l'icône pour en connaître la
 raison.
@@ -147,7 +147,7 @@ Plusieurs actions peuvent être réalisées sur les tâches :
   - Et reprise <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
   - Utilisez la flèche pour accéder aux résultats de la tâche de découverte <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
 
-## Analyser le résultat d'une tâche d'analyse
+## Analyser le résultat d'une tâche de découverte
 
 1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" /> 
 à côté du statut d'une tâche terminée pour en visualiser le résultat.
