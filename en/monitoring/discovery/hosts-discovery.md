@@ -120,25 +120,29 @@ discovery jobs.
 
 The status of a job can be:
 
-  - **Scheduled** <img src="../../assets/monitoring/discovery/host-discovery-scheduled.png" width="25" />
-  - **Running** <img src="../../assets/monitoring/discovery/host-discovery-running.png" width="25" />
-  - **Saving** <img src="../../assets/monitoring/discovery/host-discovery-saving.png" width="25" />
-  - **Finished** <img src="../../assets/monitoring/discovery/host-discovery-finished.png" width="25" />
-  - **Failed** <img src="../../assets/monitoring/discovery/host-discovery-failed.png" width="25" />
+| Icon                                                                    | State                          |
+|--------------------------------------------------------------------------|-------------------------------|
+| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Scheduled**                 |
+| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **Running**                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **Saving** |
+| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Finished**                   |
+| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Failed**                    |
 
-If a job is in a **Failed** status, hover over the icon to know the reason.
+- If a job is in a **Failed** status, hover over the icon to know the reason.
 
-If a job is in a **Finished** status, click on the arrow next to its status to analyze the result. See
+- If a job is in a **Finished** status, click on the arrow next to its status to analyze the result. See
 [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job) to know more.
 
 Several actions can be done on jobs:
 
-  - Jobs can be re-executed using the **Force execution** action <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="24" />
-  - They can also be edited <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" /> 
-  - Or even deleted <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />. Only the job will be deleted: the hosts you have added to the configuration will still exist.
-  - If the job is scheduled, it can be paused <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
-  - And resumed <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
-  - Use the arrow to access the results of the discovery task <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
+| Icon                                                                            | Action                                                                                                      |
+|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png)  | **Force execution**: re-execute a job                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)             | Edit a job                                                                                                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)           | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
+| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)            | Pause a scheduled job                                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)           | Resume a paused job                                                                                         |
+| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)     | Access the results of the discovery task                                                                    |
 
 ## Analyze the results of a discovery job
 

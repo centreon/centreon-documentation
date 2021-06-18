@@ -125,32 +125,36 @@ Allez à la page **Configuration > Hôtes > Découverte** pour accéder à la li
 
 Les états d'une tâche peuvent être :
 
-  - **Programmé** <img src="../../assets/monitoring/discovery/host-discovery-scheduled.png" width="25" />
-  - **En cours** <img src="../../assets/monitoring/discovery/host-discovery-running.png" width="25" />
-  - **En cours d'enregistrement** <img src="../../assets/monitoring/discovery/host-discovery-saving.png" width="25" />
-  - **Terminé** <img src="../../assets/monitoring/discovery/host-discovery-finished.png" width="25" />
-  - **Échoué** <img src="../../assets/monitoring/discovery/host-discovery-failed.png" width="25" />
-  
-    Si une tâche est dans l'état **Terminé**, cliquez sur la flèche près de son statut pour analyser le
+| Icône                                                                    | état                          |
+|--------------------------------------------------------------------------|-------------------------------|
+| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Programmé**                 |
+| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **En cours**                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **En cours d'enregistrement** |
+| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Terminé**                   |
+| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Échoué**                    |
+
+- Si une tâche est dans l'état **Terminé**, cliquez sur la flèche près de son statut pour analyser le
 résultat. Allez au chapitre [Analyser le résultat d'une
 tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte) pour en savoir plus.
 
-    Si une tâche est dans un état **Échoué**, survolez l'icône pour en connaître la
+- Si une tâche est dans un état **Échoué**, survolez l'icône pour en connaître la
 raison.
 
 Plusieurs actions peuvent être réalisées sur les tâches :
 
-  - Les tâches peuvent être ré-exécutées en utilisant l'action **Forcer l'exécution** <img src="../../assets/monitoring/discovery/host-discovery-force-execution.png" width="24" />
-  - Elles peuvent aussi être éditées <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" /> 
-  - Ou même supprimées <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés.
-  - Si la tâche est planifiée, elle peut être mise en pause <img src="../../assets/monitoring/discovery/host-discovery-pause.png" width="24" />
-  - Et reprise <img src="../../assets/monitoring/discovery/host-discovery-resume.png" width="24" />
-  - Utilisez la flèche pour accéder aux résultats de la tâche de découverte <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
+| Icône                                                                          | Action                                                                                                                     |
+|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png) | **Forcer l'exécution** : réexécuter une tâche                                                                              |
+| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)            | Éditer une tâche                                                                                                           |
+| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)          | Supprimer une tâche. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés. |
+| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)           | Mettre en pause une tâche planifiée                                                                                        |
+| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)          | Reprendre une tâche mise en pause                                                                                          |
+| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)    | accéder aux résultats de la tâche de découverte                                                                            |
+
 
 ## Analyser le résultat d'une tâche de découverte
 
-1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" /> 
-à côté du statut d'une tâche terminée pour en visualiser le résultat.
+1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) à côté du statut d'une tâche terminée pour en visualiser le résultat.
 
     ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
