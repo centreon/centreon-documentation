@@ -9,8 +9,8 @@ Azure Content Delivery Network est une solution conçue pour les développeurs
 pour rapidement distribuer du contenu tel que des images et vidéos ou autres
 documents
 
-The Centreon Plugin-Pack *Azure CDN* can rely on Azure API or Azure CLI to 
-collect the metrics related to CDN profile service.
+Le Plugin-Pack Centreon *Azure CDN* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+CDN profile. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
 
