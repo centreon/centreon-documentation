@@ -303,8 +303,8 @@ All the available options for a given mode can be displayed by adding the ```--h
     --help
 ```
 
-All available options for a given mode can be displayed by adding the 
-```--list-mode``` parameter to thecommand:
+All Plugin modes can be displayed by adding the 
+```--list-mode``` parameter to th ecommand:
 
 ```bash
  /usr/lib/centreon/plugins//centreon_azure_network_cdn_api.pl   \
