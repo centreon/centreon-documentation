@@ -466,6 +466,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-cdn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-networkinterface",
                     "integrations/plugin-packs/procedures/cloud-azure-network-publicip",
                     "integrations/plugin-packs/procedures/cloud-azure-management-recovery",

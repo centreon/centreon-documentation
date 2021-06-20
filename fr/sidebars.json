@@ -463,6 +463,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-cdn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
