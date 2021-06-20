@@ -279,7 +279,7 @@ command:
 
 ```bash
 OK : Instance 'CDN001ABCD' Statistic 'count' Request count: 12.00, Percentage of 4XX: 0.00, Percentage of 5XX: 0.00 |
-'CDN001ABCD~cdn.requests.count'=12;800;900;; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;; 
+'CDN001ABCD~cdn.requests.count'=12;800;900;0; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;0; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;0; 
  ```
 
 The command above checks the *reques* of an Azure *CDN profile* instance using the 'api' custom-mode
