@@ -304,7 +304,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 ```
 
 All Plugin modes can be displayed by adding the 
-```--list-mode``` parameter to th ecommand:
+```--list-mode``` parameter to the command:
 
 ```bash
  /usr/lib/centreon/plugins//centreon_azure_network_cdn_api.pl   \
