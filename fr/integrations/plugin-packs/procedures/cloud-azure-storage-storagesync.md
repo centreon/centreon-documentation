@@ -17,9 +17,7 @@ RestAPI ou Azure CLI.
 ### Objets supervisés
 
 * Files synchronised 
-
 * Recalls statistics
-
 * Server Status
 
 ### Règles de découverte
@@ -184,17 +182,17 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources*Azure Storage Sync*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page"Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources*Azure Storage Sync*:
+1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources *Azure Storage Sync*:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
@@ -206,7 +204,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page"Configuration > Plugin packs > Manager"
+3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Azure Storage Sync* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -220,7 +218,7 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Storage-StorageSync-custom*.
 doivent être renseignées selon le *custom mode* utilisé.
 
 > Deux méthodes peuvent être utilisées lors de l'assignation des Macros:
-> * Utilisation de l'ID complet de la ressource (de type ```/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>```)
+> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>`)
 dans la Macro *AZURERESOURCE*
 > * Utilisation du nom de la ressource dans la Macro *AZURERESOURCE* associée à la Macro *AZURERESOURCEGROUP* 
 
@@ -279,18 +277,18 @@ OK : Instance 'STO001ABCD' Statistic 'total'Files Synced: 546.00, Item errors: 3
  ```
 
 La commande ci-dessus vérifie le nombre d'erreurs de synchronisation sur l'instance *Storage Sync* nommée *STO001ABCD*
-(```--plugin=cloud::azure::network::cdn::plugin --mode=requests --resource='STO001ABCD'```) et liée au *Resource Group* *RSG1234*
-(```--resource-group='RSG1234'```).
+(`--plugin=cloud::azure::network::cdn::plugin --mode=requests --resource='STO001ABCD'`) et liée au *Resource Group* *RSG1234*
+(`--resource-group='RSG1234'`).
 
-Le mode de connexion utilisé est 'api' (```--custommode=api```), les paramètres d'authentification nécessaires à l'utilisation de ce mode
-sont donc renseignés en fonction (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
+Le mode de connexion utilisé est 'api' (`--custommode=api`), les paramètres d'authentification nécessaires à l'utilisation de ce mode
+sont donc renseignés en fonction (`--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'`).
 
-Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) 
-avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
+Les statuts caculés se baseront sur les valeurs totales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (`--timeframe='900'`) 
+avec un état retourné par tranche de 5 minutes (`--interval='PT5M'`).
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si le nombre d'erreurs de synchronisation pendant l'intervalle donné
-est supérieur à 800 (```--warning-item-errors='800'```); l'alarme sera de type CRITICAL au-delà de 900 erreurs
-(```--critical-item-errors='900'```).
+est supérieur à 800 (`--warning-item-errors='800'`); l'alarme sera de type CRITICAL au-delà de 900 erreurs
+(`--critical-item-errors='900'`).
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
@@ -300,7 +298,7 @@ est supérieur à 800 (```--warning-item-errors='800'```); l'alarme sera de type
  ```
 
 Tous les modes disponibles peuvent être affichés en ajoute le paramètre 
-```--list-mode``` à la commande:
+`--list-mode` à la commande:
 
 ```bash
  /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
@@ -308,8 +306,40 @@ Tous les modes disponibles peuvent être affichés en ajoute le paramètre
     --list-mode
  ```
 
-### Diagnostic des erreurs communes
+### Diagnostic des erreurs communes  
 
-#### ```Error message```
+#### Les identifiants ont changé et mon Plugin ne fonctionne plus
 
-......
+Le Plugin utilise un fichier de cache pour conserver les informations de connexion afin de ne pas 
+se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
+Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
+
+Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom azure_api_<md5>_<md5>_<md5>_<md5>.
+
+#### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
+
+Lors du déploiement de mes contrôles, j'obtiens le message suivant : 
+`UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`.
+
+Cela signifie que l'un des paramètres utilisés pour authentifier la requête est incorrect. Le paramètre 
+en question est spécifié dans le message d'erreur en lieu et place de 'ERROR_DESC'. 
+
+Par exemple, 'invalid_client' signifie que le client-id et/ou le client-secret
+n'est (ne sont) pas valide(s).
+
+#### `UNKNOWN: 500 Can't connect to login.microsoftonline.com:443`
+
+Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le 
+collecteur Centreon, il est nécessaire de le préciser dans la commande en
+utilisant l'option `--proxyurl='http://proxy.mycompany.com:8080'`.
+
+Il est également possible qu'un équipement tiers de type Pare-feu bloque la requête
+effectuée par le Plugin.
+
+#### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values'. 
+
+Cela signifie qu'Azure n'a pas consolidé de données sur la période.
+
+Vous pouvez ajouter `--zeroed` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.

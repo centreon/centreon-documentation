@@ -16,9 +16,7 @@ to collect the metrics related to the Storage Sync service.
 ### Monitored objects
 
 * Files synchronised 
-
 * Recalls statistics
-
 * Server Status
 
 ### Discovery rules
@@ -123,7 +121,7 @@ how-to below. Keep it safe until including it in a Host or Host Template definit
 
 <!--Azure AZ CLI-->
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
+To use the 'azcli' custom mode, install the required packages on every Centreon Poller expected to 
 monitor Azure Resources using CLI:
 
 - The CLI needs at least Python version 2.7
@@ -182,17 +180,17 @@ can use it.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Storage Sync* ressources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the"Configuration > Plugin Packs" page
+2. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Azure Storage Sync* ressources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Azure Storage Sync* ressources:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
@@ -204,7 +202,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 
-3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the"Configuration > Plugin Packs" page
+3. On the Centreon Web interface, install the *Azure Storage Sync* Centreon Plugin Pack on the "Configuration > Plugin Packs" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -220,7 +218,7 @@ yum install centreon-pack-cloud-azure-storage-storagesync
 These mandatory Macros differ regarding the custom mode used.
 
 > Two methods can be used to set the Macros:
-> * full ID of the Resource (```/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>```)
+> * full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>`)
 in *AZURERESOURCE*
 > * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*)
 
@@ -279,18 +277,18 @@ OK : Instance 'STO001ABCD' Statistic 'total'Files Synced: 546.00, Item errors: 3
  ```
 
 The command above checks the number of failed files synchronization of an Azure *Storage Sync* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::network::cdn::plugin --mode=requests --custommode=api```).
-This Storage Sync instance is identified by its id (```--resource='STO001ABCD'```) and its associated group (```--resource-group='RSG1234'```).
+(`--plugin=cloud::azure::network::cdn::plugin --mode=requests --custommode=api`).
+This Storage Sync instance is identified by its id (`--resource='STO001ABCD'`) and its associated group (`--resource-group='RSG1234'`).
 The authentication parameters to be used with the custom mode are specified
-in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
+in the options (`--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'`).
 
-The calculated metrics are the total values (```--aggregation='Total'```) of a 900 secondes / 15 min period (```--timeframe='900'```)
+The calculated metrics are the total values (`--aggregation='Total'`) of a 900 secondes / 15 min period (`--timeframe='900'`)
 with one sample per 5 minutes (```--interval='PT5M'```).
 
-This command would trigger a WARNING alarm if the number of failed files synchronization  is reported as over 800 (```--warning-item-errors='800'```)
-and a CRITICAL alarm over 900 errors (```--critical-item-errors='900'```).
+This command would trigger a WARNING alarm if the number of failed files synchronization  is reported as over 800 (```--warning-item-errors='800'`)
+and a CRITICAL alarm over 900 errors (`--critical-item-errors='900'`).
 
-All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
+All the available options for a given mode can be displayed by adding the `--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_azure_storage_storagesync_api.pl   \
@@ -299,7 +297,7 @@ All the available options for a given mode can be displayed by adding the ```--h
     --help
 ```
 
-All Plugin modes can be displayed by adding the ```--list-mode``` parameter to 
+All Plugin modes can be displayed by adding the `--list-mode` parameter to 
 the command:
 
 ```bash
@@ -310,6 +308,31 @@ the command:
 
 ### Troubleshooting
 
-#### ```Error message```
+#### The Azure credentials have changed and the Plugin does not work anymore
 
-......
+The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
+If some of the authentication parameters change, you must delete the cache file. 
+
+The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to azure_api_<md5>_<md5>_<md5>_<md5>.
+
+#### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
+
+When I run my command I obtain the following error message:
+```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
+
+It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
+some hints about where the problem stands. 
+
+As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
+
+#### `UNKNOWN: 500 Can't connect to login.microsoftonline.com:443`
+
+This error message means that the Centreon Plugin couldn't successfully connect to the Azure Login API. Check that no third party
+device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API.
+This can be done by using this option in the command: `--proxyurl='http://proxy.mycompany:8080'`.
+
+#### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+This command result means that Azure does not have any value for the requested period.
+This result can be overriden by adding the `--zeroed` option in the command. This will force a value of 0 when no metric has
+been collected and will prevent the UNKNOWN error message.
