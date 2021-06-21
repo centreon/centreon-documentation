@@ -3,20 +3,47 @@ id: network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
 
-## Contenu du Plugin-Pack
+## Contenu du Plugin Pack
 
 ### Objets supervisés
 
-Le Plugin-Pack Acme Packet SNMP collecte les données pour:
+Le Plugin Pack Acme Packet SNMP collecte les données pour:
+* Codec
 * Hardware
 * Interfaces
+* Policy servers
 * Realm
+* Security
 * Sip
 * System
 
-### Métriques collectées
+### Règles de découverte
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Nom de la règle                        | Description                                                                                  |
+| :------------------------------------- | :------------------------------------------------------------------------------------------- |
+| Net-Acmepacket-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
+| Net-Acmepacket-SNMP-Policy-Server-Name | Découvre les policy servers externes et supervise leurs statistiques                         |
+| Net-Acmepacket-SNMP-Realm-Name         | Découvre les Realms et supervise l'utilisation                                               |
+| Net-Acmepacket-SNMP-Sip-Name           | Découvre les interfaces Sip et supervise le statut et l'utilisation                          |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Métriques et statuts collectés
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Codec-->
+
+| Metric name                            | Description                                              | Unit |
+| :------------------------------------- | :------------------------------------------------------- | :--- |
+| transcoding.sessions.active.count      | Total number of active transcoded sessions               |      |
+| transcoding.resources.usage.count      | Number of transcoding resources currently in-use         |      |
+| transcoding.resources.free.count       | Number of transcoding resources currently free           |      |
+| transcoding.resources.usage.percentage | The percentage of transcoding resources currently in-use | %    |
 
 <!--Hardware-->
 
@@ -42,6 +69,31 @@ Le Plugin-Pack Acme Packet SNMP collecte les données pour:
 
 A regexp filter is available to target a specific interface identifier - ifName [```--interface='^eth0$' --name```]
 
+<!--Policy-servers-->
+
+| Metric name                                                                                | Description                                                                        | Unit |
+| :----------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- | :--- |
+| policy_servers.total.count                                                                 | Total number of policy servers                                                     |      |
+| *policy\_name*\#policy_server.client_transactions.total.count                              | Total number of client transactions for Rx policy server                           |      |
+| *policy\_name*\#policy_server.client_transactions.errors.count                             | Total number of client transactions Errors received for Rx policy server           |      |
+| *policy\_name*\#policy_server.server_transactions.total.count                              | Total number of server transactions for Rx policy server                           |      |
+| *policy\_name*\#policy_server.server_transactions.requests.count                           | Total number of requests received on server transaction for Rx policy server       |      |
+| *policy\_name*\#policy_server.server_transactions.requests.dropped.count                   | Total number of requests dropped  by server transactions for Rx policy server      |      |
+| *policy\_name*\#policy_server.server_transactions.responses.succeeded.count                | Total number of success responses sent by server transactions for Rx policy server |      |
+| *policy\_name*\#policy_server.server_transactions.responses.errors.count                   | Total number of error responses sent by server transactions for Rx policy server   |      |
+| *policy\_name*\#policy_server.messages.authorization_authentication_request.count          | Total number of AAR messages sent by this Rx policy server                         |      |
+| *policy\_name*\#policy_server.messages.authorization_authentication_answer.succeeded.count | Total number of AAA success messages for Rx policy server                          |      |
+| *policy\_name*\#policy_server.messages.authorization_authentication_answer.errors.count    | Total number of AAA error messages for Rx policy server                            |      |
+| *policy\_name*\#policy_server.messages.session_termination_request.count                   | Total number of STR messages sent by this Rx policy server                         |      |
+| *policy\_name*\#policy_server.messages.session_termination_answer.succeeded.count          | Total number of STA success messages for Rx policy server                          |      |
+| *policy\_name*\#policy_server.messages.session_termination_answer.errors.count             | Total number of STA error messages for Rx policy server                            |      |
+| *policy\_name*\#policy_server.messages.abort_session_request.count                         | Total number of ASR messages sent by this Rx policy server                         |      |
+| *policy\_name*\#policy_server.messages.abort_session_answer.succeeded.count                | Total number of ASA success messages for Rx policy server                          |      |
+| *policy\_name*\#policy_server.messages.abort_session_answer.errors.count                   | Total number of ASA error messages for Rx policy server                            |      |
+| *policy\_name*\#policy_server.messages.re_auth_request.count                               | Total number of RAR messages received by this Rx policy server                     |      |
+| *policy\_name*\#policy_server.messages.re_auth_answer.succeeded.count                      | Total number of RAA success messages for Rx policy server                          |      |
+| *policy\_name*\#policy_server.messages.re_auth_answer.errors.count                         | Total number of RAA error messages for Rx policy server                            |      |
+
 <!--Realm-usage-->
 
 | Metric name                                       | Description                              | Unit |
@@ -54,6 +106,23 @@ A regexp filter is available to target a specific interface identifier - ifName 
 | *realm\_name*\#realm.sessions.out.total.count     | Total number of outbound sessions        |      |
 | *realm\_name*\#realm.rfactor.qos.average.count    | Average number of QoS RFactor            |      |
 | *realm\_name*\#realm.rfactor.execeded.total.count | Total number of RFactor exceeded         |      |
+
+<!--Security-->
+
+| Metric name                                                            | Description                                                    | Unit |
+| :--------------------------------------------------------------------- | :------------------------------------------------------------- | :--- |
+| security.ipsec.tunnels.count                                           | The number of IPsec tunnels currently in progress              |      |
+| security.ipsec.license.usage.percentage                                | The percentage of licensed IPsec tunnels currently in progress |      |
+| security.ims_aka.registrations.total.count                             | Total number of registration messages received                 |      |
+| security.ims_aka.registrations.protected.count                         | Total number of protected registration messages received       |      |
+| security.ims_aka.security_association_add.requests.in.count            | Total number of IMS-AKA ADD-SA requests received               |      |
+| security.ims_aka.security_association_add.responses.out.succeded.count | Total number of IMS-AKA ADD-SA success responses sent          |      |
+| security.ims_aka.security_association_add.responses.out.failed.count   | Total number of IMS-AKA ADD-SA fail responses sent             |      |
+| security.ims_aka.security_association_add.added.count                  | Total number of IMS-AKA ADD-SA added                           |      |
+| security.ims_aka.security_association_del.requests.in.count            | Total number of IMS-AKA DEL-SA requests received               |      |
+| security.ims_aka.security_association_del.responses.out.succeded.count | Total number of IMS-AKA DEL-SA success responses sent          |      |
+| security.ims_aka.security_association_del.responses.out.failed.count   | Total number of IMS-AKA DEL-SA fail responses sent             |      |
+| security.ims_aka.security_association_del.deleted.count                | Total number of IMS-AKA DEL-SA fail responses sent             |      |
 
 <!--Sip-usage-->
 
@@ -95,7 +164,7 @@ Afin de contrôler votre équipement Acme Packet, le SNMP doit être configuré.
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Plugin Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -105,13 +174,13 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
 
 ```bash
 yum install centreon-pack-network-acmepacket-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Plugin Pack *Acme Packet* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -128,9 +197,7 @@ yum install centreon-pack-network-acmepacket-snmp
 | :---------- | :---------------------- | :---------------------------------|
 |             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
 depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
@@ -177,15 +244,15 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## J'obtiens le message d'erreur suivant:
+### Diagnostic des erreurs communes  
 
-### UNKNOWN: SNMP GET Request : Timeout
+#### UNKNOWN: SNMP GET Request : Timeout
 
 Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
 ou alors que la communauté SNMP configurée n'est pas correcte. 
 Il est également possible qu'un firewall bloque le flux.
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
+#### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
  * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.9148).
