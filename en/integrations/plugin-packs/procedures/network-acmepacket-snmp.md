@@ -3,11 +3,11 @@ id: network-acmepacket-snmp
 title: Acme Packet SNMP
 ---
 
-## Plugin-Pack Assets
+## Plugin Pack Assets
 
 ### Monitored Objects
 
-The Plugin-Pack Acme Packet SNMP collects metrics for:
+The Plugin Pack Acme Packet SNMP collects metrics for:
 * Codec
 * Hardware
 * Interfaces
@@ -32,7 +32,7 @@ The Plugin-Pack Acme Packet SNMP collects metrics for:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Collected Metrics
+### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -164,7 +164,7 @@ To control your Acme Packet, the SNMP must be configured.
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin-Pack
+2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
 <!--Offline IMP License-->
 
@@ -174,13 +174,13 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin-Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
 
 ```bash
 yum install centreon-pack-network-acmepacket-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin-Pack
+3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Acme Packet* Plugin Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -195,9 +195,7 @@ yum install centreon-pack-network-acmepacket-snmp
 | :-------- | :--------------- | :--------------------------------------------- |
 |           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
-## FAQ
-
-### How to test the Plugin and what are the main options for?
+## How to test the Plugin and what are the main options for?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
 and test the Plugin by running the following command:
@@ -245,9 +243,9 @@ parameter to the command:
     --help
 ```
 
-## Troubleshooting
+### Troubleshooting
 
-### UNKNOWN: SNMP GET Request : Timeout
+#### UNKNOWN: SNMP GET Request : Timeout
 
 If you get this message, you're probably facing one of theses issues:
 * The SNMP agent of the device isn't started or is misconfigured
