@@ -300,13 +300,8 @@ All the available options for a given mode can be displayed by adding the `--hel
     --help
 ```
 
-<<<<<<< HEAD
-All available options for a given mode can be displayed by adding the 
-`--list-mode` parameter to thecommand:
-=======
-All Plugin modes can be displayed by adding the 
-```--list-mode``` parameter to the command:
->>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d
+All Plugin modes can be displayed by adding the `--list-mode` parameter to the 
+command:
 
 ```bash
  /usr/lib/centreon/plugins//centreon_azure_network_cdn_api.pl   \
