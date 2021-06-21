@@ -17,7 +17,7 @@ Le Plugin Pack Acme Packet SNMP collecte les données pour:
 * Sip
 * System
 
-### Règles de découvertes
+### Règles de découverte
 
 <!--DOCUSAURUS_CODE_TABS-->
 
