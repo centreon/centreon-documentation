@@ -122,7 +122,6 @@ team](https://centreon.force.com/) to get & install your license key.
 
 The Centreon MAP Web interface is compatible with the following web browsers:
 
-
 * Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
 * Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
 * Apple Safari (latest version at the time of Centreon software release and above)
