@@ -342,10 +342,5 @@ This can be done by using this option in the command: `--proxyurl='http://proxy.
 #### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
 
 This command result means that Azure does not have any value for the requested period.
-<<<<<<< HEAD
 This result can be overriden by adding the `--zeroed` option in the command. This will force a value of 0 when no metric has
 been collected and will prevent the UNKNOWN error message.
-=======
-This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric has
-been collected and will prevent the UNKNOWN error message.
->>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d

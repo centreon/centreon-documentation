@@ -348,8 +348,4 @@ Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: N
 
 Cela signifie qu'Azure n'a pas consolidé de données sur la période.
 
-<<<<<<< HEAD
 Vous pouvez ajouter `--zeroed` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
-=======
-Vous pouvez ajouter ```--zeroed``` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
->>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d
