@@ -484,6 +484,7 @@
                     "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
                     "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
+                    "integrations/plugin-packs/procedures/cloud-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
                     "integrations/plugin-packs/procedures/cloud-ibm-softlayer-api",
