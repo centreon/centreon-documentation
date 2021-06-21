@@ -276,7 +276,7 @@ command:
 
 ```bash
 OK : Instance 'CDN001ABCD' Statistic 'count' Request count: 12.00, Percentage of 4XX: 0.00, Percentage of 5XX: 0.00 |
-'CDN001ABCD~cdn.requests.count'=12;800;900;; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;; 
+'CDN001ABCD~cdn.requests.count'=12;800;900;0; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;0; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;0; 
  ```
 
 The command above checks the *reques* of an Azure *CDN profile* instance using the 'api' custom-mode
@@ -300,8 +300,13 @@ All the available options for a given mode can be displayed by adding the `--hel
     --help
 ```
 
+<<<<<<< HEAD
 All available options for a given mode can be displayed by adding the 
 `--list-mode` parameter to thecommand:
+=======
+All Plugin modes can be displayed by adding the 
+```--list-mode``` parameter to the command:
+>>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d
 
 ```bash
  /usr/lib/centreon/plugins//centreon_azure_network_cdn_api.pl   \
@@ -337,5 +342,10 @@ This can be done by using this option in the command: `--proxyurl='http://proxy.
 #### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
 
 This command result means that Azure does not have any value for the requested period.
+<<<<<<< HEAD
 This result can be overriden by adding the `--zeroed` option in the command. This will force a value of 0 when no metric has
 been collected and will prevent the UNKNOWN error message.
+=======
+This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric has
+been collected and will prevent the UNKNOWN error message.
+>>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d

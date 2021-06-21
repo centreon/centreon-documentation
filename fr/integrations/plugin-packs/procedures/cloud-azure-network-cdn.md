@@ -9,8 +9,8 @@ Azure Content Delivery Network est une solution conçue pour les développeurs
 pour rapidement distribuer du contenu tel que des images et vidéos ou autres
 documents
 
-The Centreon Plugin-Pack *Azure CDN* can rely on Azure API or Azure CLI to 
-collect the metrics related to CDN profile service.
+Le Plugin-Pack Centreon *Azure CDN* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+CDN profile. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du Pack
 
@@ -276,7 +276,7 @@ l'utilisateur *centreon-engine*:
 
 ```bash
 OK : Instance 'CDN001ABCD' Statistic 'count' Request count: 12.00, Percentage of 4XX: 0.00, Percentage of 5XX: 0.00 |
-'CDN001ABCD~cdn.requests.count'=12;800;900;; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;; 
+'CDN001ABCD~cdn.requests.count'=12;800;900;0; 'CDN001ABCD~cdn.requests.4xx.percentage'=0.00%;;;0; 'CDN001ABCD~cdn.requests.5xx.percentage'=0.00%;;;0; 
  ```
 
 La commande ci-dessus vérifie le nombre de requêtes sur l'instance *CDN profiles* nommée *CDN001ABCD*
@@ -348,4 +348,8 @@ Lors du déploiement de mes contrôles, j'obtiens le message suivant 'UNKNOWN: N
 
 Cela signifie qu'Azure n'a pas consolidé de données sur la période.
 
+<<<<<<< HEAD
 Vous pouvez ajouter `--zeroed` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
+=======
+Vous pouvez ajouter ```--zeroed``` à la macro EXTRAOPTIONS du **service** en question afin de forcer le stockage d'un 0 et ainsi éviter un statut UNKNOWN.
+>>>>>>> 139e57d4ac24ca35b9f80622c5a5e18f08e20a1d
