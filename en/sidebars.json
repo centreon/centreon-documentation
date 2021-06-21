@@ -477,6 +477,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
+                    "integrations/plugin-packs/procedures/cloud-azure-storage-storagesync",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
