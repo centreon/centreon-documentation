@@ -30,11 +30,11 @@ Le Pack cAdvisor API propose différentes règles de découverte de Service.
 Pour superviser les métriques des conteneurs, il est nécessaire d'utiliser la fonctionnalité de 
 découverte de Service de Centreon. Voici un résumé des règles disponibles: 
 
-| Rule                                    | Description                                            |
-|-----------------------------------------|--------------------------------------------------------|
-| Cloud-cAdvisor-API-Container-Disk-IO    | Discover containers and monitor Disk-IO metrics        |
-| Cloud-cAdvisor-API-Container-Usage      | Discover containers and monitor CPU & RAM consumption  |
-| Cloud-cAdvisor-API-Container-Traffic    | Discover containers and monitor bandwidth utilization  |
+| Rule                                    | Description                                                       |
+|-----------------------------------------|------------------------------------------------------------------ |
+| Cloud-cAdvisor-API-Container-Disk-IO    | Découverte de conteneurs pour la supervision des E/S Disque       |
+| Cloud-cAdvisor-API-Container-Usage      | Découverte de conteneurs pour la supervision du CPU et de la RAM  |
+| Cloud-cAdvisor-API-Container-Traffic    | Découverte de conteneurs pour la supervision de la bande-passante |
 
 ### Métriques collectées
 
@@ -112,7 +112,7 @@ yum install centreon-plugin-Cloud-cAdvisor-Api
 yum install centreon-plugin-Cloud-cAdvisor-Api
 ```
 
-2. Installer le Plugin sur chaque Collecteur allant superviser des containers via cAdvisor:
+2. Installer le RPM du Pack sur le serveur Central:
 
 ```bash
 yum install centreon-pack-cloud-cadvisor-api
