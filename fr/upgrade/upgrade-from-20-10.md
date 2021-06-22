@@ -155,14 +155,15 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-#### Redémarrez les processus Centreon
+1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
-Redamarrez les processus :
-```
-systemctl restart cbd centengine centreontrapd gorgoned
-```
+2. Redémarrez les processus Centreon :
 
-#### Montée de version des extensions
+    ```
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
+
+3. Montée de version des extensions :
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
 toutes les extensions, en commençant par les suivantes :
