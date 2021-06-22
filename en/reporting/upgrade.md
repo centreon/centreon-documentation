@@ -29,7 +29,9 @@ You will find the new "Business" repository on the "Depots" tab in your Centreon
 
 1. Update the package, run the following commands:
 
-        yum update centreon-bi-server
+    ```shell
+    yum update centreon-bi-server
+    ```
 
 2. Update through the interface:  Log on to the Centreon web interface and go to 
 the *Administration > Extension > Manager* page and click on the 
@@ -39,16 +41,22 @@ AirUpdate button to update the extension and the widgets
 
 1. Connect to your reporting server and stop the scheduler service (CBIS):
 
+    ```shell
     systemctl stop cbis
+    ```
 
 2. Then run the following commands: 
 
+    ```shell
     yum clean all
     yum update centreon-bi\*
+    ```
 
 3. Start the scheduler service: 
 
+    ```shell
     systemctl start cbis
+    ```
 
 ## Step 4: Upgrade the MariaDB database
 

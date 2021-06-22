@@ -30,7 +30,9 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
+    ```shell
     yum update centreon-bi-server
+    ```
 
 2. Mettre à jour l'interface: Se connecter à l'interface web de Centreon et se rendre dans le menu
  `Administration > Extension > Manager` puis cliquer sur le bouton de mise à jour de l'extension et des widgets.
@@ -39,15 +41,21 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 1. Premièrement, arrêtez le service d'ordonnancement (CBIS):
 
+    ```shell
     systemctl stop cbis
+    ```
 
 2. Puis mettre à jour les paquets, en exécutant la commande suivante:
 
+    ```shell
     yum update centreon-bi\*
+    ```
 
 3. Enfin, redémarrer le service d'ordonnancement:
 
+    ```shell
     systemctl start cbis
+    ```
 
 ## Étape 4 : mise à jour de MariaDB
 
