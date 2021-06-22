@@ -13,7 +13,7 @@ When you upgrade from one major version of Centreon to another, you must:
 2. Upgrade MariaDB.
 
 Be aware that MariaDB strongly recommends that you upgrade the server one major version at a time.
-You must upgade MariaDB from your orignial version up to version 10.5. The upgrade must be made
+You must upgade MariaDB from your original version up to version 10.5. The upgrade must be made
 one version at a time, e.g. 10.1 to 10.2, 10.2 to 10.3, etc. 
 That is why Centreon provides several versions on its stable repositories.
 
