@@ -8,8 +8,8 @@ is done by upgrading the four main components:
 
 - Centreon MAP server
 - Centreon MAP web interface & its widget
-- Desktop client (automatically updated).
-- MariaDB database
+- Desktop client (automatically updated)
+- MariaDB database.
 
 Before upgrading Centreon MAP server, we highly recommend performing a
 MariaDB dump (backup) of your `centreon_studio` database. This will
@@ -20,7 +20,7 @@ Be sure to read the release notes for an explanation of features, fixes
 
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
-the new repository**
+the new repository**.
 
 ## Step 1: Centreon MAP server
 
@@ -55,8 +55,8 @@ yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centre
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+    > Install Centreon MAP repository, you can find it on the
+    > [support portal](https://support.centreon.com/s/repositories).
 
 3. Update Centreon MAP server:
 

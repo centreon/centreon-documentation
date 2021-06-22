@@ -20,7 +20,7 @@ Be sure to read the release notes for an explanation of features, fixes
 
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
-the new repository**
+the new repository**.
 
 ## Step 1: Centreon MAP server
 

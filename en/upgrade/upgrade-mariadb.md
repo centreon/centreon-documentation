@@ -23,7 +23,7 @@ That is why Centreon provides several versions on its stable repositories.
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
 > - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
 
-## Version of Maria DB by version of Centreon
+## Version of Maria DB for each version of Centreon
 
 | Centreon | MariaDB |
 |----------|---------|
