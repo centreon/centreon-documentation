@@ -4,11 +4,12 @@ title: Upgrade the extension
 ---
 
 This chapter describes how to upgrade your Centreon MAP extension. This
-is done by upgrading the three main components:
+is done by upgrading the four main components:
 
 - Centreon MAP server
 - Centreon MAP web interface & its widget
 - Desktop client (automatically updated).
+- MariaDB database
 
 Before upgrading Centreon MAP server, we highly recommend performing a
 MariaDB dump (backup) of your `centreon_studio` database. This will
@@ -21,7 +22,7 @@ Be sure to read the release notes for an explanation of features, fixes
 A or B that changes) you need to contact our Support service to retrieve
 the new repository**
 
-## Centreon MAP server
+## Step 1: Centreon MAP server
 
 > If you are still running version **4.0.X**, you **must first install
 > and run the server in version 4.1.X before upgrading to the latest
@@ -79,7 +80,7 @@ cp /var/log/centreon-studio/* /var/log/centreon-map/
 rm -rf /var/log/centreon-studio
 ```
 
-## Centreon MAP web interface
+## Step 2: Centreon MAP web interface
 
 ```shell
 yum update centreon-map-web-client
@@ -97,10 +98,14 @@ error message.
 
 ![image](../assets/graph-views/license-error.png)
 
-## Centreon MAP desktop client
+## Step 3: Centreon MAP desktop client
 
 If the user's computer has an online connection, the desktop client is
 automatically upgraded to the latest version that corresponds to the server.
 
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
+
+## Step 4 : MariaDB database
+
+See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).

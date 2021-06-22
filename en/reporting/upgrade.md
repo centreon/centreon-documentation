@@ -10,13 +10,14 @@ title: Upgrade the extension
 >   following procedure to migrate your server: [Migrate your
 >   reporting server](migrate.html)
 
-The upgrade of Centreon MBI is made of 3 steps :
+The upgrade of Centreon MBI consists of 4 steps :
 
 - Updating the repository
 - Updating the extension interface
 - Updating the reporting server
+- Updating the MariaDB database
 
-## Update the repository
+## Step 1: Update the repository
 
 When you upgrade from a previous major version to 21.04.x, you first need to update the repository on your Central & Reporting servers.
 
@@ -24,7 +25,7 @@ You will find the new "Business" repository on the "Depots" tab in your Centreon
 
 ![image](../assets/reporting/support_repos.png)
 
-## Upgrade the extension interface
+## Step 2: Upgrade the extension interface
 
 1. Update the package, run the following commands:
 
@@ -34,19 +35,21 @@ You will find the new "Business" repository on the "Depots" tab in your Centreon
 the *Administration > Extension > Manager* page and click on the 
 AirUpdate button to update the extension and the widgets
 
-## Upgrade the reporting server 
+## Step 3: Upgrade the reporting server 
 
-Connect to your reporting server and stop the scheduler service (CBIS):
+1. Connect to your reporting server and stop the scheduler service (CBIS):
 
     systemctl stop cbis
 
-Then run the following commands: :
+2. Then run the following commands: 
 
     yum clean all
     yum update centreon-bi\*
 
-Start the scheduler service: 
+3. Start the scheduler service: 
 
     systemctl start cbis
 
-You're done :)
+## Step 4: Upgrade the MariaDB database
+
+See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).
