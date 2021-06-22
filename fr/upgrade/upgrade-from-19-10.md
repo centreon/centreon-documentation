@@ -191,9 +191,13 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
+#### Déployer la configuration
+
+Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
 #### Redémarrez les processus Centreon
 
-Redamarrez le processus cbd:
+Redémarrez le processus cbd:
 ```
 systemctl start cbd
 ```

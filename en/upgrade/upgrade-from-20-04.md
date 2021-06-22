@@ -117,16 +117,14 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-#### Restart Centreon processes
+1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
-Restart the processes:
-```
-systemctl restart cbd centengine centreontrapd gorgoned
-```
+2. Restart Centreon processes:
+    ```
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
-#### Upgrade extensions
-
-From `Administration > Extensions > Manager`, upgrade all extensions, starting
+3. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
 with the following:
 
   - License Manager,
