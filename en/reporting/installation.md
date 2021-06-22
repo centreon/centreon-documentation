@@ -297,6 +297,12 @@ cd /etc/pki/rpm-gpg/
 wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
 
+Enable the cbis service:
+
+```shell
+systemctl enable cbis
+```
+
 ### Reporting server configuration
 
 #### MariaDB optimization
