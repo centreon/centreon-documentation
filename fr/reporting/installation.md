@@ -256,6 +256,12 @@ Dans le cas d'une installation basée sur une image CentOS vierge, installez la 
     cd /etc/pki/rpm-gpg/
     wget http://yum.centreon.com/standard/20.04/el7/stable/RPM-GPG-KEY-CES
 
+Activer le service cbis :
+
+```shell
+systemctl enable cbis
+```
+
 ### Configurer le serveur de reporting
 
 #### Optimisations MariaDB
