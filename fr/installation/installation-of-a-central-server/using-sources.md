@@ -1273,6 +1273,9 @@ session.use_strict_mode = 1
 session.gc_maxlifetime = 7200
 ```
 
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
 Après avoir sauvegardé le fichier, n'oubliez pas de redémarrer le service apache de votre serveur.
 
 La base de données MariaDB doit être disponible pour pouvoir continuer l'installation (localement ou non). Pour

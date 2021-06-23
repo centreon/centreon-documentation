@@ -74,6 +74,9 @@ Le fuseau horaire PHP doit être défini. Exécutez la commande:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
 Exécutez les commandes suivantes
 ```shell
 systemctl stop rh-php72-php-fpm

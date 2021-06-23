@@ -95,6 +95,9 @@ The PHP timezone should be set. Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 Execute the following commands:
 ```shell
 systemctl stop rh-php72-php-fpm
