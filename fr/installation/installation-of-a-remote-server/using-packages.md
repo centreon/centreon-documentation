@@ -280,7 +280,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :

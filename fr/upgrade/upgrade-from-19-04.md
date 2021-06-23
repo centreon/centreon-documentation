@@ -87,7 +87,7 @@ suivante :
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 > N'oubliez pas de reporter les configurations spécifiques qui peuvent être

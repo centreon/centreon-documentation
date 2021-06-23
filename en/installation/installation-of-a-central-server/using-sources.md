@@ -1279,6 +1279,9 @@ session.use_strict_mode = 1
 session.gc_maxlifetime = 7200
 ```
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 After saving the file, please don't forget to restart apache server.
 
 The Mysql database server should be available to complete installation (locally or not). MariaDB is recommended.
