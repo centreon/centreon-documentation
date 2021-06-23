@@ -23,7 +23,7 @@ sont plus disponibles, afin d'éventuellement les désactiver dans la configurat
     Pour les services, paramétrez des règles de découverte : par exemple, une pour découvrir les 
 interfaces réseau sur un serveur Linux, et une autre pour découvrir les volumes de disque.
 
-2. La tâche ou la règle de recherche scanne le réseau choisi et obtient une liste des nouveaux hôtes ou services correspondant au Plugin Pack.
+2. La tâche ou la règle de découverte sont effectuées et obtiennent une liste des nouveaux hôtes ou services correspondant au Plugin Pack.
 
 3. Selon votre paramétrage, vous choisissez dans la liste les ressources à ajouter à votre Centreon, ou bien elles sont ajoutées automatiquement. Ces ressources peuvent ensuite être configurées dans Centreon 
 à l’aide de modèles d’hôte ou de modèles de service.
