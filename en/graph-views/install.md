@@ -194,8 +194,9 @@ configurations are possible.
 
 ### Centreon Web interface
 
-The Centreon MAP server requires a dedicated user who has access to all
-resources. Since the password will be stored in human-readable form in a
+You must provide to Centreon MAP server a dedicated user
+**who has access to all resources** through appropriate access list groups. 
+Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
 Provide this user with access to the Centreon Web real-time API:
