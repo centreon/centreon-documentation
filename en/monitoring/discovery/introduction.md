@@ -26,7 +26,7 @@ For instance, one job to discover ESX nodes and one job to discover virtual mach
     For services, create discovery rules: for instance, one rule to discover network interfaces and one rule
 to discover disk volumes in a Linux server.
 
-2. The discovery job or rule is performed and gets a list of all new hosts or services that match the Plugin Pack.
+2. The discovery job or rule is performed: you get a list of all new hosts or services that match the Plugin Pack.
 
 3. According to how you have configured the job, you either choose in the list which resources you want 
 to add to your Centreon platform, or they are added automatically.
