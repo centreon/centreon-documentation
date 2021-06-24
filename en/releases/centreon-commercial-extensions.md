@@ -38,9 +38,6 @@ If you have feature requests or want to report a bug, please contact support.
 #### Bugfixes
 
 - Fixed JQuery issues with MBI web client
-- Fixed an issue with some requests that could cause a lock on the MBI database
-- Fixed an issue that could cause availability widgets to not properly display in specific
-cases
 
 ### 21.04.0
 

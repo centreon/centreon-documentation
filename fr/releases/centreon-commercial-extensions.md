@@ -38,8 +38,6 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Correction des erreurs JQuery avec MBI web client
-- Correction de requetes qui pouvaient amener à un vérouillage sur la base de données MBI
-- Correction d'un cas où les widgets "disponibilités" pouvaient ne plus afficher de données.
 
 ### 21.04.0
 
