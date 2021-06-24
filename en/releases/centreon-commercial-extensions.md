@@ -31,6 +31,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
+`June 24, 2021`
+
+### 21.04.1
+
+#### Bugfixes
+
+- Fixed JQuery issues with MBI web client
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04

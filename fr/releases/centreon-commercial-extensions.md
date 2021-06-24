@@ -28,7 +28,15 @@ commerciales, veuillez contacter le support.
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
+
 ## Centreon MBI
+
+### 21.04.1
+
+#### Correctifs
+
+- Correction des erreurs JQuery avec MBI web client
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
