@@ -61,7 +61,7 @@ http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health
 <!--HTTPS-->
 
 ```shell
-https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
