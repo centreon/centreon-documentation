@@ -5,7 +5,7 @@ title: Administration
 
 ## Update
 
-> When upgrading from a version earlier than version 20.04, all data of 
+> When upgrading from an earlier version than version 20.04, all data of the
 > **Host Discovery** feature will be lost:
 >
 > - Discovery tasks,
@@ -17,47 +17,47 @@ title: Administration
 >
 > Upgrading to 21.04 will keep all data stored since 20.04.
 
-To update the module, run the following command:
+1. To update the module, run the following command:
 
-``` shell
-yum update -y centreon-auto-discovery-server
-```
+    ``` shell
+    yum update -y centreon-auto-discovery-server
+    ```
 
-Connect to the Centreon's web interface using an account allowed to administer
-products and go to the `Administration > Extensions > Manager` menu.
+2. Connect to the Centreon web interface using an account allowed to install
+products and go to the `Administration > Extensions > Manager` page.
 
-> Make sure that **License Manager** and **Plugin Packs Manager** modules are
-> up-to-date before updating **Auto Discovery** module.
+3. Make sure that **License Manager** and **Plugin Packs Manager** modules are
+ up-to-date before updating the **Auto Discovery** module.
 
-Click on the update icon corresponding to the **Auto Discovery**
+4. Click on the update icon corresponding to the **Auto Discovery**
 module:
 
-![image](../../assets/monitoring/discovery/update.png)
+    ![image](../../assets/monitoring/discovery/update.png)
 
-The module is now updated:
+    The module is now updated:
 
-![image](../../assets/monitoring/discovery/install-after.png)
+    ![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Uninstallation
 
-Connect to the Centreon’s web interface using an account allowed to administer
-products and go to the `Administration > Extensions > Manager` menu.
-
-Click on the delete icon corresponding to the **Auto Discovery**
-module:
-
-![image](../../assets/monitoring/discovery/install-after.png)
-
-A confirmation popup will appear, confirm the action:
-
-![image](../../assets/monitoring/discovery/uninstall-popin.png)
-
-The module is now uninstalled:
-
-![image](../../assets/monitoring/discovery/install-before.png)
-
 > Uninstalling the module will also remove all the associated data. Data won't
 > be restorable unless a database backup has been made.
+
+1. Connect to the Centreon web interface using an account allowed to install
+products and go to the `Administration > Extensions > Manager` page.
+
+2. Click on the delete icon corresponding to the **Auto Discovery**
+module:
+
+    ![image](../../assets/monitoring/discovery/install-after.png)
+
+3. A confirmation popup will appear. Confirm the action:
+
+    ![image](../../assets/monitoring/discovery/uninstall-popin.png)
+
+    The module is now uninstalled:
+
+    ![image](../../assets/monitoring/discovery/install-before.png)
 
 ## Gorgone module configuration
 
@@ -65,7 +65,7 @@ The **Auto Discovery** module brings a specific configuration for the Gorgone
 service on the Central server. The default configuration is
 `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml`.
 
-A maximum duration for hosts discovery jobs is set globally. If its necessary to
+A maximum duration for hosts discovery jobs is set globally. If it is necessary to
 change it (large subnet SNMP discovery for example), edit the configuration and
 add the *global_timeout* directive.
 
@@ -89,7 +89,7 @@ gorgone:
       mail_command: /bin/mail
 ```
 
-> Be sure to restart Gorgone service after any configuration modification:
+> Be sure to restart the Gorgone service after any configuration modification:
 >
 > ```shell
 > systemctl restart gorgoned
@@ -98,13 +98,13 @@ gorgone:
 ### Distributed architecture
 
 The hosts and services discoveries both rely on Gorgone to perform discoveries
-on both Central and Remote Server or Pollers.
+on both Central and Remote Servers or Pollers.
 
 > It is necessary to have a ZMQ communication between the Central server and a
 > Remote Server to perform a discovery on a Poller attached to this Remote
 > Server.
 >
-> Look at the section presenting the differente [communication
+> Look at the section presenting the different [communication
 > types](../monitoring-servers/communications.html) to know more.
 
 ### Service Discovery scheduled job

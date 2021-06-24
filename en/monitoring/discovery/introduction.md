@@ -7,31 +7,26 @@ title: Introduction
 > license key. To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
-Centreon Auto Discovery is an add-on to the Enterprise Plugin Pack
-functionality.
 
-The Auto Discovery module uses the plugins to get a list of new resources to
-monitor: new hosts or new services. These resources can then be configured in
-Centreon using host templates or service templates.
+The Auto Discovery module allows you to get a list of new hosts and services and to create them 
+automatically in your Centreon platform. The discovery is done by discovery providers, that are included
+within [Plugin Packs](../pluginpacks.html).
 
-Host Discovery Providers and Service Discovery Rules instruct Centreon how to
-connect to an equipment and get the list of resources that could be monitored.
-These discovery rules are included in the Plugin Packs.
+- This discovery mechanism can also be scheduled and executed automatically.
 
-For example, ESX nodes and virtual machines can be automatically discovered in a
-VMware cluster. Or network interfaces and disk volumes in a Linux server.
+- You can also detect that resources are no longer available and automatically disable them in the configuration.
 
-For all hosts or services for which discovery rules are available, the Centreon
-configuration user interface propose to connect to the equipment and fetch a
-list of available resources with their associated template, ready to be
-configured in Centreon.
+- You can link contacts to a services discovery rule, so as to notify them when any change in the configuration occurs.
 
-This discovery mechanism can also be scheduled and automatically executed. New
-automatically discovered resources may optionally automatically be configured in
-Centreon.
+## How it works
 
-The same discovery mechanism may apply to resources that would no longer be
-available. They can be listed and optionally disabled from the configuration.
+1. Create a discovery job for each type of ressource, using the corresponding [Plugin Pack](../pluginpacks.html). 
+For instance, one job to discover ESX nodes and one job to discover virtual machines in a VMWare cluster.
 
-Contacts may be associated to a discovery rule to be notified when any
-configuration change occurs.
+    For services, create discovery rules: for instance, one rule to discover network interfaces and one rule
+to discover disk volumes in a Linux server.
+
+2. The discovery job or rule is performed: you get a list of all new hosts or services that match the Plugin Pack.
+
+3. According to how you have configured the job, you either choose in the list which resources you want 
+to add to your Centreon platform, or they are added automatically.
