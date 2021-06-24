@@ -33,6 +33,8 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.1
 
+`24 Juin 2021`
+
 #### Correctifs
 
 - Correction des erreurs JQuery avec MBI web client

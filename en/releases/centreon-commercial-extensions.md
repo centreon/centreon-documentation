@@ -31,9 +31,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
-`June 24, 2021`
-
 ### 21.04.1
+
+`June 24, 2021`
 
 #### Bugfixes
 
