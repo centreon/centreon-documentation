@@ -232,11 +232,10 @@ version (apportant des corrections de failles de sécurité)
 #### Correctifs
 
 - [Core] Une mauvaise requête générait des erreurs 400
+- [Host Discovery] Eviter d'importer des *providers* de découverte incompatibles (limiter la définition du *provider* à la version 2.0)
 
-#### Améliorations
-
-- [Host Discovery] Limiter la définition du *provider* de découverte qui est
-importé à la version 2.0
+> Attention : si des Plugin Packs dont le numéro de version est >= 5.0.0 (qui incluent des *providers* de version 3.0) ont été installés avant ce correctif, une erreur sera affichée dans le *wizard* de création de tâche de découverte d'hôte.
+> Pour régler ce problème, aller dans **Configuration > Packs de Plugins** et réinstaller les Plugin Packs dont le numéro de version est supérieur ou égal à 5.0.0.
 
 
 ### 20.10.2

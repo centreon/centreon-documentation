@@ -225,10 +225,10 @@ vulnerabilities)
 #### Bug fixes
 
 - [Core] Creation forms generate 400 errors due to bad query
+- [Host Discovery] Avoid importing incompatible host discovery providers (limit provider definition version to 2.0)
 
-#### Enhancements
-
-- [Host Discovery] Limit provider definition version that is imported to 2.0
+> Warning: if Plugin Packs of version >=5.0.0 (which include v3.0 providers) have been installed before this fix,  an error will be displayed in the host discovery job creation wizard.
+> To fix this issue, go to **Configuration > Plugin Packs**  and reinstall the Plugin Packs that have a version number >= 5.0.0.
 
 ### 20.10.2
 
