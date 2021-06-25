@@ -18,6 +18,28 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.16
+
+#### Correctifs
+
+- [Configuration] InfluxDB configuration columns are deleted in Broker from
+
+#### Correctifs de sécurité
+
+- [Configuration] Input sent to unserialize() are not sanitized
+- [Configuration] SQL Injection on commands
+- [Configuration] SQL Injection on host dependency
+- [Configuration] SQL Injection on hostgroup dependency
+- [Configuration] SQL Injection on metaservice
+- [Configuration] SQL Injection on metaservice dependency
+- [Configuration] SQL Injection on service categories
+- [Configuration] SQL Injection on service dependency
+- [Configuration] SQL Injection on servicegroup
+- [Configuration] SQL Injection on servicegroup dependency
+- [Configuration] SQL Injection on timeperiod
+- [Configuration] XSS Stored on checks command
+- [Core] Manage security acknowledgement
+
 ### 20.04.15
 
 `10 juin 2021`
