@@ -227,7 +227,7 @@ vulnerabilities)
 - [Core] Creation forms generate 400 errors due to bad query
 - [Host Discovery] Incompatible host discovery providers could be imported
 
-> Warning: if Plugin Packs of version >=5.0.0 (which include v3.0 providers) have been installed before this fix,  an error will be displayed in the host discovery job creation wizard.
+> Warning: if Plugin Packs of version >=5.0.0 have been installed before this fix, an error will be displayed in the host discovery job creation wizard.
 > To fix this issue, go to **Configuration > Plugin Packs**  and reinstall the Plugin Packs that have a version number >= 5.0.0.
 
 ### 20.10.2
