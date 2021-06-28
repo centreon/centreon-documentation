@@ -23,8 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bugfixes
 
-- [APIv2] Use poller's page ACL rights on Topology API endpoints
-- [Configuration] InfluxDB configuration columns are deleted in Broker from
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
 - [Downtime] Can not remove/delete periods when configuring recurrent downtime
 - [Platform Topology] Update Exception handling
 
