@@ -28,9 +28,8 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Correctifs
 
-- [ACL] Display message if user doesn't have rights to access to a page
 - [APIv2] Use poller's page ACL rights on Topology API endpoints
-- [Configuration] InfluxDB configuration columns are deleted in Broker from
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
 - [Downtime] Can not remove/delete periods when configuring recurrent downtime
 - [Graph] Anchor point does not follow line path for stacked graphs
 - [Platform Topology] Update Exception handling
