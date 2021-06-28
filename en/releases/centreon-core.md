@@ -19,6 +19,39 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.3
+
+`June 28, 2021`
+
+#### Enhancements
+
+- [Core] Implement API log mechanism
+- [Graph] Diverse export size options
+
+#### Bugfixes
+
+- [APIv2] Use poller's page ACL rights on Topology API endpoints
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
+- [Downtime] Can not remove/delete periods when configuring recurrent downtime
+- [Graph] Anchor point does not follow line path for stacked graphs
+- [Platform Topology] Update Exception handling
+
+#### Security fixe
+
+- [Configuration] Input sent to unserialize() are not sanitized
+- [Configuration] SQL Injection on commands
+- [Configuration] SQL Injection on host dependency
+- [Configuration] SQL Injection on hostgroup dependency
+- [Configuration] SQL Injection on metaservice
+- [Configuration] SQL Injection on metaservice dependency
+- [Configuration] SQL Injection on service categories
+- [Configuration] SQL Injection on service dependency
+- [Configuration] SQL Injection on servicegroup
+- [Configuration] SQL Injection on servicegroup dependency
+- [Configuration] SQL Injection on timeperiod
+- [Configuration] XSS Stored on checks command
+- [Core] Manage security acknowledgement
+
 ### 21.04.2
 
 `June 7, 2021`
