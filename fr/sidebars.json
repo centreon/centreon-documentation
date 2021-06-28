@@ -242,15 +242,6 @@
             "administration/access-control-lists",
             "administration/extensions",
             "administration/database-partitioning",
-            {
-                "ids": [
-                    "administration/centreon-ha/monitoring-guide",
-                    "administration/centreon-ha/operating-guide",
-                    "administration/centreon-ha/troubleshooting-guide"
-                ],
-                "label": "Centreon HA",
-                "type": "subcategory"
-            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -994,6 +985,18 @@
                     "developer/developer-broker-mapping"
                 ],
                 "label": "Centreon Broker",
+                "type": "subcategory"
+            }
+        ],
+        "Superviser votre plateforme": [  
+            "health/centreon-agent",
+            {
+                "ids": [
+                    "administration/centreon-ha/monitoring-guide",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
                 "type": "subcategory"
             }
         ],
