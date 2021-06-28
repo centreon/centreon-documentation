@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.3
 
+`28 juin 2021`
+
 #### Améliorations
 
 - [Core] Implement API log mechanism
