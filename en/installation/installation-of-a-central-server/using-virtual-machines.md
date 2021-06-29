@@ -151,7 +151,13 @@ The host machine must have the following characteristics:
 
         ![image](../../assets/installation/partition_created.png)
 
-    3. Restart the Centreon broker process as user `root` so that changes are taken into account: 
+    3. Connect back as user `root`:
+    
+        ```shell
+        exit
+        ```
+    
+    4. Restart the Centreon broker process so that changes are taken into account: 
     
         ```shell
         systemctl restart cbd centengine gorgoned

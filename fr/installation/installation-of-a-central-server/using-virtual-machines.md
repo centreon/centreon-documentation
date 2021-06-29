@@ -84,7 +84,7 @@ cliquez sur **Download**.
 
 1. Connectez-vous au serveur Centreon avec les informations suivantes : login: `root`, password: `centreon`.
 
-2. Pour connaître l’adresse IP de votre serveur, tapez `ip addr`.
+2. Pour connaître l’adresse IP de votre serveur, tapez `ip addr`. (Par défaut, le clavier est en qwerty : si vous avez un clavier azerty, tapez `ip qddr`.)
 
     ![image](../../assets/installation/ip_addr.png)
 
@@ -166,7 +166,13 @@ fonctionnera pas si vous ne l’exécutez pas.
 
         ![image](../../assets/installation/partition_created.png)
 
-    3. En tant que l'utilisateur `root`, redémarrez le processus Centreon broker pour que les changements soient appliqués :
+    3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
+
+    ```shell
+    exit
+    ``` 
+    
+    4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
     
         ```shell
         systemctl restart cbd centengine gorgoned
