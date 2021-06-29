@@ -5,7 +5,7 @@ title: Guide d'exploitation du cluster
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
-> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
+> Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
 
 ## Gestion du cluster
 
@@ -209,7 +209,7 @@ Position Status [OK]
 
 > Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
 
-> **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](installation-2-nodes.html), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
+> **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
@@ -263,7 +263,7 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-Pour recréer les ressources, on se référera à cette étape du [guide d'installation d'un cluster à 2 nœuds](installation-2-nodes.html#création-du-groupe-de-ressources-centreon).
+Pour recréer les ressources, on se référera à cette étape du [guide d'installation d'un cluster à 2 nœuds](../../installation/installation-of-centreon-ha/installation-2-nodes.html#création-du-groupe-de-ressources-centreon).
 
 ## Superviser un cluster Centreon-HA
 
@@ -271,7 +271,7 @@ Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Lin
 
 ### Indicateurs systèmes et processus
 
-La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../plugin-packs/procedures/operatingsystems-linux-snmp.html)
+La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [plugin pack Linux](../../integrations/plugin-packs/procedures/operatingsystems-linux-snmp.html)
 
 * Métriques systèmes
     * LOAD Average
@@ -287,8 +287,8 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision applicative
 
-* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../plugin-packs/procedures/applications-protocol-http.html)
-* Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../plugin-packs/procedures/applications-databases-mysql.html) :
+* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [plugin pack HTTP Protocol](../../integrations/plugin-packs/procedures/applications-protocol-http.html)
+* Contrôle de la base de données MariaDB en utilisant le [plugin pack MySQL/MariaDB](../../integrations/plugin-packs/procedures/applications-databases-mysql.html) :
     * Contrôle de connexion au serveur MariaDB
     * Les buffers et caches MariaDB/InnoDB
     * L’usage des index
@@ -296,7 +296,7 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision du cluster
 
-Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [plugin pack Pacemaker](../plugin-packs/procedures/applications-pacemaker-ssh.html) :
+Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [plugin pack Pacemaker](../../integrations/plugin-packs/procedures/applications-pacemaker-ssh.html) :
 
 * Contraintes sur les ressources : uniquement sur la ressource `ms_mysql` et le groupe `centreon`
 * Failed actions

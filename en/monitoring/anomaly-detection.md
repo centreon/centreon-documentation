@@ -183,7 +183,7 @@ anomaly detection service:
   - Select the **Notification Type** that you want to receive.
 
 Click on **Save** and [deploy the monitoring
-configuration](./monitoring-servers/deploying-a-configuration).
+configuration](./monitoring-servers/deploying-a-configuration.html).
 
 ### Use the creation wizard
 

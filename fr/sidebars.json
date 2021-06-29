@@ -120,7 +120,6 @@
             "monitoring/web-import-export"
         ],
         "Alertes et Notifications": [
-            "alerts-notifications/introduction",
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
@@ -205,7 +204,6 @@
                 "ids": [
                     "reporting/manage-reports",
                     "reporting/reports",
-                    "reporting/available-reports",
                     "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
@@ -278,7 +276,8 @@
                     "upgrade/upgrade-from-3-4",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
-                    "upgrade/centreon-ha/upgrade-from-centreon-failover" 
+                    "upgrade/centreon-ha/upgrade-from-centreon-failover",
+                    "upgrade/upgrade-mariadb" 
                 ],
                 "label": "Upgrade",
                 "type": "subcategory"
@@ -453,6 +452,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",                  
+                    "integrations/plugin-packs/procedures/cloud-azure-database-redis",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
                     "integrations/plugin-packs/procedures/cloud-azure-management-discover",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
@@ -464,6 +464,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-cdn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
@@ -477,6 +478,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
+                    "integrations/plugin-packs/procedures/cloud-azure-storage-storagesync",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
@@ -485,6 +487,7 @@
                     "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
                     "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
+                    "integrations/plugin-packs/procedures/cloud-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
                     "integrations/plugin-packs/procedures/cloud-ibm-softlayer-api",
@@ -696,6 +699,7 @@
                     "integrations/plugin-packs/procedures/network-stormshield-snmp",
                     "integrations/plugin-packs/procedures/network-stormshield-ssh",
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
+                    "integrations/plugin-packs/procedures/network-tplink-snmp",
                     "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",

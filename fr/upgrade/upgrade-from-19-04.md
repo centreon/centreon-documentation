@@ -87,7 +87,7 @@ suivante :
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 > N'oubliez pas de reporter les configurations spécifiques qui peuvent être
@@ -206,6 +206,10 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
+
+#### Déployer la configuration
+
+Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
 #### Redémarrez les processus Centreon
 

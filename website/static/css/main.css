@@ -77,6 +77,14 @@ article a:hover {
   }
 }
 
+ol ol, ul ol {
+  list-style-type: decimal;
+}
+
+ul ul ol, ul ol ol, ol ul ol, ol ol ol {
+  list-style-type: decimal;
+}
+
 .tabs .nav-tabs>div.active {
     border-bottom: 4px solid #23303a;
     font-weight: bold;
@@ -86,3 +94,4 @@ article a:hover {
 	font-weight: bold;
 	border-bottom: 4px solid #23303a;
   }
+

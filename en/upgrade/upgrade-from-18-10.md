@@ -81,8 +81,8 @@ The PHP timezone should be set. Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
-> Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zone [here](http://php.net/manual/en/timezones.php).
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 > Don't forget your php-fpm specific configuration that you may have set in the
 > /etc/opt/rh/rh-php71/php.ini and/or /etc/opt/rh/rh-php71/php-fpm.d/centreon.conf
@@ -218,6 +218,10 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Deploy the configuration
+
+See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
 #### Restart Centreon processes
 

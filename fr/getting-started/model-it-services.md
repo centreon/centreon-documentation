@@ -119,7 +119,7 @@ Partant de ces règles, l'état d'un serveur frontal le plus approprié va être
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Maintenant que nous avons définis nos 10 serveurs frontaux en suivant cette règle, il est temps de créer notre BA 
+Maintenant que nous avons défini nos 10 serveurs frontaux en suivant cette règle, il est temps de créer notre BA 
 principale: le cluster des serveurs frontaux. Nous allons pour cela utiliser la règle "Ratio" et défnir que ce Cluster
 passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 

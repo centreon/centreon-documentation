@@ -91,13 +91,6 @@ These options can be changed in the file **/etc/sysconfig/snmptrapd**:
 OPTIONS="-On -d -t -n -p /var/run/snmptrapd.pid"
 ```
 
-It is also possible to place the snmptrapd buffer folder in the RAM. For this, add the following line in the file
-**/etc/fstab**:
-
-``` shell
-tmpfs /var/run/snmpd    tmpfs defaults,size=128m 0 0
-```
-
 ### centreontrapdforward
 
 To change the buffer folder towards which the information will be written, change the configuration file

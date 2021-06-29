@@ -74,6 +74,9 @@ Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la comman
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
 Exécutez les commandes suivantes :
 ```shell
 systemctl stop rh-php72-php-fpm
@@ -120,14 +123,15 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-#### Restart Centreon processes
+1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
-Restart the processes:
-```
-systemctl restart cbd centengine centreontrapd gorgoned
-```
+2. Redémarrez les processus Centreon :
 
-#### Montée de version des extensions
+    ```
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
+
+3. Montée de version des extensions :
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
 toutes les extensions, en commençant par les suivantes :
