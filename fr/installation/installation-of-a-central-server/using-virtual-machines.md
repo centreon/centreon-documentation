@@ -168,9 +168,9 @@ fonctionnera pas si vous ne l’exécutez pas.
 
     3. Connectez-vous à nouveau en tant que l'utilisateur `root` :
 
-    ```shell
-    exit
-    ``` 
+        ```shell
+        exit
+        ``` 
     
     4. Redémarrez le processus Centreon broker pour que les changements soient appliqués :
     
