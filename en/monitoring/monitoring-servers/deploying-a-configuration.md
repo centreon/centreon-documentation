@@ -25,7 +25,7 @@ server and of all pollers and remote servers linked to it: changes are shown in 
     - **Move Export Files**
     - **Restart Monitoring Engine**. Use the most appropriate method: 
       - **Reload** : when you have created, deleted or edited supervised objects
-      - **Restart** : when you have made changes to the way a poller and the central server communicate, or 
+      - **Restart** : when you have made changes to the way a poller and the central server communicate together, or 
       to the configuration of the engine. Restarting takes more time than reloading.
 
 5.  Click **Export**. A log of the export is displayed.
