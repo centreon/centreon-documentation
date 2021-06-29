@@ -5,7 +5,7 @@ title: Problèmes connus
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
-Nous appliquons des correctifs lorsque cela est nécessaire and améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
+Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
 
 | Problèmes | contournement s'il existe |
 | --------- | ------------------------- |
