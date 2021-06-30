@@ -57,7 +57,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
+- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support. Si vous utilisez le mode [passerelle](#network), vous devez également avoir un jeton spécifique à la passerelle.
 
 ## Installer l'Agent
 
