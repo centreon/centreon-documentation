@@ -15,7 +15,7 @@ Les données sont envoyées vers notre plateforme d'analyse. Aucune donnée pers
 
 ## Prérequis
 
-- Pour que les métriques parviennent à notre plateforme d'analyse (où la supervision de la supervision est effectuée), les Agents Centreon doivent pouvoir accéder à notre endpoint public à l'adresse suivante :
+- Pour que les métriques parviennent à notre plateforme d'analyse (où la supervision de la supervision est effectuée), l'Agent Centreon doit pouvoir accéder à notre endpoint public à l'adresse suivante :
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -25,12 +25,20 @@ Les données sont envoyées vers notre plateforme d'analyse. Aucune donnée pers
     curl -v https://api.a.prod.mycentreon.com/v1/observability
     ```
 
-    Vous pouvez aussi configurer un proxy avec la commande suivante :
+    Vous pouvez aussi faire le test en passant par un proxy avec la commande suivante :
 
     ```
     curl -v https://api.a.prod.mycentreon.com/v1/observability \
     --proxy [protocol://]host[:port] --proxy-insecure
     ```
+
+    Exemple :
+
+    ```
+    curl -v https://api.a.prod.mycentreon.com/v1/observability \
+    --proxy http://proxy.local.net:3128 --proxy-insecure
+    ```
+
 
     Le message suivant sera retourné si la connexion aboutit:
 
@@ -40,9 +48,9 @@ Les données sont envoyées vers notre plateforme d'analyse. Aucune donnée pers
 
     Si vous recevez une réponse différente ou pas de réponse du tout, c'est que votre machine ne peut pas accéder à notre endpoint, probablement à cause de vos paramètres réseau (pare-feu, proxy, etc.).
 
-    >Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration de l'Agent (voir la section [Network](#network)).
+    >Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration de l'Agent (voir la section [Réseau](#réseau)).
 
-- Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#proxy-configuration) et la [configuration passerelle](#gateway-configuration).
+- Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#configuration-proxy) et la [configuration passerelle](#configuration-en-mode-passerelle).
 
 - Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le dépôt Centreon officiel doit être installé :
 
@@ -57,7 +65,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support. Si vous utilisez le mode [passerelle](#network), vous devez également avoir un jeton spécifique à la passerelle.
+- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support. Si vous utilisez le mode [passerelle](#réseau), vous devez également avoir un jeton spécifique à la passerelle.
 
 ## Installer l'Agent
 
@@ -103,7 +111,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
         collect:
             centreonweb:
             config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
-            storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[centreon_storagenombdd]
+            storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon_storage]
         ```
 
         Exemple :
@@ -282,7 +290,7 @@ systemctl restart centreon-agent.service
 
 - Passerelle cliente
 
-    En mode passerelle, la passerelle cliente délègue la configuration de son jeton à la passerelle serveur (puisque seule celle-ci communique avec la plateforme d'analyse). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
+    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la plateforme d'analyse). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
 
     ```yaml
     output:
@@ -301,7 +309,6 @@ systemctl restart centreon-agent.service
     url: http://172.28.6.145:54321
     auth_token: azerty1234
     ```
-
 
     Redémarrez ensuite l'Agent :
 
@@ -346,7 +353,7 @@ Si le composant Centreon supervisé par l'Agent est configuré avec une base de 
 collect:
     centreonweb:
         config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
-        storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[centreon_storagenombdd]
+        storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon_storage]
 ```
 
 Exemple :
@@ -384,7 +391,7 @@ Vous pouvez le laisser ainsi ou bien ajuster la politique de rotation des logs p
 
 ## Tester l'Agent
 
-### Service centreon-agent
+### Tester le service centreon-agent
 
 À cette étape, le service **centreon-agent** doit tourner, et être paramétré pour se lancer au démarrage du système.
 La commande suivante vérifie que le service a été configuré correctement :
@@ -413,6 +420,17 @@ Une fois l'installation et la configuration terminées, vous pouvez utiliser la 
 centreon-agent sample
 ```
 
+Le résultat devrait ressembler à ça :
+
+```
+1624977737000000// centreonengine_uptime_seconds{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 693583
+1624977737000000// centreonengine_command_buffers_used{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 0
+1624977737000000// centreonengine_command_buffers_high{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 0
+1624977737000000// centreonengine_command_buffers_total{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 4096
+1624977737000000// centreonengine_external_command_1m{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 0
+1624977737000000// centreonengine_general_external_command_5m{_cmaas=cmco,hostname=val-central.centreon.io,os=linux,osfamily=rhel} 0
+```
+
 Si vous obtenez des erreurs en testant la collecte, les logs du fichier `/var/log/centreon-agent/centreon-agent.log` peuvent vous aider à résoudre le problème.
 
 ### Tester l'accès à la plateforme d'analyse
@@ -425,11 +443,11 @@ centreon-agent ping --config [chemin vers votre fichier centreon-agent.yml]
 
 L'Agent retournera l'un des messages suivants :
 
-- **Unable to reach the platform**: vérifiez votre configuration réseau (proxy etc.)
+- **Unable to reach the Centreon Cloud Platform, check your network configuration** : vérifiez votre configuration réseau (proxy etc.)
 
-- **Platform reached but authentication failed**: votre jeton n'est pas reconnu
+- **Centreon Cloud Platform reached successfuly but your token is not recognized** : votre jeton n'est pas reconnu
 
-- **Platform reached and authentication successful**: l'Agent est bien connecté à notre plateforme.
+- **Centreon Cloud Platform reached successfuly and authentication was successful** : l'Agent est bien connecté à notre plateforme.
 
 ## Mettre à jour l'Agent
 

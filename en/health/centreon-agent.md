@@ -25,7 +25,7 @@ The data is sent to our analysis platform. No personal data is collected.
     curl -v https://api.a.prod.mycentreon.com/v1/observability
     ```
 
-    You can also configure a proxy using the following command:
+    You can also go through a proxy using the following command:
 
     ```
     curl -v https://api.a.prod.mycentreon.com/v1/observability \
@@ -36,7 +36,7 @@ The data is sent to our analysis platform. No personal data is collected.
 
     ```
     curl -v https://api.a.prod.mycentreon.com/v1/observability \
-    --proxy http//proxy.local.net:3128 --proxy-insecure
+    --proxy http://proxy.local.net:3128 --proxy-insecure
     ```
 
     The following message will be returned in case of success:
@@ -64,7 +64,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- You must be in possession of your unique Token that allows you send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
+- You must be in possession of your unique token that allows you send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
 
 ## Installing the Agent
 
@@ -290,8 +290,8 @@ systemctl restart centreon-agent.service
 
 - Gateway Client
 
-    In a Gateway configuration, the Gateway Client delegates its Token configuration to the Gateway Server (since only the latter communicates with our platform).
-    As a consequence, the “token” line needs to be **commented** with the yaml comment operator “#”.
+    In a Gateway configuration, the Gateway Client delegates the configuration of its main token to the Gateway Server (since only the latter communicates with our platform).
+    As a consequence, the “token” line needs to be commented with the yaml comment operator “#”.
 
     ```yaml
     output:
@@ -332,6 +332,8 @@ collect:
     [tag2]: [your-custom-value2]    
     [tag3]: [your-custom-value3]
 ```
+
+Example:
 
 ```yaml
 collect:
@@ -396,9 +398,9 @@ logrotate /etc/logrotate.d/centreon-agent
 
 ## Testing the Agent
 
-### Testing the Agent Service
+### Testing the centreon-agent Service
 
-At this stage, the **agent** Service should be running and set to launch at system start.
+At this stage, the **centreon-agent** Service should be running and set to launch at system start.
 The following command checks that the service has been correctly configured:
 
 ```
@@ -448,11 +450,11 @@ centreon-agent ping --config [path to your centreon-agent.yml file]
 
 The Agent will then return one of the following:
 
-- **Unable to reach the platform**: you must check your network configuration (proxy etc.)
+- **Unable to reach the Centreon Cloud Platform, check your network configuration**
 
-- **Platform reached but authentication failed**: your token is not recognized
+- **Centreon Cloud Platform reached successfuly but your token is not recognized**
 
-- **Platform reached and authentication successful**: the Agent is properly connected to our Platform.
+- **Centreon Cloud Platform reached successfuly and authentication was successful**: the Agent is properly connected to our Platform.
 
 ### Help
 
