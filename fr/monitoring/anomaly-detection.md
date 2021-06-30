@@ -35,7 +35,7 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
   - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html) ne doit pas être renseignée ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
 
       ```
-      echo $ LC_ALL
+      echo $LC_ALL
       ```
       
   - La prédiction fonctionne mieux avec des services surveillés qui présentent
