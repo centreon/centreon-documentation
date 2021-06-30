@@ -23,7 +23,7 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Bugfixes
 
-- [Configuration] InfluxDB configuration columns are deleted in Broker from
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
 
 #### Security fixe
 

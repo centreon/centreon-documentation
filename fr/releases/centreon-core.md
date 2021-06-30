@@ -22,7 +22,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Correctifs
 
-- [Configuration] InfluxDB configuration columns are deleted in Broker from
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
 
 #### Correctifs de sécurité
 
