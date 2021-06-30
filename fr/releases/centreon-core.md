@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.9
 
+`30 juin 2021`
+
 #### Correctifs
 
 - [APIv2] Use poller's page ACL rights on Topology API endpoints
