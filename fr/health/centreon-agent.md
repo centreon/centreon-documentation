@@ -61,25 +61,32 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ## Installer l'Agent
 
-- Le RPM **centreon-helios** n'a besoin d'être installé que sur le serveur central. En effet, la topologie est collectée depuis le serveur central (c'est-à-dire une carte de tous les éléments Centreon et de leurs canaux de communication).
-
-- Tous les composants Centreon que vous voulez superviser (central, collecteur, serveur distant, etc.) doivent chacun avoir un Agent installé sur leur machine hôte.
+Tous les composants Centreon que vous voulez superviser (central, collecteur, serveur distant, etc.) doivent chacun avoir un Agent installé sur leur machine hôte.
 
 ### Sur un serveur central Centreon
 
-1. Installez **centreon-helios**:
+1. Installez l'Agent :
 
     ```
-    yum install centreon-helios
+    yum install centreon-agent
     ```
 
 2. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
     >Ne réalisez cette étape que si l'Agent n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
-    ```
+    ```yaml
     /usr/sbin/centreon-agent config \
-    --token [your-token] \
+    --token [votre-jeton] \
+    --type central \
+    --output /etc/centreon-agent/centreon-agent.yml
+    ```
+
+    Exemple :
+
+    ```yaml
+    /usr/sbin/centreon-agent config \
+    --token aaaa-aaaa-aaaa-aaaa \
     --type central \
     --output /etc/centreon-agent/centreon-agent.yml
     ```
@@ -92,21 +99,39 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
     - centreonweb : les paramètres de la base de données sont-ils corrects? Le format est le suivant :
 
-        ```
+        ```yaml
         collect:
             centreonweb:
-            config_dsn: [user]:[password]@tcp([dbhost])/[centreondbname]
-            storage_dsn: [user]:[password]@tcp([dbhost])/[centreon_storagedbname]
+            config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
+            storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[centreon_storagenombdd]
         ```
 
-3. Ajoutez un tag **environment** :
+        Exemple :
+
+        ```yaml
+        collect:
+            centreonweb:
+            config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
+            storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
+        ```
+        
+        >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
+
+3. Ajoutez un [tag](#tags) **environment** :
 
     Ouvrez le fichier `/etc/centreon-agent/centreon-agent.yml` généré à l'installation et ajoutez les informations suivantes dans la section **collect**.
 
-    ```
+    ```yaml
     collect:
     tags:
         environment: [staging|preproduction|production|your-custom-value]
+    ```
+
+    Exemple :
+    ```yaml
+    collect:
+    tags:
+        environment: production
     ```
 
     Si vous avez plusieurs environnements du même type, vous pouvez ajouter un _suffixe à votre type d'environnement (par exemple : "production_client1").
@@ -120,18 +145,8 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 5. Démarrez le service **centreon-agent** :
 
     ```
-    systemctl restart centreon-agent.service
+    systemctl start centreon-agent.service
     ```
-
-6. Pour activer la programmation de la collecte de la topologie, éditez le fichier cron `/etc/cron.d/centreon-helios` et décommentez la ligne suivante (c'est-à-dire supprimez le caractère #) :
-
-    ```
-    0 0 * * * centreon /usr/sbin/centreon-helios.phar
-    ```
-
-    >Si une version précédente de l'Agent est déjà installée sur la machine, la ligne à décommenter peut être différente : remplacez cette ligne par celle fournie ci-dessus.
-
-    >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
 7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
@@ -149,19 +164,36 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
     ```yaml
     /usr/sbin/centreon-agent config \
-    --token [your-token] \
+    --token [votre-jeton] \
     --type [system|central|remote|poller|map] \
     --output /etc/centreon-agent/centreon-agent.yml
     ```
 
-3. Ajoutez un tag **environment** :
+    Exemple :
+
+    ```yaml
+    /usr/sbin/centreon-agent config \
+    --token aaaa-aaaa-aaaa-aaaa \
+    --type poller \
+    --output /etc/centreon-agent/centreon-agent.yml
+    ```
+
+3. Ajoutez un [tag](#tags) **environment** :
 
     Ouvrez le fichier `/etc/centreon-agent/centreon-agent.yml` généré à l'installation et ajoutez les informations suivantes dans la section **collect**.
 
     ```yaml
     collect:
     tags:
-        environment: [staging|preproduction|production|your-custom-value]
+        environment: [staging|preproduction|production|valeur-personnalisée]
+    ```
+
+    Exemple :
+
+    ```yaml
+    collect:
+    tags:
+        environment: production
     ```
 
     Si vous avez plusieurs environnements du même type, vous pouvez ajouter un _suffixe à votre type d'environnement (par exemple : "production_client1").
@@ -175,7 +207,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 5. Démarrez le service **centreon-agent** :
 
     ```
-    systemctl restart centreon-agent.service
+    systemctl start centreon-agent.service
     ```
 
 7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
@@ -186,23 +218,34 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 Si un Agent n'a pas d'accès direct à l'extérieur, deux options vous permettent de résoudre le problème : l'accès via un proxy HTTP et/ou l'accès en mode passerelle. Dans ce dernier, l'Agent qui a besoin d'accéder à l'extérieur (appelé "Passerelle cliente") peut passer par un autre Agent pouvant accéder à l'extérieur (appelé "Passerelle serveur").
 
->**Exemple classique**: Votre infrastructure est protégée (en milieu fermé) et un serveur proxy gère tout le trafic sortant. Vous voulez donner accès à l'extérieur uniquement à l'Agent installé sur la machine hôte du serveur central Centreon. Dans ce cas, vous pourriez configurer votre réseau de la manière suivante :
->
-><ul><li>Configurez le proxy sur l'Agent du serveur central pour lui permettre d'accéder à l'extérieur</li>
->
-><li>Configurez cet Agent en tant que passerelle serveur</li>
->
-><li>Configurez tous les autres Agents (installés sur les collecteurs, serveurs distants, MAP, etc.) en tant que passerelles clientes</li></ul>
+**Exemple** 
+
+Votre infrastructure est protégée (en milieu fermé) et un serveur proxy gère tout le trafic sortant. Vous voulez donner accès à l'extérieur uniquement à l'Agent installé sur la machine hôte du serveur central Centreon. Dans ce cas, vous pourriez configurer votre réseau de la manière suivante :
+
+- Configurez le proxy sur l'Agent du serveur central pour lui permettre d'accéder à l'extérieur
+
+- Configurez cet Agent en tant que passerelle serveur
+
+- Configurez tous les autres Agents (installés sur les collecteurs, serveurs distants, MAP, etc.) en tant que passerelles clientes
 
 #### Configuration proxy
 
 Si un accès proxy est configuré sur la machine hôte, copiez les paramètres du proxy dans le fichier `/etc/centreon-agent/centreon-agent.yml` à l'endroit suivant :
 
-```
-cmass:
-  token: [your-token]
-  proxy_url: [your-proxy-address]:[your-desired-port]
+```yaml
+output:
+  token: [votre-jeton]
+  proxy_url: [addresse-du-proxy]:[port]
   proxy_ssl_insecure: [true|false]
+```
+
+Exemple :
+
+```yaml
+output:
+  token: aaaa-aaaa-aaaa-aaaa
+  proxy_url: http//proxy.local.net:3128
+  proxy_ssl_insecure: false
 ```
 
 Redémarrez ensuite l'Agent:
@@ -213,12 +256,22 @@ systemctl restart centreon-agent.service
 
 #### Configuration en mode passerelle
 
-- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Agent qui tiendra le rôle de passerelle serveur :
+- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Agent qui tiendra le rôle de passerelle serveur.  Vous devez également ajouter le jeton de passerelle (différent du jeton que vous avez entré pour configurer le fichier `centreon-agent.yml`).
 
-    ```
+    ```yaml
     gateway:
     enable: true
-    listen_port: [listening-port]
+    listen_port: [port-d-écoute]
+    auth_token: [votre-jeton-de-passerelle]
+    ```
+    
+    Example:
+
+    ```yaml
+    gateway:
+    enable: true
+    listen_port: 54321
+    auth_token: azerty1234
     ```
 
     Redémarrez ensuite l'Agent :
@@ -231,12 +284,24 @@ systemctl restart centreon-agent.service
 
     En mode passerelle, la passerelle cliente délègue la configuration de son jeton à la passerelle serveur (puisque seule celle-ci communique avec la plateforme d'analyse). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
 
-    ```
-    cmass:
-    #token: [your-token]
+    ```yaml
+    output:
+    #token: [votre-jeton]
     gateway:
-        url: http://[gateway-server-ip-address]:[listening-port]
+        url: http://[addresse-ip-de-la-passerelle-serveur]:[port-d-écoute]
+    auth_token: [votre-jeton-de-passerelle]
     ```
+
+    Exemple :
+
+    ```yaml
+    output:
+    #token: aaaa-aaaa-aaaa-aaaa
+    gateway:
+    url: http://172.28.6.145:54321
+    auth_token: azerty1234
+    ```
+
 
     Redémarrez ensuite l'Agent :
 
@@ -255,9 +320,16 @@ Les tags peuvent être configurés dans le fichier YAML `/etc/centreon-agent/cen
 ```yaml
 collect:
   tags:
-    environment: [staging|preproduction|production|your-custom-value]
-    [tag2]: [your-custom-value2]    
-    [tag3]: [your-custom-value3]
+    environment: [staging|preproduction|production|valeur-personnalisée]
+    [tag2]: [valeur-personnalisée2]    
+    [tag3]: [valeur-personnalisée3]
+```
+
+```yaml
+collect:
+  tags:
+    environment: production
+    City: Paris   
 ```
 
 Redémarrez ensuite l'Agent :
@@ -270,11 +342,21 @@ systemctl restart centreon-agent.service
 
 Si le composant Centreon supervisé par l'Agent est configuré avec une base de donnée spécifique ou déportée, vous pouvez spécifier l'accès à la base de données dans le fichier YAML `/etc/centreon-agent/centreon-agent.yml` généré à l'installation.
 
-```
+```yaml
 collect:
     centreonweb:
-      config_dsn: [user]:[password]@tcp([dbhost])/[centreondbname]
-      storage_dsn: [user]:[password]@tcp([dbhost])/[centreon_storagedbname]
+        config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
+        storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[centreon_storagenombdd]
+```
+
+Exemple :
+
+```yaml
+collect:
+    centreonweb:
+      config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
+      storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
+
 ```
 
 Redémarrez ensuite l'Agent :
@@ -323,7 +405,7 @@ systemctl status centreon-agent
            └─22331 /usr/sbin/centreon-agent run
 ```
 
-### Collecte de données
+### Tester la collecte de données
 
 Une fois l'installation et la configuration terminées, vous pouvez utiliser la commande suivante pour forcer la collecte de données :
 
@@ -333,7 +415,7 @@ centreon-agent sample
 
 Si vous obtenez des erreurs en testant la collecte, les logs du fichier `/var/log/centreon-agent/centreon-agent.log` peuvent vous aider à résoudre le problème.
 
-### Envoi des données
+### Tester l'accès à la plateforme d'analyse
 
 Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre l'Agent et la plateforme Centreon Cloud :
 
@@ -349,12 +431,10 @@ L'Agent retournera l'un des messages suivants :
 
 - **Platform reached and authentication successful**: l'Agent est bien connecté à notre plateforme.
 
-### Topologie
+## Mettre à jour l'Agent
 
-Par défaut, la topologie est programmée pour être collectée toutes les heures.
-Utilisez la commande suivante pour forcer manuellement la collecte de la topologie et l'envoyer à notre plateforme :
+Pour mettre à jour l'Agent, entrez :
 
 ```
-/usr/sbin/centreon-helios.phar
+yum update centreon-agent
 ```
- 
