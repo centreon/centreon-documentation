@@ -9,13 +9,13 @@ L'Agent Centreon est un logiciel qui supervise sa machine hôte et les services 
 
 L'Agent est utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
-Les données sont envoyées vers notre plateforme d'analyse. Aucune donnée personnelle n'est collectée.
+Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
 
 >Bien que la procédure suivante et que les fichiers de configuration de l'Agent en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
 
 ## Prérequis
 
-- Pour que les métriques parviennent à notre plateforme d'analyse (où la supervision de la supervision est effectuée), l'Agent Centreon doit pouvoir accéder à notre endpoint public à l'adresse suivante :
+- Pour que les métriques parviennent à la Plateforme Centreon Cloud (où la supervision de la supervision est effectuée), l'Agent Centreon doit pouvoir accéder à notre endpoint public à l'adresse suivante :
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -290,7 +290,7 @@ systemctl restart centreon-agent.service
 
 - Passerelle cliente
 
-    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la plateforme d'analyse). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
+    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon Cloud). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
 
     ```yaml
     output:
@@ -433,9 +433,9 @@ Le résultat devrait ressembler à ça :
 
 Si vous obtenez des erreurs en testant la collecte, les logs du fichier `/var/log/centreon-agent/centreon-agent.log` peuvent vous aider à résoudre le problème.
 
-### Tester l'accès à la plateforme d'analyse
+### Tester l'accès à la Plateforme Centreon Cloud
 
-Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre l'Agent et la plateforme Centreon Cloud :
+Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre l'Agent et la Plateforme Centreon Cloud :
 
 ```
 centreon-agent ping --config [chemin vers votre fichier centreon-agent.yml]
@@ -445,9 +445,9 @@ L'Agent retournera l'un des messages suivants :
 
 - **Unable to reach the Centreon Cloud Platform, check your network configuration** : vérifiez votre configuration réseau (proxy etc.)
 
-- **Centreon Cloud Platform reached successfuly but your token is not recognized** : votre jeton n'est pas reconnu
+- **Centreon Cloud Platform reached successfully but your token is not recognized** : votre jeton n'est pas reconnu
 
-- **Centreon Cloud Platform reached successfuly and authentication was successful** : l'Agent est bien connecté à notre plateforme.
+- **Centreon Cloud Platform reached successfully and authentication was successful** : l'Agent est bien connecté à notre plateforme.
 
 ## Mettre à jour l'Agent
 
