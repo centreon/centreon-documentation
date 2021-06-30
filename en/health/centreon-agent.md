@@ -69,7 +69,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 1. Install **centreon-agent**:
 
     ```
-    yum install centreon-helios
+    yum install centreon-agent
     ```
 
 2. If this is the first time you are installing the Agent on the server, generate the yaml configuration file with the following Shell command:
