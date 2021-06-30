@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.9
 
+`June 30, 2021`
+
 #### Bugfixes
 
 - [APIv2] Use poller's page ACL rights on Topology API endpoints
