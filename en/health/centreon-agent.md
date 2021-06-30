@@ -66,7 +66,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### On a Centreon Central Server
 
-1. Install **centreon-helios**:
+1. Install **centreon-agent**:
 
     ```
     yum install centreon-helios
