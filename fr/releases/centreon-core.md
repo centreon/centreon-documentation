@@ -19,6 +19,33 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.9
+
+`30 juin 2021`
+
+#### Correctifs
+
+- [APIv2] Use poller's page ACL rights on Topology API endpoints
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
+- [Downtime] Can not remove/delete periods when configuring recurrent downtime
+- [Platform Topology] Update Exception handling
+
+#### Correctifs de sécurité
+
+- [Configuration] Input sent to unserialize() are not sanitized
+- [Configuration] SQL Injection on commands
+- [Configuration] SQL Injection on host dependency
+- [Configuration] SQL Injection on hostgroup dependency
+- [Configuration] SQL Injection on metaservice
+- [Configuration] SQL Injection on metaservice dependency
+- [Configuration] SQL Injection on service categories
+- [Configuration] SQL Injection on service dependency
+- [Configuration] SQL Injection on servicegroup
+- [Configuration] SQL Injection on servicegroup dependency
+- [Configuration] SQL Injection on timeperiod
+- [Configuration] XSS Stored on checks command
+- [Core] Manage security acknowledgement
+
 ### 20.10.8
 
 `7 Juin 2021`
