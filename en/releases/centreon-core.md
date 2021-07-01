@@ -19,6 +19,30 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.16
+
+`July 01, 2021`
+
+#### Bugfixes
+
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
+
+#### Security fixe
+
+- [Configuration] Input sent to unserialize() are not sanitized
+- [Configuration] SQL Injection on commands
+- [Configuration] SQL Injection on host dependency
+- [Configuration] SQL Injection on hostgroup dependency
+- [Configuration] SQL Injection on metaservice
+- [Configuration] SQL Injection on metaservice dependency
+- [Configuration] SQL Injection on service categories
+- [Configuration] SQL Injection on service dependency
+- [Configuration] SQL Injection on servicegroup
+- [Configuration] SQL Injection on servicegroup dependency
+- [Configuration] SQL Injection on timeperiod
+- [Configuration] XSS Stored on checks command
+- [Core] Manage security acknowledgement
+
 ### 20.04.15
 
 `June 10, 2021`
