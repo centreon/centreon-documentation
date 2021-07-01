@@ -32,6 +32,12 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
   - Centreon en version minimale 20.04
   - Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
   - Une connexion Internet depuis le serveur Centreon Central
+  - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
+
+      ```
+      echo $LC_ALL
+      ```
+      
   - La prédiction fonctionne mieux avec des services surveillés qui présentent
     un comportement saisonnier comme indiqué ci-dessous :
 
