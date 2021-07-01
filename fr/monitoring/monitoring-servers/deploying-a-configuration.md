@@ -23,7 +23,7 @@ Pour des changements apportés à des serveurs distants ou des collecteurs, l'ex
     - **Générer les fichiers de configuration**
     - **Lancer le débogage du moteur de supervision (-v)**
     - **Déplacer les fichiers générés**
-    - **Redémarrer le moteur de supervision**. Utilisez la méthode : 
+    - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
       - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
       - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le serveur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
