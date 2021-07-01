@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.16
 
+`July 01, 2021`
+
 #### Bugfixes
 
 - [Configuration] InfluxDB configuration columns are deleted in Broker form
