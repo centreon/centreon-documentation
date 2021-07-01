@@ -20,7 +20,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.16
 
-`July 01, 2021`
+`1 juillet 2021`
 
 #### Correctifs
 
