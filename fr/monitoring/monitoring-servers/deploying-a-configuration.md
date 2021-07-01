@@ -23,7 +23,7 @@ Pour des changements apportés à des serveurs distants ou des collecteurs, l'ex
     - **Générer les fichiers de configuration**
     - **Lancer le débogage du moteur de supervision (-v)**
     - **Déplacer les fichiers générés**
-    - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
+    - **Redémarrer le moteur de supervision**. Utilisez la méthode : 
       - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
       - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le serveur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
@@ -38,13 +38,13 @@ Pour des changements apportés à des serveurs distants ou des collecteurs, l'ex
 Les différentes options fonctionnent de la manière suivante :
 
   - **Générer les fichiers de configuration** : Génère les fichiers de
-    configuration de l’ordonnanceur dans un répertoire temporaire. Cette
+    configuration du moteur de supervision dans un répertoire temporaire. Cette
     configuration est générée à partir des objets configurés via l’interface web.
-  - **Lancer le débogage du moteur de supervision (-v)** : Permet à
-    l’ordonnanceur de vérifier la configuration générée.
+  - **Lancer le débogage du moteur de supervision (-v)** : Permet au
+    moteur de supervision de vérifier la configuration générée.
   - **Deplacer les fichiers générés** : Déplace les fichiers de configuration du
-    répertoire temporaire vers le répertoire de l’ordonnanceur.
-  - **Redémarrer l'ordonnanceur** : Redémarre l’ordonnanceur afin d’appliquer
+    répertoire temporaire vers le répertoire du moteur de supervision.
+  - **Redémarrer l'ordonnanceur** : Redémarre le moteur de supervision afin d’appliquer
     les nouveaux fichiers de configuration.
   - **Commande exécutée post-génération** : Exécute la commande post-génération
-    paramétrée au niveau de la configuration de l’ordonnanceur.
+    paramétrée au niveau de la configuration du moteur de supervision.

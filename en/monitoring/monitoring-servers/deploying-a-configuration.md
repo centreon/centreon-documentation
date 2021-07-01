@@ -38,14 +38,14 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 The options work in the following ways:
 
-  - **Generate Configuration Files**: Generates the scheduler configuration
+  - **Generate Configuration Files**: Generates the monitoring engine's configuration
     files in a temporary directory. This configuration is generated from objects
     configured via the web interface
-  - **Run monitoring engine debug (-v)**: Enables the scheduler to check the
+  - **Run monitoring engine debug (-v)**: Enables the monitoring engine to check the
     generated configuration
   - **Move Export Files**: Moves the configuration files from the temporary
-    directory to the scheduler's directory
-  - **Restart Monitoring Engine**: Restarts the scheduler to apply the new
+    directory to the monitoring engine's directory
+  - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
     configuration files
-  - **Post generation command**: Executes the post-generation command set at the
-    configuration of the scheduler level
+  - **Post generation command**: Executes the post-generation command set in the
+    configuration of the monitoring engine
