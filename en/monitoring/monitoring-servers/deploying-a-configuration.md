@@ -18,7 +18,7 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 3.  Click on **Export configuration**.
 
-4.  Check the following boxes (see section [**Export options**](#options-dexport)) :
+4.  Check the following boxes (see section [**Export options**](#export-options)) :
 
     - **Generate Configuration Files**
     - **Run monitoring engine debug (-v)**
