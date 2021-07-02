@@ -68,7 +68,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ## Installing the Agent
 
-All Centreon components you wish to monitor (Central, Poller, Remote Server, etc.) must each have an Agent installed on their host machine.
+All Centreon components you wish to monitor (Central, Poller, Remote Server, Database, etc.) must each have an Agent installed on their host machine.
 
 ### On a Centreon Central Server
 
