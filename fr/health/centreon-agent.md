@@ -277,9 +277,9 @@ systemctl restart centreon-agent.service
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: 54321
-    auth_token: azerty1234
+      enable: true
+      listen_port: 54321
+      auth_token: azerty1234
     ```
 
     Redémarrez ensuite l'Agent :
