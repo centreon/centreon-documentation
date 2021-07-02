@@ -200,7 +200,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
