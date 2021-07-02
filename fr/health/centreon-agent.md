@@ -268,9 +268,9 @@ systemctl restart centreon-agent.service
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: [port-d-écoute]
-    auth_token: [votre-jeton-de-passerelle]
+      enable: true
+      listen_port: [port-d-écoute]
+      auth_token: [votre-jeton-de-passerelle]
     ```
     
     Example:
