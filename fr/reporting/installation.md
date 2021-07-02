@@ -252,7 +252,7 @@ Allez au chapitre suivant pour continuer l'installation.
 
 ### Donner des droits à l'utilisateur cbis
 
-Lorsque vous installez Centreon MBI, un [utilisateur]](../monitoring/basic-objects/contacts.html) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.html) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
+Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.html) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.html) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
 - Host-Graph-v2 
 
