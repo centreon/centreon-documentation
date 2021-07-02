@@ -109,7 +109,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
             storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon_storage]
         ```
@@ -118,7 +118,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
@@ -131,14 +131,14 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: [staging|preproduction|production|your-custom-value]
     ```
 
     Exemple :
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
@@ -192,7 +192,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: [staging|preproduction|production|valeur-personnalisée]
     ```
 
@@ -200,7 +200,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
@@ -268,18 +268,18 @@ systemctl restart centreon-agent.service
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: [port-d-écoute]
-    auth_token: [votre-jeton-de-passerelle]
+      enable: true
+      listen_port: [port-d-écoute]
+      auth_token: [votre-jeton-de-passerelle]
     ```
     
     Example:
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: 54321
-    auth_token: azerty1234
+      enable: true
+      listen_port: 54321
+      auth_token: azerty1234
     ```
 
     Redémarrez ensuite l'Agent :
@@ -296,7 +296,7 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: [votre-jeton]
-    gateway:
+      gateway:
         url: http://[addresse-ip-de-la-passerelle-serveur]:[port-d-écoute]
     auth_token: [votre-jeton-de-passerelle]
     ```
@@ -306,9 +306,9 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: aaaa-aaaa-aaaa-aaaa
-    gateway:
-    url: http://172.28.6.145:54321
-    auth_token: azerty1234
+      gateway:
+        url: http://172.28.6.145:54321
+        auth_token: azerty1234
     ```
 
     Redémarrez ensuite l'Agent :
