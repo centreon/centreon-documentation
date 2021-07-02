@@ -118,7 +118,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
