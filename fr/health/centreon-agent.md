@@ -138,7 +138,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     Exemple :
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
