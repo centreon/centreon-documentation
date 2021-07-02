@@ -64,7 +64,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- You must be in possession of your unique token that allows you send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
+- You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
 
 ## Installing the Agent
 
