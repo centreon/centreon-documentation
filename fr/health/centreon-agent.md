@@ -7,7 +7,7 @@ title: Installer l'Agent Centreon
 
 L'Agent Centreon est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
-L'Agent est utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
+L'Agent peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
 Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
 
@@ -65,7 +65,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support. Si vous utilisez le mode [passerelle](#réseau), vous devez également avoir un jeton spécifique à la passerelle.
+- Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
 
 ## Installer l'Agent
 
@@ -264,7 +264,7 @@ systemctl restart centreon-agent.service
 
 #### Configuration en mode passerelle
 
-- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Agent qui tiendra le rôle de passerelle serveur.  Vous devez également ajouter le jeton de passerelle (différent du jeton que vous avez entré pour configurer le fichier `centreon-agent.yml`).
+- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Agent qui tiendra le rôle de passerelle serveur. Pour renforcer la sécurité des échanges entre la passerelle client et la passerelle serveur, vous pouvez définir un jeton d'authentification `auth-token`, c'est-à-dire la chaîne de caractères de votre choix (différente du jeton que vous avez entré pour configurer le fichier `centreon-agent.yml`).
 
     ```yaml
     gateway:
@@ -290,7 +290,8 @@ systemctl restart centreon-agent.service
 
 - Passerelle cliente
 
-    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon Cloud). En conséquence, commentez la ligne “token” à l'aide de l'opérateur yaml “#”.
+    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon Cloud). En conséquence, commentez la ligne `token` à l'aide de l'opérateur yaml “#”.
+    Si vous avez défini un jeton d'authentification (`auth_token`) sur la passerelle serveur, vous devez également l'ajouter à la configuration de la passerelle cliente. 
 
     ```yaml
     output:

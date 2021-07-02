@@ -7,7 +7,7 @@ title: Installing the Centreon Agent
 
 The Centreon Agent is a light piece of software that monitors its host machine and the services that run on it.
 
-The Agent is used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
+The Agent can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
 
 The data is sent to the Centreon Cloud Platform. No personal data is collected.
 
@@ -64,7 +64,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- You must be in possession of your unique token that allows you send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
+- You must be in possession of your unique token that allows you send data to our platform. This token is provided to you by our Support team.
 
 ## Installing the Agent
 
@@ -264,7 +264,7 @@ systemctl restart centreon-agent.service
 
 #### Gateway Configuration
 
-- Gateway Server: copy the following code to the `/etc/centreon-agent/centreon-agent.yml` file of the Agent that will act as a Gateway server. You must add the token for the gateway (which is different from the one you entered when configuring the `centreon-agent.yml` file).
+- Gateway Server: copy the following code to the `/etc/centreon-agent/centreon-agent.yml` file of the Agent that will act as a Gateway server. To strengthen the security of communications between the gateway client and the gateway server, you can define an authentication token (`auth-token`), i.e. the character string you want (this is not the same token as the one you used to configure the `centreon-agent.yml` file).
 
     ```yaml
     gateway:
@@ -291,7 +291,8 @@ systemctl restart centreon-agent.service
 - Gateway Client
 
     In a Gateway configuration, the Gateway Client delegates the configuration of its main token to the Gateway Server (since only the latter communicates with our platform).
-    As a consequence, the “token” line needs to be commented with the yaml comment operator “#”.
+    As a consequence, the `token` line needs to be commented with the yaml comment operator “#”.
+    If you have defined an authentication token (`auth_token`) on the gateway server, you need to add it to the configuration of the gateway client too. 
 
     ```yaml
     output:
