@@ -306,9 +306,9 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: aaaa-aaaa-aaaa-aaaa
-    gateway:
-    url: http://172.28.6.145:54321
-    auth_token: azerty1234
+      gateway:
+        url: http://172.28.6.145:54321
+        auth_token: azerty1234
     ```
 
     Redémarrez ensuite l'Agent :
