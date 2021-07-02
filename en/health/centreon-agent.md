@@ -64,7 +64,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
+- You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team.
 
 ## Installing the Agent
 
@@ -142,7 +142,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
         environment: production
     ```
 
-    If you have multiple environnements of the same kind, you can _suffix your type of environnement (for instance: "production_client1").
+    If you have multiple environments of the same kind, you can _suffix your type of environment (for instance: "production_client1").
 
 4. Enable the **centreon-agent** Service:
 
@@ -204,7 +204,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
         environment: production
     ```
 
-    If you have multiple environments of the same kind, you can suffix your type of environnement, for instance: "production_client1".
+    If you have multiple environments of the same kind, you can suffix your type of environment, for instance: "production_client1".
 
 4. Enable the **centreon-agent** Service:
 
