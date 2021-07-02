@@ -296,7 +296,7 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: [your-token]
-    gateway:
+      gateway:
         url: http://[gateway-server-ip-address]:[listening-port]
     auth_token: [your-gateway-token]
     ```
