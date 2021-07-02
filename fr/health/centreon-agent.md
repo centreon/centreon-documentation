@@ -109,7 +109,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon]
             storage_dsn: [utilisateur]:[mot-de-passe]@tcp([hôtebdd])/[nombddcentreon_storage]
         ```
