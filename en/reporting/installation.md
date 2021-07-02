@@ -258,6 +258,30 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 
 Please go to the next chapter to continue the installation.
 
+### Grant rights to user cbis
+
+When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.html) called **cbis** is automatically created. It allows the report generation engine to extract data from Centreon (using the APIs) in order to put them into the report. This user must [have access to all Centreon monitored resources](../administration/access-control-lists.html) to be able to extract performance graphs for the following reports:
+
+- Host-Graph-v2 
+
+- Hostgroup-Graph-v2.
+
+To test the MBI reporting server's connection to the Centreon API, use the following command to download a graph. Replace the parameters of the graph and the timestamps by the ones you want, and replace XXXXXXXXX by the autologin token for user **cbis**:
+
+```
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<host_name>&service=<service_description>&start=1623016800&end=1623621600'
+```
+
+The output should look like this, and `/tmp/my_graph.png` should be an image of the graph you wanted:
+
+```
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
+```
+
+
+
 ## Install the dedicated reporting server
 
 ### Install the packages
