@@ -142,7 +142,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
         environment: production
     ```
 
-    If you have multiple environments of the same kind, you can _suffix your type of environment (for instance: "production_client1").
+    If you have multiple environments of the same kind, you can suffix your type of environment (for instance: "production_client1").
 
 4. Enable the **centreon-agent** Service:
 
