@@ -107,7 +107,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: [user]:[password]@tcp([dbhost])/[centreondbname]
             storage_dsn: [user]:[password]@tcp([dbhost])/[centreon_storagedbname]
         ```
