@@ -192,7 +192,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: [staging|preproduction|production|valeur-personnalisée]
     ```
 
