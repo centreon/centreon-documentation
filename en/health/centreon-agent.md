@@ -64,11 +64,11 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-- You must be in possession of your unique token that allows you send data to our platform. This token is provided to you by our Support team.
+- You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team. If you are using a [gateway server/client](#network) system, you need a separate token for the gateway.
 
 ## Installing the Agent
 
-All Centreon components you wish to monitor (Central, Poller, Remote Server, etc.) must each have an Agent installed on their host machine.
+All Centreon components you wish to monitor (Central, Poller, Remote Server, Database, etc.) must each have an Agent installed on their host machine.
 
 ### On a Centreon Central Server
 
@@ -107,7 +107,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, etc
 
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: [user]:[password]@tcp([dbhost])/[centreondbname]
             storage_dsn: [user]:[password]@tcp([dbhost])/[centreon_storagedbname]
         ```
@@ -116,7 +116,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, etc
         
         ```yaml
         collect:
-            centreonweb:
+          centreonweb:
             config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
@@ -131,14 +131,14 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, etc
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: [staging|preproduction|production|your-custom-value]
     ```
 
     Example:
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
@@ -192,7 +192,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, etc
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: [staging|preproduction|production|your-custom-value]
     ```
 
@@ -200,11 +200,11 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, etc
 
     ```yaml
     collect:
-    tags:
+      tags:
         environment: production
     ```
 
-    If you have multiple environnements of the same kind, you can _suffix your type of environnement, for instance: "production_client1".
+    If you have multiple environments of the same kind, you can suffix your type of environnement, for instance: "production_client1".
 
 4. Enable the **centreon-agent** Service:
 
@@ -268,18 +268,18 @@ systemctl restart centreon-agent.service
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: [listening-port]
-    auth_token: [your-gateway-token]
+      enable: true
+      listen_port: [listening-port]
+      auth_token: [your-gateway-token]
     ```
     
     Example:
 
     ```yaml
     gateway:
-    enable: true
-    listen_port: 54321
-    auth_token: azerty1234
+      enable: true
+      listen_port: 54321
+      auth_token: azerty1234
     ```
 
     You then need to restart the Agent
@@ -297,7 +297,7 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: [your-token]
-    gateway:
+      gateway:
         url: http://[gateway-server-ip-address]:[listening-port]
     auth_token: [your-gateway-token]
     ```
@@ -307,7 +307,7 @@ systemctl restart centreon-agent.service
     ```yaml
     output:
     #token: aaaa-aaaa-aaaa-aaaa
-    gateway:
+      gateway:
         url: http://172.28.6.145:54321
     auth_token: azerty1234
     ```
