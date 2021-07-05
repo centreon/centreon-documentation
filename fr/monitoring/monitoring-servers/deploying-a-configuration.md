@@ -40,8 +40,7 @@ Les différentes options fonctionnent de la manière suivante :
   - **Générer les fichiers de configuration** : Génère les fichiers de
     configuration du moteur de supervision dans un répertoire temporaire. Cette
     configuration est générée à partir des objets configurés via l’interface web.
-  - **Lancer le débogage du moteur de supervision (-v)** : Permet au
-    moteur de supervision de vérifier la configuration générée.
+  - **Lancer le débogage du moteur de supervision (-v)** : Effectue une vérification de l'intégrité des fichiers de configuration du moteur de supervision.
   - **Deplacer les fichiers générés** : Déplace les fichiers de configuration du
     répertoire temporaire vers le répertoire du moteur de supervision.
   - **Redémarrer l'ordonnanceur** : Redémarre le moteur de supervision afin d’appliquer
