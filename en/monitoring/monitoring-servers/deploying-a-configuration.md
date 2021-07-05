@@ -41,8 +41,7 @@ The options work in the following ways:
   - **Generate Configuration Files**: Generates the monitoring engine's configuration
     files in a temporary directory. This configuration is generated from objects
     configured via the web interface
-  - **Run monitoring engine debug (-v)**: Enables the monitoring engine to check the
-    generated configuration
+  - **Run monitoring engine debug (-v)**: Performs a sanity check of the monitoring engine's configuration files
   - **Move Export Files**: Moves the configuration files from the temporary
     directory to the monitoring engine's directory
   - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
