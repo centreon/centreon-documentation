@@ -47,4 +47,4 @@ The options work in the following ways:
   - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
     configuration
   - **Post generation command**: Executes the post-generation command set in the
-    configuration of the monitoring engine
+    poller's configuration 
