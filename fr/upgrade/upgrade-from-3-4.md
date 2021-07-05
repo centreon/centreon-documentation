@@ -402,12 +402,18 @@ recommande :
 
     Si votre base de données est protégée par mot de passe, entrez :
 
-    ```shell
-    mysql_upgrade -p
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.2 à 10.3
 
@@ -446,12 +452,18 @@ recommande :
 
     Si votre base de données est protégée par mot de passe, entrez :
 
-    ```shell
-    mysql_upgrade -p
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.3 à 10.4
 
@@ -490,12 +502,18 @@ recommande :
 
     Si votre base de données est protégée par mot de passe, entrez :
 
-    ```shell
-    mysql_upgrade -p
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.4 à 10.5
 
@@ -528,12 +546,18 @@ recommande :
 
 5. Lancez le processus de mise à jour MariaDB :
 
-    ```shell
-    mysql_upgrade -p
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 

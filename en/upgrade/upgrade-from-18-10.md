@@ -378,7 +378,7 @@ MariaDB:
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.2 to 10.3
 
@@ -422,7 +422,7 @@ MariaDB:
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.3 to 10.4
 
@@ -466,7 +466,7 @@ MariaDB:
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.4 to 10.5
 
@@ -504,7 +504,7 @@ MariaDB:
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Enable MariaDB on startup
 
