@@ -99,6 +99,12 @@ mysql -u root centreon_storage -p </tmp/centreon_storage.sql
 mysql_upgrade
 ```
 
+Si votre base de données est protégée par mot de passe, entrez :
+
+```shell
+mysql_upgrade -p
+```
+
 7. Démarrer le processus mariadb sur le nouveau serveur :
 
 ```shell

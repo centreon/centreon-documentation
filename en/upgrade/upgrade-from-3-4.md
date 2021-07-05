@@ -384,6 +384,12 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
@@ -421,6 +427,12 @@ MariaDB:
 
     ```shell
     mysql_upgrade
+    ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
@@ -460,6 +472,12 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
@@ -496,7 +514,7 @@ MariaDB:
 5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade
+    mysql_upgrade -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)

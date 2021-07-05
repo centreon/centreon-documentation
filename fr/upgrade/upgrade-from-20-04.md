@@ -198,6 +198,12 @@ recommande :
     mysql_upgrade
     ```
 
+    Si votre base de données est protégée par mot de passe, entrez :
+
+    ```shell
+    mysql_upgrade -p
+    ```
+
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
 > si des erreurs apparaissent pendant cette dernière étape.
 
@@ -233,7 +239,7 @@ recommande :
 5. Lancez le processus de mise à jour MariaDB :
 
     ```shell
-    mysql_upgrade
+    mysql_upgrade -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)

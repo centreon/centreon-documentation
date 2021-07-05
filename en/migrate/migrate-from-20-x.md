@@ -96,6 +96,12 @@ mysql -u root centreon_storage -p </tmp/centreon_storage.sql
 mysql_upgrade
 ```
 
+If your database is password-protected, enter:
+
+```shell
+mysql_upgrade -p
+```
+
 7. Start the mariadb process on the new server:
 
 ```shell

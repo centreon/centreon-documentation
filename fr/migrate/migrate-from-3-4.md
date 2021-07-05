@@ -113,6 +113,12 @@ données vierges et les recréer :
     ```shell
     mysql_upgrade
     ```
+    
+    Si votre base de données est protégée par mot de passe, entrez :
+
+    ```shell
+    mysql_upgrade -p
+    ```
 
 7. Démarrer le processus mariadb sur le nouveau serveur :
 
