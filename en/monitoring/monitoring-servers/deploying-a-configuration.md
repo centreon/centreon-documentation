@@ -45,6 +45,6 @@ The options work in the following ways:
   - **Move Export Files**: Moves the configuration files from the temporary
     directory to the monitoring engine's configuration directory
   - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
-    configuration files
+    configuration
   - **Post generation command**: Executes the post-generation command set in the
     configuration of the monitoring engine
