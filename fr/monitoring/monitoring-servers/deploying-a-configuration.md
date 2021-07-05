@@ -44,6 +44,6 @@ Les différentes options fonctionnent de la manière suivante :
   - **Déplacer les fichiers générés** : Déplace les fichiers générés d'un répertoire temporaire vers le répertoire de configuration du moteur de supervision
     répertoire temporaire vers le répertoire du moteur de supervision.
   - **Redémarrer l'ordonnanceur** : Redémarre ou recharge le moteur de supervision afin d’appliquer
-    les nouveaux fichiers de configuration.
+    la nouvelle configuration.
   - **Commande exécutée post-génération** : Exécute la commande post-génération
     paramétrée au niveau de la configuration du collecteur.
