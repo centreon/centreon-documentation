@@ -76,7 +76,7 @@ Lors des nouvelles *releases* mensuelles, il n'est pas nécessaire de réinstall
 
 Pour cela, rendez-vous dans le dossier contenant les scripts *centreon_plugins.exe* et *check_logfiles.exe* (généralement 
 `C:\Program Files\Centreon NSClient++\scripts\centreon` et remplacez les exécutables par les dernières versions téléchargées sur Github
-(voir le chapitre [Installation](#installation)) .
+(voir le chapitre [Installation](#installation)).
 
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-update.png)
 
@@ -85,8 +85,9 @@ Pour cela, rendez-vous dans le dossier contenant les scripts *centreon_plugins.e
 
 ## Configuration
 
-La configuration générale de l'agent, des modules et des commandes appelées est centralisée dans le fichier *nsclient.ini*, généralement
+La configuration générale de l'agent, des modules et des commandes appelées est centralisée dans le fichier `nsclient.ini`, généralement
 présent dans le répertoire `C:\Program Files\Centreon NSClient++\`.
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-configuration.png)
 
 La configuration par défaut permet une utilisation immédiate de la plupart des fonctionnalités. Il est cependant recommandé d'ajuster
