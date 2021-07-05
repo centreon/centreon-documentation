@@ -31,7 +31,7 @@ relatif au fonctionnement de NSClient++, rendez-vous sur la [documentation offic
 Centreon publiera une version mensuelle des exécutables *centreon_plugins.exe*  et *check_logfiles* comprenant les dernières nouveautés ainsi que les
 *bugfixes*. L'installateur de l'agent **centreon-nsclient** est également mis à jour et proposé dans sa dernière version pour les nouvelles installations.
 
-> Pour la mise à jour des Plugins Centreon integrés à l'agent **centreon-nsclient**, consultez le chapitre [Mise à Jour](#mise-a-jour)
+> Pour la mise à jour des Plugins Centreon integrés à l'agent **centreon-nsclient**, consultez le chapitre [Mise à Jour](#mise-à-jour)
 
 ## Téléchargement
 
@@ -48,19 +48,24 @@ les dernières versions des exécutables suivants suivant votre environnement (x
 
 Lancez l'installation de l'agent **centreon-nsclient** et suivez l'assistant :
 
-* La première étape vous informe sur NSClient++, sa version et sa date de publication. Appuyez sur suivant pour passer à la deuxième étape :
+* La première étape vous informe sur NSClient++, sa version et sa date de publication. Appuyez sur *Suivant* pour passer à la deuxième étape :
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard1.png)
 
-* Choisissez le dossier d'installation et cliquez sur suivant :
+* Choisissez le dossier d'installation et cliquez sur *Suivant* :
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard2.png)
 
 * Attendez la fin de l'installation :
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard3.png)
 
-* Une fois l'installation terminée, vous pouvez cliquer sur suivant :
+* Une fois l'installation terminée, vous pouvez cliquer sur *Suivant* :
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard4.png)
 
-* L'assistant d'installation confirme le succès de l'installation et vous pouvez cliquer sur terminer.
+* L'assistant d'installation confirme le succès de l'installation et vous pouvez cliquer sur *Terminer* :
+
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-wizard5.png)
 
 ## Mise à Jour
@@ -180,7 +185,7 @@ net start nscp
 * En local sur le serveur Windows, vérifiez que le serveur Web est opérationnel à l'adresse
 `https://127.0.0.1:8443/`:
 
-![image] (../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-webserver.png)
+![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-webserver.png)
 
 ## Diagnostic des erreurs communes
 
