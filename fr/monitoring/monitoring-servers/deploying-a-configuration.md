@@ -46,4 +46,4 @@ Les différentes options fonctionnent de la manière suivante :
   - **Redémarrer l'ordonnanceur** : Redémarre ou recharge le moteur de supervision afin d’appliquer
     les nouveaux fichiers de configuration.
   - **Commande exécutée post-génération** : Exécute la commande post-génération
-    paramétrée au niveau de la configuration du moteur de supervision.
+    paramétrée au niveau de la configuration du collecteur.
