@@ -31,7 +31,6 @@ If you have feature requests or want to report a bug, please go to our
 #### Correctifs
 
 - [APIv2] Use poller's page ACL rights on Topology API endpoints
-- [Configuration] InfluxDB configuration columns are deleted in Broker form
 - [Downtime] Can not remove/delete periods when configuring recurrent downtime
 - [Graph] Anchor point does not follow line path for stacked graphs
 - [Platform Topology] Update Exception handling
@@ -67,6 +66,8 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Change default values for Centreon Engine
 - [Configuration] New Logger conf is not exported to distant pollers well
 - [Configuration] Unable to replace 127.0.0.1 by real IP in poller form when already saved in platform_topology
+- [Configuration] InfluxDB configuration columns are deleted in Broker form
+- [Configuration] Wrong broker configuration generated when Anomaly Detection module is installed
 - [Core] Avoid 404 redirection
 - [Install] Cannot update when you have no metaservices
 - [LDAP] Adding new user from LDAP results in Request Entity Too Large error
