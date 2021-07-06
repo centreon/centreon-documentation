@@ -374,7 +374,13 @@ MariaDB:
     If your database is password-protected, enter:
 
     ```shell
-    mysql_upgrade -p
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
@@ -418,7 +424,13 @@ MariaDB:
     If your database is password-protected, enter:
 
     ```shell
-    mysql_upgrade -p
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
@@ -462,7 +474,13 @@ MariaDB:
     If your database is password-protected, enter:
 
     ```shell
-    mysql_upgrade -p
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
@@ -500,7 +518,13 @@ MariaDB:
 5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade -p
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
