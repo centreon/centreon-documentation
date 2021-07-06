@@ -317,6 +317,43 @@ systemctl restart centreon-agent.service
     systemctl restart centreon-agent.service
     ```
 
+### Activer la collecte de logs Centreon
+
+À partir de la version 2 de **centreon-agent**, il est possible de récupérer les logs générés par le composant Centreon supervisé. 
+
+Pour définir quels logs doivent être récupérés, vous devez créer des fichiers yml de configuration dans le dossier suivant : `/etc/centreon-agent/conf.d`.
+Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. 
+Vous pouvez avoir plusieurs fichiers de configuration (chaque fichier est parsé et les fichiers de logs définis sont ajoutés à la collecte).
+
+#### Utiliser les modèles
+
+Pour simplifier la configuration de la collecte de logs, des modèles pré-configurés sont fournis. Chaque modèle couvre un périmètre spécifique en fonction du composant Centreon, de sa version, etc.
+
+Les modèles sont situés dans le répertoire suivant :
+
+```
+/usr/share/centreon-agent/examples
+```
+
+Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller le modèle correspondant dans votre répertoire `/etc/centreon-agent/conf.d`.
+
+#### Finaliser la configuration des modèles
+
+>Pour les collecteurs Centreon, les fichiers de log sont préfixés du nom du collecteur. Vous devez donc adapter le modèle.
+>Ouvrez le modèle `poller` et remplacez tous les noms génériques `<pollername>` dans la section `path` par le vrai nom du collecteur.
+
+Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
+
+En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs de **centreon-agent** dans `/var/log/centreon-agent/centreon-agent.log`.
+
+#### Démarrer la collecte des logs
+
+Une fois la collecte de vos logs configurée, redémarrez l'agent en utilisant la commande suivante :
+
+```
+systemctl restart centreon-agent.service
+```
+
 ### Tags
 
 L'Agent peut contextualizer la collecte de données avec vos propres tags personnalisés afin de définir son périmètre d'action. Ces tags seront utilisés par la suite pour agréger les données de supervision et créer des tableaux de bord ou des rapports dans des contextes pertinents.
