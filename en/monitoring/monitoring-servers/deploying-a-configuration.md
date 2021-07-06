@@ -5,7 +5,7 @@ title: Deploying a configuration
 
 When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (neither on the central server on which you have made the change, nor on any remote server or poller linked to it). For the changes to be taken into account, you have to export the configuration.
 
-For changes to remote servers or pollers, you must export their configuration on the central server.
+Any change in configuration must be done and exported from the central server's interface or API, regardless of which poller is affected by the change (central server, remote server, poller).
 
 ## Exporting the configuration
 

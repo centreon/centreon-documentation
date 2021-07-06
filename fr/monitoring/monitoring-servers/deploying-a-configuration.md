@@ -7,7 +7,7 @@ Lorsque vous créez, supprimez ou modifiez des objets via le menu
 **Configuration**, les changements effectués ne sont pas appliqués de manière
 automatique (ni sur le serveur central sur lequel vous avez créé, supprimé ou modifié l'objet, ni sur aucun collecteur ou serveur distant qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
-Pour des changements apportés à des serveurs distants ou des collecteurs, l'export de leur configuration doit se faire sur le serveur central.
+Tout changement de configuration doit se faire et s'exporter via l'interface utilisateur ou l'API du serveur central, quel que soit le collecteur concerné par le changement (serveur central, serveur distant, collecteur).
 
 ## Exporter la configuration
 
