@@ -261,10 +261,16 @@ Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-object
 Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis**:
 
 ```
-curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<host_name>&service=<service_description>&start=1623016800&end=1623621600'
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>end=<date_fin>' --output /tmp/image.png
 ```
 
-Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désiré doit avoir été téléchargée dans `/tmp/my_graph.png` :
+Exemple :
+
+```
+curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=otmw3n1hu03bvt9e0caphuf50ph8sdthcsk8ofdk&username=CBIS&hostname=my-poller&service=Cpu&start=1623016800&end=1623621600' --output /tmp/image.png
+```
+
+Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désiré doit avoir été téléchargée dans le répertoire `/tmp` :
 
 ```
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
