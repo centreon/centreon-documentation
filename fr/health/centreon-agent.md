@@ -322,7 +322,14 @@ systemctl restart centreon-agent.service
 À partir de la version 2 de **centreon-agent**, il est possible de récupérer les logs générés par le composant Centreon supervisé. 
 
 Pour définir quels logs doivent être récupérés, vous devez créer des fichiers yml de configuration dans le dossier suivant : `/etc/centreon-agent/conf.d`.
-Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. 
+Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. Exemple :
+
+```
+- path: /var/log/centreon-gorgone/gorgoned.log
+  pattern: "%{CENTREONGORGONE}"
+  type: file
+```
+
 Vous pouvez avoir plusieurs fichiers de configuration (chaque fichier est parsé et les fichiers de logs définis sont ajoutés à la collecte).
 
 #### Utiliser les modèles
@@ -340,7 +347,7 @@ Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller l
 #### Finaliser la configuration des modèles
 
 >Pour les collecteurs Centreon, les fichiers de log sont préfixés du nom du collecteur. Vous devez donc adapter le modèle.
->Ouvrez le modèle `poller` et remplacez tous les noms génériques `<pollername>` dans la section `path` par le vrai nom du collecteur.
+>Ouvrez le modèle `poller` et remplacez tous les noms génériques `<POLLERNAME>` dans la section `path` par le vrai nom du collecteur.
 
 Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
 
