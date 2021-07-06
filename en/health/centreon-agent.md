@@ -330,7 +330,7 @@ To collect a specific log, the configuration file must contain the following arg
   pattern: "%{CENTREONGORGONE}"
   type: file
 ```
- 
+
 You can have several configuration files - each file is parsed and its target log files are added to the collection. 
 
 #### Using the Templates
@@ -348,7 +348,7 @@ Based on your monitored Centreon component you can simply copy/paste the corresp
 #### Finalize Templates Configuration
 
 >For a Centreon Poller, log files are prefixed with the Poller’s name so you need to adapt the Poller template:
->Open the Poller template and replace all `<POLLERNAME>` placeholders within the “path” section with the actual Poller’s name.
+>Open the Poller template and replace all `POLLERNAME` placeholders within the “path” section with the actual Poller’s name.
 
 The provided templates will work out of the box with a standard Centreon installation. In case of doubt, you can locate the actual targeted log file and compare its path to the one written in your “path” section of the template.
 

@@ -347,7 +347,7 @@ Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller l
 #### Finaliser la configuration des modèles
 
 >Pour les collecteurs Centreon, les fichiers de log sont préfixés du nom du collecteur. Vous devez donc adapter le modèle.
->Ouvrez le modèle `poller` et remplacez tous les noms génériques `<POLLERNAME>` dans la section `path` par le vrai nom du collecteur.
+>Ouvrez le modèle `poller` et remplacez tous les noms génériques `POLLERNAME` dans la section `path` par le vrai nom du collecteur.
 
 Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
 
