@@ -28,19 +28,18 @@ Windows.
 Centreon supporte et maintient uniquement les Plugins personnalisés fournis au travers de l'agent **centreon-nsclient**. Pour toute question ou problème
 relatif au fonctionnement de NSClient++, rendez-vous sur la [documentation officielle](https://docs.nsclient.org/) de NSClient++.
 
-Centreon publiera une version mensuelle des exécutables *centreon_plugins.exe*  et *check_logfiles* comprenant les dernières nouveautés ainsi que les
+Centreon publiera une version mensuelle des exécutables *centreon_plugins.exe* et *check_logfiles* comprenant les dernières nouveautés ainsi que les
 *bugfixes*. L'installateur de l'agent **centreon-nsclient** est également mis à jour et proposé dans sa dernière version pour les nouvelles installations.
 
 > Pour la mise à jour des Plugins Centreon integrés à l'agent **centreon-nsclient**, consultez le chapitre [Mise à Jour](#mise-à-jour)
 
 ## Téléchargement
 
-Tout d'abord, rendez-vous sur la page Github du projet **[centreon-nsclient](https://github.com/centreon/centreon-nsclient-build/releases)** et récupérez
+Tout d'abord, rendez-vous sur la page Github du projet [centreon-nsclient](https://github.com/centreon/centreon-nsclient-build/releases) et récupérez
 les dernières versions des exécutables suivants suivant votre environnement (x86 ou x64):
-* Centreon-NSClient
-* centreon_plugins
-* check_logfiles
 
+* pour une nouvelle installation de l'agent, téléchargez le package d'installation `Centreon-NSClient-0.5.x.xx-YYYYMMDD`
+* pour une mise à jour des Plugins custom, téléchargez les binaires `centreon_plugins_YYYYMMDD_*\*\*_.exe` & `check_logfiles_x.x.x_\*\*\*.exe`
 
 ## Installation
 
@@ -70,7 +69,7 @@ Lancez l'installation de l'agent **centreon-nsclient** et suivez l'assistant :
 
 ## Mise à Jour
 
-> Cette section concerne la mise à jour de l'exécutable *centreon_plugins.exe* et *check_logfiles* sur une installation existante.
+> Cette section concerne la mise à jour des exécutables *centreon_plugins.exe* et *check_logfiles* sur une installation existante.
 
 Lors des nouvelles *releases* mensuelles, il n'est pas nécessaire de réinstaller complètement l'agent, seul les Plugins packagés peuvent être mis à jour.
 
@@ -115,7 +114,7 @@ allowed hosts = @IP_Poller1, @IP_Poller2
 port = 5666
 ```
 
-* Centreon recommande l'utilisation de la version 3 du protocole, proposant nativement le chiffrement SSL/TLS.
+* Centreon recommande l'utilisation du chiffrement SSL/TLS des données échangées.
 Ainsi, Vérifiez que l'option correspondante est activée :
 
 ```csv
@@ -128,13 +127,14 @@ use ssl = true
 payload length = 8192
 ```
 
-* Enfin, redémarrez l'agent NSCP
+* Enfin, depuis une interface ligne de commandes (cmd/powershell), redémarrez l'agent NSCP :
 
 ```bash
 net stop nscp
 net start nscp
 ```
 
+(Il est également possible de redémarrer le service via la console de management des *Services* Windows).
 
 ### Serveur Web / RestAPI
 
@@ -184,7 +184,7 @@ net start nscp
 ```
 
 * En local sur le serveur Windows, vérifiez que le serveur Web est opérationnel à l'adresse
-`https://127.0.0.1:8443/`:
+`https://127.0.0.1:8443/`
 
 ![image](../../../assets/integrations/plugin-packs/tutorials/centreon-nsclient-tutorial-webserver.png)
 
@@ -195,4 +195,3 @@ offre les résolutions aux problèmes les plus courants.
 
 Vous pouvez aussi nous rendre visite et ouvrir une [issue sur la page Github du projet](https://github.com/centreon/centreon-nsclient-build/issues)
 **centreon-nsclient** pour toute problématique liée aux Plugins Centreon.
-
