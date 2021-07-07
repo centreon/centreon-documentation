@@ -88,7 +88,7 @@ cliquez sur **Download**.
 
     ![image](../../assets/installation/ip_addr.png)
 
-3. Connectez-vous en `root` au serveur depuis une autre machine à l’aide du terminal de votre choix, à l'aide de l'adresse IP obtenue précédemment.
+3. Connectez-vous en `root` au serveur depuis une autre machine avec le terminal de votre choix, à l'aide de l'adresse IP obtenue précédemment.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration :
