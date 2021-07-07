@@ -350,9 +350,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.2 to 10.3
 
@@ -388,9 +400,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.3 to 10.4
 
@@ -426,9 +450,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.4 to 10.5
 
@@ -462,11 +498,17 @@ MariaDB:
 5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Enable MariaDB on startup
 
