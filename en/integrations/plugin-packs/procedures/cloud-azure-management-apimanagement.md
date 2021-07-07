@@ -246,7 +246,7 @@ in *AZURERESOURCE*
 | X         | AZURETENANT        | Tenant ID                                          |
 | X         | AZURECLIENTID      | Client ID                                          |
 | X         | AZURECLIENTSECRET  | Client secret                                      |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
@@ -256,7 +256,7 @@ in *AZURERESOURCE*
 |:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
