@@ -15,7 +15,8 @@ API Management service.
 
 ### Monitored Objects
 
-* Azure *API Management* instances
+* Azure *API Management* instances :
+    * Capacity
     * Events
     * Requests
     * Requests duration
@@ -36,6 +37,12 @@ More information about the Host Discovery module is available in the Centreon do
 ### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--Capacity-->
+
+| Metric Name                       | Description                    | Unit  |
+|:----------------------------------|:-------------------------------|:------|
+| apimanagement.capacity.percentage | Capacity Statistics Percentage | %     |
 
 <!--Events-->
 
