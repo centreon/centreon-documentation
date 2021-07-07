@@ -84,7 +84,7 @@ cliquez sur **Download**.
 
 1. Connectez-vous au serveur Centreon avec les informations suivantes : login: `root`, password: `centreon`.
 
-2. Pour connaître l’adresse IP de votre serveur, tapez `ip addr`. (Par défaut, le clavier est en qwerty : si vous avez un clavier azerty, tapez `ip qddr`.)
+2. Pour connaître l’adresse IP de votre serveur, tapez `ip addr`. (Par défaut, le clavier est en qwerty : si vous avez un clavier azerty, tapez `ip qddr`.) La VM est configurée pour obtenir une adresse IP automatiquement du serveur DHCP.
 
     ![image](../../assets/installation/ip_addr.png)
 

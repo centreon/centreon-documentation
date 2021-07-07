@@ -73,7 +73,7 @@ The host machine must have the following characteristics:
 
 1. Log in to the Centreon server using the following credentials: login: `root`, password: `centreon`.
 
-2. To know your server's IP address, type `ip addr`. (By default, the VM has a qwerty keyboard: if you have an azerty keyboard, enter `ip qddr`.)
+2. To know your server's IP address, type `ip addr`. (By default, the VM has a qwerty keyboard: if you have an azerty keyboard, enter `ip qddr`.) The VM is configured to obtain an IP address from the DHCP server automatically.
 
     ![image](../../assets/installation/ip_addr.png)
 
