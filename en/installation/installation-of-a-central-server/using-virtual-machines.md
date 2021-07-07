@@ -77,7 +77,7 @@ The host machine must have the following characteristics:
 
     ![image](../../assets/installation/ip_addr.png)
 
-3. Log in to the server from another machine, as user `root`, using the terminal you want.
+3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained at the previous step.
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration:
 
