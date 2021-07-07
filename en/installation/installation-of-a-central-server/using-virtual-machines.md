@@ -17,7 +17,7 @@ The host machine must have the following characteristics:
 
 ## Step 1: Downloading the virtual machine
 
-1. Make sure your virtualization tool (VMWare or VirtualBox) is installed on your machine.
+1. Make sure your virtualization tool (VMWare or VirtualBox) is installed on your machine and up to date.
 
 2. Go to the [Centreon download page](https://download.centreon.com). In section 1, **Appliances** is already selected.
 

@@ -24,7 +24,7 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 ## Étape 1 : Télécharger la machine virtuelle
 
-1. Vérifiez que votre solution de virtualisation (VirtualBox ou VMWare) est installée sur votre machine.
+1. Vérifiez que votre solution de virtualisation (VirtualBox ou VMWare) est installée sur votre machine et à jour.
 
 2. Allez sur la [page de téléchargement](https://download.centreon.com) de Centreon. Dans la section 1, **Appliances** est sélectionné par défaut.
 
