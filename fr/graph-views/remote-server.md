@@ -22,7 +22,9 @@ the 2 mains components:
 After that, you'll have to do extra steps, explained below, to finish
 Centreon Map installation for your Centreon Remote Server.
 
-## add access to the images synchronisation page `Administration  >  Parameters  >  Images `
+## Images synchronisation
+
+Add access to the images synchronisation page `Administration  >  Parameters  >  Images `
 ```shell
 [root@remote ~]# mysql centreon
 MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
