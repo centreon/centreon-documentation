@@ -368,7 +368,7 @@ The Agent can contextualize data collection with your own custom tags to define 
 
 >We strongly advise the first tag you define to be “environment” in order for us to be able to establish a common baseline between all users.
 
-Tags can be configured in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation.
+Tags can be configured in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation. Tags are case-sensitive (`production` and `Production` are seen as two different tags).
 
 ```yaml
 collect:
@@ -512,6 +512,10 @@ centreon-agent --help
 ## Updating the Agent
 
 To update the Agent, enter:
+
+```
+yum clean all --enablerepo=*
+```
 
 ```
 yum update centreon-agent
