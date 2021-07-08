@@ -61,6 +61,8 @@ The host machine must have the following characteristics:
 
     2. In the **Attached to** list, select **Bridged Adapter**.
 
+    3. In the **Name** list, select the network card you want.
+
 5. Click **OK**.
 
 6. In the right-hand panel, click **Start** to start the VM. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:

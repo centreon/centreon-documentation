@@ -37,7 +37,7 @@ cliquez sur **Download**.
 
     • Dans le cas contraire, cliquez sur **Direct download**.
 
-5. Le fichier téléchargé est une archive zippée : extrayez son contenu dans le répertoire désiré.
+5. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
 
 ## Étape 2 : Installer la machine virtuelle
 
@@ -71,6 +71,8 @@ cliquez sur **Download**.
     1. Dans l’onglet **Réseau**, cochez **Activer l’interface réseau**.
 
     2. Dans la liste **Mode d’accès réseau**, sélectionnez **Accès par pont**.
+
+    3. Dans la liste **Nom**, sélectionnez la carte réseau désirée.
 
 5. Cliquez sur **OK**.
 
