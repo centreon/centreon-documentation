@@ -330,7 +330,7 @@ Pour récupérer un log précis, le fichier de configuration doit contenir les a
   type: file
 ```
 
-Vous pouvez avoir plusieurs fichiers de configuration (chaque fichier est parsé et les fichiers de logs définis sont ajoutés à la collecte).
+Vous pouvez avoir plusieurs fichiers de configuration (chaque fichier est analysé et les fichiers de logs définis sont ajoutés à la collecte).
 
 #### Utiliser les modèles
 
