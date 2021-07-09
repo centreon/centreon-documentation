@@ -210,7 +210,7 @@ There are nine types of mappers:
 | Inclusion     | Include a subset of hosts that have been excluded by an exclusion mapper                                                  |
 
 For all those mappers, conditions can be applied to choose whether or not the
-mapping will actually occur. Operators can be : *equal*, *not equal*, *contain* and *not
+mapping will actually occur. Operators can be : *is equal to*, *is different from*, *contains* and *does not
 contain*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
@@ -373,7 +373,7 @@ The **Inclusion** mapper is used to include hosts that would have been excluded 
 This means that **Inclusion** and **Exclusion** mappers must be defined in the right order.
 
 In the example below, let's say that all hosts have been excluded from the results list (with an 
- **Exclusion** *not equal 1* mapper, for example). This **Inclusion** mapper will include all Linux hosts in the results list.
+ **Exclusion** *is different from 1* mapper, for example). This **Inclusion** mapper will include all Linux hosts in the results list.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
