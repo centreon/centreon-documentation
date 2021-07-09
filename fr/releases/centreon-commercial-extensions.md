@@ -369,6 +369,20 @@ liens
 
 ## Centreon Auto Discovery
 
+### 20.04.9
+
+#### Security fixes
+
+- Assainir (sanitize()) les valeurs qui seront désérialisées (unserialize())
+- Mise à jour des paquets npm présentant des vulnérablilités
+
+#### Bug fixes
+
+- Impossibilité d'enregistrer des règles de découvertes de services avec beaucoup de macros
+- Impossibilité d'ajouter des services si une macro dans la règle de découverte contient des *single quotes* (')
+- Suppression des modificateurs *association/property* ayant comme destination `host.macros` car ils ne fonctionnent p
+as correctement (utiliser les modificateurs *Macro* à la place)
+
 ### 20.04.8
 
 `17 mars 2021`
