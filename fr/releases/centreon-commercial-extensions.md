@@ -52,7 +52,7 @@ commerciales, veuillez contacter le support.
 - Désactiver le bouton de rafraîchissement pendant le chargement des listings
 - Mémoriser la saisie en cours lorsque l'utilisateur clique hors du champ de saisie de texte d'un modificateur
 - Suggérer de réinstaller le Plugin Pack lorsque le fournisseur de découverte n'est pas compatible
-- Avertir l'utilisateur que les changements non sauvegardés seront perdus en quittant l'étidion d'une tâche
+- Avertir l'utilisateur que les changements non sauvegardés seront perdus en quittant l'édition d'une tâche
 - Bloquer l'utilisation des attributs discovery.credentials dans les modificateurs (à l'exception des Macro)
 - Traduction de l'affichage des conditions et affichage d'une version grammaticalement des opérateurs de comparaison
 
