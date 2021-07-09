@@ -340,7 +340,7 @@ created again, the host will simply be linked to it.
 From version 21.04, discovered hosts can also be prioritized using host
 severities. Since severities are not just a simple label but also have a 
 numeric level, they can't be created on the fly, and can only be selected from the
-dopdown list.
+dropdown list.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
 
