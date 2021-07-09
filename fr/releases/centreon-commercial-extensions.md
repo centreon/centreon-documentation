@@ -54,7 +54,7 @@ commerciales, veuillez contacter le support.
 - Suggérer de réinstaller le Plugin Pack lorsque le fournisseur de découverte n'est pas compatible
 - Avertir l'utilisateur que les changements non sauvegardés seront perdus en quittant l'édition d'une tâche
 - Bloquer l'utilisation des attributs discovery.credentials dans les modificateurs (à l'exception des Macro)
-- Traduction de l'affichage des conditions et affichage d'une version grammaticalement des opérateurs de comparaison
+- Traduction de l'affichage des conditions et affichage d'une version grammaticalement correcte des opérateurs de comparaison
 
 ### 21.04.0
 
