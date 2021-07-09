@@ -220,6 +220,21 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon Auto Discovery
 
+### 20.10.4
+
+#### Correctifs de sécurité
+
+- Assainir (`sanitize()`) les valeurs qui seront désérialisées (`unserialize()`)
+- Empêcher l'utilisation des attributs `discovery.credentials` dans les modificateurs de découverte d'hôte
+- Mise à jour des paquets npm présentant des vulnérablilités
+
+#### Correctifs
+
+- Impossibilité d'enregistrer des règles de découvertes de services avec beaucoup de macros
+- Impossibilité d'ajouter des services si une macro dans la règle de découverte contient des *single quotes* (')
+- Suppression des modificateurs *association/property* ayant comme destination `host.macros` car ils ne fonctionnent p
+as correctement (utiliser les modificateurs *Macro* à la place)
+
 ### 20.10.3
 
 `17 mars 2021`
