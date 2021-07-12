@@ -491,6 +491,21 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.6
+
+#### Correctifs
+
+- Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
+- Un *core dump* pouvait apparaître lorsque centengine était stoppé
+- Parfois centengine ne parvenait pas à se reconnecter au broker central
+- Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
+- Problèmes de compilation sur RaspberryPi
+- Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
+
+#### Améliorations
+
+- Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
+
 ### 20.10.5
 
 `4 juin 2021`

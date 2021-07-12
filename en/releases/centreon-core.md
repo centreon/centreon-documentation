@@ -491,6 +491,21 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.6
+
+#### Bugfixes
+
+- A deadlock occasionally appears when broker is stopped right after it started
+- A core dump occasionally appears when Engine is stopped
+- Sometimes Engine can not reconnect to the central broker when cbd is restarted
+- Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
+- Compilation issues on RaspberryPi
+- TLS query not understood by GNUTLS on Redhat 8
+
+#### Enhancements
+
+- Move `BBDO serialized events` logs from debug to trace
+
 ### 20.10.5
 
 `June 4, 2021`
