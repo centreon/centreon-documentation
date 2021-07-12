@@ -372,6 +372,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.6
+
+#### Correctifs
+
+- Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
+- Centengine envoie les statuts de services en double lorsqu'un contrôle immédiat est planifié
+- Problèmes de compilation sur RaspberryPi
+
 ### 20.10.5
 
 `4 juin 2021`
@@ -498,6 +506,7 @@ state was HARD even if no notification is configured nor sent.
 - Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
 - Un *core dump* pouvait apparaître lorsque centengine était stoppé
 - Parfois centengine ne parvenait pas à se reconnecter au broker central
+- Quand beaucoup de collecteurs essayent de se connecter au même moment au broker central, il arrive que les derniers
 - Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
 - Problèmes de compilation sur RaspberryPi
 - Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
@@ -712,7 +721,42 @@ with the –pool\_size X argument or -s X.
 
 - Contient tous les correctifs jusqu'à la version 20.04.9
 
+## Centreon CLib
+
+## 20.10.3
+
+### Bug fixes
+
+- Libraries are loaded lazily now. This allows not to check all link issues during the load.
+
+## 20.10.2
+
+### Enhancement
+
+- Compilation in C++14 with conan-center: bintray has stopped. We had to switch to the conan-center. And then our conan dependencies had to upgrade and then we had to switch to C++14. So here is the corresponding compilation.
+
+## 20.10.1
+
+`February x, 2021`
+
+### Bugfixes
+
+- Start/Stop process\_manager mechanism is rewritten and much more simpler. The consequences are that there are less dead locks in the processes management.
+- The simple cases that are addition, subtraction and some others cases, have their computations simplified, that is to say less computations, so faster.
+
+## 20.10.0
+
+`October 21, 2020`
+
+### Bugfixes
+
+- A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
+
 ## Centreon Connector Perl
+
+### 20.10.2
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
@@ -725,6 +769,10 @@ with the –pool\_size X argument or -s X.
 - Compatibilité avec les autres composants 20.10.
 
 ## Centreon Connector SSH
+
+### 20.10.2
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 

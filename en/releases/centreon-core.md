@@ -372,6 +372,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.6
+
+#### Bugfixes
+
+- Recovery notifications forgotten when engine is stopped during incident
+- Engine sends service status twice when a check is forced
+- Compilation issues on RaspberryPi
+
 ### 20.10.5
 
 `June 4, 2021`
@@ -498,6 +506,7 @@ state was HARD even if no notification is configured nor sent.
 - A deadlock occasionally appears when broker is stopped right after it started
 - A core dump occasionally appears when Engine is stopped
 - Sometimes Engine can not reconnect to the central broker when cbd is restarted
+- When many pollers attempt to connect to the central, the last ones may fail to connect
 - Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
 - Compilation issues on RaspberryPi
 - TLS query not understood by GNUTLS on Redhat 8
@@ -708,7 +717,42 @@ with the –pool\_size X argument or -s X.
 
 - Contains all fixes up to version 20.04.9
 
+## Centreon CLib
+
+## 20.10.3
+
+### Bug fixes
+
+- Libraries are loaded lazily now. This allows not to check all link issues during the load.
+
+## 20.10.2
+
+### Enhancement
+
+- Compilation in C++14 with conan-center: bintray has stopped. We had to switch to the conan-center. And then our conan dependencies had to upgrade and then we had to switch to C++14. So here is the corresponding compilation.
+
+## 20.10.1
+
+`February x, 2021`
+
+### Bugfixes
+
+- Start/Stop process\_manager mechanism is rewritten and much more simpler. The consequences are that there are less dead locks in the processes management.
+- The simple cases that are addition, subtraction and some others cases, have their computations simplified, that is to say less computations, so faster.
+
+## 20.10.0
+
+`October 21, 2020`
+
+### Bugfixes
+
+- A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
+
 ## Centreon Connector Perl
+
+### 20.10.2
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
@@ -721,6 +765,10 @@ with the –pool\_size X argument or -s X.
 - Compatibility with other 20.10 components.
 
 ## Centreon Connector SSH
+
+### 20.10.2
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
