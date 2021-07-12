@@ -226,7 +226,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 - Assainir (`sanitize()`) les valeurs qui seront désérialisées (`unserialize()`)
 - Empêcher l'utilisation des attributs `discovery.credentials` dans les modificateurs de découverte d'hôte
-- Mise à jour des paquets npm présentant des vulnérablilités
+- Mise à jour des paquets npm présentant des vulnérabilités
 
 #### Correctifs
 
