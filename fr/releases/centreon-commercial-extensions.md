@@ -371,12 +371,12 @@ liens
 
 ### 20.04.9
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - Assainir (sanitize()) les valeurs qui seront désérialisées (unserialize())
-- Mise à jour des paquets npm présentant des vulnérablilités
+- Mise à jour des paquets npm présentant des vulnérabilités
 
-#### Bug fixes
+#### Correctifs
 
 - Impossibilité d'enregistrer des règles de découvertes de services avec beaucoup de macros
 - Impossibilité d'ajouter des services si une macro dans la règle de découverte contient des *single quotes* (')
