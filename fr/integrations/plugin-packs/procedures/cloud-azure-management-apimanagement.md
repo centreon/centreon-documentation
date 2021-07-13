@@ -43,6 +43,12 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--DOCUSAURUS_CODE_TABS-->
 
+<!--Capacity-->
+
+| Metric Name                            | Description                    | Unit  |
+|:---------------------------------------|:-------------------------------|:------|
+| apimanagement.capacity.percentage      | Capacity Statistics Percentage | %     |
+
 <!--Events-->
 
 | Metric Name                            | Description                | Unit  |
@@ -242,7 +248,7 @@ dans la Macro *AZURERESOURCE*
 | X         | AZURETENANT        | Tenant ID                                          |
 | X         | AZURECLIENTID      | Client ID                                          |
 | X         | AZURECLIENTSECRET  | Client secret                                      |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
@@ -252,7 +258,7 @@ dans la Macro *AZURERESOURCE*
 |:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
