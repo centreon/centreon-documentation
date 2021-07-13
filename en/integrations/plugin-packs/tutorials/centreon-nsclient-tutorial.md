@@ -42,7 +42,7 @@ a montlhy basis.
 
 ## Download
 
-Both the installer and the packaged Centreon Plugins are available on the on the [centreon-nsclient](https://github.com/centreon/centreon-nsclient-build/releases)
+Both the installer and the packaged Centreon Plugins are available on the [centreon-nsclient](https://github.com/centreon/centreon-nsclient-build/releases)
 Github project page. Look for the latest release and download the relevant files according to the target server environment (x86 or x64):
 
 * For new installations: download the `Centreon-NSClient-0.5.x.xx-YYYYMMDD` installer
@@ -159,7 +159,7 @@ method rather than the 'old' NRPE & NSCLIENT protocols, including the following 
 * As for the NRPE protocol, the *port* and *allowed hosts* setting of the `nsclient.ini` file (section `/settings/WEB/server`) must be set (the
 recommended port to be used is 8443 but you can use any custom ports >1024).
  
-#### Configurer l'accès Rest HTTPS
+#### Enabling RestAPI and configuring credentials
 
 To use the RestAPI feature of NSCLient++, you first have to enable the Webserver service:
 
