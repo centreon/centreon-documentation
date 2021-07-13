@@ -213,6 +213,22 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon Auto Discovery
 
+### 20.10.4
+
+`July 13, 2021`
+
+#### Security fixes
+
+- Inputs sent to unserialize() are not sanitized
+- Prevent usage of `discovery.credentials` attributes in host discovery mappers (except Macro)
+- Update vulnerable npm packages in centreon-autodiscovery
+
+#### Bug fixes
+
+- Cannot update service discovery rules with too many macros
+- Discovered service can't be saved if service discovery rule includes a macro value containing single quotes (')
+- Remove association/property mappers with "host.macros" as destination since they should not be used and actually never worked (use macro mappers instead)
+
 ### 20.10.3
 
 `March 17, 2021`
