@@ -222,6 +222,8 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.4
 
+`13 juillet 2021`
+
 #### Correctifs de sécurité
 
 - Assainir (`sanitize()`) les valeurs qui seront désérialisées (`unserialize()`)
