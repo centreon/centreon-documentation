@@ -19,7 +19,7 @@ Vous êtes maintenant connecté à l'interface web Centreon.
 
 ## Présentation rapide des menus
 
-L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise :
+L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
 
 ![image](../assets/getting-started/amenu.png)
 
@@ -27,8 +27,6 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
   personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
 * Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
   visualisation des logs.
-* Le menu **Vues** permet de visualiser et de configurer les graphiques de performances pour chaque élément du système
-  d'informations.
 * Le menu **Rapports** permet de visualiser de manière intuitive (via des diagrammes) l'évolution de la supervision sur
   une période donnée.
 * Le menu **Configuration** permet de configurer l'ensemble des éléments supervisés ainsi que l'infrastructure de supervision.
