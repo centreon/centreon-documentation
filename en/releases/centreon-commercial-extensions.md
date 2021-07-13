@@ -215,6 +215,8 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.4
 
+`July 13, 2021`
+
 #### Security fixes
 
 - Inputs sent to unserialize() are not sanitized
