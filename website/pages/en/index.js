@@ -16,7 +16,7 @@ const links = {
   doc: {
     api: 'api/introduction.html',
     gettingstarted: 'getting-started/installation-first-steps.html',
-    tutorial: 'getting-started/introduction-tutorials.html',
+    pluginpacks: 'integrations/plugin-packs/introduction.html',
     prerequisite: 'installation/prerequisites.html',
     installation: 'installation/introduction.html',
     monitoring: 'integrations/plugin-packs/introduction.html',
@@ -33,7 +33,7 @@ const stringsAndParagraphs = {
     title: `Welcome to Centreon documentation !`,
     subTitle: `Centreon’s AIOps-ready IT monitoring platform provides holistic visibility to complex IT workflows from Cloud-to-Edge.`,
     btnStart: `Getting Started`,
-    btnInstall: `How To`,
+    btnPp: `Plugin Packs`,
     btnApi: `API Reference`,
   },
   prerequisiteBlock: {
@@ -95,7 +95,7 @@ function ExcellenceBlock() {
       <p className="subTitle">{stringsAndParagraphs.excellenceBlock.subTitle}</p>
       <div className="cardBar">
         <Card imageSrc={'icon-tutorial.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnStart} btnLink={links.doc.gettingstarted} />
-        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnInstall} btnLink={links.doc.tutorial} />
+        <Card imageSrc={'icon-install.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnPp} btnLink={links.doc.pluginpacks} />
         <Card imageSrc={'icon-api.svg'} btnLabel={stringsAndParagraphs.excellenceBlock.btnApi} btnLink={links.doc.api} />
       </div>
     </div>
