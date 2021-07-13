@@ -2,17 +2,14 @@
     "docs": {
         "Getting Started": [
             "getting-started/installation-first-steps",
-            {
-                "ids": [
-                    "getting-started/introduction-tutorials",
-                    "getting-started/create-custom-view",
-                    "getting-started/create-graphical-view",
-                    "getting-started/model-it-services",
-                    "getting-started/analyze-resources-availability"
-                ],
-                "label": "Tutoriels",
-                "type": "subcategory"
-            }
+            "getting-started/which-install",
+		    "getting-started/IT100",
+            "getting-started/interface",
+		    "getting-started/first-supervision",
+            "getting-started/create-custom-view",
+            "getting-started/create-graphical-view",
+            "getting-started/model-it-services",
+            "getting-started/analyze-resources-availability"
         ],
         "Installation": [
             "installation/introduction",
