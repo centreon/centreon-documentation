@@ -35,7 +35,7 @@ Warning: Don't use '\!' character in centreon macro configuration\!\!\!
 
 ## Centreon Configuration
 
-### Create a new Netbackup server
+### Create a new Veeam Backup server
 
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
