@@ -218,7 +218,7 @@ To use it, it is necessary to install and activate it. Refer to the
 #### Security fixes
 
 - Inputs sent to unserialize() are not sanitized
-- Prevent usage of discovery.credentials attributes (except Macro) in host discovery mappers
+- Prevent usage of `discovery.credentials` attributes in host discovery mappers (except Macro)
 - Update vulnerable npm packages in centreon-autodiscovery
 
 #### Bug fixes
