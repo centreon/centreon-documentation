@@ -506,7 +506,7 @@ state was HARD even if no notification is configured nor sent.
 - Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
 - Un *core dump* pouvait apparaître lorsque centengine était stoppé
 - Parfois centengine ne parvenait pas à se reconnecter au broker central
-- Quand beaucoup de collecteurs essayent de se connecter au même moment au broker central, il arrive que les derniers
+- Quand beaucoup de collecteurs essayent de se connecter au même moment au broker central, il arrive que les derniers ne puissent pas se connecter
 - Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
 - Problèmes de compilation sur RaspberryPi
 - Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
