@@ -36,7 +36,7 @@ Centreon publiera une version mensuelle des exécutables *centreon_plugins.exe* 
 ## Téléchargement
 
 Tout d'abord, rendez-vous sur la page Github du projet [centreon-nsclient](https://github.com/centreon/centreon-nsclient-build/releases) et récupérez
-les dernières versions des exécutables suivants suivant votre environnement (x86 ou x64):
+les dernières versions des exécutables détaillés ci-dessous en fonction de votre environnement (x86 ou x64):
 
 * pour une nouvelle installation de l'agent, téléchargez le package d'installation `Centreon-NSClient-0.5.x.xx-YYYYMMDD`
 * pour une mise à jour des Plugins custom, téléchargez les binaires `centreon_plugins_YYYYMMDD_*\*\*_.exe` & `check_logfiles_x.x.x_\*\*\*.exe`
@@ -102,7 +102,7 @@ NRPEServer = 1
 
 Dans la section `[/settings/NRPE/server]`:
 
-* saisissez l'adresse IP des Collecteurs Centreon autorisés à superviser le serveur:
+* Saisissez l'adresse IP des Collecteurs Centreon autorisés à superviser le serveur:
 
 ```csv
 allowed hosts = @IP_Poller1, @IP_Poller2
