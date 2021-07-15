@@ -748,7 +748,7 @@ with the –pool\_size X argument or -s X.
 - Start/Stop process\_manager mechanism is rewritten and much simpler. The consequences are that there are less deadlocks in the processes management.
 - The simple cases that are addition, subtraction and some other cases, have had their computations simplified, that is to say less computations, so faster.
 
-## 20.10.0
+### 20.10.0
 
 `October 21, 2020`
 
