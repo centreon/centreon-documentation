@@ -378,7 +378,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - Recovery notifications forgotten when engine is stopped during incident
 - Engine sends service status twice when a check is forced
-- Compilation issues on RaspberryPi
+- Compilation issues on Raspberry Pi
 
 ### 20.10.5
 
