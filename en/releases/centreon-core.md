@@ -760,6 +760,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.2
 
+`July 15, 2021`
+
 - Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
