@@ -31,6 +31,20 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MBI
 
+### 21.04.2
+
+`15 juillet 2021`
+
+#### Améliorations
+
+- Requêtes optimisées pour les widgets
+
+#### Correctifs
+
+- Correctif additionnel de l'exécution immédiate des tâches
+- Correction des noms de BA manquants dans le rapport BV-BA-Availabilities-1
+- Correction d'un cas de division par zéro dans les widgets
+
 ### 21.04.1
 
 `24 Juin 2021`

@@ -31,6 +31,20 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
+### 21.04.2
+
+`July 15, 2021`
+
+#### Improvements
+
+- Optimized widget requests
+
+#### Bugfixes
+
+- Immediate execution in job parameters did not work
+- BA names were missing in the BV-BA-Availabilities-1 report
+- Division by zero caused an error within the widget
+
 ### 21.04.1
 
 `June 24, 2021`
