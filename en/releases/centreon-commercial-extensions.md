@@ -271,6 +271,19 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
+## 20.04.7
+
+`July 15, 2021`
+
+#### Improvements
+
+- Optimized widget requests
+
+#### Bugfixes
+
+- Removed old credentials from the repo
+- Immediate execution in job parameters did not work
+
 ### 20.04.6
 
 `June 11, 2021`
