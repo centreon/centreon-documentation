@@ -729,6 +729,8 @@ with the –pool\_size X argument or -s X.
 
 ## 20.10.3
 
+`15 juillet 2021`
+
 ### Bug fixes
 
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
