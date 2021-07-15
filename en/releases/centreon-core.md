@@ -723,7 +723,7 @@ with the –pool\_size X argument or -s X.
 
 ### Bug fixes
 
-- Libraries are loaded lazily now. This allows not to check all link issues during the load.
+- Libraries are loaded lazily now. This allows not having to check all link issues during loading.
 
 ## 20.10.2
 
