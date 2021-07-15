@@ -378,7 +378,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 - Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
 - Centengine envoie les statuts de services en double lorsqu'un contrôle immédiat est planifié
-- Problèmes de compilation sur RaspberryPi
+- Problèmes de compilation sur Raspberry Pi
 
 ### 20.10.5
 
