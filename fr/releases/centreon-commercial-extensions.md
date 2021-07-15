@@ -42,7 +42,7 @@ commerciales, veuillez contacter le support.
 #### Correctifs
 
 - Correctif additionnel de l'exécution immédiate des tâches
-- Correction des noms de BA manquant dans le rapport BV-BA-Availabilities-1
+- Correction des noms de BA manquants dans le rapport BV-BA-Availabilities-1
 - Correction d'un cas de division par zéro dans les widgets
 
 ### 21.04.1
