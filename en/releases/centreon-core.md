@@ -731,7 +731,7 @@ with the –pool\_size X argument or -s X.
 
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
 
-## 20.10.2
+### 20.10.2
 
 `June 4, 2021`
 
