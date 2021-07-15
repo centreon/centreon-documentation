@@ -372,6 +372,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.10.6
+
+`July 15, 2021`
+
+#### Bugfixes
+
+- Recovery notifications forgotten when engine is stopped during incident
+- Engine sends service status twice when a check is forced
+- Compilation issues on Raspberry Pi
+
 ### 20.10.5
 
 `June 4, 2021`
@@ -490,6 +500,24 @@ state was HARD even if no notification is configured nor sent.
 - Contains all fixes up to version 20.04.7
 
 ## Centreon Broker
+
+### 20.10.6
+
+`July 15, 2021`
+
+#### Bugfixes
+
+- A deadlock occasionally appears when broker is stopped right after it started
+- A core dump occasionally appears when Engine is stopped
+- Sometimes Engine cannot reconnect to the central broker when cbd is restarted
+- When many pollers attempt to connect to the central broker, the last ones may fail to connect
+- Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
+- Compilation issues on Raspberry Pi
+- TLS query not understood by GNUTLS on Redhat 8
+
+#### Enhancements
+
+- Move `BBDO serialized events` logs from debug to trace
 
 ### 20.10.5
 
@@ -693,7 +721,48 @@ with the –pool\_size X argument or -s X.
 
 - Contains all fixes up to version 20.04.9
 
+## Centreon CLib
+
+### 20.10.3
+
+`July 15, 2021`
+
+#### Bug fixes
+
+- Libraries are loaded lazily now. This allows not having to check all link issues during loading.
+
+### 20.10.2
+
+`June 4, 2021`
+
+#### Enhancements
+
+- Compilation in C++14 with conan-center: bintray has stopped. We had to switch to conan-center. And then our conan dependencies had to be upgraded and then we had to switch to C++14. So here is the corresponding compilation.
+
+### 20.10.1
+
+`April 28, 2021`
+
+#### Bugfixes
+
+- Start/Stop process\_manager mechanism is rewritten and much simpler. The consequences are that there are less deadlocks in the processes management.
+- The simple cases that are addition, subtraction and some other cases, have had their computations simplified, that is to say less computations, so faster.
+
+### 20.10.0
+
+`October 21, 2020`
+
+#### Bugfixes
+
+- A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
+
 ## Centreon Connector Perl
+
+### 20.10.2
+
+`July 15, 2021`
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
@@ -706,6 +775,12 @@ with the –pool\_size X argument or -s X.
 - Compatibility with other 20.10 components.
 
 ## Centreon Connector SSH
+
+### 20.10.2
+
+`July 15, 2021`
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 

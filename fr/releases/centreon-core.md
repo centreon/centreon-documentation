@@ -372,6 +372,16 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.6
+
+`15 juillet 2021`
+
+#### Correctifs
+
+- Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
+- Centengine envoie les statuts de services en double lorsqu'un contrôle immédiat est planifié
+- Problèmes de compilation sur Raspberry Pi
+
 ### 20.10.5
 
 `4 juin 2021`
@@ -490,6 +500,24 @@ state was HARD even if no notification is configured nor sent.
 - Contient tous les correctifs jusqu'à la version 20.04.7
 
 ## Centreon Broker
+
+### 20.10.6
+
+`15 juillet 2021`
+
+#### Correctifs
+
+- Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
+- Un *core dump* pouvait apparaître lorsque centengine était stoppé
+- Parfois centengine ne parvenait pas à se reconnecter au broker central
+- Quand beaucoup de collecteurs essayent de se connecter au même moment au broker central, il arrive que les derniers ne puissent pas se connecter
+- Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
+- Problèmes de compilation sur Raspberry Pi
+- Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
+
+#### Améliorations
+
+- Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
 
 ### 20.10.5
 
@@ -697,7 +725,48 @@ with the –pool\_size X argument or -s X.
 
 - Contient tous les correctifs jusqu'à la version 20.04.9
 
+## Centreon CLib
+
+### 20.10.3
+
+`15 juillet 2021`
+
+#### Bug fixes
+
+- Libraries are loaded lazily now. This allows not having to check all link issues during loading.
+
+### 20.10.2
+
+`4 juin 2021`
+
+#### Enhancements
+
+- Compilation in C++14 with conan-center: bintray has stopped. We had to switch to conan-center. And then our conan dependencies had to be upgraded and then we had to switch to C++14. So here is the corresponding compilation.
+
+### 20.10.1
+
+`28 avril 2021`
+
+#### Bugfixes
+
+- Start/Stop process\_manager mechanism is rewritten and much simpler. The consequences are that there are less deadlocks in the processes management.
+- The simple cases that are addition, subtraction and some other cases, have had their computations simplified, that is to say less computations, so faster.
+
+### 20.10.0
+
+`October 21, 2020`
+
+#### Bugfixes
+
+- A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
+
 ## Centreon Connector Perl
+
+### 20.10.2
+
+`15 juillet 2021`
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
@@ -710,6 +779,12 @@ with the –pool\_size X argument or -s X.
 - Compatibilité avec les autres composants 20.10.
 
 ## Centreon Connector SSH
+
+### 20.10.2
+
+`15 juillet 2021`
+
+- Provide compatibility with centreon-clib 20.10.3
 
 ### 20.10.1
 
