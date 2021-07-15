@@ -909,10 +909,59 @@
         "Intégrations": [
             {
                 "ids": [
-                    "integrations/external/accedian-pvx-skylight",
-                    "integrations/external/monitoring-dem-mip"
+                    "integrations/data-analytics/bsm",
+                    "integrations/data-analytics/elasticsearch-events",
+                    "integrations/data-analytics/elasticsearch-metrics",
+                    "integrations/data-analytics/ndo",
+                    "integrations/data-analytics/opsgenie",
+                    "integrations/data-analytics/hp-omi",
+                    "integrations/data-analytics/pagerduty",
+                    "integrations/data-analytics/servicenow",
+                    "integrations/data-analytics/servicenow-mid-server",
+                    "integrations/data-analytics/splunk-metrics",
+                    "integrations/data-analytics/splunk-events",
+                    "integrations/data-analytics/warp10"
                 ],
-                "label": "Externes",
+                "label": "Data Analytics",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/digital-experience-monitoring/connector-skylight-pvx",
+                    "integrations/digital-experience-monitoring/connector-mip"
+                ],
+                "label": "Digital Experience Monitoring",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/event-management/sc-bsm",
+                    "integrations/event-management/sc-omi",
+                    "integrations/event-management/sc-opsgenie",
+                    "integrations/event-management/sc-pagerduty",
+                    "integrations/event-management/sc-service-now",
+                    "integrations/event-management/sc-service-now-mid-server"
+                ],
+                "label": "Event Management",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/itsm/ot-bmc-footprints",
+                    "integrations/itsm/ot-bmc-remedy",
+                    "integrations/itsm/ot-easyvista",
+                    "integrations/itsm/ot-glpi",
+                    "integrations/itsm/ot-glpi-restapi",
+                    "integrations/itsm/ot-itop",
+                    "integrations/itsm/ot-iws-isilog",
+                    "integrations/itsm/ot-jira",
+                    "integrations/itsm/ot-mail",
+                    "integrations/itsm/ot-otrs-restapi",
+                    "integrations/itsm/ot-request-tracker-restapi",
+                    "integrations/itsm/ot-serena",
+                    "integrations/itsm/ot-servicenow"
+                ],
+                "label": "ITSM",
                 "type": "subcategory"
             },
             {
@@ -920,43 +969,6 @@
                     "integrations/notifications/telegram"
                 ],
                 "label": "Notifications",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/open-tickets/bmc-footprints",
-                    "integrations/open-tickets/bmc-remedy",
-                    "integrations/open-tickets/easyvista",
-                    "integrations/open-tickets/glpi",
-                    "integrations/open-tickets/glpi-restapi",
-                    "integrations/open-tickets/itop",
-                    "integrations/open-tickets/iws-isilog",
-                    "integrations/open-tickets/jira",
-                    "integrations/open-tickets/mail",
-                    "integrations/open-tickets/otrs-restapi",
-                    "integrations/open-tickets/request-tracker-restapi",
-                    "integrations/open-tickets/serena",
-                    "integrations/open-tickets/servicenow"
-                ],
-                "label": "Open Tickets",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/stream-connectors/bsm",
-                    "integrations/stream-connectors/elasticsearch-events",
-                    "integrations/stream-connectors/elasticsearch-metrics",
-                    "integrations/stream-connectors/ndo",
-                    "integrations/stream-connectors/opsgenie",
-                    "integrations/stream-connectors/hp-omi",
-                    "integrations/stream-connectors/pagerduty",
-                    "integrations/stream-connectors/servicenow",
-                    "integrations/stream-connectors/servicenow-mid-server",
-                    "integrations/stream-connectors/splunk-metrics",
-                    "integrations/stream-connectors/splunk-events",
-                    "integrations/stream-connectors/warp10"
-                ],
-                "label": "Stream Connectors",
                 "type": "subcategory"
             }
         ],
