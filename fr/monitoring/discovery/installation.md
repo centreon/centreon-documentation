@@ -32,7 +32,7 @@ Discovery** :
 
 ## Mettre en place un compte dédié à l'autodécouverte
 
-Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâches de découverte en arrière-plan (différent du compte que vous utilisez pour créer et lancer des tâches de découverte dans l'interface). 
+Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâches de découverte en arrière-plan (différent du compte que vous utilisez pour créer et lancer des tâches de découverte dans l'interface). Par exemple, un compte `autodisco`. 
 
 1. À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez un utilisateur](../basic-objects/contacts.html) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
     - **Autoriser l'utilisateur à se connecter à l'interface web** : **Non**
@@ -44,7 +44,7 @@ Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâ
     ```
     /etc/centreon-gorgone/config.d/31-centreon-api.yaml
     ```
-    Remplacez les identifiants par défaut par ceux de votre compte dédié à l'autodécouverte.
+    Remplacez les identifiants par défaut par ceux de votre compte dédié à l'autodécouverte. Définissez un mot de passe fort.
 
     Exemple :
 
@@ -54,10 +54,10 @@ Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâ
         - name: centreonv2
         base_url: "http://127.0.0.1/centreon/api/beta/"
         username: autodisco
-        password: 27v3Ax5hffQRYV5x
+        password: XXXXXXXXXXXXXXXX
         - name: clapi
         username: autodisco
-        password: 27v3Ax5hffQRYV5x
+        password: XXXXXXXXXXXXXXXX
     ```
 
 3. Redémarrez le service **gorgoned** :

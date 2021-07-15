@@ -32,9 +32,9 @@ discovery providers you want.
 
 ## Setting up a dedicated autodiscovery account
 
-We recommend that you set up a dedicated technical account that will execute the discovery jobs in the background (different from the one you use to create and launch jobs in the interface). 
+We recommend that you set up a dedicated technical account (e.g. `autodisco`) that will execute the discovery jobs in the background (different from the one you use to create and launch jobs in the interface). 
 
-1. On page **Configuration > Users > Contacts/Users**, create a dedicated user. On the **Centreon Authentication** tab, give it the following rights:
+1. On page **Configuration > Users > Contacts/Users**, create a dedicated [user](../basic-objects/contacts.html). On the **Centreon Authentication** tab, give it the following rights:
     - **Reach Centreon front-end**: **No**
     - **Admin**: **Yes**
     - **Reach API Configuration**: **Yes**.
@@ -44,7 +44,7 @@ We recommend that you set up a dedicated technical account that will execute the
     ```
     /etc/centreon-gorgone/config.d/31-centreon-api.yaml
     ```
-    Replace the default username and password by the credentials of your dedicated autodiscovery account.
+    Replace the default username and password by the credentials of your dedicated autodiscovery account. Use a strong password.
 
     Example:
 
@@ -54,10 +54,10 @@ We recommend that you set up a dedicated technical account that will execute the
         - name: centreonv2
         base_url: "http://127.0.0.1/centreon/api/beta/"
         username: autodisco
-        password: 27v3Ax5hffQRYV5x
+        password: XXXXXXXXXXXXXXXX
         - name: clapi
         username: autodisco
-        password: 27v3Ax5hffQRYV5x
+        password: XXXXXXXXXXXXXXXX
     ```
 
 3. Restart the **gorgoned** service:
