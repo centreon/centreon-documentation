@@ -727,7 +727,7 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon CLib
 
-## 20.10.3
+### 20.10.3
 
 `15 juillet 2021`
 
