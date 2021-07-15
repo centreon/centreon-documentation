@@ -374,6 +374,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.6
 
+`July 15, 2021`
+
 #### Bugfixes
 
 - Recovery notifications forgotten when engine is stopped during incident
