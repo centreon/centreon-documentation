@@ -44,7 +44,7 @@ We recommend that you set up a dedicated technical account (e.g. `autodisco`) th
     ```
     /etc/centreon-gorgone/config.d/31-centreon-api.yaml
     ```
-    Replace the default username and password by the credentials of your dedicated autodiscovery account. Use a strong password.
+    Replace the default username and password by the credentials of your dedicated autodiscovery account.
 
     Example:
 

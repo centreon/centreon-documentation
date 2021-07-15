@@ -44,7 +44,7 @@ Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâ
     ```
     /etc/centreon-gorgone/config.d/31-centreon-api.yaml
     ```
-    Remplacez les identifiants par défaut par ceux de votre compte dédié à l'autodécouverte. Définissez un mot de passe fort.
+    Remplacez les identifiants par défaut par ceux de votre compte dédié à l'autodécouverte.
 
     Exemple :
 
