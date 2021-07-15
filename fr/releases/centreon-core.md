@@ -739,7 +739,7 @@ with the –pool\_size X argument or -s X.
 
 `4 juin 2021`
 
-### Enhancement
+#### Enhancements
 
 - Compilation in C++14 with conan-center: bintray has stopped. We had to switch to conan-center. And then our conan dependencies had to be upgraded and then we had to switch to C++14. So here is the corresponding compilation.
 
