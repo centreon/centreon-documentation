@@ -503,6 +503,8 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.6
 
+`15 juillet 2021`
+
 #### Correctifs
 
 - Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
