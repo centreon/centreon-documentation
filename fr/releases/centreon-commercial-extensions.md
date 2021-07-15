@@ -37,7 +37,7 @@ commerciales, veuillez contacter le support.
 
 #### Améliorations
 
-- Requetes optimisées pour les widgets
+- Requêtes optimisées pour les widgets
 
 #### Correctifs
 
