@@ -733,7 +733,7 @@ with the –pool\_size X argument or -s X.
 
 ## 20.10.1
 
-`February x, 2021`
+`April 28, 2021`
 
 ### Bugfixes
 
