@@ -503,6 +503,8 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.6
 
+`July 15, 2021`
+
 #### Bugfixes
 
 - A deadlock occasionally appears when broker is stopped right after it started
