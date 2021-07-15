@@ -508,7 +508,7 @@ state was HARD even if no notification is configured nor sent.
 - Sometimes Engine cannot reconnect to the central broker when cbd is restarted
 - When many pollers attempt to connect to the central, the last ones may fail to connect
 - Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
-- Compilation issues on RaspberryPi
+- Compilation issues on Raspberry Pi
 - TLS query not understood by GNUTLS on Redhat 8
 
 #### Enhancements
