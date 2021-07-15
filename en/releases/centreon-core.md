@@ -752,7 +752,7 @@ with the –pool\_size X argument or -s X.
 
 `October 21, 2020`
 
-### Bugfixes
+#### Bugfixes
 
 - A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
 
