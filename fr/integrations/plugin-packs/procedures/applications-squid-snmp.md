@@ -57,6 +57,11 @@ Afin de superviser le proxy Squid, le SNMP v2 ou v3 doit être configuré comme
 indiqué sur la documentation officielle :
 https://wiki.squid-cache.org/Features/Snmp
 
+### Flux réseaux
+
+La communication doit être possible depuis le collecteur Centreon vers le port
+SNMP (UDP/161) du proxy Squid.
+
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
