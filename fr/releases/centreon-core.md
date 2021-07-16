@@ -165,6 +165,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.3
+
+#### Correctifs
+
+- Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
+- Centengine envoie les statuts de services en double lorsqu'un contrôle immédiat est planifié
+- Problèmes de compilation sur Raspberry Pi
+
 ### 21.04.2
 
 `4 juin 2021`
@@ -195,6 +203,27 @@ nouvelle version fixe ce problème.
 dans une prochaine version.
 
 ## Centreon Broker
+
+### 21.04.2
+
+#### Bugfixes
+
+#### Correctifs
+
+- Un *deadlock* pouvait se produire lorsque broker était arrêté immédiatement après son démarrage
+- Un *core dump* pouvait apparaître lorsque centengine était stoppé
+- Parfois centengine ne parvenait pas à se reconnecter au broker central
+- Quand beaucoup de collecteurs essayent de se connecter au même moment au broker central, il arrive que les derniers ne puissent pas se connecter
+- Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
+- Problèmes de compilation sur Raspberry Pi
+- Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
+- La *factory* de *streams* Broker ne pouvait pas créer des flux avec des configurations différentes
+- Un message d'erreur apparaissait dans les logs à la création de nouvelles Activités Métier BAM
+- Une section `loggers` vide ou à `null` dans la configuration entrainait un crash de `cb_mod`
+
+#### Améliorations
+
+- Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
 
 ### 21.04.1
 
@@ -241,7 +270,29 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 - Improvement of the acknowledgement of events when broker is shutting down.
 
+## Centreon CLib
+
+## 21.04.2
+
+#### Bug fixes
+￼
+- Les librairies sont chargées en mode `lazy`.
+
+## 21.04.1
+
+#### Enhancements
+
+- Compilation avec C++14 et Conan-Center (le service Bintray ayant été fermé).
+
+## 21.04.0
+
+Nouvelle version majeure.
+
 ## Centreon Connector Perl
+
+### 21.04.2
+
+- Compatibilité avec centreon-clib 21.04.2
 
 ### 21.04.1
 
@@ -254,6 +305,10 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 - Compatibilité avec les autres composants 21.04.
 
 ## Centreon Connector SSH
+
+### 21.04.2
+
+- Provide compatibility with centreon-clib 21.04.2
 
 ### 21.04.1
 
