@@ -57,6 +57,11 @@ To use this pack, the SNMP service must be properly configured on your Squid
 proxy. Squid provides an official documentation to achieve this: 
 https://wiki.squid-cache.org/Features/Snmp
 
+### Network flow
+
+The Squid proxy must be reachable from the Centreon Poller on the 
+UDP/161 SNMP port.
+
 ## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
