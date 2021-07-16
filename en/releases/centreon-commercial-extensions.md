@@ -281,7 +281,6 @@ If you have feature requests or want to report a bug, please contact support.
 
 #### Bugfixes
 
-- Removed old credentials from the repo
 - Immediate execution in job parameters did not work
 
 ### 20.04.6
