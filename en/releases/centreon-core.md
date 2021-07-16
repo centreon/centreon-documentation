@@ -166,6 +166,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 21.04.3
+
+#### Bugfixes
+
+- Recovery notifications forgotten when engine is stopped during incident
+- Engine sends service status twice when a check is forced
+- Compilation issues on Raspberry Pi
+
 ### 21.04.2
 
 `June 4, 2021`
@@ -195,6 +203,25 @@ If you have feature requests or want to report a bug, please go to our
 future.
 
 ## Centreon Broker
+
+### 21.04.2
+
+#### Bugfixes
+
+- A deadlock occasionally appears when broker is stopped right after it started
+- A core dump occasionally appears when Engine is stopped
+- Sometimes Engine cannot reconnect to the central broker when cbd is restarted
+- When many pollers attempt to connect to the central broker, the last ones may fail to connect
+- Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
+- Compilation issues on Raspberry Pi
+- TLS query not understood by GNUTLS on Redhat 8
+- Broker stream factory could not create streams with different configurations
+- Error in Broker logs when exporting new BAM Business Activities
+- `cb_mod` crashes when loggers section is empty/null in config file
+
+#### Enhancements
+￼
+- Move `BBDO serialized events` logs from debug to trace
 
 ### 21.04.1
 
@@ -241,7 +268,29 @@ old logs system.
 
 - Improvement of the acknowledgement of events when broker is shutting down.
 
+## Centreon CLib
+
+## 21.04.2
+
+#### Bug fixes
+￼
+- Libraries are loaded lazily now. This allows not having to check all link issues during loading.
+
+## 21.04.1
+
+#### Enhancements
+
+- Compilation in C++14 with conan-center: bintray has stopped. We had to switch to conan-center. And then our conan dependencies had to be upgraded and then we had to switch to C++14. So here is the corresponding compilation.
+
+## 21.04.0
+
+New release.
+
 ## Centreon Connector Perl
+
+### 21.04.2
+
+- Provide compatibility with centreon-clib 21.04.2
 
 ### 21.04.1
 
@@ -254,6 +303,10 @@ old logs system.
 - Compatibility with other 21.04 components.
 
 ## Centreon Connector SSH
+
+### 21.04.2
+
+- Provide compatibility with centreon-clib 21.04.2
 
 ### 21.04.1
 
