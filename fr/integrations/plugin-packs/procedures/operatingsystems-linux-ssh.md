@@ -226,6 +226,9 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i .ssh/id_ed25519.pub ro_ssh_centreon@<IP_TARGET_SERVER>
 ```
 
+(Si votre OS ne supporte pas les clefs au format ed25519, générez alors une clef au format RSA: ssh-keygen -b 4096 et exportez là: ssh-copy-id -i ~/.ssh/id_rsa.pub ro_ssh_centreon@<IP_TARGET_SERVER )
+
+
 <!--Autentification Utilisateur/Mot de passe-->
 
 Après avoir défini les paramètres du nom, de l'alias, de l'IP et du modèle d'hôte, vous devez remplir les macros décritent dans la partie **Configuration** ci-dessous.
