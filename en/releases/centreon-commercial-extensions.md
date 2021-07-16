@@ -175,7 +175,6 @@ To use it, it is necessary to install and activate it. Refer to the
 
 #### Bugfixes
 
-- Removed old credentials from the repo
 - Immediate execution in job parameters did not work
 - BA names were missing in the BV-BA-Availabilities-1 report
 - Division by zero caused an error within the widget
