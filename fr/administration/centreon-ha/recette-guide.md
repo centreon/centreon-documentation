@@ -28,33 +28,33 @@ Votre écran affichera les informations suivantes :
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 11:09:30 2021
-Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on ha-1
+Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-1 ]
-     Slaves: [ ha-2 ]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-1
-     http       (systemd:httpd24-httpd):        Started ha-1
-     gorgone    (systemd:gorgoned):     Started ha-1
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-1
-     cbd_central_broker (systemd:cbd-sql):      Started ha-1
-     centengine (systemd:centengine):   Started ha-1
-     centreontrapd      (systemd:centreontrapd):        Started ha-1
-     snmptrapd  (systemd:snmptrapd):    Started ha-1
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
 > Vérifier les erreurs de type `Failed` présentes sur les ressources et corriger ces dernières en vous aidant du [guide de troubleshooting](troubleshooting-guide.html).
@@ -107,33 +107,33 @@ Avant la bascule, vous devez avoir cette sortie avec la commande `crm_mon -f` :
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 11:24:27 2021
-Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on ha-1
+Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-1 ]
-     Slaves: [ ha-2 ]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-1
-     http       (systemd:httpd24-httpd):        Started ha-1
-     gorgone    (systemd:gorgoned):     Started ha-1
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-1
-     cbd_central_broker (systemd:cbd-sql):      Started ha-1
-     centengine (systemd:centengine):   Started ha-1
-     centreontrapd      (systemd:centreontrapd):        Started ha-1
-     snmptrapd  (systemd:snmptrapd):    Started ha-1
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 #### Bascule
 Pour basculer/déplacer une ressource exécuter la commande :
@@ -148,33 +148,33 @@ Vérifier les étapes de bascules avec la commande `crm_mon -f` et que les resou
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 11:38:32 2021
-Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on ha-2
+Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-2 ]
-     Slaves: [ ha-1 ]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
+     Slaves: [ @CENTRAL_MASTER_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-2
-     http       (systemd:httpd24-httpd):        Started ha-2
-     gorgone    (systemd:gorgoned):     Started ha-2
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-2
-     cbd_central_broker (systemd:cbd-sql):      Started ha-2
-     centengine (systemd:centengine):   Started ha-2
-     centreontrapd      (systemd:centreontrapd):        Started ha-2
-     snmptrapd  (systemd:snmptrapd):    Started ha-2
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 Une fois que la bascule est terminé, exécuter la commande :
@@ -211,33 +211,33 @@ Exécuter la commande `crm_mon -f` afin de vérifier s'il n'y a pas d'erreur
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 11:38:32 2021
-Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on ha-2
+Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-2 ]
-     Slaves: [ ha-1 ]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
+     Slaves: [ @CENTRAL_MASTER_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-2
-     http       (systemd:httpd24-httpd):        Started ha-2
-     gorgone    (systemd:gorgoned):     Started ha-2
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-2
-     cbd_central_broker (systemd:cbd-sql):      Started ha-2
-     centengine (systemd:centengine):   Started ha-2
-     centreontrapd      (systemd:centreontrapd):        Started ha-2
-     snmptrapd  (systemd:snmptrapd):    Started ha-2
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 Ensuite, lancer la commande de nettoyage des contraintes au cas où vous avez :
@@ -277,15 +277,15 @@ L'exécution de la commande à pour effet de ne voir aucune resource active sur 
 
 ```bash
 Stack: corosync
-Current DC: ha-2 (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
+Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
 Last updated: Fri Jul  9 16:11:53 2021
-Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on ha-1
+Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-2 ]
-OFFLINE: [ ha-1 ]
+Online: [ @CENTRAL_SLAVE_NAME@ ]
+OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 
 No active resources
 ``` 
@@ -295,33 +295,33 @@ Le noeud secondaire est vue `offline` sur le primaire.
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 16:19:03 2021
-Last change: Fri Jul  9 16:05:26 2021 by root via crm_attribute on ha-1
+Last change: Fri Jul  9 16:05:26 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ]
-OFFLINE: [ ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ ]
+OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-1 ]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ]
+     Started: [ @CENTRAL_MASTER_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ]
+     Started: [ @CENTRAL_MASTER_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-1
-     http       (systemd:httpd24-httpd):        Started ha-1
-     gorgone    (systemd:gorgoned):     Started ha-1
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-1
-     cbd_central_broker (systemd:cbd-sql):      Started ha-1
-     centengine (systemd:centengine):   Started ha-1
-     centreontrapd      (systemd:centreontrapd):        Started ha-1
-     snmptrapd  (systemd:snmptrapd):    Started ha-1
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
 #### Retour en situation nominal
@@ -337,16 +337,16 @@ Elles se présenteront comme ceci
 ```bash
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
-DROP       all  --  ha-2                 anywhere
-DROP       all  --  ha-20_04-master      anywhere
+DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
 
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
-DROP       all  --  anywhere             ha-2
-DROP       all  --  anywhere             ha-20_04-master
+DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 Une fois les règles vérifier, et afin de revenir en status nominal exécuter cette commande :
@@ -358,33 +358,33 @@ Le noeud secondaire est de nouveau vu `online` par le cluster :
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 17:12:39 2021
-Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on ha-1
+Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-1 ]
-     Slaves: [ ha-2 ]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-1 ha-2 ]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-1
-     http       (systemd:httpd24-httpd):        Started ha-1
-     gorgone    (systemd:gorgoned):     Started ha-1
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-1
-     cbd_central_broker (systemd:cbd-sql):      Started ha-1
-     centengine (systemd:centengine):   Started ha-1
-     centreontrapd      (systemd:centreontrapd):        Started ha-1
-     snmptrapd  (systemd:snmptrapd):    Started ha-1
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
 ### Simuler la perte du noeud primaire
@@ -405,33 +405,33 @@ Le résultat attendu est la coupure du primaire noeuds sur le cluster comme ci-d
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 15:14:00 2021
-Last change: Fri Jul  9 15:11:35 2021 by root via crm_resource on ha-2
+Last change: Fri Jul  9 15:11:35 2021 by root via crm_resource on @CENTRAL_SLAVE_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-2 ]
-OFFLINE: [ ha-1 ]
+Online: [ @CENTRAL_SLAVE_NAME@ ]
+OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 
 Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ ha-2 ]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: php7-clone [php7]
-     Started: [ ha-2 ]
+     Started: [ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ ha-2 ]
+     Started: [ @CENTRAL_SLAVE_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started ha-2
-     http       (systemd:httpd24-httpd):        Started ha-2
-     gorgone    (systemd:gorgoned):     Started ha-2
-     centreon_central_sync      (systemd:centreon-central-sync):        Started ha-2
-     cbd_central_broker (systemd:cbd-sql):      Started ha-2
-     centengine (systemd:centengine):   Started ha-2
-     centreontrapd      (systemd:centreontrapd):        Started ha-2
-     snmptrapd  (systemd:snmptrapd):    Started ha-2
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
 Le noeud primaire n'apparait plus dans le cluster et il reste tout à fait disponible.
@@ -441,15 +441,15 @@ Sur le nom principale, il voit que le noeud secondaire est `offline` et aucune r
 
 ```bash
 Stack: corosync
-Current DC: ha-1 (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
 Last updated: Fri Jul  9 15:40:14 2021
-Last change: Fri Jul  9 15:12:43 2021 by root via crm_resource on ha-1
+Last change: Fri Jul  9 15:12:43 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
 
 2 nodes configured
 14 resource instances configured
 
-Online: [ ha-1 ]
-OFFLINE: [ ha-2 ]
+Online: [ @CENTRAL_MASTER_NAME@ ]
+OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 
 No active resources
 ```
@@ -470,16 +470,16 @@ Elles se présenteront comme ceci
 ```bash
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
-DROP       all  --  ha-2                 anywhere
-DROP       all  --  ha-20_04-master      anywhere
+DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
 
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
-DROP       all  --  anywhere             ha-2
-DROP       all  --  anywhere             ha-20_04-master
+DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 Une fois les règles vérifier, et afin de revenir en status nominal exécuter cette commande :
@@ -489,4 +489,4 @@ iptables -F
 ```
 
 En lancant la commande `crm_mon` sur le second noeud, vous verrez le noeud principal remonter dans le cluster.
-Si vous souhaitez basculer sur le noeud primaire, exécuter les [commandes de bascule]()
+Si vous souhaitez basculer sur le noeud primaire, exécuter les [commandes de bascule](recette-guide.html#retour-en-situation-nominal).
