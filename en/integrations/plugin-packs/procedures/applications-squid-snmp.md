@@ -99,7 +99,7 @@ yum install centreon-pack-applications-squid-snmp
 ### Host
 
 * Log into Centreon and add a new Host through `Configuration > Hosts`.
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Squid SNMP* Server settings
+* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Squid proxy* settings
 * Select the *Applications-Squid-Snmp-custom* template to apply to the Host
 
 If you are using SNMP Version 3, use the SNMPEXTRAOPTIONS Macro to configure
