@@ -1,5 +1,5 @@
 ---
-id: mail
+id: ot-mail
 title: Mail
 ---
 

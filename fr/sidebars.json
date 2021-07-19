@@ -907,40 +907,38 @@
             }
         ],
         "Intégrations": [
+            "integrations/introduction-integrations",
             {
                 "ids": [
-                    "integrations/data-analytics/bsm",
-                    "integrations/data-analytics/elasticsearch-events",
-                    "integrations/data-analytics/elasticsearch-metrics",
-                    "integrations/data-analytics/ndo",
-                    "integrations/data-analytics/opsgenie",
-                    "integrations/data-analytics/hp-omi",
-                    "integrations/data-analytics/pagerduty",
-                    "integrations/data-analytics/servicenow",
-                    "integrations/data-analytics/servicenow-mid-server",
-                    "integrations/data-analytics/splunk-metrics",
-                    "integrations/data-analytics/splunk-events",
-                    "integrations/data-analytics/warp10"
+                    "integrations/data-analytics/sc-elastic-events",
+                    "integrations/data-analytics/sc-elastic-metrics",
+                    "integrations/plugin-packs/procedures/applications-graylog-restapi",
+                    "integrations/data-analytics/sc-splunk-metrics",
+                    "integrations/data-analytics/sc-splunk-events",
+                    "integrations/data-analytics/sc-warp10"
                 ],
                 "label": "Data Analytics",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "integrations/digital-experience-monitoring/connector-skylight-pvx",
-                    "integrations/digital-experience-monitoring/connector-mip"
+                    "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
+                    "integrations/digital-experience-monitoring/pack-skylight-pvx"
                 ],
                 "label": "Digital Experience Monitoring",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "integrations/event-management/sc-bsm",
-                    "integrations/event-management/sc-omi",
+                    "integrations/event-management/sc-hp-bsm",
+                    "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty",
-                    "integrations/event-management/sc-service-now",
-                    "integrations/event-management/sc-service-now-mid-server"
+                    "integrations/event-management/sc-servicenow",
+                    "integrations/event-management/sc-servicenow-mid-server"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
@@ -966,7 +964,7 @@
             },
             {
                 "ids": [
-                    "integrations/notifications/telegram"
+                    "integrations/notifications/plugin-telegram"
                 ],
                 "label": "Notifications",
                 "type": "subcategory"

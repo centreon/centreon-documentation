@@ -1,5 +1,5 @@
 ---
-id: easyvista
+id: ot-easyvista
 title: EasyVista
 ---
 

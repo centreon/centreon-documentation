@@ -1,5 +1,5 @@
 ---
-id: otrs-restapi
+id: ot-otrs-restapi
 title: OTRS RestAPI
 ---
 

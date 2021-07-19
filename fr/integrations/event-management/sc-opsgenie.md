@@ -1,5 +1,5 @@
 ---
-id: opsgenie
+id: sc-opsgenie
 title: Opsgenie integration
 ---
 

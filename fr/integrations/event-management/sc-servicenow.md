@@ -1,5 +1,5 @@
 ---
-id: servicenow
+id: sc-servicenow
 title: ServiceNow Event Manager 
 ---
 
@@ -51,8 +51,6 @@ to be processed in Service Now.
 * A ServiceNow OAuth account is needed for the stream connector to POST events over the Snow API. Refer to their [official documentation](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
 * The ServiceNow account must have the following privileges: evt_mgmt_integration 
 * It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
-
-
 
 ## Integration Walkthrough
 

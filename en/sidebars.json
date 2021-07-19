@@ -912,10 +912,12 @@
             }
         ],
         "Integrations": [
+            "integrations/introduction-integrations",
             {
                 "ids": [
                     "integrations/data-analytics/sc-elastic-events",
                     "integrations/data-analytics/sc-elastic-metrics",
+                    "integrations/plugin-packs/procedures/applications-graylog-restapi",
                     "integrations/data-analytics/sc-splunk-metrics",
                     "integrations/data-analytics/sc-splunk-events",
                     "integrations/data-analytics/sc-warp10"
@@ -925,8 +927,11 @@
             },
             {
                 "ids": [
-                    "integrations/digital-experience-monitoring/pack-skylight-pvx",
-                    "integrations/digital-experience-monitoring/pack-mip"
+                    "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
+                    "integrations/digital-experience-monitoring/pack-skylight-pvx"
                 ],
                 "label": "Digital Experience Monitoring",
                 "type": "subcategory"

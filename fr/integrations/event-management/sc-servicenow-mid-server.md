@@ -1,5 +1,5 @@
 ---
-id: servicenow-mid-server
+id: sc-servicenow-mid-server
 title: ServiceNow MID Server
 ---
 

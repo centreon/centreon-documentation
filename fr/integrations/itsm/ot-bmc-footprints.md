@@ -1,5 +1,5 @@
 ---
-id: bmc-footprints
+id: ot-bmc-footprints
 title: BMC Footprints
 ---
 
