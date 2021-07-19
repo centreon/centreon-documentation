@@ -47,6 +47,8 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.1
 
+`19 juillet 2021`
+
 #### Host discovery
 
 - Désactiver le bouton de rafraîchissement pendant le chargement des listings
