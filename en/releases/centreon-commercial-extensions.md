@@ -59,9 +59,9 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
-`July 19, 2021`
-
 ### 21.04.1
+
+`July 19, 2021`
 
 #### Host discovery
 
