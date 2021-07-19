@@ -1,6 +1,6 @@
 ---
-id: elasticsearch-events
-title: Elasticsearch events
+id: sc-elastic-events
+title: Elastic events
 ---
 
 ## How it works

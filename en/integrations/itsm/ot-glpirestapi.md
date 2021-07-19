@@ -1,5 +1,5 @@
 ---
-id: glpi-restapi
+id: ot-glpi-restapi
 title: GLPI RestAPI
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: bmc-remedy
+id: ot-bmc-remedy
 title: BMC Remedy
 ---
 

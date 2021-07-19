@@ -1,5 +1,5 @@
 ---
-id: bsm
+id: sc-bsm
 title: BSM
 ---
 

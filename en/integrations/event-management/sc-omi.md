@@ -1,5 +1,5 @@
 ---
-id: hp-omi
+id: sc-hp-omi
 title: HP OMI
 ---
 

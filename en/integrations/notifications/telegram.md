@@ -1,5 +1,5 @@
 ---
-id: telegram
+id: plugin-telegram
 title: Notify with Telegram bot
 ---
 

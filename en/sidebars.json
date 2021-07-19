@@ -914,26 +914,19 @@
         "Integrations": [
             {
                 "ids": [
-                    "integrations/data-analytics/bsm",
-                    "integrations/data-analytics/elasticsearch-events",
-                    "integrations/data-analytics/elasticsearch-metrics",
-                    "integrations/data-analytics/ndo",
-                    "integrations/data-analytics/opsgenie",
-                    "integrations/data-analytics/hp-omi",
-                    "integrations/data-analytics/pagerduty",
-                    "integrations/data-analytics/servicenow",
-                    "integrations/data-analytics/servicenow-mid-server",
-                    "integrations/data-analytics/splunk-metrics",
-                    "integrations/data-analytics/splunk-events",
-                    "integrations/data-analytics/warp10"
+                    "integrations/data-analytics/sc-elastic-events",
+                    "integrations/data-analytics/sc-elastic-metrics",
+                    "integrations/data-analytics/sc-splunk-metrics",
+                    "integrations/data-analytics/sc-splunk-events",
+                    "integrations/data-analytics/sc-warp10"
                 ],
                 "label": "Data Analytics",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "integrations/digital-experience-monitoring/connector-skylight-pvx",
-                    "integrations/digital-experience-monitoring/connector-mip"
+                    "integrations/digital-experience-monitoring/pack-skylight-pvx",
+                    "integrations/digital-experience-monitoring/pack-mip"
                 ],
                 "label": "Digital Experience Monitoring",
                 "type": "subcategory"
@@ -971,7 +964,7 @@
             },
             {
                 "ids": [
-                    "integrations/notifications/telegram"
+                    "integrations/notifications/plugin-telegram"
                 ],
                 "label": "Notifications",
                 "type": "subcategory"

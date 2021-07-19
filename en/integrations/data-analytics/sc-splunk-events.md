@@ -1,5 +1,5 @@
 ---
-id: splunk-events
+id: sc-splunk-events
 title: Splunk Events
 ---
 

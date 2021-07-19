@@ -1,6 +1,6 @@
 ---
-id: elasticsearch-metrics
-title: Elasticsearch metrics
+id: sc-elastic-metrics
+title: Elastic metrics
 ---
 
 ## How it works

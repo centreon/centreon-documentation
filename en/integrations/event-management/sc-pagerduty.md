@@ -1,5 +1,5 @@
 ---
-id: pagerduty
+id: sc-pagerduty
 title: PagerDuty Service integration
 ---
 

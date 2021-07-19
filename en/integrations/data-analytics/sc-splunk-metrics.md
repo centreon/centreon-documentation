@@ -1,5 +1,5 @@
 ---
-id: splunk-metrics
+id: sc-splunk-metrics
 title: Splunk Metrics
 ---
 

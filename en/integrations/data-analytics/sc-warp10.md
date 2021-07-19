@@ -1,5 +1,5 @@
 ---
-id: warp10
+id: sc-warp10
 title: Warp10
 ---
 

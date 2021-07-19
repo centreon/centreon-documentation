@@ -1,5 +1,5 @@
 ---
-id: servicenow
+id: sc-servicenow
 title: ServiceNow Event Manager 
 ---
 
