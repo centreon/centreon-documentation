@@ -933,12 +933,12 @@
             },
             {
                 "ids": [
-                    "integrations/event-management/sc-bsm",
-                    "integrations/event-management/sc-omi",
+                    "integrations/event-management/sc-hp-bsm",
+                    "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty",
-                    "integrations/event-management/sc-service-now",
-                    "integrations/event-management/sc-service-now-mid-server"
+                    "integrations/event-management/sc-servicenow",
+                    "integrations/event-management/sc-servicenow-mid-server"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
