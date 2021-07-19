@@ -59,6 +59,19 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
+`July 19, 2021`
+
+### 21.04.1
+
+#### Host discovery
+
+- Disable the refresh button when listings are loading
+- Autosave custom string when clicking away from input in mapper fields supporting text entry 
+- Suggest reinstalling the PP if in 21.04 or higher when the installed provider is not compatible
+- Warn the user that unsaved changes will be lost by leaving job edition
+- Prevent usage of discovery.credentials attributes in host discovery mappers (except Macro)
+- Add translation to mappers' conditions to display conjugated operators
+
 ### 21.04.0
 
 #### Host discovery
