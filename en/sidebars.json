@@ -928,7 +928,6 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
-                    "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
                     "integrations/digital-experience-monitoring/pack-skylight-pvx"

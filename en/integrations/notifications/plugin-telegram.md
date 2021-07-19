@@ -5,7 +5,7 @@ title: Notify with Telegram bot
 
 ## Introduction
 
-This documentation is brought to you thanks to our partner PILPRÉ Yann from
+This documentation is a community contribution from YPSI:
 
 ![logo](../../assets/integrations/notifications/telegram/logo-YPSI.png)
 
