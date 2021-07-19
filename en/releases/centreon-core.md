@@ -668,6 +668,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
+### 20.04.13
+
+#### Bugfixes
+
+- Recovery notifications forgotten when engine is stopped during incident
+- Compilation issues on Raspberry Pi
+
 ### 20.04.12
 
 `June 4, 2021`
@@ -864,6 +871,17 @@ You can now use $POLLERID$ macro to retrieve the name of your poller in
 a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
+
+### 20.04.15
+
+#### Bugfixes
+
+- Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
+- Compilation issues on Raspberry Pi
+
+#### Enhancements
+
+- Move `BBDO serialized events` logs from debug to trace
 
 ### 20.04.14
 
