@@ -275,7 +275,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ## Centreon CLib
 
-## 21.04.2
+### 21.04.2
 
 `20 juillet 2021`
 
