@@ -316,6 +316,8 @@ Nouvelle version majeure.
 
 ### 21.04.2
 
+`20 juillet 2021`
+
 - Compatibilité avec centreon-clib 21.04.2
 
 ### 21.04.1
