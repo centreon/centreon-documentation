@@ -379,7 +379,7 @@ liens
 #### Correctifs
 
 - Impossibilité d'enregistrer des règles de découverte de services avec beaucoup de macros
-- Impossibilité d'ajouter des services si une macro dans la règle de découverte contient des *single quotes* (')
+- Impossibilité d'ajouter des services si une macro dans la règle de découverte contient des guillemets simples (')
 - Suppression des modificateurs *association/property* ayant comme destination `host.macros` car ils ne fonctionnent p
 as correctement (utiliser les modificateurs *Macro* à la place)
 
