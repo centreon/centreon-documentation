@@ -286,7 +286,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 `4 juin 2021`
 
-#### Enhancements
+#### Améliorations
 
 - Compilation avec C++14 et Conan-Center (le service Bintray ayant été fermé).
 
