@@ -277,7 +277,6 @@ old logs system.
 ### 21.04.2
 
 `July 20, 2021`
-
 `July 20, 2021`
 
 #### Bug fixes
