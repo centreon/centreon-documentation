@@ -270,6 +270,8 @@ old logs system.
 
 ## Centreon CLib
 
+`July 20, 2021`
+
 ## 21.04.2
 
 #### Bug fixes
