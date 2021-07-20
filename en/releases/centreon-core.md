@@ -305,6 +305,8 @@ New release.
 
 ### 21.04.2
 
+`July 20, 2021`
+
 - Provide compatibility with centreon-clib 21.04.2
 
 ### 21.04.1
