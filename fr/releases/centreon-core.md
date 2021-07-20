@@ -284,6 +284,8 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ## 21.04.1
 
+`4 juin 2021`
+
 #### Enhancements
 
 - Compilation avec C++14 et Conan-Center (le service Bintray ayant été fermé).
