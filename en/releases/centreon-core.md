@@ -208,6 +208,8 @@ future.
 
 ### 21.04.2
 
+`July 20, 2021`
+
 #### Bugfixes
 
 - A deadlock occasionally appears when broker is stopped right after it started
