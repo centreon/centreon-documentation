@@ -206,7 +206,7 @@ dans une prochaine version.
 
 ### 21.04.2
 
-#### Bugfixes
+`20 juillet 2021`
 
 #### Correctifs
 
