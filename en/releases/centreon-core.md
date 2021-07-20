@@ -272,7 +272,7 @@ old logs system.
 
 `July 20, 2021`
 
-## 21.04.2
+### 21.04.2
 
 #### Bug fixes
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
