@@ -222,7 +222,7 @@ future.
 #### Enhancements
 ￼
 - Move `BBDO serialized events` logs from debug to trace
-
+-A new parameter has been added to Broker allowing the MySQL UNIX socket selection by name
 ### 21.04.1
 
 `June 4, 2021`
