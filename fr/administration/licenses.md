@@ -7,7 +7,7 @@ title: Licences
 
 Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licence peut être :
 - hors ligne : gérée avec des fichiers de licence
-- en ligne (abonnement) : gérée avec un jeton.
+- en ligne : gérée avec un jeton.
 
 ## Voir les modules soumis à licence
 

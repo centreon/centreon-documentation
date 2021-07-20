@@ -6,9 +6,8 @@ title: Licenses
 ## Types of licenses
 
 According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
-- offline : uses one or several license files
-- online (subscription-based): uses a token.
-
+- offline: uses one or several license files
+- online: uses a token.
 
 ## Viewing license-based modules
 
