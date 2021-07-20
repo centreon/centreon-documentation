@@ -276,7 +276,7 @@ old logs system.
 ￼
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
 
-## 21.04.1
+### 21.04.1
 
 #### Enhancements
 
