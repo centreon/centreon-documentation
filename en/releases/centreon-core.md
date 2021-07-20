@@ -273,7 +273,6 @@ old logs system.
 ## 21.04.2
 
 #### Bug fixes
-￼
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
 
 ### 21.04.1
