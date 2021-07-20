@@ -226,6 +226,7 @@ dans une prochaine version.
 #### Améliorations
 
 - Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
+- Un nouveau paramètre a été ajouté à broker permettant de sélectionner un `socket` UNIX MySQL par son nom
 
 ### 21.04.1
 
