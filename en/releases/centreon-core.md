@@ -168,6 +168,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.3
 
+`July 20, 2021`
+
 #### Bugfixes
 
 - Recovery notifications forgotten when engine is stopped during incident
