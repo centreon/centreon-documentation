@@ -308,7 +308,7 @@ Nouvelle version majeure.
 
 ### 21.04.2
 
-- Provide compatibility with centreon-clib 21.04.2
+- Compatibilité avec centreon-clib 21.04.2
 
 ### 21.04.1
 
