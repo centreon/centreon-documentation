@@ -282,7 +282,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 #### Bug fixes
 - Les librairies sont chargées en mode `lazy`.
 
-## 21.04.1
+### 21.04.1
 
 `4 juin 2021`
 
