@@ -290,7 +290,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 - Compilation avec C++14 et Conan-Center (le service Bintray ayant été fermé).
 
-## 21.04.0
+### 21.04.0
 
 Nouvelle version majeure.
 
