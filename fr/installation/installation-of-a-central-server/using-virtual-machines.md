@@ -192,11 +192,12 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `centreon`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
+8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.html).
+
 8. [Sécurisez votre serveur](../../administration/secure-platform.html). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
 de définir un mot de passe pour la base MySQL.
 
-9. Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
-pour mettre en place votre première supervision.
+9. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.html).
 
 
 ## Identifiants par défaut

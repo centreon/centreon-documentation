@@ -19,7 +19,7 @@ fine-tuned later-on.
 
 Some Plugin Packs also contain discovery rules. Discovery rules instruct the
 Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtua
+discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtual
  machines on VMware) while Service discovery rules will look for new services
  (e.g. Disk Volumes or Ethernet Interfaces on a server).
 
@@ -27,7 +27,7 @@ Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
 user interface, described in this chapter.
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the Pugin Packs chapter in this documentation.
+procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction.html).
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -48,30 +48,29 @@ yum update centreon-pp-manager
 
 ### License
 
-A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
-subscription your license will be directly downloaded to your server. Otherwise, contact the
-[Centreon support team](https://centreon.force.com) to get and install your license key.
+A [license](../administration/licenses.html) is required to access the full Plugin Packs catalog. Contact the
+[Centreon support team](https://centreon.force.com) to get your license.
 
 ### Access to Plugin Packs
 
-If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
+If your Centreon platform has an online license you can download Plugin Packs from the Plugin Pack
 Manager user interface. Otherwise, you have to install a dedicated RPM repository, you can find it on the 
 [support portal](https://support.centreon.com/s/repositories).
 
 ## Overview
 
-The **Centreon Plugin Packs** are a set of **standardized** **templates** that are **preconfigured** for rapid
+The **Centreon Plugin Packs** are a set of standardized templates that are preconfigured for rapid
 deployment of monitoring in your IT infrastructure.
 
-These templates (commands, hosts and services templates) are attached to the **monitoring plugins**, which can either be:
+These templates (commands, hosts and services templates) are attached to the monitoring plugins, which can either be:
 
 * existing community plugins selected and validated by Centreon as being fully functional and optimized, or
-* plugins written by Centreon that are distributed as free software under RPM or available on
+* plugins written by Centreon that are distributed as free software under RPM or available on the
   [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
 
-The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
-**the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
-**service templates** and **host or service discovery rules**.
+The added value of **Plugin Packs** is the pre-configuration of monitoring in the Centreon software. During installation,
+the Packs import pre-configured objects into the Centreon software such as commands, host templates,
+service templates and host or service discovery rules.
 
 After you install the Plugin Packs, the next step is to install the monitoring plugins used by the Plugin Pack commands.
 Refer to the documentation in the pack in case any features have to be configured or activated, and then create the
@@ -103,46 +102,25 @@ The Centreon Plugin Packs subscription gives you access to specific connectors:
 Installation is a 3-step process:
 
 1. Access to the Plugin Packs catalog
-2. Pack installtion
+2. Pack installation
 3. Plugin installation
 
 #### Access to Plugin Packs catalog
 
-* **online platform**: if your platform is linked to an online subscription
-* **offline** otherwise
+* If you have an online [license](../administration/licenses.html), the plugin packs are already installed on your platform.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--Online platform-->
+* If you have an offline license, you need to install 
+or update the Plugin Packs catalog from your Centreon Central server:
 
-If you benefit from an online subscription, you must first authenticate your
-Centreon platform.
+  ```shell
+  yum install centreon-pack-*
+  ```
 
-Go to the `Administration > Extension > Subscription` menu and log in with your
-Centreon username to authenticate your Centreon platform.
+  or:
 
-![image](../assets/configuration/pluginpacks/imp_authentification.png)
-
-Click on **install** to access the catalog:
-
-![image](../assets/configuration/pluginpacks/imp_install.png)
-
-You can now proceed to the pack installation.
-
-<!--Offline platform-->
-
-From your Centreon Central server, install or update the Plugin Packs catalog:
-
-```shell
-yum install centreon-pack-*
-```
-
-or:
-
-```shell
-yum update centreon-pack-*
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+  ```shell
+  yum update centreon-pack-*
+  ```
 
 #### Pack installation
 

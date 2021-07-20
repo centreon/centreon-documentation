@@ -135,6 +135,10 @@ le bouton **Install all** :
 
 ![image](../assets/installation/extensions-manager.png)
 
+## Ajouter une licence
+
+Selon votre édition de Centreon, vous pouvez devoir [ajouter une licence](../administration/licenses.html).
+
 ## Sécurisez votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos

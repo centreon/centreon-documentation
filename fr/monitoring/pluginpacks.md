@@ -31,7 +31,7 @@ Pack Manager décrites dans ce chapitre.
 
 Pour obtenir une liste à jour de tous les Plugin Packs disponibles dans la
 bibliothèque en ligne Centreon et lire leur procédure de mise en supervision
-associée, référez-vous au chapitre Plugin Packs de cette documentation.
+associée, consultez le chapitre [Plugin Packs](../integrations/plugin-packs/introduction.html).
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -53,13 +53,12 @@ yum update centreon-pp-manager
 
 ### Licence
 
-Une licence est nécessaire pour accéder au catalogue complet des Plugin Packs. Si votre plate-forme Centreon est
-connectée à une souscription en ligne, celle-ci sera automatiquement téléchargée sur votre serveur. Sinon contactez
-les équipes *[support Centreon](https://centreon.force.com)*.
+Une [licence](../administration/licenses.html) est nécessaire pour accéder au catalogue complet des Plugin Packs. Contactez
+les équipes [support Centreon](https://centreon.force.com) pour obtenir votre licence.
 
 ### Accès aux Plugin Pack
 
-Si votre plate-forme Centreon est connectée à une souscription en ligne vous pouvez télécharger les Plugin Packs depuis
+Si votre plate-forme Centreon a une licence en ligne, vous pouvez télécharger les Plugin Packs depuis
 l’interface utilisateur Plugin Pack Manager. Sinon, vous devez installer le dépôt dédié, vous le trouverez sur le
 [portail du support](https://support.centreon.com/s/repositories).
 
@@ -115,40 +114,19 @@ L’installation est en 3 étapes :
 
 #### Accès au catalogue des Plugin Packs
 
-* **en ligne**: if your platform is linked to an online subscription
-* **hors ligne** otherwise
+* Si vous avez une [licence](../administration/licenses.html) **en ligne**, les plugin packs sont déjà installés sur votre plateforme.
+* Si vous avez une licence **hors ligne**, vous devez installer ou mettre à jour le catalogue des plugin packs
+depuis votre serveur central :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--En ligne-->
+  ```shell
+  yum install centreon-pack-*
+  ```
 
-Si vous bénéficiez d’une souscription en ligne, vous devez vous authentifier.
+  Ou:
 
-Pour celà, rendez-vous dans le menu `Administration > Extension > Subscription`
-puis utilisez vos identifiants pour vous identifier.
-
-![image](../assets/configuration/pluginpacks/imp_authentification.png)
-
-Cliquez sur **Install** pour pour accéder au catalogue :
-
-![image](../assets/configuration/pluginpacks/imp_install.png)
-
-Vous pouvez maintenant installer vos packs.
-
-<!--Hors ligne-->
-
-Pour installer ou mettre à jour le catalogue, exécutez :
-
-```shell
-yum install centreon-pack-*
-```
-
-Ou:
-
-```shell
-yum update centreon-pack-*
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
+  ```shell
+  yum update centreon-pack-*
+  ```
 
 #### Installation du pack
 
@@ -165,7 +143,7 @@ de l’installer.
 
 ![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
-Une fois le plugin pack installé, il apparaitra avec un contour vert et une flèche indiquant qu’il est installé.
+Une fois le plugin pack installé, il apparaîtra avec un contour vert et une flèche indiquant qu’il est installé.
 
 | **Avant installation**                                           | **Après installation**                                          |
 |------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -175,10 +153,10 @@ Une fois le plugin pack installé, il apparaitra avec un contour vert et une fl�
 > que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
 > le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/introduction.html)*
 
-#### Gestion les dépendances
+#### Gestion des dépendances
 
 Il se peut que durant l’installation, certains objets du pack ne soient pas installés. Ces objets sont souvent des
-objets de configuration additionnels et ne sont pas obligatoire pour déployer les modèles de configuration apportés par
+objets de configuration additionnels et ne sont pas obligatoires pour déployer les modèles de configuration apportés par
 le pack.
 
 La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.

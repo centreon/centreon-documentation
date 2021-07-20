@@ -73,7 +73,7 @@ Once the installation is complete, click on **Next**.
 ![image](../assets/installation/module_installationb.png)
 
 At this point, an advertisement informs you of the latest Centreon news and
-roducts.
+products.
 
 If your platform is connected to the internet, the information you receive
 will be up to date.
@@ -131,6 +131,10 @@ Go to `Administration > Extensions > Manager` menu and click on
 **Install all**:
 
 ![image](../assets/installation/extensions-manager.png)
+
+## Add a license
+
+According to your Centreon edition, you may have to [add a license](../administration/licenses.html).
 
 ## Secure your platform
 

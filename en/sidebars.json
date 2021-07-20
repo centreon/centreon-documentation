@@ -245,6 +245,7 @@
             },
             "administration/access-control-lists",
             "administration/extensions",
+            "administration/licenses",
             "administration/database-partitioning",
             "administration/backup",
             "administration/knowledge-base",
