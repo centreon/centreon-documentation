@@ -212,7 +212,7 @@ Les modificateurs permettent de :
 
 Pour tous ces modificateurs, des conditions peuvent être définies pour appliquer
 la modification à certains hôtes ou non. Les opérateurs de comparaison
-peuvent être : *equal*, *not equal*, *contain* et *not contain*.
+peuvent être : *est égal à*, *est différent de*, *contient* et *ne contient pas*.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
@@ -381,7 +381,7 @@ exclure. Dans l'exemple ci-dessus, les hôtes de type Windows seront exclus de l
 Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été préalablement exclus par un modificateur d'exclusion. Les modificateurs **Exclusion** et **Inclusion** doivent donc être ajoutés dans le bon ordre.
 
  Dans l'exemple ci-dessous, imaginons que tous les hôtes aient été exclus de la liste des résultats (avec un modificateur 
- **Exclusion** *not equal 1* par exemple). Notre modificateur **Inclusion** permettra d'inclure dans la liste des résultats tous les
+ **Exclusion** *est différent de 1* par exemple). Notre modificateur **Inclusion** permettra d'inclure dans la liste des résultats tous les
  hôtes de type Linux.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
