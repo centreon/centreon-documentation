@@ -221,7 +221,7 @@ dans une prochaine version.
 - Les requêtes TLS n'étaient pas correctement traitées par GNUTLS sur RedHat 8
 - La *factory* de *streams* Broker ne pouvait pas créer des flux avec des configurations différentes
 - Un message d'erreur apparaissait dans les logs à la création de nouvelles Activités Métier BAM
-- Une section `loggers` vide ou à `null` dans la configuration entrainait un crash de `cb_mod`
+- Une section `loggers` vide ou à `null` dans la configuration entraînait un crash de `cb_mod`
 
 #### Améliorations
 
