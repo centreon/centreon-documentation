@@ -224,7 +224,6 @@ future.
 - `cb_mod` crashes when loggers section is empty/null in config file
 
 #### Enhancements
-￼
 - Move `BBDO serialized events` logs from debug to trace
 -A new parameter has been added to Broker allowing the MySQL UNIX socket selection by name
 ### 21.04.1
