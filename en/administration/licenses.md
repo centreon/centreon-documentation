@@ -55,13 +55,17 @@ To use an online license, your Centreon platform must be connected to the intern
 
 3. Click on **Add Token**. A popup window appears.
 
-4. Paste your token in the popup window, then click on **Add**. A tick mark is displayed next to the **Add** button.
+4. Paste your token in the popup window, then click on **Add**.
 
-5. Press **Esc** to close the popup window. The license is applied and the corresponding modules display their validity date:
+    - If your token contains one license, a tick mark is displayed next to the **Add** button.
+
+    - If your token contains several licenses, choose the license you want and then click on **Choose**. 
+
+    Press **Esc** to close the popup window. The license is applied and the corresponding modules display their validity date:
     
-    ![image](../assets/administration/license_valid.png)
+        ![image](../assets/administration/license_valid.png)
 
-    The **Add token** button changes to become a **View license** button.
+        The **Add token** button changes to become a **View license** button.
 
 ## Free IT-100 license
 

@@ -54,13 +54,17 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
 3. Cliquez sur **Ajouter Token**. Une fenêtre popup s'ouvre.
 
-4. Collez votre jeton dans la fenêtre popup, puis cliquez sur **Ajouter**. Une coche s'ffiche à côté du bouton **Ajouter**.
+4. Collez votre jeton dans la fenêtre popup, puis cliquez sur **Ajouter**. 
 
-5. Appuyez sur **Esc** pour fermer la popup. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
+    - Si votre jeton contient une seule licence, une coche s'affiche à côté du bouton **Ajouter**.
 
-    ![image](../assets/administration/license_valid.png)
+    - Si votre jeton contient plusieurs licences, choisissez la licence désirée puis cliquez sur **Choisir**.
 
-    Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
+    Appuyez sur **Esc** pour fermer la popup. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
+
+        ![image](../assets/administration/license_valid.png)
+
+        Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
 
 ## Licence gratuite IT-100
 
