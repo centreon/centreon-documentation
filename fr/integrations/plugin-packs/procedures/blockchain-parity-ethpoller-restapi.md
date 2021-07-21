@@ -165,3 +165,5 @@ BCM Poller. Vérifiez que la requête n'est pas bloquée par un outil externe
 (un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
 Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
 ```--proxyurl='http://proxy.mycompany:8080'```.
+
+Vérifiez également que le port configuré est correct. 
