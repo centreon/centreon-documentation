@@ -1,30 +1,28 @@
 ---
-id: recette-guide
-title: Faire la recette du cluster
+id: acceptance-guide
+title: Guide de recette du cluster
 ---
 
 > Sauf mention contraire, toutes les commandes présentées dans ce document sont à lancer en tant que `root`.
 
 > Dans ce document, nous ferons référence à des paramètres variant d'une installation à une autre (noms et adresses IP des nœuds par exemple) par l'intermédiaire des [macros définies ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html#définition-des-noms-et-adresses-ip-des-serveurs)
 
-## Condition des test
+## Condition des tests
 
-Afin d'effectuer la recette du fonctionnement de votre cluster, nous allons effectuer un test de bascule et également simuler un coupure réseau sur le cluster.
+Pour vérifier le bon fonctionnement de votre cluster, vous trouverez toutes les commandes pour effectuer un test de bascule et simuler des coupures réseau au sein du cluster.
 
-Concernant la coupure réseau, cela se fait normalement à un niveau physique en retirant le câble réseau ou un commutateur pour simuler le scénario du monde réel où le système d'exploitation n'a aucun contrôle ou indication d'un problème à part le fait que le cluster ne peut plus communiquer.
-Cependant, dans notre cas, nous allons utiliser iptables et laisser tomber les paquets sur l'adresse IP qui est configurée pour la communication.
 
-Commençons par les vérification afin d'étre en condition pour la effectuer les tests de recette.
+Il est nécessaire de vérifier l'état du cluster avant d'effecuter les tests de recette.
 
 ### Vérifier l'état du cluster
 
 Pour Vérifier l'état général du cluster exécuter la commande :
 
 ```bash
-crm_mon -f
+pcs status
 ```
 
-Votre écran affichera les informations suivantes :
+La commande doit vous renvoyer les informations suivantes :
 
 ```bash
 Stack: corosync
@@ -61,13 +59,13 @@ Active resources:
 
 ### Vérifier les contraintes 
 
-Pour vérifier qu'il n'y ait pas de contraintes, exécuter la commande: 
+Pour vérifier qu'il n'y ait pas de `Location Constraints`, exécuter la commande: 
 
 ```bash
 pcs constraint
 ```
 
-La commande doit vous retourner ceci :
+La commande doit vous retourner les informations suivantes :
 
 ```bash
 Location Constraints:
@@ -86,7 +84,7 @@ Pour vérifier que la synchronisation des bases fonctionne, exécuter la command
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est  :
+La commande doit vous renvoyer les informations suivantes :
 
 ```bash
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -97,13 +95,11 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.html).
 
-## Comment tester
-
-Une fois que toutes les vérifications ont été faite vous pouvez commencer à faire les tests.
 
 ### Bascule des resource Centreon
-#### Pré-requis
-Avant la bascule, vous devez avoir cette sortie avec la commande `crm_mon -f` :
+
+#### État du cluster avant la bascule
+Avant d'exécuter un test de bascule, vérifiez l'état du cluster avec la commande `pcs status` :
 
 ```bash
 Stack: corosync
@@ -135,16 +131,17 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-#### Bascule
-Pour basculer/déplacer une ressource exécuter la commande :
+#### Executer une bascule
+Pour basculer les ressources, exécuter la commande :
 
 ```bash
 pcs resource move centreon
 ```
 
+Vous pouvez aussi utiliser la commande `crm_mon -fr` pour suivre la bascule au fur et à mesure. Il sera nécessaire d'utiliser Ctrl+c pour quitter la commande.
 > Attention : La commande `pcs resource move centreon` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear centreon` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
 
-Vérifier les étapes de bascules avec la commande `crm_mon -f` et que les resources soient présentent sur le second noeud :
+Pour vérifier que les resources aient bien basculé sur le second noeud, exécuter la commande `pcs status` :
 
 ```bash
 Stack: corosync
@@ -177,7 +174,10 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-Une fois que la bascule est terminé, exécuter la commande :
+Vous pouvez remarquer qu'en plus des ressources `centreon`, le nœud secondaire a aussi été promu comme `master` pour la ressource `ms_mysql`. Ce comportement est voulu et dû aux `Colocation contraints` entre la ressource `centreon` et `msq_mysql`.
+
+> Les `Colocation Constraints` ne sont pas présent sur un Cluster à 4 nœuds !
+Une fois que la bascule est terminée, exécuter la commande :
 
 ```bash
 pcs resource clear centreon
@@ -207,7 +207,7 @@ Position Status [OK]
 #### Retour en situation nominal
 
 Afin de revenir en situation nominal, vous devez lancer la bascule pour que les resources.
-Exécuter la commande `crm_mon -f` afin de vérifier s'il n'y a pas d'erreur
+Exécuter la commande `pcs status` afin de vérifier qu'il n'ait pas d'erreurs :
 
 ```bash
 Stack: corosync
@@ -246,29 +246,29 @@ Ensuite, lancer la commande de nettoyage des contraintes au cas où vous avez :
 pcs resource clear centreon
 ```
 
-Puis, lancer la commande de bascule
+Puis, lancer la commande de bascule : 
 
 ```bash
 pcs resource move centreon
 ```
 
-Comme tout à l'heure, attendait que la bascule soit termniner avec le `crm_mon -f`
+Comme précédemment, vous pouvez suivre la bascule à l'aide de la commande `crm_mon -fr`.
 
-Enfin, nettoyer les contraintes avec la commande :
+Enfin, supprimer les contraintes avec la commande :
 
 ```bash
 pcs resource clear centreon
 ```
 
 ### Simuler la perte du noeud secondaire
-#### Contexte
 
-Nous allons ici simuler la coupure réseau du point de vue que le serveur primaire ne voit plus le secondaire.
-Le noeud secondaire sera complètement exclut du cluster. Le noeud principal garde la majorité avec le QDevice.
+
+Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire.
+Le nœud secondaire sera complètement exclu du cluster. Le nœud principal garde la majorité avec le QDevice.
 
 #### Exécution 
 
-Afin de réaliser ce test, lancer les commandes sur le serveur principal :
+Pour réaliser ce test, lancer les commandes `iptables` sur le nœud principal :
 
 ```bash
 iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP ; iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
@@ -389,19 +389,22 @@ Active resources:
 
 ### Simuler la perte du noeud primaire
 
-#### Contexte
 
-Nous allons ici simuler la coupure réseau en isolant le second noeud du premier ainsi que du QDevice
-Le noeud primaire sera complètement seul et il sera le seul votant. Ceci à pour effet que le noeud secondaire garde la majorité avec le QDevice.
+Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire et le Qdevice.
+Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.```
 
-#### Réalisation
+#### Exécution
+
 Afin de réaliser ce test, lancer les commandes sur le serveur principal :
 
 ```bash
-iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP ; iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP; iptables -A INPUT -s @QDEVICE_IP@ -j DROP ; iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
+iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP ;
+iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP ; 
+iptables -A INPUT -s @QDEVICE_IP@ -j DROP ;
+iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 ```
 
-Le résultat attendu est la coupure du primaire noeuds sur le cluster comme ci-dessous avec la commande `crm_mon` sur le noeud secondaire.
+Les ressources sur le nœud primaire doivent s'arrêter et doivent démarrer sur le nœud secondaire. Vous pouvez utiliser la commande `crm_mon -fr` sur le nœud secondaire pour suivre le démarrage des ressources :
 
 ```bash
 Stack: corosync
@@ -434,10 +437,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-Le noeud primaire n'apparait plus dans le cluster et il reste tout à fait disponible.
-Les resources ont basculés sur le noeud secondaire.
-
-Sur le nom principale, il voit que le noeud secondaire est `offline` et aucune resource est démarré dessus.
+Sur le nœud principale, la commande `pcs status` doit vous retourner le résultat suivant :
 
 ```bash
 Stack: corosync
@@ -454,8 +454,7 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 No active resources
 ```
 
-Ce test permet de vérifier et affirmer qu'en cas d'insdisponibilité du noeud principale, les resources basculeront sur le noeud secondaires 
-et permet une continuité de service.
+Ce test permet de vérifier qu'en cas d'indisponibilité du nœud principale, les resources basculeront sur le nœud secondaire et permet une continuité de service.
 
 #### Retour en situation nominal
 
@@ -488,5 +487,5 @@ Une fois les règles vérifier, et afin de revenir en status nominal exécuter c
 iptables -F
 ```
 
-En lancant la commande `crm_mon` sur le second noeud, vous verrez le noeud principal remonter dans le cluster.
-Si vous souhaitez basculer sur le noeud primaire, exécuter les [commandes de bascule](recette-guide.html#retour-en-situation-nominal).
+En lancant la commande `crm_mon` sur le second nœud, vous verrez le noeud principal remonter dans le cluster.
+Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](recette-guide.html#retour-en-situation-nominal).
