@@ -371,6 +371,8 @@ liens
 
 ### 20.04.9
 
+`21 juillet 2021`
+
 #### Correctifs de sécurité
 
 - Assainir (sanitize()) les valeurs qui seront désérialisées (unserialize())
