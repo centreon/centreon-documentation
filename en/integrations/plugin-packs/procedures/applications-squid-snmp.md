@@ -170,4 +170,4 @@ If you get this message, you're probably facing one of theses issues:
 #### UNKNOWN: SNMP GET Request : Cant get a single value
 
 This message generally means that SNMP privileges are not wide enough for
-the mode/plugin to work properly.
+the mode/Plugin to work properly.
