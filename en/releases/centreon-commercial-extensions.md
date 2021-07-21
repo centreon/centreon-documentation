@@ -273,7 +273,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## 20.04.7
 
-`July 15, 2021`
+`July 21, 2021`
 
 #### Improvements
 
