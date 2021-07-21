@@ -343,6 +343,22 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
+### 20.04.9
+
+`July 21, 2021`
+
+#### Security fixes
+
+- Inputs sent to unserialize() are not sanitized
+- Update vulnerable npm packages in centreon-autodiscovery
+
+#### Bug fixes
+
+- Cannot update service discovery rules with too many macros
+- Discovered service can't be saved if service discovery rule includes a macro value containing single quotes (')
+- Remove association/property mappers with "host.macros" as destination since they should not be used and actually never worked (use macro mappers instead)
+
+
 ### 20.04.8
 
 `March 17, 2021`
