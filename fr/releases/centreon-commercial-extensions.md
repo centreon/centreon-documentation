@@ -173,6 +173,20 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ## Centreon MBI
 
+### 20.10.4
+
+`21 juillet 2021`
+
+#### Améliorations
+
+- Requêtes optimisées pour les widgets
+
+#### Correctifs
+
+- Correctif additionnel de l'exécution immédiate des tâches
+- Correction des noms de BA manquants dans le rapport BV-BA-Availabilities-1
+- Correction d'un cas de division par zéro dans les widgets
+
 ### 20.10.3
 
 `3 juin 2021`

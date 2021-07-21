@@ -165,6 +165,20 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ## Centreon MBI
 
+### 20.10.4
+
+`July 21, 2021`
+
+#### Improvements
+
+- Optimized widget requests
+
+#### Bugfixes
+
+- Immediate execution in job parameters did not work
+- BA names were missing in the BV-BA-Availabilities-1 report
+- Division by zero caused an error within the widget
+
 ### 20.10.3
 
 `June 3, 2021`
