@@ -125,16 +125,16 @@ To start the monitoring processes:
 
 Monitoring is now working. You can start monitoring your IT system.
 
+## Add a license
+
+According to your Centreon edition, you may have to [add a license](../administration/licenses.html).
+
 ## Install available extensions
 
 Go to `Administration > Extensions > Manager` menu and click on
 **Install all**:
 
 ![image](../assets/installation/extensions-manager.png)
-
-## Add a license
-
-According to your Centreon edition, you may have to [add a license](../administration/licenses.html).
 
 ## Secure your platform
 
