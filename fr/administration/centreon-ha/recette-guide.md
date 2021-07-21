@@ -141,14 +141,14 @@ pcs resource move centreon
 Vous pouvez aussi utiliser la commande `crm_mon -fr` pour suivre la bascule au fur et à mesure. Il sera nécessaire d'utiliser Ctrl+c pour quitter la commande.
 > Attention : La commande `pcs resource move centreon` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear centreon` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
 
-Pour vérifier que les resources aient bien basculé sur le second noeud, exécuter la commande `pcs status` :
+Pour vérifier que les resources aient bien basculé sur le second nœud, exécuter la commande `pcs status` :
 
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
 Last updated: Fri Jul  9 11:38:32 2021
 Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
-
+    
 2 nodes configured
 14 resource instances configured
 
@@ -260,20 +260,21 @@ Enfin, supprimer les contraintes avec la commande :
 pcs resource clear centreon
 ```
 
-### Simuler la perte du noeud secondaire
+### Simuler la perte du nœud secondaire
 
 
 Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire.
-Le nœud secondaire sera complètement exclu du cluster. Le nœud principal garde la majorité avec le QDevice.
+Le nœud secondaire sera complètement exclu du cluster. Le nœud primaire garde la majorité avec le QDevice.
 
 #### Exécution 
 
-Pour réaliser ce test, lancer les commandes `iptables` sur le nœud principal :
+Pour réaliser ce test, lancer les commandes `iptables` sur le nœud primaire :
 
 ```bash
 iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP ; iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
-L'exécution de la commande à pour effet de ne voir aucune resource active sur le second noeud et de voir le noeud primaire comme `offline`:
+
+L'exécution de la commande a pour effet de ne voir aucune resource active sur le nœud secondaire et de voir le nœud primaire comme `offline` :
 
 ```bash
 Stack: corosync
@@ -290,8 +291,8 @@ OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 No active resources
 ``` 
 
-En exécutant un `crm_mon` sur le premier noeud, les resources et le cluster fonctionne toujours.
-Le noeud secondaire est vue `offline` sur le primaire.
+En exécutant un `crm_mon` sur le premier nœud, les resources et le cluster fonctionne toujours.
+Le nœud secondaire est vue `offline` sur le primaire.
 
 ```bash
 Stack: corosync
@@ -326,13 +327,13 @@ Active resources:
 
 #### Retour en situation nominal
 
-Vérifier les différentes règles que vous avez lancé :
+Pour vérifier les différentes règles iptables configurées sur le nœud primaire, éxecuter la commande suivante :
 
 ```bash
 iptables -L
 ```
 
-Elles se présenteront comme ceci
+La commande doit vous retourner les informations suivantes :
 
 ```bash
 Chain INPUT (policy ACCEPT)
@@ -349,12 +350,26 @@ DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
 DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
-Une fois les règles vérifier, et afin de revenir en status nominal exécuter cette commande :
+Si vous n'avez pas d'autres règles iptables configurées, vous pouvez exécuter la commande suivante pour supprimer les règles liées au test :
 
 ```bash
 iptables -F
 ```
-Le noeud secondaire est de nouveau vu `online` par le cluster :
+
+Le cas contraire, il sera nécessaire de lister les numéros des règles à l'aide de la commande :
+
+```bash
+iptables -L --line-numbers
+```
+
+Et de le supprimer à l'aide de la commande :
+
+```bash
+iptables -D INPUT @RULE_NUMBER@
+iptables -D OUTPUT @RULE_NUMBER@
+```
+
+Le nœud secondaire est de nouveau vu `online` par le cluster :
 
 ```bash
 Stack: corosync
@@ -387,7 +402,22 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-### Simuler la perte du noeud primaire
+Vérifier aussi que la réplication MySQL est toujours opérationnel à l'aide de la commande :
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+La commande doit vous retourner les informations suivantes :
+
+```bash
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
+
+### Simuler la perte du nœud primaire
 
 
 Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire et le Qdevice.
@@ -395,7 +425,7 @@ Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne
 
 #### Exécution
 
-Afin de réaliser ce test, lancer les commandes sur le serveur principal :
+Afin de réaliser ce test, lancer les commandes sur le serveur primaire :
 
 ```bash
 iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP ;
@@ -437,7 +467,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-Sur le nœud principale, la commande `pcs status` doit vous retourner le résultat suivant :
+Sur le nœud primaire, la commande `pcs status` doit vous retourner le résultat suivant :
 
 ```bash
 Stack: corosync
@@ -454,23 +484,22 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 No active resources
 ```
 
-Ce test permet de vérifier qu'en cas d'indisponibilité du nœud principale, les resources basculeront sur le nœud secondaire et permet une continuité de service.
+Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les resources basculeront sur le nœud secondaire et permet une continuité de service.
 
 #### Retour en situation nominal
 
-Vérifier les différentes règles que vous avez lancé :
+Pour vérifier les différentes règles iptables configurées sur le nœud primaire, éxecuter la commande suivante :
 
 ```bash
 iptables -L
 ```
 
-Elles se présenteront comme ceci
+La commande doit vous retourner les informations suivantes :
 
 ```bash
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
-DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
@@ -478,14 +507,25 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
-DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
-Une fois les règles vérifier, et afin de revenir en status nominal exécuter cette commande :
+Si vous n'avez pas d'autres règles iptables configurées, vous pouvez exécuter la commande suivante pour supprimer les règles liées au test :
 
 ```bash
 iptables -F
 ```
+Le cas contraire, il sera nécessaire de lister les numéros des règles à l'aide de la commande :
 
-En lancant la commande `crm_mon` sur le second nœud, vous verrez le noeud principal remonter dans le cluster.
+```bash
+iptables -L --line-numbers
+```
+
+Et de le supprimer à l'aide de la commande :
+
+```bash
+iptables -D INPUT @RULE_NUMBER@
+iptables -D OUTPUT @RULE_NUMBER@
+```
+
+En lancant la commande `crm_mon` sur le second nœud, vous verrez le nœud primaire remonter dans le cluster.
 Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](recette-guide.html#retour-en-situation-nominal).
