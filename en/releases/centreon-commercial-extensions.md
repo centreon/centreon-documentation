@@ -271,7 +271,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MBI
 
-## 20.04.7
+### 20.04.7
 
 `July 21, 2021`
 
