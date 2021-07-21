@@ -135,7 +135,7 @@ OK : Cpu usage: 30 % Memory usage: 265289728 B Number of file descriptors: 45 Nu
 'cache.memory.usage.bytes'=265289728B;;;0; 'cache.filedescriptors.count'=45;;;0; 'cache.objects.count'=23;;;0; 
 ```
 
-This command would trigger a WARNING alarm if the *cpu* utilizationis reported 
+This command would trigger a WARNING alarm if the *cpu* utilization is reported 
 as over 80% (`--warning-cpu='80'`) and a CRITICAL alarm if over 90% 
 (`--critical-cpu='90'`).
 
