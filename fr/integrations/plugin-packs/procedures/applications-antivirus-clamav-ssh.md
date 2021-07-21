@@ -15,8 +15,9 @@ title: Antivirus ClamAV
 
 ### Configuration SSH
 
-Un simple utilisateur est nécessaire pour interroger le serveur ClamAV par SSH. 
-Il n'est pas nécessaire d'avoir des privilèges root ou sudo. Il y a deux façons 
+L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le serveur ClamAV, lequel sera utilisé
+par le collecteur Centreon pour s'authentifier et exécuter les requêtes SSH.
+Les privilèges `sudo` ou `root` ne sont pas nécessaires, un utilisateur 'simple' est suffisant.
 possibles d'effectuer la vérification SSH, soit en échangeant la clé SSH de 
 l'utilisateur `centreon-engine` du collecteur Centreonau serveur cible, 
 ou en définissant votre utilisateur et votre mot de passe directement dans les 
