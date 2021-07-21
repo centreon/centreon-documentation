@@ -78,6 +78,7 @@ command:
     --hostname=10.0.0.1 \
     --remote \
     --critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}' \
+    --use-new-perfdata
  ```
 
  Expected command output is shown below:
