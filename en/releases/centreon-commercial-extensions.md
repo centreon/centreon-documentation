@@ -167,7 +167,7 @@ To use it, it is necessary to install and activate it. Refer to the
 
 ### 20.10.4
 
-`July 15, 2021`
+`July 21, 2021`
 
 #### Improvements
 
