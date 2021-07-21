@@ -3,8 +3,8 @@ id: introduction
 title: Introduction
 ---
 
-> Centreon Auto Discovery est une **extension** Centreon qui nécessite une clé
-> de licence valide. Pour acheter une clé et récupérer les référentiels
+> Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses.html) valide.
+> Pour en acheter une et récupérer les référentiels
 > nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez, 

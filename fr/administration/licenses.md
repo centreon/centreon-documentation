@@ -69,9 +69,9 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
     Appuyez sur **Esc** pour fermer la popup. La licence est appliquée et la date de validité de la licence est indiquée dans l'encadré de chaque module.
 
-        ![image](../assets/administration/license_valid.png)
+    ![image](../assets/administration/license_valid.png)
 
-        Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
+    Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
 
 ## Licence gratuite IT-100
 

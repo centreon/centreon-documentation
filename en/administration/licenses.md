@@ -69,9 +69,9 @@ To use an online license, your Centreon platform must be connected to the intern
 
     Press **Esc** to close the popup window. The license is applied and the corresponding modules display their validity date:
     
-        ![image](../assets/administration/license_valid.png)
+    ![image](../assets/administration/license_valid.png)
 
-        The **Add token** button changes to become a **View license** button.
+    The **Add token** button changes to become a **View license** button.
 
 ## Free IT-100 license
 

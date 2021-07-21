@@ -7,7 +7,7 @@ La fonctionnalité de "Service Mapping" de Centreon se base sur
 l'extension appellée "Centreon Business Activity Monitoring" (Centreon
 BAM).
 
-> Centreon BAM est une **extension** Centreon qui requiert une licence
+> Centreon BAM est une **extension** Centreon qui requiert une [licence](../administration/licenses.html)
 > valide. Pour plus d'information, contactez
 > [Centreon](mailto:sales@centreon.com).
 

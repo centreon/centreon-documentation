@@ -6,7 +6,7 @@ title: Introduction to Centreon BAM
 The service mapping capabilities in Centreon relies on the **Centreon Business
 Activity Monitoring (BAM)** extension.
 
-> Centreon BAM is a Centreon **extension** that requires a valid license key. To
+> Centreon BAM is a Centreon **extension** that requires a valid [license](../administration/licenses.html). To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
