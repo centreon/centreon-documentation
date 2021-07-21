@@ -3,17 +3,18 @@ id: licenses
 title: Licences
 ---
 
+## Comment obtenir une licence?
+
+* Vous pouvez demander votre jeton pour [l'édition gratuite IT-100](../getting-started/IT100.html) sur notre site web.
+* Si vous avez acheté une licence, demandez vos fichiers de licence à notre équipe support.
+
 ## Types de licences
 
 Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licence peut être :
 - hors ligne : gérée avec des fichiers de licence
-- en ligne : gérée avec un jeton.
+- en ligne : gérée avec un jeton. Votre plateforme Centreon doit être connectée à internet.
 
-## Voir les modules soumis à licence
-
-Allez à la page **Administration > Extensions > Gestionnaire**. Tous les modules installés sur votre plateforme ont une bordure verte et une coche verte dans le coin supérieur droit. Les modules nécessitant une licence ont un bandeau coloré en bas (rouge si vous n'avez pas de licence valide, vert si vous en avez une).
-
-![image](../assets/administration/licenses.png)
+## Quels modules demandent une licence?
 
 Les modules suivants doivent être installés séparément et nécessitent une licence valide.
 
@@ -23,6 +24,12 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 - [BAM](https://docs.centreon.com/current/en/service-mapping/install.html)
 - [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
 - [MBI](https://docs.centreon.com/current/en/reporting/introduction.html)
+
+## Voir les modules soumis à licence
+
+Allez à la page **Administration > Extensions > Gestionnaire**. Tous les modules installés sur votre plateforme ont une bordure verte et une coche verte dans le coin supérieur droit. Les modules nécessitant une licence ont un bandeau coloré en bas (rouge si vous n'avez pas de licence valide, vert si vous en avez une).
+
+![image](../assets/administration/licenses.png)
 
 ## Ajouter une licence
 

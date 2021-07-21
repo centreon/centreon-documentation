@@ -3,17 +3,18 @@ id: licenses
 title: Licenses
 ---
 
+## How can I obtain a license?
+
+* You can request your token for the [free IT-100 edition](../getting-started/IT100.html) on our website.
+* If you have purchased a license, request your license files from our support team.
+
 ## Types of licenses
 
 According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
 - offline: uses one or several license files
-- online: uses a token.
+- online: uses a token. Your Centreon platform must be connected to the internet.
 
-## Viewing license-based modules
-
-Go to **Administration > Extensions > Manager**. All modules currently installed on your platform have a green border and a green tick mark in their top right corner. Modules that require a license have a colored banner at the bottom (red if you have no valid license, green if you have one).
-
-![image](../assets/administration/licenses.png)
+## Which modules require a license?
 
 The following modules need to be installed separately and require a valid license.
 
@@ -24,7 +25,13 @@ The following modules need to be installed separately and require a valid licens
 - [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
 - [MBI](https://docs.centreon.com/current/en/reporting/introduction.html)
 
-## Adding a license
+## Viewing license-based modules
+
+Go to **Administration > Extensions > Manager**. All modules currently installed on your platform have a green border and a green tick mark in their top right corner. Modules that require a license have a colored banner at the bottom (red if you have no valid license, green if you have one).
+
+![image](../assets/administration/licenses.png)
+
+## Adding a license to your Centreon platform
 
 ### Offline licenses
 
