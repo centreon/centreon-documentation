@@ -1,5 +1,5 @@
 ---
-id: network-switch-dell-xseries-snmp
+id: network-switchs-dell-xseries-snmp
 title: Dell Xseries
 ---
 
