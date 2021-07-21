@@ -140,7 +140,7 @@ as over 80% (`--warning-cpu='80'`) and a CRITICAL alarm if over 90%
 (`--critical-cpu='90'`).
 
 All available options for a given mode can be displayed by adding the 
-`--help` parameter to thecommand:
+`--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_squid_snmp.pl  \
