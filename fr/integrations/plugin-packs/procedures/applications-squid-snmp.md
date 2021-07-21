@@ -166,4 +166,4 @@ ou que la communauté SNMP configurée n'est pas correcte.
 #### UNKNOWN: SNMP GET Request : Cant get a single value
 
 Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
-faire fonctionner le mode/plugin.
+faire fonctionner le mode/Plugin.
