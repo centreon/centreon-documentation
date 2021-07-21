@@ -150,7 +150,7 @@ All available options for a given mode can be displayed by adding the
 ```
 
 All available options for a given mode can be displayed by adding the 
-`--list-mode` parameter to thecommand:
+`--list-mode` parameter to the command:
 
 ```bash
  /usr/lib/centreon/plugins//centreon_squid_snmp.pl  \
