@@ -146,7 +146,7 @@ CRITICAL au-delà de 90%.
     --help
 ```
 
-Tous les modes disponibles peuvent être affichés en ajoute le paramètre 
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
 `--list-mode` à la commande:
 
 ```bash
