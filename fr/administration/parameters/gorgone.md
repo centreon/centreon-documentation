@@ -3,7 +3,7 @@ id: gorgone
 title: Gorgone
 ---
 
-Cette partie permet de définir les paramètres nécessaire à Centreon pour
+Cette partie permet de définir les paramètres nécessaires à Centreon pour
 intéragir avec Gorgone.
 
 Rendez-vous dans le menu `Administration > Paramètres > Gorgone`.
