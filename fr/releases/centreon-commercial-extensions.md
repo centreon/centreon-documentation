@@ -175,7 +175,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 
 ### 20.10.4
 
-`15 juillet 2021`
+`21 juillet 2021`
 
 #### Améliorations
 
