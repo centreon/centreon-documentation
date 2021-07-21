@@ -286,6 +286,18 @@ liens
 
 ## Centreon MBI 
 
+### 20.04.7
+
+`21 juillet 2021`
+
+#### Améliorations
+
+- Requêtes optimisées pour les widgets
+
+#### Correctifs
+
+- Correctif additionnel de l'exécution immédiate des tâches
+
 ### 20.04.6
 
 `11 juin 2021`
