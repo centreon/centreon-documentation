@@ -23,7 +23,7 @@ nom d'hôte pour communiquer avec l'API de Gorgone.
 Gorgone.
 - Le champ **Utilisateur** permet de définir l'utilisateur utilisé pour se
 connecter à l'API de Gorgone.
-- Le champ **Mot de passe** permet de définir le mote de passe utilisé pour se
+- Le champ **Mot de passe** permet de définir le mot de passe utilisé pour se
 connecter à l'API de Gorgone.
 - Le case **Utiliser SSL/TLS** permet de définir si SSL/TLS doit être utilisé
 pour communiquer avec l'API de Gorgone.
