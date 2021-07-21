@@ -159,9 +159,9 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 #### UNKNOWN: SNMP GET Request : Timeout
 
-Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvientpas
-à contacter le serveur sur le port 161 (firewallou autre équipement en coupure)
-ou que la communauté SNMP configurée n'est pascorrecte.
+Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient pas
+à contacter le serveur sur le port 161 (firewall ou autre équipement en coupure)
+ou que la communauté SNMP configurée n'est pas correcte.
 
 #### UNKNOWN: SNMP GET Request : Cant get a single value
 
