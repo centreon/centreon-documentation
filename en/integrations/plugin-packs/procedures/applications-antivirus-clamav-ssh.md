@@ -18,7 +18,7 @@ title: Antivirus ClamAV
 A user is required to query the ClamAV server by SSH. There is no need for root 
 or sudo privileges. There are two possible ways to perform SSH check, either by 
 exchanging the SSH key from `centreon-engine` user to the target server, 
-or by setting your unique user and password directly in the host macros.
+or by setting your unique user and password directly in the Host Macros.
 
 ## Setup
 
