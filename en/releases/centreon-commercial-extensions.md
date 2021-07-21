@@ -345,6 +345,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.04.9
 
+`July 21, 2021`
+
 #### Security fixes
 
 - Inputs sent to unserialize() are not sanitized
