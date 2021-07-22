@@ -378,7 +378,7 @@ change **/centreon** path with your new path
 
 PHP 7.2 has reached end of life since november of 2020
 
-If you cannot upgrade your platform to the next major version of Centreon, you need to follow those steps:
+If you cannot upgrade your platform to the next major version of Centreon, and want to get last security fixes, you need to follow those steps:
 
 1. Check centreon web & extensions version requirements:
     * centreon-web >= 20.04.17
