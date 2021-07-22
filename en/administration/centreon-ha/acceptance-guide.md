@@ -1,6 +1,6 @@
 ---
-id: recette-guide
-title: Faire la recette du cluster
+id: acceptance-guide
+title: Cluster acceptance guide
 ---
 
 > Please note that all commands presented in this document are respectively to be run as `root` unless otherwise stated.
@@ -9,22 +9,19 @@ title: Faire la recette du cluster
 
 ## Requirements of the tests
 
-In order to test the functioning of your cluster, we will perform a failover test and also simulate a network crash.
+To verify the proper functioning of your cluster, you will obtain all the commands to perform a failover test and simulate network crashes.
 
-About network failure, this is normally done at a physical level by removing the network cable or a switch to simulate the real-world scenario where the operating system has no control or indication of a problem other than the fact that the cluster can no longer communicate.
-However, in our case, we will use iptables and drop the packets on the IP address that is configured for communication.
-
-Starting with the verification in order to be in condition to perform the acceptance tests.
+It is necessary to check the state of the cluster before performing correctly the acceptance tests.
 
 ### Check the state of the cluster
 
-To check the general state of the cluster run the command :
+To check the general state of the cluster run the command:
 
 ```bash
-crm_mon -f
+pcs status
 ```
 
-The display will show the following information:
+The command should return the following information:
 
 ```bash
 Stack: corosync
@@ -61,7 +58,7 @@ Active resources:
 
 ### Check the constraints
 
-To check that there are no constraints, runs the command: 
+To check that there are no `Location Constraints`, execute the command:
 
 ```bash
 pcs constraint
@@ -80,13 +77,137 @@ Ticket Constraints:
 
 ### Check the status of the database synchronization
 
-To check that the database synchronization is working, runs the command:
+To verify that the database synchronization is working, performs the command:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-The expected result is:
+The command should return the following information:
+
+```bash
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
+
+> If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide.html).
+
+### Centreon resource failover
+
+#### State of the cluster before the failover
+
+Before running correctly a failover test, check the status of the cluster with the following command:
+
+```bash
+pcs status
+```
+
+The expected output is:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 11:24:27 2021
+Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+```
+
+#### Perform a failover
+
+To move resources, run the command:
+
+```bash
+pcs resource move centreon
+```
+
+You can also use the `crm_mon -fr` command to monitor the failover as it happens. It will be necessary to use Ctrl+c to exit the command.
+
+> Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on the node hosting the resource no longer allowed to be running on that node.
+As a result, the resource moves to another node. Following this manipulation, it is, therefore, necessary to execute the command `pcs resource clear centreon` to ensure the resource can be moved back to this node in the future.
+
+To verify that the resources have moved to the second node, performs the command: 
+
+```bash
+pcs status
+```
+
+The expected output is:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 11:38:32 2021
+Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
+    
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
+     Slaves: [ @CENTRAL_MASTER_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
+```
+
+You may notice that in addition to the `centreon` resource, the secondary node has also been promoted to `master` for the `ms_mysql` resource. This behaviour is intended and due to `Colocation Constraints` between the `centreon` resource and `msq_mysql`.
+
+> The `Colocation Constraints` are unfound on a 4-node cluster!
+
+Once the failover is complete, execute the command:
+
+```bash
+pcs resource clear centreon
+```
+
+> This will remove the constraints established during the failover.
+
+Also, check that MySQL replication is still operational using the command:
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+The command must return the following information:
 
 ```bash
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -97,9 +218,329 @@ Position Status [OK]
 
 > If the synchronization has `KO` you have to correct it with the help of the [operating-guide](operating-guide.html).
 
-## How to test
-When all the checks have been done you can start testing.
+#### Back to the nominal situation
 
-### Centreon resource failover
-#### Prerequisites
+To return to the nominal situation, you have to launch the failover so that the resources.
+Execute the command:
 
+```bash
+pcs status
+```
+
+to check for errors:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 11:38:32 2021
+Last change: Fri Jul  9 11:37:55 2021 by root via crm_attribute on @CENTRAL_SLAVE_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
+     Slaves: [ @CENTRAL_MASTER_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
+```
+
+Then, launch the constraints cleaning command in case you have:
+
+```bash
+pcs resource clear centreon
+```
+
+Then, execute the failover command: 
+
+```bash
+pcs resource move centreon
+```
+
+As before, you can follow the failover with the `crm_mon -fr` command.
+
+Finally, remove the constraints with the command:
+
+```bash
+pcs resource clear centreon
+```
+
+### Simulate the loss of the secondary node
+
+To simulate a network crash that would isolate the secondary node, you can use `iptables` to disrupt traffic to the secondary node.
+The secondary node will be completely excluded from the cluster. The primary node keeps the majority with the QDevice.
+
+#### Processing 
+
+To perform this test, launch the `iptables` commands on the primary node:
+
+```bash
+iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP
+iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
+```
+
+Executing the command results in no active resources being seen on the secondary node and the primary node being seen as `offline`:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
+Last updated: Fri Jul  9 16:11:53 2021
+Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_SLAVE_NAME@ ]
+OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
+
+No active resources
+``` 
+
+The resources and the cluster are still working by performing a `crm_mon` on the primary node.
+The secondary node is seen `offline` on the primary.
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 16:19:03 2021
+Last change: Fri Jul  9 16:05:26 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ ]
+OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_MASTER_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+```
+
+#### Back to nominal situation
+
+To check the various iptables rules configured on the primary node, run the following command:
+
+```bash
+iptables -L
+```
+
+The command must return the following information:
+
+```bash
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+DROP       all  --  @QDEVICE_NAME@      anywhere
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+DROP       all  --  anywhere             @QDEVICE_NAME@
+```
+
+If you do not have any other iptables rules configured, you can execute the following command to remove the rules related to the test:
+
+```bash
+iptables -F
+```
+
+Otherwise, it will be necessary to list the rule numbers with the specific command:
+
+```bash
+iptables -L --line-numbers
+```
+
+And delete it with the command:
+
+```bash
+iptables -D INPUT @RULE_NUMBER@;
+iptables -D OUTPUT @RULE_NUMBER@
+```
+
+The secondary node is again seen `online` by the cluster:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 17:12:39 2021
+Last change: Fri Jul  9 16:06:34 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_MASTER_NAME@ ]
+     Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+```
+
+Also check MySQL replication is still operational using the command:
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+The order must return the following information:
+
+```bash
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
+
+### Simulate the loss of the primary node
+
+To perform this test, run the commands on the primary server:
+
+```bash
+iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP ;
+iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP ; 
+iptables -A INPUT -s @QDEVICE_IP@ -j DROP ;
+iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
+```
+
+Resources on the primary node should stop and should start on the secondary node. You can use the `crm_mon -fr` command on the secondary node to watch the startup of resources:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri Jul  9 15:14:00 2021
+Last change: Fri Jul  9 15:11:35 2021 by root via crm_resource on @CENTRAL_SLAVE_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_SLAVE_NAME@ ]
+OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
+
+Active resources:
+
+ Master/Slave Set: ms_mysql-master [ms_mysql]
+     Masters: [ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: php7-clone [php7]
+     Started: [ @CENTRAL_SLAVE_NAME@ ]
+ Clone Set: cbd_rrd-clone [cbd_rrd]
+     Started: [ @CENTRAL_SLAVE_NAME@ ]
+ Resource Group: centreon
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_SLAVE_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_SLAVE_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_SLAVE_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_SLAVE_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_SLAVE_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_SLAVE_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_SLAVE_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
+```
+
+On the primary node, the `pcs status` command should return the following result:
+
+```bash
+Stack: corosync
+Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el7_9.1-9acf116022) - partition WITHOUT quorum
+Last updated: Fri Jul  9 15:40:14 2021
+Last change: Fri Jul  9 15:12:43 2021 by root via crm_resource on @CENTRAL_MASTER_NAME@
+
+2 nodes configured
+14 resource instances configured
+
+Online: [ @CENTRAL_MASTER_NAME@ ]
+OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
+
+No active resources
+```
+
+This test checks that if the primary node is unavailable, resources will be switched to the secondary node and allows for continuity of service. 
+
+#### Back to nominal situation
+
+To check the various iptables rules configured on the primary node, run the following command:
+
+```bash
+iptables -L
+```
+
+The command must return the following information:
+
+```bash
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+```
+
+If you do not have any other iptables rules configured, you can execute the following command to remove the rules related to the test:
+
+```bash
+iptables -F
+```
+
+Otherwise, it will be necessary to list the rule numbers with the specific command:
+
+```bash
+iptables -L --line-numbers
+```
+
+And delete it with the command:
+
+```bash
+iptables -D INPUT @RULE_NUMBER@;
+iptables -D OUTPUT @RULE_NUMBER@
+```
+
+By running the `crm_mon` command on the second node, you will see the primary node move up in the cluster.
+If you want to switch to the primary node, run the [failover commands](acceptance-guide.html#return-to-nominal-situation).
