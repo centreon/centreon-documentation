@@ -374,6 +374,33 @@ To update the Centreon URI, you need to follow those steps:
 2. Edit Apache configuration file for Centreon Web (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**) and
 change **/centreon** path with your new path
 
+## Upgrade to PHP 7.3
+
+PHP 7.2 has reached end of life since november of 2020
+
+If you cannot upgrade your platform to the next major version of Centreon, you need to follow those steps:
+
+1. Check centreon web & extensions version requirements:
+    * centreon-web >= 20.04.17
+    * centreon-bi >= 20.04.8
+    * centreon-open-tickets >= 20.04.3
+
+2. Upgrade your PHP version by using following command:
+
+```shell
+sh /usr/share/centreon/bin/migrate_php73.sh
+```
+
+The output should look like this:
+
+```
+[INFO] Installing dependencies for PHP 7.3
+[INFO] Copying php-fpm configuration from 7.2 to 7.3
+[INFO] Copying php configuration from 7.2 to 7.3
+[INFO] Configuring system to use new PHP 7.3 binary
+[INFO] Upgrade finished
+```
+
 ## Enabling http2
 
 It is possible to enable http2 protocol to improve Centreon network performance.
