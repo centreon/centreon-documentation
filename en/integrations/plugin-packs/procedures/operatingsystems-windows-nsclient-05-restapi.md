@@ -97,28 +97,6 @@ To monitor an *Windows Servers* domain controller through NSClient++ API, instal
 of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
-### Configure the access 
-
-To connect to the REST API of NSClient++, you need to enable the web service of NSClient++:
-
-* From the windows server shell, execute the following command as administrator:
-
-```nscp web install```
-
-* Configure a new password for a better authentification:
-
-```bash
-nscp web password --set centreon
-Password updated successfully, please restart nsclient++ for changes to affect.
-```
-
-* Now, you can restart the daemon:
-
-```bash
-net stop nscp
-net start nscp
-```
-
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
