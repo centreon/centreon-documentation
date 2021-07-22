@@ -6,7 +6,12 @@ title: Troubleshooting Plugins errors
 When using Plugins and deploying a new monitoring probe, some errors might show up. 
 
 Most of the time, the cause of these failures is a misconfiguration or a third-party 
-device. This section compiles the most common errors you may face and some hints to identify the root cause.
+device. This section compiles the most common errors you may face and some hints to 
+identify the root cause.
+
+Remember that most of the Plugin Pack has documentation and more specifically, 
+"Prerequisites" and "Host Configuration" sections to help you avoid some of the 
+common pitfalls.
 
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
@@ -79,8 +84,6 @@ It can also happen when performing SNMPv3 requests on a device or server where t
 SNMP process is not running or the port isn't open. 
 
 ### UNKNOWN: Can't construct cache...
-
-
 
 ## HTTP and API checks
 
