@@ -95,11 +95,17 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.html).
 
-
 ### Bascule des resource Centreon
 
 #### État du cluster avant la bascule
-Avant d'exécuter un test de bascule, vérifiez l'état du cluster avec la commande `pcs status` :
+
+Avant d'exécuter un test de bascule, vérifiez l'état du cluster avec la commande à l'aide de la commande suivante :
+
+```bash
+pcs status
+```
+
+Le résultat attendu est :
 
 ```bash
 Stack: corosync
@@ -132,6 +138,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 #### Executer une bascule
+
 Pour basculer les ressources, exécuter la commande :
 
 ```bash
@@ -141,7 +148,12 @@ pcs resource move centreon
 Vous pouvez aussi utiliser la commande `crm_mon -fr` pour suivre la bascule au fur et à mesure. Il sera nécessaire d'utiliser Ctrl+c pour quitter la commande.
 > Attention : La commande `pcs resource move centreon` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear centreon` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
 
-Pour vérifier que les resources aient bien basculé sur le second nœud, exécuter la commande `pcs status` :
+Pour vérifier que les resources aient bien basculé sur le second nœud, exécuter la commande : 
+```bash
+pcs status
+```
+
+Le résultat attendu est :
 
 ```bash
 Stack: corosync
@@ -174,7 +186,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-Vous pouvez remarquer qu'en plus des ressources `centreon`, le nœud secondaire a aussi été promu comme `master` pour la ressource `ms_mysql`. Ce comportement est voulu et dû aux `Colocation contraints` entre la ressource `centreon` et `msq_mysql`.
+Vous pouvez remarquer qu'en plus des ressources `centreon`, le nœud secondaire a aussi été promu comme `master` pour la ressource `ms_mysql`. Ce comportement est voulu et dû aux `Colocation Contraints` entre la ressource `centreon` et `msq_mysql`.
 
 > Les `Colocation Constraints` ne sont pas présent sur un Cluster à 4 nœuds !
 Une fois que la bascule est terminée, exécuter la commande :
@@ -185,15 +197,13 @@ pcs resource clear centreon
 
 > Ceci permettra de retirer les contraintes établie lors de la bascule.
 
-#### Vérification de la synchronisation des bases
-
-Par la suite, il faut vérfier que la synchronisation des bases de données est fonctionnelle avec la commande de la première partie. 
+Vérifier aussi que la réplication MySQL est toujours opérationnel à l'aide de la commande :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
 ```
 
-Le résultat attendu est  :
+La commande doit vous retourner les informations suivantes :
 
 ```bash
 Connection Status '@CENTRAL_MASTER_NAME@' [OK]
@@ -207,7 +217,13 @@ Position Status [OK]
 #### Retour en situation nominal
 
 Afin de revenir en situation nominal, vous devez lancer la bascule pour que les resources.
-Exécuter la commande `pcs status` afin de vérifier qu'il n'ait pas d'erreurs :
+Exécuter la commande  :
+
+```bash
+pcs status
+```
+
+afin de vérifier qu'il n'ait pas d'erreurs :
 
 ```bash
 Stack: corosync
@@ -261,7 +277,6 @@ pcs resource clear centreon
 ```
 
 ### Simuler la perte du nœud secondaire
-
 
 Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire.
 Le nœud secondaire sera complètement exclu du cluster. Le nœud primaire garde la majorité avec le QDevice.
@@ -418,7 +433,6 @@ Position Status [OK]
 ```
 
 ### Simuler la perte du nœud primaire
-
 
 Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire et le Qdevice.
 Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.```
