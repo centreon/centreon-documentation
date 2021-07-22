@@ -195,7 +195,9 @@ fonctionnera pas si vous ne l’exécutez pas.
 8. [Sécurisez votre serveur](../../administration/secure-platform.html). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
 de définir un mot de passe pour la base MySQL.
 
-9. Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
+9. [Mettez à jour](../../update/update-centreon-platform.html) votre plateforme Centreon.
+
+10. Rendez-vous dans le chapitre [Premiers pas](../../getting-started/installation-first-steps.html)
 pour mettre en place votre première supervision.
 
 
