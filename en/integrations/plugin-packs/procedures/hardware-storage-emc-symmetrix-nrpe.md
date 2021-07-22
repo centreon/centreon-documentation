@@ -3,29 +3,34 @@ id: hardware-storage-emc-symmetrix-nrpe
 title: EMC Symmetrix NRPE
 ---
 
+## Overview
+
+## Pack assets
+
+### Monitored objects
+
+### Collected metrics
+
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Exchange Server* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
+
+### Powershell 
+
+Powershell and the `Microsoft.Exchange.Management.PowerShell` snap-in must be installed
+on the target Server.
+
+## Installation 
 
 ``` shell
 yum install centreon-nrpe-plugin
 ```
 
-## Centreon Configuration
+## Host configuration
 
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                                                                     |
-| :---------------------- | :------------------------------------------------------------------------ |
-| Host name               | *Name of the host*                                                        |
-| Alias                   | *Host description*                                                        |
-| IP                      | *Host IP Address*                                                         |
-| Monitored from          | *Monitoring Poller to use*                                                |
-| Host Multiple Templates | HW-Storage-EMC-Symmetrix-Dmx34-NRPE or HW-Storage-EMC-Symmetrix-Vmax-NRPE |
-
-Click on the *Save* button.
+HW-Storage-EMC-Symmetrix-Dmx34-NRPE
+HW-Storage-EMC-Symmetrix-Vmax-NRPE

@@ -1,33 +1,28 @@
 ---
 id: applications-quadstor-nrpe
-title: Quadstor
+title: Quadstor NSClient++ NRPE
 ---
+
+## Overview
+
+## Pack assets
+
+### Monitored objects
+
+### Collected metrics
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
+### NSClient++
 
-### Centreon Plugin
+To monitor a *Quadstor* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct. 
 
-Install this plugin on each needed poller:
+## Installation 
 
 ``` shell
 yum install centreon-nrpe-plugin
 ```
 
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                        |
-| :---------------------- | :--------------------------- |
-| Host name               | *Name of the host*           |
-| Alias                   | *Host description*           |
-| IP                      | *Host IP Address*            |
-| Monitored from          | *Monitoring Poller to use*   |
-| Host Multiple Templates | App-Quadstor-Vtl-NRPE-custom |
-
-Click on the *Save* button.
+## Host configuration

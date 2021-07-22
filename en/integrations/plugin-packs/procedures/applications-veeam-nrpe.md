@@ -1,51 +1,38 @@
 ---
 id: applications-veeam-nrpe
-title: Veeam
+title: Veeam NSClient++ NRPE
 ---
+
+## Overview
+
+## Pack assets
+
+### Monitored objects
+
+### Collected metrics
 
 ## Prerequisites
 
-### Centreon Plugin
+### Centreon NSClient++
 
-Install this plugin on each needed poller:
+To monitor *Veeam* backup solution through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
+
+### Powershell 
+
+Powershell and the `Veeam.Backup.PowerShell` snap-in must be installed
+on the target Server. 
+
+Starting with Veeam 11, the Plugin will try to find the most recent version of 
+the `VeeamPSSnapin`. 
+
+## Installation 
 
 ``` shell
 yum install centreon-nrpe-plugin
 ```
 
-### Veeam
+## Host configuration
 
-This plugin pack requires the use of:
-
-  - the Veeam plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
-  - Powershell and snap-in Veeam
-
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
-
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
-
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
-
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
-
-## Centreon Configuration
-
-### Create a new Veeam Backup server
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | App-Veeam-NRPE-custom      |
-
-Click on the *Save* button.
+App-Veeam-NRPE-custom
