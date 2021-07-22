@@ -3,42 +3,39 @@ id: applications-wsus-nsclient
 title: Microsoft WSUS
 ---
 
+## Overview
+
+## Pack assets
+
+### Monitored objects
+
+### Collected metrics
+
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct. 
 
-NRPE : \# yum install centreon-nrpe-plugin
+## Installation 
 
-NSClient++ RestAPI : \# yum install
-centreon-plugin-Operatingsystems-Windows-Restapi
+``` shell
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-### Nsclient++
+``` shell
+yum install centreon-nrpe-plugin
+```
 
-This plugin pack requires the use of the NSClient++ package provided by
-Centreon.
+## Host configuration
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+Apps-Wsus-NRPE
+App-Wsus-NSClient-05-Restapi
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
-
-## Centreon Configuration
-
-### Create a new IIS server
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                                       |
-| :---------------------- | :------------------------------------------ |
-| Host name               | *Name of the host*                          |
-| Alias                   | *Host description*                          |
-| IP                      | *Host IP Address*                           |
-| Monitored from          | *Monitoring Poller to use*                  |
-| Host Multiple Templates | Apps-Wsus-NRPE/App-Wsus-NSClient-05-Restapi |
-
-Click on the *Save* button.
+| Mandatory | Name                      | Description                                           |
+|:----------|:--------------------------|:------------------------------------------------------|
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')             |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |

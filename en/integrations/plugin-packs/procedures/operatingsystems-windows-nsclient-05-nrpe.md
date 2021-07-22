@@ -3,47 +3,35 @@ id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
 
+## Overview
+
+## Pack assets
+
+### Monitored objects
+
+### Collected metrics
+
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor *Windows Servers* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
+
+## Installation 
 
 ``` shell
 yum install centreon-nrpe-plugin
 ```
 
-### Nsclient++
+## Host configuration
 
-This plugin pack requires the use of:
+OS-Windows-Nsclient-05-custom
 
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on
-    [documentation](http://documentation.centreon.com)
-
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
-
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
-
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                         |
-| :---------------------- | :---------------------------- |
-| Host name               | *Name of the host*            |
-| Alias                   | *Host description*            |
-| IP                      | *Host IP Address*             |
-| Monitored from          | *Monitoring Poller to use*    |
-| Host Multiple Templates | OS-Windows-Nsclient-05-custom |
-
-Click on the *Save* button.
+| Mandatory | Name             | Description                                                                         |
+|:----------|:-----------------|:------------------------------------------------------------------------------------|
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')                          |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                                    |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
+|           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |

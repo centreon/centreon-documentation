@@ -15,9 +15,14 @@ title: Symantec Netbackup NSClient++ NRPE
 
 ### NSClient++
 
-To monitor Netbackup software with NRPE, install the Centreon packaged version 
+To monitor *Netbackup* software with NRPE, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **NRPE Server** configuration is correct. 
+
+### NetBackup cli
+
+The NetBackup CLI is available on both Windows and Linux and the Plugin uses it so it
+has to be installed.
 
 ### Netbackup on Windows
 
@@ -34,3 +39,12 @@ yum install centreon-nrpe-plugin
 ```
 
 ## Host configuration
+
+App-Netbackup-NRPE
+
+| Mandatory | Name             | Description                                                                         |
+|:----------|:-----------------|:------------------------------------------------------------------------------------|
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')                          |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                                    |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                                       |
+|           | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command\_line (Default: '-u -m 8192') |

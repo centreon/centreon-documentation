@@ -15,7 +15,7 @@ title: Microsoft Cluster Server NSClient++ NRPE
 
 ### NSClient++
 
-To monitor a *Microsoft Cluster Server* through NRPE, install the Centreon repackaged version 
+To monitor a *Microsoft Cluster Server* through NRPE, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **NRPE Server** configuration is correct. 
 

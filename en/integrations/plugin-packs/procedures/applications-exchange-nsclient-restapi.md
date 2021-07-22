@@ -15,7 +15,7 @@ title: Exchange NSClient++ API
 
 ### NSClient++
 
-To monitor Exchange Servers through NSClient++ API, install the Centreon packaged version 
+To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **Webserver / RESTApi** configuration is correct. 
 
@@ -35,6 +35,6 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ## Important information
 
 * The *Queue* monitoring Service only works on Exchange Server running with the 
-hub/transport role. 
+hub/transport role
 * Use this format to define MAILBOX macro at the service level: DOMAIN\\USER
-* You cannot use the `|` character in your Centreon Macro definitions
+* Using `|` character in your Centreon Macro definitions is not supported

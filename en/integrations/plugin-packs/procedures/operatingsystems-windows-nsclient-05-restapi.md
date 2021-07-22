@@ -91,12 +91,11 @@ This REST API give the possibility to exploit monitoring data from windows serve
 
 ## Prerequisites
 
-* TCP 8443 port must be open on the windows server (Default port for the REST API of NSClient++).
+### Centreon NSClient++
 
-To securize the communication flow between the poller and the agent:
-
-* Change the *port* parameter of the REST API into *nsclient.ini* file.
-* Change the *allowed_hosts* parameter by setting the IP addresses of the Centreon pollers (to allow the connection only from these IPs).
+To monitor an *Windows Servers* domain controller through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ### Configure the access 
 
