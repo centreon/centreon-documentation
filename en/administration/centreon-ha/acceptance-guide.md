@@ -9,13 +9,13 @@ title: Cluster acceptance guide
 
 ## Requirements of the tests
 
-To verify the proper functioning of your cluster, you will obtain all the commands to perform a failover test and simulate network crashes.
+To verify the proper functioning of your cluster, you will get all the commands to perform a failover test and simulate network crashes.
 
-It is necessary to check the state of the cluster before performing correctly the acceptance tests.
+It is necessary to check the state of the cluster before performing the acceptance tests. 
 
 ### Check the state of the cluster
 
-To check the general state of the cluster run the command:
+To check the general state of the cluster, run the command:
 
 ```bash
 pcs status
@@ -98,7 +98,7 @@ Position Status [OK]
 
 #### State of the cluster before the failover
 
-Before running correctly a failover test, check the status of the cluster with the following command:
+Before running a failover test, check the status of the cluster with the following command:
 
 ```bash
 pcs status
@@ -145,12 +145,13 @@ To move resources, run the command:
 pcs resource move centreon
 ```
 
-You can also use the `crm_mon -fr` command to monitor the failover as it happens. It will be necessary to use Ctrl+c to exit the command.
+You can also use the `crm_mon -fr` command to watch the failover as it happens. It will be necessary to use Ctrl+c to exit the command.
 
-> Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on the node hosting the resource no longer allowed to be running on that node.
-As a result, the resource moves to another node. Following this manipulation, it is, therefore, necessary to execute the command `pcs resource clear centreon` to ensure the resource can be moved back to this node in the future.
+> Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on the node hosting the resource, no longer allowed to be running on that node.
 
-To verify that the resources have moved to the second node, performs the command: 
+As a result, the resource moves to another node. Following this manipulation, it is, thus, necessary to execute the command `pcs resource clear centreon` to ensure the resource can be moved back to this node in the future.
+
+To verify that the resources have moved to the second node performs the command: 
 
 ```bash
 pcs status
@@ -189,7 +190,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-You may notice that in addition to the `centreon` resource, the secondary node has also been promoted to `master` for the `ms_mysql` resource. This behaviour is intended and due to `Colocation Constraints` between the `centreon` resource and `msq_mysql`.
+You may notice that also to the `centreon` resource, the secondary node has also been promoted to `master` for the `ms_mysql` resource. This behavior is intended and due to `Colocation Constraints` between the `centreon` resource and `msq_mysql`.
 
 > The `Colocation Constraints` are unfound on a 4-node cluster!
 
@@ -216,11 +217,12 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization has `KO` you have to correct it with the help of the [operating-guide](operating-guide.html).
+> If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.html).
 
 #### Back to the nominal situation
 
 To return to the nominal situation, you have to launch the failover so that the resources.
+
 Execute the command:
 
 ```bash
@@ -282,7 +284,7 @@ pcs resource clear centreon
 
 ### Simulate the loss of the secondary node
 
-To simulate a network crash that would isolate the secondary node, you can use `iptables` to disrupt traffic to the secondary node.
+To simulate a network failure that would isolate the secondary node, you can use `iptables` to disrupt traffic to the secondary node.
 The secondary node will be completely excluded from the cluster. The primary node keeps the majority with the QDevice.
 
 #### Processing 
@@ -498,7 +500,7 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 No active resources
 ```
 
-This test checks that if the primary node is unavailable, resources will be switched to the secondary node and allows for continuity of service. 
+This test checks that resources will be switched to the secondary node if the primary node is unavailable and allows for continuity of service.
 
 #### Back to nominal situation
 
