@@ -12,11 +12,11 @@ title: Guide de recette du cluster
 Pour vérifier le bon fonctionnement de votre cluster, vous trouverez toutes les commandes pour effectuer un test de bascule et simuler des coupures réseau au sein du cluster.
 
 
-Il est nécessaire de vérifier l'état du cluster avant d'effecuter les tests de recette.
+Il est nécessaire de vérifier l'état du cluster avant d'effectuer les tests de recette.
 
 ### Vérifier l'état du cluster
 
-Pour Vérifier l'état général du cluster exécuter la commande :
+Pour vérifier l'état général du cluster exécuter la commande :
 
 ```bash
 pcs status
@@ -95,7 +95,7 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.html).
 
-### Bascule des resource Centreon
+### Bascule des ressource Centreon
 
 #### État du cluster avant la bascule
 
@@ -137,7 +137,8 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
-#### Executer une bascule
+
+#### Exécuter une bascule
 
 Pour basculer les ressources, exécuter la commande :
 
@@ -146,9 +147,11 @@ pcs resource move centreon
 ```
 
 Vous pouvez aussi utiliser la commande `crm_mon -fr` pour suivre la bascule au fur et à mesure. Il sera nécessaire d'utiliser Ctrl+c pour quitter la commande.
+
 > Attention : La commande `pcs resource move centreon` positionne une contrainte `-INFINITY` sur le nœud hébergeant la ressource qui n'est plus autorisée à être en fonctionnement sur ce nœud. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire d'exécuter la commande `pcs resource clear centreon` pour permettre à cette ressource de basculer à nouveau sur ce nœud à l'avenir.
 
-Pour vérifier que les resources aient bien basculé sur le second nœud, exécuter la commande : 
+Pour vérifier que les ressources aient bien basculé sur le second nœud, exécuter la commande : 
+
 ```bash
 pcs status
 ```
@@ -189,6 +192,7 @@ Active resources:
 Vous pouvez remarquer qu'en plus des ressources `centreon`, le nœud secondaire a aussi été promu comme `master` pour la ressource `ms_mysql`. Ce comportement est voulu et dû aux `Colocation Contraints` entre la ressource `centreon` et `msq_mysql`.
 
 > Les `Colocation Constraints` ne sont pas présent sur un Cluster à 4 nœuds !
+
 Une fois que la bascule est terminée, exécuter la commande :
 
 ```bash
@@ -216,7 +220,7 @@ Position Status [OK]
 
 #### Retour en situation nominal
 
-Afin de revenir en situation nominal, vous devez lancer la bascule pour que les resources.
+Afin de revenir en situation nominal, vous devez lancer la bascule pour que les ressources.
 Exécuter la commande  :
 
 ```bash
@@ -286,10 +290,11 @@ Le nœud secondaire sera complètement exclu du cluster. Le nœud primaire garde
 Pour réaliser ce test, lancer les commandes `iptables` sur le nœud primaire :
 
 ```bash
-iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP ; iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
+iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP;
+iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP
 ```
 
-L'exécution de la commande a pour effet de ne voir aucune resource active sur le nœud secondaire et de voir le nœud primaire comme `offline` :
+L'exécution de la commande a pour effet de ne voir aucune ressource active sur le nœud secondaire et de voir le nœud primaire comme `offline` :
 
 ```bash
 Stack: corosync
@@ -306,7 +311,7 @@ OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 No active resources
 ``` 
 
-En exécutant un `crm_mon` sur le premier nœud, les resources et le cluster fonctionne toujours.
+En exécutant un `crm_mon` sur le premier nœud, les ressources et le cluster fonctionne toujours.
 Le nœud secondaire est vue `offline` sur le primaire.
 
 ```bash
@@ -542,4 +547,4 @@ iptables -D OUTPUT @RULE_NUMBER@
 ```
 
 En lancant la commande `crm_mon` sur le second nœud, vous verrez le nœud primaire remonter dans le cluster.
-Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](recette-guide.html#retour-en-situation-nominal).
+Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](acceptance-guide.html#retour-en-situation-nominal).
