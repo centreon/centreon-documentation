@@ -118,7 +118,6 @@ Last change: Fri Jul  9 11:08:57 2021 by root via crm_resource on @CENTRAL_MASTE
 
 Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 
-Active resources:
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
@@ -199,9 +198,9 @@ Une fois que la bascule est terminée, exécuter la commande :
 pcs resource clear centreon
 ```
 
-> Ceci permettra de retirer les contraintes établie lors de la bascule.
+> Ceci permettra de retirer les contraintes établies lors de la bascule.
 
-Vérifier aussi que la réplication MySQL est toujours opérationnel à l'aide de la commande :
+Vérifier aussi que la réplication MySQL est toujours opérationnelle à l'aide de la commande :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -220,7 +219,8 @@ Position Status [OK]
 
 #### Retour en situation nominal
 
-Afin de revenir en situation nominal, vous devez lancer la bascule pour que les ressources.
+Afin de revenir en situation nominale, vous devez lancer la bascule des ressources.
+
 Exécuter la commande  :
 
 ```bash
@@ -282,7 +282,7 @@ pcs resource clear centreon
 
 ### Simuler la perte du nœud secondaire
 
-Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire.
+Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le trafic vers le nœud secondaire.
 Le nœud secondaire sera complètement exclu du cluster. Le nœud primaire garde la majorité avec le QDevice.
 
 #### Exécution 
@@ -422,7 +422,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-Vérifier aussi que la réplication MySQL est toujours opérationnel à l'aide de la commande :
+Vérifier aussi que la réplication MySQL est toujours opérationnelle à l'aide de la commande :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -439,7 +439,7 @@ Position Status [OK]
 
 ### Simuler la perte du nœud primaire
 
-Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le traffic vers le nœud secondaire et le Qdevice.
+Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le trafic vers le nœud secondaire et le Qdevice.
 Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.```
 
 #### Exécution
@@ -503,11 +503,11 @@ OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
 No active resources
 ```
 
-Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les resources basculeront sur le nœud secondaire et permet une continuité de service.
+Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les ressources basculeront sur le nœud secondaire et permet une continuité de service.
 
 #### Retour en situation nominal
 
-Pour vérifier les différentes règles iptables configurées sur le nœud primaire, éxecuter la commande suivante :
+Pour vérifier les différentes règles iptables configurées sur le nœud primaire, exécuter la commande suivante :
 
 ```bash
 iptables -L
@@ -546,5 +546,5 @@ iptables -D INPUT @RULE_NUMBER@
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
-En lancant la commande `crm_mon` sur le second nœud, vous verrez le nœud primaire remonter dans le cluster.
+En lançant la commande `crm_mon` sur le second nœud, vous verrez le nœud primaire remonter dans le cluster.
 Si vous souhaitez basculer sur le nœud primaire, exécuter les [commandes de bascule](acceptance-guide.html#retour-en-situation-nominal).
