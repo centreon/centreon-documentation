@@ -9,7 +9,7 @@ title: Cluster acceptance guide
 
 ## Requirements of the tests
 
-To verify the proper functioning of your cluster, you will get all the commands to perform a failover test and simulate network crashes.
+To verify the proper functioning of your cluster, you will get all the commands to perform a failover test and simulate network failures.
 
 It is necessary to check the state of the cluster before performing the acceptance tests. 
 
@@ -139,7 +139,7 @@ Active resources:
 
 #### Perform a failover
 
-To move resources, run the command:
+To move the resources, run the command:
 
 ```bash
 pcs resource move centreon
@@ -149,9 +149,9 @@ You can also use the `crm_mon -fr` command to watch the failover as it happens. 
 
 > Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on the node hosting the resource, no longer allowed to be running on that node.
 
-As a result, the resource moves to another node. Following this manipulation, it is, thus, necessary to execute the command `pcs resource clear centreon` to ensure the resource can be moved back to this node in the future.
+As a result, the resources move to another node. Following this manipulation, it is, thus, necessary to execute the command `pcs resource clear centreon` to ensure the resources can be moved back to this node in the future.
 
-To verify that the resources have moved to the second node performs the command: 
+To verify that the resources have moved to the second node, performs the command: 
 
 ```bash
 pcs status
@@ -190,11 +190,11 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-You may notice that also to the `centreon` resource, the secondary node has also been promoted to `master` for the `ms_mysql` resource. This behavior is intended and due to `Colocation Constraints` between the `centreon` resource and `msq_mysql`.
+You may notice that like the `centreon` resources, the secondary node has also been promoted to `master` for the `ms_mysql` resource. This behavior is intended and due to `Colocation Constraints` between the `centreon` resources and `msq_mysql`.
 
 > The `Colocation Constraints` are unfound on a 4-node cluster!
 
-Once the failover is complete, execute the command:
+Once the failover is completed, execute the command:
 
 ```bash
 pcs resource clear centreon
@@ -229,7 +229,7 @@ Execute the command:
 pcs status
 ```
 
-to check for errors:
+The output should be:
 
 ```bash
 Stack: corosync
@@ -284,7 +284,7 @@ pcs resource clear centreon
 
 ### Simulate the loss of the secondary node
 
-To simulate a network failure that would isolate the secondary node, you can use `iptables` to disrupt traffic to the secondary node.
+To simulate a network failure that would isolate the secondary node, you can use `iptables` to drop traffic from and to the secondary node.
 The secondary node will be completely excluded from the cluster. The primary node keeps the majority with the QDevice.
 
 #### Processing 
@@ -313,7 +313,7 @@ OFFLINE: [ @CENTRAL_MASTER_NAME@ ]
 No active resources
 ``` 
 
-The resources and the cluster are still working by performing a `crm_mon` on the primary node.
+The resources and the cluster are still working by performing a `pcs status` on the primary node.
 The secondary node is seen `offline` on the primary.
 
 ```bash
@@ -387,7 +387,7 @@ iptables -L --line-numbers
 And delete it with the command:
 
 ```bash
-iptables -D INPUT @RULE_NUMBER@;
+iptables -D INPUT @RULE_NUMBER@
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
@@ -444,9 +444,9 @@ Position Status [OK]
 To perform this test, run the commands on the primary server:
 
 ```bash
-iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP ;
-iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP ; 
-iptables -A INPUT -s @QDEVICE_IP@ -j DROP ;
+iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP 
+iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP 
+iptables -A INPUT -s @QDEVICE_IP@ -j DROP 
 iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 ```
 
