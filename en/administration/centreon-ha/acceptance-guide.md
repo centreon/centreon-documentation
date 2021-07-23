@@ -221,7 +221,7 @@ Position Status [OK]
 
 #### Back to the nominal situation
 
-To return to the nominal situation, you have to launch the failover so that the resources.
+To return to the nominal situation, you must launch the resource failover.
 
 Execute the command:
 
@@ -262,7 +262,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_SLAVE_NAME@
 ```
 
-Then, launch the constraints cleaning command in case you have:
+Then, run the constraint cleanup command in case you have `Location Constraints`:
 
 ```bash
 pcs resource clear centreon
