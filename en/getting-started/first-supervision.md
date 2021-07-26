@@ -33,6 +33,8 @@ and then to implement them to monitor your first equipment.
 
 > To go further with templates, please read the [templates chapter](../monitoring/templates.html#definition).
 
+> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.html) feature to find and configure hosts easily.
+
 ### Installation of basic monitoring templates
 
 Go to the **Configuration \> Plugin Packs** menu.
