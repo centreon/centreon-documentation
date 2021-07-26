@@ -37,9 +37,9 @@ and then to implement them to monitor your first equipment.
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration) to allow the Centreon server to access the Internet.
+> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration) to allow the Centreon server to access the internet.
 
-Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
+Install the **Base Generic** Plugin Pack (if it is not already installed) by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
@@ -53,7 +53,7 @@ for free:
 
 ![image](../assets/getting-started/pp_install_basic.gif)
 
-Now you have the basic templates and plugins to initial monitoring!
+Now you have the basic templates and plugins to start monitoring hosts!
 
 ## Start to monitor your first host
 
