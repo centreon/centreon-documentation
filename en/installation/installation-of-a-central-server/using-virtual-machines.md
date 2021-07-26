@@ -177,7 +177,9 @@ The host machine must have the following characteristics:
 
 8. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MySQL database.
 
-9. Go to the [Getting Started](../../getting-started/installation-first-steps.html) chapter to configure your first monitoring.
+9. [Update](../../update/update-centreon-platform.html) your Centreon platform.
+
+10. Go to the [Getting Started](../../getting-started/installation-first-steps.html) chapter to configure your first monitoring.
 
 ## Default credentials
 
