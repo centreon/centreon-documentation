@@ -63,7 +63,7 @@ To use an online license, your Centreon platform must be connected to the intern
 
 4. Paste your token in the popup window, then click on **Add**.
 
-    - If your token contains one license, a tick mark is displayed next to the **Add** button.
+    - If your token contains one license, a confirmation message appears.
 
     - If your token contains several licenses, choose the license you want and then click on **Choose**. 
 
