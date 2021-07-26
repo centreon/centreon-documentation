@@ -376,7 +376,7 @@ change **/centreon** path with your new path
 
 ## Upgrade to PHP 7.3
 
-PHP 7.2 has reached end of life since november of 2020
+PHP 7.2 reached its end of life in November 2020.
 
 If you cannot upgrade your platform to the next major version of Centreon, and want to get last security fixes, you need to follow those steps:
 
