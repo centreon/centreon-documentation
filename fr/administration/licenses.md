@@ -23,7 +23,7 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 - [Anomaly detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
 - [BAM](https://docs.centreon.com/current/en/service-mapping/install.html)
 - [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
-- [MBI](https://docs.centreon.com/current/en/reporting/introduction.html)
+- [MBI](https://docs.centreon.com/current/en/reporting/installation.html)
 
 ## Voir les modules soumis à licence
 
@@ -63,7 +63,7 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
 4. Collez votre jeton dans la fenêtre popup, puis cliquez sur **Ajouter**. 
 
-    - Si votre jeton contient une seule licence, une coche s'affiche à côté du bouton **Ajouter**.
+    - Si votre jeton contient une seule licence, un message de confirmation apparaît.
 
     - Si votre jeton contient plusieurs licences, choisissez la licence désirée puis cliquez sur **Choisir**.
 
