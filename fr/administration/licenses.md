@@ -86,7 +86,7 @@ La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa
 Vérifiez le contenu du dossier suivant :
 
 ```
-ll /etc/centreon/licenses.d
+ll /etc/centreon/license.d/
 ```
 Si le dossier contient déjà des licences avec des droits autres que apache/apache, supprimez-les ou changez-en les droits pour qu'elles puissent être écrasées par les nouvelles :
 
