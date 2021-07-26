@@ -121,13 +121,97 @@ an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
 ## HTTP and API checks
 
-### UNKNOWN: 500 Can't connect to 10.30.2.136:19999 (Connexion refusée)
-
 ### UNKNOWN: Cannot decode response (add --debug option to display returned content)
+
+Plugins perform API calls and decode the content obtained from the API to use it as 
+status, message, or metrics. This way, it expects a specific data formatting depending
+on what the API supports (XML or JSON).
+
+If the API doesn't send the data a Plugin expects, the library it uses will fail 
+decoding the data.
+
+The most common cause is that a Proxy blocks the primary query and returns an error 
+message that is not in the expected format. You can specify the address and the port 
+of a proxy through the `--proxyurl=<proto>://<address>:<port>` option.
+
+It may also happen when the API returns an error instead of the expected data structure. 
+You may want to dig deeper into this by adding the `--debug` flag to your command line 
+to get more information on the query and data received.
+
+### UNKNOWN: 500 Can't connect to <ip_address>:<port> (<extra_reason_if_available>)
+
+When grabbing metrics or statutes from an API, multiple issues can show up because
+of proxies, remote devices' certificates, or simply the check configuration.
+
+This section focuses on the most common error reasons and shares some tips to solve them. 
+
+An important thing to know is that Plugins can rely on several backends to perform 
+HTTP requests. You can specify which backend you want to use to perform checks using 
+the `--http-backend` option. The default value is 'lwp,' though `curl` is also 
+available and generally easier to debug.
+
+In the same way, if you're using a proxy, you can tell the Plugin how to go through 
+by adding the `--proxyurl` option to your command line. The value formatting is: 
+`--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
+
+#### UNKNOWN: 500 Can't connect to <ip_address>:<port> (Connection refused)
+
+This issue generally means that the port or protocol used by the Plugin is wrong, 
+misconfigured, or unsupported. 
+
+In this situation, at the Host configuration level, double-check that:
+* the port used is correct, primarily if you use a non-standard port for security reasons
+* the protocol (http or https) used matches the one configured on the API-side
+
+Each Plugin using HTTP backends does have `--proto` and `--port` options allowing 
+you to specify these values.
+
+#### UNKNOWN: 500 Can't connect to <ip_address>:<port> (Timeout)
+
+The timeout error occurs when the Plugin doesn't succeed in contacting the server 
+or that a third-party device is blocking or filtering the client's request. 
+
+#### UNKNOWN: 500 Can't connect to <ip_address>:<port> (<SSL Error>)
+
+SSL Errors indicate that the Plugin has some trouble establishing a secure connection 
+to get the monitoring information.
+
+The primary cause could be the certificate used. In this case, the best practice 
+would be either to: 
+* renew the certificate when it expired 
+* sign the remote certificate officially
+* deploy the certificate locally so the Plugin can recognize it
+
+Regardless of what HTTP backend you're using, it's possible to ignore SSL certificate 
+errors by adding specific flags: 
+
+* lwp backend: `--ssl-opt='--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE'`
+* curl backend: `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
+
+Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
+so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
+option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer of software editor documentation.
+
+## SSH and CLI checks
+
+### UNKNOWN: Command error: <interpreter>: <command_name>: command not found
+
+This error warns that the Plugin is not able to execute the <command_name> because it 
+doesn't exist in PATH or is not installed.
+
+Depending on how the check is performed (locally or remotely), make sure that the 
+utility the plugin uses is available to your monitoring user. 
+
+### UNKNOWN: Command error: Host key verification failed.
+
+SSH-Based checks can use several backends. Either you use the `ssh` or `plink` backend, 
+you have to manually validate the remote system fingerprint from the centreon-engine 
+user on the monitoring Poller. If you don't do that, the Plugin will hang and timeout
+because it cannot accept the fingerprint for obvious security reasons.
 
 ## NRPE checks
 
-#### `CHECK_NRPE STATE CRITICAL: Socket timeout after 10 seconds`
+### CHECK_NRPE STATE (CRITICAL|UNKNOWN): Socket timeout after 10 seconds
 
 Here are the questions you may want to ask yourself when obtaining this result: 
 
@@ -135,7 +219,7 @@ Here are the questions you may want to ask yourself when obtaining this result:
 - Is the NRPE daemon running on the remote system?
 - Is there any firewall or security policy that might block the request? 
 
-#### `connect to address x.x.x.x port 5666: Connection refused`
+### connect to address x.x.x.x port 5666: Connection refused
 
 This error means that the client made a successful connection to the remote host and port 
 but the server refused the connection.
@@ -148,7 +232,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-#### `NRPE: Command 'my_command' not defined`
+### NRPE: Command <a_command> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 
@@ -157,10 +241,6 @@ command line on the client-side.
 
 Check the NRPE Server configuration to ensure that the command exists: 
 ```text
-[my_command]=/path/to/a/command --option1='<value_or_macro>' --optionN='<value_or_macro>'
+[a_command]=/path/to/a/command --option1='<value_or_macro>' --optionN='<value_or_macro>'
 ```
 Do not forget to restart your NRPE daemon to update the configuration.
-
-## Database checks 
-
-### UNKNOWN: Cannot connect: Access denied for user
