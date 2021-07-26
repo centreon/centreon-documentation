@@ -441,6 +441,8 @@ Position Status [OK]
 
 ## Simulate the loss of the primary node
 
+### Processing
+
 To perform this test, run the commands on the primary server:
 
 ```bash
