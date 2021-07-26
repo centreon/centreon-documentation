@@ -239,7 +239,7 @@ et modifiez le chemin **/centreon** par le nouveau.
 
 ## Mise à jour vers PHP 7.3
 
-PHP 7.2 n'est plus supporté depuis novembre 2020
+PHP 7.2 n'est plus supporté depuis novembre 2020.
 
 Si vous ne pouvez pas mettre à jour votre plateforme vers la prochaine version majeure de Centreon, et que vous souhaitez obtenir les derniers correctifs de sécurité, vous devez suivre les étapes suivantes:
 
