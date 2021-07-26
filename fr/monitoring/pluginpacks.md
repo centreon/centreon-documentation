@@ -106,16 +106,17 @@ La souscription aux Centreon Plugin Packs vous donne accès à certains connecte
 
 ### Installation
 
-L’installation est en 3 étapes :
+L’installation se fait en 4 étapes :
 
 1. Accès au catalogue des Plugin Packs
 2. Installation du pack
+3. Vérification de la procédure de supervision
 3. Installation des plugins
 
 #### Accès au catalogue des Plugin Packs
 
-* Si vous avez une [licence](../administration/licenses.html) **en ligne**, les plugin packs sont déjà installés sur votre plateforme.
-* Si vous avez une licence **hors ligne**, vous devez installer ou mettre à jour le catalogue des plugin packs
+* Si vous avez une [licence](../administration/licenses.html) **en ligne**, le catalogue des Plugin Packs est déjà disponible sur votre plateforme.
+* Si vous avez une licence **hors ligne**, vous devez installer ou mettre à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 
   ```shell
@@ -149,9 +150,12 @@ Une fois le plugin pack installé, il apparaîtra avec un contour vert et une fl
 |------------------------------------------------------------------|-----------------------------------------------------------------|
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
-> Veuillez lire la **monitoring procedure** associée à chaque pack installé pour comprendre le contenu du pack ainsi
-> que les prérequis nécessaires à son fonctionnement, en cliquant sur le ``?`` icône de chaque pack ou en allant dans
-> le chapitre *[Intégration / Plugin Packs](../integrations/plugin-packs/introduction.html)*
+#### Procédure de supervision
+
+Certains Plugin Packs demandent des étapes de configuration supplémentaires. Consultez la procédure de supervision associée à chaque pack installé pour comprendre le contenu du pack ainsi
+que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`` de chaque pack pour accéder à la documentation associée :
+
+![image](../assets/configuration/pluginpacks/doc.png)
 
 #### Gestion des dépendances
 

@@ -99,15 +99,16 @@ The Centreon Plugin Packs subscription gives you access to specific connectors:
 
 ### Installation
 
-Installation is a 3-step process:
+Installation is a 4-step process:
 
 1. Access to the Plugin Packs catalog
 2. Pack installation
-3. Plugin installation
+3. Checking the monitoring procedure
+4. Plugin installation
 
 #### Access to Plugin Packs catalog
 
-* If you have an online [license](../administration/licenses.html), the plugin packs are already installed on your platform.
+* If you have an online [license](../administration/licenses.html), the Plugin Packs catalog is already available on your platform.
 
 * If you have an offline license, you need to install 
 or update the Plugin Packs catalog from your Centreon Central server:
@@ -142,9 +143,13 @@ Once the Plugin Pack is installed, a green outline and an arrow icon will indica
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
-> Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
-> well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
-> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction.html)
+
+#### Monitoring procedure
+
+Some plugin packs require extra configuration steps. Read the monitoring procedure for each installed pack
+to understand the contents of the pack and to find out about any prerequisites. Click on the ``i`` icon of each pack to access its documentation:
+
+![image](../assets/configuration/pluginpacks/doc.png)
 
 #### Managing dependencies
 
