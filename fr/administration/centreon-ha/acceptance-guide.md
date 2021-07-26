@@ -95,9 +95,9 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.html).
 
-### Bascule des ressource Centreon
+## Bascule des ressource Centreon
 
-#### État du cluster avant la bascule
+### État du cluster avant la bascule
 
 Avant d'exécuter un test de bascule, vérifiez l'état du cluster avec la commande à l'aide de la commande suivante :
 
@@ -137,7 +137,7 @@ Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-#### Exécuter une bascule
+### Exécuter une bascule
 
 Pour basculer les ressources, exécuter la commande :
 
@@ -217,7 +217,7 @@ Position Status [OK]
 
 > Si la synchronisation présente des `KO` vous devez corriger ces dernières en vous aidant du [guide d'opération](operating-guide.html).
 
-#### Retour en situation nominal
+### Retour en situation nominal
 
 Afin de revenir en situation nominale, vous devez lancer la bascule des ressources.
 
@@ -280,12 +280,12 @@ Enfin, supprimer les contraintes avec la commande :
 pcs resource clear centreon
 ```
 
-### Simuler la perte du nœud secondaire
+## Simuler la perte du nœud secondaire
 
 Afin de simuler une coupure réseau qui isolerait le nœud secondaire, vous pouvez utiliser `iptables` pour bloquer le trafic vers le nœud secondaire.
 Le nœud secondaire sera complètement exclu du cluster. Le nœud primaire garde la majorité avec le QDevice.
 
-#### Exécution 
+### Exécution 
 
 Pour réaliser ce test, lancer les commandes `iptables` sur le nœud primaire :
 
@@ -345,7 +345,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-#### Retour en situation nominal
+### Retour en situation nominal
 
 Pour vérifier les différentes règles iptables configurées sur le nœud primaire, éxecuter la commande suivante :
 
@@ -437,12 +437,12 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### Simuler la perte du nœud primaire
+## Simuler la perte du nœud primaire
 
 Afin de simuler une coupure réseau qui isolerait le nœud primaire, vous pouvez utiliser `iptables` pour bloquer le trafic vers le nœud secondaire et le Qdevice.
 Le nœud primaire sera complètement exclu du cluster. Le nœud secondaire gagne la majorité avec le QDevice.```
 
-#### Exécution
+### Exécution
 
 Afin de réaliser ce test, lancer les commandes sur le serveur primaire :
 
@@ -505,7 +505,7 @@ No active resources
 
 Ce test permet de vérifier qu'en cas d'indisponibilité du nœud primaire, les ressources basculeront sur le nœud secondaire et permet une continuité de service.
 
-#### Retour en situation nominal
+### Retour en situation nominal
 
 Pour vérifier les différentes règles iptables configurées sur le nœud primaire, exécuter la commande suivante :
 

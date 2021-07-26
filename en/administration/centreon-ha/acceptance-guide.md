@@ -94,9 +94,9 @@ Position Status [OK]
 
 > If the synchronization shows `KO` you have to fix it with the help of the [operating-guide](operating-guide.html).
 
-### Centreon resource failover
+## Centreon resource failover
 
-#### State of the cluster before the failover
+### State of the cluster before the failover
 
 Before running a failover test, check the status of the cluster with the following command:
 
@@ -137,7 +137,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-#### Perform a failover
+### Perform a failover
 
 To move the resources, run the command:
 
@@ -219,7 +219,7 @@ Position Status [OK]
 
 > If the synchronization has `KO` you have to fix it with the help of the [operating-guide](operating-guide.html).
 
-#### Back to the nominal situation
+### Back to the nominal situation
 
 To return to the nominal situation, you must launch the resource failover.
 
@@ -282,12 +282,12 @@ Finally, remove the constraints with the command:
 pcs resource clear centreon
 ```
 
-### Simulate the loss of the secondary node
+## Simulate the loss of the secondary node
 
 To simulate a network failure that would isolate the secondary node, you can use `iptables` to drop traffic from and to the secondary node.
 The secondary node will be completely excluded from the cluster. The primary node keeps the majority with the QDevice.
 
-#### Processing 
+### Processing 
 
 To perform this test, launch the `iptables` commands on the primary node:
 
@@ -347,7 +347,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
 
-#### Back to nominal situation
+### Back to nominal situation
 
 To check the various iptables rules configured on the primary node, run the following command:
 
@@ -439,7 +439,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### Simulate the loss of the primary node
+## Simulate the loss of the primary node
 
 To perform this test, run the commands on the primary server:
 
@@ -502,7 +502,7 @@ No active resources
 
 This test checks that resources will be switched to the secondary node if the primary node is unavailable and allows for continuity of service.
 
-#### Back to nominal situation
+### Back to nominal situation
 
 To check the various iptables rules configured on the primary node, run the following command:
 
