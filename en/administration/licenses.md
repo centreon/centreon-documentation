@@ -23,7 +23,7 @@ The following modules need to be installed separately and require a valid licens
 - [Anomaly detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
 - [BAM](https://docs.centreon.com/current/en/service-mapping/install.html)
 - [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
-- [MBI](https://docs.centreon.com/current/en/reporting/introduction.html)
+- [MBI](https://docs.centreon.com/current/en/reporting/installation.html)
 
 ## Viewing license-based modules
 
@@ -86,7 +86,7 @@ See chapter [Set up your free IT-100 solution](https://docs.centreon.com/current
 Check the contents of the following directory:
 
 ```
-ll /etc/centreon/licenses.d
+ll /etc/centreon/license.d/
 ```
 
 If the directory already contains licences with rights that are not apache/apache, delete them or change their rights so that they can be overwritten by the new licenses:
