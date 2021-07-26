@@ -19,11 +19,11 @@ According to your [Centreon edition](https://www.centreon.com/en/editions/), you
 The following modules need to be installed separately and require a valid license.
 
 - [Plugin Packs](https://docs.centreon.com/current/en/monitoring/pluginpacks.html#installation)
-- [Autodiscovery](https://docs.centreon.com/current/en/monitoring/discovery/installation.html)
-- [Anomaly detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
-- [BAM](https://docs.centreon.com/current/en/service-mapping/install.html)
-- [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
-- [MBI](https://docs.centreon.com/current/en/reporting/installation.html)
+- [Auto Discovery](https://docs.centreon.com/current/en/monitoring/discovery/installation.html)
+- [Anomaly Detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
+- [Service mapping (BAM)](https://docs.centreon.com/current/en/service-mapping/install.html)
+- [Graphical views (MAP)](https://docs.centreon.com/current/en/graph-views/install.html)
+- [Reporting (MBI)](https://docs.centreon.com/current/en/reporting/installation.html)
 
 ## Viewing license-based modules
 
@@ -33,7 +33,8 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-### Offline licenses
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Offline licenses-->
 
 1. To request your license:
 
@@ -51,7 +52,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
 
-### Online licenses
+<!--Online licenses-->
 
 To use an online license, your Centreon platform must be connected to the internet.
 
@@ -73,6 +74,8 @@ To use an online license, your Centreon platform must be connected to the intern
 
     The **Add token** button changes to become a **View license** button.
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Free IT-100 license
 
 See chapter [Set up your free IT-100 solution](https://docs.centreon.com/current/en/getting-started/IT100.html).
@@ -86,14 +89,14 @@ See chapter [Set up your free IT-100 solution](https://docs.centreon.com/current
 Check the contents of the following directory:
 
 ```
-ll /etc/centreon/license.d/
+ls -lah /etc/centreon/license.d/
 ```
 
 If the directory already contains licences with rights that are not apache/apache, delete them or change their rights so that they can be overwritten by the new licenses:
 
 ```
 chown apache:apache /etc/centreon/license.d/*
-chmod 644 /etc/centreon/license.d/*
+chmod 640 /etc/centreon/license.d/*
 ```
 
 ### Your EPP license is not valid
@@ -104,9 +107,13 @@ chmod 644 /etc/centreon/license.d/*
     less /etc/centreon/license.d/epp.license
     ```
 
-* Check that you do not have more hosts than your license allows:
+* Check that you do not have more hosts than your license allows. To know the total number of hosts you are supervising, go to **Configuration > Hosts > Hosts**, and then use the dropdown list to the right above the list of hosts:
+
+    ![image](../assets/administration/number-of-hosts.png)
+
+    You can also use the following command:
 
     ```
-    #mysql centreon
+    mysql centreon
     SELECT COUNT(*) FROM host WHERE host_register='1';
     ```

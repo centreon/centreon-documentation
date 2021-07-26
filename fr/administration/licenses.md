@@ -19,11 +19,11 @@ Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licen
 Les modules suivants doivent être installés séparément et nécessitent une licence valide.
 
 - [Plugin Packs](https://docs.centreon.com/current/en/monitoring/pluginpacks.html#installation)
-- [Autodiscovery](https://docs.centreon.com/current/en/monitoring/discovery/installation.html)
-- [Anomaly detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
-- [BAM](https://docs.centreon.com/current/en/service-mapping/install.html)
-- [MAP](https://docs.centreon.com/current/en/graph-views/install.html)
-- [MBI](https://docs.centreon.com/current/en/reporting/installation.html)
+- [Auto Discovery](https://docs.centreon.com/current/en/monitoring/discovery/installation.html)
+- [Anomaly Detection](https://docs.centreon.com/current/en/monitoring/anomaly-detection.html)
+- [Service mapping (BAM)](https://docs.centreon.com/current/en/service-mapping/install.html)
+- [Vues graphiques (MAP)](https://docs.centreon.com/current/en/graph-views/install.html)
+- [Reporting (MBI)](https://docs.centreon.com/current/en/reporting/installation.html)
 
 ## Voir les modules soumis à licence
 
@@ -33,7 +33,8 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 
 ## Ajouter une licence
 
-### Licences hors ligne
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Licences hors ligne-->
 
 1. Pour demander votre licence:
 
@@ -51,7 +52,7 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 
 6. Si vous avez plusieurs licences à ajouter (par exemple pour BAM, MBI...), répétez les étapes précédentes jusqu'à ce que vous ayez téléchargé tous les fichiers de licence.
 
-### Licences en ligne
+<!--Licences en ligne-->
 
 Pour utiliser une licence en ligne, votre plateforme Centreon doit être connectée à internet.
 
@@ -73,6 +74,8 @@ Pour utiliser une licence en ligne, votre plateforme Centreon doit être connect
 
     Le bouton **Ajouter Token** devient un bouton **Voir la licence**.
 
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Licence gratuite IT-100
 
 La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa solution gratuite IT-100](https://docs.centreon.com/current/fr/getting-started/IT100.html).
@@ -86,13 +89,13 @@ La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa
 Vérifiez le contenu du dossier suivant :
 
 ```
-ll /etc/centreon/license.d/
+ls  -lah /etc/centreon/license.d/
 ```
 Si le dossier contient déjà des licences avec des droits autres que apache/apache, supprimez-les ou changez-en les droits pour qu'elles puissent être écrasées par les nouvelles :
 
 ```
 chown apache:apache /etc/centreon/license.d/*
-chmod 644 /etc/centreon/license.d/*
+chmod 640 /etc/centreon/license.d/*
 ```
 
 ### Your EPP license is not valid
@@ -103,9 +106,14 @@ chmod 644 /etc/centreon/license.d/*
     less /etc/centreon/license.d/epp.license
     ```
 
-* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence :
+* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence. 
+Pour connaître le nombre d'hôtes supervisés, à la page **Configuration > Hôtes > Hôtes**, utilisez la liste déroulante en haut à droite de la liste :
+
+    ![image](../assets/administration/number-of-hosts.png)
+
+    Vous pouvez également utiliser la commande suivante :
 
     ```
-    #mysql centreon
+    mysql centreon
     SELECT COUNT(*) FROM host WHERE host_register='1';
     ```
