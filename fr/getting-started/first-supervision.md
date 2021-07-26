@@ -37,6 +37,8 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 > Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
 
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.html) afin de trouver et de configurer vos hôtes facilement.
+
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
