@@ -592,7 +592,7 @@ Si vous ne pouvez pas mettre à jour votre plateforme vers la prochaine version 
 2. Mettre à jour votre version PHP en utilisant la commande suivante:
 
 ```shell
-sh /usr/share/centreon/bin/migrate_php73.sh
+sh /usr/share/centreon/bin/migrate_php74.sh
 ```
 
 La sortie devrait correspondre à ceci:
@@ -600,8 +600,8 @@ La sortie devrait correspondre à ceci:
 ```
 [INFO] Installing dependencies for PHP 7.4
 ...
-[INFO] Copying php-fpm configuration from 7.3 to 7.4
-[INFO] Copying php configuration from 7.3 to 7.4
+[INFO] Copying php-fpm configuration from 7.2 to 7.4
+[INFO] Copying php configuration from 7.2 to 7.4
 [INFO] Configuring system to use new PHP 7.4 binary
 [INFO] Upgrade finished
 ```

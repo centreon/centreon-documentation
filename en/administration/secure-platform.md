@@ -725,7 +725,7 @@ If you cannot upgrade your platform to the next major version of Centreon, and w
 2. Upgrade your PHP version by using following command:
 
 ```shell
-sh /usr/share/centreon/bin/migrate_php73.sh
+sh /usr/share/centreon/bin/migrate_php74.sh
 ```
 
 The output should look like this:
@@ -733,8 +733,8 @@ The output should look like this:
 ```
 [INFO] Installing dependencies for PHP 7.4
 ...
-[INFO] Copying php-fpm configuration from 7.3 to 7.4
-[INFO] Copying php configuration from 7.3 to 7.4
+[INFO] Copying php-fpm configuration from 72 to 7.4
+[INFO] Copying php configuration from 7.2 to 7.4
 [INFO] Configuring system to use new PHP 7.4 binary
 [INFO] Upgrade finished
 ```
