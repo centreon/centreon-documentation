@@ -88,13 +88,13 @@ See chapter [Set up your free IT-100 solution](https://docs.centreon.com/current
 
 Check the contents of the following directory:
 
-```
+```shell
 ls -lah /etc/centreon/license.d/
 ```
 
 If the directory already contains licences with rights that are not apache/apache, delete them or change their rights so that they can be overwritten by the new licenses:
 
-```
+```shell
 chown apache:apache /etc/centreon/license.d/*
 chmod 640 /etc/centreon/license.d/*
 ```
@@ -103,7 +103,7 @@ chmod 640 /etc/centreon/license.d/*
 
 * Check that the fingerprint of the central server (on page **Administration > Extensions > Gestionnaire**) matches the fingerprint in the license.
 
-    ```
+    ```shell
     less /etc/centreon/license.d/epp.license
     ```
 
@@ -113,7 +113,6 @@ chmod 640 /etc/centreon/license.d/*
 
     You can also use the following command:
 
-    ```
-    mysql centreon
-    SELECT COUNT(*) FROM host WHERE host_register='1';
+    ```sql
+    SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
     ```
