@@ -19,6 +19,17 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.17
+
+#### Bugfixes
+
+- [Core] Unserialize in CentreonUtils is blocked by QualityGate
+- [Core] Update copyright date
+- [Graph] Can't get a graph with autologin key
+- [LDAP] Fixed LDAP auto-sync always skip
+- [LDAP] LDAP's My account issue
+- [i18n] Fix typo in error message
+
 ### 20.04.16
 
 `July 01, 2021`
