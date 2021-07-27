@@ -707,6 +707,38 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 and change **/centreon** path with your new path
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+## Upgrade to PHP 7.3
+
+PHP 7.2 reached its end of life in November 2020.
+
+If you cannot upgrade your platform to the next major version of Centreon, and want to get the last PHP security fixes, you need to follow these steps:
+
+1. Check centreon web & extensions version requirements:
+    * centreon-web >= 20.10.10
+    * centreon-bi >= 20.10.5
+    * centreon-open-tickets >= 20.10.3
+> You can get the list of packages versions by using following command:
+> ```shell
+> rpm -qa | grep centreon
+> ```
+
+2. Upgrade your PHP version by using following command:
+
+```shell
+sh /usr/share/centreon/bin/migrate_php73.sh
+```
+
+The output should look like this:
+
+```
+[INFO] Installing dependencies for PHP 7.4
+...
+[INFO] Copying php-fpm configuration from 7.3 to 7.4
+[INFO] Copying php configuration from 7.3 to 7.4
+[INFO] Configuring system to use new PHP 7.4 binary
+[INFO] Upgrade finished
+```
+
 ## Enabling http2
 
 It is possible to enable http2 protocol to improve Centreon network performance.
