@@ -62,8 +62,7 @@ Disabled
 
 ### Configurer ou désactiver le pare-feu
 
-[Paramétrez](../../administration/secure-platform.html#enable-firewalld) le pare-feu système ou désactivez ce dernier. Pour désactiver ce
-dernier exécutez les commandes suivantes :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.html#enable-firewalld). Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld

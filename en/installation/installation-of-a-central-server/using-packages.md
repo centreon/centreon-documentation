@@ -63,7 +63,7 @@ Disabled
 
 ### Configure or disable the firewall
 
-Add [firewall rules](../../administration/secure-platform.html#enable-firewalld) or disable the firewall by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.html#enable-firewalld). You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
