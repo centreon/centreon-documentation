@@ -410,7 +410,8 @@ yum install -y centos-release-scl
 
 Add nodesource repository:
 ```shell
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 ```
 
 The repository are now installed.

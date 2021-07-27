@@ -410,7 +410,8 @@ yum install -y centos-release-scl
 
 Ajoutez le dépôt nodesource :
 ```shell
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 ```
 
 Les dépôts sont maintenant installés.
