@@ -88,12 +88,12 @@ La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa
 
 Vérifiez le contenu du dossier suivant :
 
-```
+```shell
 ls  -lah /etc/centreon/license.d/
 ```
 Si le dossier contient déjà des licences avec des droits autres que apache/apache, supprimez-les ou changez-en les droits pour qu'elles puissent être écrasées par les nouvelles :
 
-```
+```shell
 chown apache:apache /etc/centreon/license.d/*
 chmod 640 /etc/centreon/license.d/*
 ```
@@ -102,7 +102,7 @@ chmod 640 /etc/centreon/license.d/*
 
 * Vérifiez que l'empreinte du serveur central (récupérable à la page **Administration > Extensions > Gestionnaire**) correspond à celui renseigné dans la licence.
 
-    ```
+    ```shell
     less /etc/centreon/license.d/epp.license
     ```
 
@@ -113,7 +113,6 @@ Pour connaître le nombre d'hôtes supervisés, à la page **Configuration > Hô
 
     Vous pouvez également utiliser la commande suivante :
 
-    ```
-    mysql centreon
-    SELECT COUNT(*) FROM host WHERE host_register='1';
+    ```sql
+    SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
     ```
