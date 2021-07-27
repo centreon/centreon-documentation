@@ -184,7 +184,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat. These are required for installing PHP 7 and its associated libraries.
+repository supported by Redhat. It is required for installing PHP 7 and its associated libraries.
 
 Install the Software Collections repository using this command:
 
