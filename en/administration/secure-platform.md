@@ -733,7 +733,7 @@ The output should look like this:
 ```
 [INFO] Installing dependencies for PHP 7.4
 ...
-[INFO] Copying php-fpm configuration from 72 to 7.4
+[INFO] Copying php-fpm configuration from 7.2 to 7.4
 [INFO] Copying php configuration from 7.2 to 7.4
 [INFO] Configuring system to use new PHP 7.4 binary
 [INFO] Upgrade finished
