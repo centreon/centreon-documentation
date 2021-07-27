@@ -146,7 +146,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 
 ### Secure MySQL installation
 
-Since MariaDB 10.5 it is necessary to secure the database's installation
+Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.
 
 Answer yes to all questions except "Disallow root login remotely?".
