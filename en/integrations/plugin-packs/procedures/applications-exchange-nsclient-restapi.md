@@ -1,6 +1,6 @@
 ---
-id: applications-exchange-2010-nsclient-05-restapi
-title: Exchange 2010 API
+id: applications-exchange-nsclient-restapi
+title: Exchange NSClient++ API
 ---
 
 ## Prerequisites

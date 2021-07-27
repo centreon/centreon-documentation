@@ -194,11 +194,12 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.html).
 
-8. [Sécurisez votre serveur](../../administration/secure-platform.html). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
+9. [Mettez à jour](../../update/update-centreon-platform.html) votre plateforme Centreon.
+
+10. [Sécurisez votre serveur](../../administration/secure-platform.html). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
 de définir un mot de passe pour la base MySQL.
 
-9. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.html).
-
+11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.html).
 
 ## Identifiants par défaut
 
