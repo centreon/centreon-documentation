@@ -19,6 +19,29 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.10
+
+#### Enhancements
+
+- [Authentication] Improve centreonAuth.SSO.class for OpenId connection
+
+#### Bugfixes
+
+- [Administration] LDAP search fails
+- [Configuration] Changing a Remote Server's IP address converts it into a simple Poller
+- [Configuration] Editing service template removes relations with servicegroups
+- [Configuration] Only first servicegroup linked to a service template is exported
+- [Core] Unserialize in CentreonUtils is blocked by QualityGate
+- [Core] Update copyright date
+- [Graph] Can't get a graph with autologin key
+- [LDAP] Fixed LDAP auto-sync always skip
+- [LDAP] LDAP's My account issue
+- [Platform Topology] CLAPI add Instance don't add poller into platform_topology table
+- [Platform Topology] Json Schema isn't validate in POST endpoint
+- [Platform Topology] Removed unused variable in registerServerTopology.sh
+- [Resources Status] No route found for "GET /centreon/api/beta/monitoring/resources/undefineds/133"
+- [i18n] Fix typo in error message
+
 ### 20.10.9
 
 `30 juin 2021`
