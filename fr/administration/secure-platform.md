@@ -75,7 +75,7 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 ### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel que :
+vous devez modifier le fichier `/etc/selinux/config` comme tel :
 
 ```shell
 # This file controls the state of SELinux on the system.
