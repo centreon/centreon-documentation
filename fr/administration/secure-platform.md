@@ -247,6 +247,10 @@ Si vous ne pouvez pas mettre à jour votre plateforme vers la prochaine version 
     * centreon-web >= 20.04.17
     * centreon-bi >= 20.04.8
     * centreon-open-tickets >= 20.04.3
+> Vous pouvez obtenir la liste des versions des paquets en utilisant la commande suivante:
+> ```shell
+> rpm -qa | grep centreon
+> ```
 
 2. Mettre à jour votre version PHP en utilisant la commande suivante:
 

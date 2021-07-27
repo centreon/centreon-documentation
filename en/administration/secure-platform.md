@@ -384,6 +384,10 @@ If you cannot upgrade your platform to the next major version of Centreon, and w
     * centreon-web >= 20.04.17
     * centreon-bi >= 20.04.8
     * centreon-open-tickets >= 20.04.3
+> You can get the list of packages versions by using following command:
+> ```shell
+> rpm -qa | grep centreon
+> ```
 
 2. Upgrade your PHP version by using following command:
 
