@@ -128,6 +128,10 @@ et cliquez sur **Exporter**,
 
 La supervision est maintenant opérationnelle.
 
+## Ajouter une licence
+
+Selon votre édition de Centreon, vous pouvez devoir [ajouter une licence](../administration/licenses.html).
+
 ## Installer les extensions disponibles
 
 Rendez-vous au menu `Administration > Extensions > Gestionnaire` et cliquez sur

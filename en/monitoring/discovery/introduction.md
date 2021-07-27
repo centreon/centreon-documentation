@@ -4,7 +4,7 @@ title: Introduction
 ---
 
 > Centreon Auto Discovery is a Centreon **extension** that requires a valid
-> license key. To purchase one and retrieve the necessary repositories, contact
+> [license](../../administration/licenses.html) key. To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
 

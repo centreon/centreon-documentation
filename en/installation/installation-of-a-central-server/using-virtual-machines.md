@@ -175,11 +175,14 @@ The host machine must have the following characteristics:
 
 7. Log in using the following credentials: Login: `admin`, password: `centreon`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
-8. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MySQL database.
+8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.html).
 
 9. [Update](../../update/update-centreon-platform.html) your Centreon platform.
 
-10. Go to the [Getting Started](../../getting-started/installation-first-steps.html) chapter to configure your first monitoring.
+9. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MySQL database.
+
+10. You can now [monitor your first host](../../getting-started/first-supervision.html).
+
 
 ## Default credentials
 
@@ -187,5 +190,5 @@ The host machine must have the following characteristics:
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 
-> For security reasons, we highly recommend you to change those passwords after the installation completed.
+> For security reasons, we highly recommend you change those passwords after you complete the installation.
 
