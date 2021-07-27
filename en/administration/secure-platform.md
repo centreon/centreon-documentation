@@ -707,7 +707,7 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 and change **/centreon** path with your new path
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Upgrade to PHP 7.3
+## Upgrade to PHP 7.4
 
 PHP 7.2 reached its end of life in November 2020.
 

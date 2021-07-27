@@ -574,7 +574,7 @@ vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 
 et modifiez le chemin **/centreon** par le nouveau.
 
-## Mise à jour vers PHP 7.3
+## Mise à jour vers PHP 7.4
 
 PHP 7.2 n'est plus supporté depuis novembre 2020.
 
