@@ -244,3 +244,12 @@ Check the NRPE Server configuration to ensure that the command exists:
 [a_command]=/path/to/a/command --option1='<value_or_macro>' --optionN='<value_or_macro>'
 ```
 Do not forget to restart your NRPE daemon to update the configuration.
+
+### NRPE: unable to read output
+
+This error can occur when the NRPE server fails to execute the command for some reason.
+In this situation, connect to the server running the NRPE server and execute the 
+command manually with the NRPE user.
+
+Most of the time, it's due to unsufficient rights (missing execution bit or wrong 
+owner) or a missing dependency at code level. 
