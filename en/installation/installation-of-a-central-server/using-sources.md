@@ -692,7 +692,7 @@ Please install Centreon Gorgone using [this procedure](https://github.com/centre
 
 ### Secure MySQL installation
 
-Since MariaDB 10.5 it is necessary to secure the database's installation
+Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.
 
 Answer yes to all questions except "Disallow root login remotely?".
