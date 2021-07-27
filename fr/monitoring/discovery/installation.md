@@ -7,9 +7,9 @@ title: Installation
 
 1. Pour installer le paquet, exécutez la commande suivante sur le serveur Central :
 
-``` shell
-yum install -y centreon-auto-discovery-server
-```
+    ``` shell
+    yum install -y centreon-auto-discovery-server
+    ```
 
 2. Pour installer l'extension, connectez-vous à l’interface web de Centreon avec un compte ayant le
 droit d’installer des modules et rendez-vous dans le menu **Administration >

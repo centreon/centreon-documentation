@@ -44,9 +44,9 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
 > Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
-> pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
+> pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
-Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
+Commencez par installer le Plugin Pack **Base Generic** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
 l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
 
 ![image](../assets/getting-started/pp_base_generic_1.png)

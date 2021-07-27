@@ -166,8 +166,8 @@ following this [procedure](#activate-selinux-in-permissive-mode) using **enforci
 
 ## Securing the installation of the DBMS
 
-[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
-installation. Please execute the following command and follow instruction:
+[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
+installation. Please execute the following command and follow instructions:
 
 ```shell
 mysql_secure_installation
