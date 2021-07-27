@@ -19,6 +19,31 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.4
+
+#### Enhancements
+
+[Authentication] Improve centreonAuth.SSO.class for OpenId connection
+
+#### Bugfixes
+
+[Administration] LDAP search fails
+[Configuration] Changing a Remote Server's IP address converts it into a simple Poller
+[Configuration] Editing service template removes relations with servicegroups
+[Configuration] Only first servicegroup linked to a service template is exported
+[Core] Unserialize in CentreonUtils is blocked by QualityGate
+[Core] Update copyright date
+[Downtimes] Prevent the user from creating downtimes with start date, end date and duration after 2037
+[Graph] Can't get a graph with autologin key
+[LDAP] Fixed LDAP auto-sync always skip
+[LDAP] LDAP's My account issue
+[Platform Topology] CLAPI add Instance don't add poller into platform_topology table
+[Platform Topology] Json Schema isn't validate in POST endpoint
+[Platform Topology] Removed unused variable in registerServerTopology.sh
+[Resources Status] Criteria drop down lists do not fully display the available items
+[Resources Status] Make groups chips clickable
+[i18n] Fix typo in error message
+
 ### 21.04.3
 
 `June 28, 2021`
