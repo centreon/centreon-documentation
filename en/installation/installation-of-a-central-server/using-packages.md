@@ -328,7 +328,7 @@ DROP USER '<USER>'@'<IP>';
 > max_allowed_packet = 128M
 > ```
 > 
-> Optionnaly, tune the memory and buffer utilization of the InnoDB engine powered 
+> Optionally, tune the memory and buffer utilization of the InnoDB engine powered 
 > tables. The example below applies to a database server with 8Gb RAM
 >  
 > ```shell
@@ -401,7 +401,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Since MariaDB 10.5 it is necessary to secure its installation
 before installing Centreon.
 
-> Answer yes to all questions except to "Disallow root login remotely?"
+> Answer yes to all questions except to "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
