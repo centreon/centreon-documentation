@@ -140,7 +140,7 @@ to get more information on the query and data received.
 
 ### UNKNOWN: 500 Can't connect to <ip_address>:<port> (<extra_reason_if_available>)
 
-When grabbing metrics or statutes from an API, multiple issues can show up because
+When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
 
 This section focuses on the most common error reasons and shares some tips to solve them. 
