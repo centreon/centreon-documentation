@@ -45,7 +45,7 @@ Access: (0775/drwxrwxr-x)  Uid: (  998/centreon)   Gid: (  997/centreon)`
 [...]
 ``` 
 
-If directory rights are ok, check also rights of the cache file: 
+If directory rights are ok, check also the rights of the cache file: 
 `stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
 
 ```bash
