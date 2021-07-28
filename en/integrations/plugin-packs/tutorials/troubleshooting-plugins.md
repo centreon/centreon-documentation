@@ -113,7 +113,7 @@ You should look for available OIDs using the `snmpwalk` utility and modify the c
 command to use the available ones.
 
 The interfaces' bandwidth and status monitoring is a textbook case: the Plugin default 
-behavior uses the ifName OID to build its cache. If it cannot find it then you 
+behavior uses the `ifName` OID to build its cache. If it cannot find it then you 
 run into this error. 
 
 For interfaces and storage checks, options exist to ask the probe to use 
