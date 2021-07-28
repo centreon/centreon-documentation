@@ -35,7 +35,7 @@ The most common cause is inappropriate rights on the cache directory (`/var/lib/
 or the cache file itself.  It can also be the result of an inconsistent installation 
 or simply that the directory doesn't exist. 
 
-Check that the directory exists and has the appropriate rights using stat utility: 
+Check that the directory exists and has the appropriate rights using the stat utility: 
 `stat /var/lib/centreon/centplugins`. The expected result is: 
 
 ```bash
