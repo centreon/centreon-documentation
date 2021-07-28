@@ -161,7 +161,7 @@ misconfigured, or unsupported.
 
 In this situation, at the Host configuration level, double-check that:
 * the port used is correct, primarily if you use a non-standard port for security reasons
-* the protocol (http or https) used matches the one configured on the API-side
+* the protocol used (http or https) matches the one configured on the API-side
 
 Each Plugin using HTTP backends does have `--proto` and `--port` options allowing 
 you to specify these values.
