@@ -17,7 +17,7 @@ The Centreon Pollers run a scheduler responsible for planning and executing chec
 To troubleshoot a Plugin, you must always:
 
 - Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
-- Use the centreon-engine user to execute manually the Plugin (and never root!)
+- Use the centreon-engine user to execute the Plugin manually (and never root!).
 
 ## Common problems
 
