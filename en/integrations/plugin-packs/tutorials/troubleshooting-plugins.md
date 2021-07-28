@@ -58,7 +58,7 @@ Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-e
 ### Check output or metrics is not complete
 
 When a Plugin execution looks partial or incomplete, it usually means that there's 
-a bug somewhere in the code. If this is the case, you will likely see some stderr 
+a bug somewhere in the code. If this is the case, you will likely see some *stderr*
 lines printed when executing the check through the CLI. 
 
 A message similar to the one below confirm that this is a bug: 
