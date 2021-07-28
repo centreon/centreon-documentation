@@ -190,7 +190,7 @@ errors by adding specific flags:
 
 Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
 so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
-option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer of software editor documentation.
+option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
 
 ## SSH and CLI checks
 
