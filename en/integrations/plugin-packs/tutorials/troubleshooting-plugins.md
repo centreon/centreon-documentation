@@ -106,7 +106,7 @@ SNMP process is not running, or the port is not listening.
 
 ### UNKNOWN: Can't construct cache...
 
-To check storage attached to a device or system, Centreon Plugins use standard 
+To check the storage attached to a device or system, Centreon Plugins use standard 
 OIDs. From time to time, only some of these are implemented by the manufacturer.
 
 You should look for available OIDs using the `snmpwalk` utility and modify the check 
