@@ -200,7 +200,7 @@ This error warns that the Plugin is not able to execute the <command_name> becau
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 
-utility the plugin uses is available to your monitoring user. 
+utility the Plugin uses is available to your monitoring user. 
 
 ### UNKNOWN: Command error: Host key verification failed.
 
