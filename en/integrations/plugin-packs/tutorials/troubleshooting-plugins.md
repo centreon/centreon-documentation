@@ -206,7 +206,7 @@ utility the Plugin uses is available to your monitoring user.
 
 SSH-Based checks can use several *backends*. Either you use the `ssh` or `plink` backend, 
 you have to manually validate the remote system fingerprint from the *centreon-engine*
-user on the monitoring Poller. If you don't do that, the Plugin will hang and timeout
+user on the monitoring Poller. If you don't do that, the Plugin will hang and cause a timeout
 because it cannot accept the fingerprint for obvious security reasons.
 
 ## NRPE checks
