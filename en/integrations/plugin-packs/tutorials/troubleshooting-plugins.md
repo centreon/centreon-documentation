@@ -169,7 +169,7 @@ you to specify these values.
 #### UNKNOWN: 500 Can't connect to <ip_address>:<port> (Timeout)
 
 The timeout error occurs when the Plugin doesn't succeed in contacting the server 
-or that a third-party device is blocking or filtering the client's request. 
+or when a third-party device is blocking or filtering the client's request. 
 
 #### UNKNOWN: 500 Can't connect to <ip_address>:<port> (<SSL Error>)
 
