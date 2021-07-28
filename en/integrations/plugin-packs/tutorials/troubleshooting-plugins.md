@@ -78,7 +78,7 @@ Github repository so we can patch it.
 Often, a timeout comes from: 
 - An SNMP Agent or Centreon Host misconfiguration, like a wrong SNMP port, version, 
 or community string
-- Third-party equipment (e.g., a Firewall) blocking the communication between the 
+- Third-party equipment (e.g., a firewall) blocking the communication between the 
 Poller and the remote device
 
 To go further, troubleshoot using an SNMP utility to mimic the Plugin behavior and 
