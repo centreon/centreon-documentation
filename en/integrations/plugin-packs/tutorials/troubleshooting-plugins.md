@@ -112,7 +112,7 @@ OIDs. From time to time, only some of these are implemented by the manufacturer.
 You should look for available OIDs using the `snmpwalk` utility and modify the check 
 command to use the available ones.
 
-The interfaces bandwidth and status monitoring is a textbook case: the Plugin default 
+The interfaces' bandwidth and status monitoring is a textbook case: the Plugin default 
 behavior uses the ifName OID to build its cache. If it cannot find it then you 
 run into this error. 
 
