@@ -1,6 +1,6 @@
 ---
 id: troubleshooting-plugins
-title: Troubleshooting Plugins errors
+title: Troubleshooting Plugin errors
 ---
 
 When using Plugins and deploying a new monitoring probe, some errors might show up. 
