@@ -27,7 +27,7 @@ When getting this error, please focus on the command line executed and ensure th
 the binary it uses exists or doesn't contain a typo.
 
 On RPM-based systems, you can use the following command to identify what's the 
-package providing the missing binary: `yum whatprovides "*/the_binary_name"`
+package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 
