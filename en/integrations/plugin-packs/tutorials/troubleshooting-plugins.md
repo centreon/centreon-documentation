@@ -82,7 +82,7 @@ or community string
 Poller and the remote device
 
 To go further, troubleshoot using an SNMP utility to mimic the Plugin behavior and 
-see if you get a timeout. On Linux, the net-snmp package provides a snmpwalk binary. 
+see if you get a timeout. On Linux, the `net-snmp` package provides a `snmpwalk` binary. 
 Here is a sample command: 
 
 `snmpwalk -v <1/2c> -c <community-string> <IP_ADDR> .1`
