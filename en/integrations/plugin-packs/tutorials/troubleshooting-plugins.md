@@ -128,7 +128,7 @@ status, message, or metrics. This way, it expects a specific data formatting dep
 on what the API supports (XML or JSON).
 
 If the API doesn't send the data a Plugin expects, the library it uses will fail 
-decoding the data.
+to decode the data.
 
 The most common cause is that a Proxy blocks the primary query and returns an error 
 message that is not in the expected format. You can specify the address and the port 
