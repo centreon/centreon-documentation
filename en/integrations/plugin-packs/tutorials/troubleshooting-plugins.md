@@ -150,7 +150,7 @@ HTTP requests. You can specify which backend you want to use to perform checks u
 the `--http-backend` option. The default value is `lwp`, though `curl` is also 
 available and generally easier to debug.
 
-In the same way, if you're using a proxy, you can tell the Plugin how to go through 
+In the same way, if you use a proxy, you can tell the Plugin how to go through 
 by adding the `--proxyurl` option to your command line. The value formatting is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
