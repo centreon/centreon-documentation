@@ -147,7 +147,7 @@ This section focuses on the most common error reasons and shares some tips to so
 
 An important thing to know is that Plugins can rely on several backends to perform 
 HTTP requests. You can specify which backend you want to use to perform checks using 
-the `--http-backend` option. The default value is 'lwp,' though `curl` is also 
+the `--http-backend` option. The default value is `lwp`, though `curl` is also 
 available and generally easier to debug.
 
 In the same way, if you're using a proxy, you can tell the Plugin how to go through 
