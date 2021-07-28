@@ -145,7 +145,7 @@ of proxies, remote devices' certificates, or simply the check configuration.
 
 This section focuses on the most common error reasons and shares some tips to solve them. 
 
-An important thing to know is that Plugins can rely on several backends to perform 
+An important thing to know is that Plugins can rely on several *backends* to perform 
 HTTP requests. You can specify which backend you want to use to perform checks using 
 the `--http-backend` option. The default value is `lwp`, though `curl` is also 
 available and generally easier to debug.
