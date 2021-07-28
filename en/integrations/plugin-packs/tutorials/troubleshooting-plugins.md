@@ -87,7 +87,7 @@ Here is a sample command:
 
 `snmpwalk -v <1/2c> -c <community-string> <IP_ADDR> .1`
 
-### UNKNOWN: SNMP GET Request : Cant get a single value
+### UNKNOWN: SNMP GET Request : Can't get a single value
 
 SNMP Plugins request one or several OIDs from the target devices' MIBS. When it 
 doesn't obtain a value for one of these OIDs, it returns an UNKNOWN state to warn 
