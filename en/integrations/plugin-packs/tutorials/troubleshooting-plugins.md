@@ -156,7 +156,7 @@ by adding the `--proxyurl` option to your command line. The value formatting is:
 
 #### UNKNOWN: 500 Can't connect to <ip_address>:<port> (Connection refused)
 
-This issue generally means that the port or protocol used by the Plugin is wrong, 
+This issue generally means that the port or protocol used by the Plugin is incorrect, 
 misconfigured, or unsupported. 
 
 In this situation, at the Host configuration level, double-check that:
