@@ -61,7 +61,7 @@ When a Plugin execution looks partial or incomplete, it usually means that there
 a bug somewhere in the code. If this is the case, you will likely see some *stderr*
 lines printed when executing the check through the CLI. 
 
-A message similar to the one below confirm that this is a bug: 
+A message similar to the one below confirms that this is a bug: 
 
 ```bash
 Use of uninitialized value $options{"value"} in pattern match (m//) and critical return
