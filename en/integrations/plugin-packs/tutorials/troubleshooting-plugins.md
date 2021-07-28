@@ -11,7 +11,7 @@ identify the root cause.
 
 Remember that most of the Plugin Packs have documentation and, more specifically, 
 "Prerequisites" and "Host Configuration" sections to help you avoid some of the 
-common pitfalls.
+most common pitfalls.
 
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
