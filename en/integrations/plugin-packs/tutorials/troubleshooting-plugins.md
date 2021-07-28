@@ -68,7 +68,7 @@ Use of uninitialized value $options{"value"} in pattern match (m//) and critical
 ```
 
 In this situation, reach us on [slack](https://centreon.github.io) or, even better, 
-track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/) 
+track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/issues) 
 Github repository so we can patch it. 
 
 ## SNMP checks
