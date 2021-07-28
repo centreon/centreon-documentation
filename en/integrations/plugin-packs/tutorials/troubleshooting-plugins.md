@@ -215,7 +215,7 @@ because it cannot accept the fingerprint for obvious security reasons.
 
 Here are the questions you may want to ask yourself when obtaining this result: 
 
-- Does my IP Address and port parameter are correct? 
+- Are my IP Address and port parameter correct? 
 - Is the NRPE daemon running on the remote system?
 - Is there any firewall or security policy that might block the request? 
 
