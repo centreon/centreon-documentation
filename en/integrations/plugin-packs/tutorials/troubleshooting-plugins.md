@@ -102,7 +102,7 @@ This error is specific to SNMP v3 checks. It means that the credentials provided
 are either wrong or incomplete. 
 
 It can also happen when performing SNMPv3 requests on a device or server where the 
-SNMP process is not running, or the port isn't listening. 
+SNMP process is not running, or the port is not listening. 
 
 ### UNKNOWN: Can't construct cache...
 
