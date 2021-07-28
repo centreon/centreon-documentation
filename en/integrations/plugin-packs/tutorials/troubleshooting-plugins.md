@@ -16,8 +16,8 @@ most common pitfalls.
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
 
-- Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
-- Use the centreon-engine user to execute the Plugin manually (and never root!).
+* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
+* Use the centreon-engine user to execute the Plugin manually (and never root!).
 
 ## Common problems
 
@@ -76,9 +76,9 @@ Github repository so we can patch it.
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Often, a timeout comes from: 
-- An SNMP Agent or Centreon Host misconfiguration, like a wrong SNMP port, version, 
+* An SNMP Agent or Centreon Host misconfiguration, like a wrong SNMP port, version, 
 or community string
-- Third-party equipment (e.g., a firewall) blocking the communication between the 
+* Third-party equipment (e.g., a firewall) blocking the communication between the 
 Poller and the remote device
 
 To go further, troubleshoot using an SNMP utility to mimic the Plugin behavior and 
@@ -151,7 +151,7 @@ the `--http-backend` option. The default value is `lwp`, though `curl` is also
 available and generally easier to debug.
 
 In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The value formatting is: 
+by adding the `--proxyurl` option to your command line. The expecte format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to <ip_address>:<port> (Connection refused)
@@ -215,9 +215,9 @@ because it cannot accept the fingerprint for obvious security reasons.
 
 Here are the questions you may want to ask yourself when obtaining this result: 
 
-- Are my IP Address and port parameter correct? 
-- Is the NRPE daemon running on the remote system?
-- Is there any firewall or security policy that might block the request? 
+* Does my IP Address and port parameters are correct? 
+* Is the NRPE daemon running on the remote system?
+* Is there any firewall or security policy that might block the request? 
 
 ### connect to address x.x.x.x port 5666: Connection refused
 
