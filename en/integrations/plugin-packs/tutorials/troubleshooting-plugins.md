@@ -9,7 +9,7 @@ Most of the time, the cause of these failures is a misconfiguration or a third-p
 device. This section compiles the most common errors you may face and some hints to 
 identify the root cause.
 
-Remember that most of the Plugin Pack have documentation and, more specifically, 
+Remember that most of the Plugin Packs have documentation and, more specifically, 
 "Prerequisites" and "Host Configuration" sections to help you avoid some of the 
 common pitfalls.
 
