@@ -82,8 +82,8 @@ yum install centreon-pack-blockchain-hyperledger-exporter
 
 ### UNKNOWN: Can't connect to ... 
 
-Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
-serveur Ciso ISE. Vérifiez que la requête n'est pas bloquée par un outil externe
+Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API de 
+l'Hyperledger. Vérifiez que la requête n'est pas bloquée par un outil externe
 (un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
 Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
 ```--proxyurl='http://proxy.mycompany:8080'```.
