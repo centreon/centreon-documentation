@@ -5,8 +5,9 @@ title: Windows NSClient API
 
 ## Overview
 
-NSClient++ provides is own REST API using the webserver module.
-This REST API give the possibility to exploit monitoring data from windows servers through HTTPS connections.
+NSClient++ provides its own REST API using the webserver module.
+This REST API give the possibility to exploit monitoring data from Windows servers 
+through HTTPS connections.
 
 ## Plugin-Pack assets
 
@@ -141,9 +142,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 | X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-## FAQ
-
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+## How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
@@ -190,7 +189,7 @@ The available thresholds as well as all of the options that can be used with thi
   --help
 ```
 
-### Why do I get the following error: 
+### Troubleshooting 
 
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
 
@@ -224,18 +223,8 @@ Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a6037
 Need write/exec permissions on directory.
 ```
 
-* The folder */var/lib/centreon/centplugins* doesn't exist on your Windows Sserver, change the cache directory by using the options ```--statefile-dir```
+* The folder */var/lib/centreon/centplugins* doesn't exist on your Windows Server, change the cache directory by using the options ```--statefile-dir```
 
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 
 To fix this issue, add the option ```--http-backend=curl``` to the host macro *NSCPRESTAPIEXTRAOPTIONS*.
-
-## Create your own NSClient++ agent
-
-It's possible to create your own NSClient++ agent to add new commands and/or pre-configure the parameters of *nsclient.ini* file.
-
-Please, follow the official documentation from Github to build your own agent:
-
-* https://github.com/centreon/centreon-nsclient-build
-
-You can find a "How-To" and the list of all the compilated plugins by Centreon for the *centreon_plugins.exe*

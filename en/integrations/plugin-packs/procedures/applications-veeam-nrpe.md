@@ -5,11 +5,20 @@ title: Veeam NSClient++ NRPE
 
 ## Overview
 
+The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+Powershell to check operating status of a Veeam Server.
+
 ## Pack assets
 
 ### Monitored objects
 
+* Veeam Servers: 
+    * Jobs 
+    * Tapes
+
 ### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 
@@ -29,10 +38,44 @@ the `VeeamPSSnapin`.
 
 ## Installation 
 
-``` shell
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Veeam*:
+
+```bash
 yum install centreon-nrpe-plugin
 ```
 
+2. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+from the **Configuration > Plugin Packs > Manager** page
+
+<!--Offline IMP License-->
+
+1. Install the Centreon Plugin package on every Poller expected to monitor *Veeam*:
+
+```bash
+yum install centreon-nrpe-plugin
+```
+
+2. Install the Centreon Plugin-Pack RPM on the Central server:
+
+```bash
+yum install centreon-pack-applications-veeam-nrpe
+```
+
+3. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+from the **Configuration > Plugin Packs > Manager** page
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Host configuration
 
-App-Veeam-NRPE-custom
+* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Apply the *App-Veeam-NRPE-custom* template and configure all the mandatory Macros:
+
+| Mandatory | Name             | Description                                                      |
+|:----------|:-----------------|:---------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
