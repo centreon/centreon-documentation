@@ -141,8 +141,7 @@ Tous les modes d'un Plugin donné peuvent être listés au moyen de la commande 
 ```bash
 /usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \ 
     --plugin=blockchain::parity::restapi::plugin  \ 
-    --mode=net  \ 
-    --help
+    --list-mode
 ```
 
 ## Diagnostic des erreurs communes
