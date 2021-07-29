@@ -151,8 +151,7 @@ All available options for a given mode can be displayed by adding the
  ```bash
  /usr/lib/centreon/plugins//centreon_blockchain_parity_ethpoller_api.pl  \ 
     --plugin=blockchain::parity::ethpoller::plugin  \ 
-    --mode=tracking  \ 
-    --help
+    --list-mode
  ```
 
 ## Troubleshooting 
