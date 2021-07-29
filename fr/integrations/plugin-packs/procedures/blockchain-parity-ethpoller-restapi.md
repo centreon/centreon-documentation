@@ -166,4 +166,12 @@ BCM Poller. Vérifiez que la requête n'est pas bloquée par un outil externe
 Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
 ```--proxyurl='http://proxy.mycompany:8080'```.
 
-Vérifiez également que le port configuré est correct. 
+Vérifiez également que le port configuré est correct.
+
+### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
+Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
+d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
+utlisée par défaut par le Plugin Centreon.
+Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire, 
+ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de 
+l'Hôte ou directement à la commande.
