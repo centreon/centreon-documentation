@@ -11,7 +11,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 ## Étape 1 : Installer le plugin Amazon EC2
 
-1. Assurez-vous que votre [licence](../administration/licenses.html) est installée. (Le module d'autodécouverte demande une licence valide. Le module est inclus dans la licence gratuite [IT-100](IT100.html).)
+1. Assurez-vous que votre [licence](../administration/licenses.html) commerciale ou votre licence gratuite [IT-100](IT100.html) est installée.
 
 2. [Installez](../monitoring/discovery/installation.html) le module d'autodécouverte.
 
@@ -29,7 +29,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 5. Dans le champ **Keyword**, entrez **Amazon EC2** puis cliquez sur **Rechercher**.
 
-6. Cliquez sur le `+` dans le coin supérieur droit du Plugin Pack. Le Plugin Pack a maintenant une bordure verte et une coche dans le coin supérieur droit. 
+6. Cliquez sur le `+` dans le coin supérieur droit du Plugin Pack. Le Plugin Pack a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
 
 7. Suivez [cette procédure](../integrations/plugin-packs/procedures/cloud-aws-ec2.html)
  (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2.html#plugin-dependencies) et 
@@ -72,7 +72,7 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
     ![image](../assets/getting-started/aws-success.png)
 
-11. Survolez la coche verte puis cliquez sur **Display the job result** (l'icône flèche). Une liste d'hôtes apparaît.
+11. Survolez la ligne correspondant à la tâche qui vient de se terminer puis cliquez sur **Display the job result** (l'icône flèche). Une liste d'hôtes apparaît.
 
     ![image](../assets/getting-started/aws-results.png)
 

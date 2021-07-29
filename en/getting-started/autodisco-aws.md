@@ -11,7 +11,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 ## Step 1: Installing the Amazon EC2 plugin
 
-1. Make sure your [license](../administration/licenses.html) is installed. (The Auto Discovery module requires a valid license. It is included in the free [IT-100](IT100.html) license.)
+1. Make sure your commercial [license](../administration/licenses.html) or your free [IT-100](IT100.html) license is installed.
 
 2. [Install](../monitoring/discovery/installation.html) the autodiscovery module.
 
@@ -29,7 +29,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 5. In the **Keyword** field, type **Amazon EC2** and then click **Search**.
 
-6. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner. 
+6. Click on the `+` sign in the top right corner of the Plugin Pack. The Plugin Pack now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
 7. Follow [this procedure](../integrations/plugin-packs/procedures/cloud-aws-ec2.html) (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2.html#plugin-dependencies) and [Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2.html#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
 
@@ -69,7 +69,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
     ![image](../assets/getting-started/aws-success.png)
 
-11. Hover over the green tick mark and then click **Display the job result** (the arrow icon). A list of hosts appears.
+11. Hover over the job that has just ended and then click **Display the job result** (the arrow icon). A list of hosts appears.
 
     ![image](../assets/getting-started/aws-results.png)
 
