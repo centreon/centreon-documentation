@@ -94,7 +94,7 @@ through HTTPS connections.
 
 ### Centreon NSClient++
 
-To monitor an *Windows Servers* domain controller through NSClient++ API, install the Centreon packaged version 
+To monitor an *Windows Servers* through NSClient++ API, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
@@ -104,36 +104,36 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Plugin Packs > Manager** page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Create a new host in Centreon, apply the template "OS-Windows-NSClient-05-Restapi-custom".
-* Configure all the mandatory macros :
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *OS-Windows-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name                      | Description                                                                |
 | :-------- | :------------------------ | :------------------------------------------------------------------------- |

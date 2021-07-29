@@ -71,11 +71,12 @@ from the **Configuration > Plugin Packs > Manager** page
 * Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Apply the *App-Exchange-NRPE-custom* template and configure all the mandatory Macros:
 
-| Mandatory | Name                      | Description                                           |
-|:----------|:--------------------------|:------------------------------------------------------|
-| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')             |
-| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
-|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |
+| Mandatory | Name                      | Description                                                                |
+|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 ## Important information
 
