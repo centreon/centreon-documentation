@@ -41,7 +41,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 4. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
 
-    ![image](../assets/getting-started/aws_provider.png)
+    ![image](../assets/getting-started/aws-provider.png)
 
 4. If your infrastructure requires it, fill in the details for the proxy you want to use.
 

@@ -43,7 +43,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 4. Entrez un nom pour votre tâche de découverte, puis sélectionnez le fournisseur **Amazon AWS EC2**. Cliquez sur **Suivant**.
 
-    ![image](../assets/getting-started/aws_provider.png)
+    ![image](../assets/getting-started/aws-provider.png)
 
 4. Si votre infrastructure le demande, renseignez les détails du proxy désiré.
 
