@@ -55,36 +55,35 @@ The SNMP v2 agent has to be configured on the Dell Xseries device.
 
 The Centreon Poller should be able to reach the UDP/161 SNMP port of the Dell Xseries device.
 
- 
 ## Installation
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin on every poller expected to monitor Dell Xseries resources:
+1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
 ```bash
-yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
+yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
 2. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
 
 <!--Offline IMP License-->
 
-1. Install the Plugin on every poller expected to monitor Dell Xseries resources:
+1. Install the Plugin on every Poller expected to monitor *Dell Xseries* resources:
 
 ```bash
-yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
+yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-network-switch-dell-xseries-snmp
 ```
 
-3. Install the *Dell Xseries* Centreon Plugin-Pack from the "Configuration > Plugin packs > Manager" page
+3. Install the *Dell Xseries* Centreon Pack from the "Configuration > Plugin packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
