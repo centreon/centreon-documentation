@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.4
 
+`30 juillet 2021`
+
 #### Améliorations
 
 - [Authentication] Improve centreonAuth.SSO.class for OpenId connection
