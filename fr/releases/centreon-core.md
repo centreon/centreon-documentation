@@ -23,7 +23,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 `30 juillet 2021`
 
-#### Enhancements
+#### Améliorations
 
 - [Authentication] Improve centreonAuth.SSO.class for OpenId connection
 
