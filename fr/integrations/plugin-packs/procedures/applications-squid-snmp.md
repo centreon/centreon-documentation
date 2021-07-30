@@ -16,38 +16,38 @@ title: Squid SNMP
 
 <!--Caches-Usage-->
 
-| Metric name                      | Description                    | Unit  |
-|:---------------------------------|:-------------------------------|:------|
-| cache.cpu.utilization.percentage | Cpu usage: %s %%               | %     |
-| cache.memory.usage.bytes         | Memory usage: %s %s            | B     |
-| cache.filedescriptors.count      | Number of file descriptors: %s | count |
-| cache.objects.count              | Number of object stored: %s    | count |
+| Metric name                      | Description                | Unit  |
+|:---------------------------------|:---------------------------|:------|
+| cache.cpu.utilization.percentage | Cpu usage                  | %     |
+| cache.memory.usage.bytes         | Memory usage               | B     |
+| cache.filedescriptors.count      | Number of file descriptors | count |
+| cache.objects.count              | Number of object stored    | count |
 
 <!--Protocol-Stats-->
 
 * HTTP statistics
 
-| Metric name                    | Description          | Unit  |
-|:-------------------------------|:---------------------|:------|
-| http.hits.percentage           |                      | %     |
-| http.errors.count              | errors: %s           | count |
-| http.traffic.in.bitspersecond  | traffic in: %s %s/s  | b/s   |
-| http.traffic.out.bitspersecond | traffic out: %s %s/s | b/s   |
+| Metric name                    | Description           | Unit  |
+|:-------------------------------|:----------------------|:------|
+| http.hits.percentage           | HTTP hits rate        | %     |
+| http.errors.count              | Number of HTTP errors | count |
+| http.traffic.in.bitspersecond  | HTTP traffic in       | b/s   |
+| http.traffic.out.bitspersecond | HTTP traffic out      | b/s   |
 
 * ICP statistics
 
-| Metric name                   | Description          |
-|:------------------------------|:---------------------|
-| icp.traffic.in.bitspersecond  | traffic in: %s %s/s  |
-| icp.traffic.out.bitspersecond | traffic out: %s %s/s |
+| Metric name                   | Description     | Unit |
+|:------------------------------|:----------------|:-----|
+| icp.traffic.in.bitspersecond  | ICP traffic in  | b/s  |
+| icp.traffic.out.bitspersecond | ICP traffic out | b/s  |
 
 * Cache statistics
 
 | Metric name                            | Description                   | Unit  |
 |:---------------------------------------|:------------------------------|:------|
-| cache.server.traffic.in.bitspersecond  | traffic in: %s %s/s           | b/s   |
-| cache.server.traffic.out.bitspersecond | traffic out: %s %s/s          | b/s   |
-| cache.clients.count                    | current number of clients: %s | count |
+| cache.server.traffic.in.bitspersecond  | Cache server traffic in       | b/s   |
+| cache.server.traffic.out.bitspersecond | Cache server traffic out      | b/s   |
+| cache.clients.count                    | Current number of clients: %s | count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
