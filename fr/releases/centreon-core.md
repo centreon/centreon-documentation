@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Graph] Can't get a graph with autologin key
 - [LDAP] Fixed LDAP auto-sync is always skipped
 - [LDAP] LDAP's My account issue
-- [Platform Topology] CLAPI add Instance don't add poller into platform_topology table
+- [Platform Topology] CLAPI's add Instance doesn't add a poller into the platform_topology table
 - [Platform Topology] JSON Schema isn't validated in the POST endpoint
 - [Platform Topology] Removed unused variable in registerServerTopology.sh
 - [Resources Status] Criteria drop down lists do not fully display the available items
