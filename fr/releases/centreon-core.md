@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.17
 
+`30 juillet 2021`
+
 #### Bugfixes
 
 - [Core] Unserialize in CentreonUtils is blocked by QualityGate
