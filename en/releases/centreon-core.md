@@ -37,7 +37,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Update copyright date
 - [Downtimes] Prevent the user from creating downtimes with start date, end date and duration after 2037
 - [Graph] Can't get a graph with autologin key
-- [LDAP] Fixed LDAP auto-sync always skip
+- [LDAP] Fixed LDAP auto-sync is always skipped
 - [LDAP] LDAP's My account issue
 - [Platform Topology] CLAPI's add Instance doesn't add a poller into the platform_topology table
 - [Platform Topology] Json Schema isn't validate in POST endpoint
