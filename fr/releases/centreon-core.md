@@ -18,6 +18,19 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.17
+
+`30 juillet 2021`
+
+#### Correctifs
+
+- [Core] Unserialize in CentreonUtils is blocked by QualityGate
+- [Core] Update copyright date
+- [Graph] Can't get a graph with autologin key
+- [LDAP] Fixed LDAP auto-sync is always skipped
+- [LDAP] LDAP's My account issue
+- [i18n] Fix typo in error message
+
 ### 20.04.16
 
 `1 juillet 2021`
