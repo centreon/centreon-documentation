@@ -1,6 +1,6 @@
 ---
-id: applications-exchange-2010-nrpe
-title: MS Exchange 2K10
+id: applications-exchange-nrpe
+title: Microsoft Exchange
 ---
 
 ## Prerequisites

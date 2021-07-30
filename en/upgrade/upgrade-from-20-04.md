@@ -72,6 +72,9 @@ The PHP timezone should be set. Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 Execute the following commands:
 ```shell
 systemctl stop rh-php72-php-fpm
@@ -117,16 +120,14 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-#### Restart Centreon processes
+1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
-Restart the processes:
-```
-systemctl restart cbd centengine centreontrapd gorgoned
-```
+2. Restart Centreon processes:
+    ```
+    systemctl restart cbd centengine centreontrapd gorgoned
+    ```
 
-#### Upgrade extensions
-
-From `Administration > Extensions > Manager`, upgrade all extensions, starting
+3. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
 with the following:
 
   - License Manager,
@@ -187,9 +188,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.4 to 10.5
 
@@ -223,11 +236,17 @@ MariaDB:
 5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Enable MariaDB on startup
 

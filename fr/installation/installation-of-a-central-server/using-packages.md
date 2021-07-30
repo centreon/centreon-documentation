@@ -1,10 +1,10 @@
 ---
 id: using-packages
-title: A partir des paquets
+title: À partir des paquets
 ---
 
 Centreon fournit des RPM pour ses produits au travers de la solution
-Centreon Open Sources disponible gratuitement sur notre dépôt.
+Centreon Open Source disponible gratuitement sur notre dépôt.
 
 Ces paquets ont été testés avec succès sur les environnements CentOS
 en version 7 et 8.
@@ -12,6 +12,10 @@ en version 7 et 8.
 > Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
 > qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
 > pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+
+L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+
+## Prérequis
 
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
@@ -27,22 +31,26 @@ yum update
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
+> Acceptez toutes les clés GPG proposées et pensez à redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
-## Étapes de pré-installation
+## Étape 1 : pré-installation
 
 ### Désactiver SELinux
 
-SELinux doit être désactivé. Pour se faire, vous devez éditer le fichier
-**/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou en
-exécutant la commande suivante :
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Redémarrez votre système d'exploitation pour prendre en compte le changement.
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
 
 Après le redémarrage, une vérification rapide permet de confirmer le statut de
 SELinux :
@@ -54,18 +62,14 @@ Disabled
 
 ### Configurer ou désactiver le pare-feu
 
-Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
-dernier exécuter les commandes suivantes :
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.html#enable-firewalld). Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
-> pour configurer le pare-feu.
-
-### Installer le dépôts
+### Installer le dépôt
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8-->
@@ -175,10 +179,8 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
-Hat doit être activé.
-
-> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
-> et les librairies associées.
+Hat doit être activé. Celui-ci est nécessaire pour l'installation de PHP 7
+et des librairies associées.
 
 Exécutez la commande suivante :
 
@@ -205,9 +207,9 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Installation
+## Étape 2 : Installation
 
-Ce chapitre décrit l'installation d'un serveur Centreon Central.
+Ce chapitre décrit l'installation d'un serveur central Centreon.
 
 Il est possible d'installer ce serveur avec une base de données locale au
 serveur, ou déportée sur un serveur dédié.
@@ -337,7 +339,7 @@ DROP USER '<USER>'@'<IP>';
 > Pensez à redémarrer le service mariadb après chaque changement de
 > configuration.
 
-## Configuration
+## Étape 3 : Configuration
 
 ### Nom du serveur
 
@@ -348,7 +350,7 @@ hostnamectl set-hostname new_server_name
 
 ### Fuseau horaire PHP
 
-La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
+La timezone par défaut de PHP doit être configurée. Exécutez la commande suivante en `root` :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -361,7 +363,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
@@ -396,34 +398,20 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
 
-### Secure MySQL installation
+### Sécuriser la base MySQL
 
-Si vous avez installé le serveur Centreon avec une base de données locale, depuis MariaDB 10.5 il est nécessaire de
-sécuriser son installation avant d'installer Centreon.
-
-> Répondez NON à toute question SAUF celles énumérées ci-dessous:
+Depuis MariaDB 10.5, il est nécessaire de
+sécuriser son installation avant d'installer Centreon. Répondez oui à toute question sauf à "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-## Installation web
+## Étape 4 : Installation web
 
-Avant de démarrer l'installation web, démarrez le serveur Apache avec la
+1. Démarrez le serveur Apache avec la
 commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -437,5 +425,5 @@ systemctl start httpd24-httpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Terminez l'installation en réalisant les
+2. Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation.html#installation-web).

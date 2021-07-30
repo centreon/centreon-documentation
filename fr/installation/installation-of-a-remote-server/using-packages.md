@@ -280,7 +280,7 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
@@ -317,25 +317,13 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 
 ### Secure MySQL installation
 
-Si vous avez installé le serveur Centreon avec une base de données locale, depuis MariaDB 10.5 il est nécessaire de
+Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 
-> Répondez NON à toute question SAUF celles énumérées ci-dessous:
+Répondez oui à toute question sauf "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).

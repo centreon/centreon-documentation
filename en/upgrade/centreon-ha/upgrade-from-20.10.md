@@ -85,6 +85,9 @@ The PHP timezone should be set. Run the command on both Central Server nodes:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
+
 > **WARNING** the following commands must be executed on only one node of the cluster.
 
 <!--DOCUSAURUS_CODE_TABS-->

@@ -122,12 +122,14 @@ team](https://centreon.force.com/) to get & install your license key.
 
 The Centreon MAP Web interface is compatible with the following web browsers:
 
-- Firefox (latest version)
-- Chrome (latest version)
-- Safari (latest version)
-- Microsoft Edge Chromium
+* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
+* Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
+* Apple Safari (latest version at the time of Centreon software release and above)
+* Microsoft Edge Chromium (latest version at the time of Centreon software release and above)
 
-Resolution must be at least 1280 x 768.
+If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
+
+Your screen resolution must be at least 1280 x 768.
 
 ### Centreon MAP Desktop Client
 
@@ -192,8 +194,9 @@ configurations are possible.
 
 ### Centreon Web interface
 
-The Centreon MAP server requires a dedicated user who has access to all
-resources. Since the password will be stored in human-readable form in a
+You must provide to Centreon MAP server a dedicated user
+**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.html). 
+Since the password will be stored in human-readable form in a 
 configuration file, you should not use a Centreon admin user account.
 
 Provide this user with access to the Centreon Web real-time API:

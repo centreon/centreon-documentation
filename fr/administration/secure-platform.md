@@ -75,7 +75,7 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 ### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel que :
+vous devez modifier le fichier `/etc/selinux/config` comme tel :
 
 ```shell
 # This file controls the state of SELinux on the system.
@@ -228,7 +228,7 @@ Fail2ban est un framework de prévention contre les intrusions, écrit en Python
 Installez fail2ban :
 ```shell
 yum install epel-release
-yum install fail2ban fail2ban-systemd yum python-inotify
+yum install fail2ban fail2ban-systemd python-inotify
 ```
 
 Si SELinux est installé, mettez à jour les politiques SELinux :

@@ -166,8 +166,8 @@ following this [procedure](#activate-selinux-in-permissive-mode) using **enforci
 
 ## Securing the installation of the DBMS
 
-[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
-installation. Please execute the following command and follow instruction:
+[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
+installation. Please execute the following command and follow instructions:
 
 ```shell
 mysql_secure_installation
@@ -225,7 +225,7 @@ Fail2Ban is an intrusion prevention software framework that protects computer se
 Install fail2ban:
 ```shell
 yum install epel-release
-yum install fail2ban fail2ban-systemd yum python-inotify
+yum install fail2ban fail2ban-systemd python-inotify
 ```
 
 If you have SELinux installed, then update the SELinux policies:

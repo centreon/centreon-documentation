@@ -86,6 +86,9 @@ Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la comman
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
 > **WARNING** les commandes suivantes ne doivent être exécutées que sur un seul nœud du cluster.
 
 <!--DOCUSAURUS_CODE_TABS-->

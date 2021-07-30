@@ -110,6 +110,18 @@ create them again:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 7. Start the mariadb process on the new server:
 

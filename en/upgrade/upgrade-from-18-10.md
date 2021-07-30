@@ -83,8 +83,8 @@ The PHP timezone should be set. Run the command:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
-> Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zone [here](http://php.net/manual/en/timezones.php).
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
 
 > Don't forget your php-fpm specific configuration that you may have set in the
 > /etc/opt/rh/rh-php71/php.ini and/or /etc/opt/rh/rh-php71/php-fpm.d/centreon.conf
@@ -220,6 +220,10 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
+
+#### Deploy the configuration
+
+See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
 
 #### Restart Centreon processes
 
@@ -366,9 +370,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.2 to 10.3
 
@@ -404,9 +420,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.3 to 10.4
 
@@ -442,9 +470,21 @@ MariaDB:
     ```shell
     mysql_upgrade
     ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Upgrade from 10.4 to 10.5
 
@@ -478,11 +518,17 @@ MariaDB:
 5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+> for more information or if errors occur during this last step.
 
 #### Enable MariaDB on startup
 

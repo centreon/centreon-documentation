@@ -4,7 +4,7 @@ title: Using packages
 ---
 
 Centreon provides RPM packages for its products through the Centreon Open
-Sources version available free of charge in our repository.
+Source version available free of charge in our repository.
 
 These packages have been successfully tested in CentOS 7 and 8 environments.
 
@@ -12,7 +12,11 @@ These packages have been successfully tested in CentOS 7 and 8 environments.
 > your production environment. Nevertheless, these packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
 
-After installing your server, consider updating your operating system via the
+You must run the installation procedure as a privileged user.
+
+## Prerequisites
+
+After installing your server, update your operating system using the following
 command:
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -26,22 +30,25 @@ yum update
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Accept all GPG keys and consider rebooting your server if a kernel update is
+> Accept all GPG keys and reboot your server if a kernel update is
 > proposed.
 
-## Pre-installation steps
+## Step 1: Pre-installation
 
 ### Disable SELinux
 
-SELinux should be disabled. To do this, you have to edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**, or by
-running the following command:
+During installation, SELinux should be disabled. To do this, edit the file
+**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-> Reboot your operating system to apply the change.
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
 
 After system startup, perform a quick check of the SELinux status:
 
@@ -54,16 +61,14 @@ You should have this result:
 Disabled
 ```
 
-### Configure or disable firewall
+### Configure or disable the firewall
 
-Add firewall rules or disable the firewall by running the following commands:
+If your firewall is active, add [firewall rules](../../administration/secure-platform.html#enable-firewalld). You can also disable the firewall during installation by running the following commands:
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
-
-> You can find instructions [here](../../administration/secure-platform.html#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -179,9 +184,7 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat.
-
-> Software collections are required for installing PHP 7 and associated libraries.
+repository supported by Redhat. It is required for installing PHP 7 and its associated libraries.
 
 Install the Software Collections repository using this command:
 
@@ -208,11 +211,11 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Installation
+## Step 2: Installation
 
-This section describes how to install a Centreon Central server.
+This section describes how to install a Centreon central server.
 
-It's possible to install this server with a local database on the server, or
+You can install this server with a local database on the server, or
 a remote database on a dedicated server.
 
 ### With a local database
@@ -325,7 +328,7 @@ DROP USER '<USER>'@'<IP>';
 > max_allowed_packet = 128M
 > ```
 > 
-> Optionnaly, tune the memory and buffer utilization of the InnoDB engine powered 
+> Optionally, tune the memory and buffer utilization of the InnoDB engine powered 
 > tables. The example below applies to a database server with 8Gb RAM
 >  
 > ```shell
@@ -334,7 +337,7 @@ DROP USER '<USER>'@'<IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
-## Configuration
+## Step 3: Configuration
 
 ### Server name
 
@@ -345,7 +348,7 @@ hostnamectl set-hostname new_server_name
 
 ### Set the PHP time zone
 
-You are required to set the PHP time zone. Run the command:
+You are required to set the PHP time zone. Run the following command as `root`:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -358,10 +361,10 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Change **Europe/Paris** to your time zone. You can find the supported list of
-> time zone [here](http://php.net/manual/en/timezones.php).
+> Replace **Europe/Paris** by your time zone. You can find the list of
+> supported time zones [here](http://php.net/manual/en/timezones.php).
 
-After saving the file, please do not forget to restart the PHP-FPM service:
+After saving the file, restart the PHP-FPM service:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -395,32 +398,20 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 
 ### Secure MySQL installation
 
-If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
+Since MariaDB 10.5, it is necessary to secure its installation
 before installing Centreon.
 
-> Answer NO to any question EXCEPT the ones listed below:
+> Answer yes to all questions except to "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, refer to the [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
-## Web installation
+## Step 4: Web installation
 
-Before starting the web installation process, start the Apache server with the
+1. Start the Apache server with the
 following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -434,5 +425,5 @@ systemctl start httpd24-httpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Conclude installation by performing
-[web installation steps](../web-and-post-installation.html#web-installation).
+2. To complete the installation, follow the
+[web installation steps](../web-and-post-installation.html#web-installation) procedure.

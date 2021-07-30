@@ -2,17 +2,14 @@
     "docs": {
         "Getting Started": [
             "getting-started/installation-first-steps",
-            {
-                "ids": [
-                    "getting-started/introduction-tutorials",
-                    "getting-started/create-custom-view",
-                    "getting-started/create-graphical-view",
-                    "getting-started/model-it-services",
-                    "getting-started/analyze-resources-availability"
-                ],
-                "label": "Tutoriels",
-                "type": "subcategory"
-            }
+            "getting-started/which-install",
+		    "getting-started/IT100",
+            "getting-started/interface",
+		    "getting-started/first-supervision",
+            "getting-started/create-custom-view",
+            "getting-started/create-graphical-view",
+            "getting-started/model-it-services",
+            "getting-started/analyze-resources-availability"
         ],
         "Installation": [
             "installation/introduction",
@@ -241,16 +238,8 @@
             },
             "administration/access-control-lists",
             "administration/extensions",
+            "administration/licenses",
             "administration/database-partitioning",
-            {
-                "ids": [
-                    "administration/centreon-ha/monitoring-guide",
-                    "administration/centreon-ha/operating-guide",
-                    "administration/centreon-ha/troubleshooting-guide"
-                ],
-                "label": "Centreon HA",
-                "type": "subcategory"
-            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -276,7 +265,8 @@
                     "upgrade/upgrade-from-3-4",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
-                    "upgrade/centreon-ha/upgrade-from-centreon-failover" 
+                    "upgrade/centreon-ha/upgrade-from-centreon-failover",
+                    "upgrade/upgrade-mariadb" 
                 ],
                 "label": "Upgrade",
                 "type": "subcategory"
@@ -297,6 +287,7 @@
             "integrations/plugin-packs/introduction",
             {
                 "ids": [
+                    "integrations/plugin-packs/tutorials/centreon-nsclient-tutorial",
                     "integrations/plugin-packs/tutorials/collect-openmetrics"
                 ],
                 "label": "Tutoriels",
@@ -315,6 +306,9 @@
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-ami",
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-snmp",
                     "integrations/plugin-packs/procedures/applications-bind9-web",
+                    "integrations/plugin-packs/procedures/applications-blockchain-hyperledger-exporter",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-restapi",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-ethpoller-restapi",
                     "integrations/plugin-packs/procedures/applications-bluemind-ssh",
                     "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
@@ -325,7 +319,7 @@
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-emc-ppma-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
@@ -352,7 +346,7 @@
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe",
                     "integrations/plugin-packs/procedures/applications-biztalk",
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
+                    "integrations/plugin-packs/procedures/applications-exchange-nrpe",
                     "integrations/plugin-packs/procedures/applications-mail-bluemind",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
@@ -463,6 +457,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-cdn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
@@ -476,6 +471,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
+                    "integrations/plugin-packs/procedures/cloud-azure-storage-storagesync",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
@@ -484,6 +480,7 @@
                     "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
                     "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
+                    "integrations/plugin-packs/procedures/cloud-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
                     "integrations/plugin-packs/procedures/cloud-ibm-softlayer-api",
@@ -623,7 +620,7 @@
                     "integrations/plugin-packs/procedures/network-dell-os10-snmp",
                     "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
                     "integrations/plugin-packs/procedures/network-denyall-snmp",
-                    "integrations/plugin-packs/procedures/network-switch-dell-xseries-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-dell-xseries-snmp",
                     "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portserverts-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portservers-snmp",
@@ -990,6 +987,19 @@
                     "developer/developer-broker-mapping"
                 ],
                 "label": "Centreon Broker",
+                "type": "subcategory"
+            }
+        ],
+        "Superviser votre plateforme": [  
+            "health/centreon-agent",
+            {
+                "ids": [
+                    "administration/centreon-ha/acceptance-guide",
+                    "administration/centreon-ha/monitoring-guide",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
                 "type": "subcategory"
             }
         ],

@@ -78,6 +78,9 @@ Le fuseau horaire PHP doit être défini. Exécutez la commande:
 echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
 ```
 
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
+
 Exécutez les commandes suivantes
 ```shell
 systemctl stop rh-php72-php-fpm
@@ -191,9 +194,13 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
+#### Déployer la configuration
+
+Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
 #### Redémarrez les processus Centreon
 
-Redamarrez le processus cbd:
+Redémarrez le processus cbd:
 ```
 systemctl start cbd
 ```
@@ -341,8 +348,20 @@ recommande :
     mysql_upgrade
     ```
 
+    Si votre base de données est protégée par mot de passe, entrez :
+
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
+
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.2 à 10.3
 
@@ -379,8 +398,20 @@ recommande :
     mysql_upgrade
     ```
 
+    Si votre base de données est protégée par mot de passe, entrez :
+
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
+
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.3 à 10.4
 
@@ -417,8 +448,20 @@ recommande :
     mysql_upgrade
     ```
 
+    Si votre base de données est protégée par mot de passe, entrez :
+
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
+
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Montée de version de 10.4 à 10.5
 
@@ -451,12 +494,18 @@ recommande :
 
 5. Lancez le processus de mise à jour MariaDB :
 
-    ```shell
-    mysql_upgrade
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    ```
+
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+
+    ```
+    mysql_upgrade -u root -p
     ```
 
 > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 

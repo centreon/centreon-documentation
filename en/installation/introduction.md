@@ -11,7 +11,7 @@ platform**. Enjoy our industrialization work during installation and update step
 of the environment. Also enjoy optimizations installed by default on the system.
 
 Centreon Installation can be performed from source (tar.gz) but the work is more
-complex. In addition the installer shall be supported by the community.
+complex. In addition the installation will only be supported by the community.
 
 Before installation
 

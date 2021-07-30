@@ -410,7 +410,8 @@ yum install -y centos-release-scl
 
 Ajoutez le dépôt nodesource :
 ```shell
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 ```
 
 Les dépôts sont maintenant installés.
@@ -685,27 +686,14 @@ mv * /usr/lib/centreon/plugins/
 
 Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
-### Securisez l'installation MySQL
+### Sécurisez l'installation MySQL
 
-Si vous avez installé le serveur Centreon avec une base de données locale, depuis MariaDB 10.5 il est nécessaire de
+Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
-
-> Répondez NON à toute question SAUF celles énumérées ci-dessous:
+Répondez oui à toute question sauf "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
@@ -1272,6 +1260,9 @@ max_execution_time = 300
 session.use_strict_mode = 1
 session.gc_maxlifetime = 7200
 ```
+
+> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir sauvegardé le fichier, n'oubliez pas de redémarrer le service apache de votre serveur.
 

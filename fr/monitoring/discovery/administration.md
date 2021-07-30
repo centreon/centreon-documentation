@@ -20,48 +20,48 @@ title: Administration
 > La montée de version vers 21.04 conserve toutes les données présentes depuis
 > la version 20.04.
 
-Pour mettre à jour le module, exécutez la commande suivante :
+1. Pour mettre à jour le module, exécutez la commande suivante :
 
-``` shell
-yum update -y centreon-auto-discovery-server
-```
+    ``` shell
+    yum update -y centreon-auto-discovery-server
+    ```
 
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant le
-droit d’installer des modules et rendez-vous dans le menu `Administration >
-Extensions > Gestionnaire`.
+2. Connectez-vous sur l’interface web de Centreon avec un compte ayant le
+droit d’installer des modules et rendez-vous dans le menu **Administration >
+Extensions > Gestionnaire**.
 
-> Assurez-vous que les modules **License Manager** et **Plugin Packs Manager**
-> sont à jour avant de procéder à la mise à jour du module **Auto Discovery**
+3. Assurez-vous que les modules **License Manager** et **Plugin Packs Manager**
+  sont à jour avant de procéder à la mise à jour du module **Auto Discovery**
 
-Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :
+3. Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :
 
-![image](../../assets/monitoring/discovery/update.png)
+    ![image](../../assets/monitoring/discovery/update.png)
 
-Le module est maintenant à jour :
+    Le module est maintenant à jour :
 
-![image](../../assets/monitoring/discovery/install-after.png)
+    ![image](../../assets/monitoring/discovery/install-after.png)
 
 ## Désinstallation
-
-Connectez-vous sur l’interface web de Centreon en utilisant un compte ayant le
-droit d’installer des modules et rendez-vous dans le menu `Administration >
-Extensions > Gestionnaire`.
-
-Cliquer sur l’icône de suppression correspondant au module **Auto Discovery** :
-
-![image](../../assets/monitoring/discovery/install-after.png)
-
-Une fenêtre de confirmation apparaît, confirmer l’action :
-
-![image](../../assets/monitoring/discovery/uninstall-popin.png)
-
-Le module est maintenant désinstallé :
-
-![image](../../assets/monitoring/discovery/install-before.png)
 
 > La désinstallation du module supprimera toutes les données associées. Les
 > données ne pourront être restaurées sauf si une sauvegarde de la base de
 > données a été faite.
+
+1. Connectez-vous sur l’interface web de Centreon avec un compte ayant le
+droit d’installer des modules et rendez-vous dans le menu **Administration >
+Extensions > Gestionnaire**.
+
+2. Cliquez sur l’icône de suppression correspondant au module **Auto Discovery** :
+
+    ![image](../../assets/monitoring/discovery/install-after.png)
+
+3. Une fenêtre de confirmation apparaît. Confirmez l’action :
+
+    ![image](../../assets/monitoring/discovery/uninstall-popin.png)
+
+    Le module est maintenant désinstallé :
+
+    ![image](../../assets/monitoring/discovery/install-before.png)
 
 ## Configuration du module Gorgone
 
@@ -164,7 +164,7 @@ avec différents paramètres:
       - OS-Windows-SNMP-Traffic-Name
 ```
 
-Ci-dessous la liste des paramètres disponibles:
+Voici ci-dessous la liste des paramètres disponibles:
 
 | Clé                  | Valeur                                                                                                               |
 |----------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -202,7 +202,7 @@ d'un utilisateur ayant accès à l'API de configuration. Il est utilisé
 pour la découverte d'hôtes.
 
 L'accès à CLAPI nécessite les identifiants d'un utilisateur *Administrateur*.
-Il est utilisé pour la découverte de service.
+Il est utilisé pour la découverte de services.
 
 > Un seul utilisateur peut être utilisé pour les deux accès. De plus, les
 > utilisateurs n'ont pas besoin d'avoir accès à l'interface web.
