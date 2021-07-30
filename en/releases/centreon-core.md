@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Core] Unserialize in CentreonUtils is blocked by QualityGate
 - [Core] Update copyright date
 - [Graph] Can't get a graph with autologin key
-- [LDAP] Fixed LDAP auto-sync always skip
+- [LDAP] Fixed LDAP auto-sync is always skipped
 - [LDAP] LDAP's My account issue
 - [Platform Topology] CLAPI add Instance don't add poller into platform_topology table
 - [Platform Topology] Json Schema isn't validate in POST endpoint
