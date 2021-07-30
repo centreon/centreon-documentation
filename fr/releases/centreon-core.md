@@ -39,7 +39,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [LDAP] Fixed LDAP auto-sync always skip
 - [LDAP] LDAP's My account issue
 - [Platform Topology] CLAPI add Instance don't add poller into platform_topology table
-- [Platform Topology] Json Schema isn't validate in POST endpoint
+- [Platform Topology] JSON Schema isn't validated in the POST endpoint
 - [Platform Topology] Removed unused variable in registerServerTopology.sh
 - [Resources Status] No route found for "GET /centreon/api/beta/monitoring/resources/undefineds/133"
 - [i18n] Fix typo in error message
