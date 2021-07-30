@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.10
 
+`July 30, 2021`
+
 #### Enhancements
 
 - [Authentication] Improve centreonAuth.SSO.class for OpenId connection
