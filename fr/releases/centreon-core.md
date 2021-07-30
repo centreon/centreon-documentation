@@ -27,7 +27,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Authentication] Improve centreonAuth.SSO.class for OpenId connection
 
-#### Bugfixes
+#### Correctifs
 
 - [Administration] LDAP search fails
 - [Configuration] Changing a Remote Server's IP address converts it into a simple Poller
