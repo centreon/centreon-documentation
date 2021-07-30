@@ -577,6 +577,7 @@
                     "integrations/plugin-packs/procedures/network-alvarion-breezeaccess-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-arista-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-arkoon-snmp",
+                    "integrations/plugin-packs/procedures/network-aruba-aoscx-snmp",
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
