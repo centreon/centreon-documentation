@@ -32,7 +32,7 @@ or by setting your unique user and password directly in the Host Macros.
 yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the `Configuration > Plugin Packs` page
+2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
 <!--Offline IMP License-->
 
@@ -48,7 +48,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the `Configuration > Plugin Packs` page
+3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Plugin Pack on the **Configuration > Plugin Packs** page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -56,7 +56,7 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 
 ### Host
 
-* Log into Centreon and add a new Host through `Configuration > Hosts`.
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
 * Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Antivirus ClamAV* Server settings
 * Select the *Applications-Antivirus-Clamav-Ssh-custom* template to apply to the Host
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
@@ -114,5 +114,6 @@ All available options for a given mode can be displayed by adding the
 
 #### `UNKNOWN: Command error: Host key verification failed.`
 
-This error means you haven't manually validated the target server fingerprint 
-with `ssh` or `plink` on the Centreon poller.
+is error may come out whenever the `ssh` or the `plink` backends are used in the
+command. In this case, it is necessary to manually initiate a first SSH
+connection to the target server in order to validate the SSH fingerprint.

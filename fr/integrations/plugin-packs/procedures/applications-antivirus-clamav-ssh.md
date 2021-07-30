@@ -15,9 +15,10 @@ title: Antivirus ClamAV
 
 ### Configuration SSH
 
-L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le serveur ClamAV, lequel sera utilisé
-par le collecteur Centreon pour s'authentifier et exécuter les requêtes SSH.
-Les privilèges `sudo` ou `root` ne sont pas nécessaires, un utilisateur 'simple' est suffisant.
+L'utilisation de ce Plugin Pack requiert la création d'un utilisateur sur le
+serveur ClamAV, lequel sera utilisé par le collecteur Centreon pour
+s'authentifier et exécuter les requêtes SSH. Les privilèges `sudo` ou `root` ne
+sont pas nécessaires, un utilisateur 'simple' est suffisant.
 Deux méthodes de connexion SSH sont possibles:
 * soit en échangeant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon
 * soit en définissant votre utilisateur et votre mot de passe directement dans les Macros d'Hôtes.
@@ -34,7 +35,7 @@ Deux méthodes de connexion SSH sont possibles:
 yum install centreon-plugin-Applications-Clamav-Ssh
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page `Configuration > Packs de plugins`
+2. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
 
 <!--Offline IMP License-->
 
@@ -50,7 +51,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page `Configuration > Packs de plugins`
+3. Sur l'interface Integration de Centreon, installer le Plugin Pack *Antivirus ClamAV* depuis la page **Configuration > Packs de plugins**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -58,7 +59,7 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 
 ### Hôte
 
-* Ajoutez un Hôte à Centreon depuis la page `Configuration > Hôtes`.
+* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
 * Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur *Antivirus ClamAV*
 * Appliquez le Modèle d'Hôte *Applications-Antivirus-Clamav-Ssh-custom* 
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises(*Mandatory*) doivent être renseignées 
@@ -94,6 +95,9 @@ version *maindb* installée n'est pas égale à la dernière version *maindb*
 disponible
 (`--critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}'`).
 
+La liste de toutes les options complémentaires et leur signification peut être
+affichée en ajoutant le paramètre --help à la commande:
+
 ```bash
 /usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
     --plugin=apps::antivirus::clamav::local::plugin  \
@@ -114,5 +118,6 @@ Tous les modes disponibles peuvent être affichés en ajoute le paramètre
 
 #### `UNKNOWN: Command error: Host key verification failed.`
 
-Cela signifie que vous n'avez pas validé manuellement la signature (fingerprint)
-du serveur cible avec `ssh` or `plink` sur le Poller Centreon.
+Lors de l'utilisation des backends SSH `ssh` ou `plink` dans les contrôles, il
+est nécessaire de lancer la commande manuellement une première fois afin de
+valider le *fingerprint* du serveur distant.
