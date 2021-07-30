@@ -994,6 +994,7 @@
             "health/centreon-agent",
             {
                 "ids": [
+                    "administration/centreon-ha/acceptance-guide",
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/troubleshooting-guide"
