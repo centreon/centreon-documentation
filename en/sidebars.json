@@ -288,7 +288,8 @@
             {
                 "ids": [
                     "integrations/plugin-packs/tutorials/centreon-nsclient-tutorial",
-                    "integrations/plugin-packs/tutorials/collect-openmetrics"
+                    "integrations/plugin-packs/tutorials/collect-openmetrics",
+                    "integrations/plugin-packs/tutorials/troubleshooting-plugins"
                 ],
                 "label": "Tutorials",
                 "type": "subcategory"
