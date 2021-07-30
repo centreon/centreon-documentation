@@ -3,257 +3,202 @@ id: access-control-lists
 title: Access Control Lists
 ---
 
-Access Control Lists (ACL) are used to limit users' access to the web interface
-Centreon via miscellaneous rules. The ACL are also used to create multiple user
-profiles making possible to focalise on a precise set of resources.
+You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.html):
 
-> The management of access checks is a function specific to Centreon, the export
-> of the configuration to the monitoring engine is not necessary to enable them.
+- on resources: which hosts, services, etc. users will be allowed to see
+- on the menus in the Centreon interface (which pages users will be able to access)
+- on actions users will be allowed to carry out, on resources or on a monitoring engine (planning a downtime, exporting the configuration...).
 
-Access groups are groups containing the Centreon users. For each access group,
-it is possible to define three types of access:
+Rights are not defined at user level but through [access groups](#creating-an-access-group).
 
-- Access filters to resources serve to limit access to Centreon objects
-(hosts, services, etc.),
-- Access filters to menus serve to limit access to Centreon menus,
-- Access filters on actions serve to limit access to actions that the user can
-undertake on a monitoring engine or on the resources themselves (program a
-downtime, stop a monitoring engine, etc.).
+- A specific user can belong to several access groups: the rights defined in each group will be combined.
+- Non-administrator users that belong to no access group will have no rights at all on the monitoring platform (empty screen at login)
+- [Administrator](../monitoring/basic-objects/contacts.html#authentification-centreon) users have all rights (even if you add an administrator to an access group with limited rights).
 
-> A user can belong to several access groups thus making it possible to add
-> together all the access authorizations.
+ACLs are recalculated every minute; this is why it is sometimes necessary
+to wait a few seconds before changes are applied to an user. You can also [reload them](#reload-acl) manually.
 
-The ACLs respect very strict rules:
+> The Centreon [MBI](../reporting/configure.html), BAM and [MAP](../graph-views/configure.html) modules have their own ACLs.
 
-- Centreon administrators are not subject to ACLs (property of the contact),
-- A user (non-administrator) who does not belong to any access group has no
-right on the monitoring platform (screen empty after logging in),
-- The ACLs are recalculated every minute; this why it is sometimes necessary
-to wait a few seconds before seeing the change applied to the profile.
+## Granting rights to a user
 
-> The addition of additional modules to Centreon sometimes makes it possible to
-> add additional filters to the access groups. E.g.: Centreon modules BI, BAM and
-> MAP can be subjected to filters.
+To grant rights to a user:
 
-## Access groups
+1. [Create the user](../monitoring/basic-objects/contacts.html) in Centreon.
 
-To add an access group:
+2. [Create an access group](#creating-an-access-group).
 
-1. Go into the menu: `Administration > ACL`
-2. Click on **Add**
+3. Add the user to the access group.
 
-### General information
+4. Create access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions).
 
-- The **Group Name** and **Alias** fields define the name and the alias of the
-group
-- The **Linked Contacts** list can be used to link contacts to the access
-group
-- The **Linked Contact Groups** list can be used to link groups of contacts to
-the access group
-- The **Status** field can be used to enable or disable the access group
+5. Set the rights you want:
+    - either on the access group
+    - or on the access filters on resources, menus and actions.
 
-> The contact group can be groups coming from the LDAP directory connected to the
-> Centreon interface.
->
-> Groups created in Centreon interface should not have the same name as LDAP
-> groups to avoid problems.
+## Creating an access group
 
-### Authorizations information
+To create an access group:
 
-The lists presented in this tab can be used to link the various types of access
-already created to the access group.
+1. Go to **Administration > ACL > Access groups** and then click **Add**.
 
-## Resources Access
+2. On the **Group information** tab, enter a name and an alias (a description) for the group.
 
-The access filters for the resources serve to limit the viewing of objects
-(hosts, host groups, services and service groups) to a user profile.
+3. To add users (contacts) or contact groups to the access group, use the **Linked Contacts/Linked Contact Groups** table. (Select the user(s) you want in the **Available** column, and then click **Add**. The user(s) is moved to the **Selected** column.)
 
-To add resources access filter:
+    > The contact group can be groups coming from the LDAP directory connected to the
+    > Centreon interface.
+    >
+    > Groups created in the Centreon interface should not have the same name as LDAP
+    > groups to avoid problems.
 
-1. Go into the menu: `Administration > ACL`
-2. In the left menu, click on **Resources Access**
-3. Click on **Add**
+4. On the **Authorizations information** tab, set the rights you want on the access group
+by choosing access filters on [resources](#access-filters-on-resources), [menus](#access-filters-on-menus) and [actions](#access-filters-on-actions) (if you have already created them).
 
-> Once the filters on the resources are set, you can to view the result via the
-> menu: **Check User View**, next to the add option.
+5. Click **Save**.
 
-### General information
+## Creating access filters on resources, menus and actions
 
-- The **Access list name** and **Description** fields define the name and the
-description of the filter
-- The **Linked groups** list can be used to link access groups to this
-resource filter
-- The **Status** and **Comments** fields serve to enable / disable the filter
-and to comment on it
+### Access filters on resources
 
-### Hosts Resources
+The access filters on resources allow you to define which objects (hosts, host groups, services and service groups) users will be able to see in the Centreon interface.
 
-The **Hosts Resources** tab enables us to add:
+To create an access filter on resources:
 
-- Hosts
-- Host groups
+1. Go to **Administration > ACL > Resources Access**.
 
-If the **Include all hosts** or **Include all hostgroups** box is checked, all
-newly created objects will be added to the filter automatically.
+2. Click  **Add**.
 
-> It is possible to explicitly exclude hosts from the filter (useful in cases
-> where only 1 or 2 hosts must not be part of the filter) if *Include all hosts*\*
-> or **Include all hostgroups** options are checked.
+3. Fill in the fields you want (see table below).
 
-### Services Resources
+4. Click **Save**.
 
-The **Services Resources** tab can be used to add service groups to the filter.
+> Once the filters on the resources are defined, you can view the results
+> using the **Check User View** button on page **Administration > ACL > Resources Access**.
 
-### Meta Services
+#### Reference
 
-The Meta-Services tab can be used to add meta-services to the filter.
 
-### Filters
+| Tab                 | Actions                                                                                                                                                         |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **General Information** | <ul> <li>Use the **Linked groups** table to link access groups to the filter on resources, i.e. grant the rights defined in the filter to the access group.</li><li>**Status** and **Comments** allow you to enable/disable the filter or to add comments to it.</li></ul>                                                                                                                                                                                                                |
+| **Hosts Resources**    | <ul><li>Define which hosts and hosts groups users will be able to see in the Centreon interface.</li><li>If **Include all hosts** or **Include all hostgroups** is selected, any newly created host or host group will be added to the filter automatically.</li></ul>   <p>When **Include all hosts** or **Include all hostgroups** is selected, you can explicitly exclude hosts from the filter (e.g. when only 1 or 2 hosts should not be included in the filter). </p>                                                                       |
+| **Services resources** | The **Services resources** tab allows you to define which service groups users will be allowed to see.                                                                                                                             |
+| **Meta Services**       | The **Meta Services** tab allows you to define which meta services users will be able to see.                                                                                                                             |
+| **Filters**                | <ul><li>The **Poller Filter** table allows you to select hosts supervised by a specific monitoring engine (if no poller is selected, then all pollers are taken into account)</li><li>The **Host Category Filter** table allows you to filter the hosts by category</li><li>The **Service Category Filter** table allows you to filter services by category. <p>Filters by poller or by category of objects are inclusion filters (UNION). Only the objects belonging to these filters in addition to groups of objects (hosts and services) will be visible.</li> |
 
-- The **Poller Filter** list can be used to select the hosts according to
-monitoring poller (if none is selected all the pollers are taken into
-account)
-- The **Host Category Filter** list can be used to filter the hosts by
-category
-- The **Service Category Filter** list can be used to filter the services by
-category
+### Access filters on menus
 
-> The filters by poller or by category of object are inclusion filters (UNION).
-> Only the objects belonging to these filters in addition to groups of objects
-> (hosts and services) will be visible.
-
-## Menus Access
-
-The access filters to the menu serve to limiter the access to various menus of
-the Centreon interface. The menus are ranked as follows:
-
-- Level 1 menus (Home, Monitoring, Views, etc.)
-- Level 2 menus (Monitoring > Hosts, Monitoring > Services, etc.)
-- Level 3 context menus (Monitoring > Services > By Hosts / Details)
-- Level 4 context menus (Monitoring > Services > By Hosts / Details >
-Problems)
-
-> By default, access is **Read Only**. If you want to allow your users to modify
-> the configuration, you will need to select the **Read / Write** option for each
-> submenu.
-
-> To access an ‘n-1’ menu level, the user must have access to the ‘n’ menu level,
-> otherwise he will not be able to view the menu via the interface. If this is not
-> the case, the user will have to directly access the page via a direct link
-> (autologin, etc.).
+Access filters on menus allow you to define which pages in the Centreon interface users will be able to access.
 
 > Accessing the command editing menu, as well as accessing the SNMP trap editing
-> menu can be very dangerous. Indeed, the privileged user can create commands,
+> menu can be very dangerous. Indeed, privileged users can create commands,
 > which may lead to the creation of security breaches (RCE). Only give this access
-> to people you can trust.
+> to people you trust.
 
-To add an access filter to the menus:
+To create an access filter on menus:
 
-1. Go into the menu: `Administration > ACL`
-2. In the left menu, click on **Menus Access**
-3. Click on **Add**
+1. Go to **Administration > ACL > Menus Access**.
 
-- The **ACL Definition** and **Alias** fields define the name and the alias of
-the access filter
-- The **Status** field is used to enable or disable the filter
-- The **Linked Groups** list can be used to associate an access group to the
-filter
-- The **Accessible Pages** can be used to associate menus to the filter (The
-parent menu should be checked to be able to access the child menu)
-- The **Comments** field gives indications on the filter
+2. Click **Add**.
 
-> On the access definition to the **Configuration > Hosts** and **Configuration
-> > Service** menus, it is possible to give read only or read / write access to
-> various objects.
+3. Fill in the following fields:
+    - **ACL Definition** (its name) and **Alias**
+    - **Status**: enable or disable the filter
+    - **Comments**: add info aout the filter.
 
-> At each addition of a new Centreon module possessing a web interface accessible
-> via a new menu, it should be added in the access groups so that the users can
-> access.
+4. To grant access groups the rights defined in this filter, use the **Linked groups** table.
 
-## Actions Access
+5. In the **Accessible pages** section, define which menus the access group will be able to access.
 
-Filters on actions enable us to limit access to actions that can be effective on
-resources (hosts and services) and on monitoring engines (stopping
-notifications, restarting the scheduler, etc.).
+    - A parent menu must be selected to access the child menu.
+    - By default, access is **Read Only**. If you want to allow your users to modify
+the configuration, select the **Read / Write** option for each
+submenu.
+    - To access an ‘n-1’ menu level, users must have access to the ‘n’ menu level,
+ otherwise they will not be able to view the menu via the interface. If this is not
+the case, users will have to access the page via a direct link
+ (autologin, etc.).
+    - Whenever a new Centreon module is created with a web interface accessible
+ via a new menu, it should be added to the filter so that users can
+access it (if applicable).
 
-To add an access filter to the actions:
+6. Click **Save**.
 
-1. Go into the menu: `Administration > ACL`
-2. In the left menu, click on **Actions Access**
-3. Click on **Add**
+## Access filters on actions
 
-- The **Action Name** and **Description** fields contain the name of the
-filter and its description
-- The **Linked Groups** list serves to associate an access group to the filter
+Filters on actions allow you to define which actions users will be allowed to perform
+on resources (hosts and services) and on the monitoring engines.
 
-The table below describes the general access functionalities:
+To create an access filter on actions:
+
+1. Go to **Administration > ACL > Actions Access**.
+3. Click **Add**.
+
+    - The **Action Name** and **Description** fields contain the name of the
+    filter and its description
+    - In the **Relations** section, use the **Linked Groups** table to grant access groups the rights defined in the filter.
+
+4. Select the options you want (see tables below).
+
+5. Click **Save**.
+
+### Global Functionalities Access
 
 | Field                                  | Associated actions                                                               |
 | -------------------------------------- | -------------------------------------------------------------------------------- |
-| Display Top Counter                    | The monitoring overview will be displayed at the top of all pages                |
-| Display Top Counter pollers statistics | The monitoring poller status overview will be displayed at the top of all pages. |
-| Display Poller Listing                 | The poller filter will be available to users in the monitoring consoles          |
+| Display Top Counter                    | The monitoring overview will be displayed in the banner at the top of all pages </br>![image](../assets/administration/acl-bandeau.png)                |
+| Display Top Counter pollers statistics | The monitoring poller status overview will be displayed on the left in the banner at the top of all pages</br>![image](../assets/administration/acl-bandeau-poller.png) |
+| Display Poller Listing                 | Allows you to filter on the poller on page **Monitoring > Status Details > Hosts** or  **Supervision > Détail des statuts > Services** (deprecated pages)         |
 
-The table below describes the access to the configuration generation:
+### Configuration Actions
 
 | Field                            | Associated actions                                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Generate Configuration Files     | Allows users to generate, test and export configuration to pollers and to restart the monitoring scheduler                           |
-| Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart this one |
+| Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart it |
 
-The table below describes all the actions that can be authorized on the
-scheduler:
+### Global Monitoring Engine Actions (External Process Commands)
 
-| Field                                   | Associated actions                                            |
-| --------------------------------------- | ------------------------------------------------------------- |
-| Shutdown Monitoring Engine              | Allows users to stop the monitoring systems                   |
-| Restart Monitoring Engine               | Allows users to restart the monitoring systems                |
-| Enable/Disable notifications            | Allows users to enable or disable notifications               |
-| Enable/Disable service checks           | Allows users to enable or disable service checks              |
-| Enable/Disable passive service checks   | Allows users to enable or disable passive service checks      |
-| Enable/Disable passive host checks      | Allows users to enable or disable passive host checks         |
-| Enable/Disable Event Handlers           | Allows users to enable or disable event handlers              |
-| Enable/Disable Flap Detection           | Allows users to enable or disable flap detection              |
-| Enable/Disable Obsessive service checks | Allows users to enable or disable obsessive service checks    |
-| Enable/Disable Obsessive host checks    | Allows users to enable or disable obsessive host checks       |
-| Enable/Disable Performance Data         | Allows users to enable or disable performance data processing |
+These fields are no longer in use.
 
-The table below describes all the actions that can be authorized on services:
+### Services Actions Access
 
 | Field                                                         | Associated actions                                                                     |
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Enable/Disable Checks for a service                           | Allows users to enable or disable checks of a service                                  |
-| Enable/Disable Notifications for a service                    | Allows users to enable or disable notifications of a service                           |
-| Acknowledge a service                                         | Allows users to acknowledge a service                                                  |
-| Re-schedule the next check for a service                      | Allows users to re-schedule next check of a service                                    |
-| Re-schedule the next check for a service (Forced)             | Allows users to re-schedule next check of a service by placing its priority to the top |
-| Schedule downtime for a service                               | Allows users to schedule downtime on a service                                         |
-| Add/Delete a comment for a service                            | Allows users to add or delete a comment of a service                                   |
-| Enable/Disable Event Handler for a service                    | Allows users to enable or disable the event handler processing of a service            |
-| Allows users to enable or disable flap detection of a service | Allows users to enable or disable flap detection of a service                          |
-| Enable/Disable passive checks of a service                    | Allows users to enable or disable passive checks of a service                          |
-| Submit result for a service                                   | Allows users to submit result to a service                                             |
-| Display executed command by monitoring engine                 | Allow the display of the executed command for a service                                |
+| Enable/Disable Checks for a service                           | Allows users to enable or disable checks for a service on page **Monitoring > Status details > Services** (deprecated page)                           |
+| Enable/Disable Notifications for a service                    | Allows users to enable or disable notifications for a service  on page **Monitoring > Status details > Services** (deprecated page)                          |
+| Acknowledge a service                                         | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts.html#acknowledging-a-problem]                                                  |
+| Disacknowledge a service | Allows users to disacknowledge a service |
+| Re-schedule the next check for a service                      | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the service's check period.     |
+| Re-schedule the next check for a service (Forced)             | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the service's check period.  |
+| Schedule downtime for a service                               | Allows users to [schedule downtime](../alerts-notifications/manage-alerts.html#add-a-downtime) on a service                                         |
+| Add/Delete a comment for a service                            | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts.html#add-comment) on a service                                   |
+| Enable/Disable Event Handler for a service                    | Allows users to enable or disable the event handler processing of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)           |
+| Allows users to enable or disable flap detection of a service | Allows users to enable or disable flap detection of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                          |
+| Enable/Disable passive checks of a service                    | Allows users to enable or disable passive checks of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                         |
+| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a service                                   | Allows users to modify the status of a service manually, until the next check                                             |
+| Display executed command by monitoring engine                 | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status.html#service-panel)                             |
 
-The table below describes the all the actions that can be authorized on hosts:
+### Hosts Actions Access
 
 | Field                                           | Associated actions                                                                  |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Enable/Disable Checks for a host                | Allows users to enable or disable checks of a host                                  |
-| Enable/Disable Notifications for a host         | Allows users to enable or disable notifications of a host                           |
-| Acknowledge a host                              | Allows users to acknowledge a host                                                  |
+| Enable/Disable Checks for a host                | Allows users to enable or disable checks for a host on page **Monitoring > Status details > Hosts** (deprecated page)                                  |
+| Enable/Disable Notifications for a host         | Allows users to enable or disable notifications for a host on page **Monitoring > Status details > Hosts** (deprecated page)                          |
+| Acknowledge a host                              | Allows users to [acknowledge a host](/alerts-notifications/manage-alerts.html#acknowledging-a-problem)                                                  |
 | Disaknowledge a host                            | Allows users to disacknowledge a host                                               |
-| Schedule the check for a host                   | Allows users to re-schedule next check of a host                                    |
-| Schedule the check for a host (Forced)          | Allows users to re-schedule next check of a host by placing its priority to the top |
-| Schedule downtime for a host                    | Allows users to schedule downtime on a host                                         |
-| Add/Delete a comment for a host                 | Allows users to add or delete a comment of a host                                   |
-| Enable/Disable Event Handler for a host         | Allows users to enable or disable the event handler processing of a host            |
-| Enable/Disable Flap Detection for a host        | Allows users to enable or disable flap detection of a host                          |
-| Enable/Disable Checks services of a host        | Allows users to enable or disable all service checks of a host                      |
-| Enable/Disable Notifications services of a host | Allows users to enable or disable service notifications of a host                   |
-| Submit result for a host                        | Allows users to submit result to a host                                             |
+| Schedule the check for a host                   | Allows users to [trigger a check on a host](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the host's check period.                                     |
+| Schedule the check for a host (Forced)          | Allows users to [trigger a check on a host](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the host's check period.   |
+| Schedule downtime for a host                    | Allows users to [schedule downtime](../alerts-notifications/manage-alerts.html#add-a-downtime) on a host                                         |
+| Add/Delete a comment for a host                 | Allows users to add or delete a [comment](../alerts-notifications/manage-alerts.html#add-comment) for a host                                   |
+| Enable/Disable Event Handler for a host         | Allows users to enable or disable the event handler processing of a host on page **Monitoring > Status details > Hosts** (deprecated page)            |
+| Enable/Disable Flap Detection for a host        | Allows users to enable or disable flap detection of a host on page **Monitoring > Status details > Hosts** (deprecated page)                         |
+| Enable/Disable Checks services of a host        | Allows users to enable or disable all service checks of a host on page **Monitoring > Status details > Hosts** (deprecated page)                     |
+| Enable/Disable Notifications services of a host | Allows users to enable or disable service notifications of a host on page **Monitoring > Status details > Hosts** (deprecated page)                  |
+| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a host   | Allows users to modify the status of a host manually, until the next check                                             |
 
-- The **Status** field is used to enable or disable the filter
+- The **Status** field is used to enable or disable the filter.
 
 ## Reload ACL
 
