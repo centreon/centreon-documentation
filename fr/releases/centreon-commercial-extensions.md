@@ -25,15 +25,15 @@ commerciales, veuillez contacter le support.
 
 #### Améliorations
 
-[Web-Client] Display only markers with geocoord setup for geoview usage
+- [Web-Client] Display only markers with geocoord setup for geoview usage
 
 #### Correctifs
 
-[Server] RestTemplate as an http client should validate with the truststore or ignore CA validation of auto-signed certificates
-[Web-Client] Graph scale is wrong in web interface
-[Web-Client] Infrastructure View link (BA) doesn't work
-[Web-Client] Links to hosts/services not completely working on MAP
-[Web-Client] Sort maps by alphabetic order
+- [Server] RestTemplate as an http client should validate with the truststore or ignore CA validation of auto-signed certificates
+- [Web-Client] Graph scale is wrong in web interface
+- [Web-Client] Infrastructure View link (BA) doesn't work
+- [Web-Client] Links to hosts/services not completely working on MAP
+- [Web-Client] Sort maps by alphabetic order
 
 
 ### 21.04.0
