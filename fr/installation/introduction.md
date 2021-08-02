@@ -14,7 +14,7 @@ l'environnement. Profitez également des optimisations installées en standard p
 le système.
 
 L'installation de Centreon peut être effectuée à partir des sources (tar.gz)
-mais le travail est plus complexe. De plus l'installeur ne sera supporté que par
+mais le travail est plus complexe. De plus l'installation ne sera supportée que par
 la communauté.
 
 Avant toute installation

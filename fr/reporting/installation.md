@@ -250,6 +250,34 @@ mysql> GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP
 
 Allez au chapitre suivant pour continuer l'installation.
 
+### Donner des droits à l'utilisateur cbis
+
+Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.html) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.html) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
+
+- Host-Graph-v2 
+
+- Hostgroup-Graph-v2.
+
+Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis**:
+
+```
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>end=<date_fin>' --output /tmp/image.png
+```
+
+Exemple :
+
+```
+curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=otmw3n1hu03bvt9e0caphuf50ph8sdthcsk8ofdk&username=CBIS&hostname=my-poller&service=Cpu&start=1623016800&end=1623621600' --output /tmp/image.png
+```
+
+Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désiré doit avoir été téléchargée dans le répertoire `/tmp` :
+
+```
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 18311  100 18311    0     0  30569      0 --:--:-- --:--:-- --:--:-- 30569
+```
+
 ## Installer le serveur de reporting
 
 ### Installer les paquets

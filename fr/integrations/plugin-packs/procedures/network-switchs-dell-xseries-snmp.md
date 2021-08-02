@@ -1,5 +1,5 @@
 ---
-id: network-switch-dell-xseries-snmp
+id: network-switchs-dell-xseries-snmp
 title: Dell Xseries
 ---
 
@@ -61,23 +61,23 @@ La communication doit être possible sur le port UDP 161 de l'équipement Dell X
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources Dell Xseries SNMP :
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 
 ```bash
-yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
+yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
 2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Dell Xseries* depuis la page "Configuration > Plugin-Packs > Manager"
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources Dell Xseries SNMP :
+1. Installer le Plugin sur l'ensemble des Collecteurs Centreon supervisant des ressources *Dell Xseries* :
 
 ```bash
-yum install centreon-plugin-Network-Switch-Dell-Xseries-Snmp
+yum install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
-2. Installer le RPM du Centreon Plugin-Pack sur le serveur Centreon Central :
+2. Installer le RPM du Centreon Plugin-Pack sur le serveur Central :
 
 ```bash
 yum install centreon-pack-network-switch-dell-xseries-snmp

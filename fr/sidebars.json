@@ -2,17 +2,14 @@
     "docs": {
         "Getting Started": [
             "getting-started/installation-first-steps",
-            {
-                "ids": [
-                    "getting-started/introduction-tutorials",
-                    "getting-started/create-custom-view",
-                    "getting-started/create-graphical-view",
-                    "getting-started/model-it-services",
-                    "getting-started/analyze-resources-availability"
-                ],
-                "label": "Tutoriels",
-                "type": "subcategory"
-            }
+            "getting-started/which-install",
+		    "getting-started/IT100",
+            "getting-started/interface",
+		    "getting-started/first-supervision",
+            "getting-started/create-custom-view",
+            "getting-started/create-graphical-view",
+            "getting-started/model-it-services",
+            "getting-started/analyze-resources-availability"
         ],
         "Installation": [
             "installation/introduction",
@@ -241,16 +238,8 @@
             },
             "administration/access-control-lists",
             "administration/extensions",
+            "administration/licenses",
             "administration/database-partitioning",
-            {
-                "ids": [
-                    "administration/centreon-ha/monitoring-guide",
-                    "administration/centreon-ha/operating-guide",
-                    "administration/centreon-ha/troubleshooting-guide"
-                ],
-                "label": "Centreon HA",
-                "type": "subcategory"
-            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
@@ -298,6 +287,7 @@
             "integrations/plugin-packs/introduction",
             {
                 "ids": [
+                    "integrations/plugin-packs/tutorials/centreon-nsclient-tutorial",
                     "integrations/plugin-packs/tutorials/collect-openmetrics"
                 ],
                 "label": "Tutoriels",
@@ -316,6 +306,9 @@
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-ami",
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-snmp",
                     "integrations/plugin-packs/procedures/applications-bind9-web",
+                    "integrations/plugin-packs/procedures/applications-blockchain-hyperledger-exporter",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-restapi",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-ethpoller-restapi",
                     "integrations/plugin-packs/procedures/applications-bluemind-ssh",
                     "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
@@ -326,7 +319,7 @@
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-emc-ppma-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
@@ -353,7 +346,7 @@
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe",
                     "integrations/plugin-packs/procedures/applications-biztalk",
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
+                    "integrations/plugin-packs/procedures/applications-exchange-nrpe",
                     "integrations/plugin-packs/procedures/applications-mail-bluemind",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
@@ -584,6 +577,7 @@
                     "integrations/plugin-packs/procedures/network-alvarion-breezeaccess-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-arista-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-arkoon-snmp",
+                    "integrations/plugin-packs/procedures/network-aruba-aoscx-snmp",
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
@@ -627,7 +621,7 @@
                     "integrations/plugin-packs/procedures/network-dell-os10-snmp",
                     "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
                     "integrations/plugin-packs/procedures/network-denyall-snmp",
-                    "integrations/plugin-packs/procedures/network-switch-dell-xseries-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-dell-xseries-snmp",
                     "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portserverts-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portservers-snmp",
@@ -994,6 +988,19 @@
                     "developer/developer-broker-mapping"
                 ],
                 "label": "Centreon Broker",
+                "type": "subcategory"
+            }
+        ],
+        "Superviser votre plateforme": [  
+            "health/centreon-agent",
+            {
+                "ids": [
+                    "administration/centreon-ha/acceptance-guide",
+                    "administration/centreon-ha/monitoring-guide",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
                 "type": "subcategory"
             }
         ],

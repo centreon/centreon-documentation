@@ -35,8 +35,7 @@ l'étape suivante.
 Chaque modèle de rapport répond à un besoin précis. Dans notre exemple,
 nous souhaitons analyser la disponibilité de nos routeurs en Europe.
 Pour cela, parcourons la page listant
-`les modèles de rapports disponibles <reports_available>`{.interpreted-text
-role="ref"} et sélectionnons le modèle de rapport
+les [modèles de rapports disponibles](../reporting/reports.html) et sélectionnons le modèle de rapport
 Hostgroup-Host-Availability-List. Ce modèle affiche sous forme de liste,
 la disponibilité des hôtes d'un groupe. Dans notre exemple, les hôtes
 sont nos routeurs.

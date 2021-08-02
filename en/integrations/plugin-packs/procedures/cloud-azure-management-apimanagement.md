@@ -15,7 +15,8 @@ API Management service.
 
 ### Monitored Objects
 
-* Azure *API Management* instances
+* Azure *API Management* instances :
+    * Capacity
     * Events
     * Requests
     * Requests duration
@@ -36,6 +37,12 @@ More information about the Host Discovery module is available in the Centreon do
 ### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--Capacity-->
+
+| Metric Name                       | Description                    | Unit  |
+|:----------------------------------|:-------------------------------|:------|
+| apimanagement.capacity.percentage | Capacity Statistics Percentage | %     |
 
 <!--Events-->
 
@@ -239,7 +246,7 @@ in *AZURERESOURCE*
 | X         | AZURETENANT        | Tenant ID                                          |
 | X         | AZURECLIENTID      | Client ID                                          |
 | X         | AZURECLIENTSECRET  | Client secret                                      |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
@@ -249,7 +256,7 @@ in *AZURERESOURCE*
 |:----------|:-------------------|:---------------------------------------------------|
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURERESOURCE      | ID or name of the API Management resource     |
+| X         | AZURERESOURCE      | ID or name of the API Management resource          |
 |           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
 |           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
 
