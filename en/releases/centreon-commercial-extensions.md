@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.04.1
 
+`August 2, 2021`
+
 #### Enhancements
 
 [Web-Client] Display only markers with geocoord setup for geoview usage
