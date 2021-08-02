@@ -27,7 +27,7 @@ commerciales, veuillez contacter le support.
 
 [Web-Client] Display only markers with geocoord setup for geoview usage
 
-#### Bugfixes
+#### Correctifs
 
 [Server] RestTemplate as an http client should validate with the truststore or ignore CA validation of auto-signed certificates
 [Web-Client] Graph scale is wrong in web interface
