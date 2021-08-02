@@ -19,6 +19,20 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.04.1
+
+#### Enhancements
+
+[Web-Client] Display only markers with geocoord setup for geoview usage
+
+#### Bugfixes
+
+[Server] RestTemplate as http client should validate with truststore or ignore CA validation of auto-signed certificat
+[Web-Client] Graph scale is wrong in web interface
+[Web-Client] Infrastructure View link (BA) doesn't work
+[Web-Client] Links to hosts/services not completely working on MAP
+[Web-Client] Sort maps by alphabetic order
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
