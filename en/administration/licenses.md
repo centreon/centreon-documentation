@@ -6,7 +6,7 @@ title: Licenses
 ## How can I obtain a license?
 
 * You can request your token for the [free IT-100 edition](../getting-started/IT100.html) on our website.
-* If you have purchased a license, request your license files from our support team.
+* If you have purchased a license, request your license files from our [support](https://support.centreon.com) team.
 
 ## Types of licenses
 
@@ -42,7 +42,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
     2. Click on **Get fingerprint**.
 
-    3. Paste the fingerprint in an email to our support team requesting the license.
+    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
 
 2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
 
