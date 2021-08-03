@@ -42,14 +42,14 @@ Afin de contrôler l'équipement Barco ClickShare, l'API Rest doit être configu
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page *Configuration > Plugin Packs > Manager*
 
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
-yum installcentreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
 2. Sur le serveur Central Centreon, installer le Pack via le RPM:
@@ -58,7 +58,7 @@ yum installcentreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Pack *Barco ClickShare Rest API* depuis la page *Configuration > Plugin Packs > Manager*
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
