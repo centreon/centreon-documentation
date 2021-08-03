@@ -7,8 +7,7 @@ title: Barco ClickShare Rest API
 
 ### Monitored Objects
 
-The Plugin Pack Barco ClickShare collects metrics for:
-* Device
+The Barco ClickShare Pack collects metrics and status from various Barco hardware devices (CSE 100, CSE-200+, CSE-800,...).
 
 ### Collected Metrics
 
@@ -19,10 +18,10 @@ The Plugin Pack Barco ClickShare collects metrics for:
 | Metric name                       | Description                               | Unit |
 | :-------------------------------- | :---------------------------------------- | :--- |
 | device status                     | Status of the device                      |      |
-| cpu#hardware.temperature.celsius  | cpu sensor temperature                    | C    |
-| pcie#hardware.temperature.celsius | pcie sensor temperature                   | C    |
-| sio#hardware.temperature.celsius  | sio sensor temperature                    | C    |
-| cpu#hardware.fan.speed.rpm        | cpu fan speed (supported since api v1.11) | rpm  |
+| cpu#hardware.temperature.celsius  | Cpu sensor temperature                    | C    |
+| pcie#hardware.temperature.celsius | Pcie sensor temperature                   | C    |
+| sio#hardware.temperature.celsius  | Sio sensor temperature                    | C    |
+| cpu#hardware.fan.speed.rpm        | Cpu fan speed (supported since api v1.11) | rpm  |
 | process status                    | Status of processes                       |      |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -45,7 +44,7 @@ E.g: https://www.barco.com/en/support/knowledge-base/kb11350
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Barco ClickShare Rest API* Plugin Pack
+2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Barco ClickShare Rest API* Pack
 
 <!--Offline IMP License-->
 
@@ -55,13 +54,13 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Pack from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Barco ClickShare Rest API* Plugin Pack
+3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *Barco ClickShare Rest API* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -137,15 +136,4 @@ All the options that can be used with this plugin can be found over the ```--hel
 
 ## Troubleshooting
 
-### ```UNKNOWN: 500 Can't connect to 10.30.2.79:4001```
-
-This error message means that the Centreon Plugin couldn't successfully connect to the Barco ClickShare API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. This can be done by using the ```--proxyurl='http://proxy.mycompany:8080'``` option in the command.
-
-### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported```
-
-When using a proxy to connect to the Barco ClickShare API, this error message means that the Centreon Plugin library does not support
-the proxy connection protocol.
-
-In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html)
