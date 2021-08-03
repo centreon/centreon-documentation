@@ -6,7 +6,7 @@ title: Licences
 ## Comment obtenir une licence?
 
 * Vous pouvez demander votre jeton pour [l'édition gratuite IT-100](../getting-started/IT100.html) sur notre site web.
-* Si vous avez acheté une licence, demandez vos fichiers de licence à notre équipe support.
+* Si vous avez acheté une licence, demandez vos fichiers de licence à notre équipe [support](https://support.centreon.com).
 
 ## Types de licences
 
@@ -42,7 +42,7 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 
     2. Cliquez sur **Récupérer l'empreinte**.
 
-    3. Collez l'empreinte dans un email à notre équipe support pour demander votre licence.
+    3. Collez l'empreinte dans un email à notre équipe [support](mailto:support@centreon.com) pour demander votre licence.
 
 2. Une fois votre licence reçue, à la page **Administration > Extensions > Gestionnaire**, cliquez sur **Télécharger une licence**.
 
