@@ -44,15 +44,15 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 | Metric name                 | Description                   | Unit |
 | :-------------------------- | :---------------------------- | :--- |
-| proxy.connections.count     | current number of connections |      |
-| proxy.connections.persecond | average number of connections |      |
-| proxy.services.count        | number of services            |      |
+| proxy.connections.count     | Current number of connections |      |
+| proxy.connections.persecond | Average number of connections |      |
+| proxy.services.count        | Number of services            |      |
 
 <!--System-->
 
 | Metric name                     | Description              | Unit |
 | :------------------------------ | :----------------------- | :--- |
-| ha status                       | high-availability status |      |
+| ha status                       | High-availability status |      |
 | cpu.utilization.percentage      | CPU utilization          | %    |
 | memory.usage.percentage         | Memory usage             | %    |
 | disk.log.space.usage.percentage | Log disk usage           | %    |
@@ -77,7 +77,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -87,13 +87,13 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Pack via le RPM:
 
 ```bash
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -154,16 +154,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## J'obtiens le message d'erreur suivant:
+## Diagnostic
 
-### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
-Il est également possible qu'un firewall bloque le flux.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.12356.107).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins.html)

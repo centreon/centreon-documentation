@@ -44,15 +44,15 @@ A regexp filter is available to target a specific interface identifier - ifName 
 
 | Metric name                 | Description                   | Unit |
 | :-------------------------- | :---------------------------- | :--- |
-| proxy.connections.count     | current number of connections |      |
-| proxy.connections.persecond | average number of connections |      |
-| proxy.services.count        | number of services            |      |
+| proxy.connections.count     | Current number of connections |      |
+| proxy.connections.persecond | Average number of connections |      |
+| proxy.services.count        | Number of services            |      |
 
 <!--System-->
 
 | Metric name                     | Description              | Unit |
 | :------------------------------ | :----------------------- | :--- |
-| ha status                       | high-availability status |      |
+| ha status                       | High-availability status |      |
 | cpu.utilization.percentage      | CPU utilization          | %    |
 | memory.usage.percentage         | Memory usage             | %    |
 | disk.log.space.usage.percentage | Log disk usage           | %    |
@@ -62,7 +62,7 @@ A regexp filter is available to target a specific interface identifier - ifName 
 ## Prerequisites
 
 To monitor your Fortinet FortiWeb, the SNMP must be configured.
-The Poller should be able to perform SNMP requests toward the Infoblox device over SNMP UDP/161 port.
+The Poller should be able to perform SNMP requests toward the Fortinet device over SNMP UDP/161 port.
 
 ## Setup
 
@@ -76,7 +76,7 @@ The Poller should be able to perform SNMP requests toward the Infoblox device ov
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Plugin Pack
+2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Pack
 
 <!--Offline IMP License-->
 
@@ -86,13 +86,13 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. On the Centreon Central server, install the Centreon Plugin Pack from the RPM:
+2. On the Centreon Central server, install the Centreon Pack from the RPM:
 
 ```bash
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Plugin Pack
+3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -154,15 +154,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-### UNKNOWN: SNMP GET Request : Timeout
-
-If you get this message, you're probably facing one of theses issues:
-* The SNMP agent of the device isn't started or is misconfigured
-* An external device is blocking the request (firewall, ...)
-
-#### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-This error message often refers to the following issues: 
-  - The agent doesn't support the MIB used by the plugin
-  - The targeted SNMP OID cannot be fetched because of insufficient privileges on the device. 
-    SNMP Agent must be capable of accessing to the enterprise branch: .1.3.6.1.4.1.12356.107
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html)
