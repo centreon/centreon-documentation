@@ -61,7 +61,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the *Configuration > Plugin Packs > Manager* page
 
 <!--Offline IMP License-->
 

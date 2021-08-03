@@ -62,8 +62,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire" 
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page *Configuration > Plugin Packs > Gestionnaire*
 
 <!--Offline IMP License-->
 
@@ -149,6 +148,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostic
+## Diagnostique
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins.html)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)
