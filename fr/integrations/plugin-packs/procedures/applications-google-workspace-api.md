@@ -41,7 +41,7 @@ https://workspace.google.fr/intl/en/features/
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
-| status                          | status of the service                  |
+| status                          | Status of the service                  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -62,7 +62,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin Pack *Google Workspace* 
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* 
 depuis la page "Configuration > Plugin Packs > Gestionnaire" 
 
 <!--Offline IMP License-->
@@ -73,18 +73,18 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Installer le RPM du Plugin Pack sur le serveur Centreon Central:
+2. Installer le RPM du Pack sur le serveur Centreon Central:
 
 ```bash
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin Pack *Google Workspace* 
-depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* 
+depuis la page *Configuration > Plugin Packs > Gestionnaire*
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
+* Ajoutez un nouvel Hôte depuis la page *Configuration > Hôtes*
 * Complétez le champ "IP Address / DNS" en indiquant une IP *localhost* (par exemple 127.0.0.1)
 * Appliquez le Modèle d'Hôte *App-Google-Workspace-Api-custom*
 
@@ -104,9 +104,7 @@ depuis la page "Configuration > Plugin Packs > Gestionnaire"
 > Par défaut, un Service de type "Global" sera déployé, supervisant l'ensemble des services Google Workspace.
 > Utilisez la fonctionnalité **Service Discovery** si vous souhaitez obtenir un Service par service Google Workspace.
 
-## FAQ
-
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
 depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
@@ -151,11 +149,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-### J'obtiens le message d'erreur suivant: ```UNKNOWN: 500 Can't connect to www.google.com.443 |```
+## Diagnostic
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant: ```UNKNOWN: 500 Can't connect to www.google.com.443 |```.
-
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API du serveur Google.
-
-Si l'utilisation d'un proxy est requise pour les connexions HTTP depuis le collecteur Centreon,
-il est nécessaire de le préciser dans la commande en utilisant l'option ```--proxyurl='http://proxy.mycompany.com:8080'```.
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins.html)

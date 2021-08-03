@@ -10,7 +10,7 @@ Google Workspace, is a collection of cloud computing, productivity and collabora
 The Centreon Plugin Pack aims to collect the real-time status and availability of the services by requesting the
 dedicated Status API available on Google servers.
 
-## Plugin-Pack assets
+## Plugin Pack assets
 
 ### Monitored objects
 
@@ -40,13 +40,11 @@ https://workspace.google.fr/intl/en/features/
 | Metric name                     | Description                            |
 | :------------------------------ | :------------------------------------- |
 | google.workspace.services.count | Number of services currently monitored |
-| status                          | status of the service                  |
+| status                          | Status of the service                  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prerequisites
-
-### AWS Configuration
 
 The Centreon Poller that will be used to monitor Google Workspace must be able to reach the related servers (www.google.com) on the Internet
 using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
@@ -63,7 +61,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. On the Centreon Web interface, install the *Google Workspace* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
@@ -73,19 +71,19 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. On the Centreon Web interface, install the *Google Workspace* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the *Configuration > Plugin Packs > Manager* page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Host configuration
 
-* Log into Centreon and add a new Host through "Configuration > Hosts". 
+* Log into Centreon and add a new Host through *Configuration > Hosts*. 
 * Fill the "IP Address / DNS" field with a localhost IP address (e.g 127.0.0.1)
 * Select the *App-Google-Workspace-Api-custom*
 
@@ -105,9 +103,7 @@ yum install centreon-pack-applications-google-workspace-api
 > This template will deploy one "Global" Service that will monitor all of the services.
 > Use the **Service Discovery** feature if you wish to get one Service per google workspace service.
 
-## FAQ
-
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+## How to test the Plugin and what are the main options for?
 
 Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
 by running the following command (Some of the parameters such as ```proxyurl``` have to be adjusted):
@@ -152,9 +148,6 @@ parameter to the command:
     --help
 ```
 
-### Why do I get the following message: ```UNKNOWN: 500 Can't connect to www.google.com.443 |```
+## Troubleshooting
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Google API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. 
-This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html)
