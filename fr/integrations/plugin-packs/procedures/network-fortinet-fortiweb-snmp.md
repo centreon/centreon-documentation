@@ -99,7 +99,7 @@ yum install centreon-pack-network-fortinet-fortiweb-snmp
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
+* Ajoutez un nouvel Hôte depuis la page *Configuration > Hôtes*
 * Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
 * Appliquez le Modèle d'Hôte *Net-Fortinet-Fortiauthenticator-SNMP-custom*
 
@@ -154,6 +154,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostic
+## Diagnostique
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins.html)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)
