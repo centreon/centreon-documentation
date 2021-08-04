@@ -137,7 +137,7 @@ Pour créer un filtre d'accès aux actions :
 
     - Les champs **Nom de l'action** et **Description** contiennent le nom du
     filtre ainsi que sa description
-    - Dans la section **Relations**, utiliser le tableau **Groupes liés** pour attribuer aux utilisateurs des [groupes d'accès](#créer-un-groupe-daccès) les droits définis dans le filtre.
+    - Dans la section **Relations**, utilisez le tableau **Groupes liés** pour attribuer aux utilisateurs des [groupes d'accès](#créer-un-groupe-daccès) les droits définis dans le filtre.
 
 3. Cochez les cases correspondant aux options désirées (voir tableaux ci-dessous).
 
