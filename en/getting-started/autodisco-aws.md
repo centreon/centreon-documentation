@@ -45,7 +45,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 4. If your infrastructure requires it, fill in the details for the proxy you want to use.
 
-5. Click on the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Acces Key and AWS Secret Key fields, then click on **Confirm**. Click **Next**.
+5. Click on the `+` sign to the right of the **Choose credentials** list. Fill in the Name, AWS Access Key and AWS Secret Key fields, then click on **Confirm**. Click **Next**.
 
 6. Enter the region your EC2 instances are in (for example, **eu-north-1**). Click **Next**.
 
@@ -78,5 +78,4 @@ You must have the credentials to the AWS group of instances you want to monitor 
 13. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
 14. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html). The hosts appear in the **Resources Status** page: they are monitored.
-
 
