@@ -77,7 +77,7 @@ Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin packs > Manager**
 
 <!--Offline IMP License-->
 
@@ -93,7 +93,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page "Configuration > Plugin packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Pack *Fortinet FortiWeb SNMP* depuis la page **Configuration > Plugin packs > Manager**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
