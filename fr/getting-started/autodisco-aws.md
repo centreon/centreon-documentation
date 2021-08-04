@@ -47,7 +47,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 4. Si votre infrastructure le demande, renseignez les détails du proxy désiré.
 
-5. Cliquez sur le `+` à droite de la liste **Choisir des identifants**. Renseignez les champs nom, AWS Acces Key et AWS Secret Key, 
+5. Cliquez sur le `+` à droite de la liste **Choisir des identifants**. Renseignez les champs nom, AWS Access Key et AWS Secret Key, 
 puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 6. Entrez la région où se situent vos instances EC2 (par exemple, **eu-north-1**). Cliquez sur **Suivant**.
@@ -81,5 +81,4 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 13. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
 14. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
-
 
