@@ -180,7 +180,7 @@ These fields are no longer in use.
 | [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a service                                   | Allows users to modify the status of a passive service manually, until the next check                                             |
 | Display executed command by monitoring engine                 | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status.html#service-panel)                             |
 
-### Hosts Actions Access
+#### Hosts Actions Access
 
 | Field                                           | Associated actions                                                                  |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------- |
