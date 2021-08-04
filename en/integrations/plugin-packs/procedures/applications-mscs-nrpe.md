@@ -74,4 +74,5 @@ from the **Configuration > Plugin Packs > Manager** page
 
 ## Important information
 
-* You cannot use the `|` character in your Centreon Macro definitions
+* You cannot use `|` and `!` characters in your Centreon Macro values. 
+Prefer using RestAPI version of the Pack if you really need it. 

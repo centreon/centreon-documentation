@@ -1,6 +1,6 @@
 ---
 id: virtualization-hyperv-2012-nrpe
-title: Hyper-V 2012
+title: Hyper-V 2012 NSClient++ NRPE
 ---
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
 id: applications-wsus-nsclient
-title: Microsoft WSUS
+title: Microsoft WSUS NSClient++
 ---
 
 ## Overview

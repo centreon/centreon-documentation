@@ -3,6 +3,10 @@ id: applications-veeam-nrpe
 title: Veeam NSClient++ NRPE
 ---
 
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know by making a PR or pinging us on [slack](https://centreon.slack.com)
+
 ## Overview
 
 The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 

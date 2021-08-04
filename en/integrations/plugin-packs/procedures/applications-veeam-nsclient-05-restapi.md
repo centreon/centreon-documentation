@@ -5,11 +5,21 @@ title: Veeam NSClient++ API
 
 ## Overview
 
+The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+Powershell to check operating status of a Veeam Server. It uses the built-in NSClient++
+API. 
+
 ## Pack assets
 
 ### Monitored objects
 
+* Veeam Servers: 
+    * Jobs 
+    * Tapes
+
 ### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 

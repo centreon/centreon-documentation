@@ -3,10 +3,12 @@ id: applications-netbackup-nsclient-05-restapi
 title: Netbackup NSClient++ API
 ---
 
-## Pack assets
+## Overview 
 
 The Plugin Pack Symantec Netbackup works with the Centreon NSClient++ monitoring agent 
 to check Netbackup backup solutions using the Windows agent's API. 
+
+## Pack assets
 
 ### Monitored objects
 

@@ -32,7 +32,7 @@ and make sure that the **NRPE Server** configuration is correct.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Veeam*:
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *EMC Symmetrix*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -43,7 +43,7 @@ from the **Configuration > Plugin Packs > Manager** page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Poller expected to monitor *Veeam*:
+1. Install the Centreon Plugin package on every Poller expected to monitor *EMC Symmetrix*:
 
 ```bash
 yum install centreon-nrpe-plugin
@@ -55,7 +55,7 @@ yum install centreon-nrpe-plugin
 yum install centreon-pack-hardware-storage-emc-symmetrix
 ```
 
-3. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+3. On the Centreon Web interface, install the Centreon Pack *EMC Symmetrix* 
 from the **Configuration > Plugin Packs > Manager** page
 
 <!--END_DOCUSAURUS_CODE_TABS-->

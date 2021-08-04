@@ -3,6 +3,10 @@ id: applications-exchange-nrpe
 title: Microsoft Exchange NSClient++ NRPE
 ---
 
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know and ping us on [slack](https://centreon.slack.com)
+
 ## Overview
 
 The Plugin Pack *Microsoft Exchange NRPE* works with the Centreon NSClient++ monitoring
@@ -81,4 +85,4 @@ yum install centreon-pack-applications-exchange-nrpe
 * The *Queue* monitoring Service only works on Exchange Server running with the 
 hub/transport role. 
 * Use this format to define MAILBOX macro at the service level: `DOMAIN\\USER`
-* You cannot use the `|` character in your Centreon Macro definitions
+* You cannot use the `|` nor `!` character in your Centreon Macro definitions. Prefer using NSClient++ API if you need this. 

@@ -19,6 +19,8 @@ Centreon NSClient++ agent to trigger their executions remotely.
 
 ### Collected metrics
 
+*Coming soon*
+
 ## Prerequisites
 
 ### Centreon NSClient++

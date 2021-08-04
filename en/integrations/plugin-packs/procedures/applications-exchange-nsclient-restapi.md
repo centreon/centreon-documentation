@@ -83,4 +83,3 @@ from the **Configuration > Plugin Packs > Manager** page
 * The *Queue* monitoring Service only works on Exchange Server running with the 
 hub/transport role
 * Use this format to define MAILBOX macro at the service level: DOMAIN\\USER
-* Using `|` character in your Centreon Macro definitions is not supported
