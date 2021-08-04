@@ -196,7 +196,7 @@ Ces champs ne sont plus utilisés.
 | Activer/Désactiver la détection de bagotage pour un hôte       | Activer/Désactiver la détection du statut FLAPPING (ou bagotage) pour un hôte à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)          |
 | Activer/Désactiver les contrôles des services de l'hôte     | Activer/Désactiver les contrôles des services d'un hôte  à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)                                |
 | Activer/désactiver les notifications de service de l'hôte   | Activer/Désactiver les notifications des services d'un hôte à la page de détails d'un hôte accessible via le menu **Supervision > Détail des statuts > Hôtes** (page dépréciée)  |
-| [Soumettre le résultat](../alerts-notifications/manage-alerts.html#soumettre-un-résultat) pour un hôte                          | Permettre à l'utilisateur de modifier manuellement le statut d'un hôte jusqu'au prochain contrôle                           |
+| [Soumettre le résultat](../alerts-notifications/manage-alerts.html#soumettre-un-résultat) pour un hôte                          | Permettre à l'utilisateur de modifier manuellement le statut d'un hôte passif jusqu'au prochain contrôle                           |
 
 - Le champ **Statut** permet d'activer ou de désactiver le filtre
 
