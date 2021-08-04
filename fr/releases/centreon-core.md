@@ -879,7 +879,6 @@ a check_command. It will use the poller_id field of your config.
 - Problèmes de compilation sur Raspberry Pi
 
 #### Améliorations
-￼
 - Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
 
 ### 20.04.14
