@@ -196,7 +196,7 @@ These fields are no longer in use.
 | Enable/Disable Flap Detection for a host        | Allows users to enable or disable flap detection of a host on page **Monitoring > Status details > Hosts** (deprecated page)                         |
 | Enable/Disable Checks services of a host        | Allows users to enable or disable all service checks of a host on page **Monitoring > Status details > Hosts** (deprecated page)                     |
 | Enable/Disable Notifications services of a host | Allows users to enable or disable service notifications of a host on page **Monitoring > Status details > Hosts** (deprecated page)                  |
-| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a host   | Allows users to modify the status of a host manually, until the next check                                             |
+| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a host   | Allows users to modify the status of a passive host manually, until the next check                                             |
 
 - The **Status** field is used to enable or disable the filter.
 
