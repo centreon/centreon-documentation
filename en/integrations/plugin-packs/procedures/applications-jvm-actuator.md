@@ -88,7 +88,7 @@ Ask to your admin to deploy it and give you the URL.
 yum install centreon-plugin-Applications-Jvm-Actuator
 ```
 
-2. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *JVM Actuator* Pack
+2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM Actuator* Pack
 
 <!--Offline IMP License-->
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 yum install centreon-pack-applications-jvm-actuator
 ```
 
-3. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *JVM Actuator* Pack
+3. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM Actuator* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
