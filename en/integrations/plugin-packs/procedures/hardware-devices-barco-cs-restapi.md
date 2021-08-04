@@ -44,7 +44,7 @@ E.g: https://www.barco.com/en/support/knowledge-base/kb11350
 yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 ```
 
-2. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *Barco ClickShare Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *Barco ClickShare Rest API* Pack
 
 <!--Offline IMP License-->
 
@@ -60,7 +60,7 @@ yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *Barco ClickShare Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *Barco ClickShare Rest API* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
