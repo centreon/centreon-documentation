@@ -88,7 +88,7 @@ Ask to your admin to deploy it and give you the URL.
 yum install centreon-plugin-Applications-Jvm-Actuator
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *JVM Actuator* Pack
+2. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *JVM Actuator* Pack
 
 <!--Offline IMP License-->
 
@@ -104,7 +104,7 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 yum install centreon-pack-applications-jvm-actuator
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *JVM Actuator* Pack
+3. On the Centreon Web interface in *Configuration > Plugin Packs > Manager*, install the *JVM Actuator* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -155,7 +155,7 @@ OK: Class current: 6486, unloaded: 38 | 'class.loaded.current.count'=6486;;;0; '
 ```
 
 The command above monitors JVM class usage (```--mode=class-count```).
-Tt connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```) on the port _8080_ (```--port='8090'```) using _http_ (```--proto='http'```).
+It connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```) on the port _8080_ (```--port='8080'```) using _http_ (```--proto='http'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 
