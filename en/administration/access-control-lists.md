@@ -16,7 +16,7 @@ Rights are not defined at user level but through [access groups](#creating-an-ac
 - [Administrator](../monitoring/basic-objects/contacts.html#authentification-centreon) users have all rights (even if you add an administrator to an access group with limited rights).
 
 ACLs are recalculated every minute; this is why it is sometimes necessary
-to wait a few seconds before changes are applied to an user. You can also [reload them](#reload-acl) manually.
+to wait a few seconds before changes are applied to a user. You can also [reload them](#reload-acl) manually.
 
 > The Centreon [MBI](../reporting/configure.html), BAM and [MAP](../graph-views/configure.html) modules have their own ACLs.
 
