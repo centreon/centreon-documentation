@@ -105,7 +105,7 @@ To create an access filter on menus:
 3. Fill in the following fields:
     - **ACL Definition** (its name) and **Alias**
     - **Status**: enable or disable the filter
-    - **Comments**: add info aout the filter.
+    - **Comments**: add info about the filter.
 
 4. To grant access groups the rights defined in this filter, use the **Linked groups** table.
 
