@@ -324,6 +324,7 @@
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
+                    "integrations/plugin-packs/procedures/applications-google-workspace-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
