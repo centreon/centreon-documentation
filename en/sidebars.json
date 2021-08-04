@@ -339,6 +339,7 @@
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-jboss-jmx",
                     "integrations/plugin-packs/procedures/applications-jenkins",
+                    "integrations/plugin-packs/procedures/applications-jvm-actuator",
                     "integrations/plugin-packs/procedures/applications-kafka-jmx",
                     "integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp",
                     "integrations/plugin-packs/procedures/applications-keepalived-snmp",
