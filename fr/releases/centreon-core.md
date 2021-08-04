@@ -875,6 +875,8 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.15
 
+`4 août 2021`
+
 #### Correctifs
 
 - Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
