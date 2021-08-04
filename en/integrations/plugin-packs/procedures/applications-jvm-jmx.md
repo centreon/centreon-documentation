@@ -97,7 +97,7 @@ Please install jolokia agent on your JVM [Jolokia download page](https://jolokia
 yum install centreon-plugin-Applications-Jvm-Jmx
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *JVM JMX* Pack
+2. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM JMX* Pack
 
 <!--Offline IMP License-->
 
@@ -113,7 +113,7 @@ yum install centreon-plugin-Applications-Jvm-Jmx
 yum install centreon-pack-applications-jvm-jmx
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin Packs > Manager", install the *JVM JMX* Pack
+3. On the Centreon Web interface in **Configuration > Plugin Packs > Manager**, install the *JVM JMX* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

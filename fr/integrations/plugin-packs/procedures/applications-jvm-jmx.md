@@ -98,7 +98,7 @@ Demander à votre administrateur de le déployer et de vous fournir l'URL.
 yum install centreon-plugin-Applications-Jvm-Jmx
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
@@ -114,13 +114,13 @@ yum install centreon-plugin-Applications-Jvm-Jmx
 yum install centreon-pack-applications-jvm-jmx
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page "Configuration > Plugin Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Pack *JVM JMX* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page *Configuration > Hôtes*.
+* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**.
 * Appliquez le modèle *App-Jvm-JMX-custom* et configurez toutes les macros nécessaires:
 
 | Mandatory   | Name                | Description                                                                |
