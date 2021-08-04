@@ -669,6 +669,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.13
 
+`4 août 2021`
+
 #### Correctifs
 
 - Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
