@@ -143,7 +143,7 @@ To create an access filter on actions:
 
 5. Click **Save**.
 
-### Global Functionalities Access
+#### Global Functionalities Access
 
 | Field                                  | Associated actions                                                               |
 | -------------------------------------- | -------------------------------------------------------------------------------- |
