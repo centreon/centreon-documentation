@@ -125,7 +125,7 @@ access it (if applicable).
 
 6. Click **Save**.
 
-## Access filters on actions
+### Access filters on actions
 
 Filters on actions allow you to define which actions users will be allowed to perform
 on resources (hosts and services) and on the monitoring engines.
