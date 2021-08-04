@@ -158,7 +158,7 @@ To create an access filter on actions:
 | Generate Configuration Files     | Allows users to generate, test and export configuration to pollers and to restart the monitoring scheduler                           |
 | Generate SNMP Trap configuration | Allows users to generate and export configuration of the SNMP traps for the Centreontrapd process on pollers and to restart it |
 
-### Global Monitoring Engine Actions (External Process Commands)
+#### Global Monitoring Engine Actions (External Process Commands)
 
 These fields are no longer in use.
 
