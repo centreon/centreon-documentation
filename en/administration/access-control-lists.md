@@ -177,7 +177,7 @@ These fields are no longer in use.
 | Enable/Disable Event Handler for a service                    | Allows users to enable or disable the event handler processing of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)           |
 | Allows users to enable or disable flap detection of a service | Allows users to enable or disable flap detection of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                          |
 | Enable/Disable passive checks of a service                    | Allows users to enable or disable passive checks of a service in the detailed sheet of a service accessible via the **Monitoring > Status Details > Services** menu (deprecated page)                         |
-| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a service                                   | Allows users to modify the status of a service manually, until the next check                                             |
+| [Submit result](../alerts-notifications/manage-alerts.html#submitting-a-result) for a service                                   | Allows users to modify the status of a passive service manually, until the next check                                             |
 | Display executed command by monitoring engine                 | Displays the executed command for a service in its [Details panel](../alerts-notifications/resources-status.html#service-panel)                             |
 
 ### Hosts Actions Access
