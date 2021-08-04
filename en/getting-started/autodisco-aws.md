@@ -7,7 +7,7 @@ In this tutorial, we will use the [Auto Discovery module](../monitoring/discover
 
 ## Prerequisites
 
-You must have the credentials to the AWS group of instances you want to monitor (Name, AWS Acces Key and AWS Secret Key), and the region your AWS instances are in.
+You must have the credentials to the AWS group of instances you want to monitor (Name, AWS Access Key and AWS Secret Key), and the region your AWS instances are in.
 
 ## Step 1: Installing the Amazon EC2 plugin
 
@@ -78,6 +78,5 @@ You must have the credentials to the AWS group of instances you want to monitor 
 13. Go to **Configuration > Hosts > Hosts** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 
 14. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html). The hosts appear in the **Resources Status** page: they are monitored.
-
 
 
