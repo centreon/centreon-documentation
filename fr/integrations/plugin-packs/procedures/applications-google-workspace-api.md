@@ -62,7 +62,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page *Configuration > Plugin Packs > Gestionnaire*
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
@@ -78,12 +78,11 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* 
-depuis la page *Configuration > Plugin Packs > Gestionnaire*
+3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 ## Configuration
 
-* Ajoutez un nouvel Hôte depuis la page *Configuration > Hôtes*
+* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
 * Complétez le champ "IP Address / DNS" en indiquant une IP *localhost* (par exemple 127.0.0.1)
 * Appliquez le Modèle d'Hôte *App-Google-Workspace-Api-custom*
 
