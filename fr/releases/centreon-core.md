@@ -680,6 +680,15 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.04.13
+
+`4 août 2021`
+
+#### Correctifs
+
+- Les notifications de récupération ne sont pas envoyées si centengine a été interrompu durant l'incident
+- Problèmes de compilation sur Raspberry Pi
+
 ### 20.04.12
 
 `4 juin 2021`
@@ -876,6 +885,18 @@ You can now use $POLLERID$ macro to retrieve the name of your poller in
 a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
+
+### 20.04.15
+
+`4 août 2021`
+
+#### Correctifs
+
+- Les plages de temps n'étaient pas parsées correctement lorsqu'elles se terminaient par `\r` ou `\n`
+- Problèmes de compilation sur Raspberry Pi
+
+#### Améliorations
+- Les logs de *debug* `BBDO serialized events` sont désormais des logs de niveau *trace*
 
 ### 20.04.14
 
