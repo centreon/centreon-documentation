@@ -876,6 +876,8 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.15
 
+`August 4, 2021`
+
 #### Bugfixes
 
 - Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
