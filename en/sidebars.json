@@ -628,6 +628,7 @@
                     "integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
+                    "integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp",
                     "integrations/plugin-packs/procedures/network-freebox-restapi",
                     "integrations/plugin-packs/procedures/network-fritzbox-upnp",
                     "integrations/plugin-packs/procedures/hardware-device-gorgy-ntpserver-snmp",
