@@ -528,6 +528,7 @@
                     "integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp",
                     "integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi",
                     "integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi",
                     "integrations/plugin-packs/procedures/hardware-servers-cisco-ucs-snmp",
