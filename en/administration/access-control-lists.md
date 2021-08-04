@@ -149,7 +149,7 @@ To create an access filter on actions:
 | -------------------------------------- | -------------------------------------------------------------------------------- |
 | Display Top Counter                    | The monitoring overview will be displayed in the banner at the top of all pages </br>![image](../assets/administration/acl-bandeau.png)                |
 | Display Top Counter pollers statistics | The monitoring poller status overview will be displayed on the left in the banner at the top of all pages</br>![image](../assets/administration/acl-bandeau-poller.png) |
-| Display Poller Listing                 | Allows you to filter on the poller on page **Monitoring > Status Details > Hosts** or  **Supervision > Détail des statuts > Services** (deprecated pages)         |
+| Display Poller Listing                 | Allows you to filter on the poller on page **Monitoring > Status Details > Hosts** or  **Monitoring > Status Details > Services** (deprecated pages)         |
 
 ### Configuration Actions
 
