@@ -7,7 +7,7 @@ Dans ce tutoriel, nous allons utiliser le module [Auto Discovery](../monitoring/
 
 ## Prérequis
 
-Vous devez disposer des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Acces Key et AWS Secret Key), et de la région dans laquelle se trouvent vos instances.
+Vous devez disposer des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Access Key et AWS Secret Key), et de la région dans laquelle se trouvent vos instances.
 
 ## Étape 1 : Installer le plugin Amazon EC2
 
@@ -81,6 +81,5 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 13. Allez à la page **Configuration > Hôtes > Hôtes** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 
 14. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html). Les hôtes apparaissent à la page **Statut des ressources** : ils sont maintenant supervisés.
-
 
 
