@@ -76,7 +76,7 @@ The Poller should be able to perform SNMP requests toward the Fortinet device ov
 yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 ```
 
-2. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
 <!--Offline IMP License-->
 
@@ -92,14 +92,14 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 yum install centreon-pack-network-fortinet-fortiweb-snmp
 ```
 
-3. On the Centreon Web interface in "Configuration > Plugin packs > Manager", install the *Fortinet FortiWeb SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Fortinet FortiWeb SNMP* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration
 
 * Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
-* Apply the *Net-Fortinet-Fortiauthenticator-SNMP-custom* Host Template
+* Apply the *Net-Fortinet-Fortiweb-SNMP-custom* Host Template
 
 > When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
