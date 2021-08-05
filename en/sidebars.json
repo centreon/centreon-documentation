@@ -9,6 +9,7 @@
                     "getting-started/IT100",
                     "getting-started/interface",
                     "getting-started/first-supervision",
+                    "getting-started/autodisco-aws",
                     "getting-started/create-custom-view",
                     "getting-started/create-graphical-view",
                     "getting-started/model-it-services",
@@ -245,6 +246,7 @@
             },
             "administration/access-control-lists",
             "administration/extensions",
+            "administration/licenses",
             "administration/database-partitioning",
             "administration/backup",
             "administration/knowledge-base",
@@ -294,7 +296,8 @@
             {
                 "ids": [
                     "integrations/plugin-packs/tutorials/centreon-nsclient-tutorial",
-                    "integrations/plugin-packs/tutorials/collect-openmetrics"
+                    "integrations/plugin-packs/tutorials/collect-openmetrics",
+                    "integrations/plugin-packs/tutorials/troubleshooting-plugins"
                 ],
                 "label": "Tutorials",
                 "type": "subcategory"
@@ -312,6 +315,9 @@
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-ami",
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-snmp",
                     "integrations/plugin-packs/procedures/applications-bind9-web",
+                    "integrations/plugin-packs/procedures/applications-blockchain-hyperledger-exporter",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-restapi",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-ethpoller-restapi",
                     "integrations/plugin-packs/procedures/applications-bluemind-ssh",
                     "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
@@ -326,6 +332,7 @@
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
+                    "integrations/plugin-packs/procedures/applications-google-workspace-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
@@ -334,6 +341,7 @@
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-jboss-jmx",
                     "integrations/plugin-packs/procedures/applications-jenkins",
+                    "integrations/plugin-packs/procedures/applications-jvm-jmx",
                     "integrations/plugin-packs/procedures/applications-kafka-jmx",
                     "integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp",
                     "integrations/plugin-packs/procedures/applications-keepalived-snmp",
@@ -529,6 +537,7 @@
                     "integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp",
                     "integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi",
                     "integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi",
                     "integrations/plugin-packs/procedures/hardware-servers-cisco-ucs-snmp",
@@ -580,6 +589,7 @@
                     "integrations/plugin-packs/procedures/network-alvarion-breezeaccess-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-arista-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-arkoon-snmp",
+                    "integrations/plugin-packs/procedures/network-aruba-aoscx-snmp",
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
@@ -637,6 +647,7 @@
                     "integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
+                    "integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp",
                     "integrations/plugin-packs/procedures/network-freebox-restapi",
                     "integrations/plugin-packs/procedures/network-fritzbox-upnp",
                     "integrations/plugin-packs/procedures/hardware-device-gorgy-ntpserver-snmp",
@@ -995,6 +1006,7 @@
             "health/centreon-agent",
             {
                 "ids": [
+                    "administration/centreon-ha/acceptance-guide",
                     "administration/centreon-ha/monitoring-guide",
                     "administration/centreon-ha/operating-guide",
                     "administration/centreon-ha/troubleshooting-guide"
