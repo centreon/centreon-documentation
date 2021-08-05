@@ -1,68 +1,84 @@
 ---
 id: applications-exchange-nrpe
-title: Microsoft Exchange
+title: Microsoft Exchange NSClient++ NRPE
 ---
+
+## Overview
+
+The Plugin Pack *Microsoft Exchange NRPE* works with the Centreon NSClient++ monitoring
+agent to run Powershell code to check the health and performance of Microsoft Exchange 
+Servers
+
+## Pack assets
+
+### Monitored objects
+
+* From Exchange Server 2k10 to latest
+
+### Collected metrics
+
+*Coming soon ...*
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Exchange Server* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
 
-``` shell
+### Powershell 
+
+Powershell and the `Microsoft.Exchange.Management.PowerShell` snap-in must be installed
+on the target Server.
+
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every poller expected to monitor *Microsoft Exchange servers*:
+
+```bash
 yum install centreon-nrpe-plugin
 ```
 
-### Nsclient++
+2. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - the Exchange 2010 plugin provided
-    [here](https://forge.centreon.com/projects/centreon-plugins/repository)
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on <http://documentation.centreon.com>
+1. Install the Centreon Plugin package on every poller expected to monitor *Microsoft Exchange*:
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+```bash
+yum install centreon-nrpe-plugin
+```
 
-Note: Powershell and `Microsoft.Exchange.Management.PowerShell.E2010` snap-in
-have to be installed on Exchange Server
+2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+```bash
+yum install centreon-pack-applications-exchange-nrpe
+```
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+3. On the Centreon Web interface, install the Centreon Plugin-Pack *Exchange NRPE* from the **Configuration > Plugin Packs > Manager** page
 
-Note: You can use options `--remote-host`, `--remote-user` and
-`--remote-password` to execute services from another Windows Server (the Windows
-still need powershell and the snap-in)
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Warning: Set service macro `MAILBOX` with the following syntax:
+## Host configuration
 
-    DOMAIN\username
+* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Apply the *App-Exchange-NRPE-custom* template and configure all the mandatory Macros :
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+| Mandatory | Name             | Description                                                            |
+| :-------- | :--------------- | :--------------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Binary used to perform the check (default: 'check_centreon_nrpe)  | 
+| X         | NRPEPORT         | Port used to reach the NRPE server (default: '5666')                   |
+| X         | NRPETIMEOUT      | Timeout to connect to the NRPE Server (default: '10')                  |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192')       |
 
-Warning: Service `Queues` works on exchange server with the good role.
+## Important information
 
-\#\#Centreon Configuration
-
-### Create a new Exchange server
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                         |
-| :----------------------------------- | :---------------------------- |
-| Host name                            | *Name of the host*            |
-| Alias                                | *Host description*            |
-| IP                                   | *Host IP Address*             |
-| Monitored from                       | *Monitoring Poller to use*    |
-| Host Multiple Templates              | App-Exchange-2010-NRPE-custom |
-
-Click on the *Save* button.
-
-By default, the host template checks nothing. Go to plugin-pack manager to see
-services available.
+* The *Queue* monitoring Service only works on Exchange Server running with the 
+hub/transport role. 
+* Use this format to define MAILBOX macro at the service level: `DOMAIN\\USER`
+* You cannot use the `|` nor `!` character in your Centreon Macro definitions. Prefer using NSClient++ API if you need this. 

@@ -5,8 +5,9 @@ title: Windows NSClient API
 
 ## Overview
 
-NSClient++ provides is own REST API using the webserver module.
-This REST API give the possibility to exploit monitoring data from windows servers through HTTPS connections.
+NSClient++ provides its own REST API using the webserver module.
+This REST API give the possibility to exploit monitoring data from Windows servers 
+through HTTPS connections.
 
 ## Plugin-Pack assets
 
@@ -91,34 +92,11 @@ This REST API give the possibility to exploit monitoring data from windows serve
 
 ## Prerequisites
 
-* TCP 8443 port must be open on the windows server (Default port for the REST API of NSClient++).
+### Centreon NSClient++
 
-To securize the communication flow between the poller and the agent:
-
-* Change the *port* parameter of the REST API into *nsclient.ini* file.
-* Change the *allowed_hosts* parameter by setting the IP addresses of the Centreon pollers (to allow the connection only from these IPs).
-
-### Configure the access 
-
-To connect to the REST API of NSClient++, you need to enable the web service of NSClient++:
-
-* From the windows server shell, execute the following command as administrator:
-
-```nscp web install```
-
-* Configure a new password for a better authentification:
-
-```bash
-nscp web password --set centreon
-Password updated successfully, please restart nsclient++ for changes to affect.
-```
-
-* Now, you can restart the daemon:
-
-```bash
-net stop nscp
-net start nscp
-```
+To monitor an *Windows Servers* through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation
 
@@ -126,36 +104,36 @@ net start nscp
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Windows NSClient API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor Windows ressources using REST API:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor Windows ressources using REST API:
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the 'Windows NSClient API' Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Windows NSClient API* Pack on the **Configuration > Plugin Packs > Manager** page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-* Create a new host in Centreon, apply the template "OS-Windows-NSClient-05-Restapi-custom".
-* Configure all the mandatory macros :
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *OS-Windows-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
 | Mandatory | Name                      | Description                                                                |
 | :-------- | :------------------------ | :------------------------------------------------------------------------- |
@@ -164,9 +142,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-restapi
 | X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
 |           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
-## FAQ
-
-### How do I test my configuration through the CLI and what do the main parameters stand for ? 
+## How do I test my configuration through the CLI and what do the main parameters stand for ? 
 
 Once the Centreon plugin installed, you can test it logging with the centreon-engine user:
 
@@ -213,7 +189,7 @@ The available thresholds as well as all of the options that can be used with thi
   --help
 ```
 
-### Why do I get the following error: 
+### Troubleshooting 
 
 #### UNKNOWN: Cannot decode json response: malformed UTF-8 character in JSON string
 
@@ -247,18 +223,8 @@ Cannot write statefile '/var/lib/centreon/centplugins/windows_sessions_a181a6037
 Need write/exec permissions on directory.
 ```
 
-* The folder */var/lib/centreon/centplugins* doesn't exist on your Windows Sserver, change the cache directory by using the options ```--statefile-dir```
+* The folder */var/lib/centreon/centplugins* doesn't exist on your Windows Server, change the cache directory by using the options ```--statefile-dir```
 
 #### "UNKNOWN: 500 Can't connect to x.x.x.x:8443"
 
 To fix this issue, add the option ```--http-backend=curl``` to the host macro *NSCPRESTAPIEXTRAOPTIONS*.
-
-## Create your own NSClient++ agent
-
-It's possible to create your own NSClient++ agent to add new commands and/or pre-configure the parameters of *nsclient.ini* file.
-
-Please, follow the official documentation from Github to build your own agent:
-
-* https://github.com/centreon/centreon-nsclient-build
-
-You can find a "How-To" and the list of all the compilated plugins by Centreon for the *centreon_plugins.exe*
