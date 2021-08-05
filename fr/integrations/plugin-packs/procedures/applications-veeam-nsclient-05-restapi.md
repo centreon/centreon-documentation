@@ -1,51 +1,86 @@
 ---
 id: applications-veeam-nsclient-05-restapi
-title: Veeam API
+title: Veeam NSClient++ API
 ---
+
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know by offering a PR or pinging us on [slack](https://centreon.slack.com)
+
+## Overview
+
+The Plugin Pack *Veeam* works with the Centreon NSClient++ monitoring agent and 
+Powershell to check operating status of a Veeam Server. It uses the built-in NSClient++
+API. 
+
+## Pack assets
+
+### Monitored objects
+
+* Veeam Servers: 
+    * Jobs 
+    * Tapes
+
+### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor *Veeam* solutions through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct. 
 
-``` shell
+### Powershell 
+
+Powershell and the `Veeam.Backup.PowerShell` snap-in must be installed
+on the target Server. 
+
+Starting with Veeam 11, the Plugin will try to find the most recent version of 
+the `VeeamPSSnapin`. 
+
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
+
+```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-### Veeam
+2. On the Centreon Web interface, install the *Veeam* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - the Veeam plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
-  - Powershell and snap-in Veeam
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-applications-veeam-nsclient-05-restapi
+```
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+3. On the Centreon Web interface, install the *Veeam* Pack on the **Configuration > Plugin Packs > Manager** page
 
-## Centreon Configuration
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Create a new Veeam Backup server
+## Host configuration
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *App-Veeam-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
-| Field                                | Value                                |
-| :----------------------------------- | :----------------------------------- |
-| Host name                            | *Name of the host*                   |
-| Alias                                | *Host description*                   |
-| IP                                   | *Host IP Address*                    |
-| Monitored from                       | *Monitoring Poller to use*           |
-| Host Multiple Templates              | App-Veeam-NSClient-05-Restapi-custom |
-
-Click on the *Save* button.
+| Mandatory | Name                      | Description                                                                |
+|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |

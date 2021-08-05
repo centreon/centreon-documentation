@@ -5,13 +5,16 @@ title: Microsoft SCCM
 
 ## Overview
 
-Microsoft Endpoint Configuration Manager, formely knwown as System Center Configuration Manager or SCCM, is a systems management 
-software product developed by Microsoft for managing large groups of computers running Windows NT, Windows Embedded, macOS (OS X), 
-Linux or UNIX, as well as Windows Phone, Symbian, iOS and Android mobile operating systems. Configuration Manager provides remote control, 
-patch management, software distribution, operating system deployment, network access protection and hardware and software inventory.
+Microsoft Endpoint Configuration Manager, formely knwown as System Center Configuration 
+Manager or SCCM, is a systems management software product developed by Microsoft for 
+managing large groups of computers running Windows NT, Windows Embedded, macOS (OS X), 
+Linux or UNIX, as well as Windows Phone, Symbian, iOS and Android mobile operating systems. 
+Configuration Manager provides remote control, patch management, software distribution, 
+operating system deployment, network access protection and hardware and software inventory.
 
-The Centreon Plugin-Pack allows to gather information and status about the SCCM service using the centreon-nsclient agent. Both connection methods
-NRPE and RestAPI are supported.
+The Centreon Plugin-Pack allows to gather information and status about the SCCM 
+service using the centreon-nsclient agent. Both connection methods NRPE and RestAPI 
+are supported.
 
 ## Plugin-Pack assets
 
@@ -41,13 +44,14 @@ NRPE and RestAPI are supported.
 
 ## Prerequisites 
 
-The Windows SCCM Plugin is hosted by the *centreon-nsclient* agent which must be installed, configured and running on the Windows server 
-hosting the SCCM feature. (Server running the SCCM Admin console)
-The Centreon Poller can connect to the agent using either the NRPE method or the RestAPI method.
-More information on how to achieve the installation and the configuration of the agent can be found in the associated procedure:
+## Centreon NSClient++
 
-* [NRPE](operatingsystems-windows-nsclient-05-nrpe.html)
-* [RestAPI](operatingsystems-windows-nsclient-05-restapi.html)
+The Windows SCCM Plugin is hosted by the *centreon-nsclient* agent which must be 
+installed, configured and running on the Windows server running the SCCM Admin console. 
+
+The Centreon Poller can connect to the agent using either the NRPE method or the 
+RestAPI method. More information on how to achieve the installation and the configuration 
+of the agent can be found [here](../plugin-packs/tutorials/centreon-nsclient-tutorial.html)
 
 ## Installation
 
@@ -70,7 +74,7 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
 <!--Offline IMP License-->
 
@@ -89,19 +93,19 @@ yum install centreon-nrpe-plugin
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Central Server, install the Centreon Plugin-Pack RPM:
+2. On the Central Server, install the Centreon Pack RPM:
 
 ```bash
 yum install centreon-pack-applications-sccm-nsclient
 ```
 
-3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Plugin-Pack from the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *Microsoft SCCM* Centreon Pack from the **Configuration > Plugin Packs > Manager** page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Host configuration 
 
-* On the Centreon Web Interface, go to "Configuration > Hosts" and add a new Host
+* On the Centreon Web Interface, go to **Configuration > Hosts** and add a new Host
 * Set the Host IP address and select the relevant Host template according to the monitoring method chosen:
     * *App-Sccm-NRPE-custom* for NRPE
     * *App-Sccm-NSClient-05-Restapi-custom* for RestAPI
@@ -120,22 +124,21 @@ yum install centreon-pack-applications-sccm-nsclient
 
 <!--App-Sccm-NSClient-05-Restapi-custom-->
 
-| Mandatory | Name                      | Description                                           |
-|:----------|:--------------------------|:------------------------------------------------------|
-| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')             |
-| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
-|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |
+| Mandatory | Name                      | Description                                                                |
+|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Click on the *Save* button.
 
-## FAQ
+## How to check in the CLI that the configuration is OK and what are the main options for ?
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
-
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account and test the Plugin 
-by running the following command:
+Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
+user account and test the Plugin by running the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 

@@ -1,49 +1,74 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
-title: Active Directory API
+title: Active Directory NSClient++ API
 ---
+
+## Overview
+
+This Plugin Pack monitors AD Domain Controller using local commands and the 
+Centreon NSClient++ API to trigger their executions remotely.
+
+## Pack assets
+
+### Monitored objects
+
+* Active Directory domain controller, including:
+    * Netdom connectivity
+    * dfsr backlog
+    * dcdiag
+
+### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 
-### Centreon Plugin
+### Centreon NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Active Directory* domain controller through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-``` shell
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
+
+```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-### Nsclient++
+2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - NSClient++ package provided by Merethis, installed and configured on your
-    target server as described on
-    [documentation](http://documentation.centreon.com)
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *AD Domain controller* using REST API:
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
+```
 
-## Centreon Configuration
+3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Plugin Packs > Manager** page
 
-### Create a host using the appropriate template
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+## Host configuration
 
-| Field                                | Value                                            |
-| :----------------------------------- | :----------------------------------------------- |
-| Host name                            | *Name of the host*                               |
-| Alias                                | *Host description*                               |
-| IP                                   | *Host IP Address*                                |
-| Monitored from                       | *Monitoring Poller to use*                       |
-| Host Multiple Templates              | Infra-ActiveDirectory-NSClient-05-Restapi-custom |
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *Infra-ActiveDirectory-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
-Click on the *Save* button.
+| Mandatory | Name                      | Description                                                                |
+| :-------- | :------------------------ | :------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | Port of the REST API NSclient++ (default: 8443)                            |
+| X         | NSCPRESTAPIPROTO          | Protocol used (default: https)                                             |
+| X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |

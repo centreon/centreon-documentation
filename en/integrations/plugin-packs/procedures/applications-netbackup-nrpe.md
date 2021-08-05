@@ -1,59 +1,90 @@
 ---
 id: applications-netbackup-nrpe
-title: Symantec Netbackup
+title: Symantec Netbackup NSClient++ NRPE
 ---
+
+## Overview
+
+The Plugin Pack *Symantec Netbackup* works with the Centreon NSClient++ monitoring
+agent or a NRPE agent on Linux to check Netbackup backup solutions.
+
+## Pack assets
+
+### Monitored objects
+
+* Veritas Netbackup solutions including: 
+    * Deduplication
+    * Drives
+    * Jobs 
+    * Tapes
+
+### Collected metrics
+
+*Coming soon* 
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-nrpe-plugin
-```
+To monitor *Netbackup* software with NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct. 
 
 ### NetBackup cli
 
-This plugin pack requires the use of:
+The NetBackup CLI is available on both Windows and Linux and the Plugin uses it so it
+has to be installed.
 
-  - the Netbackup plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
-  - the Netbackup cli (Linux or Windows)
+### Netbackup on Windows
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+When using Netbackup on a Windows system, add these options `--statefile-concat-cwd
+--statefile-dir="scripts/centreon/tmp"` in the `EXTRAOPTIONS` Macro within
+`App-Netbackup-Job-Status-NRPE-Custom` Service Template. 
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+Use `|` character in your Centreon Macro definitions is not possible. 
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+## Installation 
 
-Warning: If you use Netbackup on Windows, add options `--statefile-concat-cwd
---statefile-dir="scripts/centreon/tmp"` in macro `EXTRAOPTIONS` of service
-`App-Netbackup-Job-Status-NRPE-Custom` Powershell and
-`Microsoft.Exchange.Management.PowerShell.E2010` snap-in have to be installed on
-Exchange Server
+<!--DOCUSAURUS_CODE_TABS-->
 
-Warning: Set service macro `MAILBOX` with the following syntax: DOMAIN\\username
+<!--Online IMP Licence & IT-100 Editions-->
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Symantec NetBackup*:
 
-## Centreon Configuration
+```bash
+yum install centreon-nrpe-plugin
+```
 
-### Create a new Netbackup server
+2. On the Centreon Web interface, install the Centreon Pack *NetBackup* 
+from the **Configuration > Plugin Packs > Manager** page
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+<!--Offline IMP License-->
 
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | App-Netbackup-NRPE-custom  |
+1. Install the Centreon Plugin package on every Poller expected to monitor *Symantec NetBackup*:
 
-Click on the *Save* button.
+```bash
+yum install centreon-nrpe-plugin
+```
+
+2. Install the Centreon Pack RPM on the Central server:
+
+```bash
+yum install centreon-pack-applications-netbackup-nrpe
+```
+
+3. On the Centreon Web interface, install the Centreon Pack *Symantec Netbackup* 
+from the **Configuration > Plugin Packs > Manager** page
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Host configuration
+
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *App-Netbackup-NRPE-custom* template and configure all the mandatory Macros:
+
+| Mandatory | Name             | Description                                                      |
+|:----------|:-----------------|:---------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
