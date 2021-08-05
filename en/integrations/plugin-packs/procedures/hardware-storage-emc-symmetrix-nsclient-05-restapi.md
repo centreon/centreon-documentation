@@ -1,50 +1,74 @@
 ---
 id: hardware-storage-emc-symmetrix-nsclient-05-restapi
-title: EMC Symmetrix API
+title: EMC Symmetrix NSClient++ API
 ---
+
+## Overview
+
+The Pack *EMC Symmetrix API* works with the Centreon NSClient++ monitoring
+agent and offer controls to monitor hardware components of EMC Storage arrays. 
+
+## Pack assets
+
+### Monitored objects
+
+* EMC Storage arrays, including following platforms:
+    * DMX
+    * Vmax
+
+### Collected metrics
+
+*Coming soon...* 
 
 ## Prerequisites
 
-### Centreon Plugin
+### Centreon NSClient++
 
-Install this plugin on each needed poller:
+To monitor *EMC Symmetrix* disk controllers solutions through NSClient++ API, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-``` shell
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *EMC Symmetrix API* using REST API:
+
+```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-### Remote host
+2. On the Centreon Web interface, install the *EMC Symmetrix API* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - the EMC Symmetrix plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *EMC Symmetrix API* using REST API:
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
+```
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+3. On the Centreon Web interface, install the *EMC Symmetrix API* Pack on the **Configuration > Plugin Packs > Manager** page
 
-## Centreon Configuration
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Create a new Netbackup server
+## Host configuration
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *HW-Storage-EMC-Symmetrix-Dmx34-NSClient-05-Restapi* or *HW-Storage-EMC-Symmetrix-Vmax-NSClient-05-Restapi* 
+template and configure all the mandatory Macros:
 
-| Field                   | Value                                                                                                   |
-| :---------------------- | :------------------------------------------------------------------------------------------------------ |
-| Host name               | *Name of the host*                                                                                      |
-| Alias                   | *Host description*                                                                                      |
-| IP                      | *Host IP Address*                                                                                       |
-| Monitored from          | *Monitoring Poller to use*                                                                              |
-| Host Multiple Templates | HW-Storage-EMC-Symmetrix-Dmx34-NSClient-05-Restapi or HW-Storage-EMC-Symmetrix-Vmax-NSClient-05-Restapi |
-
-Click on the *Save* button.
+| Mandatory | Name                      | Description                                                                |
+| :-------- | :------------------------ | :------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | Port of the REST API NSclient++ (default: 8443)                            |
+| X         | NSCPRESTAPIPROTO          | Protocol used (default: https)                                             |
+| X         | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                    |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |

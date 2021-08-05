@@ -135,6 +135,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 2. Installer le Plugin-Pack depuis la page "Configuration > Plugin Packs > Manager"
 
 <!--Offline IMP License-->
+
 1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant des ressources Windows NSCP Rest:
 
 ```bash
