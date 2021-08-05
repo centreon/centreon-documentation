@@ -5,7 +5,7 @@ title: Veeam NSClient++ API
 
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
-know and ping us on [slack](https://centreon.slack.com)
+know by offering a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 
@@ -43,16 +43,44 @@ the `VeeamPSSnapin`.
 
 ## Installation 
 
-``` shell
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
+
+```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
+2. On the Centreon Web interface, install the *Veeam* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
+
+<!--Offline IMP License-->
+
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Veeam* using REST API:
+
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
+
+2. Install the Centreon Pack RPM on the Centreon Central server:
+
+```bash
+yum install centreon-pack-applications-veeam-nsclient-05-restapi
+```
+
+3. On the Centreon Web interface, install the *Veeam* Pack on the **Configuration > Plugin Packs > Manager** page
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Host configuration
 
-App-Veeam-NSClient-05-Restapi-custom
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *App-Veeam-NSClient-05-Restapi-custom* template and configure all the mandatory Macros:
 
-| Mandatory | Name                      | Description                                           |
-|:----------|:--------------------------|:------------------------------------------------------|
-| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')             |
-| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https') |
-|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant  |
+| Mandatory | Name                      | Description                                                                |
+|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |

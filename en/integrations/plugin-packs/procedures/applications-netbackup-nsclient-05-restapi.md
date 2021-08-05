@@ -41,8 +41,6 @@ When using Netbackup on a Windows system, add these options `--statefile-concat-
 --statefile-dir="scripts/centreon/tmp"` in the `EXTRAOPTIONS` Macro within
 `App-Netbackup-Job-Status-NRPE-Custom` Service Template. 
 
-Using `|` character in your Centreon Macro definitions is not supported.
-
 ## Installation 
 
 <!--DOCUSAURUS_CODE_TABS-->
