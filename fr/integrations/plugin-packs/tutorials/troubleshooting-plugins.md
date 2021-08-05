@@ -3,6 +3,9 @@ id: troubleshooting-plugins
 title: Troubleshooting Plugin errors
 ---
 
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know by offering a PR or pinging us on [slack](https://centreon.slack.com)
 When using Plugins and deploying a new monitoring probe, some errors might show up. 
 
 Most of the time, the cause of these failures is a misconfiguration or a third-party 
