@@ -164,6 +164,22 @@ following this [procedure](#activate-selinux-in-permissive-mode) using **enforci
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
+## Securing configuration files
+
+Change the permissions for the following configuration files:
+
+```
+chown centreon:centreon /etc/centreon/conf.pm
+chmod 660 /etc/centreon/conf.pm
+```
+
+and
+
+```
+chown apache:apache /etc/centreon/centreon.conf.php
+chmod 640 /etc/centreon/centreon.conf.php
+```
+
 ## Securing the installation of the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
