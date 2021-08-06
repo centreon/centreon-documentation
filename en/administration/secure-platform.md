@@ -381,7 +381,7 @@ PHP 7.2 reached its end of life in November 2020.
 If you cannot upgrade your platform to the next major version of Centreon, and want to get the last PHP security fixes, you need to follow these steps:
 
 1. Check centreon web & extensions version requirements:
-    * centreon-web >= 20.04.17
+    * centreon-web >= 20.04.18
     * centreon-bi >= 20.04.8
     * centreon-open-tickets >= 20.04.3
 > You can get the list of packages versions by using following command:
