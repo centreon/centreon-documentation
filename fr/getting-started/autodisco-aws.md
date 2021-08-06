@@ -17,7 +17,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 3. Rendez les Plugin Packs disponibles :
 
-    - Si vous avez une licence hors ligne, dans votre terminal, entrez :
+    - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
         ```shell
         yum install centreon-pack-*

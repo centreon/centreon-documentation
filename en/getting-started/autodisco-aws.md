@@ -17,7 +17,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 3. Make the Plugin Packs available:
 
-    - If you have an offline licence, in your terminal, enter:
+    - If you have an offline licence, in your central server's terminal, enter:
      
         ```shell
         yum install centreon-pack-*
