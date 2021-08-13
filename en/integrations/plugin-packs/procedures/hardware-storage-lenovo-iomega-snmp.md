@@ -2,33 +2,32 @@
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega
 ---
-	
-## Contenu du Pack de supervision
 
-### Objets supervisés
+## Pack Assets
 
-Le Pack Lenovo Iomega collecte les données pour:
+### Monitored Objects
+
+The Pack Lenovo Iomega collects metrics for:
 * Cpu
 * Disks
 * Hardware
 * Interfaces
 * Memory
 
-
-### Règles de découvertes
+### Discovery rules
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Services-->
 
-| Nom de la règle                               | Description                                                                                  |
-| :-------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name       | Découvre les partitions et supervise l'utilisation disque                                    |
-| HW-Storage-Lenovo-Iomega-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
+| Rule name                                     | Description                                                   |
+| :-------------------------------------------- | :------------------------------------------------------------ |
+| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name       | Discover partitions and monitor disk usage                    |
+| HW-Storage-Lenovo-Iomega-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Métriques collectées 
+### Collected Metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -82,65 +81,60 @@ Le Pack Lenovo Iomega collecte les données pour:
 | memory.buffer.bytes      | Buffer memory              | B    |  
 | memory.cached.bytes      | Memory cached              | B    |  
 
-<!--END_DOCUSAURUS_CODE_TABS-->ge.access            | Access disk partition.          |       |
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Prérequis
+## Prerequisites
 
-Afin de contrôler vos équipements Lenovo Iomega, le SNMP v2 doit être configuré.
-Pour plus d'information, vous pouvez vous référer à la documentation utilisateur officiel :
-http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
+To monitor your Lenovo Iomega, the SNMP must be configured.
+The Poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
 
-## Installation
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+1. Install the Centreon Plugin on every Poller:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo IomegaP* Pack
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+1. Install the Centreon Plugin on every Poller:
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Pack via le RPM:
+2. On the Centreon Central server, install the Centreon Pack from the RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo Iomega* Pack
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Configuration
+## Host configuration
 
-* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
-* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *HW-Storage-Lenovo-Iomega-SNMP-custom*
+* Add a new Host and fill the *IP Address/FQDN*, *SNMP Version* and *SNMP Community* fields according to the device's configuration
+* Apply the *HW-Storage-Lenovo-Iomega-SNMP-custom* Host Template
 
-> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
-> d'authentification et de chiffrement adéquats
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+| Mandatory | Name             | Description                                    |
+| :-------- | :--------------- | :--------------------------------------------- |
+|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
 
+## How to test the Plugin and what are the main options for?
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
-
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine* :
+Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
+and test the Plugin by running the following command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_lenovo_iomega_snmp.pl
@@ -154,20 +148,21 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+Expected command output is shown below:
 
 ```bash
 OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % | 'total_cpu_avg'=15.29%;0:90;0:95;0;100 'cpu'=15.29%;;;0;100
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
-en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *iomega_ro* (```--snmp-community='iomega_ro'```).
+The command above monitors Lenovo Iomega processor (```--plugin=storage::lenovo::iomega::snmp::plugin --mode=cpu```) identified
+by the IP address *10.30.2.114* (```--hostname=10.30.2.114```). As the Plugin is using the SNMP protocol to request the device, the related
+*community* and *version* are specified (```--snmp-version='2c' --snmp-community='iomega_ro'```).
 
-Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU est à plus de 90% (```--warning-average='90'```)
-et une alarme CRITICAL si plus de 95% (```--critical-average='95'```).
- 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre ```--help``` à la commande:
+This command would trigger a WARNING alarm if cpu utilization over 90% 
+(```--warning-average='90'```) and a CRITICAL alarm over 95% (```--critical-average='95'```).
+
+All the options as well as all the available thresholds can be displayed by adding the  ```--help```
+parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_lenovo_iomega_snmp.pl
@@ -176,6 +171,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostique
+## Troubleshooting
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html)
