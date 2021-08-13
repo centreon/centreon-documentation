@@ -873,6 +873,7 @@
                     "integrations/plugin-packs/procedures/hardware-ups-apc-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-clever-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-cyberpower-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-cyberpower-snmp",
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
