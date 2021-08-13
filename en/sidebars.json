@@ -700,6 +700,7 @@
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
                     "integrations/plugin-packs/procedures/network-tplink-snmp",
                     "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
+                    "integrations/plugin-packs/procedures/network-ubiquiti-unifi-snmp",
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
