@@ -400,6 +400,7 @@
                     "integrations/plugin-packs/procedures/applications-webservers-tomcat-jmx",
                     "integrations/plugin-packs/procedures/applications-webservers-tomcat-webmanager",
                     "integrations/plugin-packs/procedures/applications-trendmicro-iwsva-snmp",
+                    "integrations/plugin-packs/procedures/applications-slack-restapi",
                     "integrations/plugin-packs/procedures/applications-varnish-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
