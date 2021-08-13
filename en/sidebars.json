@@ -892,6 +892,7 @@
                     "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-phoenixtec-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-powerware-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp",
