@@ -37,6 +37,22 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 > Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.html#utilisateurs-et-groupes)
 
+## Sécurisez les fichiers de configuration
+
+Changez les permissions des fichiers de configuration suivants:
+
+```
+chown centreon:centreon /etc/centreon/conf.pm
+chmod 660 /etc/centreon/conf.pm
+```
+
+et
+
+```
+chown apache:apache /etc/centreon/centreon.conf.php
+chmod 640 /etc/centreon/centreon.conf.php
+```
+
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser

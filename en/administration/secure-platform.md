@@ -37,6 +37,22 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 
 > As a reminder, the list of users and groups can be found [here](../installation/prerequisites.html#users-and-groups)
 
+## Securing configuration files
+
+Change the permissions for the following configuration files:
+
+```
+chown centreon:centreon /etc/centreon/conf.pm
+chmod 660 /etc/centreon/conf.pm
+```
+
+and
+
+```
+chown apache:apache /etc/centreon/centreon.conf.php
+chmod 640 /etc/centreon/centreon.conf.php
+```
+
 ## Securing the installation of the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
