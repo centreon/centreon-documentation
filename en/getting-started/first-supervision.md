@@ -33,7 +33,7 @@ and then to implement them to monitor your first equipment.
 
 > To go further with templates, please read the [templates chapter](../monitoring/templates.html#definition).
 
-> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.html) feature to find and configure hosts easily.
+> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.html) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.html).
 
 ### Installation of basic monitoring templates
 

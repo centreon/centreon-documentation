@@ -3,6 +3,8 @@ id: hosts-discovery
 title: Découverte des hôtes
 ---
 
+Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-started/autodisco-aws.html).
+
 ## Créer une tâche de découverte
 
 1. [Installez](installation.html) le module Auto Discovery.
