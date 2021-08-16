@@ -3,6 +3,8 @@ id: hosts-discovery
 title: Hosts Discovery
 ---
 
+See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws.html).
+
 ## Create a discovery job
 
 1. [Install](installation.html) the Auto Discovery module.
