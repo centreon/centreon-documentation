@@ -192,12 +192,12 @@ Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il e
 A partir du moment ou le Plugin est installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_linux_snmp.pl
-    --plugin=os::linux::snmp::plugin
-    --mode=cpu
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='linux_ro'
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+    --plugin=os::linux::snmp::plugin \
+    --mode=cpu \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='linux_ro' \
     --verbose
 ```
 
