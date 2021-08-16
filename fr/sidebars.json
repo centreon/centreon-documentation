@@ -244,7 +244,8 @@
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
-            "administration/platform-statistics"
+            "administration/platform-statistics",
+            "administration/postfix"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {
