@@ -167,6 +167,22 @@ Si après un certain temps, aucune erreur n'est présente, vous pouvez activer S
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
+## Sécurisez les fichiers de configuration
+
+Changez les permissions des fichiers de configuration suivants:
+
+```
+chown centreon:centreon /etc/centreon/conf.pm
+chmod 660 /etc/centreon/conf.pm
+```
+
+et
+
+```
+chown apache:apache /etc/centreon/centreon.conf.php
+chmod 640 /etc/centreon/centreon.conf.php
+```
+
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
