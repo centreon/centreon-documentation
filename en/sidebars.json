@@ -251,7 +251,8 @@
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
-            "administration/platform-statistics"
+            "administration/platform-statistics",
+            "administration/postfix"
         ],
         "Update, Upgrade & Migrate": [
             {
