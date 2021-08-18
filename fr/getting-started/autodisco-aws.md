@@ -7,7 +7,9 @@ Dans ce tutoriel, nous allons utiliser le module [Auto Discovery](../monitoring/
 
 ## Prérequis
 
-Vous devez disposer des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Access Key et AWS Secret Key), et de la région dans laquelle se trouvent vos instances.
+Vous devez disposer :
+- des informations d'identification pour le groupe d'instances AWS que vous souhaitez superviser (nom, AWS Access Key et AWS Secret Key)
+- de la région dans laquelle se trouvent vos instances.
 
 ## Étape 1 : Installer le plugin Amazon EC2
 
@@ -17,7 +19,7 @@ Vous devez disposer des informations d'identification pour le groupe d'instances
 
 3. Rendez les Plugin Packs disponibles :
 
-    - Si vous avez une licence hors ligne, dans votre terminal, entrez :
+    - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
         ```shell
         yum install centreon-pack-*
