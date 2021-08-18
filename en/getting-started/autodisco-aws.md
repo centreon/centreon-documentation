@@ -7,7 +7,9 @@ In this tutorial, we will use the [Auto Discovery module](../monitoring/discover
 
 ## Prerequisites
 
-You must have the credentials to the AWS group of instances you want to monitor (Name, AWS Access Key and AWS Secret Key), and the region your AWS instances are in.
+You must have:
+- the credentials to the AWS group of instances you want to monitor (Name, AWS Access Key and AWS Secret Key)
+- the region your AWS instances are in.
 
 ## Step 1: Installing the Amazon EC2 plugin
 
@@ -17,7 +19,7 @@ You must have the credentials to the AWS group of instances you want to monitor 
 
 3. Make the Plugin Packs available:
 
-    - If you have an offline licence, in your terminal, enter:
+    - If you have an offline licence, in your central server's terminal, enter:
      
         ```shell
         yum install centreon-pack-*
