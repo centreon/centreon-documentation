@@ -110,8 +110,8 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 
 -   **Hostgroup** : Peut être utilisé pour filtrer par nom de groupe
     d'hôtes via une recherche de type SQL LIKE.
--   **Poller** : Peut être utilisé pour filtrer les hôtes par poller.
-    Seuls les hôtes du scrutateur sélectionné seront affichés.
+-   **Poller** : Peut être utilisé pour filtrer les hôtes par collecteur.
+    Seuls les hôtes du collecteur sélectionné seront affichés.
 
 ## Détails d'un hôte (dépréciée)
 
