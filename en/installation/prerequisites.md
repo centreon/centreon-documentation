@@ -18,17 +18,21 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon provides RPM packages for its products through the Centreon Open
-Sources version available free of charge in our repository.
-
-These packages have been successfully tested in CentOS 7 and 8 environments.
+Centreon supports the following operating systems: CentOS/RedHat/OracleLinux 7 or 8.
 
 > Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, these packages for CentOS 8 are
+> your production environment. Nevertheless, the packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
+
+| Version           | Installation mode                                      |
+|-------------------|--------------------------------------------------------|
+| CentOS 7          | ISO Centreon, RPM packages, virtual machine , sources  |
+| CentOS 8          | RPM packages, sources                                  |
+| RHEL/Oracle Linux | RPM packages, sources                                  |
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
+Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.
 
 > Only 64-bit operating systems (x86_64) are supported.
 
