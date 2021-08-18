@@ -99,7 +99,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --host-output='$HOSTOUTPUT$'
 ```
 
-## Exemple
+## Example
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \ 
