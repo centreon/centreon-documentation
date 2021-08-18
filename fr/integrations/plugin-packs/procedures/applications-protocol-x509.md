@@ -1,6 +1,6 @@
 ---
 id: applications-protocol-x509
-title: X509 Certificat
+title: X509 Certificate
 ---
 
 ## Prerequisites
