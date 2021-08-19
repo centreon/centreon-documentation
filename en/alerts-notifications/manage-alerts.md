@@ -149,7 +149,7 @@ The following window appears:
 -   If the downtime is flexible, the **Duration** field defines the
     length of the downtime
 -   The **Start Time** and **End Time** fields define the beginning and
-    end date of the downtime
+    end date of the downtime. Downtimes cannot start or end after December 31, 2099, 11:59 pm.
 -   The **Comments** field can be used to indicate why the downtime is
     defined
 
