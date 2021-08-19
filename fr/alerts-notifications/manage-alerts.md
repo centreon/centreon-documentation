@@ -118,12 +118,17 @@ La fenêtre suivante s’affiche :
 
 ![image](assets/alerts/downtime.png)
 
-* Le champ **Host Name** définit l’hôte concerné par le temps d’arrêt
-* Le champ **Service** définit le service concerné par le temps d’arrêt
-* Si la case **Fixed** est cochée alors le temps d’arrêt est fixe. Sinon, il est flexible
-* Si le temps d’arrêt est flexible, le champ **Duration** définit la durée du temps d’arrêt
-* Les champs **Start Time** et **End Time** définissent les dates de début et de fin du temps d’arrêt
-* Le champ **Comments** sert à indiquer pourquoi le temps d’arrêt est programmé
+-   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
+-   Le champ **Service** définit le service concerné par le temps
+    d'arrêt
+-   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
+    Sinon, il est flexible
+-   Si le temps d'arrêt est flexible, le champ **Duration** définit la
+    durée du temps d'arrêt
+-   Les champs **Start Time** et **End Time** définissent les dates de
+    début et de fin du temps d'arrêt. Un temps d'arrêt ne peut pas débuter ou s'arrêter après le 31 décembre 2037 à 23:59.
+-   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
+    programmé
 
 ## Les temps d’arrêts récurrents
 

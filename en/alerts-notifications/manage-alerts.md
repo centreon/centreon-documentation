@@ -116,12 +116,16 @@ The following window appears:
 
 ![image](assets/alerts/downtime.png)
 
-* The **Host Name** field defines the host concerned by the downtime
-* The **Service** field defines the service concerned by the downtime
-* If the **Fixed** box is checked the downtime is fixed. Otherwise, it is flexible
-* If the downtime is flexible, the **Duration** field defines the length of the downtime
-* The **Start Time** and **End Time** fields define the beginning and end date of the downtime
-* The **Comments** field can be used to indicate why the downtime is defined
+-   The **Host Name** field defines the host concerned by the downtime
+-   The **Service** field defines the service concerned by the downtime
+-   If the **Fixed** box is checked the downtime is fixed. Otherwise, it
+    is flexible
+-   If the downtime is flexible, the **Duration** field defines the
+    length of the downtime
+-   The **Start Time** and **End Time** fields define the beginning and
+    end date of the downtime. Downtimes cannot start or end after December 31, 2037, 11:59 pm.
+-   The **Comments** field can be used to indicate why the downtime is
+    defined
 
 ## Recurrent downtimes
 
