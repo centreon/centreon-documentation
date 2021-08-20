@@ -12,7 +12,7 @@ Plugin Packs contain 2 elements, which are installed separately:
 - A plugin that executes the monitoring commands from a poller. Plugins are 
 installed using the command line interface.
 
-- A pack that contains commands, Host templates and service templates. 
+- A pack that contains commands, host templates and service templates. 
 Packs are installed via the Centreon interface. For each type of equipment,
  the templates determine which indicators will be
 monitored and set default warning and critical thresholds (these may be
@@ -65,7 +65,7 @@ Installation is a 4-step process:
 
 ### Accessing the Plugin Packs catalog
 
-* If you have an online [license](../administration/licenses.html), the Plugin Packs catalog is already available on your platform.
+* If you have an online [license](../administration/licenses.html), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
 * If you have an offline license, you need to install 
 or update the Plugin Packs catalog from your Centreon Central server:
@@ -80,9 +80,11 @@ or update the Plugin Packs catalog from your Centreon Central server:
   yum update centreon-pack-*
   ```
 
+> Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
+
 ### Installing the pack
 
-You now have access to the Plugin Packs catalog:
+You now have access to the Plugin Packs catalog, on page **Configuration > Plugin Packs**:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
