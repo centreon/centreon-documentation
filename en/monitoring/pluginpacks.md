@@ -63,7 +63,7 @@ Installation is a 4-step process:
 3. Check the monitoring procedure.
 4. Install the plugin.
 
-#### Accessing the Plugin Packs catalog
+### Accessing the Plugin Packs catalog
 
 * If you have an online [license](../administration/licenses.html), the Plugin Packs catalog is already available on your platform.
 
@@ -80,7 +80,7 @@ or update the Plugin Packs catalog from your Centreon Central server:
   yum update centreon-pack-*
   ```
 
-#### Installing the pack
+### Installing the pack
 
 You now have access to the Plugin Packs catalog:
 
@@ -101,7 +101,7 @@ Once the pack is installed, it has a green outline and a green check mark.
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
 
-#### Managing dependencies
+### Managing dependencies
 
 During installation, some objects in the pack may not be installed. These objects are often additional configuration
 objects and are not required to deploy the configuration templates provided by the pack.
@@ -113,14 +113,14 @@ this one is only available for Centreon in 18.10.x version:
 
 ![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
-#### Checking the monitoring procedure
+### Checking the monitoring procedure
 
 Some Plugin Packs require extra configuration steps. Read the monitoring procedure for each installed pack
 to understand the contents of the pack and to find out about any prerequisites. Click on the ``i`` icon of each pack to access its documentation:
 
 ![image](../assets/configuration/pluginpacks/doc.png)
 
-#### Installing the plugin
+### Installing the plugin
 
 The monitoring procedure contains an **Installation** section that explains how to install the plugin
 (with an online or an offline license). Install the plugin on each poller that will execute the plugins.
