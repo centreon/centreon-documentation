@@ -15,7 +15,7 @@ title: Configurer les notifications
 
     4. Cliquez sur **Sauvegarder**.
 
-2. Vous devrez également configurer le relais mail dans la configuration du serveur associé. Par défaut, le gestionnaire de messagerie installé est postfix. Reportez-vous à la [documentation officielle postfix](http://www.postfix.org/BASIC_CONFIGURATION_README.html).
+2. Assurez-vous que votre Centreon peut [envoyer des emails](../administration/postfix.html).
 
     Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : configurez le relais mail sur tous les collecteurs.
 

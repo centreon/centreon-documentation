@@ -16,11 +16,7 @@ option.
 
     4. Click **Save**.
 
-2. You will also need to configure the **mail relay** in the
- configuration of the associated server. By default, the mail manager
-installed is postfix. Check the [official
- documentation](http://www.postfix.org/BASIC_CONFIGURATION_README.html) to
- help you.
+2. Check that your Centreon can [send emails](../administration/postfix.html).
 
     Notifications commands are executed by the poller that monitors the resource: you will need to configure the mail relay on all pollers.
 
