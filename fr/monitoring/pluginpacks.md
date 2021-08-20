@@ -145,6 +145,8 @@ Appliquez un plugin pack à un hôte ou à un service pour mettre celui-ci en su
 
 ## Mettre à jour un Plugin Pack
 
+Vous devez mettre à jour et le plugin et le pack.
+
 ### Mettre à jour le pack
 
 Si vous constatez une icône représentant une flèche sur un Plugin Pack, cela veut dire qu’une mise à jour du pack est

@@ -149,6 +149,8 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 ### Updating Plugin Packs
 
+You need to update both the plugin and the pack.
+
 ## Updating the pack
 
 If an arrow appears on a Plugin Pack it means that an update is available.
