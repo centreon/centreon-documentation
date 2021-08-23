@@ -125,7 +125,7 @@ to understand the contents of the pack and to find out about any prerequisites. 
 ### Installing the plugin
 
 The monitoring procedure contains an **Installation** section that explains how to install the plugin
-(with an online or an offline license). Install the plugin on each poller that will execute the plugins.
+(with an online or an offline license). Install the plugin on each poller that will execute the plugin checks.
 
 The installation command looks like this:
 
