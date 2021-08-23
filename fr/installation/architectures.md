@@ -14,7 +14,7 @@ Vous trouverez ici toutes les architectures supportées :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Architecture simple-->
-#### Description
+#### Description (Architecture simple)
 
 L'architecture simple consiste à avoir toutes les entités de supervision au sein du même serveur, à savoir :
 
@@ -45,7 +45,7 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 ![image](../assets/architectures/Architecture_standalone.png)
 
 <!-- Architecture distribuée-->
-#### Description
+#### Description (Architecture distribuée)
 
 L'architecture distribuée consiste à avoir deux types d'entités :
 
@@ -98,7 +98,7 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 ![image](../assets/architectures/Architecture_distributed.png)
 
 <!--SGBD déporté-->
-#### Description
+#### Description (SGBD déporté)
 
 L'architecture distribuée avec base de données déportée consiste à avoir trois types d'entités :
 
@@ -163,7 +163,7 @@ Le schéma ci-dessous résume le fonctionnement de l'architecture :
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
 <!--Remote Server-->
-#### Description
+#### Description (Remote server)
 
 L'architecture distribuée avec Remote Server consiste à avoir trois types d'entités :
 
