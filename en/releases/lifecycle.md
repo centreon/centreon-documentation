@@ -11,7 +11,7 @@ latest open source capabilities.
 ## Version number format: YY.MM
 
 Releases of Centreon are named according to the year and the month of delivery.
-For example, Centreon 21.04 was released in April, 2020. All modules and
+For example, Centreon 21.04 was released in April 2021. All modules and
 components of the Centreon software suite use the same versioning.
 
 ## Release cadence

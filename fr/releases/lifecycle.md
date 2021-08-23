@@ -11,7 +11,7 @@ certitude d’avoir accès aux nouvelles sources ouvertes en amont capacités.
 ## Les numéros de version sont AA.MM
 
 Les versions de Centreon sont nommées par l'année et le mois de livraison. Par
-exemple, Centreon 21.04 a été livrée en Avril 2020. Tous les modules et
+exemple, Centreon 21.04 a été livrée en Avril 2021. Tous les modules et
 composants de la collection de logiciels Centreon possède le même numéro de
 version.
 
