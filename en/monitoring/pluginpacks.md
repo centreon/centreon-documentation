@@ -28,7 +28,7 @@ procedure, please refer to the section on [Plugin Packs](../integrations/plugin-
 ### Centreon Plugin Pack Manager
 
 The **Centreon Plugin Pack Manager** module can install, update or remove Plugin
-Packs. It is installed by default We recommended that you keep this module regularly updated.
+Packs. It is installed by default. We recommend that you keep this module regularly updated.
 
 To update this module, run the following command:
 
