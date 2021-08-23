@@ -191,7 +191,7 @@ To update the plugins:
 
 > It is your choice whether to install all the plugins on every poller, or just the required plugins. Keep in mind that
 > you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
-> If you update the plugins on the Centreon central server, be sure also to update them on each poller.
+> If you update the plugins on the Centreon central server, be sure to also update them on each poller.
 
 ### Uninstalling Plugin Packs
 
