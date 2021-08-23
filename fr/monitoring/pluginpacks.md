@@ -58,7 +58,7 @@ Un plugin pack s'installe en 4 étapes :
 1. Accédez au catalogue des Plugin Packs.
 2. Installez le pack.
 3. Vérifiez la procédure de supervision.
-3. Installez le plugin.
+4. Installez le plugin.
 
 ### Accéder au catalogue des Plugin Packs
 
