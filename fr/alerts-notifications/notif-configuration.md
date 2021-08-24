@@ -170,7 +170,7 @@ Vérifiez les points suivants :
 
 Vérifiez que la valeur que vous avez définie dans **Intervalle de notification** (dans le 2è onglet) est bien un multiple de la valeur définie dans **Intervalle normal de contrôle** (dans le 1er onglet).
 
-En effet, une notification ne peut être envoyé que suite à un contrôle. Par exemple, si vous décidez que les contrôles ont lieu toutes les heures mais que les notifications doivent être envoyées toutes les 10 minutes, les notifications seront en réalité envoyées toutes les heures, car les contrôles ont lieu toutes les heures et non toutes les 10 minutes. 
+En effet, une notification ne peut être envoyée que suite à un contrôle. Par exemple, si vous décidez que les contrôles ont lieu toutes les heures mais que les notifications doivent être envoyées toutes les 10 minutes, les notifications seront en réalité envoyées toutes les heures, car les contrôles ont lieu toutes les heures et non toutes les 10 minutes. 
 
 ### Des notifications ont été envoyées en-dehors de la période temporelle définie
 
