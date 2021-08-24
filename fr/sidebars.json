@@ -30,6 +30,16 @@
             "installation/web-and-post-installation",
             {
                 "ids": [
+                    "installation/installation-of-centreon-ha/overview",
+                    "installation/installation-of-centreon-ha/installation-2-nodes",
+                    "installation/installation-of-centreon-ha/installation-4-nodes",
+                    "installation/installation-of-centreon-ha/integrating-pollers"
+                ],
+                "label": "Installation de Centreon HA",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
                     "installation/installation-of-a-poller/using-centreon-iso",
                     "installation/installation-of-a-poller/using-packages"
                 ],
@@ -163,7 +173,6 @@
             "monitoring/web-import-export"
         ],
         "Alertes et Notifications": [
-            "alerts-notifications/introduction",
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
@@ -248,7 +257,6 @@
                 "ids": [
                     "reporting/manage-reports",
                     "reporting/reports",
-                    "reporting/available-reports",
                     "reporting/widgets",
                     "reporting/configure",
                     "reporting/concepts",
@@ -284,20 +292,13 @@
                 "type": "subcategory"
             },
             "administration/extensions",
+            "administration/licenses",
             "administration/database-partitioning",
-            {
-                "ids": [
-                    "administration/centreon-ha/monitoring-guide",
-                    "administration/centreon-ha/operating-guide",
-                    "administration/centreon-ha/troubleshooting-guide"
-                ],
-                "label": "Centreon HA",
-                "type": "subcategory"
-            },
             "administration/backup",
             "administration/knowledge-base",
             "administration/logging-configuration-changes",
-            "administration/platform-statistics"
+            "administration/platform-statistics",
+            "administration/postfix"
         ],
         "Mettre à Jour, Monter de Version et Migrer": [
             {
@@ -319,7 +320,8 @@
                     "upgrade/upgrade-from-3-4",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
-                    "upgrade/centreon-ha/upgrade-from-centreon-failover" 
+                    "upgrade/centreon-ha/upgrade-from-centreon-failover",
+                    "upgrade/upgrade-mariadb" 
                 ],
                 "label": "Upgrade",
                 "type": "subcategory"
@@ -340,7 +342,9 @@
             "integrations/plugin-packs/introduction",
             {
                 "ids": [
-                    "integrations/plugin-packs/tutorials/collect-openmetrics"
+                    "integrations/plugin-packs/tutorials/centreon-nsclient-tutorial",
+                    "integrations/plugin-packs/tutorials/collect-openmetrics",
+                    "integrations/plugin-packs/tutorials/troubleshooting-plugins"
                 ],
                 "label": "Tutoriels",
                 "type": "subcategory"
@@ -358,6 +362,9 @@
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-ami",
                     "integrations/plugin-packs/procedures/applications-voip-asterisk-snmp",
                     "integrations/plugin-packs/procedures/applications-bind9-web",
+                    "integrations/plugin-packs/procedures/applications-blockchain-hyperledger-exporter",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-restapi",
+                    "integrations/plugin-packs/procedures/applications-blockchain-parity-ethpoller-restapi",
                     "integrations/plugin-packs/procedures/applications-bluemind-ssh",
                     "integrations/plugin-packs/procedures/applications-databases-cassandra-jmx",
                     "integrations/plugin-packs/procedures/applications-cisco-cms-restapi",
@@ -368,10 +375,11 @@
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-emc-ppma-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi",
+                    "integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
+                    "integrations/plugin-packs/procedures/applications-google-workspace-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
@@ -380,6 +388,8 @@
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-jboss-jmx",
                     "integrations/plugin-packs/procedures/applications-jenkins",
+                    "integrations/plugin-packs/procedures/applications-jvm-actuator",
+                    "integrations/plugin-packs/procedures/applications-jvm-jmx",
                     "integrations/plugin-packs/procedures/applications-kafka-jmx",
                     "integrations/plugin-packs/procedures/applications-antivirus-kaspersky-snmp",
                     "integrations/plugin-packs/procedures/applications-keepalived-snmp",
@@ -395,7 +405,7 @@
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe",
                     "integrations/plugin-packs/procedures/applications-biztalk",
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
-                    "integrations/plugin-packs/procedures/applications-exchange-2010-nrpe",
+                    "integrations/plugin-packs/procedures/applications-exchange-nrpe",
                     "integrations/plugin-packs/procedures/applications-mail-bluemind",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
@@ -437,6 +447,7 @@
                     "integrations/plugin-packs/procedures/applications-webservers-tomcat-jmx",
                     "integrations/plugin-packs/procedures/applications-webservers-tomcat-webmanager",
                     "integrations/plugin-packs/procedures/applications-trendmicro-iwsva-snmp",
+                    "integrations/plugin-packs/procedures/applications-slack-restapi",
                     "integrations/plugin-packs/procedures/applications-varnish-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nrpe",
                     "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
@@ -494,7 +505,9 @@
                     "integrations/plugin-packs/procedures/cloud-azure-management-automation",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appservice",
                     "integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan",                  
+                    "integrations/plugin-packs/procedures/cloud-azure-database-redis",
                     "integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-discover",
                     "integrations/plugin-packs/procedures/cloud-azure-database-elasticpool",
                     "integrations/plugin-packs/procedures/cloud-azure-database-mysql",
                     "integrations/plugin-packs/procedures/cloud-azure-integration-eventgrid",
@@ -504,6 +517,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
+                    "integrations/plugin-packs/procedures/cloud-azure-network-cdn",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
                     "integrations/plugin-packs/procedures/cloud-azure-management-monitor",
@@ -517,6 +531,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance",
                     "integrations/plugin-packs/procedures/cloud-azure-database-sqlserver",
                     "integrations/plugin-packs/procedures/cloud-azure-storage-storageaccount",
+                    "integrations/plugin-packs/procedures/cloud-azure-storage-storagesync",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-virtualmachine",
                     "integrations/plugin-packs/procedures/cloud-azure-network-virtualnetwork",
                     "integrations/plugin-packs/procedures/cloud-azure-network-vpngateway",
@@ -525,6 +540,7 @@
                     "integrations/plugin-packs/procedures/cloud-gcp-management-stackdriver",
                     "integrations/plugin-packs/procedures/cloud-gcp-storage",
                     "integrations/plugin-packs/procedures/cloud-prometheus-cadvisor-api",
+                    "integrations/plugin-packs/procedures/cloud-cadvisor-api",
                     "integrations/plugin-packs/procedures/cloud-cloudfoundry-api",
                     "integrations/plugin-packs/procedures/applications-docker-restapi",
                     "integrations/plugin-packs/procedures/cloud-ibm-softlayer-api",
@@ -570,6 +586,7 @@
                     "integrations/plugin-packs/procedures/hardware-kvm-adder-aim-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp",
                     "integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi",
                     "integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi",
                     "integrations/plugin-packs/procedures/hardware-servers-cisco-ucs-snmp",
@@ -580,6 +597,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-fujitsu-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hanwha-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-camera-hikvision-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-camera-mobotix-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-hms-ewon-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-timelinkmicro-tms6001-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-hp-blade-chassis-snmp",
@@ -620,6 +638,7 @@
                     "integrations/plugin-packs/procedures/network-alvarion-breezeaccess-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-arista-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-arkoon-snmp",
+                    "integrations/plugin-packs/procedures/network-aruba-aoscx-snmp",
                     "integrations/plugin-packs/procedures/network-aruba-instant-snmp",
                     "integrations/plugin-packs/procedures/network-switchs-aruba-standard-snmp",
                     "integrations/plugin-packs/procedures/network-routers-atrica-snmp",
@@ -648,6 +667,7 @@
                     "integrations/plugin-packs/procedures/network-cisco-vcs-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-voice-gateway-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-waas-snmp",
+                    "integrations/plugin-packs/procedures/network-cisco-wap-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-wlc-snmp",
                     "integrations/plugin-packs/procedures/network-citrix-appacceleration-snmp",
                     "integrations/plugin-packs/procedures/network-loadbalancers-netscaler-snmp",
@@ -662,7 +682,7 @@
                     "integrations/plugin-packs/procedures/network-dell-os10-snmp",
                     "integrations/plugin-packs/procedures/network-dell-sseries-snmp",
                     "integrations/plugin-packs/procedures/network-denyall-snmp",
-                    "integrations/plugin-packs/procedures/network-switch-dell-xseries-snmp",
+                    "integrations/plugin-packs/procedures/network-switchs-dell-xseries-snmp",
                     "integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portserverts-snmp",
                     "integrations/plugin-packs/procedures/network-digi-portservers-snmp",
@@ -676,6 +696,7 @@
                     "integrations/plugin-packs/procedures/network-fortinet-fortiauthenticator-snmp",
                     "integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp",
                     "integrations/plugin-packs/procedures/network-fortinet-fortimanager-snmp",
+                    "integrations/plugin-packs/procedures/network-fortinet-fortiweb-snmp",
                     "integrations/plugin-packs/procedures/network-freebox-restapi",
                     "integrations/plugin-packs/procedures/network-fritzbox-upnp",
                     "integrations/plugin-packs/procedures/hardware-device-gorgy-ntpserver-snmp",
@@ -734,7 +755,10 @@
                     "integrations/plugin-packs/procedures/network-stormshield-snmp",
                     "integrations/plugin-packs/procedures/network-stormshield-ssh",
                     "integrations/plugin-packs/procedures/network-teltonika-snmp",
+                    "integrations/plugin-packs/procedures/network-tplink-snmp",
                     "integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp",
+                    "integrations/plugin-packs/procedures/network-ubiquiti-edge-snmp",
+                    "integrations/plugin-packs/procedures/network-ubiquiti-unifi-snmp",
                     "integrations/plugin-packs/procedures/network-oracle-otd-snmp",
                     "integrations/plugin-packs/procedures/network-ucopia-snmp",
                     "integrations/plugin-packs/procedures/network-watchguard-snmp",
@@ -868,8 +892,8 @@
                     "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3200-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-ibm-ts3500-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-kaminario-restapi",
-                    "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-lenovo-iomega-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-lenovo-sseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-oncommandapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-netapp-ontap-snmp",
@@ -919,12 +943,14 @@
                     "integrations/plugin-packs/procedures/hardware-ups-apc-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-clever-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-cyberpower-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-cyberpower-snmp",
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
+                    "integrations/plugin-packs/procedures/hardware-ups-phoenixtec-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-powerware-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-raritan-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-schleifenbauer-gateway-snmp",
@@ -1031,6 +1057,19 @@
                 "type": "subcategory"
             }
         ],
+        "Superviser votre plateforme": [  
+            "health/centreon-agent",
+            {
+                "ids": [
+                    "administration/centreon-ha/acceptance-guide",
+                    "administration/centreon-ha/monitoring-guide",
+                    "administration/centreon-ha/operating-guide",
+                    "administration/centreon-ha/troubleshooting-guide"
+                ],
+                "label": "Centreon HA",
+                "type": "subcategory"
+            }
+        ],
         "Releases": [
             "releases/introduction",
             "releases/lifecycle",
@@ -1043,6 +1082,9 @@
                 "label": "Release notes",
                 "type": "subcategory"
             }
+        ],
+        "Sécurité": [
+            "security/security"
         ],
         "Ressources": [
             "resources/known-issues"
