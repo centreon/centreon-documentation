@@ -1,6 +1,6 @@
 ---
 id: services-discovery
-title: Découverte des services
+title: Découvrir des services automatiquement
 ---
 
 ## Lancer une découverte manuellement
@@ -8,8 +8,8 @@ title: Découverte des services
 Une fois les règles de découverte programmées, il est possible de les exécuter
 au travers de l’interface web Centreon.
 
-Pour cela, se connecter et accéder au menu `Configuration > Services >
-Manuelle`.
+Pour cela, se connecter et accéder au menu **Configuration > Services >
+Manuelle**.
 
 Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et
 l’interface vous proposera de compléter automatiquement ce dernier :

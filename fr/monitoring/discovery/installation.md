@@ -34,7 +34,7 @@ Discovery** :
 
 Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâches de découverte en arrière-plan (différent du compte que vous utilisez pour créer et lancer des tâches de découverte dans l'interface). Par exemple, un compte `autodisco`. 
 
-1. À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez un utilisateur](../basic-objects/contacts.html) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
+1. À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez un utilisateur](../basic-objects/contacts-create.html) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
     - **Autoriser l'utilisateur à se connecter à l'interface web** : **Non**
     - **Administrateur** : **Oui**
     - **Accès à l'API de configuration** : **Oui**.

@@ -1,6 +1,6 @@
 ---
 id: access-control-lists
-title: Access Control Lists
+title: Granting rights to Centreon users
 ---
 
 You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.html):
@@ -13,7 +13,7 @@ Rights are not defined at user level but through [access groups](#creating-an-ac
 
 - A specific user can belong to several access groups: the rights defined in each group will be combined.
 - Non-administrator users that belong to no access group will have no rights at all on the monitoring platform (empty screen at login)
-- [Administrator](../monitoring/basic-objects/contacts.html#authentification-centreon) users have all rights (even if you add an administrator to an access group with limited rights).
+- [Administrator](../monitoring/basic-objects/contacts-create.html#centreon-authentication) users have all rights (even if you add an administrator to an access group with limited rights).
 
 ACLs are recalculated every minute; this is why it is sometimes necessary
 to wait a few seconds before changes are applied to a user. You can also [reload them](#reload-acl) manually.

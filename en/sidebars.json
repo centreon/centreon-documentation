@@ -1,7 +1,6 @@
 {
     "docs": {
         "Getting Started": [
-            "getting-started/installation-first-steps",
             {
                 "ids": [
                     "getting-started/installation-first-steps",
@@ -35,16 +34,7 @@
                 "type": "subcategory"
             },
             "installation/web-and-post-installation",
-            {
-                "ids": [
-                    "installation/installation-of-centreon-ha/overview",
-                    "installation/installation-of-centreon-ha/installation-2-nodes",
-                    "installation/installation-of-centreon-ha/installation-4-nodes",
-                    "installation/installation-of-centreon-ha/integrating-pollers"
-                ],
-                "label": "Installation of Centreon HA",
-                "type": "subcategory"
-            },
+           
             {
                 "ids": [
                     "installation/installation-of-a-poller/using-centreon-iso",
@@ -61,43 +51,111 @@
                 "label": "Installation of a Remote server",
                 "type": "subcategory"
             },
-            "ceip/what-is-centreon-ceip"
-        ],
-        "Secure your platform": [
-            "administration/secure-platform",
-            "graph-views/secure-your-map-platform"
-        ],
-        "Monitoring": [
-            "monitoring/about",
-            "monitoring/generic-actions",
-            {
-                "ids": [
-                    "monitoring/basic-objects/macros",
-                    "monitoring/basic-objects/commands",
-                    "monitoring/basic-objects/timeperiods",
-                    "monitoring/basic-objects/contacts",
-                    "monitoring/basic-objects/hosts",
-                    "monitoring/basic-objects/services",
-                    "monitoring/basic-objects/meta-services"
-                ],
-                "label": "Basic Objects",
-                "type": "subcategory"
-            },
-            "monitoring/templates",
-            "monitoring/pluginpacks",
             {
                 "ids": [
                     "monitoring/monitoring-servers/add-a-poller-to-configuration",
                     "monitoring/monitoring-servers/add-a-remote-server-to-configuration",
                     "monitoring/monitoring-servers/communications",
                     "monitoring/monitoring-servers/move-poller",
-                    "monitoring/monitoring-servers/deploying-a-configuration",
                     "monitoring/monitoring-servers/advanced-configuration"
                 ],
                 "label": "Monitoring Servers",
                 "type": "subcategory"
             },
-            "monitoring/groups-categories",
+            {
+                "ids": [
+                    "installation/installation-of-centreon-ha/overview",
+                    "installation/installation-of-centreon-ha/installation-2-nodes",
+                    "installation/installation-of-centreon-ha/installation-4-nodes",
+                    "installation/installation-of-centreon-ha/integrating-pollers"
+                ],
+                "label": "Installation of Centreon HA",
+                "type": "subcategory"
+            },
+            "ceip/what-is-centreon-ceip"
+        ],
+        "Secure your platform": [
+            "administration/secure-platform",
+            "graph-views/secure-your-map-platform"
+        ],
+        "Monitoring resources": [
+            {
+                "ids": [
+                    "monitoring/about",
+                    "monitoring/pluginpacks",                   
+                    "monitoring/monitoring-servers/deploying-a-configuration"
+                ],
+                "label": "Monitoring basics",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/hosts-create",
+                    "monitoring/basic-objects/hosts",
+                    "monitoring/basic-objects/hosts-create-disco",
+                    "monitoring/basic-objects/hosts-templates"
+
+                ],
+                "label": "Monitoring hosts",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/services-create",
+                    "monitoring/basic-objects/services",
+                    "monitoring/basic-objects/services-create-disco",
+                    "monitoring/basic-objects/services-templates",
+                    "monitoring/basic-objects/meta-services"
+                ],
+                "label": "Monitoring services",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/discovery/introduction", 
+                    "monitoring/discovery/installation",
+                    "monitoring/discovery/hosts-discovery",
+                    "monitoring/discovery/services-discovery",                    
+                    "monitoring/discovery/administration"
+                ],
+                "label": "Discovering hosts and services automatically",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                   "monitoring/basic-objects/contacts",
+                   "monitoring/basic-objects/contacts-create",
+                   "administration/parameters/ldap",
+                   "monitoring/basic-objects/contacts-templates",
+                   "administration/access-control-lists"
+                ],
+                "label": "Managing users/contacts",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/groups",
+                    "monitoring/categories"
+                ],
+                "label": "Organizing hosts, services and contacts",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/timeperiods",
+                    "monitoring/basic-objects/macros",
+                    "monitoring/basic-objects/commands"
+                ],
+                "label": "Basic objects",
+                "type": "subcategory"
+            },            
+            {
+                "ids": [
+                    "monitoring/anomaly-detection"
+                ],
+                "label": "Detecting anomalies",
+                "type": "subcategory"
+            },
             {
                 "ids": [
                     "monitoring/passive-monitoring/enable-snmp-traps",
@@ -107,18 +165,6 @@
                     "monitoring/passive-monitoring/dsm"
                 ],
                 "label": "Passive Monitoring",
-                "type": "subcategory"
-            },
-            "monitoring/anomaly-detection",
-            {
-                "ids": [
-                    "monitoring/discovery/introduction",
-                    "monitoring/discovery/installation",
-                    "monitoring/discovery/hosts-discovery",
-                    "monitoring/discovery/services-discovery",
-                    "monitoring/discovery/administration"
-                ],
-                "label": "Discovery",
                 "type": "subcategory"
             },
             "monitoring/event-handler",
@@ -235,7 +281,6 @@
                     "administration/parameters/centreon-ui",
                     "administration/parameters/monitoring",
                     "administration/parameters/gorgone",
-                    "administration/parameters/ldap",
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",
                     "administration/parameters/data-management",
@@ -244,7 +289,6 @@
                 "label": "Parameters",
                 "type": "subcategory"
             },
-            "administration/access-control-lists",
             "administration/extensions",
             "administration/licenses",
             "administration/database-partitioning",
