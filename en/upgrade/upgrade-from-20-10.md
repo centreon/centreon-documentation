@@ -185,7 +185,7 @@ The MariaDB components can now be upgraded.
 
 > This step is required ONLY when your environment features an architecture with
 > a dedicated remote DBMS. If your environment features Centreon Central and
-> MariaDB together in the same server, you SHOULD simply skip this step.
+> MariaDB together on the same server, you SHOULD simply skip this step.
 
 Run the following command on the dedicated DBMS server:
 

@@ -280,6 +280,18 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 >
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
+#### Mettre à jour le dépôt Centreon
+
+> Cette étape est nécessaire seulement si votre environnement comprend une base de données déportée.
+> Si le serveur central Centreon et
+> MariaDB sont hébergés sur le même serveur, sautez cette étape.
+
+Exécutez la comande suivante sur le serveur de base de données dédié :
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+```
+
 #### Configuration
 
 Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB

@@ -186,6 +186,20 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 >
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
+#### Mettre à jour le dépôt Centreon
+
+> Cette étape est nécessaire seulement si votre environnement comprend une base de données déportée.
+> Si le serveur central Centreon et
+> MariaDB sont hébergés sur le même serveur, sautez cette étape.
+
+Exécutez la comande suivante sur le serveur de base de données dédié :
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+```
+
+#### Mettre à jour MariaDB
+
 Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.5).
 
 1. Arrêtez le service mariadb :

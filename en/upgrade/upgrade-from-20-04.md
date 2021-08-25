@@ -144,6 +144,18 @@ The MariaDB components can now be upgraded.
 >
 > https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
+#### Update the Centreon repository
+
+> This step is required ONLY when your environment features an architecture with
+> a dedicated remote DBMS. If your environment features Centreon Central and
+> MariaDB together on the same server, you SHOULD simply skip this step.
+
+Run the following command on the dedicated DBMS server:
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+```
+
 #### Upgrading MariaDB
 
 You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
