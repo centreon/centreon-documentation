@@ -55,7 +55,7 @@ title: Configurer les notifications
 
     - **Options de notification** : Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
 
-    - **Intervalle de notification**: Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK. La ressource est dans un état SOFT.
+    - **Intervalle de notification** : Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK. La ressource est dans un état SOFT.
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
         - Entrez 0 pour envoyer 1 seule notification.
         - Gardez à l'esprit qu'une notification ne peut être envoyée que si un contrôle a eu lieu. Pour obtenir le résultat attendu, la valeur définie dans ce champ doit être un multiple de l'option **Intervalle normal de contrôle** définie dans le premier onglet.
