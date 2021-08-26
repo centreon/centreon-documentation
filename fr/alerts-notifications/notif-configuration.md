@@ -53,7 +53,7 @@ title: Configurer les notifications
 
         > Si les notifications sont activées pour un hôte et un contact est défini, alors les notifications seront également activées pour les services liés à cet hôte (sauf si l'option **Notification activée** du service est à **Non**).
 
-    - **Options de notification**: Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
+    - **Options de notification** : Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
 
     - **Intervalle de notification**: Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK. La ressource est dans un état SOFT.
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
