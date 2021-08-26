@@ -62,7 +62,7 @@ title: Configurer les notifications
         - Si aucune valeur n'est définie sur l'hôte/le service, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)).
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est de 30 minutes. 
 
-    - **Période de notification**: Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods.html) pendant laquelle des notifications peuvent être envoyés au contact pour cet hôte ou service.
+    - **Période de notification** : Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods.html) pendant laquelle des notifications peuvent être envoyées au contact pour cet hôte ou service.
         - Si un changement d'état survient en-dehors de cette période de temps, aucune notification ne sera envoyée.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 24x7.
 
