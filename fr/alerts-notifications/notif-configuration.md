@@ -106,7 +106,7 @@ title: Configurer les notifications
 
 - **Options de notification d'hôte/de service** : définissez dans quels cas le contact doit recevoir des notifications. Si vous sélectionnez **Aucune**, le contact ne recevra aucune notification d'aucun type pour les hôtes ou les services. 
 
-- **Période de notification d'hôte/de service**: définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.html) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
+- **Période de notification d'hôte/de service** : définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.html) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
 
 - **Commandes de notification d'hôte/de service**: définissez par quel moyen le contact doit être notifié (email, pager, jabber).
 
