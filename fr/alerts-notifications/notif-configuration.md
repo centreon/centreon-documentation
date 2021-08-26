@@ -66,7 +66,7 @@ title: Configurer les notifications
         - Si un changement d'état survient en-dehors de cette période de temps, aucune notification ne sera envoyée.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 24x7.
 
-    - **Délai de première notification**: Définissez le nombre d'unités de temps à attendre avant d'envoyer la première notification lorsque l'hôte entre dans un état HARD non-DISPONIBLE/lorsque le service entre dans un état HARD non-OK. L'hôte ou le service entre dans un état HARD après que la valeur du **Nombre de contrôles avant validation de l'état** ait été atteinte (définie dans le premier onglet).
+    - **Délai de première notification** : Définissez le nombre d'unités de temps à attendre avant d'envoyer la première notification lorsque l'hôte entre dans un état HARD non-DISPONIBLE/lorsque le service entre dans un état HARD non-OK. L'hôte ou le service entre dans un état HARD après que la valeur du **Nombre de contrôles avant validation de l'état** a été atteinte (définie dans le premier onglet).
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
