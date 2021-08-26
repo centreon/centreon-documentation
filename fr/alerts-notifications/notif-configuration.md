@@ -87,7 +87,7 @@ title: Configurer les notifications
     
     Si l'option est à **Défaut**, Centreon utilisera la valeur définie sur le plus proche modèle parent. Si aucune valeur n'est définie sur aucun modèle parent, **Défaut** correspond à **Non**.
 
-3. Dans les sections **Hôte** et **Service**, vérifiez que les [options](#réference) sont cohérentes avec les valeurs définies sur l'hôte/le service:
+3. Dans les sections **Hôte** et **Service**, vérifiez que les [options](#réference) sont cohérentes avec les valeurs définies sur l'hôte/le service :
 
     - Les valeurs définies sur le contact prennent le pas sur les valeurs définies sur l'hôte/le service. 
         
