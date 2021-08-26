@@ -71,7 +71,7 @@ title: Configurer les notifications
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
 
-    - **Délai de première notification de recouvrement**: Définissez le nombre d'unités de temps à attendre avant d'envoyer une notification de type récupération lorsque l'hôte entre dans un état DISPONIBLE/quand le service entre dans un état OK. 
+    - **Délai de première notification de recouvrement** : Définissez le nombre d'unités de temps à attendre avant d'envoyer une notification de type récupération lorsque l'hôte entre dans un état DISPONIBLE/quand le service entre dans un état OK. 
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes. 
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
