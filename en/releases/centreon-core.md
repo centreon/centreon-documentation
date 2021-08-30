@@ -526,6 +526,15 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.7
+
+`August 30, 2021`
+
+#### Bugfixes
+
+- Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
+- Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
+
 ### 20.10.6
 
 `July 15, 2021`
