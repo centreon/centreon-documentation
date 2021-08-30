@@ -887,6 +887,13 @@ a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
 
+### 20.04.16
+
+#### Bugfixes
+
+- Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
+- Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
+
 ### 20.04.15
 
 `August 4, 2021`
