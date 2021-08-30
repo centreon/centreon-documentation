@@ -233,6 +233,15 @@ future.
 
 ## Centreon Broker
 
+### 21.04.3
+
+`August 30, 2021`
+
+#### Bugfixes
+
+- Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
+- Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
+
 ### 21.04.2
 
 `July 20, 2021`
