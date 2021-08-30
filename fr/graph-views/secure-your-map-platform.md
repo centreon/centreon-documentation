@@ -213,6 +213,20 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
 
+Once you add a truststore, Centreon will only use the truststore to validate certificates.
+
+This means you need to add the central server's certificate to the truststore. If you don't, the
+ **Monitoring > Map** page will be blank, and the logs (/var/log/centreon-map/centreon-map.log)
+) will show the following error :
+ `unable to find valid certification path to requested target`.
+
+1. Copy the central server's **.crt** certificate to the map server.
+
+2. Add the certificate to the truststore:
+    ```shell
+    keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
+    ```
+
 #### Configuration with a recognized CA certificate
 
 If the broker public certificate is signed with a recognized CA, the JVM
