@@ -235,6 +235,8 @@ dans une prochaine version.
 
 ### 21.04.3
 
+`30 Août 2021`
+
 #### Correctifs
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
