@@ -46,7 +46,6 @@ The following table describes the software dependencies:
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
 | PHP      | 7.2        |
-| Qt       | \>= 4.7.4  |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
