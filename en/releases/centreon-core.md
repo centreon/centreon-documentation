@@ -889,6 +889,8 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.16
 
+`August 30, 2021`
+
 #### Bugfixes
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
