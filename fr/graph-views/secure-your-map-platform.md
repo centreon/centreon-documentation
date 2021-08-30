@@ -216,11 +216,11 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 Once you add a truststore, Centreon will only use the truststore to validate certificates.
 
 This means you need to add the central server's certificate to the truststore. If you don't, the
- **Monitoring > Map** page will be blank, and the logs (/var/log/centreon-map/centreon-map.log)
+ **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
 ) will show the following error :
  `unable to find valid certification path to requested target`.
 
-1. Copy the central server's **.crt** certificate to the map server.
+1. Copy the central server's **.crt** certificate to the MAP server.
 
 2. Add the certificate to the truststore:
     ```shell
