@@ -528,6 +528,8 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.7
 
+`August 30, 2021`
+
 #### Bugfixes
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
