@@ -19,13 +19,10 @@ Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des c
 indicateurs désirés, puis à [déployer cette configuration](monitoring-servers/deploying-a-configuration.html) sur le moteur de collecte afin que ces commandes soient
 exécutées périodiquement.
 
-Pour simplifier la configuration on s'appuyera sur des modèles de supervision :
+Avec Centreon, la supervision est rendue facile par les éléments suivants :
 
-* Un [**modèle d'hôte**](basic-objects/hosts-templates.html) (**host template** en anglais) définit la configuration des indicateurs pour un type d'équipement donné.
-* Il s'appuie sur des [**modèles de service**](basic-objects/services-templates.html) (**service templates**) qui définissent la configuration des commandes
-  nécessaires à la mesure de ces indicateurs.
-* Centreon fournit des [**Plugins Packs**](pluginpacks.html) téléchargeables à installer sur sa plateforme de supervision: chaque Plugin
-  Pack regroupe modèles d'hôtes et de services pour configurer en quelques clics la supervision d'un équipement
-  particulier.
+- les [modèles d'hôtes](basic-objects/hosts-templates.html) et de [services](basic-objects/services-templates.html), qui permettent de définir des valeurs par défaut afin d’accélérer la création de ces objets.
 
-![image](../assets/getting-started/host_service_command.png)
+- les [Plugin Packs](pluginpacks.html), qui fournissent des modèles d'hôtes et de services prêts à l'emploi. Ceux-ci simplifient énormément la configuration des hôtes et des services : par exemple, il suffit d'appliquer les modèles issus d'un Plugin Pack à un hôte afin de mettre celui-ci en supervision.
+
+- la [fonctionnalité d'autodécouverte d'hôte et de services](discovery/introduction.html) qui permet d'obtenir une liste des nouveaux hôtes ou services et de les ajouter automatiquement à la liste des ressources supervisées.
