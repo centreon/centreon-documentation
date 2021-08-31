@@ -14,7 +14,7 @@ You will find here all architectures supported:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Simple architecture-->
-#### Description
+#### Description (Simple architecture)
 
 The simple architecture is to have all oversight entities within the same server, ie:
 
@@ -43,7 +43,7 @@ The diagram below summarizes the architecture:
 ![image](../assets/architectures/Architecture_standalone.png)
 
 <!-- Distributed-->
-#### Description
+#### Description (Distributed)
 
 The distributed architecture is to have two types of entities:
 
@@ -96,7 +96,7 @@ The diagram below summarizes the architecture:
 
 <!--Remote DBMS-->
 
-#### Description
+#### Description (Remote DBMS)
 
 The distributed architecture with remote DBMS is to have three types of entities:
 
@@ -156,7 +156,7 @@ The diagram below summarizes the architecture:
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
 <!--Remote Server-->
-#### Description
+#### Description (Remote Server)
 
 The distributed architecture with Remote sever is to have three types of entities:
 
