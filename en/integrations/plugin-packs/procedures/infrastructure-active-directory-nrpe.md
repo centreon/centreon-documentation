@@ -3,47 +3,74 @@ id: infrastructure-active-directory-nrpe
 title: MS Active Directory
 ---
 
+## Overview
+
+This Plugin Pack monitors AD Domain Controller using local commands and the 
+Centreon NSClient++ agent to trigger their executions remotely.
+
+## Pack assets
+
+### Monitored objects
+
+* Active Directory domain controller, including: 
+    * Netdom connectivity
+    * dfsr backlog
+    * dcdiag 
+
+### Collected metrics
+
+*Coming soon*
+
 ## Prerequisites
 
-### Centreon Plugin
+### Centreon NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
 
-``` shell
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Active Directory*:
+
+```bash
 yum install centreon-nrpe-plugin
 ```
 
-### Nsclient++
+2. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
+from the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - NSClient++ package provided by Merethis, installed and configured on your
-    target server as described on
-    [documentation](http://documentation.centreon.com)
+1. Install the Centreon Plugin package on every Poller expected to monitor *Active Directory*:
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+```bash
+yum install centreon-nrpe-plugin
+```
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+2. Install the Centreon Pack RPM on the Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-infrastructure-active-directory-nrpe
+```
 
-## Centreon Configuration
+3. On the Centreon Web interface, install the Centreon Pack *Active Directory* 
+from the **Configuration > Plugin Packs > Manager** page
 
-### Create a host using the appropriate template
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+## Host configuration
 
-| Field                                | Value                             |
-| :----------------------------------- | :-------------------------------- |
-| Host name                            | *Name of the host*                |
-| Alias                                | *Host description*                |
-| IP                                   | *Host IP Address*                 |
-| Monitored from                       | *Monitoring Poller to use*        |
-| Host Multiple Templates              | Infra-ActiveDirectory-NRPE-custom |
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *Infra-ActiveDirectory-NRPE-custom* template and configure all the mandatory Macros:
 
-Click on the *Save* button.
+| Mandatory | Name             | Description                                                      |
+|:----------|:-----------------|:---------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |

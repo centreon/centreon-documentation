@@ -55,6 +55,25 @@ Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-e
 [...]
 ```
 
+### (Process Timeout)
+
+This error means that a command reached the timeout defined at the engine's level. 
+Centreon-engine has its own timeout allowing him to kill 
+a Plugin execution as soon as it overrides a given number of seconds. It prevents 
+infinite Plugin execution. 
+
+By default, this value is 60 seconds for Services and 10 seconds for Hosts.
+
+Frequently, this error is a consequence of a misconfiguration or a lack of a timeout 
+configured at the Plugin level. 
+
+In some cases, it can be normal just because of the complexity of the check or the 
+processing time on the monitoring object side. To measure the time required to finish 
+a check, copy/paste the command-line and execute it through CLI using centreon-engine users. 
+
+You can modify the engine timeout value in the **Configuration > Pollers > Engine Configuration** menu.
+To apply it, export the Poller's configuration and **restart** it.  
+
 ### Check output or metrics is not complete
 
 When a Plugin execution looks partial or incomplete, it usually means that there's 

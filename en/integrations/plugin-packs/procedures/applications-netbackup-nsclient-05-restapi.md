@@ -1,59 +1,86 @@
 ---
 id: applications-netbackup-nsclient-05-restapi
-title: Netbackup Rest API
+title: Netbackup NSClient++ API
 ---
+
+## Overview 
+
+The Plugin Pack Symantec Netbackup works with the Centreon NSClient++ monitoring agent 
+to check Netbackup backup solutions using the Windows agent's API. 
+
+## Pack assets
+
+### Monitored objects
+
+* Symantec Netbackup solutions including:
+    * Deduplication
+    * Drives
+    * Jobs
+    * Tapes
+
+### Collected metrics
+
+*Coming soon...*
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
-```
+To monitor Netbackup software with NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **Webserver / RESTApi** configuration is correct. 
 
 ### NetBackup cli
 
-This plugin pack requires the use of:
+The NetBackup CLI is available on both Windows and Linux and the Plugin uses it so it
+has to be installed.
 
-  - the Netbackup plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
-  - the Netbackup cli (Linux or Windows)
+### Netbackup on Windows
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+When using Netbackup on a Windows system, add these options `--statefile-concat-cwd
+--statefile-dir="scripts/centreon/tmp"` in the `EXTRAOPTIONS` Macro within
+`App-Netbackup-Job-Status-NRPE-Custom` Service Template. 
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+## Installation 
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+<!--DOCUSAURUS_CODE_TABS-->
 
-Warning: If you use Netbackup on Windows, add options `--statefile-concat-cwd
---statefile-dir="scripts/centreon/tmp"` in macro `EXTRAOPTIONS` of service
-`App-Netbackup-Job-Status-NSClient-05-Restapi-custom` Powershell and
-`Microsoft.Exchange.Management.PowerShell.E2010` snap-in have to be installed on
-Exchange Server
+<!--Online IMP Licence & IT-100 Editions-->
 
-Warning: Set service macro `MAILBOX` with the following syntax: DOMAIN\\username
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-## Centreon Configuration
+2. On the Centreon Web interface, install the *Symantec Netbackup* Centreon Pack on the **Configuration > Plugin Packs > Manager** page
 
-### Create a new Netbackup server
+<!--Offline IMP License-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor *Symantec Netbackup* using REST API:
 
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | App-Netbackup-NRPE-custom  |
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
-Click on the *Save* button.
+2. Install the Centreon Pack RPM on the Centreon Central server:
+
+```bash
+yum install centreon-pack-infrastructure-netbackup-nsclient-05-restapi
+```
+
+3. On the Centreon Web interface, install the *Symantec Netbackup* Pack on the **Configuration > Plugin Packs > Manager** page
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Host configuration
+
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *App-Netbackup-NSClient-05-custom* template and configure all the mandatory Macros:
+
+| Mandatory | Name                      | Description                                                                |
+|:----------|:--------------------------|:-------------------------------------------------------------------------- |
+| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
+| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
+|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
+|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |

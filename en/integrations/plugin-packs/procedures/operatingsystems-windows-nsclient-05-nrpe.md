@@ -3,47 +3,141 @@ id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NRPE 0.5
 ---
 
+## Overview
+
+This Plugin Pack allow to get metrics and statuses collected thanks to the NSClient++ 
+monitoring agent and its embedded NRPE Server. 
+
+## Pack assets
+
+### Monitored objects
+
+* Windows Server OS from 2003 SP2 version
+* Windows Workstation from XP version
+
+### Collected metrics
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Counter-Active-Sessions-->
+
+| Metric name     | Description                             |
+| :-------------- | :-------------------------------------- |
+| Sessions\_value | Number of actived sessions. Unit: Count |
+
+<!--Counter-Generic-->
+
+| Metric name    | Description                          |
+| :------------- | :----------------------------------- |
+| Counter\_value | Number of counter found. Unit: Count |
+
+<!--Cpu-->
+
+| Metric name | Description                                                      |
+| :---------- | :--------------------------------------------------------------- |
+| total 5m    | CPU Utilization of Windows serveur over 5 minutes. Unit: Percent |
+| total 1m    | CPU Utilization of Windows serveur over 1 minutes. Unit: Percent |
+| total 5s    | CPU Utilization of Windows serveur over 5 seconds. Unit: Percent |
+
+<!--Disk-->
+
+| Metric name | Description                                   |
+| :---------- | :-------------------------------------------- |
+| used        | Used and Total Storage allocated. Unit: Bytes |
+
+<!--Eventlog-Generic-->
+
+| Metric name  | Description                            |
+| :----------- | :------------------------------------- |
+| problemCount | Number of event log found. Unit: Count |
+
+<!--Files-Generic-->
+
+| Metric name | Description                        |
+| :---------- | :--------------------------------- |
+| count       | Number of files found. Unit: Count |
+
+<!--Logfiles-Generic-->
+
+| Metric name        | Description                                                                   |
+| :----------------- | :---------------------------------------------------------------------------- |
+| default\_lines     | Number of line that match with tag word found in logfile. Unit: Count         |
+| default\_warnings  | Number of line that match with warning pattern found in logfile. Unit: Count  |
+| default\_criticals | Number of line that match with critical pattern found in logfile. Unit: Count |
+| default\_unknowns  | Number of line that match with unknown pattern found in logfile. Unit: Count  |
+
+<!--Memory-->
+
+| Metric name | Description                        |
+| :---------- | :--------------------------------- |
+| used        | Total usage of memory. Unit: Bytes |
+
+<!--Swap-->
+
+| Metric name | Description                             |
+| :---------- | :-------------------------------------- |
+| swap        | Total usage of swap memory. Unit: Bytes |
+
+<!--Sessions-->
+
+| Metric name                   | Description                                               |
+| :---------------------------- | :-------------------------------------------------------- |
+| sessions-created              | Number of created users session. Unit: Count              |
+| sessions-disconnected         | Number of disconnected users session. Unit: Count         |
+| sessions-reconnected          | Number of reconnected users session. Unit: Count          |
+| sessions-active               | Number of active users session. Unit: Count               |
+| sessions-disconnected-current | Number of current disconnected users session. Unit: Count |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ## Prerequisites
 
-### Centreon Plugin
+### Centreon NSClient++
 
-Install this plugin on each needed poller:
+To monitor an *Active Directory* domain controller through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
 
-``` shell
+## Installation 
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Varnish*:
+
+```bash
 yum install centreon-nrpe-plugin
 ```
 
-### Nsclient++
+2. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+from the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on
-    [documentation](http://documentation.centreon.com)
+1. Install the Centreon Plugin package on every Poller expected to monitor *Varnish*:
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+```bash
+yum install centreon-nrpe-plugin
+```
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
+```
 
-## Centreon Configuration
+3. On the Centreon Web interface, install the Centreon Pack *Varnish* 
+from the **Configuration > Plugin Packs > Manager** page
 
-### Create a host using the appropriate template
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+## Host configuration
 
-| Field                   | Value                         |
-| :---------------------- | :---------------------------- |
-| Host name               | *Name of the host*            |
-| Alias                   | *Host description*            |
-| IP                      | *Host IP Address*             |
-| Monitored from          | *Monitoring Poller to use*    |
-| Host Multiple Templates | OS-Windows-Nsclient-05-custom |
+* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Apply the *OS-Windows-NSClient-05-NRPE-custom* template and configure all the mandatory Macros:
 
-Click on the *Save* button.
+| Mandatory | Name             | Description                                                      |
+|:----------|:-----------------|:---------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |

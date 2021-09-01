@@ -2,22 +2,33 @@
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega
 ---
-
-## Vue d'ensemble
-
-La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité, stockage et partage de contenus avancés dans un produit simple d'emploi et idéal pour les petits réseaux. 
 	
 ## Contenu du Pack de supervision
 
 ### Objets supervisés
 
-* CPU
+Le Pack Lenovo Iomega collecte les données pour:
+* Cpu
+* Disks
 * Hardware
 * Interfaces
 * Memory
-* Storage
 
-## Métriques collectées 
+
+### Règles de découvertes
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Nom de la règle                               | Description                                                                                  |
+| :-------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name       | Découvre les partitions et supervise l'utilisation disque                                    |
+| HW-Storage-Lenovo-Iomega-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Métriques collectées 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -28,21 +39,16 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | cpu.utilization.percentage       | CPU utilization.      | %    |
 | core.cpu.utilization.percentage  | CPU Core utilization. | %    |
 
-<!--Interfaces-->
+<!--Disks-->                                                        
 
-| Metric name                              | Description                                             | Unit |
-|:---------------------------------------- |:------------------------------------------------------- |:---- |
-| status                                   | Status of the interface                                 |      |
-| interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
-| interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
-| interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %    |
-| interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %    |
-| interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
-| interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
+| Metric name                                  | Description                     | Unit  |
+| :------------------------------------------- | :------------------------------ |:----- |
+| storage.partitions.count                     | Number of disk partition.       |       |
+| *partition\_name*\#storage.space.usage.bytes | Used space on a disk partition. | B     |
+| *partition\_name*\#storage.access            | Access disk partition.          |       |
 
 <!--Hardware-->
 
-* Per intances :
 | Metric name                   | Description                               | Unit |
 |:----------------------------- |:----------------------------------------- |:---- |
 | disk.status                   | Status of the disk                        |      |
@@ -54,6 +60,18 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | hardware.temperature.celsius  | temperature of the different sensors      | C    |
 | hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
 
+<!--Interfaces-->
+
+| Metric name                                                 | Description                                             | Unit |
+|:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
+| status                                                      | Status of the interface                                 |      |
+| *interface\_name*\#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
+| *interface\_name*\#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
+| *interface\_name*\#interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %    |
+| *interface\_name*\#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %    |
+| *interface\_name*\#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
+| *interface\_name*\#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
+
 <!--Memory-->
 
 | Metric name              | Description                | Unit |
@@ -64,27 +82,15 @@ La solution de stockage réseau Lenovo Iomega StoreCenter (ix2) offre sécurité
 | memory.buffer.bytes      | Buffer memory              | B    |  
 | memory.cached.bytes      | Memory cached              | B    |  
 
-<!--Storage-->                                                        
-
-| Metric name                            | Description                     | Unit  |
-| :------------------------------------- | :------------------------------ |:----- |
-| storage.partitions.count               | Number of disk partition.       | count |
-| storage.space.usage.bytes              | Used space on a disk partition. | B     |
-| storage.access                         | Access disk partition.          |       |
+<!--END_DOCUSAURUS_CODE_TABS-->ge.access            | Access disk partition.          |       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-### Configuration Lenovo Iomega 
-
 Afin de contrôler vos équipements Lenovo Iomega, le SNMP v2 doit être configuré.
 Pour plus d'information, vous pouvez vous référer à la documentation utilisateur officiel :
 http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=69&zoom=100,72,90
-
-### Flux de réseaux
-
-La communication doit être possible sur le port UDP 161 de l'équipement Lenovo Iomega supervisé depuis le Collecteur Centreon.
 
 ## Installation
 
@@ -92,51 +98,49 @@ La communication doit être possible sur le port UDP 161 de l'équipement Lenovo
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Lenovo Iomega SNMP :
+1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Plugin-Pack *Lenovo Iomega* depuis la page "Configuration > Plugin-Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Lenovo Iomega SNMP :
+1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le Plugin-Pack via le RPM:
+2. Sur le serveur Central Centreon, installer le Pack via le RPM:
 
 ```bash
 yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Plugin-Pack *Lenovo Iomega* depuis la page "Configuration > Plugin-Packs > Manager"
+3. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Ce Plugin-Pack est conçu de manière à avoir dans Centreon un hôte par équipement Lenovo Iomega.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle HW-Storage-Lenovo-Iomega-SNMP-custom. 
-Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
+* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
+* Appliquez le Modèle d'Hôte *HW-Storage-Lenovo-Iomega-SNMP-custom*
 
-:warning: Si vous utilisez SNMP version 3, sélectionnez la version SNMP appropriée 
-et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS.
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
+> d'authentification et de chiffrement adéquats
 
-| Mandatory   | Name                    | Description                                                                                 |
-| :---------- | :---------------------- | :------------------------------------------------------------------------------------------ |
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP de Dell Xseries                                                          |
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-## FAQ
 
-#### Comment faire le test en ligne de commande et que signifient les principales options ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur _centreon-engine_ :
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine* :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_lenovo_iomega_snmp.pl
@@ -145,23 +149,25 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --hostname=10.30.2.114
     --snmp-version='2c'
     --snmp-community='iomega_ro'
-    --warning-average='60'
-    --critical-average='75'
+    --warning-average='90'
+    --critical-average='95'
     --verbose
-	
-OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % 
-| 'total_cpu_avg'=15.29%;0:60;0:75;0;100 'cpu'=15.29%;;;0;100
+```
+
+La commande devrait retourner un message de sortie de la forme ci-dessous:
+
+```bash
+OK: CPU(s) average usage is 15.29 % - CPU '0' usage : 15.29 % | 'total_cpu_avg'=15.29%;0:90;0:95;0;100 'cpu'=15.29%;;;0;100
 ```
 
 Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
 en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *iomega_ro* (```--snmp-community='iomega_ro'```).
 
-Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU est à plus de 60% (```--warning-average='60'```)
-et une alarme CRITICAL si plus de 75% (```--critical-average='75'```).
-
-Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
+Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU est à plus de 90% (```--warning-average='90'```)
+et une alarme CRITICAL si plus de 95% (```--critical-average='95'```).
  
-Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_lenovo_iomega_snmp.pl
@@ -170,13 +176,6 @@ Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur l
     --help
 ```
 
-### UNKNOWN: SNMP GET Request : Timeout
+## Diagnostique
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter le serveur Linux sur le port 161, ou alors que la communauté SNMP configurée n'est pas correcte. 
-Il est également possible qu'un firewall bloque le flux.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement Lenovo Iomega ne prend pas en charge la MIB utilisée par le Plugin.
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)

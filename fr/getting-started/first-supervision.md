@@ -37,7 +37,7 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 > Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
 
-> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.html) afin de trouver et de configurer vos hôtes facilement.
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.html) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.html).
 
 ### Installation des modèles de supervision de base
 

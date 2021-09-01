@@ -1,55 +1,78 @@
 ---
 id: applications-mscs-nrpe
-title: Microsoft Cluster Se
+title: Microsoft Cluster Server NSClient++ NRPE
 ---
+
+## Overview
+
+The Plugin Pack *Microsoft Cluster Server NRPE* works with the Centreon NSClient++ monitoring
+agent to check the health and performance of Microsoft Clusters.
+
+## Pack assets
+
+### Monitored objects
+
+* Microsoft Server with the MSCS extension
+
+### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor a *Microsoft Cluster Server* through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct. 
 
-``` shell
+## Installation 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *Microsoft Cluster servers*:
+
+```bash
 yum install centreon-nrpe-plugin
 ```
 
-### Nsclient++
+2. On the Centreon Web interface, install the Centreon Pack *Microsoft Cluster servers* 
+from the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - the Microsoft Cluster Server plugin provided
-    [here](https://forge.centreon.com/projects/centreon-plugins/repository)
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on <http://documentation.centreon.com>
+1. Install the Centreon Plugin package on every Poller expected to monitor *Microsoft Cluster servers*:
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+```bash
+yum install centreon-nrpe-plugin
+```
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-applications-mscs-nrpe
+```
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+3. On the Centreon Web interface, install the Centreon Pack *Exchange NRPE* 
+from the **Configuration > Plugin Packs > Manager** page
 
-\#\#Centreon Configuration
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Create a new Exchange server
+## Host configuration
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *App-Mscs-NRPE-custom* template and configure all the mandatory Macros:
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-Mscs-NRPE-custom       |
+| Mandatory | Name             | Description                                                            |
+| :-------- | :--------------- | :--------------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Binary used to perform the check (default: 'check_centreon_nrpe)  | 
+| X         | NRPEPORT         | Port used to reach the NRPE server (default: '5666')                   |
+| X         | NRPETIMEOUT      | Timeout to connect to the NRPE Server (default: '10')                  |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192')       |
 
-Click on the *Save* button.
+## Important information
 
-By default, the host template checks nothing. Go to plugin-pack manager to see
-services available.
+* You cannot use `|` and `!` characters in your Centreon Macro values. 
+Prefer using RestAPI version of the Pack if you really need it. 
