@@ -146,9 +146,10 @@
                 "ids": [
                     "monitoring/basic-objects/timeperiods",
                     "monitoring/basic-objects/macros",
-                    "monitoring/basic-objects/commands"
+                    "monitoring/basic-objects/commands",
+                    "monitoring/generic-actions"
                 ],
-                "label": "Objets de base",
+                "label": "Objets et actions de base",
                 "type": "subcategory"
             },            
             {
