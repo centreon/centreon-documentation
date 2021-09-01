@@ -85,7 +85,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 2. Sur le serveur Central Centreon, installer le RPM du Pack *HashiCorp Vault Rest API*:
 
 ```bash
-yum install centreon-pack-cloud-applications-hashicorp-vault-restapi.noarch
+yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 ```
 
 3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin Packs > Gestionnaire"
@@ -118,11 +118,11 @@ vous connectant avec l'utilisateur *centreon-engine*:
 /usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
     --plugin=apps::hashicorp::vault::restapi::plugin \
     --mode=health \
-    --hostname=1.1.1.1 \
+    --hostname=10.0.0.1 \
     --api-port='8200' \
     --api-proto='http' \
     --auth-method='token' \
-    --vault-token='s.1234567890abcd'
+    --vault-token='s.1234567890abcd' \
     --critical-seal-status='%{sealed} ne "unsealed"' \ 
     --critical-init-status='%{init} ne "initialized"'
 ```
@@ -133,11 +133,11 @@ La commande devrait retourner un message de sortie similaire à:
 OK: Server vault-cluster-12345abc seal status : unsealed, init status : initialized |
 ```
 
-La commande ci-dessus vérifie l'état de santé du cluster HashiCorp Vault '1.1.1.1' (```--plugin=apps::hashicorp::vault::restapi::plugin
+La commande ci-dessus vérifie l'état de santé du cluster HashiCorp Vault *10.0.0.1* (```--plugin=apps::hashicorp::vault::restapi::plugin
 --mode=health--hostname=1.1.1.1```).
-L'API de l'instance est joignable sur le port '8200' en utilisant le protocole 'HTTP' (```-api-port='8200' --api-proto='http'```).
+L'API de l'instance est joignable sur le port *8200* en utilisant le protocole *HTTP* (```-api-port='8200' --api-proto='http'```).
 
-L'authenfication à l'API est réalisée en utilisant la méthode 'token' et en définissant le token Vault adéquate (```--auth-method='token'
+L'authenfication à l'API est réalisée en utilisant la méthode *token* et en définissant le token Vault approprié (```--auth-method='token'
 --vault-token='s.1234567890abcd'```).
 
 Dans cet exemple, une alarme de type CRITICAL sera déclenchée:
@@ -156,4 +156,4 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ### Diagnostic des erreurs communes  
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html#http-and-api-checks) en cas de soucis!
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html#http-and-api-checks) des Plugins basés sur HTTP/API.
