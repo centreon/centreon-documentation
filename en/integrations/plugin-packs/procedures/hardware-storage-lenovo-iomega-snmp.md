@@ -78,8 +78,8 @@ The Pack Lenovo Iomega collects metrics for:
 | memory.usage.bytes       | Memory usage               | B    |
 | memory.free.bytes        | Free memory                | B    |
 | memory.usage.percentage  | Memory usage in percentage | %    |
-| memory.buffer.bytes      | Buffer memory              | B    |  
-| memory.cached.bytes      | Memory cached              | B    |  
+| memory.buffer.bytes      | Buffer memory              | B    |
+| memory.cached.bytes      | Memory cached              | B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
