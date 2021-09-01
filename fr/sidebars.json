@@ -567,7 +567,9 @@
                     "integrations/plugin-packs/procedures/hardware-servers-sun-mgmtcards",
                     "integrations/plugin-packs/procedures/hardware-servers-sun-mseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-sun-sfxxk-pssh",
-                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp"
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-superdoctor-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp"
                 ],
                 "label": "Hardware Server",
                 "type": "subcategory"
