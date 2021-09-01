@@ -100,7 +100,7 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo IomegaP* Pack
+2. On the Centreon Web interface in **Configuration > Plugin packs > Manager**, install the *Lenovo Iomega* Pack
 
 <!--Offline IMP License-->
 
