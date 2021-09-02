@@ -213,7 +213,7 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 > "tls_broker" profile implies "tls" profile. So Centreon MAP service
 > serves necessarily HTTPS.
 
-Once you add a truststore, Centreon MAP will only use the truststore to validate certificates. 
+Once you add a truststore, Centreon MAP will use it to validate self-signed certificates. 
 This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the
  **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
 ) will show the following error :
