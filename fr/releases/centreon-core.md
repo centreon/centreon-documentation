@@ -382,7 +382,6 @@ Nouvelle version majeure.
 - Fixed incorrect error handling when a poller in pull mode is never connected
 - Fixed only returns no_log when asking associated logs of a token through API
 
-
 ### 21.04.1
 
 `10 juin 2021`
