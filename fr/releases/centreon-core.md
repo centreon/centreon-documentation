@@ -369,6 +369,20 @@ Nouvelle version majeure.
 
 ## Centreon Gorgone
 
+### 21.04.2
+
+#### Enhancements
+
+- Add endpoint to ask gorgoned to resync pollers configuration
+- Add Centreon platform audit module
+- Allow to define the list of the commands that can be run through the Action module
+
+#### Bugfixes
+
+- Fixed incorrect error handling when a poller in pull mode is never connected
+- Fixed only returns no_log when asking associated logs of a token through API
+
+
 ### 21.04.1
 
 `10 juin 2021`
