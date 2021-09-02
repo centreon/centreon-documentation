@@ -216,7 +216,7 @@ RUN_ARGS="--spring.profiles.active=prod,tls_broker"
 Once you add a truststore, Centreon MAP will use it to validate self-signed certificates. 
 This means that if you use a self-signed certificate for the central server, you must add it to the truststore. If you don't, the
  **Monitoring > Map** page will be blank, and the logs (**/var/log/centreon-map/centreon-map.log**)
-) will show the following error :
+ will show the following error :
  `unable to find valid certification path to requested target`.
 
 1. Copy the central server's **.crt** certificate to the MAP server.
