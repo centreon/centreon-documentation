@@ -1,6 +1,6 @@
 ---
-id: splunk-events-apiv2
-title: Splunk Events
+id: splunk-metrics-apiv2
+title: Splunk Metrics
 ---
 
 ## Before starting
