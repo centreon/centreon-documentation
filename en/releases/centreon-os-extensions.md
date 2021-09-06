@@ -20,6 +20,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
+### 21.04.1
+
+- fix: php version in cron files
+- fix: logging of centreon_central_sync
+- enh: compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
+- enh: add cbd_rrd systemd files
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
