@@ -3569,18 +3569,26 @@ Columns are the following:
 
 In order to add an instance you use the **ADD** action:
 
-``` shell
-centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;ZMQ;5556"
-```
+- For a ZMQ poller:
+
+    ``` shell
+    centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;ZMQ;5556"
+    ```
+
+- For an SSH poller:
+
+    ``` shell
+    centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;2;22"
+    ```
 
 Required fields are:
 
 | Column                     | Description                                       |
-| ---------------------------| --------------------------------------------------|
+| -------------------------- | ------------------------------------------------- |
 | Name                       |                                                   |
 | Address                    | IP address of the poller                          |
 | SSH Port                   | SSH port                                          |
-| Gorgone Communication Type | ZMQ or SSH                                        |
+| Gorgone Communication Type | ZMQ (1) or SSH (2)                                |
 | Gorgone Communication Port | Port used by Gorgone to communicate               |
 
 #### Del
