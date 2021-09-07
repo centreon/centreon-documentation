@@ -1,19 +1,33 @@
 ---
 id: about
-title: About Monitoring
+title: Basic principles of monitoring
 ---
 
-This chapter will allow you to know all the configuration mechanisms of your
-supervision system. This stage of implementation of the supervision must be
-reflected to set up a supervision deployment strategy. Remember, the goal is to
-have a scalable and maintainable system.
+Here are a few basic Centreon concepts:
 
-Do not forget to think about setting up a global strategy of the configuration in
-order to make able to have global actions configurations. For that, mechanisms
-are in place in Centreon to simplify your life such as [hosts and services
-templates](templates.html).
+* A [**host**](basic-objects/hosts-create.html) is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
+  virtual machine, a temperature probe, an IP camera, a printer or a storage space.
+* A [**service**](basic-objects/services-create.html) is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
+  motion detection, bandwidth usage rate, disk I/O, and so on.
+* In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
+  collection engine called **Centreon Engine**.
+* To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.
+  The plugin and its associated arguments form a [**command**](basic-objects/commands.html).
 
-Once setup is finished, supervision will allow you to get informations on the
-health status of your IT systems. For having more information regarding the
-operation interface, please refer to the [exploitation
-guide](../alerts-notifications/concepts.html).
+For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
+and then [deploy that configuration](monitoring-servers/deploying-a-configuration.html) to the collection engine so that these commands are run periodically.
+
+In Centreon, monitoring is made easy by the following elements:
+
+- [Host templates](basic-objects/hosts-templates.html) and [service templates](basic-objects/services-templates.html), that allow you to define default values so as to speed up the creation of these objects.
+
+- [Plugin Packs](pluginpacks.html), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
+
+- The [autodiscovery feature for hosts and services](discovery/introduction.html), that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.
+
+
+
+* A [**host template**](basic-objects/hosts-templates.html) defines the configuration of the indicators for a given type of equipment.
+* It relies on [**service templates**](basic-objects/services-templates.html) that define the configuration of the commands needed to collect these indicators.
+* Centreon provides downloadable [**Plugins Packs**](pluginpacks.html) to install on its monitoring platform: each Plugin Pack includes host
+  and services templates to configure the monitoring of a particular device in a few clicks.

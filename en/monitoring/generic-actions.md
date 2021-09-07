@@ -3,138 +3,130 @@ id: generic-actions
 title: Generic actions
 ---
 
-In the Configuration menu it is possible to perform certain “generic” actions on the various objects.
+In the **Configuration** menu it is possible to perform certain “generic” actions on the various objects.
 
-## Add / Delete
+## Adding objects
 
-The addition of a new object is done via the **Add** instruction next to the **More actions...** menu.
+To create a new object, click the **Add** button next to the **More actions** menu/above the list of objects.
 
-To delete an object:
+![image](../assets/configuration/common/add.png)
 
-1. Select the object(s) that you want to delete by checking the box(s) next to its name.
-2. In the **More actions...** menu click on **Delete**.
+## Duplicating objects
 
-> Deletion of an object is final. If you delete an object by accident, you will need to re-create it. In the same way,
-> deletion of an object automatically deletes all the objects linked to it and which cannot live without it. E.g.:
-> Deletion of a host results in the deletion of all the services associated with this host.
+Duplicate an object to re-use its properties for the creation of a new
+object. Example: You need to monitor 10 identical web servers:
 
-## Duplication
-
-### Principle
-
-Duplication of an object enables it to be copied / cloned to be able to re-use its Attributes for the creation of a new
-object. E.g.: I have 10 identical web servers to supervise:
-
-1. I add the first web server with all the necessary Attributes
-2. I duplicate this host 9 times
-3. It only remains for me to change the host names and the IP addresses of each duplication to adapt it to the 9 other web servers to be monitored
+1. Add the first web server with all the necessary properties.
+2. Duplicate this host 9 times.
+3. All you have to do now is to change the host names and the IP addresses of each duplication to adapt it to the 9 other web servers to be monitored.
 
 Thanks to this method, it is no longer necessary to create each host individually.
 
-### Practice
+To duplicate an object:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<!--Method 1-->
 
-To duplicate a Business Activity:
+For exemple, to duplicate a Business Activity:
 
-1. Select the Business Activity that you want to duplicate by checking the associated box
-2. Click on the duplicate icon: <img src="../assets/configuration/common/duplicate_new.png" width="32" />
-3. Enter the number of duplications that you want to obtain
+1. Select the Business Activity that you want to duplicate by checking the associated box.
+2. Click on the duplicate icon: <img src="../assets/configuration/common/duplicate_new.png" />
+3. Enter the number of extra copies that you want to obtain:
 
-![image](../assets/configuration/common/duplicate_objects_new.png)
+    ![image](../assets/configuration/common/duplicate_objects_new.png)
 
-4. Click on **OK**
+4. Click on **OK**.
 
-<!--Legacy pages-->
+<!--Method 2-->
 
-To duplicate a host:
+For example, to duplicate a host:
 
-1. Select the host that you want to duplicate
-2. In the **Options** column, enter the number of duplications that you want to obtain
+1. Select the host that you want to duplicate.
+2. In the **Options** column, enter the number of extra copies that you want to obtain:
 
-![image](../assets/configuration/common/01duplicate.png)
+    ![image](../assets/configuration/common/01duplicate.png)
 
-3. In the **More actions...** menu click on **Duplicate**
+3. In the **More actions** menu click on **Duplicate**:
 
-![image](../assets/configuration/common/01duplicateobjects.png)
+    ![image](../assets/configuration/common/01duplicateobjects.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Massive Change
 
-### Principle
+Massive change enable you to apply a change to multiple objects.
 
-Massive change enable us to apply a change to multiple objects.
-
-E.g.: All the web servers previously created change SNMP communities. A massive change enables us to change this
+Example: All the web servers previously created change SNMP communities. A massive change enables us to change this
 community without it being necessary to change each sheet of each host individually.
-
-### Practice
 
 To perform a massive change:
 
-1. Select the objects you want change
-2. In the **More actions...** menu click on **Massive Change**
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Method 1-->
 
-The change menu opens, there are 2 types to change:
+1. Select the objects that you want to change.
+2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
+3. Confirm the changes.
 
-* **Incremental**: signifies that the change will be added to the existing options
-* **Replacement**: signifies that the change will overwrite the existing options
+<!--Method 2-->
 
-## Enable / disable
+1. Select the objects you want to change.
+2. In the **More actions** menu, click on **Massive Change**.
+3. The form for the type of object opens, with 2 options next to each field:
 
-### Principle
+    * **Incremental**: signifies that the change will be added to the existing options
+    * **Replacement**: signifies that the change will overwrite the existing options.
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-The enabling and disenabling of objects enables us to take the object into account or not during configuration generation.
+## Enabling/disabling objects
+
+The enabling and disabling of objects allows you to take objects into account or not during configuration generation.
 The main advantage is to be able to keep the configuration of an object without applying it.
 
-### Practice
+To enable/disable an object:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<!--Method 1-->
 
-To enable / disable an object:
+1. Select the objects you want to enable/disable.
+2. Click on the icon you want in the line of the object, or above the list:
 
-1. Select the objects you want enable/disble
-2. Click on icon to Disable or Enable
+    * **Enable**: <img src="../assets/configuration/common/enabled_new.png" />
+    * **Disable**: <img src="../assets/configuration/common/disabled_new.png" />
 
-It is also possible to enable or disable an object via the **State** field of the object detail sheet or by using the following icons
+<!--Method 2-->
 
-* <img src="../assets/configuration/common/enabled_new.png" width="32" />
-* <img src="../assets/configuration/common/disabled_new.png" width="32" />
+1. Select the objects you want to change.
+2. In the **More actions**  menu, click on **Enable/Disable**.
 
-<!--Legacy pages-->
+You can also use the following buttons at the end of the line:
 
-To enable / disable an object:
+*  **Enable**: <img src="../assets/configuration/common/enabled.png"  />
+* **Disable**: <img src="../assets/configuration/common/disabled.png"  />
 
-1. Select the objects you want change
-2. In the **More actions...**  menu click on **Enable / disable**
-
-It is also possible to enable or disable an object via the **Status** field of the object detail sheet or by using the following icons:
-
-* <img src="../assets/configuration/common/enabled.png" width="32" />
-* <img src="../assets/configuration/common/disabled.png" width="32" />
+![image](../assets/configuration/common/enable_disable.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Delete
+## Deleting objects
+
+> Deleting an object is final. If you delete an object by accident, you will need to re-create it. In the same way,
+> deleting an object automatically deletes all the objects linked to it and which cannot live without it. E.g.:
+> Deleting a host results in all the services associated with this host being deleted too.
+
+To delete an object:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--New pages-->
+<!--Method 1-->
 
-To delete an object:
+1. Select the objects you want to delete.
+2. Click on the **Delete** icon: <img src="../assets/configuration/common/delete_new.png" />
+3. Confirm the action.
 
-1. Select the objects you want to delete
-2. Click on icon to delete <img src="../assets/configuration/common/delete_new.png" width="32" />
-3. Confirm the action
+<!--Method 2-->
 
-<!--Legacy pages-->
-
-To delete an object:
-
-1. Select the objects you want to delete
-2. In the **More actions...**  menu click on **Delete**
-3. Confirm the action
+1. Select the objects you want to delete.
+2. In the **More actions** menu, click on **Delete**.
+3. Confirm the action.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
