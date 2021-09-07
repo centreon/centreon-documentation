@@ -16,9 +16,9 @@ option.
 
     4. Click **Save**.
 
-2. Check that your Centreon can [send emails](../administration/postfix.html).
+2. Check that your Centreon can send notifications, [e.g. emails](../administration/postfix.html).
 
-    Notifications commands are executed by the poller that monitors the resource: you will need to configure the mail relay on all pollers.
+    Notification commands are executed by the poller that monitors the resource: you will need to configure the ability to send notifications on all pollers.
 
 ## Configuring notifications
 
@@ -39,7 +39,7 @@ option.
 
 ### Step 2: Configuring the notifications on the host or service
 
-> To make the configuration of notifications easier, you can define
+> To make the configuration of notifications faster, you can define
 > the parameters on a host/service template. All hosts or services that inherit this
 > template will also inherit these settings. See [Template inheritance rules](#template-inheritance-rules).
 
@@ -56,7 +56,7 @@ option.
 
     - **Notification options**: Define for which statuses notifications must be sent. If no value is defined here, the value will be inherited from a parent template (see [Template inheritance rules](#template-inheritance-rules)). If no value is defined on any parent template, notifications will be sent for all statuses except for **None**.
 
-    - **Notification Interval**: Define the number of “time units” to wait before re-notifying a contact that this host is still down or unreachable/that this service is still in a warning or critical condition. The resource is in a SOFT state.
+    - **Notification Interval**: Define the number of “time units” to wait before re-notifying a contact that this host is still not up/that this service is still in a not-OK condition.
         - With the default time unit of 60s, this number will mean multiples of 1 minute.
         - Enter 0 to send just 1 notification.
         - Be aware that a notification can only be sent if a check has occurred. In order to get the expected results, the value defined in this field must be a multiple of the **Normal Check Interval** option defined on the **General Information** tab.
@@ -67,7 +67,7 @@ option.
         - If a state change occurs during a time which is not covered by the time period, no notifications will be sent out.
         - If no value is defined on the host/service or any of its parent templates, the default value is 24x7.
 
-    - **First notification delay**: Define the number of “time units” to wait before sending out the first problem notification when the host enters a HARD non-UP state/when the service enters a HARD non-OK state. The host or service enters a HARD state after the Max retry attempts has been reached (defined on the **General Information** tab)
+    - **First notification delay**: Define the number of “time units” to wait before sending out the first problem notification when the host enters a HARD non-UP state/when the service enters a HARD non-OK state. The host or service enters a HARD state after the **Max check attempts** has been reached (defined on the **General Information** tab)
         - With the default time unit of 60s, this number will mean multiples of 1 minute.
         - If you set this value to 0, the monitoring engine will start sending out notifications immediately.
         - If nothing is defined on the host/service or on any of its parent templates, the default value is 0.
@@ -86,14 +86,10 @@ option.
 
 2. On the **General Information** tab, in section **Notification**, check that **Enable notifications** is set to **Yes**. 
     
-    If the option is set to **Default**, Centreon will use the value defined on the closest parent template. If no value is defined on any parent template, **Default** means **No**.
+    If the option is set to **Default**, Centreon will use the value defined on the closest parent template. If no value is defined on any parent template, **Default** means **No** unless the contact has been configured to be notified on a host.
 
-3. In sections **Hosts** and **Services**, check that the [options](#reference) are consistent with what you have defined at host/service level:
-
-    - What is defined on the contact takes precedence over what is defined on the host/service. 
-        
-        For instance, if you have set the **Host Notification Options** to **None** on the contact, the contact will receive no notifications for the host, even if you have enabled all types of notifications for the host.
-        
+3. In sections **Host** and **Service**, check that the [options](#reference) are consistent with what you have defined at host/service level:
+    - For instance, if you have set the **Host Notification Options** to **None** on the contact, the contact will receive no notifications for the host, even if you have enabled all types of notifications for the host. If you have enabled all types of notifications on the contact but only **Critical** notifications on a service, the contact will only receive **Critical** notifications for this service.
     - If you have defined no rule on the contact, the rules defined in the closest contact template are applied.
     - If you have defined rules on the contact, these will take precedence over rules defined on the contact template.
 
@@ -146,7 +142,7 @@ and groups of contacts that will be notified are available. These are defined on
 
 ## Troubleshooting
 
-### Contacts are not receiving notifications
+### Contacts are not receiving notification emails
 Check the following points:
 - Is the postfix service running? Use the following command:
     ```

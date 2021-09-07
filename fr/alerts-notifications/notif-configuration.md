@@ -15,9 +15,9 @@ title: Configurer les notifications
 
     4. Cliquez sur **Sauvegarder**.
 
-2. Assurez-vous que votre Centreon peut [envoyer des emails](../administration/postfix.html).
+2. Assurez-vous que votre Centreon peut envoyer des notifications, par exemple, [des emails](../administration/postfix.html).
 
-    Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : configurez le relais mail sur tous les collecteurs.
+    Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : configurez la capacité à envoyer des notifications sur tous les collecteurs.
 
 ## Configurer des notifications
 
@@ -40,7 +40,7 @@ title: Configurer les notifications
 
 ### Étape 2 : Configurer les notifications sur l'hôte ou le service
 
-> Pour faciliter la configuration de la notification, vous pouvez ajuster les paramètres sur un modèle d'hôte ou de service. Tous les hôtes/services qui héritent de ce modèle hériteront également de ces paramètres. (Voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles).)
+> Pour rendre la configuration des notifications plus rapide, vous pouvez ajuster les paramètres sur un modèle d'hôte ou de service. Tous les hôtes/services qui héritent de ce modèle hériteront également de ces paramètres. (Voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles).)
 
 1. Allez à la page **Configuration > Hôtes > Hôtes** ou **Configuration > Services > Services par hôte** et sélectionnez un hôte ou un service.
 
@@ -55,7 +55,7 @@ title: Configurer les notifications
 
     - **Options de notification**: Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
 
-    - **Intervalle de notification**: Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK. La ressource est dans un état SOFT.
+    - **Intervalle de notification**: Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK.
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
         - Entrez 0 pour envoyer 1 seule notification.
         - Gardez à l'esprit qu'une notification ne peut être envoyée que si un contrôle a eu lieu. Pour obtenir le résultat attendu, la valeur définie dans ce champ doit être un multiple de l'option **Intervalle normal de contrôle** définie dans le premier onglet.
@@ -85,14 +85,11 @@ title: Configurer les notifications
 
 2. Dans l'onglet **Informations générales**, dans la section **Notification**, mettez l'option **Activer les notifications** à **Oui**. 
     
-    Si l'option est à **Défaut**, Centreon utilisera la valeur définie sur le plus proche modèle parent. Si aucune valeur n'est définie sur aucun modèle parent, **Défaut** correspond à **Non**.
+    Si l'option est à **Défaut**, Centreon utilisera la valeur définie sur le plus proche modèle parent. Si aucune valeur n'est définie sur aucun modèle parent, **Défaut** correspond à **Non**, sauf si le contact a été configuré pour recevoir des notifications au niveau de l'hôte.
 
 3. Dans les sections **Hôte** et **Service**, vérifiez que les [options](#réference) sont cohérentes avec les valeurs définies sur l'hôte/le service:
 
-    - Les valeurs définies sur le contact prennent le pas sur les valeurs définies sur l'hôte/le service. 
-        
-        Par exemple, si vous avez mis **Options de notification d'hôte** à **Aucune** sur le contact, celui-ci ne recevra aucune notification pour cet hôte, même si vous avez activé tous les types de notifications sur l'hôte.
-        
+    - Par exemple, si vous avez mis **Options de notification d'hôte** à **Aucune** sur le contact, celui-ci ne recevra aucune notification pour cet hôte, même si vous avez activé tous les types de notifications sur l'hôte. Si vous avez activé tous les types de notifications sur le contact mais seulement celles de type **Critique** sur un service, le contact recevra uniquement des notification de type **Critique** pour ce service.        
     - Si vous n'avez défini aucune règle sur le contact, les règles appliquées sont celles définies sur le plus proche modèle parent.
     - Si vous avez défini des règles sur le contact, celles-ci prendront le pas sur les règles définies sur le modèle de contact. 
 
@@ -146,7 +143,7 @@ contacts et groupes de contacts qui seront notifiés sont disponibles :
 
 ## Troubleshooting
 
-### Les contacts ne reçoivent pas de notifications
+### Les contacts ne reçoivent pas d'emails de notification
 
 Vérifiez les points suivants :
 
