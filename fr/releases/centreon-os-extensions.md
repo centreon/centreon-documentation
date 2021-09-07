@@ -20,6 +20,20 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon High-Availability
 
+### 21.04.1
+
+`September 06, 2021`
+
+#### Bug fixes
+
+- fixed: php version in cron files
+- fixed: logging of centreon_central_sync
+
+#### Enhancements
+
+- Compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
+- Add cbd_rrd systemd files
+
 ### 21.04.0
 
 - Compatibilité avec Centreon 21.04
