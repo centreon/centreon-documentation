@@ -370,6 +370,8 @@ New release.
 
 ### 21.04.2
 
+`September 7, 2021`
+
 #### Enhancements
 
 - Add endpoint to ask gorgoned to resync pollers configuration
