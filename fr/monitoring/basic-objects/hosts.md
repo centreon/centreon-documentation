@@ -1,16 +1,16 @@
 ---
 id: hosts
-title: Les hôtes
+title: Créer un hôte manuellement
 ---
 
-Un hôte est toute entité possédant une adresse IP correspondant à une ressource du système d’informations. Exemples : Un
-serveur, une imprimante réseau, un serveur NAS, une base de données, une sonde de température, une caméra IP...
+Pour créer un hôte manuellement :
+1. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquez sur **Ajouter**.
+2. Remplissez les différents champs (voir [ci-dessous](#onglet-configuration-de-lhôte)), puis cliquez sur **Sauvegarder**.
+3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.html).
 
-Tous les ajouts d’hôtes se font dans le menu : **Configuration > Hosts > Add**.
+## Onglet Configuration de l’hôte
 
 ![image](../../assets/configuration/02addhost.png)
-
-## Configuration de l’hôte
 
 ### Informations générales
 
@@ -86,7 +86,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * La liste **Parent Hosts** permet de définir les relations physiques de parenté entre objet.
 * La liste **Child Hosts** permet de définir les relations physiques de parenté entre objet.
 
-## Traitement des données
+## Onglet Traitement des données
 
 * Si le **Obsess Over Host** est activé, alors la commande de remontée des contrôles de l’hôte sera activée.
 * Le champ **Check Freshness** permet d’activer ou de désactiver le contrôle de fraîcheur du résultat.
@@ -103,7 +103,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * Le champ **Event Handler** définit la commande à exécuter si le gestionnaire d’évènements est activé.
 * Le champ **Args** définit les arguments de la commande du gestionnaire d’évènements.
 
-## Informations détaillées de l’hôte
+## Onglet Informations détaillées de l’hôte
 
 ### Moteur de supervision
 

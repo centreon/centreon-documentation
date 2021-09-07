@@ -1,18 +1,18 @@
 ---
 id: hosts
-title: Hosts
+title: Creating hosts manually
 ---
 
-A host is any entity having an IP address corresponding to a resource of the information system. E.g.: A server,
-network printer, a NAS server, a temperature sensor, an IP camera, etc.
+To create a host manually:
+1. Go to **Configuration \> Hosts \> Hosts** and then click **Add**.
+2. Fill in the fields (see [below](#host-configuration-tab)), then click on **Save**.
+3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.html).
 
-All these host additions take place in the menu: **Configuration \> Hosts \> Add**.
+## Host configuration tab
 
 ![image](../../assets/configuration/02addhost.png)
 
-## Configuration of the host
-
-### General information
+### Host basic information
 
 * The **Host Name** field defines the host name that will be used by the Monitoring Engine.
 * The **Alias** field shows the alias of the host.
@@ -33,7 +33,7 @@ This button serves to delete the host template <img src="../../assets/configurat
   the services based their self on the service templates linked to the host templates defined above
   (see the *[templates chapter](../templates.html#definition)*).
 
-### Monitoring properties of the host
+### Host check options
 
 * The **Check Command** field indicates the command use to check the availability of the host.
 * The **Args** field defines the arguments given to the check command (each argument starts with a ”!”).
@@ -51,7 +51,7 @@ To delete the macro, click on <img src="../../assets/configuration/common/delete
 
 To change the order of the macros, click on <img src="../../assets/configuration/common/move.png" width="32" />
 
-### Scheduling options of the host
+### Scheduling options
 
 * The **Check Period** field defines the time period during which the scheduler checks the status of the object.
 * The **Max Check Attempts** field defines the number of checks to be performed before confirming the status of the

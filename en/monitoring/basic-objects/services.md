@@ -1,12 +1,9 @@
 ---
 id: services
-title: Services
+title: Creating services manually
 ---
 
-A service is a check point linked / attached to a host. E.g.: Percentage of partition use on a server, ink level in a
-printer.
-
-All additions of services are done in the menu: **Configuration \> Services \> Add**.
+To create a service manually, go to **Configuration \> Services > Services by host** and then click **Add**.
 
 ![image](../../assets/configuration/03addservice.png)
 
