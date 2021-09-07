@@ -18,7 +18,6 @@ The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect
     * Health
     * Raft-Storage
 
-
 ### Collected metrics & status
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -46,7 +45,7 @@ The Plugin Pack Centreon HashiCorp Vault relies on the Vault Rest API to collect
 The Centreon Poller must be allowed to connect and to authenticate against the HashiCorp Vault resource.
 The credentials used to authenticate must be part of a Vault policy allowing to read the `/sys/` path.
 
-The following authenticats methods are supported:
+The following authentication methods are supported:
 * token (default method)
 * userpass
 * azure
@@ -67,29 +66,29 @@ https://www.vaultproject.io/api-docs/auth .
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor HashiCorp Vault Rest API resources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
 ```bash
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
-2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor HashiCorp Vault Rest API resources:
+1. Install the Centreon Plugin package on every Centreon Poller expected to monitor HashiCorp Vault Rest API resources:
 
 ```bash
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page
+3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the "Configuration > Plugin Packs > Manager" page
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
