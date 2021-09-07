@@ -72,7 +72,7 @@ https://www.vaultproject.io/api-docs/auth .
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
-2. Sur l'interface Integration de Centreon, installer le Plugin-Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin packs > Manager"
+2. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin packs > Manager"
 
 <!--Offline IMP License-->
 
@@ -88,7 +88,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le Plugin-Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin Packs > Gestionnaire"
+3. Sur l'interface Integration de Centreon, installer le Pack *HashiCorp Vault Rest API* depuis la page "Configuration > Plugin Packs > Gestionnaire"
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
