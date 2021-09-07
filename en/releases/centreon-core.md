@@ -828,6 +828,20 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone
 
+### 20.10.5
+
+`September 7, 2021`
+
+#### Enhancements
+
+- Add endpoint to ask gorgoned to resync pollers configuration
+- Add Centreon platform audit module
+- Allow to define the list of the commands that can be run through the Action module
+
+#### Bugfixes
+
+- Fixed only returns no_log when asking associated logs of a token through API
+
 ### 20.10.4
 
 `June 10, 2021`
