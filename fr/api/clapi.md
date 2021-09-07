@@ -3571,17 +3571,10 @@ Columns are the following:
 
 In order to add an instance you use the **ADD** action:
 
-- For a ZMQ poller:
 
-    ``` shell
-    centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;ZMQ;5556"
-    ```
-
-- For an SSH poller:
-
-    ``` shell
-    centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;2;22"
-    ```
+``` shell
+centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;ZMQ;5556"
+```
 
 Required fields are:
 
