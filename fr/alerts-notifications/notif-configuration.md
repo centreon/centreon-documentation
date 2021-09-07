@@ -81,6 +81,8 @@ title: Configurer les notifications
 
 ### Étape 3 : Activer les notifications pour les contacts choisis
 
+> Pour rendre la configuration des notifications plus rapide, vous pouvez ajuster les paramètres sur un modèle de contact. Tous les contacts qui héritent de ce modèle hériteront également de ces paramètres. (Voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles).)
+
 1. Allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur le contact à qui vous voulez que les notifications soient envoyées.
 
 2. Dans l'onglet **Informations générales**, dans la section **Notification**, mettez l'option **Activer les notifications** à **Oui**. 

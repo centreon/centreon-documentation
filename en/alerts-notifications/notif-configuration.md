@@ -82,6 +82,10 @@ option.
 
 ### Step 3: Enabling notifications for the contacts you have defined
 
+> To make the configuration of notifications faster, you can define
+> the parameters on a contact template. All contacts that inherit this
+> template will also inherit these settings. See [Template inheritance rules](#template-inheritance-rules).
+
 1. Go to **Configuration > Users > Contacts/Users** and then click on the contact you want to be notified.
 
 2. On the **General Information** tab, in section **Notification**, check that **Enable notifications** is set to **Yes**. 
