@@ -24,10 +24,3 @@ In Centreon, monitoring is made easy by the following elements:
 - [Plugin Packs](pluginpacks.html), that provide ready-to-use host and service templates. These greatly simplify the configuration of hosts and services: for instance, all you have to do is to apply Plugin Pack templates to a host for it to be monitored.
 
 - The [autodiscovery feature for hosts and services](discovery/introduction.html), that allows you to get a list of new hosts and services and to add them automatically to the list of monitored resources.
-
-
-
-* A [**host template**](basic-objects/hosts-templates.html) defines the configuration of the indicators for a given type of equipment.
-* It relies on [**service templates**](basic-objects/services-templates.html) that define the configuration of the commands needed to collect these indicators.
-* Centreon provides downloadable [**Plugins Packs**](pluginpacks.html) to install on its monitoring platform: each Plugin Pack includes host
-  and services templates to configure the monitoring of a particular device in a few clicks.
