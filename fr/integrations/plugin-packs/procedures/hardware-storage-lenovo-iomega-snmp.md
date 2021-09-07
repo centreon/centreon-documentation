@@ -14,7 +14,6 @@ Le Pack Lenovo Iomega collecte les données pour:
 * Interfaces
 * Memory
 
-
 ### Règles de découvertes
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -79,10 +78,8 @@ Le Pack Lenovo Iomega collecte les données pour:
 | memory.usage.bytes       | Memory usage               | B    |
 | memory.free.bytes        | Free memory                | B    |
 | memory.usage.percentage  | Memory usage in percentage | %    |
-| memory.buffer.bytes      | Buffer memory              | B    |  
-| memory.cached.bytes      | Memory cached              | B    |  
-
-<!--END_DOCUSAURUS_CODE_TABS-->ge.access            | Access disk partition.          |       |
+| memory.buffer.bytes      | Buffer memory              | B    |
+| memory.cached.bytes      | Memory cached              | B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
