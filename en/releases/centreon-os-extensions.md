@@ -22,6 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.1
 
+`September 06, 2021`
 #### Bug fixes
 - fixed: php version in cron files
 - fixed: logging of centreon_central_sync
