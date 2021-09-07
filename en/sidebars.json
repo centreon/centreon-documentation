@@ -941,8 +941,10 @@
                     "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty",
-                    "integrations/event-management/sc-servicenow",
-                    "integrations/event-management/sc-servicenow-mid-server"
+                    "integrations/event-management/sc-service-now-events",
+                    "integrations/event-management/sc-servicenow-mid-server",
+                    "integrations/event-management/sc-splunk-events",
+                    "integrations/event-management/sc-splunk-metrics"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
