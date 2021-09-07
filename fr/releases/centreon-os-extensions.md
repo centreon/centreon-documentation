@@ -22,10 +22,15 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.1
 
-- fix: php version in cron files
-- fix: logging of centreon_central_sync
-- enh: compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
-- enh: add cbd_rrd systemd files
+#### Bug fixes
+
+- fixed: php version in cron files
+- fixed: logging of centreon_central_sync
+
+#### Enhancements
+
+- Compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
+- Add cbd_rrd systemd files
 
 ### 21.04.0
 
