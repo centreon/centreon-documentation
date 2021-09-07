@@ -834,6 +834,8 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.5
 
+`7 septembre 2021`
+
 #### Enhancements
 
 - Add endpoint to ask gorgoned to resync pollers configuration
