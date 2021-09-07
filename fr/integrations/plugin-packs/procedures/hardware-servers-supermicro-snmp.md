@@ -3,42 +3,8 @@ id: hardware-servers-supermicro-snmp
 title: Supermicro
 ---
 
-## Prerequisites
+## **ATTENTION** Ce Pack est déprécié
 
-This chapter describes the prerequisites installation needed by plugins to run.
+Ce Plugin Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack `Supermicro SuperDoctor SNMP`.
 
-### Centreon Plugin
-
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Hardware-Servers-Supermicro-Snmp
-```
-
-### SNMP
-
-It's necessary to install SuperDoctor Agent and enable SNMP on Supermicro server
-
-## Centreon Configuration
-
-### Create a host using the appropriate template
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                                | Value                            |
-| :----------------------------------- | :------------------------------- |
-| Host name                            | *Name of the host*               |
-| Alias                                | *Host description*               |
-| IP                                   | *Host IP Address*                |
-| Monitored from                       | *Monitoring Poller to use*       |
-| Host Multiple Templates              | HW-Server-Supermicro-SNMP-custom |
-
-Click on the *Save* button.
-
-Those services were automatically created for this host:
-
-| Service         | Description                    |
-| :-------------- | :----------------------------- |
-| Ping            | Monitor host response time     |
-| Hardware-Global | Monitor Global hardware status |
+Référez vous à [cette procédure](hardware-servers-supermicro-superdoctor-snmp.html)
