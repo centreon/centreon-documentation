@@ -21,6 +21,7 @@ If you have feature requests or want to report a bug, please go to our
 ## Centreon High-Availability
 
 ### 21.04.1
+
 #### Bug fixes
 - fixed: php version in cron files
 - fixed: logging of centreon_central_sync
