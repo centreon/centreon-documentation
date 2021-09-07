@@ -27,7 +27,7 @@ nominal après changement du disque.
 > L’acquittement d’un incident signifie la prise en compte du problème par un utilisateur de la supervision (et non la
 > résolution de ce dernier qui ne pourra être effective que lorsque le contrôle sera revenu dans son état nominal).
 
-#### En practique
+#### En pratique
 
 Pour acquitter un incident, deux solutions sont possibles :
 
@@ -87,7 +87,7 @@ Il existe deux types de temps d’arrêts :
 * Le temps d’arrêt **flexible** : démarre pendant la fenêtre de temps prévue, dès la détection d’un incident. Il prend
 fin lorsque la durée prévue en secondes est écoulée.
 
-#### En practique
+#### En pratique
 
 Il y a trois possibilités différentes de définir un temps d’arrêt :
 
@@ -146,7 +146,7 @@ d’arrêts récurrents sur les services concernés afin d’éviter de recevoir
 
 > Les temps d’arrêts sont pris en comptes dans le calcul du taux de disponibilité de la ressource dans le menu @TODO#"Dashboard".
 
-#### En practique
+#### En pratique
  
 Il existe deux types de temps d’arrêts :
 
@@ -200,7 +200,7 @@ ressource (hôte ou service). Un commentaire possède les propriétés suivantes
 * Le contenu du commentaire
 * La validité du commentaire face à un redémarrage de l’ordonnanceur
 
-#### En practique
+#### En pratique
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
@@ -238,7 +238,7 @@ Il est possible d’activer ou de désactiver momentanément la vérification d�
 > modifications sont réalisées sur la supervision en temps-réel; elles seront annulées lors du redémarrage de
 > l’ordonnacneur.
 
-#### En practique
+#### En pratique
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Page de détails d'un objet-->
@@ -269,7 +269,7 @@ Pour :
 Pour les services ayant la propriété de contrôle passif, il est possible d’envoyer manuellement un résultat à
 l’ordonnanceur afin que celui-ci soit pris en compte par l’ordonnanceur.
 
-#### En practique
+#### En pratique
 
 Pour soumettre un résultat, accédez à la page de détails de l’objet. Dans la catégorie **Service Commands** cliquez sur
 **Submit result for this service**
@@ -293,7 +293,7 @@ Il est possible d’activer ou de désactiver momentanément la notification d�
 > modifications sont réalisées sur la supervision en temps-réel; elles seront annulées lors du redémarrage de
 > l’ordonnacneur.
 
-#### En practique
+#### En pratique
 
 Il y a deux moyens de gérer les notifications :
 
@@ -335,7 +335,7 @@ Il existe deux types de programmation :
   (dès que possible) et cela même si l’heure de la demande d’exécution est en dehors de la période contrôle ou si le
   service n’est pas de type actif.
 
-#### En practique
+#### En pratique
 
 Il y a deux moyens de forcer la vérification d’un service :
 
