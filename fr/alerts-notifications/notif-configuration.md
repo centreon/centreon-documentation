@@ -53,25 +53,25 @@ title: Configurer les notifications
 
         > Si les notifications sont activées pour un hôte et un contact est défini, alors les notifications seront également activées pour les services liés à cet hôte (sauf si l'option **Notification activée** du service est à **Non**).
 
-    - **Options de notification**: Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
+    - **Options de notification** : Définissez pour quels statuts les notifications doivent être envoyées. Si aucune valeur n'est définie ici, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, des notifications seront envoyées pour tous les statuts, sauf pour **Aucune**.
 
-    - **Intervalle de notification**: Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK.
+    - **Intervalle de notification** : Définissez le nombre d'unités de temps qui doivent s'écouler avant de notifier à nouveau un contact dans le cas où l'hôte est toujours dans un état non-DISPONIBLE/dans le cas où le service est toujours dans un état non-OK.
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
         - Entrez 0 pour envoyer 1 seule notification.
         - Gardez à l'esprit qu'une notification ne peut être envoyée que si un contrôle a eu lieu. Pour obtenir le résultat attendu, la valeur définie dans ce champ doit être un multiple de l'option **Intervalle normal de contrôle** définie dans le premier onglet.
         - Si aucune valeur n'est définie sur l'hôte/le service, la valeur sera héritée d'un modèle parent (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)).
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est de 30 minutes. 
 
-    - **Période de notification**: Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods.html) pendant laquelle des notifications peuvent être envoyés au contact pour cet hôte ou service.
+    - **Période de notification** : Spécifiez la [période de temps](../monitoring/basic-objects/timeperiods.html) pendant laquelle des notifications peuvent être envoyées au contact pour cet hôte ou service.
         - Si un changement d'état survient en-dehors de cette période de temps, aucune notification ne sera envoyée.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 24x7.
 
-    - **Délai de première notification**: Définissez le nombre d'unités de temps à attendre avant d'envoyer la première notification lorsque l'hôte entre dans un état HARD non-DISPONIBLE/lorsque le service entre dans un état HARD non-OK. L'hôte ou le service entre dans un état HARD après que la valeur du **Nombre de contrôles avant validation de l'état** ait été atteinte (définie dans le premier onglet).
+    - **Délai de première notification** : Définissez le nombre d'unités de temps à attendre avant d'envoyer la première notification lorsque l'hôte entre dans un état HARD non-DISPONIBLE/lorsque le service entre dans un état HARD non-OK. L'hôte ou le service entre dans un état HARD après que la valeur du **Nombre de contrôles avant validation de l'état** a été atteinte (définie dans le premier onglet).
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes.
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
 
-    - **Délai de première notification de recouvrement**: Définissez le nombre d'unités de temps à attendre avant d'envoyer une notification de type récupération lorsque l'hôte entre dans un état DISPONIBLE/quand le service entre dans un état OK. 
+    - **Délai de première notification de recouvrement** : Définissez le nombre d'unités de temps à attendre avant d'envoyer une notification de type récupération lorsque l'hôte entre dans un état DISPONIBLE/quand le service entre dans un état OK. 
         - Avec l'unité de temps par défaut de 60s, ce nombre sera des minutes. 
         - Si la valeur est à 0, le moteur de supervision commencera à envoyer des notifications immédiatement.
         - Si aucune valeur n'est définie sur l'hôte/le service ni sur aucun de ses modèles parents, la valeur par défaut est 0.
@@ -87,7 +87,7 @@ title: Configurer les notifications
     
     Si l'option est à **Défaut**, Centreon utilisera la valeur définie sur le plus proche modèle parent. Si aucune valeur n'est définie sur aucun modèle parent, **Défaut** correspond à **Non**, sauf si le contact a été configuré pour recevoir des notifications au niveau de l'hôte.
 
-3. Dans les sections **Hôte** et **Service**, vérifiez que les [options](#réference) sont cohérentes avec les valeurs définies sur l'hôte/le service:
+3. Dans les sections **Hôte** et **Service**, vérifiez que les [options](#réference) sont cohérentes avec les valeurs définies sur l'hôte/le service :
 
     - Par exemple, si vous avez mis **Options de notification d'hôte** à **Aucune** sur le contact, celui-ci ne recevra aucune notification pour cet hôte, même si vous avez activé tous les types de notifications sur l'hôte. Si vous avez activé tous les types de notifications sur le contact mais seulement celles de type **Critique** sur un service, le contact recevra uniquement des notification de type **Critique** pour ce service.        
     - Si vous n'avez défini aucune règle sur le contact, les règles appliquées sont celles définies sur le plus proche modèle parent.
@@ -101,11 +101,11 @@ title: Configurer les notifications
 
 ![image](../assets/alerts/notif_contact_config.png)
 
-- **Options de notification d'hôte/de service**: définissez dans quels cas le contact doit recevoir des notifications. Si vous sélectionnez **Aucune**, le contact ne recevra aucune notification d'aucun type pour les hôtes ou les services. 
+- **Options de notification d'hôte/de service** : définissez dans quels cas le contact doit recevoir des notifications. Si vous sélectionnez **Aucune**, le contact ne recevra aucune notification d'aucun type pour les hôtes ou les services. 
 
-- **Période de notification d'hôte/de service**: définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.html) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
+- **Période de notification d'hôte/de service** : définissez pendant quelle [période de temps](../monitoring/basic-objects/timeperiods.html) le contact recevra des notifications. Si un changement d'état survient hors de cette période, aucune notification ne sera envoyée (même si la période de temps correspond à celle définie sur l'hôte ou le service). N'oubliez pas que cette période de temps correspondra à celle du fuseau horaire définie dans le profil de l'utilisateur (par exemple, si la période de notification est de 9h à 5h, l'utilisateur recevra des notifications entre 9h et 5h dans son fuseau horaire, qui n'est pas nécessairement le même que le vôtre).
 
-- **Commandes de notification d'hôte/de service**: définissez par quel moyen le contact doit être notifié (email, pager, jabber).
+- **Commandes de notification d'hôte/de service** : définissez par quel moyen le contact doit être notifié (email, pager, jabber).
 
 ## Règles d'héritage des modèles
 
