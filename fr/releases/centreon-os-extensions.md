@@ -22,6 +22,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 21.04.1
 
+`September 06, 2021`
+
 #### Bug fixes
 
 - fixed: php version in cron files
