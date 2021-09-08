@@ -1028,13 +1028,6 @@
         "Mobile App.": [
             "mobile/introduction"
         ],
-        "API": [
-            "api/introduction",
-            "api/clapi",
-            "api/rest-api-v1",
-            "api/rest-api-v2",
-            "api/graph-views-api"
-        ],
         "Developer resources": [
             "developer/about-developer-resources",
             "developer/developer-module",
@@ -1048,6 +1041,17 @@
                     "developer/developer-broker-mapping"
                 ],
                 "label": "Centreon Broker",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "api/introduction",
+                    "api/clapi",
+                    "api/rest-api-v1",
+                    "api/rest-api-v2",
+                    "api/graph-views-api"
+                ],
+                "label": "API",
                 "type": "subcategory"
             }
         ],
