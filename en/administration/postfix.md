@@ -16,7 +16,7 @@ We recommend that you use a dedicated email account to send notifications.
 1. In your server's terminal, enter the following command:
 
     ```
-    yum -y install cyrus-sasl-plain
+    yum -y install mailx cyrus-sasl-plain
     ```
 
 2. Restart Postfix: 
