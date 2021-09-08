@@ -114,7 +114,7 @@ When the installation is complete, click on **Reboot**:
 
 Define the server name using following command:
 ```shell
-hostnamectl set-hostname new_server_name
+hostnamectl set-hostname new-server-name
 ```
 
 ## Update the system
