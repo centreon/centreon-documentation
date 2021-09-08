@@ -37,14 +37,16 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 > Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
 
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.html) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.html).
+
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
 > Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
-> pour configurer et vérifier la connexion de votre serveur Centreon à Internet.
+> pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
-Commencez par installer le Plugin Pack **Base Generic** en déplaçant votre curseur sur ce dernier et en cliquant sur
+Commencez par installer le Plugin Pack **Base Generic** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
 l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre Plugin Pack) :
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
@@ -560,27 +562,20 @@ Lors de la création/suppression/modification des objets via l'interface de conf
 sont pas appliqués de manière automatique aux serveurs de supervision. Afin de pouvoir appliquer les modifications
 effectuées, il est nécessaire de suivre la procédure ci-dessous.
 
-#### Première étape
+1. Rendez-vous dans le menu **Configuration > Collecteurs  Collecteurs**.
+2. Choisissez les collecteurs sur lesquels exporter la configuration.
+3. Cliquez sur **Exporter la configuration**
 
-1. Rendez-vous dans le menu **Configuration > Pollers**
-2. Choisissez les collecteurs sur lesquels exporter la configuration
-3. Cliquez sur **Apply configuration**
+    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
-    ![image](../assets/configuration/poller_menu_generate.png)
+4. Cochez les cases suivantes :
+  - **Générer les fichiers de configuration**
+  - **Lancer le débogage du moteur de supervision (-v)**
+  - **Déplacer les fichiers générés**
+  - **Redémarrer l'ordonnanceur**.
 
-4. Cochez les cases **Generate Configuration Files** et **Run monitoring engine debug (-v)**
-5. Cliquez sur **Export**
+5. Cliquez sur **Exporter**.
 
-    ![image](../assets/configuration/poller_generate_1.png)
+    ![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
 
-Vérifier qu'aucune erreur n'apparait lors de la génération. 
-
-> Si cela est le cas, corriger les erreurs et refaire la première étape.
-
-#### Deuxième étape
-
-1.	Décochez les cases **Generate Configuration Files** et **Run monitoring engine debug (-v)**
-2.	Puis cochez les cases **Move Export Files** ainsi que **Restart Monitoring Engine**
-3.	Cliquez sur **Export**
-
-![image](../assets/configuration/poller_generate_2.png)
+6. Vérifiez qu'aucune erreur n'apparaît lors de la génération.

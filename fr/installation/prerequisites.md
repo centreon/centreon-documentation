@@ -18,19 +18,21 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 ### Système d'exploitation
 
-Centreon fournit des RPM pour ses produits au travers de la solution
-Centreon Open Sources disponible gratuitement sur notre dépôt.
-
-Ces paquets ont été testés avec succès sur les environnements CentOS
-en version 7 et 8.
+Les OS supportés par Centreon sont CentOS/RedHat/OracleLinux 7 ou 8.
 
 > Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
-> qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
-> pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
+> qu'il est préférable de ne pas utiliser CentOS 8 en production. Les paquets
+> pour CentOS 8 sont compatibles avec RHEL et Oracle Linux en version 8.
+
+| Version           | Mode d'installation                                   |
+|-------------------|-------------------------------------------------------|
+| CentOS 7          | ISO Centreon, paquets RPM, machine virtuelle, sources |
+| CentOS 8          | paquets RPM, sources                                  |
+| RHEL/Oracle Linux | paquets RPM, sources                                  |
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
-L'installation de la plate-forme sera plus complexe à partir des fichiers sources de chaque composant. sera plus
-complexe à partir des fichiers sources de chaque composant.
+L'installation de la plate-forme sera plus complexe, à partir des fichiers sources de chaque composant.
+Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent pas encore sur une distribution non supportée.
 
 > Seuls les systèmes d'exploitation 64bits (x86_64) sont supportés.
 
@@ -53,7 +55,6 @@ Le tableau suivant décrit les dépendances logicielles :
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
 | PHP      | 7.3        |
-| Qt       | \>= 4.7.4  |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 

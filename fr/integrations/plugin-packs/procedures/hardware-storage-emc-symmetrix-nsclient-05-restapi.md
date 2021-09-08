@@ -1,50 +1,78 @@
 ---
-id: hardware-storage-emc-symmetrix-nsclient-05-restapi
-title: EMC Symmetrix API
+id: hardware-storage-emc-symmetrix-nrpe
+title: EMC Symmetrix NRPE
 ---
+
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know and ping us on [slack](https://centreon.slack.com)
+
+## Overview
+
+The Pack *EMC Symmetrix* works with the Centreon NSClient++ monitoring
+agent and offer controls to monitor hardware components of EMC Storage arrays. 
+
+## Pack assets
+
+### Monitored objects
+
+* EMC Storage arrays, including following platforms:
+    * DMX
+    * Vmax
+
+### Collected metrics
+
+*Coming soon*
 
 ## Prerequisites
 
-### Centreon Plugin
+### NSClient++
 
-Install this plugin on each needed poller:
+To monitor *EMC Symmetrix* disk controllers through NRPE, install the Centreon packaged version 
+of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+and make sure that the **NRPE Server** configuration is correct.
 
-``` shell
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
+## Installation 
+
+<!--Online IMP Licence & IT-100 Editions-->
+
+1. Install the Centreon NRPE Client package on every Poller expected to monitor *EMC Symmetrix*:
+
+```bash
+yum install centreon-nrpe-plugin
 ```
 
-### Remote host
+2. On the Centreon Web interface, install the Centreon Pack *Veeam* 
+from the **Configuration > Plugin Packs > Manager** page
 
-This plugin pack requires the use of:
+<!--Offline IMP License-->
 
-  - the EMC Symmetrix plugin provided
-    [here](https://github.com/centreon/centreon-plugins)
+1. Install the Centreon Plugin package on every Poller expected to monitor *EMC Symmetrix*:
 
-Note: If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
+```bash
+yum install centreon-nrpe-plugin
+```
 
-You can download it
-[here](https://download.centreon.com/?action=product&product=agent-nsclient&version=0.51&secKey=59d646114079212e03ec09454456a938)
+2. Install the Centreon Pack RPM on the Central server:
 
-If you have some problems with the centreon\_plugins.exe, you can build it using
-[following
-procedure](https://documentation.centreon.com/docs/centreon-nsclient/en/latest/windows_agent.html#build-your-own-executable)
+```bash
+yum install centreon-pack-hardware-storage-emc-symmetrix
+```
 
-Warning: Don't use '\!' character in centreon macro configuration\!\!\!
+3. On the Centreon Web interface, install the Centreon Pack *EMC Symmetrix* 
+from the **Configuration > Plugin Packs > Manager** page
 
-## Centreon Configuration
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-### Create a new Netbackup server
+## Host configuration
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
+* Apply the *HW-Storage-EMC-Symmetrix-Dmx34-NRPE* or *HW-Storage-EMC-Symmetrix-Vmax-NRPE* 
+template and configure all the mandatory Macros:
 
-| Field                   | Value                                                                                                   |
-| :---------------------- | :------------------------------------------------------------------------------------------------------ |
-| Host name               | *Name of the host*                                                                                      |
-| Alias                   | *Host description*                                                                                      |
-| IP                      | *Host IP Address*                                                                                       |
-| Monitored from          | *Monitoring Poller to use*                                                                              |
-| Host Multiple Templates | HW-Storage-EMC-Symmetrix-Dmx34-NSClient-05-Restapi or HW-Storage-EMC-Symmetrix-Vmax-NSClient-05-Restapi |
-
-Click on the *Save* button.
+| Mandatory | Name             | Description                                                      |
+|:----------|:-----------------|:---------------------------------------------------------------- |
+| X         | NRPECLIENT       | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
+| X         | NRPEPORT         | NRPE Port of the target server (Default: '5666')                 |
+| X         | NRPETIMEOUT      | Timeout value (Default: '30')                                    |
+| X         | NRPEEXTRAOPTIONS | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |

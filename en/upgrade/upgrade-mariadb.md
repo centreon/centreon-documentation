@@ -12,16 +12,8 @@ When you upgrade from one major version of Centreon to another, you must:
 1. Upgrade Centreon (packages, web installation, deploying the configuration).
 2. Upgrade MariaDB.
 
-Be aware that MariaDB strongly recommends that you upgrade the server one major version at a time.
-You must upgade MariaDB from your original version up to version 10.5. The upgrade must be made
-one version at a time, e.g. 10.1 to 10.2, 10.2 to 10.3, etc. 
-That is why Centreon provides several versions on its stable repositories.
-
 > Refer to the official MariaDB documentation to know more about this process:
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
+> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
 ## Version of Maria DB for each version of Centreon
 
@@ -50,9 +42,64 @@ MariaDB-shared-10.5.8-1.el7.centos.x86_64
 MariaDB-compat-10.5.8-1.el7.centos.x86_64
 ```
 
-## Upgrade from 10.1 to 10.2
+## Upgrading between major MariaDB versions
 
-`innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2,
+You have to uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.4 to version 10.5).
+
+1. Stop the mariadb service:
+
+    ```shell
+    systemctl stop mariadb
+    ```
+
+2. Uninstall the current version:
+
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    ```
+
+3. Install the 10.5 version:
+
+    ```shell
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
+    ```
+
+    Example: if your database_admin_user is `root`, enter:
+
+    ```
+    mysql_upgrade -u root -p
+    ```
+
+    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+    > for more information or if errors occur during this last step.
+
+6. To enable MariaDB on startup, execute the following command:
+
+    ```shell
+    systemctl enable mariadb
+    ```
+
+### Upgrading from 10.1 to 10.5
+
+The `innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2,
 so you should remove it from file **/etc/my.cnf.d/centreon.cnf**
 
 ```diff
@@ -81,218 +128,18 @@ max_allowed_packet = 8M
 #innodb_buffer_pool_size=1G
 ```
 
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
+## Upgrading between minor versions of MariaDB
 
-1. Stop the mariadb service:
+Follow these steps to upgrade between minor versions of MariaDBB (for example, to switch from version 10.3.2 to version 10.3.5) : 
 
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Uninstall current 10.1 version:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.2 version:
-
-    ```shell
-    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
-    ```
-
-4. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade
-    ```
-
-    If your database is password-protected, enter:
-
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
-
-    Example: if your database_admin_user is `root`, enter:
+1. Update MariaDB :
 
     ```
-    mysql_upgrade -u root -p
+    yum update maridb-*
     ```
 
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
-
-6. To enable MariaDB on startup, execute the following command:
-
-    ```shell
-    systemctl enable mariadb
-    ```
-
-## Upgrade from 10.2 to 10.3
-
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
-
-1. Stop the mariadb service:
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Uninstall current 10.2 version:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.3 version:
-
-    ```shell
-    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
-    ```
-
-4. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade
-    ```
-    
-    If your database is password-protected, enter:
-
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
-
-    Example: if your database_admin_user is `root`, enter:
+2. Restart MariaDB :
 
     ```
-    mysql_upgrade -u root -p
-    ```
-
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
-
-6. To enable MariaDB on startup, execute the following command:
-
-    ```shell
-    systemctl enable mariadb
-    ```
-
-## Upgrade from 10.3 to 10.4
-
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
-
-1. Stop the mariadb service:
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Uninstall current 10.3 version:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.4 version:
-
-    ```shell
-    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
-    ```
-
-4. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade
-    ```
-    
-    If your database is password-protected, enter:
-
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
-
-    Example: if your database_admin_user is `root`, enter:
-
-    ```
-    mysql_upgrade -u root -p
-    ```
-
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
-
-6. To enable MariaDB on startup, execute the following command:
-
-    ```shell
-    systemctl enable mariadb
-    ```
-
-## Upgrade from 10.4 to 10.5
-
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
-
-1. Stop the mariadb service:
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Uninstall current 10.4 version:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.5 version:
-
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
-
-4. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
-
-    Example: if your database_admin_user is `root`, enter:
-
-    ```
-    mysql_upgrade -u root -p
-    ```
-
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
-
-6. To enable MariaDB on startup, execute the following command:
-
-    ```shell
-    systemctl enable mariadb
+    restart mariadb
     ```

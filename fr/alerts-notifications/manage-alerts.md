@@ -115,7 +115,7 @@ Il existe deux types de temps d'arrêts :
 Il y a trois possibilités différentes de définir un temps d'arrêt :
 
 -   Depuis la page de détails d'un hôte ou du service
--   Depuis l'interface de supervision temps réelle
+-   Depuis l'interface de supervision temps réel
 -   Depuis le menu **Downtime**
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -125,7 +125,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 2.  Dans la catégorie **Commands**, cliquez sur **Schedule downtime for
     this host/service**
 
-<!--Interface temps réelle-->
+<!--Interface temps réel-->
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -153,7 +153,7 @@ La fenêtre suivante s'affiche :
 -   Si le temps d'arrêt est flexible, le champ **Duration** définit la
     durée du temps d'arrêt
 -   Les champs **Start Time** et **End Time** définissent les dates de
-    début et de fin du temps d'arrêt
+    début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
@@ -305,7 +305,7 @@ Pour :
 -   Activer la vérification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 -   Désactiver la vérification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réelle-->
+<!--Interface temps réel-->
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -374,7 +374,7 @@ Pour :
 -   Activer la notification, cliquez sur ![image](../assets/configuration/common/enabled.png)
 -   Désactiver la notification, cliquez sur ![image](../assets/configuration/common/disabled.png)
 
-<!--Interface temps réelle-->
+<!--Interface temps réel-->
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)
@@ -421,7 +421,7 @@ Il y a deux moyens de forcer la vérification d'un service :
     cliquez sur **Re-schedule the next check for this host / service**
     ou **Re-schedule the next check for this host / service (forced)**
 
-<!--Interface temps réelle-->
+<!--Interface temps réel-->
 
 1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
     `Services`)

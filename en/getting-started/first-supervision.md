@@ -33,13 +33,15 @@ and then to implement them to monitor your first equipment.
 
 > To go further with templates, please read the [templates chapter](../monitoring/templates.html#definition).
 
+> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.html) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.html).
+
 ### Installation of basic monitoring templates
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration) to allow the Centreon server to access the Internet.
+> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration) to allow the Centreon server to access the internet.
 
-Install the **Base Generic** Plugin Pack by moving your cursor on it and by clicking on **+** icon (it is a prerequisite
+Install the **Base Generic** Plugin Pack (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
 
 ![image](../assets/getting-started/pp_base_generic_1.png)
@@ -53,7 +55,7 @@ for free:
 
 ![image](../assets/getting-started/pp_install_basic.gif)
 
-Now you have the basic templates and plugins to initial monitoring!
+Now you have the basic templates and plugins to start monitoring hosts!
 
 ## Start to monitor your first host
 
@@ -543,29 +545,23 @@ filter. After a few minutes, the first results of the monitoring appear:
 ## Deploying a configuration
 
 On creation/deletion/change of objects via the configuration interface, the changes performed are not applied
-automatically to the scheduler. To apply the changes performed, it is necessary to follow the procedure below.
+automatically to the monitoring engine. To apply the changes performed, it is necessary to follow the procedure below.
 
-#### First step
 
-1. Go to the **Configuration \> Pollers** menu
-2. Choose the pollers which you want to export configuration
-3. Click on **Apply configuration** button
+1. Go to **Configuration \> Pollers > Pollers**.
+2. Select the pollers whose configuration you want to export.
+3. Click on **Export configuration**.
 
-![image](../assets/configuration/poller_menu_generate.png)
+    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
-4. Check the **Generate Configuration Files** and **Run monitoring engine debug (-v)** boxes
-5. Click on **Export** button
+4. Check the following boxes:
+  - **Generate Configuration Files**
+  - **Run monitoring engine debug (-v)**
+  - **Move Export Files**
+  - **Restart Monitoring Engine**.
 
-![image](../assets/configuration/poller_generate_1.png)
+5. Click **Export**.
 
-Check that no error appears during generation.
+    ![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
 
-> If there are errors, correct the errors and repeat the first step.
-
-#### Second step
-
-1. Uncheck the **Generate Configuration Files** and **Run monitoring engine debug (-v)** boxes
-2. Then check the **Move Export Files** and **Restart Monitoring Engine** boxes
-3. Click on **Export** button
-
-![image](../assets/configuration/poller_generate_2.png)
+6. Check that no errors appear during generation.

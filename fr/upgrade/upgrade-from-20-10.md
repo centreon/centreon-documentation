@@ -181,27 +181,26 @@ Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 Les composants MariaDB peuvent maintenant être mis à jour.
 
-Sachez que MariaDB recommande vivement de monter en version le serveur en
-passant par chacune des versions majeures. Veuillez vous référer à la
-[documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour
-plus d'informations.
-
-Vous devez donc mettre à jour de la version 10.3 vers 10.4 puis 10.4 vers
-10.5.
-
-Pour cela, Centreon met à disposition les versions 10.4 et 10.5 sur ses
-dépôts stables.
-
 > Référez vous à la documentation officielle de MariaDB pour en savoir
-> d'avantage sur ce processus :
+> davantage sur ce processus :
 >
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
+> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
-#### Montée de version de 10.3 à 10.4
+#### Mettre à jour le dépôt Centreon
 
-Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
-recommande :
+> Cette étape est nécessaire seulement si votre environnement comprend une base de données déportée.
+> Si le serveur central Centreon et
+> MariaDB sont hébergés sur le même serveur, sautez cette étape.
+
+Exécutez la comande suivante sur le serveur de base de données dédié :
+
+```shell
+yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+```
+
+#### Mettre à jour MariaDB
+
+Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.5).
 
 1. Arrêtez le service mariadb :
 
@@ -209,16 +208,18 @@ recommande :
     systemctl stop mariadb
     ```
 
-2. Désinstallez la version actuelle 10.3 :
+2. Désinstallez la version actuelle :
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Installez la version 10.4 :
+3. Installez la version 10.5 :
+
+    Exemple :
 
     ```shell
-    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
+    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
 
 4. Démarrer le service mariadb :
@@ -245,52 +246,8 @@ recommande :
     mysql_upgrade -u root -p
     ```
 
-> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
-
-#### Montée de version de 10.4 à 10.5
-
-Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
-recommande :
-
-1. Arrêtez le service mariadb :
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Désinstallez la version actuelle 10.4 :
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Installez la version 10.5 :
-
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
-
-4. Démarrer le service mariadb :
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Lancez le processus de mise à jour MariaDB :
-
-   ```shell
-    mysql_upgrade -u <utilisateur_admin_bdd> -p
-    ```
-
-    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
-
-    ```
-    mysql_upgrade -u root -p
-    ```
-
-> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 

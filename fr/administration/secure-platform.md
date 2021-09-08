@@ -75,7 +75,7 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 ### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel que :
+vous devez modifier le fichier `/etc/selinux/config` comme tel :
 
 ```shell
 # This file controls the state of SELinux on the system.
@@ -166,6 +166,22 @@ Si après un certain temps, aucune erreur n'est présente, vous pouvez activer S
 [procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
+
+## Sécurisez les fichiers de configuration
+
+Changez les permissions des fichiers de configuration suivants:
+
+```
+chown centreon:centreon /etc/centreon/conf.pm
+chmod 660 /etc/centreon/conf.pm
+```
+
+et
+
+```
+chown apache:apache /etc/centreon/centreon.conf.php
+chmod 640 /etc/centreon/centreon.conf.php
+```
 
 ## Sécurisez l'installation du SGBD
 
