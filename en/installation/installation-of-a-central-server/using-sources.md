@@ -707,7 +707,7 @@ mysql_secure_installation
 
 Define the server name using following command:
 ```shell
-hostnamectl set-hostname new_server_name
+hostnamectl set-hostname new-server-name
 ```
 
 ## Centreon
