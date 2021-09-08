@@ -7,7 +7,7 @@ A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
 Applying a Plugin Pack is the easiest way to monitor a host.
 
-Plugin Packs contain 2 elements, which are installed separately:
+Plugin Packs consist of 2 elements, which are installed separately:
 
 - A plugin that executes the monitoring commands from a poller. Plugins are 
 installed using the command line interface.
