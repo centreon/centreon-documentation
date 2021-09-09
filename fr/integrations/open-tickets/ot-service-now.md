@@ -41,7 +41,7 @@ Our provider requires the following parameters:
 
 ## Possibilities
 
-As of now, the provider is able to retrieve the following objects from Itop:
+As of now, the provider is able to retrieve the following objects from ServiceNow:
 
   - Categories
   - Subcategories
