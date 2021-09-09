@@ -51,7 +51,7 @@ dnf -y install epel-release
 Install dependencies
 
 ```shell
-dnf install make gcc libcurl-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
 <!-- RedHat 8 -->
@@ -77,7 +77,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Install dependencies
 
 ```shell
-dnf install make gcc libcurl-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -122,33 +122,33 @@ To configure your stream connector, you must head over the **configuration --> p
 
 Add a new **generic - stream connector** output and set the following fields as follow:
 
-| Field           | Value                                                  |
-| --------------- | ------------------------------------------------------ |
+| Field           | Value                                                   |
+| --------------- | ------------------------------------------------------- |
 | Name            | Splunk metrics                                          |
 | Path            | /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua |
-| Filter category | Neb                                                    |
+| Filter category | Neb                                                     |
 
 ### Add Splunk mandatory parameters
 
 Each stream connector has a set of mandatory parameters. To add them you must click on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name            | Value explanation                                                  | Value exemple                                           |
-| ------ | --------------- | ------------------------------------------------------------------ | ------------------------------------------------------- |
-| string | http_server_url | the url of the Splunk service collector                            | `https://mysplunk.centreon.com:8088/services/collector` |
-| string | splunk_token    | Token to use the event collector api                               |                                                         |
+| Type   | Name            | Value explanation                       | Value exemple                                           |
+| ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
+| string | http_server_url | the url of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
+| string | splunk_token    | Token to use the event collector api    |                                                         |
 
 ### Add Splunk optional parameters
 
 Some stream connector has a set of optional parameters dedicated to the Software that are associated with. To add them you mus click on the **+Add a new entry** button located **below** the **filter category** input
 
-| Type   | Name              | Value explanation                                      | default value                              |
-| ------ | ----------------- | ------------------------------------------------------ | ------------------------------------------ |
-| string | splunk_sourcetype | Identifies the data structure of the event             | _json                                      |
-| string | splunk_host       | Name or address of the server that generated the event | Central                                    |
-| string | splunk_index    | Index where the events are stored                                  |                                                         |
-| string | splunk_source   | source of the http event collector. like `http:<name_of_index>` |                                                         |
-| string | logfile           | the file in which logs are written                     | /var/log/centreon-broker/splunk-events.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)             | 1                                          |
+| Type   | Name              | Value explanation                                               | default value                              |
+| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------ |
+| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                      |
+| string | splunk_host       | Name or address of the server that generated the event          | Central                                    |
+| string | splunk_index      | Index where the events are stored                               |                                            |
+| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                            |
+| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-metrics.log |
+| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                          |
 
 ### Standard parameters
 

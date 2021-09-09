@@ -57,7 +57,7 @@ dnf -y install epel-release
 Install dependencies
 
 ```shell
-dnf install make gcc luarocks meson gcc-c++ cmake libffi-devel libffi
+dnf install make gcc luarocks meson gcc-c++ cmake libffi-devel lua-devel libffi
 ```
 
 Install c-ffi
@@ -89,7 +89,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Install dependencies
 
 ```shell
-dnf install make gcc luarocks meson gcc-c++ cmake libffi-devel libffi
+dnf install make gcc luarocks meson gcc-c++ cmake libffi-devel lua-devel libffi
 ```
 
 Install c-ffi

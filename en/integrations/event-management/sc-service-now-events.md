@@ -51,7 +51,7 @@ dnf -y install epel-release
 Install dependencies
 
 ```shell
-dnf install make gcc libcurl-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
 <!-- RedHat 8 -->
@@ -77,7 +77,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Install dependencies
 
 ```shell
-dnf install make gcc libcurl-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -109,7 +109,7 @@ luarocks install centreon-stream-connectors-lib
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Download Splunk events stream connector
+### Download Service Now events stream connector
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/servicenow-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/servicenow/servicenow-events-apiv2.lua
@@ -122,11 +122,11 @@ To configure your stream connector, you must head over the **configuration --> p
 
 Add a new **generic - stream connector** output and set the following fields as follow:
 
-| Field           | Value                                                  |
-| --------------- | ------------------------------------------------------ |
-| Name            | Servicenow events                                      |
-| Path            | /usr/share/centreon-broker/lua/splunk-events-apiv2.lua |
-| Filter category | Neb                                                    |
+| Field           | Value                                                      |
+| --------------- | ---------------------------------------------------------- |
+| Name            | Servicenow events                                          |
+| Path            | /usr/share/centreon-broker/lua/servicenow-events-apiv2.lua |
+| Filter category | Neb                                                        |
 
 ### Add Service Now mandatory parameters
 
@@ -144,10 +144,10 @@ Each stream connector has a set of mandatory parameters. To add them you must cl
 
 Some stream connector has a set of optional parameters dedicated to the Software that are associated with. To add them you mus click on the **+Add a new entry** button located **below** the **filter category** input
 
-| Type   | Name              | Value explanation                                               | default value                              |
-| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------ |
-| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/servicenow-stream-connector.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                          |
+| Type   | Name      | Value explanation                          | default value                                            |
+| ------ | --------- | ------------------------------------------ | -------------------------------------------------------- |
+| string | logfile   | the file in which logs are written         | /var/log/centreon-broker/servicenow-stream-connector.log |
+| number | log_level | logging level from 1 (errors) to 3 (debug) | 1                                                        |
 
 ### Standard parameters
 
