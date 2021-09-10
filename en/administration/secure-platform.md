@@ -808,7 +808,7 @@ Centreon offers several methods to authenticate users:
 
 - local (MySQL)
 - [LDAP](./parameters/ldap.html)
-- [Generic SSO](./parameters/centreon-ui.html#sso) or [OpenId Connect](./parameters/centreon-ui.html#openid-connect)
+- [Generic SSO](../connect/sso.html) or [OpenId Connect](../connect/openid-connect.html)
 
 ## Create user profiles
 

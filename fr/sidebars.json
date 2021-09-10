@@ -292,6 +292,18 @@
                 "label": "Parameters",
                 "type": "subcategory"
             },
+            {
+                "ids": [
+                    "connect/loginpwd",
+                    "connect/ldap",
+                    "connect/sso",
+                    "connect/openid",
+                    "connect/autologin"
+                ],
+                "label": "Paramétrer la connexion à Centreon",
+                "type": "subcategory"
+            },
+
             "administration/extensions",
             "administration/licenses",
             "administration/database-partitioning",
