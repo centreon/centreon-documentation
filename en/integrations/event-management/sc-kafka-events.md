@@ -117,7 +117,7 @@ chmod 644 /usr/share/centreon-broker/lua/kafka-events-apiv2.lua
 
 ## Configuration
 
-To configure your stream connector, you must head over the **configuration --> poller --> broker configuration** menu. Select the **central-broker-master** configuration and click the output tab when the broker form is displayed.
+To configure your stream connector, you must head over the **configuration --> poller --> broker configuration** menu. Select the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and click the output tab when the broker form is displayed.
 
 Add a new **generic - stream connector** output and set the following fields as follow:
 
@@ -240,7 +240,7 @@ open the script and configure the kafka options that you want to use from the li
 
 There are already configuration set up as examples to guide you.
 
-If it doesn't work, you should have an error message like (with the appropriate error message). It is strongly advised to have access to kafka to check if a message is sent from the test script
+If it doesn't work, you should have an error message like below (with the appropriate error message). It is strongly advised to have access to kafka to check if a message is sent from the test script
 
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known

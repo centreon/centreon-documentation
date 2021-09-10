@@ -118,7 +118,7 @@ chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua
 
 ## Configuration
 
-To configure your stream connector, you must head over the **configuration --> poller --> broker configuration** menu. Select the **central-broker-master** configuration and click the output tab when the broker form is displayed.
+To configure your stream connector, you must head over the **configuration --> poller --> broker configuration** menu. Select the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and click the output tab when the broker form is displayed.
 
 Add a new **generic - stream connector** output and set the following fields as follow:
 
