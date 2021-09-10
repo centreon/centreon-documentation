@@ -140,10 +140,10 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 
 Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name      | Value explanation                          | default value                                            |
-| ------ | --------- | ------------------------------------------ | -------------------------------------------------------- |
+| Type   | Name      | Value explanation                          | default value                                       |
+| ------ | --------- | ------------------------------------------ | --------------------------------------------------- |
 | string | logfile   | the file in which logs are written         | /var/log/centreon-broker/kafka-stream-connector.log |
-| number | log_level | logging level from 1 (errors) to 3 (debug) | 1                                                        |
+| number | log_level | logging level from 1 (errors) to 3 (debug) | 1                                                   |
 
 ### Standard parameters
 
@@ -216,8 +216,8 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to **configure** a json event format file and **add** a new stream connector parameter.
 
-| Type   | Name        | Value                                          |
-| ------ | ----------- | ---------------------------------------------- |
+| Type   | Name        | Value                                         |
+| ------ | ----------- | --------------------------------------------- |
 | string | format_file | /etc/centreon-broker/kafka-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user.
