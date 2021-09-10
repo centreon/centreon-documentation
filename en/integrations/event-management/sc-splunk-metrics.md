@@ -6,7 +6,7 @@ title: Splunk Metrics
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends metrics from host_status and service_status events. The event format is shown **[there](#event-format)**
+- By default, this stream connector sends **metrics** from **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
 - Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Installation
@@ -16,13 +16,13 @@ title: Splunk Metrics
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS 7/Redhat 7-->
 
-Install Epel repository
+Install **Epel** repository.
 
 ```shell
 yum -y install epel-release
 ```
 
-Install dependencies
+Install dependencies.
 
 ```shell
 yum install luarocks make gcc lua-curl lua-devel
@@ -30,25 +30,25 @@ yum install luarocks make gcc lua-curl lua-devel
 
 <!-- CentOS 8 -->
 
-Install dnf plugins package
+Install dnf plugins package.
 
 ```shell
 dnf -y install dnf-plugins-core
 ```
 
-Install Powertools repository
+Install **Powertools** repository.
 
 ```shell
 dnf config-manager --set-enabled powertools
 ```
 
-Install Epel repository
+Install **Epel** repository.
 
 ```shell
 dnf -y install epel-release
 ```
 
-Install dependencies
+Install dependencies.
 
 ```shell
 dnf install make gcc libcurl-devel lua-devel luarocks
@@ -56,25 +56,25 @@ dnf install make gcc libcurl-devel lua-devel luarocks
 
 <!-- RedHat 8 -->
 
-Install dnf plugins package
+Install dnf plugins package.
 
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Install Epel repository
+Install **Epel** repository.
 
 ```shell
 dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Enable Codeready repository
+Enable **Codeready** repository.
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Install dependencies
+Install dependencies.
 
 ```shell
 dnf install make gcc libcurl-devel lua-devel luarocks
@@ -87,7 +87,7 @@ dnf install make gcc libcurl-devel lua-devel luarocks
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS/Redhat 7-->
 
-Install Centreon lua modules
+Install Centreon lua modules.
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -95,13 +95,13 @@ luarocks install centreon-stream-connectors-lib
 
 <!-- CentOS/Redhat 8-->
 
-Install lua-curl
+Install **lua-curl**.
 
 ```shell
 luarocks install Lua-cURL
 ```
 
-Install Centreon lua modules
+Install Centreon lua modules.
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -109,7 +109,7 @@ luarocks install centreon-stream-connectors-lib
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Download Splunk events stream connector
+### Download Splunk metrics stream connector
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-metrics-apiv2.lua
@@ -118,9 +118,9 @@ chmod 644 /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua
 
 ## Configuration
 
-To configure your stream connector, you must head over the **configuration --> poller --> broker configuration** menu. Select the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and click the output tab when the broker form is displayed.
+To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
 
-Add a new **generic - stream connector** output and set the following fields as follow:
+**Add** a new **generic - stream connector** output and **set** the following fields as follow:
 
 | Field           | Value                                                   |
 | --------------- | ------------------------------------------------------- |
@@ -130,7 +130,7 @@ Add a new **generic - stream connector** output and set the following fields as 
 
 ### Add Splunk mandatory parameters
 
-Each stream connector has a set of mandatory parameters. To add them you must click on the **+Add a new entry** button located **below** the **filter category** input.
+Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
 | Type   | Name            | Value explanation                       | Value exemple                                           |
 | ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
@@ -139,16 +139,16 @@ Each stream connector has a set of mandatory parameters. To add them you must cl
 
 ### Add Splunk optional parameters
 
-Some stream connector has a set of optional parameters dedicated to the Software that are associated with. To add them you mus click on the **+Add a new entry** button located **below** the **filter category** input
+Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name              | Value explanation                                               | default value                              |
-| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------ |
-| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                      |
-| string | splunk_host       | Name or address of the server that generated the event          | Central                                    |
-| string | splunk_index      | Index where the events are stored                               |                                            |
-| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                            |
+| Type   | Name              | Value explanation                                               | default value                               |
+| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------- |
+| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                       |
+| string | splunk_host       | Name or address of the server that generated the event          | Central                                     |
+| string | splunk_index      | Index where the events are stored                               |                                             |
+| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                             |
 | string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-metrics.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                          |
+| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                           |
 
 ### Standard parameters
 
@@ -167,7 +167,7 @@ Some of them are overridden by this stream connector.
 
 This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
 
-To use this feature you must add the following parameter in your stream connector configuration
+To use this feature you must add the following parameter in your stream connector configuration.
 
 | Type   | Name            | Value           |
 | ------ | --------------- | --------------- |
@@ -175,7 +175,7 @@ To use this feature you must add the following parameter in your stream connecto
 
 ## Event format
 
-This stream connector will send event with the following format
+This stream connector will send event with the following format.
 
 ### service_status event
 
@@ -230,7 +230,7 @@ You can't change the format of the event for metrics oriented stream connectors.
 
 ## Curl commands
 
-Here is the list of all the curl commands that are used by the stream connector
+Here is the list of all the curl commands that are used by the stream connector.
 
 ### Send events
 
@@ -238,4 +238,4 @@ Here is the list of all the curl commands that are used by the stream connector
 curl -X POST -H 'content-type: application/json' -H 'authorization: Splunk <splunk_token>' '<http_server_url>' -d "{'sourcetype': '<splunk_sourcetype>','source': '<splunk_source>','index': '<splunk_index>','host': '<splunk_host>','time': <epoch_timestamp>,'event': {'event_type': 'host','state': 1,'state_type': 1,'hostname':'my_host','ctime': 1630590520,'metric: pl': 0,'metric: rta': 10,'metric: rtmin': 5,'metric: rtmax': 15}}"
 ```
 
- You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*
+ You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
