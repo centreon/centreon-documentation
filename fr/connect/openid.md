@@ -29,7 +29,7 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - **Client Secret** défini le secret client.
 - **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test
 
-![image](../../assets/administration/openid-connect-configuration.png)
+![image](../assets/administration/openid-connect-configuration.png)
 
 > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs étendues (scope), ceci est indiqué dans la
 > documentation de configuration du fournisseur.

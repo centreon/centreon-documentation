@@ -29,7 +29,7 @@ Authentication via OpenId Connect is configured on page **Administration > Param
 - **Client Secret** field defines the Client secret.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only used for test.
 
-![image](../../assets/administration/openid-connect-configuration.png)
+![image](../assets/administration/openid-connect-configuration.png)
 
 > Depending on the identity provider, it is necessary to enter several scopes. This is indicated in the provider's
 > configuration documentation.
