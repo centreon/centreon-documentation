@@ -7,7 +7,7 @@ Centreon provides numerous ways to cooperate with third-party tools to guarantee
 a perfect integration within your IT ecosystem.
 
 Integrations rely on various modules and features to make Centreon compliant with 
-your data, alert, events, or metrics management processes: 
+your data, alerts, events, or metrics management processes: 
 
 - [Centreon Stream Connector](https://github.com/centreon/centreon-stream-connector-scripts), 
 get the capability to send event and metrics data to a third-party tool and sharing, 
@@ -32,7 +32,7 @@ generate alerts from log management solutions.
 the web and application performances to correlate it within Centreon by combining 
 it with other monitoring probes.
 - *Event Management*: Leverage the power of Stream Connector to send your logs and 
-alerts your incident management solution to externalize incident management, including 
+alerts to your incident management solution to externalize incident management, including 
 escalations or automation. 
 - *Notifications*: Use the Centreon Engine scheduler notification system to send 
 alerts efficiently to the right person using multiple communication mediums (SMS, Instant Messaging, SNMP Traps, ...).

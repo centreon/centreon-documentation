@@ -957,7 +957,8 @@
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty",
                     "integrations/event-management/sc-servicenow",
-                    "integrations/event-management/sc-servicenow-mid-server"
+                    "integrations/event-management/sc-servicenow-mid-server",
+                    "integrations/event-management/sc-kafka-events"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
