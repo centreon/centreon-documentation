@@ -255,7 +255,7 @@ DROP USER '<USER>'@'<IP>';
 
 Define the server name using following command:
 ```shell
-hostnamectl set-hostname new_server_name
+hostnamectl set-hostname new-server-name
 ```
 
 ### Set the PHP time zone

@@ -1,6 +1,6 @@
 ---
 id: ldap
-title: LDAP
+title: Connecting Centreon to an LDAP directory
 ---
 
 > If you want to use SSO for authentication, please read
@@ -8,7 +8,7 @@ title: LDAP
 
 This part allows to configure the connection to LDAP directories.
 
-Go to `Administration > Parameters > LDAP` and click on **Add**.
+Go to **Administration > Parameters > LDAP** and click on **Add**.
 
 ![image](../../assets/administration/parameters-ldap-add.png)
 

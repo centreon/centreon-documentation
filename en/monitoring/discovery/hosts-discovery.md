@@ -1,6 +1,6 @@
 ---
 id: hosts-discovery
-title: Hosts Discovery
+title: Discovering hosts automatically
 ---
 
 See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws.html).

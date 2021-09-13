@@ -1,18 +1,15 @@
 ---
 id: services
-title: Les services
+title: Créer un service manuellement
 ---
 
-Un service est un point de contrôle lié/rattaché à un hôte. Par exemple : Pourcentage d’utilisation partition sur un
-serveur, niveau d’encre sur une imprimante.
-
-Tous les ajouts de services se font dans le menu : **Configuration > Services > Add**.
+Pour créer un service, allez à la page **Configuration > Services > Servces par hôtes**, puis cliquez sur **Ajouter**.
 
 ![image](../../assets/configuration/03addservice.png)
 
 ## Configuration du service
 
-### Informations général
+### Informations générales
 
 * Le champ **Description** définit le nom du service.
 * Le champ **Service template** indique le modèle de service auquel le service est lié.

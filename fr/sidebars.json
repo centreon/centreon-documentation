@@ -54,43 +54,111 @@
                 "label": "Installer un Remote Sever",
                 "type": "subcategory"
             },
-            "ceip/what-is-centreon-ceip"
-        ],
-        "Sécurisez votre plate-forme": [
-            "administration/secure-platform",
-            "graph-views/secure-your-map-platform"
-        ],
-        "Supervision": [
-            "monitoring/about",
-            "monitoring/generic-actions",
-            {
-                "ids": [
-                    "monitoring/basic-objects/macros",
-                    "monitoring/basic-objects/commands",
-                    "monitoring/basic-objects/timeperiods",
-                    "monitoring/basic-objects/contacts",
-                    "monitoring/basic-objects/hosts",
-                    "monitoring/basic-objects/services",
-                    "monitoring/basic-objects/meta-services"
-                ],
-                "label": "Objets de Base",
-                "type": "subcategory"
-            },
-            "monitoring/templates",
-            "monitoring/pluginpacks",
             {
                 "ids": [
                     "monitoring/monitoring-servers/add-a-poller-to-configuration",
                     "monitoring/monitoring-servers/add-a-remote-server-to-configuration",
                     "monitoring/monitoring-servers/communications",
                     "monitoring/monitoring-servers/move-poller",
-                    "monitoring/monitoring-servers/deploying-a-configuration",
                     "monitoring/monitoring-servers/advanced-configuration"
                 ],
                 "label": "Serveurs de Supervision",
                 "type": "subcategory"
             },
-            "monitoring/groups-categories",
+            {
+                "ids": [
+                    "installation/installation-of-centreon-ha/overview",
+                    "installation/installation-of-centreon-ha/installation-2-nodes",
+                    "installation/installation-of-centreon-ha/installation-4-nodes",
+                    "installation/installation-of-centreon-ha/integrating-pollers"
+                ],
+                "label": "Installation de Centreon HA",
+                "type": "subcategory"
+            },
+            "ceip/what-is-centreon-ceip"
+        ],
+        "Sécurisez votre plate-forme": [
+            "administration/secure-platform",
+            "graph-views/secure-your-map-platform"
+        ],
+        "Superviser des ressources": [
+            {
+                "ids": [
+                    "monitoring/about",
+                    "monitoring/pluginpacks",                   
+                    "monitoring/monitoring-servers/deploying-a-configuration"
+                ],
+                "label": "Bases de la supervision",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/hosts-create",
+                    "monitoring/basic-objects/hosts",
+                    "monitoring/basic-objects/hosts-create-disco",
+                    "monitoring/basic-objects/hosts-templates"
+                ],
+                "label": "Superviser des hôtes",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/services-create",
+                    "monitoring/basic-objects/services",
+                    "monitoring/basic-objects/services-create-disco",
+                    "monitoring/basic-objects/services-templates",
+                    "monitoring/basic-objects/meta-services"
+                ],
+                "label": "Superviser des services",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/discovery/introduction", 
+                    "monitoring/discovery/installation",
+                    "monitoring/discovery/hosts-discovery",
+                    "monitoring/discovery/services-discovery",                    
+                    "monitoring/discovery/administration"
+                ],
+                "label": "Auto-découverte d'hôtes et de services",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                   "monitoring/basic-objects/contacts",
+                   "monitoring/basic-objects/contacts-create",
+                   "administration/parameters/ldap",
+                   "monitoring/basic-objects/contacts-templates",
+                   "administration/access-control-lists"
+                ],
+                "label": "Gérer les utilisateurs/contacts",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/groups",
+                    "monitoring/categories"
+                ],
+                "label": "Organiser les hôtes, services et contacts",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "monitoring/basic-objects/timeperiods",
+                    "monitoring/basic-objects/macros",
+                    "monitoring/basic-objects/commands",
+                    "monitoring/generic-actions"
+                ],
+                "label": "Objets et actions de base",
+                "type": "subcategory"
+            },            
+            {
+                "ids": [
+                    "monitoring/anomaly-detection"
+                ],
+                "label": "Détecter des anomalies",
+                "type": "subcategory"
+            },
             {
                 "ids": [
                     "monitoring/passive-monitoring/enable-snmp-traps",
@@ -100,18 +168,6 @@
                     "monitoring/passive-monitoring/dsm"
                 ],
                 "label": "Supervision Passive",
-                "type": "subcategory"
-            },
-            "monitoring/anomaly-detection",
-            {
-                "ids": [
-                    "monitoring/discovery/introduction",
-                    "monitoring/discovery/installation",
-                    "monitoring/discovery/hosts-discovery",
-                    "monitoring/discovery/services-discovery",
-                    "monitoring/discovery/administration"
-                ],
-                "label": "Découverte",
                 "type": "subcategory"
             },
             "monitoring/event-handler",
@@ -228,7 +284,6 @@
                     "administration/parameters/centreon-ui",
                     "administration/parameters/monitoring",
                     "administration/parameters/gorgone",
-                    "administration/parameters/ldap",
                     "administration/parameters/rrdtool",
                     "administration/parameters/debug",
                     "administration/parameters/data-management",
@@ -237,7 +292,6 @@
                 "label": "Parameters",
                 "type": "subcategory"
             },
-            "administration/access-control-lists",
             "administration/extensions",
             "administration/licenses",
             "administration/database-partitioning",
@@ -328,6 +382,7 @@
                     "integrations/plugin-packs/procedures/applications-google-gsuite-api",
                     "integrations/plugin-packs/procedures/applications-google-workspace-api",
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
+                    "integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
                     "integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp",
@@ -567,7 +622,8 @@
                     "integrations/plugin-packs/procedures/hardware-servers-sun-mgmtcards",
                     "integrations/plugin-packs/procedures/hardware-servers-sun-mseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-servers-sun-sfxxk-pssh",
-                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp"
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-superdoctor-snmp",
+                    "integrations/plugin-packs/procedures/hardware-servers-supermicro-bmc-snmp"
                 ],
                 "label": "Hardware Server",
                 "type": "subcategory"
@@ -981,13 +1037,6 @@
         "Mobile App.": [
             "mobile/introduction"
         ],
-        "API": [
-            "api/introduction",
-            "api/clapi",
-            "api/rest-api-v1",
-            "api/rest-api-v2",
-            "api/graph-views-api"
-        ],
         "Ressources dévelopeur": [
             "developer/about-developer-resources",
             "developer/developer-module",
@@ -1001,6 +1050,17 @@
                     "developer/developer-broker-mapping"
                 ],
                 "label": "Centreon Broker",
+                "type": "subcategory"
+            },
+            {
+                "ids":[
+                    "api/introduction",
+                    "api/clapi",
+                    "api/rest-api-v1",
+                    "api/rest-api-v2",
+                    "api/graph-views-api"
+                ],
+                "label": "API",
                 "type": "subcategory"
             }
         ],

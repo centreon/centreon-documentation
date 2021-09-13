@@ -1,6 +1,6 @@
 ---
 id: access-control-lists
-title: Listes de Contrôles d'Accès (ACL)
+title: Gérer les droits des utilisateurs Centreon
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.html) de Centreon :
@@ -12,7 +12,7 @@ Ces droits ne sont pas définis par utilisateur mais par [groupes d'accès](#cr�
 
 - Un même utilisateur peut appartenir à plusieurs groupes d'accès : il cumulera les droits de ces différents groupes. 
 - Un utilisateur non administrateur n'appartenant à aucun groupe d'accès n'a aucun droit sur la plateforme de supervision (écran vide après connexion).
-- Les utilisateurs définis comme [Administrateurs](../monitoring/basic-objects/contacts.html#authentification-centreon) ont tous les droits (même si vous ajoutez un utilisateur administrateur à un groupe d'accès aux droits limités). 
+- Les utilisateurs définis comme [Administrateurs](../monitoring/basic-objects/contacts-create.html#onglet-authentification-centreon) ont tous les droits (même si vous ajoutez un utilisateur administrateur à un groupe d'accès aux droits limités). 
 
 Les ACLs sont recalculées toutes les minutes, c'est pourquoi il est parfois
 nécessaire de patienter quelques instants avant de voir appliquer la
