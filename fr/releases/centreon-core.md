@@ -19,6 +19,25 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.5
+
+#### Enhancements
+
+- [Resources Status] Add link to performance page in detail panel
+
+#### Bugfixes
+
+- [ACL] Fixed missing ACL actions on CLAPI import
+- [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
+- [Platform Topology] Fixed using a FQDN for Parent address result as an error for topology
+- [UX] Fixed typo in UI
+
+#### Security fixes
+
+- [Install] Rights applied to "centreon.conf.php" and "conf.pm"
+- [OpenId] Secret token are displayed as password type
+- [Resource status] Fixed error based SQLi on resources GET's endpoint
+
 ### 21.04.4
 
 `30 juillet 2021`
