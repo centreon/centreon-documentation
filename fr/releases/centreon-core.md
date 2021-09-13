@@ -19,6 +19,21 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.11
+
+#### Bugfixes
+
+- [ACL] Fixed missing ACL actions on CLAPI import
+- [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
+- [Downtimes] Prevent the user from creating downtimes with start date, end date and duration after 2037
+- [Platform Topology] Fixed using a FQDN for Parent address result as an error for topology
+
+#### Security fixes
+
+- [Install] Rights applied to "centreon.conf.php" and "conf.pm"
+- [OpenId] Secret token are displayed as password type
+- [Resource status] Fixed error based SQLi on resources GET's endpoint
+
 ### 20.10.10
 
 `30 juillet 2021`
