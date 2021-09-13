@@ -161,10 +161,20 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 
 Centreon offers a package named `centreon-ha-web`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both central nodes:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
+
 ```bash
 yum install epel-release
-yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
+<!--Oracle Linux 8-->
+
+```bash
+dnf config-manager --enable ol8_addons
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### SSH keys exchange
 
