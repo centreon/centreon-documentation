@@ -18,6 +18,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.04.18
+
+#### Security fixes
+
+- [Install] Rights applied to "centreon.conf.php" and "conf.pm"
+- [OpenId] Secret token are displayed as password type
+- [Resource status] Fixed error based SQLi on resources GET's endpoint
+
 ### 20.04.17
 
 `30 juillet 2021`

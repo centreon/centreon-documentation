@@ -19,6 +19,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.18
+
+#### Security fixes
+
+- [Install] Rights applied to "centreon.conf.php" and "conf.pm"
+- [OpenId] Secret token are displayed as password type
+- [Resource status] Fixed error based SQLi on resources GET's endpoint
+
 ### 20.04.17
 
 `July 30, 2021`
