@@ -19,6 +19,10 @@ Ainsi, superviser un hôte avec Centreon consiste à configurer l'ensemble des c
 indicateurs désirés, puis à [déployer cette configuration](monitoring-servers/deploying-a-configuration.html) sur le moteur de collecte afin que ces commandes soient
 exécutées périodiquement.
 
+Une fois les hôtes et services mis en supervision, ceux-ci ont un [statut](../alerts-notifications/concepts.html) dans Centreon (**OK**, **Alerte**, **Critique**...). Vous pouvez suivre leur évolution à la page [Statut des ressources](../alerts-notifications/resources-status.html).
+
+En cas de problème (statut non-OK/non-DISPONIBLE), les [contacts](basic-objects/contacts.html) pourront recevoir des [notifications](../alerts-notifications/notif-configuration.html), suivant des [périodes de temps](basic-objects/timeperiods.html) définies.
+
 Avec Centreon, la supervision est rendue facile par les éléments suivants :
 
 - les [modèles d'hôtes](basic-objects/hosts-templates.html) et de [services](basic-objects/services-templates.html), qui permettent de définir des valeurs par défaut afin d’accélérer la création de ces objets.
