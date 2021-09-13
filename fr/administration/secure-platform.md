@@ -50,7 +50,7 @@ et
 
 ```
 chown apache:apache /etc/centreon/centreon.conf.php
-chmod 640 /etc/centreon/centreon.conf.php
+chmod 660 /etc/centreon/centreon.conf.php
 ```
 
 ## Sécurisez l'installation du SGBD

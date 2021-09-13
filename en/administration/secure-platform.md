@@ -50,7 +50,7 @@ and
 
 ```
 chown apache:apache /etc/centreon/centreon.conf.php
-chmod 640 /etc/centreon/centreon.conf.php
+chmod 660 /etc/centreon/centreon.conf.php
 ```
 
 ## Securing the installation of the DBMS
