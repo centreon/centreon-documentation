@@ -3,26 +3,28 @@ id: sc-splunk-events
 title: Splunk Events
 ---
 
-## Ce qu'apporte l'intégration de Splunk + Centreon 
+> Hello community! We're looking for a contributor to help us to translate the content in french and provide a sample execution command. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
-## Comment ça marche
+## Splunk + Centreon Integration Benefits
 
-* À chaque fois qu'un service ou hôte est vérifié, l'évènement est traité par Centreon Broker qui charge le Stream Connector pour envoyer les changements d'états.
-* Un changement d'état peut se produire en cas de changement de statut ou d'une métrique qui dépasse vos seuils.
+## How it works
+
+* Every time a service or a host's state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
+* State changes can occur in case of an anomaly detection or metrics falling out of range.
 
 ![architecture](../../assets/integrations/external/splunk_centreon.png)
 
-### Filtres
+### Filters
 
-Plusieurs filtres ont été installé au niveau du Stream Connector Splunk Event :
-* Seulement les changements de status des services (BA inclus) et des hôtes sont traités
-* Seulement les états HARD sont traités
-* Si l'hôte ou le service est downtime, il n'est pas traité
-* Les PENDING sont aussi ignorés 
+Several filters have been set in the Splunk Event Stream Connector:
+* Only the change of status about services (BA Included) and hosts are processed
+* Only the HARD state type are processed
+* If the host or the service is in downtime, it's not processed
+* We don't process the PENDING states
 
-### Format de données
+### Data format
 
-Voici un exemple du format POST du Stream Connector pour un événement "event":
+Here an example of the format POST by the Stream Connector for a service event:
 
 ```json
 {
@@ -40,39 +42,39 @@ Voici un exemple du format POST du Stream Connector pour un événement "event":
 }
 ```
 
-## Prérequis
+## Requirements
 
-* L'intégration avec Splunk nécessite de disposer d'un accès ayant le rôle Admin pour pouvoir donner des permissions à un compte. Si vous n'en disposez pas, veuillez vous adresser à une personne ayant un tel rôle dans votre organisation pour configurer l'intégration de Splunk avec Centreon.
-* Il est également nécessaire d'avoir un **compte Centreon avec des privilèges d'administrateur** ou bien les accès aux menus **Exporter la configuration** et **Configuration de Centreon Broker**, de même qu'un **accès `root` en ligne de commande**.
+* Splunk integrations requires an Splunk Entreprise Edition and a HTTP Event Collector to send the Centreon Data. 
+* It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
 
 ## Support
 
-Si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
+If you need help with this integration, depending on how you are using Centreon, you can:
 
-* **Clients de Centreon titulaires d'un contrat de support** : vous pouvez vous adresser directement à [l'équipe du Support de Centreon](mailto:support@centreon.com).
-* **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites): nous vous invitons à rejoindre notre [communauté sur Slack](https://centreon.github.io) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
+* **Commercial Edition customers**: please contact the [Centreon Support team](mailto:support@centreon.com).
+* **Open Source Edition users** or **Centreon IT-100 users** (free versions): please reach our [Community Slack](https://centreon.github.io) where our users and staff will try to help you.
 
-## Procédure d'intégration
+## Integration Walkthrough
 
-### Dans Splunk
+### In Splunk
 
-Il sera nécessaire de créer un HTTP Event Collector specifique à Centreon en suivant la [documentation officielle de Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
-Vous pouvez utilisez un HTTP Event Collector déjà existant et créer un **Events Index** spécifique au Stream Connector Splunk de Centreon.
+You'll need to create a specific HTTP Event Collector for Centreon by following the [official documentation of Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
+You can also use a existing HTTP Event Collector and create a specific **Events Index** for the Centreon Stream Splunk Connector.
 
-### Dans Centreon
+### In Centreon
 
 #### Installation 
 
-Se connecter en tant que `root` au serveur central Centreon avec votre client SSH favori.
+Login as `root` on the Centreon central server using your favorite SSH client.
 
-Dans le cas où votre serveur doit passer par un proxy pour accéder à Internet, il faudra exporter la variable d'environnement `https_proxy` et configurer `yum` pour être en mesure d'installer toutes les dépendances.
+In case your Centreon central server must use a proxy server to reach the Internet, you will have to export the `https_proxy` environment variable and configure `yum` to be able to install everything.
 
 ```bash
 export https_proxy=http://my.proxy.server:3128
 echo "proxy=http://my.proxy.server:3128" >> /etc/yum.conf
 ```
 
-Maintenant que le serveur peut accéder à Internet, lancer les commandes :
+Now that your Centreon central server is able to reach the Internet, you can run:
 
 ```bash
 yum install -y lua-curl epel-release
@@ -80,81 +82,81 @@ yum install -y luarocks
 luarocks install luatz
 ```
 
-Ces paquets sont nécessaires au bon fonctionnement du script LUA qu'il ne reste plus qu'à télécharger :
+These packages are necessary for the script to run. Now let's download the script:
 
 ```bash
 wget -O /usr/share/centreon-broker/lua/splunk-events-http.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-events-http-apiv1.lua
 chmod 644 /usr/share/centreon-broker/lua/splunk-events-http.lua
 ```
 
-Le Stream Connector Splunk Events est maintenant installé sur votre serveur Centreon central !
+The Splunk Events StreamConnnector is now installed on your Centreon central server!
 
-#### Configuration de *Centreon Broker*
+#### Broker configuration
 
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Sélectionner **Generic - Stream connector** et cliquer sur **Ajouter** pour créer une nouvelle sortie.
-5. Choisir son nom (**Name**) par exemple **Splunk Events** et saisir l'emplacement (**Path**) où le script a été installé : `/usr/share/centreon-broker/lua/splunk-events-http.lua`.
-6. Renseigner au minimum ces 3 champs:
-
-| Name              | Type   | Value                                                                                                        |
-| ----------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
-| `http_server_url` | String | `L'url de connexion au Service Collector de Splunk (eg. http://splunk.centreon.com:8088/services/collector)` |
-| `splunk_token`    | String | `Le token lié à votre HTTP Event Collector`                                                                  |
-| `splunk_index`    | String | `L'index où seront stockés les évènements/métriques dans Splunk`                                             |
-
-7. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-8. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-9. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-10. Redémarrer le service `cbd` 
+1. Login to the Centreon WUI using an administrator account.
+2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
+3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
+4. Add a new **Generic - Stream connector** output.
+5. Name it as you want (eg. **Splunk Events**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/splunk-events-http.lua`.
+6. Add at least the following parameters:
+| Name              | Type   | Value                                                                                          |
+| ----------------- | ------ | ---------------------------------------------------------------------------------------------- |
+| `http_server_url` | String | `the URL of splunk service collector (eg. http://splunk.centreon.com:8088/services/collector)` |
+| `splunk_token`    | String | `Token link to the HTTP Event Collector`                                                       |
+| `splunk_index`    | String | `Index where the events/metrics are stored`                                                    |
+| `splunk_source`   | String | `source of the HTTP events collector, must be http:<name_of_index>`                            |
+7. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
+8. Select the **Central** poller and click on **Export configuration**.
+9. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
+10. Restart the `cbd` service:
 
 ```bash
 systemctl restart cbd
 ```
-Votre serveur central a maintenant chargé le Stream Connector et commence à envoyer des données vers Splunk !
 
-> Pour s'assurer que tout fonctionne bien, on consultera les fichiers `central-broker-master.log` et `stream-connector-splunk-events.log`, tous deux situés à l'emplacement `/var/log/centreon-broker` du serveur central.
+Now your central server has loaded the Splunk Events Stream Connector and has started to send data!
 
-#### Configuration avancée
+> To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `stream-connector-splunk-events.log`, both located in `/var/log/centreon-broker`.
 
-**Tableau des paramètres**
+#### Advanced configuration
 
-| Name                | Type   | Value example                                    | Explanation                                                                                                            |
-|---------------------|--------|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Paramétrage du proxy permettant de sortir vers Internet en HTTP/HTTPS                                                  |
-| `splunk_sourcetype` | String | `_json` (default value)                          | Un champ par défaut qui identifie la structure de données d'un événement.                                              |
-| `splunk_host`       | String | `Centreon` (default value)                       | Un champ par défaut qui contient le nom d'hôte / l'adresse IP du périphérique qui a généré un événement.               |
-| `log_level`         | Number | 2 (default value)                                | Niveau de verbosité des logs 0: errors seulement, 1: +warnings, 2: +verbose, 3: +debug                                 |
-| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Chemin complet du fichier de log                                                                                       |
-| `max_buffer_size`   | Number | 1 (default value)                                | Nombre maximum d'événements à stocker en mémoire tampon en attendant de les transmettre en un seul envoi               |
-| `max_buffer_age`    | Number | 5 (default value)                                | Temps d'attente maximum avant d'envoyer les événements en mémoire tampon si `max_buffer_size` n'est pas encore atteint |
+**Parameters table**
 
-**Remarques**
+| Name                | Type   | Value example                                    | Explanation                                                                                  |
+|---------------------|--------|--------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `http_proxy_string` | String | `http://your.proxy.server:3128`                  | Proxy string needed to reach the Internet in HTTP/HTTPS                                      |
+| `splunk_sourcetype` | String | `_json` (default value)                          | A default field that identifies the data structure of an event.                              |
+| `splunk_host`       | String | `Centreon` (default value)                       | A default field that contains the hostname/IP Address of the device that generated an event. |
+| `log_level`         | Number | 2 (default value)                                | Verbosity level for logs 0: errors only 1: +warnings, 2: +verbose, 3: +debug                 |
+| `log_path`          | String | `/var/log/centreon-broker/my-custom-logfile.log` | Log file full path and name                                                                  |
+| `max_buffer_size`   | Number | 1 (default value)                                | Number of events to enqueue in buffer before sending                                         |
+| `max_buffer_age`    | Number | 5 (default value)                                | Maximum number of seconds before sending an event when `max_buffer_size` hasn't been reached |
 
-* La valeur par défaut de 2 pour le paramètre `log_level` est adaptée à la mise en place et au *troubleshooting* initial éventuel, cela peut cependant générer un volume important de logs. Il est donc recommandé, une fois la mise en place validée, de l'abaisser à 1.
-* La valeur par défaut de 1 pour le paramètre `max_buffer_size` fonctionne bien et garantit une latence réduite au minimum entre l'apparition d'une alerte et sa transmission à Splunk. Il pourrait s'avérer utile de l'augmenter dans le cas où le flux à transmettre comporterait en continu plusieurs événements par seconde et au-delà. 
+**Remarks**
+
+* The default value of 2 for `log_level` is fine for initial troubleshooting, but can generate a huge amount of logs if you monitor a lot of hosts. In order to get less log messages, you should tune this parameter.
+* The default value of 1 for `max_buffer_size` works fine and ensures the best response times. You might want to tune it (*ie.* increase it) if you have an important amount of data to send to Splunk.
 
 ---------------
 
-## Désinstallation
+## How to Uninstall
 
-1. Se connecter à l'interface Web de Centreon avec un compte administrateur.
-2. Naviguer vers **Configuration** > **Collecteurs** et choisir **Configuration de Centreon Broker**.
-3. Cliquer sur l'objet de configuration **central-broker-master** et naviguer dans l'onglet **Output**.
-4. Supprimer la sortie **Generic - Stream connector** en cliquant sur la croix rouge entourée d'un cercle à la fin de la ligne.
-5. Sauvegarder la configuration, puis naviguer vers le menu **Configuration** > **Collecteurs** et choisir **Collecteurs**.
-6. Sélectionner le collecteur **Central** et cliquer sur **Exporter la configuration**.
-7. Conserver les cases **Générer les fichiers de configuration** et **Lancer le débogage du moteur de supervision (-v)** et cocher également **Deplacer les fichiers générés** puis cliquer sur le bouton **Exporter**.
-8. Redémarrer le service `cbd` :
+1. Login to the Centreon WUI using an administrator account.
+2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
+3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
+4. Delete the **Generic - Stream connector** output by clicking on the red circled cross at the end of the line.
+5. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
+6. Select the **Central** poller and click on **Export configuration**.
+7. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
+8. Restart the `cbd` service:
 
 ```bash
 systemctl restart cbd
 ```
 
-Le Stream Connector n'est plus chargé par `centreon-broker`.
+The Stream Connector is not loaded anymore!
 
-9. Ce n'est pas nécessaire, mais vous pouvez également supprimer le script pour désinstaller complètement le Stream Connector :
+9. Optionally, you can even delete the script file:
 
 ```bash
 rm -f /usr/share/centreon-broker/lua/splunk-events-http.lua
