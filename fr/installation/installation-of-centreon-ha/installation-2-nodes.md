@@ -163,10 +163,20 @@ Dans la suite de ce document, on parlera de nœud principal pour le premier et d
 
 Centreon propose les paquets `centreon-ha-common` et `centreon-ha-web`, qui fournit tous les scripts et les dépendances nécessaires au fonctionnement d'un cluster Centreon. Ces paquets sont à installer sur les deux nœuds centraux :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
+
 ```bash
 yum install epel-release
-yum install centreon-ha-common centreon-ha-web pcs pacemaker corosync corosync-qdevice 
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
+<!--Oracle Linux 8-->
+
+```bash
+dnf config-manager --enable ol8_addons
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Échanges de clefs SSH
 
