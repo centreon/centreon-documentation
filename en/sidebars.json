@@ -965,7 +965,8 @@
                     "integrations/event-management/sc-service-now-events",
                     "integrations/event-management/sc-servicenow-mid-server",
                     "integrations/event-management/sc-splunk-events",
-                    "integrations/event-management/sc-splunk-metrics"
+                    "integrations/event-management/sc-splunk-metrics",
+                    "integrations/event-management/sc-kafka-events"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
