@@ -17,6 +17,10 @@ Here are a few basic Centreon concepts:
 For example, to monitor a host with Centreon is to configure all the commands needed to measure the desired indicators,
 and then [deploy that configuration](monitoring-servers/deploying-a-configuration.html) to the collection engine so that these commands are run periodically.
 
+Once hosts and services are monitored, they have a [status](../alerts-notifications/concepts.html) in Centreon (e.g. **OK**, **Warning**, **Critical**...). You can keep track of any changes using the [Resources Status](../alerts-notifications/resources-status.html) page.
+
+If a problem occurs (not-OK/not-UP status), [contacts](basic-objects/contacts.html) will be able to receive [notifications](../alerts-notifications/notif-configuration.html), within set [time periods](basic-objects/timeperiods.html).
+
 In Centreon, monitoring is made easy by the following elements:
 
 - [Host templates](basic-objects/hosts-templates.html) and [service templates](basic-objects/services-templates.html), that allow you to define default values so as to speed up the creation of these objects.
