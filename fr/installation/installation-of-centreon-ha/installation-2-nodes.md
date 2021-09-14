@@ -660,6 +660,18 @@ passwd hacluster
 
 Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
+```
+
+<!--CentOS 7-->
 ```bash
 pcs cluster auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -669,11 +681,21 @@ pcs cluster auth \
     -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Création du cluster
 
 Cette commande doit être lancée sur un des deux nœuds :
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force \
+```
+<!--CentOS 7-->
 ```bash
 pcs cluster setup \
     --force \
@@ -681,6 +703,7 @@ pcs cluster setup \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Démarrer ensuite `pacemaker` sur les deux nœuds :
 
