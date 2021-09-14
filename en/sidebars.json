@@ -910,56 +910,68 @@
             }
         ],
         "Integrations": [
+            "integrations/introduction-integrations",
             {
                 "ids": [
-                    "integrations/external/accedian-pvx-skylight",
-                    "integrations/external/monitoring-dem-mip"
+                    "integrations/data-analytics/sc-elastic-events",
+                    "integrations/data-analytics/sc-elastic-metrics",
+                    "integrations/plugin-packs/procedures/applications-graylog-restapi",
+                    "integrations/data-analytics/sc-splunk-metrics",
+                    "integrations/data-analytics/sc-splunk-events",
+                    "integrations/data-analytics/sc-warp10"
                 ],
-                "label": "External",
+                "label": "Data Analytics",
                 "type": "subcategory"
             },
             {
                 "ids": [
-                    "integrations/notifications/telegram"
+                    "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
+                    "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
+                    "integrations/digital-experience-monitoring/pack-skylight-pvx"
+                ],
+                "label": "Digital Experience Monitoring",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/event-management/sc-hp-bsm",
+                    "integrations/event-management/sc-hp-omi",
+                    "integrations/event-management/sc-opsgenie",
+                    "integrations/event-management/sc-pagerduty",
+                    "integrations/event-management/sc-service-now-events",
+                    "integrations/event-management/sc-servicenow-mid-server",
+                    "integrations/event-management/sc-splunk-events",
+                    "integrations/event-management/sc-splunk-metrics",
+                    "integrations/event-management/sc-kafka-events"
+                ],
+                "label": "Event Management",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/itsm/ot-bmc-footprints",
+                    "integrations/itsm/ot-bmc-remedy",
+                    "integrations/itsm/ot-easyvista",
+                    "integrations/itsm/ot-glpi",
+                    "integrations/itsm/ot-glpi-restapi",
+                    "integrations/itsm/ot-itop",
+                    "integrations/itsm/ot-iws-isilog",
+                    "integrations/itsm/ot-jira",
+                    "integrations/itsm/ot-mail",
+                    "integrations/itsm/ot-otrs-restapi",
+                    "integrations/itsm/ot-request-tracker-restapi",
+                    "integrations/itsm/ot-serena",
+                    "integrations/itsm/ot-servicenow"
+                ],
+                "label": "ITSM",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "integrations/notifications/plugin-telegram"
                 ],
                 "label": "Notifications",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/open-tickets/bmc-footprints",
-                    "integrations/open-tickets/bmc-remedy",
-                    "integrations/open-tickets/easyvista",
-                    "integrations/open-tickets/glpi",
-                    "integrations/open-tickets/glpi-restapi",
-                    "integrations/open-tickets/itop",
-                    "integrations/open-tickets/iws-isilog",
-                    "integrations/open-tickets/jira",
-                    "integrations/open-tickets/mail",
-                    "integrations/open-tickets/otrs-restapi",
-                    "integrations/open-tickets/request-tracker-restapi",
-                    "integrations/open-tickets/serena",
-                    "integrations/open-tickets/servicenow"
-                ],
-                "label": "Open Tickets",
-                "type": "subcategory"
-            },
-            {
-                "ids": [
-                    "integrations/stream-connectors/bsm",
-                    "integrations/stream-connectors/elasticsearch-events",
-                    "integrations/stream-connectors/elasticsearch-metrics",
-                    "integrations/stream-connectors/ndo",
-                    "integrations/stream-connectors/opsgenie",
-                    "integrations/stream-connectors/hp-omi",
-                    "integrations/stream-connectors/pagerduty",
-                    "integrations/stream-connectors/servicenow",
-                    "integrations/stream-connectors/servicenow-mid-server",
-                    "integrations/stream-connectors/splunk-metrics",
-                    "integrations/stream-connectors/splunk-events",
-                    "integrations/stream-connectors/warp10"
-                ],
-                "label": "Stream Connectors",
                 "type": "subcategory"
             }
         ],
