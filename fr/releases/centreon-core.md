@@ -23,7 +23,7 @@ commerciales, vous pouvez vous rendre sur notre
 #### Security fixes
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
-- [OpenId] Secret token are displayed as password type
+- [OpenId] Secret tokens obfuscation
 - [Resource status] Fixed error based SQLi on resources GET's endpoint
 
 ### 20.04.17
