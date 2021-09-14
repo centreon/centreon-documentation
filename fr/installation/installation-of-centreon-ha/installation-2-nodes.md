@@ -594,10 +594,18 @@ chmod 775 /tmp/centreon-autodisco/
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 ```
+<!--Oracle Linux 8-->
+```bash
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
