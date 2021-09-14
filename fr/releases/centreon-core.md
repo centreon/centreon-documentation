@@ -21,7 +21,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.11
 
-#### Bugfixes
+#### Correctifs
 
 - [ACL] Fixed missing ACL actions on CLAPI import
 - [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
