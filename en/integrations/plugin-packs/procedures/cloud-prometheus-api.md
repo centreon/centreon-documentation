@@ -58,7 +58,7 @@ HTTP.
 1. Install the Centreon Plugin package on every Centreon Poller expected to query Prometheus:
 
 
-`bash
+```bash
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
