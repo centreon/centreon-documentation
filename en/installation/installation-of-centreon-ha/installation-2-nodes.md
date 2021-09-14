@@ -590,10 +590,18 @@ chmod 775 /tmp/centreon-autodisco/
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 ```
+<!--Oracle Linux 8-->
+```bash
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 By default, the `mysql` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
 
