@@ -624,6 +624,8 @@ systemctl start pcsd
 
 You can use one of your pollers to play this role. It must be prepared with the commands below: 
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 yum install pcs corosync-qnetd
 systemctl start pcsd.service
@@ -631,6 +633,16 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+<!--Oracle Linux 8-->
+```bash
+dnf config-manager --enable ol8_addons
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4
 
