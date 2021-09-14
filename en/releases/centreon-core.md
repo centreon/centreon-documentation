@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.18
 
+`September 14, 2021`
+
 #### Security fixes
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
