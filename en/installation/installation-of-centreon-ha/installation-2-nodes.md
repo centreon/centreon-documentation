@@ -660,20 +660,41 @@ passwd hacluster
 
 Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```bash
-pcs cluster auth \
+pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@" \
     "@QDEVICE_NAME@" \
     -u "hacluster" \
     -p '@CENTREON_CLUSTER_PASSWD@' \
+```
+
+<!--CentOS 7-->
+```bash
+pcs cluster auth \
+    "@CENTRAL_MASTER_NAME@" \
+	@@ -639,18 +681,29 @@ pcs cluster auth \
+    -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Creating the cluster
 
 The following command creates the cluster. It must be run **only on one of the central nodes**. 
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force \
+```
+<!--CentOS 7-->
 ```bash
 pcs cluster setup \
     --force \
@@ -681,6 +702,7 @@ pcs cluster setup \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then start the `pacemaker` service **on both central nodes**:
 
