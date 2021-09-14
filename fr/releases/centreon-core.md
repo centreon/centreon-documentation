@@ -28,7 +28,7 @@ commerciales, vous pouvez vous rendre sur notre
 - [Downtimes] Prevent the user from creating downtimes with start date, end date and duration after 2037
 - [Platform Topology] Fixed an error that occurred when an FQDN was used as parent address
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
 - [OpenId] Secret tokens obfuscation
