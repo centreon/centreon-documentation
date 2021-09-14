@@ -234,57 +234,10 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     mysql_upgrade -u root -p
     ```
 
-<<<<<<< HEAD
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > for more information or if errors occur during this last step.
 
-#### Upgrade from 10.4 to 10.5
 
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
-
-1. Stop the mariadb service:
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Uninstall current 10.4 version:
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.5 version:
-
-    ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
-    ```
-
-4. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-5. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade -u <database_admin_user> -p
-    ```
-
-    Example: if your database_admin_user is `root`, enter:
-
-    ```
-    mysql_upgrade -u root -p
-    ```
-
-> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> for more information or if errors occur during this last step.
-=======
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
->>>>>>> bb4cca97 (Upgrade directly between major versions of MariaDB (#953))
 
 #### Enable MariaDB on startup
 
