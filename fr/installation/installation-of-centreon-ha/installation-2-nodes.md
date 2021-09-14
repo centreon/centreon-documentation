@@ -625,8 +625,19 @@ systemctl start pcsd
 
 #### Préparation du serveur qui jouera le rôle de *Quorum Device*
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 yum install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+<!--Oracle Linux 8-->
+```bash
+dnf config-manager --enable ol8_addons
+dnf install pcs corosync-qnetd
 systemctl start pcsd.service
 systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
