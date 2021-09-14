@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.18
 
+`14 septembre 2021`
+
 #### Security fixes
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
