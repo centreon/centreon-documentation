@@ -32,7 +32,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Platform Topology] Fixed an error that occurred when an FQDN was used as parent address
 - [UX] Fixed typo in UI
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
 - [OpenId] Secret tokens obfuscation
