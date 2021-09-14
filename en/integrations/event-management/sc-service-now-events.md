@@ -220,18 +220,14 @@ You must replace all the *`<xxxx>`* inside the below commands with their appropr
 
 ### Get OAuth tokens
 
-> if you have special characters in your password such as: & you must change them with their url encoded counterpart (%26 for &). Head over the following documentation for the **[complete list](https://www.w3schools.com/tags/ref_urlencode.ASP)**.
-
 ```shell
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do?grant_type=password&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=password&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>'
 ```
 
 ### Refresh OAuth tokens
 
-> if you have special characters in your password such as: & you must change them with their url encoded counterpart (%26 for &). Head over the following documentation for the **[complete list](https://www.w3schools.com/tags/ref_urlencode.ASP)**.
-
 ```shell
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do?refresh_token=password&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>&refresh_token=<refresh_token>'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=refresh_token&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>&refresh_token=<refresh_token>'
 ```
 
 The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
