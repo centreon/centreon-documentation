@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.5
 
+`September 14, 2021`
+
 #### Enhancements
 
 - [Resources Status] Add link to performance page in detail panel
