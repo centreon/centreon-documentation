@@ -29,7 +29,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [ACL] Fixed missing ACL actions on CLAPI import
 - [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
-- [Platform Topology] Fixed an error that occurred when a FQDN was used as parent address
+- [Platform Topology] Fixed an error that occurred when an FQDN was used as parent address
 - [UX] Fixed typo in UI
 
 #### Security fixes
