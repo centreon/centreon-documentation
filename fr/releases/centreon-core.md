@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.11
 
+`14 septembre 2021`
+
 #### Correctifs
 
 - [ACL] Fixed missing ACL actions on CLAPI import
