@@ -10,8 +10,9 @@ Integrations rely on various modules and features to make Centreon compliant wit
 your data, alerts, events, or metrics management processes: 
 
 - [Centreon Stream Connector](https://github.com/centreon/centreon-stream-connector-scripts), 
-get the capability to send event and metrics data to a third-party tool and sharing, 
-presenting, or extending the usage on top of your monitoring data.
+get the capability to send event and metrics to a third-party tool. They help you to get maximum 
+insights from your monitoring data while seamlessly integrating with your existing processes thanks 
+to advanced filtering and formatting capabilities.
 
 - [Centreon Open Ticket](https://github.com/centreon/centreon-open-tickets) 
 extension introduces additional UI actions and backend boiler-plates to create 
@@ -21,9 +22,9 @@ cases within your favorite ticketing system.
 the possibility of grabbing data from other monitoring tools and making Centreon 
 the single pane of glass for all your alerts.
 
-We build this documentation on top of the features and value proposition third-party 
-solutions Centreon can connect to are offering. Here is a brief description of the 
-purpose of each of these sections: 
+This documention is organized to guide you to the right integration depending upon the 
+feature or value-proposition you want to obtain by connecting Centreon with a third-party
+solution. Here is a brief description of each section:
 
 - *Data Analytics*: Send your data to solutions specialized in storing, indexing, 
 or managing vast and heterogeneous data sources. It also highlights solutions to 
