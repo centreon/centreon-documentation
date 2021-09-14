@@ -25,7 +25,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Resources Status] Add link to performance page in detail panel
 
-#### Bugfixes
+#### Correctifs
 
 - [ACL] Fixed missing ACL actions on CLAPI import
 - [Configuration] Fixed ineffective massive change on 'Reach API configuration' option on remote server
