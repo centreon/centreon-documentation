@@ -132,6 +132,8 @@ Avant d'en arriver au paramétrage du cluster à proprement parler, quelques ét
 
 Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -143,6 +145,19 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
+<!--Oracle Linux 8-->
+```bash
+cat >> /etc/sysctl.conf <<EOF
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv4.tcp_retries2 = 3
+net.ipv4.tcp_keepalive_time = 200
+net.ipv4.tcp_keepalive_probes = 2
+net.ipv4.tcp_keepalive_intvl = 2
+EOF
+systemctl restart NetworkManager
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Résolution de noms
 
