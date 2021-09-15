@@ -1,6 +1,6 @@
 ---
 id: chart-template
-title: Modèle de graphique
+title: Modèles de graphiques
 ---
 
 ## Définition

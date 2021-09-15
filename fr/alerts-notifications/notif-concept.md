@@ -1,6 +1,6 @@
 ---
 id: notif-concept
-title: Concept
+title: Fonctionnement des notifications
 ---
 
 Avant qu'un contact soit notifié au sein de Centreon, il est nécessaire

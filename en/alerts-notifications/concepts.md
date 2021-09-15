@@ -1,11 +1,9 @@
 ---
 id: concepts
-title: Concepts
+title: Possible statuses of a resource
 ---
 
-## Resources status
-
-Statuses are indicators for the hosts or the services. Each status has a
+Statuses show the availability of a host, and the availability or performance of a service. Each status has a
 precise meaning for the resource. Each status is determined following
 the monitoring of the resource according to user-defined thresholds.
 

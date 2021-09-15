@@ -1,16 +1,14 @@
 ---
 id: concepts
-title: Concepts
+title: Statuts possibles d'une ressource
 ---
 
-## Statut des ressources
-
-Les statuts sont des indicateurs pour les hôtes ou les services. Chaque
-statut a une signification bien précise pour l'objet. A chaque statut
+Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque
+statut a une signification bien précise pour l'objet. À chaque statut
 correspond un code généré par la sonde de supervision en fonction des
 seuils définis par l'utilisateur.
 
-### Statut des hôtes
+## Statut des hôtes
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 
@@ -20,7 +18,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 | <span style="color:#e00b3d">DOWN</span>        | L'hôte est indisponible            |
 | <span style="color:#818185">UNREACHABLE</span> | L'hôte est injoignable             |
 
-### Statut des services
+## Statut des services
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 
@@ -31,7 +29,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 | <span style="color:#e00b3d">DOWN</span>    | Le service a dépassé le seuil critique                                 |
 | <span style="color:#bcbdc0">UNKNOWN</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
 
-### Statuts avancés
+## Statuts avancés
 
 En plus des statuts standards, de nouveaux statuts permettent d'ajouter
 des informations complémentaires :

@@ -1,34 +1,28 @@
 ---
 id: event-log
-title: Journal des événements
+title: Journal des évènements
 ---
 
-Le journal d'événements permet de :
+Le journal d'évènements permet de :
 
 -   Voir les changements de statut et d'état des objets surveillés
 -   Voir les notifications envoyées et leurs destinataires
 
-Pour afficher le journal d'événements, accédez au menu
-`Monitoring > Event logs`.
+Pour afficher le journal d'évènements, allez à la page
+**Supervision > Journaux d'évènements**.
 
 ![image](../assets/alerts/event_logs.png)
 
-Le menu supérieur peut être utilisé pour sélectionner les hôtes et / ou
-de services pour afficher les journaux d'événements. Vous pouvez choisir
-une sélection de services ou d'hôtes dans une liste contenue dans
-**servicegroup** ou **hostgroup**.
+- Dans le menu supérieur, sélectionnez les hôtes et/ou
+les services désirés pour afficher les journaux d'événements correspondants. Vous pouvez également filtrer par
+**Groupes de services** ou **Groupes d'hôtes**.
 
-Les champs **Message Type** et **status** peuvent être utilisés pour
-sélectionner les filtres de recherche afin d'afficher les événements
-requis.
+- Cochez les options désirées dans les sections **Type de message** et **statut** afin d'afficher les évènements
+correspondants.
 
-Le champ **Log Period** peut être utilisé pour sélectionner la période
-de temps pour laquelle afficher les événements. La liste déroulante peut
-être utilisée pour sélectionner des périodes de temps prédéfinies. Il
-est possible de choisir manuellement la période en utilisant les champs
-**From** et **To** .
+- Utilisez les champs suivants pour définir la période de temps pour laquelle afficher des évènements :
+    - **Période de visualisation** : sélectionnez une période prédéfinie
+    - **Du/Au** : saisissez des dates manuellement.
 
-Vous pouvez exporter le résultat au format CSV ou XML à l'aide des
-boutons d'exportation :
-
-![image](../assets/alerts/event_logs_export.png)
+- Vous pouvez exporter le résultat au format CSV ou XML à l'aide des
+boutons au-dessus à droite de la liste : ![image](../assets/alerts/event_logs_export.png)

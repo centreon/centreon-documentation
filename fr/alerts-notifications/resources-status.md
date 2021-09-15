@@ -1,6 +1,6 @@
 ---
 id: resources-status
-title: Statut des ressources
+title: Page Statut des ressources
 ---
 
 La vue `Supervision > Statut des ressources` est votre vue principale

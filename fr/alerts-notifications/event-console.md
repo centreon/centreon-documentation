@@ -34,11 +34,11 @@ les différentes fonctions de ces icônes :
 ## Hôtes (dépréciée)
 
 > Cette interface est **dépréciée** et remplacée par la page
-> `Statut des ressources` et la [liste des
+> **Statut des ressources** et la [liste des
 > évènements](resources-status.html#lister-les-evenements).
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
-`Monitoring > Status Details > Hosts`.
+**Monitoring > Status Details > Hosts**.
 
 ![image](../assets/alerts/04unhandledproblems.png)
 
@@ -94,7 +94,7 @@ Vous pouvez filtrer le résultat présenté via les filtres suivants :
 ## Groupes d'hôtes
 
 Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
-`Monitoring > Status Details > Hostgroups Summary`.
+**Monitoring > Status Details > Hostgroups Summary**.
 
 ![image](../assets/alerts/04hostgroup.png)
 
@@ -116,7 +116,7 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 ## Détails d'un hôte (dépréciée)
 
 > Cette interface est **dépréciée** et remplacée par la page
-> `Statut des ressources` et la [panneau
+> **Statut des ressources** et le [panneau
 > d'hôte](resources-status.html#panneau-dhote).
 
 Lorsque vous cliquez sur le nom d'un hôte, vous accédez à la page de
@@ -171,9 +171,9 @@ L'option permet d'activer / désactiver les propriétés de l'hôte :
 -   **Active Checks** : La méthode de vérification active de l'hôte.
 -   **Passive Checks** : La méthode de vérification passive de l'hôte.
 -   **Notifications** : Le processus de notification de l'hôte.
--   **Obsess Over Host** : Lprocessus Obsess Over Host de l'hôte
+-   **Obsess Over Host** : Le processus Obsess Over Host de l'hôte
 -   **Event Handler** : Le processus de réactions automatisé de l'hôte.
--   **Flap Detection** :Le processus de détection de battement de
+-   **Flap Detection** : Le processus de détection de battement de
     l'hôte.
 
 ### Links
@@ -189,11 +189,11 @@ contacts liés à l'hôte qui recevront notifications.
 ## Services (dépréciée)
 
 > Cette interface est **dépréciée** et remplacée par la page
-> `Statut des ressources` et la [liste des
+> **Statut des ressources** et la [liste des
 > évènements](resources-status.html#lister-les-evenements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
-`Monitoring > Status Details > Services`.
+**Monitoring > Status Details > Services**.
 
 ![image](../assets/alerts/04servicelist.png)
 
@@ -253,7 +253,7 @@ Pour visualiser le statut des services, rendez-vous dans le menu
 
 Pour voir tous les services (regroupés par hôte) dans n'importe quel
 état, rendez-vous dans le menu
-`Monitoring > Status Details > Services Grid` et choississez l'option
+**Monitoring > Status Details > Services Grid** et choississez l'option
 **Details** pour le filtre **Display** :
 
 ![image](../assets/alerts/04servicelistbyhostdetail.png)
@@ -267,7 +267,7 @@ choisissez l'option **Summary** pour le filtre **Display** :
 
 Pour voir tous les services (regroupés par groupe d'hôtes) dans
 n'importe quel état, rendez-vous dans le menu
-`Monitoring > Status Details > Services by Hostgroup` et choississez
+**Monitoring > Status Details > Services by Hostgroup** et choississez
 l'option **Details** pour le filtre **Display** :
 
 ![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
@@ -281,7 +281,7 @@ statut), choisissez l'option **Summary** pour le filtre **Display** :
 
 Pour voir tous les services (regroupés par groupe de services) dans
 n'importe quel état, rendez-vous dans le menu
-`Monitoring > Status Details > Services by Servicegroup` et choississez
+**Monitoring > Status Details > Services by Servicegroup** et choississez
 l'option **Details** pour le filtre **Display** :
 
 ![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
@@ -294,7 +294,7 @@ choisissez l'option **Summary** pour le filtre **Display** :
 ## Service Details (dépréciée)
 
 > Cette interface est **dépréciée** et remplacée par la page
-> `Statut des ressources` et la [panneau de
+> **Statut des ressources** et la [panneau de
 > service](resources-status.html#panneau-de-service).
 
 Lorsque vous cliquez sur un service, l'écran suivant apparaît:
