@@ -289,7 +289,7 @@ dans une prochaine version.
 
 `4 juin 2021`
 
-#### Sécurité
+#### Correctifs de sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
 
@@ -394,13 +394,13 @@ Nouvelle version majeure.
 
 `September 7, 2021`
 
-#### Enhancements
+#### Améliorations
 
 - Add endpoint to ask gorgoned to resync pollers configuration
 - Add Centreon platform audit module
 - Allow to define the list of the commands that can be run through the Action module
 
-#### Bugfixes
+#### Correctifs
 
 - Fixed incorrect error handling when a poller in pull mode is never connected
 - Fixed only returns no_log when asking associated logs of a token through API

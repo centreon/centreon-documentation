@@ -24,12 +24,12 @@ commerciales, vous pouvez vous rendre sur notre
 
 `September 06, 2021`
 
-#### Bug fixes
+#### Correctifs
 
 - fixed: php version in cron files
 - fixed: logging of centreon_central_sync
 
-#### Enhancements
+#### Améliorations
 
 - Compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
 - Add cbd_rrd systemd files
