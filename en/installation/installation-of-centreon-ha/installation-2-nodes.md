@@ -676,7 +676,7 @@ passwd hacluster
 Now that both of the central nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the central nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs host auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -686,7 +686,7 @@ pcs host auth \
     -p '@CENTREON_CLUSTER_PASSWD@' \
 ```
 
-<!--CentOS 7-->
+<!--RHEL 7 / CentOS 7-->
 ```bash
 pcs cluster auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -701,7 +701,7 @@ pcs cluster auth \
 The following command creates the cluster. It must be run **only on one of the central nodes**. 
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs cluster setup \
     centreon_cluster \
@@ -709,7 +709,7 @@ pcs cluster setup \
     "@CENTRAL_SLAVE_NAME@" \
     --force \
 ```
-<!--CentOS 7-->
+<!--RHEL 7 / CentOS 7-->
 ```bash
 pcs cluster setup \
     --force \
@@ -753,7 +753,6 @@ To be run **only on one central node**:
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--CentOS7-->
-
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -771,7 +770,7 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
-<!--RHEL-->
+<!--RHEL 8 / Oracle Linux 8-->
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -806,7 +805,7 @@ pcs resource meta ms_mysql-master \
     notify="true"
 ```
 
-<!--RHEL-->
+<!--RHEL 7-->
 
 ```bash
 pcs resource master ms_mysql \
@@ -817,6 +816,16 @@ pcs resource master ms_mysql \
     notify="true"
 ```
 
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs resource promotable ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
+    notify="true"
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Creating the clone resources
@@ -827,15 +836,28 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 ##### PHP7 resource
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs resource create "php7" \
-	systemd:rh-php73-php-fpm \
+    systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
+<!--CentOS 7-->
+```bash
+pcs resource create "php7" \
+    systemd:rh-php73-php-fpm \
+    meta target-role="started" \
+    op start interval="0s" timeout="30s" \
+    stop interval="0s" timeout="30s" \
+    monitor interval="5s" timeout="30s" \
+    clone
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### RRD broker resource
 
@@ -870,6 +892,20 @@ pcs resource create vip \
 
 ##### Httpd service
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+pcs resource create http \
+    systemd:httpd \
+    meta target-role="started" \
+    op start interval="0s" timeout="40s" \
+    stop interval="0s" timeout="40s" \
+    monitor interval="5s" timeout="20s" \
+    --group centreon \
+    --force
+```
+
+<!--CentOS 7-->
 ```bash
 pcs resource create http \
     systemd:httpd24-httpd \
@@ -880,6 +916,7 @@ pcs resource create http \
     --group centreon \
     --force
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Gorgone service
 
@@ -958,10 +995,18 @@ pcs resource create snmptrapd \
 
 In order to force the cluster running both `centreon` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+pcs constraint colocation add "centreon" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+```
+<!--CentOS 7-->
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon"
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
 
@@ -971,19 +1016,46 @@ After this step, all resources should be running on the same node, the platform 
 
 You can monitor the cluster's resources in real time using the `crm_mon` command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 15 16:35:47 2021
+  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 2 nodes configured
+  * 14 resource instances configured
+Node List:
+  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @CENTRAL_MASTER_NAME@ ]
+    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: php7-clone [php7]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+<!--RHEL 7 / CentOS 7-->
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
 Last updated: Thu Feb 20 13:14:17 2020
 Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @CENTRAL_MASTER_NAME@
-
 2 nodes configured
 14 resources configured
-
 Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
 Active resources:
-
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
@@ -1001,6 +1073,7 @@ Active resources:
      cbd_central_broker (systemd:cbd-sql):	Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Checking the database replication thread
 
@@ -1021,14 +1094,32 @@ Position Status [OK]
 
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```bash 
+pcs resource restart ms_mysql-clone
+```
+<!--CentOS 7-->
 ```bash 
 pcs resource restart ms_mysql
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Checking the constraints
 
 Normally the two colocation constraints that have been created during the setup should be the only constraints the `pcs constraint` command displays:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+<!--CentOS 7-->
 ```bash
 Location Constraints:
 Ordering Constraints:
@@ -1037,6 +1128,7 @@ Colocation Constraints:
   ms_mysql-master with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Integrating pollers
 
