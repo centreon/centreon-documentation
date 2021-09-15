@@ -130,6 +130,8 @@ Before actually setting the cluster up, some system prerequisites have to be met
 
 In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon servers (including pollers):
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS-->
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -141,6 +143,19 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
+<!--Oracle Linux 8-->
+```bash
+cat >> /etc/sysctl.conf <<EOF
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv4.tcp_retries2 = 3
+net.ipv4.tcp_keepalive_time = 200
+net.ipv4.tcp_keepalive_probes = 2
+net.ipv4.tcp_keepalive_intvl = 2
+EOF
+systemctl restart NetworkManager
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Name resolution
 
