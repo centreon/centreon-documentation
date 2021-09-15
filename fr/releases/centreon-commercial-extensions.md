@@ -28,7 +28,7 @@ commerciales, veuillez contacter le support.
 - Ajout de paramètres de personnalisation de la rotation des logs
   sur centreon-map-server.
 
-#### Bugfixes
+#### Correctifs
 
 - La recherche depuis le panneau de Resources du client Desktop prenait parfois beaucoup de temps
 - Ajout du client mysql qui n'était pas fourni si centreon-map-server était installé avec une base déportée
@@ -37,7 +37,7 @@ commerciales, veuillez contacter le support.
 
 `11 février 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - Nom d'hôte manquant dans le titre d'un service graph
 - Un graph créé depuis un service dans un élément host n'était pas correctement

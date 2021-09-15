@@ -22,7 +22,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 `14 septembre 2021`
 
-#### Security fixes
+#### Correctifs de sécurité
 
 - [Install] Rights applied to "centreon.conf.php" and "conf.pm"
 - [OpenId] Secret tokens obfuscation
@@ -900,7 +900,7 @@ a check_command. It will use the poller_id field of your config.
 
 `30 août 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
 - Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
@@ -921,7 +921,7 @@ a check_command. It will use the poller_id field of your config.
 
 `4 juin 2021`
 
-#### Sécurité
+#### Correctifs de sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
 - Suppression de SSL et de suites de chiffrement dépréciées
