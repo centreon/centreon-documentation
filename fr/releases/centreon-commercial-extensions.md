@@ -23,7 +23,7 @@ commerciales, veuillez contacter le support.
 
 `3 mai 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - [Desktop] Le filtre de recherches des ressources est trop lent
 - [Server] Ajout d'un indice de propriétés personnalisées à la configuration du journal
@@ -37,7 +37,7 @@ commerciales, veuillez contacter le support.
 
 `11 février 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - Nom d'hôte manquant dans le titre d'un service graph
 - Un graph créé depuis un service dans un élément host n'était pas correctement
@@ -125,7 +125,7 @@ Référez-vous à la [documentation dédiée](../graph-views/install.html#centre
 #### Correctifs
 - [Monitoring] Ajout des traductions manquantes en Français pour les status "warning" et "critical" 
 
-#### Securité
+#### Correctifs de sécurité
 
 - [Lib] Mise à jour des paquets npm vulnérables
 
