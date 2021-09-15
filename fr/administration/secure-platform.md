@@ -192,7 +192,7 @@ l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les in
 mysql_secure_installation
 ```
 
-# Activation de firewalld
+## Activation de firewalld
 
 Installez firewalld:
 ```shell
@@ -313,7 +313,7 @@ Status for the jail: centreon
 Par défaut, Centreon installe un serveur Web en mode HTTP. Il est fortement recommandé de passer en mode HTTPS en
 ajoutant votre certificat.
 
-Il vaut mieux utiliser un certificat validé par une autorité plutôt que d'utiliser un certificat auto-signé.
+Il vaut mieux utiliser un certificat validé par une autorité plutôt que d'utiliser un certificat auto-signé. Cependant, si un certificat auto-signé vous convient mieux, référez-vous à la [section correspondante](#sécurisez-le-serveur-web-apache-avec-un-certificat-auto-signé).
 
 Si vous ne disposez pas d'un certificat validé par une autorité, vous pouvez en générer un sur des plateformes telles
 que [Let's Encrypt](https://letsencrypt.org/).
@@ -563,6 +563,155 @@ Si tout est correct, vous devriez avoir quelque chose comme :
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+### Sécurisez le serveur web Apache avec un certificat auto-signé
+
+Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
+
+1. Préparer la configuration openssl :
+
+    En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration openssl.
+
+    Ouvrez le fichier **/etc/pki/tls/openssl.cnf** et trouvez la section **[v3_ca]**:
+
+    ```text
+    # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+    [ alt_names ]
+    IP.1 = xxx.xxx.xxx.xxx
+    DNS.1 = centreon7.localdomain
+    # If you have several IP (HA: vip + ip)
+    # IP.2 = xxx.xxx.xxx.xxx
+    [ v3_ca ]
+    subjectAltName = @alt_names
+    ```
+
+2. Créer une clé privée pour le serveur :
+
+    Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'il puisse être utilisé par le service apache.
+
+    ```text
+    openssl genrsa -out centreon7.key 2048
+    ```
+
+    Protégez le fichier en modifiant ses droits :
+
+    ```text
+    chmod 400 centreon7.key
+    ```
+
+3. Créer un fichier CSR : 
+
+    Avec la clé que vous venez de créer, créez un fichier CSR (Certificate Signing Request). Remplissez les champs avec les informations propres à votre entreprise.
+    Le champ **Common Name** doit être identique au hostname de votre serveur Apache (dans notre cas, **centreon7.localdomain**).
+
+    ```text
+    openssl req -new -key centreon7.key -out centreon7.csr
+    ```
+
+4. Créer une clé privée pour le certificat de l'autorité de certification :
+
+    En premier lieu, créez une clé privée pour cette autorité. Ajoutez l'option -aes256 pour chiffrer la clé produite et y appliquer un mot de passe. Ce mot de passe sera demandé chaque fois que la clé sera utilisée.
+
+    ```text
+    openssl genrsa -aes256 2048 > ca_demo.key
+    ```
+
+5. Créer le certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
+
+    Ensuite, créez un certificat x509 qui sera valide pendant un an.
+
+    >  Attention, il est nécessaire de simuler un tiers de confiance : le "Common Name" doit être différent de celui du certificat du serveur.
+
+    ```text
+    openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
+    ```
+
+    Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat du serveur.
+
+6. Créer un certificat pour le serveur :
+
+    Utilisez le certificat x509 pour signer votre certificat pour le serveur :
+
+    ```text
+    openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
+    ```
+
+    L'option CAcreateserial n'est nécessaire que la première fois. Vous devez entrer le mot de passe précédemment défini. Vous obtenez un certificat pour le serveur nommé **centreon7.crt**.
+
+    Vous pouvez voir le contenu du fichier : 
+
+    ```text
+    less centreon7.crt
+    ```
+
+7. Copier les fichiers dans la configuration Apache :
+
+    Copiez la clé privée du serveur et le certificat du serveur que vous avez signé.
+
+    ```text
+    cp centreon7.key /etc/pki/tls/private/centreon7.key
+    cp centreon7.crt /etc/pki/tls/certs/
+    ```
+
+8. Mettre à jour le fichier de configuration Apache :
+
+    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**). 
+
+    Voici un exemple de ce à quoi le fichier peut ressembler: 
+
+    ```apacheconf
+    Alias /centreon/api /usr/share/centreon
+    Alias /centreon /usr/share/centreon/www/
+    <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
+    </LocationMatch>
+    <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
+        ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+    </LocationMatch>
+    ProxyTimeout 300
+    <VirtualHost *:80>
+        RewriteEngine On
+        RewriteCond %{HTTPS} off
+        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+    </VirtualHost>
+    <VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+        SSLEngine on
+        SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+        SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+        SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
+        SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+        <Directory "/usr/share/centreon/www">
+            DirectoryIndex index.php
+            Options Indexes
+            AllowOverride all
+            Order allow,deny
+            Allow from all
+            Require all granted
+            <IfModule mod_php5.c>
+                php_admin_value engine Off
+            </IfModule>
+            FallbackResource /centreon/index.html
+            AddType text/plain hbs
+        </Directory>
+        <Directory "/usr/share/centreon/api">
+            Options Indexes
+            AllowOverride all
+            Order allow,deny
+            Allow from all
+            Require all granted
+            <IfModule mod_php5.c>
+                php_admin_value engine Off
+            </IfModule>
+            AddType text/plain hbs
+        </Directory>
+    </VirtualHost>
+    ```
+9. Copier le certificat x509 sur le navigateur client :
+
+    Maintenant, récupérez le fichier du certificat x509 **ca_demo.crt** et importez-le dans le magasin de certificats de votre navigateur.
 
 ## URI personnalisée
 
