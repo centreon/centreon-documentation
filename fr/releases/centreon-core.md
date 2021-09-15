@@ -547,7 +547,7 @@ state was HARD even if no notification is configured nor sent.
 
 `30 Août 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
 - Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
@@ -782,7 +782,7 @@ with the –pool\_size X argument or -s X.
 
 `15 juillet 2021`
 
-#### Bug fixes
+#### Correctifs
 
 - Libraries are loaded lazily now. This allows not having to check all link issues during loading.
 
@@ -790,7 +790,7 @@ with the –pool\_size X argument or -s X.
 
 `4 juin 2021`
 
-#### Enhancements
+#### Améliorations
 
 - Compilation in C++14 with conan-center: bintray has stopped. We had to switch to conan-center. And then our conan dependencies had to be upgraded and then we had to switch to C++14. So here is the corresponding compilation.
 
@@ -798,7 +798,7 @@ with the –pool\_size X argument or -s X.
 
 `28 avril 2021`
 
-#### Bugfixes
+#### Correctifs
 
 - Start/Stop process\_manager mechanism is rewritten and much simpler. The consequences are that there are less deadlocks in the processes management.
 - The simple cases that are addition, subtraction and some other cases, have had their computations simplified, that is to say less computations, so faster.
@@ -807,7 +807,7 @@ with the –pool\_size X argument or -s X.
 
 `October 21, 2020`
 
-#### Bugfixes
+#### Correctifs
 
 - A possible deadlock was removed when a process is added and at the same time a process is removed because in timeout.
 
@@ -853,13 +853,13 @@ with the –pool\_size X argument or -s X.
 
 `7 septembre 2021`
 
-#### Enhancements
+#### Améliorations
 
 - Add endpoint to ask gorgoned to resync pollers configuration
 - Add Centreon platform audit module
 - Allow to define the list of the commands that can be run through the Action module
 
-#### Bugfixes
+#### Correctifs
 
 - Fixed only returns no_log when asking associated logs of a token through API
 
