@@ -921,7 +921,7 @@ a check_command. It will use the poller_id field of your config.
 
 `4 juin 2021`
 
-#### Sécurité
+#### Correctifs de sécurité
 
 - Blocage des injections SQL depuis des *custom variables*
 - Suppression de SSL et de suites de chiffrement dépréciées
