@@ -138,7 +138,7 @@ configuration :
 changer, utilisez la commande suivante :
 
   ```shell
-  hostnamectl set-hostname votre_hostname
+  hostnamectl set-hostname votre-hostname
   ```
 
   Par exemple, si vous voulez renommer la machine `supervision`,
