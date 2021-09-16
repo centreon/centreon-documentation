@@ -16,7 +16,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 |------------------------------------------------|------------------------------------|
 | <span style="color:#88b917">DISPONIBLE</span>          | L'hôte est disponible et joignable |
 | <span style="color:#e00b3d">INDISPONIBLE</span>        | L'hôte est indisponible            |
-| <span style="color:#818185">INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies.html) d'un hôte dont le statut est **Indiponible**             |
+| <span style="color:#818185">INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies.html) d'un hôte dont le statut est **INDISPONIBLE**             |
 
 ## Statut des services
 
