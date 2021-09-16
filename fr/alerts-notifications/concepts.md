@@ -14,9 +14,9 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 
 | Status                                         | Description                        |
 |------------------------------------------------|------------------------------------|
-| <span style="color:#88b917">UP</span>          | L'hôte est disponible et joignable |
-| <span style="color:#e00b3d">DOWN</span>        | L'hôte est indisponible            |
-| <span style="color:#818185">UNREACHABLE</span> | L'hôte est injoignable             |
+| <span style="color:#88b917">DISPONIBLE</span>          | L'hôte est disponible et joignable |
+| <span style="color:#e00b3d">INDISPONIBLE</span>        | L'hôte est indisponible            |
+| <span style="color:#818185">INJOIGNABLE</span> | L'hôte est injoignable : il [dépend](notif-dependencies.html) d'un hôte dont le statut est **Indiponible**             |
 
 ## Statut des services
 
@@ -25,21 +25,21 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 | Status                                     | Description                                                            |
 |--------------------------------------------|------------------------------------------------------------------------|
 | <span style="color:#88b917">OK</span>      | Le service ne présente aucun problème                                  |
-| <span style="color:#ff9a13">WARNING</span> | Le service a dépassé le seuil d'alerte                                 |
-| <span style="color:#e00b3d">DOWN</span>    | Le service a dépassé le seuil critique                                 |
-| <span style="color:#bcbdc0">UNKNOWN</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
+| <span style="color:#ff9a13">ALERTE</span> | Le service a dépassé le seuil d'alerte                                 |
+| <span style="color:#e00b3d">CRITIQUE</span>    | Le service a dépassé le seuil critique                                 |
+| <span style="color:#bcbdc0">INCONNU</span> | Le statut du service ne peut être vérifié (exemple : agent SNMP DOWN…) |
 
 ## Statuts avancés
 
 En plus des statuts standards, de nouveaux statuts permettent d'ajouter
 des informations complémentaires :
 
--   Le statut <span style="color:#2ad1d4">PENDING</span> est un statut
+-   Le statut <span style="color:#2ad1d4">EN ATTENTE</span> est un statut
     affiché pour un service ou un hôte fraîchement configuré mais qui
     n'a pas encore été contrôlé par l'ordonnanceur.
--   Le statut <span style="color:#818185">UNREACHABLE</span> est un
-    statut indiquant que l'hôte est situé (relation de parenté) en aval
-    d'un hôte dans un statut DOWN.
+-   Le statut <span style="color:#818185">INJOIGNABLE</span> est un
+    statut indiquant que l'hôte est situé ([relation de parenté](notif-dependencies.html)) en aval
+    d'un hôte dans un statut INDISPONIBLE.
 -   Le statut FLAPPING est un statut indiquant que le pourcentage de
     changement de statut de l'objet est très élevé. Ce pourcentage est
     obtenu à partir de calculs effectués par le moteur de supervision.
@@ -63,9 +63,9 @@ Une ressource peut avoir deux états :
 ### Explication
 
 Un incident (statut non-OK) est confirmé à partir du moment où le nombre
-d'essai de validation est arrivé à son terme. La configuration d'un
+d'essais de validation est arrivé à son terme. La configuration d'un
 objet (hôte ou service) implique un intervalle de contrôle régulier, un
-nombre d'essai pour valider un état non-OK ainsi qu'un intervalle
+nombre d'essais pour valider un état non-OK ainsi qu'un intervalle
 non-régulier de contrôle. Dès la détection du premier incident, le
 statut est dans un état “SOFT” jusqu'à sa validation en état “HARD”
 déclenchant le processus de notification.

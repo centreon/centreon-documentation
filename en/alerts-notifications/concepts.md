@@ -15,7 +15,7 @@ The table below summarizes all the possible statuses for a host.
 |------------------------------------------------|-------------------------------------|
 | <span style="color:#88b917">UP</span>          | The host is available and reachable |
 | <span style="color:#e00b3d">DOWN</span>        | The host is unavailable             |
-| <span style="color:#818185">UNREACHABLE</span> | The host is unreachable             |
+| <span style="color:#818185">UNREACHABLE</span> | The host is unreachable: it [depends](notif-dependencies.html) on a host whose status is **DOWN**                      |
 
 ### Service status
 
@@ -25,7 +25,7 @@ The table below summarizes all the possible statuses for a service.
 |--------------------------------------------|---------------------------------------------------------------------------|
 | <span style="color:#88b917">OK</span>      | The service presents no problem                                           |
 | <span style="color:#ff9a13">WARNING</span> | The service has reached the warning threshold                             |
-| <span style="color:#e00b3d">DOWN</span>    | The service has reached the critical threshold                            |
+| <span style="color:#e00b3d">CRITICAL</span>    | The service has reached the critical threshold                            |
 | <span style="color:#bcbdc0">UNKNOWN</span> | The status of the service cannot be checked (e.g.: SNMP agent down, etc.) |
 
 ### Advanced statuses
@@ -37,7 +37,7 @@ additional information:
     displayed for a service or a host freshly configured but which has
     not yet been checked by the scheduler.
 -   The <span style="color:#818185">UNREACHABLE</span> status is a
-    status indicating that the host (parental relationship) is situated
+    status indicating that the host ([parent relationship](notif-dependencies.html)) is situated
     downstream of a host with a DOWN status.
 -   The FLAPPING status is a status indicating that the status change
     percentage of the resource is very high. This percentage is obtained
