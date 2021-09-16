@@ -126,7 +126,7 @@ The host machine must have the following characteristics:
     - The hostname of your server. The default name is `centreon-central`. To change it, use the following command: 
     
         ```shell
-        hostnamectl set-hostname your_hostname
+        hostnamectl set-hostname your-hostname
         ```
     
         For example, if you want your machine to be called `supervision`, type:
