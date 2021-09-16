@@ -313,7 +313,7 @@ you can refer to the [appropriate section](#securing-the-apache-web-server-with-
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
-> Once your web server is set in HTTPS mode and if you have a Map server on your platform, you have to continue and set it in HTTPS mode either, otherwise, 
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
 > recent web browsers may block the communications between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
