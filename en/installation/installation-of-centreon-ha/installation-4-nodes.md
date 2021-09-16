@@ -445,7 +445,7 @@ CENTREON_STORAGE_DB='centreon_storage'
 ```
 
 
-To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
+To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command on databases nodes:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -564,7 +564,7 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@SLAVE_MASTER_NAME@`)**.
+**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@`)**.
 
 ### Configuring the file synchronization service
 
@@ -626,7 +626,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Stopping and disabling the services
 
-**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
+**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@CENTRAL_SLAVE_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
@@ -798,7 +798,7 @@ pcs resource create vip_mysql \
     meta target-role="stopped" \
     op start interval="0s" timeout="20s" \
     stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
 ```
 
 ### Creating the clone resources
