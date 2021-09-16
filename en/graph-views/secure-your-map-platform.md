@@ -128,7 +128,7 @@ port 8443.
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.html#change-centreon-map-server-port).
 
-> Don't forget to modify the URL on Centreon side in **Map server address**
+> Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in `Administration > Extensions > Map > Options` menu.
 ![image](../assets/graph-views/map-address-https.png)
 
