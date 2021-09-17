@@ -320,7 +320,7 @@ que [Let's Encrypt](https://letsencrypt.org/).
 
 > Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur Map sur votre plateforme, 
 vous devez le configurer en mode HTTPS également, sinon, les navigateurs web récents peuvent bloquer 
-les communications entre les deux serveurs. La procédure est détaillée [ici](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+la communication entre les deux serveurs. La procédure est détaillée [ici](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Une fois votre certificat obtenu, effectuez la procédure suivante pour activer le mode HTTPS sur votre serveur Apache :
 
