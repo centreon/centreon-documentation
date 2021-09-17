@@ -16,7 +16,7 @@ Pour afficher la matrice de notification d’un contact, cliquez sur **View cont
 * **Nom complet** : le nom et prénom de l’utilisateur.
 * **Mail** et **Bipeur** : contiennent respectivement l’adresse mail et le numéro de téléphone de l’utilisateur,
 sur lesquels seront envoyés les alertes (dans le cas d’une notification par SMS ou appel par exemple). Les alertes doivent être activées pour l'utilisateur (voir option **Activer les notifications** ci-dessous).
-* **Modèle de contact utilisé** : permet de lier un [modèle de contact](contacts-templates) au contact. Le contact héritera des caractéristiques du modèle. Si pour un même champ, le contact et le modèle de contact ont des valeurs différentes, la valeur définie
+* **Modèle de contact utilisé** : permet de lier un [modèle de contact](contacts-templates.html) au contact. Le contact héritera des caractéristiques du modèle. Si pour un même champ, le contact et le modèle de contact ont des valeurs différentes, la valeur définie
 au niveau du contact prend le pas sur celle définie au niveau du contact.
 * **Lié avec le groupe de contacts** : associe le contact à un ou plusieurs groupes de contacts.
 * **Activer les notifications** : permet d’activer l’envoi de [notifications](../../alerts-notifications/notif-configuration.html) à l’utilisateur.
