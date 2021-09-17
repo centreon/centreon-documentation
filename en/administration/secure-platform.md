@@ -304,13 +304,16 @@ Status for the jail: centreon
 
 > For more information go to the [official website](http://www.fail2ban.org).
 
-## Securing the Apache web server
+## Enable HTTPS on the web server
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat)
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat)
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
 
