@@ -213,8 +213,6 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 3. Installez la version 10.5 :
 
-    Exemple :
-
     ```shell
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
