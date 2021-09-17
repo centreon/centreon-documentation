@@ -579,7 +579,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     [ alt_names ]
     IP.1 = xxx.xxx.xxx.xxx
     DNS.1 = centreon7.localdomain
-    # If you have several IP (HA: vip + ip)
+    # Si vous avez plusieurs IPs(HA: vip + ip)
     # IP.2 = xxx.xxx.xxx.xxx
     [ v3_ca ]
     subjectAltName = @alt_names
