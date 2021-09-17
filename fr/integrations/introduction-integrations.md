@@ -13,7 +13,7 @@ de métriques:
 - [Centreon Stream Connector](https://github.com/centreon/centreon-stream-connector-scripts), 
 permet l'envoie de données d'événements et/ou de métriques vers un outil tiers afin 
 de partager, présenter ou retravailler les données dans un système annexe;
-- [Centreon Open Ticket](https://github.com/centreon/centreon-open-tickets), permet 
+- [Centreon Open Ticket](../alerts-notifications/ticketing.html), permet 
 l'ajout de fonctionnalités permettant l'ouverture manuelle de ticket sur la base des 
 données d'une alerte directement au travers des bacs à événements Centreon;
 - [Centreon Plugin Packs](../integrations/plugin-packs/introduction.html), permet la 
@@ -25,21 +25,11 @@ Cette documentation est organisée en fonction des fonctionnalités des logiciel
 lesquels Centreon peut s'interfacer. Les grandes familles d'intégrations sont les 
 suivantes: 
 
-- *Data Analytics*: Envoyez vos données vers des solutions spécialisées dans le traitement,
-le stockage, et l'indexation de grands volumes de données polymorphes. Inclut également les 
-solutions permettant d'alerter sur la base de requêtes sur des outils de concentration de logs;
-- *Digital Experience Monitoring*: Récupérez des données de mesure de la performance
-et du ressenti utilisateur concernant vos sites et applicatifs directement depuis des 
-solutions avancées et dédiées au segment DEM;
-- *Event Management*: Utilisez les Stream Connector pour envoyer vos alertes vers 
-des outils spécialisés dans la gestion des événements en terme de qualification, 
-d'escalades ou encore dans l'automatisation de leur traitement;
-- *ITSM*: Ouvrez des tickets depuis une ou plusieurs alertes détéctées par Centreon
-afin de permettre une gestion de l'incident et des actions correctives au plus proche 
-de vos processus internes;
-- *Notifications*: Tirez partie des fonctionnalités de notifications du moteur Centreon Engine
-afin d'alerter de manière optimale les bonnes personnes au travers de multiples modes 
-de transmission (Messagerie instantanée, SMS, Traps SNMP, ...).
+- [Data Analytics](../integrations/data-analytics/data-analytics-overview.html)
+- [Digital Experience Monitoring](../integrations/digital-experience-monitoring/dem-overview.html)
+- [Event Management](../integrations/event-management/event-management-overview.html)
+- [ITSM](../integrations/itsm/itsm-overview.html)
+- [Notifications](../integrations/notifications/notifications-overview.html)
 
 Vous ne trouvez pas votre outil ou l'intégration que vous voulez? Faites le nous 
 savoir en posant la question sur notre [Slack](https://centreon.slack.com) ou en 
