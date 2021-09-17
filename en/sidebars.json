@@ -1015,7 +1015,7 @@
             },
             {
                 "ids": [
-                    "integrations/itsm/itsm-overview.md",
+                    "integrations/itsm/itsm-overview",
                     "integrations/itsm/ot-bmc-footprints",
                     "integrations/itsm/ot-bmc-remedy",
                     "integrations/itsm/ot-easyvista",
