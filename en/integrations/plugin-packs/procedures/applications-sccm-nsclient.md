@@ -46,21 +46,13 @@ are supported.
 
 ## Centreon NSClient++
 
-<<<<<<< HEAD
-* [NRPE](../operatingsystems-windows-nsclient-05-nrpe.html)
-* [RestAPI](../operatingsystems-windows-nsclient-05-restapi.html)
-=======
 The Windows SCCM Plugin is hosted by the *centreon-nsclient* agent which must be 
 installed, configured and running on the Windows server running the SCCM Admin console. 
 
 The Centreon Poller can connect to the agent using either the NRPE method or the 
 RestAPI method. More information on how to achieve the installation and the configuration 
-<<<<<<< HEAD
-of the agent can be found [here](../plugin-packs/tutorials/centreon-nsclient-tutorial.html)
->>>>>>> f77b88b5... enh(mp) several enhancements in the monitoring procedures  (#903)
-=======
+
 of the agent can be found [here](../tutorials/centreon-nsclient-tutorial.html)
->>>>>>> 5110b06f... fix(proc)local-deadlink (#978)
 
 ## Installation
 
