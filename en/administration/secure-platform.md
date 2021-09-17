@@ -308,7 +308,7 @@ Status for the jail: centreon
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-self-signed-certificat).
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
@@ -559,7 +559,7 @@ If everything is ok, you must have:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Securing the Apache web server with self-signed certificat
+### Securing the Apache web server with a self-signed certificate
 
 Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
 
