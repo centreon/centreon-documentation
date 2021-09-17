@@ -14,7 +14,7 @@ out or waiting 10 hours will flush the cache.
 
 ## Compatibility
 
-This integration is (at least) compatible with the following Service Now
+This integration is (at least) compatible with the following ServiceNow
 versions:
 
   - Madrid
@@ -41,7 +41,7 @@ Our provider requires the following parameters:
 
 ## Possibilities
 
-As of now, the provider is able to retrieve the following objects from Itop:
+As of now, the provider is able to retrieve the following objects from ServiceNow:
 
   - Categories
   - Subcategories
