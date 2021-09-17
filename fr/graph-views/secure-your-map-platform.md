@@ -158,7 +158,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 
-And then, copy the private key and the certificate into **/etc/centreon/broker_cert/** directory:
+And then, copy the private key and the certificate into the **/etc/centreon/broker_cert/** directory:
 ```text
 mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
