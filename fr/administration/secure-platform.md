@@ -587,7 +587,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 2. Créer une clé privée pour le serveur :
 
-    Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'il puisse être utilisé par le service apache.
+    Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service apache.
 
     ```text
     openssl genrsa -out centreon7.key 2048
