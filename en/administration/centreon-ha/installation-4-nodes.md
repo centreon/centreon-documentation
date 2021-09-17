@@ -14,7 +14,7 @@ and of Pacemaker clustering tools in order to have a proper understanding of wha
 
 A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.html)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
+The output of the `vgs` command must look like (what must be payed attention to is the value under `VFree`):
 
 ```text
   VG                    #PV #LV #SN Attr   VSize   VFree 
@@ -152,7 +152,7 @@ From here, `@CENTRAL_MASTER_NAME@` will be named the "primary server/node" and `
 Centreon offers a package named `centreon-ha`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on every nodes (Except Quorum):
 
 ```bash
-yum install epel-release
+yum install epel-release centos-release-scl
 yum install centreon-ha
 ```
 
@@ -412,7 +412,7 @@ CENTREON_STORAGE_DB='centreon_storage'
 ```
 
 
-To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
+To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command from database nodes (or from anything node if you added optionnal accounts):
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -531,7 +531,7 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@SLAVE_MASTER_NAME@`)**.
+**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes (`@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@`)**.
 
 ### Configuring the file synchronization service
 
@@ -593,7 +593,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Stopping and disabling the services
 
-**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
+**Informations :** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@CENTRAL_SLAVE_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. All the Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not create any trouble.
 
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
@@ -765,7 +765,7 @@ pcs resource create vip_mysql \
     meta target-role="stopped" \
     op start interval="0s" timeout="20s" \
     stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
 ```
 
 ### Creating the clone resources
@@ -957,12 +957,12 @@ Active resources:
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
  Clone Set: php7-clone [php7]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER@ @CENTRAL_SLAVE_NAME@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER@
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
      gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
      centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
