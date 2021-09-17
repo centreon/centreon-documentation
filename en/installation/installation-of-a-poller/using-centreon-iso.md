@@ -110,7 +110,7 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-### Server name
+## Server name
 
 Define the server name using following command:
 ```shell
