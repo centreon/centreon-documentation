@@ -575,7 +575,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
     Ouvrez le fichier **/etc/pki/tls/openssl.cnf** et trouvez la section **[v3_ca]**:
 
     ```text
-    # Add the alt_names tag that allows you to inform our various IPs and FQDNs for the server
+    # Ajoutez le tag alt_names qui vous permet d'indiquer les différents IPs et FQDNs du serveur
     [ alt_names ]
     IP.1 = xxx.xxx.xxx.xxx
     DNS.1 = centreon7.localdomain
