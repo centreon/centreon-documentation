@@ -43,7 +43,7 @@ Le module est maintenant installé.
 
 ### Sélectionner un fournisseur de service
 
-La liste des *Providers* disponibles est actualisées dans la section de documentation
+La liste des fournisseurs disponibles est actualisée dans la section de documentation
 dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview.html).
 
 Chaque fournisseur a sa propre configuration, cependant, l'ajout d'un

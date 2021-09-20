@@ -3,11 +3,11 @@ id: itsm-overview
 title: ITSM
 ---
 
-Ouvrez des tickets depuis une ou plusieurs alertes détéctées par Centreon
+Ouvrez des tickets depuis une ou plusieurs alertes détectées par Centreon
 afin de permettre une gestion de l'incident et des actions correctives au plus proche 
 de vos processus internes.
 
-Les interconnexions disponibles sont les suivantes:
+Les interconnexions disponibles sont les suivantes :
 
 * [BMC Footprints](../integrations/itsm/ot-bmc-footprints.html)
 * [BMC Remedy](../integrations/itsm/ot-bmc-remedy.html)

@@ -4,4 +4,4 @@ title: Notifications
 ---
 
 Use the Centreon Engine scheduler notification system to send alerts efficiently 
-to the right person using multiple communication mediums (SMS, Instant Messaging, SNMP Traps, ...).
+to the right person using multiple communication media (SMS, Instant Messaging, SNMP Traps...).

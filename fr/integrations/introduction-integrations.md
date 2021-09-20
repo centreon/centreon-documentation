@@ -11,7 +11,7 @@ s'adapter à vos processus de traitement de données, d'alertes, d'événement e
 de métriques: 
 
 - [Centreon Stream Connector](https://github.com/centreon/centreon-stream-connector-scripts), 
-permet l'envoie de données d'événements et/ou de métriques vers un outil tiers afin 
+permet l'envoi de données d'événements et/ou de métriques vers un outil tiers afin 
 de partager, présenter ou retravailler les données dans un système annexe;
 - [Centreon Open Ticket](../alerts-notifications/ticketing.html), permet 
 l'ajout de fonctionnalités permettant l'ouverture manuelle de ticket sur la base des 
