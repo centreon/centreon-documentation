@@ -975,6 +975,7 @@
             "integrations/introduction-integrations",
             {
                 "ids": [
+                    "integrations/data-analytics/data-analytics-overview",
                     "integrations/data-analytics/sc-elastic-events",
                     "integrations/data-analytics/sc-elastic-metrics",
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
@@ -987,6 +988,7 @@
             },
             {
                 "ids": [
+                    "integrations/digital-experience-monitoring/dem-overview",
                     "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-iplabel-datametrie-restapi",
                     "integrations/plugin-packs/procedures/applications-monitoring-mip-restapi",
@@ -997,6 +999,7 @@
             },
             {
                 "ids": [
+                    "integrations/event-management/event-management-overview",
                     "integrations/event-management/sc-hp-bsm",
                     "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
@@ -1012,6 +1015,7 @@
             },
             {
                 "ids": [
+                    "integrations/itsm/itsm-overview",
                     "integrations/itsm/ot-bmc-footprints",
                     "integrations/itsm/ot-bmc-remedy",
                     "integrations/itsm/ot-easyvista",
@@ -1031,6 +1035,7 @@
             },
             {
                 "ids": [
+                    "integrations/notifications/notifications-overview",
                     "integrations/notifications/plugin-telegram"
                 ],
                 "label": "Notifications",
