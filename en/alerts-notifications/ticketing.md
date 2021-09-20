@@ -41,21 +41,8 @@ Your Centreon Open Tickets Module is now installed.
 
 ### Select a provider
 
-The module offers many ready-to-use providers:
-
-* [BMC Footprints](../integrations/open-tickets/bmc-footprints.html)
-* [BMC Remedy](../integrations/open-tickets/bmc-remedy.html)
-* [EasyVista](../integrations/open-tickets/easyvista.html)
-* [Generic email](../integrations/open-tickets/mail.html)
-* [GLPI](../integrations/open-tickets/glpi.html)
-* [GLPI RestAPI](../integrations/open-tickets/glpi-restapi.html)
-* [iTop](../integrations/open-tickets/itop.html)
-* [IWS Isilog](../integrations/open-tickets/iws-isilog)
-* [Jira](../integrations/open-tickets/jira.html)
-* [OTRS RestAPI](../integrations/open-tickets/otrs-restapi.html)
-* [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi.html)
-* [Serena](../integrations/open-tickets/serena.html)
-* [ServiceNow](../integrations/open-tickets/servicenow.html)
+The module offers many ready-to-use providers listed in the dedicated [integration
+section](../integrations/itsm/itsm-overview.html).
 
 Each provider has its own configuration, however, adding a provider in
 Centreon can be done in the following way:
