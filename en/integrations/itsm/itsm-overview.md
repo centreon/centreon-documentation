@@ -3,9 +3,9 @@ id: itsm-overview
 title: ITSM
 ---
 
-Send your data to solutions specialized in storing, indexing, or managing vast 
-and heterogeneous data sources. It also highlights solutions to generate alerts 
-from log management solutions.
+Transform one or several alerts into case(s) in your favorite ITSM tool. 
+Doing so allow advanced incident management in a dedicated tool and seamlessly 
+integrate Centreon monitoring alerts in your existing processes.
 
 Available providers:
 
