@@ -32,6 +32,6 @@ solution. Here is a list of integrations domains:
 - [ITSM](../integrations/itsm/itsm-overview.html)
 - [Notifications](../integrations/notifications/notifications-overview.html)
 
-Can't you find the integration you're expecting? Just let us know by reaching 
+Can't find the integration you're expecting? Just let us know by reaching 
 us on [Slack](https://centreon.slack.com) or contacting us through our contact
 form on our [website](https://www.centreon.com/en/contact/).
