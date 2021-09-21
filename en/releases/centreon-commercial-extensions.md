@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.5
 
+`September 21, 2021`
+
 #### Bugfixes
 
  - [Web-Client] Fixed Graph scale in web interface
