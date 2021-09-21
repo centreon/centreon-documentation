@@ -16,8 +16,7 @@ planifiée située dans **/etc/cron.d/centreon**:
 30 3 * * * root /usr/share/centreon/cron/centreon-backup.pl >> /var/log/centreon/centreon-backup.log 2&>1
 ```
 
-Chaque jour à 3H30, Le script de sauvegarde vérifie sur une sauvegarde doit être
-réalisée ce jour.
+Dans cet exemple, le script lance une sauvegarde chaque jour à 3H30.
 
 ### Types de sauvegarde
 
@@ -34,7 +33,7 @@ Il y a deux types de sauvegarde :
     données. Attention, cette commande peut prendre un certain temps si la base
     est volumineuse.
   - LVM Snapshot : Copie binaire des fichiers MySQL. Vous devez avoir un volume
-    logique dédiée à MySQL (ex: /var/lib/mysql) et 1Go d'espace disponible dans
+    logique dédié à MySQL (ex: /var/lib/mysql) et 1Go d'espace disponible dans
     son groupe de volumes.
 
 Format de la sauvegarde :
@@ -57,42 +56,42 @@ Format de la sauvegarde :
 
 Ce chapitre décrit la configuration de la sauvegarde.
 
-1.  Se rendre dans le menu: `Administration > Paramètres > Backup`
+1.  Se rendre dans le menu **Administration > Paramètres > Backup**.
 
-La fenêtre suivante est affichée:
+La fenêtre suivante est affichée :
 
 ![image](../assets/administration/parameters-backup.png)
 
-  - **Activer la sauvegarde** Activer/Désactiver la sauvegarde
-  - **Répertoire des sauvegardes** Répertoire de stockage des sauvegardes
-  - **Répertoire temporaire** Répertoire utilisé durant le processus de
+  - **Activer la sauvegarde** : Activer/Désactiver la sauvegarde
+  - **Répertoire des sauvegardes** : Répertoire de stockage des sauvegardes
+  - **Répertoire temporaire** : Répertoire utilisé durant le processus de
     sauvegarde
-  - **Sauvegarder la base de données Centreon** Activer la sauvegarde de la
+  - **Sauvegarder la base de données Centreon** : Activer la sauvegarde de la
     base de données centreon
-  - **Sauvegarder la base de données 'centreon\_storage'** Activer la
+  - **Sauvegarder la base de données 'centreon\_storage'** : Activer la
     sauvegarde de la base de données centreon\_storage
-  - **Méthode de sauvegarde** Type de sauvegarde (MySQL dump ou snapshot LVM)
-  - **Sauvegarde complète** Période pour la sauvegarde complète
-  - **Sauvegarde de type partielle** Période pour la sauvegarde partielle (seulement
+  - **Méthode de sauvegarde** : Type de sauvegarde (MySQL dump ou snapshot LVM)
+  - **Sauvegarde complète** : Période pour la sauvegarde complète
+  - **Sauvegarde de type partielle** : Période pour la sauvegarde partielle (seulement
     disponible pour la sauvegarde par LVM snapshot)
-  - **Durée de rétention des sauvegardes** Durée de rétention des sauvegardes (en jours)
-  - **Sauvegarder les fichiers de configuration** Activer la sauvegarde des fichiers de
+  - **Durée de rétention des sauvegardes** : Durée de rétention des sauvegardes (en jours)
+  - **Sauvegarder les fichiers de configuration** : Activer la sauvegarde des fichiers de
     configuration
-  - **Chemin d'accès au fichier de configuration MySQL** Chemin d'accès au fichier de configuration
+  - **Chemin d'accès au fichier de configuration MySQL** : Chemin d'accès au fichier de configuration
     MySQL
-  - **SActiver l'export SCP** Activer l'export des sauvegardes par SCP
-  - **Utilisateur** Utilisateur distant pour l'export SCP
-  - **Hôte distant** Hôte distant pour l'export SCP
-  - **Répertoire distant** Répertoire distant pour l'export SCP
+  - **Activer l'export SCP** : Activer l'export des sauvegardes par SCP. 
+  - **Utilisateur**:  Utilisateur distant pour l'export SCP
+  - **Hôte distant** : Hôte distant pour l'export SCP
+  - **Répertoire distant** : Répertoire distant pour l'export SCP
 
-> **Répertoire temporaire** ne peut pas être un sous répertoire de **Répertoire
+> **Répertoire temporaire** ne peut pas être un sous-répertoire de **Répertoire
 > des sauvegardes**.
 
 ## Restauration d'un serveur central Centreon
 
 Le processus de restauration consiste en deux étapes :
 
-  - Réinstaller la plate-forme suivant le documentation d'installation de
+  - Réinstaller la plate-forme suivant la documentation d'installation de
     Centreon. Ne pas oublier de faire la mise à jour du système.
   - Restaurer les différents fichiers de configuration, puis les bases de
     données Centreon.
@@ -100,7 +99,7 @@ Le processus de restauration consiste en deux étapes :
 ### Restauration des fichiers de configuration de Centreon
 
 Avant de restaurer les bases de données, il faudra restaurer certains fichiers
-de configuration dans un premier temps:
+de configuration dans un premier temps :
 
 ```shell
 cd /var/cache/centreon/backup/
@@ -112,8 +111,8 @@ cp -r * /etc/centreon/
 ### Restauration des bases de données
 
 Une fois le serveur Centreon réinstallé (**même version de Centreon**), il
-suffit de décompresser les sauvegardes des bases de données centreon et
-centreon\_storage.
+suffit de décompresser les sauvegardes des bases de données **centreon** et
+**centreon\_storage**.
 
 Commencez par recréer les bases de données avec les commandes suivantes :
 
@@ -135,11 +134,11 @@ mysql centreon_storage < YYYY-MM-DD-centreon_storage.sql
 ```
 
 Ces opérations peuvent prendre un certain temps du fait de la taille de la base
-"centreon\_storage".
+**centreon\_storage**.
 
 > Le mot de passe (**password** ci-dessus), est stocké dans les fichiers de
 > configuration restaurés précédemment. Par exemple le champ **$mysql\_passwd**
-> dans le fichier "/etc/centreon/conf.pm".
+> dans le fichier **/etc/centreon/conf.pm**.
 
 > Par défaut, il n'y a pas de mot de passe pour le compte root de mysql lors de
 > l'installation d'un serveur via Centreon ISO.
@@ -166,7 +165,7 @@ cp -p id_rsa /var/spool/centreon/.ssh/
 cp -p id_rsa.pub /var/spool/centreon/.ssh/
 ```
 
-Test de connexion du central central vers les satellites:
+Test de connexion du central vers les satellites:
 
 ```shell
 su - centreon
@@ -225,7 +224,7 @@ cp nsca.cfg /etc/centreon-engine/
 ```
 
 > Cette manipulation est à utiliser si et seulement si vous utilisez les agents
-> NRPE ou NSCA. Si vous utiliser NSCA le fichier de configuration à copier n'est
+> NRPE ou NSCA. Si vous utilisez NSCA le fichier de configuration à copier n'est
 > pas nrpe.cfg mais nsca.cfg.
 
 ### Génération de la configuration du central
@@ -240,7 +239,7 @@ en ordre, il faudra reconstruire les fichiers RRD afin de retrouver tous vos
 "anciens" graphiques de performance.
 
 Pour reconstruire les graphiques de performance, il faudra vous rendre dans le
-menu `Administration > Paramètres > Données`. Sur cette page, il
+menu **Administration > Paramètres > Données**. Sur cette page, il
 faudra sélectionner tous les services et cliquer sur **Regénérer les bases de
 données RRD**.
 

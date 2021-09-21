@@ -24,7 +24,7 @@ Servers
 ### NSClient++
 
 To monitor an *Exchange Server* through NRPE, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **NRPE Server** configuration is correct.
 
 ### Powershell 

@@ -75,7 +75,7 @@ environnements.
 >
 > Les autres variables seront surchargées par les variables d'environnement.
 
-### Editer la requête de d'authentification
+### Éditer la requête d'authentification
 
 Pour faire en sorte que la requête d'authentification utilise les identifiants
 précedemment définis, et qu'elle récupère le *token* dans la réponse, il faut

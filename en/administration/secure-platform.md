@@ -177,7 +177,7 @@ and
 
 ```
 chown apache:apache /etc/centreon/centreon.conf.php
-chmod 640 /etc/centreon/centreon.conf.php
+chmod 660 /etc/centreon/centreon.conf.php
 ```
 
 ## Securing the installation of the DBMS
@@ -308,9 +308,14 @@ Status for the jail: centreon
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-self-signed-certificat).
+
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
+
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
 
@@ -559,7 +564,7 @@ If everything is ok, you must have:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Securing the Apache web server with self-signed certificat
+### Securing the Apache web server with a self-signed certificate
 
 Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
 

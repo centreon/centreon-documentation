@@ -43,21 +43,8 @@ Le module est maintenant installé.
 
 ### Sélectionner un fournisseur de service
 
-Le module offre des fournisseurs préconfigurés :
-
--   [BMC Footprints](../integrations/open-tickets/bmc-footprints.html)
--   [BMC Remedy](../integrations/open-tickets/bmc-remedy.html)
--   [EasyVista](../integrations/open-tickets/easyvista.html)
--   [Generic email](../integrations/open-tickets/mail.html)
--   [GLPI](../integrations/open-tickets/glpi.html)
--   [GLPI RestAPI](../integrations/open-tickets/glpi-restapi.html)
--   [iTop](../integrations/open-tickets/itop.html)
--   [IWS Isilog](../integrations/open-tickets/iws-isilog.html)
--   [Jira](../integrations/open-tickets/jira.html)
--   [OTRS RestAPI](../integrations/open-tickets/otrs-restapi.html)
--   [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi.html)
--   [Serena](../integrations/open-tickets/serena.html)
--   [ServiceNow](../integrations/open-tickets/servicenow.html)
+La liste des fournisseurs disponibles est actualisée dans la section de documentation
+dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview.html).
 
 Chaque fournisseur a sa propre configuration, cependant, l'ajout d'un
 fournisseur dans Centreon peut se faire de la manière suivante.
