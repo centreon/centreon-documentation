@@ -19,6 +19,16 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.5
+
+#### Bugfixes
+
+ - [Web-Client] Fixed Graph scale in web interface
+ - [Web-Client] Fixed "Home" icon in geoviews
+ - [Web-Client] Fixed Infrastructure View link (BA)
+ - [Web-Client] Fixed Sorting of maps by alphabetic order
+ - [Web-Client] Fixed Links to hosts/services
+
 ### 20.10.4
 
 `3 mai 2021`
