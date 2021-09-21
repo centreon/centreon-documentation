@@ -21,6 +21,8 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.5
 
+`21 septembre 2021`
+
 #### Correctifs
 
  - [Web-Client] Fixed Graph scale in web interface
