@@ -150,7 +150,7 @@ yum install -y centreon-poller-centreon-engine
 To make services start automatically during system bootup, run the following
 command:
 ``` shell
-systemctl enable centengine centreontrapd snmptrapd
+systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
 Passive monitoring services can be started:
