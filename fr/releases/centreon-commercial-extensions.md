@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.5
 
-#### Bugfixes
+#### Correctifs
 
  - [Web-Client] Fixed Graph scale in web interface
  - [Web-Client] Fixed "Home" icon in geoviews
