@@ -147,7 +147,7 @@ systemctl restart centengine
 ```
 ## Register the server
 
-To register it to the Centreon Central server or a Remote server, execute the following command:
+To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -160,8 +160,7 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
-> want to link your server to it.
+> Replace **<IP_TARGET_NODE>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
 > The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
 

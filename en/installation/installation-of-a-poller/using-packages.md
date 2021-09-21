@@ -165,7 +165,7 @@ systemctl restart centengine
 
 ## Register the server
 
-To register it to the Centreon Central server or a Remote server, execute the following command:
+To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -192,13 +192,12 @@ Example:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
-> want to link your server to it.
+> Replace **<IP_TARGET_NODE>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:

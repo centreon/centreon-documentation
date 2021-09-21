@@ -167,7 +167,7 @@ systemctl restart centengine
 
 ## Enregistrer le serveur
 
-Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
+Pour transformer le serveur en collecteur et l'enregistrer sur le serveur central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -194,8 +194,8 @@ Exemple:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
-> collecteur.
+> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
+> collecteur).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 

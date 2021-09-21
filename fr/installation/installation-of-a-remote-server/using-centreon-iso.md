@@ -169,7 +169,7 @@ Terminez l'installation en réalisant les
 
 ## Enregistrer le Remote Server
 
-Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
+Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -182,7 +182,7 @@ Exemple:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
+> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
