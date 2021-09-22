@@ -673,7 +673,7 @@ systemctl restart httpd24-httpd
 
 Centreon propose plusieurs méthodes pour authentifier les utilisateurs :
 
-- localement (MySQL)
+- [localement](../connect/loginpwd.html) (MySQL)
 - [LDAP](./parameters/ldap.html)
 - [Generic SSO](../connect/sso.html) ou [OpenId Connect](../connect/openid.html)
 

@@ -295,7 +295,7 @@
             {
                 "ids": [
                     "connect/loginpwd",
-                    "connect/ldap",
+                    "administration/parameters/ldap",
                     "connect/sso",
                     "connect/openid",
                     "connect/autologin"
