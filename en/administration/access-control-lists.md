@@ -168,7 +168,7 @@ These fields are no longer in use.
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | Enable/Disable Checks for a service                           | Allows users to enable or disable checks for a service on page **Monitoring > Status details > Services** (deprecated page)                           |
 | Enable/Disable Notifications for a service                    | Allows users to enable or disable notifications for a service  on page **Monitoring > Status details > Services** (deprecated page)                          |
-| Acknowledge a service                                         | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts.html#acknowledging-a-problem]                                                  |
+| Acknowledge a service                                         | Allows users to [acknowledge a service](../alerts-notifications/manage-alerts.html#acknowledging-a-problem)                                                  |
 | Disacknowledge a service | Allows users to disacknowledge a service |
 | Re-schedule the next check for a service                      | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the service's check period.     |
 | Re-schedule the next check for a service (Forced)             | Allows users to [trigger a check on a service](../alerts-notifications/resources-status.html#refresh-a-status). The check is made even outside the service's check period.  |
