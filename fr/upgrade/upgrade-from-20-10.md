@@ -192,7 +192,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 > Si le serveur central Centreon et
 > MariaDB sont hébergés sur le même serveur, sautez cette étape.
 
-Exécutez la comande suivante sur le serveur de base de données dédié :
+Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
 yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
@@ -215,8 +215,6 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     ```
 
 3. Installez la version 10.5 :
-
-    Exemple :
 
     ```shell
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*

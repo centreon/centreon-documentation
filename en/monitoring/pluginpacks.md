@@ -7,7 +7,7 @@ A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
 Applying a Plugin Pack is the easiest way to monitor a host.
 
-Plugin Packs contain 2 elements, which are installed separately:
+Plugin Packs consist of 2 elements, which are installed separately:
 
 - A plugin that executes the monitoring commands from a poller. Plugins are 
 installed using the command line interface.
@@ -149,11 +149,11 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 2. [Deploy](monitoring-servers/deploying-a-configuration.html) the configuration.
 
-### Updating Plugin Packs
+## Updating Plugin Packs
 
 You need to update both the plugin and the pack.
 
-## Updating the pack
+### Updating the pack
 
 If an arrow appears on a Plugin Pack it means that an update is available.
 
@@ -175,7 +175,7 @@ Your pack is up to date.
 
 ![image](../assets/configuration/pluginpacks/update_finish.png)
 
-#### Updating the plugin
+### Updating the plugin
 
 To update the plugins:
 
@@ -193,7 +193,7 @@ To update the plugins:
 > you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
 > If you update the plugins on the Centreon central server, be sure to also update them on each poller.
 
-### Uninstalling Plugin Packs
+## Uninstalling Plugin Packs
 
 As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
 cross:

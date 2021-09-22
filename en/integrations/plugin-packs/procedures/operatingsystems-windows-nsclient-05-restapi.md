@@ -95,7 +95,7 @@ through HTTPS connections.
 ### Centreon NSClient++
 
 To monitor an *Windows Servers* through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../plugin-packs/tutorials/centreon-nsclient-tutorial.html) 
+of the NSClient++ agent. Please follow our [official documentation](../tutorials/centreon-nsclient-tutorial.html) 
 and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ## Installation
