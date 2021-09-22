@@ -119,7 +119,6 @@
                 "ids": [
                    "monitoring/basic-objects/contacts",
                    "monitoring/basic-objects/contacts-create",
-                   "administration/parameters/ldap",
                    "monitoring/basic-objects/contacts-templates",
                    "administration/access-control-lists"
                 ],
@@ -282,6 +281,17 @@
                     "administration/parameters/medias"
                 ],
                 "label": "Parameters",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "connect/loginpwd",
+                    "administration/parameters/ldap",
+                    "connect/sso",
+                    "connect/openid",
+                    "connect/autologin"
+                ],
+                "label": "Configuring the connection to Centreon",
                 "type": "subcategory"
             },
             "administration/extensions",
