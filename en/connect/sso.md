@@ -29,7 +29,7 @@ Here is an example of SSO architecture with LemonLDAP :
 
 10. The SSO handler transfers information to the user.
 
-## Configurer une authentification par SSO
+## Configuring an SSO authentication
 
 1. SSO is managed by Apache: edit the Apache configuration to include the settings you want.
 
