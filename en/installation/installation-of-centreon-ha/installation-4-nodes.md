@@ -1243,6 +1243,30 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+## Modifying the Centreon configuration files
+Following the installation of the cluster and the _vip_mysql_, it is necessary to modify the output of the Centreon Broker and 3 configuration files of the Central. These elements will have to point on the _vip_ in order to always point on the active MariaDB node.
+
+### Modifying Centreon-Broker-master outputs
+This is configured in the Centreon Broker configuration menu in the *Output* tab of *Configuration > Collectors > Centreon Broker Configuration*.
+
+* Modify the "IPv4" output by replacing "@DATABASE_SLAVE_IPADDR@" with @VIP_SQL_IPADDR@ :
+| Output Broker SQL database                                    |                            |
+| ------------------------------------------------------------- | -------------------------- |
+| DB host                                                       | @VIP_SQL_IPADDR@           |
+* Repeat the same operation on the slave node.
+
+### Exporting configuration
+Once the actions in the previous paragraph have been completed, the configuration must be exported (first 3 boxes for the "Central" poller export) for it to be effective.
+
+These actions must be performed either on both nodes or only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
+
+```bash
+rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
+```
+
+### Modifying Central's configuration files
 
 ## Integrating pollers
 
