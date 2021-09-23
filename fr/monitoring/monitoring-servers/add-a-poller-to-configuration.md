@@ -40,7 +40,7 @@ cliquez sur **Suivant** :
 
 5. Reliez le collecteur au central ou à un serveur distant :
 
-   - Si vous souhaitez lier ce collecteur au serveur Centreon Central, cliquez sur
+   - Si vous souhaitez lier ce collecteur au serveur Central, cliquez sur
 **Appliquer** :
 
       ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
