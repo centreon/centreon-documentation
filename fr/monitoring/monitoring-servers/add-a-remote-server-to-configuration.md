@@ -93,7 +93,7 @@ recommandé) ou en utilisant le protocole SSH.
     Depuis la liste des collecteurs, cliquez sur l'icône d'action **Gorgone
     configuration** sur la ligne correspondant à votre serveur distant <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
-    Une pop-in affiche la configuration à copier dans le **terminal du Remote
+    Une pop-in affiche la configuration à copier dans le **terminal du serveur
     Server**.
     Cliquez sur **Copy to clipboard**.
 
