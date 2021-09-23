@@ -41,7 +41,7 @@ Remote Server on the Centreon platform.
       The **Do not check SSL certificate validation** option allows to connect to the
       Remote Server using a self-signed SSL certificate.
 
-      The **Do not use configured proxy tp connect to this server** allows to connect
+      The **Do not use configured proxy to connect to this server** allows to connect
       to the Remote Server without using the proxy configuration of the Centreon
       Central server.
 
