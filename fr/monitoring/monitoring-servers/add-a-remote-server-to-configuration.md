@@ -66,7 +66,7 @@ les informations demandées :
 ## Étape 2 : Activer la communication
 
 La communication entre un Central et un Remote Server est assurée par Gorgone et peut
-être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Remote Server,
+être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le serveur distant,
 recommandé) ou en utilisant le protocole SSH.
 
 <!--DOCUSAURUS_CODE_TABS-->
