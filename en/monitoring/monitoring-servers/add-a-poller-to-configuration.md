@@ -42,7 +42,7 @@ Server. Click on **Next**:
     - If you want to link the poller to an existing Remote Server,
 select one from the list, then click **Apply**.
 
-      > If you want to change the direction of the flow between the Centreon Server
+      > If you want to change the direction of the flow between the Central Server
       > (or the Remote Server and the Poller, check the **Advanced: reverse Centreon
       > Broker communication flow** checkbox. In this case, it will be necessary to
       > export the configuration of the collector as well as the server to which it
