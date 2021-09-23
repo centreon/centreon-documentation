@@ -62,7 +62,7 @@ Remote Server on the Centreon platform.
 
 ## Step 2: Enable communication
 
-The communication between a Central and a Remote Server  is ensured by Gorgone
+The communication between the Central server and a Remote Server  is ensured by Gorgone
 and can be done using ZMQ (with a Gorgone running on the Remote Server,
 recommended) or using SSH protocol.
 
