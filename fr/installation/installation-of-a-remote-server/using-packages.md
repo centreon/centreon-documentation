@@ -383,7 +383,7 @@ Exemple:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
+> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
