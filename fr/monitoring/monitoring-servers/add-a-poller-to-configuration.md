@@ -27,7 +27,7 @@ configuration.
     - **Create new Poller** si vous n'avez pas encore enregistré le collecteur sur le serveur central ou un serveur distant
     - **Select a Poller** si vous avez déjà enregistré le collecteur sur le serveur central ou un serveur distant.
 
-4. Saisissez le nom, l'adresse IP du collecteur et celle du serveur Centreon Central, puis
+4. Saisissez le nom, l'adresse IP du collecteur et celle du serveur Central, puis
 cliquez sur **Suivant** :
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
