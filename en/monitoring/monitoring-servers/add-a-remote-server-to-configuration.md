@@ -35,7 +35,7 @@ Remote Server on the Centreon platform.
 
       The **Server IP address** field is of the following form:
       [(http|https)://]@IP[:(port)]. If your Remote Server is only available on
-      HTTPS, it is mandatory to define the HTTP method and the TCP port is this
+      HTTPS, it is mandatory to define the HTTP method and the TCP port if it is
        not the default one.
 
       The **Do not check SSL certificate validation** option allows to connect to the
