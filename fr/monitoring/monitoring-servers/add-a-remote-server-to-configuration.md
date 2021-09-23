@@ -47,7 +47,7 @@ les informations demandées :
 
       L'option **Do not use configured proxy to connect to this server** permet de
       contacter le serveur distant en n'utilisant pas la configuration du proxy
-      configurée sur le serveur Centreon Central.
+      configurée sur le serveur Central.
 
 4. Cliquez sur **Suivant** :
 
