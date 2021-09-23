@@ -169,7 +169,7 @@ recommended) or using SSH protocol.
 
 3. Restart the Gorgone daemon:
 
-    From the Remote Server, run the following command to restart Gorgone service:
+    From the Remote Server, run the following command to restart the Gorgone service:
 
     ```shell
     systemctl restart gorgoned
