@@ -39,7 +39,7 @@ les informations demandées :
       bases de données Centreon définis durant l'installation de votre serveur distant.
 
       Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
-      Si votre Remote Server est accessible en HTTPS, il est nécessaire de préciser
+      Si votre serveur distant est accessible en HTTPS, il est nécessaire de préciser
       la méthode d'accès et le port si celui-ci n'est pas par défaut.
 
       L'option **Do not check SSL certificate validation** permet de contacter le
