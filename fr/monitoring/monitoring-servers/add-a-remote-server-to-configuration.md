@@ -75,7 +75,7 @@ recommandé) ou en utilisant le protocole SSH.
 
 1. Sélectionner le type de communication :
 
-    Éditez la configuration du Remote Server fraichement créé, et sélectionnez **ZMQ**
+    Éditez la configuration du serveur distant fraîchement créé, et sélectionnez **ZMQ**
     comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port**
     adéquat (le port **5556** est recommandé).
 
