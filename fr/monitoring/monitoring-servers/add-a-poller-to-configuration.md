@@ -53,7 +53,7 @@ cliquez sur **Suivant** :
 
 ## Étape 2 : Activer la communication
 
-La communication entre un Central et un Poller est assurée par Gorgone et peut
+La communication entre le serveur Central et un Poller est assurée par Gorgone et peut
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Poller,
 recommandé) ou en utilisant le protocole SSH.
 
