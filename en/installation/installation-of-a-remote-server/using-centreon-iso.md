@@ -186,7 +186,7 @@ Example:
 > The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:
