@@ -94,7 +94,7 @@ recommandé) ou en utilisant le protocole SSH.
     configuration** sur la ligne correspondant à votre serveur distant <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
 
     Une pop-in affiche la configuration à copier dans le **terminal du serveur
-    Server**.
+    distant**.
     Cliquez sur **Copy to clipboard**.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
