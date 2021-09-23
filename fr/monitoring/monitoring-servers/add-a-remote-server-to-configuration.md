@@ -167,7 +167,7 @@ recommandé) ou en utilisant le protocole SSH.
 
     Appuyer sur la touche *Entrée* pour que la commande soit appliquée.
 
-    > Vous pouvez copier la configuration en sélectionnant le contenu de la popin
+    > Vous pouvez copier la configuration en sélectionnant le contenu de la pop-in
     > pour la copier dans un fichier de configuration personnalisé.
 
 3. Démarrer le daemon Gorgone :
