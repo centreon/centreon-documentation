@@ -194,7 +194,7 @@ Exemple:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
+> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
 > collecteur).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
