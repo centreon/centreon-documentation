@@ -35,7 +35,7 @@ Server. Click on **Next**:
 
 5. Link the poller to the central server or to a remote server:
 
-    - If you want to link the poller to the Centreon Server, click **Apply**:
+    - If you want to link the poller to the Central Server, click **Apply**:
 
       ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
