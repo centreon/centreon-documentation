@@ -51,7 +51,7 @@ les informations demandées :
 
 4. Cliquez sur **Suivant** :
 
-5. Sélectionnez le(s) collecteur(s) à lier à ce Remote Server. Puis cliquez sur **Appliquer** :
+5. Sélectionnez le(s) collecteur(s) à lier à ce serveur distant. Puis cliquez sur **Appliquer** :
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-3.png)
 
