@@ -152,7 +152,7 @@ yum install -y centreon-poller-centreon-engine
 Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivant :
 ```shell
-systemctl enable centengine centreontrapd snmptrapd
+systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
 Les services de supervision passive peuvent être démarrés :
