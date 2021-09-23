@@ -165,7 +165,7 @@ recommended) or using SSH protocol.
     Hit the *Enter* key for the command to be applied.
 
     > You can copy the configuration in a custom file by copying the content from
-    > the popin.
+    > the pop-in.
 
 3. Restart the Gorgone daemon:
 
