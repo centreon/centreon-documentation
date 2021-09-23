@@ -36,7 +36,7 @@ les informations demandées :
 
       Les champs **Nom de l'utilisateur ayant accès à la base de données** et **Mot de
       passe de l'utilisateur ayant accès à la base de données** sont les accès aux
-      bases de données Centreon définis durant l'installation de votre Remote Server.
+      bases de données Centreon définis durant l'installation de votre serveur distant.
 
       Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
       Si votre Remote Server est accessible en HTTPS, il est nécessaire de préciser
