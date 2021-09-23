@@ -54,7 +54,7 @@ select one from the list, then click **Apply**.
 
 ## Step 2: Enable communication
 
-The communication between a Central and a Poller is ensured by Gorgone and can
+The communication between the Central server and a Poller is ensured by Gorgone and can
 be done using ZMQ (with a Gorgone running on the Poller, recommended) or using
 SSH protocol.
 
