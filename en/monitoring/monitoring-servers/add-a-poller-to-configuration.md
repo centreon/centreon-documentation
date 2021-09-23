@@ -135,7 +135,7 @@ SSH protocol.
     systemctl status gorgoned
     ```
 
-    It should result as follow:
+    It should result as follows:
 
     ``` shell
     ● gorgoned.service - Centreon Gorgone
