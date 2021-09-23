@@ -46,7 +46,7 @@ les informations demandées :
       serveur distant si celui-ci possède un certificat SSL auto-signé.
 
       L'option **Do not use configured proxy to connect to this server** permet de
-      contacter le Remote Server en n'utilisant pas la configuration du proxy
+      contacter le serveur distant en n'utilisant pas la configuration du proxy
       configurée sur le serveur Centreon Central.
 
 4. Cliquez sur **Suivant** :
