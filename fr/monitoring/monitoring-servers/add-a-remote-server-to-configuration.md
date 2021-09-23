@@ -43,7 +43,7 @@ les informations demandées :
       la méthode d'accès et le port si celui-ci n'est pas par défaut.
 
       L'option **Do not check SSL certificate validation** permet de contacter le
-      Remote Server si celui-ci possède un certificat SSL auto-signé.
+      serveur distant si celui-ci possède un certificat SSL auto-signé.
 
       L'option **Do not use configured proxy to connect to this server** permet de
       contacter le Remote Server en n'utilisant pas la configuration du proxy
