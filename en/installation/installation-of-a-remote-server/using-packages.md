@@ -386,7 +386,7 @@ Example:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Replace **<IP_TARGET_NODE>** by the IP of the central or remote server you want to link the remote server to (IP as seen by the remote server).
+> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
 
 > The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
