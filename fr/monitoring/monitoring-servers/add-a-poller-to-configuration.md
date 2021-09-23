@@ -33,7 +33,7 @@ cliquez sur **Suivant** :
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
     > L'adresse IP du collecteur est l'adresse IP ou le FQDN pour accéder au
-    > collecteur depuis le serveur Centreon Central.
+    > collecteur depuis le serveur Central.
     >
     > L'adresse IP du serveur Centreon Central est l'adresse IP ou le FQDN pour accéder au
     > serveur Centreon Central depuis le collecteur.
