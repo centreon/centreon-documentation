@@ -36,7 +36,7 @@ cliquez sur **Suivant** :
     > collecteur depuis le serveur Central.
     >
     > L'adresse IP du serveur Central est l'adresse IP ou le FQDN pour accéder au
-    > serveur Centreon Central depuis le collecteur.
+    > serveur Central depuis le collecteur.
 
 5. Reliez le collecteur au central ou à un serveur distant :
 
