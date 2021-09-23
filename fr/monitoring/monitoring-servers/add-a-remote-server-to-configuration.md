@@ -59,7 +59,7 @@ les informations demandées :
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-remote-4.png)
 
-    Le Remote Server est maintenant configuré :
+    Le serveur distant est maintenant configuré :
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq.png)
 
