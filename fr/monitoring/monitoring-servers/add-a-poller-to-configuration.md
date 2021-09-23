@@ -35,7 +35,7 @@ cliquez sur **Suivant** :
     > L'adresse IP du collecteur est l'adresse IP ou le FQDN pour accéder au
     > collecteur depuis le serveur Central.
     >
-    > L'adresse IP du serveur Centreon Central est l'adresse IP ou le FQDN pour accéder au
+    > L'adresse IP du serveur Central est l'adresse IP ou le FQDN pour accéder au
     > serveur Centreon Central depuis le collecteur.
 
 5. Reliez le collecteur au central ou à un serveur distant :
