@@ -123,7 +123,7 @@ SSH protocol.
 
 3. Start the Gorgone daemon:
 
-    From the Poller, run the following command to start Gorgone service:
+    From the Poller, run the following command to start the Gorgone service:
 
     ``` shell
     systemctl start gorgoned
