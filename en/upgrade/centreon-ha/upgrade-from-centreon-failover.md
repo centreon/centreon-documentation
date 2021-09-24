@@ -47,7 +47,7 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 > **WARNING:** Make sure to check on both Central and Database servers. 
 
-## Upgrade MariaDB / MySQL
+## Upgrade MariaDB
 
 Centreon >= 21.04 comes with a compatibility with MariaDB 10.5.
 

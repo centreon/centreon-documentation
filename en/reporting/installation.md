@@ -133,9 +133,9 @@ considerations.
 | File system                  | Size                                                                                      |
 |------------------------------|-------------------------------------------------------------------------------------------|
 | /                            | 5GB minimum                                                                               |
-| /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)                      |
+| /var (containing MariaDB data) | Use the result of the above disk-space simulation file MariaDB data)                      |
 | MariaDB temp folder          | We recommand keeping it in /var                                                           |
-| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data** |
+| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB DBMS **data** |
 
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
