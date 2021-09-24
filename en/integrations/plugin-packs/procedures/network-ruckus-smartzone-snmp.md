@@ -141,7 +141,7 @@ yum install centreon-pack-network-ruckus-smartzone-snmp.noarch
 * Log into Centreon and add a new Host through "Configuration > Hosts".
 * Apply the template "Net-Ruckus-Smartzone-SNMP-custom" and configure the 'SNMP Community' and 'SNMP Version' fields to match the device configuration.
 
-:warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro :
+⚠️ When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro :
 
 | Mandatory   | Nom              | Description                                                                |
 | :---------- | :--------------- | :------------------------------------------------------------------------- |

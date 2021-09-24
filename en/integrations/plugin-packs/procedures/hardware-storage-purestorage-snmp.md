@@ -77,7 +77,7 @@ yum install centreon-pack-hardware-storage-purestorage-snmp
 Apply the "HW-Storage-Purestorage-SNMP-custom" template to your newly created host.
 In the host creation form on the Centreon Web interface, it is necessary to set the proper values in the "SNMP Community" and "SNMP Version" fields.
 
-:warning: If you are using SNMP version 3, select the relevant SNMP version and configure the SNMP v3 parameters in the SNMPEXTRAOPTIONS Macro field.
+⚠️ If you are using SNMP version 3, select the relevant SNMP version and configure the SNMP v3 parameters in the SNMPEXTRAOPTIONS Macro field.
 
 | Mandatory | Name             | Description                        |
 | :-------- | :--------------- | :--------------------------------- |

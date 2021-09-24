@@ -65,7 +65,7 @@ Plugin-Packs \> Manager" menu:
 
 ![install\_epp](../../assets/integrations/external/skylight-pvx-epp-install.png)
 
-> :warning: **If you are using an offline IMP license**: Make sure to install
+> ⚠️ **If you are using an offline IMP license**: Make sure to install
 > the package RPM first with command below
 
 `[root@cps-demo-central ~]# yum install -y
