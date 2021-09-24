@@ -97,7 +97,7 @@ You're free to organize the remaining files (your module's content) as you like.
 
 ## Advanced
 
-  > :warning: **This section is deprecated, please refer to
+  > ⚠️ **This section is deprecated, please refer to
   > the [dummy repository documentation](https://github.com/centreon/centreon-dummy/blob/master/README.md)**
 
 That's great, you know how to install a module! As an empty module is not really useful, put your imagination at work.
