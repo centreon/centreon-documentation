@@ -398,7 +398,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
 
-### Sécuriser la base MySQL
+### Sécuriser la base de données
 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon. Répondez oui à toute question sauf à "Disallow root login remotely?".

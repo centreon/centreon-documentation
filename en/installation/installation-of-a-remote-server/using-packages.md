@@ -308,7 +308,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
 
-### Secure MySQL installation
+### Secure the database
 
 If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
 before installing Centreon.

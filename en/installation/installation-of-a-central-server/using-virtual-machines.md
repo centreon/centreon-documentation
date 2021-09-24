@@ -135,7 +135,7 @@ The host machine must have the following characteristics:
         hostnamectl set-hostname supervision
         ```
 
-5. Add a MySQL table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
+5. Add a MariaDB table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
 
     1. Connect as user `centreon`: 
     
@@ -179,7 +179,7 @@ The host machine must have the following characteristics:
 
 9. [Update](../../update/update-centreon-platform.html) your Centreon platform.
 
-9. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MySQL database.
+9. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MariaDB database.
 
 10. You can now [monitor your first host](../../getting-started/first-supervision.html).
 

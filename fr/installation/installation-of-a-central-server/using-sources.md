@@ -685,7 +685,7 @@ mv * /usr/lib/centreon/plugins/
 
 Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
-### Sécurisez l'installation MySQL
+### Sécurisez la base de données
 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.

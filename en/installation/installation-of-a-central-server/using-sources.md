@@ -690,7 +690,7 @@ mv * /usr/lib/centreon/plugins/
 
 Please install Centreon Gorgone using [this procedure](https://github.com/centreon/centreon-gorgone/blob/master/docs/getting_started.md#installation).
 
-### Secure MySQL installation
+### Secure the database
 
 Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.

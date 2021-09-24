@@ -144,7 +144,7 @@ on the central server:
 systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
-### Secure MySQL installation
+### Secure the database
 
 Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.

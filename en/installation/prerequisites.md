@@ -38,7 +38,7 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 
 ### DBMS
 
-> Centreon advises you to use MariaDB.
+> Centreon supports MariaDB. You can use another DBMS based on MySQL, but it will only be supported by the community.
 
 | Software | Version |
 |----------|---------|
