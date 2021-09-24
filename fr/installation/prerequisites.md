@@ -38,7 +38,7 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 
 ### SGBD
 
-> Centreon vous recommande d'utiliser MariaDB.
+> Centreon supporte MariaDB. Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
 
 | Logiciel | Version |
 |----------|---------|
