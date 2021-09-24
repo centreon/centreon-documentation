@@ -127,12 +127,12 @@ La ligne de commande exécute la procédure suivante :
 
 Des vérifications doivent être faites avant :
 
-  - L’espace disponible sur le volume sur lequel se trouvent les bases MySQL
+  - L’espace disponible sur le volume sur lequel se trouvent les bases MariaDB
     doit être suffisant pour contenir deux fois la taille des tables traitées
     (Index + données).
   - Les tables ne doivent pas contenir de données dans le futur (le temps est un
     facteur clé pour la mise en place du partitionnement).
-  - La mémoire sur le serveur MySQL doit être suffisante.
+  - La mémoire sur le serveur MariaDB doit être suffisante.
 
 > Les requêtes/instructions ‘SELECT INSERT’ vont verrouiller la table et
 > probablement certains traitements.

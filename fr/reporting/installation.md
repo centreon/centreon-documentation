@@ -134,7 +134,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 | /                              | 5GB minimum                                                                                  |
 | /var (containing MariaDB data) | utiliser le résultat du fichier de simulation de l'espace disque ci-dessus                   |
 | Dossier temporaire de MariaDB  | Fortement recommandé de le positionner dans /var                                             |
-| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MySQL/MariaDB. |
+| Volume group*                  | 5G minimum d'espace libre sur le **Volume groupe** hébergeant les **données** MariaDB. |
 
 Pour controler l'espace libre, utiliser la commande suivante en remplaçant
 **vg_data** par le nom du volume groupe:

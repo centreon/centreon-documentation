@@ -32,8 +32,8 @@ Il y a deux types de sauvegarde :
   - MySQLdump : la commande mysqldump est utilisée pour sauvegarder la base de
     données. Attention, cette commande peut prendre un certain temps si la base
     est volumineuse.
-  - LVM Snapshot : Copie binaire des fichiers MySQL. Vous devez avoir un volume
-    logique dédié à MySQL (ex: /var/lib/mysql) et 1Go d'espace disponible dans
+  - LVM Snapshot : Copie binaire des fichiers MariaDB. Vous devez avoir un volume
+    logique dédié à MariaDB (ex: /var/lib/mysql) et 1Go d'espace disponible dans
     son groupe de volumes.
 
 Format de la sauvegarde :
