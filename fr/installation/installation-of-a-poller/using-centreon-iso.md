@@ -147,7 +147,7 @@ systemctl restart centengine
 
 ## Enregistrer le serveur
 
-Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
+Pour transformer le serveur en collecteur et l'enregistrer sur le serveur Central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -160,13 +160,12 @@ Exemple:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
-> collecteur.
+> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le collecteur).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Suivre ensuite les instructions
 

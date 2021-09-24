@@ -168,7 +168,7 @@ Conclude installation by performing [web installation steps](../web-and-post-ins
 
 ## Register the server
 
-To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
+To transform the server into a Remote Server and register it to the Central server, execute the following command on the future remote server:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -181,12 +181,12 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:
