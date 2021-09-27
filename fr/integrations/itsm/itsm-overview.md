@@ -19,6 +19,6 @@ Les interconnexions disponibles sont les suivantes :
 * [IWS Isilog](ot-iws-isilog.html)
 * [Jira](ot-jira.html)
 * [OTRS RestAPI](ot-otrs-restapi.html)
-* [Request Tracker RestAPI](ot-request-tracker2.html)
+* [Request Tracker RestAPI](ot-request-tracker-restapi.html)
 * [Serena](ot-serena.html)
 * [ServiceNow](ot-servicenow.html)
