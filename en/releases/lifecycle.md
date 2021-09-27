@@ -3,29 +3,30 @@ id: lifecycle
 title: Products lifecycle policy
 ---
 
-Starting with Centreon version 18.10, Centreon will publish new releases of the
-Centreon solution at regular intervals, enabling the community, businesses and
+Centreon has been publishing new releases of the
+Centreon solution at regular intervals since version 18.10, enabling the community, businesses and
 developers to plan their roadmaps with the guarantee of upstream visibility on the
 latest open source capabilities.
 
 ## Version number format: YY.MM
 
 Releases of Centreon are named according to the year and period of delivery.
-For example, Centreon 21.04 was released in spring 2020. All modules and
-components of the Centreon software suite use the same versions.
+For example, Centreon 21.04 was released in spring 2021. All modules and
+components of the Centreon software suite use the same version numbers.
 
 ## Release frequency
 
-Centreon’s action plan is to deliver two major releases per year. The first
-will occur in the spring while the second, will be in the fall. Between these two,
-Centreon will regularly deliver minor updates, including security/vulnerability fixes, 
-bug fixes and enhancements to the software.
+Centreon delivers two releases per year. The first
+will occur in the spring and will be major (including new products or features as well as larger architecture changes),
+while the second will be in the fall and will be minor (including primarily enhancements and fixes to existing features). 
+Between these two, Centreon will regularly deliver minor updates (versioned YY.MM.NN), 
+including security/vulnerability fixes, bug fixes and enhancements to the software.
 
 ## Maintenance and security updates
 
 ### Until version 21.04
 
-Until version 21.04 (included), versions are supported for 18 months. The lifecycle of a version is divided into three phases:
+Version 21.04 and prior versions have been supported for 18 months. The lifecycle of a version is divided into three phases:
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority.
@@ -33,32 +34,32 @@ Until version 21.04 (included), versions are supported for 18 months. The lifecy
     fixed according to their priority.
 3.  Third phase: Blockers or security issues are fixed according to their priority.
 
-> The severity and prioritization of bugs are the Centreon team's responsibility.
+> Prioritization is made by Centreon’s product team.
 
-The first phase begins the lifecycle of the release.
+The first phase of the lifecycle begins on the day of a version release.
 
 The second phase of a version begins when the next major version is available.
-For example, the release of Centreon 21.04 starts the second phase of Centreon
+For example, the release of Centreon 21.04 triggers the second phase of Centreon
 20.10.
 
 The third phase of a version begins when the second next major version is
-available. For example, the release of Centreon 21.04 starts the third phase of
+available. For example, the release of Centreon 21.04 triggers the third phase of
 Centreon 20.04 and the second phase of Centreon 20.10.
 
 ### From version 21.10
 
-From version 21.10, versions are supported for 2 years. The lifecycle of a version is divided into 2 phases, lasting one year each.
+From version 21.10, versions are supported for 2 years. The lifecycle of a version is divided into 2 phases of 12 months each.
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority.
 2.  Second phase: Major, critical bugs and blockers, or security issues are
     fixed according to their priority.
 
-> The severity and prioritization of bugs are the Centreon team's responsibility.
+> Prioritization is made by Centreon’s product team.
 
 ### Schema
 
-This schema shows the Centreon lifecycle:
+This diagram outlines the Centreon version lifecycle policy:
 
 ![image](../assets/releases/lifecycle.png)
 
@@ -67,7 +68,7 @@ This schema shows the Centreon lifecycle:
 > Any other products not described in the following tables are no longer supported
 > by Centreon.
 
-### Centreon OSS 3.4
+### Centreon OSS
 
 | Product                 | Version  | Release date | End of life    | State         |
 | ----------------------- | -------- | ------------ | -------------- | ------------- |
@@ -81,7 +82,7 @@ This schema shows the Centreon lifecycle:
 | Centreon Widgets        | 1.x      | N/A          | Centreon 20.04 | Not supported |
 | Centreon Plugins        | YYYYMMDD | N/A          | Centreon 20.04 | Not supported |
 
-### Centreon IMP 3.4
+### Centreon IMP
 
 | Product                       | Version | Release date | End of life    | State           |
 | ----------------------------- | ------- | ------------ | -------------- | --------------- |
@@ -90,7 +91,7 @@ This schema shows the Centreon lifecycle:
 | Centreon Plugin Packs Manager | 2.4.x   | 2018/05/30   | Centreon 20.04 | Not supported   |
 | Plugin Packs                  | 3.x     | N/A          | N/A            | All issues      |
 
-### Centreon EMS 3.4
+### Centreon EMS
 
 | Product                 | Version | Release date | End of life    | State                     |
 | ----------------------- | ------- | ------------ | -------------- | ------------------------- |
