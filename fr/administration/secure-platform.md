@@ -591,6 +591,7 @@ vim /etc/httpd/conf.d/10-centreon.conf
 ```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 et modifiez le chemin **/centreon** par le nouveau.
 
