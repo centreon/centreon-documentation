@@ -3,8 +3,8 @@ id: lifecycle
 title: Politique de cycle de vie des solutions
 ---
 
-À partir de Centreon 18.10, la société Centreon publiera de nouvelles versions
-de Centreon sur une cadence régulière, permettant à la communauté, aux
+La société Centreon publie de nouvelles versions
+de Centreon sur une cadence régulière depuis Centreon 18.10, permettant à la communauté, aux
 entreprises et aux développeurs de planifier leurs feuilles de route avec la
 certitude d’avoir de la visibilité en amont sur les nouvelles capacités offertes par l'open source.
 
@@ -12,22 +12,24 @@ certitude d’avoir de la visibilité en amont sur les nouvelles capacités offe
 
 Les versions de Centreon sont nommées par l'année et la période de livraison : XX.04 pour la version de printemps,
 et XX.10 pour la version d'automne. Par
-exemple, Centreon 21.04 a été livrée au printemps 2020. Tous les modules et
+exemple, Centreon 21.04 a été livrée au printemps 2021. Tous les modules et
 composants de la collection de logiciels Centreon possèdent le même numéro de
 version.
 
 ## Cadence de publication
 
-La société Centreon prévoit de publier 2 versions par an, la première au printemps
-et la seconde en automne. Entre ces deux versions majeures, Centreon fournira de
-manière régulière des versions mineures, y compris des correctifs de sécurité,
+La société Centreon publie 2 versions par an. La première sera un version majeure, livrée au printemps
+(comprenant de nouveaux produits ou fonctionnalités ainsi que des changements d'architecture).
+La seconde sera une version mineure, livrée en automne (apportant majoritairement des améliorations et des 
+correctifs aux fonctionnlaités existantes). Entre ces deux versions majeures, Centreon fournira de
+manière régulière des versions mineures (numérotées AA.MM.NN), y compris des correctifs de sécurité,
 des correctifs et améliorations.
 
 ## Mises à jour de maintenance et de sécurité
 
 ### Jusqu'à la version 21.04
 
-Jusqu'à la version 21.04 incluse, les versions sont supportées pendant 18 mois. Le cycle de vie d'une version est divisé en 3 phases :
+Jusqu'à la version 21.04 incluse, les versions étaient supportées pendant 18 mois. Le cycle de vie d'une version est divisé en 3 phases :
 
 1.  Première phase : bogues de toute criticité (minor, major, critical,
     blocking) et correction de sécurité seront traités par priorité
@@ -35,10 +37,10 @@ Jusqu'à la version 21.04 incluse, les versions sont supportées pendant 18 mois
     critical et blocking seront traités par priorité
 3. Troisième phase : bogues et correction de sécurité de criticité blocking seront traités par priorité.
 
-> La gravité et la hiérarchisation des bogues sont la responsabilité de l'équipe
+> La priorisation des bogues est faite par l'équipe produit
 > Centreon.
 
-La première phase commence le cycle de vie de la version.
+La première phase du cycle de vie commence le jour de la sortie de la version.
 
 La deuxième phase d'une version commence lorsque la prochaine version majeure
 est disponible. Par exemple, la publication de Centreon 21.04 lance la deuxième
@@ -50,20 +52,19 @@ troisième phase de Centreon 20.04 et la deuxième phase de Centreon 20.10.
 
 ### À partir de la version 21.10
 
-À partir de la version 21.10, les versions sont supportées pendant 2 ans. Le cycle de vie d'une version est divisé en 2 phases d'un an chacune.
+À partir de la version 21.10, les versions sont supportées pendant 2 ans. Le cycle de vie d'une version est divisé en 2 phases de douze mois chacune.
 
 1.  Première phase : bogues de toute criticité (minor, major, critical,
     blocking) et correction de sécurité seront traités par priorité
 2.  Seconde phase : bogues et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
 
-> La gravité et la hiérarchisation des bogues sont la responsabilité de l'équipe
+> La priorisation des bogues est faite par l'équipe produit
 > Centreon.
-
 
 ### Schéma
 
-Le schéma suivant présente le cycle de vie Centreon :
+Le schéma suivant présente le cycle de vie des produits Centreon :
 
 ![image](../assets/releases/lifecycle.png)
 
@@ -72,7 +73,7 @@ Le schéma suivant présente le cycle de vie Centreon :
 > Tous les autres produits non décrits dans les tableaux suivants ne sont plus
 > pris en charge par Centreon.
 
-### Centreon OSS 3.4
+### Centreon OSS
 
 | Product                 | Version  | Release date | End of life    | State         |
 | ----------------------- | -------- | ------------ | -------------- | ------------- |
@@ -86,7 +87,7 @@ Le schéma suivant présente le cycle de vie Centreon :
 | Centreon Widgets        | 1.x      | N/A          | Centreon 20.04 | Not supported |
 | Centreon Plugins        | YYYYMMDD | N/A          | Centreon 20.04 | Not supported |
 
-### Centreon IMP 3.4
+### Centreon IMP
 
 | Product                       | Version | Release date | End of life    | State           |
 | ----------------------------- | ------- | ------------ | -------------- | --------------- |
@@ -95,7 +96,7 @@ Le schéma suivant présente le cycle de vie Centreon :
 | Centreon Plugin Packs Manager | 2.4.x   | 2018/05/30   | Centreon 20.04 | Not supported   |
 | Plugin Packs                  | 3.x     | N/A          | N/A            | All issues      |
 
-### Centreon EMS 3.4
+### Centreon EMS
 
 | Product                 | Version | Release date | End of life    | State                     |
 | ----------------------- | ------- | ------------ | -------------- | ------------------------- |

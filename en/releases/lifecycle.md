@@ -57,7 +57,7 @@ From version 21.10, versions are supported for 2 years. The lifecycle of a versi
 
 > Prioritization is made by Centreon’s product team.
 
-### Schema
+### Version lifecycle diagram
 
 This diagram outlines the Centreon version lifecycle policy:
 
