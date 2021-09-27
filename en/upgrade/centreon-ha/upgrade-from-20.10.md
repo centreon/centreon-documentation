@@ -150,112 +150,64 @@ systemctl restart cbd
 
 The MariaDB components can now be upgraded.
 
-Be aware that MariaDB strongly recommends to upgrade the server through each
-major release. Please refer to the [official MariaDB
-documentation](https://mariadb.com/kb/en/upgrading/) for further information.
-
-You then need to upgrade from 10.3 to 10.4 and from 10.4 to 10.5.
-
-That is why Centreon provides both 10.4 and 10.5 versions on its stable
-repositories.
-
 > Refer to the official MariaDB documentation to know more about this process:
 >
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
+> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
 
 > **WARNING** the following commands must be executed firstly on the active database node. Once the active database node is in 10.5, you can upgrade the passive database node.
 
-#### Upgrade from 10.3 to 10.4
+#### Upgrading MariaDB
 
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB.
-
-1. Stop the mariadb service:
-
-    ```shell
-    mysqladmin -p shutdwon
-    ```
-
-2. Uninstall current 10.3 version (MariaDB-shared):
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Install 10.4 version:
-
-    ```shell
-    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
-    ```
-
-4. Move the configuration file:
-
-    ```shell
-     mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
-    ```
-
-5. Start the mariadb service:
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-6. Launch the MariaDB upgrade process:
-
-    ```shell
-    mysql_upgrade -p
-    ```
-
-> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
-
-#### Upgrade from 10.4 to 10.5
-
-Follow those summarized steps to perform the upgrade in the way recommended by
-MariaDB:
+You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
 
 1. Stop the mariadb service:
 
     ```shell
-    mysqladmin -p shutdwon
+    systemctl stop mariadb
     ```
 
-2. Uninstall current 10.4 version:
+2. Uninstall the current version (MariaDB-shared is possibly not installed, remove it from this command if it's the case):
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
+    or if MariaDB-shared not installed:
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-compat MariaDB-common
+    ```
 
-3. Install 10.5 version:
+3. Install version 10.5:
 
     ```shell
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
 
-4. Move the configuration file:
-
-    ```shell
-     mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
-    ```
-
-5. Start the mariadb service:
+4. Start the mariadb service:
 
     ```shell
     systemctl start mariadb
     ```
 
-6. Launch the MariaDB upgrade process:
+5. Launch the MariaDB upgrade process:
 
     ```shell
-    mysql_upgrade -p
+    mysql_upgrade
+    ```
+    
+    If your database is password-protected, enter:
+
+    ```shell
+    mysql_upgrade -u <database_admin_user> -p
     ```
 
-You may not use the option `-p` for `mysqladmin` and `mysql_upgrade` commands
-if you haven't securize your database server.
+    Example: if your database_admin_user is `root`, enter:
 
-> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-> if errors occur during this last step.
+    ```
+    mysql_upgrade -u root -p
+    ```
+
+    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+    > for more information or if errors occur during this last step.
 
 #### Restart MariaDB Replication
 
@@ -376,10 +328,10 @@ Active resources:
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER@ @CENTRAL_SLAVE_NAME@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER@
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
      gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
      centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
@@ -388,7 +340,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
  Clone Set: php7-clone [php7]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
