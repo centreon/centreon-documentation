@@ -26,6 +26,7 @@ const links = {
   twitter: 'https://twitter.com/CentreonFR/',
   linkedin: 'https://www.linkedin.com/company/merethis/',
   contribute: 'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
+  banner: 'https://events.centreon.com/centreon-summit-2021?utm_source=CentreonSummit_Website&utm_campaign=CentreonSummit2021',
 }
 
 const stringsAndParagraphs = {
@@ -102,6 +103,18 @@ function ExcellenceBlock() {
   )
 }
 
+function SummitBlock() {
+  return (
+    <div className="containerBlockBanner">
+      <div className="imageSectionBanner">
+        <a href={links.banner} target={'_blank'}>
+          <Image imageSrc={"summit-banner-fr.png"} />
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function PrerequisiteBlock() {
   return (
     <div className="containerBlockPrerequisite">
@@ -162,16 +175,16 @@ function CommunityBlock() {
       <h2 className="titleSectionCommunity">{stringsAndParagraphs.communityBlock.title}</h2>
       <div className="cardBar">
         <ul className="socialSet">
-          <a href={links.slack}>
+          <a href={links.slack} target={'_blank'}>
             <li><Image imageSrc={'social-network/slack.svg'} /></li>
           </a>
-          <a href={links.github}>
+          <a href={links.github} target={'_blank'}>
             <li><Image imageSrc={'social-network/github.svg'} /></li>
           </a>
-          <a href={links.twitter}>
+          <a href={links.twitter} target={'_blank'}>
             <li><Image imageSrc={'social-network/twitter.svg'} /></li>
           </a>
-          <a href={links.linkedin}>
+          <a href={links.linkedin} target={'_blank'}>
             <li><Image imageSrc={'social-network/linkedin.svg'} /></li>
           </a>
         </ul>
@@ -200,6 +213,9 @@ function Homepage() {
       <React.Fragment>
         <Container className={classesDefaultContainer + ` bgLightBlue`}>
           <ExcellenceBlock />
+        </Container>
+        <Container className={classesDefaultContainer + ` bannerCustom`}>
+        <SummitBlock />
         </Container>
         <Container className={classesDefaultContainer + ` homepageCustom`}>
           <PrerequisiteBlock />
