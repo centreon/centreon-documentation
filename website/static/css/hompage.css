@@ -209,6 +209,17 @@
   text-align: center;  
 }
 
+.bannerCustom {
+  padding: 0;
+  background: #0072ce;
+}
+
+.bannerCustom > .wrapper {
+  max-width: 1200px;
+  padding: 10px 0;
+  min-width: fit-content;
+}
+
 @media only screen and (max-width: 769px) {
   .homepageCustom .containerContentPrerequisite {
     text-align: center;
