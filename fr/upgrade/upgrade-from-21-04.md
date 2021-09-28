@@ -16,6 +16,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
+
 ## Montée de version du serveur Centreon Central
 
 ### Mise à jour des dépôts
