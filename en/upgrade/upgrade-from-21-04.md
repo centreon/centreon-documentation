@@ -191,7 +191,7 @@ Run the following command:
 dnf install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 <!--CentOS 7-->
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
