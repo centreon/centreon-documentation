@@ -69,7 +69,7 @@ systemctl disable firewalld
 
 #### Dépôt remi
 
-Afin d'installer les logiciels Centreon, le dépôt remi doit être installé.
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / CentOS 8 / Oracle Linux 8-->

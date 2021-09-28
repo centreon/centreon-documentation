@@ -38,7 +38,7 @@ Centreon 21.10 utilise PHP en version 8.0.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-Vous devez tout d'abord installer les dépôt remi:
+Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
@@ -50,7 +50,7 @@ dnf module reset php
 dnf module install php:remi-8.0
 ```
 <!--CentOS 7-->
-Vous devez tout d'abord installer les dépôt remi:
+Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
@@ -70,7 +70,7 @@ Arrêter le processus Centreon Broker :
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présent :
+Supprimer les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -97,7 +97,7 @@ systemctl enable php-fpm
 systemctl restart php-fpm
 ```
 <!--CentOS 7-->
-Le fuseau horaire par défaut de PHP 8 doit être configuré. Executez la commande suivante :
+Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```

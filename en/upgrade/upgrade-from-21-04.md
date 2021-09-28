@@ -32,11 +32,11 @@ dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/ce
 
 ### Upgrade PHP
 
-Centreon 21.10 use PHP in version 8.0.
+Centreon 21.10 uses PHP in version 8.0.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-First, you need to install remi repository:
+First, you need to install the **remi** repository:
 ```shell
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
@@ -48,11 +48,11 @@ dnf module reset php
 dnf module install php:remi-8.0
 ```
 <!--CentOS 7-->
-First, you need to install remi repository:
+First, you need to install the **remi** repository:
 ```shell
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
-Then, you need to enable php 8.0 repository
+Then, you need to enable the php 8.0 repository
 ```shell
 yum-config-manager --enable remi-php80
 ```

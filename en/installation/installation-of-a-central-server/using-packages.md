@@ -74,7 +74,7 @@ systemctl disable firewalld
 
 #### Remi repository
 
-To install Centreon you will need to install remi repository.
+To install Centreon you will need to install the **remi** repository.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
