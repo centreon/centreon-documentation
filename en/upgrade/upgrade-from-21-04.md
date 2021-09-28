@@ -16,6 +16,7 @@ servers:
 
 - Central server
 - Database server
+
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
