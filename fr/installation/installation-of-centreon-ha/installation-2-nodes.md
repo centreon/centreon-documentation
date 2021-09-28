@@ -762,11 +762,11 @@ Certaines ressources ne doivent être démarrées que sur un seul nœud, mais po
 
 > **Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des deux nœuds centraux.
 
-##### PHP7
+##### PHP8
 
 ```bash
-pcs resource create "php7" \
-	systemd:rh-php73-php-fpm \
+pcs resource create "php8" \
+	systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \

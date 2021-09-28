@@ -63,64 +63,30 @@ systemctl disable firewalld
 
 ### Install the repositories
 
+#### Remi repository
+
+To install Centreon you will need to install remi repository.
+
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
-#### Redhat CodeReady Builder repository
-
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
-
-Enable the CodeReady Builder repository using these commands:
+<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
+Run the following commands:
 
 ```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
 ```
-<!--CentOS 8-->
-#### Redhat PowerTools repository
 
-To install Centreon you will need to enable the official PowerTools repository
-supported by Redhat.
-
-Enable the PowerTools repository using these commands:
-
-- For Centos 8.2:
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-
-- For CentOS 8.3 and CentOS Stream:
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-<!--Oracle Linux 8-->
-#### Oracle CodeReady Builder repository
-
-To install Centreon you will need to enable the official Oracle CodeReady
-Builder repository supported by Oracle.
-
-Enable the repository using these commands:
-
+Enable PHP 8.0 using the following commands:
 ```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf module reset php
+dnf module install php:remi-8.0
 ```
 <!--CentOS 7-->
-#### Redhat Software Collections repository
-
-To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat.
-
-> Software collections are required for installing PHP 7 and associated libraries.
-
-Install the Software Collections repository using this command:
+Run the following commands:
 
 ```shell
-yum install -y centos-release-scl
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum-config-manager --enable remi-php80
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -134,11 +100,11 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -262,32 +228,18 @@ hostnamectl set-hostname new-server-name
 
 You are required to set the PHP time zone. Run the command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-<!--CentOS 7-->
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, please do not forget to restart the PHP-FPM service:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
-```shell
-systemctl restart rh-php73-php-fpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Services startup during system bootup
 
@@ -301,7 +253,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -317,12 +269,12 @@ before installing Centreon.
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
+Enter current password for root (enter for none):
 OK, successfully used password, moving on...
 [...]
 Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
+New password:
+Re-enter new password:
 Password updated successfully!
 Reloading privilege tables..
 ... Success!
@@ -413,17 +365,17 @@ Then follow instructions by
 
     ``` shell
     Summary of the informations that will be send:
-    
+
     Api Connection:
     username: admin
     password: ******
     target server: 192.168.0.1
-    
+
     Pending Registration Server:
     name: remote-1
     type: remote
     address: 192.168.0.2
-    
+
     Do you want to register this server with those informations ? (y/n)y
     ```
 
@@ -434,7 +386,7 @@ Kindly fill in the required information to convert your platform into Remote :
     <CURRENT_NODE_ADDRESS> : Please enter your username:
     admin
     <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
+
     <CURRENT_NODE_ADDRESS> : Protocol [http]:
     <CURRENT_NODE_ADDRESS> : Port [80]:
     <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
@@ -453,7 +405,7 @@ Kindly fill in the required information to convert your platform into Remote :
     enter your username:
     my_proxy_username
     enter your password:
-   
+
     ```
 
 You will receive the validation of the Centreon central server:

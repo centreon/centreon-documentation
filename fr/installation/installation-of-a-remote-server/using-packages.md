@@ -65,66 +65,32 @@ systemctl disable firewalld
 > Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
 > pour configurer le pare-feu.
 
-### Installer le dépôt
+### Installer les dépôts
+
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt remi doit être installé.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
-#### Redhat CodeReady Builder repository
-
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
-
-Enable the CodeReady Builder repository using these commands:
+<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
+Exécutez les commandes suivantes :
 
 ```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
 ```
-<!--CentOS 8-->
-#### Dépôt PowerTools de Red Hat
 
-Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
-activé.
-
-Exécutez les commandes suivantes :
-
-- Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-- Pour CentOS 8.3 et Centos Stream :
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-<!--Oracle Linux 8-->
-#### Dépôt CodeReady Builder de Oracle
-
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
-doit être activé.
-
-Exécutez les commandes suivantes :
-
+Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf module reset php
+dnf module install php:remi-8.0
 ```
 <!--CentOS 7-->
-#### Dépôt *Software collections* de Red Hat
-
-Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
-Hat doit être activé.
-
-> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
-> et les librairies associées.
-
 Exécutez la commande suivante :
 
 ```shell
-yum install -y centos-release-scl
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum-config-manager --enable remi-php80
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -138,11 +104,11 @@ Exécutez la commande suivante :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -269,32 +235,18 @@ hostnamectl set-hostname new-server-name
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-<!--CentOS 7-->
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
-```shell
-systemctl restart rh-php73-php-fpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lancement des services au démarrage
 
@@ -308,7 +260,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -411,17 +363,17 @@ Suivre ensuite les instructions
 
     ``` shell
     Summary of the informations that will be send:
-    
+
     Api Connection:
     username: admin
     password: ******
     target server: 192.168.0.1
-    
+
     Pending Registration Server:
     name: remote-1
     type: remote
     address: 192.168.0.2
-    
+
     Do you want to register this server with those informations ? (y/n)y
     ```
 
@@ -431,7 +383,7 @@ Suivre ensuite les instructions
     <CURRENT_NODE_ADDRESS> : Please enter your username:
     admin
     <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
+
     <CURRENT_NODE_ADDRESS> : Protocol [http]:
     <CURRENT_NODE_ADDRESS> : Port [80]:
     <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
@@ -450,7 +402,7 @@ Suivre ensuite les instructions
     enter your username:
     my_proxy_username
     enter your password:
-    
+
     ```
 
 Vous recevrez la validation du serveur Centreon Central :

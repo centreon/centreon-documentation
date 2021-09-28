@@ -466,22 +466,21 @@ yum install -y \
     perl-URI \
     perl-UUID \
     perl-rrdtool \
-    rh-php73 \
-    rh-php73-php-cli \
-    rh-php73-php-common \
-    rh-php73-php-fpm \
-    rh-php73-php-gd \
-    rh-php73-php-intl \
-    rh-php73-php-json \
-    rh-php73-php-ldap \
-    rh-php73-php-mbstring \
-    rh-php73-php-mysqlnd \
-    rh-php73-php-pdo \
-    rh-php73-php-pear \
-    rh-php73-php-process \
-    rh-php73-php-snmp \
-    rh-php73-php-xml \
-    rh-php73-php-zip \
+    php-cli \
+    php-common \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
     plink \
     quota \
     rrdtool \
@@ -493,20 +492,20 @@ Des commandes supplémentaires sont nécessaires pour configurer correctement l'
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
+/bin/pear channel-update pear.php.net
 ```
 
 Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
 suivante :
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Puis exécutez :
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear upgrade-all
+/bin/pear upgrade-all
 ```
 <!--Debian Buster-->
 Installez les prérequis suivants :

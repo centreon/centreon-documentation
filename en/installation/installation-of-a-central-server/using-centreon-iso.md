@@ -139,14 +139,14 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ### Secure the database
 
 Since MariaDB 10.5, it is necessary to secure the database's installation before installing Centreon.
 
-Answer yes to all questions except "Disallow root login remotely?". 
+Answer yes to all questions except "Disallow root login remotely?".
 
 ```shell
 mysql_secure_installation
