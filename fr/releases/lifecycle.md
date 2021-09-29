@@ -18,12 +18,12 @@ version.
 
 ## Cadence de publication
 
-La société Centreon publie 2 versions par an. La première sera un version majeure, livrée au printemps
+La société Centreon publie 2 versions par an. La première sera une version majeure, livrée au printemps
 (comprenant de nouveaux produits ou fonctionnalités ainsi que des changements d'architecture).
 La seconde sera une version mineure, livrée en automne (apportant majoritairement des améliorations et des 
-correctifs aux fonctionnlaités existantes). Entre ces deux versions majeures, Centreon fournira de
-manière régulière des versions mineures (numérotées AA.MM.NN), y compris des correctifs de sécurité,
-des correctifs et améliorations.
+correctifs aux fonctionnalités existantes). Entre ces deux versions majeures, Centreon fournira de
+manière régulière des versions mineures (numérotées AA.MM.NN), comprenant des correctifs de sécurité,
+des correctifs et des améliorations.
 
 ## Mises à jour de maintenance et de sécurité
 
