@@ -1424,10 +1424,10 @@ These 3 files are :
 * /etc/centreon/config.d/10-database.yaml
 You'll need to change the IP of the previous database by the IP of the _vip_mysql_
 
-### Modifying Centreon-Broker-master outputs
+### Modifying central-broker-master outputs
 This is configured in the Centreon Broker configuration menu in the *Output* tab of *Configuration > Collectors > Centreon Broker Configuration*.
 
-* Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ :
+* Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ in *central-broker-master* configuration:
 
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
@@ -1437,16 +1437,16 @@ This is configured in the Centreon Broker configuration menu in the *Output* tab
 ### Exporting configuration
 Once the actions in the previous paragraph have been completed, the configuration must be exported (first 3 boxes for the "Central" poller export) for it to be effective.
 
+These actions must be performed only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
+
+```bash
+rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
+```
+
 And then you need to restart all the centreon processes using the following command:
 
 ```bash
 pcs resource restart centreon
-```
-
-These actions must be performed either on both nodes or only on `@CENTRAL_MASTER_NAME@` and then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
-
-```bash
-rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
 ## Integrating pollers
