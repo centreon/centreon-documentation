@@ -71,15 +71,39 @@ systemctl disable firewalld
 
 ### Installer les dépôts
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS 7-->
+#### Dépôt *Software collections* de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
+Hat doit être activé. Celui-ci est nécessaire pour l'installation de apache 2.4.
+
+Exécutez la commande suivante :
+
+```shell
+yum install -y centos-release-scl
+```
+
 #### Dépôt remi
 
 Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
 Exécutez les commandes suivantes :
 
 ```shell
+yum install -y yum-utils
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum-config-manager --enable remi-php80
+```
+<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
@@ -88,13 +112,6 @@ Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
-```
-<!--CentOS 7-->
-Exécutez la commande suivante :
-
-```shell
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php80
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
