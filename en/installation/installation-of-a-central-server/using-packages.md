@@ -116,33 +116,6 @@ dnf module install php:remi-8.0
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
-Run the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Enable PHP 8.0 using the following commands:
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-<!--CentOS 7-->
-Run the following commands:
-
-```shell
-yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php80
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 #### Centreon repository
 
 To install Centreon software from the repository, you should first install the
