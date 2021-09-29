@@ -143,7 +143,9 @@ Avant d'en arriver au paramétrage du cluster à proprement parler, quelques ét
 Afin d'améliorer la fiabilité du cluster et étant donné que *Centreon HA* ne fonctionne qu'en IP v4, il est recommandé d'appliquer le tuning suivant sur tous les serveurs de la plateforme Centreon :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS-->
+
+<!--RHEL 7 / CentOS 7-->
+
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -155,7 +157,9 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart network
 ```
-<!--Oracle Linux 8-->
+
+<!--RHEL 8 / Oracle Linux 8-->
+
 ```bash
 cat >> /etc/sysctl.conf <<EOF
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -167,6 +171,7 @@ net.ipv4.tcp_keepalive_intvl = 2
 EOF
 systemctl restart NetworkManager
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Résolution de noms
@@ -195,35 +200,73 @@ Centreon propose les paquets `centreon-ha-common` et `centreon-ha-web`, qui four
 Ces paquets sont à installer sur l'ensemble les 2 Serveurs Centraux :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS-->
+
+<!--CentOS 7-->
 
 ```bash
 yum install epel-release
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
+
+<!--RHEL 7-->
+
+```bash
+yum install epel-release
+subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
 <!--Oracle Linux 8-->
 
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
+
+<!--RHEL 8-->
+
+```bash
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
+dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Serveurs Base de données
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS-->
+
+<!--CentOS 7-->
 
 ```bash
 yum install epel-release
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
+
+<!--RHEL 7-->
+
+```bash
+yum install epel-release
+subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+```
+
 <!--Oracle Linux 8-->
 
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
+
+<!--RHEL 8-->
+
+```bash
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Échanges de clefs SSH
@@ -656,7 +699,6 @@ chown apache: /tmp/centreon-autodisco/
 chmod 775 /tmp/centreon-autodisco/
 ```
 
-
 ### Arrêt et désactivation des services
 
 **Informations :** Ces opérations sont à réalisées sur l'ensemble des noeuds `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. Centreon est installé par dépendances du paquet centreon-ha sur les noeuds de bases de données, cela n'a pas d'incidences 
@@ -665,16 +707,21 @@ sur le fonctionnement.
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS-->
+
+<!--RHEL 7 / CentOS 7-->
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 ```
-<!--Oracle Linux 8-->
+
+<!--RHEL 8 / Oracle Linux 8-->
+
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
@@ -697,13 +744,55 @@ systemctl start pcsd
 
 **Informations :** Cette opération doit être réalisée sur le serveur `@QDEVICE_NAME@`
 
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--CentOS 7-->
+
 ```bash
+yum install epel-release
 yum install pcs corosync-qnetd
 systemctl start pcsd.service
 systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
+
+<!--RHEL 7-->
+
+```bash
+yum install epel-release
+subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
+yum install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+<!--Oracle Linux 8-->
+
+```bash
+dnf config-manager --enable ol8_addons
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+<!--RHEL 8-->
+
+```bash
+dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
+dnf install pcs corosync-qnetd
+systemctl start pcsd.service
+systemctl enable pcsd.service
+pcs qdevice setup model net --enable --start
+pcs qdevice status net --full
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
 
@@ -719,18 +808,11 @@ passwd hacluster
 ```
 
 Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
+
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
-```bash
-pcs host auth \
-    "@CENTRAL_MASTER_NAME@" \
-    "@CENTRAL_SLAVE_NAME@" \
-    "@QDEVICE_NAME@" \
-    -u "hacluster" \
-    -p '@CENTREON_CLUSTER_PASSWD@' \
-```
 
 <!--RHEL 7 / CentOS 7-->
+
 ```bash
 pcs cluster auth \
     "@CENTRAL_MASTER_NAME@" \
@@ -741,7 +823,21 @@ pcs cluster auth \
     -u "hacluster" \
     -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
+ ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Création du cluster
@@ -749,17 +845,9 @@ pcs cluster auth \
 Cette commande doit être lancée sur un des nœuds :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
-```bash
-pcs cluster setup \
-    centreon_cluster \
-    "@CENTRAL_MASTER_NAME@" \
-    "@CENTRAL_SLAVE_NAME@" \
-    "@DATABASE_MASTER_NAME@" \
-    "@DATABASE_SLAVE_NAME@"
-    --force \
-```
+
 <!--RHEL 7 / CentOS 7-->
+
 ```bash
 pcs cluster setup \
     --force \
@@ -769,6 +857,19 @@ pcs cluster setup \
     "@DATABASE_MASTER_NAME@" \
     "@DATABASE_SLAVE_NAME@"
 ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@DATABASE_MASTER_NAME@" \
+    "@DATABASE_SLAVE_NAME@" \
+    --force \
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Démarrer ensuite `pacemaker` sur l'esemble des nœuds :
@@ -805,7 +906,9 @@ Les commandes de cette section doivent être lancées depuis un seul noeud, le C
 #### Process MariaDB Primaire/secondaire 
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--CentOS7-->
+
+<!--CentOS 7-->
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -823,7 +926,28 @@ pcs resource create "ms_mysql" \
     test_table='centreon.host' \
     master
 ```
+
+<!--RHEL 7-->
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+
 <!--RHEL 8 / Oracle Linux 8-->
+
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
@@ -845,7 +969,9 @@ pcs resource create "ms_mysql" \
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
 <!--DOCUSAURUS_CODE_TABS-->
+
 <!--CentOS7-->
+
 ```bash
 pcs resource meta ms_mysql-master \
     master-node-max="1" \
@@ -854,14 +980,20 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
+
 <!--RHEL 7-->
 
 ```bash
 pcs resource master ms_mysql \
-	@@ -783,6 +871,15 @@ pcs resource master ms_mysql \
+    master-node-max="1" \
+    clone_max="2" \
+    globally-unique="false" \
+    clone-node-max="1" \
     notify="true"
 ```
+
 <!--RHEL 8 / Oracle Linux 8-->
+
 ```bash
 pcs resource promotable ms_mysql \
     master-node-max="1" \
@@ -870,6 +1002,7 @@ pcs resource promotable ms_mysql \
     clone-node-max="1" \
     notify="true"
 ```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Adresse VIP Serveurs bases de données 
@@ -897,6 +1030,19 @@ Les ressources clones sont des ressources actives sur les deux noeuds Centraux.
 ##### PHP7
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL 7 / CentOS 7-->
+
+```bash
+pcs resource create "php7" \
+    systemd:rh-php73-php-fpm \
+    meta target-role="started" \
+    op start interval="0s" timeout="30s" \
+    stop interval="0s" timeout="30s" \
+    monitor interval="5s" timeout="30s" \
+    clone
+```
+
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs resource create "php7" \
@@ -907,16 +1053,7 @@ pcs resource create "php7" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-<!--CentOS 7-->
-```bash
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
-```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Broker RRD
@@ -951,8 +1088,24 @@ pcs resource create vip \
 ```
 
 ##### Service httpd
+
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL 7 / CentOS 7-->
+
+```bash
+pcs resource create http \
+    systemd:httpd24-httpd \
+    meta target-role="started" \
+    op start interval="0s" timeout="40s" \
+    stop interval="0s" timeout="40s" \
+    monitor interval="5s" timeout="20s" \
+    --group centreon \
+    --force
+```
+
 <!--RHEL 8 / Oracle Linux 8-->
+
 ```bash
 pcs resource create http \
     systemd:httpd \
@@ -964,17 +1117,6 @@ pcs resource create http \
     --force
 ```
 
-<!--CentOS 7-->
-```bash
-pcs resource create http \
-    systemd:httpd24-httpd \
-    meta target-role="started" \
-    op start interval="0s" timeout="40s" \
-    stop interval="0s" timeout="40s" \
-    monitor interval="5s" timeout="20s" \
-    --group centreon \
-    --force
-```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Service Gorgone
@@ -1057,12 +1199,29 @@ sur quels noeuds les ressources doivent être executées.
 
 Executer les commandes suivantes pour indiquer au Cluster que les ressources vip_mysql & le rôle primaire doivent être démarrées sur le même nœud:
 
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL 7 / CentOS 7-->
+
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "vip_mysql"
 ```
 
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 Executer les commandes suivantes pour indiquer au Cluster sur quel noeuds les ressources doivent être executées:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL 7 / CentOS 7-->
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -1070,6 +1229,17 @@ pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @C
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lancement du Cluster et contrôle de l'état des ressources
 
@@ -1092,37 +1262,9 @@ pcs resource meta http target-role="started"
 Il est possible de suivre l'état du cluster en temps réel via la commande `crm_mon`. Suite à l'activation 
 des ressources, vous devriez obtenir une sortie similaire à celle-ci: 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
-```bash
-Cluster Summary:
-  * Stack: corosync
-  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 22 15:00:13 2021
-  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
-  * 4 nodes configured
-  * 21 resource instances configured
-Node List:
-  * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-Active Resources:
-  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
-    * Masters: [ @DATABASE_MASTER_NAME@ ]
-    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
-  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
-  * Clone Set: php7-clone [php7]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: cbd_rrd-clone [cbd_rrd]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-  * Resource Group: centreon:
-    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
-    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
-    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
-    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
-    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
-    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
-    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
-```
+
 <!--RHEL 7 / CentOS 7-->
+
 ```bash
 Stack: corosync
 Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el7_7.2-3c4c782f70) - partition with quorum
@@ -1150,6 +1292,41 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
 ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
+  * Last updated: Wed Sep 22 15:00:13 2021
+  * Last change:  Wed Sep 15 16:26:53 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
+
+Node List:
+  * Online: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+
+Active Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @DATABASE_MASTER_NAME@ ]
+    * Slaves: [ @DATABASE_SLAVE_NAME@ ]
+  * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
+  * Clone Set: php7-clone [php7]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Contrôler la synchronisation des bases
@@ -1172,14 +1349,17 @@ Position Status [OK]
 Il est possible qu'immédiatement après l'installation, le thread de réplication ne soit pas actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-```bash 
-pcs resource restart ms_mysql-clone
-```
-<!--CentOS 7-->
+
+<!--RHEL 7 / CentOS 7-->
 ```bash 
 pcs resource restart ms_mysql
 ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+```bash 
+pcs resource restart ms_mysql-clone
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Contrôle de l'absence de contraintes
@@ -1187,27 +1367,6 @@ pcs resource restart ms_mysql
 En temps normal, seules les contraintes de colocation doivent être actives sur le cluster. La commande `pcs constraint show` doit retourner :
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
-```bash
-Location Constraints:
-  Resource: cbd_rrd-clone
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-  Resource: centreon
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-  Resource: ms_mysql-clone
-    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php7-clone
-    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
-    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
-Ordering Constraints:
-Colocation Constraints:
-  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
-```
 
 <!--CentOS 7-->
 ```bash
@@ -1230,116 +1389,65 @@ Colocation Constraints:
   ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
+
+<!--RHEL 8 / Oracle Linux 8-->
+```bash
+Location Constraints:
+  Resource: cbd_rrd-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: centreon
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+  Resource: ms_mysql-clone
+    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
+  Resource: php7-clone
+    Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
+    Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
+Ordering Constraints:
+Colocation Constraints:
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-master with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+Ticket Constraints:
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Modifications des fichiers de configuration Centreon
-Suite à la mise en place du cluster et de la _vip_mysql_, il est nécessaire de modifier les output du Centreon Broker et 3 fichiers de configuration du Central. Ces éléments devront pointé sur la _vip_ afin de toujours pointer sur le noeud actifs MariaDB.
+Suite à la mise en place du cluster et de la _vip_mysql_, il est nécessaire de modifier les output du Centreon Broker et 3 fichiers de configuration du Central. Ces éléments devront pointé sur la _vip_mysql_ afin de toujours pointer sur le noeud actif MariaDB.
+Les 3 fichiers sont:
+* /etc/centreon/centreon.conf.php
+* /etc/centreon/conf.pm
+* /etc/centreon/config.d/10-database.yaml
+Il sera nécessaire modifier l'IP de l'ancien nœud actif par l'ip de la _vip_mysql_ et ce uniquement sur le serveur Central primaire.
 
-### Modification des sorties Centreon-Broker-master
-Cela se configure dans le même menu qu'au paragraphe précédent, mais cette fois dans l'onglet *Output* de *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*.
-* Modifier la sortie "IPv4" en remplaçant "@DATABASE_SLAVE_IPADDR@" par @VIP_SQL_IPADDR@ :
+### Modification des outputs central-broker-master
+La configuration des *Output* Broker du central-broker-master se fait à l'aide du menu *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*.
 
-| Output Broker SQL database                                    |                            |
-| ------------------------------------------------------------- | -------------------------- |
-| DB host                                                       | @VIP_SQL_IPADDR@           |
+* Modifier la sortie "IPv4" en remplaçant "@DATABASE_MASTER_IPADDR@" par @VIP_SQL_IPADDR@ :
 
-* Refaite la même opération sur le noeud slave.
+| Broker Output                         | Parameter  | Value            |
+| ------------------------------------- | ---------- | ---------------- |
+| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
+| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
 
 ### Exporter la configuration
 
 Une fois que les actions des deux précédents paragraphes ont été réalisées, il faut exporter la configuration (3 premières cases pour l'export du poller "Central") pour que celle-ci soit effective.
 
-Ces actions doivent être réalisées soit sur les deux nœuds, soit uniquement sur `@CENTRAL_MASTER_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
+Ces actions uniquement sur le `@CENTRAL_MASTER_NAME@` puis les fichiers de configuration de broker doivent être copiés vers `@CENTRAL_SLAVE_NAME@`.
 
 ```bash
 rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 ```
 
-### Modifier les fichiers de configuration du Central
-Sur le Central, il y a 3 fichiers de configuration afin que l'interface Web puisse pointé vers la _vip_mysql_. Sans cela, l'interface Web emettra des erreurs 500 si le Central Master pointe vers le serveur de Base de données Slave. En pointant sur la _vip_, il se connectera toujours sur le master. Cette opération est à effectuer sur les deux noeuds Centraux.
+Redémarrer ensuite les services Centreon à l'aide de la commande :
 
-* Remplacer les valeurs dans le fichier `/etc/centreon/conf.pm` :
 ```bash
-#############################################
-# File Added by Centreon
-#
-
-$centreon_config = {
-       VarLib => "/var/lib/centreon",
-       CentreonDir => "/usr/share/centreon/",
-       CacheDir => "/var/cache/centreon/",
-       "centreon_db" => "centreon",
-       "centstorage_db" => "centreon_storage",
-       "db_host" => "@VIP_IPADDR@:3306",
-       "db_user" => "@MARIADB_CENTREON_USER@",
-       "db_passwd" => '@MARIADB_CENTREON_PASSWD@'
-};
-
-# Central or Poller ?
-$instance_mode = "central";
-
-# Centreon Centcore Command File
-$cmdFile = "/var/lib/centreon/centcore.cmd";
-
-# Deprecated format of Config file.
-$mysql_user = "@MARIADB_CENTREON_USER@";
-$mysql_passwd = '@MARIADB_CENTREON_PASSWD@';
-$mysql_host = "@VIP_IPADDR@:3306";
-$mysql_database_oreon = "centreon";
-$mysql_database_ods = "centreon_storage";
-
-1;
-```
-Puis modifier le fichier `/etc/centreon/centreon.conf.php` avec les valeurs suivantes :
-```bash
-?php
-/*
- * Centreon is developped with GPL Licence 2.0 :
- * http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
- * Developped by : Julien Mathis - Romain Le Merlus - Christophe Coraboeuf
- *
- * The Software is provided to you AS IS and WITH ALL FAULTS.
- * Centreon makes no representation and gives no warranty whatsoever,
- * whether express or implied, and without limitation, with regard to the quality,
- * safety, contents, performance, merchantability, non-infringement or suitability for
- * any particular or intended purpose of the Software found on the Centreon web site.
- * In no event will Centreon be liable for any direct, indirect, punitive, special,
- * incidental or consequential damages however they may arise and even if Centreon has
- * been previously advised of the possibility of such damages.
- *
- * For information : contact@centreon.com
- */
-/*      Database */
-$conf_centreon['hostCentreon'] = "@VIP_IPADDR@";
-$conf_centreon['hostCentstorage'] = "@VIP_IPADDR@";
-$conf_centreon['user'] = "@MARIADB_CENTREON_USER@";
-$conf_centreon['password'] = '@MARIADB_CENTREON_PASSWD@';
-$conf_centreon['db'] = "centreon";
-$conf_centreon['dbcstg'] = "centreon_storage";
-$conf_centreon['port'] = "3306";
-
-
-/* path to classes */
-$classdir='./class';
-/* Centreon Path */
-$centreon_path='/usr/share/centreon/';
-?>
-```
-
-Et les dernières modifications sont dans le fichier `/etc/centreon/config.d/10-database.yaml` :
-```bash
-database:
-  db_configuration:
-    dsn: "mysql:host=localhost:3306;dbname=centreon"
-    username: "@MARIADB_CENTREON_USER@"
-    password: "@MARIADB_CENTREON_PASSWD@"
-  db_realtime:
-    dsn: "mysql:host=localhost:3306;dbname=centreon_storage"
-    username: "@MARIADB_CENTREON_USER@"
-    password: "@MARIADB_CENTREON_PASSWD@"
+pcs resource restart centreon
 ```
 
 ## Intégrer des collecteurs
 
 Il ne reste maintenant plus qu'à [intégrer des collecteurs](integrating-pollers.html) et commencer à superviser !
-
