@@ -68,35 +68,11 @@ This diagram outlines the Centreon version lifecycle policy:
 > Any other products not described in the following tables are no longer supported
 > by Centreon.
 
-### Centreon OSS
-
-| Product                 | Version  | Release date | End of life    | State         |
-| ----------------------- | -------- | ------------ | -------------- | ------------- |
-| Centreon Web            | 2.8.x    | 2016/11/14   | Centreon 20.04 | Not supported |
-| Centreon Engine         | 1.8.x    | 2017/09/19   | Centreon 20.04 | Not supported |
-| Centreon Broker         | 3.0.x    | 2016/11/14   | Centreon 20.04 | Not supported |
-| Centreon DSM            | 2.x      | 2014/09/01   | Centreon 20.04 | Not supported |
-| Centreon Open Tickets   | 1.2.x    | 2016/06/20   | Centreon 20.04 | Not supported |
-| Centreon AWIE           | 1.x      | 2018/04/11   | Centreon 20.04 | Not supported |
-| Centreon Poller Display | 1.5.x    | 2018/04/11   | Centreon 20.04 | Not supported |
-| Centreon Widgets        | 1.x      | N/A          | Centreon 20.04 | Not supported |
-| Centreon Plugins        | YYYYMMDD | N/A          | Centreon 20.04 | Not supported |
-
-### Centreon IMP
-
-| Product                       | Version | Release date | End of life    | State           |
-| ----------------------------- | ------- | ------------ | -------------- | --------------- |
-| Centreon OSS                  | 3.4     | 2016/11/14   | Centreon 20.04 | Not supported   |
-| Centreon License Manager      | 1.1.x   | 2018/02/23   | Centreon 20.04 | Not supported   |
-| Centreon Plugin Packs Manager | 2.4.x   | 2018/05/30   | Centreon 20.04 | Not supported   |
-| Plugin Packs                  | 3.x     | N/A          | N/A            | All issues      |
-
-### Centreon EMS
-
-| Product                 | Version | Release date | End of life    | State                     |
-| ----------------------- | ------- | ------------ | -------------- | ------------------------- |
-| Centreon IMP            | 3.4     | 2016/11/14   | Centreon 20.04 | Not supported             |
-| Centreon BAM            | 3.6.x   | 2018/02/22   | Centreon 20.04 | Not supported             |
-| Centreon MAP            | 4.4.x   | 2017/01/02   | Centreon 20.04 | Not supported             |
-| Centreon MBI            | 3.2.x   | 2018/07/09   | Centreon 20.04 | Not supported             |
-| Centreon Auto Discovery | 2.3.x   | 2017/08/24   | Centreon 20.04 | Not supported             |
+| Product        | Release      | End of life          | State               |
+|----------------|--------------|----------------------|---------------------|
+| Centreon 21.04 | 04/2021      | Centreon 22.10       | Supported           |
+| Centreon 20.10 | 10/2020      | Centreon 22.04       | Supported           |
+| Centreon 20.04 | 04/2020      | Centreon 21.10       | No longer supported |
+| Centreon 19.10 | 10/2019      | Centreon 21.04       | No longer supported |
+| Centreon 19.04 | 04/2019      | Centreon 20.10       | No longer supported |
+| Centreon 18.10 | 10/2018      | Centreon 20.04       | No longer supported |
