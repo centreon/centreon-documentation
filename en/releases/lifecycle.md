@@ -8,9 +8,10 @@ Centreon solution at regular intervals since version 18.10, enabling the communi
 developers to plan their roadmaps with the guarantee of upstream visibility on the
 latest open source capabilities.
 
-## Version number format: YY.MM
+## Version numbers
 
-Releases of Centreon are named according to the year and period of delivery.
+Releases of Centreon are named according to the year and period of delivery: 
+XX.04 for the spring release, and XX.10 for the fall release.
 For example, Centreon 21.04 was released in spring 2021. All modules and
 components of the Centreon software suite use the same version numbers.
 
@@ -34,7 +35,7 @@ Version 21.04 and prior versions have been supported for 18 months. The lifecycl
     fixed according to their priority.
 3.  Third phase: Blockers or security issues are fixed according to their priority.
 
-> Prioritization is made by Centreon’s product team.
+> Prioritization is made by Centreon’s Product team.
 
 The first phase of the lifecycle begins on the day of a version release.
 
@@ -55,7 +56,7 @@ From version 21.10, versions are supported for 2 years. The lifecycle of a versi
 2.  Second phase: Major, critical bugs and blockers, or security issues are
     fixed according to their priority.
 
-> Prioritization is made by Centreon’s product team.
+> Prioritization is made by Centreon’s Product team.
 
 ### Version lifecycle diagram
 

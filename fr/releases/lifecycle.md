@@ -8,7 +8,7 @@ de Centreon sur une cadence régulière depuis Centreon 18.10, permettant à la 
 entreprises et aux développeurs de planifier leurs feuilles de route avec la
 certitude d’avoir de la visibilité en amont sur les nouvelles capacités offertes par l'open source.
 
-## Les numéros de version sont AA.MM
+## Numéros de version
 
 Les versions de Centreon sont nommées par l'année et la période de livraison : XX.04 pour la version de printemps,
 et XX.10 pour la version d'automne. Par
