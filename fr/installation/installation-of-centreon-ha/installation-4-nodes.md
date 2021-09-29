@@ -1425,7 +1425,7 @@ Il sera nécessaire modifier l'IP de l'ancien nœud actif par l'ip de la _vip_my
 ### Modification des outputs central-broker-master
 La configuration des *Output* Broker du central-broker-master se fait à l'aide du menu *Configuration  >  Collecteurs  >  Configuration de Centreon Broker*.
 
-* Modifier la sortie "IPv4" en remplaçant "@DATABASE_MASTER_IPADDR@" par @VIP_SQL_IPADDR@ :
+* Modifier la sortie "IPv4" en remplaçant "@DATABASE_MASTER_IPADDR@" par @VIP_SQL_IPADDR@ dans la configuration *central-broker-master* :
 
 | Broker Output                         | Parameter  | Value            |
 | ------------------------------------- | ---------- | ---------------- |
