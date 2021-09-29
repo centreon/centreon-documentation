@@ -389,6 +389,13 @@ New release.
 
 ## Centreon Gorgone
 
+### 21.04.3
+
+#### Bugfixes
+
+- Merge YAML libraries to use only one
+- Fixed uninitialized value using pull mode
+
 ### 21.04.2
 
 `September 7, 2021`
