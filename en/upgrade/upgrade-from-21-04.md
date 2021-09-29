@@ -43,6 +43,7 @@ Centreon 21.10 uses PHP in version 8.0.
 First, you need to install the **remi** repository:
 ```shell
 dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
@@ -56,6 +57,7 @@ dnf module install php:remi-8.0
 First, you need to install the **remi** repository:
 ```shell
 yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 ```
 Then, you need to enable the php 8.0 repository

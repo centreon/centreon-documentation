@@ -92,6 +92,7 @@ Exécutez les commandes suivantes :
 
 ```shell
 yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php80
 ```
@@ -104,6 +105,7 @@ Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
