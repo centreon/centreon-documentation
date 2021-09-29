@@ -988,7 +988,7 @@ pcs resource create vip \
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--RHEL7 / CentOS 7-->
+<!--RHEL 7 / CentOS 7-->
 
 ```bash
 pcs resource create http \
