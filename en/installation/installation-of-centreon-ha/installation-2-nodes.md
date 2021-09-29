@@ -182,19 +182,19 @@ Centreon offers a package named `centreon-ha-web`, which provides all the needed
 
 <!--DOCUSAURUS_CODE_TABS-->
 
+<!--CentOS 7-->
+
+```bash
+yum install epel-release
+yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
+```
+
 <!--RHEL 7-->
 
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
-```
-
-<!--CentOS 7-->
-
-```bash
-yum install epel-release
-yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
 
 <!--Oracle Linux 8-->
@@ -734,17 +734,6 @@ Now that both of the central nodes **and** the *quorum device* server are sharin
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--RHEL 8 / Oracle Linux 8-->
-
-```bash
-pcs host auth \
-    "@CENTRAL_MASTER_NAME@" \
-    "@CENTRAL_SLAVE_NAME@" \
-    "@QDEVICE_NAME@" \
-    -u "hacluster" \
-    -p '@CENTREON_CLUSTER_PASSWD@'
-```
-
 <!--RHEL 7 / CentOS 7-->
 
 ```bash
@@ -757,6 +746,17 @@ pcs cluster auth \
     --force
  ```
 
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs host auth \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    "@QDEVICE_NAME@" \
+    -u "hacluster" \
+    -p '@CENTREON_CLUSTER_PASSWD@'
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Creating the cluster
@@ -764,16 +764,6 @@ pcs cluster auth \
 The following command creates the cluster. It must be run **only on one of the central nodes**. 
 
 <!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
-
-```bash
-pcs cluster setup \
-    centreon_cluster \
-    "@CENTRAL_MASTER_NAME@" \
-    "@CENTRAL_SLAVE_NAME@" \
-    --force \
-```
 
 <!--RHEL 7 / CentOS 7-->
 
@@ -783,6 +773,16 @@ pcs cluster setup \
     --name centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@"
+```
+
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs cluster setup \
+    centreon_cluster \
+    "@CENTRAL_MASTER_NAME@" \
+    "@CENTRAL_SLAVE_NAME@" \
+    --force \
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -1095,7 +1095,7 @@ In order to force the cluster running both `centreon` resource group and the Mar
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--RHEL 7/ CentOS 7-->
+<!--RHEL 7 / CentOS 7-->
 
 ```bash
 pcs constraint colocation add "centreon" with master "ms_mysql-master"
