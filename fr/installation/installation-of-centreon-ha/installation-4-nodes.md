@@ -649,7 +649,7 @@ our %centreon_central_sync_config = (
 
 **Informations :** Ces opérations sont à réaliser sur les nœuds `@CENTRAL_MASTER_NAME@` et `@SLAVE_MASTER_NAME@`
 
-Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponible. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
+Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponibles. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
 rm /etc/cron.d/centreon
