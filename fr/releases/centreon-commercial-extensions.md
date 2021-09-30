@@ -117,6 +117,8 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.1
 
+`September 30, 2021`
+
 #### Bugfixes
 
 - Do not suggest anomaly thresholds metrics
