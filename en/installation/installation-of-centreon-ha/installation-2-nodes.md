@@ -128,7 +128,7 @@ Before actually setting the cluster up, some system prerequisites have to be met
 
 ### Kernel network tuning
 
-In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon servers (including pollers):
+In order to improve the cluster reliability, and since *Centreon HA* only supports IPv4, we recommend to apply the following kernel settings to all your Centreon servers (including pollers):
 
 <!--DOCUSAURUS_CODE_TABS-->
 
