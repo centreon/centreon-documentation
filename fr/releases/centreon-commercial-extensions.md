@@ -111,3 +111,24 @@ commerciales, veuillez contacter le support.
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
+
+
+## Centreon Anomaly Detection
+
+### 21.04.1
+
+`September 30, 2021`
+
+#### Bugfixes
+
+- Do not suggest anomaly thresholds metrics
+- Fixed Gorgone cron.d definition
+- Fixed access to suggestion page with non admin account
+- Fixed anomaly detection's stream connector crashes with no apparent error in broker logs
+- Fixed error in cron perl script
+- Fixed generation of services based on metric from a Meta Service
+- Script: Do not try to send data to SAAS if the service does not exist
+
+### 21.04.0
+
+- Compatibility with Centreon 21.04
