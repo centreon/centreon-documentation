@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.19
 
+`September 30, 2021`
+
 #### Enhancement
 
 - Compatibility with PHP 7.3
