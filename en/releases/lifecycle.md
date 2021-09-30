@@ -69,7 +69,7 @@ This diagram outlines the Centreon version lifecycle policy:
 > Any other products not described in the following tables are no longer supported
 > by Centreon.
 
-| Product        | Release      | End of life          | State               |
+| Product        | Release      | End of life with     | State               |
 |----------------|--------------|----------------------|---------------------|
 | Centreon 21.04 | 04/2021      | Centreon 22.10       | Supported           |
 | Centreon 20.10 | 10/2020      | Centreon 22.04       | Supported           |
