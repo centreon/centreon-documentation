@@ -28,7 +28,6 @@ commerciales, vous pouvez vous rendre sur notre
 
 - Fixed session on account deletion
 
-
 ### 20.04.18
 
 `14 septembre 2021`
