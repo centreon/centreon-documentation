@@ -1082,7 +1082,7 @@ pcs resource create snmptrapd \
 
 #### Contraintes de colocation
 
-Pour indiquer au cluster que les ressources Centreon doivent être démarré sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
+Pour indiquer au cluster que les ressources Centreon doivent être démarrées sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
