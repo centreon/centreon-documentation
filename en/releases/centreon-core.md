@@ -391,6 +391,8 @@ New release.
 
 ### 21.04.3
 
+`September 30, 2021`
+
 #### Bugfixes
 
 - Merge YAML libraries to use only one
