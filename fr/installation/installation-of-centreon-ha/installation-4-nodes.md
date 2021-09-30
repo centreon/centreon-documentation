@@ -198,7 +198,6 @@ Ces paquets sont à installer sur l'ensemble les 2 Serveurs Centraux :
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--RHEL 8-->
-
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
@@ -206,7 +205,6 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 <!--Oracle Linux 8-->
-
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
@@ -695,14 +693,12 @@ Les services applicatifs de Centreon ne seront plus lancés au démarrage du ser
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
-
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
 ```
 
 <!--RHEL 7 / CentOS 7-->
-
 ```bash
 systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
 systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
@@ -730,9 +726,7 @@ systemctl start pcsd
 **Informations :** Cette opération doit être réalisée sur le serveur `@QDEVICE_NAME@`
 
 <!--DOCUSAURUS_CODE_TABS-->
-
 <!--RHEL 8-->
-
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable rhel-8-for-x86_64-highavailability-rpms
@@ -744,7 +738,6 @@ pcs qdevice status net --full
 ```
 
 <!--Oracle Linux 8-->
-
 ```bash
 dnf config-manager --enable ol8_addons
 dnf install pcs corosync-qnetd
@@ -755,7 +748,6 @@ pcs qdevice status net --full
 ```
 
 <!--RHEL 7-->
-
 ```bash
 yum install epel-release
 subscription-manager repos --enable rhel-7-for-x86_64-highavailability-rpms
@@ -767,7 +759,6 @@ pcs qdevice status net --full
 ```
 
 <!--CentOS 7-->
-
 ```bash
 yum install epel-release
 yum install pcs corosync-qnetd
@@ -776,7 +767,6 @@ systemctl enable pcsd.service
 pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/sysconfig/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
@@ -795,7 +785,6 @@ passwd hacluster
 Une fois ce mot de passe commun défini, il est possible pour un nœud de s'authentifier sur les autres. **La commande suivante ainsi que toutes les commandes agissant sur le cluster doivent être lancée sur un seul nœud.**
 
 <!--DOCUSAURUS_CODE_TABS-->
-
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs host auth \
@@ -819,8 +808,7 @@ pcs cluster auth \
     -u "hacluster" \
     -p '@CENTREON_CLUSTER_PASSWD@' \
     --force
- ```
- 
+ ``` 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Création du cluster
@@ -828,7 +816,6 @@ pcs cluster auth \
 Cette commande doit être lancée sur un des nœuds :
 
 <!--DOCUSAURUS_CODE_TABS-->
-
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs cluster setup \
@@ -882,65 +869,7 @@ pcs quorum device add model net \
 
 Les commandes de cette section doivent être lancées depuis un seul nœud, le Cluster va automatiquement répliquer la configuration sur les autres.
 
-#### Process MariaDB Primaire/secondaire  
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL 8 / Oracle Linux 8-->
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-<!--RHEL 7-->
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-<!--CentOS 7-->
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mysql-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    max_slave_lag="15" \
-    evict_outdated_slaves="false" \
-    binary="/usr/bin/mysqld_safe" \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host' \
-    master
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
+#### Process MariaDB Primaire/secondaire
 
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
@@ -974,7 +903,6 @@ pcs resource meta ms_mysql-master \
     clone-node-max="1" \
     notify="true"
 ```
-
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Adresse VIP Serveurs bases de données 
@@ -1060,7 +988,6 @@ pcs resource create vip \
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
-
 ```bash
 pcs resource create http \
     systemd:httpd \
@@ -1073,7 +1000,6 @@ pcs resource create http \
 ```
 
 <!--RHEL 7 / CentOS 7-->
-
 ```bash
 pcs resource create http \
     systemd:httpd24-httpd \
