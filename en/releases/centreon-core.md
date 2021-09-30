@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.19
 
+`September 30, 2021`
+
 #### Enhancement
 
 - Compatibility with PHP 7.3
