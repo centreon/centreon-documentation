@@ -297,7 +297,7 @@ Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
 
 Afin que les deux nœuds soient interchangeables à tout moment, il faut que les deux bases de données soient répliquées en continu. Pour cela, nous allons mettre en place une réplication Master-Slave.
 
-**Remarque :** sauf une mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
 
 ### Configuration de MariaDB
 
