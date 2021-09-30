@@ -1449,6 +1449,119 @@ And then you need to restart all the centreon processes using the following comm
 pcs resource restart centreon
 ```
 
+## Modifications of the Centreon configuration files
+Following the installation of the cluster and the _vip_mysql_, it is necessary to modify the outputs of the Centreon Broker
+and 3 configuration files of the Central. These elements will have to point to the _vip_mysql_ in order to always point to
+the active MariaDB node.
+
+The 3 files are:
+/etc/centreon/centreon.conf.php
+/etc/centreon/conf.pm
+/etc/centreon/config.d/10-database.yaml
+It will be necessary to modify the IP of the old active node by the IP of the _vip_mysql_.
+
+### Modification of the central-broker-master outputs
+The configuration of the *Output* Broker of the central-broker-master is done with the menu *Configuration > Pollers > Broker configuration*.
+
+* Modify the "IPv4" output by replacing "@DATABASE_MASTER_IPADDR@" with @VIP_SQL_IPADDR@ in the *central-broker-master* configuration:
+* 
+| Broker Output                         | Parameter  | Value            |
+| ------------------------------------- | ---------- | ---------------- |
+| Broker SQL database                   | DB Host    | @VIP_SQL_IPADDR@ |
+| Perfdata Generator (Centreon Storage) | DB Host    | @VIP_SQL_IPADDR@ |
+
+### Exporting the configuration
+
+Once the actions in the two previous paragraphs have been carried out, the configuration must be exported (first 3 boxes for 
+the "Central" collector export) for it to be effective.
+
+These actions only on the `@CENTRAL_MASTER_NAME@` then the broker configuration files must be copied to `@CENTRAL_SLAVE_NAME@`.
+```bash
+rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
+```
+
+Then restart the Centreon services with the command:
+```bash
+pcs resource restart centreon
+```
+
+### Modification of the 3 configuration files
+After having modified the output of the broker, we have to modify the Centreon configuration files.
+To do this, first, edit the file `/etc/centreon/conf.pm` and replace @DATABASE_MASTER_IPADDR@ by the address of the _vip-mysql_:
+```bash
+#############################################
+# File Added by Centreon
+#
+$centreon_config = {
+       VarLib => "/var/lib/centreon",
+       CentreonDir => "/usr/share/centreon/",
+       CacheDir => "/var/cache/centreon/",
+       "centreon_db" => "centreon",
+       "centstorage_db" => "centreon_storage",
+       "db_host" => "@VIP_SQL_IPADDR@:3306",
+       "db_user" => "@MARIADB_CENTREON_USER@",
+       "db_passwd" => '@MARIADB_CENTREON_PASSWD@'
+};
+# Central or Poller ?
+$instance_mode = "central";
+# Centreon Centcore Command File
+$cmdFile = "/var/lib/centreon/centcore.cmd";
+# Deprecated format of Config file.
+$mysql_user = "@MARIADB_CENTREON_USER@";
+$mysql_passwd = '@MARIADB_CENTREON_PASSWD@';
+$mysql_host = "@VIP_SQL_IPADDR@:3306";
+$mysql_database_oreon = "centreon";
+$mysql_database_ods = "centreon_storage";
+1;
+```
+
+Then do the same operation in the file `/etc/centreon/centreon.conf.php`:
+```bash
+<?php
+/*
+ * Centreon is developped with GPL Licence 2.0 :
+ * http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+ * Developped by : Julien Mathis - Romain Le Merlus - Christophe Coraboeuf
+ *
+ * The Software is provided to you AS IS and WITH ALL FAULTS.
+ * Centreon makes no representation and gives no warranty whatsoever,
+ * whether express or implied, and without limitation, with regard to the quality,
+ * safety, contents, performance, merchantability, non-infringement or suitability for
+ * any particular or intended purpose of the Software found on the Centreon web site.
+ * In no event will Centreon be liable for any direct, indirect, punitive, special,
+ * incidental or consequential damages however they may arise and even if Centreon has
+ * been previously advised of the possibility of such damages.
+ *
+ * For information : contact@centreon.com
+ */
+/*      Database */
+$conf_centreon['hostCentreon'] = "@VIP_SQL_IPADDR@";
+$conf_centreon['hostCentstorage'] = "@VIP_SQL_IPADDR@";
+$conf_centreon['user'] = "@MARIADB_CENTREON_USER@";
+$conf_centreon['password'] = '@MARIADB_CENTREON_PASSWD@';
+$conf_centreon['db'] = "centreon";
+$conf_centreon['dbcstg'] = "centreon_storage";
+$conf_centreon['port'] = "3306";
+/* path to classes */
+$classdir='./class';
+/* Centreon Path */
+$centreon_path='/usr/share/centreon/';
+?>
+```
+
+And finish with the last file `/etc/centreon/config.d/10-database.yaml`:
+```bash
+database:
+  db_configuration:
+    dsn: "mysql:host=@VIP_SQL_IPADDR@:3306;dbname=centreon"
+    username: "@MARIADB_CENTREON_USER@"
+    password: "@MARIADB_CENTREON_PASSWD@"
+  db_realtime:
+    dsn: "mysql:host=@VIP_SQL_IPADDR@:3306;dbname=centreon_storage"
+    username: "@MARIADB_CENTREON_USER@"
+    password: "@MARIADB_CENTREON_PASSWD@"
+```
+
 ## Integrating pollers
 
 You can now [add your pollers](integrating-pollers.html) and begin to monitor!
