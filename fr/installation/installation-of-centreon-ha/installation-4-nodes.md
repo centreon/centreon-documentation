@@ -219,7 +219,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 <!--CentOS 7-->
 ```bash
-yum install epel-release
+yum install epel-release centos-release-scl
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -249,7 +249,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 
 <!--CentOS 7-->
 ```bash
-yum install epel-release
+yum install epel-release centos-release-scl
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
