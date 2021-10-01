@@ -601,7 +601,6 @@ Le nœud secondaire est de nouveau vu `online` par le cluster :
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--RHEL 8 / Oracle Linux 8-->
-
 ```bash
 Cluster Summary:
   * Stack: corosync
@@ -662,6 +661,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Vérifier aussi que la réplication MySQL est toujours opérationnelle à l'aide de la commande :
 
