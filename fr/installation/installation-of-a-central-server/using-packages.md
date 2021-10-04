@@ -72,6 +72,27 @@ systemctl disable firewalld
 ### Installer les dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+
+Activez PHP 8.0 en utilisant les commandes suivantes :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
 <!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
@@ -96,25 +117,7 @@ yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php80
 ```
-<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
-#### Dépôt remi
 
-Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Activez PHP 8.0 en utilisant les commandes suivantes :
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Dépôt Centreon
