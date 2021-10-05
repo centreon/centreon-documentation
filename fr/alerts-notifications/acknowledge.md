@@ -42,7 +42,7 @@ Pour acquitter un incident, deux solutions sont possibles :
 <!--From real time monitoring-->
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
-    `Services`) menu
+    **Services**) menu
 2.  Select the object(s) that you want acknowledge
 3.  In the menu: **More actions** click on **Hosts: Acknowledge** or on
     **Services: Acknowledge**
