@@ -77,7 +77,7 @@ The following window appears:
 
 To delete the acknowledgment of an incident on an object:
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the objects you want to delete the acknowledgment
 3.  In the **More actions** menu, click on **Hosts: Disacknowledge** or
