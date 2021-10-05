@@ -49,7 +49,7 @@ There are three different possibilities to define a downtime:
 
 <!--From the Downtime menu-->
 
-1.  Go into the `Monitoring > Downtimes > Downtimes` menu
+1.  Go into the **Monitoring > Downtimes > Downtimes** menu
 2.  Click on **Add a service downtime** or **Add a host downtime**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
