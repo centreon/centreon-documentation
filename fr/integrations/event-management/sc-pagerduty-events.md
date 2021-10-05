@@ -266,4 +266,4 @@ Here is the list of all the curl commands that are used by the stream connector.
 curl -X POST -H 'content-type: application/json' 'https://events.pagerduty.com/v2/enqueue' -d '{"dedup_key":"<my_host>_H","payload":{"component":"<my_host>","group":"<hg_1>","summary":"winter is coming","class":"host","severity":"info","timestamp":"2021-09-24T14:37:22.000","custom_details":{"Hostgroups":"<hg_1>","Hostseverity":2},"source":"<my_host>"},"event_action":"trigger","client":"Centreon Stream Connector","routing_key":"dzada32193dzbe1fz51xz","links":{"href":"<centreon_url>","text":"Link to Centreon host summary"}}'
 ```
 
- You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<my_host>* may become *linuxServerA*.
+You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<my_host>* may become *linuxServerA*.
