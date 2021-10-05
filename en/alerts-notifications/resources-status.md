@@ -30,7 +30,7 @@ your team that the problem is handled. You can do that in two ways:
 -   By directly acknowledging the line: an **Acknowledge** button
     appears on mouseover
 -   By selecting multiple lines and clicking on the **Acknowledge**
-    button above the table.
+    button above the table. You can use the **Shift** key to select several adjacent lines.
 
  Only "non-ok" resources can be acknowledged and you cannot acknowledge a resource that has already been acknowledged.
 
@@ -84,7 +84,9 @@ This can be achieved using the **Submit Status** action, available when a single
 
 ![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
 
-## Filter
+## Filtering events
+
+The various filters are added using an AND criterion: results will match all criteria.
 
 ### Pre-defined filters
 
@@ -103,51 +105,83 @@ The following rules apply:
     or **Down** (whether or not the resource has been acknowleged/a downtime has been set)
 -   **All**: All resources.
 
-![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
+### Search criteria
+
+You can filter the list of resources according to a number of predefined criteria.
+
+1. Click the **Search options** icon :![image](../assets/alerts/resources-status/search-options-icon.png)
+
+    A pop-up window appears, that lists the following criteria:
+
+    - **Resource**: display only hosts, services or metaservices
+    - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
+    - **Status**: **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
+    - **Host group**
+    - **Service group**
+    - **Monitoring server**: resources monitored by a specific server (or poller)
+
+    ![image](../assets/alerts/resources-status/search-popup.png)
+
+2. Click on a search criterion: a list of all possible values is displayed.
+
+3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure on the left of the criterion shows how many values are selected.
+
+    ![image](../assets/alerts/resources-status/search-criteria.png)
+
+    You can click the 'x' on the right of a criterion to deselect all values.
+
+4. Click **Search**, or click outside the pop-up. The list of resources is filtered.
 
 ### Search bar
 
-You can filter the list of resources by their name. Regular expressions are supported.
-By default, the search bar will look for your expression to match with:
+If you type text into the search bar, by default the search is performed on the following fields:
 
--   Host name
--   Host alias
--   Address or FQDN
--   Service description
--   Information
+-   Name of the host
+-   Alias of the host
+-   Address or FQDN of the host
+-   Description of the service
 
-![image](../assets/alerts/resources-status/resources-status-search-simple.png)
+For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g. a metaservice called **Ping-RTA-Average**).
 
-It's possible to force searching on specific fields by using the following
-labels:
+However, you can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
+in one or several fields.
 
--   h.name: only search in the host name field
--   h.alias: only search in host alias field
--   h.address: only search in the host address field
--   s.description: only search in the service description field
--   information: only search in the information field
+#### CQL criteria
 
-![image](../assets/alerts/resources-status/resources-status-search-label.png)
+- **alias**: search for hosts according to their alias
+- **fqdn**: search for hosts according to their IP address or FQDN
+- **host_group**: search for hosts that belong to a host group
+- **h.name**: search for resources according to the name of the host displayed in column **Resource** for the hosts, and **Parent** for the services
+- **h.alias**: search for resources according to the alias of a host, or to the alias of a service's parent
+- **h.address**: search for resources according to the FQDN/the IP address of the host or of a service's parent
+- **information**: search only in column **Information**
+- **monitoring_server**: search for all the resources that the selected poller is monitoring
+- **name**: search for hosts only on the name of the host, as displayed in column **Resource**
+- **parent_name**: search for services, according to their parent's name
+- **parent_alias**: search for services, according to their parent's alias
+- **state**: search for resources in a non-OK or non-UP state, according to whether they are unhandled, acknowledged or in downtime
+- **status**: search for resources according to their [status](concepts.html)
+- **service_group**: search for services that belong to a service group
+- **s.description**: search only in the description of the service (i.e. its name in column **Resource**)
+- **type**: display only hosts, services or metaservices
 
-### Advanced criteria
+#### Using the search bar
 
-If pre-defined filters and the search bar are not enough, it's possible
-to expand the filter bar to access the following additional criteria:
+The search bar shows all applied criteria, as text. Autocomplete helps you enter search terms easily: 
 
--   Resource type: host, service or meta-service
--   Status: **OK**, **Warning**, **Critical**, **Unknown**, **Pending**, **Up**, **Down**, **Unreachable**
--   State: Is the problem already acknowledged, in a planned downtime or simply unhandled
--   Host group
--   Service group
--   Monitoring server: resources monitored by a specific server (or poller)
+1. Start typing the criterion you want. For intance, type "h": the search bar suggests all criteria starting with "h" (**host_group**, **h.name**, **h.alias**, **h.address**). Select the criterion you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection.
 
-![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+2. According to the type of criterion, autocomplete can suggest possible values for this criterion (e.g. for criterion **Type**, the possible values are **Host**, **Service** and **Metaservice**). Select the value you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection.
 
-### Display/hide criteria
+    ![image](../assets/alerts/resources-status/search_tab.gif)
 
-You can hide or display the search criteria you want: use the **Select criteria** button to the left:
+3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. You can use regular expressions.
+4. Once you have entered all your search criteria, press **Enter**.
 
-![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
+Example :
+    **s.description:ping h.name:linux**: the list displays all services whose name contain "ping", for all hosts whose name contain "linux".
+
+![image](../assets/alerts/resources-status/search_ping_linux.gif)
 
 ### Save your filter
 
@@ -182,9 +216,10 @@ Depending on the type of resource, the detail panel displays different informati
 
 The host panel contains the following elements:
 
-- **Details** tab: Detailed information about the host's current status,
-- **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected),
-- **Timeline** tab: The timeline of events that occurred for this host,
+- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them.
+- **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected)
+- **Timeline** tab: The timeline of events that occurred for this host
+- **Graph** tab: graphs for the services for this host
 -   Shortcuts to the configuration, logs and report for this host.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
@@ -196,9 +231,9 @@ the panel and the header will be colored accordingly.
 
 The service panel contains the following elements:
 
-- **Details** tab: Detailed information about its current status,
-- **Timeline** tab: The timeline of events that occured for this service,
-- **Graph** tab: A graph with one curve per metric collected by this service,
+- **Details** tab: Detailed information about its current status. You can drag and drop tiles to rearrange them.
+- **Timeline** tab: The timeline of events that occured for this service
+- **Graph** tab: A graph with one curve per metric collected by this service
 - Shortcuts to the configurations, logs and reports for this service and its
     related host.
 
@@ -207,7 +242,13 @@ The service panel contains the following elements:
 If an acknowledgement or downtime is set on the service, it will be displayed in
 the panel and the header will be colored accordingly.
 
-#### Graph
+### Timeline tab
+
+The **Timeline** tab shows an antichronological list of events that occurred for this service or host. Use the **Event** list to display only the types of event you want.
+
+![image](../assets/alerts/resources-status/timeline.png)
+
+### Graph tab
 
 The graph tab enables you to visually display how the metrics evolve for the selected resource. 
 
@@ -249,3 +290,11 @@ To delete a comment, go to **Monitoring > Downtimes > Comments**.
 By clicking on the **Export to PNG** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
+
+To see a bigger version of the graph, click on **Go to performance page** in the top right corner of the graph.
+
+![image](../assets/alerts/resources-status/graph-open.png)
+
+The graph opens on page **Monitoring > Performances > Graphs**, allowing you to filter the graph more precisely.
+
+![image](../assets/alerts/resources-status/graph-open2.png)
