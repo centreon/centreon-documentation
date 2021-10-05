@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.12
 
+`October 5, 2021`
+
 #### Security fixes
 
 - Fixed session on account deletion
