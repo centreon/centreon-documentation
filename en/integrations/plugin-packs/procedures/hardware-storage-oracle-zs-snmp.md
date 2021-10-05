@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-oracle-zs-snmp
-title: Oracle ZS
+title: Oracle ZS SNMP
 ---
 
 ## Prerequisites

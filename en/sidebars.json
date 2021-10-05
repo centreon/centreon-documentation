@@ -907,6 +907,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-nimble-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-nimble-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-overland-neo-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-panzura-snmp",
