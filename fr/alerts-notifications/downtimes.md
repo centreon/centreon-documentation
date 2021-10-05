@@ -51,7 +51,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 
 <!--Depuis le menu Downtime-->
 
-1.  Rendez-vous dans le menu `Monitoring > Downtimes > Downtimes`
+1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
