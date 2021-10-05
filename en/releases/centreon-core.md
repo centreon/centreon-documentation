@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.6
 
+`October 5, 2021`
+
 #### Security fixes
 
 - Fixed session on account deletion
