@@ -26,7 +26,7 @@ longer sent. The service will return to its nominal state after a change
 of disk.
 
 > The acknowledgment of an incident signifies the taking into account of
-> the problem by a user of the supervision (and not the correction of
+> the problem by a user of the monitoring (and not the correction of
 > the incident which can only be effective when the check returns to its
 > nominal state).
 
