@@ -19,6 +19,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.6
+
+`October 5, 2021`
+
+#### Security fixes
+
+- Fixed session on account deletion
+
 ### 21.04.5
 
 `14 septembre 2021`
