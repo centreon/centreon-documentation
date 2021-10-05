@@ -1,6 +1,6 @@
 ---
 id: resources-status
-title: Resources Status Page
+title: Resources Status page
 ---
 
 The **Monitoring > Resources Status** page is your main view to track
