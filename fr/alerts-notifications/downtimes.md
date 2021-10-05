@@ -42,7 +42,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 
 <!--Interface temps réel-->
 
-1.  Rendez-vous dans le menu `Monitoring > Status Details > Hosts` (ou
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
     **Services**)
 2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
     temps d'arrêt
