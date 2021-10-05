@@ -182,7 +182,6 @@
                     "alerts-notifications/acknowledge",
                     "alerts-notifications/downtimes",
                     "alerts-notifications/submit",
-                    "alerts-notifications/notif-flapping",
                     "alerts-notifications/other"
                 ],
                 "label": "Managing alerts",
