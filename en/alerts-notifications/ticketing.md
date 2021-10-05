@@ -1,41 +1,7 @@
 ---
-id: ticketing
-title: Ticketing
+id: ticketing-config
+title: Configuring Open Tickets
 ---
-
-The **Centreon Open Tickets** is a community module developed to create
-tickets to an ITSM platform using API.
-
-Once done provider configuration, the module allows for an operator to
-create tickets for hosts and services in a non-ok state using a
-dedicated widget. Indeed, a button associated with each host or service
-allows you to connect to the API and create the ticket while offering
-the possibility to acknowledge in same time the object.
-
-Regarding the widget configuration, it is possible to see the created
-tickets by presenting tickets ID and date of creation of these.
-
-## Installation
-
-### Installing packages
-
-Execute the following command:
-
-``` shell
-yum install centreon-open-tickets
-```
-
-### UI installation
-
-After installing the rpm, you have to finish the module installation
-through the web frontend. Go to `Administration > Extensions > Manager`
-menu and search **Open Tickets**. Click on **Install selection**:
-
-![image](../assets/alerts/open_tickets_install_01.png)
-
-Your Centreon Open Tickets Module is now installed.
-
-![image](../assets/alerts/open_tickets_install_02.png)
 
 ## Configuration
 
@@ -47,7 +13,7 @@ section](../integrations/itsm/itsm-overview.html).
 Each provider has its own configuration, however, adding a provider in
 Centreon can be done in the following way:
 
-Go to the `Configuration > Notifications > Open Tickets > Rules` menu.
+Go to the **Configuration > Notifications > Open Tickets > Rules** menu.
 Click on **Add** button:
 
 ![image](../assets/alerts/open_tickets_add_provider_01.png)
@@ -56,7 +22,7 @@ Define **Rule name** and select **Provider**:
 
 ![image](../assets/alerts/open_tickets_add_provider_02.png)
 
-A new form appear. Configure the provider regarding his own configuraition.
+A new form appears: configure the provider.
 
 ### Hosts & services
 
@@ -67,13 +33,13 @@ The best way is to create these macros in a host template and a service
 template inherited by all objects using models from which all resources
 will inherit.
 
-Go to the `Configuration > Hosts > Templates` menu and look for the
+Go to the **Configuration > Hosts > Templates** menu and look for the
 **generic-active-host-custom** template and edit this one. Add the macro
 **TICKET\_ID** and click on **Save**:
 
 ![image](../assets/alerts/open_tickets_macro.png)
 
-Go to the `Configuration > Services > Templates` menu and look for the
+Go to the **Configuration > Services > Templates** menu and look for the
 **generic-active-service-custom** template and edit this one. Add the
 macro **TICKET\_ID** and click on **Save**:
 
@@ -82,14 +48,14 @@ macro **TICKET\_ID** and click on **Save**:
 ### Widget configuration
 
 To use the widget you have to add it into a custom view. Go to
-`Home > Custom Views` menu, select your view and click on **Add widget**
+**Home > Custom Views** menu, select your view and click on **Add widget**
 button.
 
 Define a title for your widget (for example: Open-Tickets) and select
 the widget **Open Tickets**. Do the same manipulation to add again this
 widget.
 
-On the first widget, to open ticket, click on the **configuration**
+On the first widget, to open a ticket, click on the **Configuration**
 button:
 
 -   Select the **Rule** previously defined
@@ -99,7 +65,7 @@ button:
     Time**
 
 On the second widget, to display opened tickets, click on the
-**configuration** button:
+**Configuration** button:
 
 -   Select the **Rule** previously defined
 -   Check the box **Opened Tickets**
@@ -152,24 +118,24 @@ them to your environment.
 
 ### List definition
 
-Before opening a ticket, an user can choose some options in a popup. An
+Before opening a ticket, users can choose some options in a popup. An
 option can be a select list. In the configuration provider, you can
-configure it in `Lists` and `Custom list definition`. For each entry in
-`Lists`, you can define:
+configure it in **Lists** and **Custom list definition**. For each entry in
+**Lists**, you can define:
 
 -   **Id** : alphanumeric value (must be unique)
 -   **Label** : displayed in the popup
 -   **Type** : which kind of list. There is 3 kinds of lists
     -   Provider lists (data from the ticketing software directly)
-    -   Centreon lists (like `Host group`)
-    -   Custom lists (data from `Custom list definition` configuration.
+    -   Centreon lists (like **Host group**)
+    -   Custom lists (data from **Custom list definition** configuration.
         **Id** fields must be identical)
 -   **Mandatory** : checked it if the user needs to set the option
 
 ![image](../assets/alerts/open_ticket_advanced_list_01.png)
 
 The module stores the user list selection in an array (can be used in
-smarty section like `body` or `mapping ticket arguments`). There are 3
+smarty section like **body** or **mapping ticket arguments**). There are 3
 fields (**LIST\_ID** must be replaced):
 
 -   {$select.LIST\_ID.id}
@@ -181,8 +147,8 @@ fields (**LIST\_ID** must be replaced):
 After opening a ticket, you may need to send an email. The chaining
 rules system is designed to do it:
 
--   Create a new rule with the name `emailme` and the provider `Mail`
--   Configure the `emailme` in the rule of your opening system
+-   Create a new rule with the name **emailme** and the provider **Mail**
+-   Configure the **emailme** in the rule of your opening system
 
 ![image](../assets/alerts/open_ticket_advanced_chain_01.png)
 
