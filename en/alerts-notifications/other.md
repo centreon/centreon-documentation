@@ -162,7 +162,7 @@ There are two ways of forcing the check of a service:
 <!--From real time monitoring-->
 
 1.  Go into the menu: **Monitoring > Status Details > Hosts** (or
-    `Services`)
+    **Services**)
 2.  Select the objects to for which you want to force the check
 3.  In the menu: **More actions…** click on **Schedule immediate check**
     or **Schedule immediate check (Forced)**
