@@ -104,7 +104,7 @@ There are two types of Downtime periods:
     Not-OK status.
 
 To add a recurrent downtime period go into the
-`Monitoring > Downtimes > Recurrent Downtimes` menu and click on
+**Monitoring > Downtimes > Recurrent Downtimes** menu and click on
 **Add**.
 
 ![image](../assets/alerts/05recurrentdowntimes.png)
