@@ -73,7 +73,7 @@ To:
 
 <!--From real time monitoring-->
 
-1.  Go into the `Monitoring > Status Details > Hosts` (or `Services`)
+1.  Go into the **Monitoring > Status Details > Hosts** (or **Services**)
     menu
 2.  Select the object(s) on which you want to enable or disable the
     check
