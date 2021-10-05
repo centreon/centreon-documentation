@@ -186,10 +186,10 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'host': 'my_host',
-  'service': 'my_service',
-  'output': 'CRITICAL: the wind broke my umbrella',
-  'state': 'CRITICAL'
+  "host": "my_host",
+  "service": "my_service",
+  "output": "CRITICAL: the wind broke my umbrella",
+  "state": "CRITICAL"
 }
 ```
 
@@ -197,9 +197,9 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'host': 'my_host',
-  'output': 'DOWN: putting gas in my eletric car was not a good idea',
-  'state': 'DOWN'
+  "host": "my_host",
+  "output": "DOWN: putting gas in my eletric car was not a good idea",
+  "state": "DOWN"
 }
 ```
 
@@ -207,8 +207,8 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'ba': 'my_ba',
-  'state': 'CRITICAL'
+  "ba": "my_ba",
+  "state": "CRITICAL"
 }
 ```
 

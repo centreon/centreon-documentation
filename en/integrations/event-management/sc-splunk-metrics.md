@@ -181,22 +181,22 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'sourcetype': '_json',
-  'source': 'http:my_index',
-  'index': 'my_index',
-  'host': 'Central',
-  'time': 1630590530,
-  'fields': {
-    'event_type': 'service',
-    'state': 2,
-    'state_type': 1,
-    'hostname': 'my_host',
-    'service_description': 'my_service',
-    'ctime': 1630590520,
-    'metric: pl': 0,
-    'metric: rta': 10,
-    'metric: rtmin': 5,
-    'metric: rtmax': 15
+  "sourcetype": "_json",
+  "source": "http:my_index",
+  "index": "my_index",
+  "host": "Central",
+  "time": 1630590530,
+  "fields": {
+    "event_type": "service",
+    "state": 2,
+    "state_type": 1,
+    "hostname": "my_host",
+    "service_description": "my_service",
+    "ctime": 1630590520,
+    "metric: pl": 0,
+    "metric: rta": 10,
+    "metric: rtmin": 5,
+    "metric: rtmax": 15
   }
 }
 ```
@@ -205,28 +205,28 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'sourcetype': '_json',
-  'source': 'http:my_index',
-  'index': 'my_index',
-  'host': 'Central',
-  'time': 1630590530,
-  'fields': {
-    'event_type': 'host',
-    'state': 1,
-    'state_type': 1,
-    'hostname': 'my_host',
-    'ctime': 1630590520,
-    'metric: pl': 0,
-    'metric: rta': 10,
-    'metric: rtmin': 5,
-    'metric: rtmax': 15
+  "sourcetype": "_json",
+  "source": "http:my_index",
+  "index": "my_index",
+  "host": "Central",
+  "time": 1630590530,
+  "fields": {
+    "event_type": "host",
+    "state": 1,
+    "state_type": 1,
+    "hostname": "my_host",
+    "ctime": 1630590520,
+    "metric: pl": 0,
+    "metric: rta": 10,
+    "metric: rtmin": 5,
+    "metric: rtmax": 15
   }
 }
 ```
 
 ### Custom event format
 
-You can't change the format of the event for metrics oriented stream connectors.
+You can"t change the format of the event for metrics oriented stream connectors.
 
 ## Curl commands
 
@@ -235,7 +235,7 @@ Here is the list of all the curl commands that are used by the stream connector.
 ### Send events
 
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'authorization: Splunk <splunk_token>' '<http_server_url>' -d "{'sourcetype': '<splunk_sourcetype>','source': '<splunk_source>','index': '<splunk_index>','host': '<splunk_host>','time': <epoch_timestamp>,'event': {'event_type': 'host','state': 1,'state_type': 1,'hostname':'my_host','ctime': 1630590520,'metric: pl': 0,'metric: rta': 10,'metric: rtmin': 5,'metric: rtmax': 15}}"
+curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1630590520,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
 ```
 
  You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
