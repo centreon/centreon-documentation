@@ -182,15 +182,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_service',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'CRITICAL: USB cable behaving like a water hose'
-  }']
+  "records": [{
+    "source": "centreon",
+    "event_class": "centreon",
+    "severity": 5,
+    "node": "my_host",
+    "resource": "my_service",
+    "time_of_event": "2022-09-06 11:52:12",
+    "description": "CRITICAL: USB cable behaving like a water hose"
+  }]
 }
 ```
 
@@ -198,15 +198,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_host',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'DOWN: someone plugged an UPS on another UPS to create infinite energy'
-  }']
+  "records": [{
+    "source": "centreon",
+    "event_class": "centreon",
+    "severity": 5,
+    "node": "my_host",
+    "resource": "my_host",
+    "time_of_event": "2022-09-06 11:52:12",
+    "description": "DOWN: someone plugged an UPS on another UPS to create infinite energy"
+  }]
 }
 ```
 
@@ -237,7 +237,7 @@ The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**
 ### Send events
 
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d "{'records':['{'source': 'centreon','event_class': 'centreon','severity': 5,'node': 'my_host','resource': 'my_service','time_of_event': '2022-09-06 11:52:12','description': 'CRITICAL: USB cable behaving like a water hose'}']}"
+curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d '{"records":[{"source": "centreon","event_class": "centreon","severity": 5,"node": "my_host","resource": "my_service","time_of_event": "2022-09-06 11:52:12","description": "CRITICAL: USB cable behaving like a water hose"}]}'
 ```
 
 The *`<access_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
