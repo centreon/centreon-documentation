@@ -31,7 +31,7 @@ There are two solutions to add a comment:
 
 <!--From the Comment menu-->
 
-1.  Go into the `Monitoring > Downtimes > Comments` menu
+1.  Go into the **Monitoring > Downtimes > Comments** menu
 2.  Click on **Add a Service Comment** or **Add a Host Comment**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
