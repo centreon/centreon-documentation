@@ -3,7 +3,7 @@ id: sc-splunk-events
 title: Splunk Events
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the content in french and provide a sample execution command. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
+> Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
 ## Splunk + Centreon Integration Benefits
 
