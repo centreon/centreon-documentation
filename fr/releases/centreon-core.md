@@ -19,6 +19,14 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.12
+
+`October 5, 2021`
+
+#### Security fixes
+
+- Fixed session on account deletion
+
 ### 20.10.11
 
 `14 septembre 2021`
