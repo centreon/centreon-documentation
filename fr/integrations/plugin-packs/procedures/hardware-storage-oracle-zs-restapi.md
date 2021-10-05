@@ -113,7 +113,7 @@ Pool 'Pool_Exadata' status : exported
 Pool 'Pool_Exalogic' status : online, space usage total: 30.41 TB used: 17.94 TB (59.02%) free: 11.98 TB (39.41%)
 ```
 
-Cette commande contrôle les alertes (```--mode=alerts```).
+Cette commande contrôle les pools (```--mode=pools```).
 
 La commande utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
 et elle se connecte à l'hôte _10.30.2.79_ (```--hostname='10.30.2.79'```) sur le port _215_ (```--port='215'```) utilisant le protocol _https_ (```--proto='https'```).
