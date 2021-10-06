@@ -244,7 +244,7 @@ PHP 7.2 n'est plus supporté depuis novembre 2020.
 Si vous ne pouvez pas mettre à jour votre plateforme vers la prochaine version majeure de Centreon, et que vous souhaitez obtenir les derniers correctifs de sécurité de PHP, vous devez suivre les étapes suivantes:
 
 1. Vérifier les versions requises de centreon web & des extensions:
-    * centreon-web >= 20.04.18
+    * centreon-web >= 20.04.19
     * centreon-bi >= 20.04.8
     * centreon-open-tickets >= 20.04.3
 > Vous pouvez obtenir la liste des versions des paquets en utilisant la commande suivante:
