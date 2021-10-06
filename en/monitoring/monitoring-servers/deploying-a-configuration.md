@@ -55,7 +55,7 @@ Administrators can activate a quick export button that allows them to export the
 
 ### When to use this feature
 
-> Do NOT use this feature if you have a large number of pollers. This feature is not appropriate if you are an MSP and each poller belongs to a different customer. 
+> Do NOT use this feature if you have a large number of pollers. This feature is not appropriate either if you are an MSP and each poller belongs to a different customer. 
 
 ### Activating the feature
 
