@@ -46,3 +46,30 @@ Les différentes options fonctionnent de la manière suivante :
     la nouvelle configuration.
   - **Commande exécutée post-génération** : Exécute la commande post-génération
     paramétrée au niveau de la configuration du collecteur.
+
+## Export instantané
+
+Les administrateurs peuvent activer un bouton qui leur permet d'exporter la configuration de TOUS les collecteurs d'un seul coup (c'est-à-dire la configuration du serveur central, des serveurs distants et des collecteurs). Cette fonctionnalité est actuellement en mode bêta.
+
+### Dans quels cas utiliser la fonctionnalité?
+
+> N'utilisez PAS cette fonctionnalité si vous avez un grand nombre de collecteurs. Cette fonctionnalité n'est pas pertinente non plus si vous êtes un MSP et que chaque collecteur correspond à un client différent.
+
+### Activer la fonctionnalité
+
+En mode bêta, seuls les utilisateurs administrateurs ont accès à cette fonctionnalité. 
+
+Pour activer la fonctionnalité :
+1. Allez à la page **Administration > Paramètres > Mon compte**.
+2. Dans la section **Préférences**, cochez la case **Activer le bouton d’export de la configuration des pollers en un seul clic [BETA]**.
+3. Cliquez sur **Sauvegarder**.
+
+### Exporter toutes les configurations
+
+Pour exporter rapidement la configuration de tous les collecteurs :
+
+1. Cliquez sur le menu **Collecteurs** en haut à gauche de l'écran, puis cliquez sur **Exporter la configuration**.
+
+    ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.png)
+
+2. Dans la pop-up qui apparaît, confirmez l'export.

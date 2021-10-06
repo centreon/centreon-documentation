@@ -48,3 +48,29 @@ The options work in the following ways:
     configuration
   - **Post generation command**: Executes the post-generation command set in the
     poller's configuration 
+
+## Quick export
+
+Administrators can activate a quick export button that allows them to export the configurations of ALL pollers at once (i.e. the configuration of the central server, remote servers and pollers). This feature is still in beta mode.
+
+### When to use this feature
+
+> Do NOT use this feature if you have a large number of pollers. This feature is not appropriate if you are an MSP and each poller belongs to a different customer. 
+
+### Activating the feature
+
+In beta mode, only administrator users can use this feature.
+
+To activate the feature:
+
+1. Go to **Administration > Parameters > My Account**.
+2. In section **Preferences**, select **Enable the one-click export button for poller configuration [BETA]**.
+3. Click **Save**.
+
+### Exporter toutes les configurations
+
+To quickly export the configuration for all pollers:
+1. Click the **Pollers** menu at the top left of the screen, then click **Export configuration**.
+
+    ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.png)
+2. Confirm the export in the popup that appears.
