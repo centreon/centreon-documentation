@@ -111,7 +111,7 @@ You can filter the list of resources according to a number of predefined criteri
 
 1. Click the **Search options** icon :![image](../assets/alerts/resources-status/search-options-icon.png)
 
-    A pop-up window appears, that lists the following criteria:
+    A pop-in window appears, that lists the following criteria:
 
     - **Resource**: display only hosts, services or metaservices
     - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
@@ -169,9 +169,9 @@ in one or several fields.
 
 The search bar shows all applied criteria, as text. Autocomplete helps you enter search terms easily: 
 
-1. Start typing the criterion you want. For intance, type "h": the search bar suggests all criteria starting with "h" (**host_group**, **h.name**, **h.alias**, **h.address**). Select the criterion you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection.
+1. Start typing the criterion you want. For intance, type "h": the search bar suggests all criteria starting with "h" (**host_group**, **h.name**, **h.alias**, **h.address**). Select the criterion you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection. A colon is used between a criterion and its possible values (e.g. **host:Linux**).
 
-2. According to the type of criterion, autocomplete can suggest possible values for this criterion (e.g. for criterion **Type**, the possible values are **Host**, **Service** and **Metaservice**). Select the value you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection.
+2. According to the type of criterion, autocomplete can suggest possible values for this criterion (e.g. for criterion **Type**, the possible values are **Host**, **Service** and **Metaservice**). Select the value you want using the **Up** and **Down** arrows, then press **Tab** or **Enter** to confirm the selection. It is possible to set several values for a criterion. The values should be separated by commas. The search will retrieve all values, using an OR criterion, e.g. **type:service,metaservice** will retrieve all services and metaservices.
 
     ![image](../assets/alerts/resources-status/search_tab.gif)
 
@@ -236,6 +236,7 @@ The service panel contains the following elements:
 - **Graph** tab: A graph with one curve per metric collected by this service
 - Shortcuts to the configurations, logs and reports for this service and its
     related host.
+- Below the name of the service, the name of its parent host. Click it to open the host panel for the parent host.  
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 

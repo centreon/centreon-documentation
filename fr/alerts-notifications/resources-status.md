@@ -115,7 +115,7 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 1. Cliquez sur l'icône **Options de recherche** :![image](../assets/alerts/resources-status/search-options-icon.png)
 
-    Une pop-up apparaît, listant les critères suivants :
+    Une pop-in apparaît, listant les critères suivants :
 
     - **Ressource** : afficher uniquement les hôtes, les services ou les métaservices
     - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
@@ -170,13 +170,26 @@ Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [C
 
 #### Utiliser la barre de recherche
 
-La barre de recherche montre les critères appliqués sous forme textuelle. L'autocomplétion vous aide à saisir les termes de recherche facilement : 
-1. Tapez par exemple "h", et la barre suggère tous les critères commençant par "h" (**host_group**, **h.name**, **h.alias**, **h.address**). Sélectionnez le critère désiré avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
-2. Suivant le type de critère, l'autocomplétion peut vous suggérer les valeurs possibles pour ce critère (par exemple, pour le critère **Type**, les valeurs peuvent être **Hôte**, **Service** ou **Métaservice**). Sélectionnez la valeur désirée avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
+La barre de recherche montre les critères appliqués sous forme textuelle. 
+L'autocomplétion vous aide à saisir les termes de recherche facilement : 
+
+1. Tapez par exemple "h", et la barre suggère tous les critères commençant par 
+"h" (**host_group**, **h.name**, **h.alias**, **h.address**). Sélectionnez le 
+critère désiré avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
+Le critère et ses valeurs possibles sont séparés par deux points (par exemple, **host:Linux**).
+
+2. Suivant le type de critère, l'autocomplétion peut vous suggérer les valeurs possibles
+pour ce critère (par exemple, pour le critère **Type**, les valeurs peuvent 
+être **Hôte**, **Service** ou **Métaservice**). Sélectionnez la valeur désirée 
+avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
+Un même critère peut avoir plusieurs valeurs possibles. Les valeurs doivent être séparées par des virgules.
+La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,metaservice** ramènera 
+toutes les ressources de type services et métaservices.
 
     ![image](../assets/alerts/resources-status/search_tab.gif)
 
-3. Séparez les critères de recherche par des espaces. Les critères s'additionnent selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
+3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
+selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
 4. Une fois les critères de recherche saisis, appuyez sur **Entrée**.
 
 Exemple :
@@ -238,6 +251,7 @@ Le panneau de service contient les éléments suivants :
 - Onglet **Graphique** : Un graphique avec une courbe par métrique collectée par ce service,
 - Des raccourcis vers les configurations, les journaux d'évènements et les
     rapports de disponibilité pour ce service et son hôte.
+- Sous le nom du service, le nom de son hôte parent. Cliquez sur celui-ci pour ouvrir le panneau de détail d'hôte de l'hôte parent.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 
