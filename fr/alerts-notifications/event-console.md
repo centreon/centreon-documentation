@@ -4,15 +4,17 @@ title: Consoles d'évènements
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page
-> [Statut des ressources](resources-status.html)
->
-> Cette nouvelle page a pour but de regrouper les expériences que vous
+> [Statut des ressources](resources-status.html). Cette nouvelle page a pour but de regrouper les expériences que vous
 > pouvez retrouver dans ces interfaces.
 >
 > Pour les nouvelles installations, les pages dépréciées sont automatiquement
 > masquées. Il est possible de les afficher en sélectionnant l'option
-> *Afficher les pages dépréciées* dans les préférences propres à chaque
-> utilisateur depuis le menu **Administration > Paramètres > Mon compte**.
+> **Utiliser les pages dépréciées** dans les préférences propres à chaque
+> utilisateur depuis le menu **Administration > Paramètres > Mon compte**. 
+>
+> Tous les liens pointeront vers ces pages : les pages dépréciées deviendront votre outil de base pour la visualisation 
+> de l'état des hôtes et services. Cependant, en activant ce paramètre, vous ne bénéficierez pas des nouvelles
+> fonctionnalités fournies par la page **Resources Status**.
 
 Ce chapitre présente les différentes interfaces permettant de visualiser
 l'état des ressources.
