@@ -323,6 +323,10 @@ before installing Centreon.
 Answer yes to all questions except "Disallow root login remotely?". It is mandatory
 to set a password for the **root** user of the database.
 
+```shell
+mysql_secure_installation
+```
+
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Web installation
