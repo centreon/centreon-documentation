@@ -696,19 +696,25 @@ Please install Centreon Gorgone using [this procedure](https://github.com/centre
 Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.
 
-Answer yes to all questions except "Disallow root login remotely?".
+Answer yes to all questions except "Disallow root login remotely?". 
+It is mandatory to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Server name
 
-Define the server name using following command:
+If you want, you can change the server name using following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname central
 ```
 
 ## Centreon
