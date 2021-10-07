@@ -178,13 +178,7 @@ Some of them are overridden by this stream connector.
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
-
-To use this feature you must add the following parameter in your stream connector configuration.
-
-| Type   | Name            | Value           |
-| ------ | --------------- | --------------- |
-| number | max_buffer_size | `more than one` |
+This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
 
 ## Event format
 
@@ -260,8 +254,8 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
-| Type   | Name        | Value                                          |
-| ------ | ----------- | ---------------------------------------------- |
+| Type   | Name        | Value                                             |
+| ------ | ----------- | ------------------------------------------------- |
 | string | format_file | /etc/centreon-broker/pagerduty-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user
