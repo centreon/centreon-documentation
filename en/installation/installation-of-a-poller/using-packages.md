@@ -46,9 +46,14 @@ systemctl disable firewalld
 
 ### Server name
 
-Define the server name using following command:
+If you want, you can change the server's name using the following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ### Install the repositories
