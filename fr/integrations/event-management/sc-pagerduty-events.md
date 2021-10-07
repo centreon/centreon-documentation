@@ -126,7 +126,7 @@ luarocks install centreon-stream-connectors-lib
 ### Download Splunk events stream connector
 
 ```shell
-wget -O /usr/share/centreon-broker/lua/pagerduty-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/pagerduty-events-apiv2.lua
+wget -O /usr/share/centreon-broker/lua/pagerduty-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/pagerduty/pagerduty-events-apiv2.lua
 chmod 644 /usr/share/centreon-broker/lua/pagerduty-events-apiv2.lua
 ```
 
