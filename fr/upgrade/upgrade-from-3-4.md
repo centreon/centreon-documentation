@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.04.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.10.
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -39,7 +39,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
@@ -49,6 +49,21 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 > yum install -y centos-release-scl-rh
 > ```
 
+### Upgrade PHP
+
+Centreon 21.10 utilise PHP en version 8.0.
+
+Vous devez tout d'abord installer les dépôts **remi** :
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Ensuite, vous devez activer le dépôt php 8.0
+```shell
+yum-config-manager --enable remi-php80
+```
+
 ### Montée de version de la solution Centreon
 
 Arrêter le processus Centreon Broker :
@@ -56,7 +71,7 @@ Arrêter le processus Centreon Broker :
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présent :
+Supprimer les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -75,28 +90,19 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-### Actions complémentaires
-
-#### Mise à jour de la version de PHP
-
-Depuis la version 20.04, Centreon utilise un nouveau paquet PHP.
-
-Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande
-suivante :
-
+Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
-Réalisez les actions suivantes :
-
+Exécutez la commande suivante :
 ```shell
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl reload php-fpm
 ```
+
+### Actions complémentaires
 
 #### Mise à jour du serveur Web Apache
 
@@ -329,7 +335,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -427,7 +433,7 @@ systemctl enable mariadb
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de

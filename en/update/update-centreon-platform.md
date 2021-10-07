@@ -1,9 +1,9 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 21.04 platform
+title: Update a Centreon 21.10 platform
 ---
 
-This chapter describes how to update your Centreon 21.04 platform.
+This chapter describes how to update your Centreon 21.10 platform.
 
 ## Perform a backup
 

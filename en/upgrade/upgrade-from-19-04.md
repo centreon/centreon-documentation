@@ -4,7 +4,7 @@ title: Upgrade from Centreon 19.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 19.04
-to version 21.04.
+to version 21.10.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
@@ -29,9 +29,16 @@ servers:
 
 Run the following commands:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
+<!--CentOS 7-->
+```shell
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If you are using a CentOS environment, you must install the *Software
 > Collections* repositories with the following command:
@@ -40,8 +47,39 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 > yum install -y centos-release-scl-rh
 > ```
 
-### Upgrade the Centreon solution
+### Upgrade PHP
 
+Centreon 21.10 uses PHP in version 8.0.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+First, you need to install the **remi** repository:
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+Then, you need to change the PHP stream from version 7.1 to 8.0 by executing the following commands and answering **y**
+to confirm:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+<!--CentOS 7-->
+First, you need to install the **remi** repository:
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Then, you need to enable the php 8.0 repository
+```shell
+yum-config-manager --enable remi-php80
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Upgrade the Centreon solution
 
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
@@ -55,7 +93,6 @@ Delete existing retention files:
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
-
 
 Clean yum cache:
 
@@ -71,33 +108,32 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-### Additional actions
-
-#### Update the PHP version
-
-Since 20.04, Centreon uses a new version of PHP.
-
-The PHP timezone should be set. Run the command:
-
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Execute the following commands:
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+<!--CentOS 7-->
+The PHP timezone should be set. Run the command:
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-> Don't forget your php-fpm specific configuration that you may have set in the
-> /etc/opt/rh/rh-php71/php.ini and/or /etc/opt/rh/rh-php71/php-fpm.d/centreon.conf
-
-Then, run the following commands:
-
+Execute the following commands:
 ```shell
-systemctl disable rh-php71-php-fpm
 systemctl stop rh-php71-php-fpm
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
-systemctl restart httpd24-httpd
+systemctl disable rh-php71-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### Additional actions
 
 #### Configure Apache API access
 
@@ -166,12 +202,20 @@ systemctl restart httpd24-httpd
 
 ### Finalizing the upgrade
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 Before starting the web upgrade process, reload the Apache server with the
 following command:
-
+```shell
+systemctl reload httpd
+```
+<!--CentOS 7-->
+Before starting the web upgrade process, reload the Apache server with the
+following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then log on to the Centreon web interface to continue the upgrade process:
 
@@ -279,9 +323,16 @@ The MariaDB components can now be upgraded.
 
 Run the following command on the dedicated DBMS server:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
+<!--CentOS 7-->
+```shell
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Configuration
 
@@ -381,9 +432,16 @@ This procedure is the same than to upgrade a Centreon Central server.
 
 Run the following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
+<!--CentOS 7-->
+```shell
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If you are using a CentOS environment, you must install the *Software
 > Collections* repositories with the following command:

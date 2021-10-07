@@ -4,7 +4,7 @@ title: Montée de version de Centreon HA depuis Centreon 20.10
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon HA depuis la version 20.10 vers la version 21.04.
+Centreon HA depuis la version 20.10 vers la version 21.10.
 
 ## Prérequis
 

@@ -1,10 +1,10 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 21.04
+title: Mise à jour d'une plateforme Centreon 21.10
 ---
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-21.04.
+21.10.
 
 ## Sauvegarde
 
@@ -64,7 +64,7 @@ accéder à la page de connexion :
 
 Déployez ensuite la configuration du Central depuis l'interface web en
 suivant [cette
-procedure](../monitoring/monitoring-servers/deploying-a-configuration.html),
+procédure](../monitoring/monitoring-servers/deploying-a-configuration.html),
 
 Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant
 la commande suivante:
@@ -75,7 +75,7 @@ systemctl restart cbd centengine gorgoned
 
 ### Mise à jour des extensions
 
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
 toutes les extensions, en commençant par les suivantes :
 
   - License Manager,
@@ -91,7 +91,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 > En fin de mise à jour, la configuration doit être déployée depuis le serveur
 > Central.
 
-## Mise à jour des Pollers
+## Mise à jour des collecteurs
 
 Videz le cache de yum :
 
@@ -105,11 +105,11 @@ Mettez à jour l'ensemble des composants :
 yum update centreon\*
 ```
 
-Déployez la configuration du Poller depuis l'interface web en suivant [cette
-procedure](../monitoring/monitoring-servers/deploying-a-configuration.html), et
-en choisissant la méthode *Redémarrer* pour le processus Engine
+Déployez la configuration du collecteur depuis l'interface web en suivant [cette
+procédure](../monitoring/monitoring-servers/deploying-a-configuration.html), et
+en choisissant la méthode **Redémarrer** pour le processus Engine.
 
-Redémarrez enfin le service Gorgone s'il est utilisé sur le Poller :
+Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
 
 ```shell
 systemctl restart centengine gorgoned

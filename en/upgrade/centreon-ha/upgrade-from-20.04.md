@@ -4,7 +4,7 @@ title: Upgrade Centreon HA from Centreon 20.04
 ---
 
 This chapter describes how to upgrade your Centreon HA platform from version 20.04
-to version 21.04.
+to version 21.10.
 
 ## Prerequisites
 
