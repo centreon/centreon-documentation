@@ -111,9 +111,14 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ## Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le désirez, changez le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez new-server-name par le nom de votre choix. Exemple :
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ## Mise à jour du système d'exploitation

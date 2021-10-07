@@ -50,9 +50,14 @@ systemctl disable firewalld
 
 ### Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple:
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ### Installer les dépôts

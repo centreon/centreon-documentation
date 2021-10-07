@@ -112,9 +112,14 @@ When the installation is complete, click on **Reboot**:
 
 ## Server name
 
-Define the server name using following command:
+If you want, you can change the server's name using the following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ## Update the system
@@ -208,7 +213,7 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
 ```
 
-### Main errors messages
+### Main error messages
 
 ``` shell
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
