@@ -19,6 +19,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.7
+
+`October 8, 2021`
+
+#### Bugfixes
+
+- Fixed an error when filing credentials in the Host Discovery job with the side effect of a change regarding downtime
+
 ### 21.04.6
 
 `October 5, 2021`
