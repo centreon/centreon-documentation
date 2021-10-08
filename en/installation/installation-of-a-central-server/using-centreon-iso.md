@@ -117,6 +117,12 @@ If you want to change the server's name, use the following command:
 hostnamectl set-hostname new-server-name
 ```
 
+Replace **new-server-name** by the name you want. Example:
+
+```shell
+hostnamectl set-hostname central
+```
+
 ## Update the operating system
 
 Connect to your server using a terminal, and execute the command:
@@ -142,17 +148,18 @@ on the central server:
 systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
-### Secure MySQL installation
+### Secure the database
 
 Since MariaDB 10.5, it is necessary to secure the database's installation before installing Centreon.
 
-Answer yes to all questions except "Disallow root login remotely?". 
+Answer yes to all questions except "Disallow root login remotely?". It is mandatory
+to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Web installation
 

@@ -183,7 +183,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Securing the installation of the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
-installation. Please execute the following command and follow instructions:
+installation. It is mandatory to set a password for the **root** user of the database. Please execute the following command and follow instructions:
 
 ```shell
 mysql_secure_installation
@@ -811,9 +811,9 @@ systemctl restart httpd24-httpd
 
 Centreon offers several methods to authenticate users:
 
-- local (MySQL)
+- [local](../connect/loginpwd.html) (MySQL)
 - [LDAP](./parameters/ldap.html)
-- [Generic SSO](./parameters/centreon-ui.html#sso) or [OpenId Connect](./parameters/centreon-ui.html#openid-connect)
+- [Generic SSO](../connect/sso.html) or [OpenId Connect](../connect/openid-connect.html)
 
 ## Create user profiles
 

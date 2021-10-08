@@ -173,11 +173,29 @@
             "monitoring/event-handler",
             "monitoring/web-import-export"
         ],
-        "Alertes et Notifications": [
+        "Gérer évènements et alertes": [    
+            {
+                "ids":[
             "alerts-notifications/concepts",
             "alerts-notifications/resources-status",
             "alerts-notifications/event-console",
-            "alerts-notifications/manage-alerts",
+            "alerts-notifications/event-log",
+            "alerts-notifications/custom-views"             
+                ],
+                "label": "Visualiser les évènements",
+                "type": "subcategory"
+            },  
+            {   
+                "ids" : [
+                    "alerts-notifications/acknowledge",
+                    "alerts-notifications/downtimes",
+                    "alerts-notifications/submit",
+                    "alerts-notifications/notif-flapping",
+                    "alerts-notifications/other"
+                ],
+                "label": "Gérer les alertes",
+                "type": "subcategory"
+            },           
             {
                 "ids": [
                     "alerts-notifications/notif-concept",
@@ -187,18 +205,24 @@
                     "alerts-notifications/notif-flapping",
                     "alerts-notifications/notif-advanced"
                 ],
-                "label": "Notification",
+                "label": "Gérer les notifications",
                 "type": "subcategory"
             },
-            "alerts-notifications/ticketing",
-            "alerts-notifications/event-log"
+            {
+                "ids" :[
+                    "alerts-notifications/ticketing-install",
+                    "alerts-notifications/ticketing-config"
+                ],
+                "label": "Gérer des tickets",
+                "type": "subcategory"
+        }
         ],
-        "Graphiques de performance": [
-            "metrology/chart-management",
-            "metrology/chart-template",
-            "metrology/chart-curves",
-            "metrology/chart-virtual-metrics"
-        ],
+        "Graphiques de performance" : [      
+                "metrology/chart-management",
+                "metrology/chart-template",
+                "metrology/chart-curves",
+                "metrology/chart-virtual-metrics"
+       ],
         "Service Mapping": [
             "service-mapping/introduction",
             {
@@ -292,6 +316,18 @@
                 "label": "Parameters",
                 "type": "subcategory"
             },
+            {
+                "ids": [
+                    "connect/loginpwd",
+                    "administration/parameters/ldap",
+                    "connect/sso",
+                    "connect/openid",
+                    "connect/autologin"
+                ],
+                "label": "Paramétrer la connexion à Centreon",
+                "type": "subcategory"
+            },
+
             "administration/extensions",
             "administration/licenses",
             "administration/database-partitioning",

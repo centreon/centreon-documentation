@@ -65,7 +65,7 @@ systemctl disable firewalld
 > Vous pouvez trouver des instructions [ici](../../administration/secure-platform.html#enable-firewalld)
 > pour configurer le pare-feu.
 
-### Installer le dépôts
+### Installer le dépôt
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8-->
@@ -170,6 +170,8 @@ systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Vous pouvez maintenant passer à [l'étape suivante](#configuration).
+
 ### Avec base de données déportée
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
@@ -260,9 +262,14 @@ DROP USER '<USER>'@'<IP>';
 
 ### Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
+```shell
+hostnamectl set-hostname remote1
 ```
 
 ### Fuseau horaire PHP
@@ -315,18 +322,19 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
 
-### Secure MySQL installation
+### Sécuriser la base de données
 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 
-Répondez oui à toute question sauf "Disallow root login remotely?".
+Répondez oui à toute question sauf "Disallow root login remotely?". 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 
 ```shell
 mysql_secure_installation
 ```
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 
@@ -356,7 +364,7 @@ Terminez l'installation en réalisant les
 
 ## Enregistrer le Remote Server
 
-Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
+Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -365,7 +373,7 @@ Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivan
 -t remote -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
-Example:
+Exemple:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
@@ -383,12 +391,12 @@ Exemple:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
+> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Suivre ensuite les instructions
 

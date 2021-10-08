@@ -149,7 +149,7 @@ entrez:
   hostnamectl set-hostname supervision
   ```
 
-5. Ajoutez une partition pour la table MySQL : cette étape est obligatoire. Votre serveur ne
+5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.
 
     1. Connectez-vous en tant que l’utilisateur `centreon` :
@@ -197,7 +197,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 9. [Mettez à jour](../../update/update-centreon-platform.html) votre plateforme Centreon.
 
 10. [Sécurisez votre serveur](../../administration/secure-platform.html). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`, et
-de définir un mot de passe pour la base MySQL.
+de définir un mot de passe pour la base MariaDB.
 
 11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.html).
 

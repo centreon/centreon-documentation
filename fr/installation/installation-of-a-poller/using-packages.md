@@ -50,9 +50,14 @@ systemctl disable firewalld
 
 ### Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple:
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ### Installer les dépôts
@@ -152,7 +157,7 @@ yum install -y centreon-poller-centreon-engine
 Pour activer le démarrage automatique des services de supervision au démarrage
 du serveur, exécuter la commande suivant :
 ```shell
-systemctl enable centengine centreontrapd snmptrapd
+systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
 Les services de supervision passive peuvent être démarrés :
@@ -167,7 +172,7 @@ systemctl restart centengine
 
 ## Enregistrer le serveur
 
-Pour l'enregistrer sur le serveur Centreon Central ou un serveur distant, exécutez la commande suivante :
+Pour transformer le serveur en collecteur et l'enregistrer sur le serveur central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -194,13 +199,13 @@ Exemple:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central ou du Remote Server vue par votre
-> collecteur.
+> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
+> collecteur).
 
 > Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Suivre ensuite les instructions
 
