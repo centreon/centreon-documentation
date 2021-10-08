@@ -14,7 +14,8 @@ title: Consoles d'évènements
 >
 > Tous les liens pointeront vers ces pages : les pages dépréciées deviendront votre outil de base pour la visualisation 
 > de l'état des hôtes et services. Cependant, en activant ce paramètre, vous ne bénéficierez pas des nouvelles
-> fonctionnalités fournies par la page **Resources Status**.
+> fonctionnalités fournies par la page **Resources Status**, comme par exemple un outil de recherche plus puissant,
+> la possibilité de personnaliser et de partager sa vue, de sauvegarder des filtres, et toutes autres améliorations futures.
 
 Ce chapitre présente les différentes interfaces permettant de visualiser
 l'état des ressources.

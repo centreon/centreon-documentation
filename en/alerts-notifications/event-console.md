@@ -15,7 +15,8 @@ title: Events consoles
 >
 > All links in Centreon will point to these pages: deprecated pages will become your main tool to visualize 
 > the state of hosts and services. However, if you enable this option, you will not benefit from
-> the new features offered by the **Resources Status** page.
+> the new features offered by the **Resources Status** page, such as for instance a more powerful search feature,
+> the ability to customize and share views or to save filters, and any other future enhancements.
 
 This chapter presents the different interfaces allowing to visualize the
 status of resources.
