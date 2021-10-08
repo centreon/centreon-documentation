@@ -170,7 +170,7 @@ systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Vous povez maintenant passer à [l'étape suivante](#configuration).
+Vous pouvez maintenant passer à [l'étape suivante](#configuration).
 
 ### Avec base de données déportée
 
