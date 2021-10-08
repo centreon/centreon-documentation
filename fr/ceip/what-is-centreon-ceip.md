@@ -16,7 +16,8 @@ nous puissions vous fournir une amélioration continue de votre expérience
 logicielle Centreon. Le programme CEIP comprend deux composantes :
 
   - Une télémétrie simple,
-  - Des statistiques avancées sur l'usage de la suite logicielle Centreon.
+  - Des statistiques avancées sur l'usage de la suite logicielle Centreon,
+  - L'usage des fonctionnalités au sein de l'interface utilisateur.
 
 La télémétrie collecte anonymement et automatiquement les données suivantes :
 
@@ -30,17 +31,19 @@ La télémétrie collecte anonymement et automatiquement les données suivantes 
     et widgets
   - Le fuseau horaire du serveur Centreon
 
-Les statistiques avancées portent sur l'usage des composants additionnels tels
-que l'usage des widgets dans les vues personnalisées, la gestion des slots pour
-Centreon DSM, l'usage des Plugin Packs déployés, etc.
+Les statistiques avancées portent sur l'usage des composants additionnels tels que l'usage des widgets dans les vues
+personnalisées, la gestion des slots pour Centreon DSM, l'usage des Plugin Packs déployés, etc.
+
+L'usage des fonctionnalités au sein de l'interface utilisateur comprend l'accès aux différents menus de Centreon, ainsi
+que les actions réalisés par l'utilisateur au sein de l'interface (cliques sur les boutons, focus sur un champ du
+formulaire, etc.)
 
 ## Questions fréquemment posées (FAQ)
 
 ### Quels sont les paramètres de configuration possibles du programme CEIP ?
 
-La participation au programme est activée par défaut. Cependant l'envoi des
-statistiques avancées peut être configurée dans l'interface Web. Les options
-sont :
+La participation au programme est activée par défaut. Cependant l'envoi des statistiques avancées et de l'usage des
+fonctionnalités peut être configurée dans l'interface Web. Les options sont :
 
   - Activé
   - Désactivé
