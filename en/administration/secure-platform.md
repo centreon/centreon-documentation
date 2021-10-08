@@ -576,7 +576,7 @@ If everything is ok, you must have:
 
 ### Update Gorgone configuration API
 
-Vérify and update URL in /etc/centreon-gorgone/config.d/31-centreon-api.yaml
+Verify and update URL in /etc/centreon-gorgone/config.d/31-centreon-api.yaml
 for example change http://127.0.0.1/centreon/api/... into https://my-centreon-dns/centreon/api/...
 
 Restart gorgone to take changes into account:
