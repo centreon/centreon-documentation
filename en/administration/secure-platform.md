@@ -486,12 +486,22 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 
 7. Disable mod_security boundary to enable license upload
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+Edit the **/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
+
+```apacheconf
+#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
+#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
+```
+<!--CentOS 7-->
 Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
 
 ```apacheconf
 #SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
 #"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 8. Restart the Apache and PHP process to take in account the new configuration:
 
@@ -563,6 +573,14 @@ If everything is ok, you must have:
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+### Update Gorgone configuration API
+
+Vérify and update URL in /etc/centreon-gorgone/config.d/31-centreon-api.yaml
+for example change http://127.0.0.1/centreon/api/... into https://my-centreon-dns/centreon/api/...
+
+Restart gorgone to take changes:
+systemctl restart gorgoned
 
 ### Securing the Apache web server with a self-signed certificate
 
