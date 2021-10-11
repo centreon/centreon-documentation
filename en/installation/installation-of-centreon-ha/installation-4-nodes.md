@@ -377,7 +377,7 @@ max_allowed_packet=64M
 sql_mode = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
 ```
 
-> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory by recommended.
+> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master et 2 => Slave are not mandatory but recommended.
 
 **Reminder:** Don't forget to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
 
@@ -574,7 +574,7 @@ systemctl stop mysql
 It is important to make sure that MariaDB is completely shut down. You will run this command and check that it returns no output:
 
 ```bash
-ps -ef | grep mysql[d]
+ps -ef | grep mariadb[d]
 ```
 
 In case one or more process are still alive, then run this other command (it will prompt for the MariaDB root password):
