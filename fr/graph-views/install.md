@@ -190,23 +190,22 @@ Les machines Centreon MAP Desktop Client doivent accéder :
 Les ports 8080 et 8443 sont des valeurs par défaut recommandées, mais d'autres
 configurations sont possibles.
 
-## Server installation
+## Installation du serveur
 
-### Centreon Web interface
+### Interface Centreon Web
 
-You must provide to Centreon MAP server a dedicated user
-**who has access to all resources** through the appropriate [access list groups](../administration/access-control-lists.html). 
-Since the password will be stored in human-readable form in a
-configuration file, you should not use a Centreon admin user account.
+Vous devez fournir au serveur Centreon MAP un utilisateur dédié
+**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès] appropriés (../administration/access-control-lists.html). 
+Étant donné que le mot de passe sera stocké sous une forme lisible par l'homme dans un fichier 
+de configuration, vous ne devez pas utiliser un compte utilisateur administrateur Centreon.
 
-Provide this user with access to the Centreon Web real-time API:
+Donnez à cet utilisateur l'accès à l'API Centreon Web en temps réel :
 
 ![image](../assets/graph-views/reach-api.png)
 
-### Centreon Central server
+### Serveur Centreon Central
 
-Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
-databases:
+Créez un utilisateur dans l'instance mysql hébergeant les bases de données "centreon" et "centreon_storage".
 
 ```sql
 CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
@@ -214,13 +213,12 @@ GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-The INSERT privilege will only be used during the installation process
-in order to create new Centreon Broker output. It will be revoked later.
+Le privilège INSERT ne sera utilisé que pendant le processus d'installation afin de créer
+une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
-### Centreon MAP server
+### Serveur Centreon MAP
 
-If you installed your Centreon MAP server from a "fresh CentOS installation"
-you need to install the `centreon-release` package:
+Si vous avez installé votre serveur Centreon MAP à partir d'une "installation CentOS fraîche", vous devez installer le paquet `centreon-release`.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -238,12 +236,12 @@ yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centre
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> If the URL doesn't work, you can manualy find this package in the folder.
+> Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
-Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Installez le référentiel MAP de Centreon, que vous trouverez sur
+le [portail de support] (https://support.centreon.com/s/repositories).
 
-Then install Centreon MAP server using the following command:
+Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -261,92 +259,88 @@ yum install centreon-map-server
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-When installing Centreon MAP server, it will automatically install java
-(OpenJDK 11) if needed.
+Lors de l'installation du serveur Centreon MAP, il installera automatiquement java (OpenJDK 11) si nécessaire.
 
-> You need to have a MariaDB database to store Centreon MAP data, whether
-> it's on localhost or somewhere else.
+> Vous devez disposer d'une base de données MariaDB pour stocker les données MAP
+> de Centreon, que ce soit sur localhost ou ailleurs.
 
 ### Configuration
 
-Make sure the database that stores Centreon MAP data is optimized
-(automatically added by the RPM in `/etc/my.cnf.d/map.cnf`):
+Assurez-vous que la base de données qui stocke les données MAP de Centreon est optimisée
+(automatiquement ajoutée par le RPM dans `/etc/my.cnf.d/map.cnf`) :
 
 ```text
 max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-Then, restart MariaDB:
+Puis, redémarrez MariaDB:
 
 ```shell
 systemctl restart mariadb
 ```
 
-Execute the Centreon MAP server configuration script. Two modes are available:
-interactive or automatic.
+Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles :
+interactve ou automatic.
 
-- interactive *(no option/default mode)*: Several questions will be asked to
-  interactively fill in the installation variables.
-- automatic *(--automatic or -a)*: The installation will be done automatically
-  from the values set in `/etc/centreon-studio/vars.sh` file
+- interactive *(aucune option/mode par défaut)* : Plusieurs questions seront posées pour
+  remplir de manière interactive les variables de l'installation.
+- automatic *(--automatic or -a)*: L'installation se fera automatiquement
+  à partir des valeurs définies dans le fichier `/etc/centreon-studio/vars.sh`.
 
-If it's your first installation, we advice you to use the standard mode
-(interactive) and choose **No** when asked for advanced installation mode:
+Si c'est votre première installation, nous vous conseillons d'utiliser le mode standard 
+(interactive) et de choisir **Non** lorsqu'on vous demande le mode d'installation avancé :
 
 ```shell
 /etc/centreon-studio/configure.sh
 ```
 
-### Central server
+### Serveur Central
 
-> Before restarting Broker you must export the configuration from the Centreon
-> Web interface.
+> Avant de redémarrer Broker, vous devez exporter la configuration à partir de
+> l'interface Web Centreon.
 
-Restart Centreon Broker on the Central server:
+Redémarrez Centreon Broker sur le serveur central :
 
 ```shell
 systemctl restart cbd
 ```
 
-Remove the INSERT privilege from user centreon_map:
+Supprimer le privilège INSERT de l'utilisateur centreon_map :
 
 ```sql
 REVOKE INSERT ON centreon.* FROM 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
-### Centreon MAP server
+### Serveur Centreon MAP
 
-Check your configuration:
+Vérifier votre configuration:
 
 ```shell
 /etc/centreon-studio/diagnostic.sh
 ```
 
-If configuration is correct, the centreon-map service can be
-started from the Centreon MAP server:
+Si la configuration est correcte, le service centreon-map peut être démarrer à partir du serveur Centreon MAP :
 
 ```shell
 systemctl restart centreon-map
 ```
 
-Enable the service to start up automatically on server boot:
+Permettre au service de démarrer automatiquement au démarrage du serveur :
 
 ```shell
 systemctl enable centreon-map
 ```
 
-Centreon Map server is now started and enabled, let's install
-the interface part of the extension.
+Le serveur Centreon Map est maintenant démarré et activé, installons la partie interface de l'extension.
 
-## Web Interface installation
+## Installation de l'interface Web
 
-### Central server
+### Serveur Central
 
-Install Centreon MAP repository, you can find it on the
-[support portal](https://support.centreon.com/s/repositories).
+Installez le dépôt MAP de Centreon, vous pouvez le trouver sur le [portail de support] (https://support.centreon.com/s/repositories).
 
-Then execute the following command:
+Ensuite, exécutez la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -366,84 +360,77 @@ yum install centreon-map-web-client
 
 ### Web
 
-Go to `Centreon > Administration > Extensions` and click on the install
-button:
+Allez dans `Centreon > Administration > Extensions` et cliquez sur le bouton d'installation.
 
 - License Manager (*if not yet installed*)
 - Map Web Client
 
 ![image](../assets/graph-views/install-web-step-1.png)
 
-You can see a red stripe asking for a license.
+Vous pouvez voir une bande rouge demandant une licence.
 
-Upload the license **map.license** given by the support team. Refresh
-the page and the banner must be green with the valid license date.
+Téléchargez la licence **map.license** donnée par l'équipe de support. Rafraîchissez la page
+et la bannière doit être verte avec la date de validité de la licence.
 
 ![image](../assets/graph-views/install-web-step-2.png)
 
-Click on Back to return to the Extensions page. Now that the module is
-installed, we will configure it.
+Cliquez sur Retour pour revenir à la page Extensions. Maintenant que le module est installé, nous allons le configurer.
 
 ### Configuration
 
-Go to `Administration > Extensions > Options`, and in the Centreon MAP menu
-update the Centreon MAP server address field:
+Allez dans "Administration > Extensions > Options", et dans le menu Centreon MAP, mettez à jour le champ "Adresse du serveur Centreon MAP".
 
-> Use the real IP address/hostname of your Centreon MAP server.
+> Utilisez l'adresse IP/le nom d'hôte réels de votre serveur Centreon MAP.
 
 ![image](../assets/graph-views/install-web-step-3.png)
 
-### Using the client
+### Vérification de l'installation
 
-The Centreon MAP Web interface is now available in `Monitoring > MAP`.
+L'interface Web Centreon MAP est maintenant disponible dans `Monitoring > MAP`.
 
 ![image](../assets/graph-views/install-web-step-4.png)
 
->If the content doesn't display, you may empty your browser cache
+>Si le contenu ne s'affiche pas, vous pouvez vider le cache de votre navigateur.
 
-You can see to which IP the client is connected.
+Vous pouvez voir à quelle IP le client est connecté.
 
 ![image](../assets/graph-views/ng/connected-server-container.png)
 
-### Centreon MAP Widget
+### Widget Centreon MAP
 
-By installing the Web interface, you automatically add the Centreon MAP
-Widget, but you need to perform one last task. Go to
-`Administration > Extensions` and click on the "Install" button on the
-widget. The result after installed:
+En installant l'interface Web, vous ajoutez automatiquement le widget MAP de Centreon,
+mais vous devez effectuer une dernière tâche. Allez dans `Administration > Extensions` 
+et cliquez sur le bouton "Installer" du widget. Le résultat après l'installation
 
 ![image](../assets/graph-views/install-web-step-widget.png)
 
-## Desktop Client
+## Client de bureau
 
 ### Executables
 
-The desktop client is currently available only for **64-bit** Windows,
-Mac and Linux platforms (Debian and Ubuntu).
+Le client de bureau est actuellement disponible uniquement pour Windows **64-bit**, Mac et Linux (Debian et Ubuntu).
 
-You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+Vous pouvez trouver les installateurs dans `Monitoring > Map > Desktop Client` ou
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=21.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
-> For performance considerations, we highly recommand to have less than 5, 10
-> users maximum connected at the same time manipulating views.
+> Pour des considérations de performance, nous recommandons fortement d'avoir moins de 5, 10
+> utilisateurs maximum connectés en même temps manipulant des vues.
 
 ### Installation
 
-#### On user's computer
+#### Sur l'ordinateur de l'utilisateur
 
-The desktop client requires **Java 8**. You can download and install the latest
-version of Java from [here](https://java.com/fr/download/manual.jsp).
+Le client de bureau nécessite **Java 8**. Vous pouvez télécharger et installer 
+la dernière version de Java depuis [ici] (https://java.com/fr/download/manual.jsp).
 
-> Be sure to download the 64-bit version. Browsers are usually 32-bit
-> and the Oracle website generally proposes 32-bit Java instead of the
-> 64-bit version. If you already have Java installed, use the java
-> -version command to check the architecture. If 64-bit does not appear,
-> the version is 32-bit.
+> Veillez à télécharger la version 64 bits. Les navigateurs sont généralement 32 bits
+> et le site Web d'Oracle propose généralement Java 32 bits au lieu de la version 64 bits. 
+> Si vous avez déjà installé Java, utilisez la commande "java -version" pour vérifier l'architecture. 
+> Si l'option 64 bits n'apparaît pas, la version est 32 bits.
 
-> On a Mac platform, note that you must install Oracle JDK instead of
-> the usually-required JRE.
+> Sur une plate-forme Mac, notez que vous devez installer Oracle JDK au lieu du JRE habituellement requis.
 
-To check the Java version run the command:
+Pour vérifier la version de Java, exécutez la commande :
 
 ```shell
 java -version
@@ -453,51 +440,49 @@ java -version
 
 <!--Windows-->
 
-Execute centreon-map4-desktop-client-xxxx.exe:
+Exécutez centreon-map4-desktop-client-xxxx.exe :
 
-> You do not need to be the administrator of your computer to perform the
-> installation. All the files are will be installed in your personnal folders.
+> Vous n'avez pas besoin d'être l'administrateur de votre ordinateur pour effectuer l'installation.
+> Tous les fichiers seront installés dans vos dossiers personnels.
 
-The default installation folder is `C:\Users\$user$\AppData\LocalCentreon-Map4`.
+Le répertoire d'installation par défaut est `C:\Users\$user$\AppData\LocalCentreon-Map4`.
 
-You can install the software at this location without administrator rights but
-can change the destination to Program files if you have the sufficient rights.
+Vous pouvez installer le logiciel à cet emplacement sans droits d'administrateur, mais vous pouvez
+changer la destination en "Program Files" si vous disposez des droits suffisants.
 
-Use the installer to install the software properly and integrate it into the
-Windows environment. The installer can also be used to uninstall it from the
-Windows dedicated configuration page.
-
+Utilisez le programme d'installation pour installer correctement le logiciel et
+l'intégrer dans l'environnement Windows. Le programme d'installation peut également
+être utilisé pour le désinstaller à partir de la page de configuration dédiée de Windows.
 ![image](../assets/graph-views/windows_start_menu.png)
 
 <!--Debian-->
 
-Download the provided DEB file and run the command from the root directory:
+Téléchargez le fichier DEB fourni et exécutez la commande depuis le répertoire racine :
 
 ```shell
 sudo dpkg -i centreon-map4-desktop-client*.deb
 ```
 
-Alternatively, you can open the DEB file using the Ubuntu software Center.
+Vous pouvez également ouvrir le fichier DEB à l'aide du centre logiciel Ubuntu.
 
-You should now be able to run Centreon-Map4.
+Vous devriez maintenant être en mesure d'exécuter Centreon-Map4.
 
 ```shell
 centreon-map4
 ```
 
-You will also find it in the list of installed applications.
+Vous le trouverez également dans la liste des applications installées.
 
 ![image](../assets/graph-views/ubuntu_launch_menu.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Updates
+### Mises à jour
 
-Once installed, the Desktop Client is automatically kept up to date
-through an online update system. When it connects to a Centreon MAP
-server it automatically downloads and installs the latest version
-compatible with the server. Auto-update requires your computer to have
-internet access.
+Une fois installé, le Desktop Client est automatiquement maintenu à jour grâce à un système
+de mise à jour en ligne. Lorsqu'il se connecte à un serveur Centreon MAP, il télécharge
+et installe automatiquement la dernière version compatible avec le serveur.
+La mise à jour automatique nécessite que votre ordinateur ait un accès à Internet.
 
 ## Centreon MAP NG
 
