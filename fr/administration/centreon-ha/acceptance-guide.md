@@ -566,7 +566,6 @@ La commande doit vous retourner les informations suivantes :
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
-DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
@@ -574,7 +573,6 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
-DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 Si vous n'avez pas d'autres règles iptables configurées, vous pouvez exécuter la commande suivante pour supprimer les règles liées au test :
@@ -813,6 +811,7 @@ La commande doit vous retourner les informations suivantes :
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
@@ -820,6 +819,7 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 Si vous n'avez pas d'autres règles iptables configurées, vous pouvez exécuter la commande suivante pour supprimer les règles liées au test :
