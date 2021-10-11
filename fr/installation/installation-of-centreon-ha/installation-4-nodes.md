@@ -85,7 +85,7 @@ Dans une installation standard de Centreon, le service `cbd` pilote deux instanc
 * `central-broker-master` : que l'on appelle aussi "broker central" ou encore "broker SQL", qui redirige toutes les entrées-sorties en provenance des pollers, vers les bases de données, vers le broker RRD, etc.
 * `central-rrd-master` : le broker RRD qui reçoit son flux du broker SQL, et dont la seule fonction est d'écrire les fichiers RRD utilisés pour afficher les graphes. 
 
-Dans un cluster Centreon-HA, les deux processus broker vont être gérés chacun via un service distinct qui sera pilotés par le cluster :
+Dans un cluster Centreon-HA, les deux processus broker vont être gérés chacun via un service distinct qui sera piloté par le cluster :
 
 * `central-broker-master` en tant que la ressource `cbd_central_broker`, liée au service *systemd* `cbd-sql`
 * `central-rrd-master` en tant que la ressource clone `cbd_rrd`, liée au service *systemd* `cbd` standard de Centreon.
@@ -128,7 +128,7 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 
 ### Modification de la commande de rechargement de `cbd`
 
-Cela n'est pas forcément connu de tous les utilisateurs de Centreon, mais chaque fois qu'un rechargement de la configuration du collecteur central est effectué via l'interface, le service broker (`cbd`) est rechargé (pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Collecteus > Central*.
+Cela n'est pas forcément connu de tous les utilisateurs de Centreon, mais chaque fois qu'un rechargement de la configuration du collecteur central est effectué via l'interface, le service broker (`cbd`) est rechargé (pas seulement centengine), d'où le paramètre "Centreon Broker reload command" dans *Configuration > Collecteurs > Central*.
 
 Ainsi que cela a été expliqué plus haut, les processus broker sont répartis entre deux services : `cbd` pour le broker RRD, `cbd-sql` pour le broker central. Dans le cadre d'un cluster centreon-ha, service que l'on doit recharger lors de l'export de configuration est `cbd-sql` et non plus `cbd`. Il faut donc appliquer la valeur `service cbd-sql reload` au paramètre "Centreon Broker reload command".
 
@@ -219,7 +219,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 <!--CentOS 7-->
 ```bash
-yum install epel-release
+yum install epel-release centos-release-scl
 yum install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -249,7 +249,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 
 <!--CentOS 7-->
 ```bash
-yum install epel-release
+yum install epel-release centos-release-scl
 yum install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
 ```
 
@@ -284,7 +284,7 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `~/.ssh/authorized_keys`, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
+Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller dans le fichier (à créer) `~/.ssh/authorized_keys`, sur l'autre noeud puis appliquer les bons droits sur le fichier (toujours en tant que `centreon`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
@@ -319,7 +319,7 @@ ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier et le coller dans `~/.ssh/authorized_keys`, puis appliquer les bons droits sur le fichier (toujours en tant que `mysql`) :
+Après avoir lancé ces commandes sur les deux nœuds, copier le contenu du fichier et le coller dans `~/.ssh/authorized_keys`, sur l'autre noeud puis appliquer les bons droits sur le fichier (toujours en tant que `mysql`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
@@ -433,6 +433,11 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@CENTRAL_MASTER_IPADDR@';
 ```
 
+Lors d'un upgrade de centreon-ha depuis une plateforme Centreon ou un déploiement de VM via OVA/OVF, mettre à jour le mot de passe `'@MARIADB_CENTREON_USER@'@'localhost'`:
+```sql
+ALTER USER '@MARIADB_CENTREON_USER@'@'localhost' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
+```
+
 ### Création du compte de réplication
 
 Toujours dans le prompt MariaDB (cf paragraphe précédent) créer l'utilisateur `@MARIADB_REPL_USER@`, dédié à la réplication, à l'aide des commandes suivantes :
@@ -502,7 +507,7 @@ CENTREON_STORAGE_DB='centreon_storage'
 ###############################
 ```
 
-Pour s'assurer que les dernières étapes ont été effectuées correctement, et que les bons noms, logins et mots de passe ont bien été saisis dans le fichier de configuration, il faut lancer la commande :
+Pour s'assurer que les dernières étapes ont été effectuées correctement, et que les bons noms, logins et mots de passe ont bien été saisis dans le fichier de configuration, il faut lancer la commande depuis un serveur database (ou depuis n'importe quel serveur si vous avez ajouté les comptes optionnels) :
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-check-status.sh
@@ -564,7 +569,7 @@ systemctl stop mysql
 Dans certains cas, il se peut que systemd ne parvienne pas à arrêter le service `mysql`, pour s'en assurer, vérifier que la commande suivante ne retourne aucune ligne :
 
 ```bash
-ps -ef | grep mysql[d]
+ps -ef | grep mariadb[d]
 ```
 
 Si un processus `mysqld` est toujours en activité, alors il faut lancer la commande suivante pour l'arrêter (et fournir le mot de passe du compte root de mysql quand il est demandé) :
@@ -621,6 +626,8 @@ Position Status [OK]
 
 ## Mise en place du cluster Centreon
 
+**Informations :** Ces opérations sont à réalisées sur les noeuds `@CENTRAL_MASTER_NAME@` et `@CENTRAL_SLAVE_NAME@`
+
 ### Configuration du service de synchronisation
 
 **Informations :** Ces opérations sont à réaliser sur les nœuds `@CENTRAL_MASTER_NAME@` et `@SLAVE_MASTER_NAME@`
@@ -647,9 +654,7 @@ our %centreon_central_sync_config = (
 
 ### Suppression des crons
 
-**Informations :** Ces opérations sont à réaliser sur les nœuds `@CENTRAL_MASTER_NAME@` et `@SLAVE_MASTER_NAME@`
-
-Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponible. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
+Les tâches planifiées de type __cron__ sont exécutées directement par le processus gorgone dans les architectures hautement disponibles. Cela permet de garantir la non-concurrence de leur exécution sur les nœuds centraux. Il est donc nécessaire de les supprimer manuellement :
 
 ```bash
 rm /etc/cron.d/centreon
@@ -686,7 +691,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Arrêt et désactivation des services
 
-**Informations :** Ces opérations sont à réaliser sur l'ensemble des nœuds `@CENTRAL_MASTER_NAME@`, `@SLAVE_MASTER_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. Centreon est installé par dépendances du paquet centreon-ha sur les nœuds de bases de données, cela n'a pas d'incidences 
+**Informations :** Ces opérations sont à réaliser sur l'ensemble des nœuds `@CENTRAL_MASTER_NAME@`, `@CENTRAL_SLAVE_NAME@`, `@DATABASE_MASTER_NAME@` et `@DATABASE_SLAVE_NAME@`. Centreon est installé par dépendances du paquet centreon-ha sur les nœuds de bases de données, cela n'a pas d'incidences 
 sur le fonctionnement.
 
 Les services applicatifs de Centreon ne seront plus lancés au démarrage du serveur comme c'est le cas pour une installation standard, ce sont les services de clustering qui s'en chargeront. Il faut donc arrêter et désactiver ces services.
@@ -871,6 +876,64 @@ Les commandes de cette section doivent être lancées depuis un seul nœud, le C
 
 #### Process MariaDB Primaire/secondaire
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL 8 / Oracle Linux 8-->
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+<!--RHEL 7-->
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host'
+```
+<!--CentOS 7-->
+
+```bash
+pcs resource create "ms_mysql" \
+    ocf:heartbeat:mysql-centreon \
+    config="/etc/my.cnf.d/server.cnf" \
+    pid="/var/lib/mysql/mysql.pid" \
+    datadir="/var/lib/mysql" \
+    socket="/var/lib/mysql/mysql.sock" \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    max_slave_lag="15" \
+    evict_outdated_slaves="false" \
+    binary="/usr/bin/mysqld_safe" \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd="@MARIADB_REPL_PASSWD@" \
+    test_table='centreon.host' \
+    master
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 > **ATTENTION :** la commande suivante varie suivant la distribution Linux utilisée.
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -918,7 +981,7 @@ pcs resource create vip_mysql \
     meta target-role="stopped" \
     op start interval="0s" timeout="20s" \
     stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s" \
+    monitor interval="10s" timeout="20s"
 ```
 
 ### Création des ressources clones
@@ -1197,12 +1260,12 @@ Active resources:
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
  Clone Set: php7-clone [php7]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER@ @CENTRAL_SLAVE_NAME@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER@
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
      gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
      centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@

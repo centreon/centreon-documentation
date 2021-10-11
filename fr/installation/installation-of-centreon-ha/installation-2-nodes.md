@@ -9,7 +9,7 @@ title: Installation d'un cluster à 2 nœuds
 
 Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
 
-> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas, la société Centreon ne saurait pas être tenue pour responsable de toute détérioration ou perte de données.
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait pas être tenue pour responsable de toute détérioration ou perte de données.
 
 ### Flux réseaux
 
@@ -297,7 +297,7 @@ Puis sortir de la session de `mysql` avec `exit` ou `Ctrl-D`.
 
 Afin que les deux nœuds soient interchangeables à tout moment, il faut que les deux bases de données soient répliquées en continu. Pour cela, nous allons mettre en place une réplication Master-Slave.
 
-**Remarque :** sauf une mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
+**Remarque :** sauf mention contraire, chacune des étapes suivantes est à réaliser **sur les deux nœuds centraux**.
 
 ### Configuration de MariaDB
 
@@ -509,7 +509,7 @@ systemctl stop mysql
 Dans certains cas, il se peut que systemd ne parvienne pas à arrêter le service `mysql`, pour s'en assurer, vérifier que la commande suivante ne retourne aucune ligne :
 
 ```bash
-ps -ef | grep mysql[d]
+ps -ef | grep mariadb[d]
 ```
 
 Si un processus `mysqld` est toujours en activité, alors il faut lancer la commande suivante pour l'arrêter (et fournir le mot de passe du compte root de mysql quand il est demandé) :
@@ -1082,7 +1082,7 @@ pcs resource create snmptrapd \
 
 #### Contraintes de colocation
 
-Pour indiquer au cluster que les ressources Centreon doivent être démarré sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
+Pour indiquer au cluster que les ressources Centreon doivent être démarrées sur le nœud portant le rôle *master* MariaDB, nous créons ces deux contraintes :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
