@@ -16,7 +16,7 @@ server.
 On the Central server, install the required Packs with the following commands:
 
 ```shell
-yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-monitoring-centreon-map-jmx centreon-pack-applications-webservers-tomcat-jmx centreon-plugin-Applications-Databases-Mysql
+yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
 ```
 
 From the Plugin Packs Manager, install the Packs.
@@ -28,24 +28,8 @@ Use SSH to access the Poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
 ```shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx centreon-plugin-Applications-Webservers-Tomcat-Jmx centreon-pack-applications-databases-mysql
+yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Jvm-Actuator
 ```
-
-### Configure your database
-
-Access your MariaDB server where the Centreon MAP database is stored (the
-Centreon MAP database is called 'centreon\_studio' by default).
-
-Execute the following query on the SQL instance:
-
-```sql
-GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
-```
-
-- Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
-- Replace \<POLLER\_IP\> by the IP address of the poller which will be
-  monitoring your DB.
-- Replace 'PASSWORD' by any password you prefer.
 
 ### Configure your services
 
@@ -55,54 +39,29 @@ Fill in the basic information about your host and add the following host
 templates:
 
 - OS-Linux-SNMP-custom
-- App-Monitoring-Centreon-Map-JMX-custom
-- App-Webserver-Tomcat-JMX-custom
+- App-Jvm-actuator-custom
 
-Also add the following only if you have a local MariaDB DB on you MAP server:
+![image](https://user-images.githubusercontent.com/83707439/136817283-5fa6c9ef-7731-4acc-8524-fc0bd30017c6.png)
+![image](https://user-images.githubusercontent.com/83707439/136817371-1752156f-1dfb-46c5-a908-d25574779fce.png)
 
-- App-DB-MySQL-custom
 
-![image](../assets/graph-views/map4-host-configuration.png)
 
-Important:
+To monitor centreon-map JVM, please use following macro values:
+| Name                    | Value                           |
+| :---------------------- | :------------------------------ |
+| ACTUATORCUSTOMMODE      | ```centreonmap```               |
+| ACTUATORAPIURLPATH      | ```/centreon-studio/api/beta``` |
+| ACTUATORAPIUSERNAME     | Api username must be set        |
+| ACTUATORAPIPASSWORD     | Api password must be set        |
 
-1. The above host templates are the three main templates required for
-   monitoring your Centreon MAP server.
-
-2. The MySQL/MariaDB template is useful only if there is a MariaDB server
-   on your Centreon MAP server (for Centreon MAP database).
-
-3. Enter the Jolokia URL, accessible on the Centreon Map server, through
-   actuator endpoint:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--HTTP-->
-
-```shell
-http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
-```
-
-<!--HTTPS-->
-
-```shell
-https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
-
-4. *If you have installed a MariaDB server on your Centreon MAP server*, enter
-   the user/password you used in [Configure your
-   database](#configure-your-database).
 
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
-![image](../assets/graph-views/map4-services.png)
+![image](https://user-images.githubusercontent.com/83707439/136817134-66893a4c-f016-4032-be78-8ebb853c6f76.png)
+
 
 You may also just check the access to the following URL that tells that
 the server is up or not:
