@@ -569,7 +569,7 @@ systemctl stop mysql
 Dans certains cas, il se peut que systemd ne parvienne pas à arrêter le service `mysql`, pour s'en assurer, vérifier que la commande suivante ne retourne aucune ligne :
 
 ```bash
-ps -ef | grep mysql[d]
+ps -ef | grep mariadb[d]
 ```
 
 Si un processus `mysqld` est toujours en activité, alors il faut lancer la commande suivante pour l'arrêter (et fournir le mot de passe du compte root de mysql quand il est demandé) :
