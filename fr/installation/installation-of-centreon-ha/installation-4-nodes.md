@@ -591,7 +591,7 @@ Ce script effectue les opérations suivantes :
 * démonter le snapshot LVM
 * créer le thread de réplication qui va maintenir les données à jour sur le nœud secondaire
 
-Ce script est très verbeux, et tout ce qui est, s'affiche, n'est pas forcément compréhensible, mais pour s'assurer qu'il s'est bien déroulé jusqu'au bout, il suffit de s'assurer que la fin ressemble bien à :
+Ce script est très verbeux, et tout ce qui s'affiche n'est pas forcément compréhensible, mais pour s'assurer qu'il s'est bien déroulé jusqu'au bout, il suffit de s'assurer que la fin ressemble bien à :
 
 ```text
 Umount and Delete LVM snapshot
