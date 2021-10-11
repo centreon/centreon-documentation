@@ -3,148 +3,148 @@ id: install
 title: Install Centreon MAP extension
 ---
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve the
-> necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+> Centreon MAP requière une licence valide. Pour en acheter une et récupérer les
+> référentiels nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-This chapter describes how to install Centreon MAP. The server must be
-installed on a dedicated machine to allow Centreon MAP to operate with
-its own database and avoid any potential conflict with the Centreon
-central server.
+Ce chapitre décrit comment installer Centreon MAP. Le serveur doit être
+être installé sur une machine dédiée pour permettre à Centreon MAP de fonctionner avec
+sa propre base de données et d'éviter tout conflit potentiel avec le serveur Centreon.
 
-Before installation, be sure to review the Prerequisites chapter for
-system requirements (CPU and memory). Remember to choose the best type
-of architecture to suit your needs.
+Avant l'installation, assurez-vous de consulter le chapitre sur les prérequis pour 
+connaître la configuration requise (CPU et mémoire). N'oubliez pas de choisir le 
+meilleur type d'architecture qui répond le mieux à vos besoins.
 
 ## Architecture
 
-Centreon MAP consists of three components:
+Centreon MAP se compose de trois éléments:
 
-- Centreon MAP Server, developed in Java, using SpringBoot, Hibernate and CXF
-- Centreon MAP Web interface, developed in Javascript, based on
+- Centreon MAP Server, développé en Java, utilise SpringBoot, Hibernate et CXF
+- l'interface Web Centreon MAP, developpée en Javascript, et basée sur
   [Backbone.js](http://backbonejs.org/)
-- Centreon MAP Desktop Client, developed in Java, based on [Eclipse RCP
+- le client Centreon MAP Desktop, developpé en Java, et basé sur [Eclipse RCP
   4](https://wiki.eclipse.org/Eclipse4/RCP).
 
-The diagram below summarizes the architecture:
+Le schéma ci-dessous résume l'architecture:
 
 ![image](../assets/graph-views/map_architect.png)
 
-**Table of network flow**
+**Tableau des flux réseaux**
 
-| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
-|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
-| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
-| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-| Map Server     | Map server | Map server database       | 3306      | TCP        | Store all views and data related to Centreon MAP    |
-| Web + Desktop  | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
-| Web interface  | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve views & content                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
-| Desktop client | User       | Map server                | 8080/8443 | HTTP/HTTPS | Retrieve and create views & content                 |
-| Desktop client | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
-| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Retrieve automatic desktop client update            |
+| Application    | Source     | Destination               | Port      | Protocole  | Description                                                 |
+|----------------|------------|---------------------------|-----------|------------|-------------------------------------------------------------|
+| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Obtenir des mises à jour du statut en temps réel            |
+| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Récupérer la configuration et d'autres données de Centreon  |
+| Map Server     | Map server | Map server database       | 3306      | TCP        | Stocker toutes les vues et données relatives à Centreon MAP |
+| Web + Desktop  | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentification et récupération des données                |
+| Web interface  | User       | Map server                | 8080/8443 | HTTP/HTTPS | Récupérer les vues et le contenu                            |
+| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
+| Desktop client | User       | Map server                | 8080/8443 | HTTP/HTTPS | Récupérer et créer des vues et du contenu                   |
+| Desktop client | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
+| Desktop client | User       | Internet\* (p2 repo)      | 80        | HTTP       | Récupérer la mise à jour automatique du client du bureau    |
 
-\* *With or without a proxy*
+\* *Avec ou sans proxy*
 
-## Prerequisites
+## Prérequis
 
 ### Centreon
 
-The required version of Centreon software for compatibility with Centreon
-MAP is **Centreon 21.04**
+La version du logiciel Centreon requise pour la compatibilité avec Centreon
+MAP est **Centreon 21.04**
 
-**Centreon must be installed using the RPM packages.**
+**Centreon doit être installé à partir des paquets RPM.**
 
 ### Centreon MAP Server
 
-#### License
+#### Licence
 
-The server requires the license to be available and valid on Centreon's central
-server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+Le serveur exige que la licence soit disponible et valide sur le serveur central de Centreon. Pour ce faire, vous devez contacter le support [Centreon support
+team](https://centreon.force.com/) pour obtenir et installer votre clé de licence.
 
-#### Hardware
+#### Matériel
 
-Hardware requirements for your dedicated Centreon MAP server are as follows:
+Les prérequis matériels pour votre serveur Centreon MAP sont les suivants:
 
-| *Monitored services*     | \< 10 000               | \< 20 000            | \< 40 000            | \> 40 000            |
-| ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
-| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
-| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *Service supervisés*     | \< 10 000               | \< 20 000            | \< 40 000            | \> 40 000                     |
+| ------------------------ | ----------------------- | -------------------- | -------------------- | ----------------------------- |
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Contacter le support Centreon |
+| *Memoire dédiée*         | 2GB                     | 4GB                  | 8GB                  | Contacter le support Centreon |
+| *Partition data MariaDB* | 2GB                     | 5GB                  | 10GB                 | Contacter le support Centreon |
 
-To correctly implement the dedicated memory, you have to edit the
-*JAVA\_OPTS* parameter in the Centreon Map configurations file
-`/etc/centreon-studio/centreon-map.conf` and restart the service:
+Pour mettre en œuvre correctement la mémoire dédiée, vous devez modifier le paramètre
+*JAVA\_OPTS* dans le fichier de configuration de Centreon Map
+`/etc/centreon-studio/centreon-map.conf` et redémarrer le service:
 
 ```text
 JAVA_OPTS="-Xms512m -Xmx4G"
 ```
 
-> The Xmx value depends on the amount of memory indicated in the above table.
+> La valeur Xmx dépend de la quantité de mémoire indiquée dans le tableau ci-dessus.
 
-Then restart the service:
+Puis redémarrez le service:
 
 ```shell
 systemctl restart centreon-map
 ```
 
-The space used by Centreon MAP server is directly determined by the
-number of elements you add into your views. An element is any graphical
-object in Centreon MAP. Most elements (like hosts, groups, etc.) have
-children which must be included in the count.
+L'espace utilisé par le serveur MAP de Centreon est directement déterminé par le
+nombre d'éléments que vous ajoutez dans vos vues. Un élément est tout objet graphique
+dans Centreon MAP. La plupart des éléments (comme les hôtes, les groupes, etc.) possèdent des enfants
+qui doivent être inclus dans le décompte.
 
-> These values are applied after optimization of Centreon MAP tables.
+> Ces valeurs sont appliquées après l'optimisation des tables MAP de Centreon.
 
-#### Software
+#### Logiciel
 
 - OS: CentOS or Redhat 7 / 8
 - DBMS: MariaDB 10.5
-- Firewall: Disabled
-- SELinux: Disabled
+>- Firewall: Désactivé
+>- SELinux: Désactivé
 
-#### Information required during configuration
+#### Informations requises pendant l'installation
 
-- Centreon Web login with admin rights.
+- Compte administrateur Centreon Web.
 
-> Even with a correctly sized server, you should have in mind the best
-> practices & recommandations when creating views so you don't face
-> performance issues.
+> Même avec un serveur correctement dimensionné, vous devez garder à l'esprit 
+> les meilleures pratiques et recommandations lors de la création de vues 
+> afin de ne pas rencontrer de problèmes de performance.
 
-### Centreon MAP Web interface
+### Interface Web Centreon MAP Web
 
-#### License
+#### Licence
 
-The web interface requires the license to be available and valid on Centreon's
-central server. To do this, you must contact the support [Centreon support
-team](https://centreon.force.com/) to get & install your license key.
+L'interface web nécessite que la licence soit disponible et valide sur le serveur 
+central de Centreon. Pour ce faire, vous devez contacter le support
+[équipe de support de Centreon] https://centreon.force.com/) pour obtenir
+et installer votre clé de licence.
 
-#### Compatibility
+#### Compatibilité
 
-The Centreon MAP Web interface is compatible with the following web browsers:
+L'interface Web Centreon MAP est compatible avec les navigateurs Web suivants:
 
-* Google Chrome (latest version at the time of Centreon software release and above).  Please visit the [Google Chrome FAQ](https://support.google.com/chrome/a/answer/188447?hl=en) for a description of the Chrome support policy. 
-* Mozilla Firefox (latest version at the time of Centreon software release and above).  Please visit the [Mozilla FAQ](https://www.mozilla.org/en-US/firefox/organizations/faq/) for a description of the Firefox support policy.
-* Apple Safari (latest version at the time of Centreon software release and above)
-* Microsoft Edge Chromium (latest version at the time of Centreon software release and above)
+* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et supérieure).  Veuillez consulter la [FAQ Google Chrome] (https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome. 
+* Mozilla Firefox (dernière version au moment de la sortie du logiciel Centreon et supérieure).  Veuillez consulter la [FAQ Mozilla] (https://www.mozilla.org/en-US/firefox/organizations/faq/) pour obtenir une description de la politique de support de Firefox.
+* Apple Safari (dernière version au moment de la sortie du logiciel Centreon et plus)
+* Microsoft Edge Chromium (dernière version au moment de la sortie du logiciel Centreon et plus)
 
-If an update to those supported browsers was to cause an incompatibility, Centreon would work on a fix in the shortest possible time (for supported Centreon versions). Though other browsers may work, Centreon will not attempt to resolve problems with browsers other than those listed above.
+Si une mise à jour des navigateurs pris en charge devait entraîner une incompatibilité, Centreon s'efforcerait de la
+résoudre dans les meilleurs délais (pour les versions Centreon prises en charge). Bien que d'autres navigateurs puissent
+fonctionner, Centreon ne tentera pas de résoudre les problèmes liés aux navigateurs autres que ceux énumérés ci-dessus.
 
-Your screen resolution must be at least 1280 x 768.
+La résolution de votre écran doit être d'au moins 1280 x 768.
 
-### Centreon MAP Desktop Client
+### Client Centreon MAP Desktop
 
-- 4 GB of RAM minimum, 8 GB advised (mandatory for 10,000 or more services)
+- 4 GB de RAM minimum, 8 GB recommandé (obligatoire pour 10 000 services ou plus)
 - **Java 64 bits version 8**
-- Resolution must be at least 1280 x 768.
+- Résolution "cran d'au moins 1280 x 768.
 - Debian 7,8 or 9
 
-> Desktop Client is not compatible with Microsoft Windows Server. * If a
-> version of Java other than 8 is installed, consider installing Java 8 and
-> modifying Centreon-Map4.ini to add the following line `-vm
-> $path_to_java8$` BEFORE `-vmwargs`.
+> Desktop Client n'est pas compatible avec Microsoft Windows Server. * Si une version de Java
+> autre que 8 est installée, envisagez d'installer Java 8 et de modifier le fichier 
+> Centreon-Map4.ini pour ajouter la ligne suivante `-vm $path_to_java8$` AVANT `-vmwargs`.
 
-To optimize the desktop client, you have to "give" it more memory than the
-default value. Modify the following file:
+Pour optimiser le client de bureau, vous devez lui " donner " plus de mémoire que la
+valeur par défaut. Modifiez le fichier suivant:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -162,33 +162,33 @@ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-And add the following lines at the end of the file, on a new line:
+Et ajoutez les lignes suivantes à la fin du fichier, sur une nouvelle ligne:
 
 ```text
 -Xms512m
 -Xmx4g
 ```
 
-### Network requirements
+### Prérequis réseau
 
-Centreon MAP Server machine must access:
+La machine Centreon MAP Server doit accéder:
 
-- Centreon Central broker, usually on Centreon Central machine, using TCP
-  port 5758
-- Centreon Database, usually on Centreon Central machine, using TCP port 3306
-- Centreon MAP database, usually on localhost, using TCP port 3306.
+- Centreon Central broker, généralement sur la machine Centreon Central, en utilisant le port TCP
+  5758
+- Centreon Database, généralement sur la machine Centreon Central, en utilisant le port TCP 3306
+- Centreon MAP database, généralement sur localhost, en utilisant le port TCP 3306.
 
-All the ports above are default values and can be changed if needed.
+Tous les ports ci-dessus sont des valeurs par défaut et peuvent être modifiés si nécessaire.
 
-- Centreon Web Central, using HTTP port 80 or HTTPS port 443
+- Centreon Web Central, utilise HTTP port 80 ou HTTPS port 443
 
-Centreon MAP Desktop Client machines must access:
+Les machines Centreon MAP Desktop Client doivent accéder :
 
-- Centreon MAP Server, using HTTP port 8080 or 8443 when HTTPS/TLS is enabled
-- Internet with or without proxy.
+- Centreon MAP Server, en utilisant HTTP sur le port 8080 ou 8443 lorsque HTTPS/TLS est activé
+- Internet avec ou sans proxy.
 
-Ports 8080 and 8443 are recommanded default values, but other
-configurations are possible.
+Les ports 8080 et 8443 sont des valeurs par défaut recommandées, mais d'autres
+configurations sont possibles.
 
 ## Server installation
 
