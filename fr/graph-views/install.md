@@ -486,17 +486,16 @@ La mise à jour automatique nécessite que votre ordinateur ait un accès à Int
 
 ## Centreon MAP NG
 
-The server is in **experimental phase** and is subject to evolution.
+Le serveur est en **phase expérimentale** et est susceptible d'évoluer.
 
-It is currently only used for visualizing maps. Maps creation and edition
-still use the server as we know it.
+Il n'est actuellement utilisé que pour la visualisation de cartes.
+La création et l'édition de cartes utilisent toujours le serveur tel que nous le connaissons.
 
-### Server
+### Serveur
 
-The Centreon MAP NG Server is available on the same repository as
-the usual server.
+Le serveur Centreon MAP NG est disponible sur le même référentiel que le serveur habituel.
 
-To begin, install the server using the following command:
+Pour commencer, installez le serveur en utilisant la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -512,24 +511,24 @@ yum install centreon-map-server-ng
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-And proceed to the configuration with the following command:
+Et procéder à la configuration avec la commande suivante :
 
 ```shell
 /etc/centreon-map/configure.sh
 ```
 
-The configuration is exactly the same as the usual server, but is stored
-in the **/etc/centreon-map/** folder.
+La configuration est exactement la même que celle du serveur habituel, mais elle est stockée
+dans le dossier **/etc/centreon-map/**.
 
-> The default listening port is **8081**.
+> Le port d'écoute par défaut est **8081**.
 
-If the configuration is correct, the server can be started:
+Si la configuration est correcte, le serveur peut être démarré :
 
 ```shell
 systemctl restart centreon-map-ng
 ```
 
-Enable the service to be started automatically at server startup:
+Permettre au service d'être démarré automatiquement au démarrage du serveur :
 
 ```shell
 systemctl enable centreon-map-ng
@@ -537,30 +536,28 @@ systemctl enable centreon-map-ng
 
 ### Client
 
-The client does not require any other installation than the actual
-Centreon MAP Web Client.
+Le client ne nécessite aucune autre installation que celle du client Web Centreon MAP.
 
-However, new options are available in the
-`Administration > Extensions > Options` page:
+Cependant, de nouvelles options sont disponibles dans la page page `Administration > Extensions > Options` :
 
-- An input field for the IP address and port of the NG server,
-- A "yes/no" toggle to choose whether the new server should be
-  used to display maps.
+- Un champ de saisie pour l'adresse IP et le port du serveur NG,
+- Une bascule "oui/non" pour choisir si le nouveau serveur doit être utilisé pour afficher les cartes.
 
 ![image](../assets/graph-views/ng/configuration-ng-server-map.png)
 
-In the `Monitoring > Map` page, new actions allow to launch
-synchronizations: - Resources from the production server to the NG
-server - Standard maps - Geoviews - ACLs - Images
+Dans la page `Monitoring > Map`, de nouvelles actions permettent de lancer des synchronisations :
+- Ressources du serveur de production vers le serveur NG
+- Cartes standard
+- Geoviews
+- ACLs
+- Images
 
-Synchronization progression can then be followed from this same page.
+La progression de la synchronisation peut ensuite être suivie à partir de cette même page.
 
 ![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
 
-> At each synchronizations, all resources are deleted and imported
-> again.
+> À chaque synchronisation, toutes les ressources sont supprimées et réimportées.
 
-## Secure your platform
+## Sécurisez votre plateforme
 
-Don't forget to secure your Centreon platform following our
-[recommendations](secure-your-map-platform.html)
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations] (secure-your-map-platform.html).
