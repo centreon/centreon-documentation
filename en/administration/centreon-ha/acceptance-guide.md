@@ -566,7 +566,6 @@ The command must return the following information:
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
-DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
@@ -574,7 +573,6 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
-DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 If you do not have any other iptables rules configured, you can execute the following command to remove the rules related to the test:
@@ -686,8 +684,8 @@ Position Status [OK]
 To perform this test, run the commands on the primary server:
 
 ```bash
-iptables -A INPUT -s @CENTRAL_SLAVE_IP@ -j DROP 
-iptables -A OUTPUT -d @CENTRAL_SLAVE_IP@ -j DROP 
+iptables -A INPUT -s @IP_SECONDARY_NODE@ -j DROP 
+iptables -A OUTPUT -d @IP_SECONDARY_NODE@ -j DROP 
 iptables -A INPUT -s @QDEVICE_IP@ -j DROP 
 iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 ```
@@ -810,6 +808,7 @@ The command must return the following information:
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  @CENTRAL_SLAVE_NAME@                 anywhere
+DROP       all  --  @QDEVICE_NAME@      anywhere
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
@@ -817,6 +816,7 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  anywhere             @CENTRAL_SLAVE_NAME@
+DROP       all  --  anywhere             @QDEVICE_NAME@
 ```
 
 If you do not have any other iptables rules configured, you can execute the following command to remove the rules related to the test:
