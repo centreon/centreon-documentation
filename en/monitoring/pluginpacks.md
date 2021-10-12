@@ -153,7 +153,9 @@ Apply a plugin pack to a host or service to start monitoring them:
 
 You need to update both the plugin and the pack.
 
-### Updating the pack
+### Updating one pack/all packs
+
+**To update one pack:**
 
 If an arrow appears on a Plugin Pack it means that an update is available.
 
@@ -171,11 +173,18 @@ Confirm the update.
 
 ![image](../assets/configuration/pluginpacks/update_confirm.png)
 
-Your pack is up to date.
+Your pack is up to date. You can now [update the plugin](#updating-the-plugins).
 
 ![image](../assets/configuration/pluginpacks/update_finish.png)
 
-### Updating the plugin
+**To update all packs:**
+
+You can also update all packs in one go: when pack updates are available, an **Update all** button appears.
+Note that you will still have to [update the plugins](#updating-the-plugins). 
+
+![image](../assets/configuration/pluginpacks/update_all.png)
+
+### Updating the plugins
 
 To update the plugins:
 
@@ -185,7 +194,8 @@ To update the plugins:
   yum update centreon-plugins\*
   ```
 
-2. Restart the Centreon Engine on **all pollers**.
+2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.html) for all pollers. The **Restart Monitoring Engine** 
+option must be set to **Restart**.
 
 3. Check that you do not have new errors while executing new plugins.
 
