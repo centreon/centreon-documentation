@@ -61,7 +61,7 @@ Toutes ces ressources sont décrites dans le tableau ci-dessous.
 | ----------------------- | --------------------- | --------------------------------------------------------------- |
 | `ms_mysql`              | ressource multi-state | Gère le processus `mysql` et la réplication des données.        |
 | `ms_mysql-master`       | location              | Définir la préférence de règle du serveur maître MariaDB        |
-| `php7`                  | service clone         | Service gestionnaire des processus FastCGI (`rh-php73-php-fpm`) |
+| `php7`                  | service clone         | Service gestionnaire des processus FastCGI (`php-fpm`)          |
 | `cbd_rrd`               | service clone         | Service du Broker RRD (`cbd`)                                   |
 | `centreon`              | groupe                | Groupe des "services primitifs" de Centreon                     |
 | `vip`                   | service primitif      | Adresse de la VIP pour Centreon                                 |

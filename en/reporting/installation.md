@@ -80,25 +80,13 @@ considerations.
 
 **Software**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon 21.04
+- Centreon 21.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
-<!--CentOS 7-->
-- Centreon 21.04
-- Check that the parameter `date.timezone` is correctly configured in
-  `/etc/opt/rh/rh-php73/php.ini` (same timezone displayed with the
-  command `timedatectl status`)
-- Avoid the usage of the following variables in your monitoring MariaDB configuration.
-  They halt long queries execution and can stop the ETL or the report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 **Users and groups**
 
