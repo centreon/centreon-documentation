@@ -164,11 +164,28 @@
             "monitoring/event-handler",
             "monitoring/web-import-export"
         ],
-        "Alerts & Notifications": [
-            "alerts-notifications/concepts",
-            "alerts-notifications/resources-status",
-            "alerts-notifications/event-console",
-            "alerts-notifications/manage-alerts",
+        "Managing events and alerts": [    
+            {
+                "ids":[
+                    "alerts-notifications/concepts",
+                    "alerts-notifications/resources-status",
+                    "alerts-notifications/event-console",
+                    "alerts-notifications/event-log",
+                    "alerts-notifications/custom-views"             
+                ],
+                "label": "Viewing events",
+                "type": "subcategory"
+            },  
+            {   
+                "ids" : [
+                    "alerts-notifications/acknowledge",
+                    "alerts-notifications/downtimes",
+                    "alerts-notifications/submit",
+                    "alerts-notifications/other"
+                ],
+                "label": "Managing alerts",
+                "type": "subcategory"
+            },           
             {
                 "ids": [
                     "alerts-notifications/notif-concept",
@@ -178,11 +195,17 @@
                     "alerts-notifications/notif-flapping",
                     "alerts-notifications/notif-advanced"
                 ],
-                "label": "Notification",
+                "label": "Managing notifications",
                 "type": "subcategory"
             },
-            "alerts-notifications/ticketing",
-            "alerts-notifications/event-log"
+            {
+                "ids" :[
+                    "alerts-notifications/ticketing-install",
+                    "alerts-notifications/ticketing-config"
+                ],
+                "label": "Managing tickets",
+                "type": "subcategory"
+        }
         ],
         "Performance graphs": [
             "metrology/chart-management",

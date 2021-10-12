@@ -158,6 +158,8 @@ systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+Vous pouvez maintenant passer à [l'étape suivante](#configuration).
+
 ### Avec base de données déportée
 
 > Dans le cas d'une installation avec un serveur dédié à la base de données, ce
@@ -248,9 +250,14 @@ DROP USER '<USER>'@'<IP>';
 
 ### Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
+```shell
+hostnamectl set-hostname remote1
 ```
 
 ### Fuseau horaire PHP
@@ -294,13 +301,14 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 
-Répondez oui à toute question sauf "Disallow root login remotely?".
+Répondez oui à toute question sauf "Disallow root login remotely?". 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 
 ```shell
 mysql_secure_installation
 ```
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 

@@ -3,30 +3,25 @@ id: event-log
 title: Event Logs
 ---
 
-Event logs allow us to:
+Use event logs to:
 
 * View the changes of status and state of the monitored objects
-* See the notifications sent and their recipients
+* See the notifications sent and their recipients.
 
-To view the event logs, go into the `Monitoring > Event logs` menu.
+To view the event logs, go to **Monitoring > Event logs**.
 
 ![image](../assets/alerts/event_logs.png)
 
-The upper menu can be used to select the hosts and/or the services event
-logs to be viewed. You can choose a selection of services or hosts in a
-list contained in servicegroup or hostgroup.
+- In the upper menu, select the hosts and/or the services you want to
+view logs for. You can also filter by servicegroup or hostgroup.
 
-The **Message Type** and **status** field can be used to select the
-search filters to display the events required.
+- Select the options you want in sections **Message Type** and **Status** to display the corresponding events.
 
-The **Log Period** field can be used to select the time period for which
-we want to view the events. The drop-down list can be used to select
-generic time periods. If the drop-down list is empty it is possible to
-choose the time period manually using the **From** and **To** fields.
+- Use the following fields to define the time period for which you want to display events:
+    - **Log Period**: select predefined time periods
+    - **From**/**To**: enter specific dates.
 
-The table can be used to view the results.
-
-You can export the result through CSV or XML format using the export
-buttons:
+- You can export the result in CSV or XML format using the export
+buttons above the list, to the right:
 
 ![image](../assets/alerts/event_logs_export.png)

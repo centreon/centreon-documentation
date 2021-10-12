@@ -186,7 +186,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
-l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les instructions :
+l'installation du SGBD. Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Veuillez exécuter la commande suivante et suivre les instructions :
 
 ```shell
 mysql_secure_installation
