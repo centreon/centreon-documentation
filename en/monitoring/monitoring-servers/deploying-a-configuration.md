@@ -73,4 +73,4 @@ To quickly export the configuration for all pollers:
 1. Click the **Pollers** menu at the top left of the screen, then click **Export configuration**.
 
     ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.png)
-2. Confirm the export in the popup that appears.
+2. Confirm the export in the pop-up that appears.
