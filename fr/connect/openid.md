@@ -30,7 +30,7 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - **Client ID** défini l'ID client.
 - **Client Secret** défini le secret client.
 - La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
-- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test
+- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
 
 ![image](../assets/administration/openid-connect-configuration.png)
 
