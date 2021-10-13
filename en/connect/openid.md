@@ -23,7 +23,7 @@ in the **Authentication by OpenId Connect** section.
 - **Introspection Token Endpoint** field defines the introspection token endpoint, for example `/introspect` (mandatory).
 - **User Information Endpoint** field defines the user information endpoint, for example `/userinfo`.
 - **End Session Endpoint** field defines the logout endpoint, for example `/logout`.
-- **Login claim value** field defines the value return form **Introspection Token Endpoint** or **User Information Endpoint**
+- **Login claim value** field defines the value returned from **Introspection Token Endpoint** or **User Information Endpoint**
   to authenticate the user. For exmaple `sub` or `email`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
 - **Redirect Url** field defines the redirect URL after login to access to your Centreon server, for example
