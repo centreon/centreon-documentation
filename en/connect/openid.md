@@ -8,7 +8,7 @@ Centreon is compatible with OAuth 2.0/OpenId Connect authentication.
 Usage of Identity Providers (IdP) is available, such as Microsoft Azure AD, Okta, Keycloak, LemonLDAP::NG or other IdP
 which are compatible with the Authorization Code Flow.
 
-Authentication via OpenId Connect is configured on page **Administration > Parameters > Centreon UI**,
+Authentication via OpenId Connect is configured on the **Administration > Parameters > Centreon UI** page,
 section **Authentication by OpenId Connect**.
 
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
