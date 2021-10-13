@@ -26,7 +26,7 @@ in the **Authentication by OpenId Connect** section.
 - **Login claim value** field defines the value returned from **Introspection Token Endpoint** or **User Information Endpoint**
   to authenticate the user. For example `sub` or `email`.
 - **Scope** field defines the scope of the IdP, for example `openid`. Separate scope by space.
-- **Redirect Url** field defines the redirect URL after login to access to your Centreon server, for example
+- **Redirect Url** field defines the redirect URL after login to access your Centreon server, for example
   `https://192.168.0.1/centreon/index.php`.
 - **Client ID** field defines the Client ID.
 - **Client Secret** field defines the Client secret.
