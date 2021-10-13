@@ -9,7 +9,7 @@ Usage of Identity Providers (IdP) is available, such as Microsoft Azure AD, Okta
 which are compatible with the Authorization Code Flow.
 
 Authentication via OpenId Connect is configured on the **Administration > Parameters > Centreon UI** page,
-section **Authentication by OpenId Connect**.
+in the **Authentication by OpenId Connect** section.
 
 - **Enable OpenId Connect authentication** allows to enable or disable OpenId Connect authentication.
 - **Authentication mode** field indicates if the authentication should take place only by OpenId Connect or using local
