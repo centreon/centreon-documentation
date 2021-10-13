@@ -30,7 +30,7 @@ in the **Authentication by OpenId Connect** section.
   `https://192.168.0.1/centreon/index.php`.
 - **Client ID** field defines the Client ID.
 - **Client Secret** field defines the Client secret.
-- **Use Basic Auth for Token Endpoint Authentication** field force to use `Authorization: Basic` method.
+- **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only be used for tests.
 
 ![image](../assets/administration/openid-connect-configuration.png)
