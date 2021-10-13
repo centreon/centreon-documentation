@@ -135,7 +135,7 @@ Follow these steps to upgrade between minor versions of MariaDBB (for example, t
 1. Update MariaDB :
 
     ```
-    yum update maridb-*
+    yum update mariadb-*
     ```
 
 2. Restart MariaDB :

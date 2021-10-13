@@ -3576,11 +3576,11 @@ centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;Z
 Required fields are:
 
 | Column                     | Description                                       |
-| ---------------------------| --------------------------------------------------|
+| -------------------------- | ------------------------------------------------- |
 | Name                       |                                                   |
 | Address                    | IP address of the poller                          |
 | SSH Port                   | SSH port                                          |
-| Gorgone Communication Type | ZMQ or SSH                                        |
+| Gorgone Communication Type | ZMQ (1) or SSH (2)                                |
 | Gorgone Communication Port | Port used by Gorgone to communicate               |
 
 #### Del

@@ -6,7 +6,7 @@ title: Secure your MAP platform
 This chapter describes advanced procedures to secure your Centreon MAP
 platform.
 
-## Configure HTTPS/TLS on the web server
+## Configure HTTPS/TLS on the MAP server
 
 ### HTTPS/TLS configuration with a recognized key
 
@@ -128,8 +128,13 @@ port 8443.
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.html#change-centreon-map-server-port).
 
-> Don't forget to modify the URL on Centreon side in **Map server address**
-> field in `Administration > Extensions > Map > Options` menu.
+> Don't forget to modify the URL on Centreon side in the **Map server address**
+> field in the `Administration > Extensions > Map > Options` menu.
+![image](../assets/graph-views/map-address-https.png)
+
+> Don't forget to update your connection profile in the desktop client 
+> by checking the ssl checkbox.
+![image](../assets/graph-views/desktop-ssl-option.png)
 
 ## Configure TLS on the Broker connection
 
@@ -175,7 +180,7 @@ mv broker_public.crt /etc/centreon/broker_cert/
 ### MAP server configuration
 
 First of all, you should [activate HTTPS/TLS on the web
-server](#configure-httpstls-on-the-web-server)
+server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 Then, set the following parameters in MAP server configuration at
 `/etc/centreon-studio/studio-config.properties` :

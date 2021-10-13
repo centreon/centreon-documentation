@@ -23,14 +23,14 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
 - Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
-- Le champ **Login claim value** définit la variable qui renvoyée par les points de terminaison **Introspection Token Endpoint**
+- Le champ **Login claim value** définit la variable qui est renvoyée par les points de terminaison **Introspection Token Endpoint**
   ou **User Information Endpoint** pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
 - La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
   `https://192.168.0.1/centreon/index.php`.
 - **Client ID** défini l'ID client.
 - **Client Secret** défini le secret client.
 - La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
-- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour le test
+- **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
 
 ![image](../assets/administration/openid-connect-configuration.png)
 

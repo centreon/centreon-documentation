@@ -234,7 +234,7 @@ and the alerts detected though:
 
   - The `Monitoring > Status Details > Services` menu.
   - The `Monitoring > Performances > Graphs` menu.
-  - The `Monitoring > Event Logs > vent Logs` menu.
+  - The `Monitoring > Event Logs > Event Logs` menu.
   - The **service-monitoring** widget in the `Home > Custom Views` menu.
   - And all menus where you can operate on services.
 

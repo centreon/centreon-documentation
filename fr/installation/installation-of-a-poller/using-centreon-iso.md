@@ -113,7 +113,7 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 Définissez le nom du serveur à l'aide de la commande suivante:
 ```shell
-hostnamectl set-hostname new_server_name
+hostnamectl set-hostname new-server-name
 ```
 
 ## Mise à jour du système d'exploitation
