@@ -910,7 +910,6 @@ pcs resource create "php7" \
 
 <!--RHEL 7 / CentOS 7-->
 ```bash
-<<<<<<< HEAD
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
     meta target-role="started" \
