@@ -5,14 +5,18 @@ title: Events consoles
 
 > Some of this interfaces are **deprecated** and replaced by the
 > [Resources Status](resources-status.html) page.
->
 > This new page aims to regroup all the experiences you can find in these
 > interfaces.
 >
 > For new installations, deprecated pages are automatically hidden. It is
-> possible to display them by selecting the option *Show deprecated pages*
+> possible to display them by selecting the option **Use deprecated pages**
 > in the preferences specific to each user from the menu
-> `Administration > Parameters > My Account`.
+> **Administration > Parameters > My Account**.
+>
+> All links in Centreon will point to these pages: deprecated pages will become your main tool to visualize 
+> the state of hosts and services. However, if you enable this option, you will not benefit from
+> the new features offered by the **Resources Status** page, such as for instance a more powerful search feature,
+> the ability to customize and share views or to save filters, and any other future enhancements.
 
 This chapter presents the different interfaces allowing to visualize the
 status of resources.

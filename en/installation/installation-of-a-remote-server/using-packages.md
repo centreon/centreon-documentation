@@ -64,64 +64,52 @@ systemctl disable firewalld
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
-#### Redhat CodeReady Builder repository
 
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
+<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
+#### Remi repository
 
-Enable the CodeReady Builder repository using these commands:
+To install Centreon you will need to install the **remi** repository.
 
-```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-<!--CentOS 8-->
-#### Redhat PowerTools repository
-
-To install Centreon you will need to enable the official PowerTools repository
-supported by Redhat.
-
-Enable the PowerTools repository using these commands:
-
-- For Centos 8.2:
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-
-- For CentOS 8.3 and CentOS Stream:
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-<!--Oracle Linux 8-->
-#### Oracle CodeReady Builder repository
-
-To install Centreon you will need to enable the official Oracle CodeReady
-Builder repository supported by Oracle.
-
-Enable the repository using these commands:
+Run the following commands:
 
 ```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
 ```
+
+Enable PHP 8.0 using the following commands:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat.
-
-> Software collections are required for installing PHP 7 and associated libraries.
+repository supported by Redhat. It is required for installing apache 2.4.
 
 Install the Software Collections repository using this command:
 
 ```shell
 yum install -y centos-release-scl
 ```
+
+#### Remi repository
+
+To install Centreon you will need to install the **remi** repository.
+
+Run the following commands:
+
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum-config-manager --enable remi-php80
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Centreon repository
@@ -134,11 +122,11 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -165,6 +153,8 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+You can now move on to the [next step](#configuration).
 
 ### With a remote database
 
@@ -253,41 +243,32 @@ DROP USER '<USER>'@'<IP>';
 
 ### Server name
 
-Define the server name using following command:
+If you want, you can change the server's name using the following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname remote1
 ```
 
 ### Set the PHP time zone
 
 You are required to set the PHP time zone. Run the command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-<!--CentOS 7-->
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
 After saving the file, please do not forget to restart the PHP-FPM service:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
-```shell
-systemctl restart rh-php73-php-fpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Services startup during system bootup
 
@@ -301,37 +282,27 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
 
-### Secure MySQL installation
+### Secure the database
 
 If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
 before installing Centreon.
 
-> Answer NO to any question EXCEPT the ones listed below:
+Answer yes to all questions except "Disallow root login remotely?". It is mandatory
+to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+
 
 ## Web installation
 
@@ -359,7 +330,7 @@ Conclude installation by performing
 
 ## Register the server
 
-To register it to the Centreon Central server or a Remote server, execute the following command:
+To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -386,13 +357,12 @@ Example:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the poller or by the Remote Server if you
-> want to link your server to it.
+> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:
@@ -414,17 +384,17 @@ Then follow instructions by
 
     ``` shell
     Summary of the informations that will be send:
-    
+
     Api Connection:
     username: admin
     password: ******
     target server: 192.168.0.1
-    
+
     Pending Registration Server:
     name: remote-1
     type: remote
     address: 192.168.0.2
-    
+
     Do you want to register this server with those informations ? (y/n)y
     ```
 
@@ -435,7 +405,7 @@ Kindly fill in the required information to convert your platform into Remote :
     <CURRENT_NODE_ADDRESS> : Please enter your username:
     admin
     <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
+
     <CURRENT_NODE_ADDRESS> : Protocol [http]:
     <CURRENT_NODE_ADDRESS> : Port [80]:
     <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
@@ -454,7 +424,7 @@ Kindly fill in the required information to convert your platform into Remote :
     enter your username:
     my_proxy_username
     enter your password:
-   
+
     ```
 
 You will receive the validation of the Centreon central server:

@@ -6,7 +6,7 @@ title: Secure your MAP platform
 This chapter describes advanced procedures to secure your Centreon MAP
 platform.
 
-## Configure HTTPS/TLS on the web server
+## Configure HTTPS/TLS on the MAP server
 
 ### HTTPS/TLS configuration with a recognized key
 
@@ -128,16 +128,21 @@ port 8443.
 To change the default port, refer to the [dedicated
 procedure](advanced-configuration.html#change-centreon-map-server-port).
 
-> Don't forget to modify the URL on Centreon side in **Map server address**
-> field in `Administration > Extensions > Map > Options` menu.
+> Don't forget to modify the URL on Centreon side in the **Map server address**
+> field in the `Administration > Extensions > Map > Options` menu.
+![image](../assets/graph-views/map-address-https.png)
+
+> Don't forget to update your connection profile in the desktop client 
+> by checking the ssl checkbox.
+![image](../assets/graph-views/desktop-ssl-option.png)
 
 ## Configure TLS on the Broker connection
 
 An additional Broker output for Centreon Central (centreon-broker-master) has
 been created during the installation.
 
-You can check it in your Centreon web interface, from the `Configuration >
-Pollers > Broker Configuration`, by editing the `centreon-broker-master`
+You can check it in your Centreon web interface, from the **Configuration >
+Pollers > Broker Configuration** menu, by editing the **centreon-broker-master**
 configuration.
 
 The output configuration should look like this:
@@ -151,6 +156,19 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
+To create a self-signed certificate, you can use the following commands:
+
+```text
+openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr -days 365
+openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
+```
+
+And then, copy the private key and the certificate into the **/etc/centreon/broker_cert/** directory:
+```text
+mv broker_private.key /etc/centreon/broker_cert/
+mv broker_public.crt /etc/centreon/broker_cert/
+```
+
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
 > [keystore for MAP server](#configure-httpstls-on-the-web-server)
@@ -161,11 +179,20 @@ certificate as described below:
 ### MAP server configuration
 
 First of all, you should [activate HTTPS/TLS on the web
-server](#configure-httpstls-on-the-web-server)
+
+server](../administration/secure-platform.md#enable-https-on-the-web-server)
+
+
 
 Then, set the following parameter in MAP server configuration at
-`/etc/centreon-studio/studio-config.properties` to enable TLS socket
-connection with Broker :
+**/etc/centreon-studio/studio-config.properties**
+
+To set the communication protocol with Centreon server to HTTPS:
+```text
+centreon.url=https://<server-address>
+```
+
+To enable TLS socket connection with Broker :
 
 ```text
 broker.tls=true

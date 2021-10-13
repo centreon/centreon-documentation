@@ -38,7 +38,7 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 
 ### DBMS
 
-> Centreon advises you to use MariaDB.
+> Centreon supports MariaDB. You can use another DBMS based on MySQL, but it will only be supported by the community.
 
 | Software | Version |
 |----------|---------|
@@ -54,7 +54,7 @@ The following table describes the software dependencies:
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.3        |
+| PHP      | 8.0        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
@@ -171,7 +171,7 @@ Description of software and linked users:
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |

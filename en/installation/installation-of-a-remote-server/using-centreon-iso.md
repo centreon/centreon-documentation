@@ -114,10 +114,16 @@ When the installation is complete, click on **Reboot**:
 
 ## Server name
 
-Define the server name using following command:
+If you want, you can change the server's name using the following command:
 ```shell
 hostnamectl set-hostname new-server-name
 ```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname remote1
+```
+
 
 ## Update the system
 
@@ -141,21 +147,22 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
-### Secure MySQL installation
+### Secure the database
 
 Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.
 
-Answer yes to all questions except "Disallow root login remotely?".
+Answer yes to all questions except "Disallow root login remotely?". It is mandatory
+to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Web installation
 
@@ -168,7 +175,7 @@ Conclude installation by performing [web installation steps](../web-and-post-ins
 
 ## Register the server
 
-To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
+To transform the server into a Remote Server and register it to the Central server, execute the following command on the future remote server:
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
@@ -181,12 +188,12 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:

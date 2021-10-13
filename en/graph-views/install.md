@@ -264,7 +264,7 @@ yum install centreon-map-server
 When installing Centreon MAP server, it will automatically install java
 (OpenJDK 11) if needed.
 
-> You need to have a MySQL/MariaDB database to store Centreon MAP data, wether
+> You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
 
 ### Configuration

@@ -1,63 +1,14 @@
 ---
-id: ticketing
-title: Ticketing
+id: ticketing-config
+title: Configuration
 ---
-
-**Centreon Open Tickets** est un module communautaire développé pour
-créer des tickets vers une plateforme ITSM à l'aide des API.
-
-Une fois la configuration du fournisseur de service effectuée, le module
-permet à un opérateur de créer des tickets pour les ressources dans un
-état non-ok à l'aide d'un widget dédié. En effet, un bouton associé
-permet à Centreon de se connecter à l'API et de créer un ticket tout
-acquittant les ressources dans Centreon.
-
-Concernant la configuration du widget, il est possible de voir les
-tickets créés en présentant l'ID des tickets ainsi que la date de
-création de ceux-ci.
-
-## Installation
-
-### Installation des paquets
-
-Exécutez la commande suivante :
-
-``` shell
-yum install centreon-open-tickets
-```
-
-### Installation via l'interface
-
-Après avoir installé le rpm, vous devez terminer l'installation du
-module via l'interface Web. Rendez-vous dans le menu
-`Administration > Extensions > Manager` et recherchez **open tickets**.
-Cliquez sur **Install selection**:
-
-![image](../assets/alerts/open_tickets_install_01.png)
-
-Le module est maintenant installé.
-
-![image](../assets/alerts/open_tickets_install_02.png)
 
 ## Configuration
 
 ### Sélectionner un fournisseur de service
 
-Le module offre des fournisseurs préconfigurés :
-
--   [BMC Footprints](../integrations/open-tickets/bmc-footprints.html)
--   [BMC Remedy](../integrations/open-tickets/bmc-remedy.html)
--   [EasyVista](../integrations/open-tickets/easyvista.html)
--   [Generic email](../integrations/open-tickets/mail.html)
--   [GLPI](../integrations/open-tickets/glpi.html)
--   [GLPI RestAPI](../integrations/open-tickets/glpi-restapi.html)
--   [iTop](../integrations/open-tickets/itop.html)
--   [IWS Isilog](../integrations/open-tickets/iws-isilog.html)
--   [Jira](../integrations/open-tickets/jira.html)
--   [OTRS RestAPI](../integrations/open-tickets/otrs-restapi.html)
--   [Request Tracker RestAPI](../integrations/open-tickets/request-tracker-restapi.html)
--   [Serena](../integrations/open-tickets/serena.html)
--   [ServiceNow](../integrations/open-tickets/servicenow.html)
+La liste des fournisseurs disponibles est actualisée dans la section de documentation
+dédiée aux intégrations [ITSM](../integrations/itsm/itsm-overview.html).
 
 Chaque fournisseur a sa propre configuration, cependant, l'ajout d'un
 fournisseur dans Centreon peut se faire de la manière suivante.

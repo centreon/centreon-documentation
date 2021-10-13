@@ -894,7 +894,7 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 > **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
-##### PHP7 resource
+##### PHP8 resource
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
@@ -910,8 +910,8 @@ pcs resource create "php7" \
 
 <!--RHEL 7 / CentOS 7-->
 ```bash
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
+pcs resource create "php8" \
+  	systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \

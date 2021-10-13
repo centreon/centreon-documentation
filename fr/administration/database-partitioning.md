@@ -92,7 +92,7 @@ Chaque jour, un script lancé par un cron réalise la création des tables
 manquantes ou celles en avance :
 
 ```text
-0 4 * * * centreon /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
+0 4 * * * centreon /bin/php /usr/share/centreon/cron/centreon-partitioning.php >> /var/log/centreon/centreon-partitioning.log 2>&1
 ```
 
 Exemple de fichier de partitionnement **partitioning-data\_bin.xml** :
@@ -127,12 +127,12 @@ La ligne de commande exécute la procédure suivante :
 
 Des vérifications doivent être faites avant :
 
-  - L’espace disponible sur le volume sur lequel se trouvent les bases MySQL
+  - L’espace disponible sur le volume sur lequel se trouvent les bases MariaDB
     doit être suffisant pour contenir deux fois la taille des tables traitées
     (Index + données).
   - Les tables ne doivent pas contenir de données dans le futur (le temps est un
     facteur clé pour la mise en place du partitionnement).
-  - La mémoire sur le serveur MySQL doit être suffisante.
+  - La mémoire sur le serveur MariaDB doit être suffisante.
 
 > Les requêtes/instructions ‘SELECT INSERT’ vont verrouiller la table et
 > probablement certains traitements.
@@ -141,7 +141,7 @@ La migration de la table est effectuée en utilisant l’option **-m** et en
 précisant le nom de la table à migrer :
 
 ```shell
-/opt/rh/rh-php73/root/bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
+/bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
 ```
 
 Si la migration de la table est ok l’ancienne table peut être supprimée avec la

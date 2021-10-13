@@ -183,7 +183,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Securing the installation of the DBMS
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
-installation. Please execute the following command and follow instructions:
+installation. It is mandatory to set a password for the **root** user of the database. Please execute the following command and follow instructions:
 
 ```shell
 mysql_secure_installation
@@ -308,9 +308,14 @@ Status for the jail: centreon
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case self-signed method suits you more, you can refer to the [appropriate section](#securing-the-apache-web-server-with-self-signed-certificat).
+
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
+
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you have to set it to HTTPS mode too, otherwise 
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
 
 Once you have your certificate, perform the following procedure to activate HTTPS mode on your Apache server:
 
@@ -455,7 +460,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/opt/rh/rh-php73/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
 expose_php = Off
@@ -526,7 +531,7 @@ If everything is ok, you must have:
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm httpd24-httpd
+systemctl restart php-fpm httpd24-httpd
 ```
 
 Then check its status:
@@ -559,7 +564,7 @@ If everything is ok, you must have:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Securing the Apache web server with self-signed certificat
+### Securing the Apache web server with a self-signed certificate
 
 Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
 
@@ -806,9 +811,9 @@ systemctl restart httpd24-httpd
 
 Centreon offers several methods to authenticate users:
 
-- local (MySQL)
+- [local](../connect/loginpwd.html) (MySQL)
 - [LDAP](./parameters/ldap.html)
-- [Generic SSO](./parameters/centreon-ui.html#sso) or [OpenId Connect](./parameters/centreon-ui.html#openid-connect)
+- [Generic SSO](../connect/sso.html) or [OpenId Connect](../connect/openid-connect.html)
 
 ## Create user profiles
 

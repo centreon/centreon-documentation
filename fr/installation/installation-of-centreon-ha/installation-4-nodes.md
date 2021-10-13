@@ -990,14 +990,14 @@ Les ressources clones sont des ressources actives sur les deux nœuds Centraux.
 
 > **Avertissement :** Toutes les commandes qui suivent ne doivent être lancées que sur un seul des nœuds.
 
-##### PHP7
+##### PHP8
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
-pcs resource create "php7" \
-    systemd:php-fpm \
-    meta target-role="started" \
+pcs resource create "php8" \
+  	systemd:php-fpm \
+    meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \

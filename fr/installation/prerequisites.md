@@ -38,7 +38,7 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 
 ### SGBD
 
-> Centreon vous recommande d'utiliser MariaDB.
+> Centreon supporte MariaDB. Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
 
 | Logiciel | Version |
 |----------|---------|
@@ -54,7 +54,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.3        |
+| PHP      | 8.0        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
@@ -174,7 +174,7 @@ Description des logiciels et utilisateurs liés :
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 |-------------------|------------------|------------------|-----------------|
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |

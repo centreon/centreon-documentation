@@ -88,21 +88,21 @@ The host machine must have the following characteristics:
     Change the following settings:
 
     - The timezone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
-        
-        Use the following command: 
-        
+
+        Use the following command:
+
         ```shell
         timedatectl set-timezone your_timezone
         ```
-        
+
         For example, to set the timezone to Europe/London, type:
-        
+
         ```shell
         timedatectl set-timezone Europe/London
         ```
 
-        You can get a list of all available timezones using this command: 
-        
+        You can get a list of all available timezones using this command:
+
         ```shell
         timedatectl list-timezones
         ```
@@ -110,43 +110,43 @@ The host machine must have the following characteristics:
     - The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
-        
+
             ```shell
-            /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-            ```
-        
-        2. In `date.timezone`, define the timezone you want.
-        
-        3. Restart the php server: 
-        
-            ```shell
-            systemctl restart rh-php73-php-fpm
+            /etc/php.d/50-centreon.ini
             ```
 
-    - The hostname of your server. The default name is `centreon-central`. To change it, use the following command: 
-    
+        2. In `date.timezone`, define the timezone you want.
+
+        3. Restart the php server:
+
+            ```shell
+            systemctl restart php-fpm
+            ```
+
+    - The hostname of your server. The default name is `centreon-central`. To change it, use the following command:
+
         ```shell
-        hostnamectl set-hostname your_hostname
+        hostnamectl set-hostname your-hostname
         ```
-    
+
         For example, if you want your machine to be called `supervision`, type:
-        
+
         ```shell
         hostnamectl set-hostname supervision
         ```
 
-5. Add a MySQL table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
+5. Add a MariaDB table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
 
-    1. Connect as user `centreon`: 
-    
+    1. Connect as user `centreon`:
+
         ```shell
         su - centreon
         ```
 
-    2. Type the following command: 
+    2. Type the following command:
 
         ```shell
-        /opt/rh/rh-php73/root/bin/php /usr/share/centreon/cron/centreon-partitioning.php
+        /bin/php /usr/share/centreon/cron/centreon-partitioning.php
         ```
 
         The partition is created:
@@ -154,23 +154,23 @@ The host machine must have the following characteristics:
         ![image](../../assets/installation/partition_created.png)
 
     3. Connect back as user `root`:
-    
+
         ```shell
         exit
         ```
-    
-    4. Restart the Centreon broker process so that changes are taken into account: 
-    
+
+    4. Restart the Centreon broker process so that changes are taken into account:
+
         ```shell
         systemctl restart cbd centengine gorgoned
         ```
 
-        Your Centreon server is now ready to use. 
+        Your Centreon server is now ready to use.
 
         >Once those operations have been carried out, you can get rid of the message that describes them in the terminal. To do so, delete the following file:
         >
         >`/etc/profile.d/centreon.sh`
-    
+
 6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
 
 7. Log in using the following credentials: Login: `admin`, password: `centreon`. By default, your server has a predefined configuration to monitor the Centreon server itself.
@@ -179,7 +179,7 @@ The host machine must have the following characteristics:
 
 9. [Update](../../update/update-centreon-platform.html) your Centreon platform.
 
-9. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MySQL database.
+9. [Secure your Centreon platform](../../administration/secure-platform.html). We recommend that you change the passwords for the root and admin accounts, and that you define a password for the MariaDB database.
 
 10. You can now [monitor your first host](../../getting-started/first-supervision.html).
 

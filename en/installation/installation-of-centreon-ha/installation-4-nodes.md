@@ -1000,14 +1000,14 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 > **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
-##### PHP7 resource
+##### PHP8 resource
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
-pcs resource create "php7" \
-    systemd:php-fpm \
-    meta target-role="started" \
+pcs resource create "php8" \
+  	systemd:php-fpm \
+    meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
@@ -1273,12 +1273,12 @@ Active resources:
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
  Clone Set: php7-clone [php7]
-     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [@CENTRAL_MASTER@ @CENTRAL_SLAVE_NAME@]
+     Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER@
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
      gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
      centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@

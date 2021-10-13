@@ -80,25 +80,13 @@ considerations.
 
 **Software**
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon 21.04
+- Centreon 21.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
   - wait_timeout
   - interactive_timeout
-<!--CentOS 7-->
-- Centreon 21.04
-- Check that the parameter `date.timezone` is correctly configured in
-  `/etc/opt/rh/rh-php73/php.ini` (same timezone displayed with the
-  command `timedatectl status`)
-- Avoid the usage of the following variables in your monitoring MariaDB configuration.
-  They halt long queries execution and can stop the ETL or the report generation jobs:
-  - wait_timeout
-  - interactive_timeout
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 **Users and groups**
 
@@ -133,9 +121,9 @@ considerations.
 | File system                  | Size                                                                                      |
 |------------------------------|-------------------------------------------------------------------------------------------|
 | /                            | 5GB minimum                                                                               |
-| /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)                      |
+| /var (containing MariaDB data) | Use the result of the above disk-space simulation file MariaDB data)                      |
 | MariaDB temp folder          | We recommand keeping it in /var                                                           |
-| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data** |
+| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB DBMS **data** |
 
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
