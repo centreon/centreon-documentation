@@ -44,7 +44,7 @@ in the **Authentication by OpenId Connect** section.
 > the service provider.
 
 > If you want to automatically import users after connection, you can configure an LDAP server and enable auto import.
-> Be sure that the "Login attribute" from LDAP configuration will be identical to "Login claim value".
+> Be sure that the "Login attribute" from your LDAP configuration will be identical to the "Login claim value".
 
 > You can enable **Authentication debug** through `Administration > Parameters > Debug` menu to understand
 > authentication failures and improve your setup.
