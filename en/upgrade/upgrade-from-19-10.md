@@ -42,6 +42,7 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 
 ### Upgrade the Centreon solution
 
+
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
@@ -54,6 +55,7 @@ Delete existing retention files:
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
+
 
 Clean yum cache:
 
@@ -82,11 +84,7 @@ Execute the following commands:
 systemctl stop rh-php72-php-fpm
 systemctl disable rh-php72-php-fpm
 systemctl enable rh-php73-php-fpm
-<<<<<<< HEAD
-systemctl start rh-php
-=======
 systemctl start rh-php73-php-fpm
->>>>>>> 447297c48fcbb0b7fedd3a567ff9f22dbb0165f2
 ```
 
 ### Additional actions
