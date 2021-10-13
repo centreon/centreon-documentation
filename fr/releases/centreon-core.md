@@ -21,7 +21,6 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.7
 
-=======
 `October 8, 2021`
 
 #### Bugfixes
