@@ -129,7 +129,7 @@ Here is an example configuration for LemonLDAP::NG:
 > Please replace `auth.example.com`, `${ipCentreon}`, `${clientId}` and `${clientSecret}` with your own values.
 
 <!--Others-->
-Most of the service providers have one presenting the configuration parameters configuration as defined by
+Most of the service providers have one URL presenting the configuration parameters configuration as defined by
 [the protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
 ```json
