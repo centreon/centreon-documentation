@@ -166,6 +166,8 @@ systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+You can now move on to the [next step](#configuration).
+
 ### With a remote database
 
 > If installing database on a dedicated server, this server should also have
@@ -253,9 +255,14 @@ DROP USER '<USER>'@'<IP>';
 
 ### Server name
 
-Define the server name using following command:
+If you want, you can change the server's name using the following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname remote1
 ```
 
 ### Set the PHP time zone
@@ -313,25 +320,14 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 If you have installed the Centreon server with a local database, since MariaDB 10.5 it is necessary to secure its installation
 before installing Centreon.
 
-> Answer NO to any question EXCEPT the ones listed below:
+Answer yes to all questions except "Disallow root login remotely?". It is mandatory
+to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
-Enter current password for root (enter for none): 
-OK, successfully used password, moving on...
-[...]
-Change the root password? [Y/n] y
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
-... Success!
-[...]
-Reload privilege tables now? [Y/n] y
-... Success!
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Web installation
 
