@@ -43,7 +43,7 @@ in the **Authentication by OpenId Connect** section.
 > It is possible not to specify the **Redirect Url** field. In this case, the Centreon server will send its own URL to
 > the service provider.
 
-> If you want to automatically import user after connection, you can configure an LDAP server and enable auto import.
+> If you want to automatically import users after connection, you can configure an LDAP server and enable auto import.
 > Be sure that the "Login attribute" from LDAP configuration will be identical to "Login claim value".
 
 > You can enable **Authentication debug** through `Administration > Parameters > Debug` menu to understand
