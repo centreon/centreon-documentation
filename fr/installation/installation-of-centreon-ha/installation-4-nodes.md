@@ -995,7 +995,6 @@ Les ressources clones sont des ressources actives sur les deux nœuds Centraux.
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
-<<<<<<< HEAD
 pcs resource create "php7" \
     systemd:rh-php73-php-fpm \
     meta target-role="stopped" \
