@@ -23,7 +23,7 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - Le champ **User Information Endpoint** définit le point de terminaison des informations utilisateur, par exemple `/userinfo`.
 - Le champ **End Session Endpoint** définit le point de terminaison de déconnexion, par exemple `/logout`.
 - Le champ **Scope** définit la portée de l'IdP, par exemple «openid». Portée séparée par espace.
-- Le champ **Login claim value** définit la variable qui renvoyée par les points de terminaison **Introspection Token Endpoint**
+- Le champ **Login claim value** définit la variable qui est renvoyée par les points de terminaison **Introspection Token Endpoint**
   ou **User Information Endpoint** pour authentifier l'utilisateur. Par exemple `sub` ou `email`.
 - La case **Redirect Url** définit l'URL de redirection après connexion pour accéder à votre serveur Centreon, par exemple
   `https://192.168.0.1/centreon/index.php`.
