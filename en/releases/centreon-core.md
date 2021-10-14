@@ -217,7 +217,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - Added a chapter to enable firewalld and rules example to improve security
 - Added a chapter to enable Fail2ban to improve security
-- Added a chapter to move a collector from one server to another
+- Added a chapter to move a poller from one server to another
 
 #### Security
 
