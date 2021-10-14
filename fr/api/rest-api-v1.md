@@ -24,11 +24,14 @@ you have to edit user settings on the menu **Configuration \> Users \>
 Contacts/Users**, edit user and on second tab check box **Reach API
 Configuration**.
 
+> If you enable this option for a user, this user will be able to access the configuration of all resources monitored by the platform, whatever their ACLs. Enable this option only when you really need to. You can also simply [disable the v1 API](#disabling-the-v1-api) for the whole platform.
+
+
 You can give access to the realtime for a specific Centreon user. To do so you
 have to edit user settings on the menu **Configuration \> Users \>
 Contacts/Users**, edit user and on second tab check box **Reach API Realtime**.
 
-If you want both then check **both** checkboxes
+If you want both then check **both** checkboxes.
 
 ## Authentication
 
@@ -2496,7 +2499,7 @@ Use the GET method and URL below: :
 ]
 ```
 
-Additionnal information:
+Additional information:
 
 -   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
 -   kpi\_name: name of the kpi (\<host\> / \<service\> or
@@ -2506,3 +2509,19 @@ Additionnal information:
 -   current\_impact: impact on linked BA in %
 -   number: page number (first page is 0)
 -   limit: page limit (default= 30)
+
+## Disabling the v1 API
+
+For security reasons, in some cases you may want to disable the v1 API for the whole platform.
+
+1. Edit the following file:
+    ```
+    /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+    ```
+
+2. Add the following lines above **<Directory "/usr/share/centreon/www">**:
+    
+    ```
+    RewriteEngine On
+    RewriteRule ^api/index.php.*&object=centreon_clapi.*$ - [F]
+    ```
