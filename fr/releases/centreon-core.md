@@ -19,6 +19,19 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.13
+
+#### Security fixes
+
+- CSRF - delete any command
+- CSRF - delete any poller
+- CSRF - delete any host
+- CSRF - delete any SNMP trap
+- CSRF - delete any service
+- CSRF - delete any contactGroup
+- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete many kinds of objects
+
 ### 20.10.12
 
 `October 5, 2021`
