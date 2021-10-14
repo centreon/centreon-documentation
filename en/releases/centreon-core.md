@@ -19,6 +19,19 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.8
+
+#### Security fixes
+
+- CSRF - delete any command
+- CSRF - delete any poller
+- CSRF - delete any host
+- CSRF - delete any SNMP trap
+- CSRF - delete any service
+- CSRF - delete any contactGroup
+- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete many kinds of objects
+
 ### 21.04.7
 
 `October 8, 2021`
