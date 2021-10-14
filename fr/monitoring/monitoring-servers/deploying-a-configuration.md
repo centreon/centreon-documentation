@@ -60,7 +60,7 @@ Les administrateurs peuvent activer un bouton qui leur permet d'exporter la conf
 En mode bêta, seuls les utilisateurs administrateurs ont accès à cette fonctionnalité. 
 
 Pour activer la fonctionnalité :
-1. Allez à la page **Administration > Paramètres > Mon compte**, ou bien cliquez sur l'icône profil dans le bandeau en haut à droite de l'écran.
+1. Allez à la page **Administration > Paramètres > Mon compte**, ou bien cliquez sur l'icône profil dans le bandeau en haut à droite de l'écran et cliquez sur **Éditer le profil**.
 2. Dans la section **Préférences**, cochez la case **Activer le bouton d’export de la configuration des pollers en un seul clic [BETA]**.
 3. Cliquez sur **Sauvegarder**.
 
