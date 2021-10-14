@@ -35,7 +35,7 @@ Les statistiques avancées portent sur l'usage des composants additionnels tels 
 personnalisées, la gestion des slots pour Centreon DSM, l'usage des Plugin Packs déployés, etc.
 
 L'usage des fonctionnalités au sein de l'interface utilisateur comprend l'accès aux différents menus de Centreon, ainsi
-que les actions réalisés par l'utilisateur au sein de l'interface (cliques sur les boutons, focus sur un champ du
+que les actions réalisées par l'utilisateur au sein de l'interface (clics sur les boutons, focus sur un champ du
 formulaire, etc.)
 
 ## Questions fréquemment posées (FAQ)
