@@ -34,11 +34,11 @@ before the new RPM key was published, the existing key has to be replaced with t
         ```
 
     The script will:
-    * check the RPM key in the RPM database and remove it
+    * check the RPM key in the RPM database and ask you to remove it
     * check the key file in the **/etc/pki/rpm-gpg** directory
-    * fetch and import the new RPM key into the RPM database
-    * update the **release** RPM package
-    * check the signature of the RPM packages.
+    * ask you to fetch and import the new RPM key into the RPM database
+    * ask you to update the **release** RPM package (this will remove the revoked key from **/etc/pki/rpm-gpg**)
+    * ask you to check the signature of the RPM packages.
 
 ## Checks
 
