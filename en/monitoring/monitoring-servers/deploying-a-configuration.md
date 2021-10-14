@@ -63,7 +63,7 @@ In beta mode, only administrator users can use this feature.
 
 To activate the feature:
 
-1. Go to **Administration > Parameters > My Account**, or click on the profile icon in the top right corner of the screen and click on **Edit profile**.
+1. Go to **Administration > Parameters > My Account**, or click on the profile icon in the top right corner of the screen and then click on **Edit profile**.
 2. In section **Preferences**, select **Enable the one-click export button for poller configuration [BETA]**.
 3. Click **Save**.
 
