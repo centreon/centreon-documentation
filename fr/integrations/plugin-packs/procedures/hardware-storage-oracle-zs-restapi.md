@@ -40,7 +40,7 @@ Le Pack Oracle ZS collecte les données pour:
 
 ## Prérequis
 
-Afin de contrôler votre équipement Oracle ZS, l'API Rest doit être configuré (cf: https://docs.oracle.com/cd/E79446_01/html/E79460/index.html).
+Afin de contrôler votre équipement Oracle ZS, l'API Rest doit être configurée (cf: https://docs.oracle.com/cd/E79446_01/html/E79460/index.html).
 
 ## Installation
 
@@ -118,7 +118,7 @@ Cette commande contrôle les pools (```--mode=pools```).
 La commande utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
 et elle se connecte à l'hôte _10.30.2.79_ (```--hostname='10.30.2.79'```) sur le port _215_ (```--port='215'```) utilisant le protocol _https_ (```--proto='https'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichés
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
@@ -130,4 +130,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html#http-and-api-checks)

@@ -132,4 +132,4 @@ parameter to the command:
 
 ## Troubleshooting
 
-[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html)
+[Troubleshooting plugins](../tutorials/troubleshooting-plugins.html#http-and-api-checks)
