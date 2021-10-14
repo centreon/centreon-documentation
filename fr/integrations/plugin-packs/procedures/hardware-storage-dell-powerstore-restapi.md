@@ -44,7 +44,7 @@ Le Pack Dell PowerStore collecte les données pour:
 
 ## Prérequis
 
-Afin de contrôler votre équipement Dell PowerStore, l'API Rest doit être configuré (cf: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf).
+Afin de contrôler votre équipement Dell PowerStore, l'API Rest doit être configurée (cf: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf).
 
 ## Installation
 
@@ -121,7 +121,7 @@ Cette commande contrôle les alertes (```--mode=alerts```).
 La commande utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
 et elle se connecte à l'hôte _10.30.2.79_ (```--hostname='10.30.2.79'```) sur le port _443_ (```--port='443'```) utilisant le protocol _https_ (```--proto='https'```).
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichés
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
@@ -133,4 +133,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html)
+[Diagnostique des plugins](../tutorials/troubleshooting-plugins.html#http-and-api-checks)
