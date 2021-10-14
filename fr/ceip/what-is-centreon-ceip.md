@@ -43,7 +43,7 @@ formulaire, etc.)
 ### Quels sont les paramètres de configuration possibles du programme CEIP ?
 
 La participation au programme est activée par défaut. Cependant l'envoi des statistiques avancées et de l'usage des
-fonctionnalités peut être configurée dans l'interface Web. Les options sont :
+fonctionnalités peut être configuré dans l'interface Web. Les options sont :
 
   - Activé
   - Désactivé
