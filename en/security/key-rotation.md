@@ -18,7 +18,7 @@ before the new RPM key was published, the existing key has to be replaced with t
 1. Download the following script:
 
     ```
-    https://github.com/centreon/centreon/check-centreon-rpm-key.sh
+    curl https://github.com/centreon/centreon/check-centreon-rpm-key.sh
     ```
 
 2. Make the script executable:
