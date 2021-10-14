@@ -2521,3 +2521,16 @@ For security reasons, in some cases you may want to disable the v1 API for the w
     RewriteEngine On
     RewriteRule ^api/index.php.*&object=centreon_clapi.*$ - [F]
     ```
+
+3. Restart Apache:
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--CentOS8-->
+```
+systemctl restart httpd
+```
+
+<!--CentOS7-->
+```
+systemctl restart httpd24-httpd
+```
