@@ -17,12 +17,24 @@ there are no additional actions to do.
 If you did a fresh installation of a Centreon platform 
 before the new RPM key was published, the existing key has to be replaced with the new one.
 
-1. Run the following script:
+1. Download the following script:
+
+    ```
+    https://github.com/centreon/centreon/check-centreon-rpm-key.sh
+    ```
+
+2. Make the script executable:
+
+    ```
+    chmod u+x check-centreon-rpm-key.sh
+    ```
+
+3. Run the script:
 
         ```
         sh check-centreon-rpm-key.sh
         ```
-
+        
     The script will:
     * check the RPM key in the RPM database and remove it
     * check the key file in the **/etc/pki/rpm-gpg** directory
@@ -30,7 +42,7 @@ before the new RPM key was published, the existing key has to be replaced with t
     * update the **release** RPM package
     * check the signature of the RPM packages.
 
-2. You can then check that the new key has been correctly imported. For the [new key published on October 14, 2021](#list-of-keys):
+4. You can then check that the new key has been correctly imported. For the [new key published on October 14, 2021](#list-of-keys):
 
     * Check the fingerprint of the key:
 
@@ -133,5 +145,5 @@ before the new RPM key was published, the existing key has to be replaced with t
 
 | Fingerprint                                       | Validity                     |
 |---------------------------------------------------|------------------------------|
-| xxxxxxxx                                          | revoked October 14, 2021     |
+| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021     |
 | 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | valid from October 14, 2021  |

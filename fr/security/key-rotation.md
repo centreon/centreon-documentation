@@ -15,11 +15,23 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 Si vous avez installé une plateforme Centreon avant la publication de la nouvelle clé, la clé existante doit être remplacée par la nouvelle.
 
-1. Exécutez le script suivant :
+1. Téléchargez le script suivant :
 
-        ```
-        sh check-centreon-rpm-key.sh
-        ```
+    ```
+    https://github.com/centreon/centreon/check-centreon-rpm-key.sh
+    ```
+
+2. Rendez le script exécutable :
+
+    ```
+    chmod u+x check-centreon-rpm-key.sh
+    ```
+
+3. Exécutez le script :
+
+    ```
+    sh check-centreon-rpm-key.sh
+    ```
 
     Ce script :
     * vérifie la clé RPM dans la base de données RPM, et la supprime
@@ -28,7 +40,7 @@ Si vous avez installé une plateforme Centreon avant la publication de la nouvel
     * met à jour le paquet RPM **release**
     * vérifie la signature des paquets RPM.
 
-2. Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#list-of-keys) :
+4. Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#list-of-keys) :
 
     * Vérifiez l'empreinte de la clé :
 
@@ -130,5 +142,5 @@ Si vous avez installé une plateforme Centreon avant la publication de la nouvel
 
 | Empreinte                                         | Validité                            |
 |---------------------------------------------------|-------------------------------------|
-| xxxxxxxx                                          | révoquée le 14 octobre 2021         |
+| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | révoquée le 14 octobre 2021         |
 | 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | valide à partir du 14 octobre 2021  |
