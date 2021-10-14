@@ -33,7 +33,7 @@ widgets in custom views, slot management for Centreon DSM, use of deployed
 Plugin Packs, and more.
 
 The use of the functionalities within the user interface includes access to the various Centreon menus, as well as the
-actions performed by the user within the interface (click on the buttons, focus on a form field, etc.)
+actions performed by the user within the interface (button clicks, focus on a form field, etc.)
 
 ## Frequently Asked Questions
 
