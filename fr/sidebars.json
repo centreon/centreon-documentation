@@ -1143,7 +1143,8 @@
             }
         ],
         "Sécurité": [
-            "security/security"
+            "security/security",
+            "security/key-rotation"
         ],
         "Ressources": [
             "resources/known-issues"
