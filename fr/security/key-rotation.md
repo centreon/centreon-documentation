@@ -46,18 +46,6 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 
 <!--Nouvelle installation-->
 
-* Vérifiez l'empreinte de la clé :
-
-    ```
-    gpg --quiet --with-fingerprint https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-    ```
-    
-    L'empreinte devrait être la suivante :
-    
-    ```
-    1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B
-    ```
-
 * Après l'installation, vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
 
     ```
@@ -144,20 +132,6 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 
 <!--Installation existante-->
 
-
-* Après la mise à jour des paquets RPM release, vérifiez l'empreinte de la clé :
-
-    ```
-    gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES
-    ```
-    
-    Le résultat devrait être le suivant :
-    
-    ```
-    gpg: nouveau fichier de configuration « /root/.gnupg/gpg.conf » créé 
-    gpg: Attention : les options de « /root/.gnupg/gpg.conf » ne sont pas encore actives cette fois 
-    gpg: impossible d'ouvrir « /etc/pki/rpm-gpg/RPM-GPG-KEY-CES »
-    ```
 
 * Vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
 

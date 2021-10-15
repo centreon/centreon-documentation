@@ -47,18 +47,6 @@ You can then check that the new key has been correctly imported. For the [new ke
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Fresh installation-->
 
-* Check the fingerprint of the key:
-
-    ```
-    gpg --quiet --with-fingerprint https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-    ```
-    
-    The fingerprint should be:
-
-    ```
-    1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B
-    ```
-
 * After installation, check if the new key has been correctly imported into the RPM database:
 
     ```
@@ -144,20 +132,6 @@ You can then check that the new key has been correctly imported. For the [new ke
     ```
 
 <!--Existing installation-->
-
-* After the update of the release RPM packages, check the fingerprint of the key:
-
-    ```
-    gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES
-    ```
-    
-    The results should look like this:
-
-    ```
-    gpg-pubkey-f4a80eb5-53a7ff4b	gpg(CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>)
-    gpg-pubkey-f2ee9d55-560cfc0a	gpg(CentOS SoftwareCollections SIG (https://wiki.centos.org/SpecialInterestGroup/SCLo) <security@centos.org>)
-    gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
-    ```
 
 * Check if the new key has been correctly imported into the RPM database:
 
