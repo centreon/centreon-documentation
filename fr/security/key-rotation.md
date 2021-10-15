@@ -16,7 +16,7 @@ Si vous avez installé une plateforme Centreon avant la publication de la nouvel
 1. Téléchargez le script suivant :
 
     ```
-    curl https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
+    curl -JO https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
     ```
 
 2. Rendez le script exécutable :
