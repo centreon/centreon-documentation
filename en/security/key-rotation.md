@@ -249,7 +249,7 @@ only be **gpg-pubkey-3fc49c1b-6166eb52**):
 
 ## List of keys
 
-| Fingerprint                                       | Validity                     |
-|---------------------------------------------------|------------------------------|
-| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021     |
-| 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | valid from October 14, 2021  |
+| Fingerprint                                       | Validity                                        |
+|---------------------------------------------------|-------------------------------------------------|
+| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021                        |
+| 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | valid from October 14, 2021 to October 13, 2023 |
