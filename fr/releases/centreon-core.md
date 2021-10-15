@@ -551,6 +551,24 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.8
+
+Release date: `null`
+
+#### Improvements
+
+- A TCP keepalive check has been added to the acceptor side of broker connections to avoid keeping dead connections
+
+#### Bug fixes
+
+- Fixed an issue that occasionally caused the LUA cache to disappear when reloading cbd
+- In case of retention on one side of a tcp connection, the connection could get interrupted because of a issue in the flush() function
+- Database connection error flag was not reset in conflict manager once an error occurred (even after successful connection) and could block the insertion into the database
+- The index_id column of table metrics was casted in int32 instead of int64
+- Resolved conflicts that could appear between hostgroups when connections_count > 1
+- Deleting graph from the WUI did not actually delete RRD files
+
+
 ### 20.10.7
 
 `30 Août 2021`
