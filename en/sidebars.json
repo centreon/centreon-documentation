@@ -1099,7 +1099,8 @@
             }
         ],
         "Security" : [
-            "security/security"
+            "security/security",
+            "security/key-rotation"
         ],
 
         "Resources": [
