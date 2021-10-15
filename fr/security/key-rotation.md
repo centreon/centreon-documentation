@@ -16,19 +16,19 @@ Si vous avez installé une plateforme Centreon avant la publication de la nouvel
 1. Téléchargez le script suivant :
 
     ```
-    curl https://github.com/centreon/centreon/check-centreon-rpm-key.sh
+    curl https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
     ```
 
 2. Rendez le script exécutable :
 
     ```
-    chmod u+x check-centreon-rpm-key.sh
+    chmod u+x check-centreon-gpg-key.sh
     ```
 
 3. Exécutez le script :
 
     ```
-    sh check-centreon-rpm-key.sh
+    sh check-centreon-gpg-key.sh
     ```
 
     Ce script :
