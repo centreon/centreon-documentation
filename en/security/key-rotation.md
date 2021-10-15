@@ -50,7 +50,7 @@ You can then check that the new key has been correctly imported. For the [new ke
 * Check the fingerprint of the key:
 
     ```
-    gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES
+    gpg --quiet --with-fingerprint https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
     ```
     
     The fingerprint should be:
@@ -59,7 +59,7 @@ You can then check that the new key has been correctly imported. For the [new ke
     1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B
     ```
 
-* Check if the new key has been correctly imported into the RPM database:
+* After installation, check if the new key has been correctly imported into the RPM database:
 
     ```
     rpm -qi gpg-pubkey-3fc49c1b-6166eb52
@@ -129,8 +129,7 @@ You can then check that the new key has been correctly imported. For the [new ke
     -----END PGP PUBLIC KEY BLOCK-----
     ```
 
-* Check that the old key is not in the RPM database anymore (there should 
-only be **gpg-pubkey-3fc49c1b-6166eb52**):
+* Check that the only Centreon key in the RPM database is this one: **gpg-pubkey-3fc49c1b-6166eb52**:
 
     ```
     rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
@@ -146,7 +145,7 @@ only be **gpg-pubkey-3fc49c1b-6166eb52**):
 
 <!--Existing installation-->
 
-* Check the fingerprint of the key:
+* After the update of the release RPM packages, check the fingerprint of the key:
 
     ```
     gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES

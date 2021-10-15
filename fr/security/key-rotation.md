@@ -49,7 +49,7 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 * Vérifiez l'empreinte de la clé :
 
     ```
-    gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES
+    gpg --quiet --with-fingerprint https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
     ```
     
     L'empreinte devrait être la suivante :
@@ -58,7 +58,7 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
     1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B
     ```
 
-* Vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
+* Après l'installation, vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
 
     ```
     rpm -qi gpg-pubkey-3fc49c1b-6166eb52
@@ -128,7 +128,7 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
     -----END PGP PUBLIC KEY BLOCK-----
     ```
 
-* Vérifiez que l'ancienne clé n'apparaît plus dans la base de données RPM (il devrait y avoir uniquement la clé **gpg-pubkey-3fc49c1b-6166eb52**):
+* Vérifiez que la seule clé Centreon présente dans la base de données RPM est la suivante : **gpg-pubkey-3fc49c1b-6166eb52**.
 
     ```
     rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
@@ -145,7 +145,7 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 <!--Installation existante-->
 
 
-* Vérifiez l'empreinte de la clé :
+* Après la mise à jour des paquets RPM release, vérifiez l'empreinte de la clé :
 
     ```
     gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-CES
