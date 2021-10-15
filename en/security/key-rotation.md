@@ -18,7 +18,7 @@ before the new RPM key was published, the existing key has to be replaced with t
 1. Download the following script:
 
     ```
-    curl https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
+    curl -JO https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
     ```
 
 2. Make the script executable:
