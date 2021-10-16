@@ -359,6 +359,17 @@ Release date: `null`
 - Fixed an issue that could cause deadlocks in the logs production
 
 
+### 21.04.3
+
+Release date: `null`
+
+#### Bug fixes
+
+- Fixed an issue in centreon-clib that caused deadlocks when a process is killed
+- Bad designed mutex could cause deadlocks in centreon-clib
+- Fixed an issue that could cause deadlocks in the logs production
+
+
 ### 21.04.2
 
 `20 juillet 2021`
