@@ -210,7 +210,18 @@ This stream connector will send event with the following format.
 
 ### Custom event format
 
-You can't change the format of the event for this stream connector (the feature was created after this stream connector).
+This stream connector allows you to change the format of the event to suit your needs. Only the **records** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+
+In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+
+| Type   | Name        | Value                                          |
+| ------ | ----------- | ---------------------------------------------- |
+| string | format_file | /etc/centreon-broker/servicenow-events-format.json |
+
+> The event format configuration file must be readable by the centreon-broker user
+
+To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+
 
 ## Curl commands
 
