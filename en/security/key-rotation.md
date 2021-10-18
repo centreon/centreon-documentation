@@ -29,9 +29,9 @@ before the new RPM key was published, the existing key has to be replaced with t
 
 3. Run the script:
 
-        ```
-        sh check-centreon-gpg-key.sh
-        ```
+    ```
+    sh check-centreon-gpg-key.sh
+    ```
 
     The script will:
     * check the RPM key in the RPM database and ask you to remove it
