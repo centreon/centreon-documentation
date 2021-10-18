@@ -223,4 +223,4 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 | Empreinte                                         | Validité                                     |
 |---------------------------------------------------|----------------------------------------------|
 | 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | révoquée le 14 octobre 2021                  |
-| 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | valide du 14 octobre 2021 au 13 octobre 2023 |
+| [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valide du 14 octobre 2021 au 13 octobre 2023 |
