@@ -284,7 +284,7 @@ Release date: `null`
 - In case of retention on one side of a tcp connection, the connection could get interrupted because of an issue in the flush() function
 - Broker could be blocked if it received BBDO objects it couldn't read (e.g., if the module is missing)
 - Database connection error flag was not reset in conflict manager once an error occurred (even after successful connection) and could block the insertion into the database
-- The index_id column of table metrics was casted in int32 instead of int64
+- The index_id column of table metrics was cast in int32 instead of int64
 - Resolved conflicts that could appear between hostgroups when connections_count > 1
 - Deleting graph from the WUI did not actually delete RRD files
 
