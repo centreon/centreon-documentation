@@ -236,7 +236,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- Bad designed mutex could cause deadlocks in centreon-clib
+- Badly designed mutex could cause deadlocks in centreon-clib
 - [Anomaly_Detection] Units were not provided in the perfdata for lower_thresholds and upper_thresholds of Anomaly Detection services
 - Fixed an issue that could cause deadlocks in the logs production
 - Sending values of date_start, date_end and duration of downtimes higher than 2^31 (`Tue Jan 19 04:14:08 CET 2038`) could block broker's inserts into the database. They are now limited to `2037-12-31 23:59:59`.
