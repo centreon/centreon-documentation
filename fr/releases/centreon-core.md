@@ -919,7 +919,7 @@ Release date: `null`
 #### Bug fixes
 
 - Fixed an issue that occasionally caused the LUA cache to disappear when reloading cbd
-- In case of retention on one side of a tcp connection, the connection could get interrupted because of a issue in the flush() function
+- In case of retention on one side of a tcp connection, the connection could get interrupted because of an issue in the flush() function
 - Database connection error flag was not reset in conflict manager once an error occurred (even after successful connection) and could block the insertion into the database
 - Resolved conflicts that could appear between hostgroups when connections_count > 1
 
