@@ -17,19 +17,19 @@ before the new RPM key was published, the existing key has to be replaced with t
 
 1. Download the following script:
 
-    ```
+    ```shell
     curl -JO https://raw.githubusercontent.com/centreon/centreon/master/check-centreon-gpg-key.sh
     ```
 
 2. Make the script executable:
 
-    ```
+    ```shell
     chmod u+x check-centreon-gpg-key.sh
     ```
 
 3. Run the script:
 
-    ```
+    ```shell
     sh check-centreon-gpg-key.sh
     ```
 
@@ -49,13 +49,13 @@ You can then check that the new key has been correctly imported. For the [new ke
 
 * After installation, check if the new key has been correctly imported into the RPM database:
 
-    ```
+    ```shell
     rpm -qi gpg-pubkey-3fc49c1b-6166eb52
     ```
 
     The results should be as follows:
 
-    ```
+    ```shell
     Name        : gpg-pubkey
     Version     : 3fc49c1b
     Release     : 6166eb52
@@ -119,13 +119,13 @@ You can then check that the new key has been correctly imported. For the [new ke
 
 * Check that the only Centreon key in the RPM database is this one: **gpg-pubkey-3fc49c1b-6166eb52**:
 
-    ```
+    ```shell
     rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
     ```
 
     The results should be as follows:
 
-    ```
+    ```shell
     gpg-pubkey-f4a80eb5-53a7ff4b	gpg(CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>)
     gpg-pubkey-f2ee9d55-560cfc0a	gpg(CentOS SoftwareCollections SIG (https://wiki.centos.org/SpecialInterestGroup/SCLo) <security@centos.org>)
     gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
@@ -135,13 +135,13 @@ You can then check that the new key has been correctly imported. For the [new ke
 
 * Check if the new key has been correctly imported into the RPM database:
 
-    ```
+    ```shell
     rpm -qi gpg-pubkey-3fc49c1b-6166eb52
     ```
 
     The results should be as follows:
 
-    ```
+    ```shell
     Name        : gpg-pubkey
     Version     : 3fc49c1b
     Release     : 6166eb52
@@ -206,13 +206,13 @@ You can then check that the new key has been correctly imported. For the [new ke
 * Check that the old key is not in the RPM database anymore (there should 
 only be **gpg-pubkey-3fc49c1b-6166eb52**):
 
-    ```
+    ```shell
     rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
     ```
 
     The results should be as follows:
 
-    ```
+    ```shell
     gpg-pubkey-f4a80eb5-53a7ff4b	gpg(CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>)
     gpg-pubkey-f2ee9d55-560cfc0a	gpg(CentOS SoftwareCollections SIG (https://wiki.centos.org/SpecialInterestGroup/SCLo) <security@centos.org>)
     gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
