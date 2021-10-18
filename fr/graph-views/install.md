@@ -113,15 +113,15 @@ qui doivent être inclus dans le décompte.
 #### Licence
 
 L'interface web nécessite que la licence soit disponible et valide sur le serveur 
-central de Centreon. Contactez l'[équipe support Centreon] https://centreon.force.com/) pour obtenir
+central de Centreon. Contactez l'[équipe support Centreon](https://centreon.force.com/) pour obtenir
 et installer votre clé de licence.
 
 #### Compatibilité
 
 L'interface Web Centreon MAP est compatible avec les navigateurs web suivants :
 
-* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Google Chrome] (https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome. 
-* Mozilla Firefox (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Mozilla] (https://www.mozilla.org/en-US/firefox/organizations/faq/) pour obtenir une description de la politique de support de Firefox.
+* Google Chrome (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Google Chrome](https://support.google.com/chrome/a/answer/188447?hl=en) pour une description de la politique de support de Chrome. 
+* Mozilla Firefox (dernière version au moment de la sortie du logiciel Centreon et suivantes).  Veuillez consulter la [FAQ Mozilla](https://www.mozilla.org/en-US/firefox/organizations/faq/) pour obtenir une description de la politique de support de Firefox.
 * Apple Safari (dernière version au moment de la sortie du logiciel Centreon et suivantes)
 * Microsoft Edge Chromium (dernière version au moment de la sortie du logiciel Centreon et suivantes).
 
@@ -194,7 +194,7 @@ configurations sont possibles.
 ### Interface Centreon Web
 
 Vous devez fournir au serveur Centreon MAP un utilisateur dédié
-**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès] appropriés (../administration/access-control-lists.html). 
+**qui a accès à toutes les ressources** par le biais des [groupes de listes d'accès](../administration/access-control-lists.html) appropriés. 
 Étant donné que le mot de passe sera stocké en clair dans un fichier 
 de configuration, vous ne devez pas utiliser un compte utilisateur administrateur Centreon.
 
@@ -238,7 +238,7 @@ yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centre
 > Si l'URL ne fonctionne pas, vous pouvez trouver manuellement ce paquet dans le dossier.
 
 Installez le dépôt MAP de Centreon, que vous trouverez sur
-le [portail du support] (https://support.centreon.com/s/repositories).
+le [portail du support](https://support.centreon.com/s/repositories).
 
 Ensuite, installez le serveur Centreon MAP à l'aide de la commande suivante :
 
@@ -280,7 +280,7 @@ systemctl restart mariadb
 ```
 
 Exécutez le script de configuration du serveur MAP de Centreon. Deux modes sont disponibles :
-interactve ou automatic.
+interactive ou automatic.
 
 - interactive *(aucune option/mode par défaut)* : Plusieurs questions seront posées pour
   remplir de manière interactive les variables de l'installation.
@@ -337,7 +337,7 @@ Le serveur Centreon Map est maintenant démarré et activé : installons la part
 
 ### Serveur Central
 
-Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du support] (https://support.centreon.com/s/repositories).
+Installez le dépôt MAP de Centreon. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/s/repositories).
 
 Ensuite, exécutez la commande suivante :
 
@@ -420,7 +420,7 @@ Vous pouvez trouver les installateurs dans **Monitoring > Map > Desktop Client**
 #### Sur l'ordinateur de l'utilisateur
 
 Le client Desktop nécessite **Java 8**. Vous pouvez télécharger et installer 
-la dernière version de Java depuis [ici] (https://java.com/fr/download/manual.jsp).
+la dernière version de Java depuis [ici](https://java.com/fr/download/manual.jsp).
 
 > Veillez à télécharger la version 64 bits. Les navigateurs sont généralement 32 bits
 > et le site Web d'Oracle propose généralement Java 32 bits au lieu de la version 64 bits. 
@@ -559,4 +559,4 @@ La progression de la synchronisation peut ensuite être suivie à partir de cett
 
 ## Sécurisez votre plateforme
 
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations] (secure-your-map-platform.html).
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos [recommandations](secure-your-map-platform.html).
