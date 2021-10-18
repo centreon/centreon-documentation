@@ -247,7 +247,7 @@ seront visibles sur le panneau.
 Le panneau de service contient les éléments suivants :
 
 - Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
-- Onglet **Historique** : La chronologie des événements survenus pour ce service,
+- Onglet **Historique** : La chronologie des évènements survenus pour ce service,
 - Onglet **Graphique** : Un graphique avec une courbe par métrique collectée par ce service,
 - Des raccourcis vers les configurations, les journaux d'évènements et les
     rapports de disponibilité pour ce service et son hôte.
