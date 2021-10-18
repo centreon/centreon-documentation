@@ -176,7 +176,7 @@ The search bar shows all applied criteria, as text. Autocomplete helps you enter
     ![image](../assets/alerts/resources-status/search_tab.gif)
 
 3. Use spaces between search criteria. Criteria are added using an AND criterion: results will match all criteria. You can use regular expressions.
-4. Once you have entered all your search criteria, press **Enter**.
+4. Once you have entered all your search criteria, type a space character to exit autocomplete, then press **Enter**.
 
 Example :
     **s.description:ping h.name:linux**: the list displays all services whose name contain "ping", for all hosts whose name contain "linux".
