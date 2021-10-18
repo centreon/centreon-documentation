@@ -845,7 +845,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- Bad designed mutex could cause deadlocks in centreon-clib
+- Badly designed mutex could cause deadlocks in centreon-clib
 - Fixed an issue that could cause deadlocks in the logs production
 
 
