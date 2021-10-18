@@ -5,11 +5,13 @@ title: Azure InsightsMetrics
 
 ## Overview
 
+> This Pack is in an experimental state (version 2.x.X).
+
 The Centreon Pack *Azure InsightsMetrics* aims to monitor additional indicators that are not available on the Azure Monitor feature.
 For this, it runs KustoQL based queries on the InsightsMetrics database reachable through the Azure LogAnalytics API.
 For example, using this Pack will allow you to monitor system indicators of Azure Virtual Machines resources (CPU, memory, disks...).
 
-> This Plugin pack is only compatible with the 'api' custom-mode. 'azcli' is not supported for this usage.
+> The associated Plugin is only compatible with the 'api' *custom-mode*. 'azcli' is not supported for this usage.
 
 ## Pack Assets
 
@@ -121,29 +123,29 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
+1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page.
+2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
 <!--Offline IMP License-->
 
-1. Install the Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
+1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
+2. Install the Centreon Pack RPM on the Centreon Central server:
 
 ```bash
 yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Plugin Pack on the "Configuration > Plugin Packs > Manager" page.
+3. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Plugin Packs > Manager** page.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -151,7 +153,7 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 
 ### Host
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
+* Log into Centreon and add a new Host through **Configuration > Hosts**.
 * In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
 
 * Select the appropriate *Cloud-Azure-Management-InsightsMetrics-XXX-custom* template to apply to the Host

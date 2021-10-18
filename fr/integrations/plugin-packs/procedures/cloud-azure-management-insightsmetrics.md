@@ -5,11 +5,13 @@ title: Azure InsightsMetrics
 
 ## Vue d'ensemble
 
+> Ce Pack est fourni à titre expérimental (version 2.x.x).
+
 Le Pack Centreon *Azure InsightsMetrics* permet de superviser des métriques additionelles relatives aux resources Azure. Pour cela,
 elle se base sur l'API *LogAnalytics* d'Azure et exécutes des requêtes KustoQL sur la base de données InsightsMetrics.
 Ce Pack permet par exemple de récupérer et de superviser les indicateurs système (CPU, mémoire, disques...) de Virtual Machines directement sur Azure.
 
-> Le Pack *Azure InsightsMetrics* est uniquement compatible avec le *custom-mode* 'api'.
+> Le Plugin associé est uniquement compatible avec le *custom-mode* 'api'.
 
 ## Contenu du Pack
 
@@ -70,7 +72,7 @@ Ce Pack permet par exemple de récupérer et de superviser les indicateurs syst�
 
 ### Identifiants
 
-Le Pack Centreon *Azure InsightsMetrics* est uniquement compatible avec le *custom-mode* 'api'.
+Le Plugin associé au Pack Centreon *Azure InsightsMetrics* est uniquement compatible avec le *custom-mode* 'api'.
 
 Récupérez les informations d'identification associées en suivant la procédure ci-dessous (en anglais)
 et notez celles-ci en lieu sûr. Elles seront en effet indispensables lors de la configuration des ressources
@@ -129,7 +131,7 @@ dans Centreon.
 yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page "Configuration > Plugin packs > Manager".
+2. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Manager**.
 
 <!--Offline IMP License-->
 
@@ -139,11 +141,12 @@ yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Azure InsightsMetrics*:
+
 ```bash
 yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 ```
 
-3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page "Configuration > Plugin packs > Gestionnaire".
+3. Sur l'interface Web Centreon, installer le Pack *Azure InsightsMetrics* depuis la page **Configuration > Plugin packs > Gestionnaire**.
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
