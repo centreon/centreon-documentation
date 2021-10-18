@@ -991,7 +991,8 @@
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
                     "integrations/data-analytics/sc-splunk-metrics",
                     "integrations/data-analytics/sc-splunk-events",
-                    "integrations/data-analytics/sc-warp10"
+                    "integrations/data-analytics/sc-warp10",
+                    "integrations/data-analytics/sc-kafka-events"
                 ],
                 "label": "Data Analytics",
                 "type": "subcategory"
@@ -1015,10 +1016,7 @@
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty-events",
                     "integrations/event-management/sc-service-now-events",
-                    "integrations/event-management/sc-servicenow-mid-server",
-                    "integrations/event-management/sc-splunk-events",
-                    "integrations/event-management/sc-splunk-metrics",
-                    "integrations/event-management/sc-kafka-events"
+                    "integrations/event-management/sc-servicenow-mid-server"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
