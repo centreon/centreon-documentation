@@ -157,16 +157,16 @@ et appliquez-lui le Modèle d'Hôte *Cloud-Azure-Management-InsightsMetrics-XXX-
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Mandatory*) 
 doivent être renseignées:
 
-| Mandatory | Nom                       | Description                                                   |
-|:----------|:--------------------------|:--------------------------------------------------------------|
-| X         | AZURECUSTOMMODE           | Custom mode 'api'                                             |
-| X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io` |
-| X         | AZURESUBSCRIPTION         | Subscription ID                                               |
-| X         | AZUREWORKSPACEID          | LogAnalytics workspace ID                                     |
-| X         | AZURETENANT               | Tenant ID                                                     |
-| X         | AZURECLIENTID             | Client ID                                                     |
-| X         | AZURECLIENTSECRET         | Client secret                                                 |
-| X         | AZURERESOURCE             | full ID of the resource to monitor                            |
+| Mandatory | Nom                       | Description                                                    |
+|:----------|:--------------------------|:---------------------------------------------------------------|
+| X         | AZURECUSTOMMODE           | Custom mode 'api'                                              |
+| X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io`) |
+| X         | AZURESUBSCRIPTION         | Subscription ID                                                |
+| X         | AZUREWORKSPACEID          | LogAnalytics workspace ID                                      |
+| X         | AZURETENANT               | Tenant ID                                                      |
+| X         | AZURECLIENTID             | Client ID                                                      |
+| X         | AZURECLIENTSECRET         | Client secret                                                  |
+| X         | AZURERESOURCE             | full ID of the resource to monitor                             |
 
 ## FAQ
 
@@ -180,10 +180,10 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
 /usr/lib/centreon/plugins//centreon_azure_management_insightsmetrics_api.pl \
     --plugin=cloud::azure::management::insightsmetrics::plugin \
     --mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
-    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'
-    --workspace-id='xxxxxxxxxxxxxxx' 
-    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1'
-    --warning-average-utilization-percentage='90'
+    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
+    --workspace-id='xxxxxxxxxxxxxxx' \
+    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
+    --warning-average-utilization-percentage='90' \
     --critical-average-utilization-percentage='95'
 ```
 
@@ -205,7 +205,8 @@ Les éléments récupérés dans la partie prérequis pour l'authentification so
 ajoutés pour l'obtention d'un token (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). 
 
 Les options utilisées pour ce mode permettent de spécifier le *workspace* dans lequel 
-sera lancée la requête (```--workspace-id='xxxxxxxxxxxxxxx'```). 
+sera lancée la requête (```--workspace-id='xxxxxxxxxxxxxxx'```) ainsi que l'URL de l'API *LogAnalytics* à utiliser (
+```--management-endpoint='https://api.loganalytics.io'```). 
 
 Dans cet exemple, une alarme de type WARNING sera déclenchée si l'utilisation CPU moyenne est supérieure à 90% (```--warning-average-utilization-percentage='90'```);
 l'alarme sera de type CRITICAL au-delà de 95% d'utilisation (```--critical-average-utilization-percentage='95'```).
@@ -217,7 +218,7 @@ La liste de toutes les options complémentaires et leur signification peut être
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
     --plugin=cloud::azure::management::insightsmetrics::plugin \
-    --mode=cpu
+    --mode=cpu \
     --help
 ```
 

@@ -115,7 +115,7 @@ how-to below. Keep it safe until including it in the Autodiscovery job settings 
     - Click on *Save*.
     - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
 
-## Setup 
+## Setup
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -158,16 +158,16 @@ yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
 (for example, choose *Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom* for an Azure VM resource).
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
-| Mandatory | Nom                       | Description                                                   |
-|:----------|:--------------------------|:--------------------------------------------------------------|
-| X         | AZURECUSTOMMODE           | Custom mode 'api'                                             |
-| X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io` |
-| X         | AZURESUBSCRIPTION         | Subscription ID                                               |
-| X         | AZUREWORKSPACEID          | LogAnalytics workspace ID                                     |
-| X         | AZURETENANT               | Tenant ID                                                     |
-| X         | AZURECLIENTID             | Client ID                                                     |
-| X         | AZURECLIENTSECRET         | Client secret                                                 |
-| X         | AZURERESOURCE             | full ID of the resource to monitor                            |
+| Mandatory | Nom                       | Description                                                    |
+|:----------|:--------------------------|:---------------------------------------------------------------|
+| X         | AZURECUSTOMMODE           | Custom mode 'api'                                              |
+| X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io`) |
+| X         | AZURESUBSCRIPTION         | Subscription ID                                                |
+| X         | AZUREWORKSPACEID          | LogAnalytics workspace ID                                      |
+| X         | AZURETENANT               | Tenant ID                                                      |
+| X         | AZURECLIENTID             | Client ID                                                      |
+| X         | AZURECLIENTSECRET         | Client secret                                                  |
+| X         | AZURERESOURCE             | full ID of the resource to monitor                             |
 
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ?
@@ -179,10 +179,10 @@ user account and test the Plugin by running the following command:
 /usr/lib/centreon/plugins//centreon_azure_management_insightsmetrics_api.pl \
     --plugin=cloud::azure::management::insightsmetrics::plugin \
     --mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
-    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'
-    --workspace-id='xxxxxxxxxxxxxxx' 
-    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1'
-    --warning-average-utilization-percentage='90'
+    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
+    --workspace-id='xxxxxxxxxxxxxxx' \
+    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
+    --warning-average-utilization-percentage='90' \
     --critical-average-utilization-percentage='95'
 ```
 
@@ -199,7 +199,7 @@ CPU #2 usage : 2.25 %
 
 The command above checks the *CPU* of an Azure *Virtual Machine* account using the 'api' custom-mode
 targetting the *LogAnalytics* API (```--plugin=cloud::azure::management::insightsmetrics::plugin --mode=cpu --custommode=api 
---management-endpoint='https://api.loganalytics.io'```) .
+--management-endpoint='https://api.loganalytics.io'```).
 The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
 --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). The Resource ID of the Azure VM *my_vm1* is specified in the filter 
 (```--filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1'```).
