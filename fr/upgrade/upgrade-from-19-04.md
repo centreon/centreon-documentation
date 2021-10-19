@@ -92,7 +92,7 @@ Arrêter le processus Centreon Broker :
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présents :
+Supprimez les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
