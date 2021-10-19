@@ -194,6 +194,8 @@ Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 Cette procédure est identique à la montée de version d'un serveur Centreon
 Central.
 
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
+
 ## Montée de version des Pollers
 
 ### Mise à jour des dépôts

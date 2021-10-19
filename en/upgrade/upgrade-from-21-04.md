@@ -187,7 +187,9 @@ Then you can upgrade all other commercial extensions.
 
 ## Upgrade the Remote Servers
 
-This procedure is the same than to upgrade a Centreon Central server.
+This procedure is the same than to upgrade a Centreon Central server. 
+
+> At the end of the update, configuration should be deployed from the Central server.
 
 ## Upgrade the Pollers
 
