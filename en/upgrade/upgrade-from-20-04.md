@@ -221,6 +221,8 @@ systemctl enable mariadb
 
 This procedure is the same than to upgrade a Centreon Central server.
 
+> At the end of the update, configuration should be deployed from the Central server.
+
 ## Upgrade the Pollers
 
 ### Update the Centreon repository
