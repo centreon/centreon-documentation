@@ -3,8 +3,6 @@ id: sc-kafka-events
 title: Kafka Event Manager 
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the content in french and provide a sample execution command. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
@@ -186,10 +184,10 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'host': 'my_host',
-  'service': 'my_service',
-  'output': 'CRITICAL: the wind broke my umbrella',
-  'state': 'CRITICAL'
+  "host": "my_host",
+  "service": "my_service",
+  "output": "CRITICAL: the wind broke my umbrella",
+  "state": "CRITICAL"
 }
 ```
 
@@ -197,9 +195,9 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'host': 'my_host',
-  'output': 'DOWN: putting gas in my eletric car was not a good idea',
-  'state': 'DOWN'
+  "host": "my_host",
+  "output": "DOWN: putting gas in my eletric car was not a good idea",
+  "state": "DOWN"
 }
 ```
 
@@ -207,8 +205,8 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'ba': 'my_ba',
-  'state': 'CRITICAL'
+  "ba": "my_ba",
+  "state": "CRITICAL"
 }
 ```
 
