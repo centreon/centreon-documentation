@@ -44,8 +44,6 @@ templates:
 ![image](../assets/graph-views/jvm1.png)
 ![image](../assets/graph-views/jvm2.png)
 
-
-
 To monitor centreon-map JVM, please use following macro values:
 | Name                    | Value                           |
 | :---------------------- | :------------------------------ |
@@ -54,14 +52,12 @@ To monitor centreon-map JVM, please use following macro values:
 | ACTUATORAPIUSERNAME     | Api username must be set        |
 | ACTUATORAPIPASSWORD     | Api password must be set        |
 
-
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
 ![image](../assets/graph-views/jvm3.png)
-
 
 You may also just check the access to the following URL that tells that
 the server is up or not:
