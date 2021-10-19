@@ -1,56 +1,33 @@
-# Docs @ Centreon
-Welcome to the repo for our documentation. This is the source for	
-[https://docs.centreon.com/](https://docs.centreon.com/).	
+# Website
 
-Feel free to send us pull requests and file issues. Our docs are completely	
-open source and we deeply appreciate contributions from our community!
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Table of Contents
+### Installation
 
-- [Providing feedback](#providing-feedback)
-- [Contributing](#contributing)
-- [Copyright and license](#copyright-and-license)
+```
+$ yarn 
+```
 
-## Providing feedback
+### Local Development
 
-We really want your feedback, and we've made it easy. You can edit a page or
-request changes using the "Edit" button at the top of each page.
+```
+$ yarn start
+```
 
-**Only file issues about the documentation in this repository.** 
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-One wayto think about this is that you should file a bug here if your issue is that you
-don't see something that should be in the docs, or you see something incorrect
-or confusing in the docs.
+### Build
 
-- If your problem is a general question about how to configure or use Centreon,
-  ask in [Slack channel](https://centreon.github.io/register-slack/) instead.
+```
+$ yarn build
+```
 
-- If you have an idea for a new feature or behavior change in a specific aspect
-  of Centreon, or have found a bug in part of Centreon, file that issue in
-  the project's code repository. You may use the contribution guide [here](https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md).
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Contributing
+### Deployment
 
-We value your documentation contributions, and we want to make it as easy
-as possible to work in this repository. One of the first things to decide is
-which branch to base your work on. If you get confused, just ask and we will
-help. If a reviewer realizes you have based your work on the wrong branch, we'll
-let you know so that you can rebase it.
+```
+$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
 
-To understand how the documentation is structured, you may have a look to the
- [Docusaurus project](https://docusaurus.io/).
-We're using the version 1.
-
-### Pull request guidelines
-
-Help us review your PRs more quickly by following these guidelines.
-
-* Try not to touch a large number of files in a single PR if possible.
-
-* Don't change whitespace or line wrapping in parts of a file you are not editing for other reasons. Make sure your text editor is not configured to automatically reformat the whole file when saving.
-
-
-### Style guide
-
-Try not to have lines over 80 characters. Use your best judgment, and try to follow the example 
-set by the existing documentation.
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
