@@ -51,7 +51,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Upgrade PHP
+### Montée de version de PHP
 
 Centreon 21.10 utilise PHP en version 8.0.
 
