@@ -116,6 +116,11 @@ Si vous souhaitez changer le nom du serveur, utilisez la commande suivante :
 hostnamectl set-hostname new-server-name
 ```
 
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
+```shell
+hostnamectl set-hostname central
+```
+
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
@@ -138,13 +143,14 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
-### Secure MySQL installation
+### Sécuriser la base de données
 
 Depuis MariaDB 10.5, il est nécessaire de sécuriser son installation avant d'installer Centreon.
-Répondez oui à toute question sauf à "Disallow root login remotely?".
+Répondez oui à toute question sauf à "Disallow root login remotely?". 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 
 ```shell
 mysql_secure_installation

@@ -186,7 +186,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
-l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les instructions :
+l'installation du SGBD. Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Veuillez exécuter la commande suivante et suivre les instructions :
 
 ```shell
 mysql_secure_installation
@@ -465,7 +465,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/opt/rh/rh-php73/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
+Éditez le fichier **/etc/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -535,7 +535,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm httpd24-httpd
+systemctl restart php-fpm httpd24-httpd
 ```
 
 Puis vérifiez le statut :
@@ -740,6 +740,7 @@ vim /etc/httpd/conf.d/10-centreon.conf
 ```shell
 vim /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 et modifiez le chemin **/centreon** par le nouveau.
 

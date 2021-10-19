@@ -25,6 +25,10 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+## Mettre à jour la clé de signature RPM
+
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
 ## Montée de version du serveur Centreon Central
 
 > Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
@@ -288,6 +292,8 @@ systemctl enable mariadb
 
 Cette procédure est identique à la montée de version d'un serveur Centreon
 Central.
+
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
 ## Montée de version des Pollers
 
