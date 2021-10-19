@@ -24,7 +24,7 @@ you have to edit user settings on the menu **Configuration \> Users \>
 Contacts/Users**, edit user and on second tab check box **Reach API
 Configuration**.
 
-> If you enable this option for a user, this user will be able to access the configuration of all resources monitored by the platform, whatever their ACLs. Enable this option only when you really need to. You can also simply [disable the v1 API](#disabling-the-v1-api) for the whole platform.
+> If you enable this option for a user, this user will be able to access the configuration of all resources monitored by the platform, whatever their ACLs. Enable this option only when you really need to. You can also simply [disable the v1 configuration API](#disabling-the-v1-api) for the whole platform.
 
 
 You can give access to the realtime for a specific Centreon user. To do so you
