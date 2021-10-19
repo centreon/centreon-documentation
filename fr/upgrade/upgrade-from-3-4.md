@@ -66,7 +66,7 @@ yum-config-manager --enable remi-php80
 
 ### Montée de version de la solution Centreon
 
-Arrêter le processus Centreon Broker :
+Arrêtez le processus Centreon Broker :
 ```shell
 systemctl stop cbd
 ```
