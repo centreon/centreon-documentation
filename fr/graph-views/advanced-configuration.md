@@ -41,10 +41,8 @@ templates:
 - OS-Linux-SNMP-custom
 - App-Jvm-actuator-custom
 
-![image](https://user-images.githubusercontent.com/83707439/136817283-5fa6c9ef-7731-4acc-8524-fc0bd30017c6.png)
-![image](https://user-images.githubusercontent.com/83707439/136817371-1752156f-1dfb-46c5-a908-d25574779fce.png)
-
-
+![image](../assets/graph-views/jvm1.png)
+![image](../assets/graph-views/jvm2.png)
 
 To monitor centreon-map JVM, please use following macro values:
 | Name                    | Value                           |
@@ -54,14 +52,12 @@ To monitor centreon-map JVM, please use following macro values:
 | ACTUATORAPIUSERNAME     | Api username must be set        |
 | ACTUATORAPIPASSWORD     | Api password must be set        |
 
-
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
-![image](https://user-images.githubusercontent.com/83707439/136817134-66893a4c-f016-4032-be78-8ebb853c6f76.png)
-
+![image](../assets/graph-views/jvm3.png)
 
 You may also just check the access to the following URL that tells that
 the server is up or not:
