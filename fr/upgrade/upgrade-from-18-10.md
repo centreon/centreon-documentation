@@ -54,7 +54,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
-### Upgrade PHP
+### Montée de version de PHP
 
 Centreon 21.10 utilise PHP en version 8.0.
 
@@ -96,7 +96,7 @@ Arrêter le processus Centreon Broker :
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présents :
+Supprimez les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
