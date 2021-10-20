@@ -389,7 +389,7 @@ New release.
 
 ### 21.04.3
 
-Release date: `null`
+`October 20, 2021`
 
 #### Bug fixes
 
