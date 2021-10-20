@@ -231,7 +231,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.4
 
-Release date: `null`
+`20 octobre 2021`
 
 #### Bug fixes
 
