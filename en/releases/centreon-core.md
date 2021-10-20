@@ -380,6 +380,16 @@ New release.
 
 ## Centreon Connector Perl
 
+### 21.04.3
+
+`October 20, 2021`
+
+#### Bug fixes
+
+- Badly designed mutex could cause deadlocks in centreon-clib
+- Fixed an issue that could cause deadlocks in the logs production
+
+
 ### 21.04.2
 
 `July 20, 2021`
