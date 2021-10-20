@@ -310,7 +310,7 @@ Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
 ```
 <!--CentOS 7-->
 ```shell
@@ -321,7 +321,7 @@ Dans le cas d'une installation basée sur une distribution vierge, installez la
 clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
