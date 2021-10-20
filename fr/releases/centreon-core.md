@@ -424,7 +424,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.7
 
-Release date: `null`
+`20 octobre 2021`
 
 #### Bug fixes
 
