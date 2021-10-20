@@ -66,9 +66,9 @@ systemctl disable firewalld
 <!--DOCUSAURUS_CODE_TABS-->
 
 <!--RHEL 8-->
-#### Remi and CoreReady Builder repository
+#### Remi and CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CoreReady Builder** repositories.
+To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
 
 Run the following commands:
 
@@ -108,9 +108,9 @@ dnf module install php:remi-8.0
 
 <!--Oracle Linux 8-->
 
-#### Remi and CoreReady Builder repositories
+#### Remi and CodeReady Builder repositories
 
-To install Centreon you will need to install the **remi** and **CoreReady Builder** repositories.
+To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
 
 Run the following commands:
 
