@@ -422,6 +422,23 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Engine
 
+### 20.10.7
+
+`20 octobre 2021`
+
+#### Bug fixes
+
+- Badly designed mutex could cause deadlocks in centreon-clib
+- [Anomaly_Detection] Units were not provided in the perfdata for lower_thresholds and upper_thresholds of Anomaly Detection services
+- Fixed an issue that could cause deadlocks in the logs production
+- Sending values of date_start, date_end and duration of downtimes higher than 2^31 (`Tue Jan 19 04:14:08 CET 2038`) could block broker's inserts into the database. They are now limited to `2037-12-31 23:59:59`.
+- No recovery notification was sent if service went from CRITICAL to WARNING to OK state and user deactivated WARNING notification
+
+#### From Community
+
+- Notifications were sent for services of a soft down host despite "Soft Service Dependencies" option being set to "yes" (fixes issue [#286](https://github.com/centreon/centreon-engine/issues/286))
+
+
 ### 20.10.6
 
 `15 juillet 2021`
