@@ -272,7 +272,7 @@ future.
 
 ### 21.04.4
 
-Release date: `null`
+`October 20, 2021`
 
 #### Improvements
 
