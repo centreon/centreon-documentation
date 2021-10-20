@@ -832,6 +832,16 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Connector Perl
 
+### 20.10.3
+
+`20 octobre 2021`
+
+#### Bug fixes
+
+- Badly designed mutex could cause deadlocks in centreon-clib
+- Fixed an issue that could cause deadlocks in the logs production
+
+
 ### 20.10.2
 
 `15 juillet 2021`
