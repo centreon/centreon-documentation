@@ -350,7 +350,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ### 21.04.3
 
-Release date: `null`
+`20 octobre 2021`
 
 #### Bug fixes
 
