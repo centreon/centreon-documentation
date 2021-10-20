@@ -782,6 +782,17 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon CLib
 
+### 20.10.4
+
+`October 20, 2021`
+
+#### Bug fixes
+
+- Fixed an issue in centreon-clib that caused deadlocks when a process was killed
+- Badly designed mutex could cause deadlocks in centreon-clib
+- Fixed an issue that could cause deadlocks in the logs production
+
+
 ### 20.10.3
 
 `July 15, 2021`
