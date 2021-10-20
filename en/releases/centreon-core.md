@@ -553,7 +553,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.8
 
-Release date: `null`
+`October 20, 2021`
 
 #### Improvements
 
