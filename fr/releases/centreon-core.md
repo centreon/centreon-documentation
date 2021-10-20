@@ -372,7 +372,7 @@ Nouvelle version majeure.
 
 ### 21.04.3
 
-Release date: `null`
+`20 octobre 2021`
 
 #### Bug fixes
 
