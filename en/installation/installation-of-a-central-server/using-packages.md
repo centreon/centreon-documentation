@@ -74,7 +74,28 @@ systemctl disable firewalld
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--RHEL 8 / CentOS 8 -->
+<!--RHEL 8-->
+#### Remi and CoreReady Builder repository
+
+To install Centreon you will need to install the **remi** and **CoreReady Builder** repositories.
+
+Run the following commands:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Enable PHP 8.0 using the following commands:
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+<!--CentOS 8-->
+
 #### Remi repository
 
 To install Centreon you will need to install the **remi** repository.
