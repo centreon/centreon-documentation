@@ -272,7 +272,7 @@ dans une prochaine version.
 
 ### 21.04.4
 
-Release date: `null`
+`20 octobre 2021`
 
 #### Improvements
 
