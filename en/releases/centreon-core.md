@@ -424,7 +424,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.7
 
-Release date: `null`
+`October 20, 2021`
 
 #### Bug fixes
 
