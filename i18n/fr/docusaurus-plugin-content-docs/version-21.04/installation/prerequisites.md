@@ -1,9 +1,6 @@
 ---
 sidebar_position: 2
 title: Prérequis
-tags:
-  - Prérequis 
-  - Compatibilité Centreon Web
 ---
 
 L'interface Centreon web est compatible avec les navigateurs web suivants :

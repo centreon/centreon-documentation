@@ -1,8 +1,6 @@
 ---
 sidebar_position: 4
 title: First login
-tags:
-  - First login
 ---
 
 To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** by the IP address or FQDN of your Centreon web server.)
@@ -21,7 +19,7 @@ The Centreon web interface contains several menus, each with a specific function
 
 ![image](../assets/getting-started/amenu.png)
 
-* **Home** shows [custom views](create-custom-view.html).
+* **Home** shows [custom views].
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
   to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
@@ -43,4 +41,4 @@ In the language select box, choose your language:
 Then click on **Save**. Your interface is now translated.
 
 > If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../developer/developer-translate-centreon.html).
+> the web interface. For more details go to  [How to translate Centreon].

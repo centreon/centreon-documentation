@@ -1,8 +1,6 @@
 ---
 sidebar_position: 5
 title: Superviser votre premier hôte
-tags:
-  - Superviser votre premier hôte
 ---
 
 ## Principe de base de la supervision
@@ -37,15 +35,15 @@ Centreon puis de les mettre en oeuvre pour superviser vos premiers équipements.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](../monitoring/templates.html).
+> Pour aller plus loin avec les modèles de configuration, lisez le chapitre [modèles](#).
 
-> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](../monitoring/discovery/introduction.html) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](autodisco-aws.html).
+> Si vous disposez d'une licence adéquate, vous pouvez utiliser notre [module d'autodécouverte](#) afin de trouver et de configurer vos hôtes facilement. Voir aussi notre tutoriel [sur la détection d'instances AWS EC2](#).
 
 ### Installation des modèles de supervision de base
 
 Rendez-vous dans le menu **Configuration > Plugin Packs**.
 
-> Avant toute chose, appliquez la procédure de [configuration du proxy](../administration/parameters/centreon-ui.html#configuration-du-proxy)
+> Avant toute chose, appliquez la procédure de [configuration du proxy](#)
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
 Commencez par installer le Plugin Pack **Base Generic** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
@@ -118,7 +116,7 @@ Ou la supervision d'une partition système :
 
 ![image](../assets/getting-started/quick_start_linux_6.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
@@ -137,7 +135,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](#)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -231,7 +229,7 @@ Faites de même pour ajouter la supervision de la bande passante des interfaces 
 
 ![image](../assets/getting-started/quick_start_windows_5.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
@@ -250,7 +248,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](#)**.
 
 Pour connaître manuellement le nom des partitions disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -349,7 +347,7 @@ Faites de même pour ajouter la supervision des erreurs de paquets :
 
 ![image](../assets/getting-started/quick_start_cisco_5.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
@@ -368,7 +366,7 @@ Il est également possible d'accéder au menu **Configuration > Services > Templ
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la surveillance de vos cartes
-> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](../monitoring/discovery/services-discovery.html)**.
+> réseau, partition, processus et services en utilisant la fonctionnalité de **[Découverte des services](#)**.
 
 Pour connaître manuellement le nom des interfaces réseau disponibles, vous pouvez exécuter le plugin Centreon en ligne de commande tel quel :
 
@@ -464,7 +462,7 @@ automatiquement :
 
 ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
@@ -513,7 +511,7 @@ automatiquement :
 
 ![image](../assets/getting-started/quick_start_printer_3.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
@@ -551,7 +549,7 @@ automatiquement :
 
 ![image](../assets/getting-started/quick_start_ups_3.png)
 
-Il est maintenant temps de [déployer la supervision](#déployer-une-configuration).
+Il est maintenant temps de [déployer la supervision](#).
 
 Rendez-vous ensuite dans le menu **Monitoring > Status Details > Services** et sélectionnez la valeur **All** pour le
 filtre **Service Status**. Après quelques minutes, les premiers résultats de la supervision apparaissent :

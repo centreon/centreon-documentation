@@ -17,7 +17,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/getting-started/first-steps">
-            Tutoriel Docusaurus en 5min ⏱️
+            Démarrer Centreon en 5min ⏱️
           </Link>
         </div>
       </div>

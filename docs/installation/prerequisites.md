@@ -1,8 +1,6 @@
 ---
 sidebar_position: 2
 title: Prerequisites
-tags:
-  - Prerequisites for compatibility Centreon Web
 ---
 
 The Centreon web interface is compatible with the following web browsers:

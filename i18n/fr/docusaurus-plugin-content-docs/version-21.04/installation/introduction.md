@@ -1,9 +1,6 @@
 ---
 sidebar_position: 1
 title: Introduction
-tags:
-  - Installer Centreon 
-  - Monitorer sa platforme
 ---
 
 Ce chapitre décrit les différentes étapes de mise en place d'une plate-forme de
@@ -23,10 +20,10 @@ la communauté.
 Avant toute installation
 
 1.  Veillez à bien suivre les [pré-requis
-    d'installation](prerequisites.html) et de dimensionnement
+    d'installation](#) et de dimensionnement
     (ressources CPU, mémoire, disques, partitionnement, etc...)
 2.  Prenez également soin de bien choisir le [type
-    d'architecture](architectures.html) qu'il convient d'utiliser pour vos besoins.
+    d'architecture](#) qu'il convient d'utiliser pour vos besoins.
 3.  [Téléchargez Centreon](https://download.centreon.com/)
 4.  Enfin, vous pourrez procéder à l'installation de la plate-forme.
 

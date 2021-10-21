@@ -1,8 +1,6 @@
 ---
 sidebar_position: 5
 title: Monitor your first host
-tags:
-  - Monitor your first host
 ---
 
 ## Basic principles of monitoring
@@ -33,15 +31,15 @@ and then to implement them to monitor your first equipment.
 
 ![image](../assets/getting-started/host_service_command.png)
 
-> To go further with templates, please read the [templates chapter](../monitoring/templates.html#definition).
+> To go further with templates, please read the [templates chapter]
 
-> If you have a license for it, you can use our [Auto Discovery](../monitoring/discovery/introduction.html) feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances](autodisco-aws.html).
+> If you have a license for it, you can use our [Auto Discovery] feature to find and configure hosts easily. See also our tutorial on [how to detect AWS EC2 instances].
 
 ### Installation of basic monitoring templates
 
 Go to the **Configuration \> Plugin Packs** menu.
 
-> [Configure the proxy](../administration/parameters/centreon-ui.html#proxy-configuration) to allow the Centreon server to access the internet.
+> [Configure the proxy] to allow the Centreon server to access the internet.
 
 Install the **Base Generic** Plugin Pack (if it is not already installed) by moving your cursor on it and by clicking on the **+** icon (it is a prerequisite
 to the installation of any other Plugin Packs):
@@ -112,7 +110,7 @@ Or for file system:
 
 ![image](../assets/getting-started/quick_start_linux_6.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
@@ -131,7 +129,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_linux_9.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
+> processes and services using the **[Service Discovery]** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -223,7 +221,7 @@ Do the same to network bandwidth usage monitoring:
 
 ![image](../assets/getting-started/quick_start_windows_5.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
@@ -242,7 +240,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_windows_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
+> processes and services using the **[Service Discovery]** functionality.
 
 To know manually the name of the available files system you can execute the plugin in command line:
 
@@ -339,7 +337,7 @@ Do the same to add packet error monitoring:
 
 ![image](../assets/getting-started/quick_start_cisco_5.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
@@ -358,7 +356,7 @@ It is also possible to access the **Configuration \> Services \> Templates** men
 ![image](../assets/getting-started/quick_start_cisco_8.png)
 
 > With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partition,
-> processes and services using the **[Service Discovery](../monitoring/discovery/services-discovery.html)** functionality.
+> processes and services using the **[Service Discovery]** functionality.
 
 To know manually the name of the available network interfaces you can execute the plugin in command line:
 
@@ -452,7 +450,7 @@ Go to **Configuration \> Services \> Services by host** menu. A set of indicator
 
 ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
@@ -500,7 +498,7 @@ Go to **Configuration \> Services \> Services by host** menu. A set of indicator
 
 ![image](../assets/getting-started/quick_start_printer_3.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
@@ -537,7 +535,7 @@ Go to **Configuration \> Services \> Services by host** menu. A set of indicator
 
 ![image](../assets/getting-started/quick_start_ups_3.png)
 
-It is now time to [deploy the supervision](#deploying-a-configuration).
+It is now time to [deploy the supervision].
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select **All** value for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:

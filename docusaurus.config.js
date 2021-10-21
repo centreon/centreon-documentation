@@ -4,9 +4,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const isDev = process.env.NODE_ENV === 'development';
-const baseUrl = process.env.BASE_URL || '/';
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Centreon',
@@ -15,13 +12,26 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: false,
   favicon: 'img/favicon.ico',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
 
+  noIndex: true,
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+      fr: {
+        label: 'Français',
+        direction: 'ltr',
+      },
+    },
   },
 
   favicon: 'img/logo-centreon.png',
@@ -35,6 +45,9 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/centreon/centreon-documentation/',
+
+          onlyIncludeVersions: ['21.04', '20.10', '20.04'],
+          //lastVersion: '21.04',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -111,11 +124,11 @@ const config = {
               },
               {
                 label: 'API References',
-                to: '/docs/api/introduction',
+                to: '#',
               },
               {
                 label: 'Releases',
-                to: '/docs/releases/introduction',
+                to: '#',
               },
             ],
           },
@@ -153,7 +166,7 @@ const config = {
         logo: {
           alt: 'Centreon Open Source Logo',
           src: 'https://docs.centreon.com/current/en/img/logo-centreon.png',
-          href: 'https://centreon.com',
+          href: 'https://centreon.com/en/',
         },
         copyright: `Copyright © ${new Date().getFullYear()} Centreon`,
       },
