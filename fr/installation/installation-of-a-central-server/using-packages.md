@@ -76,7 +76,7 @@ systemctl disable firewalld
 <!--RHEL 8-->
 #### Dépôt remi et CodeReady Builder
 
-Afin d'installer les logiciels Centreon, le dépôt **remi** et **CodeReady Builer** doivent être installés.
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
 Exécutez les commandes suivantes :
 
@@ -117,7 +117,7 @@ dnf module install php:remi-8.0
 
 #### Dépôt remi et CodeReady Builder
 
-Afin d'installer les logiciels Centreon, le dépôt **remi** et **CodeReady Builer** doivent être installés.
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
 Exécutez les commandes suivantes :
 
