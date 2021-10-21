@@ -5,7 +5,7 @@ pipeline {
       stage('Install documentation dependencies') {
         steps {
             echo 'Using Yarn to install dependencies'
-            sh 'yarn'
+            sh 'yarn install'
         }
       }
 
@@ -26,6 +26,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying documentation'
+                //some s3 cp and cloudfront invalidations
             }
         }
   }
