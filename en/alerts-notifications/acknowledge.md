@@ -41,7 +41,7 @@ To acknowledge an incident, there are several solutions:
 1. Go to **Monitoring > Resources Status**.
 2. Use one of the following methods:
     - Select the object(s) that you want to acknowledge, then click the **Acknowledge** button above the list of resources.
-    - Hover over the resource you want to acknowledge, then click the **Acknowledge** button that appears on the left.
+    - Hover over the resource you want to acknowledge, then click the **Acknowledge** icon that appears on the left.
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 
