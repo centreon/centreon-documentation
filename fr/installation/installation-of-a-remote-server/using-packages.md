@@ -69,12 +69,32 @@ systemctl disable firewalld
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--RHEL 8 / CentOS 8 / Oracle Linux 8-->
-#### Remi repository
+<!--RHEL 8-->
+#### Dépôt remi et CodeReady Builder
 
-To install Centreon you will need to install the **remi** repository.
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
-Run the following commands:
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Activez PHP 8.0 en utilisant les commandes suivantes :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+<!--CentOS 8-->
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
+
+Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
@@ -83,29 +103,50 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Enable PHP 8.0 using the following commands:
+Activez PHP 8.0 en utilisant les commandes suivantes :
+```shell
+dnf module reset php
+dnf module install php:remi-8.0
+```
+
+<!--Oracle Linux 8-->
+
+#### Dépôt remi et CodeReady Builder
+
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+
+Exécutez les commandes suivantes :
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
 dnf module reset php
 dnf module install php:remi-8.0
 ```
 
 <!--CentOS 7-->
-#### Redhat Software Collections repository
+#### Dépôt *Software collections* de Red Hat
 
-To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat. It is required for installing apache 2.4.
+Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
+Hat doit être activé. Celui-ci est nécessaire pour l'installation de apache 2.4.
 
-Install the Software Collections repository using this command:
+Exécutez la commande suivante :
 
 ```shell
 yum install -y centos-release-scl
 ```
 
-#### Remi repository
+#### Dépôt remi
 
-To install Centreon you will need to install the **remi** repository.
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
-Run the following commands:
+Exécutez les commandes suivantes :
 
 ```shell
 yum install -y yum-utils
