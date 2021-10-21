@@ -177,7 +177,7 @@ Votre pack est maintenant à jour. Vous pouvez maintenant [mettre à jour les pl
 
 **Pour mettre à jour tous les packs :**
 
-Vous pouvez également mettre à jour tous les packs en une seule fois : lorsque des mises à jour de packs sont disponibles, un bouton **Update all** apparaît.
+Vous pouvez également mettre à jour tous les packs en une seule fois : lorsque des mises à jour de packs sont disponibles, un bouton **Tout mettre à jour** apparaît.
 Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-les-plugins). 
 
 ![image](../assets/configuration/pluginpacks/update_all.png)
