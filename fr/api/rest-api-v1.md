@@ -2510,7 +2510,7 @@ Additional information:
 -   number: page number (first page is 0)
 -   limit: page limit (default= 30)
 
-## Disabling the v1 API
+## Disabling the v1 configuration API
 
 For security reasons, in some cases you may want to disable the v1 API for the whole platform.
 
