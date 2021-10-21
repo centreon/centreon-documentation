@@ -381,6 +381,32 @@ In the example below, let's say that all hosts have been excluded from the resul
 
 The mapper uses hosts attributes as conditions to include them.
 
+
+## Advanced attributes
+
+Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
+If you use them with mappers, you can filter the results of the discovery according to a specific pair of values.
+
+Example of advanced attribute describing a host:
+
+```json
+"tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
+```
+
+Examples of use with mappers:
+
+- Your hosts are hosted in the cloud. They have an advanced attribute named **tags**. In this attribute, the **environment** key can have the following values: **production**, **preprod** or **test**. You only want to monitor machines whose environment key matches the value **production**. Use an **Exclusion** mapper and configure it as follows:
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
+
+- You want to sort hosts into host groups. Add a **Hostgroup** mapper whose source is the advanced attribute. In the example below,machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
+Configuration in the source menu of the **Hostgroup** mapper:
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
+
+The value of the property is displayed in a tooltip. Use **Ctrl+click** to edit the properties of the advanced attribute.
+
+
 ## Examples
 
 ### Dynamically update your configuration
