@@ -305,7 +305,7 @@ need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/21.10/el8/stable/RPM-GPG-KEY-CES
 ```
 <!--CentOS 7-->
 ```shell
@@ -317,7 +317,7 @@ need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/21.10/el7/stable/RPM-GPG-KEY-CES
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
