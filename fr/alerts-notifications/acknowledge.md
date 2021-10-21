@@ -44,7 +44,7 @@ Pour acquitter un incident, plusieurs solutions sont possibles :
 1. Allez à la page **Supervision > Statut des ressources**.
 2. Utilisez une des méthodes suivantes :
     - Sélectionnez le ou les objets que vous souhaitez acquitter, puis cliquez sur le bouton **Acquitter** au-dessus de la liste des ressources.
-    - Survolez la ressource désirée, puis cliquez sur le bouton **Acquitter** qui apparaît à gauche :
+    - Survolez la ressource désirée, puis cliquez sur l'icône **Acquitter** qui apparaît à gauche :
 
     ![image](../assets/alerts/resources-status/ack-hover.gif)
 
