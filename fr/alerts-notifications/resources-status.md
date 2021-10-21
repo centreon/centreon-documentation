@@ -190,7 +190,7 @@ toutes les ressources de type services et métaservices.
 
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
 selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
-4. Une fois les critères de recherche saisis, entrez un caractère espace pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
+4. Une fois les critères de recherche saisis, entrez un caractère espace ou appuyez sur **Échap** pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
 
 Exemple :
     **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".
