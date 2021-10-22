@@ -16,18 +16,19 @@ pipeline {
         }
       }
 
-        stage('Deploy documentation') {
-            when {
-                expression { BRANCH_NAME ==~ /(master|staging)/ }
-                anyOf {
-                    environment name: 'DEPLOY_TO', value: 'production'
-                    environment name: 'DEPLOY_TO', value: 'staging'
-                }
-            }
-            steps {
-                echo 'Deploying documentation'
-                //some s3 cp and cloudfront invalidations
+      stage('Deploy documentation') {
+        when {
+          expression { BRANCH_NAME ==~ /(production|staging)/ }
+            anyOf {
+              environment name: 'DEPLOY_TO', value: 'production'
+              environment name: 'DEPLOY_TO', value: 'staging'
             }
         }
-  }
+        steps {
+          input message: 'Deploying to staging ? (Click "Proceed" to continue)'
+          aws s3 sync --delete build s3://centreon-documentation-staging/
+          aws cloudfront create-invalidation --distribution-id E2RGAHPD1BRMW0 --paths "/*"
+        }
+      }
+    } 
 }
