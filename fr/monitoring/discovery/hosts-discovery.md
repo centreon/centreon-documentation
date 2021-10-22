@@ -390,7 +390,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 ## Attributs avancés
 
-Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Utilisés avec les modificateurs, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
+Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Utilisés avec les modificateurs (Macros, Hostgroups, Hostcategories, Inclusion, Exclusion), ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
 Exemple d'attribut avancé décrivant un hôte :
 

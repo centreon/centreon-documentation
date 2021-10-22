@@ -385,7 +385,7 @@ The mapper uses hosts attributes as conditions to include them.
 ## Advanced attributes
 
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
-If you use them with mappers, you can filter the results of the discovery according to a specific pair of values.
+If you use them with mappers (Macros, Hostgroups, Hostcategories, Inclusion, Exclusion), you can filter the results of the discovery according to a specific pair of values.
 
 Example of advanced attribute describing a host:
 
