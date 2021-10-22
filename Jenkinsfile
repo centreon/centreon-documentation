@@ -26,8 +26,8 @@ pipeline {
         }
         steps {
           input message: 'Deploying to staging ? (Click "Proceed" to continue)'
-          aws s3 sync --delete build s3://centreon-documentation-staging/
-          aws cloudfront create-invalidation --distribution-id E2RGAHPD1BRMW0 --paths "/*"
+          sh 'aws s3 sync --delete build s3://centreon-documentation-staging/'
+          sh 'aws cloudfront create-invalidation --distribution-id E2RGAHPD1BRMW0 --paths "/*"'
         }
       }
     } 
