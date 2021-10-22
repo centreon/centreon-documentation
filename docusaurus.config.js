@@ -10,9 +10,10 @@ const config = {
   tagline: 'Documentation',
   url: 'https://docs-dev.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  trailingSlash: false,
+  baseUrlIssueBanner: true,
+  //trailingSlash: false,
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
@@ -49,10 +50,10 @@ const config = {
             },
           },
         },
-        sitemap: {
+        /*sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-        },
+        },*/
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -64,12 +65,12 @@ const config = {
 
   plugins: [
     'plugin-image-zoom',
-    [
+    /*[
       '@docusaurus/plugin-client-redirects',
       {
         toExtensions: ['html'],
       },
-    ],
+    ],*/
   ],
   
 
