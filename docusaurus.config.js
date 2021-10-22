@@ -10,10 +10,10 @@ const config = {
   tagline: 'Documentation',
   url: 'https://docs-dev.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
 
@@ -24,17 +24,13 @@ const config = {
     locales: ['en', 'fr'],
     localeConfigs: {
       en: {
-        label: 'English',
-        direction: 'ltr',
+        label: '🇬🇧 English',
       },
       fr: {
-        label: 'Français',
-        direction: 'ltr',
+        label: '🇫🇷 Français',
       },
     },
   },
-
-  favicon: 'img/logo-centreon.png',
 
   presets: [
     [
@@ -44,10 +40,18 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/centreon/centreon-documentation/',
-
+          editUrl: 'https://github.com/centreon/centreon-documentation/edit/v2-docusaurus/',
+          showLastUpdateTime: true,
           onlyIncludeVersions: ['21.04', '20.10', '20.04'],
-          //lastVersion: '21.04',
+          versions: {
+            '21.04': {
+              label: '⭐️ 21.04',
+            },
+          },
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -57,6 +61,17 @@ const config = {
   ],
 
   themes: ['@docusaurus/theme-live-codeblock'],
+
+  plugins: [
+    'plugin-image-zoom',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        toExtensions: ['html'],
+      },
+    ],
+  ],
+  
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -70,6 +85,7 @@ const config = {
       liveCodeBlock: {
         playgroundPosition: 'bottom',
       },
+      zoomSelector: '.markdown img',
       navbar: {
         hideOnScroll: false,
         title: 'Centreon Docs',
@@ -115,6 +131,17 @@ const config = {
       footer: {
         style: 'dark',
         links: [
+          {
+            items: [
+              {
+                html: `
+                <a href="https://centreon.com/en/" target="_blank" rel="noreferrer noopener" title="Go to Centreon Corporate Website">
+                  <img src="/img/logo-centreon.png" alt="Centreon Open Source Logo" />
+                </a>
+              `,
+              },
+            ],
+          },
           {
             title: 'Documentation',
             items: [
@@ -163,11 +190,11 @@ const config = {
             ],
           },
         ],
-        logo: {
+        /*logo: {
           alt: 'Centreon Open Source Logo',
-          src: 'https://docs.centreon.com/current/en/img/logo-centreon.png',
+          src: 'img/logo-centreon.png',
           href: 'https://centreon.com/en/',
-        },
+        },*/
         copyright: `Copyright © ${new Date().getFullYear()} Centreon`,
       },
       prism: {
