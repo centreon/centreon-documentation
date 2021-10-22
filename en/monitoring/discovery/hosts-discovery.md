@@ -399,12 +399,12 @@ Examples of use with mappers:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
-- You want to sort hosts into host groups. Add a **Hostgroup** mapper whose source is the advanced attribute. In the example below,machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
+- You want to sort hosts into host groups. Add a **Hostgroup** mapper whose source is the advanced attribute. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
 Configuration in the source menu of the **Hostgroup** mapper:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-The value of the property is displayed in a tooltip. Use **Ctrl+click** to edit the properties of the advanced attribute.
+The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute.
 
 
 ## Examples
