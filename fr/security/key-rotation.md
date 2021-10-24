@@ -7,7 +7,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Nouvelle installation
 
-Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est nécessaire hormis
+Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer hormis
 accepter la nouvelle clé lorsque nécessaire.
 
     ```shell
