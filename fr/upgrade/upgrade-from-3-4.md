@@ -267,7 +267,7 @@ Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-c
 #### Redémarrez les processus Centreon
 
 Redamarrez le processus cbd :
-```
+```shell
 systemctl start cbd
 ```
 

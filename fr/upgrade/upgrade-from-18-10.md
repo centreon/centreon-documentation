@@ -57,22 +57,6 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 Centreon 21.10 utilise PHP en version 8.0.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Vous devez tout d'abord installer les dépôts **remi** :
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-Ensuite, vous devez changer le flux PHP de la version 7.1 à 8.0 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-<!--CentOS 7-->
 Vous devez tout d'abord installer les dépôts **remi** :
 ```shell
 yum install -y yum-utils
@@ -83,7 +67,6 @@ Ensuite, vous devez activer le dépôt php 8.0
 ```shell
 yum-config-manager --enable remi-php80
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Montée de version de la solution Centreon
 
@@ -114,14 +97,6 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Exécutez les commandes suivantes :
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-<!--CentOS 7-->
 Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
@@ -136,7 +111,6 @@ systemctl disable rh-php71-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Actions complémentaires
 
@@ -230,18 +204,10 @@ systemctl restart httpd24-httpd
 
 ### Finalisation de la mise à jour
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
-```shell
-systemctl reload httpd
-```
-<!--CentOS 7-->
 Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Connectez-vous ensuite à l'interface web Centreon pour démarrer le processus de
 mise à jour :
@@ -279,7 +245,7 @@ Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-c
 #### Redémarrez les processus Centreon
 
 Redémarrez le processus cbd:
-```
+```shell
 systemctl start cbd
 ```
 
@@ -354,7 +320,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 #### Configuration

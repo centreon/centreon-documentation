@@ -54,22 +54,6 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 Centreon 21.10 uses PHP in version 8.0.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-First, you need to install the **remi** repository:
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-Then, you need to change the PHP stream from version 7.2 to 8.0 by executing the following commands and answering **y**
-to confirm:
-```shell
-dnf module reset php
-dnf module install php:remi-8.0
-```
-<!--CentOS 7-->
 First, you need to install the **remi** repository:
 ```shell
 yum install -y yum-utils
@@ -80,7 +64,6 @@ Then, you need to enable the php 8.0 repository
 ```shell
 yum-config-manager --enable remi-php80
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
 
@@ -111,14 +94,6 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Execute the following commands:
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-<!--CentOS 7-->
 The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
@@ -134,7 +109,6 @@ systemctl disable rh-php72-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Additional actions
 
@@ -205,20 +179,11 @@ systemctl restart httpd24-httpd
 
 ### Finalizing the upgrade
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-Before starting the web upgrade process, reload the Apache server with the
-following command:
-```shell
-systemctl reload httpd
-```
-<!--CentOS 7-->
 Before starting the web upgrade process, reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Then log on to the Centreon web interface to continue the upgrade process:
 

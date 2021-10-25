@@ -257,7 +257,7 @@ See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-c
 #### Restart Centreon processes
 
 Restart the cbd process:
-```
+```shell
 systemctl start cbd
 ```
 
