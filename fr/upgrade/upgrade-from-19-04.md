@@ -42,16 +42,9 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 
 Exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
 > *Software Collections* avec la commande suivante :
@@ -337,16 +330,9 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Configuration
 
@@ -448,16 +434,9 @@ Cette procédure est identique à la montée de version d'un serveur Centreon Ce
 
 Exécutez la commande suivante :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
 > *Software Collections* avec la commande suivante :

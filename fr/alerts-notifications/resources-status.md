@@ -40,7 +40,7 @@ Seules les ressources en statut "Non-OK" peuvent être acquittées.
 Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
-- l'alerte disparaît de la vue **Problèmes non acquittés**
+- l'alerte disparaît de la vue **Problèmes non traités**
 - les [notifications](notif-configuration.html) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
@@ -60,7 +60,7 @@ Il est possible de [planifier une plage de maintenance](manage-alerts.html#ajout
     **Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
-de la vue **Problèmes non acquittés** et de stopper les notifications partant
+de la vue **Problèmes non traités** et de stopper les notifications partant
 de la ressource. L'arrière-plan des lignes des ressources en maintenance est mauve.
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
@@ -95,14 +95,14 @@ Les différents filtres s'ajoutent selon un critère ET : les résultats corresp
 ### Filtres prédéfinis
 
 Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est
-positionné sur **Problèmes non acquittés** : ce filtre permet de visualiser
+positionné sur **Problèmes non traités** : ce filtre permet de visualiser
 rapidement tous les problèmes n'ayant pas encore été pris en compte ou
 associés à une plage de maintenance. Il est possible de choisir parmi 2
 autres filtres : **Problèmes de ressources** & **Tous**.
 
 Signification des filtres :
 
--   **Problèmes non acquittés** : Le statut de la ressource est **Alerte** ou
+-   **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
 -   **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
@@ -190,7 +190,7 @@ toutes les ressources de type services et métaservices.
 
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
 selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
-4. Une fois les critères de recherche saisis, entrez un caractère espace pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
+4. Une fois les critères de recherche saisis, entrez un caractère espace ou appuyez sur **Échap** pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
 
 Exemple :
     **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".

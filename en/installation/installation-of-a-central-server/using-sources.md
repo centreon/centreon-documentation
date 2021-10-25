@@ -28,7 +28,7 @@ Enable the PowerTools repository using these commands:
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:
@@ -155,7 +155,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:
@@ -282,7 +282,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:

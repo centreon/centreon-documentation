@@ -39,16 +39,9 @@ Update your platform to the latest available minor version of Centreon 19.10.
 
 Run the following commands:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm 
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If you are using a CentOS environment, you must install the *Software
 > Collections* repositories with the following command:
@@ -334,16 +327,9 @@ The MariaDB components can now be upgraded.
 
 Run the following command on the dedicated DBMS server:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm 
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm 
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Configuration
 
@@ -445,16 +431,9 @@ This procedure is the same than to upgrade a Centreon Central server.
 
 Run the following command:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm 
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > If you are using a CentOS environment, you must install the *Software
 > Collections* repositories with the following command:
