@@ -12,7 +12,9 @@ This chapter describes how to upgrade your Centreon platform from version 3.4
 > If this is not the case, refer to the
 > [migration procedure](../migrate/migrate-from-3-4.html).
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
@@ -20,9 +22,13 @@ servers:
 - Central server
 - Database server
 
-## Update the RPM signing key
+### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 3.4 (Centreon Web 2.8).
 
 ## Upgrade the Centreon central server
 

@@ -13,7 +13,9 @@ Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.10.
 > Si cela n'est pas le cas, se référer à la
 > [procédure de migration](../migrate/migrate-from-3-4.html).
 
-## Sauvegarde
+## Prérequis
+
+### Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
@@ -21,9 +23,13 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-## Mettre à jour la clé de signature RPM
+### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
+### Mise à jour vers la dernière version mineure
+
+Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 3.4 (Centreon Web 2.8).
 
 ## Montée de version du serveur Centreon central
 

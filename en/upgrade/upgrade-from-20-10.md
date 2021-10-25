@@ -18,7 +18,9 @@ to version 21.10.
 > insertion of the data collected into the database during the update. These will be stored in temporary files and then
 > installed at the end of the update process.
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
@@ -26,9 +28,13 @@ servers:
 - Central server
 - Database server
 
-## Update the RPM signing key
+### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 20.10.
 
 ## Upgrade the Centreon Central server
 
