@@ -48,7 +48,9 @@ Run the following commands:
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm 
 ```
 <!--CentOS 7-->
+```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade PHP
@@ -220,7 +222,9 @@ Run the following command on the dedicated DBMS server:
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm 
 ```
 <!--CentOS 7-->
+```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Upgrading MariaDB
@@ -298,7 +302,9 @@ Run the following command:
 dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-1.el8.noarch.rpm 
 ```
 <!--CentOS 7-->
+```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-1.el7.centos.noarch.rpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
