@@ -54,7 +54,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 Centreon 21.10 uses PHP in version 8.0.
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
+<!--RHEL / Oracle Linux 8-->
 First, you need to install the **remi** repository:
 
 ```shell
@@ -72,7 +72,7 @@ dnf module reset php
 dnf module install php:remi-8.0
 ```
 
-<!--CentOS 7-->
+<!--RHEL / CentOS 7-->
 First, you need to install the **remi** repository:
 
 ```shell
@@ -103,51 +103,26 @@ yum clean all --enablerepo=*
 Then upgrade all the components with the following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--HA 2 Nodes-->
-
+<!--RHEL / Oracle Linux 8-->
 ```shell
-yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
-yum autoremove centreon-ha
+dnf update centreon\*
 ```
 
-<!--HA 4 Nodes-->
+<!--RHEL / CentOS 7-->
 
 On the Central Servers:
 
 ```shell
 yum update centreon\*
-yum install centreon-ha-web centreon-ha-common
-yum autoremove centreon-ha
-```
-
-On the Database Servers:
-
-```shell
-yum update centreon\*
-yum install centreon-ha-common
-yum autoremove centreon-ha
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 The PHP timezone should be set. Run the command on both Central Server nodes:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-
-Execute the following commands:
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-<!--CentOS 7-->
-The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
