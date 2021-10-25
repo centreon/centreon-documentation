@@ -8,7 +8,7 @@ For security reasons, the keys used to sign Centreon RPMs have to be rotated reg
 ## Fresh installation
 
 If you did a fresh installation after the new RPM key was published, 
-there are no additional actions to do besides accepting the new rpm key..
+there are no additional actions to do besides accepting the new rpm key.
 
     ```shell
     Retrieving key from https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
