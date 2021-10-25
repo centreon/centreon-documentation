@@ -106,6 +106,7 @@ Then upgrade all the components with the following command:
 <!--RHEL / Oracle Linux 8-->
 ```shell
 dnf update centreon\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 <!--RHEL / CentOS 7-->
@@ -114,6 +115,7 @@ On the Central Servers:
 
 ```shell
 yum update centreon\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
