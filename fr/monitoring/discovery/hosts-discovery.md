@@ -218,6 +218,9 @@ peuvent être : *est égal à*, *est différent de*, *contient* et *ne contient 
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
+Si vous incluez plusieurs conditions dans un même modificateur, il faut que
+toutes les conditions soient vérifiées pour que le modificateur s'applique.
+
 Depuis la version 21.04, dans les modificateurs **Property**, **Macro**, **Host
 group** et **Host category** il est possible de concaténer un ou plusieurs
 de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
@@ -390,7 +393,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 ## Attributs avancés
 
-Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Utilisés avec les modificateurs (Macros, Hostgroups, Hostcategories, Inclusion, Exclusion), ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
+Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Utilisés avec les modificateurs (Macro, Host group, Host category, Inclusion, Exclusion), ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
 Exemple d'attribut avancé décrivant un hôte :
 
