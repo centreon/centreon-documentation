@@ -354,6 +354,7 @@ innodb_flush_log_at_trx_commit=1
 sync_binlog=1
 binlog_format=MIXED
 slave_compressed_protocol=1
+slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
@@ -699,14 +700,14 @@ Les services applicatifs de Centreon ne seront plus lancés au démarrage du ser
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
 ```
 
 <!--RHEL 7 / CentOS 7-->
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -829,7 +830,7 @@ pcs cluster setup \
     "@CENTRAL_SLAVE_NAME@" \
     "@DATABASE_MASTER_NAME@" \
     "@DATABASE_SLAVE_NAME@" \
-    --force \
+    --force
 ```
 
 <!--RHEL 7 / CentOS 7-->
@@ -992,29 +993,15 @@ Les ressources clones sont des ressources actives sur les deux nœuds Centraux.
 
 ##### PHP8
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs resource create "php8" \
-  	systemd:php-fpm \
+    systemd:php-fpm \
     meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-
-<!--RHEL 7 / CentOS 7-->
-```bash
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Broker RRD
 
@@ -1179,7 +1166,7 @@ Exécuter les commandes suivantes pour indiquer au Cluster sur quels nœuds les 
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 
 <!--RHEL 7 / CentOS 7-->
@@ -1187,7 +1174,7 @@ pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATAB
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -1231,7 +1218,7 @@ Active Resources:
     * Masters: [ @DATABASE_MASTER_NAME@ ]
     * Slaves: [ @DATABASE_SLAVE_NAME@ ]
   * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php8-clone [php8]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1259,7 +1246,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
- Clone Set: php7-clone [php7]
+ Clone Set: php8-clone [php8]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
@@ -1325,7 +1312,7 @@ Location Constraints:
   Resource: ms_mysql-clone
     Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php7-clone
+  Resource: php8-clone
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
@@ -1347,7 +1334,7 @@ Location Constraints:
   Resource: ms_mysql-master
     Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php7-clone
+  Resource: php8-clone
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:

@@ -314,6 +314,7 @@ innodb_flush_log_at_trx_commit=1
 sync_binlog=1
 binlog_format=MIXED
 slave_compressed_protocol=1
+slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
@@ -636,15 +637,15 @@ Les services applicatifs de Centreon ne seront plus lancés au démarrage du ser
 <!--RHEL 8 / Oracle Linux 8-->
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
 ```
 
 <!--RHEL 7 / CentOS 7-->
 
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -771,7 +772,7 @@ pcs cluster setup \
     centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@" \
-    --force \
+    --force
 ```
 
 <!--RHEL 7 / CentOS 7-->
@@ -922,30 +923,15 @@ Certaines ressources ne doivent être démarrées que sur un seul nœud, mais po
 
 ##### PHP8
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
 pcs resource create "php8" \
-  	systemd:php-fpm \
+    systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-
-<!--RHEL 7 / CentOS 7-->
-```bash
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ##### Broker RRD
 
@@ -1127,7 +1113,7 @@ Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @CENTRAL_MASTER_NAME@ ]
     * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php8-clone [php8]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1156,7 +1142,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php8-clone [php8]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]

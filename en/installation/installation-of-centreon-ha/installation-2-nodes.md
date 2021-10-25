@@ -310,6 +310,7 @@ innodb_flush_log_at_trx_commit=1
 sync_binlog=1
 binlog_format=MIXED
 slave_compressed_protocol=1
+slave_parallel_mode=conservative
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
@@ -561,7 +562,7 @@ Position Status [OK]
 
 ## Setting up the *Centreon* cluster
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
 ### Configuring the file synchronization service
 
@@ -628,14 +629,14 @@ Centreon's application services won't be launched at boot time anymore, they wil
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8 / Oracle Linux 8-->
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd php-fpm centreon mysql
 ```
 
 <!--RHEL 7 / CentOS 7-->
 ```bash
-systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
-systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd centreon mysql
+systemctl stop centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
+systemctl disable centengine snmptrapd centreontrapd gorgoned cbd httpd24-httpd php-fpm centreon mysql
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -752,7 +753,7 @@ pcs cluster setup \
     centreon_cluster \
     "@CENTRAL_MASTER_NAME@" \
     "@CENTRAL_SLAVE_NAME@" \
-    --force \
+    --force
 ```
 
 <!--RHEL 7 / CentOS 7-->
@@ -890,16 +891,14 @@ pcs resource meta ms_mysql-master \
 
 ### Creating the clone resources
 
-Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP7). For the second kind, you will declare *clone* resources.
+Some resources must be running on one only node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP8). For the second kind, you will declare *clone* resources.
 
 > **Warning:** All the commands in this chapter have to be run only once on the central node of your choice.
 
 ##### PHP8 resource
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8 / Oracle Linux 8-->
 ```bash
-pcs resource create "php7" \
+pcs resource create "php8" \
     systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
@@ -907,19 +906,6 @@ pcs resource create "php7" \
     monitor interval="5s" timeout="30s" \
     clone
 ```
-
-<!--RHEL 7 / CentOS 7-->
-```bash
-pcs resource create "php8" \
-  	systemd:php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ##### RRD broker resource
 
 ```bash
@@ -1094,7 +1080,7 @@ Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
     * Masters: [ @CENTRAL_MASTER_NAME@ ]
     * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
-  * Clone Set: php7-clone [php7]:
+  * Clone Set: php8-clone [php8]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1122,7 +1108,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [ @CENTRAL_MASTER_NAME@ ]
      Slaves: [ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php7-clone [php7]
+ Clone Set: php8-clone [php8]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
