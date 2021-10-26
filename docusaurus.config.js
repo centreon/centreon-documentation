@@ -12,8 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  baseUrlIssueBanner: true,
-  //trailingSlash: false,
+  trailingSlash: false, // Dont'use !
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
@@ -25,12 +24,12 @@ const config = {
     locales: ['en', 'fr'],
     localeConfigs: {
       en: {
-        label: '🇬🇧 English',
+        label: '🇬🇧 English'
       },
       fr: {
-        label: '🇫🇷 Français',
+        label: '🇫🇷 Français'
       },
-    },
+    }
   },
 
   presets: [
@@ -46,7 +45,7 @@ const config = {
           onlyIncludeVersions: ['21.04', '20.10', '20.04'],
           versions: {
             '21.04': {
-              label: '⭐️ 21.04',
+              label: '⭐️  21.04',
             },
           },
         },
