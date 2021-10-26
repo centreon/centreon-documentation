@@ -32,8 +32,6 @@ Après avoir installé le rpm, vous devez terminer l'installation du module via 
 **Administration > Extensions > Manager** et recherchez **dsm**. Cliquez sur **Install selection**.
 Votre module Centreon DSM est maintenant installé.
 
-![image](../../assets/configuration/dsm/module-setup-finished.png)
-
 Vous pouvez maintenant démarrer et activer le service sur votre serveur :
 
 ```shell
