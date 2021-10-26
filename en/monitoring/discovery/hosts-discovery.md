@@ -390,7 +390,9 @@ The mapper uses hosts attributes as conditions to include them.
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
 You can use them as source of **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
 
-Example of advanced attribute describing a host:
+Example of advanced attribute describing a host: **cloud tags**. Let's assume that we have the following tags on one host: `os: windows` and `environment: production`. 
+
+Then the discovery result will look like:
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
