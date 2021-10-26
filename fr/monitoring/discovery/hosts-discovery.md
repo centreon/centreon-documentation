@@ -395,7 +395,9 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
-Exemple d'attribut avancé décrivant un hôte :
+Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons qu'un hôte ait les tags suivants : `os: windows` et `environment: production`.
+
+Le résultat de la découverte sera de la forme :
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
