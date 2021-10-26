@@ -383,6 +383,15 @@ old logs system.
 
 ## Centreon CLib
 
+### 21.04.4
+
+Release date: `null`
+
+#### Bug fixes
+
+- Fixed a deadlock issue that blocked engine when all debug options were enabled
+
+
 ### 21.04.3
 
 `October 20, 2021`
