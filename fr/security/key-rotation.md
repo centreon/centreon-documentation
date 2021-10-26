@@ -7,7 +7,19 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Nouvelle installation
 
-Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est nécessaire. Vous pouvez cependant [vérifier que vous avez la bonne clé](#vérifications).
+Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer hormis
+accepter la nouvelle clé lorsque nécessaire.
+
+    ```shell
+    Récupération de la clé à partir de https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+    Importation de la clef GPG 0x3FC49C1B :
+    ID utilisateur : « Centreon Enterprise Server Official Signing Key <admin@centreon.com> »
+    Empreinte      : 1035 e42c b766 7952 ee42 dee9 a97d aa5a 3fc4 9c1b
+    Provient de    : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+    Est-ce correct [o/N] : y
+    ```
+
+Vous pouvez cependant [vérifier que vous avez la bonne clé](#vérifications).
 
 ## Installation existante
 
