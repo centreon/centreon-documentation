@@ -18,7 +18,28 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
+#### Enhancements
+
+- Preparing Debian 11 support
+- Product Adoption component integration
+- Improve OIDC support (OpenId Connect)
+  - Add Okta support
+  - Add MS Azure AD / ADFS
+  - Add possibility to define with claim is used for Centreon login
+  - Add possibility to define complete url for endpoints
+  - Add possibility to use client_secret_basic as authentication
+  - Allow to do not defined redirect URL
+  - Add errors log in /var/log/centreon/login.log
+  - Add possibility to display debug log in /var/log/centreon/login.log
+  - Use proxy if defined
+
+#### Documentation
+
+#### Security
+
+#### Performances
+
+- Move to PHP 8.0
 
 ## Centreon Engine
 
