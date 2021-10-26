@@ -366,15 +366,11 @@ yum install centreon-map-web-client
 
 ### Web
 
-Go to `Centreon > Administration > Extensions` and click on the install
+Go to **Centreon > Administration > Extensions** and click on the install
 button:
 
 - License Manager (*if not yet installed*)
 - Map Web Client
-
-![image](../assets/graph-views/install-web-step-1.png)
-
-You can see a red stripe asking for a license.
 
 Upload the license **map.license** given by the support team. Refresh
 the page and the banner must be green with the valid license date.

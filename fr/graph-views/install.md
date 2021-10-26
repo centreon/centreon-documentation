@@ -364,10 +364,6 @@ Allez à la page **Centreon > Administration > Extensions** et cliquez sur le bo
 - License Manager (*si pas encore installé*)
 - Map Web Client
 
-![image](../assets/graph-views/install-web-step-1.png)
-
-Vous pouvez voir une bande rouge demandant une licence.
-
 Téléchargez la licence **map.license** fournie par l'équipe support. Rafraîchissez la page :
 la bannière doit être verte avec la date de validité de la licence.
 
