@@ -388,30 +388,29 @@ The mapper uses hosts attributes as conditions to include them.
 ## Advanced attributes
 
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
-You can use them as source of **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
+You can use them as source for **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
 
-Example of advanced attribute describing a host: **cloud tags**. Let's assume that we have the following tags on one host: `os: windows` and `environment: production`. 
-
-Then the discovery result will look like:
+Example of advanced attribute describing a host: **cloud tags**. Let's assume that we have the following tags on one host: `os: windows` and `environment: production`. The discovery job will interpret the tags in the following way:
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
 ```
 
-Examples of use with mappers:
+**Examples of use with mappers:**
 
 - Your hosts are hosted in the cloud. They have an advanced attribute named **tags**. In this attribute, the **environment** key can have the following values: **production**, **preprod** or **test**. You only want to monitor machines whose environment key matches the value **production**. Use an **Exclusion** mapper and configure it as follows:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
-- You want to sort hosts into host groups. Add a **Hostgroup** mapper whose source is the advanced attribute. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
-First select the advanced attribute (in this example: `tags`) and configure it as in the example:
+- You want to sort hosts into host groups. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
+  First add a **Hostgroup** mapper whose source is the advanced attribute (in this example: **tags**) and configure it as shown below:
+
+  ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
   The value of the property is displayed in a tooltip. Use **Shift+click** if you want to edit the properties of the advanced attribute:
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
+  ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
 ## Examples
 

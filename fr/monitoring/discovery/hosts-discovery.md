@@ -395,30 +395,27 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
-Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons qu'un hôte ait les tags suivants : `os: windows` et `environment: production`.
-
-Le résultat de la découverte sera de la forme :
+Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons qu'un hôte ait les tags suivants : `os: windows` et `environment: production`. La découverte interprétera les tags de la manière suivante :
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
 ```
 
-Exemples d'utilisation avec les modificateurs :
+**Exemples d'utilisation avec les modificateurs :**
 
 - Vos hôtes sont hébergés dans le cloud. Les hôtes ont un attribut avancé nommé **tags**. Dans cet attribut, la clé **environment** peut avoir la valeur **production**, **preprod** ou **test**. Vous ne voulez superviser que les machines pour lesquelles la clé **environment** correspond à la valeur **production**. Utilisez un modificateur de type **Exclusion** de la façon suivante :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
-- Vous souhaitez classer des hôtes dans des groupes d'hôtes. Ajoutez un modificateur de type **Hostgroup** dont la source est l'attribut avancé. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôte correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
-Tout d'abord choisissez l'attribut avancé (dans l'exemple : `tags`) puis configurez-le comme ci-dessous :
+- Vous souhaitez classer des hôtes dans des groupes d'hôtes. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôtes correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
+
+    Ajoutez un modificateur de type **Hostgroup** dont la source est l'attribut avancé (dans l'exemple: **tags**), puis configurez-le comme ci-dessous :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
     La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
-
-
 
 ## Exemples
 
