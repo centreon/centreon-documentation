@@ -17,10 +17,7 @@ products and go to the **Administration > Extensions > Manager** menu.
 3. Make sure that the **License Manager** and **Plugin Packs Manager** modules are
  up-to-date before installing the **Auto Discovery** module.
 
-4. Click on the installation icon corresponding to the **Auto Discovery** module:
-
-    ![image](../../assets/monitoring/discovery/install-before.png)
-
+4. Click on the installation icon corresponding to the **Auto Discovery** module.
     The module is now installed:
 
     ![image](../../assets/monitoring/discovery/install-after.png)

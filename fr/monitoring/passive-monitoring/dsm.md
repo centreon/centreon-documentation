@@ -29,12 +29,7 @@ yum install centreon-dsm-server centreon-dsm-client
 ```
 
 Après avoir installé le rpm, vous devez terminer l'installation du module via l'interface Web. Rendez-vous dans le menu
-**Administration > Extensions > Manager** et recherchez **dsm**:
-
-![image](../../assets/configuration/dsm/module-setup.png)
-
-Cliquez sur le bouton ``+`` d'installation.
-
+**Administration > Extensions > Manager** et recherchez **dsm**. Cliquez sur **Install selection**.
 Votre module Centreon DSM est maintenant installé.
 
 ![image](../../assets/configuration/dsm/module-setup-finished.png)
