@@ -407,7 +407,7 @@ Configuration in the source menu of the **Hostgroup** mapper:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute:
+  The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 

@@ -412,7 +412,7 @@ Le paramétrage dans le menu source du modificateur **Hostgroup** est le suivant
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
+    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
