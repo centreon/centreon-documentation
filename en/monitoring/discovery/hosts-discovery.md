@@ -404,7 +404,7 @@ Example of advanced attribute describing a host: **cloud tags**. Let's assume th
 
 - You want to sort hosts into host groups. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
 
-  First add a **Hostgroup** mapper whose source is the advanced attribute (in this example: **tags**) and configure it as shown below:
+  First add a **Hostgroup** mapper and select **Create a host group**. Then select the advanced attribute (in this example: **tags**) as the source for the mapper, and configure it as shown below:
 
   ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 

@@ -409,7 +409,7 @@ Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement clo
 
 - Vous souhaitez classer des hôtes dans des groupes d'hôtes. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôtes correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
 
-    Ajoutez un modificateur de type **Hostgroup** dont la source est l'attribut avancé (dans l'exemple: **tags**), puis configurez-le comme ci-dessous :
+    Ajoutez un modificateur de type **Hostgroup** et sélectionnez **Créer un groupe d'hôtes**. Comme source du modificateur, sélectionnez l'attribut avancé (dans l'exemple: **tags**), puis configurez-le comme ci-dessous :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
