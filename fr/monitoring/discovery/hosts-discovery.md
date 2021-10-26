@@ -393,7 +393,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 ## Attributs avancés
 
-Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Utilisés avec les modificateurs (Macro, Host group, Host category, Inclusion, Exclusion), ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
+Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
 Exemple d'attribut avancé décrivant un hôte :
 
@@ -412,7 +412,9 @@ Le paramétrage dans le menu source du modificateur **Hostgroup** est le suivant
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé.
+La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
 ## Exemples
 

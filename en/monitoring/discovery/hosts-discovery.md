@@ -388,7 +388,7 @@ The mapper uses hosts attributes as conditions to include them.
 ## Advanced attributes
 
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
-If you use them with mappers (Macro, Host group, Host category, Inclusion, Exclusion), you can filter the results of the discovery according to a specific pair of values.
+You can use them as source of **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
 
 Example of advanced attribute describing a host:
 
@@ -407,8 +407,9 @@ Configuration in the source menu of the **Hostgroup** mapper:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute.
+The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute:
 
+    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
 ## Examples
 
