@@ -145,7 +145,7 @@ pcs resource create "php8" \
 ```
 <!--HA 4 Nodes-->
 ```bash
-pcs resource delete php7
+pcs resource delete php7 --force
 pcs resource create "php8" \
     systemd:php-fpm \
     meta target-role="started" \
@@ -174,6 +174,35 @@ The RPM upgrade puts cron job back in place. Remove them to avoid concurrent exe
 rm /etc/cron.d/centreon
 rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
+```
+
+### Reset the permissions for centreon_central_sync resource
+
+The RPM upgrade puts the permission back in place. Change it using these commands:
+
+```bash
+chmod 775 /var/log/centreon-engine/
+mkdir /var/log/centreon-engine/archives
+chown centreon-engine: /var/log/centreon-engine/archives
+chmod 775 /var/log/centreon-engine/archives/
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
+```
+
+### Configure MariaDB slave_parallel_mode
+
+Since 10.5 version of MariaDB, the _slave_parallel_mode_ is not longer set up it *conservative*.
+It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
+
+> On the 2 Central servers in HA 2 nodes
+> On the 2 Database servers in HA 4 nodes.
+
+```shell
+[server]
+...
+slave_parallel_mode=conservative
+...
 ```
 
 ### Restart Centreon process
@@ -209,7 +238,6 @@ Now that the update is finished, the resources can be managed again:
 ```bash
 pcs resource manage centreon
 pcs resource manage ms_mysql
-pcs resource manage php8-clone
 ```
 
 It can happen that the replication thread is not running right after installation.  Restarting the `ms_mysql` resource may fix it.

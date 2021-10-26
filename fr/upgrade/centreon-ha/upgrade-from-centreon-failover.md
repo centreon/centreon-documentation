@@ -60,7 +60,7 @@ la vérification sur les serveurs de bases de données s'ils sont dédiés.
 
 ## Mise à jour de MariaDB / MySQL
 
-Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.04. 
+Centreon est compatible avec la version 10.5 de MariaDB depuis la version 21.10. 
 
 Réalisez la montée de version des bases de données en suivant [la documentation officielle](../../upgrade/upgrade-from-19-10.html#montée-de-version-du-serveur-mariadb). 
 
@@ -75,12 +75,12 @@ systemctl stop mysql mariadb
 Effectuer les opérations suivantes sur les deux noeuds hébergeant le serveur Apache et l'applicatif Centreon:
 
 Si vous utilisez Centreon 19.10:
-* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-10.html#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
+* [Déployer les dépôts 21.10](../../upgrade/upgrade-from-19-10.html#mise-à-jour-des-dépôts). Il est également nécessaire de mettre à jour les dépôts des modules de l'édition Business.
 * [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-10.html#montée-de-version-de-la-solution-centreon)
 * [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-10.html#actions-complémentaires)
 
 Si vous utilisez Centreon 19.04:
-* [Déployer les dépôts 20.04](../../upgrade/upgrade-from-19-04.html#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
+* [Déployer les dépôts 21.10](../../upgrade/upgrade-from-19-04.html#mise-à-jour-des-dépôts). Also those of the Business Edition modules if installed.
 * [Mettre à jour les paquets Centreon](../../upgrade/upgrade-from-19-04.html#montée-de-version-de-la-solution-centreon)
 * [Réaliser les étapes supplémentaires](../../upgrade/upgrade-from-19-04.html#actions-complémentaires)
 
@@ -106,7 +106,7 @@ de supprimer la clef publique de root de /root/.ssh/authorized_keys.
 
 Vous pouvez désormais finaliser la mise à jour de Centreon via l'assistant web: 
 * Si vous étiez en version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.html#finalisation-de-la-mise-à-jour).
-* Si vous étiez en version 20.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.html#finalisation-de-la-mise-à-jour).
+* Si vous étiez en version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.html#finalisation-de-la-mise-à-jour).
 
 Ensuite, vérifiez que la commande de rechargement de Centreon-Broker pour le Serveur Central intègre bien la modification
 décrite [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.html#modification-de-la-commande-de-rechargement-de-cbd). Celle-ci est configurable via le menu

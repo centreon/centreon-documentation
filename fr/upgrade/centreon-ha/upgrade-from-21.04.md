@@ -51,7 +51,7 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
-### Upgrade PHP
+### Mise à jour PHP
 
 Centreon 21.10 utilise PHP en version 8.0.
 
@@ -127,7 +127,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 <!--DOCUSAURUS_CODE_TABS-->
 <!--HA 2 Nodes-->
 ```bash
-pcs resource delete php7
+pcs resource delete php7 --force
 pcs resource create "php8" \
     systemd:php-fpm \
     meta target-role="started" \
@@ -169,6 +169,35 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
+### Changez les permissions pour la resource centreon_central_sync
+
+La mise à jour des RPMs à modifié les permissions sur certains fichiers synchronisés par _centreon\_central\_sync_. Il est nécesssaire de les modifier :
+
+```bash
+chmod 775 /var/log/centreon-engine/
+mkdir /var/log/centreon-engine/archives
+chown centreon-engine: /var/log/centreon-engine/archives
+chmod 775 /var/log/centreon-engine/archives/
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
+```
+
+#### Configurer le slave_parallel_mode
+
+Depuis la version 10.5, le _slave_parallel_mode_ n'est plus paramétré à *conservative*.
+Il est nécessaire de modifier la configuration mysql en éditant `/etc/my.cnf.d/server.cnf`:
+
+> Sur les 2 serveurs Centraux dans le cas d'une HA 2 nœuds
+> et sur les 2 serveurs de base de données dans le cas d'une HA 4 nœuds.
+
+```shell
+[server]
+...
+slave_parallel_mode=conservative
+...
+```
+
 ### Redémarrez les processus Centreon
 
 Redémarrez les processus sur le nœud Central actif:
@@ -203,7 +232,6 @@ Tous les composants devraient à présent être à jour et fonctionnels, il faut
 ```bash
 pcs resource manage centreon
 pcs resource manage ms_mysql
-pcs resource manage php8-clone
 ```
 
 Il est possible qu'après le rétablissement de la gestion des ressources par le cluster,
