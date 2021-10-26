@@ -405,13 +405,13 @@ Examples of use with mappers:
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
 - You want to sort hosts into host groups. Add a **Hostgroup** mapper whose source is the advanced attribute. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
-Configuration in the source menu of the **Hostgroup** mapper:
-
-    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
-
-  The value of the property is displayed in a tooltip. Use **Shift+click** to edit the properties of the advanced attribute:
+First select the advanced attribute (in this example: `tags`) and configure it as in the example:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
+
+  The value of the property is displayed in a tooltip. Use **Shift+click** if you want to edit the properties of the advanced attribute:
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
 ## Examples
 
