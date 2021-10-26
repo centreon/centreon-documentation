@@ -10,14 +10,14 @@ For security reasons, the keys used to sign Centreon RPMs have to be rotated reg
 If you did a fresh installation after the new RPM key was published, 
 there are no additional actions to do besides accepting the new rpm key.
 
-    ```shell
-    Retrieving key from https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-    Importing GPG key 0x3FC49C1B:
-    Userid     : "Centreon Enterprise Server Official Signing Key <admin@centreon.com>"
-    Fingerprint: 1035 e42c b766 7952 ee42 dee9 a97d aa5a 3fc4 9c1b
-    From       : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-    Is this ok [y/N]: 
-    ```
+```shell
+Retrieving key from https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+Importing GPG key 0x3FC49C1B:
+Userid     : "Centreon Enterprise Server Official Signing Key <admin@centreon.com>"
+Fingerprint: 1035 e42c b766 7952 ee42 dee9 a97d aa5a 3fc4 9c1b
+From       : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+Is this ok [y/N]: 
+```
 
 However, you can [check that you have the correct key](#checks).
 
