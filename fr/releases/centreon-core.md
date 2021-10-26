@@ -821,6 +821,15 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon CLib
 
+### 20.10.5
+
+Release date: `null`
+
+#### Bug fixes
+
+- Fixed a deadlock issue that blocked engine when all debug options were enabled
+
+
 ### 20.10.4
 
 `20 octobre 2021`
