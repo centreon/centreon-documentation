@@ -410,13 +410,15 @@ Exemples d'utilisation avec les modificateurs :
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
 - Vous souhaitez classer des hôtes dans des groupes d'hôtes. Ajoutez un modificateur de type **Hostgroup** dont la source est l'attribut avancé. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôte correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
-Le paramétrage dans le menu source du modificateur **Hostgroup** est le suivant : 
+Tout d'abord choisissez l'attribut avancé (dans l'exemple : `tags`) puis configurez-le comme ci-dessous :
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
+
+    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour si vous voulez éditer les propriétés de l'attribut avancé :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
-    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
 ## Exemples
 
