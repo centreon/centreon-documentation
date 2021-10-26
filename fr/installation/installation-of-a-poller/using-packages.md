@@ -50,9 +50,14 @@ systemctl disable firewalld
 
 ### Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple:
+```shell
+hostnamectl set-hostname poller1
 ```
 
 ### Installer les dépôts
@@ -126,11 +131,11 @@ suffisants :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

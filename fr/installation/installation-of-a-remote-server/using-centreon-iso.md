@@ -113,9 +113,14 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ## Nom du serveur
 
-Définissez le nom du serveur à l'aide de la commande suivante:
+Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
+```shell
+hostnamectl set-hostname remote1
 ```
 
 ## Mise à jour du système d'exploitation
@@ -140,7 +145,7 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ### Sécuriser la base de données
@@ -148,13 +153,14 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 
-Répondez oui à toute question sauf "Disallow root login remotely?".
+Répondez oui à toute question sauf "Disallow root login remotely?". 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
 
 ```shell
 mysql_secure_installation
 ```
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 

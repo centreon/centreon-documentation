@@ -28,7 +28,7 @@ Enable the PowerTools repository using these commands:
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:
@@ -155,7 +155,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:
@@ -282,7 +282,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Install the Centreon repository for additional perl dependencies:
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Enable PHP 7.3 using the following command:
@@ -466,22 +466,21 @@ yum install -y \
     perl-URI \
     perl-UUID \
     perl-rrdtool \
-    rh-php73 \
-    rh-php73-php-cli \
-    rh-php73-php-common \
-    rh-php73-php-fpm \
-    rh-php73-php-gd \
-    rh-php73-php-intl \
-    rh-php73-php-json \
-    rh-php73-php-ldap \
-    rh-php73-php-mbstring \
-    rh-php73-php-mysqlnd \
-    rh-php73-php-pdo \
-    rh-php73-php-pear \
-    rh-php73-php-process \
-    rh-php73-php-snmp \
-    rh-php73-php-xml \
-    rh-php73-php-zip \
+    php-cli \
+    php-common \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
     plink \
     quota \
     rrdtool \
@@ -493,20 +492,20 @@ Additional commands are necessary to configure the environment correctly:
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
+/bin/pear channel-update pear.php.net
 ```
 
 If you can’t access the Internet directly but have to pass via a proxy,
 perform the following command:
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Then execute:
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear upgrade-all
+/bin/pear upgrade-all
 ```
 <!--Debian Buster-->
 Install the following prerequisites:
@@ -518,7 +517,7 @@ apt-get install \
     fping \
     gawk \
     gettext \
-    libapache2-mod-php7.3 \
+    libapache2-mod-php8.0 \
     libcgsi-gsoap-dev \
     libconfig-inifiles-perl \
     libcrypt-des-perl \
@@ -696,19 +695,25 @@ Please install Centreon Gorgone using [this procedure](https://github.com/centre
 Since MariaDB 10.5, it is necessary to secure the database's installation
 before installing Centreon.
 
-Answer yes to all questions except "Disallow root login remotely?".
+Answer yes to all questions except "Disallow root login remotely?". 
+It is mandatory to set a password for the **root** user of the database.
 
 ```shell
 mysql_secure_installation
 ```
 
-> For more information, please see [official documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
+> For more information, please see [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Server name
 
-Define the server name using following command:
+If you want, you can change the server name using following command:
 ```shell
 hostnamectl set-hostname new-server-name
+```
+
+Replace **new-server-name** by the name you want. Example:
+```shell
+hostnamectl set-hostname central
 ```
 
 ## Centreon

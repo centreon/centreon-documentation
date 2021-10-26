@@ -17,6 +17,10 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+## Mettre à jour la clé de signature RPM
+
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
 ## Montée de version du serveur Centreon Central
 
 > Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
@@ -33,7 +37,7 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
@@ -276,7 +280,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -371,6 +375,8 @@ systemctl enable mariadb
 
 Cette procédure est identique à la montée de version d'un serveur Centreon Central.
 
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
+
 ## Montée de version des Pollers
 
 ### Mise à jour des dépôts
@@ -378,7 +384,7 @@ Cette procédure est identique à la montée de version d'un serveur Centreon Ce
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 > Si vous êtes dans un environnement CentOS, il faut installer les dépôts de

@@ -149,7 +149,9 @@ Appliquez un plugin pack à un hôte ou à un service pour mettre celui-ci en su
 
 Vous devez mettre à jour et le plugin et le pack.
 
-### Mettre à jour le pack
+### Mettre à jour un ou plusieurs packs
+
+**Pour mettre à jour un pack :**
 
 Si vous constatez une icône représentant une flèche sur un Plugin Pack, cela veut dire qu’une mise à jour du pack est
 disponible.
@@ -169,21 +171,28 @@ Confirmez la mise à jour.
 
 ![image](../assets/configuration/pluginpacks/update_confirm.png)
 
-Votre Plugin Pack est maintenant à jour.
+Votre pack est maintenant à jour. Vous pouvez maintenant [mettre à jour les plugins](#mettre-à-jour-les-plugins).
 
 ![image](../assets/configuration/pluginpacks/update_finish.png)
 
-### Mettre à jour le plugin
+**Pour mettre à jour tous les packs :**
 
-Exécutez la commande suivante sur **tous les collecteurs**:
+Vous pouvez également mettre à jour tous les packs en une seule fois : lorsque des mises à jour de packs sont disponibles, un bouton **Tout mettre à jour** apparaît.
+Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-les-plugins). 
 
-```shell
-yum update centreon-plugins\*
-```
+![image](../assets/configuration/pluginpacks/update_all.png)
 
-Puis redémarrez **tous les collecteurs**.
+### Mettre à jour les plugins
 
-Vérifier ensuite qu’il n’y a pas de nouvelles erreurs suite à l’exécution des nouvelles sondes.
+1. Exécutez la commande suivante sur **tous les collecteurs**:
+
+    ```shell
+    yum update centreon-plugins\*
+    ```
+
+2. [Déployez la configuration](monitoring-servers/deploying-a-configuration.html) sur tous les collecteurs. L'option **Redémarrer l'ordonnanceur** doit avoir la valeur **Redémarrer**.
+
+3. Vérifiez qu’il n’y a pas de nouvelles erreurs suite à l’exécution des nouvelles sondes.
 
 > C’est à vous de choisir si vous désirez installer les plugins sur tous les pollers, ou seulement sur le poller qui
 > exécutera les contrôles. Gardez en tête que si vous n’installez par le plugin sur un poller, vous pourriez avoir des

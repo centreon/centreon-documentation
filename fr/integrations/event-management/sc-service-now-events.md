@@ -3,7 +3,7 @@ id: sc-service-now-events
 title: ServiceNow Event Manager 
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the content in french and provide a sample execution command. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
+> Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
 
 ## Before starting
 
@@ -182,15 +182,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_service',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'CRITICAL: USB cable behaving like a water hose'
-  }']
+  "records": [{
+    "source": "centreon",
+    "event_class": "centreon",
+    "severity": 5,
+    "node": "my_host",
+    "resource": "my_service",
+    "time_of_event": "2022-09-06 11:52:12",
+    "description": "CRITICAL: USB cable behaving like a water hose"
+  }]
 }
 ```
 
@@ -198,21 +198,31 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'records': ['{
-    'source': 'centreon',
-    'event_class': 'centreon',
-    'severity': 5,
-    'node': 'my_host',
-    'resource': 'my_host',
-    'time_of_event': '2022-09-06 11:52:12',
-    'description': 'DOWN: someone plugged an UPS on another UPS to create infinite energy'
-  }']
+  "records": [{
+    "source": "centreon",
+    "event_class": "centreon",
+    "severity": 5,
+    "node": "my_host",
+    "resource": "my_host",
+    "time_of_event": "2022-09-06 11:52:12",
+    "description": "DOWN: someone plugged an UPS on another UPS to create infinite energy"
+  }]
 }
 ```
 
 ### Custom event format
 
-You can't change the format of the event for this stream connector (the feature was created after this stream connector).
+This stream connector allows you to change the format of the event to suit your needs. Only the **records** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+
+In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+
+| Type   | Name        | Value                                          |
+| ------ | ----------- | ---------------------------------------------- |
+| string | format_file | /etc/centreon-broker/servicenow-events-format.json |
+
+> The event format configuration file must be readable by the centreon-broker user
+
+To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
 ## Curl commands
 
@@ -237,7 +247,7 @@ The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**
 ### Send events
 
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d "{'records':['{'source': 'centreon','event_class': 'centreon','severity': 5,'node': 'my_host','resource': 'my_service','time_of_event': '2022-09-06 11:52:12','description': 'CRITICAL: USB cable behaving like a water hose'}']}"
+curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d '{"records":[{"source": "centreon","event_class": "centreon","severity": 5,"node": "my_host","resource": "my_service","time_of_event": "2022-09-06 11:52:12","description": "CRITICAL: USB cable behaving like a water hose"}]}'
 ```
 
 The *`<access_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.

@@ -1,6 +1,6 @@
 ---
 id: notif-concept
-title: Concept
+title: How notifications work
 ---
 
 Before a contact can be notified in Centreon, it is necessary to go
