@@ -568,6 +568,15 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
+### 20.10.9
+
+Release date: `null`
+
+#### Bug fixes
+
+- Fixed a deadlock issue that blocked engine when all debug options were enabled
+
+
 ### 20.10.8
 
 `October 20, 2021`
