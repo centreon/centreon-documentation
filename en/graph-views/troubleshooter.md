@@ -183,7 +183,7 @@ For the 'centreon.url' variable, check that there is a full path to your
 Centreon Web interface:
 
 ```shell
-centreon.url=http://<MAP_IP>
+centreon.url=http://<CENTRAL_IP_ADDRESS>
 ```
 
 > Don't forget to replace "http" with "https" if your Centreon Web
