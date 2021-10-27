@@ -793,6 +793,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-dell-md3000-smcli",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-me4-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-ml6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-powerstore-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-tl2000-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-emc-celerra-ssh",
                     "integrations/plugin-packs/procedures/hardware-storage-emc-clariion-navisphere",
