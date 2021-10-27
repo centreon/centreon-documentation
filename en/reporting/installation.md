@@ -322,7 +322,7 @@ need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
 
 Enable the cbis service:

@@ -314,7 +314,7 @@ yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 Dans le cas d'une installation basée sur une image CentOS vierge, installez la clé GPG :
 ```shell
 cd /etc/pki/rpm-gpg/
-wget http://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
 
 Activer le service cbis :
