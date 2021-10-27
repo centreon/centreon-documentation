@@ -385,7 +385,7 @@ old logs system.
 
 ### 21.04.4
 
-Release date: `null`
+`October 27, 2021`
 
 #### Bug fixes
 
