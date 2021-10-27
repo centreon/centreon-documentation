@@ -114,7 +114,7 @@ La fenêtre suivante s'affiche :
     réactivé.
 -   Le champ **Comment** est généralement utilisé pour fournir la raison
     de l'acquittement et est obligatoire.
--   Si la casee **Acknowledge services attached to hosts** est cochée,
+-   Si la case **Acknowledge services attached to hosts** est cochée,
     alors tous les services liés à l'hôte seront acquittés (option
     visible uniquement si vous acquittez un hôte).
 -   Si la case **Force active checks** est cochée, alors une commande
