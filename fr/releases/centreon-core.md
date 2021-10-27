@@ -287,6 +287,15 @@ dans une prochaine version.
 
 ## Centreon Broker
 
+### 21.04.5
+
+`27 octobre 2021`
+
+#### Bug fixes
+
+- Fixed a deadlock issue that blocked engine when all debug options were enabled
+
+
 ### 21.04.4
 
 `20 octobre 2021`
