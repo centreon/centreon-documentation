@@ -570,7 +570,7 @@ state was HARD even if no notification is configured nor sent.
 
 ### 20.10.9
 
-Release date: `null`
+`27 octobre 2021`
 
 #### Bug fixes
 
