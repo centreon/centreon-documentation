@@ -347,7 +347,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 2. Désinstallez la version actuelle :
 
     ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
     ```
 
 3. Installez la version 10.5 :
@@ -399,6 +399,8 @@ Cette procédure est identique à la montée de version d'un serveur Centreon Ce
 
 ## Montée de version des Pollers
 
+Cette procédure concerne les collecteurs rattachés à un seveur central.
+
 ### Mise à jour des dépôts
 
 Exécutez la commande suivante :
@@ -431,6 +433,12 @@ yum update centreon\*
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
 ### Actions post montée de version
+
+Démarrez le service **gorgoned** :
+
+```shell
+systemctl start gorgoned
+```
 
 Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.

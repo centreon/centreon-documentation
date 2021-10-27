@@ -11,6 +11,12 @@ title: Monter de version l'extension
 mineure (c'est à dire version A.B.x avec A ou B qui évolue), contactez
 le support pour récupérer l'adresse du nouveau dépôt**
 
+## Prérequis
+
+### Mettre à jour la clé de signature RPM
+
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
 ## Mise à jour du paquet
 
 Afin de mettre à jour le module **Centreon BAM**, lancer la commande

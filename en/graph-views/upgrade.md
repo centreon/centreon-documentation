@@ -11,6 +11,8 @@ is done by upgrading the four main components:
 - Desktop client (automatically updated)
 - MariaDB database.
 
+## Prerequisites
+
 Before upgrading Centreon MAP server, we highly recommend performing a
 MariaDB dump (backup) of your `centreon_studio` database. This will
 allow you easily to roll back to the previous state if necessary.
@@ -21,6 +23,10 @@ Be sure to read the release notes for an explanation of features, fixes
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
 the new repository**.
+
+### Update the RPM signing key
+
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
 
 ## Step 1: Centreon MAP server
 
@@ -86,17 +92,10 @@ rm -rf /var/log/centreon-studio
 yum update centreon-map-web-client
 ```
 
-Complete the upgrade by going to `Administration > Extensions > Manager`
-(module & widget parts):
-
-![image](../assets/graph-views/update-web-client.png)
-
-An error message concerning the license is displayed while you don't
-have a license on the Central server, don't worry Centreon Map still
-works, you can ask for a new license to the support Team to remove this
-error message.
-
-![image](../assets/graph-views/license-error.png)
+Complete the upgrade: 
+1. Go to **Administration > Extensions > Manager**.
+2. Search for **Map web client**.
+3. Click on the update button (module & widget parts).
 
 ## Step 3: Centreon MAP desktop client
 
@@ -108,4 +107,14 @@ Map` and **Desktop client** button.
 
 ## Step 4: MariaDB database
 
-See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).
+1. Stop the **centreon-map** service:
+    ```shell
+    systemctl stop centreon-map
+    ```
+
+2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).
+
+3. Start the **centreon-map** service:
+    ```shell
+    systemctl start centreon-map
+    ```

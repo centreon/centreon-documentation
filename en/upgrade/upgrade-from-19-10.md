@@ -340,7 +340,7 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
 2. Uninstall the current version:
 
     ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
     ```
 
 3. Install version 10.5:
@@ -392,6 +392,8 @@ This procedure is the same than to upgrade a Centreon Central server.
 
 ## Upgrade the Pollers
 
+This procedure applies to a poller that is attached to a Central server.
+
 ### Update the Centreon repository
 
 Run the following command:
@@ -424,6 +426,12 @@ yum update centreon\*
 > Accept new GPG keys from the repositories as needed.
 
 ### Post-upgrade actions
+
+Start the **gorgoned** service:
+
+```shell
+systemctl start gorgoned
+```
 
 Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.

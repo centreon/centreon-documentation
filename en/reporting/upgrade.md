@@ -17,6 +17,12 @@ The upgrade of Centreon MBI consists of 4 steps :
 - Updating the reporting server
 - Updating the MariaDB database
 
+## Prerequisites
+
+### Update the RPM signing key
+
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
 ## Step 1: Update the repository
 
 When you upgrade from a previous major version to 21.04.x, you first need to update the repository on your Central & Reporting servers.
@@ -60,4 +66,14 @@ AirUpdate button to update the extension and the widgets
 
 ## Step 4: Upgrade the MariaDB database
 
-See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).
+1. Stop the **cbis** service:
+    ```shell
+    systemctl stop cbis
+    ```
+
+2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.html).
+
+3. Start the **cbis** service:
+    ```shell
+    systemctl start cbis
+    ```
