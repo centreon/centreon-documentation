@@ -694,6 +694,7 @@
                     "integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-sxml",
+                    "integrations/plugin-packs/procedures/network-cisco-esa-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
                     "integrations/plugin-packs/procedures/network-cisco-firepower-fmc-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-firepower-snmp",
