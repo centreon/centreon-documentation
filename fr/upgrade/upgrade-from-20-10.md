@@ -144,6 +144,15 @@ systemctl disable rh-php72-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
+
+Ou, si votre version de PHP est la 7.4 :
+
+```shell
+systemctl stop rh-php74-php-fpm
+systemctl disable rh-php74-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Finalisation de la mise à jour
