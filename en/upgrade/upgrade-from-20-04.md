@@ -106,6 +106,20 @@ systemctl enable php-fpm
 systemctl start php-fpm
 ```
 
+If you customized your Apache configuration, customizations are not reapplied automatically. You need to apply them again manually.
+
+1. Move the current file:
+    ```
+    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.myconf}
+    ```
+
+2. Move the new file:
+    ```
+    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.sav /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+    ```
+
+3. Apply your customizations to file **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**.
+
 ### Finalizing the upgrade
 
 Before starting the web upgrade process, reload the Apache server with the

@@ -153,6 +153,20 @@ systemctl start php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+If you customized your Apache configuration, customizations are not reapplied automatically. You need to apply them again manually.
+
+1. Move the current file:
+    ```
+    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.myconf}
+    ```
+
+2. Move the new file:
+    ```
+    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.sav /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
+    ```
+
+3. Apply your customizations to file **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**.
+
 ### Finalizing the upgrade
 
 <!--DOCUSAURUS_CODE_TABS-->
