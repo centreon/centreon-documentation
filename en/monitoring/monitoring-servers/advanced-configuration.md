@@ -326,66 +326,6 @@ parameters:
 TCP *input* can either listen on a given port or can attempt to initiate a
 connection if a host is given. This allows flexible network topology.
 
-### Broker Logger configuration page (deprecated)
-
-This section lists all the loggers activated for this Centreon Broker instance.
-A Centreon Broker can have as many loggers as needed.
-
-For each logger, the parameters are the following:
-
-  - Type  
-    Four types of loggers are managed by Centreon Broker:
-    
-    1.  *File*: This logger will write a log into the file specified in its
-        *name* parameter.
-    2.  *Standard*: This logger will write into the standard output if named
-        *stdout* or *cout* or into the standard error output if named *stderr*
-        or *cerr*.
-    3.  *Syslog*: This logger will write into the syslog as provided by the
-        system, prefixed by *centreonbroker*.
-    4.  *Monitoring*: This logger will write in the Centreon Engine log. It
-        should only be activated if the Centreon Broker instance is loaded by
-        the Centreon Engine at start-up.
-
-  - Name  
-    The name of this logger. This name must be the path of a file if the logger
-    has the type *file* and either *stdout*, *cout*, *stderr* or *cerr*, if the
-    logger has the type *standard*. This option is mandatory.
-
-  - Configuration messages  
-    Should configuration messages be logged? Configuration messages are one-time
-    messages that pop up when Centreon Broker is started. Default is *Yes*.
-
-  - Debug messages  
-    Should debug messages be logged? Debug messages are messages used to debug
-    Broker behavior. They are extremely verbose and should not be used in a
-    production environment. Default is *No*.
-
-  - Error messages  
-    Should error messages be logged? Error messages are messages logged when a
-    runtime error occurs. They are generally important. Default is *Yes*.
-
-  - Informational messages  
-    Should informational messages be logged? Informational messages are used to
-    provide information on a specific subject. They are somewhat verbose.
-    Default is *No*.
-
-  - Logging level  
-    The level of the verbosity accepted by this logger. The higher the
-    verbosity, the more messages will be logged. Default is *Base*.
-
-Additionally, the *File* type has the following parameter:
-
-  - Max file size  
-    The maximum size of a log file in bytes. When the file has reached its
-    limit, the old data will be overwritten in a round-robin fashion.
-
-A broker will usually have at least one *file* logger which will log
-configuration and error messages. Others can be configured freely. A maximal
-logger (every category set to *Yes* and logging level set to *Very detailed*) is
-valuable to debug some issues, but be warned that it will quickly generate a
-very large amount of data.
-
 ### Broker output configuration page
 
 This section lists all the outputs activated for this Centreon Broker instance.
