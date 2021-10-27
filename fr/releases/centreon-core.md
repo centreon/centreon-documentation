@@ -289,7 +289,7 @@ dans une prochaine version.
 
 ### 21.04.5
 
-Release date: `null`
+`27 octobre 2021`
 
 #### Bug fixes
 
