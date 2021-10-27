@@ -17,7 +17,7 @@ permettent d'éviter de recevoir des alertes de type faux-positif.
 > temps passé dans cet état est pris en compte lors de la génération des
 > données de disponibilité.
 
-Il existe deux types de temps d'arrêts :
+Il existe deux types de temps d'arrêt :
 
 -   Le temps d'arrêt **fixe** : démarre et s'arrête aux heures prévues
     de début et de fin.
@@ -27,34 +27,41 @@ Il existe deux types de temps d'arrêts :
 
 ### En pratique
 
-Il y a trois possibilités différentes de définir un temps d'arrêt :
+Il existe plusieurs manières de définir un temps d'arrêt :
 
+-   Depuis la page **Statut des ressources**
 -   Depuis la page de détails d'un hôte ou du service
 -   Depuis l'interface de supervision temps réel
 -   Depuis le menu **Downtime**
 
 <!--DOCUSAURUS_CODE_TABS-->
+
+<!--Page Statut des ressources-->
+
+1. Allez à la page **Supervision > Statut des ressources**.
+2. Utilisez une des méthodes suivantes :
+    - Sélectionnez le ou les objets que vous souhaitez mettre en maintenance , puis cliquez sur le bouton **Planifier une maintenance** au-dessus de la liste des ressources.
+    - Survolez la ressource désirée, puis cliquez sur l'icône **Planifier une maintenance** qui apparaît à gauche :
+
+    ![image](../assets/alerts/resources-status/dt-hover.gif)
+
+    La fenêtre suivante apparaît :
+
+    ![image](../assets/alerts/resources-status/dt-popup.png)
+
+    - Les champs **Du** et **Au** définissent les dates de début et de fin du temps d'arrêt. Un temps d'arrêt ne peut pas débuter ou s'arrêter après le 31 décembre 2037 à 23:59.
+
+    - Si la case **Fixe** est cochée alors le temps d'arrêt est fixe. Sinon, il est flexible.
+
+    - Si le temps d'arrêt est flexible, le champ **Durée** définit la durée du temps d'arrêt.
+
+    - Le champ **Commentaire** sert à indiquer pourquoi le temps d'arrêt est programmé
+
 <!--Page de détails d'un objet-->
 
 1.  Accédez à la page de détails d'un objet
 2.  Dans la catégorie **Commands**, cliquez sur **Schedule downtime for
     this host/service**
-
-<!--Interface temps réel-->
-
-1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
-    **Services**)
-2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
-    temps d'arrêt
-3.  Dans le menu **More actions…**, cliquez sur **Hosts : Set Downtime**
-    ou **Services : Set Downtime**
-
-<!--Depuis le menu Downtime-->
-
-1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
-2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 La fenêtre suivante s'affiche :
 
@@ -71,6 +78,56 @@ La fenêtre suivante s'affiche :
     début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
+
+<!--Interface temps réel-->
+
+1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (ou
+    **Services**)
+2.  Sélectionnez le(s) objet(s) sur lesquels vous souhaitez planifier un
+    temps d'arrêt
+3.  Dans le menu **More actions…**, cliquez sur **Hosts : Set Downtime**
+    ou **Services : Set Downtime**
+
+La fenêtre suivante s'affiche :
+
+![image](../assets/alerts/downtime.png)
+
+-   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
+-   Le champ **Service** définit le service concerné par le temps
+    d'arrêt
+-   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
+    Sinon, il est flexible
+-   Si le temps d'arrêt est flexible, le champ **Duration** définit la
+    durée du temps d'arrêt
+-   Les champs **Start Time** et **End Time** définissent les dates de
+    début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
+-   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
+    programmé
+
+<!--Menu Downtime-->
+
+1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
+2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
+
+La fenêtre suivante s'affiche :
+
+![image](../assets/alerts/downtime.png)
+
+-   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
+-   Le champ **Service** définit le service concerné par le temps
+    d'arrêt
+-   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
+    Sinon, il est flexible
+-   Si le temps d'arrêt est flexible, le champ **Duration** définit la
+    durée du temps d'arrêt
+-   Les champs **Start Time** et **End Time** définissent les dates de
+    début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
+-   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
+    programmé
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
 
 ## Les temps d'arrêts récurrents
 
