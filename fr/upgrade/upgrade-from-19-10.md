@@ -434,12 +434,6 @@ yum update centreon\*
 
 ### Actions post montée de version
 
-Démarrez le service **gorgoned** :
-
-```shell
-systemctl start gorgoned
-```
-
 Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 

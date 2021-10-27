@@ -427,12 +427,6 @@ yum update centreon\*
 
 ### Post-upgrade actions
 
-Start the **gorgoned** service:
-
-```shell
-systemctl start gorgoned
-```
-
 Due to new configuration file format for Engine's Broker module, the
 configuration needs to be re-deployed.
 
