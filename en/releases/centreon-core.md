@@ -21,6 +21,22 @@ If you have feature requests or want to report a bug, please go to our
 
 #### Enhancements
 
+- [Resources Status] Revamp Search experience
+- [Resources Status] Revamp Timeline
+- [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
+- [Resources Status] Allow detail tiles to be re-ordered for each user
+- [Resources Status] Add multi-select to Rersources Status listing
+- [Resources Status] Add "Last OK" tile within Details panel
+- [Resources Status] Persist user selected number of rows displayed
+- [Resources Status] Make "duration" as the default second sorting criteria
+- [Resources Status] Add link to performance page in detail panel
+- [Resources Status] Add Graphs panel for Hosts
+- [Resources Status] Warn the user for unsaved changes on BA/BV
+- [Resources Status] Add tooltip to explain grayed options
+- [Resources Status] Improve Custom Columns Name Display
+- [Resources Status] Move Shortcuts from dedicated panel to option within Header
+- [Resources Status] Make configure resource icon always visible
+- Add Feature Flipping for Resources Status vs Legacy Pages
 - Preparing Debian 11 support
 - Product Adoption component integration
 - Improve OIDC support (OpenId Connect)
