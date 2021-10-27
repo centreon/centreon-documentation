@@ -386,7 +386,7 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ### 21.04.4
 
-Release date: `null`
+`27 octobre 2021`
 
 #### Bug fixes
 
