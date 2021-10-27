@@ -395,7 +395,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
 
 Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
 
-Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons qu'un hôte ait les tags suivants : `os: windows` et `environment: production`. La découverte interprétera les tags de la manière suivante :
+Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons que vos hôtes soient hébergés dans le cloud. Les hôtes ont un attribut avancé nommé **tags**. Pour un hôte ayant les tags **os: windows** et **environment: production**, Host Discovery recevra les tags de la manière suivante :
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
@@ -403,7 +403,7 @@ Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement clo
 
 **Exemples d'utilisation avec les modificateurs :**
 
-- Vos hôtes sont hébergés dans le cloud. Les hôtes ont un attribut avancé nommé **tags**. Dans cet attribut, la clé **environment** peut avoir la valeur **production**, **preprod** ou **test**. Vous ne voulez superviser que les machines pour lesquelles la clé **environment** correspond à la valeur **production**. Utilisez un modificateur de type **Exclusion** de la façon suivante :
+- Dans l'attribut **tags**, la clé **environment** peut avoir la valeur **production**, **preprod** ou **test**. Vous ne voulez superviser que les instances de production, c'est à dire celles pour lesquelles la valeur ("value") **production** est associée à la clé ("key") **environment**. Utilisez un modificateur de type **Exclusion** de la façon suivante :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
@@ -413,7 +413,7 @@ Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement clo
 
     ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
-    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** pour éditer les propriétés de l'attribut avancé :
+    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** sur l'attribut avancé pour éditer ses propriétés :
 
     ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 

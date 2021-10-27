@@ -390,7 +390,7 @@ The mapper uses hosts attributes as conditions to include them.
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
 You can use them as source for **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
 
-Example of advanced attribute describing a host: **cloud tags**. Let's assume that we have the following tags on one host: `os: windows` and `environment: production`. The discovery job will interpret the tags in the following way:
+Example of advanced attribute describing a host: **cloud tags**. Your hosts are hosted in the cloud. They have an advanced attribute named **tags**. For an instance with the tags **os: windows** and **environment: production**, the discovery job will receive the data in the following way:
 
 ```json
 "tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
@@ -398,7 +398,7 @@ Example of advanced attribute describing a host: **cloud tags**. Let's assume th
 
 **Examples of use with mappers:**
 
-- Your hosts are hosted in the cloud. They have an advanced attribute named **tags**. In this attribute, the **environment** key can have the following values: **production**, **preprod** or **test**. You only want to monitor machines whose environment key matches the value **production**. Use an **Exclusion** mapper and configure it as follows:
+- In the **tags** attribute, the **environment** key can have the following values: **production**, **preprod** or **test**. You only want to monitor production instances, i.e. those for which the value **production** matches the key **environment**. Use an **Exclusion** mapper and configure it as follows:
 
     ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
 
@@ -408,7 +408,7 @@ Example of advanced attribute describing a host: **cloud tags**. Let's assume th
 
   ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
 
-  The value of the property is displayed in a tooltip. Use **Shift+click** if you want to edit the properties of the advanced attribute:
+  The value of the property is displayed in a tooltip. Use **Shift+click** on the advanced attribute to edit its properties:
 
   ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
