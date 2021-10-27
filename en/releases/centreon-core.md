@@ -289,7 +289,7 @@ future.
 
 ### 21.04.5
 
-Release date: `null`
+`October 27, 2021`
 
 #### Bug fixes
 
