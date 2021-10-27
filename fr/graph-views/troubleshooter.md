@@ -273,11 +273,11 @@ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 Add the following line at the end of the file on a new line, where
-`<CENTREON_URL>` is the URL with which you access the web interface of
+`<CENTRAL_IP_ADDRESS>` is the URL with which you access the web interface of
 Centreon Web from your computer:
 
 ```shell
--Dcentreon.url=<CENTREON_URL>
+-Dcentreon.url=<CENTRAL_IP_ADDRESS>
 ```
 
 ### An error occured when I open a geographic view
