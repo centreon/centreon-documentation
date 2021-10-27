@@ -1,5 +1,5 @@
 ---
-id: upgrade-centreon-ha-from-21.04
+id: upgrade-centreon-ha-from-21-04
 title: Upgrade Centreon HA from Centreon 21.04
 ---
 
