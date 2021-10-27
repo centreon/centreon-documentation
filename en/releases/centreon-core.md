@@ -819,7 +819,7 @@ with the –pool\_size X argument or -s X.
 
 ### 20.10.5
 
-Release date: `null`
+`October 27, 2021`
 
 #### Bug fixes
 
