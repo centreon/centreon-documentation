@@ -393,6 +393,15 @@ logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
 
 ## Centreon CLib
 
+### 21.04.4
+
+`27 octobre 2021`
+
+#### Bug fixes
+
+- Fixed a deadlock issue that blocked engine when all debug options were enabled
+
+
 ### 21.04.3
 
 `20 octobre 2021`
