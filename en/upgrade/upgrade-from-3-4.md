@@ -103,9 +103,10 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-Execute the following command:
+Execute the following commands:
 ```shell
-systemctl reload php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
 
 If you customized your Apache configuration, customizations are not reapplied automatically. You need to apply them again manually.
