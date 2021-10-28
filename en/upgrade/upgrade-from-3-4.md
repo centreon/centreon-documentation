@@ -109,6 +109,19 @@ systemctl enable php-fpm
 systemctl start php-fpm
 ```
 
+Run the following command:
+```
+systemctl status php-fpm
+```
+You may get the following error:
+```
+Failed loading /usr/lib64/php/modules/ZendGuardLoader.so: /usr/lib64/php/modules/ZendGuardLoader.so: undefined symbol: _zval_ptr_dtor
+```
+If you do, run:
+```
+yum remove php-zend-guard-loader
+```
+
 If you customized your Apache configuration, customizations are not reapplied automatically. You need to apply them again manually.
 
 1. Move the current file:
