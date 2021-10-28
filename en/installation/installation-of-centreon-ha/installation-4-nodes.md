@@ -1004,7 +1004,7 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 ##### PHP8 resource
 
 ```bash
-pcs resource create "php8" \
+pcs resource create "php" \
     systemd:php-fpm \
     meta target-role="stopped" \
     op start interval="0s" timeout="30s" \
@@ -1177,7 +1177,7 @@ vice-et-versa:
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 <!--RHEL 7 / CentOS 7-->
 
@@ -1185,7 +1185,7 @@ pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATAB
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 pcs constraint location ms_mysql-master avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
 pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -1229,7 +1229,7 @@ Active Resources:
     * Masters: [ @DATABASE_MASTER_NAME@ ]
     * Slaves: [ @DATABASE_SLAVE_NAME@ ]
   * vip_mysql   (ocf::heartbeat:IPaddr2):        Started @DATABASE_MASTER_NAME@
-  * Clone Set: php8-clone [php8]:
+  * Clone Set: php-clone [php]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
     * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
@@ -1258,7 +1258,7 @@ Active resources:
  Master/Slave Set: ms_mysql-master [ms_mysql]
      Masters: [@DATABASE_MASTER_NAME@]
      Slaves: [@DATABASE_SLAVE_NAME@]
- Clone Set: php8-clone [php8]
+ Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
  Clone Set: cbd_rrd-clone [cbd_rrd]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
@@ -1322,7 +1322,7 @@ Location Constraints:
   Resource: ms_mysql-clone
     Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php8-clone
+  Resource: php-clone
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:
@@ -1343,7 +1343,7 @@ Location Constraints:
   Resource: ms_mysql-master
     Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY)
-  Resource: php8-clone
+  Resource: php-clone
     Disabled on: @DATABASE_MASTER_NAME@ (score:-INFINITY)
     Disabled on: @DATABASE_SLAVE_NAME@ (score:-INFINITY)
 Ordering Constraints:

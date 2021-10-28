@@ -128,7 +128,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 <!--HA 2 Nodes-->
 ```bash
 pcs resource delete php7 --force
-pcs resource create "php8" \
+pcs resource create "php" \
     systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
@@ -139,14 +139,14 @@ pcs resource create "php8" \
 <!--HA 4 Nodes-->
 ```bash
 pcs resource delete php7
-pcs resource create "php8" \
+pcs resource create "php" \
     systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
     clone
-pcs constraint location php8-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -274,7 +274,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
- Clone Set: php8-clone [php8]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 <!--HA 4 Nodes-->
@@ -302,7 +302,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
- Clone Set: php8-clone [php8]
+ Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@]
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
