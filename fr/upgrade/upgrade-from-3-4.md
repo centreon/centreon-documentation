@@ -114,15 +114,15 @@ systemctl start php-fpm
 ```
 
 Exécutez la commande suivante :
-```
+```shell
 systemctl status php-fpm
 ```
 Il est possible que vous rencontriez l'erreur suivante:
-```
+```shell
 Failed loading /usr/lib64/php/modules/ZendGuardLoader.so: /usr/lib64/php/modules/ZendGuardLoader.so: undefined symbol: _zval_ptr_dtor
 ```
 Si c'est le cas, exécutez cette commande :
-```
+```shell
 yum remove php-zend-guard-loader
 ```
 
