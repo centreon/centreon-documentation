@@ -199,7 +199,7 @@ passive database node.
 1. Stop the mariadb service:
 
     ```shell
-    mysqladmin -p shutdwon
+    mysqladmin -p shutdown
     ```
 
 2. Uninstall current version:
