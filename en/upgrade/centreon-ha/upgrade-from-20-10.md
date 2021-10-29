@@ -233,7 +233,7 @@ passive database node.
     ```
 
 You may not use the option `-p` for `mysqladmin` and `mysql_upgrade` commands
-if you haven't securize your database server.
+if you haven't secured your database server.
 
 > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
 > if errors occur during this last step.
