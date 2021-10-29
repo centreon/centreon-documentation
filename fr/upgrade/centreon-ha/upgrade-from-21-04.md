@@ -138,7 +138,7 @@ pcs resource create "php" \
 ```
 <!--HA 4 Nodes-->
 ```bash
-pcs resource delete php7
+pcs resource delete php7 --force
 pcs resource create "php" \
     systemd:php-fpm \
     meta target-role="started" \
