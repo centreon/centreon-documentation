@@ -191,7 +191,7 @@ systemctl restart cbd
 
 The MariaDB components can now be upgraded.
 
-> **WARNING** the following commands must be executed firstly on the active 
+> **WARNING** the following commands must be executed first on the active 
 database node. Once the active database node is in 10.5, you can upgrade the
 passive database node.
 
