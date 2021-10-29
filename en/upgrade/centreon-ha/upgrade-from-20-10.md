@@ -161,7 +161,7 @@ rm /etc/cron.d/centreon-auto-disco
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permission back in place. Change it using these commands:
+The RPM upgrade puts the permissions back in place. Change it using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
