@@ -157,7 +157,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-20-10.md#finalizing-the-upgrade) Only on the **active central node**.
+Then to perform the WEB UI upgrade, please [follow the official documentation](../../upgrade/upgrade-from-21-04.md#finalizing-the-upgrade) Only on the **active central node**.
 
 On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the WUI in the event of a further exchange of roles.
 
