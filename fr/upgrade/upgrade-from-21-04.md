@@ -144,25 +144,7 @@ systemctl start php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-Si vous aviez personnalisé votre configuration Apache, les personnalisations ne sont pas réappliquées automatiquement.
-Vous devez appliquer à nouveau vos modifications manuellement.
-
-1. Déplacez votre fichier actuel :
-    ```shell
-    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.myconf}
-    ```
-
-2. Déplacez le nouveau fichier :
-    ```shell
-    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.sav /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
-    ```
-
-3. Vérifiez les différences entre les deux fichiers :
-    ```shell
-    diff -u 10-centreon.conf 10-centreon.conf.sav
-    ```
-
-4. Appliquez vos modifications dans le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**.
+> Si vous aviez personnalisé votre configuration Apache, les nouvelles modifications contenues dans le fichier amené par le rpm ne seront pas appliquées. Vous devrez les reporter manuellement dans le fichier.
 
 ### Finalisation de la mise à jour
 
