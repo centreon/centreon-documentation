@@ -68,7 +68,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Breaking changes
 
 > Access to API v2 has been changed. All of the beta endpoints have been migrated to version 21.10. This must be
-> modified by "latest" or by the version of your Centreon platform (21.10 for example).
+> modified by "latest" or by the version of your Centreon platform (v21.10 for example).
 
 For example replace:
 ```shell
@@ -83,7 +83,7 @@ By:
 or:
 By:
 ```shell
-{protocol}://{server}:{port}/centreon/api/21.10/login
+{protocol}://{server}:{port}/centreon/api/v21.10/login
 ```
 
 #### Performances
