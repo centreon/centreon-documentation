@@ -26,8 +26,10 @@ If you have feature requests or want to report a bug, please go to our
   - Add MS Azure AD / ADFS
   - Add possibility to define with claim is used for Centreon login
   - Add possibility to define complete url for endpoints
-  - Add possibility to use client_secret_basic as authentication
-  - Allow to do not defined redirect URL
+  - Add possibility to use client_secret_basic as authentication. Based on PR
+    [#9878](https://github.com/centreon/centreon/pull/9878)
+  - Allow to do not defined redirect URL. Based on PR
+    [#9877](https://github.com/centreon/centreon/pull/9877)
   - Add errors log in /var/log/centreon/login.log
   - Add possibility to display debug log in /var/log/centreon/login.log
   - Use proxy if defined
