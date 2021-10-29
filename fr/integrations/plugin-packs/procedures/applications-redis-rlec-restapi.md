@@ -23,6 +23,6 @@ the following table:
 | Alias                   | *Host description*         |
 | IP                      | *Host IP Address*          |
 | Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-Redis-Restapi          |
+| Host Multiple Templates | App-Redis-Rlec-Restapi     |
 
 Click on the *Save* button.
