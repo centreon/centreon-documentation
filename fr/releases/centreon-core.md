@@ -20,6 +20,24 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Enhancements
 
+- [Authentication] Improve OIDC support (OpenId Connect)
+  - Add Okta support
+  - Add MS Azure AD / ADFS
+  - Add possibility to define with claim is used for Centreon login
+  - Add possibility to define complete url for endpoints
+  - Add possibility to use client_secret_basic as authentication
+  - Allow to do not defined redirect URL
+  - Add errors log in /var/log/centreon/login.log
+  - Add possibility to display debug log in /var/log/centreon/login.log
+  - Use proxy if defined
+- [API] API versioning is now consistent with Centreon's major release number
+- [CEIP] Product Adoption component integration
+- [Configuration] The poller management actions are now only available via buttons:
+  - "Add" now leads to the wizard.
+  - "Add (advanced)" leads to the former "Add" action (for experts only).
+  - "Delete" and "Duplicate" are converted into buttons.
+  - "Delete" should normally not be confused with another action.
+- [Configuration] The deprecated "Logger" tab of the "Broker configuration" menu has been removed
 - [Resources Status] Revamp Search experience
 - [Resources Status] Revamp Timeline
 - [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
@@ -35,43 +53,45 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resources Status] Improve Custom Columns Name Display
 - [Resources Status] Move Shortcuts from dedicated panel to option within Header
 - [Resources Status] Make configure resource icon always visible
-- Add Feature Flipping for Resources Status vs Legacy Pages
-- Preparing Debian 11 support
-- Product Adoption component integration
-- Improve OIDC support (OpenId Connect)
-  - Add Okta support
-  - Add MS Azure AD / ADFS
-  - Add possibility to define with claim is used for Centreon login
-  - Add possibility to define complete url for endpoints
-  - Add possibility to use client_secret_basic as authentication
-  - Allow to do not defined redirect URL
-  - Add errors log in /var/log/centreon/login.log
-  - Add possibility to display debug log in /var/log/centreon/login.log
-  - Use proxy if defined
-- API versioning is now consistent with Centreon's major release number
-- Downtimes can now be scheduled until 2100
-- The poller management actions are now only available via buttons:
-  - "Add" now leads to the wizard.
-  - "Add (advanced)" leads to the former "Add" action (for experts only).
-  - "Delete" and "Duplicate" are converted into buttons.
-  - "Delete" should normally not be confused with another action.
-- The poller management action buttons are now hidden on Remote Servers
-- [BETA] Administrators can toggle a new button in the Pollers top-counter menu that allows them to export and reload the configuration of all pollers from any page
-- The deprecated "Logger" tab of the "Broker configuration" menu has been removed
+- [UX] Add Feature Flipping for Resources Status vs Legacy Pages
+- [UX] Downtimes can now be scheduled until 2100
+- [UX] The poller management action buttons are now hidden on Remote Servers
 
-#### Documentation
+#### Beta enhancements
 
-#### Security
+- [Configuration] Administrators can toggle a new button in the Pollers top-counter menu that allows them to export and
+  reload the configuration of all pollers from any page
+
+#### Breaking changes
+
+> Access to API v2 has been changed. So it is no longer possible to use the "beta" version in the API access url. This
+> must be modified by "latest" or by the version of your Centreon platform (21.10 for example)
+
+For example change:
+```shell
+{protocol}://{server}:{port}/centreon/api/beta/login
+```
+
+By:
+```shell
+{protocol}://{server}:{port}/centreon/api/latest/login
+```
+
+or:
+By:
+```shell
+{protocol}://{server}:{port}/centreon/api/21.10/login
+```
 
 #### Performances
 
 - Move to PHP 8.0
+- Preparing Debian 11 support
 
 ## Centreon Engine
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
 - Flapping now starts only on non-OK states. Based on PR [#523](https://github.com/centreon/centreon-engine/pull/523)
 - Flapping now starts only for services of UP hosts or for hosts with UP parent. Based on PR [#524](https://github.com/centreon/centreon-engine/pull/524). Fixes Issue [#192](https://github.com/centreon/centreon-engine/issues/192)
 
@@ -79,7 +99,6 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
 - Queue (in memory and retention files) are now cleared when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
 - [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
 - Broker now only loads the modules that are necessary for its inputs and outputs
