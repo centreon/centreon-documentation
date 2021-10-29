@@ -134,7 +134,7 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 <!--DOCUSAURUS_CODE_TABS-->
 <!--HA 2 Nodes-->
 ```bash
-pcs resource delete php7
+pcs resource delete php7 --force
 pcs resource create "php" \
     systemd:php-fpm \
     meta target-role="started" \
