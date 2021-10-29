@@ -66,6 +66,9 @@ yum-config-manager --enable remi-php80
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
+If you have installed Business extensions, update the Business repository to version 21.10.
+Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+
 Stop the Centreon Broker process:
 ```shell
 systemctl stop cbd
