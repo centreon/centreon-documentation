@@ -1,10 +1,10 @@
 ---
-id: upgrade-centreon-ha-from-20-04
-title: Montée de version de Centreon HA depuis Centreon 20.04
+id: upgrade-centreon-ha-from-20-10
+title: Montée de version de Centreon HA depuis Centreon 20.10
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon HA depuis la version 20.04 vers la version 21.04.
+Centreon HA depuis la version 20.10 vers la version 21.10.
 
 ## Prérequis
 
@@ -15,6 +15,7 @@ Cette opération nécessite de suspendre la gestion des ressources Centreon et M
 ```bash
 pcs resource unmanage centreon
 pcs resource unmanage ms_mysql
+pcs resource unmanage php7-clone
 ```
 
 ### Sauvegarde
@@ -43,6 +44,24 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
 
+### Mise à jour PHP
+
+Centreon 21.10 utilise PHP en version 8.0.
+
+Vous devez tout d'abord installer les dépôts **remi** :
+
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+
+Ensuite, vous devez activer le dépôt php 8.0
+
+```shell
+yum-config-manager --enable remi-php80
+```
+
 ### Montée de version de la solution Centreon
 
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
@@ -60,34 +79,41 @@ Mettez à jour l'ensemble des composants :
 <!--HA 2 Nodes-->
 
 ```shell
+yum remove centreon-ha
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
-yum autoremove centreon-ha
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 <!--HA 4 Nodes-->
 
-Sur les serveurs Centraux
+Sur les serveurs Centraux:
+
 ```shell
+yum remove centreon-ha
 yum update centreon\*
 yum install centreon-ha-web centreon-ha-common
-yum autoremove centreon-ha
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 Sur les serveurs de base de données :
+
 ```shell
+yum remove centreon-ha
 yum update centreon\*
 yum install centreon-ha-common
-yum autoremove centreon-ha
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
+Le fuseau horaire par défaut de PHP 8 doit être configuré. Executez la commande suivante :
+
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
@@ -98,9 +124,9 @@ echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.in
 <!--DOCUSAURUS_CODE_TABS-->
 <!--HA 2 Nodes-->
 ```bash
-pcs resource delete php7
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
+pcs resource delete php7 --force
+pcs resource create "php" \
+    systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
@@ -109,15 +135,15 @@ pcs resource create "php7" \
 ```
 <!--HA 4 Nodes-->
 ```bash
-pcs resource delete php7
-pcs resource create "php7" \
-    systemd:rh-php73-php-fpm \
+pcs resource delete php7 --force
+pcs resource create "php" \
+    systemd:php-fpm \
     meta target-role="started" \
     op start interval="0s" timeout="30s" \
     stop interval="0s" timeout="30s" \
     monitor interval="5s" timeout="30s" \
     clone
-pcs constraint location php7-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -140,6 +166,20 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
+### Changez les permissions pour la resource centreon_central_sync
+
+La mise à jour des RPMs à modifié les permissions sur certains fichiers synchronisés par _centreon\_central\_sync_. Il est nécesssaire de les modifier :
+
+```bash
+chmod 775 /var/log/centreon-engine/
+mkdir /var/log/centreon-engine/archives
+chown centreon-engine: /var/log/centreon-engine/archives
+chmod 775 /var/log/centreon-engine/archives/
+find /var/log/centreon-engine/ -type f -exec chmod 664 {} \;
+find /usr/share/centreon/www/img/media -type d -exec chmod 775 {} \;
+find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".htaccess" \) -exec chmod 664 {} \;
+```
+
 ### Redémarrez les processus Centreon
 
 Redémarrez les processus sur le nœud Central actif:
@@ -158,81 +198,18 @@ systemctl restart cbd
 
 Les composants MariaDB peuvent maintenant être mis à jour.
 
-Sachez que MariaDB recommande vivement de monter en version le serveur en
-passant par chacune des versions majeures. Veuillez vous référer à la
-[documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour
-plus d'informations.
-
-Vous devez donc mettre à jour de la version 10.3 vers 10.4 puis 10.4 vers
-10.5.
-
-Pour cela, Centreon met à disposition les versions 10.4 et 10.5 sur ses
-dépôts stables.
-
-> Référez vous à la documentation officielle de MariaDB pour en savoir
-> d'avantage sur ce processus :
->
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-103-to-mariadb-104/#how-to-upgrade
-> - https://mariadb.com/kb/en/upgrading-from-mariadb-104-to-mariadb-105/#how-to-upgrade
-
->**WARNING** les commandes suivantes de mise à jour vers Centreon doivent d'abord être exécutées sur le nœud de base de données actif. Une fois le nœud de base de données maître mis à jour en 10.05, vous pouvez mettre à jour le nœud de base de données passif.
-
-#### Montée de version de 10.3 à 10.4
-
-Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
-recommande :
+> La mise à jour MariaDB doit d'abord être executée sur le serveur primaire
+> puis sur le serveur secondaire.
+> Dans le cas d'une HA 4 nœeuds, la mise à jour doit être fait uniquement sur
+> les serveurs de base de données.
 
 1. Arrêtez le service mariadb :
 
     ```shell
-    systemctl stop mariadb
+    mysqladmin -p shutdown 
     ```
 
-2. Désinstallez la version actuelle 10.3 :
-
-    ```shell
-    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-    ```
-
-3. Installez la version 10.4 :
-
-    ```shell
-    yum install MariaDB-server-10.4\* MariaDB-client-10.4\* MariaDB-shared-10.4\* MariaDB-compat-10.4\* MariaDB-common-10.4\*
-    ```
-
-4. Déplacer le fichier de configuration :
-
-    ```shell
-    mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
-    ```
-
-5. Démarrer le service mariadb :
-
-    ```shell
-    systemctl start mariadb
-    ```
-
-6. Lancez le processus de mise à jour MariaDB :
-
-    ```shell
-    mysql_upgrade -p
-    ```
-
-> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
-
-#### Montée de version de 10.4 à 10.5
-
-Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
-recommande :
-
-1. Arrêtez le service mariadb :
-
-    ```shell
-    systemctl stop mariadb
-    ```
-
-2. Désinstallez la version actuelle 10.4 :
+2. Désinstallez la version actuelle :
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
@@ -244,29 +221,47 @@ recommande :
     yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
     ```
 
-4. Déplacer le fichier de configuration :
+4. Écrasez la configuration mariadbd:
+
+   ```shell
+   mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
+   ```
+
+5. Démarrez le service mariadb :
 
     ```shell
-    mv /etc/my.cnf.d/server.cnf.rpmsave /etc/my.cnf.d/server.cnf
-    ```
-
-5. Démarrer le service mariadb :
-
-    ```shell
-    systemctl start mariadb
+    mysqld_safe &
     ```
 
 6. Lancez le processus de mise à jour MariaDB :
 
-    ```shell
-    mysql_upgrade -p
+   ```shell
+    mysql_upgrade -u <utilisateur_admin_bdd> -p
     ```
 
-L'option `-p` n'est nécessaire uniquement aux commandes `mysql_upgrade` et `mysqladmin`
-si vous avez sécurisé votre serveur de base de données.
+    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
-> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-> si des erreurs apparaissent pendant cette dernière étape.
+    ```
+    mysql_upgrade -u root -p
+    ```
+
+    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+
+#### Configurer le slave_parallel_mode
+
+Depuis la version 10.5, le slave_parallel_mode n'est plus paramétré à *conservative*.
+Il est nécessaire de modifier la configuration mysql en éditant `/etc/my.cnf.d/server.cnf`:
+
+> Sur les 2 serveurs Centraux dans le cas d'une HA 2 nœuds
+> et sur les 2 serveurs de base de données dans le cas d'une HA 4 nœuds.
+
+```shell
+[server]
+...
+slave_parallel_mode=conservative
+...
+```
 
 #### Relancer la réplication MariaDB
 
@@ -276,19 +271,13 @@ Pour la relancer, exécutez la commande suivante sur le nœud de bases de donné
 Il faut donc lancer la commande suivante sur **le nœud de bases de données passif** :
 
 ```bash
-systemctl stop mysql
-```
-
-Dans certains cas il se peut que systemd ne parvienne pas à arrêter le service `mysql`, pour s'en assurer, vérifier que la commande suivante ne retourne aucune ligne :
-
-```bash
-ps -ef | grep mysql[d]
-```
-
-Si un processus `mysqld` est toujours en activité, alors il faut lancer la commande suivante pour l'arrêter (et fournir le mot de passe du compte root de mysql quand il est demandé) :
-
-```bash
 mysqladmin -p shutdown
+```
+
+Vérifier que le service `mysql` est bien arrêté,la commande suivante ne doit retourner aucune ligne :
+
+```bash
+ps -ef | grep mariadb[d]
 ```
 
 Une fois que le service est bien arrêté sur **le nœud de bases de données passif**, lancer le script de synchronisation **depuis le nœud de bases de données actif** : 
@@ -319,7 +308,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.memory*
 rm -rf /var/lib/centreon-broker/central-broker-master.queue*
 rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
-i
+
 ## Rétablissement de la gestion des ressources par le cluster
 
 Tous les composants devraient à présent être à jour et fonctionnels, il faut donc rétablir la gestion des ressources par le cluster :
@@ -330,10 +319,13 @@ pcs resource manage ms_mysql
 ```
 
 Il est possible qu'après le rétablissement de la gestion des ressources par le cluster,
-le thread de réplication ne soit plus actif. Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier.
+le thread de réplication ne soit plus actif ou que des *failed actions* soient présentes.
+Un redémarrage de la ressource `ms_mysql` doit permettre d'y remédier ainsi qu'un *cleanup* des resources.
 
 ```bash 
 pcs resource restart ms_mysql
+pcs resource cleanup centreon
+pcs resource cleanup ms_mysql
 ```
 
 ### Contrôle de l'état du cluster
@@ -369,7 +361,7 @@ Active resources:
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
      centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
 ```
 <!--HA 4 Nodes-->
@@ -397,7 +389,7 @@ Active resources:
      centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
      snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
      vip_mysql       (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
- Clone Set: php7-clone [php7]
+ Clone Set: php-clone [php]
      Started: [@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE@]
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->

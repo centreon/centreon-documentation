@@ -347,6 +347,7 @@
                     "upgrade/upgrade-from-3-4",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
+                    "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04",
                     "upgrade/centreon-ha/upgrade-from-centreon-failover",
                     "upgrade/upgrade-mariadb"
                 ],
