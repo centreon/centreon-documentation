@@ -66,8 +66,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 #### Breaking changes
 
-> Access to API v2 has been changed. So it is no longer possible to use the "beta" version in the API access url. This
-> must be modified by "latest" or by the version of your Centreon platform (21.10 for example)
+> Access to API v2 has been changed. All of the beta endpoints have been migrated to version 21.10. This must be
+> modified by "latest" or by the version of your Centreon platform (21.10 for example).
 
 For example replace:
 ```shell
