@@ -28,7 +28,7 @@ servers:
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove older key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
 
 ## Upgrade process
 
@@ -168,7 +168,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron job back in place. Remove them to avoid concurrent executions: 
+The RPM upgrade puts cron jobs back in place. Remove them to avoid concurrent executions: 
 
 ```bash
 rm /etc/cron.d/centreon
@@ -178,7 +178,7 @@ rm /etc/cron.d/centreon-auto-disco
 
 ### Reset the permissions for centreon_central_sync resource
 
-The RPM upgrade puts the permission back in place. Change it using these commands:
+The RPM upgrade puts the permissions back in place. Change it using these commands:
 
 ```bash
 chmod 775 /var/log/centreon-engine/
@@ -192,7 +192,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 ### Configure MariaDB slave_parallel_mode
 
-Since 10.5 version of MariaDB, the _slave_parallel_mode_ is not longer set up it *conservative*.
+Since MariaDB 10.5, the slave_parallel_mode is no longer set up as *conservative*.
 It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
 
 > On the 2 Central servers in HA 2 nodes
@@ -223,7 +223,7 @@ systemctl restart cbd
 
 > **WARNING** perform this command only the passive central node.
 
-Before resuming the cluster resources management, to avoid broker's issues, cleanup all the *.memory.* or *.unprocessed.* or *.queue.* broker files on:
+Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
 rm -rf /var/lib/centreon-broker/central-broker-master.memory*
@@ -318,5 +318,5 @@ You should now check that eveything works fine:
 
 * Access to the web UI menus.
 * Poller configuration generation + reload and restart method.
-* Schedule immediate check (Central + Pollers) and acknowledge, downtime etc.
+* Schedule immediate checks (Central + Pollers) , acknowledgements, downtimes, etc.
 * Move resources or reboot active server and check again that everything is fine.

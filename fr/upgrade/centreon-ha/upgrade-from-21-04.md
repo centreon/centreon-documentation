@@ -185,7 +185,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 #### Configurer le slave_parallel_mode
 
-Depuis la version 10.5, le _slave_parallel_mode_ n'est plus paramétré à *conservative*.
+Depuis la version 10.5, le slave_parallel_mode n'est plus paramétré à *conservative*.
 Il est nécessaire de modifier la configuration mysql en éditant `/etc/my.cnf.d/server.cnf`:
 
 > Sur les 2 serveurs Centraux dans le cas d'une HA 2 nœuds

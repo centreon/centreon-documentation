@@ -240,7 +240,7 @@ if you haven't secured your database server.
 
 ### Configure MariaDB slave_parallel_mode
 
-Since 10.5 version of MariaDB, the _slave_parallel_mode_ is not longer set up it *conservative*.
+Since MariaDB 10.5, the slave_parallel_mode is no longer set up as *conservative*.
 It's necessary to modify the mysql configuration by editing `/etc/my.cnf.d/server.cnf`:
 
 > On the 2 Central servers in HA 2 nodes
