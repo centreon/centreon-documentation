@@ -67,7 +67,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 > Access to API v2 has been changed. So it is no longer possible to use the "beta" version in the API access url. This
 > must be modified by "latest" or by the version of your Centreon platform (21.10 for example)
 
-For example change:
+For example replace:
 ```shell
 {protocol}://{server}:{port}/centreon/api/beta/login
 ```
