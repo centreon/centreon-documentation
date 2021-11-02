@@ -51,7 +51,6 @@ try {
       }
     }
 
-    /**
     stage('Release') {
       timeout(time: 1, unit: 'HOURS') {
         inputError = true
@@ -62,10 +61,9 @@ try {
       node {
         sh 'setup_centreon_build.sh'
         unstash 'prod-build'
-        sh "./centreon-build/jobs/doc/21.04/doc-release.sh"
+        sh "./centreon-build/jobs/doc/21.10/doc-release.sh"
       }
     }
-    */
   }
 } catch(e) {
   if (!inputError) {
