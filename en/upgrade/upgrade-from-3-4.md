@@ -125,24 +125,7 @@ If you do, run:
 yum remove php-zend-guard-loader
 ```
 
-If you customized your Apache configuration, customizations are not reapplied automatically. You need to apply them again manually.
-
-1. Move the current file:
-    ```shell
-    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf{,.myconf}
-    ```
-
-2. Move the new file:
-    ```shell
-    mv /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.sav /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf
-    ```
-
-3. Check the differences between the two files:
-    ```shell
-    diff -u 10-centreon.conf 10-centreon.conf.sav
-    ```
-
-4. Apply your customizations to file **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**.
+> If you customized your Apache configuration, the changes brought by the rpm will not be applied automatically. You will need to apply them manually.
 
 ### Additional actions
 
