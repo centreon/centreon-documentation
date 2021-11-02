@@ -45,7 +45,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Revamp Timeline
 - [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
 - [Resources Status] Allow detail tiles to be re-ordered for each user
-- [Resources Status] Add multi-select to Rersources Status listing
+- [Resources Status] Add multi-select to Resources Status listing
 - [Resources Status] Add "Last OK" tile within Details panel
 - [Resources Status] Persist user selected number of rows displayed
 - [Resources Status] Make "duration" as the default second sorting criteria
