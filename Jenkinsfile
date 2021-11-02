@@ -23,7 +23,7 @@ try {
       dir('centreon-documentation') {
         checkout scm
       }
-      sh "./centreon-build/jobs/doc/21.04/doc-source.sh"
+      sh "./centreon-build/jobs/doc/21.10/doc-source.sh"
       source = readProperties file: 'source.properties'
       env.VERSION = serie
       env.RELEASE = "${source.RELEASE}"
@@ -31,7 +31,7 @@ try {
     }
 
     stage('Build') {
-      sh "./centreon-build/jobs/doc/21.04/doc-build.sh"
+      sh "./centreon-build/jobs/doc/21.10/doc-build.sh"
       stash name: 'vanilla-build', includes: 'vanilla.tar.gz'
       publishHTML([
         reportDir: 'preview',
@@ -46,12 +46,11 @@ try {
       node {
         sh 'setup_centreon_build.sh'
         unstash 'vanilla-build'
-        sh "./centreon-build/jobs/doc/21.04/doc-staging.sh"
+        sh "./centreon-build/jobs/doc/21.10/doc-staging.sh"
         stash name: 'prod-build', includes: 'prod.tar.gz'
       }
     }
 
-    /**
     stage('Release') {
       timeout(time: 1, unit: 'HOURS') {
         inputError = true
@@ -62,10 +61,9 @@ try {
       node {
         sh 'setup_centreon_build.sh'
         unstash 'prod-build'
-        sh "./centreon-build/jobs/doc/21.04/doc-release.sh"
+        sh "./centreon-build/jobs/doc/21.10/doc-release.sh"
       }
     }
-    */
   }
 } catch(e) {
   if (!inputError) {
