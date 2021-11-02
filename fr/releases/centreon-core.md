@@ -23,11 +23,11 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Authentication] Improve OIDC support (OpenId Connect)
   - Add Okta support
   - Add MS Azure AD / ADFS
-  - Add possibility to define with claim is used for Centreon login
-  - Add possibility to define complete url for endpoints
+  - Add possibility to define which claim is used for Centreon login
+  - Add possibility to define complete URL for endpoints
   - Add possibility to use client_secret_basic as authentication. Based on PR
     [#9878](https://github.com/centreon/centreon/pull/9878)
-  - Allow to do not defined redirect URL. Based on PR
+  - Allow to define no redirect URL. Based on PR
     [#9877](https://github.com/centreon/centreon/pull/9877)
   - Add errors log in /var/log/centreon/login.log
   - Add possibility to display debug log in /var/log/centreon/login.log
@@ -44,7 +44,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resources Status] Revamp Timeline
 - [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
 - [Resources Status] Allow detail tiles to be re-ordered for each user
-- [Resources Status] Add multi-select to Rersources Status listing
+- [Resources Status] Add multi-select to Resources Status listing
 - [Resources Status] Add "Last OK" tile within Details panel
 - [Resources Status] Persist user selected number of rows displayed
 - [Resources Status] Make "duration" as the default second sorting criteria
@@ -101,7 +101,7 @@ By:
 
 ### 21.10.0
 
-- Queue (in memory and retention files) are now cleared when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
+- Queues (in memory and retention files) are now cleared for reversed broker flows without `peer retention` when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
 - [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
 - Broker now only loads the modules that are necessary for its inputs and outputs
 - Old broker log format has been removed
