@@ -469,13 +469,6 @@ Run the following command:
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
-
 ### Upgrade the Centreon solution
 
 Clean yum cache:
