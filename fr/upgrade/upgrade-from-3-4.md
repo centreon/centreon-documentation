@@ -103,6 +103,12 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+Activez et démarrez le service **gorgoned** :
+```shell
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
 Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini

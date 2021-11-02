@@ -97,6 +97,12 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+Enable and start the **gorgoned** service:
+```shell
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
 The PHP timezone should be set. Run the command:
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
