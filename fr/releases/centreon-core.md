@@ -5,100 +5,110 @@ title: Centreon Core
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Core**.
+Vous trouverez dans ce chapitre tout ce qui concerne les **Centreon Core**.
 
-> It is very important when you update your system to refer to this
-> section in order to learn about behavior changes or major changes that
-> have been made on this version. This will let you know the impact of
-> the installation of these versions on the features you use or the
-> specific developments that you have built on your platform (modules,
-> widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose)
+Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
-### 21.04.0
+### 21.10.0
 
 #### Enhancements
 
-- [Configuration] Define new logging options for Centreon Broker
-- [Resources Status] Optimized overall listing to display ~50% more alerts
-- [Resources Status] Added new columns (active/passive, notifications on/off and others) and possibility to select and re-order displayed columns
-- [Resources Status] Added many filtering options (including Monitoring Server)
-- [Resources Status] Added Meta-Services to types of resources included
-- [Resources Status] All page parameters are now saved within local storage and URL
-- [Resources Status] The detail panel is now resizable
-- [Resources Status] Revamped the Graph panel overall, mainly:
-    - Added Datetime pickers for start and end of period
-    - Added zoom feature via in-graph selection
-    - Added time translation to move forward and backward (by half the displayed period)
-    - Added option to display events (downtimes, acknowledgements, etc.) within graph
-    - Removed metrics values within tooltips
-    - Added metrics values display in legend on graph hover
-    - Added metrics mean, max and average display in legend otherwise
+- [Authentication] Improve OIDC support (OpenId Connect)
+  - Add Okta support
+  - Add MS Azure AD / ADFS
+  - Add possibility to define which claim is used for Centreon login
+  - Add possibility to define complete URL for endpoints
+  - Add possibility to use client_secret_basic as authentication. Based on PR
+    [#9878](https://github.com/centreon/centreon/pull/9878)
+  - Allow to define no redirect URL. Based on PR
+    [#9877](https://github.com/centreon/centreon/pull/9877)
+  - Add errors log in /var/log/centreon/login.log
+  - Add possibility to display debug log in /var/log/centreon/login.log
+  - Use proxy if defined
+- [API] API versioning is now consistent with Centreon's major release number
+- [CEIP] Product Adoption component integration
+- [Configuration] The poller management actions are now only available via buttons:
+  - "Add" now leads to the wizard.
+  - "Add (advanced)" leads to the former "Add" action (for experts only).
+  - "Delete" and "Duplicate" are converted into buttons.
+  - "Delete" should normally not be confused with another action.
+- [Configuration] The deprecated "Logger" tab of the "Broker configuration" menu has been removed
+- [Resources Status] Revamp Search experience
+- [Resources Status] Revamp Timeline
+- [Resources Status] Add Sticky and Persistent options to ACK in Resource Status
+- [Resources Status] Allow detail tiles to be re-ordered for each user
+- [Resources Status] Add multi-select to Resources Status listing
+- [Resources Status] Add "Last OK" tile within Details panel
+- [Resources Status] Persist user selected number of rows displayed
+- [Resources Status] Make "duration" as the default second sorting criteria
+- [Resources Status] Add link to performance page in detail panel. Based on PR [#9822](https://github.com/centreon/centreon/issues/9822)
+- [Resources Status] Add Graphs panel for Hosts
+- [Resources Status] Add tooltip to explain grayed options
+- [Resources Status] Improve Custom Columns Name Display
+- [Resources Status] Move Shortcuts from dedicated panel to option within Header
+- [Resources Status] Make configure resource icon always visible
+- [Resources Status] Improve readability of command line displayed
+- [UX] Add Feature Flipping for Resources Status vs Legacy Pages
+- [UX] Downtimes can now be scheduled until 2100
+- [UX] The poller management action buttons are now hidden on Remote Servers
 
-#### Documentation
+#### Beta enhancements
 
-- Added a chapter to enable firewalld and rules example to improve security
-- Added a chapter to enable Fail2ban to improve security
-- Added a chapter to move a collector from one server to another
+- [Configuration] Administrators can toggle a new button in the Pollers top-counter menu that allows them to export and
+  reload the configuration of all pollers from any page
 
-#### Security
+#### Breaking changes
 
-- Add SELinux packages
+> Access to API v2 has been changed. All of the beta endpoints have been migrated to version 21.10. This must be
+> modified by "latest" or by the version of your Centreon platform (v21.10 for example).
+
+For example replace:
+```shell
+{protocol}://{server}:{port}/centreon/api/beta/login
+```
+
+By:
+```shell
+{protocol}://{server}:{port}/centreon/api/latest/login
+```
+
+or:
+By:
+```shell
+{protocol}://{server}:{port}/centreon/api/v21.10/login
+```
 
 #### Performances
 
-- Move to PHP 7.3
-- Move to MariaDB 10.5
+- Move to PHP 8.0
+- Preparing Debian 11 support
 
 ## Centreon Engine
 
-### 21.04.0
+### 21.10.0
 
-- Lorsqu'utilisé avec les centreon-connectors, Engine pouvait crasher lorsqu'on l'arrêtait. Cette
-nouvelle version fixe ce problème.
-- Possibilité de soumettre des commandes externes via gRPC.
-
-> **Warning:** Les commandes externes via gRPC sont proposées en version beta. L'API peut encore changer
-dans une prochaine version.
+- Flapping now starts only on non-OK states. Based on PR [#523](https://github.com/centreon/centreon-engine/pull/523)
+- Flapping now starts only for services of UP hosts or for hosts with UP parent. Based on PR [#524](https://github.com/centreon/centreon-engine/pull/524). Fixes Issue [#192](https://github.com/centreon/centreon-engine/issues/192)
+- Provide feedback on gRPC client execution success/failure
 
 ## Centreon Broker
 
-### 21.04.0
+### 21.10.0
 
-> **Problèmes connus**
-> * Streams broker: un même paramètre utilisé dans plusieurs sorties d'un même flux broker ne peut avoir qu'une seule valeur (la dernière exprimée l'emporte).
-> * BAM: les impacts de KPIs de type Meta-Service ne sont pas correctement calculés. Un correctif sera publié très prochainement.
-> * BAM: les impacts de KPIs de tpe BA au statut UNKNOWN ne sont pas correctement calculés. Un correctif sera publié très prochainement.
-
-#### Nouveaux logs broker
-
-- Nouveaux logs avec un nouveau format, les timestamps sont maintenant remplacés par de vraies dates.
-
-> **Warning:** Vous pouvez toujours constater des logs commençant par des timestamps car les anciens
-logs existent toujours. Pour ne plus les avoir, il faut les désactiver.
-
-```log
-[2021-04-16 13:49:06.781] [core] [info] Clearing old connections
-[2021-04-16 13:56:10.985] [core] [info] main: configuration update requested
-```
-
-- New log config options, with a different log level for `core`, `config`, `sql`, `processing`, `perfdata`, `bbdo`, `tcp`, `tls`, `lua`, `bam`.
-- Old logs are still supported, but you are encouraged to abandon them.
-
-#### Autres améliorations
-
-- Support of UInt64 for `id` column of `index_data` table: fixes issues on platforms having a large amount of metrics.
-
-> **Warning:** this change needs cbd service(s) to be stopped during the upgrade to 21.04.0 and all "queue" and "unprocessed" files must be removed.
-
-- Improvement of the acknowledgement of events when broker is shutting down.
+- Queues (in memory and retention files) are now cleared for reversed broker flows without `peer retention` when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
+- [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
+- Broker now only loads the modules that are necessary for its inputs and outputs
+- Old broker log format has been removed
 
 ## Centreon Gorgone
 
-### 21.04.0
+### 21.10.0
 
-- [Core] Better congestion management for communication
+- Compatibility with other 21.10 components.
