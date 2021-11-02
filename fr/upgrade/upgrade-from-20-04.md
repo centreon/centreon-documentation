@@ -150,24 +150,24 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Montée de version des extensions :
 
-2. Redémarrez les processus Centreon :
+    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    toutes les extensions, en commençant par les suivantes :
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Redémarrez les processus Centreon :
 
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Montée de version des extensions :
-
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
-toutes les extensions, en commençant par les suivantes :
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 ### Montée de version du serveur MariaDB
 

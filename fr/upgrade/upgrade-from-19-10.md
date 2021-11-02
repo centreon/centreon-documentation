@@ -229,17 +229,6 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-#### Déployer la configuration
-
-Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
-
-#### Redémarrez les processus Centreon
-
-Redémarrez le processus cbd:
-```shell
-systemctl start cbd
-```
-
 #### Montée de version des extensions
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour

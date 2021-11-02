@@ -203,21 +203,21 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
+with the following:
 
-2. Restart the processes:
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Then you can upgrade all other commercial extensions.
+
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Restart the processes:
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
-with the following:
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Then you can upgrade all other commercial extensions.
 
 ### Upgrade the MariaDB server
 
