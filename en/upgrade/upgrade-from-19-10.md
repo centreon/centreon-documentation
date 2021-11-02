@@ -224,17 +224,6 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-#### Deploy the configuration
-
-See [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
-
-#### Restart Centreon processes
-
-Restart the cbd process:
-```
-systemctl start cbd 
-```
-
 #### Upgrade extensions
 
 From `Administration > Extensions > Manager`, upgrade all extensions, starting
