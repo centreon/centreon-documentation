@@ -102,7 +102,7 @@ By:
 
 ### 21.10.0
 
-- Queue (in memory and retention files) are now cleared when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
+- Queues (in memory and retention files) are now cleared for reversed broker flows without `peer retention` when the connection is reset. This is a change of behavior back to what it should have always been. It will prevent endless retention files for Centreon-Studio (Centreon-Map).
 - [BETA] Centreon-broker is now able to use OpenSSL instead of GNUTLS and allows forcing TLS/SSL version and cipher suite
 - Broker now only loads the modules that are necessary for its inputs and outputs
 - Old broker log format has been removed
