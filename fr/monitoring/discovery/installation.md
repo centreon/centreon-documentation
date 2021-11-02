@@ -19,11 +19,7 @@ Extensions > Manager**.
  avant de procéder à l'installation du module **Auto Discovery**.
 
 4. Cliquez sur l’icône d’installation correspondant au module **Centreon Auto
-Discovery** :
-
-    ![image](../../assets/monitoring/discovery/install-before.png)
-
-    Le module est maintenant installé :
+Discovery**. Le module est maintenant installé :
 
     ![image](../../assets/monitoring/discovery/install-after.png)
 

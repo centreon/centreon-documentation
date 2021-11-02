@@ -30,13 +30,8 @@ yum install centreon-dsm-server centreon-dsm-client
 ```
 
 After installing the rpm, you have to finish the module installation through the web frontend. Go to
-**Administration > Extensions > Manager** menu and search **dsm**:
-
-![image](../../assets/configuration/dsm/module-setup.png)
-
+**Administration > Extensions > Manager** menu and search for **dsm**. Click on **Install selection**.
 Your Centreon DSM Module is now installed.
-
-![image](../../assets/configuration/dsm/module-setup-finished.png)
 
 You can now start and enable the daemon on your server:
 

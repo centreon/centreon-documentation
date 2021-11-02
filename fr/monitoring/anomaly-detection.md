@@ -65,13 +65,10 @@ yum install centreon-anomaly-detection
 ### Installation via l'interface
 
 Rendez-vous dans le menu `Administration > Extensions > Gestionnaire` et
-recherchez **anomaly**. Cliquez sur le bouton **Install selection** :
-
-![imaage](../assets/monitoring/anomaly/install_01.png)
-
+recherchez **anomaly**. Cliquez sur le bouton **Install selection**.
 Le module est maintenant installé :
 
-![imaage](../assets/monitoring/anomaly/install_02.png)
+![image](../assets/monitoring/anomaly/install_02.png)
 
 ### Redémarrage du processus
 
