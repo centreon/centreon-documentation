@@ -51,11 +51,11 @@ If you have feature requests or want to report a bug, please go to our
 - [Resources Status] Make "duration" as the default second sorting criteria
 - [Resources Status] Add link to performance page in detail panel. Based on PR [#9822](https://github.com/centreon/centreon/issues/9822)
 - [Resources Status] Add Graphs panel for Hosts
-- [Resources Status] Warn the user for unsaved changes on BA/BV
 - [Resources Status] Add tooltip to explain grayed options
 - [Resources Status] Improve Custom Columns Name Display
 - [Resources Status] Move Shortcuts from dedicated panel to option within Header
 - [Resources Status] Make configure resource icon always visible
+- [Resources Status] Improve readability of command line displayed
 - [UX] Add Feature Flipping for Resources Status vs Legacy Pages
 - [UX] Downtimes can now be scheduled until 2100
 - [UX] The poller management action buttons are now hidden on Remote Servers
@@ -97,6 +97,7 @@ By:
 
 - Flapping now starts only on non-OK states. Based on PR [#523](https://github.com/centreon/centreon-engine/pull/523)
 - Flapping now starts only for services of UP hosts or for hosts with UP parent. Based on PR [#524](https://github.com/centreon/centreon-engine/pull/524). Fixes Issue [#192](https://github.com/centreon/centreon-engine/issues/192)
+- Provide feedback on gRPC client execution success/failure
 
 ## Centreon Broker
 

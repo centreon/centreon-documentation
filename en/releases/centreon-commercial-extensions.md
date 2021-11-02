@@ -24,7 +24,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
+- [Configuration] Warn the user for unsaved changes on BA/BV
 
 ## Centreon MBI
 
@@ -36,7 +36,6 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
 - Host discovery now handles arrays of objects (Advanced Attributes) in the discovery results
   - Can be used in conditions for every kind of mappers
   - Can be used to name hostgoups, hostcategories
@@ -47,7 +46,6 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.0
 
-- Compatibility with other 21.10 components.
 - An "Update all" button has been added to update all the installed Plugin Packs in one click
 
 ## Centreon License Manager
