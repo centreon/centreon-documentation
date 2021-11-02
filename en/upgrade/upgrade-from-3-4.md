@@ -4,7 +4,7 @@ title: Upgrade from Centreon 3.4
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
-(Centreon Web 2.8) to version 21.04.
+(Centreon Web 2.8) to version 21.10.
 
 > This procedure only applies to Centreon platforms installed from Centreon 3.4
 > packages on CentOS **version 7** distributions.
@@ -12,7 +12,9 @@ This chapter describes how to upgrade your Centreon platform from version 3.4
 > If this is not the case, refer to the
 > [migration procedure](../migrate/migrate-from-3-4.html).
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
@@ -20,9 +22,13 @@ servers:
 - Central server
 - Database server
 
-## Update the RPM signing key
+### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 3.4 (Centreon Web 2.8).
 
 ## Upgrade the Centreon central server
 
@@ -36,6 +42,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Run the following commands:
 
+
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
@@ -47,7 +54,25 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
+### Upgrade PHP
+
+Centreon 21.10 uses PHP in version 8.0.
+
+First, you need to install the **remi** repository:
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Then, you need to enable the php 8.0 repository
+```shell
+yum-config-manager --enable remi-php80
+```
+
 ### Upgrade the Centreon solution
+
+If you have installed Business extensions, update the Business repository to version 21.10.
+Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -73,27 +98,42 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-### Additional actions
-
-#### Update the PHP version
-
-Since 20.04, Centreon uses a new version of PHP.
+Enable and start the **gorgoned** service:
+```shell
+systemctl enable gorgoned
+systemctl start gorgoned
+```
 
 The PHP timezone should be set. Run the command:
-
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-Then, run the following commands:
-
+Execute the following commands:
 ```shell
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
+
+Run the following command:
+```shell
+systemctl status php-fpm
+```
+You may get the following error:
+```shell
+Failed loading /usr/lib64/php/modules/ZendGuardLoader.so: /usr/lib64/php/modules/ZendGuardLoader.so: undefined symbol: _zval_ptr_dtor
+```
+If you do, run:
+```shell
+yum remove php-zend-guard-loader
+```
+
+> If you customized your Apache configuration, the changes brought by the rpm will not be applied automatically. You will need to apply them manually.
+
+### Additional actions
 
 #### Update the Apache web server
 
@@ -206,7 +246,6 @@ lrwxrwxrwx   1 root root      24  1 nov.  17:59 plugins -> /usr/lib/nagios/plugi
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
-
 ```shell
 systemctl reload httpd24-httpd
 ```
@@ -235,17 +274,6 @@ page:
 ![image](../assets/upgrade/web_update_5.png)
 
 ### Post-upgrade actions
-
-#### Deploy the configuration
-
-See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
-
-#### Restart Centreon processes
-
-Restart the cbd process:
-```
-systemctl start cbd
-```
 
 #### Upgrade extensions
 
@@ -418,13 +446,6 @@ Run the following command:
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 

@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.04.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.10.
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -13,7 +13,9 @@ Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.04.
 > Si cela n'est pas le cas, se référer à la
 > [procédure de migration](../migrate/migrate-from-3-4.html).
 
-## Sauvegarde
+## Prérequis
+
+### Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
@@ -21,9 +23,13 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-## Mettre à jour la clé de signature RPM
+### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
+### Mise à jour vers la dernière version mineure
+
+Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 3.4 (Centreon Web 2.8).
 
 ## Montée de version du serveur Centreon central
 
@@ -53,14 +59,32 @@ yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/ce
 > yum install -y centos-release-scl-rh
 > ```
 
+### Montée de version de PHP
+
+Centreon 21.10 utilise PHP en version 8.0.
+
+Vous devez tout d'abord installer les dépôts **remi** :
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Ensuite, vous devez activer le dépôt php 8.0
+```shell
+yum-config-manager --enable remi-php80
+```
+
 ### Montée de version de la solution Centreon
 
-Arrêter le processus Centreon Broker :
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
+Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+
+Arrêtez le processus Centreon Broker :
 ```shell
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présent :
+Supprimez les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -79,28 +103,42 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-### Actions complémentaires
-
-#### Mise à jour de la version de PHP
-
-Depuis la version 20.04, Centreon utilise un nouveau paquet PHP.
-
-Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande
-suivante :
-
+Activez et démarrez le service **gorgoned** :
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+systemctl enable gorgoned
+systemctl start gorgoned
+```
+
+Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
+```shell
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
-Réalisez les actions suivantes :
-
+Exécutez les commandes suivantes :
 ```shell
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
+
+Exécutez la commande suivante :
+```shell
+systemctl status php-fpm
+```
+Il est possible que vous rencontriez l'erreur suivante:
+```shell
+Failed loading /usr/lib64/php/modules/ZendGuardLoader.so: /usr/lib64/php/modules/ZendGuardLoader.so: undefined symbol: _zval_ptr_dtor
+```
+Si c'est le cas, exécutez cette commande :
+```shell
+yum remove php-zend-guard-loader
+```
+
+> Si vous aviez personnalisé votre configuration Apache, les nouvelles modifications contenues dans le fichier amené par le rpm ne seront pas appliquées. Vous devrez les reporter manuellement dans le fichier.
+
+
+### Actions complémentaires
 
 #### Mise à jour du serveur Web Apache
 
@@ -247,17 +285,6 @@ Si le module Centreon BAM est installé, référez-vous à la [documentation
 associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
-
-#### Déployer la configuration
-
-Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
-
-#### Redémarrez les processus Centreon
-
-Redamarrez le processus cbd :
-```
-systemctl start cbd
-```
 
 #### Montée de version des extensions
 
@@ -433,13 +460,6 @@ Exécutez la commande suivante :
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-
-> Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
-> *Software Collections* avec la commande suivante :
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Montée de version de la solution Centreon
 

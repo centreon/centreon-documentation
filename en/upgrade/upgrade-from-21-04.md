@@ -9,7 +9,9 @@ to version 21.10.
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
@@ -17,9 +19,13 @@ servers:
 - Central server
 - Database server
 
-## Update the RPM signing key
+### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 21.04.
 
 ## Upgrade the Centreon Central server
 
@@ -75,6 +81,9 @@ yum-config-manager --enable remi-php80
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
+If you have installed Business extensions, update the Business repository to version 21.10.
+Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
+
 Stop the Centreon Broker process:
 ```shell
 systemctl stop cbd
@@ -122,7 +131,17 @@ systemctl disable rh-php73-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
+
+Or, if you have PHP 7.4:
+```shell
+systemctl stop rh-php74-php-fpm
+systemctl disable rh-php74-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> If you customized your Apache configuration, the changes brought by the rpm will not be applied automatically. You will need to apply them manually.
 
 ### Finalizing the upgrade
 
@@ -169,21 +188,21 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
+with the following:
 
-2. Restart the processes:
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Then you can upgrade all other commercial extensions.
+
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Restart the processes:
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
-with the following:
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Then you can upgrade all other commercial extensions.
 
 ## Upgrade the Remote Servers
 
@@ -200,11 +219,11 @@ Run the following command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 

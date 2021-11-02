@@ -4,7 +4,7 @@ title: Upgrade from Centreon 20.10
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 21.04.
+to version 21.10.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
@@ -18,7 +18,9 @@ to version 21.04.
 > insertion of the data collected into the database during the update. These will be stored in temporary files and then
 > installed at the end of the update process.
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
@@ -26,9 +28,13 @@ servers:
 - Central server
 - Database server
 
-## Update the RPM signing key
+### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 20.10.
 
 ## Upgrade the Centreon Central server
 
@@ -42,30 +48,56 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 Run the following commands:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
+```
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade PHP
 
-Centreon 21.04 use PHP in version 7.3.
+Centreon 21.10 uses PHP in version 8.0.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-You need to change the PHP stream from version 7.2 to 7.3 by executing the following commands and answering **y**
+First, you need to install the **remi** repository:
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
+```
+Then, you need to change the PHP stream from version 7.2 to 8.0 by executing the following commands and answering **y**
 to confirm:
 ```shell
 dnf module reset php
-dnf module install php:7.3
+dnf module install php:remi-8.0
 ```
 <!--CentOS 7-->
-PHP will be updated with Centreon automatically.
+First, you need to install the **remi** repository:
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Then, you need to enable the php 8.0 repository
+```shell
+yum-config-manager --enable remi-php80
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
 
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
+
+If you have installed Business extensions, update the Business repository to version 21.10.
+Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -101,7 +133,7 @@ systemctl restart php-fpm
 <!--CentOS 7-->
 The PHP timezone should be set. Run the command:
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
@@ -111,10 +143,20 @@ Execute the following commands:
 ```shell
 systemctl stop rh-php72-php-fpm
 systemctl disable rh-php72-php-fpm
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
+```
+
+Or, if you have PHP 7.4:
+```shell
+systemctl stop rh-php74-php-fpm
+systemctl disable rh-php74-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> If you customized your Apache configuration, the changes brought by the rpm will not be applied automatically. You will need to apply them manually.
 
 ### Finalizing the upgrade
 
@@ -161,21 +203,21 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-1. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
+with the following:
 
-2. Restart the processes:
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Then you can upgrade all other commercial extensions.
+
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Restart the processes:
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Upgrade extensions. From `Administration > Extensions > Manager`, upgrade all extensions, starting
-with the following:
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Then you can upgrade all other commercial extensions.
 
 ### Upgrade the MariaDB server
 
@@ -193,9 +235,16 @@ The MariaDB components can now be upgraded.
 
 Run the following command on the dedicated DBMS server:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
+```
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Upgrading MariaDB
 
@@ -266,9 +315,16 @@ This procedure is the same than to upgrade a Centreon Central server.
 
 Run the following command:
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--RHEL / CentOS / Oracle Linux 8-->
+```shell
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm 
+```
+<!--CentOS 7-->
 ```shell
 yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Upgrade the Centreon solution
 

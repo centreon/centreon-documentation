@@ -9,7 +9,9 @@ Centreon depuis la version 21.04 vers la version 21.10.
 > Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.html)
 
-## Sauvegarde
+## Prérequis
+
+### Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
@@ -17,9 +19,13 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-## Mettre à jour la clé de signature RPM
+### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
+### Mise à jour vers la dernière version mineure
+
+Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 21.04.
 
 ## Montée de version du serveur Centreon Central
 
@@ -77,6 +83,9 @@ yum-config-manager --enable remi-php80
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
+Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+
 Arrêter le processus Centreon Broker :
 ```shell
 systemctl stop cbd
@@ -124,7 +133,18 @@ systemctl disable rh-php73-php-fpm
 systemctl enable php-fpm
 systemctl start php-fpm
 ```
+
+Ou, si votre version de PHP est la 7.4 :
+
+```shell
+systemctl stop rh-php74-php-fpm
+systemctl disable rh-php74-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
+```
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+> Si vous aviez personnalisé votre configuration Apache, les nouvelles modifications contenues dans le fichier amené par le rpm ne seront pas appliquées. Vous devrez les reporter manuellement dans le fichier.
 
 ### Finalisation de la mise à jour
 
@@ -170,24 +190,24 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Montée de version des extensions :
 
-2. Redémarrez les processus Centreon :
+    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    toutes les extensions, en commençant par les suivantes :
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Redémarrez les processus Centreon :
 
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Montée de version des extensions :
-
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
-toutes les extensions, en commençant par les suivantes :
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 ## Montée de version des Remote Servers
 
