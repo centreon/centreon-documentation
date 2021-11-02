@@ -48,7 +48,7 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 - [Resources Status] Add "Last OK" tile within Details panel
 - [Resources Status] Persist user selected number of rows displayed
 - [Resources Status] Make "duration" as the default second sorting criteria
-- [Resources Status] Add link to performance page in detail panel
+- [Resources Status] Add link to performance page in detail panel. Based on PR [#9822](https://github.com/centreon/centreon/issues/9822)
 - [Resources Status] Add Graphs panel for Hosts
 - [Resources Status] Warn the user for unsaved changes on BA/BV
 - [Resources Status] Add tooltip to explain grayed options
