@@ -1,12 +1,9 @@
 ---
 id: introduction
-title: Centreon Platform 21.10.0
+title: Centreon Platform 21.10
 ---
 
-Release date: November 2021
-
-You'll find in this chapter the global **Centreon Platform 21.10** release
-note.
+You'll find in this chapter the global **Centreon Platform 21.10** release note.
 
 To access detailed release note by component, use the following sections:
 
