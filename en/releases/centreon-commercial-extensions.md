@@ -41,7 +41,7 @@ If you have feature requests or want to report a bug, please contact support.
   - Can be used in conditions for every kind of mappers
   - Can be used to name hostgoups, hostcategories
   - Use cases: Cloud tags (Azure, AWS), network services discovered by Nmap, VMware IP addresses
-- A warning sign appears with a tooltip in front of the discovered hosts that could not be added by the discovery job because it already existed
+- A warning sign appears with a tooltip in front of the discovered hosts that could not be added by the discovery job because they already existed
 
 ## Centreon Plugin Packs Manager
 
