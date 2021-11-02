@@ -364,10 +364,6 @@ Allez à la page **Centreon > Administration > Extensions** et cliquez sur le bo
 - License Manager (*si pas encore installé*)
 - Map Web Client
 
-![image](../assets/graph-views/install-web-step-1.png)
-
-Vous pouvez voir une bande rouge demandant une licence.
-
 Téléchargez la licence **map.license** fournie par l'équipe support. Rafraîchissez la page :
 la bannière doit être verte avec la date de validité de la licence.
 
@@ -483,79 +479,6 @@ de mise à jour en ligne. Lorsqu'il se connecte à un serveur Centreon MAP, il t
 et installe automatiquement la dernière version compatible avec le serveur.
 La mise à jour automatique nécessite que votre ordinateur ait accès à internet.
 
-## Centreon MAP NG
-
-Le serveur est en **phase expérimentale** et est susceptible d'évoluer.
-
-Il n'est actuellement utilisé que pour la visualisation de cartes.
-La création et l'édition de cartes utilisent toujours le serveur tel que nous le connaissons.
-
-### Serveur
-
-Le serveur Centreon MAP NG est disponible sur le même dépôt que le serveur habituel.
-
-Pour commencer, installez le serveur en utilisant la commande suivante :
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
-
-```shell
-dnf install centreon-map-server-ng
-```
-<!--CentOS 7-->
-
-```shell
-yum install centreon-map-server-ng
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-Et procédez à la configuration avec la commande suivante :
-
-```shell
-/etc/centreon-map/configure.sh
-```
-
-La configuration est exactement la même que celle du serveur habituel, mais elle est stockée
-dans le dossier **/etc/centreon-map/**.
-
-> Le port d'écoute par défaut est **8081**.
-
-Si la configuration est correcte, le serveur peut être démarré :
-
-```shell
-systemctl restart centreon-map-ng
-```
-
-Permettez au service d'être démarré automatiquement au démarrage du serveur :
-
-```shell
-systemctl enable centreon-map-ng
-```
-
-### Client
-
-Le client ne nécessite aucune autre installation que celle du client web Centreon MAP.
-
-Cependant, de nouvelles options sont disponibles dans la page **Administration > Extensions > Options** :
-
-- Un champ de saisie pour l'adresse IP et le port du serveur NG,
-- Une bascule "oui/non" pour choisir si le nouveau serveur doit être utilisé pour afficher les cartes.
-
-![image](../assets/graph-views/ng/configuration-ng-server-map.png)
-
-À la page **Monitoring > Map**, de nouvelles actions permettent de lancer des synchronisations :
-- Ressources du serveur de production vers le serveur NG
-- Cartes standard
-- Geoviews
-- ACLs
-- Images
-
-La progression de la synchronisation peut ensuite être suivie à partir de cette même page.
-
-![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
-
-> À chaque synchronisation, toutes les ressources sont supprimées et réimportées.
 
 ## Sécurisez votre plateforme
 
