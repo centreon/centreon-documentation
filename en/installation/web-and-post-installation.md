@@ -41,7 +41,7 @@ Then click on **Next**.
 Provide the information needed to connect to the database instance.
 
 By default, the instance address is set to *localhost*, the instance root
-user is set to *root* and the root password is empty. Since MariaDB 10.5, it has been mandatory to add a password for the root user as indicated in [Secure the DBMS installation] (../administration/secure-platform.html#securing-the-installation-of-the-dbms) and the various installation methods. The password configured in the mysql_secure_installation method will be used for the root password. 
+user is set to *root* and the root password is empty. Since MariaDB 10.5, it has been mandatory to add a password for the root user as indicated in [Secure the DBMS installation](../administration/secure-platform.html#securing-the-installation-of-the-dbms) and the various installation methods. The password configured in the mysql_secure_installation method will be used for the root password. 
 
 > If you use a remote database server, or use a specific root user, change
 > these entries
