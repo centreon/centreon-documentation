@@ -82,7 +82,7 @@ Release date: `null`
 
 #### Improvements
 
-- Improve the way host discovery providers will be identified as compatible
+- Improve the way host discovery providers are identified as compatible with the current version of autodiscovery
 
 
 ### 21.04.1
