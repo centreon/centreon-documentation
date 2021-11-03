@@ -9,6 +9,10 @@ Installer un Remote Server est similaire à l'installation d'un serveur Centreon
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.html)
 
+## Prérequis
+
+Téléchargez l'ISO sur le [site de téléchargement de Centreon](https://download.centreon.com/).
+
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
