@@ -321,7 +321,7 @@ If you have installed the Centreon server with a local database, since MariaDB 1
 before installing Centreon.
 
 Answer yes to all questions except "Disallow root login remotely?". It is mandatory
-to set a password for the **root** user of the database.
+to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation
@@ -459,7 +459,7 @@ You will receive the validation of the Centreon central server:
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
 ```
 
-### Main errors messages
+### Main error messages
 
 ``` shell
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
