@@ -370,7 +370,7 @@ systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon. Répondez oui à toute question sauf à "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../installation/web-and-post-installation.html).
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation
