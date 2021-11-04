@@ -144,7 +144,7 @@ systemctl start php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Mettre à jour la configuration Apache personnalisée
+### Mettre à jour une configuration Apache personnalisée
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
