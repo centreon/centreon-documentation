@@ -344,6 +344,7 @@ sécuriser son installation avant d'installer Centreon.
 
 Répondez oui à toute question sauf "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation
