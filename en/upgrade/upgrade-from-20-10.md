@@ -156,7 +156,28 @@ systemctl start php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> If you customized your Apache configuration, the changes brought by the rpm will not be applied automatically. You will need to apply them manually.
+### Update your customized Apache configuration
+
+This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace tha old file. You must copy the changes manually to your customized configuration file.
+
+Run a diff between the old and the new Apache configuration files:
+
+```
+diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by version 21.10, e.g. the **authentication** string in the **LocationMatch** directive
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
+
+For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+In particular, make sure your customized Apache configuration contains the following directive (with **authentication**).
+
+```
+<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+</LocationMatch>
+```
 
 ### Finalizing the upgrade
 
