@@ -442,6 +442,13 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
+
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
