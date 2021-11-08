@@ -364,6 +364,13 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
+
 ### Post-upgrade actions
 
 Due to new configuration file format for Engine's Broker module, the
