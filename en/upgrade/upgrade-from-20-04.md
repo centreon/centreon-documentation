@@ -293,6 +293,13 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
+
 ## Secure your platform
 
 Don't forget to secure your Centreon platform following our

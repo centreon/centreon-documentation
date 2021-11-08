@@ -369,3 +369,10 @@ yum update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+
+Démarrez et activez **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
