@@ -21,6 +21,26 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.13
 
+#### Enhancements
+
+- [CEIP] Product Adoption component integration
+- [Core] Add Feature Flipping for Resources Status vs Legacy Pages
+- [Core] Compatibility PHP 7.4
+
+#### Bug fixes
+
+- [Authentication] Fixed user information retrieval method for OpenId
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI cannot be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when user don't have notifications enabled
+- [Configuration] Massive changes on hosts reset untouched values
+- [Configuration] Unwanted empty string parameter for LUA output in Broker configuration
+- [Custom Views] Can't share views with LDAP groups
+- [Discovery] Error message when filling credentials in job as side-effect of a change regarding downtimes
+- [Downtime] Impossible to set a downtime with french GUI
+- [Downtime] Planned downtimes are shown if one downtime is started
+- [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
+- [UX] Do not display orphan menus in UI
+
 #### Security fixes
 
 - CSRF - delete any command
