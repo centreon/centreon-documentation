@@ -77,7 +77,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.04.2
 
-Release date: `null`
+Release date: `September 9, 2021`
 
 #### Improvements
 
