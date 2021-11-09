@@ -439,6 +439,7 @@
                     "integrations/plugin-packs/procedures/applications-mail-bluemind",
                     "integrations/plugin-packs/procedures/applications-mulesoft-restapi",
                     "integrations/plugin-packs/procedures/applications-netbackup-nsclient-05-restapi",
+		    "integrations/plugin-packs/procedures/applications-netbackup-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-netdata-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-nginx-serverstatus",
                     "integrations/plugin-packs/procedures/applications-nginx-plus-restapi",
