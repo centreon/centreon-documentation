@@ -21,6 +21,35 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.8
 
+#### Enhancements
+
+- [Authentication] Add possibility to define complete URL for endpoints
+- [Authentication] Allow to define no redirect URL. Based on [PR #9877](https://github.com/centreon/centreon/pull/9877)
+- [Authentication] Implement client_secret_basic as token_endpoint_auth_method. Based on [PR #9878](https://github.com/centreon/centreon/pull/9878)
+- [CEIP] Product Adoption component integration
+- [Configuration] Add the ability to set the expected TLS common name in broker configuration
+- [Core] Add Feature Flipping for Resources Status vs Legacy Pages
+- [Core] Compatibility PHP 7.4
+
+#### Bug fixes
+
+- [Authentication] Fixed user information retrieval method for OpenId
+- [Backup] Fixed backup using LVM snapshot
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI cannot be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when user don't have notifications enabled
+- [Configuration] Macro as Password not working with snmpv3 extraoptions
+- [Configuration] Massive changes on hosts reset untouched values
+- [Configuration] Unwanted empty string parameter for LUA output in Broker configuration
+- [Custom Views] Can't share views with LDAP groups
+- [Downtime] Impossible to set a downtime with french GUI
+- [Downtime] Planned downtimes are shown if one downtime is started
+- [Downtime] fixed PHP fatal error when saving a downtime on a hostgroup
+- [Graph] Fixed wrong scale and metric value with negative values
+- [Knowledge Base] Get correct link from template
+- [Resources Status] Fixed wierd behaviord of the ressources status page when applying filters and ordering by a specific column.
+- [Resources Status] Performance chart not displayed reliably on firefox
+- [UX] Do not display orphan menus in UI
+
 #### Security fixes
 
 - CSRF - delete any command
@@ -31,6 +60,11 @@ If you have feature requests or want to report a bug, please go to our
 - CSRF - delete any contactGroup
 - CSRF vulnerability allowing to delete any user	
 - CSRF vulnerability allowing to delete many kinds of objects
+
+#### Performance
+
+- Improve realtime API with ACL
+- SQL optimisations for Resource Status page
 
 ### 21.04.7
 
