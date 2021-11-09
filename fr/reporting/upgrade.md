@@ -25,7 +25,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Étape 1 : Montée de version du paquet
 
-Lors d'une montée de version majeure (ex: 20.10.x à 21.04.x) il faut en premier lieu mettre à jour
+Lors d'une montée de version majeure (ex: 20.10.x à 21.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
