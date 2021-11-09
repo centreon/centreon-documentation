@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Documentation Centreon',
   tagline: '',
-  url: 'https://docs-dev.centreon.com',
+  url: 'https://docs-production.centreon.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -76,7 +76,6 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        //appId: 'BH4D9OD16A',
         apiKey: '2c8912e81dc56e382c3964f26634e056',
         indexName: 'centreon',
         contextualSearch: true,
