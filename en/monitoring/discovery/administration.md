@@ -15,7 +15,7 @@ title: Administration
 >
 > Discovered hosts through those tasks will remain.
 >
-> Upgrading to 21.10 will keep all data stored since 20.04.
+> Upgrading to 21.04 will keep all data stored since 20.04.
 
 1. To update the module, run the following command:
 
