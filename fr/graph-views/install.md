@@ -48,10 +48,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-La version du logiciel Centreon requise pour la compatibilité avec Centreon
-MAP est **Centreon 21.04**.
-
-**Centreon doit être installé à partir des paquets RPM.**
+Le serveur central et Centreon MAP doivent être dans la même version majeure (c'est-à-dire tous les deux en 21.10.x).
 
 ### Centreon MAP Server
 
@@ -406,7 +403,7 @@ et cliquez sur le bouton **Installer** du widget. Voici le résultat après l'in
 Le client Desktop est actuellement disponible uniquement pour Windows **64-bit**, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Monitoring > Map > Desktop Client** ou
-[ici](https://download.centreon.com/?action=product&product=centreon-map&version=21.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > Pour des raisons de performance, nous recommandons fortement d'avoir moins de 5 à 10
 > utilisateurs maximum connectés en même temps, manipulant des vues.

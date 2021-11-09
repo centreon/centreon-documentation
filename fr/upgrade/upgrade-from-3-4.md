@@ -250,7 +250,7 @@ systemctl restart httpd24-httpd
 
 ### Synchronisation des plugins
 
-> La macro de ressource $USER1$ de Centreon 21.04 pointe à présent sur
+> La macro de ressource $USER1$ de Centreon 21.10 pointe à présent sur
 > /usr/lib64/nagios/plugins.
 
 Afin de résoudre cette situation, lancez les commandes suivantes:
