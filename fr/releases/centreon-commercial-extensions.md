@@ -78,7 +78,7 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.2
 
-Release date: `null`
+Release date: `9 septembre 2021`
 
 #### Improvements
 
