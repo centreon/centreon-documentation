@@ -19,7 +19,13 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
-### 20.10.20
+### 20.04.20
+
+#### Bug fixes
+
+- [Configuration] Massive changes on hosts reset untouched values
+- [Custom Views] Can't share views with LDAP groups
+- [Downtime] Impossible to set a downtime with french GUI
 
 #### Security fixes
 
