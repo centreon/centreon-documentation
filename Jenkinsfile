@@ -12,6 +12,7 @@ pipeline {
       stage('Build documentation') {
         steps {
           echo 'Using yarn to build documentation'
+          sh 'node --version && npm --version'
           sh 'yarn build'
         }
       }
