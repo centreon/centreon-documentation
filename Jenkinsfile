@@ -5,7 +5,7 @@ pipeline {
       stage('Install documentation dependencies') {
         steps {
           echo 'Using Yarn to install dependencies'
-          sh 'yarn install'
+          sh 'yarn install --verbose'
         }
       }
 
