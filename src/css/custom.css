@@ -39,8 +39,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   display: none!important;
 }
 
-.alert {
+.alert--warning {
   display: none!important;
+}
+
+.alert {
+  /*display: none!important;*/
 }
 
 html[data-theme='light'] .DocSearch {

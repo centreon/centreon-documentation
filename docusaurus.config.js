@@ -6,13 +6,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Centreon',
-  tagline: 'Documentation',
+  title: 'Documentation Centreon',
+  tagline: '',
   url: 'https://docs-dev.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  trailingSlash: false, // Dont'use !
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
   projectName: 'Centreon Documentation', // Usually your repo name.
@@ -39,20 +38,17 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          admonitions: {},
           // Please change this to your repo.
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/v2-docusaurus/',
           showLastUpdateTime: true,
           onlyIncludeVersions: ['21.04', '20.10', '20.04'],
           versions: {
             '21.04': {
-              label: '⭐️  21.04',
+              label: '⭐️ 21.04',
             },
           },
         },
-        /*sitemap: {
-          changefreq: 'weekly',
-          priority: 0.5,
-        },*/
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -63,29 +59,49 @@ const config = {
   themes: ['@docusaurus/theme-live-codeblock'],
 
   plugins: [
-    'plugin-image-zoom',
-    /*[
-      '@docusaurus/plugin-client-redirects',
+    [
+      '@docusaurus/plugin-ideal-image',
       {
-        toExtensions: ['html'],
+        quality: 70,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 2, // the max number of images generated between min and max (inclusive)
       },
-    ],*/
+    ],
+    'plugin-image-zoom'
   ],
-  
+
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        // Si Algolia ne vous a pas fourni d'appId, utilisez 'BH4D9OD16A'.
         //appId: 'BH4D9OD16A',
-        apiKey: '1d458ferf5524803d788544azs86d',
-        indexName: 'devcentreon',
+        apiKey: '2c8912e81dc56e382c3964f26634e056',
+        indexName: 'centreon',
+        contextualSearch: true,
+        algoliaOptions: {
+          'facetFilters': ["tags:dev"]
+        },
       },
+
+      googleAnalytics: {
+        trackingID: 'UA-8418698-13',
+        anonymizeIP: true,
+      },
+
       liveCodeBlock: {
         playgroundPosition: 'bottom',
       },
+
       zoomSelector: '.markdown img',
+      hideableSidebar: true,
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+
       navbar: {
         hideOnScroll: false,
         title: 'Centreon Docs',
@@ -97,7 +113,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'getting-started/first-steps',
+            docId: 'getting-started/installation-first-steps',
             position: 'right',
             label: 'Documentation',
           },
@@ -121,46 +137,31 @@ const config = {
             position: 'right',
           },
           /*{to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },*/
+          {href: '', label: 'GitHub', position: 'right'},*/
         ],
       },
       footer: {
         style: 'dark',
         links: [
           {
-            items: [
-              {
-                html: `
-                <a href="https://centreon.com/en/" target="_blank" rel="noreferrer noopener" title="Go to Centreon Corporate Website">
-                  <img src="/img/logo-centreon.png" alt="Centreon Open Source Logo" />
-                </a>
-              `,
-              },
-            ],
-          },
-          {
             title: 'Documentation',
             items: [
               {
                 label: 'Getting Started',
-                to: '/docs/getting-started/first-steps',
+                to: '/docs/getting-started/installation-first-steps',
               },
               {
                 label: 'API References',
-                to: '#',
+                to: '/docs/api/introduction',
               },
               {
                 label: 'Releases',
-                to: '#',
+                to: '/docs/releases/introduction',
               },
             ],
           },
           {
-            title: 'Ressources',
+            title: 'Resources',
             items: [
               {
                 label: 'Corporate Website',
@@ -190,12 +191,11 @@ const config = {
             ],
           },
         ],
-        /*logo: {
+        logo: {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo-centreon.png',
-          href: 'https://centreon.com/en/',
-        },*/
-        copyright: `Copyright © ${new Date().getFullYear()} Centreon`,
+        },
+        copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
       },
       prism: {
         theme: lightCodeTheme,

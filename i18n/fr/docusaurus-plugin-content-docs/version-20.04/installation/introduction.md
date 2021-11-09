@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+id: introduction
 title: Introduction
 ---
 
@@ -20,10 +20,10 @@ la communauté.
 Avant toute installation
 
 1.  Veillez à bien suivre les [pré-requis
-    d'installation](#) et de dimensionnement
+    d'installation](prerequisites) et de dimensionnement
     (ressources CPU, mémoire, disques, partitionnement, etc...)
 2.  Prenez également soin de bien choisir le [type
-    d'architecture](#) qu'il convient d'utiliser pour vos besoins.
+    d'architecture](architectures) qu'il convient d'utiliser pour vos besoins.
 3.  [Téléchargez Centreon](https://download.centreon.com/)
 4.  Enfin, vous pourrez procéder à l'installation de la plate-forme.
 
@@ -31,5 +31,5 @@ Pour tester rapidement Centreon à partir d'un serveur CentOS / Oracle Linux / R
 en version 8, vous pouvez exécuter la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/master/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/21.04.x/unattended.sh | sh
 ```

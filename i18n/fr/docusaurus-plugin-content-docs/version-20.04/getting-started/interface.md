@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+id: interface
 title: Découvrir l'interface web Centreon
 ---
 
@@ -23,7 +23,7 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 ![image](../assets/getting-started/amenu.png)
 
-* Le menu **Accueil** affiche les [vues personnalisées](#). Votre espace de travail peut être vide pour l'instant. Une fois que vous aurez configuré les widgets
+* Le menu **Accueil** affiche les [vues personnalisées](create-custom-view). Votre espace de travail peut être vide pour l'instant. Une fois que vous aurez configuré les widgets
   personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
 * Le menu **Supervision** regroupe l'état de tous les éléments supervisés en temps réel et en différé au travers de la
   visualisation des logs.
@@ -46,4 +46,4 @@ Puis cliquez sur **Save**. Votre interface est maintenant traduite dans votre
 langue.
 
 > Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [How to translate Centreon](#) pour plus d'informations.
+> Rendez-vous dans le chapitre [How to translate Centreon](../developer/developer-translate-centreon) pour plus d'informations.
