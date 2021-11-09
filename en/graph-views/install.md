@@ -51,8 +51,6 @@ The diagram below summarizes the architecture:
 
 The central server and Centreon MAP must be installed in the same major versions (i.e. both in 21.10.x).
 
-**Centreon must be installed using the RPM packages.**
-
 ### Centreon MAP Server
 
 #### License
