@@ -16,12 +16,19 @@ pipeline {
         }
       }
 
-      stage('Deploy documentation') {
-        when { branch 'staging' }        
+      stage('Deploy documentation to staging') {
+        when { branch 'staging' }       
         steps {
-          input message: 'Deploying to staging ? (Click "Proceed" to continue)'
-          sh 'aws s3 sync --delete build s3://centreon-documentation-staging/'
-          sh 'aws cloudfront create-invalidation --distribution-id E2RGAHPD1BRMW0 --paths "/*"'
+          sh 'aws s3 sync --delete build s3://blablablal/'
+          sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
+        }
+      }
+      stage('Deploy documentation to production') {
+        when { branch 'production' }       
+        steps {
+          input message: 'Deploying to production ? (Click "Proceed" to continue)'
+          sh 'aws s3 sync --delete build s3://blablablal/'
+          sh 'aws cloudfront create-invalidation --distribution-id E3T0F281DYJGMK --paths "/*"'
         }
       }
     } 
