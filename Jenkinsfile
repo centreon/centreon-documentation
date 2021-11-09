@@ -5,17 +5,16 @@ pipeline {
       stage('Install documentation dependencies') {
         steps {
           echo 'Using Yarn to install dependencies'
+          sh 'npm cache clean -f && npm install -g n && n latest'
           sh 'yarn install'
         }
       }
-
       stage('Build documentation') {
         steps {
           echo 'Using yarn to build documentation'
           sh 'yarn build'
         }
       }
-
       stage('Deploy documentation to staging') {
         when { branch 'staging' }       
         steps {
