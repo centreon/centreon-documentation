@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent { label 'aws' } 
     stages {
 
       stage('Install documentation dependencies') {
