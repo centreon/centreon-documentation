@@ -198,7 +198,7 @@ Alias /centreon /usr/share/centreon/www/
 +  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 +</LocationMatch>
 
-+<LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
++<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
 +  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 +</LocationMatch>
 
