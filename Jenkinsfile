@@ -17,13 +17,7 @@ pipeline {
       }
 
       stage('Deploy documentation') {
-        when {
-          expression { BRANCH_NAME == 'staging' }
-            anyOf {
-              environment name: 'DEPLOY_TO', value: 'production'
-              environment name: 'DEPLOY_TO', value: 'staging'
-            }
-        }
+        when { branch 'staging' }        
         steps {
           input message: 'Deploying to staging ? (Click "Proceed" to continue)'
           sh 'aws s3 sync --delete build s3://centreon-documentation-staging/'
