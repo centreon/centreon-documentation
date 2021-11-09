@@ -4,8 +4,8 @@ pipeline {
 
       stage('Install documentation dependencies') {
         steps {
-            echo 'Using Yarn to install dependencies'
-            sh 'yarn install'
+          echo 'Using Yarn to install dependencies'
+          sh 'yarn install'
         }
       }
 
