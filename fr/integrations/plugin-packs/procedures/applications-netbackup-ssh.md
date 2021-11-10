@@ -10,6 +10,18 @@ title: Netbackup SSH
 Le Plugin Pack inclue la supervision du statut tâches, l'utilisation des cassets, le nettoyage des devices, et le status des devices
 utilisant des commandes systèmes.
 
+### Règles de découvertes 
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                                     | Description                                               |
+| :-------------------------------------------- | :-------------------------------------------------------- |
+| App-Netbackup-Job-Per-Policy                  | Découverte des tâches par règles (policy)                 |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Métriques collectées
 
 <!--DOCUSAURUS_CODE_TABS-->
