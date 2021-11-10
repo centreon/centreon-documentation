@@ -32,16 +32,16 @@ Release date: `November 10, 2021`
 #### Bug fixes
 
 - [Authentication] Fixed user information retrieval method for OpenId
-- [CLAPI] Fixed recurrent downtimes exported with CLAPI cannot be imported with CLAPI
-- [Configuration] Avoid blocking configuration generation when user don't have notifications enabled
-- [Configuration] Massive changes on hosts reset untouched values
-- [Configuration] Unwanted empty string parameter for LUA output in Broker configuration
-- [Custom Views] Can't share views with LDAP groups
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI that could not be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when users don't have notifications enabled
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Configuration] Fixed empty string parameter for LUA output in Broker configuration
+- [Custom Views] Fixed sharing of views with LDAP groups
 - [Discovery] Error message when filling credentials in job as side-effect of a change regarding downtimes
-- [Downtime] Impossible to set a downtime with french GUI
-- [Downtime] Planned downtimes are shown if one downtime is started
+- [Downtime] Fixed display of planned downtimes when one downtime is started
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
 - [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
-- [UX] Do not display orphan menus in UI
+- [UX] Fixed menus by no longer displaying orphaned items
 
 #### Security fixes
 
