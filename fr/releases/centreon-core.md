@@ -22,9 +22,9 @@ commerciales, vous pouvez vous rendre sur notre
 
 #### Bug fixes
 
-- [Configuration] Massive changes on hosts reset untouched values
-- [Custom Views] Can't share views with LDAP groups
-- [Downtime] Impossible to set a downtime with french GUI
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Custom Views] Fixed sharing of views with LDAP groups
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
 
 #### Security fixes
 
