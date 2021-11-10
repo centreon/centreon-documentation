@@ -9,6 +9,18 @@ title: Netbackup SSH
 
 The Centreon Plugin Pack includes monitoring of job status, tape usage, drive cleaning, and drvie status using system commands.
 
+### Discovery Rules
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--Services-->
+
+| Rule name                                 | Description                                 |
+| :---------------------------------------- | :------------------------------------------ |
+| App-Netbackup-Job-Per-Policy              | Discover Job  per policy                    |
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
 ### Collected Metrics
 
 <!--DOCUSAURUS_CODE_TABS-->
