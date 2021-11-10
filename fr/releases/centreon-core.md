@@ -35,20 +35,20 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Authentication] Fixed user information retrieval method for OpenId
 - [Backup] Fixed backup using LVM snapshot
-- [CLAPI] Fixed recurrent downtimes exported with CLAPI cannot be imported with CLAPI
-- [Configuration] Avoid blocking configuration generation when user don't have notifications enabled
-- [Configuration] Macro as Password not working with snmpv3 extraoptions
-- [Configuration] Massive changes on hosts reset untouched values
-- [Configuration] Unwanted empty string parameter for LUA output in Broker configuration
-- [Custom Views] Can't share views with LDAP groups
-- [Downtime] Impossible to set a downtime with french GUI
-- [Downtime] Planned downtimes are shown if one downtime is started
-- [Downtime] fixed PHP fatal error when saving a downtime on a hostgroup
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI that could not be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when users don't have notifications enabled
+- [Configuration] Fixed empty string parameter for LUA output in Broker configuration
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Configuration] Fixed the hiding of custom macros containing many options in the display of the command
+- [Custom Views] Fixed sharing of views with LDAP groups
+- [Downtime] Fixed PHP fatal error when saving a downtime on a hostgroup
+- [Downtime] Fixed display of planned downtimes when one downtime is started
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
 - [Graph] Fixed wrong scale and metric value with negative values
 - [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
+- [Resources Status] Fixed display of performance chart with Firefox
 - [Resources Status] Fixed weird behaviors of the ressources status page when applying filters and ordering by a specific column.
-- [Resources Status] Performance chart not displayed reliably on firefox
-- [UX] Do not display orphan menus in UI
+- [UX] Fixed menus by no longer displaying orphaned items
 
 ### 21.04.7
 
