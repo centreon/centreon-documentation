@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.13
 
+Release date: '10 novembre 2021'
+
 #### Enhancements
 
 - [CEIP] Product Adoption component integration
