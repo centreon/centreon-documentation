@@ -46,7 +46,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Downtime] fixed PHP fatal error when saving a downtime on a hostgroup
 - [Graph] Fixed wrong scale and metric value with negative values
 - [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
-- [Resources Status] Fixed wierd behaviord of the ressources status page when applying filters and ordering by a specific column.
+- [Resources Status] Fixed weird behaviors of the ressources status page when applying filters and ordering by a specific column.
 - [Resources Status] Performance chart not displayed reliably on firefox
 - [UX] Do not display orphan menus in UI
 
