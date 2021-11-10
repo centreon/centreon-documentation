@@ -5,14 +5,14 @@ pipeline {
       stage('Install documentation dependencies') {
         steps {
           echo 'Using Yarn to install dependencies'
-          sh 'sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
+          sh 'cd .. && sudo npm cache clean -f && sudo npm install -g n && sudo n latest'
           sh 'yarn install'
         }
       }
       stage('Build documentation') {
         steps {
           echo 'Using yarn to build documentation'
-          sh 'node --version && npm --version'
+          sh 'export NODE_OPTIONS=--max_old_space_size=8192'
           sh 'yarn build'
         }
       }
