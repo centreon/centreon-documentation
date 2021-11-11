@@ -7,8 +7,6 @@ title: Elastic events
 
 Elasticsearch events stream connector sends events related data to Elasticsearch
 
-![architecture](../../assets/integrations/stream-connectors/sc-elasticsearch-events-architecture.png)
-
 ## Compatibility
 
 **to be determined**
