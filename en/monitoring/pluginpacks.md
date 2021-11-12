@@ -56,29 +56,30 @@ Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
 
 ## Installing a Plugin Pack
 
-Installation is a 4-step process:
+Installing a plugin pack is a 4-step process:
 
-1. Access the Plugin Packs catalog.
-2. Install the pack.
-3. Check the monitoring procedure.
-4. Install the plugin.
+1. Accessing the Plugin Packs catalog.
+2. Installing the pack.
+3. Checking the monitoring procedure.
+4. Installing the plugin.
 
 ### Accessing the Plugin Packs catalog
 
 * If you have an online [license](../administration/licenses.html), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
 
-* If you have an offline license, you need to install 
-or update the Plugin Packs catalog from your Centreon Central server:
+* If you have an offline license:
+    - install the Plugin Packs repository (contact the [Centreon support team](https://centreon.force.com/) for its address)
+    - install or update the Plugin Packs catalog from your Centreon Central server:
 
-  ```shell
-  yum install centreon-pack-*
-  ```
+      ```shell
+      yum install centreon-pack-*
+      ```
 
-  or:
+      or:
 
-  ```shell
-  yum update centreon-pack-*
-  ```
+      ```shell
+      yum update centreon-pack-*
+      ```
 
 > Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
 
