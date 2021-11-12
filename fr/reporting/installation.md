@@ -77,7 +77,7 @@ serveur de reporting pour des questions de performances & d'isolation.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon Web 21.04
+- Centreon Web 21.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -88,7 +88,7 @@ serveur de reporting pour des questions de performances & d'isolation.
   - wait_timeout
   - interactive_timeout
 <!--CentOS 7-->
-- Centreon Web 21.04
+- Centreon Web 21.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/opt/rh/rh-php73/php.ini` (même que celui retourné par la commande
   `timedatectl status`)
