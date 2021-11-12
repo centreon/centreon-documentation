@@ -244,7 +244,7 @@ systemctl restart httpd24-httpd
 
 ### Synchronize the plugins
 
-> Centreon Web 21.04 resource $USER1$ actually points to
+> Centreon Web 21.10 resource $USER1$ actually points to
 > /usr/lib64/nagios/plugins.
 
 To mitigate this issue run the following commands:
