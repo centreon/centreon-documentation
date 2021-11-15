@@ -21,7 +21,6 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.10.13
 
-Release date: `November 10, 2021`
 
 #### Enhancements
 
