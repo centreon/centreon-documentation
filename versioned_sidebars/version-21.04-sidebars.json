@@ -850,6 +850,10 @@
       "label": "Plugin Packs",
       "items": [
         {
+          "type": "doc",
+          "id": "version-21.04/integrations/plugin-packs/introduction"
+        },
+        {
           "type": "category",
           "label": "Tutorials",
           "items": [

@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Documentation Centreon',
+  title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs-production.centreon.com/',
   baseUrl: '/',
@@ -40,7 +40,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           admonitions: {},
           // Please change this to your repo.
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/v2-docusaurus/',
+          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           showLastUpdateTime: true,
           onlyIncludeVersions: ['21.04', '20.10', '20.04'],
           versions: {

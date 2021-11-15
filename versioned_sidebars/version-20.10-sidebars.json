@@ -850,6 +850,10 @@
       "label": "Plugin Packs",
       "items": [
         {
+          "type": "doc",
+          "id": "version-20.10/integrations/plugin-packs/introduction"
+        },
+        {
           "type": "category",
           "label": "Tutorials",
           "items": [
