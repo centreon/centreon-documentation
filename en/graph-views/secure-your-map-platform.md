@@ -156,7 +156,7 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
-To create self-signed certificate, you can create one using the following commands: 
+To create a self-signed certificate, you can use the following commands: 
 
 ```text
 openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
