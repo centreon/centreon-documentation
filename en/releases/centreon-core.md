@@ -37,7 +37,7 @@ Release date: `November 10, 2021`
 - [Configuration] Fixed reset untouched values using massive changes on hosts
 - [Configuration] Fixed empty string parameter for LUA output in Broker configuration
 - [Custom Views] Fixed sharing of views with LDAP groups
-- [Discovery] Error message when filling credentials in job as side-effect of a change regarding downtimes
+- [Discovery] Fixed an issue causing error messages when filling credentials in a Host Discovery job
 - [Downtime] Fixed display of planned downtimes when one downtime is started
 - [Downtime] Fixed the adding of a downtime on a resource from the French GUI
 - [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
