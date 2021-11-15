@@ -19,6 +19,42 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon Web
 
+### 20.10.13
+
+Release date: `15 novembre 2021`
+
+
+#### Enhancements
+
+- [CEIP] Product Adoption component integration
+- [Core] Add Feature Flipping for Resources Status vs Legacy Pages
+- [Core] Compatibility PHP 7.4
+
+#### Bug fixes
+
+- [Authentication] Fixed user information retrieval method for OpenId
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI that could not be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when users don't have notifications enabled
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Configuration] Fixed empty string parameter for LUA output in Broker configuration
+- [Custom Views] Fixed sharing of views with LDAP groups
+- [Discovery] Fixed an issue causing error messages when filling credentials in a Host Discovery job
+- [Downtime] Fixed display of planned downtimes when one downtime is started
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
+- [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
+- [UX] Fixed menus by no longer displaying orphaned items
+
+#### Security fixes
+
+- CSRF - delete any command
+- CSRF - delete any poller
+- CSRF - delete any host
+- CSRF - delete any SNMP trap
+- CSRF - delete any service
+- CSRF - delete any contactGroup
+- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete many kinds of objects
+
 ### 20.10.12
 
 `October 5, 2021`
