@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.8
 
+Release date: `15 novembre 2021`
+
 `Release date: 15 novembre 2021`
 
 #### Enhancements
