@@ -3,11 +3,13 @@
  * and scoped locally.
  */
 
-.heroBanner {
+ .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  font-family: inherit;
+  color: #222e3b;
 }
 
 @media screen and (max-width: 966px) {
@@ -20,4 +22,353 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/**
+* Custom by Shonan
+*/
+
+.mainContainer {
+  flex: 1 1 0%;
+  max-width: 100%;
+  padding: 60px 0;
+}
+
+.containerBlock {
+  font-family: inherit;
+  color: #222e3b;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+}
+
+.borderTop {
+  border-top: 1px solid rgba(185, 185, 185, 1);
+}
+
+.bgLightBlue {
+  background: rgba(0,159,223,.1);
+}
+
+.bgLightPurple {
+  background: rgba(94, 83, 199, 14%);
+  color: rgba(94, 83, 199, 1);
+}
+
+.containerBlockh1 {
+  line-height: 1;
+  font-size: 50px;
+  color: rgba(34, 46, 59, 1);
+  height: 5%;
+  width: 48%;
+  margin-left: 25%;
+}
+
+.subTitle {
+  margin: auto;
+  padding-left: 30%;
+  padding-right: 30% ;
+  font-size: 18px;
+}
+
+.containerBlock p > a {
+  color: rgb(0, 114, 206);
+  font-weight: 700;
+}
+
+.titleSection {
+  color: rgb(0, 114, 206);
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.titleSectionCommunity {
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.cardBar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardContent {
+  width: 200px;
+  height: 160px;
+  margin: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  display: flex;
+  width: 120px;
+  height: 120px;
+}
+
+.button {
+  border: 1px solid #23303a;
+  padding: 10px;
+  text-decoration: none!important;
+  text-transform: uppercase;
+}
+
+.buttonLink {
+  background-color: rgb(0, 114, 206);
+  width: 170px;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  height: 40px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+}
+.buttonLink:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.containerBlockPrerequisite {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.imageSectionPrerequisite {
+  display: flex;
+  padding-top: 4%;
+}
+
+.containerContentPrerequisite {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  padding-left: 8%;
+}
+
+.containerBlockInstallation {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.imageSectionInstallation {
+  display: flex;
+  padding-top: 4%;
+}
+
+
+.containerContentInstallation {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  text-align: left;
+  padding-right: 10%;
+}
+
+.containerBlockMonitoring {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.imageSectionMonitoring {
+  display: flex;
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+.containerContentMonitoring {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  padding-left: 6%;
+}
+
+
+.containerBlock ul.socialSet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+
+.containerBlock ul.socialSet a {
+  display: flex;
+  padding: 30px 80px;
+}
+
+.containerBlock ul.socialSet img {
+  width: 40px;
+}
+
+.containerBlockOpenSource {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
+
+.titleSectionOpenSource {
+  color : #5E53C7;
+  font-size: 35px;
+  font-weight: normal;
+  margin: 24px
+}
+
+.cardBarOpenSource {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardBarOpenSource .buttonLink {
+  background-color: #fff;
+  width: max-content;
+  color: #5e53c7;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid #23303a;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2em;
+  padding: 10px;
+  text-decoration: none!important;
+  text-transform: uppercase;
+}
+
+.textOpenSource {
+  color: #222E3B;
+  font: 18px;
+  width: 50%;
+  margin-left:25%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.bannerCustom {
+  padding: 0;
+  background: #0072ce;
+}
+
+.bannerImage {
+  max-width: initial;
+  padding: 10px 0;
+  min-width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+}
+
+html[data-theme='dark'] .textOpenSource {
+  color: #f5f6f7;
+}
+html[data-theme='dark'] .titleSectionCommunity {
+  color: #0072ce;
+}
+html[data-theme='dark'] .containerBlockh1 {
+  color: #f5f6f7;
+}
+html[data-theme='dark'] .subTitle {
+  color: #f5f6f7;
+}
+
+@media only screen and (max-width: 769px) {
+  .containerContentPrerequisite {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .containerContentInstallation {
+    text-align: center;
+    padding: 0px ;
+  }
+
+   .containerContentMonitoring {
+    text-align: center;
+    padding: 0px;
+  }
+
+
+  .containerBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .containerBlockh1 {
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 80%;
+  }
+
+  .subTitle {
+    margin-top: 10%;
+    padding: 0;
+  }
+
+  .textOpenSource {
+    width: 100%;
+    padding-bottom: 10px ;
+    margin: 0;
+    text-align: center;
+  }
+
+}
+/* "Copy" code block button */
+pre {
+  position: relative;
+}
+
+pre .btnIcon {
+  position: absolute;
+  top: 4px;
+  z-index: 2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  height: 30px;
+  transition: all .25s ease-out;
+}
+
+pre .btnIcon:hover {
+  text-decoration: none;
+}
+
+.btnIcon__body {
+  align-items: center;
+  display: flex;
+}
+
+.btnIcon svg {
+  fill: currentColor;
+  margin-right: .4em;
+}
+
+.btnIcon__label {
+  font-size: 11px;
+}
+
+.btnClipboard {
+  right: 10px;
 }
