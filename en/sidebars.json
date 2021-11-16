@@ -484,6 +484,7 @@
                     "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
                     "integrations/plugin-packs/procedures/applications-vtom-restapi",
+                    "integrations/plugin-packs/procedures/applications-wallix-bastion-snmp",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
                     "integrations/plugin-packs/procedures/applications-weblogic-jmx",
                     "integrations/plugin-packs/procedures/applications-video-zixi-restapi",
