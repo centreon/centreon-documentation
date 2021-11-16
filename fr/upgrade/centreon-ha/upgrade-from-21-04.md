@@ -198,6 +198,30 @@ slave_parallel_mode=conservative
 ...
 ```
 
+### Suppression des fichiers "memory" de Broker
+
+> **WARNING** exécutez uniquement ces commandes sur le nœud central actif:
+
+Avant de manager de nouveau le cluster à l'aide de pcs, pour éviter des problèmes
+liés au changement de version majeure, supprimer tous les fichiers *.queue.*,
+*.unprocessed.* ou *.memory.* avec les commandes suivantes :
+
+```bash
+systemctl stop cbd-sql
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+systemctl start cbd-sql
+```
+
+Puis sur le nœud central passif, exécutez les commandes suivantes:
+
+```bash
+rm -rf /var/lib/centreon-broker/central-broker-master.memory*
+rm -rf /var/lib/centreon-broker/central-broker-master.queue*
+rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+```
+
 ### Redémarrez les processus Centreon
 
 Redémarrez les processus sur le nœud Central actif:
@@ -212,19 +236,6 @@ Et sur le nœud passif:
 systemctl restart cbd
 ```
 
-### Suppression des fichiers "memory" de Broker
-
-> **WARNING** exécutez uniquement cette commande sur le nœud central passif.
-
-Avant de manager de nouveau le cluster à l'aide de pcs, pour éviter des problèmes
-liés au changement de version majeure, supprimer tous les fichiers *.queue.*,
-*.unprocessed.* ou *.memory.* avec les commandes suivantes :
-
-```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
-```
 ## Rétablissement de la gestion des ressources par le cluster
 
 Tous les composants devraient à présent être à jour et fonctionnels, il faut donc rétablir la gestion des ressources par le cluster :
