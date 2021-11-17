@@ -4,7 +4,7 @@ title: Consoles d'évènements
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page
-> [Statut des ressources](resources-status)
+> [Status des ressources](resources-status)
 >
 > Cette nouvelle page a pour but de regrouper les expériences que vous
 > pouvez retrouver dans ces interfaces.
@@ -12,7 +12,7 @@ title: Consoles d'évènements
 > Pour les nouvelles installations, les pages dépréciées sont automatiquement
 > masquées. Il est possible de les afficher en sélectionnant l'option
 > *Afficher les pages dépréciées* dans les préférences propres à chaque
-> utilisateur depuis le menu **Administration > Paramètres > Mon compte**.
+> utilisateur depuis le menu `Administration > Paramètres > Mon compte`.
 
 Ce chapitre présente les différentes interfaces permettant de visualiser
 l'état des ressources.
@@ -110,8 +110,8 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 
 -   **Hostgroup** : Peut être utilisé pour filtrer par nom de groupe
     d'hôtes via une recherche de type SQL LIKE.
--   **Poller** : Peut être utilisé pour filtrer les hôtes par collecteur.
-    Seuls les hôtes du collecteur sélectionné seront affichés.
+-   **Poller** : Peut être utilisé pour filtrer les hôtes par poller.
+    Seuls les hôtes du scrutateur sélectionné seront affichés.
 
 ## Détails d'un hôte (dépréciée)
 
@@ -353,19 +353,19 @@ pour ce service.
 
 -   **View host status page** : Permet d'accéder à la page des détails
     de l'hôte.
--   **Configure host** : Permet d'accéder à la page de
+-   **Configure host `<value>`** : Permet d'accéder à la page de
     configuration de l'hôte.
--   **View logs for host** : Permet d'accéder aux journaux des
+-   **View logs for host `<value>`** : Permet d'accéder aux journaux des
     événements de l'hôte.
--   **View report for host** : Permet d'accéder au rapport de
+-   **View report for host `<value>`** : Permet d'accéder au rapport de
     taux de disponibilité de l'hôte.
--   **View graphs for host** : Permet d'accéder à tous les
+-   **View graphs for host `<value>`** : Permet d'accéder à tous les
     graphiques de performances des services de l'hôte.
 -   **Configure service** : Permet d'accéder à la page de configuration
     du service.
--   **View logs for service** : permet d'accéder aux journaux
+-   **View logs for service `<value>`** : permet d'accéder aux journaux
     des événements du service.
--   **View report for service** : Permet d'accéder au rapport de
+-   **View report for service `<value>`** : Permet d'accéder au rapport de
     taux de disponibilité du service.
 
 ### Commandes de service

@@ -13,8 +13,8 @@ the monitoring of the resource according to user-defined thresholds.
 
 The table below summarizes all the possible statuses for a host.
 
-| Status                                         | Description                         |
-|------------------------------------------------|-------------------------------------|
+| Status                                              | Description                         |
+|-----------------------------------------------------|-------------------------------------|
 |  <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable |
 |  <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable             |
 |  <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable             |
@@ -23,8 +23,8 @@ The table below summarizes all the possible statuses for a host.
 
 The table below summarizes all the possible statuses for a service.
 
-| Status                                     | Description                                                               |
-|--------------------------------------------|---------------------------------------------------------------------------|
+| Status                                          | Description                                                               |
+|-------------------------------------------------|---------------------------------------------------------------------------|
 |  <span style={{color:'#88b917'}}>OK</span>      | The service presents no problem                                           |
 |  <span style={{color:'#ff9a13'}}>WARNING</span> | The service has reached the warning threshold                             |
 |  <span style={{color:'#e00b3d'}}>DOWN</span>    | The service has reached the critical threshold                            |

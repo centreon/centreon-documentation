@@ -126,7 +126,7 @@ Centreon MAP server is now configured to respond to requests from HTTPS at
 port 8443.
 
 To change the default port, refer to the [dedicated
-procedure](advanced-configuration#change-centreon-map-server-port).
+procedure]<!--(procedures#change-centreon-map-server-port)-->.
 
 > Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in the `Administration > Extensions > Map > Options` menu.
@@ -141,8 +141,8 @@ procedure](advanced-configuration#change-centreon-map-server-port).
 An additional Broker output for Centreon Central (centreon-broker-master) has
 been created during the installation.
 
-You can check it in your Centreon web interface, from the **Configuration >
-Pollers > Broker Configuration** menu, by editing the **centreon-broker-master**
+You can check it in your Centreon web interface, from the `Configuration >
+Pollers > Broker Configuration`, by editing the `centreon-broker-master`
 configuration.
 
 The output configuration should look like this:
@@ -155,19 +155,6 @@ You can enable TLS output and set up Broker's private key and public
 certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
-
-To create a self-signed certificate, you can use the following commands:
-
-```text
-openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr -days 365
-openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
-```
-
-And then, copy the private key and the certificate into the **/etc/centreon/broker_cert/** directory:
-```text
-mv broker_private.key /etc/centreon/broker_cert/
-mv broker_public.crt /etc/centreon/broker_cert/
-```
 
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
@@ -185,14 +172,8 @@ server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 
 Then, set the following parameter in MAP server configuration at
-**/etc/centreon-studio/studio-config.properties**
-
-To set the communication protocol with Centreon server to HTTPS:
-```text
-centreon.url=https://<server-address>
-```
-
-To enable TLS socket connection with Broker :
+`/etc/centreon-studio/studio-config.properties` to enable TLS socket
+connection with Broker :
 
 ```text
 broker.tls=true

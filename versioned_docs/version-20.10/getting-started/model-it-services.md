@@ -117,11 +117,7 @@ so that it tell us wether we've 20% of Frontend servers available or not
 
 <!-- Concept   -->
 
-![image](../assets/service-mapping/ratio.png)
-
 <!-- Configuration -->
-
-![image](../assets/service-mapping/conf-ratio.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

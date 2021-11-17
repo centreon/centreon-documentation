@@ -160,7 +160,7 @@ audit2allow -a
 Then execute the proposed rules.
 
 If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#activate-selinux-in-permissive-mode) using **enforcing** mode.
+following this [procedure](#enable-selinux-in-permissive-mode) using **enforcing** mode.
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
@@ -182,8 +182,8 @@ chmod 660 /etc/centreon/centreon.conf.php
 
 ## Securing the installation of the DBMS
 
-[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
-installation. It is mandatory to set a password for the **root** user of the database. Please execute the following command and follow instructions:
+[MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose a default procedure to secure the DBMS
+installation. Please execute the following command and follow instruction:
 
 ```shell
 mysql_secure_installation
@@ -308,9 +308,7 @@ Status for the jail: centreon
 
 By default, Centreon installs a web server in HTTP mode. It is strongly recommended to switch to HTTPS mode by adding your certificate.
 
-
-It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-apache-web-server-with-a-self-signed-certificate).
-
+It is better to use a certificate validated by an authority rather than a self-signed one. However, in case the self-signed method suits you more, you can refer to the [appropriate section](#Securing-the-Apache-web-server-with-self-signed-certificat)
 
 If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
 
@@ -460,7 +458,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
 
 ```phpconf
 expose_php = Off
@@ -531,7 +529,7 @@ If everything is ok, you must have:
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart php-fpm httpd24-httpd
+systemctl restart rh-php72-php-fpm httpd24-httpd
 ```
 
 Then check its status:
@@ -564,7 +562,7 @@ If everything is ok, you must have:
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Securing the Apache web server with a self-signed certificate
+### Securing the Apache web server with self-signed certificat
 
 Let's assume that we have a Centreon server with a `centreon7.localdomain` FQDN address.
 
@@ -736,7 +734,7 @@ To use http2, you need to follow those steps:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
+1. [Configure https on Centreon](./secure-platform#securing-the-apache-web-server)
 
 2. Install nghttp2 module:
 
@@ -771,7 +769,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configure https on Centreon](./secure-platform#enable-https-on-the-web-server)
+1. [Configure https on Centreon](./secure-platform#securing-the-apache-web-server)
 
 2. Install nghttp2 module:
 
@@ -811,9 +809,9 @@ systemctl restart httpd24-httpd
 
 Centreon offers several methods to authenticate users:
 
-- [local](../connect/loginpwd) (MySQL)
+- local (MySQL)
 - [LDAP](./parameters/ldap)
-- [Generic SSO](../connect/sso) or [OpenId Connect](../connect/openid#connect)
+- [Generic SSO](./parameters/centreon-ui#sso) or [OpenId Connect](./parameters/centreon-ui#openid-connect)
 
 ## Create user profiles
 

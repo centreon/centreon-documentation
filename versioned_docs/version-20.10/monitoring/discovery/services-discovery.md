@@ -1,6 +1,6 @@
 ---
 id: services-discovery
-title: Discovering services automatically
+title: Services Discovery
 ---
 
 ## Launch a manual scan
@@ -8,7 +8,7 @@ title: Discovering services automatically
 After the discovery rules programmed it is possible to run them from the
 Centreon web interface.
 
-Go to the **Configuration > Services > Scan** menu.
+Go to the `Configuration > Services > Scan` menu.
 
 Start to write the name of host and the web interface automatically complete the
 name:

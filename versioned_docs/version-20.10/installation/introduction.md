@@ -11,7 +11,7 @@ platform**. Enjoy our industrialization work during installation and update step
 of the environment. Also enjoy optimizations installed by default on the system.
 
 Centreon Installation can be performed from source (tar.gz) but the work is more
-complex. In addition the installation will only be supported by the community.
+complex. In addition the installer shall be supported by the community.
 
 Before installation
 
@@ -23,9 +23,8 @@ Before installation
 3.  [Download Centreon](https://download.centreon.com/)
 4.  Finally, you can install the platform.
 
-To quickly test Centreon from a CentOS / Oracle Linux / RHEL in version 8, you
-can run the following command as **root**:
+To quickly test Centreon from a CentOS or Red Hat 7.x, you can run the following command as **root**:
 
 ```Bash
-curl -L https://raw.githubusercontent.com/centreon/centreon/21.04.x/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/20.10.x/unattended.sh | sh
 ```

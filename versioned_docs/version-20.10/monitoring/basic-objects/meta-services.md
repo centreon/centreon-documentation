@@ -1,6 +1,6 @@
 ---
 id: meta-services
-title: Creating Meta Services
+title: Meta Services
 ---
 
 ## Definition

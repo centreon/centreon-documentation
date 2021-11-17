@@ -11,7 +11,7 @@ Maltem Insight Performance (MIP) provides solutions to measure performance of we
 
 The MIP instance exposes a JSON based RestAPI. Centreon connector uses this endpoint to fetch relevant data about Digital Experience Monitoring Scenarios 
 
-![image]<!--(../../assets/integrations/external/mip-connector-architecture.png)-->
+![image](../../../assets/integrations/external/mip-connector-architecture.png)
 
 ## Compatibility
 
@@ -53,7 +53,7 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 3. Install the Plugin-Pack through "Configuration \> Plugin-Packs \> Manager" menu:
 
-![install\_epp]<!--(../../assets/integrations/external/mip-epp-install.png)-->
+![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

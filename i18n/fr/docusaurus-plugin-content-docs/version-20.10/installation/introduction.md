@@ -14,7 +14,7 @@ l'environnement. Profitez également des optimisations installées en standard p
 le système.
 
 L'installation de Centreon peut être effectuée à partir des sources (tar.gz)
-mais le travail est plus complexe. De plus l'installation ne sera supportée que par
+mais le travail est plus complexe. De plus l'installeur ne sera supporté que par
 la communauté.
 
 Avant toute installation
@@ -27,9 +27,9 @@ Avant toute installation
 3.  [Téléchargez Centreon](https://download.centreon.com/)
 4.  Enfin, vous pourrez procéder à l'installation de la plate-forme.
 
-Pour tester rapidement Centreon à partir d'un serveur CentOS / Oracle Linux / RHEL
-en version 8, vous pouvez exécuter la commande suivante en **root** :
+Pour tester rapidement Centreon à partir d'un serveur CentOS en version 7.x,
+vous pouvez exécuter la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/21.04.x/unattended.sh | sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/20.10.x/unattended.sh | sh
 ```

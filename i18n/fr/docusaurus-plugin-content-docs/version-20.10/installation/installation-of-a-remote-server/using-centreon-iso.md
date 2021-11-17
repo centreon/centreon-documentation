@@ -5,10 +5,6 @@ title: A partir de l'ISO Centreon
 
 Installer un Remote Server est similaire à l'installation d'un serveur Centreon Central.
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
-> / RHEL en version 8, vous devez suivre la procédure
-> [à partir des paquets RPM](./using-packages)
-
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
@@ -111,18 +107,6 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-## Nom du serveur
-
-Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Remplacez **new-server-name** par le nom de votre choix. Exemple :
-```shell
-hostnamectl set-hostname remote1
-```
-
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
@@ -145,22 +129,8 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-
-### Sécuriser la base de données
-
-Depuis MariaDB 10.5, il est nécessaire de
-sécuriser son installation avant d'installer Centreon.
-
-Répondez oui à toute question sauf "Disallow root login remotely?". 
-Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-
-```shell
-mysql_secure_installation
-```
-
-> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 
@@ -302,7 +272,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
 
 ## Ajouter le Remote Server à la configuration
 

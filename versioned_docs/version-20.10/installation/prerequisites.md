@@ -18,31 +18,27 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon supports the following operating systems: CentOS/RedHat/OracleLinux 7 or 8.
+Centreon provides RPM packages for its products through the Centreon Open
+Sources version available free of charge in our repository.
+
+These packages have been successfully tested in CentOS 7 and 8 environments.
 
 > Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, the packages for CentOS 8 are
+> your production environment. Nevertheless, these packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
-
-| Version           | Installation mode                                      |
-|-------------------|--------------------------------------------------------|
-| CentOS 7          | ISO Centreon, RPM packages, virtual machine , sources  |
-| CentOS 8          | RPM packages, sources                                  |
-| RHEL/Oracle Linux | RPM packages, sources                                  |
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
-Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.
 
 > Only 64-bit operating systems (x86_64) are supported.
 
 ### DBMS
 
-> Centreon supports MariaDB. You can use another DBMS based on MySQL, but it will only be supported by the community.
+> Centreon advises you to use MariaDB.
 
 | Software | Version |
 |----------|---------|
-| MariaDB  | 10.5.x  |
+| MariaDB  | 10.3.x  |
 
 ### Software dependencies
 
@@ -54,7 +50,7 @@ The following table describes the software dependencies:
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.3        |
+| PHP      | 7.2        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
@@ -171,7 +167,7 @@ Description of software and linked users:
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |

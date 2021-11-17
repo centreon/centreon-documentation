@@ -295,8 +295,8 @@ set.
 
 To define the shared-resource folder in the project environment,
 right-click on your project in the Navigator panel, then select
-Properties. Set the resource folder as "`<Current Project
-Folder>/Resources/`". Because the pattern "`<Current Project Folder>`"
+Properties. Set the resource folder as "`<Current Project Folder>/Resources/`".
+Because the pattern "`<Current Project Folder>`"
 is a variable that will be set automatically by Eclipse, there is no
 need to write the project path explicitly.
 

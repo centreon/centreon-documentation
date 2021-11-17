@@ -3,9 +3,6 @@ id: using-centreon-iso
 title: Using Centreon ISO
 ---
 
-> If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
-> in version 8, you must [use RPM packages](./using-packages)
-
 ## Step 1: Startup the server
 
 To install a Centreon Poller, start up your server from the Centreon ISO image in version el7.
@@ -110,46 +107,29 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-## Server name
-
-If you want, you can change the server's name using the following command:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Replace **new-server-name** by the name you want. Example:
-```shell
-hostnamectl set-hostname poller1
-```
-
 ## Update the system
 
 Connect to your server using a terminal, and execute the command:
-```shell
+
+``` shell
 yum update
 ```
 
 > Accept all GPG keys if you are prompted
 
 Then restart your server with the following command:
-```shell
+
+``` shell
 reboot
 ```
 
-After the machine has been rebooted, enable the services to allow centengine to be running on startup.
-```shell
-systemctl enable centreon centengine centreontrapd snmptrapd
+After the machine has been rebooted, enable the services to allow
+centengine to be running on startup.
+
+``` shell
+systemctl enable centreon centengine
 ```
 
-Passive monitoring services can be started:
-```shell
-systemctl start centreontrapd snmptrapd
-```
-
-Restart Centreon Engine:
-```shell
-systemctl restart centengine
-```
 ## Register the server
 
 To register it to the Centreon Central server or a Remote server, execute the following command:
@@ -213,7 +193,7 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
 ```
 
-### Main error messages
+### Main errors messages
 
 ``` shell
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
@@ -243,7 +223,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 21.04.
+> Your Centreon target version is invalid. It should be greater or equal to 20.10.
 
 ## Add the Poller to configuration
 

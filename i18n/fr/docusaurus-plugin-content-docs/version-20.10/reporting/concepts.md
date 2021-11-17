@@ -430,7 +430,7 @@ aucune données n'est lié à la combinaison en question.
 ### Comment appliquer la dernière configuration Centreon aux données de reporting ?
 
 > Lorsque vous lancez cette procédure, toutes les données déjà calculées
-> sont supprimées puis recalculées en se basant sur la période de
+> sont supprimées puis recalculer en se basant sur la période de
 > rétention. De plus toutes les relations passées entre les objets seront
 > supprimées pour ne garder que la dernière.
 

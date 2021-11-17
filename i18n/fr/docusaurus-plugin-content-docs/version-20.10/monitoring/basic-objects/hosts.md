@@ -1,16 +1,16 @@
 ---
 id: hosts
-title: Créer un hôte manuellement
+title: Les hôtes
 ---
 
-Pour créer un hôte manuellement :
-1. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquez sur **Ajouter**.
-2. Remplissez les différents champs (voir [ci-dessous](#onglet-configuration-de-lhôte)), puis cliquez sur **Sauvegarder**.
-3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration).
+Un hôte est toute entité possédant une adresse IP correspondant à une ressource du système d’informations. Exemples : Un
+serveur, une imprimante réseau, un serveur NAS, une base de données, une sonde de température, une caméra IP...
 
-## Onglet Configuration de l’hôte
+Tous les ajouts d’hôtes se font dans le menu : **Configuration > Hosts > Add**.
 
 ![image](../../assets/configuration/02addhost.png)
+
+## Configuration de l’hôte
 
 ### Informations générales
 
@@ -43,7 +43,7 @@ La partie Macros permet d’ajouter des macros personnalisées.
 * Les champs **Macro name** et **Macro value** permettent respectivement de définir le nom et la valeur de la macro.
 * La case **Password** permet de cacher la valeur de la macro.
 
-Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur <img src="../../assets/configuration/common/undo.png" width="32" />
+Pour réinitialiser la macro avec sa valeur par défaut (définie dans le templae) cliquez sur <img src="../../assets/configuration/common/undo.png" width="32" />
 
 Pour afficher la description de la macro, cliquez sur <img src="../../assets/configuration/common/description.png" width="32" />
 
@@ -54,7 +54,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 ### Propriété d’ordonancement de l’hôte
 
 * Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
-* Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut de l’hôte :
+* Le champ **Max Check Attempts** définit le nombre de contrôle à effectuer avant de valider le statut de l’hôte :
   lorsque le statut est validé, le processus de notification est enclenché.
 * Le champ **Normal Check Interval** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
   le statut de l’hôte est OK.
@@ -64,7 +64,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 ## Onglet Notification
 
 * Le champ **Notification Enabled** permet d’activer ou de désactiver les notifications concernant l’objet.
-* Le champ **Notification Options** définit les statuts pour lesquels une notification sera envoyée.
+* Le champ **Notification Options** définissent les statuts pour lesquels une notification sera envoyée.
 * Le champ **Notification Interval**  est exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0 alors l’ordonnanceur envoie une seule notification par
   changement de statut.
@@ -86,7 +86,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * La liste **Parent Hosts** permet de définir les relations physiques de parenté entre objet.
 * La liste **Child Hosts** permet de définir les relations physiques de parenté entre objet.
 
-## Onglet Traitement des données
+## Traitement des données
 
 * Si le **Obsess Over Host** est activé, alors la commande de remontée des contrôles de l’hôte sera activée.
 * Le champ **Check Freshness** permet d’activer ou de désactiver le contrôle de fraîcheur du résultat.
@@ -103,7 +103,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * Le champ **Event Handler** définit la commande à exécuter si le gestionnaire d’évènements est activé.
 * Le champ **Args** définit les arguments de la commande du gestionnaire d’évènements.
 
-## Onglet Informations détaillées de l’hôte
+## Informations détaillées de l’hôte
 
 ### Moteur de supervision
 
@@ -115,7 +115,7 @@ Pour déplacer l’ordre des macros, cliquez sur <img src="../../assets/configur
 * Le champ **Alt Icon** est le texte utilisé si l’icône ne peut être affichée.
 * Le champ **Severity level** indique le niveau de criticité de l’hôte.
 * Le champ **Status Map Image** défini le logo du module Centreon Map.
-* Le champ **Geo coordinates** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
+* The **Geo coordinates** défini les coordonnées géographiques utilisées par le module Centreon Map pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs présentés ci-dessous sont obsolètes :
@@ -125,7 +125,7 @@ Les champs présentés ci-dessous sont obsolètes :
 
 ### Groupes d'accès
 
-* Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateurs), permet de lier l’hôte
+* Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateur), permet de lier l’hôte
   à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
   *[les listes de contrôles d'accès](../../administration/access-control-lists)*).
 

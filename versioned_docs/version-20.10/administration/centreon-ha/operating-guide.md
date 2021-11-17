@@ -5,7 +5,7 @@ title: Operating guide
 
 > Unless otherwise stated, all commands in this document must be passed as `root`.
 
-> In this document, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses and hosts names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes#defining-hosts-names-and-addresses).
+> In this document, we will refer to characteristics that are bound to change from a platform to another (such as IP addresses and hosts names) by the [macros defined here](installation-2-nodes#defining-hosts-names-and-addresses).
 
 ## Cluster Management
 
@@ -214,7 +214,7 @@ Position Status [OK]
 
 > Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide#check-the-status-of-mariadb-replication).
 
-> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes) will move the `centreon` resource group as well, because it **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** Following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes) will move the `centreon` resource group as well, because it **must** run on the node having the `ms_mysql-master` meta attribute.
 
 To make the resource move from one node to the other, run this command:
 
@@ -234,7 +234,7 @@ pcs resource clear ms_mysql-master
 
 ### Toggle the resource group `centreon`
 
-> **Warning:** As in [this chapter](operating-guide#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a 2-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes) will switch the MariaDB master as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
+> **Warning:** As in [this chapter](operating-guide#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a 2-node cluster installed using [this procedure](installation-2-nodes) will switch the MariaDB master as well, because is **must** run on the node having the `ms_mysql-master` meta attribute.
 
 Move the resource group to the other node:
 
@@ -272,7 +272,7 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-To create the resources again, follow the installation procedure [from this point](../../installation/installation-of-centreon-ha/installation-2-nodes#creating-the-centreon-resource-group)
+To create the resources again, follow the installation procedure [from this point](installation-2-nodes#creating-the-centreon-resource-group)
 
 ## Monitoring a Centreon-HA cluster
 
@@ -292,7 +292,7 @@ The easiest part consists in monitoring the basic system indicators, mostly usin
     * NTP synchronization with the reference time server
 * Processes
     * System processes `crond`, `ntpd`, `rsyslogd`
-    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `php-fpm`
+    * Centreon processes `gorgoned`, `centengine`, `centerontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `rh-php72-php-fpm`
 
 ### Application monitoring
 

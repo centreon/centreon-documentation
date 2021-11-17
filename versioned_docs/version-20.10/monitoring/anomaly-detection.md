@@ -31,12 +31,6 @@ The Centreon Anomaly Detection module requires the following prerequisites:
   - Centreon in minimum version 20.04
   - A token provided by Centreon to access the Centreon Cloud platform
   - An Internet connection from the Centreon Central server
-  - The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
-
-    ```
-    echo $LC_ALL
-    ```
-      
   - Prediction best works with monitored services that present a seasonal
     behaviour as shown below:
 
@@ -138,7 +132,7 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 Click on **Save**.
 
 It is now time to [deploy the
-monitoring](monitoring-servers/deploying-a-configuration).
+monitoring](./monitoring-servers/deploying-a-configuration).
 
 Then go to the `Monitoring > Status Details > Services` menu and select
 **All** value for the Service Status filter. After a few minutes, the first
@@ -168,7 +162,7 @@ deviations you want before to validate the alert using the **Detect anomalies
 after** field.
 
 Click on **Save** and [deploy the monitoring
-configuration](monitoring-servers/deploying-a-configuration).
+configuration](./monitoring-servers/deploying-a-configuration).
 
 ### Activate the notification process
 
@@ -337,7 +331,7 @@ the models, as well as the generation of alerts in the event console and the tri
 
 #### When will the feature be available? And for what Centreon Edition?
 
-The Anomaly Detection functionality will be available for Centreon Business Edition in the 21.10 version.
+The Anomaly Detection functionality will be available for Centreon Business Edition in the 20.10 version.
 
 ### How long is the data stored?
 

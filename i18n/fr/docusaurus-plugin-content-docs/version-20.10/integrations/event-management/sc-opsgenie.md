@@ -34,8 +34,6 @@ Si vous avez besoin d'aide avec cette intégration, selon votre utilisation de C
 
 ### Dans Opsgenie
 
-> Attention, cette documentation a été écrite en février 2021, il est possible que des changements sur Opsgenie rendent obsolète des éléments décrits ci-dessous
-
 #### intégration Opsgenie: alerts
 
 1. Depuis le menu **Setting**, selectionnez **Integration list**
@@ -71,7 +69,7 @@ yum install -y lua-curl epel-release
 Ces paquets sont nécessaires pour que le script marche. Maintenant, il faut le télécharger :
 
 ```bash
-wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/opsgenie/opsgenie-apiv1.lua
+wget -O /usr/share/centreon-broker/lua/opsgenie.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/opsgenie/opsgenie.lua
 chmod 644 /usr/share/centreon-broker/lua/opsgenie.lua
 ```
 

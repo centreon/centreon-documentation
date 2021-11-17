@@ -4,7 +4,7 @@ title: Using packages
 ---
 
 Centreon provides RPM packages for its products through the Centreon Open
-Source version available free of charge in our repository.
+Sources version available free of charge in our repository.
 
 These packages have been successfully tested in CentOS 7 and 8 environments.
 
@@ -12,11 +12,7 @@ These packages have been successfully tested in CentOS 7 and 8 environments.
 > your production environment. Nevertheless, these packages for CentOS 8 are
 > compatible with RHEL 8 and Oracle Linux 8 versions.
 
-You must run the installation procedure as a privileged user.
-
-## Prerequisites
-
-After installing your server, update your operating system using the following
+After installing your server, consider updating your operating system via the
 command:
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -30,25 +26,22 @@ yum update
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Accept all GPG keys and reboot your server if a kernel update is
+> Accept all GPG keys and consider rebooting your server if a kernel update is
 > proposed.
 
-## Step 1: Pre-installation
+## Pre-installation steps
 
 ### Disable SELinux
 
-During installation, SELinux should be disabled. To do this, edit the file
-**/etc/selinux/config** and replace **enforcing** by **disabled**. You can also run the following command:
+SELinux should be disabled. To do this, you have to edit the file
+**/etc/selinux/config** and replace **enforcing** by **disabled**, or by
+running the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
+> Reboot your operating system to apply the change.
 
 After system startup, perform a quick check of the SELinux status:
 
@@ -61,14 +54,16 @@ You should have this result:
 Disabled
 ```
 
-### Configure or disable the firewall
+### Configure or disable firewall
 
-If your firewall is active, add [firewall rules](../../administration/secure-platform#enable-firewalld). You can also disable the firewall during installation by running the following commands:
+Add firewall rules or disable the firewall by running the following commands:
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
+
+> You can find instructions [here](../../administration/secure-platform#enable-firewalld) to configure firewalld.
 
 ### Install the repositories
 
@@ -85,27 +80,6 @@ Enable the CodeReady Builder repository using these commands:
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
-
-Enable PHP 7.3 using the following command:
-```shell
-dnf module enable php:7.3 -y
-```
-
-Check that PHP 7.3 is activated:
-```shell
-dnf module list php
-```
-
-You should have this result:
-```shell
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--CentOS 8-->
 #### Redhat PowerTools repository
 
@@ -114,39 +88,16 @@ supported by Redhat.
 
 Enable the PowerTools repository using these commands:
 
-- For Centos 8.2:
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-
-- For CentOS 8.3 and CentOS Stream:
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-Enable PHP 7.3 using the following command:
 ```shell
-dnf module enable php:7.3 -y
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
 ```
 
-Check that PHP 7.3 is activated:
-```shell
-dnf module list php
-```
-
-You should have this result:
-```shell
-CentOS Linux 8 - AppStream
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
+> For CentOS 8.2 use:
+> ```shell
+> dnf -y install dnf-plugins-core epel-release
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
@@ -159,32 +110,13 @@ Enable the repository using these commands:
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-
-Enable PHP 7.3 using the following command:
-```shell
-dnf module enable php:7.3 -y
-```
-
-Check that PHP 7.3 is activated:
-```shell
-dnf module list php
-```
-
-You should have this result:
-```shell
-Oracle Linux 8 Application Stream (x86_64)
-Name                                Stream                                 Profiles                                                 Summary
-php                                 7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                 7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                 7.4                                    common [d], devel, minimal                               PHP scripting language
-
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--CentOS 7-->
 #### Redhat Software Collections repository
 
 To install Centreon you will need to set up the official Software Collections
-repository supported by Redhat. It is required for installing PHP 7 and its associated libraries.
+repository supported by Redhat.
+
+> Software collections are required for installing PHP 7 and associated libraries.
 
 Install the Software Collections repository using this command:
 
@@ -203,19 +135,19 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-3.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-3.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Step 2: Installation
+## Installation
 
-This section describes how to install a Centreon central server.
+This section describes how to install a Centreon Central server.
 
-You can install this server with a local database on the server, or
+It's possible to install this server with a local database on the server, or
 a remote database on a dedicated server.
 
 ### With a local database
@@ -234,8 +166,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-You can now move to [Step 3](#step-3-configuration).
 
 ### With a remote database
 
@@ -269,13 +199,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Secure your MariaDB installation by executing the following command:
-```shell
-mysql_secure_installation
-```
-
-> It is mandatory to set a password for the root user of the database.
 
 Then create a distant user with **root** privileges needed for Centreon
 installation:
@@ -332,7 +255,7 @@ DROP USER '<USER>'@'<IP>';
 > max_allowed_packet = 128M
 > ```
 > 
-> Optionally, tune the memory and buffer utilization of the InnoDB engine powered 
+> Optionnaly, tune the memory and buffer utilization of the InnoDB engine powered 
 > tables. The example below applies to a database server with 8Gb RAM
 >  
 > ```shell
@@ -341,24 +264,11 @@ DROP USER '<USER>'@'<IP>';
 >
 > Remember to restart MariaDB after a change to configuration.
 
-## Step 3: Configuration
-
-### Server name
-
-If you want, you can change the server's hostname using the following command:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Replace **new-server-name** by the name you want. Example:
-
-```shell
-hostnamectl set-hostname central
-```
+## Configuration
 
 ### Set the PHP time zone
 
-You are required to set the PHP time zone. Run the following command as `root`:
+You are required to set the PHP time zone. Run the command:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -367,14 +277,14 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
 
-After saving the file, restart the PHP-FPM service:
+After saving the file, please do not forget to restart the PHP-FPM service:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -383,7 +293,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm
+systemctl restart rh-php72-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -399,30 +309,16 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > If the database is on a dedicated server, remember to enable **mariadb**
 > service on it.
 
-### Secure the database
+## Web installation
 
-Since MariaDB 10.5, it is necessary to secure its installation
-before installing Centreon.
-
-> Answer yes to all questions except to "Disallow root login remotely?". It is mandatory
-> to set a password for the **root** user of the database.
-
-```shell
-mysql_secure_installation
-```
-
-> For more information, refer to the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
-
-## Step 4: Web installation
-
-1. Start the Apache server with the
+Before starting the web installation process, start the Apache server with the
 following command:
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -436,5 +332,5 @@ systemctl start httpd24-httpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-2. To complete the installation, follow the
-[web installation steps](../web-and-post-installation#web-installation) procedure.
+Conclude installation by performing
+[web installation steps](../web-and-post-installation#web-installation).

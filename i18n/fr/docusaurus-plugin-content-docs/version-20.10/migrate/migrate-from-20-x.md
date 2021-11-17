@@ -6,8 +6,7 @@ title: Migration depuis une plateforme Centreon 20.x
 ## Prérequis
 
 Cette procédure ne s'applique que pour une plate-forme **Centreon 20.x**,
-installé sur une distribution GNU/Linux 64 bits autre que CentOS / Oracle Linux
-/ RHEL 8.
+installé sur une distribution GNU/Linux 64 bits autre que CentOS ou Red Hat 8.
 
 ## Migration
 
@@ -65,14 +64,14 @@ service mysqld stop
 ```
 
 3. Transférer les exports vers le nouveau serveur de base de données Centreon
-21.04 :
+20.10 :
 
 ```shell
 rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
 rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
 ```
 
-4. Sur le serveur de base de données Centreon 21.04, supprimer les bases de
+4. Sur le serveur de base de données Centreon 20.10, supprimer les bases de
 données vierges et les recréer :
 
 ```shell
@@ -99,17 +98,6 @@ mysql -u root centreon_storage -p </tmp/centreon_storage.sql
 mysql_upgrade
 ```
 
-Si votre base de données est protégée par mot de passe, entrez :
-
-```shell
-mysql_upgrade -u <utilisateur_admin_bdd> -p
-```
-
-Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
-```
-mysql_upgrade -u root -p
-```
-
 7. Démarrer le processus mariadb sur le nouveau serveur :
 
 ```shell
@@ -133,12 +121,12 @@ dépend de votre installation. Les principaux répertoires à synchroniser sont 
 ### Montée de version de la solution Centreon
 
 Forcez la montée de version du nouveau serveur en déplacant le contenu du répertoire
-**/var/lib/centreon/installs/install-21.04.0-YYYYMMDD\_HHMMSS** dans le
+**/var/lib/centreon/installs/install-20.10.0-YYYYMMDD\_HHMMSS** dans le
 répertoire  **/usr/share/centreon/www/install** :
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-21.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-20.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur
@@ -173,4 +161,4 @@ la configuration de l'ensemble de la plateforme et exportez là.
 ### Mise à jour des modules
 
 Référez-vous à la documentation des modules installés afin de connaître leur
-compatibilité avec Centreon 21.04, et pour mettre à jour ces derniers.
+compatibilité avec Centreon 20.10, et pour mettre à jour ces derniers.

@@ -126,7 +126,7 @@ Centreon MAP server is now configured to respond to requests from HTTPS at
 port 8443.
 
 To change the default port, refer to the [dedicated
-procedure](advanced-configuration#change-centreon-map-server-port).
+procedure]<!--(procedures#change-centreon-map-server-port)-->.
 
 > Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in the `Administration > Extensions > Map > Options` menu.
@@ -183,7 +183,7 @@ First of all, you should [activate HTTPS/TLS on the web
 server](../administration/secure-platform.md#enable-https-on-the-web-server)
 
 Then, set the following parameters in MAP server configuration at
-`/etc/centreon-studio/studio-config.properties` :
+`/etc/centreon-studio/studio-config.properties`:
 
 To set the communication protocol with Centreon server to HTTPS:
 ```shell

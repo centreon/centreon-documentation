@@ -1,10 +1,10 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 21.04
+title: Mise à jour d'une plateforme Centreon 20.10
 ---
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-21.04.
+20.10.
 
 ## Sauvegarde
 
@@ -90,6 +90,12 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des Pollers
 
+Installez le référentiel de collections de logiciels à l'aide de cette commande :
+
+```shell
+yum install -y centos-release-scl
+```
+
 Videz le cache de yum :
 
 ```shell
@@ -109,5 +115,5 @@ en choisissant la méthode *Redémarrer* pour le processus Engine
 Redémarrez enfin le service Gorgone s'il est utilisé sur le Poller :
 
 ```shell
-systemctl restart centengine gorgoned
+systemctl restart gorgoned
 ```

@@ -82,7 +82,7 @@ considerations.
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-- Centreon 21.04
+- Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in `/etc/php.d/php.ini`
   (same timezone displayed with the command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
@@ -90,9 +90,9 @@ considerations.
   - wait_timeout
   - interactive_timeout
 <!--CentOS 7-->
-- Centreon 21.04
+- Centreon 20.10
 - Check that the parameter `date.timezone` is correctly configured in
-  `/etc/opt/rh/rh-php73/php.ini` (same timezone displayed with the
+  `/etc/opt/rh/rh-php72/php.ini` (same timezone displayed with the
   command `timedatectl status`)
 - Avoid the usage of the following variables in your monitoring MariaDB configuration.
   They halt long queries execution and can stop the ETL or the report generation jobs:
@@ -133,9 +133,9 @@ considerations.
 | File system                  | Size                                                                                      |
 |------------------------------|-------------------------------------------------------------------------------------------|
 | /                            | 5GB minimum                                                                               |
-| /var (containing MariaDB data) | Use the result of the above disk-space simulation file MariaDB data)                      |
+| /var (containing MySQl data) | Use the result of the above disk-space simulation file MariaDB data)                      |
 | MariaDB temp folder          | We recommand keeping it in /var                                                           |
-| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MariaDB DBMS **data** |
+| Volume group\*               | 5GB minimum of free space on the **Volume group** hosting the MySQL/MariaDB DBMS **data** |
 
 To check the free space use the command below, replacing vg\_data by the
 Volume group name:
@@ -147,7 +147,7 @@ vgdisplay vg_data | grep -i free
 **Software**
 
 - OS: CentOS / Redhat 7 or 8
-- SGBD: MariaDB 10.5
+- SGBD: MariaDB 10.3
 - Firewall: Disabled
 - SELinux: Disabled
 
@@ -311,27 +311,19 @@ Then execute the following command:
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
-
-If you installed your reporting server using a fresh distribution you
-need to add the following GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.04/el8/stable/RPM-GPG-KEY-CES
-```
 <!--CentOS 7-->
 ```shell
 yum install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
 
-If you installed your reporting server using a fresh distribution you
+If you installed your reporting server using a fresh CentOS image you
 need to add the following GPG key:
 
 ```shell
 cd /etc/pki/rpm-gpg/
-wget https://yum.centreon.com/standard/21.04/el7/stable/RPM-GPG-KEY-CES
+wget https://yum.centreon.com/standard/20.10/el7/stable/RPM-GPG-KEY-CES
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Enable the cbis service:
 

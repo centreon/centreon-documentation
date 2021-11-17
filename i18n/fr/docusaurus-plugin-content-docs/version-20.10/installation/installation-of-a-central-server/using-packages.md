@@ -1,10 +1,10 @@
 ---
 id: using-packages
-title: À partir des paquets
+title: A partir des paquets
 ---
 
 Centreon fournit des RPM pour ses produits au travers de la solution
-Centreon Open Source disponible gratuitement sur notre dépôt.
+Centreon Open Sources disponible gratuitement sur notre dépôt.
 
 Ces paquets ont été testés avec succès sur les environnements CentOS
 en version 7 et 8.
@@ -12,10 +12,6 @@ en version 7 et 8.
 > Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
 > qu'il est préférable de ne pas utiliser CentOS 8 en production. Ces paquets
 > pour CentOS 8 sont compatible avec RHEL et Oracle Linux en version 8.
-
-L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
-
-## Prérequis
 
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
@@ -31,26 +27,22 @@ yum update
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Acceptez toutes les clés GPG proposées et pensez à redémarrer votre serveur
+> Acceptez toutes les clés GPG proposées et pensez a redémarrer votre serveur
 > si une mise à jour du noyau est proposée.
 
-## Étape 1 : pré-installation
+## Étapes de pré-installation
 
 ### Désactiver SELinux
 
-Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécutez la commande suivante :
+SELinux doit être désactivé. Pour se faire, vous devez éditer le fichier
+**/etc/selinux/config** et remplacer **enforcing** par **disabled**, ou en
+exécutant la commande suivante :
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
 ```
 
-Redémarrez votre système d'exploitation pour prendre en compte le changement.
-
-```shell
-reboot
-```
+> Redémarrez votre système d'exploitation pour prendre en compte le changement.
 
 Après le redémarrage, une vérification rapide permet de confirmer le statut de
 SELinux :
@@ -62,47 +54,31 @@ Disabled
 
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform#enable-firewalld). Vous pouvez également le désactiver le temps de l'installation :
+Paramétrer le pare-feu système ou désactiver ce dernier. Pour désactiver ce
+dernier exécuter les commandes suivantes :
 
 ```shell
 systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installer le dépôt
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform#enable-firewalld)
+> pour configurer le pare-feu.
+
+### Installer le dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8-->
 #### Redhat CodeReady Builder repository
 
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Red Hat doit être
-activé.
+To install Centreon you will need to enable the official CodeReady Builder
+repository supported by Redhat.
 
-Exécutez les commandes suivantes :
+Enable the CodeReady Builder repository using these commands:
 
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Activez PHP 7.3 en utilisant la commande suivante :
-```shell
-dnf module enable php:7.3 -y
-```
-
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir ce résultat :
-```shell
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 ```
 <!--CentOS 8-->
 #### Dépôt PowerTools de Red Hat
@@ -112,37 +88,16 @@ activé.
 
 Exécutez les commandes suivantes :
 
-- Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-- Pour CentOS 8.3 et Centos Stream :
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-Activez PHP 7.3 en utilisant la commande suivante :
 ```shell
-dnf module enable php:7.3 -y
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
 ```
 
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir ce résultat :
-```shell
-CentOS Linux 8 - AppStream
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
+> Pour CentOS 8.2 utilisez la commande :
+> ```shell
+> dnf -y install dnf-plugins-core epel-release
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
@@ -155,32 +110,14 @@ Exécutez les commandes suivantes :
 dnf -y install dnf-plugins-core oracle-epel-release-el8
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
-
-Activez PHP 7.3 en utilisant la commande suivante :
-```shell
-dnf module enable php:7.3 -y
-```
-
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir ce résultat :
-```shell
-Oracle Linux 8 Application Stream (x86_64)
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
-Hat doit être activé. Celui-ci est nécessaire pour l'installation de PHP 7
-et des librairies associées.
+Hat doit être activé.
+
+> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
+> et les librairies associées.
 
 Exécutez la commande suivante :
 
@@ -199,17 +136,17 @@ Exécutez la commande suivante :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-3.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-3.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Étape 2 : Installation
+## Installation
 
-Ce chapitre décrit l'installation d'un serveur central Centreon.
+Ce chapitre décrit l'installation d'un serveur Centreon Central.
 
 Il est possible d'installer ce serveur avec une base de données locale au
 serveur, ou déportée sur un serveur dédié.
@@ -230,8 +167,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Vous pouvez maintenant passer à [l'étape 3](#étape-3--configuration).
 
 ### Avec base de données déportée
 
@@ -265,13 +200,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Sécurisez votre installation MariaDB en exécutant la commande suivante :
-```shell
-mysql_secure_installation
-```
-
-> Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données.
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
@@ -343,23 +271,11 @@ DROP USER '<USER>'@'<IP>';
 > Pensez à redémarrer le service mariadb après chaque changement de
 > configuration.
 
-## Étape 3 : Configuration
-
-### Nom du serveur
-
-Si chous le souhaitez, vous pouvez changer le hostname du serveur à l'aide de la commande suivante :
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Remplacez **new-server-name** par le nom de votre choix. Exemple :
-```shell
-hostnamectl set-hostname central
-```
+## Configuration
 
 ### Fuseau horaire PHP
 
-La timezone par défaut de PHP doit être configurée. Exécutez la commande suivante en `root` :
+La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -368,11 +284,11 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
@@ -384,7 +300,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm
+systemctl restart rh-php72-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -400,28 +316,16 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
 
-### Sécuriser la base de données
+## Installation web
 
-Depuis MariaDB 10.5, il est nécessaire de
-sécuriser son installation avant d'installer Centreon. Répondez oui à toute question sauf à "Disallow root login remotely?". 
-Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-
-```shell
-mysql_secure_installation
-```
-
-> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
-
-## Étape 4 : Installation web
-
-1. Démarrez le serveur Apache avec la
+Avant de démarrer l'installation web, démarrez le serveur Apache avec la
 commande suivante :
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -435,5 +339,5 @@ systemctl start httpd24-httpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-2. Terminez l'installation en réalisant les
+Terminez l'installation en réalisant les
 [étapes de l'installation web](../web-and-post-installation#installation-web).

@@ -3,48 +3,39 @@ id: deploying-a-configuration
 title: Deploying a configuration
 ---
 
-When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (neither on the central server on which you have made the change, nor on any remote server or poller linked to it). For the changes to be taken into account, you have to export the configuration.
+On creation/deletion/change of objects via the configuration interface, the
+changes performed are not applied automatically to the scheduler. To apply the
+changes performed, it is necessary to follow the procedure below.
 
-Any change in configuration must be done and exported from the central server's interface or API, regardless of which poller is affected by the change (central server, remote server, poller).
+## Procedure
 
-## Exporting the configuration
+1.  Go to the `Configuration > Pollers` menu
+2.  Choose the pollers which you want to export configuration
 
-1.  Go to the **Configuration > Pollers > Pollers** page. The page shows the state of your central
-server and of all pollers and remote servers linked to it: changes are shown in the **Conf changed** column.
+![image](../../assets/monitoring/monitoring-servers/monitoring-servers-list.png)
 
-2.  Select the central server, the remote server or the poller whose configuration has changed. 
+3.  Click on **Export configuration**
+4.  Check the boxes: **Generate Configuration Files**, **Run monitoring engine
+    debug (-v)**, **Move Export Files** and **Restart Monitoring Engine**
+5.  Click on **Export**
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
+![image](../../assets/monitoring/monitoring-servers/monitoring-servers-generate-configuration.png)
 
-3.  Click on **Export configuration**.
+> The **Post generation command** option can be used to request the execution of
+> the command post-generation set at the configuration of the scheduler.
 
-4.  Check the following boxes (see section [**Export options**](#export-options)) :
+## Explanations
 
-    - **Generate Configuration Files**
-    - **Run monitoring engine debug (-v)**
-    - **Move Export Files**
-    - **Restart Monitoring Engine**. Use the most appropriate method: 
-      - **Reload** : when you have created, deleted or edited monitored objects
-      - **Restart** : when you have made changes to the way a poller and the central server communicate together, or 
-      to the configuration of the engine. Restarting takes more time than reloading.
+Multiple options are available in the configuration generation page:
 
-5.  Click **Export**. A log of the export is displayed.
-
-    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
-
-6. Read the log to check that the export has worked normally and that no errors were returned.
-
-## Export options
-
-The options work in the following ways:
-
-  - **Generate Configuration Files**: Generates the monitoring engine's configuration
+  - **Generate Configuration Files**: Generates the scheduler configuration
     files in a temporary directory. This configuration is generated from objects
     configured via the web interface
-  - **Run monitoring engine debug (-v)**: Performs a sanity check of the monitoring engine's configuration files
+  - **Run monitoring engine debug (-v)**: Enables the scheduler to check the
+    generated configuration
   - **Move Export Files**: Moves the configuration files from the temporary
-    directory to the monitoring engine's configuration directory
-  - **Restart Monitoring Engine**: Restarts the monitoring engine to apply the new
-    configuration
-  - **Post generation command**: Executes the post-generation command set in the
-    poller's configuration 
+    directory to the scheduler directory
+  - **Restart Monitoring Engine**: Restarts the scheduler to apply the new
+    configuration files
+  - **Post generation command**: Executes the command post-generation set at the
+    configuration of the scheduler level

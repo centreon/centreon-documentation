@@ -1,5 +1,5 @@
 ---
-id: configuration
+id: configure
 title: Configure
 ---
 

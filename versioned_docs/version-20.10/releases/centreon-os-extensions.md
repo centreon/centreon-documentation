@@ -20,26 +20,37 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon High-Availability
 
-### 21.04.1
+### 20.10.1
 
-`September 06, 2021`
-
-#### Bug fixes
-- fixed: php version in cron files
-- fixed: logging of centreon_central_sync
+`November 30, 2020`
 
 #### Enhancements
 
-- Compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
-- Add cbd_rrd systemd files
+- [rpm] All the configuration files (except for logrotate.d and sudoers.d)
+  are now preserved by the update process
 
-### 21.04.0
+#### Bugfixes
 
-- Compatibility with Centreon 21.04
+- [Sync] An error in the script prevented the files to be synchronized
+  correctly
+
+### 20.10.0
+
+`November 2, 2020`
+
+- Compatibility with Centreon 20.10
+
+## Centreon DSM
+
+### 20.10.0
+
+`October 21, 2020`
+
+- Compatibility with Centreon 20.10
 
 ## Centreon Open Ticket
 
-### 21.04.1
+### 20.10.2
 
 `May 28, 2021`
 
@@ -47,18 +58,17 @@ If you have feature requests or want to report a bug, please go to our
 
 - [Widget] Compatibility with jQuery 3.5
 - [Widget] Redirect properly to KB pages
-- [GLPI] Update default ticket url
 
-#### Enhancements
+### 20.10.1
 
-- [Widget] Displayed jira ticket ID is now human readable
+`February 4, 2021`
 
-### 21.04.0
+#### Bugfixes
 
-- Compatibility with Centreon 21.04
+- Manage pagination for GLPI webservice
 
-## Centreon DSM
+### 20.10.0
 
-### 21.04.0
+`October 21, 2020`
 
-- Compatibility with Centreon 21.04
+- Compatibility with Centreon 20.10

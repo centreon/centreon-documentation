@@ -14,8 +14,8 @@ seuils définis par l'utilisateur.
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 
-| Status                                         | Description                        |
-|------------------------------------------------|------------------------------------|
+| Status                                             | Description                        |
+|----------------------------------------------------|------------------------------------|
 | <span style={{color:'#88b917'}}>UP</span>          | L'hôte est disponible et joignable |
 | <span style={{color:'#e00b3d'}}>DOWN</span>        | L'hôte est indisponible            |
 | <span style={{color:'#818185'}}>UNREACHABLE</span> | L'hôte est injoignable             |
@@ -24,8 +24,8 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 
 Le tableau ci-dessous résume l'ensemble des statuts possibles pour un service.
 
-| Status                                     | Description                                                            |
-|--------------------------------------------|------------------------------------------------------------------------|
+| Status                                         | Description                                                            |
+|------------------------------------------------|------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>OK</span>      | Le service ne présente aucun problème                                  |
 | <span style={{color:'#ff9a13'}}>WARNING</span> | Le service a dépassé le seuil d'alerte                                 |
 | <span style={{color:'#e00b3d'}}>DOWN</span>    | Le service a dépassé le seuil critique                                 |

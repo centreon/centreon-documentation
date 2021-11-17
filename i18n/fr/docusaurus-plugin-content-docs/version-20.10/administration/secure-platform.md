@@ -75,7 +75,7 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 ### Activer SELinux en mode permissif
 
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel :
+vous devez modifier le fichier `/etc/selinux/config` comme tel que :
 
 ```shell
 # This file controls the state of SELinux on the system.
@@ -163,9 +163,9 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
+[procédure](#enable-selinux-in-permissive-mode) avec le mode **enforcing**.
 
-> N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
+> N'hésitez pas à nous faire pas de vos retours sur [Github](https://github.com/centreon/centreon).
 
 ## Sécurisez les fichiers de configuration
 
@@ -186,13 +186,13 @@ chmod 660 /etc/centreon/centreon.conf.php
 ## Sécurisez l'installation du SGBD
 
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) propose une procédure par défaut pour sécuriser
-l'installation du SGBD. Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Veuillez exécuter la commande suivante et suivre les instructions :
+l'installation du SGBD. Veuillez exécuter la commande suivante et suivre les instructions :
 
 ```shell
 mysql_secure_installation
 ```
 
-## Activation de firewalld
+# Activation de firewalld
 
 Installez firewalld:
 ```shell
@@ -206,7 +206,7 @@ systemctl start firewalld
 ```
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/architectures#tables-of-platform-flows).
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Central / Remote Server-->
@@ -308,12 +308,12 @@ Status for the jail: centreon
 
 > Pour plus d'informations, visitez le [site officiel](http://www.fail2ban.org).
 
-## Passez le serveur web en HTTPS
+## Sécurisez le serveur web Apache
 
 Par défaut, Centreon installe un serveur Web en mode HTTP. Il est fortement recommandé de passer en mode HTTPS en
 ajoutant votre certificat.
 
-Il vaut mieux utiliser un certificat validé par une autorité plutôt que d'utiliser un certificat auto-signé. Cependant, si un certificat auto-signé vous convient mieux, référez-vous à la [section correspondante](#sécurisez-le-serveur-web-apache-avec-un-certificat-auto-signé).
+Il vaut mieux utiliser un certificat validé par une autorité plutôt que d'utiliser un certificat auto-signé.
 
 Si vous ne disposez pas d'un certificat validé par une autorité, vous pouvez en générer un sur des plateformes telles
 que [Let's Encrypt](https://letsencrypt.org/).
@@ -465,7 +465,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Éditez le fichier **/etc/opt/rh/rh-php73/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
+Éditez le fichier **/etc/opt/rh/rh-php72/php.d/50-centreon.ini** et désactivez le paramètre `expose_php` :
 
 ```phpconf
 expose_php = Off
@@ -535,7 +535,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm httpd24-httpd
+systemctl restart rh-php72-php-fpm httpd24-httpd
 ```
 
 Puis vérifiez le statut :
@@ -567,155 +567,6 @@ Si tout est correct, vous devriez avoir quelque chose comme :
            └─32050 /opt/rh/httpd24/root/usr/sbin/httpd -DFOREGROUND
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-### Sécurisez le serveur web Apache avec un certificat auto-signé
-
-Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
-
-1. Préparer la configuration openssl :
-
-    En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration openssl.
-
-    Ouvrez le fichier **/etc/pki/tls/openssl.cnf** et trouvez la section **[v3_ca]**:
-
-    ```text
-    # Ajoutez le tag alt_names qui vous permet d'indiquer les différents IPs et FQDNs du serveur
-    [ alt_names ]
-    IP.1 = xxx.xxx.xxx.xxx
-    DNS.1 = centreon7.localdomain
-    # Si vous avez plusieurs IPs(HA: vip + ip)
-    # IP.2 = xxx.xxx.xxx.xxx
-    [ v3_ca ]
-    subjectAltName = @alt_names
-    ```
-
-2. Créer une clé privée pour le serveur :
-
-    Créez une clé privée nommée **centreon7.key** sans mot de passe afin qu'elle puisse être utilisée par le service apache.
-
-    ```text
-    openssl genrsa -out centreon7.key 2048
-    ```
-
-    Protégez le fichier en modifiant ses droits :
-
-    ```text
-    chmod 400 centreon7.key
-    ```
-
-3. Créer un fichier CSR : 
-
-    Avec la clé que vous venez de créer, créez un fichier CSR (Certificate Signing Request). Remplissez les champs avec les informations propres à votre entreprise.
-    Le champ **Common Name** doit être identique au hostname de votre serveur Apache (dans notre cas, **centreon7.localdomain**).
-
-    ```text
-    openssl req -new -key centreon7.key -out centreon7.csr
-    ```
-
-4. Créer une clé privée pour le certificat de l'autorité de certification :
-
-    En premier lieu, créez une clé privée pour cette autorité. Ajoutez l'option -aes256 pour chiffrer la clé produite et y appliquer un mot de passe. Ce mot de passe sera demandé chaque fois que la clé sera utilisée.
-
-    ```text
-    openssl genrsa -aes256 2048 > ca_demo.key
-    ```
-
-5. Créer le certificat x509 à partir de la clé privée du certificat de l'autorité de certification :
-
-    Ensuite, créez un certificat x509 qui sera valide pendant un an.
-
-    >  Attention, il est nécessaire de simuler un tiers de confiance : le "Common Name" doit être différent de celui du certificat du serveur.
-
-    ```text
-    openssl req -new -x509 -days 365 -key ca_demo.key -out ca_demo.crt
-    ```
-
-    Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat du serveur.
-
-6. Créer un certificat pour le serveur :
-
-    Utilisez le certificat x509 pour signer votre certificat pour le serveur :
-
-    ```text
-    openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/pki/tls/openssl.cnf -extensions v3_ca
-    ```
-
-    L'option CAcreateserial n'est nécessaire que la première fois. Vous devez entrer le mot de passe précédemment défini. Vous obtenez un certificat pour le serveur nommé **centreon7.crt**.
-
-    Vous pouvez voir le contenu du fichier : 
-
-    ```text
-    less centreon7.crt
-    ```
-
-7. Copier les fichiers dans la configuration Apache :
-
-    Copiez la clé privée du serveur et le certificat du serveur que vous avez signé.
-
-    ```text
-    cp centreon7.key /etc/pki/tls/private/centreon7.key
-    cp centreon7.crt /etc/pki/tls/certs/
-    ```
-
-8. Mettre à jour le fichier de configuration Apache :
-
-    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**). 
-
-    Voici un exemple de ce à quoi le fichier peut ressembler: 
-
-    ```apacheconf
-    Alias /centreon/api /usr/share/centreon
-    Alias /centreon /usr/share/centreon/www/
-    <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-        ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-    </LocationMatch>
-    <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-        ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-    </LocationMatch>
-    ProxyTimeout 300
-    <VirtualHost *:80>
-        RewriteEngine On
-        RewriteCond %{HTTPS} off
-        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-    </VirtualHost>
-    <VirtualHost *:443>
-    #####################
-    # SSL configuration #
-    #####################
-        SSLEngine on
-        SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
-        SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
-        SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-        SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
-        <Directory "/usr/share/centreon/www">
-            DirectoryIndex index.php
-            Options Indexes
-            AllowOverride all
-            Order allow,deny
-            Allow from all
-            Require all granted
-            <IfModule mod_php5.c>
-                php_admin_value engine Off
-            </IfModule>
-            FallbackResource /centreon/index
-            AddType text/plain hbs
-        </Directory>
-        <Directory "/usr/share/centreon/api">
-            Options Indexes
-            AllowOverride all
-            Order allow,deny
-            Allow from all
-            Require all granted
-            <IfModule mod_php5.c>
-                php_admin_value engine Off
-            </IfModule>
-            AddType text/plain hbs
-        </Directory>
-    </VirtualHost>
-    ```
-9. Copier le certificat x509 sur le navigateur client :
-
-    Maintenant, récupérez le fichier du certificat x509 **ca_demo.crt** et importez-le dans le magasin de certificats de votre navigateur.
 
 ## URI personnalisée
 
@@ -752,7 +603,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
-1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](./secure-platform#securisez-le-serveur-web-apache)
 
 2. Installer le module nghttp2:
 
@@ -787,7 +638,7 @@ dnf install nghttp2
 systemctl restart httpd
 ```
 <!--CentOS 7-->
-1. [Configurer le https pour Centreon](./secure-platform#passer-le-serveur-web-en-https)
+1. [Configurer le https pour Centreon](./secure-platform#securisez-le-serveur-web-apache)
 
 2. Installer le module nghttp2:
 

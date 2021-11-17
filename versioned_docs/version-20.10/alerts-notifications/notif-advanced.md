@@ -16,7 +16,7 @@ commands.
 > You can also find in the [Centreon
 > plugins](https://github.com/centreon/centreon-plugins/tree/master/notification)
 > to send preformated HTML email, etc. You must install the plugin on all
-> pollers, add a command to use this plugin and change the command of your
+> pollers, add a command to use this plugin and change the command of yourf
 > contacts.
 
 ## Chatops

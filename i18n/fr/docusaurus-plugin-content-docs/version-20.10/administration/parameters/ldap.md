@@ -1,6 +1,6 @@
 ---
 id: ldap
-title: Connecter Centreon à un annuaire LDAP
+title: LDAP
 ---
 
 > Si vous souhaitez implémenter une authentification SSO, suivez
@@ -8,7 +8,7 @@ title: Connecter Centreon à un annuaire LDAP
 
 Cette partie permet de configurer la connexion au(x) annuaire(s) LDAP.
 
-Allez à la page **Administration > Paramètres > LDAP** puis cliquez
+Rendez-vous dans le menu `Administration > Paramètres > LDAP` et cliquez
 sur **Ajouter**.
 
 ![image](../../assets/administration/parameters-ldap-add.png)

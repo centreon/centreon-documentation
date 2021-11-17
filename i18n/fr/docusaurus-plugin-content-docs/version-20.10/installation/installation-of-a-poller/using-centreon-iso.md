@@ -3,10 +3,6 @@ id: using-centreon-iso
 title: A partir de l'ISO Centreon
 ---
 
-> Si vous souhaitez installer Centreon sur une distribution CentOS / Oracle Linux
-> / RHEL en version 8, vous devez suivre la procédure
-> [à partir des paquets RPM](./using-packages)
-
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
@@ -109,45 +105,26 @@ Lorsque l'installation est terminée, cliquez sur **Reboot**.
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-## Nom du serveur
-
-Si vous le désirez, changez le nom du serveur à l'aide de la commande suivante:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Remplacez new-server-name par le nom de votre choix. Exemple :
-```shell
-hostnamectl set-hostname poller1
-```
-
 ## Mise à jour du système d'exploitation
 
 Connectez-vous via un terminal et exécutez la commande :
-```shell
+
+``` shell
 yum update
 ```
 
 > Acceptez toutes les clés GPG proposées.
 
-Redémarrez votre système avec la commande :
-```shell
+Redémarrez votre système avec la commande:
+
+``` shell
 reboot
 ```
 
-Activer le service centengine pour le rendre actif au démarrage :
-```shell
-systemctl enable centreon centengine centreontrapd snmptrapd
-```
+Activer le service centengine pour le rendre actif au démarrage.
 
-Les services de supervision passive peuvent être démarrés :
 ```shell
-systemctl start centreontrapd snmptrapd
-```
-
-Redémarrez Centreon Engine :
-```shell
-systemctl restart centengine
+systemctl enable centreon centengine
 ```
 
 ## Enregistrer le serveur
@@ -245,7 +222,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
 
 ## Ajouter le Poller à la configuration
 

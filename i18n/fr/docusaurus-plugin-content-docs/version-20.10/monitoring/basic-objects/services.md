@@ -1,15 +1,18 @@
 ---
 id: services
-title: Créer un service manuellement
+title: Les services
 ---
 
-Pour créer un service, allez à la page **Configuration > Services > Servces par hôtes**, puis cliquez sur **Ajouter**.
+Un service est un point de contrôle lié/rattaché à un hôte. Par exemple : Pourcentage d’utilisation partition sur un
+serveur, niveau d’encre sur une imprimante.
+
+Tous les ajouts de services se font dans le menu : **Configuration > Services > Add**.
 
 ![image](../../assets/configuration/03addservice.png)
 
 ## Configuration du service
 
-### Informations générales
+### Informations général
 
 * Le champ **Description** définit le nom du service.
 * Le champ **Service template** indique le modèle de service auquel le service est lié.
@@ -88,7 +91,7 @@ Le champ **Service Trap Relation** permet de définir les traps SNMP qui pourron
   bagotage en pourcentage de changement.
 * Le champ **Performance data processing** permet d’activer ou de désactiver le traitement des données de performances
   (et donc la génération des graphiques de performances).
-* Les champs **Retain status information** et **Retain non status information** indiquent si les informations
+* Les champs **Retain status information** et **Retention non status information** indiquent si les informations
   concernant ou ne concernant pas le statut sont sauvegardées après chaque relance de la commande de vérification.
 * Le champ **Stalking Options** définit les options à enregistrer si la rétention est activée.
 * Le champ **Event handler enabled** permet d’activer ou de désactiver le gestionnaire d’évènements.

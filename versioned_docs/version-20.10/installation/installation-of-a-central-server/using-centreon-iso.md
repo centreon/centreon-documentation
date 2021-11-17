@@ -3,9 +3,6 @@ id: using-centreon-iso
 title: Using Centreon ISO
 ---
 
-> If you want to install Centreon on CentOS / Oracle Linux / RHEL distribution
-> in version 8, you must [use RPM packages](./using-packages)
-
 ## Step 1: Startup the server
 
 To install Centreon, start up your server from the Centreon ISO image in version el7.
@@ -110,19 +107,6 @@ When the installation is complete, click on **Reboot**:
 
 ![image](../../assets/installation/18_reboot_server.png)
 
-## Server name
-
-If you want to change the server's name, use the following command:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Replace **new-server-name** by the name you want. Example:
-
-```shell
-hostnamectl set-hostname central
-```
-
 ## Update the operating system
 
 Connect to your server using a terminal, and execute the command:
@@ -145,21 +129,8 @@ To make services start automatically during system bootup, run these commands
 on the central server:
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
-
-### Secure the database
-
-Since MariaDB 10.5, it is necessary to secure the database's installation before installing Centreon.
-
-Answer yes to all questions except "Disallow root login remotely?". It is mandatory
-to set a password for the **root** user of the database.
-
-```shell
-mysql_secure_installation
-```
-
-> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Web installation
 

@@ -90,5 +90,5 @@ Enfin exécutez la commande suivante pour importer les objets dans Centreon web 
 /usr/share/centreon/bin/centreon -u admin -p <PASSWORD> -i /tmp/centreon_clapi_import_commands.txt
 ```
 
-> Remplacez `**<PASSWORD>**` par le mot de passe de l'utilisateur **admin** de
+> Remplacez **`<PASSWORD>`** par le mot de passe de l'utilisateur **admin** de
 > Centreon web.

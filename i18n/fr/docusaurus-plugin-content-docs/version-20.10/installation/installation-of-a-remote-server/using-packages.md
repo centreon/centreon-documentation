@@ -67,6 +67,22 @@ systemctl disable firewalld
 
 ### Installer le dépôts
 
+#### Dépôt *Software collections* de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
+Hat doit être activé.
+
+> Le dépôt *Software Collections* est nécessaire pour l'installation de PHP 7
+> et les librairies associées.
+
+Exécutez la commande suivante :
+
+```shell
+yum install -y centos-release-scl
+```
+
+#### Dépôt Centreon
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL 8-->
 #### Redhat CodeReady Builder repository
@@ -88,18 +104,16 @@ activé.
 
 Exécutez les commandes suivantes :
 
-- Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-- Pour CentOS 8.3 et Centos Stream :
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
 
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
+> Pour CentOS 8.2 utilisez la commande :
+> ```shell
+> dnf -y install dnf-plugins-core epel-release
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--Oracle Linux 8-->
 #### Dépôt CodeReady Builder de Oracle
 
@@ -128,24 +142,6 @@ yum install -y centos-release-scl
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-#### Dépôt Centreon
-
-Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
-préalable installer le fichier lié au dépôt.
-
-Exécutez la commande suivante :
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
-```
-<!--CentOS 7-->
-```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ## Installation
 
 Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
@@ -169,8 +165,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Vous pouvez maintenant passer à [l'étape suivante](#configuration).
 
 ### Avec base de données déportée
 
@@ -204,11 +198,6 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
-
-Sécurisez votre installation MariaDB en exécutant la commande suivante :
-```shell
-mysql_secure_installation
-```
 
 Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de
 Centreon :
@@ -260,18 +249,6 @@ DROP USER '<USER>'@'<IP>';
 
 ## Configuration
 
-### Nom du serveur
-
-Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Remplacez **new-server-name** par le nom de votre choix. Exemple :
-```shell
-hostnamectl set-hostname remote1
-```
-
 ### Fuseau horaire PHP
 
 La timezone par défaut de PHP doit être configurée. Exécuter la commande suivante :
@@ -283,11 +260,11 @@ echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 <!--CentOS 7-->
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
@@ -299,7 +276,7 @@ systemctl restart php-fpm
 ```
 <!--CentOS 7-->
 ```shell
-systemctl restart rh-php73-php-fpm
+systemctl restart rh-php72-php-fpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -315,26 +292,12 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable rh-php72-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 > Si la base de données est sur un serveur dédié, pensez à activer le
 > lancement du service **mariadb** sur ce dernier.
-
-### Sécuriser la base de données
-
-Depuis MariaDB 10.5, il est nécessaire de
-sécuriser son installation avant d'installer Centreon.
-
-Répondez oui à toute question sauf "Disallow root login remotely?". 
-Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
-
-```shell
-mysql_secure_installation
-```
-
-> Pour plus d'informations, veuillez consulter la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 ## Installation web
 
@@ -505,7 +468,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 20.10.
 
 ## Ajouter le Remote Server à la configuration
 

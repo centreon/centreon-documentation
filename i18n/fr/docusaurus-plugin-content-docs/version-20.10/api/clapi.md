@@ -3578,6 +3578,7 @@ centreon -u admin -p centreon -o INSTANCE -a add -v "Poller test;10.30.2.55;22;Z
 
 Required fields are:
 
+
 | Column                     | Description                                       |
 | -------------------------- | ------------------------------------------------- |
 | Name                       |                                                   |
@@ -5886,25 +5887,25 @@ To change a specific parameters for a BV, use the **SETPARAM** action:
 
 Parameters that you can change are the following:
 
-  |Parameter                       |Description                                                          |Possible values                                                                                                                                         |
-  |--------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-  |name                            |Business Activity name                                               |                                                                                                                                                         |
-  |description                     |Business Activity description                                        |                                                                                                                                                         |
-  |level\_w                        |Warning threshold                                                    |                                                                                                                                                         |
-  |level\_c                        |Critical threshold                                                   |                                                                                                                                                         |
-  |reporting\_period               |reporting period                                                     |                                                                                                                                                         |
-  |comment                         |Comments                                                             |                                                                                                                                                         |
-  |notifications\_enabled          |Enable notifications (0 or 1)                                        |                                                                                                                                                         |
-  |notification\_options           |Notification options (r, w, c, f)                                    |                                                                                                                                                         |
-  |notification\_period            |Notification period                                                  |                                                                                                                                                         |
-  |notification\_interval          |Notification interval                                                |                                                                                                                                                         |
-  |first\_notification\_delay      |Delay before sending first notification when entering non-OK status  |                                                                                                                                                         |
-  |recovery\_notification\_delay   |Delay before sending first notification when entering OK status      |                                                                                                                                                         |
-  |icon                            |Business Activity icon                                               |                                                                                                                                                         |
-  |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs                                  |*0* to ignore the planned downtime, *1* to inherit the planned downtime on the business activity, *2* to ignore the indicator in the calculation |
-  |geo_coords                      |Geo-coordinate to position the BA                                    |                                                                                                                                                         |
-  |enable                          |Enable (0 or 1)                                                      |                                                                                                                                                         |
-  |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |                                                                                                                                                         |
+  |Parameter                       |Description                                                          |
+  |--------------------------------|---------------------------------------------------------------------|
+  |name                            |Business Activity name                                               |
+  |description                     |Business Activity description                                        |
+  |level\_w                        |Warning threshold                                                    |
+  |level\_c                        |Critical threshold                                                   |        
+  |reporting\_period               |reporting period                                                     |
+  |comment                         |Comments                                                             |
+  |notifications\_enabled          |Enable notifications (0 or 1)                                        |
+  |notification\_options           |Notification options (r, w, c, f)                                    |
+  |notification\_period            |Notification period                                                  |
+  |notification\_interval          |Notification interval                                                |
+  |first\_notification\_delay      |Delay before sending first notification when entering non-OK status  |
+  |recovery\_notification\_delay   |Delay before sending first notification when entering OK status      |
+  |icon                            |Business Activity icon                                               |
+  |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs (0 or 1)                         |
+  |geo_coords                      |Geo-coordinate to position the BA                                    |
+  |enable                          |Enable (0 or 1)                                                      |
+  |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |
   
 > Note: Changing State Source will require updating your Level W and Level C to match the appropriate 
 >    Calculation Method!

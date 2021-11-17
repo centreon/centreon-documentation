@@ -44,18 +44,6 @@ systemctl disable firewalld
 
 > You can find instructions [here](../../administration/secure-platform#enable-firewalld) to configure firewalld.
 
-### Server name
-
-If you want, you can change the server's name using the following command:
-```shell
-hostnamectl set-hostname new-server-name
-```
-
-Replace **new-server-name** by the name you want. Example:
-```shell
-hostnamectl set-hostname poller1
-```
-
 ### Install the repositories
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -79,19 +67,16 @@ supported by Redhat.
 
 Enable the PowerTools repository using these commands:
 
-- For Centos 8.2:
+```shell
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
+```
 
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-
-- For CentOS 8.3 and CentOS Stream:
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
+> For CentOS 8.2 use:
+> ```shell
+> dnf -y install dnf-plugins-core epel-release
+> dnf config-manager --set-enabled PowerTools
+> ```
 <!--Oracle Linux 8-->
 #### Oracle CodeReady Builder repository
 
@@ -129,11 +114,11 @@ Install the Centreon repository using this command:
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-5.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/20.10/el8/stable/noarch/RPMS/centreon-release-20.10-3.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/20.10/el7/stable/noarch/RPMS/centreon-release-20.10-3.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -154,19 +139,19 @@ yum install -y centreon-poller-centreon-engine
 
 To make services start automatically during system bootup, run the following
 command:
+
 ``` shell
 systemctl enable centreon centengine centreontrapd snmptrapd
 ```
 
 Passive monitoring services can be started:
+
 ```shell
 systemctl start centreontrapd snmptrapd
 ```
 
-Restart Centreon Engine:
-```shell
-systemctl restart centengine
-```
+> Active monitoring service will be started following the generation of its
+> configuration.
 
 ## Register the server
 
@@ -275,7 +260,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater or equal to 21.04.
+> Your Centreon target version is invalid. It should be greater or equal to 20.10.
 
 ## Add the Poller to configuration
 

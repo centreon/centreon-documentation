@@ -10,7 +10,6 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 ## Plugin Pack assets
 
 ### Monitored objects
-
 # Nginx Server
 
 ### Collected metrics

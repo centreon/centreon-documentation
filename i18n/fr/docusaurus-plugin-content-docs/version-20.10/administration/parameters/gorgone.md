@@ -3,7 +3,7 @@ id: gorgone
 title: Gorgone
 ---
 
-Cette partie permet de définir les paramètres nécessaires à Centreon pour
+Cette partie permet de définir les paramètres nécessaire à Centreon pour
 intéragir avec Gorgone.
 
 Rendez-vous dans le menu `Administration > Paramètres > Gorgone`.
@@ -23,7 +23,7 @@ nom d'hôte pour communiquer avec l'API de Gorgone.
 Gorgone.
 - Le champ **Utilisateur** permet de définir l'utilisateur utilisé pour se
 connecter à l'API de Gorgone.
-- Le champ **Mot de passe** permet de définir le mot de passe utilisé pour se
+- Le champ **Mot de passe** permet de définir le mote de passe utilisé pour se
 connecter à l'API de Gorgone.
 - Le case **Utiliser SSL/TLS** permet de définir si SSL/TLS doit être utilisé
 pour communiquer avec l'API de Gorgone.

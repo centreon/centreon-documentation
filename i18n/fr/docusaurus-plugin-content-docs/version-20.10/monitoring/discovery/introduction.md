@@ -3,27 +3,39 @@ id: introduction
 title: Introduction
 ---
 
-> Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses) valide.
-> Pour en acheter une et récupérer les référentiels
+> Centreon Auto Discovery est une **extension** Centreon qui nécessite une clé
+> de licence valide. Pour en acheter une clé et récupérer les référentiels
 > nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez, 
-de les créer automatiquement dans Centreon. La découverte se fait
-via des fournisseurs de recherche et des règles de découverte, qui sont inclus dans des [Plugin Packs](../pluginpacks).
+Centreon Auto Discovery est un complément de la fonctionnalité Enterprise Plugin
+Pack.
 
-- La découverte peut être planifiée et exécutée automatiquement, régulièrement.
-- Vous pouvez également détecter que des ressources ne
-sont plus disponibles, afin d'éventuellement les désactiver dans la configuration.
-- Les contacts peuvent être associés à une règle de découverte de services pour être avertis en cas de modification de la configuration.
+Le module de découverte automatique utilise les plugins pour obtenir une liste
+des nouvelles ressources à surveiller : nouveaux hôtes ou nouveaux services. Ces
+ressources peuvent ensuite être configurées dans Centreon à l’aide de modèles
+d’hôte ou de modèle de service.
 
-## Fonctionnement
+Les règles de découverte d’hôte et les règles de découverte de service indiquent
+à Centreon comment se connecter à un équipement et obtenir la liste des
+ressources pouvant être surveillées. Ces règles de découverte sont incluses dans
+les Plugin Packs.
 
-1. Paramétrez une tâche de découverte pour chaque type d'hôte, en utilisant le bon [Plugin Pack](../pluginpacks). Par exemple, une tâche pour découvrir les noeuds ESX et une autre pour découvrir les machines virtuelles dans un cluster VMware. 
+Par exemple, les noeuds ESX et les machines virtuelles peuvent être
+automatiquement découverts dans un cluster VMware. Ou interfaces réseau et
+volumes de disque sur un serveur Linux.
 
-    Pour les services, paramétrez des règles de découverte : par exemple, une pour découvrir les 
-interfaces réseau sur un serveur Linux, et une autre pour découvrir les volumes de disque.
+Pour tous les hôtes ou services pour lesquels des règles de découverte sont
+disponibles, l’interface utilisateur de configuration de Centreon propose de se
+connecter à l’équipement et d’extraire une liste des ressources disponibles avec
+leur modèle associé, prêt à être configuré dans Centreon.
 
-2. La tâche ou la règle de découverte sont effectuées : on obtient une liste des nouveaux hôtes ou services correspondant au Plugin Pack.
+Ce mécanisme de découverte peut également être planifié et exécuté
+automatiquement. Les nouvelles ressources découvertes automatiquement peuvent
+éventuellement être configurées automatiquement dans Centreon.
 
-3. Selon votre paramétrage, vous choisissez dans la liste les ressources à ajouter à votre Centreon, ou bien elles sont ajoutées automatiquement. Ces ressources peuvent ensuite être configurées dans Centreon 
-à l’aide de modèles d’hôte ou de modèles de service.
+Le même mécanisme de découverte peut s’appliquer à des ressources qui ne
+seraient plus disponibles. Elles peuvent être répertoriées et éventuellement
+désactivées dans la configuration.
+
+Les contacts peuvent être associés à une règle de découverte pour être avertis
+en cas de modification de la configuration.

@@ -332,19 +332,19 @@ and the history chart statutes for this service.
 
 -   **View host status page**: Allows to access to the host details
     page.
--   **Configure host**: Allows to access to the configuration
+-   **Configure host `<value>`**: Allows to access to the configuration
     page of the host.
--   **View logs for host**: Allows to access to the event logs
+-   **View logs for host `<value>`**: Allows to access to the event logs
     of the host.
--   **View report for host**: Allows to acces to the
+-   **View report for host `<value>`**: Allows to acces to the
     availability rate report of the host.
--   **View graphs for host**: Allows to access to all
+-   **View graphs for host `<value>`**: Allows to access to all
     performance graphs of services of the host.
 -   **Configure service**: Allows to access to the configuration page of
     the service.
--   **View logs for service**: Allows to access to the event
+-   **View logs for service `<value>`**: Allows to access to the event
     logs of the service.
--   **View report for service**: Allows to acces to the
+-   **View report for service `<value>`**: Allows to acces to the
     availability rate report of the service.
 
 ### Service commands

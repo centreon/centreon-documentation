@@ -181,7 +181,7 @@ can use it.
 1.  Install the Centreon Plugin package on every Centreon poller expected to monitor Azure Event Grid resources:
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
+yum install centreon-plugin-Cloud-Azure-Itegration-EventGrid-Api
 ```
 
 2. On the Centreon Web interface, install the *Azure Event Grid* Centreon Plugin-Pack on the "Configuration > Plugin Packs > Manager" page
@@ -300,7 +300,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5`>.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
