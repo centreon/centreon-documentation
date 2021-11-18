@@ -171,7 +171,10 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 | Type   | Name                    | Value explanation                       | Value exemple                                           |
 | ------ | ----------------------- | --------------------------------------- | ------------------------------------------------------- |
 | string | elastic_url             | the url of the Elastic stack            | `https://elastic-fqdn:9200/`                            |
-| string | elastic_index_status    | Token to use the event collector api    | `centreon_status`                                       |
+| string | elastic_index_status    | Elastic target index name               | `centreon_status`                                       |
+| string | elastic_username        | Elastic username                        | `a_username`                                            |
+| string | elastic_password        | Elastic password                        | `a password`                                            |
+
 
 ### Add Elastic optional parameters
 
@@ -244,8 +247,8 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
-| Type   | Name        | Value                                          |
-| ------ | ----------- | ---------------------------------------------- |
+| Type   | Name        | Value                                           |
+| ------ | ----------- | ----------------------------------------------- |
 | string | format_file | /etc/centreon-broker/elastic-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user
@@ -259,7 +262,7 @@ Here is the list of all the curl commands that are used by the stream connector.
 ### Send events
 
 ```shell
-curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X POST "<elastic_url>/_bulk" --data-binary '{"host":"jamaica","satus":"OK","state_type":1,"state":0,"timestamp":<a_recent_timestamp>,"event_type":"service","service":"kingston","output":"OK: Everything is gonna be alright"}'
+curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X POST "<elastic_url>/_bulk" --data-binary '{"index":{"_index":"<elastic_index_status>"}}\n{"host":"jamaica","satus":"OK","state_type":1,"state":0,"timestamp":<a_recent_timestamp>,"event_type":"service","service":"kingston","output":"OK: Everything is gonna be alright"}\n'
 ```
 
 You must replace all the *`<xxxx>`* inside the above command with their appropriate value.
