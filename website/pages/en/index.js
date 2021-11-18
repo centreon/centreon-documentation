@@ -26,7 +26,7 @@ const links = {
   twitter: "https://twitter.com/CentreonFR/",
   linkedin: "https://www.linkedin.com/company/merethis/",
   contribute:"https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md",
-  banner: "https://events.centreon.com/centreon-summit-2021?utm_source=CentreonSummit_Website&utm_campaign=CentreonSummit2021",
+  banner: "https://thewatch.centreon.com",
 };
 
 const stringsAndParagraphs = {
@@ -123,7 +123,7 @@ function SummitBlock() {
     <div className="containerBlockBanner">
       <div className="imageSectionBanner">
         <a href={links.banner} target={'_blank'}>
-          <Image imageSrc={"summit-banner-en.png"} />
+          <Image imageSrc={"thewatch-banner-en.png"} />
         </a>
       </div>
     </div>
