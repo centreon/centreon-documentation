@@ -6,7 +6,7 @@ title: Elastic Events
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status**, **service_status** and **ba_status** events. The event format is shown **[there](#event-format)**.
+- By default, this stream connector sends **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
 - Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Compatibility
@@ -29,7 +29,7 @@ yum -y install epel-release
 Install dependencies.
 
 ```shell
-yum install luarocks make gcc lua-curl lua-devel
+yum install luarocks make gcc lua-curl lua-devel lua-socket
 ```
 
 <!-- CentOS 8 -->
@@ -55,7 +55,7 @@ dnf -y install epel-release
 Install dependencies.
 
 ```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks lua-socket
 ```
 
 <!-- RedHat 8 -->
@@ -81,7 +81,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Install dependencies.
 
 ```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+dnf install make gcc libcurl-devel lua-devel luarocks lua-socket
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -229,8 +229,8 @@ This stream connector will send event with the following format.
     "state": "1",
     "state_type": 1,
     "host": "my_host",
-    "output": "CRITICAL: No woman no cry"
-  }
+    "output": "CRITICAL: No woman no cry",
+    "timestamp": 1637229207
 }
 ```
 
