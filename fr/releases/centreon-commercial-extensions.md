@@ -33,6 +33,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon Auto Discovery
 
+### 21.10.1
+
+Release date: `November 19, 2021`
+
+#### Bug fixes
+
+- An invalid path in upgrade.php caused PHP errors in the update process
+
+
 ### 21.10.0
 
 - Host discovery now handles arrays of objects (Advanced Attributes) in the discovery results
