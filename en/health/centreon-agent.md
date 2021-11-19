@@ -72,13 +72,19 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 ### On a Centreon Central Server
 
-1. Install the Agent:
+1. Install **centreon-helios**:
+
+    ```
+    yum install centreon-helios
+    ```
+
+2. Install the Agent:
 
     ```
     yum install centreon-agent
     ```
 
-2. If this is the first time you are installing the Agent on the server, generate the yaml configuration file with the following Shell command:
+3. If this is the first time you are installing the Agent on the server, generate the yaml configuration file with the following Shell command:
 
     >You need to carry out this step only if the Agent has not been previously configured, otherwise you will overwrite your previous configuration.
 
@@ -125,7 +131,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
         >The Topology function uses the `centreon-agent.yml` file to gather the information it needs: this is hard-coded. If you change the name of this YAML file, the function will fail.
 
-3. Add an **environment** [tag](#tags):
+4. Add an **environment** [tag](#tags):
 
     Open the `/etc/centreon-agent/centreon-agent.yml` file generated at installation (cf. `--output` option configured earlier) and add the following instructions under the **collect** section.
 
@@ -144,19 +150,29 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
     If you have multiple environments of the same kind, you can suffix your type of environment (for instance: "production_client1").
 
-4. Enable the **centreon-agent** Service:
+5. Enable the **centreon-agent** Service:
 
     ```
     systemctl enable centreon-agent.service
     ```
 
-5. Start the **centreon-agent** service:
+6. Start the **centreon-agent** service:
 
     ```
     systemctl start centreon-agent.service
     ```
 
-7. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
+7.  Enable the topology scheduling: edit the cron file **/etc/cron.d/centreon-helios** and uncomment the following line (i.e. delete the **#** character):
+
+    ```
+    0 0 * * * centreon /usr/sbin/centreon-helios.phar
+    ```
+
+    > If you have already a previous version of the agent already installed, your file may contain a different line to uncomment, in which case you need to replace said line with the one provided above.
+
+    > The Topology function uses the **centreon-agent.yml** file to correctly gather needed pieces of information: this is hard coded. If you change the name of this YAML file, the function will fail.
+
+8. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
 
 ### On other host machines (Remote Server, Poller, MAP, etc.)
 
