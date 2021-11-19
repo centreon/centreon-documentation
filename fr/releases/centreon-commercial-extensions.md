@@ -35,7 +35,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 21.10.1
 
-Release date: `null`
+Release date: `November 19, 2021`
 
 #### Bug fixes
 
