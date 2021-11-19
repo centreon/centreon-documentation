@@ -36,7 +36,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.1
 
-Release date: `null`
+Release date: `November 19, 2021`
 
 #### Bug fixes
 
