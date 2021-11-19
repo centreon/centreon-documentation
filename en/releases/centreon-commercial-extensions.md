@@ -34,6 +34,15 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
+### 21.10.1
+
+Release date: `null`
+
+#### Bug fixes
+
+- An invalid path in upgrade.php caused PHP errors in the update process
+
+
 ### 21.10.0
 
 - Host discovery now handles arrays of objects (Advanced Attributes) in the discovery results
