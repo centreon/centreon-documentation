@@ -383,6 +383,11 @@ Alias /centreon /usr/share/centreon/www/
 
 ProxyTimeout 300
 
+<IfModule mod_security2.c>
+    # https://github.com/SpiderLabs/ModSecurity/issues/652
+    SecRuleRemoveById 200003
+</IfModule>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} off
@@ -659,34 +664,45 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
 
 8. Mettre à jour le fichier de configuration Apache :
 
-    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**). 
+    Selon le nom des fichiers créés, mettez à jour les paramètres **SSLCertificateFile** et **SSLCertificateKeyFile** dans votre fichier de configuration Apache (**/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**).
 
-    Voici un exemple de ce à quoi le fichier peut ressembler: 
+    Voici un exemple de ce à quoi le fichier peut ressembler:
 
     ```apacheconf
     Alias /centreon/api /usr/share/centreon
     Alias /centreon /usr/share/centreon/www/
+
     <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
     </LocationMatch>
+
     <LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
         ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
     </LocationMatch>
+
     ProxyTimeout 300
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
     <VirtualHost *:80>
         RewriteEngine On
         RewriteCond %{HTTPS} off
         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
     </VirtualHost>
+
     <VirtualHost *:443>
-    #####################
-    # SSL configuration #
-    #####################
+        #####################
+        # SSL configuration #
+        #####################
         SSLEngine on
         SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
         SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
         SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
         SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
         <Directory "/usr/share/centreon/www">
             DirectoryIndex index.php
             Options Indexes
@@ -697,9 +713,12 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
             <IfModule mod_php5.c>
                 php_admin_value engine Off
             </IfModule>
+
             FallbackResource /centreon/index.html
+
             AddType text/plain hbs
         </Directory>
+
         <Directory "/usr/share/centreon/api">
             Options Indexes
             AllowOverride all
@@ -709,6 +728,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
             <IfModule mod_php5.c>
                 php_admin_value engine Off
             </IfModule>
+
             AddType text/plain hbs
         </Directory>
     </VirtualHost>

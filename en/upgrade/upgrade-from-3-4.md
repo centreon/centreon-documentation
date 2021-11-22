@@ -204,6 +204,11 @@ Alias /centreon /usr/share/centreon/www/
 
 ProxyTimeout 300
 
+<IfModule mod_security2.c>
+    # https://github.com/SpiderLabs/ModSecurity/issues/652
+    SecRuleRemoveById 200003
+</IfModule>
+
 <Directory "/usr/share/centreon/www">
     DirectoryIndex index.php
     Options Indexes
