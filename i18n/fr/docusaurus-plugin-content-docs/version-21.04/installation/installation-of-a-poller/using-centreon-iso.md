@@ -7,6 +7,10 @@ title: A partir de l'ISO Centreon
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages)
 
+## Prérequis
+
+Téléchargez l'ISO sur le [site de téléchargement de Centreon](https://download.centreon.com/).
+
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
