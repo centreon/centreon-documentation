@@ -20,36 +20,37 @@ Then click on **Next**.
 
 ![image](../assets/installation/acentreoncheckmodules.png)
 
-Define pathes used by monitoring engine. We recommand to use defaults.
+Define paths used by monitoring engine. We recommend to use defaults.
 
 Then click on **Next**.
 
 ![image](../assets/installation/amonitoringengine2.png)
 
-Define pathes used by broker module. We recommand to use defaults.
+Define paths used by broker module. We recommend to use defaults.
 
 Then click on **Next**.
 
 ![image](../assets/installation/abrokerinfo2.png)
 
-Define informations for the admin account creation.
+Define information for the admin account creation.
 
 Then click on **Next**.
 
 ![image](../assets/installation/aadmininfo.png)
 
-Provide informations to connect to the database instance.
+Provide information to connect to the database instance.
 
 By default, the instance address is set to *localhost*, the instance root
-user is set to *root* and the root password is empty.
+user is set to *root* and the root password is empty. Since MariaDB 10.5, it has been mandatory to add a password for the root user.  The **Root password** of the database is the password you have defined when executing `mysql_secure_installation` (whether you have installed Centreon from the [ISO](installation-of-a-central-server/using-centreon-iso#secure-the-database), from [packages](installation-of-a-central-server/using-packages#secure-the-database) or from [sources](installation-of-a-central-server/using-sources#secure-the-database)).
+
 
 > If you use a remote database server, or use a specific root user, change
 > these entries
 
-Then define databases name and credentials that will be created. We recommand
+Then define the databases' names and credentials that will be created. We recommend
 to use default values.
 
-> Centreon database's user password should be the only parameter customized
+> Centreon database's user password and the root password should be the only parameters customized
 > here.
 
 Then click on **Next**.
