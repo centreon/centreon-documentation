@@ -494,16 +494,7 @@ expose_php = Off
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-7. Désactiver les boundary mod_security pour autoriser l'upload de license
-
-Éditez le fichier **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** et commentez la ligne suivante :
-
-```apacheconf
-#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
-#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
-```
-
-8. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
+7. Redémarrez le serveur web Apache et PHP pour prendre en compte la configuration
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->

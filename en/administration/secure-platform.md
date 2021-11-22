@@ -489,16 +489,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-7. Disable mod_security boundary to enable license upload
-
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
-
-```apacheconf
-#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
-#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
-```
-
-8. Restart the Apache and PHP process to take in account the new configuration:
+7. Restart the Apache and PHP process to take in account the new configuration:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
