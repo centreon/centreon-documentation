@@ -43,7 +43,7 @@ Puis cliquez sur **Next**.
 Fournissez les informations de connexion à l'instance de base de données.
 
 Par défaut, l'adresse de l'instance est défini à *localhost*, l'utilisateur
-root est défini à *root* et le mot de passe root est vide. Depuis MariaDB 10.5, il est nécessaire de définir un mot de passe pour l'utilisateur root. Le **Root password** de la base de données est le mot de passe que vous avez défini lorsque vous avez exécuté `mysql_secure_installation` (que vous ayez effectué l'installation à partir de l'[ISO](installation-of-a-central-server/using-centreon-iso.html#sécuriser-la-base-de-données), des [paquets](installation-of-a-central-server/using-packages.html#sécuriser-la-base-de-données) ou bien des [sources](installation-of-a-central-server/using-sources.html#sécurisez-la-base-de-données)).
+root est défini à *root* et le mot de passe root est vide. Depuis MariaDB 10.5, il est nécessaire de définir un mot de passe pour l'utilisateur root. Le **Root password** de la base de données est le mot de passe que vous avez défini lorsque vous avez exécuté `mysql_secure_installation` (que vous ayez effectué l'installation à partir de l'[ISO](installation-of-a-central-server/using-centreon-iso#sécuriser-la-base-de-données), des [paquets](installation-of-a-central-server/using-packages#sécuriser-la-base-de-données) ou bien des [sources](installation-of-a-central-server/using-sources#sécurisez-la-base-de-données)).
 
 > Si vous utilisez un serveur de base de données distant, ou un utilisateur
 > root spécifique, il convient de modifier ces deux informations.
