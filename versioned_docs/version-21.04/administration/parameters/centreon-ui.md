@@ -123,7 +123,7 @@ in the **Authentication by OpenId Connect** section.
 - **Use Basic Auth for Token Endpoint Authentication** field forces to use the `Authorization: Basic` method.
 - **Disable SSL verify peer** field allows to disable SSL peer validation, should only be used for tests.
 
-![image](../assets/administration/openid-connect-configuration.png)
+![image](../../assets/administration/openid-connect-configuration.png)
 
 > Depending on the identity provider, it is necessary to enter several scopes in order to retrieve the claim which will
 > identify the user. This is indicated in the provider's configuration documentation.

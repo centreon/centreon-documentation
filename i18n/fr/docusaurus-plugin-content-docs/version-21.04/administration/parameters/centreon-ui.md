@@ -130,7 +130,7 @@ L'authentification se paramètre à la page **Administration > Paramètres > Cen
 - La case **Use Basic Auth for Token Endpoint Authentication** oblige à utiliser la méthode `Authorization: Basic`.
 - **Disable SSL verify peer** permet de désactiver la validation des pairs SSL, ne doit être utilisé que pour des tests
 
-![image](../assets/administration/openid-connect-configuration.png)
+![image](../../assets/administration/openid-connect-configuration.png)
 
 > Selon le fournisseur d'identité, il est nécessaire de saisir plusieurs portées (scope) afin de récupérer la valeur
 > (claim) qui identifiera l'utilisateur. Ceci est indiqué dans la documentation de configuration du fournisseur.
