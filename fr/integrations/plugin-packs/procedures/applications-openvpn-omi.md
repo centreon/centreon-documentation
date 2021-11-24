@@ -12,9 +12,9 @@ Le Plugin Pack Centreon OpenVPN OMI apporte 1 modèle d'hôte :
 
 Il apporte le Modèle de Service suivant :
 
-| Service Alias | Service Template             | Default | Discovery |
-|:--------------|:-----------------------------|:--------|:----------|
-| Server-Usage  | App-Openvpn-Server-Usage-OMI | X       |           |
+| Service Alias | Service Template             | Default |
+|:--------------|:-----------------------------|:--------|
+| Server-Usage  | App-Openvpn-Server-Usage-OMI | X       |
 
 ### Métriques & statuts collectés
 
@@ -138,5 +138,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
 pour le diagnostique des erreurs commununes des Plugins Centreon.

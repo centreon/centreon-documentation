@@ -12,9 +12,9 @@ The Centreon Plugin Pack OpenVPN OMI brings 1 host template :
 
 It brings the following Service Template:
 
-| Service Alias | Service Template             | Default | Discovery |
-|:--------------|:-----------------------------|:--------|:----------|
-| Server-Usage  | App-Openvpn-Server-Usage-OMI | X       |           |
+| Service Alias | Service Template             | Default |
+|:--------------|:-----------------------------|:--------|
+| Server-Usage  | App-Openvpn-Server-Usage-OMI | X       |
 
 ### Collected metrics & status
 
@@ -137,4 +137,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugins
-in the [dedicated page](../tutorials/troubleshooting-plugins.md)
+in the [dedicated page](../tutorials/troubleshooting-plugins.html)
