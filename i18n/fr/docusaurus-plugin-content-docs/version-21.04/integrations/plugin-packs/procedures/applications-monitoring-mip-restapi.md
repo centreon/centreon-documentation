@@ -11,7 +11,7 @@ Maltem Insight Performance (MIP) développe et intègre des solutions permettant
 
 Une instance MIP expose une Rest API au format JSON. Le Plugin Centreon utilise ce biais pour récupérer les données. 
 
-![architecture]<!--(../../assets/integrations/external/mip-connector-architecture.png)-->
+![architecture](../../../assets/integrations/external/mip-connector-architecture.png)
 
 ## Compatibility
 
@@ -37,7 +37,7 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 
 2. Installer le Plugin-Pack via la page "Configuration > Plugin-Packs > Manager": 
 
-![install\_epp]<!--(../../assets/integrations/external/mip-epp-install.png)-->
+![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 
 <!--Offline IMP License-->
 
@@ -55,7 +55,7 @@ yum install -y centreon-pack-applications-monitoring-mip-restapi`
 
 3. Installer le Plugin-Pack via la page "Configuration > Plugin-Packs > Manager":
 
-![install\_epp]<!--(../../assets/integrations/external/mip-epp-install.png)-->
+![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

@@ -127,11 +127,11 @@ passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 
 <!-- Concept   -->
 
-<!--[image](../assets/service-mapping/ratio.png)-->
+[image]<!--(../assets/service-mapping/ratio.png)-->
 
 <!-- Configuration -->
 
-<!--[image](../assets/service-mapping/conf-ratio.png)-->
+[image]<!--(../assets/service-mapping/conf-ratio.png)-->
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 

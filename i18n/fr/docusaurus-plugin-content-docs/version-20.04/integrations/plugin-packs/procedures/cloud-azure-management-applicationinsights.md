@@ -30,7 +30,7 @@ Application Gateway. Il est possible d'utiliser les 2 modes proposés par Micros
 Le Plugin Pack Centreon *Azure Application Insights* inclut un *provider* de découverte d'Hôtes nommé **Microsoft Azure Application Insights**.
 Celui-ci permet de découvrir l'ensemble des instances *Application Insights* rattachés à une *souscription* Microsoft Azure donnée:
 
-<!--[image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)-->
+[image]<!--(../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-applicationinsights-provider.png)-->
 
 > La découverte *Azure Application Insights* n'est compatible qu'avec le mode 'api'. Le mode 'azcli' n'est pas supporté dans le cadre
 > de cette utilisation. 
