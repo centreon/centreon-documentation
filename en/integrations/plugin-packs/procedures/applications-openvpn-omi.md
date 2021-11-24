@@ -76,12 +76,12 @@ yum install centreon-pack-applications-openvpn-omi
 * Select the *Applications-Openvpn-Omi-custom* template to apply to the Host
 * Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
 
-| Mandatory | Name                   | Description                                                                        |
-|:----------|:-----------------------|:-----------------------------------------------------------------------------------|
-|           | $_HOSTOMIEXTRAOPTIONS$ |                                                                                    |
-| X         | $_HOSTOMIPASSWORD$     |                                                                                    |
-| X         | $_HOSTOMIPORT$         | 7505                                                                               |
-|           | $_HOSTEXTRAOPTIONS$    | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| Mandatory | Name            | Description                                                                        |
+|:----------|:----------------|:-----------------------------------------------------------------------------------|
+|           | OMIEXTRAOPTIONS |                                                                                    |
+| X         | OMIPASSWORD     |                                                                                    |
+| X         | OMIPORT         | 7505                                                                               |
+|           | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
 ## How to check in the CLI that the configuration is OK and what are the main options for ? 
 

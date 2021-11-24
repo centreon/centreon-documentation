@@ -77,12 +77,12 @@ yum install centreon-pack-applications-openvpn-omi
 * Appliquez le Modèle d'Hôte *Applications-Openvpn-Omi-custom* 
 * Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises(*Mandatory*) doivent être renseignées 
 
-| Mandatory | Name                   | Description                                                                        |
-|:----------|:-----------------------|:-----------------------------------------------------------------------------------|
-|           | $_HOSTOMIEXTRAOPTIONS$ |                                                                                    |
-| X         | $_HOSTOMIPASSWORD$     |                                                                                    |
-| X         | $_HOSTOMIPORT$         | 7505                                                                               |
-|           | $_HOSTEXTRAOPTIONS$    | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| Mandatory | Name            | Description                                                                        |
+|:----------|:----------------|:-----------------------------------------------------------------------------------|
+|           | OMIEXTRAOPTIONS |                                                                                    |
+| X         | OMIPASSWORD     |                                                                                    |
+| X         | OMIPORT         | 7505                                                                               |
+|           | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
 
