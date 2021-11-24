@@ -61,6 +61,8 @@ yum update centreon\*
 yum install centreon-ha-web-21.04.0 centreon-ha-common-21.04.0
 yum autoremove centreon-ha
 yum update centreon-ha\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 <!--HA 4 Nodes-->
@@ -71,6 +73,7 @@ yum update centreon\*
 yum install centreon-ha-web-21.04.0 centreon-ha-common-21.04.0
 yum autoremove centreon-ha
 yum update centreon-ha\*
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
 Sur les serveurs de base de données :
@@ -79,6 +82,7 @@ yum update centreon\*
 yum install centreon-ha-common-21.04.0
 yum autoremove centreon-ha
 yum update centreon-ha\*
+mv /etc/centreon-ha/mysql-resources.sh.rpmsave /etc/centreon-ha/mysql-resources.sh
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
