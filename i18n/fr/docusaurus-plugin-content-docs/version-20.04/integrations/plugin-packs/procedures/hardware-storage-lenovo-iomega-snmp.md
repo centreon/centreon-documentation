@@ -20,10 +20,10 @@ Le Pack Lenovo Iomega collecte les données pour:
 
 <!--Services-->
 
-| Nom de la règle                               | Description                                                                                  |
-| :-------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name       | Découvre les partitions et supervise l'utilisation disque                                    |
-| HW-Storage-Lenovo-Iomega-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
+| Nom de la règle                              | Description                                                                                  |
+| :------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| HW-Storage-Lenovo-Iomega-SNMP-Disk-Name      | Découvre les partitions et supervise l'utilisation disque                                    |
+| HW-Storage-Lenovo-Iomega-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation de la bande passante |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -33,36 +33,36 @@ Le Pack Lenovo Iomega collecte les données pour:
 
 <!--Cpu-->
 
-| Metric name                      | Description           | Unit |
-| :------------------------------- | :-------------------- |:---- |
-| cpu.utilization.percentage       | CPU utilization.      | %    |
-| core.cpu.utilization.percentage  | CPU Core utilization. | %    |
+| Metric name                     | Description           | Unit |
+| :------------------------------ | :-------------------- | :--- |
+| cpu.utilization.percentage      | CPU utilization.      | %    |
+| core.cpu.utilization.percentage | CPU Core utilization. | %    |
 
 <!--Disks-->
 
-| Metric name                                  | Description                     | Unit  |
-| :------------------------------------------- | :------------------------------ |:----- |
-| storage.partitions.count                     | Number of disk partition.       |       |
-| *partition\_name*\#storage.space.usage.bytes | Used space on a disk partition. | B     |
-| *partition\_name*\#storage.access            | Access disk partition.          |       |
+| Metric name                                  | Description                     | Unit |
+| :------------------------------------------- | :------------------------------ | :--- |
+| storage.partitions.count                     | Number of disk partition.       |      |
+| *partition\_name*\#storage.space.usage.bytes | Used space on a disk partition. | B    |
+| *partition\_name*\#storage.access            | Access disk partition.          |      |
 
 <!--Hardware-->
 
-| Metric name                   | Description                               | Unit |
-|:----------------------------- |:----------------------------------------- |:---- |
-| disk.status                   | Status of the disk                        |      |
-| raid.status                   | Status of the raid                        |      |
-| fan.status                    | Status of the fan                         |      |
-| temperature.status            | Status of the temperature                 |      |
-| voltage.status                | Status of the voltage                     |      |
-| hardware.fan.speed.rpm        | Speed of fan                              | rpm  |
-| hardware.temperature.celsius  | temperature of the different sensors      | C    |
-| hardware.voltage.millivolt    | Voltage of the different sensors          | mV   |
+| Metric name                  | Description                          | Unit |
+| :--------------------------- | :----------------------------------- | :--- |
+| disk.status                  | Status of the disk                   |      |
+| raid.status                  | Status of the raid                   |      |
+| fan.status                   | Status of the fan                    |      |
+| temperature.status           | Status of the temperature            |      |
+| voltage.status               | Status of the voltage                |      |
+| hardware.fan.speed.rpm       | Speed of fan                         | rpm  |
+| hardware.temperature.celsius | temperature of the different sensors | C    |
+| hardware.voltage.millivolt   | Voltage of the different sensors     | mV   |
 
 <!--Interfaces-->
 
 | Metric name                                                 | Description                                             | Unit |
-|:----------------------------------------------------------- |:------------------------------------------------------- |:---- |
+| :---------------------------------------------------------- | :------------------------------------------------------ | :--- |
 | status                                                      | Status of the interface                                 |      |
 | *interface\_name*\#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
 | *interface\_name*\#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
@@ -73,13 +73,13 @@ Le Pack Lenovo Iomega collecte les données pour:
 
 <!--Memory-->
 
-| Metric name              | Description                | Unit |
-| :----------------------- | :------------------------- |:---- |
-| memory.usage.bytes       | Memory usage               | B    |
-| memory.free.bytes        | Free memory                | B    |
-| memory.usage.percentage  | Memory usage in percentage | %    |
-| memory.buffer.bytes      | Buffer memory              | B    |
-| memory.cached.bytes      | Memory cached              | B    |
+| Metric name             | Description                | Unit |
+| :---------------------- | :------------------------- | :--- |
+| memory.usage.bytes      | Memory usage               | B    |
+| memory.free.bytes       | Free memory                | B    |
+| memory.usage.percentage | Memory usage in percentage | %    |
+| memory.buffer.bytes     | Buffer memory              | B    |
+| memory.cached.bytes     | Memory cached              | B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -130,9 +130,9 @@ yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 > Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
 > d'authentification et de chiffrement adéquats
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+| Mandatory | Name             | Description        |
+| :-------- | :--------------- | :----------------- |
+|           | SNMPEXTRAOPTIONS | Extra options SNMP |
 
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?

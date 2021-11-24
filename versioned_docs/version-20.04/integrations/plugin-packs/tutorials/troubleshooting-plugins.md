@@ -190,7 +190,7 @@ you to specify these values.
 The timeout error occurs when the Plugin doesn't succeed in contacting the server 
 or when a third-party device is blocking or filtering the client's request. 
 
-#### UNKNOWN: 500 Can't connect to `<ip_address>:<port>`(`<SSL Error>`)
+#### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (`<SSL Error>)`
 
 SSL Errors indicate that the Plugin has some trouble establishing a secure connection 
 to get the monitoring information.
@@ -213,9 +213,9 @@ option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher d
 
 ## SSH and CLI checks
 
-### UNKNOWN: Command error: `<interpreter>: <command_name>`: command not found
+### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
-This error warns that the Plugin is not able to execute the <command_name> because it 
+This error warns that the Plugin is not able to execute the `<command_name>` because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 

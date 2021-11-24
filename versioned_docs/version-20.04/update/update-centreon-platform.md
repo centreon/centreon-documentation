@@ -1,9 +1,9 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 21.04 platform
+title: Update a Centreon 20.04 platform
 ---
 
-This chapter describes how to update your Centreon 21.04 platform.
+This chapter describes how to update your Centreon 20.04 platform.
 
 ## Perform a backup
 
@@ -108,5 +108,5 @@ and choose *Restart* method for Engine process.
 Finally, restart Gorgone service if it is used on the Poller:
 
 ```shell
-systemctl restart centengine gorgoned
+systemctl restart gorgoned
 ```

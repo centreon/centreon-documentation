@@ -73,7 +73,7 @@ Once the installation is complete, click on **Next**.
 ![image](../assets/installation/module_installationb.png)
 
 At this point, an advertisement informs you of the latest Centreon news and
-products.
+roducts.
 
 If your platform is connected to the internet, the information you receive
 will be up to date.
@@ -125,10 +125,6 @@ To start the monitoring processes:
 
 Monitoring is now working. You can start monitoring your IT system.
 
-## Add a license
-
-According to your Centreon edition, you may have to [add a license](../administration/licenses).
-
 ## Install available extensions
 
 Go to `Administration > Extensions > Manager` menu and click on
@@ -136,12 +132,12 @@ Go to `Administration > Extensions > Manager` menu and click on
 
 ![image](../assets/installation/extensions-manager.png)
 
-## Secure your platform
-
-Don't forget to secure your Centreon platform following our
-[recommendations](../administration/secure-platform).
-
 ## Getting started
 
 Go to the [Getting Started](../getting-started/installation-first-steps#request-your-free-trial)
 chapter to configure your first monitoring.
+
+## Secure your platform
+
+Don't forget to secure your Centreon platform following our
+[recommendations](../administration/secure-platform)

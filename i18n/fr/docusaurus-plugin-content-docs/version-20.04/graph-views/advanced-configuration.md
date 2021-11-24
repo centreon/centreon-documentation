@@ -16,7 +16,7 @@ server.
 On the Central server, install the required Packs with the following commands:
 
 ```shell
-yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
+yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-monitoring-centreon-map-jmx centreon-pack-applications-webservers-tomcat-jmx centreon-plugin-Applications-Databases-Mysql
 ```
 
 From the Plugin Packs Manager, install the Packs.
@@ -28,8 +28,24 @@ Use SSH to access the Poller that will be monitoring your Centreon MAP server.
 Install all the required plugins with the following commands:
 
 ```shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Jvm-Actuator
+yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Monitoring-Centreon-Map-Jmx centreon-plugin-Applications-Webservers-Tomcat-Jmx centreon-pack-applications-databases-mysql
 ```
+
+### Configure your database
+
+Access your MariaDB server where the Centreon MAP database is stored (the
+Centreon MAP database is called 'centreon\_studio' by default).
+
+Execute the following query on the SQL instance:
+
+```sql
+GRANT SELECT ON centreon_studio.* TO 'centreon_map'@'<POLLER_IP>' identified by 'PASSWORD';
+```
+
+- Replace 'centreon\_studio' by the DB name of your Centreon MAP server.
+- Replace \<POLLER\_IP\> by the IP address of the poller which will be
+  monitoring your DB.
+- Replace 'PASSWORD' by any password you prefer.
 
 ### Configure your services
 
@@ -39,25 +55,54 @@ Fill in the basic information about your host and add the following host
 templates:
 
 - OS-Linux-SNMP-custom
-- App-Jvm-actuator-custom
+- App-Monitoring-Centreon-Map-JMX-custom
+- App-Webserver-Tomcat-JMX-custom
 
-![image](../assets/graph-views/jvm1.png)
-![image](../assets/graph-views/jvm2.png)
+Also add the following only if you have a local MariaDB DB on you MAP server:
 
-To monitor centreon-map JVM, please use following macro values:
-| Name                    | Value                           |
-| :---------------------- | :------------------------------ |
-| ACTUATORCUSTOMMODE      | ```centreonmap```               |
-| ACTUATORAPIURLPATH      | ```/centreon-studio/api/beta``` |
-| ACTUATORAPIUSERNAME     | Api username must be set        |
-| ACTUATORAPIPASSWORD     | Api password must be set        |
+- App-DB-MySQL-custom
+
+![image](../assets/graph-views/map4-host-configuration.png)
+
+Important:
+
+1. The above host templates are the three main templates required for
+   monitoring your Centreon MAP server.
+
+2. The MySQL/MariaDB template is useful only if there is a MariaDB server
+   on your Centreon MAP server (for Centreon MAP database).
+
+3. Enter the Jolokia URL, accessible on the Centreon Map server, through
+   actuator endpoint:
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+<!--HTTP-->
+
+```shell
+http://<MAP_IP>:8080/centreon-studio/actuator/jolokia
+```
+
+<!--HTTPS-->
+
+```shell
+https://<MAP_IP>:8443/centreon-studio/actuator/jolokia
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+> Replace \<MAP\_IP\> by the IP address of your Centreon MAP server.
+
+4. *If you have installed a MariaDB server on your Centreon MAP server*, enter
+   the user/password you used in [Configure your
+   database](#configure-your-database).
 
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
 
-![image](../assets/graph-views/jvm3.png)
+![image](../assets/graph-views/map4-services.png)
 
 You may also just check the access to the following URL that tells that
 the server is up or not:
@@ -77,6 +122,44 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
+## Migrating your Centreon MAP server
+
+This section explains how to move Centreon MAP server over to another server.
+This task may be useful if you need to migrate your reporting server from CentOS
+6 to CentOS 7.
+
+### Install the new Centreon MAP server
+
+Please refer to the installation chapter in this documentation to install your
+new Centreon MAP server.
+
+### Synchronize the data
+
+Stop Centreon Map service on **both** Centreon MAP servers:
+
+```shell
+systemctl stop centreon-map
+```
+
+Dump the Centreon MAP data:
+
+```shell
+mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
+```
+
+Upload *centreon\_studio.sql* to the new Centreon MAP (in /tmp) server and
+import it into the database:
+
+```shell
+mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
+```
+
+Start Centreon Map service on the new Centreon MAP servers:
+
+```shell
+systemctl start centreon-map
+```
 
 ## Centreon MAP configuration files
 

@@ -45,128 +45,58 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 4. Go to **Administration > Extensions > Modules** menu and install the
 **centreon-license-manager** module.
 
-5. ## Register the server
+5. Enable the Remote Server option
 
-To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
-```
-
-Example:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
-```
-
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
-
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
-
-> If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
-
-Then follow instructions by
-1. Entering your password:
+    To transform the server into a Remote Server, connect to the server and
+    execute following command:
 
     ``` shell
-    192.168.0.1: please enter your password:
+    /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
+    -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
     ```
 
-2. Select the IP address if multiple network interfaces exist:
+    - Replace **\<IP_CENTREON_CENTRAL\>** by the IP of the Centreon server seen by
+        the poller. You can define multiple IP address using a coma as separator.
 
-    ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
+        > To use HTTPS, replace **\<IP_CENTREON_CENTRAL\>** by
+        > **https://\<IP_CENTREON_CENTRAL\>**.
+        >
+        > To use non default port, replace **\<IP_CENTREON_CENTRAL\>** by
+        > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**
+
+    - For the **\<not check SSL CA on Central\>** option you can put **1** to do not
+        check the SS CA on the Centreon Central Server if HTTPS is enabled, or put
+        **0**.
+
+    - The **\<HTTP method\>** is to define how the Centreon Central server can
+        contact the Remote server: HTTP or HTTPS.
+
+    - The **\<TCP port\>** is to define on wich TCP port the entreon Central
+        server can contact the Remote server.
+
+    - For the **\<not check SSL CA on Remote\>** option you can put **1** to do not
+        check the SS CA on the Remote server if HTTPS is enabled, or put **0**.
+
+    - For the **\<no proxy to call Central\>** option you can put **1** to do not use
+        HTTP(S) proxy to contact the Centreon Central server.
+
+    This command will enable **Remote Server** mode:
+    
+    - by limiting menu access,
+    - by limiting possible actions,
+    - by allowing the Central to connect to it,
+    - by pre-registering the server to the Central.
+
+    ```text
+    Starting Centreon Remote enable process:
+    Limiting Menu Access...               Success
+    Limiting Actions...                   Done
+    Authorizing Master...                 Done
+    Set 'remote' instance type...         Done
+    Notifying Master...
+    Trying host '10.1.2.3'... Success
+    Centreon Remote enabling finished.
     ```
-
-3. Then validate the information:
-
-    ``` shell
-    Summary of the informations that will be send:
-    
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
-    
-    Pending Registration Server:
-    name: remote-1
-    type: remote
-    address: 192.168.0.2
-    
-    Do you want to register this server with those informations ? (y/n)y
-    ```
-
-4. Add additional information to enable future communication between your Remote Server and its Central,
-Kindly fill in the required information to convert your platform into Remote :
-
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
-
-5. If you use a proxy, please define credentials:
-
-    ```shell
-    Are you using a proxy ? (y/n)
-    y
-    enter your proxy Host:
-    myproxy.example.com
-    enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
-    y
-    enter your username:
-    my_proxy_username
-    enter your password:
-    
-    ```
-
-You will receive the validation of the Centreon central server:
-
-``` shell
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
-```
-
-### Main errors messages
-
-``` shell
-2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
-```
-
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
-
-``` shell
-2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
-```
-
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
-
-``` shell
-Failed connect to 192.168.0.1:444; Connection refused
-```
-
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
-
-``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
-```
-
-> The access url is not complete or is invalid. Use the **--root** option to define the API URL Path. For example: **--root monitoring**.
-
-``` shell
-2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
-```
-
-> Your Centreon target version is invalid. It should be greater or equal to 21.04.
 
 6. Add rights to centreon database user to use **LOAD DATA INFILE** command:
 

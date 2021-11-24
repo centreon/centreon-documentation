@@ -18,31 +18,22 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon supports the following operating systems: CentOS/RedHat/OracleLinux 7 or 8.
+Centreon offers an ISO file including CentOS v7 and all the required packages.
 
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, the packages for CentOS 8 are
-> compatible with RHEL 8 and Oracle Linux 8 versions.
-
-| Version           | Installation mode                                      |
-|-------------------|--------------------------------------------------------|
-| CentOS 7          | ISO Centreon, RPM packages, virtual machine , sources  |
-| CentOS 8          | RPM packages, sources                                  |
-| RHEL/Oracle Linux | RPM packages, sources                                  |
+If you prefer to use **Red Hat OS** you must install **version v7** and use the RPMs available from our repositories.
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
-Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.
 
 > Only 64-bit operating systems (x86_64) are supported.
 
 ### DBMS
 
-> Centreon supports MariaDB. You can use another DBMS based on MySQL, but it will only be supported by the community.
+> Centreon advises you to use MariaDB.
 
 | Software | Version |
 |----------|---------|
-| MariaDB  | 10.5.x  |
+| MariaDB  | 10.3.x  |
 
 ### Software dependencies
 
@@ -54,7 +45,7 @@ The following table describes the software dependencies:
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.3        |
+| PHP      | 7.2        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
@@ -155,30 +146,16 @@ Files system description:
 
 Description of software and linked users:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-| Software          | Service          | User             | Comment         |
-| ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd            | apache           | automatic start |
-| PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
-| Centreon          | centreontrapd    | centreon         | automatic start |
-| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
-| Centreon Broker   | cbd              | centreon-broker  | automatic start |
-| Centreon Engine   | centengine       | centreon-engine  | automatic start |
-| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--CentOS 7-->
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description of optional software and linked users:
 
@@ -189,14 +166,14 @@ Description of optional software and linked users:
 
 Description of groups and linked users for Centreon Open Source and IT Edition:
 
-| Group            | Users                                                            |
-|------------------|------------------------------------------------------------------|
-| apache           | nagios,centreon,centreon-gorgone                                 |
-| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone          |
-| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone          |
-| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone          |
-| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker |
-| rrdcached        | centreon-broker,apache                                           |
+| Group            | Users                                                   |
+|----------------- |---------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                        |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
+| centreon-gorgone | centreon,apache                                         |
+| rrdcached        | centreon-broker,apache                                  |
 
 Description of groups and linked users for Centreon Business Edition:
 
@@ -206,7 +183,7 @@ Description of groups and linked users for Centreon Business Edition:
 | centreon         | centreon-engine,centreon-broker,apache,rrdcached,centreonBI,centreon-gorgone |
 | centreon-broker  | centreon,nagios,centreon-engine,apache,rrdcached,centreon-gorgone            |
 | centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone                      |
-| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker             |
+| centreon-gorgone | centreon,apache                                                              |
 | centreonBI       | apache                                                                       |
 | centreon-map     |                                                                              |
 | mysql            | centreonBI                                                                   |

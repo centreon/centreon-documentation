@@ -3,8 +3,8 @@ id: anomaly-detection
 title: Détection d'anomalies
 ---
 
-> Centreon Anomaly Detection est actuellement en **phase de bêta fermée** et
-> nécessite un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
+> Centreon Anomaly Detection est actuellement en **phase de béta fermée** et
+> nécessitent un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
 > phase bêta au public sous certaines conditions.
 
 ## Description
@@ -32,12 +32,6 @@ Le module **Centreon Anomaly Detection** requiert les prérequis suivants :
   - Centreon en version minimale 20.04
   - Un jeton fourni par Centreon pour accéder à la plateforme Centreon Cloud
   - Une connexion Internet depuis le serveur Centreon Central
-  - La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
-
-      ```
-      echo $LC_ALL
-      ```
-      
   - La prédiction fonctionne mieux avec des services surveillés qui présentent
     un comportement saisonnier comme indiqué ci-dessous :
 
@@ -119,7 +113,7 @@ La configuration doit se faire en 3 étapes :
 ### Activer l'envoi des données collectées vers Centreon Cloud
 
 Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
-cliquez sur le bouton **Create manually** :
+cliquez sur le bouton **Add Anomaly Service** :
 
 ![imaage](../assets/monitoring/anomaly/configure_01.png)
 
@@ -194,41 +188,6 @@ Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
 
 Cliquez sur **Save** et [déployer la
 supervision](./monitoring-servers/deploying-a-configuration).
-
-### Utiliser l'assistant de création
-
-Depuis la version 20.10.1, il est possible d'utiliser l'assistant de création.
-En effet, cette nouvelle fonctionnalité permet de mettre en avant les services
-présentant soit une saisonnalité, soit une stabilité régulière.
-
-Rendez-vous dans le menu `Configuration > Services > Anomaly Detection` et
-cliquez sur le bouton **Create from analysis**.
-
-La liste des services existant de votre plate-forme Centreon est affichée ainsi
-qu'un score en nombre d'étoiles : de 5 étoiles à 0, 5 étoiles représentant les
-services à fort potentiel :
-
-![imaage](../assets/monitoring/anomaly/configure_analysis_01.png)
-
-Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
-gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
-
-![imaage](../assets/monitoring/anomaly/configure_analysis_02.png)
-
-Modifez le nom du service puis cliquez sur le bouton **Save**.
-
-> Si la liste est vide, c'est que le calcul afin de déterminer les services
-> intéressant n'a pas encore démarré.
-> 
-> Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
-> `gorgoned` (définit dans le fichier **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml**).
-> 
-> Il est possible de lancer le premier calcul manuellement via la commande
-> suivante depuis le serveur Centreon central :
-> ```shell
-> su - centreon
-> perl /usr/share/centreon/bin/anomaly_detection --seasonality
-> ```
 
 ## Visualiser les anomalies détectées
 
@@ -345,7 +304,7 @@ de notification.
 
 #### Quand la fonctionnalité sera-t-elle disponible? Et pour quelle édition Centreon ?
 
-La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 21.10.
+La fonctionnalité de détection des anomalies sera disponible pour Centreon Business Edition dans la version 20.10.
 
 ### Combien de temps les données sont-elles hébergées ?
 

@@ -4,7 +4,10 @@ title: Montée de version depuis Centreon 3.4
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 21.04.
+Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 20.04.
+
+> A la fin de cette procédure, les utilisateurs de Centreon EMS devront demander
+> de nouvelles licenses au [Support Centreon](https://centreon.force.com).
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -27,43 +30,40 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Montée de version du serveur Centreon central
 
-> Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
->
-> Le processus suivant met seulement à jour les composants Centreon pour le
-> moment.
->
-> MariaDB sera mis à jour après.
-
 ### Installation des dépôts
 
 #### Dépôt *Software collections* de Red Hat
+
+Afin d'installer les logiciels Centreon, le dépôt *Software collections* de Red
+Hat doit être activé.
+
+> Le dépôt *Software collections* est nécessaire pour l'installation de PHP 7
+> et les librairies associées.
+
+Exécutez la commande suivante :
+
+``` shell
+yum install -y centos-release-scl
+```
+
+### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.
 
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
-
-> Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
-> *Software Collections* avec la commande suivante :
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Montée de version de la solution Centreon
 
-Arrêter le processus Centreon Broker :
-```shell
-systemctl stop cbd
-```
-
-Supprimer les fichiers de rétention présent :
-```shell
-rm /var/lib/centreon-broker/* -f
-```
+> Centreon 20.04 utilise **MariaDB 10.3**.
+>
+> Le processus suivant met seulement à jour les composants Centreon pour le
+> moment.
+>
+> MariaDB sera mis à jour après.
 
 Mettez à jour le cache de yum :
 
@@ -83,28 +83,28 @@ yum update centreon\*
 
 #### Mise à jour de la version de PHP
 
-Depuis la version 20.04, Centreon utilise un nouveau paquet PHP.
+Centreon 20.04 utilise un nouveau paquet PHP.
 
 Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande
 suivante :
 
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 
-> Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
+> Changez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Réalisez les actions suivantes :
 
 ```shell
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable rh-php72-php-fpm
+systemctl start rh-php72-php-fpm
 ```
 
 #### Mise à jour du serveur Web Apache
 
-Depuis la version 20.04, Centreon utilise un nouveau paquet pour le serveur Web Apache.
+Centreon 20.04 utilise un nouveau paquet pour le serveur Web Apache.
 
 > Si vous avez modifié la configuration, reportez celle-ci dans le répertoire
 > **/opt/rh/httpd24/root/etc/httpd/conf.d/**.
@@ -130,7 +130,7 @@ Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
 n'y a pas touché.
 
 > Si vous utilisez le https, vous pouvez suivre
-> [cette procédure](../administration/secure-platform#passer-le-serveur-web-en-https)
+> [cette procédure](../administration/secure-platform#sécurisez-le-serveur-web-apache)
 
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -191,8 +191,7 @@ systemctl restart httpd24-httpd
 
 ### Synchronisation des plugins
 
-> La macro de ressource $USER1$ de Centreon 21.04 pointe à présent sur
-> /usr/lib64/nagios/plugins.
+> La macro de ressource $USER1$ de Centreon 20.04 pointe à présent sur /usr/lib64/nagios/plugins.
 
 Afin de résoudre cette situation, lancez les commandes suivantes:
 
@@ -248,17 +247,6 @@ associée](../service-mapping/upgrade) pour le mettre à jour.
 
 ### Actions post montée de version
 
-#### Déployer la configuration
-
-Voir [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration).
-
-#### Redémarrez les processus Centreon
-
-Redamarrez le processus cbd :
-```
-systemctl start cbd
-```
-
 #### Montée de version des extensions
 
 Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
@@ -272,8 +260,8 @@ Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 #### Démarrer le gestionnaire de tâches
 
-Depuis la version 20.04, Centreon a changé son gestionnaire de tâches en passant de
-*Centcore* à *Gorgone*.
+Centreon 20.04 a changé son gestionnaire de tâches en passant de *Centcore* à
+*Gorgone*.
 
 Pour acter ce changement, réalisez les actions suivantes :
 
@@ -281,7 +269,6 @@ Pour acter ce changement, réalisez les actions suivantes :
 systemctl stop centcore
 systemctl enable gorgoned
 systemctl start gorgoned
-systemctl disable centcore
 ```
 
 Les statistiques Engine qui étaient collectées par *Centcore* le seront
@@ -316,30 +303,25 @@ suivante:
 
 Les composants MariaDB peuvent maintenant être mis à jour.
 
-> Référez-vous à la documentation officielle de MariaDB pour en savoir
-> d'avantage sur ce processus :
+Sachez que MariaDB recommande vivement de monter en version le serveur en
+passant par chacune des versions majeures. Veuillez vous référer à la [documentation officielle de MariaDB](https://mariadb.com/kb/en/upgrading/) pour plus d'informations.
+
+Vous devez donc mettre à jour de la version 10.1 vers 10.2 puis 10.2 vers
+10.3.
+
+Pour cela, Centreon met à disposition les versions 10.2 et 10.3 sur ses
+dépôts stables.
+
+> Référez vous à la documentation officielle de MariaDB pour en savoir d'avantage
+> sur ce processus :
 >
-> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
-
-> Si vous utilisez une version plus ancienne que MariaDB 10.1, veuillez d'abord
-> mettre à jour vers la version 10.1
-
-#### Mettre à jour le dépôt Centreon
-
-> Cette étape est nécessaire seulement si votre environnement comprend une base de données déportée.
-> Si le serveur central Centreon et
-> MariaDB sont hébergés sur le même serveur, sautez cette étape.
-
-Exécutez la commande suivante sur le serveur de base de données dédié :
-
-```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
-```
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
 
 #### Configuration
 
-Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB
-10.2, vous devez donc le supprimer du fichier **/etc/my.cnf.d/centreon.cnf**
+Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB 10.2, vous devez donc le supprimer
+du fichier **/etc/my.cnf.d/centreon.cnf**
 
 ```diff
 #
@@ -367,9 +349,10 @@ max_allowed_packet = 8M
 #innodb_buffer_pool_size=1G
 ```
 
-#### Montée de version 
+#### Montée de version de 10.1 à 10.2
 
-Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.1 à une version 10.5).
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
 
 1. Arrêtez le service mariadb :
 
@@ -377,16 +360,16 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     systemctl stop mariadb
     ```
 
-2. Désinstallez la version actuelle :
+2. Désinstallez la version actuelle 10.1 :
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Installez la version 10.5 :
+3. Installez la version 10.2 :
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
     ```
 
 4. Démarrer le service mariadb :
@@ -401,25 +384,50 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     mysql_upgrade
     ```
 
-    Si votre base de données est protégée par mot de passe, entrez :
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
 
-   ```shell
-    mysql_upgrade -u <utilisateur_admin_bdd> -p
+#### Montée de version de 10.2 à 10.3
+
+Suivez ces étapes résumées pour réaliser la montée de version comme MariaDB le
+recommande :
+
+1. Arrêtez le service mariadb :
+
+    ```shell
+    systemctl stop mariadb
     ```
 
-    Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
+2. Désinstallez la version actuelle 10.2 :
 
-    ```
-    mysql_upgrade -u root -p
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-    > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
-    > pour plus d'informations ou si des erreurs apparaissent pendant cette dernière étape.
+3. Installez la version 10.3 :
+
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
+
+4. Démarrer le service mariadb :
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Lancez le processus de mise à jour MariaDB :
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
+> si des erreurs apparaissent pendant cette dernière étape.
 
 #### Activer MariaDB au démarrage automatique
 
 Exécutez la commande suivante :
-
 ```shell
 systemctl enable mariadb
 ```
@@ -431,15 +439,8 @@ systemctl enable mariadb
 Exécutez la commande suivante :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
-
-> Si vous êtes dans un environnement CentOS, il faut installer les dépôts de
-> *Software Collections* avec la commande suivante :
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Montée de version de la solution Centreon
 
@@ -457,20 +458,26 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+Démarrez et activez **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
+
 ### Actions post montée de version
 
 Du fait du nouveau format de configuration du module Broker de Engine, la
 configuration doit être re-déployée.
 
 Déployer la configuration du Poller depuis l'interface web en suivant
-[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration),
-et en choisissant la méthode *Redémarrer* pour le processus Engine
+[cette procedure](../monitoring/monitoring-servers/deploying-a-configuration), et en choisissant la méthode
+*Redémarrer* pour le processus Engine
 
 ## Migrer Centreon Poller Display vers Remote Server
 
-Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à
-la procédure [Migration d'une plate-forme avec Poller
-Display](../migrate/poller-display-to-remote-server).
+Si la plateforme a des Collecteurs avec le module Poller Display, reférez vous à la procédure
+[Migration d'une plate-forme avec Poller Display](../migrate/poller-display-to-remote-server).
 
 ## Communications
 

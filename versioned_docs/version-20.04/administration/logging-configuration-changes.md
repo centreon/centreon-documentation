@@ -26,8 +26,8 @@ The table below defines the columns in the results table:
 
 <table>
 <colgroup>
-<col style={{width:'17%'}} />
-<col style={{width:'82%'}} />
+<col style={{width:'17%'}}/>
+<col style={{width:'82%'}}/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -76,8 +76,8 @@ The table below defines the columns of the changes table:
 
 <table>
 <colgroup>
-<col style={{width:'27%'}} />
-<col style={{width:'72%'}} />
+<col style={{width:'27%'}}/>
+<col style={{width:'72%'}}/>
 </colgroup>
 <thead>
 <tr class="header">

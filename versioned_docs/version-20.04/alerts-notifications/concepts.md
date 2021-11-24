@@ -5,30 +5,31 @@ title: Concepts
 
 ## Resources status
 
-Statuses are indicators for the hosts or the services. Each status has a
-precise meaning for the resource. Each status is determined following
-the monitoring of the resource according to user-defined thresholds.
+Statuses are indicators for the hosts or the services. Each status has a precise meaning for the resource.
+Each status is determined following the monitoring of the resource according to user-defined thresholds.
 
 ### Host status
 
 The table below summarizes all the possible statuses for a host.
 
-| Status                                         | Description                         |
-|------------------------------------------------|-------------------------------------|
+| Status                                              | Description                         |
+|-----------------------------------------------------|-------------------------------------|
 |  <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable |
 |  <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable             |
 |  <span style={{color:'#818185'}}>UNREACHABLE</span> | The host is unreachable             |
+
 
 ### Service status
 
 The table below summarizes all the possible statuses for a service.
 
-| Status                                     | Description                                                               |
-|--------------------------------------------|---------------------------------------------------------------------------|
+| Status                                          | Description                                                               |
+|-------------------------------------------------|---------------------------------------------------------------------------|
 |  <span style={{color:'#88b917'}}>OK</span>      | The service presents no problem                                           |
 |  <span style={{color:'#ff9a13'}}>WARNING</span> | The service has reached the warning threshold                             |
 |  <span style={{color:'#e00b3d'}}>DOWN</span>    | The service has reached the critical threshold                            |
 |  <span style={{color:'#bcbdc0'}}>UNKNOWN</span> | The status of the service cannot be checked (e.g.: SNMP agent down, etc.) |
+
 
 ### Advanced statuses
 
@@ -55,28 +56,24 @@ additional information:
 
 A resource can have two states:
 
--   SOFT: Signifies that an incident has just been detected and that it
-    has to be confirmed.
--   HARD: Signifies that the status of the incident is confirmed. Once
-    the status is confirmed, the notification process is engaged
-    (sending of a mail, SMS, etc.).
+* SOFT: Signifies that an incident has just been detected and that it has to be confirmed.
+* HARD: Signifies that the status of the incident is confirmed. Once the status is confirmed, the notification process
+  is engaged (sending of a mail, SMS, etc.).
 
 ### Explanation
 
-An incident (Not-OK status) is confirmed as soon as the number of
-validation attempts has reached its end. The configuration of a resource
-(host or service) requires a regular check interval, a number of
-attempts to confirm a Not-OK status and an irregular check interval. As
-soon as the first incident is detected, the state is "SOFT" until its
+An incident (Not-OK status) is confirmed as soon as the number of validation attempts has reached its end. The
+configuration of a resource (host or service) requires a regular check interval, a number of attempts to confirm a
+Not-OK status and an irregular check interval. As soon as the first incident is detected, the state is "SOFT" until its
 confirmation into "HARD", triggering the notification process.
 
 Example:
 
 A service has the following check settings:
 
--   Max check attempts: 3
--   Normal check interval: 5 minutes
--   Retry check interval: 1 minute
+* Max check attempts: 3
+* Normal check interval: 5 minutes
+* Retry check interval: 1 minute
 
 Let us imagine the following scenario:
 

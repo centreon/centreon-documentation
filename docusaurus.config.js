@@ -39,7 +39,6 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           admonitions: {},
-          // Please change this to your repo.
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           showLastUpdateTime: true,
           onlyIncludeVersions: ['21.04', '20.10', '20.04'],
@@ -56,7 +55,7 @@ const config = {
     ],
   ],
 
-  themes: ['@docusaurus/theme-live-codeblock'],
+  themes: [],
 
   plugins: [
     [
@@ -68,7 +67,7 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
-    'plugin-image-zoom'
+    'plugin-image-zoom',
   ],
 
 
@@ -84,13 +83,15 @@ const config = {
         },
       },
 
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+        defaultLanguage: 'shell',
+      },
+
       googleAnalytics: {
         trackingID: 'UA-8418698-13',
         anonymizeIP: true,
-      },
-
-      liveCodeBlock: {
-        playgroundPosition: 'bottom',
       },
 
       zoomSelector: '.markdown img',
@@ -195,10 +196,6 @@ const config = {
           src: 'img/logo-centreon.png',
         },
         copyright: `Copyright © 2005 - ${new Date().getFullYear()} Centreon`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
       },
     }),
 };

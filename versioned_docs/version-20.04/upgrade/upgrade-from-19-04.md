@@ -4,10 +4,7 @@ title: Upgrade from Centreon 19.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 19.04
-to version 21.04.
-
-> If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
-> you need to follow the [migration procedure](../migrate/migrate-from-20-x)
+to version 20.04.
 
 ## Perform a backup
 
@@ -23,38 +20,21 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Upgrade the Centreon Central server
 
-> Since 21.04, Centreon uses **MariaDB 10.5**.
->
-> This upgrade process will only upgrade Centreon components first.
->
-> MariaDB will be upgraded afterwards.
-
 ### Update the Centreon repository
 
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 
-Stop the Centreon Broker process:
-```shell
-systemctl stop cbd
-```
-
-Delete existing retention files:
-```shell
-rm /var/lib/centreon-broker/* -f
-```
+> Centreon 20.04 uses **MariaDB 10.3**.
+>
+> This upgrade process will only upgrade Centreon components first.
+>
+> MariaDB will be upgraded afterwards.
 
 Clean yum cache:
 
@@ -74,16 +54,16 @@ yum update centreon\*
 
 #### Update the PHP version
 
-Since 20.04, Centreon uses a new version of PHP.
+Centreon 20.04 uses a new version of PHP.
 
 The PHP timezone should be set. Run the command:
 
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php72/php.d/50-centreon.ini
 ```
 
-> Replace **Europe/Paris** by your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
+> Change **Europe/Paris** to your time zone. You can find the supported list of
+> time zone [here](http://php.net/manual/en/timezones.php).
 
 > Don't forget your php-fpm specific configuration that you may have set in the
 > /etc/opt/rh/rh-php71/php.ini and/or /etc/opt/rh/rh-php71/php-fpm.d/centreon.conf
@@ -93,18 +73,17 @@ Then, run the following commands:
 ```shell
 systemctl disable rh-php71-php-fpm
 systemctl stop rh-php71-php-fpm
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable rh-php72-php-fpm
+systemctl start rh-php72-php-fpm
 systemctl restart httpd24-httpd
 ```
 
 #### Configure Apache API access
 
-If you had a custom apache configuration, upgrade process through RPM did not
-update it.
+If you had a custom apache configuration, upgrade process through RPM did not update it.
 
-> If you use https, you can follow [this
-> procedure](../administration/secure-platform#enable-https-on-the-web-server)
+> If you use https, you can follow
+> [this procedure](../administration/secure-platform#securing-the-apache-web-server)
 
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -200,17 +179,6 @@ If the Centreon BAM module is installed, refer to the
 
 ### Post-upgrade actions
 
-#### Deploy the configuration
-
-See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration).
-
-#### Restart Centreon processes
-
-Restart the cbd process:
-```
-systemctl start cbd
-```
-
 #### Upgrade extensions
 
 From `Administration > Extensions > Manager`, upgrade all extensions, starting
@@ -224,7 +192,7 @@ Then you can upgrade all other commercial extensions.
 
 #### Start the tasks manager
 
-Since 20.04, Centreon has changed his tasks manager from *Centcore* to *Gorgone*.
+Centreon 20.04 has changed his tasks manager from *Centcore* to *Gorgone*.
 
 To act this change, run the following commands:
 
@@ -232,7 +200,6 @@ To act this change, run the following commands:
 systemctl stop centcore
 systemctl enable gorgoned
 systemctl start gorgoned
-systemctl disable centcore
 ```
 
 Engine statistics that have been collected by *Centcore* will know be collected
@@ -262,30 +229,27 @@ command:
     systemctl restart cbd centengine
     ```
 
-### Upgrade the MariaDB server
+### Upgrade MariaDB server
 
 The MariaDB components can now be upgraded.
 
+Be aware that MariaDB strongly recommends to upgrade the server through each
+major release. Please refer to the [official MariaDB documentation](https://mariadb.com/kb/en/upgrading/) for further information.
+
+You then need to upgrade from 10.1 to 10.2 and from 10.2 to 10.3.
+
+That is why Centreon provides both 10.2 and 10.3 versions on its stable
+repositories.
+
 > Refer to the official MariaDB documentation to know more about this process:
 >
-> https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
-
-#### Update the Centreon repository
-
-> This step is required ONLY when your environment features an architecture with
-> a dedicated remote DBMS. If your environment features Centreon Central and
-> MariaDB together on the same server, you SHOULD simply skip this step.
-
-Run the following command on the dedicated DBMS server:
-
-```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
-```
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-101-to-mariadb-102/#how-to-upgrade
+> - https://mariadb.com/kb/en/upgrading-from-mariadb-102-to-mariadb-103/#how-to-upgrade
 
 #### Configuration
 
-The `innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2,
-so you should remove it from file **/etc/my.cnf.d/centreon.cnf**
+`innodb_additional_mem_pool_size` parameter has been removed since MariaDB 10.2, so you should remove it
+from file **/etc/my.cnf.d/centreon.cnf**
 
 ```diff
 #
@@ -313,9 +277,10 @@ max_allowed_packet = 8M
 #innodb_buffer_pool_size=1G
 ```
 
-#### Upgrading MariaDB
+#### Upgrade from 10.1 to 10.2
 
-You have to uninstall then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.1 to version 10.5).
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
 
 1. Stop the mariadb service:
 
@@ -323,16 +288,16 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     systemctl stop mariadb
     ```
 
-2. Uninstall the current version:
+2. Uninstall current 10.1 version:
 
     ```shell
     rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-3. Install version 10.5:
+3. Install 10.2 version:
 
     ```shell
-    yum install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+    yum install MariaDB-server-10.2\* MariaDB-client-10.2\* MariaDB-shared-10.2\* MariaDB-compat-10.2\* MariaDB-common-10.2\*
     ```
 
 4. Start the mariadb service:
@@ -346,26 +311,51 @@ You have to uninstall then reinstall MariaDB to upgrade between major versions (
     ```shell
     mysql_upgrade
     ```
-    
-    If your database is password-protected, enter:
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
+
+#### Upgrade from 10.2 to 10.3
+
+Follow those summarized steps to perform the upgrade in the way recommended by
+MariaDB:
+
+1. Stop the mariadb service:
 
     ```shell
-    mysql_upgrade -u <database_admin_user> -p
+    systemctl stop mariadb
     ```
 
-    Example: if your database_admin_user is `root`, enter:
+2. Uninstall current 10.2 version:
 
-    ```
-    mysql_upgrade -u root -p
+    ```shell
+    rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
     ```
 
-    > Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
-    > for more information or if errors occur during this last step.
+3. Install 10.3 version:
+
+    ```shell
+    yum install MariaDB-server-10.3\* MariaDB-client-10.3\* MariaDB-shared-10.3\* MariaDB-compat-10.3\* MariaDB-common-10.3\*
+    ```
+
+4. Start the mariadb service:
+
+    ```shell
+    systemctl start mariadb
+    ```
+
+5. Launch the MariaDB upgrade process:
+
+    ```shell
+    mysql_upgrade
+    ```
+
+> Refer to the [official documentation](https://mariadb.com/kb/en/mysql_upgrade/)
+> if errors occur during this last step.
 
 #### Enable MariaDB on startup
 
 Execute the following command:
-
 ```shell
 systemctl enable mariadb
 ```
@@ -381,15 +371,8 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-5.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 
@@ -406,6 +389,13 @@ yum update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
+
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
 
 ### Post-upgrade actions
 

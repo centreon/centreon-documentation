@@ -18,31 +18,24 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 ### Système d'exploitation
 
-Les OS supportés par Centreon sont CentOS/RedHat/OracleLinux 7 ou 8.
+Centreon propose un fichier ISO incluant la distribution CentOS 7 et tous les paquets nécessaires à l'installation.
 
-> Cependant, suite au changement de stratégie effectué par Red Hat, nous pensons
-> qu'il est préférable de ne pas utiliser CentOS 8 en production. Les paquets
-> pour CentOS 8 sont compatibles avec RHEL et Oracle Linux en version 8.
-
-| Version           | Mode d'installation                                   |
-|-------------------|-------------------------------------------------------|
-| CentOS 7          | ISO Centreon, paquets RPM, machine virtuelle, sources |
-| CentOS 8          | paquets RPM, sources                                  |
-| RHEL/Oracle Linux | paquets RPM, sources                                  |
+Si vous préférez utiliser **Red Hat OS** vous devez installer une **version 7** du système puis y installer les rpms
+disponible dans nos dépôts de téléchargement.
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
-L'installation de la plate-forme sera plus complexe, à partir des fichiers sources de chaque composant.
-Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent pas encore sur une distribution non supportée.
+L'installation de la plate-forme sera plus complexe à partir des fichiers sources de chaque composant. sera plus
+complexe à partir des fichiers sources de chaque composant.
 
 > Seuls les systèmes d'exploitation 64bits (x86_64) sont supportés.
 
 ### SGBD
 
-> Centreon supporte MariaDB. Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
+> Centreon vous recommande d'utiliser MariaDB.
 
 | Logiciel | Version |
 |----------|---------|
-| MariaDB  | 10.5.x  |
+| MariaDB  | 10.3.x  |
 
 ### Dépendances logicielles
 
@@ -54,7 +47,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 7.3        |
+| PHP      | 7.2        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
@@ -119,7 +112,7 @@ Description des partitions :
 | swap                       | 1 à 1.5 la taille totale de la mémoire vive                                                                 |
 | /                          | au moins 20 Go                                                                                              |
 | /var/log                   | au moins 10 Go                                                                                              |
-| /var/lib/centreon          | [défini dans le chapitre précédent](#définition-de-lespace-disque)                                                     |
+| /var/lib/centreon          | [défini dans le chapitre précédant](#define-disk-space)                                                     |
 | /var/lib/centreon-broker   | au moins 5 Go                                                                                               |
 | /var/cache/centreon/backup | au moins 10 Go (penser à exporter les sauvegarde de manière régulière puis supprimer les données exportées) |
 
@@ -135,7 +128,7 @@ Description des partitions :
 | swap                       | 1 à 1.5 la taille totale de la mémoire vive                                                                 |
 | /                          | au moins 20 Go                                                                                              |
 | /var/log                   | au moins 10 Go                                                                                              |
-| /var/lib/mysql             | [défini dans le chapitre précédent](#définition-de-lespace-disque)                                                     |
+| /var/lib/mysql             | [défini dans le chapitre précédant](#define-disk-space)                                                     |
 | /var/cache/centreon/backup | au moins 10 Go (penser à exporter les sauvegarde de manière régulière puis supprimer les données exportées) |
 
 
@@ -158,30 +151,16 @@ Description des partitions :
 
 Description des logiciels et utilisateurs liés :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-| Logiciel          | Service          | Utilisateur      | Commentaire     |
-| ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd            | apache           | automatic start |
-| PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
-| Centreon          | centreontrapd    | centreon         | automatic start |
-| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
-| Centreon Broker   | cbd              | centreon-broker  | automatic start |
-| Centreon Engine   | centengine       | centreon-engine  | automatic start |
-| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--CentOS 7-->
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
 |-------------------|------------------|------------------|-----------------|
 | Apache            | httpd24-httpd    | apache           | automatic start |
-| PHP-FPM           | rh-php73-php-fpm | apache           | automatic start |
+| PHP-FPM           | rh-php72-php-fpm | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Description des logiciels optionnels et utilisateurs liés :
 
@@ -192,14 +171,14 @@ Description des logiciels optionnels et utilisateurs liés :
 
 Description des groupes et utilisateurs liés pour les éditions Centreon Open Source et IT Edition :
 
-| Groupe           | Utilisateurs                                                     |
-|------------------|------------------------------------------------------------------|
-| apache           | nagios,centreon,centreon-gorgone                                 |
-| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone          |
-| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone          |
-| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone          |
-| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker |
-| rrdcached        | centreon-broker,apache                                           |
+| Groupe           | Utilisateurs                                            |
+|------------------|---------------------------------------------------------|
+| apache           | nagios,centreon,centreon-gorgone                        |
+| centreon         | centreon-engine,centreon-broker,apache,centreon-gorgone |
+| centreon-broker  | centreon,nagios,centreon-engine,apache,centreon-gorgone |
+| centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone |
+| centreon-gorgone | centreon,apache                                         |
+| rrdcached        | centreon-broker,apache                                  |
 
 Description des groupes et utilisateurs liés pour l'édition Centreon Business Edition :
 
@@ -209,7 +188,7 @@ Description des groupes et utilisateurs liés pour l'édition Centreon Business 
 | centreon         | centreon-engine,centreon-broker,apache,rrdcached,centreonBI,centreon-gorgone |
 | centreon-broker  | centreon,nagios,centreon-engine,apache,rrdcached,centreon-gorgone            |
 | centreon-engine  | centreon-broker,apache,nagios,centreon,centreon-gorgone                      |
-| centreon-gorgone | centreon,apache,centreon-gorgone,centreon-engine,centreon-broker             |
+| centreon-gorgone | centreon,apache                                                              |
 | centreonBI       | apache                                                                       |
 | centreon-map     |                                                                              |
 | mysql            | centreonBI                                                                   |

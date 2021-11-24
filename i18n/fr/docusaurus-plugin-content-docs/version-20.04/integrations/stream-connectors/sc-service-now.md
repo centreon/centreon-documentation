@@ -86,7 +86,7 @@ The ServiceNow Stream-connector is now installed on your Centreon central server
 
 | Name              | Type   | Value                                          |
 | ----------------- | ------ | ---------------------------------------------- |
-| `instance`        | String | Instance name: `<your-instance>`.service-now.com |
+| `instance`        | String | Instance name:`<your-instance>`.service-now.com |
 | `username`        | String | ServiceNow username                            |
 | `password`        | String | ServiceNow password                            |
 | `client_id`       | String | ServiceNow OAuth ClientId                      |

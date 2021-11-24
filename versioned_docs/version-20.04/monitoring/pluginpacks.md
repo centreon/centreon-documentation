@@ -5,46 +5,89 @@ title: Plugin Packs
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
-Applying a Plugin Pack is the easiest way to monitor a host.
 
-Plugin Packs consist of 2 elements, which are installed separately:
+The templates (commands, hosts and services templates) configure a monitoring
+plugin that actually executes the monitoring commands on a Centreon Poller.
+Plugins are not packaged with Plugin Packs and must be installed separately:
+this is explained in the monitoring procedure that comes with each Plugin Pack.
+Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
+(e.g. Windows NRPE).
 
-- A plugin that executes the monitoring commands from a poller. Plugins are 
-installed using the command line interface.
+For each type of equipment, the templates determine which indicators will be
+monitored and set default warning and critical thresholds. These may be
+fine-tuned later-on.
 
-- A pack that contains commands, host templates and service templates. 
-Packs are installed via the Centreon interface. For each type of equipment,
- the templates determine which indicators will be
-monitored and set default warning and critical thresholds (these may be
-fine-tuned later on).
+Some Plugin Packs also contain discovery rules. Discovery rules instruct the
+Centreon discovery engine to fetch additional assets to be monitored. Host
+discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtua
+ machines on VMware) while Service discovery rules will look for new services
+ (e.g. Disk Volumes or Ethernet Interfaces on a server).
 
-  Some packs also contain [discovery rules](discovery/introduction).
+Plugin Packs on your Centreon platform are managed by the Plugin Pack Manager
+user interface, described in this chapter.
 
 To get an up-to-date list of all Plugin Packs with their respective monitoring
-procedure, please refer to the section on [Plugin Packs](../integrations/plugin-packs/introduction).
+procedure, please refer to the Pugin Packs chapter in this documentation.
+
+![image](../assets/configuration/pluginpacks/pp_list.png)
 
 ## Prerequisites
 
 ### Centreon Plugin Pack Manager
 
-The **Centreon Plugin Pack Manager** module can install, update or remove Plugin
-Packs. It is installed by default. We recommend that you keep this module regularly updated.
+The **Centreon Plugin Pack Manager** module, included natively in Centreon, can install, update or remove the Plugin
+Packs. We recommended that you keep this module regularly updated.
 
-To update this module, run the following command:
+To update **Centreon Plugin Pack Manager** run the following command:
 
 ```shell
 yum update centreon-pp-manager
 ```
 
+> The centreon-pp-manager module is installed by default along with the Centreon software.
+
 ### License
 
-A [license](../administration/licenses) is required to access the full Plugin Packs catalog. Contact the
-[Centreon support team](https://centreon.force.com) to get your license.
+A license is required to access the full Plugin Packs catalog. If your Centreon platform is linked to an online
+subscription your license will be directly downloaded to your server. Otherwise, contact the
+[Centreon support team](https://centreon.force.com) to get and install your license key.
+
+### Access to Plugin Packs
+
+If your Centreon platform is linked to an online subscription you can download Plugin Packs from the Plugin Pack
+Manager user interface. Otherwise, you have to install a dedicated RPM repository, you can find it on the 
+[support portal](https://support.centreon.com/s/repositories).
+
+## Overview
+
+The **Centreon Plugin Packs** are a set of **standardized** **templates** that are **preconfigured** for rapid
+deployment of monitoring in your IT infrastructure.
+
+These templates (commands, hosts and services templates) are attached to the **monitoring plugins**, which can either be:
+
+* existing community plugins selected and validated by Centreon as being fully functional and optimized, or
+* plugins written by Centreon that are distributed as free software under RPM or available on
+  [Centreon Plugins](https://github.com/centreon/centreon-plugins) project
+
+The added value of **Plugin Packs** is the **pre-configuration** of monitoring in the Centreon software. During installation,
+**the Packs import** **pre-configured objects** into the Centreon software such as **commands**, **host templates**,
+**service templates** and **host or service discovery rules**.
+
+After you install the Plugin Packs, the next step is to install the monitoring plugins used by the Plugin Pack commands.
+Refer to the documentation in the pack in case any features have to be configured or activated, and then create the
+required hosts and services based on these models.
+
+### Inside a Plugin Pack
+
+A Plugin Pack contains:
+
+* a description of the pack contents and the indicators that can be monitored.
+* Centreon preset objects (commands, host templates, service templates) packaged and validated.
+* documentation for a simple and quick deployment. It is available once the pack is installed. 
 
 ### Connectors
 
-Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE). In that case, it is explained in the monitoring procedure for the Plugin Pack. The connectors are included in the Plugin Packs license.
+The Centreon Plugin Packs subscription gives you access to specific connectors:
 
 | Connector  | Description                                                                           |
 | ---------- | ------------------------------------------------------------------------------------- |
@@ -53,42 +96,61 @@ Some Plugin Packs also require a Connector (e.g. AS400, VMWare) or an agent
 | VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                              |
 | AS400      | Java-based connector allowing you to execute checks on an AS400                       |
 
+## Plugin Packs management
 
-## Installing a Plugin Pack
+### Installation
 
-Installation is a 4-step process:
+Installation is a 3-step process:
 
-1. Access the Plugin Packs catalog.
-2. Install the pack.
-3. Check the monitoring procedure.
-4. Install the plugin.
+1. Access to the Plugin Packs catalog
+2. Pack installtion
+3. Plugin installation
 
-### Accessing the Plugin Packs catalog
+#### Access to Plugin Packs catalog
 
-* If you have an online [license](../administration/licenses), the Plugin Packs catalog is already available on your platform, on page **Configuration > Plugin Packs**.
+* **online platform**: if your platform is linked to an online subscription
+* **offline** otherwise
 
-* If you have an offline license, you need to install 
-or update the Plugin Packs catalog from your Centreon Central server:
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Online platform-->
 
-  ```shell
-  yum install centreon-pack-*
-  ```
+If you benefit from an online subscription, you must first authenticate your
+Centreon platform.
 
-  or:
+Go to the `Administration > Extension > Subscription` menu and log in with your
+Centreon username to authenticate your Centreon platform.
 
-  ```shell
-  yum update centreon-pack-*
-  ```
+![image](../assets/configuration/pluginpacks/imp_authentification.png)
 
-> Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
+Click on **install** to access the catalog:
 
-### Installing the pack
+![image](../assets/configuration/pluginpacks/imp_install.png)
 
-You now have access to the Plugin Packs catalog, on page **Configuration > Plugin Packs**:
+You can now proceed to the pack installation.
+
+<!--Offline platform-->
+
+From your Centreon Central server, install or update the Plugin Packs catalog:
+
+```shell
+yum install centreon-pack-*
+```
+
+or:
+
+```shell
+yum update centreon-pack-*
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+#### Pack installation
+
+You now have access to the Plugin Packs catalog:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
-To install a pack, hover over the icon with the mouse and click on the ``+``
+To install a Plugin Pack, hover over the icon with the mouse and click on the ``+``
 
 ![image](../assets/configuration/pluginpacks/install_pp.png)
 
@@ -96,14 +158,17 @@ You can also click on the Plugin Pack to display more details and click on the `
 
 ![image](../assets/configuration/pluginpacks/install_pp_2.png)
 
-Once the pack is installed, it has a green outline and a green check mark.
+Once the Plugin Pack is installed, a green outline and an arrow icon will indicate successful installation.
 
 | **Before installation**                                          | **After installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
 
+> Please read the associated **monitoring procedure** of each installed pack to understand the content of the pack as
+> well as the prerequisites necessary for its operation, by clicking on the ``?`` icon of each pack or by going to the
+> [Integration/Plugin Packs chapter](../integrations/plugin-packs/introduction)
 
-### Managing dependencies
+#### Managing dependencies
 
 During installation, some objects in the pack may not be installed. These objects are often additional configuration
 objects and are not required to deploy the configuration templates provided by the pack.
@@ -115,45 +180,21 @@ this one is only available for Centreon in 18.10.x version:
 
 ![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
-### Checking the monitoring procedure
+#### Plugin installation
 
-Some Plugin Packs require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Click on the ``i`` icon of each pack to access its documentation:
+Next, install the required plugins as indicated in the steps above.
 
-![image](../assets/configuration/pluginpacks/doc.png)
-
-### Installing the plugin
-
-The monitoring procedure contains an **Installation** section that explains how to install the plugin
-(with an online or an offline license). Install the plugin on each poller that will execute the plugin checks.
-
-The installation command looks like this:
+Run the following command for **each Centreon poller** that will execute the plugins:
 
 ```shell
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
 
-Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
+Where ``$PLUGIN-PACK$`` is the name displayed by your YUM search.
 
-```
-yum install centreon-plugin-Cloud-Aws-Ec2-Api
-```
+### Update
 
-> Bear in mind that the `yum` command is case-sensitive.
-
-## Using plugin packs
-
-Apply a plugin pack to a host or service to start monitoring them:
-
-1. Create the host/the service, and in the **Template(s)** field, choose the template for the Plugin Pack you want.
-
-2. [Deploy](monitoring-servers/deploying-a-configuration) the configuration.
-
-## Updating Plugin Packs
-
-You need to update both the plugin and the pack.
-
-### Updating the pack
+#### Plugin Pack update
 
 If an arrow appears on a Plugin Pack it means that an update is available.
 
@@ -171,29 +212,29 @@ Confirm the update.
 
 ![image](../assets/configuration/pluginpacks/update_confirm.png)
 
-Your pack is up to date.
+Your Plugin Pack is up to date.
 
 ![image](../assets/configuration/pluginpacks/update_finish.png)
 
-### Updating the plugin
+#### Plugin updates
 
-To update the plugins:
+To update the plugins, execute the following command on **all pollers**.
 
-1. Execute the following command on all pollers:
+Update the plugins on **all pollers**:
 
-  ```shell
-  yum update centreon-plugins\*
-  ```
+```shell
+yum update centreon-plugins\*
+```
 
-2. Restart the Centreon Engine on **all pollers**.
+Restart the Centreon Engine on **all pollers**.
 
-3. Check that you do not have new errors while executing new plugins.
+Then check that you do not have new errors while executing new plugins.
 
 > It is your choice whether to install all the plugins on every poller, or just the required plugins. Keep in mind that
 > you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
-> If you update the plugins on the Centreon central server, be sure to also update them on each poller.
+> If you update the plugins on the Centreon central server, be sure also to update them on each poller.
 
-## Uninstalling Plugin Packs
+### Deletion
 
 As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
 cross:

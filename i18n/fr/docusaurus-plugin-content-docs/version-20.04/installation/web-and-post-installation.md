@@ -128,10 +128,6 @@ et cliquez sur **Exporter**,
 
 La supervision est maintenant opérationnelle.
 
-## Ajouter une licence
-
-Selon votre édition de Centreon, vous pouvez devoir [ajouter une licence](../administration/licenses).
-
 ## Installer les extensions disponibles
 
 Rendez-vous au menu `Administration > Extensions > Gestionnaire` et cliquez sur
@@ -139,12 +135,12 @@ le bouton **Install all** :
 
 ![image](../assets/installation/extensions-manager.png)
 
-## Sécurisez votre plateforme
-
-N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../administration/secure-platform).
-
 ## Premiers pas
 
 Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps#demander-votre-essai-gratuit)
 pour mettre en place votre première supervision.
+
+## Sécurisez votre plateforme
+
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../administration/secure-platform)

@@ -14,7 +14,7 @@ You will find here all architectures supported:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Simple architecture-->
-#### Description (Simple architecture)
+#### Description
 
 The simple architecture is to have all oversight entities within the same server, ie:
 
@@ -43,7 +43,7 @@ The diagram below summarizes the architecture:
 ![image](../assets/architectures/Architecture_standalone.png)
 
 <!-- Distributed-->
-#### Description (Distributed)
+#### Description
 
 The distributed architecture is to have two types of entities:
 
@@ -96,7 +96,7 @@ The diagram below summarizes the architecture:
 
 <!--Remote DBMS-->
 
-#### Description (Remote DBMS)
+#### Description
 
 The distributed architecture with remote DBMS is to have three types of entities:
 
@@ -156,7 +156,7 @@ The diagram below summarizes the architecture:
 ![image](../assets/architectures/Architecture_distributed_dbms.png)
 
 <!--Remote Server-->
-#### Description (Remote Server)
+#### Description
 
 The distributed architecture with Remote sever is to have three types of entities:
 
@@ -225,82 +225,43 @@ The diagram below summarizes the architecture:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-## Tables of network flows
+## Table of network flows
 
-### Tables of network flows to integrate monitoring platform to IT
+#### Tables of network flows to integrate monitoring platform to IT
 
-#### Central server
+| From           | To             | Protocol   | Port               | Application                                                                          |
+|----------------|----------------|------------|--------------------|--------------------------------------------------------------------------------------|
+| Central server | NTP server     | NTP        | UDP 123            | Synchronization of the system clock                                                  |
+| Central server | DNS server     | DNS        | UDP 53             | Domain name resolution                                                               |
+| Central server | SMTP server    | SMTP       | TCP 25             | Notification via email                                                               |
+| Central server | LDAP(s) server | LDAP(s)    | TCP 389 (636)      | Authentication to access the Centreon web interface                                  |
+| Central server | DBMS server    | MySQL      | TCP 3306           | Access to Centreon databases                                                         |
+| Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | If your platform needs to connect to a web proxy to access the Centreon IT Edition   |
+| Central server | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Repository for system and application packages                                       |
 
-| From           | To             | Protocol   | Port               | Application                                                                        |
-|----------------|----------------|------------|--------------------|------------------------------------------------------------------------------------|
-| Central server | NTP server     | NTP        | UDP 123            | Synchronization of the system clock                                                |
-| Central server | DNS server     | DNS        | UDP 53             | Domain name resolution                                                             |
-| Central server | SMTP server    | SMTP       | TCP 25             | Notification via email                                                             |
-| Central server | LDAP(s) server | LDAP(s)    | TCP 389 (636)      | Authentication to access the Centreon web interface                                |
-| Central server | DBMS server    | MySQL      | TCP 3306           | Access to Centreon databases (if deported to a dedicated server)                   |
-| Central server | HTTP Proxy     | HTTP(s)    | TCP 80, 8080 (443) | If your platform needs to connect to a web proxy to access the Centreon IT Edition |
-| Central server | Repository     | HTTP (FTP) | TCP 80 (FTP 20)    | Repository for system and application packages                                     |
+| From           | To             | Protocol   | Port               | Application                                                                          |
+|----------------|----------------|------------|--------------------|--------------------------------------------------------------------------------------|
+| Poller         | NTP server     | NTP        | UDP 123            | Synchronization of the system clock                                                  |
+| Poller         | DNS server     | DNS        | UDP 53             | Domain name resolution                                                               |
+| Poller         | SMTP server    | SMTP       | TCP 25             | Notification via email                                                               |
+| Poller         | Repository     | HTTP (FTP) | TCP 80 (FTP 20,21) | Repository for system and application packages                                       |
 
-#### Poller
+> Other flows can be necessary for Centreon web authentication (RADIUS, etc.) or notification system defined.
 
-| From   | To          | Protocol   | Port               | Application                                    |
-|--------|-------------|------------|--------------------|------------------------------------------------|
-| Poller | NTP server  | NTP        | UDP 123            | Synchronization of the system clock            |
-| Poller | DNS server  | DNS        | UDP 53             | Domain name resolution                         |
-| Poller | SMTP server | SMTP       | TCP 25             | Notification via email                         |
-| Poller | Repository  | HTTP (FTP) | TCP 80 (FTP 20,21) | Repository for system and application packages |
+#### Tables of monitoring flows
 
-#### Remote Server
+| From              | To                               | Protocol     | Port         | Application                               |
+|-------------------|----------------------------------|--------------|--------------|-------------------------------------------|
+| Central server    | Poller                           | ZMQ          | TCP 5556     | Export of Centreon configuration          |
+| Central server    | Poller                           | SSH (legacy) | TCP 22       | Export of Centreon configuration          |
+| Central server    | Remote Server                    | HTTP(S)      | TCP 80 (443) | Export of Remote Server configuration     |
+| Poller            | Central server                   | BBDO         | TCP 5669     | Transfer of collected data                |
+| Poller            | Network equipment, servers, etc. | SNMP         | UDP 161      | Monitoring                                |
+| Network equipment | Poller                           | Trap SNMP    | UDP 162      | Monitoring                                |
+| Poller            | Servers                          | NRPE         | TCP 5666     | Monitoring                                |
+| Poller            | Servers                          | NSClient++   | TCP 12489    | Monitoring                                |
+| Remote Server     | Central server                   | HTTP(S)      | TCP 80 (443) | Activation of Remote Server functionality |
 
-| From          | To             | Protocol   | Port            | Application                                                      |
-|---------------|----------------|------------|-----------------|------------------------------------------------------------------|
-| Remote Server | NTP server     | NTP        | UDP 123         | Synchronization of the system clock                              |
-| Remote Server | DNS server     | DNS        | UDP 53          | Domain name resolution                                           |
-| Remote Server | SMTP server    | SMTP       | TCP 25          | Notification via email                                           |
-| Remote Server | LDAP(s) server | LDAP(s)    | TCP 389 (636)   | Authentication to access the Centreon web interface              |
-| Remote Server | DBMS server    | MySQL      | TCP 3306        | Access to Centreon databases (if deported to a dedicated server) |
-| Remote Server | Repository     | HTTP (FTP) | TCP 80 (FTP 20) | Repository for system and application packages                   |
+> If the Centreon server is a poller too, do not forget to open monitoring flows.
 
-> Other flows can be necessary for Centreon web authentication (RADIUS, etc.)
-> or notification system defined.
-
-### Tables of platform flows
-
-#### Poller
-
-| From           | To             | Protocol     | Port         | Application                                                        |
-|----------------|----------------|--------------|--------------|--------------------------------------------------------------------|
-| Central server | Poller         | ZMQ          | TCP 5556     | Export of Centreon configuration (depending on communication type) |
-| Central server | Poller         | SSH (legacy) | TCP 22       | Export of Centreon configuration (depending on communication type) |
-| Poller         | Central server | BBDO         | TCP 5669     | Transfer of collected data                                         |
-| Poller         | Central server | HTTP(S)      | TCP 80 (443) | Poller registration                                                |
-
-#### Remote Server
-
-| From           | To             | Protocol     | Port         | Application                                                        |
-|----------------|----------------|--------------|--------------|--------------------------------------------------------------------|
-| Central server | Remote Server  | ZMQ          | TCP 5556     | Export of Centreon configuration                                   |
-| Remote Server  | Central server | BBDO         | TCP 5669     | Transfer of collected data                                         |
-| Remote Server  | Central server | HTTP(S)      | TCP 80 (443) | Remote Server registration                                         |
-| Remote Server  | Poller         | ZMQ          | TCP 5556     | Export of Centreon configuration (depending on communication type) |
-| Remote Server  | Poller         | SSH (legacy) | TCP 22       | Export of Centreon configuration (depending on communication type) |
-| Poller         | Remote Server  | BBDO         | TCP 5669     | Transfer of collected data                                         |
-| Poller         | Remote Server  | HTTP(S)      | TCP 80 (443) | Poller registration                                                |
-
-> If Remote Server is not used as proxy for a Poller, Poller network flows
-> apply.
-
-#### Monitoring
-
-| From              | To                               | Protocol   | Port      | Application |
-|-------------------|----------------------------------|------------|-----------|-------------|
-| Poller            | Network equipment, servers, etc. | SNMP       | UDP 161   | Monitoring  |
-| Network equipment | Poller                           | Trap SNMP  | UDP 162   | Monitoring  |
-| Poller            | Servers                          | NRPE       | TCP 5666  | Monitoring  |
-| Poller            | Servers                          | NSClient++ | TCP 12489 | Monitoring  |
-
-> If the Centreon server is a poller too, do not forget to open monitoring
-> flows.
-
-> Other flows can be necessary to monitor databases, access to API, or
-> application ports.
+> Other flows can be necessary to monitor databases, access to API, or application ports.

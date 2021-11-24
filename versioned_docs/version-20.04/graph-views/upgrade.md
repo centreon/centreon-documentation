@@ -4,12 +4,11 @@ title: Upgrade the extension
 ---
 
 This chapter describes how to upgrade your Centreon MAP extension. This
-is done by upgrading the four main components:
+is done by upgrading the three main components:
 
 - Centreon MAP server
 - Centreon MAP web interface & its widget
-- Desktop client (automatically updated)
-- MariaDB database.
+- Desktop client (automatically updated).
 
 Before upgrading Centreon MAP server, we highly recommend performing a
 MariaDB dump (backup) of your `centreon_studio` database. This will
@@ -20,9 +19,9 @@ Be sure to read the release notes for an explanation of features, fixes
 
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
-the new repository**.
+the new repository**
 
-## Step 1: Centreon MAP server
+## Centreon MAP server
 
 > If you are still running version **4.0.X**, you **must first install
 > and run the server in version 4.1.X before upgrading to the latest
@@ -39,24 +38,12 @@ Run the following commands to upgrade your Centreon MAP server:
 
 2. Update Centreon & Centreon MAP repositories:
 
-<!--DOCUSAURUS_CODE_TABS-->
+    ```shell
+    yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+    ```
 
-<!--RHEL / CentOS / Oracle Linux 8-->
-
-```shell
-dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
-```
-
-<!--CentOS 7-->
-
-```shell
-yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-> Install Centreon MAP repository, you can find it on the
-> [support portal](https://support.centreon.com/s/repositories).
+    > Install Centreon MAP repository, you can find it on the
+    > [support portal](https://support.centreon.com/s/repositories).
 
 3. Update Centreon MAP server:
 
@@ -80,7 +67,7 @@ cp /var/log/centreon-studio/* /var/log/centreon-map/
 rm -rf /var/log/centreon-studio
 ```
 
-## Step 2: Centreon MAP web interface
+## Centreon MAP web interface
 
 ```shell
 yum update centreon-map-web-client
@@ -98,14 +85,10 @@ error message.
 
 ![image](../assets/graph-views/license-error.png)
 
-## Step 3: Centreon MAP desktop client
+## Centreon MAP desktop client
 
 If the user's computer has an online connection, the desktop client is
 automatically upgraded to the latest version that corresponds to the server.
 
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
-
-## Step 4: MariaDB database
-
-See [Upgrading MariaDB](../upgrade/upgrade-mariadb).

@@ -1,6 +1,6 @@
 ---
 id: services-discovery
-title: Discovering services automatically
+title: Services Discovery
 ---
 
 ## Launch a manual scan
@@ -8,7 +8,7 @@ title: Discovering services automatically
 After the discovery rules programmed it is possible to run them from the
 Centreon web interface.
 
-Go to the **Configuration > Services > Scan** menu.
+Go to the `Configuration > Services > Scan` menu.
 
 Start to write the name of host and the web interface automatically complete the
 name:
@@ -321,68 +321,52 @@ Here, four attributes are available: `name`, `total`, `status` and
 
 You can run manually discovery using following options:
 
-| Directive       | Type    | Description                                                                   |
-|-----------------|---------|-------------------------------------------------------------------------------|
-| filter\_rules   | array   | Run the selected rules                                                        |
-| filter\_hosts   | array   | Run all discovery rules linked to all templates of host used by selected host |
-| filter\_pollers | array   | Run all discovery rules linked to all poller linked with rule                 |
-| dry\_run        | boolean | Run discovery without configuration change (as a test)                        |
+  - `--filter-rule=<rule_name>`: Run selected rule
+  - `--filter-host=<host_name>`: Run all rules linked to hosttemplates used by
+    host
+  - `--filter-poller=<poller_name>`: Run rules for ressources linked to the
+    poller
+  - `--dry-run`: Run tests without configuration change
+
+> You can combine `--filter-*=<value>` options. `--dry-run` option is an
+> independant option.
 
 ### Examples
 
 Run all rules:
 
 ``` shell
-curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data '{}'
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl
 ```
 
 Test all rules:
 
 ``` shell
-curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "dry_run": 1
-}'
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
+  --dry-run
 ```
 
-Test a specific rule:
+Test specific rule:
 
 ``` shell
-curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
-    "dry_run": 1
-}'
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
+  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
+  --dry-run
 ```
 
-Test all rules linked to host templates used by a defined host:
+Test all rules linked to hosttemplates used by specific host:
 
 ``` shell
-curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "filter_hosts": ["centreon-server"],
-    "dry_run": 1
-}'
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
+  --filter-host="centreon-server" \
+  --dry-run
 ```
 
-Test a specific rule on defined host:
+Test specific rule on predifined host:
 
 ``` shell
-curl --request POST "http://localhost:8085/api/centreon/autodiscovery/services" \
-  --header "Accept: application/json" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "filter_rules": ["OS-Linux-SNMP-Network-Interfaces-Discovery"],
-    "filter_hosts": ["centreon-server"],
-    "dry_run": 1
-}'
+/usr/share/centreon/www//modules/centreon-autodiscovery-server/cron/centreon_autodisco.pl \
+  --filter-rule="OS-Linux-SNMP-Network-Interfaces-Discovery" \
+  --filter-host="centreon-server" \
+  --dry-run
 ```

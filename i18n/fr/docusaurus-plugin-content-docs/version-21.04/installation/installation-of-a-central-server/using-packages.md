@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets
----
+--- 
 
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.

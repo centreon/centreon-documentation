@@ -4,7 +4,7 @@ title: Introduction
 ---
 
 This chapter presents the procedure for migrating from any monitoring platform
-to Centreon version 21.04:
+to Centreon version 20.04:
 
-> To upgrade your Centreon server from 18.10, 19.04, 19.10, 20.04 or 20.10
-> to 21.04 just follow the [upgrade procedures](../upgrade/introduction).
+> To upgrade your Centreon server from 18.10, 19.04 or 19.10 to 20.04, just follow the
+> [upgrade procedures](../upgrade/introduction).

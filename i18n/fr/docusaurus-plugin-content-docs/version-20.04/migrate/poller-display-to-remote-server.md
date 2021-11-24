@@ -19,7 +19,7 @@ désinstallez le module **centreon-poller-display-central**
 Puis suivez la [procédure de montée de version](../upgrade/upgrade-from-3-4)
 si vous avez une plateforme sous CentOS 7 avec paquets Centreon, sinon la
 [procédure de migration](../migrate/migrate-from-3-4) d'un serveur Centreon
-Central vers 21.04.
+Central vers 20.04.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
 > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers. Demandez
@@ -47,129 +47,58 @@ sinon référez vous à [la procédure de migration](../migrate/migrate-from-3-4
 4. Rendez-vous dans le menu **Administration > Extensions > Modules** et
 installez le module **centreon-license-manager**.
 
-5. Enregistrer le Remote Server
+5. Activer l'option Remote Server
 
-Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
-```
-
-Exemple:
-
-``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
-```
-
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
-
-> Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
-
-> Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_TARGET_NODE>:PORT
-
-Suivre ensuite les instructions
-
-1. Saisir le mot de passe :
-
-    ``` shell
-    192.168.0.1: please enter your password
-    ```
-
-2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
+    Pour transformer le serveur en Remote Server, connectez-vous au serveur et
+    exécutez la commande suivante :
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
-    1) 192.168.0.2
-    2) 192.168.0.3
-    1
+    /usr/share/centreon/bin/centreon -u admin -p centreon -a enableRemote -o CentreonRemoteServer \
+    -v '<IP_CENTREON_CENTRAL>;<not check SSL CA on Central>;<HTTP method>;<TCP port>;<not check SSL CA on Remote>;<no proxy to call Central>'
     ```
 
-3. Valider les informations:
+    - Remplacez **\<IP_CENTREON_CENTRAL\>** par l'IP du serveur Centreon vu par le
+        collecteur. Vous pouvez définir plusieurs adresses IP en utilisant la virgule
+        comme séparateur.
 
-    ``` shell
-    Summary of the informations that will be send:
+        > Pour utiliser HTTPS, remplacez **\<IP_CENTREON_CENTRAL\>** par
+        > **https://\<IP_CENTREON_CENTRAL\>**.
+        >
+        > Pour utiliser un autre port TCP, remplacez **@IP_CENTREON_CENTRAL** par
+        > **\<IP_CENTREON_CENTRAL\>:\<PORT\>**.
+
+    - Pour ne pas contrôler le certificat SSL sur le serveur Centreon Central, mettre
+        à **1** l'option **\<not check SSL CA on Central\>**, sinon **0**.
+
+    - L'option **\<HTTP method\>** permet de définir la méthode de connexion pour
+        contacter le Remote Server : HTTP ou HTTPS.
+
+    - L'option **\<TCP port\>** permet de définir sur quel port TCP communiquer avec
+        le Remote Server.
+
+    - Pour ne pas contrôler le certificat SSL sur le Remote server, mettre à **1**
+        l'option **\<not check SSL CA on Central\>**, sinon **0**.
+
+    - Pour ne pas utiliser le proxy pour contacter le serveur Centreon Central,
+        mettre à **1** l'option **\<no proxy to call Central\>**, sinon **0**.
+
+    Cette commande va activer le mode **Remote Server** :
     
-    Api Connection:
-    username: admin
-    password: ******
-    target server: 192.168.0.1
-    
-    Pending Registration Server:
-    name: remote-1
-    type: remote
-    address: 192.168.0.2
-    
-    Do you want to register this server with those informations ? (y/n)y
+    - en limitant l'accès au menu,
+    - en limitant les actions possibles,
+    - en authorisant le Central à s'y connecter,
+    - en pré-enregistrant le serveur auprès du Central.
+
+    ```text
+    Starting Centreon Remote enable process:
+    Limiting Menu Access...               Success
+    Limiting Actions...                   Done
+    Authorizing Master...                 Done
+    Set 'remote' instance type...         Done
+    Notifying Master...
+    Trying host '10.1.2.3'... Success
+    Centreon Remote enabling finished.
     ```
-
-4. Ajouter les informations nécessaires pour permettre de futures communications entre votre Remote Server et son Central
-
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
-
-5. Définir les accès au proxy du serveur Centreon du Central :
-
-    ```shell
-    Are you using a proxy ? (y/n)
-    y
-    enter your proxy Host:
-    myproxy.example.com
-    enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
-    y
-    enter your username:
-    my_proxy_username
-    enter your password:
-    
-    ```
-
-Vous recevrez la validation du serveur Centreon Central :
-
-``` shell
-2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
-```
-
-### Principaux messages d'erreur
-
-``` shell
-2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
-```
-
-> Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
-
-``` shell
-2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
-```
-
-> L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
-
-``` shell
-Failed connect to 192.168.0.1:444; Connection refused
-```
-
-> Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
-
-``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
-```
-
-> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
-> Par exemple : **--root monitoring**.
-
-``` shell
-2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
-```
-
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
 
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:

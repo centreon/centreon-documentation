@@ -35,7 +35,7 @@ You must have:
 
 7. Follow [this procedure](../integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](../integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](../integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
 
-    ![image]<!--(../assets/getting-started/aws-doc.png)-->
+    ![image](../assets/getting-started/aws-doc.png)
 
 ## Step 2: Configure the discovery job
 
@@ -43,7 +43,7 @@ You must have:
 
 4. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
 
-    ![image]<!--(../assets/getting-started/aws-provider.png)-->
+    ![image](../assets/getting-started/aws-provider.png)
 
 4. If your infrastructure requires it, fill in the details for the proxy you want to use.
 

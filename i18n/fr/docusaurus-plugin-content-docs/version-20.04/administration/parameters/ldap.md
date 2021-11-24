@@ -1,6 +1,6 @@
 ---
 id: ldap
-title: Connecter Centreon à un annuaire LDAP
+title: LDAP
 ---
 
 > Si vous souhaitez implémenter une authentification SSO, suivez
@@ -8,7 +8,7 @@ title: Connecter Centreon à un annuaire LDAP
 
 Cette partie permet de configurer la connexion au(x) annuaire(s) LDAP.
 
-Allez à la page **Administration > Paramètres > LDAP** puis cliquez
+Rendez-vous dans le menu `Administration > Paramètres > LDAP` et cliquez
 sur **Ajouter**.
 
 ![image](../../assets/administration/parameters-ldap-add.png)
@@ -120,13 +120,6 @@ TLS_REQCERT never
 
 Puis redémarrez le serveur Apache :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
-```shell
-systemctl restart httpd
-```
-<!--CentOS 7-->
 ```shell
 systemctl restart httpd24-httpd
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->

@@ -20,46 +20,103 @@ commerciales, vous pouvez vous rendre sur notre
 
 ## Centreon High-Availability
 
-### 21.04.1
+### 20.04.3
 
-`September 06, 2021`
+`30 novembre 2020`
 
 #### Correctifs
 
-- fixed: php version in cron files
-- fixed: logging of centreon_central_sync
+- [Sync] An error in the script prevented the files to be synchronized
+  correctly
 
 #### Améliorations
 
-- Compatibility with mariadb and read_only check in centreondb-smooth-backup.sh
-- Add cbd_rrd systemd files
+- [RPM] All the configuration files (except for logrotate.d and sudoers.d)
+  are now preserved by the update process
 
-### 21.04.0
+### 20.04.2
 
-- Compatibilité avec Centreon 21.04
+`3 novembre 2020`
+
+#### Correctifs
+
+- [Sync] Removing `-a` option to rsync
+
+#### Améliorations
+
+- [Sync] Protect paths with quotes to manage directories with spaces
+
+### 20.04.1
+
+`8 juillet 2020`
+
+#### Correctifs
+
+- [Cron] gorgoned manages all scheduled tasks
+- [Sync] centreon_central_sync bugfixes (realtime sync)
+- [Sync] fix(centreon_central_sync)fix-HUP-signal-and-bugs
+- [Documentation] Revoke SUPER right from Centreon user. Add SELECT right
+  to Replication user
+- [Documentation] Add specific chmod associated to /var/log/centreon-engine/
+  and /tmp/centreon-autodisco/ shared directories
+- [Documentation] Missing cache regeneration in update procedure
+
+### 20.04.0
+
+`22 avril 2020`
+
+- [Release] First release of [centreon-ha](https://github.com/centreon/centreon-ha)
+
+## Centreon DSM
+
+### 20.04.0
+
+`22 avril 2020`
+
+- Manage compatibility with Centreon 20.04
+
+#### Correctifs
+
+- Manage hosts disabled: host change instance or instance is not
+  running (commit a99b068)
+- Applied patch for MariaDB 10.2.x (commit a567991)
 
 ## Centreon Open Ticket
 
-### 21.04.1
+### 20.04.2
 
-`28 mai 2021`
+`31 mai 2021`
 
 #### Correctifs
 
 - [Widget] Compatibilité avec jQuery 3.5
-- [Widget] Correction de la redirection vers la pages KB
-- [GLPI] Mise à jour de l'url par défaut des tickets
 
-#### Améliorations
+### 20.04.1
 
-- [Widget] L'ID des tickets jira affiché est maintenant lisible par l'homme
+`4 février 2021`
 
-### 21.04.0
+#### Correctifs
 
-- Compatibilité avec Centreon 21.04
+- Manage pagination for GLPI webservice
 
-## Centreon DSM
+### 20.04.0
 
-### 21.04.0
+`22 avril 2020`
 
-- Compatibilité avec Centreon 21.04
+- Manage compatibility with Centreon 20.04
+
+#### Correctifs
+
+- [API] Better exception handling (PR #111)
+- [Core] Fix test button (PR #114)
+- [Install] Limit index size (InnoDB limit) (PR #125)
+
+#### Correctifs de sécurité
+
+- [Security] Remove session id parameter (PR #118)
+
+#### Nouvelles fonctionnalités
+
+- [Provider] Add a revamped version of the glpi provider (PR #113)
+- [Provider] Add request tracker api v2 provider (commit 3d88c9)
+- [Provider] Add iTop provider (PR #115)

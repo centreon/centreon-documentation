@@ -1,10 +1,10 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 21.04
+title: Mise à jour d'une plateforme Centreon 20.04
 ---
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-21.04.
+20.04.
 
 ## Sauvegarde
 
@@ -109,5 +109,5 @@ en choisissant la méthode *Redémarrer* pour le processus Engine
 Redémarrez enfin le service Gorgone s'il est utilisé sur le Poller :
 
 ```shell
-systemctl restart centengine gorgoned
+systemctl restart gorgoned
 ```

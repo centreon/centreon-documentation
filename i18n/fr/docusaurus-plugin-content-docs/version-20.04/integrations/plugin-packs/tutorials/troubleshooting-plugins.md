@@ -160,7 +160,7 @@ It may also happen when the API returns an error instead of the expected data st
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
 to get more information on the query and data received.
 
-### UNKNOWN: 500 Can't connect to <ip_address>:`<port>` (<extra_reason_if_available>)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
 
 When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
@@ -176,7 +176,7 @@ In the same way, if you use a proxy, you can tell the Plugin how to go through
 by adding the `--proxyurl` option to your command line. The expecte format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
-#### UNKNOWN: 500 Can't connect to <ip_address>:`<port>` (Connection refused)
+#### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
 
 This issue generally means that the port or protocol used by the Plugin is incorrect, 
 misconfigured, or unsupported. 
@@ -188,12 +188,12 @@ In this situation, at the Host configuration level, double-check that:
 Each Plugin using HTTP backends does have `--proto` and `--port` options allowing 
 you to specify these values.
 
-#### UNKNOWN: 500 Can't connect to <ip_address>:`<port>` (Timeout)
+#### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Timeout)
 
 The timeout error occurs when the Plugin doesn't succeed in contacting the server 
 or when a third-party device is blocking or filtering the client's request. 
 
-#### UNKNOWN: 500 Can't connect to <ip_address>:`<port>` (`<SSL Error>`)
+#### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (`<SSL Error>`)
 
 SSL Errors indicate that the Plugin has some trouble establishing a secure connection 
 to get the monitoring information.
@@ -216,9 +216,9 @@ option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher d
 
 ## SSH and CLI checks
 
-### UNKNOWN: Command error: `<interpreter>`: <command_name>: command not found
+### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
-This error warns that the Plugin is not able to execute the <command_name> because it 
+This error warns that the Plugin is not able to execute the `<command_name>` because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 

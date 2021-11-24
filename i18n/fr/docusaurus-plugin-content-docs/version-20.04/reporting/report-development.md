@@ -310,8 +310,7 @@ sous-dossiers et fichiers du projet doivent être figés.
 Pour définir le dossier contenant les ressources partagés dans un
 projet, faites clic-droit sur votre projet dans le panneau « Navigator »
 puis cliquez sur « properties ». Définissez l'accès au dossier par :
-"`<Current Project Folder>`/Resources/". La variable "`<Current Project
-Folder>`" est initialisée automatiquement par Eclipse en fonction du
+"`<Current Project Folder>`/Resources/". La variable "`<Current Project Folder>`" est initialisée automatiquement par Eclipse en fonction du
 projet courant.
 
 ![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.png)

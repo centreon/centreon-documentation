@@ -11,26 +11,6 @@
         },
         {
           "type": "doc",
-          "id": "version-20.04/getting-started/which-install"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/IT100"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/interface"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/first-supervision"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/autodisco-aws"
-        },
-        {
-          "type": "doc",
           "id": "version-20.04/getting-started/create-custom-view"
         },
         {
@@ -139,33 +119,7 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/move-poller"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/monitoring/monitoring-servers/advanced-configuration"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Installation of Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/installation/installation-of-centreon-ha/overview"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/installation/installation-of-centreon-ha/installation-2-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/installation/installation-of-centreon-ha/installation-4-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/installation/installation-of-centreon-ha/integrating-pollers"
             }
           ]
         },
@@ -217,19 +171,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/hosts-create"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/monitoring/basic-objects/hosts"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/hosts-create-disco"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/hosts-templates"
             }
           ]
         },
@@ -239,19 +181,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/services-create"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/monitoring/basic-objects/services"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/services-create-disco"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/services-templates"
             },
             {
               "type": "doc",
@@ -295,33 +225,11 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/contacts-create"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/administration/parameters/ldap"
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/contacts-templates"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/administration/access-control-lists"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Organizing hosts, services and contacts",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/groups"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/categories"
             }
           ]
         },
@@ -400,10 +308,6 @@
         {
           "type": "doc",
           "id": "version-20.04/alerts-notifications/concepts"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/alerts-notifications/resources-status"
         },
         {
           "type": "doc",
@@ -589,10 +493,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/graph-views/configuration"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/graph-views/remote-server"
             },
             {
@@ -721,10 +621,6 @@
         },
         {
           "type": "doc",
-          "id": "version-20.04/administration/licenses"
-        },
-        {
-          "type": "doc",
           "id": "version-20.04/administration/database-partitioning"
         },
         {
@@ -742,10 +638,6 @@
         {
           "type": "doc",
           "id": "version-20.04/administration/platform-statistics"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/administration/postfix"
         }
       ]
     },
@@ -760,10 +652,6 @@
             {
               "type": "doc",
               "id": "version-20.04/update/update-centreon-platform"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/update/update-centreon-ha"
             }
           ]
         },
@@ -774,14 +662,6 @@
             {
               "type": "doc",
               "id": "version-20.04/upgrade/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/upgrade-from-20-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/upgrade-from-20-04"
             },
             {
               "type": "doc",
@@ -798,22 +678,6 @@
             {
               "type": "doc",
               "id": "version-20.04/upgrade/upgrade-from-3-4"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/centreon-ha/upgrade-from-centreon-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/upgrade/upgrade-mariadb"
             }
           ]
         },
@@ -824,10 +688,6 @@
             {
               "type": "doc",
               "id": "version-20.04/migrate/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/migrate/migrate-from-20-x"
             },
             {
               "type": "doc",
@@ -930,10 +790,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/applications-cisco-cms-restapi"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/applications-cisco-dnac-restapi"
             },
             {
               "type": "doc",
@@ -1158,10 +1014,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/applications-php-fpm-web"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/applications-proxmox-mg-api"
             },
             {
               "type": "doc",
@@ -1425,10 +1277,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-management-apimanagement"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-network-appgateway"
             },
             {
@@ -1445,27 +1293,7 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-web-appserviceplan"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-redis"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-cosmosdb"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-management-discover"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-elasticpool"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-mysql"
             },
             {
               "type": "doc",
@@ -1542,10 +1370,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-sqldatabase"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/cloud-azure-database-sqlmanagedinstance"
             },
             {
               "type": "doc",
@@ -2011,10 +1835,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/network-cisco-firepower-snmp"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/network-cisco-ironport-snmp"
             },
             {
@@ -2407,10 +2227,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/network-tplink-snmp"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp"
             },
             {
@@ -2458,10 +2274,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-aix-snmp"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-aix-ssh"
             },
             {
               "type": "doc",
@@ -2689,10 +2501,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/hardware-storage-bdt-multistak-snmp"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/hardware-storage-buffalo-terastation-snmp"
             },
             {
@@ -2774,10 +2582,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/hardware-storage-fujitsu-eternus-dx-ssh"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/hardware-storage-huawei-oceanstor-snmp"
             },
             {
               "type": "doc",
@@ -3176,10 +2980,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/data-analytics/sc-warp10"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/data-analytics/sc-kafka-events"
             }
           ]
         },
@@ -3224,10 +3024,6 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/event-management/sc-opsgenie"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/integrations/event-management/sc-pagerduty-events"
             },
             {
               "type": "doc",
@@ -3402,17 +3198,9 @@
       "label": "Monitoring your platform",
       "items": [
         {
-          "type": "doc",
-          "id": "version-20.04/health/centreon-agent"
-        },
-        {
           "type": "category",
           "label": "Centreon HA",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/administration/centreon-ha/acceptance-guide"
-            },
             {
               "type": "doc",
               "id": "version-20.04/administration/centreon-ha/monitoring-guide"

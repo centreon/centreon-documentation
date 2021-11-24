@@ -31,12 +31,6 @@ The Centreon Anomaly Detection module requires the following prerequisites:
   - Centreon in minimum version 20.04
   - A token provided by Centreon to access the Centreon Cloud platform
   - An Internet connection from the Centreon Central server
-  - The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
-
-    ```
-    echo $LC_ALL
-    ```
-      
   - Prediction best works with monitored services that present a seasonal
     behaviour as shown below:
 
@@ -117,7 +111,7 @@ Configuration must be done in 3 steps:
 ### Activate the sending of the collected data to Centreon Cloud
 
 Go to the `Configuration > Services > Anomaly Detection` menu and click on
-**Create manually** button:
+**Add Anomaly Service** button:
 
 ![imaage](../assets/monitoring/anomaly/configure_01.png)
 
@@ -138,7 +132,7 @@ Go to the `Configuration > Services > Anomaly Detection` menu and click on
 Click on **Save**.
 
 It is now time to [deploy the
-monitoring](monitoring-servers/deploying-a-configuration).
+monitoring](./monitoring-servers/deploying-a-configuration).
 
 Then go to the `Monitoring > Status Details > Services` menu and select
 **All** value for the Service Status filter. After a few minutes, the first
@@ -168,7 +162,7 @@ deviations you want before to validate the alert using the **Detect anomalies
 after** field.
 
 Click on **Save** and [deploy the monitoring
-configuration](monitoring-servers/deploying-a-configuration).
+configuration](./monitoring-servers/deploying-a-configuration).
 
 ### Activate the notification process
 
@@ -190,41 +184,6 @@ anomaly detection service:
 
 Click on **Save** and [deploy the monitoring
 configuration](./monitoring-servers/deploying-a-configuration).
-
-### Use the creation wizard
-
-Since version 20.10.1, it is possible to use the creation wizard. Indeed, this
-new functionality makes it possible to highlight the services presenting either a
-seasonality or a regular stability.
-
-Go to the`Configuration > Services > Anomaly Detection` menu and click on
-**Create from analysis** button.
-
-The list of existing services on your Centreon platform is displayed as well as a
-score in number of stars: from 5 stars to 0, 5 stars representing high potential
-services:
-
-![imaage](../assets/monitoring/anomaly/configure_analysis_01.png)
-
-After selecting an interesting service, click on the **ADD** button to the left
-of the row. You arrive on the pre-filled creation form:
-
-![imaage](../assets/monitoring/anomaly/configure_analysis_02.png)
-
-Modify the name of the service then click on the **Save** button.
-
-> If the list is empty, it means that the calculation to determine the services
-> of interest has not yet started.
-> 
-> This is done every 6 hours via a cron launched by the `gorgoned` process
-> (defined in the **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml** file).
-> 
-> It is possible to launch the first calculation manually via the following 
-> command from the central Centreon server:
-> ```shell
-> su - centreon
-> perl /usr/share/centreon/bin/anomaly_detection --seasonality
-> ```
 
 ## View the anomalies detected
 
@@ -337,7 +296,7 @@ the models, as well as the generation of alerts in the event console and the tri
 
 #### When will the feature be available? And for what Centreon Edition?
 
-The Anomaly Detection functionality will be available for Centreon Business Edition in the 21.10 version.
+The Anomaly Detection functionality will be available for Centreon Business Edition in the 20.10 version.
 
 ### How long is the data stored?
 

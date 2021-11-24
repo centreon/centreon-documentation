@@ -3,14 +3,12 @@ id: install
 title: Installer l'extension Centreon BAM
 ---
 
-> Centreon BAM est une **extension** Centreon qui requiert une license
-> valide. Pour plus d'information, contactez
-> [Centreon](mailto:sales@centreon.com).
+> Centreon BAM est une **extension** Centreon qui requiert une license valide. Pour plus d'information,
+> contactez [Centreon](mailto:sales@centreon.com).
 
 ## Prerequisites
 
-La version de Centreon nécessaire au fonctionnement de Centreon BAM
-est la version **Centreon 21.04**
+La version de Centreon nécessaire au fonctionnement de Centreon BAM est la version  **Centreon 20.04**
 
 ## Installation
 
@@ -21,14 +19,14 @@ Ajouter le dépôt Centreon BAM, vous pouvez le trouver sur le
 
 Et installer le paquet en exécutant la commande ci-dessous :
 
-``` shell
+```
 yum install centreon-bam-server
 ```
 
-### Charger la licence
+### Uploder la license
 
 Le fichier de licence "bam.license" est fourni par Centreon, pour
-l'installer, rendez vous dans `Administration > Extensions > Gestionnaire` puis
+l'installer, rendez vous dans `Administration > Extensions > Manager` puis
 télécharger la via l'interface.
 
 ### Installation sur l'interface
@@ -50,13 +48,10 @@ indiquera la date de fin de validité de la licence :
 > **monitoring**, lors de l'installation de Centreon BAM, une vue est
 > créée. Il faut l'exclure de la réplication en rajoutant la ligne
 > suivante dans le fichier my.cnf du slave
->
-> ``` text
+> ```
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
->
 > puis créer les vues sur le slave en lançant la commande:
 >
-> ``` shell
-> myqsl centreon < view_creation.sql
-> ```
+> ````
+> myqsl> centreon < view_creation.sql
