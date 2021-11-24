@@ -41,7 +41,7 @@ A user and password dedicated to monitoring is needed for security reasons.
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Open VPN* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
 
 ```bash
 yum install centreon-plugin-Applications-Openvpn-Omi
@@ -51,7 +51,7 @@ yum install centreon-plugin-Applications-Openvpn-Omi
 
 <!--Offline IMP License-->
 
-1. Install the Centreon Plugin package on every Centreon poller expected to monitor *Open VPN* ressources:
+1. Install the Centreon Plugin package on every Centreon poller expected to monitor your *Open VPN* server:
 
 ```bash
 yum install centreon-plugin-Applications-Openvpn-Omi

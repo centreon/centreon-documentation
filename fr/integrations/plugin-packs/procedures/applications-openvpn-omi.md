@@ -3,12 +3,6 @@ id: applications-openvpn-omi
 title: OpenVPN OMI
 ---
 
-## Vue d'ensemble
-
-*Describe quickly what the brand the associated devices are*
-
-The Centreon Plugin Pack *OpenVPN OMI* aims to collect...
-
 ## Contenu du Pack
 
 ### Modèles
