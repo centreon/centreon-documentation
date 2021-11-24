@@ -76,6 +76,19 @@ commerciales, veuillez contacter le support.
 
 ## Centreon Auto Discovery
 
+### 21.04.3
+
+Release date: `November 24, 2021`
+
+#### Improvements
+
+- Improved the way search requests are sent to the backend. The old way caused errors of type 500 when all search filters were removed.
+
+#### Bug fixes
+
+- An invalid path in upgrade.php caused PHP errors in the update process
+
+
 ### 21.04.2
 
 Release date: `9 novembre 2021`
