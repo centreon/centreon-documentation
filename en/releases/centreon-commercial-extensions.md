@@ -85,7 +85,7 @@ Release date: `null`
 
 #### Bug fixes
 
-- Fixed invalid upgrade.php file that caused errors in the update process and could cause the loss of existing jobs
+- An invalid path in upgrade.php caused PHP errors in the update process
 
 
 ### 21.04.2
