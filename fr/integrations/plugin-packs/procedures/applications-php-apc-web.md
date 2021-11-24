@@ -12,10 +12,10 @@ Le Plugin Pack Centreon PHP APC apporte 1 modèle d'hôte :
 
 Il apporte les Modèles de Services suivants :
 
-| Service Alias      | Service Template           | Default | Discovery |
-|:-------------------|:---------------------------|:--------|:----------|
-| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web | X       |           |
-| Php-Apc-Memory     | App-Php-Apc-Memory-Web     | X       |           |
+| Service Alias      | Service Template           | Default |
+|:-------------------|:---------------------------|:--------|
+| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web | X       |
+| Php-Apc-Memory     | App-Php-Apc-Memory-Web     | X       |
 
 ### Métriques & statuts collectés
 
@@ -149,5 +149,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](../tutorials/troubleshooting-plugins.html)
 pour le diagnostique des erreurs commununes des Plugins Centreon.

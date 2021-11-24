@@ -12,10 +12,10 @@ The Centreon Plugin Pack PHP APC brings 1 host template :
 
 It brings the following Service Templates:
 
-| Service Alias      | Service Template           | Default | Discovery |
-|:-------------------|:---------------------------|:--------|:----------|
-| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web | X       |           |
-| Php-Apc-Memory     | App-Php-Apc-Memory-Web     | X       |           |
+| Service Alias      | Service Template           | Default |
+|:-------------------|:---------------------------|:--------|
+| Php-Apc-File-Cache | App-Php-Apc-File-Cache-Web | X       |
+| Php-Apc-Memory     | App-Php-Apc-Memory-Web     | X       |
 
 ### Collected metrics & status
 
