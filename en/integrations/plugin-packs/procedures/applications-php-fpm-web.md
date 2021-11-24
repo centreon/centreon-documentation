@@ -12,9 +12,9 @@ The Centreon Plugin Pack PHP FPM brings 1 host template :
 
 It brings the following Service Template:
 
-| Service Alias | Service Template      | Default | Discovery |
-|:--------------|:----------------------|:--------|:----------|
-| Php-Fpm-Usage | App-Php-Fpm-Usage-Web | X       |           |
+| Service Alias | Service Template      | Default |
+|:--------------|:----------------------|:--------|
+| Php-Fpm-Usage | App-Php-Fpm-Usage-Web | X       |
 
 ### Collected metrics & status
 
@@ -142,4 +142,4 @@ All available options for a given mode can be displayed by adding the
 ### Troubleshooting
 
 Please find all the troubleshooting documentation for the Centreon Plugin
-in the [dedicated page](../tutorials/troubleshooting-plugins.md)
+in the [dedicated page](../tutorials/troubleshooting-plugins.html)
