@@ -19,6 +19,18 @@ commerciales, veuillez contacter le support.
 
 ## Centreon MAP
 
+### 20.10.6
+
+`null`
+
+ - Links to monitoring pages now redirects properly to resource status or older deprecated pages
+ - Disabled Business Activities are now displayed as disabled even after restarting centreon-map service
+ - HeapDumpPath is now pointing to the proper folder (/var/log/centreon-map folder)
+ - Metrics labels with specific characters and white spaces are now supported
+ - Service elements in a view are not clickable anymore
+ - Metrics not following the naming specification do not cause map server to crash anymore
+ - Perfdata separated by multiple white spaces is now properly handled by map server
+
 ### 20.10.5
 
 `21 septembre 2021`
