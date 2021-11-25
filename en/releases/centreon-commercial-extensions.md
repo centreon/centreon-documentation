@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 20.10.6
 
-`null`
+`November 25, 2021`
 
 #### Bugfixes
 

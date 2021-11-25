@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 20.10.6
 
-`null`
+`November 25, 2021`
 
 #### Bugfixes
 
