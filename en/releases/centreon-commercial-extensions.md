@@ -19,6 +19,23 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 21.04.2
+
+`November 25, 2021`
+
+#### Bugfixes
+
+ - Disabled Business Activities are now displayed as disabled even after restarting centreon-map service
+ - HeapDumpPath is now pointing to the proper folder (/var/log/centreon-map folder)
+ - Metrics labels with specific characters and white spaces are now supported
+ - Service elements in a view are not clickable anymore
+ - Metrics not following the naming specification do not cause map server to crash anymore
+
+#### Enhancements
+
+ - Links to monitoring pages now redirects properly to resource status or older deprecated pages
+ - Perfdata values separated by multiple white spaces are now properly handled by map server
+
 ### 21.04.1
 
 `August 2, 2021`
