@@ -21,7 +21,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.04.2
 
-`null`
+`November 25, 2021`
 
 #### Bugfixes
 

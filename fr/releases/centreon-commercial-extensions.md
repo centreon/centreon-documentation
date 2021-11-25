@@ -21,7 +21,7 @@ commerciales, veuillez contacter le support.
 
 ### 21.04.2
 
-`null`
+`November 25, 2021`
 
 #### Bugfixes
 
