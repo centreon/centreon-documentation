@@ -98,4 +98,5 @@ ol ol ol, ol ul ol, ul ol ol, ul ul ol {
 blockquote {
   background-color: rgba(255,229,100,.3);
   border-left: 8px solid #ffe564;
+  padding: 15px 30px 15px 15px;
 }
