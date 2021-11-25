@@ -34,7 +34,7 @@ If you have feature requests or want to report a bug, please contact support.
 #### Enhancements
 
  - Links to monitoring pages now redirects properly to resource status or older deprecated pages
- - Perfdata separated by multiple white spaces is now properly handled by map server
+ - Perfdata values separated by multiple white spaces are now properly handled by map server
 
 ### 20.10.5
 
