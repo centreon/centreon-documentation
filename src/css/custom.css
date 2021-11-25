@@ -23,31 +23,31 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
+html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 .iconLanguage_3vod {
-  display: none!important;
+  display: none !important;
 }
 
 .dropdown__menu {
-  min-width: fit-content!important;
+  min-width: fit-content !important;
 }
 
 .navbar__link > span > svg {
-  display: none!important;
+  display: none !important;
 }
 
 .alert--warning {
-  display: none!important;
+  display: none !important;
 }
 
 .alert {
   /*display: none!important;*/
 }
 
-html[data-theme='light'] .DocSearch {
+html[data-theme="light"] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
   /* --docsearch-text-color: var(--ifm-font-color-base); */
   --docsearch-muted-color: var(--ifm-color-secondary-darkest);
@@ -65,7 +65,7 @@ html[data-theme='light'] .DocSearch {
   --docsearch-footer-background: var(--ifm-color-white);
 }
 
-html[data-theme='dark'] .DocSearch {
+html[data-theme="dark"] .DocSearch {
   --docsearch-text-color: var(--ifm-font-color-base);
   --docsearch-muted-color: var(--ifm-color-secondary-darkest);
   --docsearch-container-background: rgba(47, 55, 69, 0.7);
@@ -87,16 +87,60 @@ html[data-theme='dark'] .DocSearch {
   );
 }
 
-ol ol, ul ol {
+ol ol,
+ul ol {
   list-style-type: decimal;
 }
 
-ol ol ol, ol ul ol, ul ol ol, ul ul ol {
+ol ol ol,
+ol ul ol,
+ul ol ol,
+ul ul ol {
   list-style-type: decimal;
 }
 
 blockquote {
-  background-color: rgba(255,229,100,.3);
+  background-color: rgba(255, 229, 100, 0.3);
   border-left: 8px solid #ffe564;
   padding: 15px 30px 15px 15px;
+}
+
+/* "Copy" code block button */
+pre {
+  position: relative;
+}
+
+pre .btnIcon {
+  position: absolute;
+  top: 4px;
+  z-index: 2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  height: 30px;
+  transition: all 0.25s ease-out;
+}
+
+pre .btnIcon:hover {
+  text-decoration: none;
+}
+
+.btnIcon__body {
+  align-items: center;
+  display: flex;
+}
+
+.btnIcon svg {
+  fill: currentColor;
+  margin-right: 0.4em;
+}
+
+.btnIcon__label {
+  font-size: 11px;
+}
+
+.btnClipboard {
+  right: 10px;
 }

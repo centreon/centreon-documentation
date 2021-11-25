@@ -19,7 +19,8 @@ Click on **Save**.
 ## Update the Centreon Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon on the line corresponding to your Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+icon on the line corresponding to your Poller.
+![icon](../../assets/monitoring/monitoring-servers/gorgone-configuration.png)
 
 A pop-in will show the configuration to copy into the **Poller terminal**.
 Click on **Copy to clipboard**.
