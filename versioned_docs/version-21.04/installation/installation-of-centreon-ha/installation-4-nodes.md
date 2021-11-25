@@ -339,7 +339,7 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Master-Slave MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both database nodes**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both database nodes**.
 
 ### Configuring MariaDB
 

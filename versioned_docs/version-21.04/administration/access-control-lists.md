@@ -111,15 +111,15 @@ To create an access filter on menus:
 
 5. In the **Accessible pages** section, define which menus the access group will be able to access.
 
-    - A parent menu must be selected to access the child menu.
-    - By default, access is **Read Only**. If you want to allow your users to modify
+   - A parent menu must be selected to access the child menu.
+   - By default, access is **Read Only**. If you want to allow your users to modify
 the configuration, select the **Read / Write** option for each
 submenu.
-    - To access an ‘n-1’ menu level, users must have access to the ‘n’ menu level,
+   - To access an ‘n-1’ menu level, users must have access to the ‘n’ menu level,
  otherwise they will not be able to view the menu via the interface. If this is not
 the case, users will have to access the page via a direct link
  (autologin, etc.).
-    - Whenever a new Centreon module is created with a web interface accessible
+   - Whenever a new Centreon module is created with a web interface accessible
  via a new menu, it should be added to the filter so that users can
 access it (if applicable).
 

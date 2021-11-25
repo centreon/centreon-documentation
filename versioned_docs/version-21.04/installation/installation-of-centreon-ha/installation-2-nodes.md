@@ -66,7 +66,7 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
-### Configuring  centreon-broker
+### Configuring centreon-broker
 
 #### Link to cbd service
 
@@ -293,7 +293,7 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Master-Slave MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
 ### Configuring MariaDB
 
@@ -559,9 +559,9 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-## Setting up the *Centreon* cluster
+## Setting up the Centreon cluster
 
-**Note: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
+**Note**: unless otherwise stated, each of the following steps have to be run **on both central nodes**.
 
 ### Configuring the file synchronization service
 

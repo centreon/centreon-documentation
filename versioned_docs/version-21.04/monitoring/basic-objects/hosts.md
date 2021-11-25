@@ -47,9 +47,9 @@ To reinitialize to the default value (defined in template) click on <img src="..
 
 To view the description of the macro, click on <img src="../../assets/configuration/common/description.png" width="32" />
 
-To delete the macro, click on <img src="../../assets/configuration/common/delete.png" width="32" />
+To delete the macro, click on <img src="../../assets/configuration/common/delete.png" width="32"/>
 
-To change the order of the macros, click on <img src="../../assets/configuration/common/move.png" width="32" />
+To change the order of the macros, click on <img src="../../assets/configuration/common/move.png" width="32"/>
 
 ### Scheduling options
 
