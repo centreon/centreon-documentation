@@ -26,7 +26,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
 - [CLAPI] Fixed LDAP configuration ID for export and import
 - [Configuration] Fixed Centreon Broker configuration that could be empty or deleted
-- [Core] REmove PHP warning in logs
+- [Core] Remove PHP warning in logs
 - [Resources Status] Fixed access to action URLs
 - [Resources Status] Fixed access to actions buttons
 - [UX] Non admin user do not have the same submenu subsections
