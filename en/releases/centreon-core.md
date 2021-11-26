@@ -17,6 +17,16 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.10.1
+
+#### Bug Fixes
+
+- [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
+- [Authentication] Incorrect typo in sprinf for debug
+- [Configuration] Host templates cannot be listed when the Centreon database has a specific name
+- [UX] Non admin user do not have the same submenu subsections
+- [UX] Remove "Animation effects" option
+
 ### 21.10.0
 
 #### Enhancements
