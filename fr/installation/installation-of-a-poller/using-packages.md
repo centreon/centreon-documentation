@@ -44,7 +44,7 @@ Exécutez la commande suivante à partir d’un utilisateur possédant les droit
 suffisants :
 
 ```shell
-yum install -y https://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
 ## Installation

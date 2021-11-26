@@ -223,7 +223,7 @@ If you installed your Centreon MAP server from a "fresh CentOS installation"
 you need to install the `centreon-release` package:
 
 ```shell
-yum install https://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
 ```
 
 > If the URL doesn't work, you can manualy find this package in the folder.

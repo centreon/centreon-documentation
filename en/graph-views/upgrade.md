@@ -39,7 +39,7 @@ Run the following commands to upgrade your Centreon MAP server:
 2. Update Centreon & Centreon MAP repositories:
 
     ```shell
-    yum install -y https://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+    yum install -y http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
     ```
 
     > Install Centreon MAP repository, you can find it on the
