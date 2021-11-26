@@ -27,9 +27,9 @@ If you have feature requests or want to report a bug, please go to our
 - [CLAPI] Fixed LDAP configuration ID for export and import
 - [Configuration] Fixed Centreon Broker configuration that could be empty or deleted
 - [Configuration] Fixed the list of host template that was not available if the database name was different from the default
+- [Core] Remove PHP warning in logs
 - [UX] Fixed display of tooltips in configuration forms
 - [UX] Non admin user do not have the same submenu subsections
-- [UX] Removed "Animation effects" option
 
 ### 21.04.8
 
