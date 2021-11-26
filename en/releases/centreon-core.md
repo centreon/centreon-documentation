@@ -22,7 +22,7 @@ If you have feature requests or want to report a bug, please go to our
 #### Bug Fixes
 
 - [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
-- [Configuration] Host templates cannot be listed when the Centreon database has a specific name
+- [Configuration] Fixed the list of host template that was not available if the database name was different from the default
 - [UX] Non admin user do not have the same submenu subsections
 - [UX] Remove "Animation effects" option
 
