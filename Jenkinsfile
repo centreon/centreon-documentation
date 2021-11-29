@@ -28,6 +28,16 @@ try {
       env.VERSION = serie
       env.RELEASE = "${source.RELEASE}"
       archiveArtifacts artifacts: 'assets_diff_en.txt, assets_diff_fr.txt'
+
+      withSonarQubeEnv('SonarQubeDev') {
+        sh "./centreon-build/jobs/doc/${serie}/doc-analysis.sh"
+      }
+      timeout (time:10, unit: 'MINUTES') {
+        def qualityGate = waitForQualityGate()
+        if (qualityGate.status != 'OK') {
+          currentBuild.result = 'FAIL'
+        }
+      }
     }
 
     stage('Build') {
