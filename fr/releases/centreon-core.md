@@ -18,6 +18,8 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ### 21.10.1
 
+Release date: `November 29, 2021`
+
 #### Bug Fixes
 
 - [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
