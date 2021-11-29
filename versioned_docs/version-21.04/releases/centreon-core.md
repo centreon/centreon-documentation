@@ -19,6 +19,55 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 21.04.8
+
+Release date: `November 15, 2021`
+
+#### Enhancements
+
+- [Authentication] Add possibility to define complete URL for endpoints
+- [Authentication] Allow to define no redirect URL. Based on [PR #9877](https://github.com/centreon/centreon/pull/9877)
+- [Authentication] Implement client_secret_basic as token_endpoint_auth_method. Based on [PR #9878](https://github.com/centreon/centreon/pull/9878)
+- [CEIP] Product Adoption component integration
+- [Configuration] Add the ability to set the expected TLS common name in broker configuration
+- [Core] Add Feature Flipping for Resources Status vs Legacy Pages
+- [Core] Compatibility PHP 7.4
+
+#### Bug fixes
+
+- [Authentication] Fixed user information retrieval method for OpenId
+- [Backup] Fixed backup using LVM snapshot
+- [CLAPI] Fixed recurrent downtimes exported with CLAPI that could not be imported with CLAPI
+- [Configuration] Avoid blocking configuration generation when users don't have notifications enabled
+- [Configuration] Fixed empty string parameter for LUA output in Broker configuration
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Configuration] Fixed the hiding of custom macros containing many options in the display of the command
+- [Custom Views] Fixed sharing of views with LDAP groups
+- [Downtime] Fixed PHP fatal error when saving a downtime on a hostgroup
+- [Downtime] Fixed display of planned downtimes when one downtime is started
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
+- [Graph] Fixed wrong scale and metric value with negative values
+- [Knowledge Base] Get correct link from template. Based on [PR #10066](https://github.com/centreon/centreon/pull/10066)
+- [Resources Status] Fixed display of performance chart with Firefox
+- [Resources Status] Fixed weird behaviors of the ressources status page when applying filters and ordering by a specific column.
+- [UX] Fixed menus by no longer displaying orphaned items
+
+#### Security fixes
+
+- CSRF - delete any command
+- CSRF - delete any poller
+- CSRF - delete any host
+- CSRF - delete any SNMP trap
+- CSRF - delete any service
+- CSRF - delete any contactGroup
+- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete many kinds of objects
+
+#### Performance
+
+- Improve realtime API with ACL
+- SQL optimisations for Resource Status page
+
 ### 21.04.7
 
 `October 8, 2021`
