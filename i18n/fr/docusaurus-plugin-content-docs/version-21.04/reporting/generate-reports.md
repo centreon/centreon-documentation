@@ -37,6 +37,7 @@ Description des colonnes:
 
 
 Dans la colonne "Name", une icône est associée au status de la tâche planifiée:
+
   Icon                                                     |  Statut
   ---------------------------------------------------------|----------------------------
   ![image](../assets/reporting/guide/clock_stopped.png)    | tâche arrêtée

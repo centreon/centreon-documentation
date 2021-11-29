@@ -4,7 +4,7 @@ title: Créer une vue graphique
 ---
 
 :::info
-Only available in english for now
+Only available in English for now
 :::
 
 The objective of this tutorial is to help you understand how you can provide

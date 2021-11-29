@@ -33,9 +33,9 @@ supprimez le module **Centreon Poller Display**.
 2. Si vous avez installé le module à partir du paquet RPM, supprimez le paquet
 en exécutant la commande suivante :
 
-    ```shell
-    yum remove centreon-poller-display
-    ```
+  ```shell
+  yum remove centreon-poller-display
+  ```
 
 3. Si votre serveur est basé sur la distribution CentOS ou Red Hat en version
 7, réalisez la montée de version en suivant [cette procédure](../upgrade/upgrade-from-3-4),
@@ -174,9 +174,9 @@ Failed connect to 192.168.0.1:444; Connection refused
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:
 
-    ``` SQL
-    GRANT FILE on *.* to 'centreon'@'localhost';
-    ```
+  ``` SQL
+  GRANT FILE on *.* to 'centreon'@'localhost';
+  ```
 
 7. Depuis l'interface web du serveur **Centreon Central**, éditez
 tous les collecteurs rattachés au **Remote Server** et liez ceux-ci au

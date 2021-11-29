@@ -109,10 +109,10 @@ chmod 640 /etc/centreon/license.d/*
 * Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence. 
 Pour connaître le nombre d'hôtes supervisés, à la page **Configuration > Hôtes > Hôtes**, utilisez la liste déroulante en haut à droite de la liste :
 
-    ![image](../assets/administration/number-of-hosts.png)
+  ![image](../assets/administration/number-of-hosts.png)
 
-    Vous pouvez également utiliser la commande suivante :
+  Vous pouvez également utiliser la commande suivante :
 
-    ```sql
-    SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
-    ```
+  ```sql
+  SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
+  ```

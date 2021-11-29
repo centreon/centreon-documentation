@@ -768,11 +768,11 @@ The complete script can be downloaded [here](https://github.com/centreon/centreo
 Configure the new output into Centreon Web interface in **Configuration > Pollers > Broker configuration > Central
 Broker**. In **Output** tab select **Generic – Stream connector** and click **Add**:
 
-![image](../assets/developer/lua/add_stream_connector.png
+![image](../assets/developer/lua/add_stream_connector.png)
 
 Define the name of this output and the path to the Lua connector:
 
-![image](../assets/developer/lua/broker_influxdb_output.png
+![image](../assets/developer/lua/broker_influxdb_output.png)
 
 Then click **Save** and go to generate the configuration and restart **cbd**.
 
@@ -780,7 +780,7 @@ Then click **Save** and go to generate the configuration and restart **cbd**.
 
 If you install the [Grafana](https://grafana.com/) dashboard, you can visualize the stored data:
 
-![image](../assets/developer/lua/visualize_data_grafana.png
+![image](../assets/developer/lua/visualize_data_grafana.png)
 
 ## Discover other Centreon Stream Connectors
 

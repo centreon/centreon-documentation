@@ -43,11 +43,11 @@ rm /etc/cron.d/centstorage
 rm /etc/cron.d/centreon-auto-disco
 ```
 
-### Mise à jour des extensions
+### Mise à jour des extensions
 
 Les extensions (ou modules) Centreon nécessitent également d'être mis à jour *via* l'interface, depuis le menu "Administration > Extensions > Gestionnaire" en utilisant le bouton "Update all".
 
-### Mise à jour des Plugin Packs
+### Mise à jour des Plugin Packs
 
 Afin de maintenir la compatibilité entre les [Plugin Packs](../monitoring/pluginpacks) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des plugin packs depuis le menu "Configuration > Plugin Packs".
 

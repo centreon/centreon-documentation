@@ -316,7 +316,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.memory*
 rm -rf /var/lib/centreon-broker/central-broker-master.queue*
 rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
-i
+
 ## Rétablissement de la gestion des ressources par le cluster
 
 Tous les composants devraient à présent être à jour et fonctionnels, il faut donc rétablir la gestion des ressources par le cluster :

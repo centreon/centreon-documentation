@@ -68,15 +68,15 @@ Un plugin pack s'installe en 4 étapes :
   - installez ou mettez à jour le catalogue des Plugin Packs
 depuis votre serveur central :
 
-    ```shell
-    yum install centreon-pack-*
-    ```
+  ```shell
+  yum install centreon-pack-*
+  ```
 
-    Ou:
+  Ou:
 
-    ```shell
-    yum update centreon-pack-*
-    ```
+  ```shell
+  yum update centreon-pack-*
+  ```
   > Attention, même si la commande s'appelle `install`, elle ne fait que rendre le catalogue des Plugin Packs disponible. Elle n'installe pas ceux-ci. Suivez le reste de la procédure.
 
 ### Installer le pack

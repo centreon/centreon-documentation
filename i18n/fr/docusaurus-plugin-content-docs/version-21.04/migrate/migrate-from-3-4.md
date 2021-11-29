@@ -61,7 +61,7 @@ rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU
 rsync -avz /var/spool/centreon/.ssh root@<IP_NOUVEAU_CENTREON>:/var/spool/centreon
 ```
 
-> Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
+> Remplacez **<IP_NOUVEAU_CENTREON>** par l'adresse IP de votre nouveau serveur
 Centreon.
 
 ### Récupération des bases de données
@@ -132,7 +132,7 @@ données vierges et les recréer :
     systemctl start mariadb
     ```
 
-> Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
+> Remplacez **<IP_NOUVEAU_CENTREON>** par l'adresse IP de votre nouveau serveur
 Centreon.
 
 ### Synchronisation des plugins
@@ -184,7 +184,7 @@ mv install-21.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 > web Centreon et le nouveau, videz completement le cache de votre navigateur pour
 > éviter des problemes de scripts JS.
 
-Se connecter à l'url *http://\<IP_NEW_CENTREON\>/centreon* et suivre les étapes
+Se connecter à l'url `http://<IP_NEW_CENTREON>/centreon` et suivre les étapes
 de mise à jour.
 
 > Si vous avez modifié le mot de passe de l'utilisateur 'centreon' lors de

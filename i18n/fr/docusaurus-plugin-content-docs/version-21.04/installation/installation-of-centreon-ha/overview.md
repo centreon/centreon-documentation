@@ -11,7 +11,7 @@ les éléments suivants :
 * Une collection de scripts permettant une gestion sûre et efficace des ressources liées à Centreon.
 * Des fichiers additionnels qui étendront les capacités par défaut de Centreon. 
 
-Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs] (https://clusterlabs.org/),
+Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs](https://clusterlabs.org/),
 permettant une tolérance aux pannes sur les composants suivants : 
 
 * Daemons applicatifs du serveur central
@@ -113,7 +113,7 @@ sous licence _Red Hat Enterprise Linux High Availability_.
 Le seul système de base de données officiel pris en charge par Centreon est MariaDB. 
 
 Néanmoins, notez que nous avons validé que l'ensemble de la solution peut fonctionner sur MySQL 8 *avec quelques modifications*, 
-seule la [communauté] https://github.com/centreon-ha/issues) (ou vos DBA) peut vous aider 
+seule la [communauté](https://github.com/centreon-ha/issues) (ou vos DBA) peut vous aider 
 et vous supporter dans l'exécution d'un Cluster sur un serveur Oracle MySQL.
 
 Pour MariaDB et Oracle MySQL, la configuration de la réplication peut être intrusive. Nous *vous déconseillons fortement* de 
