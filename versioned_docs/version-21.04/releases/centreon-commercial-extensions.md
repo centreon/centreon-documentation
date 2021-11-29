@@ -75,6 +75,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon Auto Discovery
 
+### 21.04.2
+
+Release date: `November 9, 2021`
+
+#### Improvements
+
+- Improve the way host discovery providers are identified as compatible with the current version of autodiscovery
+
 ### 21.04.1
 
 `July 19, 2021`
