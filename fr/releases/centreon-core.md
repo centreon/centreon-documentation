@@ -20,6 +20,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.20
 
+`November 29, 2021`
+
 #### Bug fixes
 
 - [Configuration] Fixed reset untouched values using massive changes on hosts

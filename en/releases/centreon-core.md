@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.20
 
+`November 29, 2021`
+
 #### Bug fixes
 
 - [Configuration] Fixed reset untouched values using massive changes on hosts
@@ -64,7 +66,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `July 30, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Core] Unserialize in CentreonUtils is blocked by QualityGate
 - [Core] Update copyright date
@@ -77,11 +79,11 @@ If you have feature requests or want to report a bug, please go to our
 
 `July 01, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Configuration] InfluxDB configuration columns are deleted in Broker form
 
-#### Security fixe
+#### Security fixes
 
 - [Configuration] Input sent to unserialize() are not sanitized
 - [Configuration] SQL Injection on commands
@@ -101,7 +103,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `June 10, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Core] Fixed broken configuration export 
 
@@ -109,7 +111,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `June 3, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Administration] Broker statistics for pollers are not shown
 - [APIv1] Cannot send external commands anymore
@@ -148,7 +150,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `May 10, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Administration] Cannot list Pollers in Centreon Engine statistics
 - [Configuration] Configuration output can lead to an empty broker configuration
@@ -174,7 +176,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `April 1, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Lib] Update moment-timezone to manage new timezones
 - [Resources Status] Error when getting the command line for Meta Service detail
@@ -187,7 +189,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `March 23, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [CLAPI] CFGMOVE & APPLYCFG don't work
 - [Core] Update centreon copyright dates
@@ -233,7 +235,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `January 28, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [CLAPI] APPLYCFG on a Poller behind a Remote Server doesn't trigger sync task for the RS itself
 - [CLAPI] Cancel RTACKNOWLEDGEMENT doesn't work for services
@@ -263,7 +265,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Configuration] Add a special variable for trap OID
 - [Performance] Disable UI notification mechanism if not needed by user
 
-#### Bugfixes
+#### Bug fixes
 
 - [Authentication] Invalid credentials after edit profile change with special characters
 - [Authentication] New LDAP configurations are broken
@@ -300,7 +302,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Remote Server] Add the possibility to configure mail for users
 - [Remote Server] Hide the "Configure host / service" buttons from monitoring legacy pages
 
-#### Bugfixes
+#### Bug fixes
 
 - [API] Service groups search not working
 - [Administration] 'options' table for centreon database is sometimes empty
@@ -359,7 +361,7 @@ If you have feature requests or want to report a bug, please go to our
 - [Event View] Host details - Display info in the timeline
 - [Event View] Service details - Display info in the timeline
 
-#### Bugfixes
+#### Bug fixes
 
 - [ACL] Incorrect inheritance of categories/severities for services
 - [API] Acknowledgement : inconsistency between doc & payload
@@ -401,7 +403,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `August 10, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Reporting] Reporting is broken when a host is renamed
 - [Monitoring] Service limit when sending an external command
@@ -439,7 +441,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `July 6, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Reporting] Host availability is wrong due to Broker changes
 - [Reporting] Planned downtime are wrongly managed when cancelled
@@ -473,7 +475,7 @@ If you have feature requests or want to report a bug, please go to our
 
 - [CLAPI] Add possibility to get childs of a host using CLAPI
 
-#### Bugfixes
+#### Bug fixes
 
 - [Configuration] Wrongly linked service template in service group
 - [Configuration] Add Gorgone configuration export for Central
@@ -511,7 +513,7 @@ If you have feature requests or want to report a bug, please go to our
 - [EventView] Help : Add tips to help users using regexp
 - [UI] : Add "Asia/Yangon" timezone
 
-#### Bugfixes
+#### Bug fixes
 
 - [Backend] host-graph-v2 do not display all graph > graph endpoint issue ?
 - [EventView] Header gets fully selected when searching
@@ -726,7 +728,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `August 4, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - Recovery notifications forgotten when engine is stopped during incident
 - Compilation issues on Raspberry Pi
@@ -738,7 +740,7 @@ If you have feature requests or want to report a bug, please go to our
 > This version requires Centreon Clib version to be 20.04.2 or higher.
 > This version requires Centreon-Connector version to be 20.04.1 or higher.
 
-#### Bugfixes
+#### Bug fixes
 
 - Engine cpu usage increased to 100% when `check_period` is set to `none`
 - Engine/broker build migrated from Bintray to ConanCenter
@@ -747,7 +749,7 @@ If you have feature requests or want to report a bug, please go to our
 
 `April 28, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - Bad memory access on hostgroupname/servicegroupname macros
 - SERVICEGROUPNAME macro doesn't appear in notifications
@@ -758,7 +760,7 @@ If you have feature requests or want to report a bug, please go to our
 
 > This version requires Centreon Broker version to be 20.04.13 or higher.
 
-#### Bugfixes
+#### Bug fixes
 
 - Recovery notifications were not sent when exiting from downtime
 - Recovery notifications are not sent when entering in notification timeperiod
@@ -776,7 +778,7 @@ If you have feature requests or want to report a bug, please go to our
 
 > This version requires Centreon Broker version to be 20.04.12 or higher.
 
-#### Bugfixes
+#### Bug fixes
 
 *Notification macros*
 
@@ -795,7 +797,7 @@ instance_heartbeat_interval in the centengine.cfg file.
 
 `December 16, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Stalking option*
 
@@ -818,7 +820,7 @@ state was HARD even if no notification is configured nor sent.
 
 `Octobre 12, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Recovery notifications*
 
@@ -829,7 +831,7 @@ for a problem. This is now fixed.
 
 `September 3, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *PROBLEMID macros*
 
@@ -840,7 +842,7 @@ SERVICEPROBLEMID and LASTSERVICEPROBLEMID). This new version fixes this point.
 
 `August 18, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Unicode check was buggy*
 
@@ -851,7 +853,7 @@ characters that were not UTF-8. It is fixed and moved to the cbmod module.
 
 `July 6, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *On-demand macros on services do not work*
 
@@ -862,7 +864,7 @@ This is fixed with this new version.
 
 `June 23, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Windows checks can be CP1252 encoded*
 
@@ -876,7 +878,7 @@ UTF-8.
 
 `June 16, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *If a host is disabled, it should also be the case for its services*
 
@@ -888,7 +890,7 @@ are still there. With this new version, it is fixed.
 
 `May 12, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *debug_lvl=-1*
 
@@ -898,7 +900,7 @@ Engine was stuck when we put -1 as debug_lvl in centengine.cfg.
 
 `April 22, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Perfdata truncated when read from retention*
 
@@ -932,7 +934,7 @@ a check_command. It will use the poller_id field of your config.
 
 `August 30, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - Fixed a deadlock in broker with a reversed TCP output when cbd receives SIGTERM
 - Fixed "MySQL server has gone away" error causing failure in BAM events computation, and data loss in BAM availability statistics
@@ -941,7 +943,7 @@ a check_command. It will use the poller_id field of your config.
 
 `August 4, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - Timeranges of timeperiods can't be parsed if they end with `\r` or `\n`
 - Compilation issues on Raspberry Pi
@@ -959,7 +961,7 @@ a check_command. It will use the poller_id field of your config.
 - Avoid SQL injections with custom variables
 - Remove SSL and deprecated cipher suites
 
-#### Bugfixes
+#### Bug fixes
 
 - Engine/broker build migrated from Bintray to ConanCenter
 - Metaservices used as KPIs did not impact BAs (Centreon BAM)
@@ -994,7 +996,7 @@ a check_command. It will use the poller_id field of your config.
 
 `January 20, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 *Conflict manager and comments*
 
@@ -1048,7 +1050,7 @@ acceptor side. This new version fixes this issue.
 >   - If you use Centreon MAP with TLS encryption, make sure to **update MAP
 >     server** to version >= 20.04.5.
 
-#### Bugfixes
+#### Bug fixes
 
 *TLS*
 
@@ -1072,7 +1074,7 @@ Business Activities names causing *duplicate entry* errors.
 
 `November 25, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Build*
 
@@ -1144,7 +1146,7 @@ with the –pool\_size X argument or -s X.
 >     If the reversed connection mode (*one peer retention*) is used,
 >     the Broker upgrade is mandatory.
 
-#### Bugfixes
+#### Bug fixes
 
 *One peer retention*
 
@@ -1208,7 +1210,7 @@ TCP endpoint with the 'pool_size' label.
 
 `August 18 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *UTF-8 encoding*
 
@@ -1230,7 +1232,7 @@ Conflict manager configuration is easier and more flexible.
 
 `July 6, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Segfault possible during a Mariadb server restart*
 
@@ -1262,7 +1264,7 @@ BAM module is better managed on database server reload/restart.
 >   When the events queue is fully processed, you can update both Broker and
 >   Engines.
 
-#### Bugfixes
+#### Bug fixes
 
 *Not ASCII characters badly encoded in database*
 
@@ -1273,7 +1275,7 @@ and the string looses its sense. This is fixed.
 
 `May 27, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *NEB service status check were badly handled*
 
@@ -1285,7 +1287,7 @@ in 20.04.3.
 
 `May 26, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Events were badly acknowledged after being sent to the database*
 
@@ -1312,7 +1314,7 @@ avoid this, we truncate too long strings and set a warning log for users.
 
 `May 13, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *BBDO is sending corrupted data*
 
@@ -1338,7 +1340,7 @@ the host_id, we suppose you want a host severity.
 
 `May 12, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 *Strict mode of the database*
 
@@ -1406,7 +1408,7 @@ Migration of the code to C++11.
 We now have 370+ tests (+280%). It allow us to have a better code coverage
 of the code base.
 
-#### Bugfixes
+#### Bug fixes
 
 *Influxdb connector and retention*
 
@@ -1445,7 +1447,7 @@ This patch fixes that.
 
 `June 10, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [Anomaly] Host ID was null in detection filters
 
@@ -1466,7 +1468,7 @@ This patch fixes that.
 
 `January 29, 2021`
 
-#### Bugfixes
+#### Bug fixes
 
 - [zmqclient] Harden communication to avoid "Protocol not good" errors
 - [zmqclient] Increment ZMQ_LINGER period for some modules
@@ -1483,7 +1485,7 @@ This patch fixes that.
 
 `December 17, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [proxy] gorgone-proxy processes stucked when stopping gorgoned
 - [core] Rare case of database handler wrongly instantiated due to race
@@ -1507,7 +1509,7 @@ This patch fixes that.
 
 `October 19, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [zmqclient] Fix no PONG response in some cases
 - [zmqclient] ZMQ_LINGER option was not correctly set by modules
@@ -1524,7 +1526,7 @@ This patch fixes that.
 
 `September 16, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [sshclient] SSH connection hangs indefinitely and never timeout
 
@@ -1532,7 +1534,7 @@ This patch fixes that.
 
 `August 13, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [core] Identity problem may appear when having Remote Server
 - [core] File descriptor leak on HTTP backend
@@ -1549,7 +1551,7 @@ This patch fixes that.
 
 `June 22, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [autodiscovery] Escape correctly results to be inserted in database
 - [config] Add error message for unreadable files
@@ -1562,7 +1564,7 @@ This patch fixes that.
 
 `May 12, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [autodiscovery] Better management of utf8
 - [autodiscovery] Fix returns in results process
@@ -1583,7 +1585,7 @@ This patch fixes that.
 
 `April 23, 2020`
 
-#### Bugfixes
+#### Bug fixes
 
 - [nodes] Change resync time when you have a SQL issue
 
