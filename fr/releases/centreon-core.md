@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.14
 
+Release date: `November 29, 2021`
+
 #### Bug fixes
 
 - [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
