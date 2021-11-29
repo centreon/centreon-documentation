@@ -1046,6 +1046,7 @@
                     "integrations/event-management/sc-opsgenie",
                     "integrations/event-management/sc-pagerduty-events",
                     "integrations/event-management/sc-service-now-events",
+                    "integrations/event-management/sc-signl4-events",
                     "integrations/event-management/sc-servicenow-mid-server"
                 ],
                 "label": "Event Management",
