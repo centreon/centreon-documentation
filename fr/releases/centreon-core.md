@@ -16,6 +16,17 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.1
+
+Release date: `November 29, 2021`
+
+#### Bug Fixes
+
+- [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
+- [Configuration] Fixed the list of host template that was not available if the database name was different from the default
+- [UX] Non admin user do not have the same submenu subsections
+- [UX] Remove "Animation effects" option
+
 ### 21.10.0
 
 #### Enhancements
