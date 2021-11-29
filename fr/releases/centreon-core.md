@@ -21,6 +21,8 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 21.04.9
 
+Release date: `November 29, 2021`
+
 #### Bug Fixes
 
 - [Authentication] Fixed PHP error when debug is enabled with OIDC authentication
