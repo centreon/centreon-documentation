@@ -83,7 +83,7 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon on the line corresponding to your Remote Server <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+icon on the line corresponding to your Remote Server <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 A pop-in will show the configuration to copy into the **Remote Server
 terminal**.

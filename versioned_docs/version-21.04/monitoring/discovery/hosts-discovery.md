@@ -122,13 +122,13 @@ discovery jobs.
 
 The status of a job can be:
 
-| Icon                                                                    | State                          |
-|--------------------------------------------------------------------------|-------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Scheduled**                 |
-| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **Running**                  |
-| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **Saving** |
-| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Finished**                   |
-| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Failed**                    |
+| Icon                                                                     | State         |
+| ------------------------------------------------------------------------ | ------------- |
+| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Scheduled** |
+| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **Running**   |
+| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **Saving**    |
+| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Finished**  |
+| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Failed**    |
 
 - If a job is in a **Failed** status, hover over the icon to know the reason.
 
@@ -137,23 +137,23 @@ The status of a job can be:
 
 Several actions can be done on jobs:
 
-| Icon                                                                            | Action                                                                                                      |
-|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png)  | **Force execution**: re-execute a job                                                                       |
-| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)             | Edit a job                                                                                                  |
-| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)           | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
-| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)            | Pause a scheduled job                                                                                       |
-| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)           | Resume a paused job                                                                                         |
-| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)     | Access the results of the discovery task                                                                    |
+| Icon                                                                           | Action                                                                                                      |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png) | **Force execution**: re-execute a job                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-edit.png)            | Edit a job                                                                                                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)          | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
+| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)           | Pause a scheduled job                                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)          | Resume a paused job                                                                                         |
+| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)    | Access the results of the discovery task                                                                    |
 
 ## Analyze the results of a discovery job
 
-1. On the **Configuration > Hosts > Discovery** page, click on the arrow <img src="../../assets/monitoring/discovery/host-discovery-goto-results.png" width="24" />
+1. On the **Configuration > Hosts > Discovery** page, click on the arrow <img src={require('../../assets/monitoring/discovery/host-discovery-goto-results.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 next to the status of a **Finished** job to visualize the results.
 
   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
+2. If you want, you can edit the mappers linked to this job by clicking the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     The results will be updated automatically.
     
@@ -162,12 +162,12 @@ next to the status of a **Finished** job to visualize the results.
     or automatically). Changes made to mappers in the discovery task are not taken into
     account for hosts that have already been created.
 
-3. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
-button: <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
+1. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add to the configuration and click on the **Save**
+button: <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
   The hosts are created as well as the services linked to their host templates.
 
-4. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
+1. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
 
   ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
@@ -187,7 +187,7 @@ list of jobs and see if an error occured during the saving task.
     Warning: editing mappers after a discovery job has been executed only makes sense if
     the hosts have not yet been added to your monitoring configuration (either manually or automatically). Changes made to mappers in the discovery task are not taken into account for hosts that have already been created.
 
-3. Click on the **Save** icon at the top right of the panel: <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+3. Click on the **Save** icon at the top right of the panel: <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'28px', marginBottom:'-6px'}} />
 
 ## How to use mappers
 
@@ -199,8 +199,8 @@ Mappers allow you to  :
 
 There are nine types of mappers:
 
-|    Mapper           |              Action                                                                                                             |
-|---------------|---------------------------------------------------------------------------------------------------------------------------|
+| Mapper        | Action                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | Property      | Define a label (name, alias, IP address)                                                                                  |
 | Macro         | Define a custom macro for the host                                                                                        |
 | Template      | Add host templates (the template from the plugin pack is added automatically)                                             |
@@ -240,20 +240,20 @@ field.
 ### Edit a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Edit** icon: <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
+section, click on the **Edit** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-2. Edit the fields you want, or even the type of mapper.
+1. Edit the fields you want, or even the type of mapper.
 
-3. Click on **SAVE** to save the mapper.
+2. Click on **SAVE** to save the mapper.
 
 ### Delete a mapper
 
 1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Delete** icon: <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="24" />
+section, click on the **Delete** icon: <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
   A popin window will ask you to confirm the action.
 
-2. Click on **DELETE** to delete the mapper.
+1. Click on **DELETE** to delete the mapper.
 
 ## Types of mappers
 

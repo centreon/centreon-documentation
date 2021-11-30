@@ -93,6 +93,15 @@ blockquote {
   padding: 15px 30px 15px 15px;
 }
 
+ol ol,
+ol ol ol,
+ol ul ol,
+ul ol,
+ul ol ol,
+ul ul ol {
+  list-style-type: decimal;
+}
+
 /* "Copy" code block button */
 pre {
   position: relative;

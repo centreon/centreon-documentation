@@ -30,7 +30,7 @@ Grâce à cette méthode, il n’est plus nécessaire de créer unitairement cha
 Par exemple, pour dupliquer une Business Activity:
 
 1. Sélectionnez la Business Activity que vous souhaitez dupliquer en cochant la case associée.
-2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet : <img src="../assets/configuration/common/duplicate_new.png"  />
+2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet :<img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Entrez le nombre d'exemplaires supplémentaires de l'objet que vous souhaitez obtenir.
 
   ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -93,8 +93,8 @@ Pour activer/désactiver un objet :
 1. Sélectionnez les objets que vous souhaitez modifier.
 2. Cliquez sur l'icône désirée dans la ligne de l'objet ou au-dessus de la liste :
 
-    * **Activer** <img src="../assets/configuration/common/enabled_new.png" width="32" />
-    * **Désactiver** <img src="../assets/configuration/common/disabled_new.png" width="32" />
+    * **Activer** <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+    * **Désactiver** <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--Méthode 2-->
 
@@ -103,8 +103,8 @@ Pour activer/désactiver un objet :
   
 Vous pouvez également utiliser les boutons suivants en fin de ligne : 
 
-  * **Activer** <img src="../assets/configuration/common/enabled.png" width="20" />
-  * **Désactiver** <img src="../assets/configuration/common/disabled.png" width="20" />
+  * **Activer** <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+  * **Désactiver** <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
    ![image](../assets/configuration/common/enable_disable.png)
 
@@ -122,7 +122,7 @@ Pour supprimer un objet :
 <!--Méthode 1-->
 
 1. Sélectionnez les objets que vous souhaitez supprimer.
-2. Cliquez sur l'icône **Supprimer** : <img src="../assets/configuration/common/delete_new.png" />
+2. Cliquez sur l'icône **Supprimer** : <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirmer l'action.
 
 <!--Méthode 2-->

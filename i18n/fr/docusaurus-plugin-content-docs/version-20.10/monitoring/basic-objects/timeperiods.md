@@ -56,7 +56,7 @@ c’est à dire :
 Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exceptionnelle, il est nécessaire d’utiliser
 les exceptions.
 
-Pour ajouter une exception, cliquez sur le bouton <img src="../../assets/configuration/common/navigate_plus.png" width="32" />.
+Pour ajouter une exception, cliquez sur le bouton <img src={require('../../assets/configuration/common/navigate_plus.png').default} style={{width:'24px', marginBottom:'-6px'}} />.
 Par journée exceptionnelle, vous devez définir une plage horaire. Le tableau ci-dessous présente quelques exemples
 possibles :
 

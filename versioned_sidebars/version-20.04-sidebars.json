@@ -10,20 +10,30 @@
           "id": "version-20.04/getting-started/installation-first-steps"
         },
         {
-          "type": "doc",
-          "id": "version-20.04/getting-started/create-custom-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/create-graphical-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/model-it-services"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/getting-started/analyze-resources-availability"
+          "type": "category",
+          "label": "Tutorials",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.04/getting-started/introduction-tutorials"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/getting-started/create-custom-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/getting-started/create-graphical-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/getting-started/model-it-services"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/getting-started/analyze-resources-availability"
+            }
+          ]
         }
       ]
     },
@@ -102,28 +112,6 @@
           ]
         },
         {
-          "type": "category",
-          "label": "Monitoring Servers",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/add-a-poller-to-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/communications"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/advanced-configuration"
-            }
-          ]
-        },
-        {
           "type": "doc",
           "id": "version-20.04/ceip/what-is-centreon-ceip"
         }
@@ -145,40 +133,40 @@
     },
     {
       "type": "category",
-      "label": "Monitoring resources",
+      "label": "Monitoring",
       "items": [
         {
-          "type": "category",
-          "label": "Monitoring basics",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/about"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/pluginpacks"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/monitoring-servers/deploying-a-configuration"
-            }
-          ]
+          "type": "doc",
+          "id": "version-20.04/monitoring/about"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/monitoring/generic-actions"
         },
         {
           "type": "category",
-          "label": "Monitoring hosts",
+          "label": "Basic objects",
           "items": [
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/basic-objects/macros"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/basic-objects/commands"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/basic-objects/timeperiods"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/basic-objects/contacts"
+            },
             {
               "type": "doc",
               "id": "version-20.04/monitoring/basic-objects/hosts"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Monitoring services",
-          "items": [
+            },
             {
               "type": "doc",
               "id": "version-20.04/monitoring/basic-objects/services"
@@ -190,80 +178,42 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-20.04/monitoring/templates"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/monitoring/pluginpacks"
+        },
+        {
           "type": "category",
-          "label": "Discovering hosts and services automatically",
+          "label": "Monitoring Servers",
           "items": [
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/discovery/introduction"
+              "id": "version-20.04/monitoring/monitoring-servers/add-a-poller-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/discovery/installation"
+              "id": "version-20.04/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/discovery/hosts-discovery"
+              "id": "version-20.04/monitoring/monitoring-servers/communications"
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/discovery/services-discovery"
+              "id": "version-20.04/monitoring/monitoring-servers/deploying-a-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.04/monitoring/discovery/administration"
+              "id": "version-20.04/monitoring/monitoring-servers/advanced-configuration"
             }
           ]
         },
         {
-          "type": "category",
-          "label": "Managing users/contacts",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/contacts"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/administration/parameters/ldap"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/administration/access-control-lists"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Basic objects and actions",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/timeperiods"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/macros"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/basic-objects/commands"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/generic-actions"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Detecting anomalies",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/monitoring/anomaly-detection"
-            }
-          ]
+          "type": "doc",
+          "id": "version-20.04/monitoring/groups-categories"
         },
         {
           "type": "category",
@@ -288,6 +238,36 @@
             {
               "type": "doc",
               "id": "version-20.04/monitoring/passive-monitoring/dsm"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/monitoring/anomaly-detection"
+        },
+        {
+          "type": "category",
+          "label": "Discovery",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/discovery/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/discovery/installation"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/discovery/hosts-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/discovery/services-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/monitoring/discovery/administration"
             }
           ]
         },
@@ -599,6 +579,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/administration/parameters/ldap"
+            },
+            {
+              "type": "doc",
               "id": "version-20.04/administration/parameters/rrdtool"
             },
             {
@@ -617,6 +601,10 @@
         },
         {
           "type": "doc",
+          "id": "version-20.04/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
           "id": "version-20.04/administration/extensions"
         },
         {
@@ -624,20 +612,58 @@
           "id": "version-20.04/administration/database-partitioning"
         },
         {
-          "type": "doc",
-          "id": "version-20.04/administration/backup"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/administration/knowledge-base"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/administration/logging-configuration-changes"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.04/administration/platform-statistics"
+          "type": "category",
+          "label": "Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/architecture"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/update"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/upgrade-from-centreon-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/centreon-ha/troubleshooting-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/backup"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/knowledge-base"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/logging-configuration-changes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/administration/platform-statistics"
+            }
+          ]
         }
       ]
     },
@@ -2269,15 +2295,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/base-generic"
-            },
-            {
-              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-aix-snmp"
             },
             {
               "type": "doc",
-              "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-as400"
+              "id": "version-20.04/integrations/plugin-packs/procedures/base-generic"
             },
             {
               "type": "doc",
@@ -2286,6 +2308,10 @@
             {
               "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-hpux-snmp"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/integrations/plugin-packs/procedures/operatingsystems-as400"
             },
             {
               "type": "doc",
@@ -3027,11 +3053,27 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/integrations/event-management/sc-pagerduty"
+            },
+            {
+              "type": "doc",
               "id": "version-20.04/integrations/event-management/sc-service-now-events"
             },
             {
               "type": "doc",
               "id": "version-20.04/integrations/event-management/sc-servicenow-mid-server"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/integrations/event-management/sc-splunk-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/integrations/event-management/sc-splunk-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.04/integrations/event-management/sc-kafka-events"
             }
           ]
         },
@@ -3125,6 +3167,32 @@
     },
     {
       "type": "category",
+      "label": "API",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-20.04/api/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/api/clapi"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/api/rest-api-v1"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/api/rest-api-v2"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.04/api/graph-views-api"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Developer resources",
       "items": [
         {
@@ -3162,32 +3230,6 @@
             {
               "type": "doc",
               "id": "version-20.04/developer/developer-broker-mapping"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "API",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.04/api/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/api/clapi"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/api/rest-api-v1"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/api/rest-api-v2"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.04/api/graph-views-api"
             }
           ]
         }

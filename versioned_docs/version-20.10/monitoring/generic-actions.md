@@ -39,7 +39,7 @@ Thanks to this method, it is no longer necessary to create each host individuall
 To duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box
-2. Click on the duplicate icon: <img src="../assets/configuration/common/duplicate_new.png" width="32" />
+2. Click on the duplicate icon: <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Enter the number of duplications that you want to obtain
 
 ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -101,8 +101,8 @@ To enable / disable an object:
 
 It is also possible to enable or disable an object via the **State** field of the object detail sheet or by using the following icons
 
-* <img src="../assets/configuration/common/enabled_new.png" width="32" />
-* <img src="../assets/configuration/common/disabled_new.png" width="32" />
+* <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--Legacy pages-->
 
@@ -113,8 +113,8 @@ To enable / disable an object:
 
 It is also possible to enable or disable an object via the **Status** field of the object detail sheet or by using the following icons:
 
-* <img src="../assets/configuration/common/enabled.png" width="32" />
-* <img src="../assets/configuration/common/disabled.png" width="32" />
+* <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -126,7 +126,7 @@ It is also possible to enable or disable an object via the **Status** field of t
 To delete an object:
 
 1. Select the objects you want to delete
-2. Click on icon to delete <img src="../assets/configuration/common/delete_new.png" width="32" />
+2. Click on icon to delete <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirm the action
 
 <!--Legacy pages-->

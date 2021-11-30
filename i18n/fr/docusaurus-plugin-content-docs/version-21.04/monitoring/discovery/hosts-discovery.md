@@ -128,7 +128,7 @@ Allez à la page **Configuration > Hôtes > Découverte** pour accéder à la li
 Les états d'une tâche peuvent être :
 
 | Icône                                                                    | état                          |
-|--------------------------------------------------------------------------|-------------------------------|
+| ------------------------------------------------------------------------ | ----------------------------- |
 | ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Programmé**                 |
 | ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **En cours**                  |
 | ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **En cours d'enregistrement** |
@@ -145,7 +145,7 @@ raison.
 Plusieurs actions peuvent être réalisées sur les tâches :
 
 | Icône                                                                          | Action                                                                                                                     |
-|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png) | **Forcer l'exécution** : réexécuter une tâche                                                                              |
 | ![image](../../assets/monitoring/discovery/host-discovery-edit.png)            | Éditer une tâche                                                                                                           |
 | ![image](../../assets/monitoring/discovery/host-discovery-delete.png)          | Supprimer une tâche. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés. |
@@ -160,24 +160,20 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
     ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
-2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="24" />
+2. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche en cliquant sur le bouton d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
     Les changements seront appliqués directement à la liste des résultats. 
 
     Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
     
 3. Si vous avez configuré une découverte manuelle à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter à la configuration, puis cliquez
-sur le bouton d'enregistrement : <img src="../../assets/monitoring/discovery/host-discovery-hosts-save.png" width="24" />
+sur le bouton d'enregistrement : <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
-  Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
+1. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
+![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
-4. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
-
-  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
-
-  Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
-liste, retournez à la liste des tâches et regardez si une erreur est
-survenue pendant la tâche d'enregistrement.
+Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la liste, retournez à la liste des tâches et regardez si une erreur est survenue pendant la tâche d'enregistrement.
 
 5. [Déployez](../monitoring-servers/deploying-a-configuration) la configuration. Les nouveaux hôtes sont maintenant supervisés.
 
@@ -190,7 +186,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
     Attention, éditer les modificateurs après l'exécution de la tâche de découverte n'a de sens que si les hôtes n'ont pas encore été ajoutés à la configuration. Les changements de modificateurs au niveau de la tâche de découverte ne sont pas pris en compte pour les hôtes déjà créés.
 
-2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src="../../assets/monitoring/discovery/host-discovery-save.png" width="50" />
+2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 ## Comment utiliser les modificateurs
 
@@ -200,8 +196,8 @@ Les modificateurs permettent de :
 
 - inclure/exclure des hôtes de la liste des résultats.
 
-| Modificateur  |   Action                                                                              |
-|---------------|---------------------------------------------------------------------------------------|
+| Modificateur  | Action                                                                                |
+| ------------- | ------------------------------------------------------------------------------------- |
 | Property      | définir un libellé (nom, alias, adresse IP)                                           |
 | Macro         | définir une macro custom pour l'hôte                                                  |
 | Template      | ajouter des modèles d'hôtes (le modèle lié au plugin pack est ajouté automatiquement) |
@@ -244,21 +240,21 @@ tous les champs requis.
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
 le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône 
-d'édition : <img src="../../assets/monitoring/discovery/host-discovery-edit.png" width="25" />
+d'édition : <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
-2. Modifiez n'importe quel champ ou le type de modificateur lui-même.
+1. Modifiez n'importe quel champ ou le type de modificateur lui-même.
 
-3. Cliquez sur **ENREGISTRER** pour enregistrer le modificateur.
+2. Cliquez sur **ENREGISTRER** pour enregistrer le modificateur.
 
 ### Supprimer un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
 panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
-suppression :  <img src="../../assets/monitoring/discovery/host-discovery-delete.png" width="25" />
+suppression :  <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
   Une fenêtre demandera de confirmer l'action.
 
-2. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
+1. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
 
 ## Types de **modificateur**
 
@@ -312,7 +308,10 @@ Depuis la version 21.04, il est possible de rattacher des hôtes découverts
 automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
 
 - Sélectionnez un groupe d'hôtes déjà existant dans le menu déroulant.
+- ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+- Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de caractères et/ou d'informations issues de la découverte (une aide à la saisie propose les informations disponibles).
 
+<<<<<<< HEAD
     ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
 
 - Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de 
@@ -326,6 +325,12 @@ saisie propose les informations disponibles).
 
   Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé,
 l'hôte sera simplement rattaché à ce groupe.
+=======
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+
+Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes `os-linux` sera créé.
+Si un groupe d'hôtes existe déjà avec ce nom, il ne sera pas recréé, l'hôte sera simplement rattaché à ce groupe.
+>>>>>>> Global update: fix sidebar 20.10 & 20.04 + convert style attributs in jsx objects
 
 ### Host category
 
@@ -333,10 +338,9 @@ Depuis la version 21.04, il est également possible de catégoriser les hôtes
 découverts automatiquement. Cela peut se faire de deux manières.
 
 - Sélectionnez une catégorie d'hôtes déjà existante dans le menu déroulant.
+- ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
-
-  Dans l'exemple ci-dessus, les hôtes dont le nom contient "sql" seront rattachés à la catégorie "DB_Server".
+Dans l'exemple ci-dessus, les hôtes dont le nom contient "sql" seront rattachés à la catégorie "DB_Server".
 
 - Création de catégories d'hôtes à la volée : composez un nom de catégorie à partir de chaînes de
 caractères et/ou d'informations issues de la découverte (une aide à la 

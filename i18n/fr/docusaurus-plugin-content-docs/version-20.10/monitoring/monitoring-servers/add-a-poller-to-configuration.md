@@ -70,7 +70,7 @@ Cliquer sur **Sauvegarder**.
 #### Afficher la configuration de Gorgone
 
 Depuis la liste des Pollers, cliquer sur l'icon d'action **Gorgone
-configuration** sur la ligne correspondant à votre Poller <img src="../../assets/monitoring/monitoring-servers/gorgone-configuration.png" width="32" />
+configuration** sur la ligne correspondant à votre Poller <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 Une pop-in affiche la configuration à copier dans le **terminal du Poller**.
 Cliquer sur **Copy to clipboard**.

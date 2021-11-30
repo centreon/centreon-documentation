@@ -40,7 +40,7 @@ Grâce à cette méthode, il n’est plus nécessaire de créer unitairement cha
 Pour dupliquer une Business Activity:
 
 1. Sélectionnez la Business Activity que vous souhaitez dupliquer en cochant la case associée
-2. Cliquez sur l'icône de duplication : <img src="../assets/configuration/common/duplicate_new.png" width="32" />
+2. Cliquez sur l'icône de duplication : <img src={require('../assets/configuration/common/duplicate_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Entrez le nombre de duplications que vous souhaitez obtenir
 
 ![image](../assets/configuration/common/duplicate_objects_new.png)
@@ -103,8 +103,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **State** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src="../assets/configuration/common/enabled_new.png" width="32" />
-* <img src="../assets/configuration/common/disabled_new.png" width="32" />
+* <img src={require('../assets/configuration/common/enabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* <img src={require('../assets/configuration/common/disabled_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--Legacy pages-->
 
@@ -116,8 +116,8 @@ Pour activer / désactiver un objet :
 Il est également possible d’activer ou de désactiver un objet via le champ **Status** de la fiche de détails de l’objet
 ou en utilisant les icônes suivantes :
 
-* <img src="../assets/configuration/common/enabled.png" width="32" />
-* <img src="../assets/configuration/common/disabled.png" width="32" />
+* <img src={require('../assets/configuration/common/enabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+* <img src={require('../assets/configuration/common/disabled.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -129,7 +129,7 @@ ou en utilisant les icônes suivantes :
 Pour supprimer un objet :
 
 1. Sélectionnez les objets que vous souhaitez supprimer
-2. Cliquez sur l'icône pour supprimer <img src="../assets/configuration/common/delete_new.png" width="32" />
+2. Cliquez sur l'icône pour supprimer <img src={require('../assets/configuration/common/delete_new.png').default} style={{width:'24px', marginBottom:'-6px'}} />
 3. Confirmer l'action
 
 <!--Legacy pages-->

@@ -10,20 +10,30 @@
           "id": "version-20.10/getting-started/installation-first-steps"
         },
         {
-          "type": "doc",
-          "id": "version-20.10/getting-started/create-custom-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/getting-started/create-graphical-view"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/getting-started/model-it-services"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/getting-started/analyze-resources-availability"
+          "type": "category",
+          "label": "Tutorials",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/getting-started/introduction-tutorials"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/getting-started/create-custom-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/getting-started/create-graphical-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/getting-started/model-it-services"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/getting-started/analyze-resources-availability"
+            }
+          ]
         }
       ]
     },
@@ -102,28 +112,6 @@
           ]
         },
         {
-          "type": "category",
-          "label": "Monitoring Servers",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/monitoring-servers/add-a-poller-to-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/monitoring-servers/communications"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/monitoring-servers/advanced-configuration"
-            }
-          ]
-        },
-        {
           "type": "doc",
           "id": "version-20.10/ceip/what-is-centreon-ceip"
         }
@@ -145,40 +133,40 @@
     },
     {
       "type": "category",
-      "label": "Monitoring resources",
+      "label": "Monitoring",
       "items": [
         {
-          "type": "category",
-          "label": "Monitoring basics",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/about"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/pluginpacks"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/monitoring-servers/deploying-a-configuration"
-            }
-          ]
+          "type": "doc",
+          "id": "version-20.10/monitoring/about"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/monitoring/generic-actions"
         },
         {
           "type": "category",
-          "label": "Monitoring hosts",
+          "label": "Basic objects",
           "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/basic-objects/macros"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/basic-objects/commands"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/basic-objects/timeperiods"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/basic-objects/contacts"
+            },
             {
               "type": "doc",
               "id": "version-20.10/monitoring/basic-objects/hosts"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Monitoring services",
-          "items": [
+            },
             {
               "type": "doc",
               "id": "version-20.10/monitoring/basic-objects/services"
@@ -190,80 +178,42 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "version-20.10/monitoring/templates"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/monitoring/pluginpacks"
+        },
+        {
           "type": "category",
-          "label": "Discovering hosts and services automatically",
+          "label": "Monitoring Servers",
           "items": [
             {
               "type": "doc",
-              "id": "version-20.10/monitoring/discovery/introduction"
+              "id": "version-20.10/monitoring/monitoring-servers/add-a-poller-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.10/monitoring/discovery/installation"
+              "id": "version-20.10/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.10/monitoring/discovery/hosts-discovery"
+              "id": "version-20.10/monitoring/monitoring-servers/communications"
             },
             {
               "type": "doc",
-              "id": "version-20.10/monitoring/discovery/services-discovery"
+              "id": "version-20.10/monitoring/monitoring-servers/deploying-a-configuration"
             },
             {
               "type": "doc",
-              "id": "version-20.10/monitoring/discovery/administration"
+              "id": "version-20.10/monitoring/monitoring-servers/advanced-configuration"
             }
           ]
         },
         {
-          "type": "category",
-          "label": "Managing users/contacts",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/basic-objects/contacts"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/parameters/ldap"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/access-control-lists"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Basic objects and actions",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/basic-objects/timeperiods"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/basic-objects/macros"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/basic-objects/commands"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/generic-actions"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Detecting anomalies",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/monitoring/anomaly-detection"
-            }
-          ]
+          "type": "doc",
+          "id": "version-20.10/monitoring/groups-categories"
         },
         {
           "type": "category",
@@ -288,6 +238,36 @@
             {
               "type": "doc",
               "id": "version-20.10/monitoring/passive-monitoring/dsm"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/monitoring/anomaly-detection"
+        },
+        {
+          "type": "category",
+          "label": "Discovery",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/discovery/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/discovery/installation"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/discovery/hosts-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/discovery/services-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/monitoring/discovery/administration"
             }
           ]
         },
@@ -603,6 +583,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/administration/parameters/ldap"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/administration/parameters/rrdtool"
             },
             {
@@ -621,6 +605,10 @@
         },
         {
           "type": "doc",
+          "id": "version-20.10/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
           "id": "version-20.10/administration/extensions"
         },
         {
@@ -628,20 +616,58 @@
           "id": "version-20.10/administration/database-partitioning"
         },
         {
-          "type": "doc",
-          "id": "version-20.10/administration/backup"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/administration/knowledge-base"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/administration/logging-configuration-changes"
-        },
-        {
-          "type": "doc",
-          "id": "version-20.10/administration/platform-statistics"
+          "type": "category",
+          "label": "Centreon HA",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/architectures"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/update"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/upgrade-from-centreon-failover"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/centreon-ha/troubleshooting-guide"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/backup"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/knowledge-base"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/logging-configuration-changes"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/administration/platform-statistics"
+            }
+          ]
         }
       ]
     },
@@ -663,10 +689,6 @@
           "type": "category",
           "label": "Upgrade",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/upgrade/introduction"
-            },
             {
               "type": "doc",
               "id": "version-20.10/upgrade/upgrade-from-20-04"
@@ -3193,6 +3215,32 @@
     },
     {
       "type": "category",
+      "label": "API",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-20.10/api/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/api/clapi"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/api/rest-api-v1"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/api/rest-api-v2"
+        },
+        {
+          "type": "doc",
+          "id": "version-20.10/api/graph-views-api"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Developer resources",
       "items": [
         {
@@ -3230,32 +3278,6 @@
             {
               "type": "doc",
               "id": "version-20.10/developer/developer-broker-mapping"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "API",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/api/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/api/clapi"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/api/rest-api-v1"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/api/rest-api-v2"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/api/graph-views-api"
             }
           ]
         }
