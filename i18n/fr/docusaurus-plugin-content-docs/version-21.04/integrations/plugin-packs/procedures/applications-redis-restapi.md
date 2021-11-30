@@ -7,8 +7,9 @@ title: Redis Restapi
 
 ### Centreon Plugin
 
-Install this plugin on each needed poller: \# yum install
-centreon-plugin-Applications-Redis-Restapi
+Install this plugin on each needed poller: 
+
+yum install centreon-plugin-Applications-Redis-Restapi
 
 ## Centreon Configuration
 

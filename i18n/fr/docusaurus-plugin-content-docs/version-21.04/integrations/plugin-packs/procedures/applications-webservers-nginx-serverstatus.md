@@ -101,7 +101,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *Nginx Server* :
 
- ```bash
+```bash
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 

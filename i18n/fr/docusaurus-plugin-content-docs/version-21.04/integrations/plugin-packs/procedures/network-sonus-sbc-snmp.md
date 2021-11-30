@@ -3,7 +3,7 @@ id: network-sonus-sbc-snmp
 title: Sonus SBC 
 ---
 
-\#\#Prerequisites
+## Prerequisites
 
 ### Centreon Plugin
 

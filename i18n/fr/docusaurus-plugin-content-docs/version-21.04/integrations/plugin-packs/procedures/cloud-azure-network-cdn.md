@@ -203,7 +203,7 @@ yum install centreon-plugin-Cloud-Azure-Network-CDN-Api
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Azure CDN*:
 
- ```bash
+```bash
 yum install centreon-pack-cloud-azure-network-cdn
 ```
 

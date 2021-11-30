@@ -200,7 +200,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Azure Storage Sync*:
 
- ```bash
+```bash
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 

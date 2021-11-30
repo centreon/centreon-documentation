@@ -22,8 +22,6 @@ Nutanix est une une plateforme hyperconvergée permettant le déploiement de mac
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Hosts-->
 
-> **_NOTE:_**  Coming soon ...
-
 | Nom de la règle                            | Description                                                   |
 | :----------------------------------------- | :------------------------------------------------------------ |
 | Virt-Nutanix-Hypervisor-SNMP-HostDiscovery | Découvrez vos hyperviseurs                                    |
@@ -156,7 +154,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 Dans le formulaire de création de l'hôte sur l'interface Web de Centreon, il est nécessaire de renseigner les valeurs des champs "Snmp Community" et "Snmp Version". 
 
-  :warning: Si vous utilisez SNMP en version 3, selectionnez la version SNMP idone et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
+> Si vous utilisez SNMP en version 3, selectionnez la version SNMP idone et configurez les paramètres SNMP v3 via la macro SNMPEXTRAOPTIONS 
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

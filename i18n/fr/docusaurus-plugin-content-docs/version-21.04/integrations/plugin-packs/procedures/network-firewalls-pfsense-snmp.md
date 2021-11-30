@@ -107,7 +107,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 
 2. Install the Centreon Plugin-Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-network-firewalls-pfsense-snmp
 ```
 

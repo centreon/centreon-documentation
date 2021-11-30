@@ -88,7 +88,7 @@ yum install centreon-plugin-Network-Tplink-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Plugin Pack *TP-Link SNMP* :
 
- ```bash
+```bash
 yum install centreon-pack-network-tplink-snmp
 ```
 

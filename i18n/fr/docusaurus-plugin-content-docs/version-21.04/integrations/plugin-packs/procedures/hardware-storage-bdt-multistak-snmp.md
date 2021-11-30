@@ -113,7 +113,7 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## _Troubleshooting_ 
+## Troubleshooting 
 
 ### UNKNOWN: SNMP GET Request : Timeout
 

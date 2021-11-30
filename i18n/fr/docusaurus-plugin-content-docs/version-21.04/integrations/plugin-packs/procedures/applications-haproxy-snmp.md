@@ -77,7 +77,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Haproxy SNMP*:
 
- ```bash
+```bash
 yum install centreon-pack-applications-haproxy-snmp
 ```
 
