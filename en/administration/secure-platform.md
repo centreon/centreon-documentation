@@ -365,18 +365,10 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** as following
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ```apacheconf
-Alias /centreon/api /usr/share/centreon
-Alias /centreon /usr/share/centreon/www/
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
 
-<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-</LocationMatch>
-
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-</LocationMatch>
-
-ProxyTimeout 300
+ServerTokens Prod
 
 <VirtualHost *:80>
     RewriteEngine On
@@ -385,9 +377,9 @@ ProxyTimeout 300
 </VirtualHost>
 
 <VirtualHost *:443>
-#####################
-# SSL configuration #
-#####################
+    #####################
+    # SSL configuration #
+    #####################
     SSLEngine On
     SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
@@ -396,37 +388,41 @@ ProxyTimeout 300
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
-    <Directory "/usr/share/centreon/www">
-        DirectoryIndex index.php
-        Options Indexes
-        AllowOverride all
-        Order allow,deny
-        Allow from all
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    DirectoryIndex index.php
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        AllowOverride none
         Require all granted
-        <IfModule mod_php5.c>
-            php_admin_value engine Off
-        </IfModule>
-
-        FallbackResource /centreon/index.html
-
-        AddType text/plain hbs
+        FallbackResource ${base_uri}/index.html
     </Directory>
 
-    <Directory "/usr/share/centreon/api">
-        Options Indexes
-        AllowOverride all
-        Order allow,deny
-        Allow from all
+    <Directory "${install_dir}/api">
+        AllowOverride none
         Require all granted
-        <IfModule mod_php5.c>
-            php_admin_value engine Off
-        </IfModule>
-
-        AddType text/plain hbs
     </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
 </VirtualHost>
-
-RedirectMatch ^/$ /centreon
 ```
 
 > Don't forget to change **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
@@ -644,57 +640,67 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 8. Update Apache configuration file
 
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`. 
-Here is an example of how the file should look like: 
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`.
+Here is an example of how the file should look like:
 
 ```apacheconf
-Alias /centreon/api /usr/share/centreon
-Alias /centreon /usr/share/centreon/www/
-<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-</LocationMatch>
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-</LocationMatch>
-ProxyTimeout 300
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} off
     RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
+
 <VirtualHost *:443>
-#####################
-# SSL configuration #
-#####################
-    SSLEngine on
-    SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
-    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
     SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
     SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
-    <Directory "/usr/share/centreon/www">
-        DirectoryIndex index.php
-        Options Indexes
-        AllowOverride all
-        Order allow,deny
-        Allow from all
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    DirectoryIndex index.php
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        AllowOverride none
         Require all granted
-        <IfModule mod_php5.c>
-            php_admin_value engine Off
-        </IfModule>
-        FallbackResource /centreon/index.html
-        AddType text/plain hbs
+        FallbackResource ${base_uri}/index.html
     </Directory>
-    <Directory "/usr/share/centreon/api">
-        Options Indexes
-        AllowOverride all
-        Order allow,deny
-        Allow from all
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
         Require all granted
-        <IfModule mod_php5.c>
-            php_admin_value engine Off
-        </IfModule>
-        AddType text/plain hbs
     </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
 </VirtualHost>
 ```
 9. Copy the x509 certificate to the client's browser

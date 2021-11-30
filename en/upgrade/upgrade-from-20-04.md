@@ -127,8 +127,8 @@ For each difference between the files, assess whether you should copy it from **
 In particular, make sure your customized Apache configuration contains the following directive (with **authentication**).
 
 ```
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
 

@@ -139,8 +139,8 @@ Pour chaque différence entre les fichiers, évaluez si celle-ci doit être repo
 Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**).
 
 ```
-<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-    ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
+<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
 </LocationMatch>
 ```
 
@@ -182,50 +182,53 @@ configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf*
 
 Seules les lignes avec le symbole "+" doivent être prises en compte.
 
-```diff
-+Alias /centreon/api /usr/share/centreon
-Alias /centreon /usr/share/centreon/www/
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
 
-+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-+</LocationMatch>
+ServerTokens Prod
 
-+<LocationMatch ^/centreon/(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-+</LocationMatch>
+<VirtualHost *:80>
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly
+    ServerSignature Off
+    TraceEnable Off
 
-ProxyTimeout 300
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
 
-<Directory "/usr/share/centreon/www">
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
     DirectoryIndex index.php
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
     </IfModule>
 
-+    FallbackResource /centreon/index.html
+    <Directory "${install_dir}/www">
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
 
-    AddType text/plain hbs
-</Directory>
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
 
-+<Directory "/usr/share/centreon/api">
-+    Options Indexes
-+    AllowOverride all
-+    Order allow,deny
-+    Allow from all
-+    Require all granted
-+    <IfModule mod_php5.c>
-+        php_admin_value engine Off
-+    </IfModule>
-+
-+    AddType text/plain hbs
-+</Directory>
-
-RedirectMatch ^/$ /centreon
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
 ```
 
 Redémarrez ensuite le service Apache :
