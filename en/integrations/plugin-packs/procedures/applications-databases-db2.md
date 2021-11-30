@@ -12,6 +12,7 @@ The Pack DB2 collects metrics for:
 * Connected-users
 * Database-logs
 * Database-usage
+* Hadr
 * Tablespaces
 
 ### Discovery rules
@@ -57,6 +58,15 @@ The Pack DB2 collects metrics for:
 | *db\_name*\#database.space.usage.bytes      | Used space               | B     |
 | *db\_name*\#database.space.free.bytes       | Free space               | B     |
 | *db\_name*\#database.space.usage.percentage | Used space in percentage | %     |
+
+<!--Hadr-->
+
+| Metric name                                | Description                                                                           | Unit  |
+| :----------------------------------------- | :------------------------------------------------------------------------------------ | :---- |
+| hadr.instances.standby.count               | Number of standby instances                                                           |       |
+| hadr connection status                     | The current high availability disaster recovery connection status of the database     |       |
+| hadr state                                 | The current high availability disaster recovery state of the database                 |       |
+| *standby\_id*\#hadr.instance.log.gap.bytes | Recent average of the gap between the PRIMARY_LOG_POS value and STANDBY_LOG_POS value | B     |
 
 <!--Tablespaces-->
 
