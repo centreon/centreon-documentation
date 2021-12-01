@@ -1447,6 +1447,16 @@ This patch fixes that.
 
 ## Centreon Connector Perl
 
+### 20.04.2
+
+Release date: `December 1, 2021`
+
+#### Bug fixes
+
+- Badly designed mutex could cause deadlocks in centreon-clib
+- Fixed an issue that could cause deadlocks in the logs production
+
+
 ### 20.04.1
 
 `June 4, 2021`
