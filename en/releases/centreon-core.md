@@ -705,7 +705,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 20.04.14
 
-Release date: `null`
+Release date: `December 1, 2021`
 
 #### Bug fixes
 
