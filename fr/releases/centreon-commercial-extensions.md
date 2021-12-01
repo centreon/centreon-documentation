@@ -376,6 +376,17 @@ non plus des connexions SSH autonomes.
 
 ## Centreon Plugin Packs Manager
 
+### 20.10.2
+
+#### Bug fixes
+
+- Fixed a bug that prevented the description of the Plugin Packs from being displayed when the user's UI language was set to something other than EN or FR
+- Fixed installation of Plugin Packs with similar names
+
+#### Security fixes
+
+- [Packaging] Remove .gitignore files
+
 ### 20.10.1
 
 `26 février 2021`
