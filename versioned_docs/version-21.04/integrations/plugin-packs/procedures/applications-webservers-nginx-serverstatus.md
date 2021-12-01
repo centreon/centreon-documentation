@@ -11,7 +11,6 @@ Nginx is an open-source Web Server also used as a proxy server for email (IMAP, 
 
 ### Monitored objects
 
-# Nginx Server
 
 ### Collected metrics
 
@@ -101,7 +100,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 

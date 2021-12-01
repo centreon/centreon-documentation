@@ -138,12 +138,12 @@ Regarding the version of the Application Gateway, metrics can differ.
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-    * Azure API ('api') 
-    * Azure CLI ('azcli')
+* Azure API ('api') 
+* Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
-    * API is much more efficient by avoiding CLI binary execution
-    * API supports application authentication while CLI does not (yet)
+* API is much more efficient by avoiding CLI binary execution
+* API supports application authentication while CLI does not (yet)
 
 <!--DOCUSAURUS_CODE_TABS-->
 

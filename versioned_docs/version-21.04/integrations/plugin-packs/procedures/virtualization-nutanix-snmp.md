@@ -156,7 +156,7 @@ yum install centreon-pack-virtualization-nutanix-snmp
 
 Create your host and apply the 'Virt-Nutanix-SNMP-custom' host template. You must set SNMP community and version in the dedicated fields of the host form. 
 
-  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS host macro
+> If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS host macro
 
 | Obligatoire | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

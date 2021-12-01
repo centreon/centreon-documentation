@@ -79,7 +79,7 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 
 To control your Cisco Firepower, the SNMP must be configured.
 
-E.g: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian
+E.g: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian.html?dtid=osscdc000283
 
 ## Setup
 

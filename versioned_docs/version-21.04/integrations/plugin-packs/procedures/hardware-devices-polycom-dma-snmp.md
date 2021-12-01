@@ -145,7 +145,7 @@ through "Configuration > Plugin packs > Manager" page.
 * Add a new Host and apply the *HW-Device-Polycom-Dma-SNMP-Custom* Host Template
 * Fill SNMP Version and Community fields according to the device's configuration
 
-  :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters
 
 | Mandatory | Name             | Description                                    |
 | :-------- | :--------------- | :--------------------------------------------- |

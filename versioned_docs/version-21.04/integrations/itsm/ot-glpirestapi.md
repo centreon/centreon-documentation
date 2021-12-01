@@ -20,7 +20,7 @@ This connector is (at least) compatible with the following Glpi versions:
   - 9.2
   - 9.1 (Glpi REST API birth)
 
-You can’t use this provider with Glpi \< 9.1. From the 8.5 to 9.0 version, you
+You can’t use this provider with Glpi < 9.1. From the 8.5 to 9.0 version, you
 should use the old Glpi provider that uses the Glpi plugin called “webservice”
 
 ## Requirements

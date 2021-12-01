@@ -165,7 +165,7 @@ yum install centreon-pack-network-cisco-standard-snmp
 
 When creating an host, fill the 'Snmp Community' and 'Snmp Version' fields to match the device configuration. 
 
-  :warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
+> When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
 
 | Mandatory | Name              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |
