@@ -911,7 +911,7 @@ a check_command. It will use the poller_id field of your config.
 
 ### 20.04.17
 
-Release date: `null`
+Release date: `December 1, 2021`
 
 #### Improvements
 
