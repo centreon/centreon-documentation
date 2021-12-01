@@ -704,7 +704,7 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.04.14
 
-Release date: `null`
+Release date: `December 1, 2021`
 
 #### Bug fixes
 
