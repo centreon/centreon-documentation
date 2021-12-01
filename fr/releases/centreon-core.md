@@ -1401,7 +1401,7 @@ This patch fixes that.
 
 ### 20.04.2
 
-Release date: `null`
+Release date: `December 1, 2021`
 
 #### Bug fixes
 
