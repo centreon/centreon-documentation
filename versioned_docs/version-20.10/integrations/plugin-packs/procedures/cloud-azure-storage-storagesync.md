@@ -38,7 +38,7 @@ documentation:
 <!--Files-Synced-->
 
 | Metric name                    | Description  | Unit  |
-|:-------------------------------|:-------------|:------|
+| :----------------------------- | :----------- | :---- |
 | storagesync.files.synced.count | Files Synced | Count |
 | storagesync.item.errors.count  | Item errors  | Count |
 | storagesync.bytes.synced.bytes | Bytes synced | B     |
@@ -46,7 +46,7 @@ documentation:
 <!--Recalls-->
 
 | Metric name                                        | Description                              | Unit |
-|:---------------------------------------------------|:-----------------------------------------|:-----|
+| :------------------------------------------------- | :--------------------------------------- | :--- |
 | storagesync.recalls.succesful.percentage           | Cloud tiering recall success rate        | %    |
 | storagesync.recalls.application.size.bytes         | Cloud tiering recall size by application | B    |
 | storagesync.recalls.size.bytes                     | Cloud tiering recall size                | B    |
@@ -56,7 +56,7 @@ documentation:
 <!--Server-Status-->
 
 | Metric name                 | Description | Unit  |
-|:----------------------------|:------------|:------|
+| :-------------------------- | :---------- | :---- |
 | storagesync.heartbeat.count | Heartbeat   | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -225,7 +225,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -237,7 +237,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Storage Sync resource            |
@@ -313,7 +313,7 @@ the command:
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  `/var/lib/centreon/centplugins/` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 

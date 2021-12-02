@@ -45,14 +45,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Capacity-->
 
-| Metric Name                            | Description                    | Unit  |
-|:---------------------------------------|:-------------------------------|:------|
-| apimanagement.capacity.percentage      | Capacity Statistics Percentage | %     |
+| Metric Name                       | Description                    | Unit |
+| :-------------------------------- | :----------------------------- | :--- |
+| apimanagement.capacity.percentage | Capacity Statistics Percentage | %    |
 
 <!--Events-->
 
 | Metric Name                            | Description                | Unit  |
-|:---------------------------------------|:---------------------------|:------|
+| :------------------------------------- | :------------------------- | :---- |
 | apimanagement.events.dropped.count     | Dropped EventHub Events    | Count |
 | apimanagement.events.rejected.count    | Rejected EventHub Events   | Count |
 | apimanagement.events.successful.count  | Successful EventHub Events | Count |
@@ -64,15 +64,15 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Events-Duration-->
 
-| Metric Name                                          | Description                          | Unit  |
-|:-----------------------------------------------------|:-------------------------------------|:------|
-| apimanagement.requests.backend.duration.milliseconds | Duration of Backend Requests         | ms    |
-| apimanagement.requests.duration.milliseconds         | Overall Duration of Gateway Requests | ms    |
+| Metric Name                                          | Description                          | Unit |
+| :--------------------------------------------------- | :----------------------------------- | :--- |
+| apimanagement.requests.backend.duration.milliseconds | Duration of Backend Requests         | ms   |
+| apimanagement.requests.duration.milliseconds         | Overall Duration of Gateway Requests | ms   |
 
 <!--Total-Requests-->
 
 | Metric Name                  | Description        | Unit  |
-|:-----------------------------|:-------------------|:------|
+| :--------------------------- | :----------------- | :---- |
 | apimanagement.requests.count | Number of requests | count |
 
 > Le type de requêtes peut être filtré avec la Macro de service "FILTERDIMENSION".
@@ -242,7 +242,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -255,7 +255,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the API Management resource          |
@@ -330,7 +330,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

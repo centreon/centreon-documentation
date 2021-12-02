@@ -40,7 +40,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--App-Usage-->
 
 | Metric Name                          | Description                                                                       | Unit  |
-|:-------------------------------------|:----------------------------------------------------------------------------------|:------|
+| :----------------------------------- | :-------------------------------------------------------------------------------- | :---- |
 | appservice.connections.count         | The number of bound sockets existing in the sandbox                               | Count |
 | appservice.assemblies.current.count  | The current number of assemblies loaded across all AppDomains in this application | Count |
 | appservice.handle.count              | The total number of handles currently open by the app process                     | Count |
@@ -51,26 +51,26 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Cpu-Time-->
 
 | Metric Name                     | Description                                      | Unit |
-|:--------------------------------|:-------------------------------------------------|:-----|
+| :------------------------------ | :----------------------------------------------- | :--- |
 | appservice.cpu.consumed.seconds | The amount of CPU consumed by the app in seconds | s    |
 
 <!--Data-->
 
 | Metric Name               | Description                                          | Unit |
-|:--------------------------|:-----------------------------------------------------|:-----|
+| :------------------------ | :--------------------------------------------------- | :--- |
 | appservice.data.in.bytes  | The amount of incoming bandwidth consumed by the app | B    |
 | appservice.data.out.bytes | The amount of outgoing bandwidth consumed by the app | B    |
 
 <!--File-System-->
 
 | Metric Name                       | Description                          | Unit |
-|:----------------------------------|:-------------------------------------|:-----|
+| :-------------------------------- | :----------------------------------- | :--- |
 | appservice.filesystem.usage.bytes | Filesystem quota consumed by the app | B    |
  
 <!--Gc-Usage-->
 
 | Metric Name              | Description                                                                                           | Unit  |
-|:-------------------------|:------------------------------------------------------------------------------------------------------|:------|
+| :----------------------- | :---------------------------------------------------------------------------------------------------- | :---- |
 | appservice.gc.gen0.count | The number of times the generation 0 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen1.count | The number of times the generation 1 objects are garbage collected since the start of the app process | Count |
 | appservice.gc.gen2.count | The number of times the generation 2 objects are garbage collected since the start of the app process | Count |
@@ -78,14 +78,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Http-Requests-->
 
 | Metric Name                         | Description                                                                 | Unit  |
-|:------------------------------------|:----------------------------------------------------------------------------|:------|
+| :---------------------------------- | :-------------------------------------------------------------------------- | :---- |
 | appservice.http.request.count       | The total number of requests regardless of their resulting HTTP status code | Count |
 | appservice.http.request.queue.count | The number of requests in the application request queue                     | Count |
 | appservice.htpp.request.XXX.count   | The count of requests resulting in an HTTP status code = XXX                | Count |
@@ -93,7 +93,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--IO-Operations-->
 
 | Metric Name                                | Description                                                                                      | Unit |
-|:-------------------------------------------|:-------------------------------------------------------------------------------------------------|:-----|
+| :----------------------------------------- | :----------------------------------------------------------------------------------------------- | :--- |
 | appservice.bytes.other.bytespersecond      | The rate at which the app process is issuing bytes to I/O operations that don't involve data     | B/s  |
 | appservice.operations.other.bytespersecond | The rate at which the app process is issuing I/O operations that aren't read or write operations | B/s  |
 | appservice.bytes.read.bytespersecond       | The rate at which the app process is reading bytes from I/O operations                           | B/s  |
@@ -104,7 +104,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Memory-->
 
 | Metric Name                                | Description                                                                                           | Unit |
-|:-------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----|
+| :----------------------------------------- | :---------------------------------------------------------------------------------------------------- | :--- |
 | appservice.memory.average.usage.bytes      | The average amount of memory used by the app                                                          | B    |
 | appservice.memory.usage.bytes              | The current amount of memory used by the app                                                          | B    |
 | appservice.memory.privatebytes.usage.bytes | The amount of memory allocated allocated by the app process that can't be shared with other processes | B    |
@@ -112,13 +112,13 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Response-Time-->
 
 | Metric Name                           | Description                                  | Unit |
-|:--------------------------------------|:---------------------------------------------|:-----|
+| :------------------------------------ | :------------------------------------------- | :--- |
 | appservice.http.response.time.seconds | The time taken for the app to serve requests | s    |
 
 <!--Status-->
 
 | Metric Name             | Description         | Unit  |
-|:------------------------|:--------------------|:------|
+| :---------------------- | :------------------ | :---- |
 | appservice.status.count | Health check status | Count |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -280,22 +280,22 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'                       |
-| X         | AZURESUBSCRIPTION | Subscription ID                         |
-| X         | AZURETENANT       | Tenant ID                               |
-| X         | AZURECLIENTID     | Client ID                               |
-| X         | AZURECLIENTSECRET | Client secret                           |
-| X         | AZURERESOURCE     | Id of the App Service instance          |
+| Mandatory | Nom               | Description                    |
+| :-------- | :---------------- | :----------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'              |
+| X         | AZURESUBSCRIPTION | Subscription ID                |
+| X         | AZURETENANT       | Tenant ID                      |
+| X         | AZURECLIENTID     | Client ID                      |
+| X         | AZURECLIENTSECRET | Client secret                  |
+| X         | AZURERESOURCE     | Id of the App Service instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                     |
-| X         | AZURESUBSCRIPTION | Subscription ID                         |
-| X         | AZURERESOURCE     | Id of the App Service instance          |
+| Mandatory | Nom               | Description                    |
+| :-------- | :---------------- | :----------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'            |
+| X         | AZURESUBSCRIPTION | Subscription ID                |
+| X         | AZURERESOURCE     | Id of the App Service instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -362,7 +362,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

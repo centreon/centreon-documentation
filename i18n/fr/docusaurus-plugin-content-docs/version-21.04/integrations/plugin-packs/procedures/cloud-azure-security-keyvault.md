@@ -40,7 +40,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--ServiceAPI-->
 
 | Metric name                              | Description                 | Unit  |
-|:-----------------------------------------|:----------------------------|:------|
+| :--------------------------------------- | :-------------------------- | :---- |
 | keyvault.serviceapi.hits.count           | Total Service Api Hits      | Count |
 | keyvault.serviceapi.latency.milliseconds | Overall Service Api Latency | B     |
 | keyvault.serviceapi.results.count        | Total Service Api Results   | Count |
@@ -48,13 +48,13 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Vault-Availability-->
 
 | Metric name                            | Description                | Unit |
-|:---------------------------------------|:---------------------------|:-----|
+| :------------------------------------- | :------------------------- | :--- |
 | keyvault.vault.availability.percentage | Overall Vault Availability | %    |
 
 <!--Vault-Capacity-->
 
 | Metric name                          | Description              | Unit |
-|:-------------------------------------|:-------------------------|:-----|
+| :----------------------------------- | :----------------------- | :--- |
 | keyvault.vault.saturation.percentage | Overall Vault Saturation | %    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -217,7 +217,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'            |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURETENANT       | Tenant ID                    |
@@ -228,7 +228,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'          |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Key Vault resource |
@@ -298,7 +298,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

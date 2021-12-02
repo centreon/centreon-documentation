@@ -44,13 +44,13 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Backlog-->
 
 | Metric Name                     | Description     | Unit  |
-|:--------------------------------|:----------------|:------|
+| :------------------------------ | :-------------- | :---- |
 | eventhubs.backlog.capture.count | Capture Backlog | Count |
 
 <!--Connections-->
 
 | Metric Name                        | Description        | Unit  |
-|:-----------------------------------|:-------------------|:------|
+| :--------------------------------- | :----------------- | :---- |
 | eventhubs.connections.active.count | Active Connections | Count |
 | eventhubs.connections.closed.count | Connections Closed | Count |
 | eventhubs.connections.opened.count | Connections Opened | Count |
@@ -58,7 +58,7 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Errors-->
 
 | Metric Name                          | Description           | Unit  |
-|:-------------------------------------|:----------------------|:------|
+| :----------------------------------- | :-------------------- | :---- |
 | eventhubs.errors.quotaexceeded.count | Quota Exceeded Errors | Count |
 | eventhubs.errors.server.count        | Server Errors         | Count |
 | eventhubs.errors.user.count          | User Errors           | Count |
@@ -66,14 +66,14 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Messages-->
 
 | Metric Name                       | Description       | Unit  |
-|:----------------------------------|:------------------|:------|
+| :-------------------------------- | :---------------- | :---- |
 | eventhubs.messages.captured.count | Captured messages | Count |
 | eventhubs.messages.incoming.count | Incoming Messages | Count |
 | eventhubs.messages.outgoing.count | Outgoing Messages | Count |
@@ -81,7 +81,7 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Requests-->
 
 | Metric Name                         | Description         | Unit  |
-|:------------------------------------|:--------------------|:------|
+| :---------------------------------- | :------------------ | :---- |
 | eventhubs.requests.incoming.count   | Incoming Requests   | Count |
 | eventhubs.requests.successful.count | Successful Requests | Count |
 | eventhubs.requests.throttled.count  | Throttled Requests  | Count |
@@ -89,7 +89,7 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Throughput-->
 
 | Metric Name                         | Description    | Unit |
-|:------------------------------------|:---------------|:-----|
+| :---------------------------------- | :------------- | :--- |
 | eventhubs.throughput.captured.bytes | Captured Bytes | B    |
 | eventhubs.throughput.incoming.bytes | Incoming Bytes | B    |
 | eventhubs.throughput.outgoing.bytes | Outgoing Bytes | B    |
@@ -262,7 +262,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -275,7 +275,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Event Hub resource               |
@@ -346,7 +346,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

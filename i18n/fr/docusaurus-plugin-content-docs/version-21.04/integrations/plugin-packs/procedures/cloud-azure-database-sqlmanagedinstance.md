@@ -41,21 +41,21 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Cpu-->
 
 | Metric Name                                   | Description            | Unit  |
-|:----------------------------------------------|:-----------------------|:------|
+| :-------------------------------------------- | :--------------------- | :---- |
 | sqlmanagedinstance.cpu.utilization.percentage | Average CPU percentage | %     |
 | sqlmanagedinstance.cpu.virtualcores.count     | Virtual core count     | Count |
 
 <!--Storage-->
 
 | Metric Name                                     | Description            | Unit  |
-|:------------------------------------------------|:-----------------------|:------|
+| :---------------------------------------------- | :--------------------- | :---- |
 | sqlmanagedinstance.storage.space.reserved.count | Storage space reserved | Count |
 | sqlmanagedinstance.storage.space.used.count     | Storage space used     | Count |
 
 <!--Diskio-->
 
 | Metric Name                            | Description       | Unit  |
-|:---------------------------------------|:------------------|:------|
+| :------------------------------------- | :---------------- | :---- |
 | sqlmanagedinstance.bytes.read.bytes    | IO bytes read     | B     |
 | sqlmanagedinstance.bytes.written.bytes | IO bytes written  | B     |
 | sqlmanagedinstance.io.requests.count   | IO requests count | Count |
@@ -63,7 +63,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
@@ -227,7 +227,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
+| :-------- | :---------------- | :-------------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                       |
 | X         | AZURESUBSCRIPTION | Subscription ID                         |
 | X         | AZURETENANT       | Tenant ID                               |
@@ -238,7 +238,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                             |
-|:----------|:------------------|:----------------------------------------|
+| :-------- | :---------------- | :-------------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'                     |
 | X         | AZURESUBSCRIPTION | Subscription ID                         |
 | X         | AZURERESOURCE     | Id of the SQL Managed Instance instance |
@@ -308,7 +308,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

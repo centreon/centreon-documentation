@@ -60,7 +60,7 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <!--Backend-Health-->
 
 | Metric Name                             | Description          | Unit  |
-|:----------------------------------------|:---------------------|:------|
+| :-------------------------------------- | :------------------- | :---- |
 | appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
 | appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
 
@@ -73,13 +73,13 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <!--Backend-Status-->
 
 | Metric Name                              | Description             | Unit  |
-|:-----------------------------------------|:------------------------|:------|
+| :--------------------------------------- | :---------------------- | :---- |
 | appgateway.backend.response.status.count | Backend Response Status | Count |
 
 <!--Backend-Time-->
 
 | Metric Name                                            | Description                      | Unit |
-|:-------------------------------------------------------|:---------------------------------|:-----|
+| :----------------------------------------------------- | :------------------------------- | :--- |
 | appgateway.backend.connect.time.milliseconds           | Backend Connect Time             | ms   |
 | appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
 | appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
@@ -87,20 +87,20 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <!--Clients-Traffic-->
 
 | Metric Name                               | Description            | Unit |
-|:------------------------------------------|:-----------------------|:-----|
+| :---------------------------------------- | :--------------------- | :--- |
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
 <!--Gateway-Time-->
 
 | Metric Name                        | Description                    | Unit |
-|:-----------------------------------|:-------------------------------|:-----|
+| :--------------------------------- | :----------------------------- | :--- |
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
 
 <!--Units-->
 
 | Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
+| :-------------------------------------- | :------------------------------ | :---- |
 | appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
 | appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
 | appgateway.capacity.units.count         | Capacity Units consumed         | Count |
@@ -111,27 +111,27 @@ Les métriques et statuts disponibles peuvent différer selon la version de l'in
 <!--Connections-->
 
 | Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
+| :------------------------------------------- | :------------------ | :---- |
 | appgateway.backend.connections.current.count | Current Connections | Count |
 
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Requests-->
 
 | Metric Name                      | Description     | Unit  |
-|:---------------------------------|:----------------|:------|
+| :------------------------------- | :-------------- | :---- |
 | appgateway.requests.failed.count | Failed Requests | Count |
 | appgateway.requests.total.count  | Total Requests  | Count |
 
 <!--Throughput-->
 
 | Metric Name                          | Description | Unit |
-|:-------------------------------------|:------------|:-----|
+| :----------------------------------- | :---------- | :--- |
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -299,7 +299,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -312,7 +312,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
@@ -384,7 +384,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

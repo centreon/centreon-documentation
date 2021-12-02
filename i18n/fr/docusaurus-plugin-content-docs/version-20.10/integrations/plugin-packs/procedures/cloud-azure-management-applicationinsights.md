@@ -45,7 +45,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Availability-->
 
 | Metric Name                                          | Description                | Unit  |
-|:-----------------------------------------------------|:---------------------------|:------|
+| :--------------------------------------------------- | :------------------------- | :---- |
 | appinsights.availability.percentage                  | Availability               | %     |
 | appinsights.availability.tests.count                 | Availability tests         | Count |
 | appinsights.availability.tests.duration.milliseconds | Availability test duration | ms    |
@@ -53,7 +53,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Browsertimings-->
 
 | Metric Name                                  | Description                    | Unit |
-|:---------------------------------------------|:-------------------------------|:-----|
+| :------------------------------------------- | :----------------------------- | :--- |
 | appinsights.processing.duration.milliseconds | Client processing time         | ms   |
 | appinsights.processing.duration.milliseconds | Page load network connect time | ms   |
 | appinsights.receive.duration.milliseconds    | Receiving response time        | ms   |
@@ -63,14 +63,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Cpu-->
 
 | Metric Name                                 | Description    | Unit |
-|:--------------------------------------------|:---------------|:-----|
+| :------------------------------------------ | :------------- | :--- |
 | appinsights.cpu.nonidle.time.percentage     | Processor time | %    |
 | appinsights.cpu.w3wp.utilization.percentage | Process CPU    | %    |
 
 <!--Exceptions-->
 
 | Metric Name                          | Description        | Unit  |
-|:-------------------------------------|:-------------------|:------|
+| :----------------------------------- | :----------------- | :---- |
 | appinsights.exceptions.browser.count | Browser exceptions | Count |
 | appinsights.exceptions.server.count  | Server exceptions  | Count |
 | appinsights.exceptions.total.count   | Exceptions         | Count |
@@ -78,35 +78,35 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Externalcalls-->
 
 | Metric Name                             | Description              | Unit  |
-|:----------------------------------------|:-------------------------|:------|
+| :-------------------------------------- | :----------------------- | :---- |
 | appinsights.calls.count                 | Dependency calls         | Count |
 | appinsights.calls.duration.milliseconds | Dependency duration      | ms    |
 | appinsights.calls.failure.count         | Dependency call failures | Count |
 
 <!--Iooperations-->
 
-| Metric Name                                        | Description     | Unit |
-|:---------------------------------------------------|:----------------|:-----|
+| Metric Name                                          | Description     | Unit |
+| :--------------------------------------------------- | :-------------- | :--- |
 | appinsights.process.bytes.operations.bytesperseconds | Process IO rate | B/s  |
 
 <!--Memory-->
 
 | Metric Name                        | Description           | Unit |
-|:-----------------------------------|:----------------------|:-----|
+| :--------------------------------- | :-------------------- | :--- |
 | appinsights.memory.available.bytes | Available memory      | B    |
 | appinsights.memory.private.bytes   | Process private bytes | B    |
 
 <!--Pageviews-->
 
 | Metric Name                             | Description         | Unit  |
-|:----------------------------------------|:--------------------|:------|
+| :-------------------------------------- | :------------------ | :---- |
 | appinsights.pageviews.load.milliseconds | Page view load time | ms    |
 | appinsights.pageviews.total.count       | Page views          | Count |
 
 <!--Requests-->
 
 | Metric Name                                      | Description                        | Unit       |
-|:-------------------------------------------------|:-----------------------------------|:-----------|
+| :----------------------------------------------- | :--------------------------------- | :--------- |
 | appinsights.requests.duration.milliseconds       | Server response time               | ms         |
 | appinsights.requests.execution.time.milliseconds | HTTP request execution time        | ms         |
 | appinsights.requests.failed.count                | Failed requests                    | Count      |
@@ -280,7 +280,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -293,7 +293,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
@@ -364,7 +364,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

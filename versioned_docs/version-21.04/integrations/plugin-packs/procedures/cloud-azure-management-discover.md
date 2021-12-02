@@ -181,7 +181,7 @@ Just select the elements you want to add to the Centreon configuration and click
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 ### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

@@ -40,19 +40,19 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Datapath-->
 
 | Metric name                                   | Description           | Unit |
-|:----------------------------------------------|:----------------------|:-----|
+| :-------------------------------------------- | :-------------------- | :--- |
 | loadbalancer.datapath.availability.percentage | Datapath availability | %    |
 
 <!--Healthprobe-->
 
 | Metric name                                      | Description              | Unit |
-|:-------------------------------------------------|:-------------------------|:-----|
+| :----------------------------------------------- | :----------------------- | :--- |
 | loadbalancer.healthprobe.availability.percentage | Healthprobe availability | %    |
 
 <!--Snat-->
 
 | Metric name                             | Description                        | Unit  |
-|:----------------------------------------|:-----------------------------------|:------|
+| :-------------------------------------- | :--------------------------------- | :---- |
 | loadbalancer.snat.ports.allocated.count | Number of allocated SNAT ports     | Count |
 | loadbalancer.snat.ports.used.count      | Number of used SNAT ports          | Count |
 | loadbalancer.snat.connection.count      | Number of current SNAT connections | Count |
@@ -60,7 +60,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Throughput-->
 
 | Metric name                   | Description                  | Unit |
-|:------------------------------|:-----------------------------|:-----|
+| :---------------------------- | :--------------------------- | :--- |
 | loadbalancer.throughput.bytes | Processed data throughput    | B    |
 | loadbalancer.packets.count    | Processed packets throughput | %    |
 
@@ -224,7 +224,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                      |
-|:----------|:------------------|:---------------------------------|
+| :-------- | :---------------- | :------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'                |
 | X         | AZURESUBSCRIPTION | Subscription ID                  |
 | X         | AZURETENANT       | Tenant ID                        |
@@ -235,7 +235,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                      |
-|:----------|:------------------|:---------------------------------|
+| :-------- | :---------------- | :------------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'              |
 | X         | AZURESUBSCRIPTION | Subscription ID                  |
 | X         | AZURERESOURCE     | Id of the Load Balancer resource |
@@ -317,7 +317,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### UNKNOWN: 500 Can't connect to login.microsoftonline.com:443 
 
