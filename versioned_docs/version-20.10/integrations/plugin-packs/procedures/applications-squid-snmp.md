@@ -86,7 +86,7 @@ yum install centreon-plugin-Applications-Squid-Snmp
 
 2. Install the *Squid SNMP* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-applications-squid-snmp
 ```
 

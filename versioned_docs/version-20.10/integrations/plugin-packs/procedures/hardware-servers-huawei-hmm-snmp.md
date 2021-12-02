@@ -13,9 +13,9 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Hardware-Servers-Huawei-Hmm-Snmp
 ```
 
-# Centreon Configuration
+## Centreon Configuration
 
-## Create a host using the appropriate template
+### Create a host using the appropriate template
 
 Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
 the following table:

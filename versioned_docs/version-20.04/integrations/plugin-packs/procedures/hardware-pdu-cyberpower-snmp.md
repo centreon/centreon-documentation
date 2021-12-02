@@ -46,7 +46,7 @@ UDP/161.
 
 Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
 documentation officielle: 
-https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf\.
+https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf.
 
 ## Installation
 
@@ -86,7 +86,7 @@ yum install centreon-pack-hardware-pdu-cyberpower-snmp
 * Fill the "Name", "Alias", "IP Address / DNS", "Snmp Community" and "Snmp version" fields according to your device's configuration
 * Select the *HW-Pdu-Cyberpower-SNMP*.
 
-  :warning: When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
+> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific auth parameters
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

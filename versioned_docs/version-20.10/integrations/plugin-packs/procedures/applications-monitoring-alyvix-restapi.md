@@ -64,7 +64,7 @@ The *Alyvix Server* must be installed and configured on a dedicated Windows Serv
 The Centreon Pollers must as well be able to reach the Alyvix Rest API on the TCP/80 or TCP/443 port(s).
 
 More information about how to configure Alyvix and set up *testcases* can be found in the official documentation:
-https://www.alyvix.com/learn/\.
+https://www.alyvix.com/learn/.
 
 ## Setup 
 

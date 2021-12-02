@@ -44,7 +44,7 @@ rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NEW_CEN
 rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 ```
 
-> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
+> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
 
 ### Retrieve databases
 

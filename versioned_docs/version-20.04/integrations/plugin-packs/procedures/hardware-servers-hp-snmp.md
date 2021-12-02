@@ -15,7 +15,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 
 ## HP Insight Management Agent
 
-Warning: The following procedure is an example. Cannot be applied on all
+> The following procedure is an example. Cannot be applied on all
 context. The procedure is for centos 6 and hp agent 9.5.
 
 The agent allows to get hardware information in SNMP. First, you need to

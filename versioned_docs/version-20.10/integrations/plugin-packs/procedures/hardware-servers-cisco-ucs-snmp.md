@@ -102,7 +102,7 @@ yum install centreon-plugin-Hardware-Servers-Cisco-Ucs-Snmp
 
 2. Install the Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 ```
 
@@ -114,7 +114,7 @@ yum install centreon-pack-hardware-servers-cisco-ucs-snmp
 
 Create your Host and apply the *HW-Server-Cisco-Ucs-custom* Host Template. You must set SNMP Community and Version in the dedicated fields of the Host Form. 
 
-  :warning: If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
+> If you are using SNMP v3, set all specific parameters within SNMPEXTRAOPTIONS Host Macro
 
 | Mandatory   | Nom              | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

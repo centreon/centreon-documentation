@@ -64,12 +64,12 @@ documentation:
 ## Prerequisites
 
 To get data from Azure Services, following methods are available:
-	* Azure API ('api')
-	* Azure CLI ('azcli')
+* Azure API ('api')
+* Azure CLI ('azcli')
 
 Centreon recommends to use the API instead of the CLI for the following reasons:
-	* API is much more efficient by avoiding CLI binary execution
-	* API supports application authentication while CLI does not (yet)
+* API is much more efficient by avoiding CLI binary execution
+* API supports application authentication while CLI does not (yet)
 
 <!--DOCUSAURUS_CODE_TABS-->
 
@@ -198,7 +198,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageSync-Api
 
 2. Install the *Azure Storage Sync* Centreon Plugin Pack RPM on the Centreon Central server:
 
- ```bash
+```bash
 yum install centreon-pack-cloud-azure-storage-storagesync
 ```
 

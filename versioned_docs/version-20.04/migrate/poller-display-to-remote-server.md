@@ -31,9 +31,9 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 2. If you installed the module using an RPM package, remove it with the
 following command:
 
-    ```shell
-    yum remove centreon-poller-display
-    ```
+  ```shell
+  yum remove centreon-poller-display
+  ```
 
 3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
 [upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Remote Server.

@@ -157,7 +157,7 @@ If you get this message, you're probably facing one of theses issues:
 * The SNMP agent of the device isn't started or is misconfigured
 * An external device is blocking the request (firewall, ...)
 
-#### UNKNOWN: SNMP GET Request : Cant get a single value.
+### UNKNOWN: SNMP GET Request : Cant get a single value.
 
 This error message often refers to the following issues: 
   - The agent doesn't support the MIB used by the plugin

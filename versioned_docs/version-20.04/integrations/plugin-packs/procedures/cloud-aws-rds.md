@@ -120,7 +120,7 @@ Wether you are using a service account or a dedicated monitoring one, your IAM r
 
 To interact with Amazon APIs, you can use either use awscli binary or paws, a perl AWS SDK (recommended). You must install it on every poller that will monitor AWS resources. 
 
-**Warning** At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs. 
+> At the moment it is not possible to use perl-Paws if you are using a proxy to talk with AWS Cloudwatch APIs. 
 
 <!--DOCUSAURUS_CODE_TABS-->
 

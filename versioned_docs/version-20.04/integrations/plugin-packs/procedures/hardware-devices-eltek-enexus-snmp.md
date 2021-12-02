@@ -106,7 +106,7 @@ yum install hardware-devices-eltek-enexus-snmp
 
 When creating an host, fill the 'SNMP Community' and 'SNMP Version' fields to match the device configuration. 
 
-  :warning: When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
+> When using SNMP v3, set extra parameters with SNMPEXTRAOPTIONS macro 
 
 | Mandatory   | Name              | Description                                    |
 | :---------- | :---------------- | :--------------------------------------------- |

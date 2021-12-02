@@ -71,7 +71,7 @@ yum install awscli
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-> **Warning** For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
+> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 ## Setup 
 

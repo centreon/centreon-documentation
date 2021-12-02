@@ -75,7 +75,7 @@ This check is available with 'Cloud-Aws-Ec2-Asg' and 'Cloud-Aws-Ec2-Instance' Ho
 | WriteLatency    | The average amount of time taken per disk I/O write operation. Unit: Seconds                 |
 | DiskQueueDepth  | The number of outstanding IOs (read/write requests) waiting to access the disk. Unit: Count  |
 
-> **Important notes** These metrics are most of the time irrelevant or null when applied to an AutoscalingGroup
+> These metrics are most of the time irrelevant or null when applied to an AutoscalingGroup
 
 <!--Ec2-Network-->
 
@@ -116,7 +116,7 @@ Configure a service account (access/secret key combo) for which the following pr
 
 To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources. 
 
-> **Warning** For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
+> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
 
 <!--DOCUSAURUS_CODE_TABS-->
 

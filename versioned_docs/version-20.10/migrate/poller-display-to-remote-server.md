@@ -31,16 +31,16 @@ Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 2. If you installed the module using an RPM package, remove it with the
 following command:
 
-    ```shell
-    yum remove centreon-poller-display
-    ```
+  ```shell
+  yum remove centreon-poller-display
+  ```
 
 3. If your server uses the CentOS or Red Hat v7 operating system, refer to the
 [upgrade procedure](../upgrade/upgrade-from-3-4) to upgrade your Remote Server.
 Otherwise, refer to the [migration procedure](../migrate/migrate-from-3-4).
 
-    > If you use Centreon EMS modules, you must update the repositories. Be sure to
-    > contact your Centreon support and request new licenses.
+> If you use Centreon EMS modules, you must update the repositories. Be sure to
+> contact your Centreon support and request new licenses.
 
 4. Go to **Administration > Extensions > Modules** menu and install the
 **centreon-license-manager** module.
@@ -104,15 +104,15 @@ Then follow instructions by
 4. Add additional information to enable future communication between your Remote Server and its Central,
 Kindly fill in the required information to convert your platform into Remote :
 
-    ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
-    
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
+  ```shell
+  <CURRENT_NODE_ADDRESS> : Please enter your username:
+  admin
+  <CURRENT_NODE_ADDRESS> : Please enter your password:
+  
+  <CURRENT_NODE_ADDRESS> : Protocol [http]:
+  <CURRENT_NODE_ADDRESS> : Port [80]:
+  <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+  ```
 
 5. If you use a proxy, please define credentials:
 
