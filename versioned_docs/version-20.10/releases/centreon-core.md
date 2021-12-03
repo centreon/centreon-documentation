@@ -422,7 +422,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Engine
 
-### 20.10.7
+### 20.10.7
 
 `October 20, 2021`
 
@@ -568,7 +568,7 @@ state was HARD even if no notification is configured nor sent.
 
 ## Centreon Broker
 
-### 20.10.9
+### 20.10.9
 
 `October 27, 2021`
 
@@ -577,7 +577,7 @@ state was HARD even if no notification is configured nor sent.
 - Fixed a deadlock issue that blocked engine when all debug options were enabled
 
 
-### 20.10.8
+### 20.10.8
 
 `October 20, 2021`
 
@@ -826,7 +826,7 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon CLib
 
-### 20.10.5
+### 20.10.5
 
 `October 27, 2021`
 
@@ -835,7 +835,7 @@ with the –pool\_size X argument or -s X.
 - Fixed a deadlock issue that blocked engine when all debug options were enabled
 
 
-### 20.10.4
+### 20.10.4
 
 `October 20, 2021`
 
@@ -881,7 +881,7 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Connector Perl
 
-### 20.10.3
+### 20.10.3
 
 `October 20, 2021`
 
@@ -909,7 +909,7 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Connector SSH
 
-### 20.10.3
+### 20.10.3
 
 `October 20, 2021`
 

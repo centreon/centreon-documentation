@@ -34,7 +34,7 @@ Le serveur supportant le `quorum-device` (parfois noté `qdevice`) quant à lui 
 
 ![image](../../assets/integrations/centreon-ha/cluster_services_desc.png)
 
-### Principaux composants Centreon
+### Principaux composants Centreon
 
 #### Composants d'un collecteur de supervision
 

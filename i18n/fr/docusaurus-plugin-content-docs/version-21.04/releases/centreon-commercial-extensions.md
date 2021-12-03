@@ -76,7 +76,7 @@ commerciales, veuillez contacter le support.
 
 ## Centreon Auto Discovery
 
-### 21.04.2
+### 21.04.2
 
 Release date: `9 novembre 2021`
 

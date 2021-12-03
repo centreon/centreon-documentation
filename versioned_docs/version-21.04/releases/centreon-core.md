@@ -279,7 +279,7 @@ Release date: `November 15, 2021`
 
 ## Centreon Engine
 
-### 21.04.4
+### 21.04.4
 
 `October 20, 2021`
 
@@ -336,7 +336,7 @@ future.
 
 ## Centreon Broker
 
-### 21.04.5
+### 21.04.5
 
 `October 27, 2021`
 
@@ -345,7 +345,7 @@ future.
 - Fixed a deadlock issue that blocked engine when all debug options were enabled
 
 
-### 21.04.4
+### 21.04.4
 
 `October 20, 2021`
 
@@ -441,7 +441,7 @@ old logs system.
 
 ## Centreon CLib
 
-### 21.04.4
+### 21.04.4
 
 `October 27, 2021`
 
@@ -450,7 +450,7 @@ old logs system.
 - Fixed a deadlock issue that blocked engine when all debug options were enabled
 
 
-### 21.04.3
+### 21.04.3
 
 `October 20, 2021`
 
@@ -483,7 +483,7 @@ New release.
 
 ## Centreon Connector Perl
 
-### 21.04.3
+### 21.04.3
 
 `October 20, 2021`
 
@@ -511,7 +511,7 @@ New release.
 
 ## Centreon Connector SSH
 
-### 21.04.3
+### 21.04.3
 
 `October 20, 2021`
 

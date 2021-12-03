@@ -7,7 +7,7 @@ title: Architectures
 
 ## 2-nodes cluster
 
-### Presentation
+### Presentation
 
 The architecture of the high availability platform is composed by these 4 roles:
 
