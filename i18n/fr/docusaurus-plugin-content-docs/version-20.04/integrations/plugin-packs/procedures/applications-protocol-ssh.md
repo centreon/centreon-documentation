@@ -1,15 +1,15 @@
 ---
 id: applications-protocol-ssh
-title: Protocol SSH
+title: Protocole SSH
 ---
 
 ## Vue d'ensemble
 
-Le protocol Secure Shell (SSH) est un protocol de communication sécurisé
+Le protocole Secure Shell (SSH) est un protocole de communication sécurisé
 permettant d'effectuer des actions sur un serveur distant.
 
 Le Plugin Pack Centreon *Protocol SSH* permet de récupérer le status et le
-temps de réponse d'une connexion à un serveur par l'intermédiaire du protocol
+temps de réponse d'une connexion à un serveur par l'intermédiaire du protocole
 SSH.
 
 ## Contenu du Pack

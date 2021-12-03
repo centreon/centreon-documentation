@@ -26,7 +26,7 @@ SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/gui
 
 ### Create a new AIX host
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
+Go to *Configuration > Hosts* and click *Add*. Then, fill the form as shown by
 the following table:
 
 | Field                   | Value                      |

@@ -5,7 +5,7 @@ title: Installation Web
 
 ## Installation web
 
-Connectez-vous à l'interface web via *http://\<IP\>/centreon*.
+Connectez-vous à l'interface web via `http://<IP>/centreon`.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
@@ -13,7 +13,7 @@ L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
 Les modules et les prérequis nécessaires sont vérifiés.
 
-Ils doivent tous être satisfait. Cliquez sur **Refresh** lorsque les actions
+Ils doivent tous être satisfaits. Cliquez sur **Refresh** lorsque les actions
 correctrices nécessaires ont été effectuées.
 
 Puis cliquez sur **Next**.

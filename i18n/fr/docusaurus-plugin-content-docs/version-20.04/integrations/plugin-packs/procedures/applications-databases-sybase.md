@@ -3,7 +3,7 @@ id: applications-databases-sybase
 title: Sybase
 ---
 
-\#\#Prerequisites
+## Prerequisites
 
 ### Centreon Plugin
 

@@ -18,7 +18,7 @@ utilisant JavaScript et HTML5.
     * Webserver: Serveur d'application web / méssagerie
     * Chat/Xmpp: Communications unifiées
 
-### Métriques collectées
+### Métriques collectées
 
 Au delà des métriques présentés ci-après, un référentiel est disponible dans la documentation
 officielle : https://forge.bluemind.net/confluence/display/BM35/Reference+des+metriques

@@ -19,7 +19,7 @@ yum install centreon-plugin-Applications-Protocol-Bgp
 
 Network equipment must have SNMP Enabled and allow query on OID .1.3.6.1.2.1.5
 
-Note: If you use several logical system/network to segment your network (e.g
+> If you use several logical system/network to segment your network (e.g
 with Juniper equipments), you need to specify community in the following format
 :
 

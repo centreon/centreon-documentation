@@ -1,6 +1,6 @@
 ---
 id: network-efficientip-snmp
-title: Efficienti IP
+title: Efficient IP
 ---
 
 ## Prerequisites

@@ -35,8 +35,8 @@ Description des colonnes:
   Execution time    | Date et heure d'execution de la tâche planifiée
   Options           | Nombre de tâches à dupliquer si l'option de duplication est choisie dans le menu "More Actions"
 
-
 Dans la colonne "Name", une icône est associée au status de la tâche planifiée:
+
   Icon                                                     |  Statut
   ---------------------------------------------------------|----------------------------
   ![image](../assets/reporting/guide/clock_stopped.png)    | tâche arrêtée

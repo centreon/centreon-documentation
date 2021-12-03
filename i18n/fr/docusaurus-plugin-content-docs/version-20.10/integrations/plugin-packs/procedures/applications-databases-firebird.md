@@ -3,7 +3,7 @@ id: applications-databases-firebird
 title: Firebird
 ---
 
-\#\#Prerequisites
+## Prerequisites
 
 ### Centreon Plugin
 

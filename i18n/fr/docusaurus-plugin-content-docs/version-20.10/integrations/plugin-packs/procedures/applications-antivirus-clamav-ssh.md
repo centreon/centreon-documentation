@@ -47,7 +47,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 
 2. Sur le serveur Central Centreon, installer le RPM du Pack *Antivirus ClamAV*:
 
- ```bash
+```bash
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 

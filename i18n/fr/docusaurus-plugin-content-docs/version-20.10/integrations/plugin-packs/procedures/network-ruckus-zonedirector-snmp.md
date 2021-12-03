@@ -106,7 +106,7 @@ yum install centreon-pack-network-ruckus-zonedirector-snmp.noarch
 * Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
 * Appliquer le modèle "Net-Ruckus-Zonedirector-SNMP-custom" et configurer les champs 'SNMP Community' et 'SNMP Version' selon la configuration de l'équipement.
 
-:warning: Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS
 
 | Mandatory   | Nom              | Description                                                                |
 | :---------- | :--------------- | :------------------------------------------------------------------------- |

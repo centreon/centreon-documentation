@@ -3,7 +3,7 @@ id: create-graphical-view
 title: Créer une vue graphique
 ---
 
-> Only available in english for now
+> Only available in English for now
 
 The objective of this tutorial is to help you understand how you can provide
 real time IT infrastructure status overviews with the data presentation

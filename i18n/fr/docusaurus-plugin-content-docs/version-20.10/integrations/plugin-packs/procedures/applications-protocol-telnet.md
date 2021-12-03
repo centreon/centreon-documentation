@@ -3,7 +3,7 @@ id: applications-protocol-telnet
 title: Telnet Scenario
 ---
 
-\#\#Prerequisites
+## Prerequisites
 
 ### Centreon Plugin
 

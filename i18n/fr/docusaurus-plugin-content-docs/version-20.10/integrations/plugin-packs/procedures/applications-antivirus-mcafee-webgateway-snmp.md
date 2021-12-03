@@ -133,7 +133,7 @@ yum install centreon-plugin-Applications-Antivirus-Mcafee-Webgateway-Snmp
 
 2. Installer le RPM du Plugin-Pack contenant les Modèles de supervision sur le serveur Central Centreon :
 
- ```bash
+```bash
 yum install centreon-pack-applications-antivirus-mcafee-webgateway-snmp
 ```
 

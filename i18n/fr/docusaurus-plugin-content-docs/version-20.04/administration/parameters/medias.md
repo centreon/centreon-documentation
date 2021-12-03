@@ -21,8 +21,8 @@ pouvoir importer plusieurs images à la fois.
 
 ### Ajout manuel
 
-Pour ajouter une image dans Centreon, rendez-vous dans le menu `Administration
-> Paramètres > Images` et cliquez sur **Ajouter**
+Pour ajouter une image dans Centreon, rendez-vous dans le menu 
+**Administration > Paramètres > Images** et cliquez sur **Ajouter**
 
 La fenêtre suivante s'affiche :
 

@@ -45,6 +45,7 @@ templates:
 ![image](../assets/graph-views/jvm2.png)
 
 To monitor centreon-map JVM, please use following macro values:
+
 | Name                    | Value                           |
 | :---------------------- | :------------------------------ |
 | ACTUATORCUSTOMMODE      | ```centreonmap```               |
