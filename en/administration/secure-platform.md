@@ -378,11 +378,6 @@ Alias /centreon /usr/share/centreon/www/
 
 ProxyTimeout 300
 
-<IfModule mod_security2.c>
-    # https://github.com/SpiderLabs/ModSecurity/issues/652
-    SecRuleRemoveById 200003
-</IfModule>
-
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} off
@@ -400,6 +395,11 @@ ProxyTimeout 300
     SSLCompression Off
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
 
     <Directory "/usr/share/centreon/www">
         DirectoryIndex index.php
@@ -657,11 +657,6 @@ Alias /centreon /usr/share/centreon/www/
 
 ProxyTimeout 300
 
-<IfModule mod_security2.c>
-    # https://github.com/SpiderLabs/ModSecurity/issues/652
-    SecRuleRemoveById 200003
-</IfModule>
-
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} off
@@ -677,6 +672,11 @@ ProxyTimeout 300
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
     SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
     SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
 
     <Directory "/usr/share/centreon/www">
         DirectoryIndex index.php
