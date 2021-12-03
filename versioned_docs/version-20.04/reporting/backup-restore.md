@@ -191,7 +191,7 @@ Delete the extracted data from the backup:
     rm -Rf /tmp/usr
     rm -Rf /tmp/var
 
-### Resotre Centreon MBI Reporting Server settings
+### Restore Centreon MBI Reporting Server settings
 
 The restore process is divided into several steps:
 
