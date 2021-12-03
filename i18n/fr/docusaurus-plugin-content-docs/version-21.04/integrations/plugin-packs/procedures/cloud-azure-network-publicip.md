@@ -38,7 +38,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Ddos-Traffic-->
 
 | Metric name                          | Description                   | Unit    |
-|:-------------------------------------|:------------------------------|:--------|
+| :----------------------------------- | :---------------------------- | :------ |
 | publicip.ddos.dropped.bytes          | Inbound bytes dropped DDoS    | B       |
 | publicip.ddos.forwarded.bytes        | Inbound bytes forwarded DDoS' | B       |
 | publicip.ddos.inbound.bytes          | Inbound bytes DDoS            | B       |
@@ -47,7 +47,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Status-->
 
 | Status name        | Description                                 |
-|:-------------------|:--------------------------------------------|
+| :----------------- | :------------------------------------------ |
 | ddos-status        | Is the Public IP under Ddos attack          |
 | provisioning-state | Current operational status of the Public IP |
 
@@ -211,7 +211,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure Monitor API-->
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'api'            |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURETENANT       | Tenant ID                    |
@@ -222,7 +222,7 @@ doivent être renseignées selon le custom-mode utilisé:
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                  |
-|:----------|:------------------|:-----------------------------|
+| :-------- | :---------------- | :--------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'          |
 | X         | AZURESUBSCRIPTION | Subscription ID              |
 | X         | AZURERESOURCE     | Id of the Public IP resource |
@@ -291,7 +291,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

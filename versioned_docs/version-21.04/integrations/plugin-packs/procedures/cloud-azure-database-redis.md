@@ -49,64 +49,64 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Cache-Latency-->
 
 | Metric Name                      | Description   | Unit |
-|:---------------------------------|:--------------|:-----|
+| :------------------------------- | :------------ | :--- |
 | redis.cache.latency.microseconds | Cache Latency | μs   |
 
 <!--Cache-Throughput-->
 
 | Metric Name                                 | Description            | Unit |
-|:--------------------------------------------|:-----------------------|:-----|
+| :------------------------------------------ | :--------------------- | :--- |
 | redis.cache.read.throughput.bytespersecond  | Cache Read Throughput  | B/s  |
 | redis.cache.write.throughput.bytespersecond | Cache Write Throughput | B/s  |
 
 <!--Cache-Usage-->
 
 | Metric Name              | Description  | Unit  |
-|:-------------------------|:-------------|:------|
+| :----------------------- | :----------- | :---- |
 | redis.cache.hits.count   | Cache Hits   | Count |
 | redis.cache.misses.count | Cache Misses | Count |
 
 <!--Clients-->
 
 | Metric Name                         | Description       | Unit  |
-|:------------------------------------|:------------------|:------|
+| :---------------------------------- | :---------------- | :---- |
 | redis.cache.clients.connected.count | Connected Clients | Count |
 
 <!--Cpu-->
 
 | Metric Name                      | Description          | Unit |
-|:---------------------------------|:---------------------|:-----|
+| :------------------------------- | :------------------- | :--- |
 | redis.cache.cpu.usage.percentage | CPU Usage Percentage | %    |
 
 <!--Errors-->
 
 | Metric Name              | Description | Unit  |
-|:-------------------------|:------------|:------|
+| :----------------------- | :---------- | :---- |
 | redis.cache.errors.count | Errors      | Count |
 
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Load-->
 
 | Metric Name                        | Description | Unit |
-|:-----------------------------------|:------------|:-----|
+| :--------------------------------- | :---------- | :--- |
 | redis.cache.server.load.percentage | Server Load | %    |
 
 <!--Memory-->
 
 | Metric Name                         | Description             | Unit |
-|:------------------------------------|:------------------------|:-----|
+| :---------------------------------- | :---------------------- | :--- |
 | redis.cache.memory.usage.percentage | Memory Usage Percentage | %    |
 
 <!--Operations-->
 
 | Metric Name                      | Description            | Unit |
-|:---------------------------------|:-----------------------|:-----|
+| :------------------------------- | :--------------------- | :--- |
 | redis.cache.operations.persecond | Operations per seconds | op/s |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -277,7 +277,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -290,7 +290,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Redis resource                   |
@@ -356,7 +356,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

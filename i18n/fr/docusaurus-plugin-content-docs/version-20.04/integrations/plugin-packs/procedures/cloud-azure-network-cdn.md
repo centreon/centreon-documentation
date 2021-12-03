@@ -42,19 +42,19 @@ fonctionnement sur la documentation du module:
 <!--Hit-Ratio-->
 
 | Metric name             | Description    | Unit |
-|:------------------------|:---------------|:-----|
+| :---------------------- | :------------- | :--- |
 | cdn.byte.hit.percentage | Byte Hit Ratio | %    |
 
 <!--Latency-->
 
 | Metric name                    | Description   | Unit |
-|:-------------------------------|:--------------|:-----|
+| :----------------------------- | :------------ | :--- |
 | cdn.latency.total.milliseconds | Total Latency | ms   |
 
 <!--Requests-->
 
 | Metric name                 | Description       | Unit  |
-|:----------------------------|:------------------|:------|
+| :-------------------------- | :---------------- | :---- |
 | cdn.requests.count          | Request count     | count |
 | cdn.requests.4xx.percentage | Percentage of 4XX | %     |
 | cdn.requests.5xx.percentage | Percentage of 5XX | %     |
@@ -62,7 +62,7 @@ fonctionnement sur la documentation du module:
 <!--Response-Size-->
 
 | Metric name             | Description   | Unit |
-|:------------------------|:--------------|:-----|
+| :---------------------- | :------------ | :--- |
 | cdn.response.size.bytes | Response Size | B    |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -228,7 +228,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -240,7 +240,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the CDN profile resource             |
@@ -320,7 +320,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire `/var/lib/centreon/centplugins/` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### `UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)`
 

@@ -46,7 +46,7 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Connections-->
 
 | Metric Name                       | Description                   | Unit  |
-|:----------------------------------|:------------------------------|:------|
+| :-------------------------------- | :---------------------------- | :---- |
 | azmysql.connections.active.count  | Number of active connections  | Count |
 | azmysql.connections.failed.count  | Number of failed Connections  | Count |
 | azmysql.connections.aborted.count | Number of aborted Connections | Count |
@@ -54,39 +54,39 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--Cpu-->
 
-| Metric Name                        | Description     | Unit      |
-|:---------------------------------- |:----------------|:----------|
+| Metric Name                        | Description     | Unit       |
+| :--------------------------------- | :-------------- | :--------- |
 | azmysql.cpu.utilization.percentage | CPU utilization | Percentage |
 
 <!--IO-Consumption-->
 
 | Metric Name                            | Description    | Unit       |
-|:---------------------------------------|:---------------|:-----------|
+| :------------------------------------- | :------------- | :--------- |
 | azmysql.ioconsumption.usage.percentage | IO consumption | Percentage |
 
 <!--Memory-->
 
 | Metric Name                     | Description  | Unit       |
-|:--------------------------------|:-------------|:-----------|
+| :------------------------------ | :----------- | :--------- |
 | azmysql.memory.usage.percentage | Memory usage | Percentage |
 
 <!--Queries-->
 
 | Metric Name           | Description       | Unit  |
-|:----------------------|:------------------|:------|
+| :-------------------- | :---------------- | :---- |
 | azmysql.queries.count | Number of queries | Count |
 
 <!--Replication-->
 
-| Metric Name                     | Description      | Unit    |
-|:--------------------------------|:-----------------|:--------|
-| azmysql.replication.lag.seconds | Replication Lag  | Seconds |
-| azmysql.replication.lag.count   | Replication Lag  | Count   |
+| Metric Name                     | Description     | Unit    |
+| :------------------------------ | :-------------- | :------ |
+| azmysql.replication.lag.seconds | Replication Lag | Seconds |
+| azmysql.replication.lag.count   | Replication Lag | Count   |
 
 <!--Storage-->
 
 | Metric Name                                | Description              | Unit       |
-|:-------------------------------------------|:-------------------------|:-----------|
+| :----------------------------------------- | :----------------------- | :--------- |
 | azmysql.storage.usage.bytes                | Storage used             | Bytes      |
 | azmysql.storage.limit.bytes                | Storage limit            | Bytes      |
 | azmysql.storage.usage.percentage           | Storage used             | Percentage |
@@ -98,7 +98,7 @@ More information about the Host Discovery module is available in the Centreon do
 <!--Traffic-->
 
 | Metric Name               | Description | Unit  |
-|:--------------------------|:------------|:------|
+| :------------------------ | :---------- | :---- |
 | azmysql.traffic.out.bytes | Network Out | Bytes |
 | azmysql.traffic.in.bytes  | Network In  | Bytes |
 
@@ -270,7 +270,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -283,7 +283,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the API Management resource          |
@@ -350,7 +350,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

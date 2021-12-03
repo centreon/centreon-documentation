@@ -59,7 +59,7 @@ Regarding the version of the Application Gateway, metrics can differ.
 <!--Backend-Health-->
 
 | Metric Name                             | Description          | Unit  |
-|:----------------------------------------|:---------------------|:------|
+| :-------------------------------------- | :------------------- | :---- |
 | appgateway.backend.healthy.host.count   | Healthy Host Count   | Count |
 | appgateway.backend.unhealthy.host.count | Unhealthy Host Count | Count |
 
@@ -72,13 +72,13 @@ Regarding the version of the Application Gateway, metrics can differ.
 <!--Backend-Status-->
 
 | Metric Name                              | Description             | Unit  |
-|:-----------------------------------------|:------------------------|:------|
+| :--------------------------------------- | :---------------------- | :---- |
 | appgateway.backend.response.status.count | Backend Response Status | Count |
 
 <!--Backend-Time-->
 
 | Metric Name                                            | Description                      | Unit |
-|:-------------------------------------------------------|:---------------------------------|:-----|
+| :----------------------------------------------------- | :------------------------------- | :--- |
 | appgateway.backend.connect.time.milliseconds           | Backend Connect Time             | ms   |
 | appgateway.backend.firstbyte.responsetime.milliseconds | Backend First Byte Response Time | ms   |
 | appgateway.backend.lastbyte.responsetime.milliseconds  | Backend Last Byte Response Time  | ms   |
@@ -86,20 +86,20 @@ Regarding the version of the Application Gateway, metrics can differ.
 <!--Clients-Traffic-->
 
 | Metric Name                               | Description            | Unit |
-|:------------------------------------------|:-----------------------|:-----|
+| :---------------------------------------- | :--------------------- | :--- |
 | appgateway.traffic.clients.received.bytes | Clients Bytes Received | B    |
 | appgateway.traffic.clients.sent.bytes     | Clients Bytes Sent     | B    |
 
 <!--Gateway-Time-->
 
 | Metric Name                        | Description                    | Unit |
-|:-----------------------------------|:-------------------------------|:-----|
+| :--------------------------------- | :----------------------------- | :--- |
 | appgateway.time.total.milliseconds | Application Gateway Total Time | ms   |
 
 <!--Units-->
 
 | Metric Name                             | Description                     | Unit  |
-|:----------------------------------------|:--------------------------------|:------|
+| :-------------------------------------- | :------------------------------ | :---- |
 | appgateway.billable.units.fixed.count   | Fixed Billable Capacity Units   | Count |
 | appgateway.billed.units.estimated.count | Estimated Billed Capacity Units | Count |
 | appgateway.capacity.units.count         | Capacity Units consumed         | Count |
@@ -110,27 +110,27 @@ Regarding the version of the Application Gateway, metrics can differ.
 <!--Connections-->
 
 | Metric Name                                  | Description         | Unit  |
-|:---------------------------------------------|:--------------------|:------|
+| :------------------------------------------- | :------------------ | :---- |
 | appgateway.backend.connections.current.count | Current Connections | Count |
 
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Requests-->
 
 | Metric Name                      | Description     | Unit  |
-|:---------------------------------|:----------------|:------|
+| :------------------------------- | :-------------- | :---- |
 | appgateway.requests.failed.count | Failed Requests | Count |
 | appgateway.requests.total.count  | Total Requests  | Count |
 
 <!--Throughput-->
 
 | Metric Name                          | Description | Unit |
-|:-------------------------------------|:------------|:-----|
+| :----------------------------------- | :---------- | :--- |
 | appgateway.throughput.bytespersecond | Throughput  | B/s  |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -301,7 +301,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -314,7 +314,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Application Gateway resource     |
@@ -381,7 +381,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

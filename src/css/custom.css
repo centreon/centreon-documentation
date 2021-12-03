@@ -102,42 +102,22 @@ ul ul ol {
   list-style-type: decimal;
 }
 
-/* "Copy" code block button */
-pre {
-  position: relative;
-}
-
-pre .btnIcon {
-  position: absolute;
-  top: 4px;
-  z-index: 2;
-  cursor: pointer;
-  border: 1px solid transparent;
-  padding: 0;
-  color: rgb(0, 0, 0);
-  background-color: transparent;
-  height: 30px;
-  transition: all 0.25s ease-out;
-}
-
-pre .btnIcon:hover {
-  text-decoration: none;
-}
-
-.btnIcon__body {
-  align-items: center;
+.tabs {
   display: flex;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
+  padding: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-height: 100%;
 }
 
-.btnIcon svg {
-  fill: currentColor;
-  margin-right: 0.4em;
+.tabs__item--active {
+  background-color: var(--ifm-hover-overlay);
+  border-radius: 0 !important;
 }
 
-.btnIcon__label {
-  font-size: 11px;
-}
-
-.btnClipboard {
-  right: 10px;
+html[data-theme="dark"] .tabs__item--active {
+  background-color: #ffffff38;
 }

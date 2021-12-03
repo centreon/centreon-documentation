@@ -68,7 +68,7 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
-    "plugin-image-zoom",
+    require.resolve("docusaurus-plugin-image-zoom"),
   ],
 
   themeConfig:
@@ -94,7 +94,16 @@ const config = {
         anonymizeIP: true,
       },
 
-      zoomSelector: ".markdown img",
+      zoom: {
+        selector: ".markdown :not(em) > img",
+        config: {
+          background: {
+            light: "rgb(255, 255, 255)",
+            dark: "rgb(50, 50, 50)",
+          },
+        },
+      },
+
       hideableSidebar: true,
       colorMode: {
         defaultMode: "dark",

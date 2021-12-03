@@ -45,7 +45,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Messages-->
 
 | Metric Name                                      | Description                                      | Unit  |
-|:-------------------------------------------------|:-------------------------------------------------|:------|
+| :----------------------------------------------- | :----------------------------------------------- | :---- |
 | servicebus.namespace.messages.active.count       | Count of active messages in a Queue/Topic        | Count |
 | servicebus.namespace.messages.deadlettered.count | Count of dead-lettered messages in a Queue/Topic | Count |
 | servicebus.namespace.messages.incoming.count     | Incoming Messages                                | Count |
@@ -56,7 +56,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Requests-->
 
 | Metric Name                                    | Description         | Unit  |
-|:-----------------------------------------------|:--------------------|:------|
+| :--------------------------------------------- | :------------------ | :---- |
 | servicebus.namespace.requests.incoming.count   | Incoming Requests   | Count |
 | servicebus.namespace.requests.successful.count | Successful Requests | Count |
 | servicebus.namespace.requests.throttled.count  | Throttled Requests  | Count |
@@ -64,7 +64,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Resources-->
 
 | Metric Name                                  | Description  | Unit |
-|:---------------------------------------------|:-------------|:-----|
+| :------------------------------------------- | :----------- | :--- |
 | servicebus.namespace.cpu.usage.percentage    | CPU          | %    |
 | servicebus.namespace.memory.usage.percentage | Memory Usage | %    |
 
@@ -227,19 +227,19 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom               | Description                    |
-|:----------|:------------------|:-------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'api'              |
-| X         | AZURESUBSCRIPTION | Subscription ID                |
-| X         | AZURETENANT       | Tenant ID                      |
-| X         | AZURECLIENTID     | Client ID                      |
-| X         | AZURECLIENTSECRET | Client secret                  |
-| X         | AZURERESOURCE     | Id of the ServiceBus resource  |
+| Mandatory | Nom               | Description                   |
+| :-------- | :---------------- | :---------------------------- |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'             |
+| X         | AZURESUBSCRIPTION | Subscription ID               |
+| X         | AZURETENANT       | Tenant ID                     |
+| X         | AZURECLIENTID     | Client ID                     |
+| X         | AZURECLIENTSECRET | Client secret                 |
+| X         | AZURERESOURCE     | Id of the ServiceBus resource |
 
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom               | Description                   |
-|:----------|:------------------|:------------------------------|
+| :-------- | :---------------- | :---------------------------- |
 | X         | AZURECUSTOMMODE   | Custom mode 'azcli'           |
 | X         | AZURESUBSCRIPTION | Subscription ID               |
 | X         | AZURERESOURCE     | Id of the ServiceBus resource |
@@ -309,7 +309,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

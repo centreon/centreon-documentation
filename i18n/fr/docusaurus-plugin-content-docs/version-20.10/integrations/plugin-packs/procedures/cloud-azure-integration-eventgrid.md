@@ -41,7 +41,7 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Events-->
 
 | Metric name                         | Description                    |
-|:------------------------------------|:-------------------------------|
+| :---------------------------------- | :----------------------------- |
 | eventgrid.matched.events.count      | Number of matched Events       |
 | eventgrid.unmatched.events.count    | Number of unmatched Events     |
 | eventgrid.dropped.events.count      | Number of dropped Events       |
@@ -49,14 +49,14 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--Events Stats-->
 
-| Metric name                                   | Description                                | Unit |
-|:----------------------------------------------|:-------------------------------------------|:-----|
-| eventgrid.delivery.successfull.count          | Number of delivered Events                 |      |
-| eventgrid.delivery.failed.count               | Number of delivery failed Events           |      |
-| eventgrid.publish.successfull.count           | Number of published Events                 |      |
-| eventgrid.publish.failed.count                | Number of publish failed Events            |      |
-| eventgrid.public.success.latency.milliseconds | Number of publish success Latency          | ms   |
-| eventgrid.processing.duration.milliseconds    | Number of destination processing duration  | ms   |
+| Metric name                                   | Description                               | Unit |
+| :-------------------------------------------- | :---------------------------------------- | :--- |
+| eventgrid.delivery.successfull.count          | Number of delivered Events                |      |
+| eventgrid.delivery.failed.count               | Number of delivery failed Events          |      |
+| eventgrid.publish.successfull.count           | Number of published Events                |      |
+| eventgrid.publish.failed.count                | Number of publish failed Events           |      |
+| eventgrid.public.success.latency.milliseconds | Number of publish success Latency         | ms   |
+| eventgrid.processing.duration.milliseconds    | Number of destination processing duration | ms   |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -217,24 +217,24 @@ doivent être renseignées selon le custom-mode utilisé:
 
 <!--Azure Monitor API-->
 
-| Mandatory | Nom                   | Description                      |
-|:----------|:----------------------|:---------------------------------|
-| X         | AZURECUSTOMMODE       | Custom mode 'api'                |
-| X         | AZURESUBSCRIPTION     | Subscription ID                  |
-| X         | AZURETENANT           | Tenant ID                        |
-| X         | AZURECLIENTID         | Client ID                        |
-| X         | AZURECLIENTSECRET     | Client secret                    |
-| X         | AZURERESOURCE         | Id of the Event Grid instance    |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                     |
+| :-------- | :---------------- | :------------------------------ |
+| X         | AZURECUSTOMMODE   | Custom mode 'api'               |
+| X         | AZURESUBSCRIPTION | Subscription ID                 |
+| X         | AZURETENANT       | Tenant ID                       |
+| X         | AZURECLIENTID     | Client ID                       |
+| X         | AZURECLIENTSECRET | Client secret                   |
+| X         | AZURERESOURCE     | Id of the Event Grid instance   |
+| X         | AZURERESOURCETYPE | Type of the Event Grid instance |
 
 <!--Azure AZ CLI-->
 
-| Mandatory | Nom               | Description                          |
-|:----------|:------------------|:-------------------------------------|
-| X         | AZURECUSTOMMODE   | Custom mode 'azcli'                  |
-| X         | AZURESUBSCRIPTION | Subscription ID                      |
-| X         | AZURERESOURCE     | Id of the Event Grid resource        |
-| X         | AZURERESOURCETYPE     | Type of the Event Grid instance  |
+| Mandatory | Nom               | Description                     |
+| :-------- | :---------------- | :------------------------------ |
+| X         | AZURECUSTOMMODE   | Custom mode 'azcli'             |
+| X         | AZURESUBSCRIPTION | Subscription ID                 |
+| X         | AZURERESOURCE     | Id of the Event Grid resource   |
+| X         | AZURERESOURCETYPE | Type of the Event Grid instance |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -302,7 +302,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

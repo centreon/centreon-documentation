@@ -45,13 +45,13 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Availability-->
 
 | Metric Name                                      | Description          | Unit |
-|:-------------------------------------------------|:---------------------|:-----|
+| :----------------------------------------------- | :------------------- | :--- |
 | cosmosdb.account.service.availability.percentage | Service Availability | %    |
 
 <!--Cache-->
 
 | Metric Name                                          | Description                           | Unit  |
-|:-----------------------------------------------------|:--------------------------------------|:------|
+| :--------------------------------------------------- | :------------------------------------ | :---- |
 | cosmosdb.account.integratedcache.evicted.size.bytes  | Integrated Cache Evicted Entries Size | B     |
 | cosmosdb.account.integratedcache.hitrate.percentage  | Integrated Cache Hit Rate             | %     |
 | cosmosdb.account.integratedcache.size.bytes          | Integrated Cache Size                 | B     |
@@ -61,41 +61,41 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 <!--Document-->
 
 | Metric Name                           | Description    | Unit  |
-|:--------------------------------------|:---------------|:------|
+| :------------------------------------ | :------------- | :---- |
 | cosmosdb.account.document.count       | Document Count | Count |
 | cosmosdb.account.document.quota.bytes | Document Quota | B     |
 
 <!--Health-->
 
 | Status Name | Description                 |
-|:------------|:----------------------------|
+| :---------- | :-------------------------- |
 | status      | Current operational status  |
 | summary     | Last related status message |
 
 <!--Latency-->
 
 | Metric Name                                       | Description             | Unit |
-|:--------------------------------------------------|:------------------------|:-----|
+| :------------------------------------------------ | :---------------------- | :--- |
 | cosmosdb.account.latency.replication.milliseconds | P99 Replication Latency | ms   |
 | cosmosdb.account.latency.serverside.milliseconds  | Server Side Latency     | ms   |
 
 <!--Throughput-->
 
 | Metric Name                                  | Description              | Unit  |
-|:---------------------------------------------|:-------------------------|:------|
+| :------------------------------------------- | :----------------------- | :---- |
 | cosmosdb.account.troughput.autoscale.count   | Autoscale Max Throughput | Count |
 | cosmosdb.account.troughput.provisioned.count | Provisioned Throughput   | Count |
 
 <!--Units-->
 
 | Metric Name                               | Description         | Unit  |
-|:------------------------------------------|:--------------------|:------|
+| :---------------------------------------- | :------------------ | :---- |
 | cosmosdb.account.requestunits.total.count | Total Request Units | Count |
 
 <!--Usage-->
 
 | Metric Name                        | Description | Unit |
-|:-----------------------------------|:------------|:-----|
+| :--------------------------------- | :---------- | :--- |
 | cosmosdb.account.data.usage.bytes  | Data Usage  | B    |
 | cosmosdb.account.index.usage.bytes | Index Usage | B    |
 
@@ -264,7 +264,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -277,7 +277,7 @@ dans la Macro *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the Cosmos DB account                |
@@ -348,7 +348,7 @@ Le Plugin utilise un fichier de cache pour conserver les informations de connexi
 se ré-authentifier à chaque appel. Si des informations sur le Tenant, la Souscription ou les 
 Client ID / Secret changent, il est nécessaire de supprimer le fichier de cache du Plugin. 
 
-Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom azure_api_`<md5>_<md5>_<md5>_<md5>`.
+Celui ci se trouve dans le répertoire ```/var/lib/centreon/centplugins/``` avec le nom `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 

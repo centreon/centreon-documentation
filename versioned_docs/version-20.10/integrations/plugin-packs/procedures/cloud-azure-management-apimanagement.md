@@ -40,14 +40,14 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--Capacity-->
 
-| Metric Name                       | Description                    | Unit  |
-|:----------------------------------|:-------------------------------|:------|
-| apimanagement.capacity.percentage | Capacity Statistics Percentage | %     |
+| Metric Name                       | Description                    | Unit |
+| :-------------------------------- | :----------------------------- | :--- |
+| apimanagement.capacity.percentage | Capacity Statistics Percentage | %    |
 
 <!--Events-->
 
 | Metric Name                            | Description                | Unit  |
-|:---------------------------------------|:---------------------------|:------|
+| :------------------------------------- | :------------------------- | :---- |
 | apimanagement.events.dropped.count     | Dropped EventHub Events    | Count |
 | apimanagement.events.rejected.count    | Rejected EventHub Events   | Count |
 | apimanagement.events.successful.count  | Successful EventHub Events | Count |
@@ -59,15 +59,15 @@ More information about the Host Discovery module is available in the Centreon do
 
 <!--Events-Duration-->
 
-| Metric Name                                          | Description                          | Unit  |
-|:-----------------------------------------------------|:-------------------------------------|:------|
-| apimanagement.requests.backend.duration.milliseconds | Duration of Backend Requests         | ms    |
-| apimanagement.requests.duration.milliseconds         | Overall Duration of Gateway Requests | ms    |
+| Metric Name                                          | Description                          | Unit |
+| :--------------------------------------------------- | :----------------------------------- | :--- |
+| apimanagement.requests.backend.duration.milliseconds | Duration of Backend Requests         | ms   |
+| apimanagement.requests.duration.milliseconds         | Overall Duration of Gateway Requests | ms   |
 
 <!--Total-Requests-->
 
 | Metric Name                  | Description        | Unit  |
-|:-----------------------------|:-------------------|:------|
+| :--------------------------- | :----------------- | :---- |
 | apimanagement.requests.count | Number of requests | count |
 
 > You can filter the type of requests (eg. failed or successful requests) with the "FILTERDIMENSION" service Macro.
@@ -240,7 +240,7 @@ in *AZURERESOURCE*
 <!--Azure Monitor API-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURETENANT        | Tenant ID                                          |
@@ -253,7 +253,7 @@ in *AZURERESOURCE*
 <!--Azure AZ CLI-->
 
 | Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
+| :-------- | :----------------- | :------------------------------------------------- |
 | X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
 | X         | AZURESUBSCRIPTION  | Subscription ID                                    |
 | X         | AZURERESOURCE      | ID or name of the API Management resource          |
@@ -322,7 +322,7 @@ All the available options for a given mode can be displayed by adding the ```--h
 The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
 If some of the authentication parameters change, you must delete the cache file. 
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to `azure_api_<md5>_<md5>_<md5>_<md5>`.
 
 #### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
 
