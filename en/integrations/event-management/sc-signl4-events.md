@@ -87,12 +87,6 @@ dnf install make gcc libcurl-devel lua-devel luarocks
 <!--DOCUSAURUS_CODE_TABS-->
 <!--CentOS/Redhat 7-->
 
-Install **luatz**
-
-```shell
-luarocks install luatz
-```
-
 Install Centreon lua modules.
 
 ```shell
@@ -105,12 +99,6 @@ Install **lua-curl**.
 
 ```shell
 luarocks install Lua-cURL
-```
-
-Install **luatz**
-
-```shell
-luarocks install luatz
 ```
 
 Install Centreon lua modules.
