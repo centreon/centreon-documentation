@@ -168,7 +168,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
     0 0 * * * centreon /usr/sbin/centreon-helios.phar
     ```
 
-    > If you have already a previous version of the agent already installed, your file may contain a different line to uncomment, in which case you need to replace said line with the one provided above.
+    > If you already have a previous version of the agent installed, your file may contain a different line to uncomment, in which case you need to replace said line with the one provided above.
 
     > The Topology function uses the **centreon-agent.yml** file to correctly gather needed pieces of information: this is hard coded. If you change the name of this YAML file, the function will fail.
 
