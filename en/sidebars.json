@@ -981,6 +981,7 @@
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-gude-epc-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
