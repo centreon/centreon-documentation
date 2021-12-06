@@ -16,6 +16,7 @@ components:
 
   - A simple telemetry
   - Advanced statistics on the use of the Centreon software suite
+  - The use of functionalities within the user interface
 
 Telemetry anonymously and automatically collects the following data:
 
@@ -31,12 +32,14 @@ Advanced statistics include the use of additional components such as the use of
 widgets in custom views, slot management for Centreon DSM, use of deployed
 Plugin Packs, and more.
 
+The use of the functionalities within the user interface includes access to the various Centreon menus, as well as the actions performed by the user within the interface (button clicks, focus on a form field, etc.)
+
 ## Frequently Asked Questions
 
 ### What are the possible configuration settings of the CEIP program?
 
-Participation in the program is enabled by default. However sending advanced
-statistics can be configured in the web interface. The options are:
+Participation in the program is enabled by default. However, sending advanced statistics and functionality usage can be configured in the web interface. The options are:
+
 
   - Enabled
   - Disabled
