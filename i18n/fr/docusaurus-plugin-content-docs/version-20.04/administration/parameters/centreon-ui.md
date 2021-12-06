@@ -21,7 +21,7 @@ par page de **Configuration**
 - Le champ **Limite par page pour les pages de supervision** définit le nombre
 d'objet affiché par page au sein du menu **Supervision**
 - Le champ **Graphique de performance par page** définit le nombre maximum de
-graphiques affichés sur la page de *Performances*\*
+graphiques affichés sur la page de *Performances*
 - Le champ **Nombre d'éléments présent** définit le nombre maximum d'éléments
 affichés dans chaque boîte de sélection
 - Le champ **Durée d'expiration de la session**, exprimé en minutes, indique

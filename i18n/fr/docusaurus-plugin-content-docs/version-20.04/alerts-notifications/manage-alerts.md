@@ -38,7 +38,7 @@ Pour acquitter un incident, deux solutions sont possibles :
 3. In the menu: **More actions** click on **Hosts: Acknowledge** or on **Services: Acknowledge**
 
 <!--From the detailed sheet of an object-->
-\
+
 A partir de la page de détail d’un objet, cliquez sur l’icône activé associé au champ **Acknowledged** dans le cadre
 **Options** 
 
