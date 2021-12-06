@@ -19,6 +19,27 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 20.04.20
+
+`November 29, 2021`
+
+#### Bug fixes
+
+- [Configuration] Fixed reset untouched values using massive changes on hosts
+- [Custom Views] Fixed sharing of views with LDAP groups
+- [Downtime] Fixed the adding of a downtime on a resource from the French GUI
+
+#### Security fixes
+
+- CSRF - delete any command
+- CSRF - delete any poller
+- CSRF - delete any host
+- CSRF - delete any SNMP trap
+- CSRF - delete any service
+- CSRF - delete any contactGroup
+- CSRF vulnerability allowing to delete any user	
+- CSRF vulnerability allowing to delete many kinds of objects
+
 ### 20.04.19
 
 `September 30, 2021`
