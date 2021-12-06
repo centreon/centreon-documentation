@@ -93,12 +93,12 @@ yum install centreon-pack-applications-wallix-bastion-snmp
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine* :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl
-    --plugin=apps::wallix::bastion::snmp::plugin
-    --mode=system
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='wallix_ro'
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='wallix_ro' \
     --verbose
 ```
 
@@ -119,9 +119,9 @@ Pour chaque mode, la liste de toutes les métriques, seuils associés et options
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl
-    --plugin=apps::wallix::bastion::snmp::plugin
-    --mode=system
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
     --help
 ```
 

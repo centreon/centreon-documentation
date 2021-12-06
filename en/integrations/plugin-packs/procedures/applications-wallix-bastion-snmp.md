@@ -40,7 +40,7 @@ The Pack Wallix Bastion collects metrics for:
 
 ## Prerequisites
 
-To monitor your Lenovo Iomega, the SNMP must be configured.
+To monitor your Wallix Bastion, the SNMP must be configured.
 The Poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
 
 ## Setup
@@ -92,12 +92,12 @@ Once the plugin installed, log into your Centreon Poller CLI using the *centreon
 and test the Plugin by running the following command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl
-    --plugin=apps::wallix::bastion::snmp::plugin
-    --mode=system
-    --hostname=10.30.2.114
-    --snmp-version='2c'
-    --snmp-community='wallix_ro'
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='wallix_ro' \
     --verbose
 ```
 
@@ -119,9 +119,9 @@ All the options as well as all the available thresholds can be displayed by addi
 parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl
-    --plugin=apps::wallix::bastion::snmp::plugin
-    --mode=system
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
     --help
 ```
 
