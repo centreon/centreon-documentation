@@ -940,6 +940,21 @@ a check_command. It will use the poller_id field of your config.
 
 ## Centreon Broker
 
+### 20.04.17
+
+Release date: `December 1, 2021`
+
+#### Improvements
+
+- A TCP keepalive check has been added to the acceptor side of broker connections to avoid keeping dead connections
+
+#### Bug fixes
+
+- Fixed an issue that occasionally caused the LUA cache to disappear when reloading cbd
+- In case of retention on one side of a tcp connection, the connection could get interrupted because of an issue in the flush() function
+- Database connection error flag was not reset in conflict manager once an error occurred (even after successful connection) and could block the insertion into the database
+- Resolved conflicts that could appear between hostgroups when connections_count > 1
+
 ### 20.04.16
 
 `30 août 2021`
