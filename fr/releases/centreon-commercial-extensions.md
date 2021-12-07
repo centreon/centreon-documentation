@@ -23,6 +23,8 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 21.10.1
 
+Release date: `December 7, 2021`
+
 - Fixed: Symfony cache generation fails because of BAM test files
 
 ### 21.10.0
