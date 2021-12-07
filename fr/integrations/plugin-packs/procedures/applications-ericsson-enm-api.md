@@ -36,8 +36,6 @@ Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionne
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--DOCUSAURUS_CODE_TABS-->
-
 <!--Nodes-->
 
 | Metric name                 | Description                                  | Unit  |
