@@ -22,6 +22,12 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon BAM
 
+### 21.10.1
+
+Release date: `December 7, 2021`
+
+- Fixed: Symfony cache generation fails because of BAM test files
+
 ### 21.10.0
 
 - [Configuration] Warn the user for unsaved changes on BA/BV
