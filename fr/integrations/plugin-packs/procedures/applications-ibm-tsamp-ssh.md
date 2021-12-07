@@ -7,8 +7,8 @@ title: IBM TSAMP SSH
 
 ### Objets supervisés
 
-Le Pack NVIDIA GPU collecte les données pour:
-* Gpu-stats
+Le Pack IBM Tivoli System Automation for Multiplatforms collecte les données pour:
+* Resource-groups
 
 ### Règles de découvertes
 
@@ -16,11 +16,9 @@ Le Pack NVIDIA GPU collecte les données pour:
 
 <!--Services-->
 
-| Nom de la règle                      | Description                                                  |
-| :----------------------------------- | :----------------------------------------------------------- |
-| App-Ericsson-Enm-Api-Node-Celltdd-Id | Découvre les cells tdd et supervise leur statut              |
-| App-Ericsson-Enm-Api-Node-Fru-Id     | Découvre les unités remplaçables et supervise leur statut    |
-| App-Ericsson-Enm-Api-Node-Id         | Découvre les noeuds et supervise ses composants (fru, cells) |
+| Nom de la règle                       | Description                                                 |
+| :------------------------------------ | :---------------------------------------------------------- |
+| App-Ibm-Tsamp-SSH-Resource-Group-Name | Découvre les groupes de ressources et supervise leur statut |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -28,31 +26,26 @@ Le Pack NVIDIA GPU collecte les données pour:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Gpu-stats-->
+<!--Resource-groups-->
 
-| Metric name                                                        | Description                                                                                                                                                          | Unit  |
-| :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---- |
-| devices.gpu.total.count                                            | Number of gpu devices                                                                                                                                                |       |
-| *product\_name:id*#device.gpu.utilization.percentage               | Percent of time over the past sample period (between 1 second and 1/6 second depending on the product) during which one or more kernels was executing on the GPU     | %     |
-| *product\_name:id*#device.gpu.memory.utilization.percentage        | Percent of time over the past sample period (between 1 second and 1/6 second depending on the product) during which global (device) memory was being read or written | %     |
-| *product\_name:id*#device.gpu.encoder.utilization.percentage       | Percent of time over the past sample period (sampling rate is variable) during which the GPU video encoder was being used                                            | %     |
-| *product\_name:id*#device.gpu.decoder.utilization.percentage       | Percent of time over the past sample period (sampling rate is variable) during which the GPU video decoder was being used                                            | %     |
-| *product\_name:id*#device.gpu.frame_buffer.memory.usage.bytes      | On-board frame buffer memory usage                                                                                                                                   | B     |
-| *product\_name:id*#device.gpu.frame_buffer.memory.free.bytes       | On-board frame buffer memory available usage                                                                                                                         | B     |
-| *product\_name:id*#device.gpu.frame_buffer.memory.usage.percentage | On-board frame buffer memory usage in percentage                                                                                                                     | %     |
-| *product\_name:id*#device.gpu.bar1.memory.usage.bytes              | BAR1 memory usage                                                                                                                                                    | B     |
-| *product\_name:id*#device.gpu.bar1.memory.free.bytes               | BAR1 memory available usage                                                                                                                                          | B     |
-| *product\_name:id*#device.gpu.bar1.memory.usage.percentage         | BAR1 memory usage in percentage                                                                                                                                      | %     |
-| *product\_name:id*#device.gpu.fan.speed.percentage                 | Fan speed value                                                                                                                                                      | %     |
-| *product\_name:id*#device.gpu.temperature.celsius                  | Temperature value                                                                                                                                                    | C     |
-| *product\_name:id*#device.gpu.power.consumption.watt               | The last measured power draw for the  entire  board                                                                                                                  | W     |
+| Metric name                           | Description                               | Unit  |
+| :------------------------------------ | :---------------------------------------- | :---- |
+| resource_groups.unknown.count         | Number of unknown resource groups         |       |
+| resource_groups.offline.count         | Number of offline resource groups         |       |
+| resource_groups.online.count          | Number of online resource groups          |       |
+| resource_groups.failed_offline.count  | Number of failed offline resource groups  |       |
+| resource_groups.stuck_online.count    | Number of stuck online resource groups    |       |
+| resource_groups.pending_online.count  | Number of pending online resource groups  |       |
+| resource_groups.pending_offline.count | Number of pending offline resource groups |       |
+| resource_groups.ineligible.count      | Number of ineligible resource groups      |       |
+| status resource group                 | Current state of the resource group       |       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur avec les GPU NVIDIA. L'utilisateur distant
-doit avoir assez de privilèges pour executer la commande ```nvidia-smi```. 
+Afin de fonctionner, le Plugin nécessite une connexion SSH entre le Poller et le serveur. L'utilisateur distant
+doit avoir assez de privilèges pour executer la commande ```lssam```. 
 
 ## Installation
 
@@ -63,32 +56,32 @@ doit avoir assez de privilèges pour executer la commande ```nvidia-smi```.
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
+yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
 1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Nvidia-Gpu-Smi-Ssh
+yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 ```
 
 2. Sur le serveur Central Centreon, installer le Pack via le RPM:
 
 ```bash
-yum install centreon-pack-hardware-devices-nvidia-gpu-smi-ssh
+yum install centreon-pack-applications-ibm-tsamp-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *NVIDIA GPU SMI SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *IBM TSAMP SSH* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Configuration
 
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Nvidia-Gpu-Smi-SSH-custom*. 
+Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *App-Ibm-Tsamp-SSH-custom*. 
 Une fois celui-ci configuré, certaines macros doivent être renseignées.
 
 <!--DOCUSAURUS_CODE_TABS-->
@@ -138,9 +131,9 @@ Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serve
 Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine*
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nvidia_gpu_smi_ssh.pl \
-    --plugin=hardware::devices::nvidia::gpu::smi::plugin \
-    --mode=stats \
+/usr/lib/centreon/plugins/centreon_ibm_tsamp_ssh.pl \
+    --plugin=apps::ibm::tsamp::local::plugin \
+    --mode=resource-groups \
     --hostname=10.30.2.81 \
     --ssh-username=centreon \
     --ssh-password='centreon-password' \
@@ -151,23 +144,15 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
-OK: All devices are ok | 'devices.gpu.total.count'=2;;;0; 'Quadro K6000:00000000:08:00.0#device.gpu.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.memory.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.encoder.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.decoder.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.frame_buffer.memory.usage.bytes'=1349517312B;;;0;12798918656 'Quadro K6000:00000000:08:00.0#device.gpu.frame_buffer.memory.free.bytes'=11449401344B;;;0;12798918656 'Quadro K6000:00000000:08:00.0#device.gpu.frame_buffer.memory.usage.percentage'=10.54%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.bar1.memory.usage.bytes'=13631488B;;;0;268435456 'Quadro K6000:00000000:08:00.0#device.gpu.bar1.memory.free.bytes'=254803968B;;;0;268435456 'Quadro K6000:00000000:08:00.0#device.gpu.bar1.memory.usage.percentage'=5.08%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.fan.speed.percentage'=26.00%;;;0;100 'Quadro K6000:00000000:08:00.0#device.gpu.temperature.celsius'=40C;;;; 'Quadro K6000:00000000:08:00.0#device.gpu.power.consumption.watt'=24.16W;;;0; 'Quadro K6000:00000000:84:00.0#device.gpu.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.memory.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.encoder.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.decoder.utilization.percentage'=0.00%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.frame_buffer.memory.usage.bytes'=732954624B;;;0;12798918656 'Quadro K6000:00000000:84:00.0#device.gpu.frame_buffer.memory.free.bytes'=12065964032B;;;0;12798918656 'Quadro K6000:00000000:84:00.0#device.gpu.frame_buffer.memory.usage.percentage'=5.73%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.bar1.memory.usage.bytes'=5242880B;;;0;268435456 'Quadro K6000:00000000:84:00.0#device.gpu.bar1.memory.free.bytes'=263192576B;;;0;268435456 'Quadro K6000:00000000:84:00.0#device.gpu.bar1.memory.usage.percentage'=1.95%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.fan.speed.percentage'=26.00%;;;0;100 'Quadro K6000:00000000:84:00.0#device.gpu.temperature.celsius'=40C;;;; 'Quadro K6000:00000000:84:00.0#device.gpu.power.consumption.watt'=23.86W;;;0;
-checking device gpu 'Quadro K6000:00000000:08:00.0'
-    utilization gpu: 0.00 %, memory: 0.00 %, encoder: 0.00 %, decoder: 0.00 %
-    frame buffer memory usage total: 11.92 GB used: 1.26 GB (10.54%) free: 10.66 GB (89.46%)
-    bar1 memory usage total: 256.00 MB used: 13.00 MB (5.08%) free: 243.00 MB (94.92%)
-    fan speed: 26.00 %
-    gpu temperature: 40 C
-    power consumption: 24.16 W
-checking device gpu 'Quadro K6000:00000000:84:00.0'
-    utilization gpu: 0.00 %, memory: 0.00 %, encoder: 0.00 %, decoder: 0.00 %
-    frame buffer memory usage total: 11.92 GB used: 699.00 MB (5.73%) free: 11.24 GB (94.27%)
-    bar1 memory usage total: 256.00 MB used: 5.00 MB (1.95%) free: 251.00 MB (98.05%)
-    fan speed: 26.00 %gpu temperature: 40 C
-    power consumption: 23.86 W
+OK: All resource groups are ok | 'resource_groups.unknown.count'=0;;;0; 'resource_groups.offline.count'=0;;;0; 'resource_groups.online.count'=5;;;0; 'resource_groups.failed_offline.count'=0;;;0; 'resource_groups.stuck_online.count'=0;;;0; 'resource_groups.pending_online.count'=0;;;0; 'resource_groups.pending_offline.count'=0;;;0; 'resource_groups.ineligible.count'=0;;;0;
+Resource group 'db2_db2inst1_db2inst1_AUDIT-rg' operational state: online [nominal: online]
+Resource group 'db2_db2inst1_db2inst1_AUDIT2-rg' operational state: online [nominal: online]
+Resource group 'db2_db2inst1_db2inst1_TCDB-rg' operational state: online [nominal: online]
+Resource group 'db2_db2inst1_netdb101-v_0-rg' operational state: online [nominal: online]
+Resource group 'db2_db2inst1_netdb102-v_0-rg' operational state: online [nominal: online]
 ```
 
-La commande ci-dessus contrôle les statistiques GPU (```--mode=stats```).
+La commande ci-dessus contrôle le statut des groupes de ressources (```--mode=resource-groups```).
 Le Plugin utilise le Backend _libssh_ (```--ssh-backend='libssh'```) avec l'utisateur _centreon_ (```--ssh-username=centreon --ssh-password='centreon-password'```)
 et il se connecte à l'hôte _10.30.2.81_ (```--hostname='10.30.2.81'```).
 
@@ -175,9 +160,9 @@ Pour chaque mode, la liste de toutes les métriques, seuils associés et options
 en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_nvidia_gpu_smi_ssh.pl \
-    --plugin=hardware::devices::nvidia::gpu::smi::plugin \
-    --mode=stats \
+/usr/lib/centreon/plugins/centreon_ibm_tsamp_ssh.pl \
+    --plugin=apps::ibm::tsamp::local::plugin \
+    --mode=resource-groups \
     --help
 ```
 
