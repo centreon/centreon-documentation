@@ -12,6 +12,8 @@ Le Pack NVIDIA GPU collecte les données pour:
 
 ### Métriques collectées
 
+<!--DOCUSAURUS_CODE_TABS-->
+
 <!--Gpu-stats-->
 
 | Metric name                                                        | Description                                                                                                                                                          | Unit  |
