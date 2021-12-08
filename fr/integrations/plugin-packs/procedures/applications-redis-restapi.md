@@ -1,38 +1,10 @@
 ---
 id: applications-redis-restapi
-title: Redis Restapi
+title: Redis Restapi (Deprecated)
 ---
 
-## Prerequisites
+## **ATTENTION** Ce Pack est déprécié
 
-### Centreon Plugin
+Ce Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack ' 	Redis Labs Enterprise Cluster Rest API'.
 
-Install this plugin on each needed poller: \# yum install
-centreon-plugin-Applications-Redis-Restapi
-
-## Centreon Configuration
-
-### Create a new host
-
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
-
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-Redis-Restapi          |
-
-Click on the *Save* button.
-
-### Host Macro Configuration
-
-The following macros must be configured on host:
-
-| Macro         | Description           | Default value |
-| :------------ | :-------------------- | :------------ |
-| REDISPORT     | Redis server port     | 6379          |
-| REDISUSERNAME | Redis server username |               |
-| REDISPASSWORD | Redis server password |               |
+Référez vous à [cette procédure](applications-redis-rlec-restapi.html)
