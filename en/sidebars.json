@@ -594,6 +594,7 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-databases-couchdb-restapi",
+                    "integrations/plugin-packs/procedures/applications-databases-db2",
                     "integrations/plugin-packs/procedures/applications-databases-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-databases-firebird",
