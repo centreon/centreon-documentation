@@ -3,13 +3,10 @@ id: sc-elastic-events
 title: Elastic Events
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the content in french. 
-If it's you, let us know and ping us on [slack](https://centreon.slack.com).
-
 ## Before starting
 
 - You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status**, **service_status** events. The event format is shown **[there](#event-format)**.
+- By default, this stream connector sends **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
 - Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Compatibility
@@ -175,7 +172,6 @@ Each stream connector has a set of mandatory parameters. To add them you must **
 | string | elastic_username        | Elastic username                        | `a_username`                                            |
 | string | elastic_password        | Elastic password                        | `a password`                                            |
 
-
 ### Add Elastic optional parameters
 
 Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
@@ -222,8 +218,7 @@ This stream connector will send event with the following format.
     "state_type": 1,
     "host": "my_host",
     "service": "a_service",
-    "output": "CRITICAL: Burnin and Lootin",
-    "timestamp": 1637229207
+    "output": "CRITICAL: Burnin and Lootin"
 }
 ```
 
@@ -247,8 +242,8 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
-| Type   | Name        | Value                                           |
-| ------ | ----------- | ----------------------------------------------- |
+| Type   | Name        | Value                                          |
+| ------ | ----------- | ---------------------------------------------- |
 | string | format_file | /etc/centreon-broker/elastic-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user
