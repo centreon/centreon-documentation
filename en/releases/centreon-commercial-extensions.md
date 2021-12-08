@@ -362,6 +362,8 @@ standalone SSH connections.
 
 ### 20.10.2
 
+`Release date: December 8, 2021`
+
 #### Bug fixes
 
 - Fixed a bug that prevented the description of the Plugin Packs from being displayed when the user's UI language was set to something other than EN or FR
