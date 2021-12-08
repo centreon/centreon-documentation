@@ -467,8 +467,7 @@
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
-                    "integrations/plugin-packs/procedures/applications-redis-cli",
-                    "integrations/plugin-packs/procedures/applications-redis-restapi",
+                    "integrations/plugin-packs/procedures/applications-redis-rlec-restapi",
                     "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
@@ -613,6 +612,7 @@
                     "integrations/plugin-packs/procedures/applications-databases-mysql",
                     "integrations/plugin-packs/procedures/applications-databases-oracle",
                     "integrations/plugin-packs/procedures/applications-databases-postgresql",
+                    "integrations/plugin-packs/procedures/applications-databases-redis",
                     "integrations/plugin-packs/procedures/applications-databases-rrdtool",
                     "integrations/plugin-packs/procedures/applications-databases-sybase",
                     "integrations/plugin-packs/procedures/applications-databases-warp10-sensision"
