@@ -396,6 +396,11 @@ ProxyTimeout 300
     SSLCertificateFile /etc/pki/tls/certs/ca.crt
     SSLCertificateKeyFile /etc/pki/tls/private/ca.key
 
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
     <Directory "/usr/share/centreon/www">
         DirectoryIndex index.php
         Options Indexes
@@ -484,16 +489,7 @@ Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/autoindex.conf** file and comme
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-7. Disable mod_security boundary to enable license upload
-
-Edit the **/opt/rh/httpd24/root/etc/httpd/conf.d/mod_security.conf** file and comment the following line:
-
-```apacheconf
-#SecRule MULTIPART_UNMATCHED_BOUNDARY "!@eq 0" \
-#"id:'200003',phase:2,t:none,log,deny,status:44,msg:'Multipart parser detected a possible unmatched boundary.'"
-```
-
-8. Restart the Apache and PHP process to take in account the new configuration:
+7. Restart the Apache and PHP process to take in account the new configuration:
 
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
@@ -644,33 +640,44 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 8. Update Apache configuration file
 
-Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`. 
-Here is an example of how the file should look like: 
+Finally, update `SSLCertificateFile` and `SSLCertificateKeyFile` parameters appropriately in your apache configuration file located in `/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf`.
+Here is an example of how the file should look like:
 
 ```apacheconf
 Alias /centreon/api /usr/share/centreon
 Alias /centreon /usr/share/centreon/www/
+
 <LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
 </LocationMatch>
+
 <LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
     ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
 </LocationMatch>
+
 ProxyTimeout 300
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} off
     RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </VirtualHost>
+
 <VirtualHost *:443>
-#####################
-# SSL configuration #
-#####################
+    #####################
+    # SSL configuration #
+    #####################
     SSLEngine on
     SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
     SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
     SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
     <Directory "/usr/share/centreon/www">
         DirectoryIndex index.php
         Options Indexes
@@ -681,9 +688,12 @@ ProxyTimeout 300
         <IfModule mod_php5.c>
             php_admin_value engine Off
         </IfModule>
+
         FallbackResource /centreon/index.html
+
         AddType text/plain hbs
     </Directory>
+
     <Directory "/usr/share/centreon/api">
         Options Indexes
         AllowOverride all
@@ -693,6 +703,7 @@ ProxyTimeout 300
         <IfModule mod_php5.c>
             php_admin_value engine Off
         </IfModule>
+
         AddType text/plain hbs
     </Directory>
 </VirtualHost>
