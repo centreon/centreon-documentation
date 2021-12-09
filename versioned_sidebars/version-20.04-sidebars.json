@@ -1517,6 +1517,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/integrations/plugin-packs/procedures/applications-databases-db2"
+            },
+            {
+              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/applications-databases-elasticsearch"
             },
             {
