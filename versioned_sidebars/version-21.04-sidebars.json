@@ -1181,7 +1181,7 @@
             },
             {
               "type": "doc",
-              "id": "version-21.04/integrations/plugin-packs/procedures/applications-redis-cli"
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-redis-rlec-restapi"
             },
             {
               "type": "doc",
@@ -1712,6 +1712,10 @@
             {
               "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-databases-postgresql"
+            },
+            {
+              "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-databases-redis"
             },
             {
               "type": "doc",
