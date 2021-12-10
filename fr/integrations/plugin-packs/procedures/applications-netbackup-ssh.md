@@ -7,7 +7,7 @@ title: Netbackup SSH
 
 ### Objets supervisés
 
-Le Plugin Pack inclue la supervision du statut tâches, l'utilisation des cassets, le nettoyage des devices, et le status des devices
+Le Plugin Pack inclut la supervision du statut des tâches, l'utilisation des cassettes, le nettoyage des équipements, et le status des équipements
 utilisant des commandes systèmes.
 
 ### Règles de découvertes 

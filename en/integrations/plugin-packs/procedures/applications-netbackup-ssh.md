@@ -7,7 +7,7 @@ title: Netbackup SSH
 
 ### Monitored Objects
 
-The Centreon Plugin Pack includes monitoring of job status, tape usage, drive cleaning, and drvie status using system commands.
+The Centreon Plugin Pack includes monitoring of job status, tape usage, drive cleaning, and drive status using system commands.
 
 ### Discovery Rules
 
@@ -25,26 +25,26 @@ The Centreon Plugin Pack includes monitoring of job status, tape usage, drive cl
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Dedupstatus -->
+<!--Dedup-status -->
 
 | Metric name                               | Description                            | Unit |
 | :---------------------------------------- | :------------------------------------- | :--- |
 | status                                    | Status of dedup                        |      |
 | usage                                     | Dedup usage                            |  %   |
 
-<!--Drivecleaning-->
+<!--Drive-cleaning-->
 
 | Metric name                               | Description                         | Unit  |
 | :---------------------------------------- | :---------------------------------- | :---  |
 | cleaning                                  | Total number of drive cleaning      | count |
 
-<!--Drivestatus-->
+<!--Drive-status-->
 
 | Metric name                               | Description                                                       | Unit  |
 | :---------------------------------------- | :---------------------------------------------------------------- | :---- |
 | status                                    | Status of drive            	                                    |       |
 
-<!--Jobstatus-->
+<!--Job-status-->
 
 | Metric name                               | Description                            | Unit  |
 | :---------------------------------------- | :------------------------------------- | :---- |
@@ -52,7 +52,7 @@ The Centreon Plugin Pack includes monitoring of job status, tape usage, drive cl
 | total                                     | Total of jobs                          | count |
 | frozen                                    | Jobs in frozen state                   |       |
 
-<!--Tapeusage-->
+<!--Tape-usage-->
 
 | Metric name                               | Description                                             | Unit  |
 | :---------------------------------------- | :------------------------------------------------------ | :---  |
