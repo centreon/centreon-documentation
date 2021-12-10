@@ -141,7 +141,7 @@ Release date: `9 novembre 2021`
 
 ## Centreon Plugin Packs Manager
 
-### 21.04.2
+### 21.04.1
 
 #### Bug fixes
 
