@@ -2903,6 +2903,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/integrations/plugin-packs/procedures/hardware-pdu-gude-epc-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/hardware-ups-hp-snmp"
             },
             {

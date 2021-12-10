@@ -3077,6 +3077,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/hardware-pdu-gude-epc-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/hardware-ups-hp-snmp"
             },
             {
