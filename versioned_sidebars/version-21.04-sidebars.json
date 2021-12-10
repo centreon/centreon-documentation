@@ -1281,6 +1281,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-wallix-bastion-snmp"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-wazuh-restapi"
             },
             {
