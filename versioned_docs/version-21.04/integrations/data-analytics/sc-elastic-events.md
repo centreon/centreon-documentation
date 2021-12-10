@@ -135,7 +135,7 @@ curl --user elastic:centreon-es-passwd -X PUT "<elastic_proto>://<elastic_ip>:<e
  -d '{"mappings":{"properties":{"host":{"type":"keyword"},"service":{"type":"keyword"}, "output":{"type":"text"},"status":{"type":"keyword"},"state":{"type":"keyword"}, "type":{"type":"keyword"},"timestamp":{"type":"date","format":"epoch_second"}}}}'
 ```
 
-:warning: If you use a custom **[event format](#event-format)**, you will have to 
+> If you use a custom **[event format](#event-format)**, you will have to 
 modify the index creation accordingly.
 
 - A user / password with required privileges to POST data to the index.
