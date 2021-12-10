@@ -144,6 +144,8 @@ Release date: `November 9, 2021`
 
 ### 21.04.1
 
+`Release date: December 10, 2021`
+
 #### Bug fixes
 
 - Fixed a bug that prevented the description of the Plugin Packs from being displayed when the user's UI language was set to something other than EN or FR
