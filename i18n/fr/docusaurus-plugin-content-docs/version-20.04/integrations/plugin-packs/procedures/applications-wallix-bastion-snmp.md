@@ -1,70 +1,46 @@
 ---
-id: applications-activemq-jmx
-title: ActiveMQ JMX
+id: applications-wallix-bastion-snmp
+title: Wallix Bastion SNMP
 ---
 
-## Vue d'ensemble
+## Contenu du Pack de supervision
 
-Apache ActiveMQ est un serveur de messagerie multi protocole Open Source développé en Java.
+### Objets supervisés
 
-## Contenu du Plugin-Pack
+Le Pack Wallix Bastion collecte les données pour:
+* License
+* System
 
-### Éléments supervisés
-
-* Brokers (queue / topic)
-
-### Règles de découverte
+### Métriques collectées 
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--Services-->
+<!--License-->
 
-| Rule name                     | Description                |
-| :---------------------------- | :------------------------- |
-| App-Activemq-Jmx-Brokers-Name |  Discover ActiveMQ Broker  |
+| Metric name                                   | Description                                 | Unit  |
+| :-------------------------------------------- | :------------------------------------------ | :---- |
+| license status                                | Status of the licenses                      |       |
+| license.expires.seconds                       | Expiration time                             | s     |
+| *license\_resource*\#license.usage.count      | Number of used resources on the license     |       |
+| *license\_resource*\#license.free.count       | Number of free resources on the license     |       |
+| *license\_resource*\#license.usage.percentage | Percentage of used resources on the license | %     |
 
-<!--DOCUSAURUS_CODE_TABS-->
+<!--System-->
 
-### Métriques collectées
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--Brokers-->
-
-| Metric name                                    | Description                                         |
-| :--------------------------------------------- | :-------------------------------------------------- |
-| Broker.store.usage.percentage                  | Broker store percentage usage. Unit: %              |
-| Broker.temporary.usage.percentage              | Broker temporary store percentage usage. Unit: %    |
-| Broker.memory.usage.percentage                 | Broker memory usage. Unit: %                        |
-| Broker.queue.average.enqueue.time.milliseconds | Broker average enqueue time (queue). Unit: ms       |
-| Broker.queue.consumers.connected.count         | Broker queue connected consumers. Unit: count       |
-| Broker.queue.producers.connected.count         | Broker queue connected producers . Unit: count      |
-| Broker.queue.memory.usage.percentage           | Broker queue memory usage. Unit: %                  |
-| Broker.queue.size.count                        | Broker queue size. Unit:count                       |
-| Broker.queue.messages.enqueued.count           | Broker enqueued messages. Unit: count               |
-| Broker.queue.messages.dequeue.count            | Broker dequeued messages. Unit: count               |
-| Broker.queue.messages.expired.count            | Broker queue expired messages. Unit: count          |
-| Broker.queue.messages.inflighted.count         | Broker queue inflighted messages. Unit: count       |
-| Broker.queue.messages.size.average.bytes       | Broker queue average messages size. Unit: bytes     |
-| Broker.topic.average.enqueue.time.milliseconds | Broker average queue time per topic. Unit: ms       |
-| Broker.topic.consumers.connected.count         | Broker connected consumers per topic. Unit: count   |
-| Broker.topic.producers.connected.count         | Broker connected producers per topic. Unit: count   |
-| Broker.topic.memory.usage.percentage           | Broker memory percentage usage per topic. Unit: %   |
-| Broker.topic.size.count                        | Broker topic size. Unit:count                       |
-| Broker.topic.messages.enqueued.count           | Broker enqueued messages per topic. Unit: count     |
-| Broker.topic.messages.dequeue.count            | Broker messages deuque per topic. Unit: count       |
-| Broker.topic.messages.expired.count            | Broker expired messages per topic. Unit: count      |
-| Broker.topic.messages.inflighted.count         | Broker inflighted messages per topic. Unit: count   |
-| Broker.topic.messages.size.average.bytes       | Broker average messages size per topic. Unit: bytes |
+| Metric name              | Description                             | Unit  |
+| :----------------------- | :-------------------------------------- | :---- |
+| services status          | Status of all services                  |       |
+| sessions.total.count     | Number of total sessions                |       |
+| sessions.primary.count   | Number of primary sessions              |       |
+| sessions.secondary.count | Number of secondary sessions            |       |
+| sessions.ghost.count     | Number of ghost sessions                |       |
+| requests.pending.count   | Number of requests pending for approval |       |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Prérequis
 
-### Configuration ActiveMQ
-
-ActiveMQ embarque un agent Jolokia par défaut à l'adresse : http://localhost:8161/api/jolokia
-Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : https://activemq.apache.org/rest
+Afin de contrôler votre application Wallix Bastion, le SNMP doit être configuré.
 
 ## Installation
 
@@ -72,108 +48,83 @@ Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : 
 
 <!--Online IMP Licence & IT-100 Editions-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
+1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
-yum install centreon-plugin-Applications-ActiveMQ-Jmx
+yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 ```
 
-2. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
+2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources ActiveMQ via JMX:
+1. Installer le Plugin sur tous les Collecteurs Centreon :
 
 ```bash
-yum install centreon-plugin-Applications-ActiveMQ-Jmx
+yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 ```
 
-2. Installer le RPM du Plugin-Pack sur le serveur Centreon Central:
+2. Sur le serveur Central Centreon, installer le Pack via le RPM:
 
 ```bash
-centreon-pack-applications-activemq-jmx.noarch
+yum install centreon-pack-applications-wallix-bastion-snmp
 ```
+
+3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-3. Dans l'interface Web de Centreon, installer le Plugin-Pack *ActiveMQ JMX* depuis la page "Configuration > Plugin Packs > Manager"
-
 ## Configuration
 
-* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
-* Appliquez le modèle "App-Activemq-JMX-custom" et configurez toutes les macros nécessaires:
+* Ajoutez un nouvel Hôte depuis la page **Configuration > Hôtes**
+* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
+* Appliquez le Modèle d'Hôte *App-Wallix-Bastion-SNMP-custom*
 
-| Mandatory   | Name                | Description                                                                |
-| :---------- | :------------------ | :------------------------------------------------------------------------- |
-| X           | JOLOKIAURL          | Jolokia URL (ex: http://myactivemq.int.centreon.com:8161/api/jolokia)      |
-| X           | JOLOKIAUSERNAME     | Jolokia user name                                                          |
-| X           | JOLOKIAPASSWORD     | Jolokia password                                                           |
-|             | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+> Si vous utilisez la version 3 du protocole SNMP, utilisez la Macro *SNMPEXTRAOPTIONS* afin de renseigner les paramètres
+> d'authentification et de chiffrement adéquats
 
-**Utilisez le module discovery pour ajouter vos *Brokers* à votre supervision**
-**Allez dans le menu *Configuration > Services > Scan* pour exécuter une découverte**
+| Mandatory   | Name                    | Description                       |
+| :---------- | :---------------------- | :---------------------------------|
+|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
 
-## FAQ
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+## Comment puis-je tester le Plugin et que signifient les options des commandes ?
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
+Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine* :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode Brokers \
-  --url='http://myactivemq.int.centreon.com:8161/api/jolokia' \
-  --username='admin' \
-  --password='admin' \
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
+    --hostname=10.30.2.114 \
+    --snmp-version='2c' \
+    --snmp-community='wallix_ro' \
+    --verbose
 ```
 
-Cette commande supervise les Brokers d'un serveur ActiveMQ via l'url *http://myactivemq.int.centreon.com:8161/api/jolokia* (```--url='http://myactivemq.int.centreon.com:8161/api/jolokia'```) à l'aide de l'utilisateur admin et de son password (```--username='admin' --password='admin'```).
-
-La commande retourne le message de sortie ci-dessous:
+La commande devrait retourner un message de sortie de la forme ci-dessous:
 
 ```bash
-OK: Broker 'localhost' store usage: 0.00 %, temporary usage: 0.00 %, memory usage: 0.00 % - queue 'foo.bar' average time messages remained enqueued: 0.000 ms, consumers connected: 0, producers connected: 0, memory usage: 0.00 %, queue size: 1, messages enqueued: 0, messages dequeued: 0, messages expired: 0, messages in-flighted: 0, average messages size: 1.09 KB - All topics are ok | 'localhost#Broker.store.usage.percentage'=0.00%;;;0;100 'localhost#Broker.temporary.usage.percentage'=0.00%;;;0;100 'localhost#Broker.memory.usage.percentage'=0.00%;;;0;100
+OK: system is ok | 'sessions.total.count'=13;;;0; 'sessions.primary.count'=7;;;0; 'sessions.secondary.count'=6;;;0; 'sessions.ghost.count'=0;;;0; 'requests.pending.count'=2;;;0;
+checking system
+    services status: running
+    sessions total: 13 primary: 7 secondary: 6 ghost: 0
+    requests pending: 2
 ```
 
-Des seuils peuvent être positionnés à l'aide des options --warning-* et --critical-* sur les métriques.
+Cette commande contrôle l'état du système Wallix Bastion (```--mode=system```) ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
+en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *wallix_ro* (```--snmp-community='wallix_ro'```).
 
-Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option --help à la commande :
+Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichées
+en ajoutant le paramètre ```--help``` à la commande:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --mode Brokers \
-  --help
+/usr/lib/centreon/plugins/centreon_wallix_bastion_snmp.pl \
+    --plugin=apps::wallix::bastion::snmp::plugin \
+    --mode=system \
+    --help
 ```
 
-Vous pouvez afficher tous les modes disponibles à l'aide de la commande suivante :
+## Diagnostic
 
-```bash
-/usr/lib/centreon/plugins/centreon_activemq_jmx.pl \
-  --plugin apps::mq::activemq::jmx::plugin \
-  --list-mode
-```
-
-### J'obtiens le message d'erreur suivant:
-
-#### UNKNOWN: protocol issue: Error while fetching http://myactivemq.int.centreon.com:8161/url/path
-
-Ce message d'erreur indique le plugin n'a pas réussi requêter l'API. Vérifiez que les credentials fournis sont les bons.
-
-#### UNKNOWN: JMX Request: Cant get a single value.
-
-Ce message d'erreur indique le plugin n'a pas réussi à récupérer des valeurs via l'API. Vérifiez le chemin de l'url (path).
-
-#### UNKNOWN: protocol issue: java.lang.Exception : Origin null is not allowed to call this agent
-
-Jolokia par défaut dans ActiveMQ n'autorise pas le Cross-Origin Resource Sharing (CORS).
-Il faudra désactiver cette vérification en éditant le fichier jolokia-access.xml et retirer la balise `<strict-checking/>` :
-
-```xml
-<cors>
- <strict-checking/>
-</cors>
-```
-
-Puis redémarrer ActiveMQ
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins#snmp-checks)
