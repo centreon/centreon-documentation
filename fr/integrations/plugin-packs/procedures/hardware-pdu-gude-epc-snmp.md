@@ -80,7 +80,7 @@ Afin de contrôler votre Gude Export Power Control, le SNMP doit être configur�
 yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC PDU SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+2. Sur l'interface Web de Centreon, installer le Pack *Gude EPC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--Offline IMP License-->
 
