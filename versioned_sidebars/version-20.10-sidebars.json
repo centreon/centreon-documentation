@@ -883,6 +883,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc"
             },
             {
