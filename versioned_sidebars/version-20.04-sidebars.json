@@ -1707,6 +1707,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.04/integrations/plugin-packs/procedures/hardware-devices-nvidia-gpu-smi-ssh"
+            },
+            {
+              "type": "doc",
               "id": "version-20.04/integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi"
             },
             {
