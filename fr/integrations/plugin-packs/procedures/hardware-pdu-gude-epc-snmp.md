@@ -96,7 +96,7 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 yum install centreon-pack-hardware-pdu-gude-epc-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Gude EPC PDU SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
+3. Sur l'interface Web de Centreon, installer le Pack *Gude EPC SNMP* depuis la page **Configuration > Plugin Packs > Gestionnaire**
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
