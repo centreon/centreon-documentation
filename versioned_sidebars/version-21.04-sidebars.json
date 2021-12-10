@@ -961,6 +961,10 @@
             },
             {
               "type": "doc",
+              "id": "version-21.04/integrations/plugin-packs/procedures/applications-ericsson-enm-api"
+            },
+            {
+              "type": "doc",
               "id": "version-21.04/integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi"
             },
             {
