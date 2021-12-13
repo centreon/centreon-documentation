@@ -338,6 +338,7 @@
             {
                 "ids": [
                     "upgrade/introduction",
+                    "upgrade/upgrade-from-21-04",
                     "upgrade/upgrade-from-20-10",
                     "upgrade/upgrade-from-20-04",
                     "upgrade/upgrade-from-19-10",
@@ -346,6 +347,7 @@
                     "upgrade/upgrade-from-3-4",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04",
                     "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10",
+                    "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04",
                     "upgrade/centreon-ha/upgrade-from-centreon-failover",
                     "upgrade/upgrade-mariadb"
                 ],
@@ -401,6 +403,7 @@
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-emc-ppma-restapi",
+                    "integrations/plugin-packs/procedures/applications-ericsson-enm-api",
                     "integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
@@ -409,7 +412,9 @@
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
+                    "integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
+                    "integrations/plugin-packs/procedures/applications-ibmmq-restapi",
                     "integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-restapi",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-nsclient-05-restapi",
@@ -456,8 +461,7 @@
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
-                    "integrations/plugin-packs/procedures/applications-redis-cli",
-                    "integrations/plugin-packs/procedures/applications-redis-restapi",
+                    "integrations/plugin-packs/procedures/applications-redis-rlec-restapi",
                     "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
@@ -481,6 +485,7 @@
                     "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
                     "integrations/plugin-packs/procedures/applications-vtom-restapi",
+                    "integrations/plugin-packs/procedures/applications-wallix-bastion-snmp",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
                     "integrations/plugin-packs/procedures/applications-weblogic-jmx",
                     "integrations/plugin-packs/procedures/applications-video-zixi-restapi",
@@ -543,6 +548,7 @@
                     "integrations/plugin-packs/procedures/cloud-azure-network-firewall",
                     "integrations/plugin-packs/procedures/cloud-azure-compute-functions",
                     "integrations/plugin-packs/procedures/cloud-azure-network-frontdoor",
+                    "integrations/plugin-packs/procedures/cloud-azure-management-insightsmetrics",
                     "integrations/plugin-packs/procedures/cloud-azure-security-keyvault",
                     "integrations/plugin-packs/procedures/cloud-azure-network-loadbalancer",
                     "integrations/plugin-packs/procedures/cloud-azure-management-loganalytics",
@@ -590,6 +596,7 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-databases-couchdb-restapi",
+                    "integrations/plugin-packs/procedures/applications-databases-db2",
                     "integrations/plugin-packs/procedures/applications-databases-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-databases-firebird",
@@ -601,6 +608,7 @@
                     "integrations/plugin-packs/procedures/applications-databases-mysql",
                     "integrations/plugin-packs/procedures/applications-databases-oracle",
                     "integrations/plugin-packs/procedures/applications-databases-postgresql",
+                    "integrations/plugin-packs/procedures/applications-databases-redis",
                     "integrations/plugin-packs/procedures/applications-databases-rrdtool",
                     "integrations/plugin-packs/procedures/applications-databases-sybase",
                     "integrations/plugin-packs/procedures/applications-databases-warp10-sensision"
@@ -640,6 +648,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-nvidia-gpu-smi-ssh",
                     "integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-groupseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-trio-restapi",
@@ -682,6 +691,7 @@
                     "integrations/plugin-packs/procedures/network-firewalls-cisco-asa-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-snmp",
                     "integrations/plugin-packs/procedures/network-cisco-callmanager-sxml",
+                    "integrations/plugin-packs/procedures/network-cisco-esa-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-esa-xmlapi",
                     "integrations/plugin-packs/procedures/network-cisco-firepower-fmc-restapi",
                     "integrations/plugin-packs/procedures/network-cisco-firepower-snmp",
@@ -884,6 +894,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-dell-md3000-smcli",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-me4-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-ml6000-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-dell-powerstore-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-dell-tl2000-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-emc-celerra-ssh",
                     "integrations/plugin-packs/procedures/hardware-storage-emc-clariion-navisphere",
@@ -930,6 +941,7 @@
                     "integrations/plugin-packs/procedures/hardware-storage-nimble-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-nimble-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zfs-snmp",
+                    "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-restapi",
                     "integrations/plugin-packs/procedures/hardware-storage-oracle-zs-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-overland-neo-snmp",
                     "integrations/plugin-packs/procedures/hardware-storage-panzura-snmp",
@@ -974,6 +986,7 @@
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-gude-epc-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
@@ -1014,7 +1027,8 @@
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
                     "integrations/data-analytics/sc-splunk-metrics",
                     "integrations/data-analytics/sc-splunk-events",
-                    "integrations/data-analytics/sc-warp10"
+                    "integrations/data-analytics/sc-warp10",
+                    "integrations/data-analytics/sc-kafka-events"
                 ],
                 "label": "Data Analytics",
                 "type": "subcategory"
@@ -1036,12 +1050,10 @@
                     "integrations/event-management/sc-hp-bsm",
                     "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
-                    "integrations/event-management/sc-pagerduty",
+                    "integrations/event-management/sc-pagerduty-events",
                     "integrations/event-management/sc-service-now-events",
-                    "integrations/event-management/sc-servicenow-mid-server",
-                    "integrations/event-management/sc-splunk-events",
-                    "integrations/event-management/sc-splunk-metrics",
-                    "integrations/event-management/sc-kafka-events"
+                    "integrations/event-management/sc-signl4-events",
+                    "integrations/event-management/sc-servicenow-mid-server"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
@@ -1132,7 +1144,8 @@
             }
         ],
         "Security" : [
-            "security/security"
+            "security/security",
+            "security/key-rotation"
         ],
 
         "Resources": [

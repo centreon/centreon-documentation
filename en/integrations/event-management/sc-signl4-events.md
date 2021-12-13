@@ -1,6 +1,6 @@
 ---
-id: sc-splunk-events
-title: Splunk Events
+id: sc-signl4-events
+title: Signl4 Events
 ---
 
 ## Before starting
@@ -112,8 +112,8 @@ luarocks install centreon-stream-connectors-lib
 ### Download Splunk events stream connector
 
 ```shell
-wget -O /usr/share/centreon-broker/lua/splunk-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/splunk-events-apiv2.lua
+wget -O /usr/share/centreon-broker/lua/signl4-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/signl4/signl4-events-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/signl4-events-apiv2.lua
 ```
 
 ## Configuration
@@ -124,31 +124,39 @@ To configure your stream connector, you must **head over** the **Configuration -
 
 | Field           | Value                                                  |
 | --------------- | ------------------------------------------------------ |
-| Name            | Splunk events                                          |
-| Path            | /usr/share/centreon-broker/lua/splunk-events-apiv2.lua |
+| Name            | Signl4 events                                          |
+| Path            | /usr/share/centreon-broker/lua/signl4-events-apiv2.lua |
 | Filter category | Neb                                                    |
 
-### Add Splunk mandatory parameters
+### Add Signl4 mandatory parameters
 
 Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name            | Value explanation                       | Value exemple                                           |
-| ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
-| string | http_server_url | the url of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
-| string | splunk_token    | Token to use the event collector api    |                                                         |
+| Type   | Name            | Value explanation               | Value exemple |
+| ------ | --------------- | ------------------------------- | ------------- |
+| string | team_secret     | Team secret                     | x3x[..]2c     |
 
-### Add Splunk optional parameters
+### Add Signl4 optional parameters
 
 Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
 
-| Type   | Name              | Value explanation                                               | default value                              |
-| ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------ |
-| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                      |
-| string | splunk_host       | Name or address of the server that generated the event          | Central                                    |
-| string | splunk_index      | Index where the events are stored                               |                                            |
-| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                            |
-| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-events.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                          |
+| Type   | Name               | Value explanation                          | default value                                    |
+| ------ | ------------------ | ------------------------------------------ | ------------------------------------------------ |
+| string | server_address     | url of your Centreon serversignl4 instance | `https://connect.signl4.com`                     |
+| string | x_s4_source_system | source system to display in Signl4         | Centreon                                         |
+| string | logfile            | the file in which logs are written         | /var/log/centreon-broker/signl4-events-apiv2.log |
+| number | log_level          | logging level from 1 (errors) to 3 (debug) | 1                                                |
+
+### Proxy configuration
+
+When using a proxy to connect to the Signl4 endpoint, you can use additional parameters to configure it:
+
+| Type     | Name               | Value explanation                                     |
+| -------- | ------------------ | ----------------------------------------------------- |
+| string   | proxy_address      | Proxy address                                         |
+| number   | proxy_port         | Proxy port (mandatory when proxy_address is set)      |
+| string   | proxy_username     | Proxy username the file in which logs are written     |
+| password | proxy_password     | Proxy password (mandatory when proxy_username is set) |
 
 ### Standard parameters
 
@@ -165,13 +173,7 @@ Some of them are overridden by this stream connector.
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
-
-To use this feature you must add the following parameter in your stream connector configuration.
-
-| Type   | Name            | Value           |
-| ------ | --------------- | --------------- |
-| number | max_buffer_size | `more than one` |
+This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
 
 ## Event format
 
@@ -181,19 +183,16 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'sourcetype': '_json',
-  'source': 'http:my_index',
-  'index': 'my_index',
-  'host': 'Central',
-  'time': 1630590530,
-  'event': {
-    'event_type': 'service',
-    'state': 2,
-    'state_type': 1,
-    'hostname': 'my_host',
-    'service_description': 'my_service',
-    'output': 'Critical: it is on fire'
-  }
+  "EventType": "SERVICE",
+  "Date": "Fri Nov 26 11:54:29 CET 2021",
+  "Host": "Highway",
+  "Service": "to hell!",
+  "Message": "acdc song",
+  "Status": "CRITICAL",
+  "Title": "Highway/to hell! is CRITICAL",
+  "X-S4-SourceSystem": "Centreon",
+  "X-S4-ExternalID": "HOSTALERT_666",
+  "X-S4-Status": "new"
 }
 ```
 
@@ -201,18 +200,15 @@ This stream connector will send event with the following format.
 
 ```json
 {
-  'sourcetype': '_json',
-  'source': 'http:my_index',
-  'index': 'my_index',
-  'host': 'Central',
-  'time': 1630590530,
-  'event': {
-    'event_type': 'host',
-    'state': 1,
-    'state_type': 1,
-    'hostname': 'my_host',
-    'output': 'Critical: it is on fire'
-  }
+  "EventType": "HOST",
+  "Date": "Fri Nov 26 11:54:29 CET 2021",
+  "Host": "Highway",
+  "Message": "to hell!",
+  "Status": "DOWN",
+  "Title": "Highway is DOWN",
+  "X-S4-SourceSystem": "Centreon",
+  "X-S4-ExternalID": "HOSTALERT_666",
+  "X-S4-Status": "new"
 }
 ```
 
@@ -222,9 +218,9 @@ This stream connector allows you to change the format of the event to suit your 
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
-| Type   | Name        | Value                                          |
-| ------ | ----------- | ---------------------------------------------- |
-| string | format_file | /etc/centreon-broker/splunk-events-format.json |
+| Type   | Name        | Value                                                   |
+| ------ | ----------- | ------------------------------------------------------- |
+| string | format_file | /etc/centreon-broker/lua-conf/signl4-events-format.json |
 
 > The event format configuration file must be readable by the centreon-broker user
 
@@ -236,8 +232,16 @@ Here is the list of all the curl commands that are used by the stream connector.
 
 ### Send events
 
+You can trigger a signal with the following command:
+
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'authorization: Splunk <splunk_token>' '<http_server_url>' -d "{'sourcetype': '<splunk_sourcetype>','source': '<splunk_source>','index': '<splunk_index>','host': '<splunk_host>','time': <epoch_timestamp>,'event': {'event_type': 'host','state': 1,'state_type': 1,'hostname':'my_host','output': 'Critical: it is on fire'}}"
+curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/webhook/<team_secret>' -d '{"EventType": "HOST","Date": "Fri Nov 26 11:54:29 CET 2021","Host": "Highway","Message": "to hell!","Status": "DOWN", "Title": "Highway is DOWN", "X-S4-SourceSystem": "Centreon","X-S4-ExternalID": "HOSTALERT_666","X-S4-Status": "new"}'
 ```
 
- You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+You can then close this signal with the following command:
+
+```shell
+curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/webhook/<team_secret>' -d '{"EventType": "HOST","Date": "Fri Nov 26 12:00:00 CET 2021","Host": "Highway","Message": "to hell!","Status": "OK", "Title": "Highway is UP", "X-S4-SourceSystem": "Centreon","X-S4-ExternalID": "HOSTALERT_666","X-S4-Status": "resolved"}'
+```
+
+You must replace the `<team_secret>` inside the URL with yours. 

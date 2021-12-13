@@ -49,10 +49,7 @@ The diagram below summarizes the architecture:
 
 ### Centreon
 
-The required version of Centreon software for compatibility with Centreon
-MAP is **Centreon 21.04**
-
-**Centreon must be installed using the RPM packages.**
+The central server and Centreon MAP must be installed in the same major versions (i.e. both in 21.10.x).
 
 ### Centreon MAP Server
 
@@ -227,13 +224,13 @@ you need to install the `centreon-release` package:
 <!--RHEL / CentOS / Oracle Linux 8-->
 
 ```shell
-dnf install http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 <!--CentOS 7-->
 
 ```shell
-yum install http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -366,15 +363,11 @@ yum install centreon-map-web-client
 
 ### Web
 
-Go to `Centreon > Administration > Extensions` and click on the install
+Go to **Centreon > Administration > Extensions** and click on the install
 button:
 
 - License Manager (*if not yet installed*)
 - Map Web Client
-
-![image](../assets/graph-views/install-web-step-1.png)
-
-You can see a red stripe asking for a license.
 
 Upload the license **map.license** given by the support team. Refresh
 the page and the banner must be green with the valid license date.
@@ -422,7 +415,7 @@ The desktop client is currently available only for **64-bit** Windows,
 Mac and Linux platforms (Debian and Ubuntu).
 
 You can find the installers in `Monitoring > Map > Desktop Client` or
-[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[here](https://download.centreon.com/?action=product&product=centreon-map&version=21.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > For performance considerations, we highly recommand to have less than 5, 10
 > users maximum connected at the same time manipulating views.
@@ -498,82 +491,6 @@ through an online update system. When it connects to a Centreon MAP
 server it automatically downloads and installs the latest version
 compatible with the server. Auto-update requires your computer to have
 internet access.
-
-## Centreon MAP NG
-
-The server is in **experimental phase** and is subject to evolution.
-
-It is currently only used for visualizing maps. Maps creation and edition
-still use the server as we know it.
-
-### Server
-
-The Centreon MAP NG Server is available on the same repository as
-the usual server.
-
-To begin, install the server using the following command:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--RHEL / CentOS / Oracle Linux 8-->
-
-```shell
-dnf install centreon-map-server-ng
-```
-<!--CentOS 7-->
-
-```shell
-yum install centreon-map-server-ng
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
-
-And proceed to the configuration with the following command:
-
-```shell
-/etc/centreon-map/configure.sh
-```
-
-The configuration is exactly the same as the usual server, but is stored
-in the **/etc/centreon-map/** folder.
-
-> The default listening port is **8081**.
-
-If the configuration is correct, the server can be started:
-
-```shell
-systemctl restart centreon-map-ng
-```
-
-Enable the service to be started automatically at server startup:
-
-```shell
-systemctl enable centreon-map-ng
-```
-
-### Client
-
-The client does not require any other installation than the actual
-Centreon MAP Web Client.
-
-However, new options are available in the
-`Administration > Extensions > Options` page:
-
-- An input field for the IP address and port of the NG server,
-- A "yes/no" toggle to choose whether the new server should be
-  used to display maps.
-
-![image](../assets/graph-views/ng/configuration-ng-server-map.png)
-
-In the `Monitoring > Map` page, new actions allow to launch
-synchronizations: - Resources from the production server to the NG
-server - Standard maps - Geoviews - ACLs - Images
-
-Synchronization progression can then be followed from this same page.
-
-![image](../assets/graph-views/ng/sync-ng-steps-ui.png)
-
-> At each synchronizations, all resources are deleted and imported
-> again.
 
 ## Secure your platform
 

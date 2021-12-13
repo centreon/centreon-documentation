@@ -2,7 +2,7 @@
 ** Variables.
 */
 properties([buildDiscarder(logRotator(numToKeepStr: '50'))])
-def serie = '21.04'
+def serie = '21.10'
 def maintenanceBranch = "${serie}.x"
 if (env.BRANCH_NAME.startsWith('release-')) {
   env.BUILD = 'RELEASE'
@@ -23,15 +23,25 @@ try {
       dir('centreon-documentation') {
         checkout scm
       }
-      sh "./centreon-build/jobs/doc/21.04/doc-source.sh"
+      sh "./centreon-build/jobs/doc/21.10/doc-source.sh"
       source = readProperties file: 'source.properties'
       env.VERSION = serie
       env.RELEASE = "${source.RELEASE}"
       archiveArtifacts artifacts: 'assets_diff_en.txt, assets_diff_fr.txt'
+
+      withSonarQubeEnv('SonarQubeDev') {
+        sh "./centreon-build/jobs/doc/21.10/doc-analysis.sh"
+      }
+      timeout (time:10, unit: 'MINUTES') {
+        def qualityGate = waitForQualityGate()
+        if (qualityGate.status != 'OK') {
+          currentBuild.result = 'FAIL'
+        }
+      }
     }
 
     stage('Build') {
-      sh "./centreon-build/jobs/doc/21.04/doc-build.sh"
+      sh "./centreon-build/jobs/doc/21.10/doc-build.sh"
       stash name: 'vanilla-build', includes: 'vanilla.tar.gz'
       publishHTML([
         reportDir: 'preview',
@@ -46,7 +56,7 @@ try {
       node {
         sh 'setup_centreon_build.sh'
         unstash 'vanilla-build'
-        sh "./centreon-build/jobs/doc/21.04/doc-staging.sh"
+        sh "./centreon-build/jobs/doc/21.10/doc-staging.sh"
         stash name: 'prod-build', includes: 'prod.tar.gz'
       }
     }
@@ -62,7 +72,7 @@ try {
       node {
         sh 'setup_centreon_build.sh'
         unstash 'prod-build'
-        sh "./centreon-build/jobs/doc/21.04/doc-release.sh"
+        sh "./centreon-build/jobs/doc/21.10/doc-release.sh"
       }
     }
     */

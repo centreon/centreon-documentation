@@ -15,7 +15,7 @@ to make a backup your system.
 > Refer to [this page](../reporting/upgrade.html#update-the-repository)
 
 > If you try to migrate a platform using **Centreon Poller Display 1.6.x**, refer
-> to [migration procedure](../migrate/poller-display-to-remote-server.html).
+> to the [migration procedure](../migrate/poller-display-to-remote-server.html).
 
 > The upgrade process can start only from versions **2.8.0** and later. If you
 > have an earlier version, please update to the latest *2.8.x* version first.

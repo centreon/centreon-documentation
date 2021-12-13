@@ -27,7 +27,7 @@ The following modules need to be installed separately and require a valid licens
 
 ## Viewing license-based modules
 
-Go to **Administration > Extensions > Manager**. All modules currently installed on your platform have a green border and a green tick mark in their top right corner. Modules that require a license have a colored banner at the bottom (red if you have no valid license, green if you have one).
+Go to **Administration > Extensions > Manager**. All modules currently installed on your platform have a green button with a white tick mark in it. Modules that require a license have a colored banner at the bottom (red if you have no valid license, green if you have one).
 
 ![image](../assets/administration/licenses.png)
 

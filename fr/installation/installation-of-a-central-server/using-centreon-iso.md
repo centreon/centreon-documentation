@@ -7,6 +7,10 @@ title: A partir de l'ISO Centreon
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.html)
 
+## Prérequis
+
+Téléchargez l'ISO sur le [site de téléchargement de Centreon](https://download.centreon.com/).
+
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
@@ -143,7 +147,7 @@ Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 
 ### Sécuriser la base de données
@@ -151,6 +155,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Depuis MariaDB 10.5, il est nécessaire de sécuriser son installation avant d'installer Centreon.
 Répondez oui à toute question sauf à "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation

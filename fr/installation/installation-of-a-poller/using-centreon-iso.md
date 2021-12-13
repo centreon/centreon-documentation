@@ -7,6 +7,10 @@ title: A partir de l'ISO Centreon
 > / RHEL en version 8, vous devez suivre la procédure
 > [à partir des paquets RPM](./using-packages.html)
 
+## Prérequis
+
+Téléchargez l'ISO sur le [site de téléchargement de Centreon](https://download.centreon.com/).
+
 ## Etape 1 : Démarrage
 
 Afin d'installer Centreon, démarrez votre serveur sur l'image ISO de Centreon en version el7.
@@ -244,7 +248,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 21.10.
 
 ## Ajouter le Poller à la configuration
 

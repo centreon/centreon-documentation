@@ -4,18 +4,28 @@ title: Upgrade from Centreon 19.04
 ---
 
 This chapter describes how to upgrade your Centreon platform from version 19.04
-to version 21.04.
+to version 21.10.
 
 > If you want to migrate your Centreon server to CentOS / Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-20-x.html)
 
-## Perform a backup
+## Prerequisites
+
+### Perform a backup
 
 Be sure that you have fully backed up your environment for the following
 servers:
 
 - Central server
 - Database server
+
+### Update the RPM signing key
+
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.html#existing-installation), to remove the old key and install the new one.
+
+### Update to the latest minor version
+
+Update your platform to the latest available minor version of Centreon 19.04.
 
 ## Upgrade the Centreon Central server
 
@@ -30,7 +40,7 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -40,11 +50,28 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 > yum install -y centos-release-scl-rh
 > ```
 
-### Upgrade the Centreon solution
+### Upgrade PHP
 
+Centreon 21.10 uses PHP in version 8.0.
+
+First, you need to install the **remi** repository:
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Then, you need to enable the php 8.0 repository
+```shell
+yum-config-manager --enable remi-php80
+```
+
+### Upgrade the Centreon solution
 
 > Please, make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
+
+If you have installed Business extensions, update the Business repository to version 21.10.
+Visit the [support portal](https://support.centreon.com/s/repositories) to get its address.
 
 Stop the Centreon Broker process:
 ```shell
@@ -55,7 +82,6 @@ Delete existing retention files:
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
-
 
 Clean yum cache:
 
@@ -71,33 +97,52 @@ yum update centreon\*
 
 > Accept new GPG keys from the repositories as needed.
 
-### Additional actions
-
-#### Update the PHP version
-
-Since 20.04, Centreon uses a new version of PHP.
+Enable and start the **gorgoned** service:
+```shell
+systemctl enable gorgoned
+systemctl start gorgoned
+```
 
 The PHP timezone should be set. Run the command:
-
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Replace **Europe/Paris** by your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-> Don't forget your php-fpm specific configuration that you may have set in the
-> /etc/opt/rh/rh-php71/php.ini and/or /etc/opt/rh/rh-php71/php-fpm.d/centreon.conf
-
-Then, run the following commands:
-
+Execute the following commands:
 ```shell
-systemctl disable rh-php71-php-fpm
 systemctl stop rh-php71-php-fpm
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
-systemctl restart httpd24-httpd
+systemctl disable rh-php71-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
 ```
+
+### Update your customized Apache configuration
+
+This section only applies if you customized your Apache configuration. When upgrading your platform, the Apache configuration file is not upgraded automatically: the new configuration file brought by the rpm does not replace tha old file. You must copy the changes manually to your customized configuration file.
+
+Run a diff between the old and the new Apache configuration files:
+
+```
+diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anthing new brought by version 21.10, e.g. the **authentication** string in the **LocationMatch** directive
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it contains the **authentication** string, but does not contain any custom configuration.
+
+For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+In particular, make sure your customized Apache configuration contains the following directive (with **authentication**).
+
+```
+<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+</LocationMatch>
+```
+
+### Additional actions
 
 #### Configure Apache API access
 
@@ -110,52 +155,53 @@ update it.
 You'll then need to add API access section to your configuration file:
 **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
 
-Only lines with "+" symbol must be taken into account.
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
 
-```diff
-+Alias /centreon/api /usr/share/centreon
-Alias /centreon /usr/share/centreon/www/
+ServerTokens Prod
 
-+<LocationMatch ^/centreon/(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/www/$1
-+</LocationMatch>
+<VirtualHost *:80>
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly
+    ServerSignature Off
+    TraceEnable Off
 
-+<LocationMatch ^/centreon/api/(latest/|beta/|v[0-9]+/|v[0-9]+\.[0-9]+/)(.*)$>
-+  ProxyPassMatch fcgi://127.0.0.1:9042/usr/share/centreon/api/index.php/$1
-+</LocationMatch>
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
 
-ProxyTimeout 300
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
 
-<Directory "/usr/share/centreon/www">
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
     DirectoryIndex index.php
-    Options Indexes
-    AllowOverride all
-    Order allow,deny
-    Allow from all
-    Require all granted
-    <IfModule mod_php5.c>
-        php_admin_value engine Off
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
     </IfModule>
 
-+    FallbackResource /centreon/index.html
+    <Directory "${install_dir}/www">
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
 
-    AddType text/plain hbs
-</Directory>
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
 
-+<Directory "/usr/share/centreon/api">
-+    Options Indexes
-+    AllowOverride all
-+    Order allow,deny
-+    Allow from all
-+    Require all granted
-+    <IfModule mod_php5.c>
-+        php_admin_value engine Off
-+    </IfModule>
-+
-+    AddType text/plain hbs
-+</Directory>
-
-RedirectMatch ^/$ /centreon
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
 ```
 
 Then, restart apache service :
@@ -168,7 +214,6 @@ systemctl restart httpd24-httpd
 
 Before starting the web upgrade process, reload the Apache server with the
 following command:
-
 ```shell
 systemctl reload httpd24-httpd
 ```
@@ -200,17 +245,6 @@ If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.html).
 
 ### Post-upgrade actions
-
-#### Deploy the configuration
-
-See [Deploying the configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
-
-#### Restart Centreon processes
-
-Restart the cbd process:
-```
-systemctl start cbd
-```
 
 #### Upgrade extensions
 
@@ -280,7 +314,7 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 #### Configuration
@@ -375,6 +409,8 @@ systemctl enable mariadb
 
 This procedure is the same than to upgrade a Centreon Central server.
 
+> At the end of the update, configuration should be deployed from the Central server.
+
 ## Upgrade the Pollers
 
 ### Update the Centreon repository
@@ -382,15 +418,8 @@ This procedure is the same than to upgrade a Centreon Central server.
 Run the following command:
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
-
-> If you are using a CentOS environment, you must install the *Software
-> Collections* repositories with the following command:
->
-> ```shell
-> yum install -y centos-release-scl-rh
-> ```
 
 ### Upgrade the Centreon solution
 
@@ -407,6 +436,13 @@ yum update centreon\*
 ```
 
 > Accept new GPG keys from the repositories as needed.
+
+Start and enable **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
 
 ### Post-upgrade actions
 

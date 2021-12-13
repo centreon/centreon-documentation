@@ -27,7 +27,7 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 
 ## Voir les modules soumis à licence
 
-Allez à la page **Administration > Extensions > Gestionnaire**. Tous les modules installés sur votre plateforme ont une bordure verte et une coche verte dans le coin supérieur droit. Les modules nécessitant une licence ont un bandeau coloré en bas (rouge si vous n'avez pas de licence valide, vert si vous en avez une).
+Allez à la page **Administration > Extensions > Gestionnaire**. Tous les modules installés sur votre plateforme ont un bouton vert avec une coche blanche dedans. Les modules nécessitant une licence ont un bandeau coloré en bas (rouge si vous n'avez pas de licence valide, vert si vous en avez une).
 
 ![image](../assets/administration/licenses.png)
 

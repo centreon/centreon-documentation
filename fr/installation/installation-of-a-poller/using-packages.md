@@ -131,11 +131,11 @@ suffisants :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -272,14 +272,14 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
+> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **--root** pour définir le chemin de l'URL de l'API.
 > Par exemple : **--root monitoring**.
 
 ``` shell
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieur ou égale à 21.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 21.10.
 
 ## Ajouter le Poller à la configuration
 

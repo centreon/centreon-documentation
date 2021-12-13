@@ -4,7 +4,7 @@ title: Montée de version depuis Centreon 20.04
 ---
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 20.04 vers la version 21.04.
+Centreon depuis la version 20.04 vers la version 21.10.
 
 > Si vous souhaitez migrer votre serveur Centreon vers CentOS / Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-20-x.html)
@@ -13,13 +13,23 @@ Centreon depuis la version 20.04 vers la version 21.04.
 > Si cela n'est pas le cas, merci de suivre avant le
 > [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.html#upgrade-mariadb-server)
 
-## Sauvegarde
+## Prérequis
+
+### Sauvegarde
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
+
+### Mettre à jour la clé de signature RPM
+
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
+### Mise à jour vers la dernière version mineure
+
+Mettez votre plateforme à jour vers la dernière version mineure disponible de Centreon 20.04.
 
 ## Montée de version du serveur Centreon Central
 
@@ -37,7 +47,22 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+```
+
+### Montée de version de PHP
+
+Centreon 21.10 utilise PHP en version 8.0.
+
+Vous devez tout d'abord installer les dépôts **remi** :
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+```
+Ensuite, vous devez activer le dépôt php 8.0
+```shell
+yum-config-manager --enable remi-php80
 ```
 
 ### Montée de version de la solution Centreon
@@ -45,12 +70,15 @@ yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/cen
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 21.10.
+Rendez-vous sur le [portail du support](https://support.centreon.com/s/repositories) pour en récupérer l'adresse.
+
 Arrêter le processus Centreon Broker :
 ```shell
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présent :
+Supprimez les fichiers de rétention présents :
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
@@ -69,27 +97,47 @@ yum update centreon\*
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-Le fuseau horaire par défaut de PHP 7 doit être configuré. Executez la commande suivante :
+Le fuseau horaire par défaut de PHP 8 doit être configuré. Exécutez la commande suivante :
 ```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
+echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
-
 Exécutez les commandes suivantes :
 ```shell
 systemctl stop rh-php72-php-fpm
 systemctl disable rh-php72-php-fpm
-systemctl enable rh-php73-php-fpm
-systemctl start rh-php73-php-fpm
+systemctl enable php-fpm
+systemctl start php-fpm
+```
+
+### Mettre à jour une configuration Apache personnalisée
+
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
+
+Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
+
+```
+diff -u /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf /opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la version 21.10, par exemple la chaîne **authentication** dans la directive **LocationMatch**
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il contient la chaîne **authentication**, mais ne contient pas la configuration personnalisée.
+
+Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
+
+Notamment, assurez-vous que votre configuration Apache personnalisée contient la directive suivante (incluant **authentication**).
+
+```
+<LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+    ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+</LocationMatch>
 ```
 
 ### Finalisation de la mise à jour
 
-Avant de démarrer la montée de version via l'interface web, rechargez le
-serveur Apache avec la commande suivante :
-
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd24-httpd
 ```
@@ -123,24 +171,24 @@ associée](../service-mapping/upgrade.html) pour le mettre à jour.
 
 ### Actions post montée de version
 
-1. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+1. Montée de version des extensions :
 
-2. Redémarrez les processus Centreon :
+    Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
+    toutes les extensions, en commençant par les suivantes :
+
+    - License Manager,
+    - Plugin Packs Manager,
+    - Auto Discovery.
+
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+
+2. [Déployer la configuration](../monitoring/monitoring-servers/deploying-a-configuration.html).
+
+3. Redémarrez les processus Centreon :
 
     ```
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-3. Montée de version des extensions :
-
-Depuis le menu `Administration > Extensions > Gestionnaire`, mettez à jour
-toutes les extensions, en commençant par les suivantes :
-
-  - License Manager,
-  - Plugin Packs Manager,
-  - Auto Discovery.
-
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
 ### Montée de version du serveur MariaDB
 
@@ -160,7 +208,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 #### Mettre à jour MariaDB
@@ -219,6 +267,8 @@ systemctl enable mariadb
 Cette procédure est identique à la montée de version d'un serveur Centreon
 Central.
 
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
+
 ## Montée de version des Pollers
 
 ### Mise à jour des dépôts
@@ -226,7 +276,7 @@ Central.
 Exécutez la commande suivante :
 
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 
 ### Montée de version de la solution Centreon
@@ -244,6 +294,13 @@ yum update centreon\*
 ```
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+
+Démarrez et activez **gorgoned**:
+
+```shell
+systemctl start gorgoned
+systemctl enable gorgoned
+```
 
 ## Sécurisez votre plateforme
 

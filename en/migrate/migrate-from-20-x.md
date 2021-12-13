@@ -61,7 +61,7 @@ mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
 service mysqld stop
 ```
 
-3. Export the dumps to the new Centreon 21.04 database server (make sure you
+3. Export the dumps to the new Centreon 21.10 database server (make sure you
 have enough space for large databases dumps):
 
 ```shell
@@ -69,7 +69,7 @@ rsync -avz /tmp/centreon.sql root@<IP_NEW_CENTREON>:/tmp/
 rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
 ```
 
-4. On the Centreon 21.04 database server, drop the original databases and
+4. On the Centreon 21.10 database server, drop the original databases and
 create them again:
 
 ```shell
@@ -129,12 +129,12 @@ installation. The main directories to synchronize are:
 ### Upgrade Centreon
 
 On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-21.04.0-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-21.10.0-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory:
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-21.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-21.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > If you use the same IP address or same DNS name between old Centreon webserver
@@ -164,4 +164,4 @@ configuration of all your pollers and export it.
 ### Upgrade the modules
 
 Please refer to the documentation of each module to verify compatibility with
-Centreon 21.04 and perform the upgrade.
+Centreon 21.10 and perform the upgrade.

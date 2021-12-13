@@ -3,7 +3,7 @@ id: resources-status
 title: Page Statut des ressources
 ---
 
-La vue `Supervision > Statut des ressources` est votre vue principale
+La vue **Supervision > Statut des ressources** est votre vue principale
 pour connaître les évènements en cours et être en mesure de les comprendre,
 les prendre en compte et les traiter rapidement.
 
@@ -33,13 +33,14 @@ pris en compte, et ce de deux manières:
 -   En acquittant la ressource directement via le bouton qui s'affiche au survol de
     la ligne
 -   En sélectionnant une ou plusieurs lignes et en cliquant sur le
-    bouton **Acquitter** au-dessus du tableau.
+    bouton **Acquitter** au-dessus du tableau. Vous pouvez utiliser la touche **Majuscule**
+    pour sélectionner plusieurs ligne contiguës.
 
 Seules les ressources en statut "Non-OK" peuvent être acquittées.
 Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
-- l'alerte disparaît de la vue **Problèmes non acquittés**
+- l'alerte disparaît de la vue **Problèmes non traités**
 - les [notifications](notif-configuration.html) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
@@ -59,7 +60,7 @@ Il est possible de [planifier une plage de maintenance](manage-alerts.html#ajout
     **Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
-de la vue **Problèmes non acquittés** et de stopper les notifications partant
+de la vue **Problèmes non traités** et de stopper les notifications partant
 de la ressource. L'arrière-plan des lignes des ressources en maintenance est mauve.
 
 ![image](../assets/alerts/resources-status/resources-status-downtime.gif)
@@ -89,69 +90,112 @@ dans le menu **Plus d'actions**.
 
 ## Filtrer les évènements
 
+Les différents filtres s'ajoutent selon un critère ET : les résultats correspondront à tous les critères saisis.
+
 ### Filtres prédéfinis
 
 Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est
-positionné sur **Problèmes non acquittés** : ce filtre permet de visualiser
+positionné sur **Problèmes non traités** : ce filtre permet de visualiser
 rapidement tous les problèmes n'ayant pas encore été pris en compte ou
 associés à une plage de maintenance. Il est possible de choisir parmi 2
 autres filtres : **Problèmes de ressources** & **Tous**.
 
-Signification des filtres:
+Signification des filtres :
 
--   **Problèmes non acquittés** : Le statut de la ressource est **Alerte** ou
+-   **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
 -   **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
 -   **Tous** : toutes les ressources.
 
-![image](../assets/alerts/resources-status/resources-status-filters-defaults.gif)
+### Critères de recherche
+
+Vous pouvez filtrer la liste des ressources selon un certain nombre de critères prédéfinis.
+
+1. Cliquez sur l'icône **Options de recherche** :![image](../assets/alerts/resources-status/search-options-icon.png)
+
+    Une pop-in apparaît, listant les critères suivants :
+
+    - **Ressource** : afficher uniquement les hôtes, les services ou les métaservices
+    - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
+    - **Statut** : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
+    - **Groupes d'hôtes**
+    - **Groupe de services**
+    - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
+
+    ![image](../assets/alerts/resources-status/search-popup.png)
+
+2. Cliquez sur un critère de recherche : une liste de toutes les valeurs possibles s'affiche.
+
+3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées.
+
+    ![image](../assets/alerts/resources-status/search-criteria.png)
+
+    Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
+
+4. Cliquez sur **Rechercher**, ou cliquez en dehors de la pop-up. La liste des ressources est filtrée.
 
 ### Barre de recherche
 
-Il est possible de filtrer les évènements par nom de ressource. Vous pouvez utiliser des expressions régulières.
-
-Par défaut la recherche se fait sur les champs suivants:
+Si vous entrez du texte dans la barre de recherche, par défaut la recherche se fait sur tous les champs suivants :
 
 -   Nom de l'hôte
 -   Alias de l'hôte
 -   Adresse ou FQDN de l'hôte
 -   Description du service
--   Information
 
-![image](../assets/alerts/resources-status/resources-status-search-simple.png)
+Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
-Il est possible de forcer le champ sur lequel on souhaite rechercher en
-utilisant les labels suivants:
+Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
 
--   h.name: chercher uniquement sur le nom d'hôte
--   h.alias: chercher uniquement sur l'alias de l'hôte
--   h.address: chercher uniquement sur le FQDN / l'adresse IP de l'hôte
--   s.description: chercher uniquement sur la description du service
--   information: chercher uniquement sur l’information
+#### Critères CQL
 
-![image](../assets/alerts/resources-status/resources-status-search-label.png)
+- **alias** : rechercher des hôtes selon leur alias
+- **fqdn** : rechercher des hôtes selon leur adresse IP ou FQDN
+- **host_group** : rechercher les hôtes rattachés à un groupe d'hôtes
+- **h.name** : rechercher des ressources selon le nom d'hôte affiché dans la colonne **Resource** pour les hôtes, et **Parent** pour les services
+- **h.alias** : rechercher uniquement sur l'alias de l'hôte
+- **h.address** : rechercher des ressources selon le FQDN/l'adresse IP de l'hôte ou du parent du services
+- **information** : rechercher uniquement dans la colonne **Information**
+- **monitoring_server** : rechercher toutes les ressources supervisées par le collecteur indiqué
+- **name** : rechercher des hôtes uniquement sur le nom d'hôte, affiché dans la colonne **Resource**
+- **parent_name** : rechercher des services, selon le nom de leur parent
+- **parent_alias** : rechercher des services, selon l'alias de leur parent
+- **state** : rechercher des ressources problématiques, selon qu'elles sont non prises en compte, acquittées ou en maintenance
+- **status** : rechercher des ressources selon leur [statut](concepts.html)
+- **service_group** : rechercher les services rattachés à un groupe de services
+- **s.description** : chercher uniquement sur la description du service (son nom dans la colonne **Resource**)
+- **type** : afficher uniquement les hôtes, les services ou les métaservices
 
-### Par critères avancés
+#### Utiliser la barre de recherche
 
-Si les filtres pré-définis et la barre de recherche ne suffisent pas, dépliez les filtres afin d'accéder à plus de critères:
+La barre de recherche montre les critères appliqués sous forme textuelle. 
+L'autocomplétion vous aide à saisir les termes de recherche facilement : 
 
--   Type de ressource (hôte ou service)
--   Statut (OK, **Alerte**, **Critique**, **Inconnu**, **En attente**, **Disponible**, **Indisponible**,
-    **Injoignable**)
--   État : y a-t'il une action en cours sur le service ou l'équipement ?
-    (acquittement, plage de maintenance planifiée)
--   Groupes d'hôtes
--   Groupe de services
+1. Tapez par exemple "h", et la barre suggère tous les critères commençant par 
+"h" (**host_group**, **h.name**, **h.alias**, **h.address**). Sélectionnez le 
+critère désiré avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
+Le critère et ses valeurs possibles sont séparés par deux points (par exemple, **host:Linux**).
 
-![image](../assets/alerts/resources-status/resources-status-search-advanced.png)
+2. Suivant le type de critère, l'autocomplétion peut vous suggérer les valeurs possibles
+pour ce critère (par exemple, pour le critère **Type**, les valeurs peuvent 
+être **Hôte**, **Service** ou **Métaservice**). Sélectionnez la valeur désirée 
+avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
+Un même critère peut avoir plusieurs valeurs possibles. Les valeurs doivent être séparées par des virgules.
+La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,metaservice** ramènera 
+toutes les ressources de type services et métaservices.
 
-### Afficher / masquer des critères
+    ![image](../assets/alerts/resources-status/search_tab.gif)
 
-Il est également possible d'afficher ou de masquer des critères qui ne sont pas pertinents pour la recherche à effectuer, en cliquant sur le bouton "Sélectionner des critères" à gauche :
+3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
+selon un critère "ET" : les résultats correspondront à tous les critères saisis. Vous pouvez utiliser des expressions régulières.
+4. Une fois les critères de recherche saisis, entrez un caractère espace ou appuyez sur **Échap** pour sortir de l'autocomplétion, puis appuyez sur **Entrée**.
 
-![image](../assets/alerts/resources-status/resources-status-additional-criterias.gif)
+Exemple :
+    **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".
+
+![image](../assets/alerts/resources-status/search_ping_linux.gif)
 
 ### Sauvegarder un filtre
 
@@ -187,9 +231,9 @@ En fonction du type de ressource, différents onglets sont disponibles.
 
 Le panneau d'hôte contient les éléments suivants :
 
-- Onglet **Détails** : Informations détaillées sur le statut courant,
+- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
 - Onglet **Services** : La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
-- Onglet **Historique** : La chronologie des événements survenus pour cet hôte,
+- Onglet **Historique** : La chronologie des évènements survenus pour cet hôte,
 - Des raccourcis vers la configuration, les journaux d'évènements et les
     rapports de disponibilité.
 
@@ -202,18 +246,25 @@ seront visibles sur le panneau.
 
 Le panneau de service contient les éléments suivants :
 
-- Onglet **Détails** : Informations détaillées sur le statut courant,
-- Onglet **Historique** : La chronologie des événements survenus pour ce service,
+- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
+- Onglet **Historique** : La chronologie des évènements survenus pour ce service,
 - Onglet **Graphique** : Un graphique avec une courbe par métrique collectée par ce service,
 - Des raccourcis vers les configurations, les journaux d'évènements et les
     rapports de disponibilité pour ce service et son hôte.
+- Sous le nom du service, le nom de son hôte parent. Cliquez sur celui-ci pour ouvrir le panneau de détail d'hôte de l'hôte parent.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 
 Si le service est acquitté ou en downtime, des informations supplémentaires
 seront visibles sur le panneau.
 
-#### Graphique
+### Onglet Historique
+
+L'onglet **Historique** montre une liste antichronologique des évènements survenus pour ce service ou cet hôte. Utilisez la liste **Évènement** pour afficher uniquement les types d'évènements désirés.
+
+![image](../assets/alerts/resources-status/timeline.png)
+
+### Onglet Graphique
 
 L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. Survolez les courbes avec la souris pour afficher l'heure exacte sous le titre du graphique, et dans la légende, les valeurs des différentes métriques correspondant à l'instant.
 
@@ -257,3 +308,11 @@ Pour supprimer un commentaire, allez à la page **Supervision > Planifier des pl
 En cliquant sur le bouton **Exporter comme PNG**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
+
+Pour voir une version plus grande du graphique, cliquez sur **Go to performance page** en haut à droite du graphique.
+
+![image](../assets/alerts/resources-status/graph-open.png)
+
+Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
+
+![image](../assets/alerts/resources-status/graph-open2.png)

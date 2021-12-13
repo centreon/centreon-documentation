@@ -218,6 +218,9 @@ peuvent être : *est égal à*, *est différent de*, *contient* et *ne contient 
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
 
+Si vous incluez plusieurs conditions dans un même modificateur, il faut que
+toutes les conditions soient vérifiées pour que le modificateur s'applique.
+
 Depuis la version 21.04, dans les modificateurs **Property**, **Macro**, **Host
 group** et **Host category** il est possible de concaténer un ou plusieurs
 de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
@@ -387,6 +390,32 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
  hôtes de type Linux.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
+
+## Attributs avancés
+
+Certains attributs fournis par la découverte, dits attributs avancés, consistent en une liste d'objets contenant des paires de propriétés. Ils peuvent être utilisés comme source pour les modificateurs **Macro**, **Host group** et **Host category**, et dans les conditions pour tous les types de modificateurs. En particulier avec les modificateurs de type **Inclusion** et **Exclusion**, ils permettent de filtrer le résultat de la découverte en fonction d'une paire de valeurs précise.
+
+Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement cloud. Imaginons que vos hôtes soient hébergés dans le cloud. Les hôtes ont un attribut avancé nommé **tags**. Pour un hôte ayant les tags **os: windows** et **environment: production**, Host Discovery recevra les tags de la manière suivante :
+
+```json
+"tags": [{"key": "os", "value": "windows"}, {"key": "environment", "value": "production"}]
+```
+
+**Exemples d'utilisation avec les modificateurs :**
+
+- Dans l'attribut **tags**, la clé **environment** peut avoir la valeur **production**, **preprod** ou **test**. Vous ne voulez superviser que les instances de production, c'est à dire celles pour lesquelles la valeur ("value") **production** est associée à la clé ("key") **environment**. Utilisez un modificateur de type **Exclusion** de la façon suivante :
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
+
+- Vous souhaitez classer des hôtes dans des groupes d'hôtes. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôtes correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
+
+    Ajoutez un modificateur de type **Hostgroup** et sélectionnez **Créer un groupe d'hôtes**. Comme source du modificateur, sélectionnez l'attribut avancé (dans l'exemple: **tags**), puis configurez-le comme ci-dessous :
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes3.png)
+
+    La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** sur l'attribut avancé pour éditer ses propriétés :
+
+    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
 
 ## Exemples
 

@@ -9,8 +9,7 @@ title: Install Centreon BAM extension
 
 ## Prerequisites
 
-The required version of Centreon software for compatibility with Centreon BAM
-is **Centreon 21.04**.
+The central server and Centreon BAM must be installed in the same major versions (i.e. both in 21.10.x).
 
 ## Installation
 
@@ -28,21 +27,19 @@ yum install centreon-bam-server
 ### Upload the license
 
 A license file *bam.license* is provided by Centreon. Go to
-`Administration > Extensions > Manager` and upload the license
+**Administration > Extensions > Manager** and upload the license
 using the interface.
 
 ### Install the interface
 
-Go to the `Administration > Extension > Manager` menu and click on the install
+Go to the **Administration > Extension > Manager** menu and click on the install
 button for the following modules:
 
 - License Manager (if not yet installed)
 - Business Activity Monitoring
 
-![image](../assets/service-mapping/installation/install-web-step-1.png)
-
-Once installed and the license added, the module will be framed in green and
-will indicate the license expiry date:
+Once installed and the license added, the module will have a green banner that indicates
+the license expiry date:
 
 ![image](../assets/service-mapping/installation/install-web-step-2.png)
 

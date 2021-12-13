@@ -17,9 +17,15 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 - Mise à jour du serveur de reporting
 - Mise à jour de la base MariaDB
 
+## Prérequis
+
+### Mettre à jour la clé de signature RPM
+
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.html#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+
 ## Étape 1 : Montée de version du paquet
 
-Lors d'une montée de version majeure (ex: 20.10.x à 21.04.x) il faut en premier lieu mettre à jour
+Lors d'une montée de version majeure (ex: 20.10.x à 21.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre platefome de support https://support.centreon.com à l'onglet "Depots" :
@@ -59,4 +65,14 @@ Vous trouverez ce dépôt depuis votre compte sur notre platefome de support htt
 
 ## Étape 4 : mise à jour de MariaDB
 
-Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.html).
+1. Arrêtez le service **cbis** :
+    ```shell
+    systemctl stop cbis
+    ```
+
+2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.html).
+
+3. Démarrez le service **cbis** :
+    ```shell
+    systemctl start cbis
+    ```

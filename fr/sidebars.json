@@ -190,7 +190,6 @@
                     "alerts-notifications/acknowledge",
                     "alerts-notifications/downtimes",
                     "alerts-notifications/submit",
-                    "alerts-notifications/notif-flapping",
                     "alerts-notifications/other"
                 ],
                 "label": "Gérer les alertes",
@@ -349,6 +348,7 @@
             {
                 "ids": [
                     "upgrade/introduction",
+                    "upgrade/upgrade-from-21-04",
                     "upgrade/upgrade-from-20-10",
                     "upgrade/upgrade-from-20-04",
                     "upgrade/upgrade-from-19-10",
@@ -412,6 +412,7 @@
                     "integrations/plugin-packs/procedures/applications-drbd-ssh",
                     "integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi",
                     "integrations/plugin-packs/procedures/applications-emc-ppma-restapi",
+                    "integrations/plugin-packs/procedures/applications-ericsson-enm-api",
                     "integrations/plugin-packs/procedures/applications-exchange-nsclient-restapi",
                     "integrations/plugin-packs/procedures/applications-github-restapi",
                     "integrations/plugin-packs/procedures/applications-github-http",
@@ -420,6 +421,7 @@
                     "integrations/plugin-packs/procedures/applications-haproxy-snmp",
                     "integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi",
                     "integrations/plugin-packs/procedures/applications-hibernate-jmx",
+                    "integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh",
                     "integrations/plugin-packs/procedures/applications-ibm-tsm-dsmadmc",
                     "integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp",
                     "integrations/plugin-packs/procedures/applications-webservers-iis-restapi",
@@ -467,8 +469,7 @@
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
-                    "integrations/plugin-packs/procedures/applications-redis-cli",
-                    "integrations/plugin-packs/procedures/applications-redis-restapi",
+                    "integrations/plugin-packs/procedures/applications-redis-rlec-restapi",
                     "integrations/plugin-packs/procedures/applications-rubrik-restapi",                    
                     "integrations/plugin-packs/procedures/applications-rudder-restapi",
                     "integrations/plugin-packs/procedures/applications-salesforce-restapi",
@@ -492,6 +493,7 @@
                     "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
                     "integrations/plugin-packs/procedures/applications-vtom-restapi",
+                    "integrations/plugin-packs/procedures/applications-wallix-bastion-snmp",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
                     "integrations/plugin-packs/procedures/applications-weblogic-jmx",
                     "integrations/plugin-packs/procedures/applications-video-zixi-restapi",
@@ -601,6 +603,7 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-databases-couchdb-restapi",
+                    "integrations/plugin-packs/procedures/applications-databases-db2",
                     "integrations/plugin-packs/procedures/applications-databases-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-elasticsearch",
                     "integrations/plugin-packs/procedures/applications-databases-firebird",
@@ -612,6 +615,7 @@
                     "integrations/plugin-packs/procedures/applications-databases-mysql",
                     "integrations/plugin-packs/procedures/applications-databases-oracle",
                     "integrations/plugin-packs/procedures/applications-databases-postgresql",
+                    "integrations/plugin-packs/procedures/applications-databases-redis",
                     "integrations/plugin-packs/procedures/applications-databases-rrdtool",
                     "integrations/plugin-packs/procedures/applications-databases-sybase",
                     "integrations/plugin-packs/procedures/applications-databases-warp10-sensision"
@@ -651,6 +655,7 @@
                     "integrations/plugin-packs/procedures/hardware-servers-lenovo-xcc-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-cisco-cts-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-masterclock-ntp100gps-snmp",
+                    "integrations/plugin-packs/procedures/hardware-devices-nvidia-gpu-smi-ssh",
                     "integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-groupseries-snmp",
                     "integrations/plugin-packs/procedures/hardware-devices-polycom-trio-restapi",
@@ -986,6 +991,7 @@
                     "integrations/plugin-packs/procedures/hardware-ats-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp",
                     "integrations/plugin-packs/procedures/hardware-pdu-emerson-snmp",
+                    "integrations/plugin-packs/procedures/hardware-pdu-gude-epc-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-hp-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-mge-snmp",
                     "integrations/plugin-packs/procedures/hardware-ups-nitram-snmp",
@@ -1026,6 +1032,7 @@
                     "integrations/plugin-packs/procedures/applications-graylog-restapi",
                     "integrations/data-analytics/sc-splunk-metrics",
                     "integrations/data-analytics/sc-splunk-events",
+                    "integrations/data-analytics/sc-kafka-events",
                     "integrations/data-analytics/sc-warp10"
                 ],
                 "label": "Data Analytics",
@@ -1048,10 +1055,12 @@
                     "integrations/event-management/sc-hp-bsm",
                     "integrations/event-management/sc-hp-omi",
                     "integrations/event-management/sc-opsgenie",
-                    "integrations/event-management/sc-pagerduty",
+                    "integrations/event-management/sc-pagerduty-events",
                     "integrations/event-management/sc-service-now-events",
                     "integrations/event-management/sc-servicenow-mid-server",
-                    "integrations/event-management/sc-kafka-events"
+                    "integrations/event-management/sc-signl4-events",
+                    "integrations/event-management/sc-splunk-metrics",
+                    "integrations/event-management/sc-splunk-events"
                 ],
                 "label": "Event Management",
                 "type": "subcategory"
@@ -1142,7 +1151,8 @@
             }
         ],
         "Sécurité": [
-            "security/security"
+            "security/security",
+            "security/key-rotation"
         ],
         "Ressources": [
             "resources/known-issues"

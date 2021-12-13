@@ -156,10 +156,10 @@ certificate as described below:
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
-To create self-signed certificate, you can create one using the following commands: 
+To create a self-signed certificate, you can use the following commands: 
 
 ```text
-openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr -days 365
+openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
 ```
 

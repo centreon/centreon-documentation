@@ -22,11 +22,11 @@ const links = {
     monitoring: 'integrations/plugin-packs/introduction.html',
   },
   github: 'https://github.com/centreon/centreon/',
-  slack: 'https://centreon.github.io/register-slack/',
+  thewatch: 'https://thewatch.centreon.com',
   twitter: 'https://twitter.com/CentreonFR/',
   linkedin: 'https://www.linkedin.com/company/merethis/',
   contribute: 'https://github.com/centreon/centreon/blob/master/CONTRIBUTING.md',
-  banner: 'https://events.centreon.com/centreon-summit-2021?utm_source=CentreonSummit_Website&utm_campaign=CentreonSummit2021',
+  banner: 'https://thewatch.centreon.com',
 }
 
 const stringsAndParagraphs = {
@@ -108,7 +108,7 @@ function SummitBlock() {
     <div className="containerBlockBanner">
       <div className="imageSectionBanner">
         <a href={links.banner} target={'_blank'}>
-          <Image imageSrc={"summit-banner-fr.png"} />
+          <Image imageSrc={"thewatch-banner-fr.png"} />
         </a>
       </div>
     </div>
@@ -175,8 +175,8 @@ function CommunityBlock() {
       <h2 className="titleSectionCommunity">{stringsAndParagraphs.communityBlock.title}</h2>
       <div className="cardBar">
         <ul className="socialSet">
-          <a href={links.slack} target={'_blank'}>
-            <li><Image imageSrc={'social-network/slack.svg'} /></li>
+          <a href={links.thewatch} target={'_blank'}>
+            <li><Image imageSrc={'social-network/thewatch.png'} /></li>
           </a>
           <a href={links.github} target={'_blank'}>
             <li><Image imageSrc={'social-network/github.svg'} /></li>

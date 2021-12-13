@@ -29,7 +29,7 @@ Exécutez les commandes suivantes :
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -155,7 +155,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -281,7 +281,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
-dnf install -y https://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -466,22 +466,21 @@ yum install -y \
     perl-URI \
     perl-UUID \
     perl-rrdtool \
-    rh-php73 \
-    rh-php73-php-cli \
-    rh-php73-php-common \
-    rh-php73-php-fpm \
-    rh-php73-php-gd \
-    rh-php73-php-intl \
-    rh-php73-php-json \
-    rh-php73-php-ldap \
-    rh-php73-php-mbstring \
-    rh-php73-php-mysqlnd \
-    rh-php73-php-pdo \
-    rh-php73-php-pear \
-    rh-php73-php-process \
-    rh-php73-php-snmp \
-    rh-php73-php-xml \
-    rh-php73-php-zip \
+    php-cli \
+    php-common \
+    php-fpm \
+    php-gd \
+    php-intl \
+    php-json \
+    php-ldap \
+    php-mbstring \
+    php-mysqlnd \
+    php-pdo \
+    php-pear \
+    php-process \
+    php-snmp \
+    php-xml \
+    php-zip \
     plink \
     quota \
     rrdtool \
@@ -493,20 +492,20 @@ Des commandes supplémentaires sont nécessaires pour configurer correctement l'
 
 ``` shell
 usermod -U apache
-/opt/rh/rh-php73/root/bin/pear channel-update pear.php.net
+/bin/pear channel-update pear.php.net
 ```
 
 Si vous ne pouvez pas accéder directement à Internet mais que vous devez passer par un proxy, exécutez la commande
 suivante :
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear config-set http_proxy http://my_proxy.com:port
+/bin/pear config-set http_proxy http://my_proxy.com:port
 ```
 
 Puis exécutez :
 
 ``` shell
-/opt/rh/rh-php73/root/bin/pear upgrade-all
+/bin/pear upgrade-all
 ```
 <!--Debian Buster-->
 Installez les prérequis suivants :
@@ -692,6 +691,7 @@ Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon.
 Répondez oui à toute question sauf "Disallow root login remotely?".
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation

@@ -69,124 +69,96 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### Installer le dépôt
+### Installer les dépôts
 
 <!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL 8-->
-#### Redhat CodeReady Builder repository
 
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Red Hat doit être
-activé.
+<!--RHEL 8-->
+#### Dépôt remi et CodeReady Builder
+
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
 Exécutez les commandes suivantes :
 
 ```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Activez PHP 7.3 en utilisant la commande suivante :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
-dnf module enable php:7.3 -y
+dnf module reset php
+dnf module install php:remi-8.0
 ```
 
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir ce résultat :
-```shell
-Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--CentOS 8-->
-#### Dépôt PowerTools de Red Hat
+#### Dépôt remi
 
-Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
-activé.
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
 
 Exécutez les commandes suivantes :
 
-- Pour CentOS 8.2 :
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled PowerTools
-    ```
-- Pour CentOS 8.3 et Centos Stream :
-
-    ```shell
-    dnf -y install dnf-plugins-core epel-release
-    dnf config-manager --set-enabled powertools
-    ```
-
-Activez PHP 7.3 en utilisant la commande suivante :
 ```shell
-dnf module enable php:7.3 -y
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+dnf config-manager --set-enabled 'powertools'
 ```
 
-Contrôlez que PHP 7.3 est activé :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
-dnf module list php
+dnf module reset php
+dnf module install php:remi-8.0
 ```
 
-Vous devriez avoir ce résultat :
-```shell
-CentOS Linux 8 - AppStream
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--Oracle Linux 8-->
-#### Dépôt CodeReady Builder de Oracle
 
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
-doit être activé.
+#### Dépôt remi et CodeReady Builder
+
+Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
 
 Exécutez les commandes suivantes :
 
 ```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Activez PHP 7.3 en utilisant la commande suivante :
+Activez PHP 8.0 en utilisant les commandes suivantes :
 ```shell
-dnf module enable php:7.3 -y
+dnf module reset php
+dnf module install php:remi-8.0
 ```
 
-Contrôlez que PHP 7.3 est activé :
-```shell
-dnf module list php
-```
-
-Vous devriez avoir ce résultat :
-```shell
-Oracle Linux 8 Application Stream (x86_64)
-Name                                     Stream                                 Profiles                                                 Summary
-php                                      7.2 [d]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.3 [e]                                common [d], devel, minimal                               PHP scripting language
-php                                      7.4                                    common [d], devel, minimal                               PHP scripting language
-Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
-```
 <!--CentOS 7-->
 #### Dépôt *Software collections* de Red Hat
 
 Afin d'installer les logiciels Centreon, le dépôt *Software Collections* de Red
-Hat doit être activé. Celui-ci est nécessaire pour l'installation de PHP 7
-et des librairies associées.
+Hat doit être activé. Celui-ci est nécessaire pour l'installation de apache 2.4.
 
 Exécutez la commande suivante :
 
 ```shell
 yum install -y centos-release-scl
 ```
+
+#### Dépôt remi
+
+Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
+
+Exécutez les commandes suivantes :
+
+```shell
+yum install -y yum-utils
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum-config-manager --enable remi-php80
+```
+
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Dépôt Centreon
@@ -199,11 +171,11 @@ Exécutez la commande suivante :
 <!--DOCUSAURUS_CODE_TABS-->
 <!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
-dnf install -y http://yum.centreon.com/standard/21.04/el8/stable/noarch/RPMS/centreon-release-21.04-4.el8.noarch.rpm
+dnf install -y https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
 ```
 <!--CentOS 7-->
 ```shell
-yum install -y http://yum.centreon.com/standard/21.04/el7/stable/noarch/RPMS/centreon-release-21.04-4.el7.centos.noarch.rpm
+yum install -y https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -318,7 +290,7 @@ DROP USER '<USER>'@'<IP>';
 > open_files_limit=32000
 > ```
 
-> En sus des directives précédentes, il est fortement recommandé d'appliquer la 
+> En sus des directives précédentes, il est fortement recommandé d'appliquer la
 > configuration des bases de données avec les paramètres suivants:
 >
 > ```shell
@@ -331,11 +303,11 @@ DROP USER '<USER>'@'<IP>';
 > read_rnd_buffer_size = 256K
 > max_allowed_packet = 128M
 > ```
-> 
-> Il est également possible d'améliorer les performances des tables utilisant 
-> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs 
+>
+> Il est également possible d'améliorer les performances des tables utilisant
+> le moteur de stockage InnoDB avec les directives ci-dessous. Les valeurs
 > ci-dessous sont applicables à une VM ayant au moins 8Go de RAM.
->  
+>
 > ```shell
 > innodb_buffer_pool_size=1G
 > ```
@@ -361,32 +333,18 @@ hostnamectl set-hostname central
 
 La timezone par défaut de PHP doit être configurée. Exécutez la commande suivante en `root` :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
 ```
-<!--CentOS 7-->
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/opt/rh/rh-php73/php.d/50-centreon.ini
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 > Remplacez **Europe/Paris** par votre fuseau horaire. La liste des fuseaux
 > horaires est disponible [ici](http://php.net/manual/en/timezones.php).
 
 Après avoir réalisé la modification, redémarrez le service PHP-FPM :
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--RHEL / CentOS / Oracle Linux 8-->
 ```shell
 systemctl restart php-fpm
 ```
-<!--CentOS 7-->
-```shell
-systemctl restart rh-php73-php-fpm
-```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ### Lancement des services au démarrage
 
@@ -400,7 +358,7 @@ systemctl enable php-fpm httpd mariadb centreon cbd centengine gorgoned snmptrap
 ```
 <!--CentOS 7-->
 ```shell
-systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable php-fpm httpd24-httpd mariadb centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 ```
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -412,6 +370,7 @@ systemctl enable rh-php73-php-fpm httpd24-httpd mariadb centreon cbd centengine 
 Depuis MariaDB 10.5, il est nécessaire de
 sécuriser son installation avant d'installer Centreon. Répondez oui à toute question sauf à "Disallow root login remotely?". 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.
+Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.html).
 
 ```shell
 mysql_secure_installation
