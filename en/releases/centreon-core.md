@@ -987,6 +987,17 @@ with the –pool\_size X argument or -s X.
 
 ## Centreon Gorgone
 
+### 20.10.6
+
+#### Bugfixes
+
+- Make Gorgone’s private key readable by centreon-gorgone only
+- Fixed export of configuration files on a poller with Debian 11
+- Fixed error in log for autodiscovery module
+- Merge YAML libraries to use only one
+- Fixed uninitialized value using pull mode
+
+
 ### 20.10.5
 
 `September 7, 2021`
