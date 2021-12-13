@@ -554,6 +554,15 @@ New release.
 
 ## Centreon Gorgone
 
+### 21.04.4
+
+#### Bugfixes
+
+- Make Gorgone’s private key readable by centreon-gorgone only
+- Fixed restart was too long and occasionally reaches the max systemctl timeout
+- Fixed export of configuration files on a poller with Debian 11
+- Fixed error in log for autodiscovery module
+
 ### 21.04.3
 
 `September 30, 2021`
