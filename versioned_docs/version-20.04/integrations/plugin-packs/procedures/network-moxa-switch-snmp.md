@@ -12,7 +12,7 @@ This chapter describes the prerequisites installation needed by plugins to run.
 Install this plugin on each needed poller:
 
 ``` shell
-yum install centreon-plugin-Network-Moxa-Switch-Snmp
+yum install centreon-plugin-Network-Switchs-Moxa-Snmp
 ```
 
 ### SNMP
