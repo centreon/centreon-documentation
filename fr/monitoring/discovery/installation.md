@@ -13,7 +13,7 @@ title: Installation
 
 2. Pour installer l'extension, connectez-vous à l’interface web de Centreon avec un compte ayant le
 droit d’installer des modules et rendez-vous dans le menu **Administration >
-Extensions > Manager**.
+Extensions > Gestionnaire**.
 
 3. Assurez-vous que les modules **License Manager** et **Plugin Packs Manager** sont à jour
  avant de procéder à l'installation du module **Auto Discovery**.
@@ -30,7 +30,7 @@ Discovery**. Le module est maintenant installé :
 
 Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâches de découverte en arrière-plan (différent du compte que vous utilisez pour créer et lancer des tâches de découverte dans l'interface). Par exemple, un compte `autodisco`. 
 
-1. À la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, [créez un utilisateur](../basic-objects/contacts-create.html) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
+1. À la page **Configuration > Utilisateurs > Contacts / Utilisateurs**, [créez un utilisateur](../basic-objects/contacts-create.html) dédié (par exemple, **autodisco**). Dans l'onglet **Authentification Centreon**, donnez-lui les droits suivants :
     - **Autoriser l'utilisateur à se connecter à l'interface web** : **Non**
     - **Administrateur** : **Oui**
     - **Accès à l'API de configuration** : **Oui**.
@@ -46,14 +46,14 @@ Il est recommandé d'utiliser un compte technique dédié qui exécutera les tâ
 
     ```
     gorgone:
-        tpapi:
+      tpapi:
         - name: centreonv2
-        base_url: "http://127.0.0.1/centreon/api/beta/"
-        username: autodisco
-        password: XXXXXXXXXXXXXXXX
+          base_url: "http://127.0.0.1/centreon/api/beta/"
+          username: autodisco
+          password: XXXXXXXXXXXXXXXX
         - name: clapi
-        username: autodisco
-        password: XXXXXXXXXXXXXXXX
+          username: autodisco
+          password: XXXXXXXXXXXXXXXX
     ```
 
 3. Redémarrez le service **gorgoned** :
