@@ -123,6 +123,8 @@ By:
 
 ### 21.10.1
 
+#### Bugfixes
+
 - Make Gorgone’s private key readable by centreon-gorgone only
 - Fixed restart was too long and occasionally reaches the max systemctl timeout
 
