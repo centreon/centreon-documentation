@@ -775,6 +775,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/applications-vtom-restapi"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi"
             },
             {
@@ -1063,10 +1067,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.10/integrations/plugin-packs/procedures/applications-pvx-restapi"
-            },
-            {
-              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/applications-quadstor-nrpe"
             },
             {
@@ -1112,6 +1112,10 @@
             {
               "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/applications-sendmail-snmp"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/applications-pvx-restapi"
             },
             {
               "type": "doc",
@@ -1171,10 +1175,6 @@
             },
             {
               "type": "doc",
-              "id": "version-20.10/integrations/plugin-packs/procedures/applications-vtom-restapi"
-            },
-            {
-              "type": "doc",
               "id": "version-20.10/integrations/plugin-packs/procedures/applications-wallix-bastion-snmp"
             },
             {
@@ -1195,6 +1195,24 @@
             }
           ]
         },
+        {
+          "type": "category",
+          "label": "Blockchain",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-hyperledger-exporter"
+            },
+            {
+              "type": "doc",
+              "id": "version-20.10/integrations/plugin-packs/procedures/blockchain-parity-restapi"
+            }
+          ]
+          },
         {
           "type": "category",
           "label": "Centreon",
