@@ -94,7 +94,7 @@ You need a SNMP read access on following OIDs:
 ### Troubleshooting
 
 Read [Troubleshooting
-SNMP](http://documentation.centreon.com/docs/centreon-plugins/en/latest/user/guide#snmp);
+SNMP](../tutorials/troubleshooting-plugins.html#snmp-checks);
 
 ## Centreon Configuration
 
