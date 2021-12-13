@@ -389,6 +389,7 @@
             {
                 "ids": [
                     "integrations/plugin-packs/procedures/applications-voip-3cx-restapi",
+                    "integrations/plugin-packs/procedures/applications-vtom-restapi",
                     "integrations/plugin-packs/procedures/infrastructure-active-directory-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-activemq-jmx",
                     "integrations/plugin-packs/procedures/applications-monitoring-alyvix-restapi",
@@ -462,7 +463,6 @@
                     "integrations/plugin-packs/procedures/applications-php-apc-web",
                     "integrations/plugin-packs/procedures/applications-php-fpm-web",
                     "integrations/plugin-packs/procedures/applications-proxmox-mg-api",
-                    "integrations/plugin-packs/procedures/applications-pvx-restapi",
                     "integrations/plugin-packs/procedures/applications-quadstor-nrpe",
                     "integrations/plugin-packs/procedures/applications-rabbitmq-restapi",
                     "integrations/plugin-packs/procedures/applications-rapidrecovery-snmp",
@@ -475,6 +475,7 @@
                     "integrations/plugin-packs/procedures/applications-gorgone-restapi",
                     "integrations/plugin-packs/procedures/applications-selenium",
                     "integrations/plugin-packs/procedures/applications-sendmail-snmp",
+                    "integrations/plugin-packs/procedures/applications-pvx-restapi",
                     "integrations/plugin-packs/procedures/applications-skype-2015-mssql",
                     "integrations/plugin-packs/procedures/applications-smartermail-api",
                     "integrations/plugin-packs/procedures/applications-solr-jmx",
@@ -489,17 +490,22 @@
                     "integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi",
                     "integrations/plugin-packs/procedures/applications-vernemq-restapi",
                     "integrations/plugin-packs/procedures/applications-vmware-vcsa-restapi",
-                    "integrations/plugin-packs/procedures/applications-vtom-restapi",
                     "integrations/plugin-packs/procedures/applications-wallix-bastion-snmp",
                     "integrations/plugin-packs/procedures/applications-wazuh-restapi",
                     "integrations/plugin-packs/procedures/applications-weblogic-jmx",
                     "integrations/plugin-packs/procedures/applications-video-zixi-restapi",
-                    "integrations/plugin-packs/procedures/applications-zookeeper-jmx",
+                    "integrations/plugin-packs/procedures/applications-zookeeper-jmx"
+                ],
+                "label": "Applications",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
                     "integrations/plugin-packs/procedures/blockchain-hyperledger-exporter",
                     "integrations/plugin-packs/procedures/blockchain-parity-restapi",
                     "integrations/plugin-packs/procedures/blockchain-parity-ethpoller-restapi"
                 ],
-                "label": "Applications",
+                "label": "Blockchain",
                 "type": "subcategory"
             },
             {
