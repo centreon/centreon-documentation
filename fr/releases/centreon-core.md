@@ -120,6 +120,12 @@ By:
 
 ## Centreon Gorgone
 
+### 21.10.1
+
+- Make Gorgone’s private key readable by centreon-gorgone only
+- Fixed restart was too long and occasionally reaches the max systemctl timeout
+
+
 ### 21.10.0
 
 - Compatibility with other 21.10 components.
