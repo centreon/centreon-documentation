@@ -51,13 +51,13 @@ We recommend that you set up a dedicated technical account (e.g. `autodisco`) th
     ```
     gorgone:
         tpapi:
-        - name: centreonv2
-        base_url: "http://127.0.0.1/centreon/api/beta/"
-        username: autodisco
-        password: XXXXXXXXXXXXXXXX
-        - name: clapi
-        username: autodisco
-        password: XXXXXXXXXXXXXXXX
+         - name: centreonv2
+           base_url: "http://127.0.0.1/centreon/api/beta/"
+           username: autodisco
+           password: XXXXXXXXXXXXXXXX
+         - name: clapi
+           username: autodisco
+           password: XXXXXXXXXXXXXXXX
     ```
 
 3. Restart the **gorgoned** service:
