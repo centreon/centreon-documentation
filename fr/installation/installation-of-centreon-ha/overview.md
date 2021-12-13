@@ -11,7 +11,7 @@ les éléments suivants :
 * Une collection de scripts permettant une gestion sûre et efficace des ressources liées à Centreon.
 * Des fichiers additionnels qui étendront les capacités par défaut de Centreon. 
 
-Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs] (https://clusterlabs.org/),
+Cette architecture s'appuie sur les composants pacemaker et corosync de [ClusterLabs](https://clusterlabs.org/),
 permettant une tolérance aux pannes sur les composants suivants : 
 
 * Daemons applicatifs du serveur central
