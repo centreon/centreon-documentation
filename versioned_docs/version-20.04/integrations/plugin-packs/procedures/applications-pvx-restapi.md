@@ -1,6 +1,6 @@
 ---
 id: applications-pvx-restapi
-title: PVX
+title: Skylight PVX
 ---
 
 ## Prerequisites

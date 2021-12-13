@@ -1,6 +1,6 @@
 ---
 id: applications-vtom-restapi
-title: VTOM
+title: Absyss VTOM
 ---
 
 ## Prerequisites
