@@ -8,6 +8,8 @@
 .docusaurus
 .cache-loader
 yarn.lock
+harmonize_tabs.php
+migrate_tabs.php
 
 # Misc
 .DS_Store
