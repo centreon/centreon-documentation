@@ -36,11 +36,13 @@ Pour acquitter un incident, deux solutions sont possibles :
 
 <Tabs groupId="operating-systems">
 <TabItem value="From real time monitoring" label="From real time monitoring">
+
 1. Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or **services**) menu
 2. Select the object(s) that you want acknowledge
 3. In the menu: **More actions** click on **Hosts: Acknowledge** or on **Services: Acknowledge**
 
-<!--From the detailed sheet of an object-->
+</TabItem>
+<TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 A partir de la page de détail d’un objet, cliquez sur l’icône activé associé au champ **Acknowledged** dans le cadre
 **Options**
