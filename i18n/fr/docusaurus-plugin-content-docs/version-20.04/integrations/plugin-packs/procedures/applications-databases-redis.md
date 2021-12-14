@@ -225,4 +225,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostic
 
-[Diagnostic des plugins](../tutorials/troubleshooting-plugins.html)
+[Diagnostic des plugins](../tutorials/troubleshooting-plugins)
