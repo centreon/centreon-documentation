@@ -122,6 +122,8 @@ By:
 
 ### 21.10.1
 
+Release date: `December 14, 2021`
+
 #### Bugfixes
 
 - Make Gorgone’s private key readable by centreon-gorgone only
