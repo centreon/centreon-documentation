@@ -125,7 +125,7 @@ By:
 #### Bugfixes
 
 - Make Gorgone’s private key readable by centreon-gorgone only
-- Fixed restart was too long and occasionally reaches the max systemctl timeout
+- Gorgone was too long to restart, which could cause the service to reach the systemctl timeout. The time to stop has been thoroughly decreased.
 
 
 ### 21.10.0
