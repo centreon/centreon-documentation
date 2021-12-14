@@ -120,6 +120,16 @@ By:
 
 ## Centreon Gorgone
 
+### 21.10.1
+
+Release date: `December 14, 2021`
+
+#### Bugfixes
+
+- Make Gorgone’s private key readable by centreon-gorgone only
+- Gorgone was too long to restart, which could cause the service to reach the systemctl timeout. The time to stop has been thoroughly decreased.
+
+
 ### 21.10.0
 
 - Compatibility with other 21.10 components.
