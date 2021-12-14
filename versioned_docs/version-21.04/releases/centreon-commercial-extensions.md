@@ -140,6 +140,19 @@ Release date: `November 9, 2021`
 
 ## Centreon Plugin Packs Manager
 
+### 21.04.1
+
+`Release date: December 10, 2021`
+
+#### Bug fixes
+
+- Fixed a bug that prevented the description of the Plugin Packs from being displayed when the user's UI language was set to something other than EN or FR
+- Fixed installation of Plugin Packs with similar names
+
+#### Security fixes
+
+- [Packaging] Remove .gitignore files
+
 ### 21.04.0
 
 - Compatibility with Centreon 21.04
